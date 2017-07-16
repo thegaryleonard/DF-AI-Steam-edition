@@ -63,6 +63,7 @@
 			"corridor_type": "corridor",
 			"min": [1, -1, 0],
 			"max": [1, 1, 0],
+			"accesspath": [0],
 			"comment": "main staircase - east landing",
 			"layout": [3, 4],
 			"exits": [
@@ -74,6 +75,7 @@
 			"corridor_type": "corridor",
 			"min": [-1, -1, 0],
 			"max": [-1, 1, 0],
+			"accesspath": [0],
 			"comment": "main staircase - west landing",
 			"layout": [5, 6],
 			"exits": [
