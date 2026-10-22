@@ -1,9 +1,7 @@
 #include "ai.h"
 #include "population.h"
 #include "room.h"
-#include "debug.h"
 
-#include "modules/Gui.h"
 #include "modules/Units.h"
 
 #include "df/abstract_building_inn_tavernst.h"
@@ -17,18 +15,13 @@
 #include "df/agreement_details_data_residency.h"
 #include "df/agreement_party.h"
 #include "df/building.h"
-#include "df/d_init.h"
 #include "df/historical_entity.h"
 #include "df/historical_figure.h"
 #include "df/occupation.h"
 #include "df/plotinfost.h"
-#include "df/viewscreen_dwarfmodest.h"
-#include "df/viewscreen_locationsst.h"
-#include "df/viewscreen_petitionsst.h"
 #include "df/world.h"
 #include "df/world_site.h"
 
-REQUIRE_GLOBAL(d_init);
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
@@ -78,84 +71,52 @@ public:
         location_id(location_id),
         occupation(occupation)
     {
-        //dfplex_blacklist = true;
     }
 
+    // In DF 0.47 this went through the locations screen. In v50+ the
+    // location's occupation slots are df::occupation objects (also listed in
+    // world->occupations.all); filling one means setting its holder and
+    // linking it from the unit.
     void Run(color_ostream & out)
     {
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-        Key(interface_key::D_LOCATIONS);
-
-        ExpectedScreen<df::viewscreen_locationsst> view(this);
-
-        ExpectScreen<df::viewscreen_locationsst>("locations/Locations");
-
-        bool found = false;
-        for (auto loc : view->locations)
+        auto location = get_location(location_id);
+        if (!location)
         {
-            if (loc && loc->id == location_id)
+            ai.debug(out, "[ERROR] could not find location " + get_location_name(location_id));
+            return;
+        }
+
+        df::occupation *slot = nullptr;
+        for (auto occ : location->occupations)
+        {
+            if (occ && occ->type == occupation && occ->unit_id == -1 && occ->histfig_id == -1)
             {
-                found = true;
+                slot = occ;
                 break;
             }
         }
 
-        if (!found)
+        if (!slot)
         {
-            ai.debug(out, "[ERROR] could not find location " + get_location_name(location_id) + " on the list");
-
-            Key(interface_key::LEAVESCREEN);
-
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
+            ai.debug(out, "[ERROR] could not find vacant occupation " + enum_item_key(occupation) + " at " + get_location_name(location_id));
             return;
         }
-
-        while (!view->locations.at(view->location_idx) || view->locations.at(view->location_idx)->id != location_id)
-        {
-            Key(interface_key::STANDARDSCROLL_DOWN);
-        }
-
-        Key(interface_key::STANDARDSCROLL_RIGHT);
-
-        ExpectScreen<df::viewscreen_locationsst>("locations/Occupations");
-
-        found = false;
-        for (auto occ : view->occupations)
-        {
-            if (occ && occ->unit_id == -1 && occ->type == occupation)
-            {
-                found = true;
-                break;
-            }
-        }
-
-        if (!found)
-        {
-            ai.debug(out, "[ERROR] could not find occupation " + enum_item_key(occupation) + " on the list");
-
-            Key(interface_key::LEAVESCREEN);
-
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-            return;
-        }
-
-        while (!view->occupations.at(view->occupation_idx) || view->occupations.at(view->occupation_idx)->unit_id != -1 || view->occupations.at(view->occupation_idx)->type != occupation)
-        {
-            Key(interface_key::STANDARDSCROLL_DOWN);
-        }
-
-        Key(interface_key::SELECT);
-
-        ExpectScreen<df::viewscreen_locationsst>("locations/AssignOccupation");
 
         df::unit *chosen = nullptr;
         int32_t best = std::numeric_limits<int32_t>::max();
-        for (auto u : view->units)
+        for (auto u : world->units.active)
         {
-            if (!u || u->military.squad_id != -1)
+            if (!u || !Units::isCitizen(u) || !Units::isAdult(u) || !Units::isAlive(u) || !Units::isSane(u))
+            {
+                continue;
+            }
+
+            if (u->military.squad_id != -1 || u->mood != mood_type::None)
+            {
+                continue;
+            }
+
+            if (!df::historical_figure::find(u->hist_figure_id))
             {
                 continue;
             }
@@ -163,6 +124,11 @@ public:
             std::vector<Units::NoblePosition> positions;
             Units::getNoblePositions(&positions, u);
             if (!positions.empty())
+            {
+                continue;
+            }
+
+            if (!u->occupations.empty())
             {
                 continue;
             }
@@ -193,32 +159,14 @@ public:
         if (!chosen)
         {
             ai.debug(out, "[ERROR] could not find unit for occupation " + enum_item_key(occupation) + " at " + get_location_name(location_id));
-
-            Key(interface_key::LEAVESCREEN);
-
-            ExpectScreen<df::viewscreen_locationsst>("locations/Occupations");
-
-            Key(interface_key::LEAVESCREEN);
-
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
             return;
         }
 
         ai.debug(out, "[Population] assigning occupation " + enum_item_key(occupation) + " at " + get_location_name(location_id) + " to " + AI::describe_unit(chosen));
 
-        while (view->units.at(view->unit_idx) != chosen)
-        {
-            Key(interface_key::STANDARDSCROLL_DOWN);
-        }
-
-        Key(interface_key::SELECT);
-
-        ExpectScreen<df::viewscreen_locationsst>("locations/Occupations");
-
-        Key(interface_key::LEAVESCREEN);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
+        slot->unit_id = chosen->id;
+        slot->histfig_id = chosen->hist_figure_id;
+        chosen->occupations.push_back(slot);
     }
 };
 
@@ -231,44 +179,41 @@ public:
         ExclusiveCallback("check petitions"),
         ai(ai)
     {
-        //dfplex_blacklist = true;
     }
 
+    // In DF 0.47 the AI answered petitions through the petitions screen.
+    // Accepting a petition in v50+ runs game-side logic (changing a unit's
+    // residency/citizenship, creating location agreements, ...) that DFHack
+    // does not expose, so we only log what the AI would have decided and
+    // leave the petition for the player.
     void Run(color_ostream & out)
     {
-        if (plotinfo->petitions.empty())
-            return;
+        static std::set<int32_t> logged;
 
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-        Key(interface_key::D_PETITIONS);
-
-        ExpectedScreen<df::viewscreen_petitionsst> view(this);
-
-        ExpectScreen<df::viewscreen_petitionsst>("petitions");
-
-        if (!view->can_manage)
+        for (auto agreement_id : plotinfo->petitions)
         {
-            ai.debug(out, "[Population] nobody is available to manage petitions.");
+            auto petition = df::agreement::find(agreement_id);
+            if (!petition || petition->details.empty())
+            {
+                continue;
+            }
 
-            Key(interface_key::LEAVESCREEN);
+            if (!logged.insert(agreement_id).second)
+            {
+                continue;
+            }
 
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-            return;
-        }
-
-        while (!view->list.empty())
-        {
-            auto petition = view->list.at(view->cursor);
             auto details = petition->details.at(0);
 
             auto describe_party = [petition](int32_t party_id) -> std::string
             {
-                if (petition->parties.size() <= size_t(party_id))
+                auto party = binsearch_in_vector(petition->parties, &df::agreement_party::id, party_id);
+                if (!party)
+                {
+                    party = vector_get(petition->parties, size_t(party_id));
+                }
+                if (!party)
                     return "(unknown)";
-
-                auto party = petition->parties.at(party_id);
 
                 if (!party->entity_ids.empty())
                 {
@@ -291,77 +236,31 @@ public:
                 return "(unknown)";
             };
 
+            std::string decision;
             switch (details->type)
             {
                 case agreement_details_type::Residency:
-                    ai.debug(out, "[Population] accepting residency petition from " + describe_party(details->data.Residency->applicant));
-                    Key(interface_key::OPTION1);
+                    decision = "accept residency petition from " + describe_party(details->data.Residency->applicant);
                     break;
                 case agreement_details_type::Citizenship:
-                    ai.debug(out, "[Population] accepting citizenship petition from " + describe_party(details->data.Citizenship->applicant));
-                    Key(interface_key::OPTION1);
+                    decision = "accept citizenship petition from " + describe_party(details->data.Citizenship->applicant);
                     break;
                 case agreement_details_type::Parley:
-                    // TODO: consider implementing this
-                    ai.debug(out, "[Population] rejecting petition for a parley from " + describe_party(details->data.Parley->party_id));
-                    Key(interface_key::OPTION2);
+                    decision = "reject petition for a parley from " + describe_party(details->data.Parley->asker);
                     break;
                 case agreement_details_type::Location:
                 {
                     auto loc = details->data.Location;
-                    int32_t data1 = -1;
-                    int32_t data2 = -1;
-                    int32_t required_value;
-                    location_type::type type;
-                    switch (loc->type)
-                    {
-                        case abstract_building_type::TEMPLE:
-                            required_value = d_init->temple_value_levels[loc->tier - 1];
-                            type = location_type::temple;
-                            data1 = int32_t(loc->deity_type);
-                            data2 = loc->deity_data.Deity;
-                            break;
-                        case abstract_building_type::GUILDHALL:
-                            required_value = d_init->guildhall_value_levels[loc->tier - 1];
-                            type = location_type::guildhall;
-                            data1 = loc->profession;
-                            break;
-                        default:
-                            ai.debug(out, "[Population] rejecting petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant) + ": don't know how to construct this location for a petition");
-                            Key(interface_key::OPTION2);
-                            continue;
-                    }
-
-                    auto found_room = ai.find_room(room_type::location, [type](room *r) -> bool { return r->status == room_status::plan && !r->queue_dig && r->location_type == type; });
-                    if (!found_room)
-                    {
-                        ai.debug(out, "[Population] rejecting petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant) + ": no remaining space for buildings of this type");
-                        Key(interface_key::OPTION2);
-                        break;
-                    }
-
-                    found_room->data1 = data1;
-                    found_room->data2 = data2;
-                    found_room->required_value = required_value;
-                    ai.plan.wantdig(out, found_room, -2);
-
-                    ai.debug(out, "[Population] accepting petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant));
-                    Key(interface_key::OPTION1);
+                    decision = "consider petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant);
                     break;
                 }
                 default:
-                    DFAI_ASSERT(false, "unexpected petition type: " + enum_item_key(details->type));
-
-                    Key(interface_key::LEAVESCREEN);
-
-                    ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-                    return;
+                    decision = "reject petition of type " + enum_item_key(details->type);
+                    break;
             }
+
+            ai.debug(out, "[v50] [Population] answering petitions is not supported yet; would " + decision + ".");
         }
-
-        Key(interface_key::LEAVESCREEN);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
     }
 };
 

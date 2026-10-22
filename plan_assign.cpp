@@ -4,7 +4,11 @@
 #include "modules/Buildings.h"
 #include "modules/Units.h"
 
-#include "df/building_squad_use.h"
+#include "df/building_civzonest.h"
+#include "df/general_ref.h"
+#include "df/squad.h"
+#include "df/squad_use_flags.h"
+#include "modules/Military.h"
 #include "df/caste_raw.h"
 #include "df/creature_raw.h"
 #include "df/squad.h"
@@ -283,34 +287,32 @@ void Plan::getsoldierbarrack(color_ostream & out, int32_t id)
 
 void Plan::assign_barrack_squad(color_ostream &, df::building *bld, int32_t squad_id)
 {
-    std::vector<df::building_squad_use *> *squads = bld->getSquads();
-    if (squads) // archerytarget has no such field
+    // In DF v50+, squads are assigned to barracks/archery zones, not furniture.
+    auto zone = virtual_cast<df::building_civzonest>(bld);
+    if (!zone && bld)
     {
-        auto su = std::find_if(squads->begin(), squads->end(), [squad_id](df::building_squad_use *su) -> bool { return su->squad_id == squad_id; });
-        if (su == squads->end())
+        std::vector<df::building_civzonest *> zones;
+        Buildings::findCivzonesAt(&zones, df::coord(bld->centerx, bld->centery, bld->z));
+        for (auto z : zones)
         {
-            df::building_squad_use *newSquad = df::allocate<df::building_squad_use>();
-            newSquad->squad_id = squad_id;
-            su = squads->insert(su, newSquad);
+            if (z->type == civzone_type::Barracks || z->type == civzone_type::ArcheryRange)
+            {
+                zone = z;
+                break;
+            }
         }
-        (*su)->mode.bits.sleep = 1;
-        (*su)->mode.bits.train = 1;
-        (*su)->mode.bits.indiv_eq = 1;
-        (*su)->mode.bits.squad_eq = 1;
+    }
+    if (!zone || !df::squad::find(squad_id))
+    {
+        return;
     }
 
-    df::squad *squad = df::squad::find(squad_id);
-    auto sr = std::find_if(squad->rooms.begin(), squad->rooms.end(), [bld](df::squad::T_rooms *sr) -> bool { return sr->building_id == bld->id; });
-    if (sr == squad->rooms.end())
-    {
-        df::squad::T_rooms *newRoom = df::allocate<df::squad::T_rooms>();
-        newRoom->building_id = bld->id;
-        sr = squad->rooms.insert(sr, newRoom);
-    }
-    (*sr)->mode.bits.sleep = 1;
-    (*sr)->mode.bits.train = 1;
-    (*sr)->mode.bits.indiv_eq = 1;
-    (*sr)->mode.bits.squad_eq = 1;
+    df::squad_use_flags flags;
+    flags.bits.sleep = 1;
+    flags.bits.train = 1;
+    flags.bits.indiv_eq = 1;
+    flags.bits.squad_eq = 1;
+    Military::updateRoomAssignments(squad_id, zone->id, flags);
 }
 
 void Plan::getcoffin(color_ostream & out)
@@ -356,6 +358,7 @@ void Plan::freebedroom(color_ostream & out, int32_t id)
             f->bld_id = -1;
         }
         r->bld_id = -1;
+        remove_room_zone(out, r);
     }
 }
 
@@ -411,6 +414,7 @@ void Plan::freecommonrooms(color_ostream & out, int32_t id, room_type::type subt
                             Buildings::deconstruct(bld);
                         }
                         r->bld_id = -1;
+                        remove_room_zone(out, r);
 
                         if (r->squad_id != -1)
                         {
@@ -507,13 +511,10 @@ bool Plan::pastures_ready(color_ostream & out)
 void Plan::set_owner(color_ostream &, room *r, int32_t uid)
 {
     r->owner = uid;
-    if (r->bld_id != -1)
+    // DF v50+: ownership belongs to the zone that defines the room.
+    if (auto zone = virtual_cast<df::building_civzonest>(df::building::find(r->zone_id)))
     {
-        df::unit *u = df::unit::find(uid);
-        if (df::building *bld = r->dfbuilding())
-        {
-            Buildings::setOwner(bld, u);
-        }
+        Buildings::setOwner(zone, df::unit::find(uid));
     }
 }
 

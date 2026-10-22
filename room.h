@@ -200,6 +200,7 @@ struct room
     std::vector<furniture *> layout;
     int32_t owner;
     int32_t bld_id;
+    int32_t zone_id; // civzone that makes this a room (DF v50+)
     int32_t squad_id;
     int32_t level;
     int32_t noblesuite;

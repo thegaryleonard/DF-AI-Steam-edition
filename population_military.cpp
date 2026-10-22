@@ -4,18 +4,27 @@
 #include "plan.h"
 #include "debug.h"
 
-#include "modules/Gui.h"
+#include "modules/Military.h"
 #include "modules/Units.h"
 
 #include "df/entity_material_category.h"
+#include "df/entity_position.h"
 #include "df/entity_position_assignment.h"
 #include "df/entity_uniform.h"
 #include "df/entity_uniform_item.h"
+#include "df/equip_infost.h"
 #include "df/historical_entity.h"
 #include "df/historical_figure.h"
+#include "df/histfig_entity_link_positionst.h"
+#include "df/history_event_add_hf_entity_linkst.h"
 #include "df/item_weaponst.h"
+#include "df/itemdef_ammost.h"
 #include "df/itemdef_weaponst.h"
-#include "df/layer_object_listst.h"
+#include "df/job.h"
+#include "df/job_list_link.h"
+#include "df/military_routinest.h"
+#include "df/alert_state_infost.h"
+#include "df/squad_routine_schedulest.h"
 #include "df/occupation.h"
 #include "df/squad.h"
 #include "df/squad_ammo_spec.h"
@@ -25,95 +34,76 @@
 #include "df/plotinfost.h"
 #include "df/uniform_category.h"
 #include "df/unit_misc_trait.h"
-#include "df/viewscreen_dwarfmodest.h"
-#include "df/viewscreen_layer_militaryst.h"
 #include "df/world.h"
 
-REQUIRE_GLOBAL(pause_state);
+REQUIRE_GLOBAL(cur_year);
+REQUIRE_GLOBAL(cur_year_tick);
+REQUIRE_GLOBAL(hist_event_next_id);
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
+// In DF 0.47 these exclusive callbacks drove the military screen with
+// simulated keypresses. In v50+ they edit squads directly through DFHack's
+// Military module and the underlying structures.
 class MilitarySetupExclusive : public ExclusiveCallback
 {
+protected:
     AI & ai;
     std::list<int32_t> units;
 
-protected:
-    ExpectedScreen<df::viewscreen_layer_militaryst> screen;
-
-protected:
     typedef typename std::vector<df::unit *>::const_iterator unit_iterator;
-    MilitarySetupExclusive(AI & ai, const std::string & description, unit_iterator begin, unit_iterator end) : ExclusiveCallback(description, 2), ai(ai), units(), screen(this)
+    MilitarySetupExclusive(AI & ai, const std::string & description, unit_iterator begin, unit_iterator end) : ExclusiveCallback(description, 2), ai(ai), units()
     {
-        dfplex_blacklist = true;
-
         for (auto it = begin; it != end; it++)
         {
             units.push_back((*it)->id);
         }
     }
-    template<typename T>
-    T *getActiveObject() const
-    {
-        for (auto obj : screen->layer_objects)
-        {
-            if (obj->enabled && obj->active)
-            {
-                return virtual_cast<T>(obj);
-            }
-        }
-
-        return nullptr;
-    }
     virtual void Run(color_ostream & out)
     {
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-        Key(interface_key::D_MILITARY);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Squads");
-
-        while (!units.empty())
-        {
-            AssertDelayed();
-
-            Run(out, units.front());
-
-            units.pop_front();
-        }
-
-        // focus string doesn't matter here (we're about to leave)
-        ExpectScreen<df::viewscreen_layer_militaryst>("");
-
-        Key(interface_key::LEAVESCREEN);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-    }
-    virtual void Run(color_ostream & out, int32_t unit_id) = 0;
-    void ScrollTo(int32_t index)
-    {
-        auto list = getActiveObject<df::layer_object_listst>();
-        if (!list || index < 0 || index >= list->num_entries)
+        if (!plotinfo->main.fortress_entity)
         {
             return;
         }
 
-        while (list->getFirstVisible() > index)
+        while (!units.empty())
         {
-            Key(interface_key::STANDARDSCROLL_PAGEUP);
-            list = getActiveObject<df::layer_object_listst>();
-        }
+            Run(out, units.front());
 
-        while (list->getLastVisible() < index)
-        {
-            Key(interface_key::STANDARDSCROLL_PAGEUP);
-            list = getActiveObject<df::layer_object_listst>();
+            units.pop_front();
         }
+    }
+    virtual void Run(color_ostream & out, int32_t unit_id) = 0;
 
-        MoveToItem([this]() -> int32_t
+    static df::unit *position_unit(df::squad_position *pos)
+    {
+        if (!pos)
         {
-            return getActiveObject<df::layer_object_listst>()->cursor;
-        }, index);
+            return nullptr;
+        }
+        auto fig = df::historical_figure::find(pos->occupant);
+        return fig ? df::unit::find(fig->unit_id) : nullptr;
+    }
+
+    static void flag_equipment_update(df::squad *squad)
+    {
+        df::equipment_update update;
+        update.bits.weapon = 1;
+        update.bits.armor = 1;
+        update.bits.shoes = 1;
+        update.bits.shield = 1;
+        update.bits.helm = 1;
+        update.bits.gloves = 1;
+        update.bits.ammo = 1;
+        update.bits.pants = 1;
+        update.bits.backpack = 1;
+        update.bits.quiver = 1;
+        update.bits.flask = 1;
+        if (squad)
+        {
+            squad->ammo.update.whole |= update.whole;
+        }
+        plotinfo->equipment.update.whole |= update.whole;
     }
 
 public:
@@ -129,11 +119,17 @@ public:
     {
     }
 
+    static int32_t count_members(df::squad *squad)
+    {
+        return int32_t(std::count_if(squad->positions.begin(), squad->positions.end(), [](df::squad_position *pos) -> bool { return pos && pos->occupant != -1; }));
+    }
+
     df::squad *find_good_squad(int32_t squad_size)
     {
-        for (auto squad : screen->squads.list)
+        for (auto sqid : plotinfo->main.fortress_entity->squads)
         {
-            if (squad && std::count_if(squad->positions.begin(), squad->positions.end(), [](df::squad_position *pos) -> bool { return pos && pos->occupant != -1; }) < squad_size)
+            auto squad = df::squad::find(sqid);
+            if (squad && squad->entity_id == plotinfo->main.fortress_entity->id && count_members(squad) < std::min(squad_size, int32_t(squad->positions.size())))
             {
                 return squad;
             }
@@ -142,10 +138,211 @@ public:
         return nullptr;
     }
 
+    // Find (or create) a squad-leading position assignment that has no squad
+    // yet. Returns nullptr if nobody can appoint a new squad leader.
+    df::entity_position_assignment *find_vacant_squad_assignment(color_ostream & out)
+    {
+        auto entity = plotinfo->main.fortress_entity;
+
+        for (auto asn : entity->positions.assignments)
+        {
+            if (asn->squad_id != -1)
+            {
+                continue;
+            }
+            auto pos = binsearch_in_vector(entity->positions.own, asn->position_id);
+            if (pos && pos->squad_size > 0)
+            {
+                return asn;
+            }
+        }
+
+        // No vacant squad slot. Create a new assignment for a squad-leading
+        // position that is filled "as needed" (eg. militia captain), provided
+        // that whoever appoints that position is present.
+        for (size_t i = 0; i < entity->positions.own.size(); i++)
+        {
+            auto pos = entity->positions.own.at(i);
+            if (pos->squad_size <= 0 || pos->number != -1)
+            {
+                continue;
+            }
+
+            bool can_appoint = pos->appointed_by.empty();
+            for (auto appointer_id : pos->appointed_by)
+            {
+                for (auto asn : entity->positions.assignments)
+                {
+                    if (asn->position_id == appointer_id && asn->histfig != -1)
+                    {
+                        can_appoint = true;
+                        break;
+                    }
+                }
+            }
+            if (!can_appoint)
+            {
+                continue;
+            }
+
+            df::entity_position_assignment *model = nullptr;
+            for (auto asn : entity->positions.assignments)
+            {
+                if (asn->position_id == pos->id)
+                {
+                    model = asn;
+                    break;
+                }
+            }
+
+            auto asn = new df::entity_position_assignment();
+            asn->id = entity->positions.next_assignment_id++;
+            asn->position_id = pos->id;
+            asn->position_vector_idx = int32_t(i);
+            if (model)
+            {
+                asn->flags = model->flags;
+            }
+            else
+            {
+                asn->flags.set(entity_position_profile_flags::active);
+            }
+            entity->positions.assignments.push_back(asn);
+
+            ai.debug(out, "Created new " + pos->name[0] + " position for a new squad.");
+            return asn;
+        }
+
+        return nullptr;
+    }
+
+    // Make the unit the leader (position 0) of the squad by appointing it to
+    // the squad's leading noble position, as the military screen would.
+    bool appoint_leader(color_ostream & out, df::squad *squad, df::unit *u)
+    {
+        auto entity = plotinfo->main.fortress_entity;
+        auto hf = df::historical_figure::find(u->hist_figure_id);
+        if (!hf || u->military.squad_id != -1)
+        {
+            return false;
+        }
+
+        df::entity_position_assignment *asn = nullptr;
+        size_t asn_idx = 0;
+        for (size_t i = 0; i < entity->positions.assignments.size(); i++)
+        {
+            if (entity->positions.assignments.at(i)->id == squad->leader_assignment)
+            {
+                asn = entity->positions.assignments.at(i);
+                asn_idx = i;
+                break;
+            }
+        }
+        if (!asn)
+        {
+            ai.debug(out, "[ERROR] Cannot find leader assignment for squad " + AI::describe_name(squad->name, true));
+            return false;
+        }
+
+        if (squad->positions.empty())
+        {
+            return false;
+        }
+
+        auto old_hf = df::historical_figure::find(asn->histfig);
+        if (old_hf && old_hf->died_year == -1)
+        {
+            // The position already has a living holder (eg. an existing
+            // militia commander): seat them instead of replacing them.
+            auto holder = df::unit::find(old_hf->unit_id);
+            if (holder && holder->military.squad_id == -1 && Units::isAlive(holder))
+            {
+                auto pos = squad->positions.at(0);
+                if (!pos)
+                {
+                    pos = squad->positions.at(0) = df::allocate<df::squad_position>();
+                }
+                pos->occupant = old_hf->id;
+                holder->military.squad_id = squad->id;
+                holder->military.squad_position = 0;
+                flag_equipment_update(squad);
+                ai.debug(out, "Seating existing " + AI::describe_unit(holder) + " as leader of " + AI::describe_name(squad->name, true));
+            }
+            return false;
+        }
+
+        if (old_hf)
+        {
+            for (size_t j = 0; j < old_hf->entity_links.size(); j++)
+            {
+                auto link = virtual_cast<df::histfig_entity_link_positionst>(old_hf->entity_links.at(j));
+                if (link && link->assignment_id == asn->id && link->entity_id == entity->id)
+                {
+                    vector_erase_at(old_hf->entity_links, j);
+                    // not freed: DFHack 53.14+ refuses to free pool-allocated game objects
+                    break;
+                }
+            }
+            asn->histfig2 = old_hf->id;
+        }
+
+        asn->histfig = hf->id;
+
+        auto link = df::allocate<df::histfig_entity_link_positionst>();
+        link->entity_id = entity->id;
+        link->link_strength = 100;
+        link->assignment_id = asn->id;
+        link->assignment_vector_idx = int32_t(asn_idx);
+        link->start_year = *cur_year;
+        hf->entity_links.push_back(link);
+
+        auto event = df::allocate<df::history_event_add_hf_entity_linkst>();
+        event->year = *cur_year;
+        event->seconds = *cur_year_tick;
+        event->id = (*hist_event_next_id)++;
+        event->civ = entity->id;
+        event->histfig = hf->id;
+        event->link_type = histfig_entity_link_type::POSITION;
+        event->position_id = asn->position_id;
+        event->appointer_hfid = -1;
+        event->promise_to_hfid = -1;
+        world->history.events.push_back(event);
+
+        auto pos = squad->positions.at(0);
+        if (!pos)
+        {
+            pos = squad->positions.at(0) = df::allocate<df::squad_position>();
+        }
+        pos->occupant = hf->id;
+
+        u->military.squad_id = squad->id;
+        u->military.squad_position = 0;
+
+        flag_equipment_update(squad);
+
+        return true;
+    }
+
     virtual void Run(color_ostream & out, int32_t unit_id)
     {
+        auto u = df::unit::find(unit_id);
+        if (!u || u->military.squad_id != -1)
+        {
+            return;
+        }
+
+        int32_t num_soldiers = int32_t(units.size());
+        int32_t num_squads = 0;
+        for (auto sqid : plotinfo->main.fortress_entity->squads)
+        {
+            if (auto squad = df::squad::find(sqid))
+            {
+                num_soldiers += count_members(squad);
+                num_squads++;
+            }
+        }
+
         int32_t squad_size = 10;
-        int32_t num_soldiers = screen->num_soldiers + int32_t(units.size());
         if (num_soldiers < 4 * 8)
             squad_size = 8;
         if (num_soldiers < 4 * 6)
@@ -159,185 +356,108 @@ public:
         {
             ai.debug(out, "Creating new squad...");
 
-            int32_t selected_uniform = SelectOrCreateUniform(out, screen->squads.list.size());
-
-            ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Squads");
-
-            auto vacant_squad_slot = std::find(screen->squads.list.begin(), screen->squads.list.end(), static_cast<df::squad *>(nullptr));
-
-            if (vacant_squad_slot != screen->squads.list.end())
+            auto asn = find_vacant_squad_assignment(out);
+            if (!asn)
             {
-                ScrollTo(int32_t(vacant_squad_slot - screen->squads.list.begin()));
-
-                Key(interface_key::D_MILITARY_CREATE_SQUAD);
-            }
-            else
-            {
-                auto squad_with_leader = std::find(screen->squads.can_appoint.begin(), screen->squads.can_appoint.end(), true);
-
-                ScrollTo(int32_t(squad_with_leader - screen->squads.can_appoint.begin()));
-
-                Key(interface_key::D_MILITARY_CREATE_SUB_SQUAD);
+                ai.debug(out, "[ERROR] We have no military commander and nobody is able to appoint one.");
+                return;
             }
 
-            ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions");
+            selected_squad = Military::makeSquad(asn->id);
+            if (!selected_squad)
+            {
+                ai.debug(out, "[ERROR] Failed to create a new squad.");
+                return;
+            }
 
-            ScrollTo(selected_uniform);
-
-            Key(interface_key::SELECT);
-
-            ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Squads");
-
-            selected_squad = find_good_squad(squad_size);
-            CHECK_NULL_POINTER(selected_squad);
+            ApplyUniform(out, selected_squad, SelectOrCreateUniform(out, size_t(num_squads)));
         }
 
         ai.debug(out, "Selecting squad: " + AI::describe_name(selected_squad->name, true));
 
-        ScrollTo(linear_index(screen->squads.list, selected_squad));
-
-        bool should_reassign_leader = true;
-        if (!ai.pop.resident.count(unit_id))
+        bool has_leader = false;
+        if (!selected_squad->positions.empty())
         {
-            should_reassign_leader = false;
+            auto leader = position_unit(selected_squad->positions.at(0));
+            has_leader = leader && Units::isAlive(leader);
         }
-        else
+
+        if (!has_leader)
         {
-            // Mercenaries can't lead squads.
-            for (auto pos : selected_squad->positions)
+            if (!ai.pop.resident.count(unit_id))
             {
-                if (pos)
+                if (appoint_leader(out, selected_squad, u))
                 {
-                    if (auto fig = df::historical_figure::find(pos->occupant))
-                    {
-                        if (auto u = df::unit::find(fig->unit_id))
-                        {
-                            if (Units::isAlive(u) && Units::isSane(u))
-                            {
-                                // Squad already has a leader.
-                                should_reassign_leader = false;
-                                break;
-                            }
-                        }
-                    }
+                    ai.debug(out, "Recruiting new squad leader: " + AI::describe_unit(u));
+                    return;
                 }
             }
-        }
-
-        if (should_reassign_leader)
-        {
-            // Move an existing citizen soldier into this squad as the leader.
-            for (auto squad : screen->squads.list)
+            else
             {
-                if (!squad)
+                // Mercenaries can't lead squads.
+                // Move an existing citizen soldier into this squad as the leader.
+                bool reassigned = false;
+                for (auto sqid : plotinfo->main.fortress_entity->squads)
                 {
-                    continue;
-                }
-
-                for (auto pos : squad->positions)
-                {
-                    if (!pos)
+                    auto squad = df::squad::find(sqid);
+                    if (!squad || squad == selected_squad)
                     {
                         continue;
                     }
 
-                    if (auto fig = df::historical_figure::find(pos->occupant))
+                    for (auto pos : squad->positions)
                     {
-                        if (ai.pop.resident.count(fig->unit_id))
+                        auto other = position_unit(pos);
+                        if (!other || ai.pop.resident.count(other->id) || other->military.squad_position == 0)
                         {
                             continue;
                         }
 
-                        if (auto u = df::unit::find(fig->unit_id))
-                        {
-                            if (u->military.squad_position == 0)
-                            {
-                                continue;
-                            }
+                        ai.debug(out, "Reassigning " + AI::describe_unit(other) + " from " + AI::describe_name(squad->name, true) + " to lead new squad " + AI::describe_name(selected_squad->name, true));
+                        Military::removeFromSquad(other->id);
+                        reassigned = appoint_leader(out, selected_squad, other);
+                        break;
+                    }
 
-                            ai.debug(out, "Reassigning " + AI::describe_unit(u) + " from " + AI::describe_name(squad->name, true) + " to lead new squad " + AI::describe_name(selected_squad->name, true));
-                            Key(interface_key::STANDARDSCROLL_LEFT);
-
-                            ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Candidates");
-
-                            auto selected_unit = std::find(screen->positions.candidates.begin(), screen->positions.candidates.end(), u);
-
-                            ScrollTo(int32_t(selected_unit - screen->positions.candidates.begin()));
-
-                            Key(interface_key::SELECT);
-
-                            Key(interface_key::STANDARDSCROLL_RIGHT);
-
-                            ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Squads");
-
-                            should_reassign_leader = false;
-
-                            break;
-                        }
+                    if (reassigned)
+                    {
+                        break;
                     }
                 }
 
-                if (!should_reassign_leader)
+                if (!reassigned)
                 {
-                    break;
+                    ai.debug(out, "[WARNING] Could not find an existing soldier to lead squad: " + AI::describe_name(selected_squad->name, true));
                 }
             }
+        }
 
-            if (should_reassign_leader)
+        // Military::addToSquad cannot fill the leader slot and does not
+        // bounds-check its automatic slot search, so pick a slot ourselves.
+        int32_t free_slot = -1;
+        for (size_t i = 1; i < selected_squad->positions.size(); i++)
+        {
+            auto pos = selected_squad->positions.at(i);
+            if (!pos || pos->occupant == -1)
             {
-                ai.debug(out, "[WARNING] Could not find an existing soldier to lead squad: " + AI::describe_name(selected_squad->name, true));
+                free_slot = int32_t(i);
+                break;
             }
         }
 
-        Key(interface_key::STANDARDSCROLL_RIGHT);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Positions");
-
-        df::layer_object_listst *list;
-        while ((list = getActiveObject<df::layer_object_listst>()) != nullptr && screen->positions.assigned.at(size_t(list->cursor)))
+        if (free_slot != -1 && Military::addToSquad(unit_id, selected_squad->id, free_slot))
         {
-            Key(interface_key::STANDARDSCROLL_DOWN);
-        }
-
-        Key(interface_key::STANDARDSCROLL_RIGHT);
-
-        if (MaybeExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Squads"))
-        {
-            ai.debug(out, "[ERROR] We have no military commander and nobody is able to appoint one.");
-            return;
-        }
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Candidates");
-
-        auto selected_unit = std::find_if(screen->positions.candidates.begin(), screen->positions.candidates.end(), [&](df::unit *u) -> bool
-        {
-            return u->id == unit_id;
-        });
-
-        if (selected_unit == screen->positions.candidates.end())
-        {
-            ai.debug(out, "Failed to recruit " + AI::describe_unit(df::unit::find(unit_id)) + ": could not find unit on list of candidates");
+            ai.debug(out, "Recruiting new squad member: " + AI::describe_unit(u));
         }
         else
         {
-            ai.debug(out, "Recruiting new squad member: " + AI::describe_unit(df::unit::find(unit_id)));
-
-            ScrollTo(int32_t(selected_unit - screen->positions.candidates.begin()));
-
-            Key(interface_key::SELECT);
+            ai.debug(out, "Failed to recruit " + AI::describe_unit(u) + ": no free position in " + AI::describe_name(selected_squad->name, true));
         }
-
-        Key(interface_key::STANDARDSCROLL_LEFT);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Positions");
-
-        Key(interface_key::STANDARDSCROLL_LEFT);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Squads");
     }
 
-    int32_t SelectOrCreateUniform(color_ostream & out, size_t existing_squad_count)
+    df::entity_uniform *SelectOrCreateUniform(color_ostream & out, size_t existing_squad_count)
     {
+        auto entity = plotinfo->main.fortress_entity;
         bool ranged = existing_squad_count % 3 == 1;
 
         df::uniform_indiv_choice indiv_choice;
@@ -352,10 +472,10 @@ public:
 
         auto check_uniform_item = [](df::entity_uniform *u, df::uniform_category cat, df::item_type item_type, df::entity_material_category mat_class = entity_material_category::Armor, df::uniform_indiv_choice indiv_choice = df::uniform_indiv_choice()) -> bool
         {
-            return u->uniform_item_types[cat].size() == 1 && u->uniform_item_types[cat].at(0) == item_type && u->uniform_item_info[cat].at(0)->material_class == mat_class && u->uniform_item_info[cat].at(0)->indiv_choice.whole == indiv_choice.whole;
+            return u->uniform_item_types[cat].size() == 1 && u->uniform_item_types[cat].at(0) == item_type && u->uniform_item_info[cat].size() == 1 && u->uniform_item_info[cat].at(0)->material_class == mat_class && u->uniform_item_info[cat].at(0)->indiv_choice.whole == indiv_choice.whole;
         };
 
-        auto selected = std::find_if(plotinfo->main.fortress_entity->uniforms.begin(), plotinfo->main.fortress_entity->uniforms.end(), [&](df::entity_uniform *u) -> bool
+        auto selected = std::find_if(entity->uniforms.begin(), entity->uniforms.end(), [&](df::entity_uniform *u) -> bool
         {
             return u->flags.bits.exact_matches && !u->flags.bits.replace_clothing &&
                 check_uniform_item(u, uniform_category::body, item_type::ARMOR) &&
@@ -367,84 +487,134 @@ public:
                 check_uniform_item(u, uniform_category::weapon, item_type::WEAPON, entity_material_category::None, indiv_choice);
         });
 
-        if (selected != plotinfo->main.fortress_entity->uniforms.end())
+        if (selected != entity->uniforms.end())
         {
             ai.debug(out, "Selected uniform for squad: " + (*selected)->name);
-            return int32_t(selected - plotinfo->main.fortress_entity->uniforms.begin());
+            return *selected;
         }
 
-        Key(interface_key::D_MILITARY_UNIFORMS);
+        auto uniform = new df::entity_uniform();
+        uniform->id = entity->next_uniform_id++;
+        uniform->type = entity_uniform_type::None;
+        uniform->name = ranged ? "Heavy ranged" : "Heavy melee";
+        uniform->flags.bits.exact_matches = 1;
+        uniform->flags.bits.replace_clothing = 0;
 
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Uniforms");
-
-        Key(interface_key::D_MILITARY_ADD_UNIFORM);
-
-        Key(interface_key::D_MILITARY_NAME_UNIFORM);
-
-        EnterString(&screen->equip.uniforms.back()->name, ranged ? "Heavy ranged" : "Heavy melee");
-
-        Key(interface_key::SELECT);
-
-        Key(interface_key::STANDARDSCROLL_LEFT);
-
-        auto add_uniform_part = [&](df::interface_key type)
+        auto add_uniform_part = [&](df::uniform_category cat, df::item_type type)
         {
-            Key(type);
-            if (type == interface_key::D_MILITARY_ADD_WEAPON)
+            auto info = new df::entity_uniform_item();
+            if (type == item_type::WEAPON)
             {
-                df::uniform_indiv_choice indiv_choice;
-                if (ranged)
-                {
-                    indiv_choice.bits.ranged = 1;
-                }
-                else
-                {
-                    indiv_choice.bits.melee = 1;
-                }
-                auto selected_weapon = std::find_if(screen->equip.add_item.indiv_choice.begin(), screen->equip.add_item.indiv_choice.end(), [&](df::uniform_indiv_choice choice) -> bool
-                {
-                    return indiv_choice.whole == choice.whole;
-                });
-                ScrollTo(int32_t(selected_weapon - screen->equip.add_item.indiv_choice.begin()));
+                info->material_class = entity_material_category::None;
+                info->indiv_choice = indiv_choice;
             }
             else
             {
-                Key(interface_key::SELECT);
-                Key(interface_key::D_MILITARY_ADD_MATERIAL);
-                Key(interface_key::STANDARDSCROLL_LEFT);
-                Key(interface_key::STANDARDSCROLL_UP);
-                Key(interface_key::STANDARDSCROLL_RIGHT);
-                auto armor_material = std::find(screen->equip.material.generic.begin(), screen->equip.material.generic.end(), entity_material_category::Armor);
-                ScrollTo(int32_t(armor_material - screen->equip.material.generic.begin()));
+                info->material_class = entity_material_category::Armor;
             }
-            Key(interface_key::SELECT);
+            uniform->uniform_item_types[cat].push_back(type);
+            uniform->uniform_item_subtypes[cat].push_back(-1);
+            uniform->uniform_item_info[cat].push_back(info);
         };
 
-        add_uniform_part(interface_key::D_MILITARY_ADD_ARMOR);
-        add_uniform_part(interface_key::D_MILITARY_ADD_HELM);
-        add_uniform_part(interface_key::D_MILITARY_ADD_PANTS);
-        add_uniform_part(interface_key::D_MILITARY_ADD_GLOVES);
-        add_uniform_part(interface_key::D_MILITARY_ADD_BOOTS);
-        add_uniform_part(interface_key::D_MILITARY_ADD_SHIELD);
-        add_uniform_part(interface_key::D_MILITARY_ADD_WEAPON);
+        add_uniform_part(uniform_category::body, item_type::ARMOR);
+        add_uniform_part(uniform_category::head, item_type::HELM);
+        add_uniform_part(uniform_category::pants, item_type::PANTS);
+        add_uniform_part(uniform_category::gloves, item_type::GLOVES);
+        add_uniform_part(uniform_category::shoes, item_type::SHOES);
+        add_uniform_part(uniform_category::shield, item_type::SHIELD);
+        add_uniform_part(uniform_category::weapon, item_type::WEAPON);
 
-        if (!plotinfo->main.fortress_entity->uniforms.back()->flags.bits.exact_matches)
-        {
-            Key(interface_key::D_MILITARY_EXACT_MATCH);
-        }
-
-        if (plotinfo->main.fortress_entity->uniforms.back()->flags.bits.replace_clothing)
-        {
-            Key(interface_key::D_MILITARY_REPLACE_CLOTHING);
-        }
-
-        Key(interface_key::D_MILITARY_POSITIONS);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Squads");
+        entity->uniforms.push_back(uniform);
 
         ai.debug(out, ranged ? "Created new uniform for ranged squad." : "Created new uniform for melee squad.");
 
-        return int32_t(plotinfo->main.fortress_entity->uniforms.size() - 1);
+        return uniform;
+    }
+
+    // Copy an entity uniform template into every position of a squad, which
+    // is what selecting a uniform when creating a squad does in the game.
+    void ApplyUniform(color_ostream & out, df::squad *squad, df::entity_uniform *uniform)
+    {
+        if (!uniform)
+        {
+            return;
+        }
+
+        bool ranged = false;
+
+        for (auto pos : squad->positions)
+        {
+            if (!pos)
+            {
+                continue;
+            }
+
+            FOR_ENUM_ITEMS(uniform_category, cat)
+            {
+                auto & specs = pos->equipment.uniform[cat];
+                if (!specs.empty())
+                {
+                    // don't touch a uniform that was already set up
+                    continue;
+                }
+
+                for (size_t i = 0; i < uniform->uniform_item_types[cat].size(); i++)
+                {
+                    auto info = vector_get(uniform->uniform_item_info[cat], i);
+                    auto spec = new df::squad_uniform_spec();
+                    spec->item = -1;
+                    spec->item_type = uniform->uniform_item_types[cat].at(i);
+                    spec->item_subtype = vector_get(uniform->uniform_item_subtypes[cat], i, int16_t(-1));
+                    if (info)
+                    {
+                        spec->material_class = info->material_class;
+                        spec->mattype = info->mattype;
+                        spec->matindex = info->matindex;
+                        spec->color = info->item_color;
+                        spec->indiv_choice = info->indiv_choice;
+                        if (info->indiv_choice.bits.ranged)
+                        {
+                            ranged = true;
+                        }
+                    }
+                    specs.push_back(spec);
+                }
+            }
+
+            pos->equipment.flags = uniform->flags;
+        }
+
+        if (ranged && squad->ammo.ammunition.empty())
+        {
+            // Give marksdwarves some bolts, for both combat and training.
+            int16_t bolt_subtype = -1;
+            for (auto subtype : plotinfo->main.fortress_entity->resources.ammo_type)
+            {
+                auto def = df::itemdef_ammost::find(subtype);
+                if (def && def->ammo_class == "BOLT")
+                {
+                    bolt_subtype = subtype;
+                    break;
+                }
+            }
+
+            if (bolt_subtype != -1)
+            {
+                auto ammo = new df::squad_ammo_spec();
+                ammo->item_type = item_type::AMMO;
+                ammo->item_subtype = bolt_subtype;
+                ammo->material_class = entity_material_category::None;
+                ammo->amount = 500;
+                ammo->flags.bits.use_combat = 1;
+                ammo->flags.bits.use_training = 1;
+                squad->ammo.ammunition.push_back(ammo);
+            }
+        }
+
+        flag_equipment_update(squad);
+
+        ai.debug(out, "Assigned uniform " + uniform->name + " to squad " + AI::describe_name(squad->name, true));
     }
 
     static bool compare(const df::unit *a, const df::unit *b)
@@ -469,36 +639,21 @@ public:
         }
 
         auto squad = df::squad::find(u->military.squad_id);
-        auto squad_pos = std::find(screen->squads.list.begin(), screen->squads.list.end(), squad);
-        if (!squad || squad_pos == screen->squads.list.end())
+        if (!squad)
         {
             ai.debug(out, "[ERROR] Cannot find squad for unit: " + AI::describe_unit(u));
             return;
         }
 
-        ScrollTo(int32_t(squad_pos - screen->squads.list.begin()));
-
-        Key(interface_key::STANDARDSCROLL_RIGHT);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Positions");
-
-        auto position = std::find(screen->positions.assigned.begin(), screen->positions.assigned.end(), u);
-        if (position == screen->positions.assigned.end())
+        if (!Military::removeFromSquad(unit_id) && u->military.squad_id != -1)
         {
-            ai.debug(out, "[ERROR] Cannot find unit in squad: " + AI::describe_unit(u));
-
-            Key(interface_key::STANDARDSCROLL_LEFT);
-
+            ai.debug(out, "[ERROR] Cannot remove unit from squad: " + AI::describe_unit(u));
             return;
         }
 
-        ScrollTo(int32_t(position - screen->positions.assigned.begin()));
+        flag_equipment_update(squad);
 
-        Key(interface_key::SELECT);
-
-        Key(interface_key::STANDARDSCROLL_LEFT);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Positions/Squads");
+        ai.debug(out, "Dismissed " + AI::describe_unit(u) + " from " + AI::describe_name(squad->name, true));
     }
 
     static bool compare(const df::unit *a, const df::unit *b)
@@ -509,22 +664,13 @@ public:
 
 class MilitarySetupExclusive::UnequipTool : public MilitarySetupExclusive
 {
-    bool movedToEquips;
-
 public:
-    UnequipTool(AI & ai, unit_iterator begin, unit_iterator end) : MilitarySetupExclusive(ai, "military - unequip tool", begin, end), movedToEquips(false)
+    UnequipTool(AI & ai, unit_iterator begin, unit_iterator end) : MilitarySetupExclusive(ai, "military - unequip tool", begin, end)
     {
     }
 
     virtual void Run(color_ostream & out, int32_t unit_id)
     {
-        if (!movedToEquips)
-        {
-            Key(interface_key::D_MILITARY_EQUIP);
-            movedToEquips = true;
-        }
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Equip/Customize/View/Squads");
-
         auto u = df::unit::find(unit_id);
         if (!u)
         {
@@ -532,91 +678,78 @@ public:
         }
 
         auto squad = df::squad::find(u->military.squad_id);
-        auto squad_pos = std::find(screen->equip.squads.begin(), screen->equip.squads.end(), squad);
-        if (!squad || squad_pos == screen->equip.squads.end())
+        if (!squad)
         {
             ai.debug(out, "[ERROR] Cannot find squad for unit: " + AI::describe_unit(u));
             return;
         }
 
-        ScrollTo(int32_t(squad_pos - screen->equip.squads.begin()));
-
-        Key(interface_key::STANDARDSCROLL_RIGHT);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Equip/Customize/View/Positions");
-
-        auto position = std::find(screen->equip.units.begin(), screen->equip.units.end(), u);
-        if (position == screen->positions.assigned.end())
+        auto position = vector_get(squad->positions, size_t(u->military.squad_position));
+        if (!position || position->occupant != u->hist_figure_id)
         {
             ai.debug(out, "[ERROR] Cannot find unit in squad: " + AI::describe_unit(u));
-
-            Key(interface_key::STANDARDSCROLL_LEFT);
-
             return;
         }
 
-        ScrollTo(int32_t(position - screen->positions.assigned.begin()));
-
-        Key(interface_key::STANDARDSCROLL_RIGHT);
-
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Equip/Customize/View/Choices");
-
-        for (size_t i = 0; i < screen->equip.assigned.category.size(); i++)
+        for (auto spec : position->equipment.uniform[uniform_category::weapon])
         {
-            if (screen->equip.assigned.category.at(i) == uniform_category::weapon)
+            for (size_t i = 0; i < spec->assigned.size(); i++)
             {
-                for (auto item_id : screen->equip.assigned.spec.at(i)->assigned)
+                auto item_id = spec->assigned.at(i);
+                auto weapon = virtual_cast<df::item_weaponst>(df::item::find(item_id));
+
+                if (!weapon)
                 {
-                    auto weapon = virtual_cast<df::item_weaponst>(df::item::find(item_id));
-
-                    if (!weapon)
-                    {
-                        continue;
-                    }
-                    if (weapon->subtype->flags.is_set(weapon_flags::TRAINING))
-                    {
-                        continue;
-                    }
-                    if (weapon->subtype->skill_melee != job_skill::AXE && weapon->subtype->skill_melee != job_skill::MINING)
-                    {
-                        continue;
-                    }
-
-                    ai.debug(out, "Confiscating " + AI::describe_item(weapon) + " from " + AI::describe_unit(u) + ": item needed for civilian labor.");
-
-                    ScrollTo(int32_t(i));
-                    Key(interface_key::SELECT);
-
-                    Key(interface_key::D_MILITARY_ADD_WEAPON);
-                    ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Equip/Customize/Weapon/Choices");
-
-                    ScrollTo(SelectReplacementWeaponType(out));
-                    Key(interface_key::SELECT);
-                    ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Equip/Customize/View/Choices");
+                    continue;
                 }
+                if (weapon->subtype->flags.is_set(weapon_flags::TRAINING))
+                {
+                    continue;
+                }
+                if (weapon->subtype->skill_melee != job_skill::AXE && weapon->subtype->skill_melee != job_skill::MINING)
+                {
+                    continue;
+                }
+
+                int16_t replacement = SelectReplacementWeaponType(out);
+                if (replacement == -1)
+                {
+                    ai.debug(out, "Cannot confiscate " + AI::describe_item(weapon) + " from " + AI::describe_unit(u) + ": no replacement weapon type.");
+                    continue;
+                }
+
+                ai.debug(out, "Confiscating " + AI::describe_item(weapon) + " from " + AI::describe_unit(u) + ": item needed for civilian labor.");
+
+                // Same steps as DFHack's gui/choose-weapons script.
+                spec->item = -1;
+                spec->item_type = item_type::WEAPON;
+                spec->item_subtype = replacement;
+                spec->indiv_choice.whole = 0;
+
+                vector_erase_at(spec->assigned, i);
+                i--;
+                erase_from_vector(position->equipment.assigned_items, item_id);
+                if (erase_from_vector(plotinfo->equipment.items_assigned[item_type::WEAPON], item_id))
+                {
+                    insert_into_vector(plotinfo->equipment.items_unassigned[item_type::WEAPON], item_id);
+                }
+                plotinfo->equipment.update.bits.weapon = 1;
+                u->uniform.pickup_flags.bits.update = 1;
             }
         }
-
-        Key(interface_key::STANDARDSCROLL_LEFT);
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Equip/Customize/View/Positions");
-
-        Key(interface_key::STANDARDSCROLL_LEFT);
-        ExpectScreen<df::viewscreen_layer_militaryst>("layer_military/Equip/Customize/View/Squads");
     }
 
-    int32_t SelectReplacementWeaponType(color_ostream & out)
+    int16_t SelectReplacementWeaponType(color_ostream & out)
     {
-        int32_t best = -1;
+        int16_t best = -1;
         int32_t best_score = 0;
         std::string name;
 
-        for (size_t i = 0; i < screen->equip.add_item.subtype.size(); i++)
+        // Weapon types our civilization can make, rather than the list from
+        // the (removed) military equipment screen. These are never foreign.
+        for (auto subtype : plotinfo->main.fortress_entity->resources.weapon_type)
         {
-            if (screen->equip.add_item.type.at(i) != item_type::WEAPON)
-            {
-                continue;
-            }
-            auto def = df::itemdef_weaponst::find(screen->equip.add_item.subtype.at(i));
+            auto def = df::itemdef_weaponst::find(subtype);
             if (!def)
             {
                 continue;
@@ -629,26 +762,31 @@ public:
             {
                 continue;
             }
+            if (def->flags.is_set(weapon_flags::TRAINING))
+            {
+                continue;
+            }
 
             int32_t score = 0;
-            auto in_stock = ai.stocks.count_subtype.at(stock_item::weapon_melee).find(screen->equip.add_item.subtype.at(i));
-            if (in_stock != ai.stocks.count_subtype.at(stock_item::weapon_melee).end())
+            auto & in_stock_map = ai.stocks.count_subtype[stock_item::weapon_melee];
+            auto in_stock = in_stock_map.find(subtype);
+            if (in_stock != in_stock_map.end())
             {
-                score = in_stock->first;
+                score = in_stock->second.first;
             }
-            if (!screen->equip.add_item.foreign.at(i))
-            {
-                score = (score + 1) * 2;
-            }
+            score = (score + 1) * 2;
             if (best_score < score)
             {
-                best = int32_t(i);
+                best = subtype;
                 best_score = score;
                 name = def->name;
             }
         }
 
-        ai.debug(out, "Assigning weapon type " + name + " instead.");
+        if (best != -1)
+        {
+            ai.debug(out, "Assigning weapon type " + name + " instead.");
+        }
 
         return best;
     }
@@ -892,9 +1030,27 @@ void Population::update_military(color_ostream & out)
         }
 
         // Barracks is ready to train soldiers. Send the squad to training.
-        if (!squad->cur_alert_idx)
+        // In v50+ squads follow a routine (plotinfo->alerts.routines, mirrored
+        // by squad->schedule.routine); routine 0 is "Off duty".
+        if (squad->cur_routine_idx == 0)
         {
-            squad->cur_alert_idx = 1; // training
+            int32_t training_idx = -1;
+            auto & routines = plotinfo->alerts.routines;
+            for (size_t i = 0; i < routines.size() && i < squad->schedule.routine.size(); i++)
+            {
+                if (routines.at(i)->name == "Staggered training" || (training_idx == -1 && routines.at(i)->name.find("training") != std::string::npos))
+                {
+                    training_idx = int32_t(i);
+                }
+            }
+            if (training_idx == -1 && squad->schedule.routine.size() > 1)
+            {
+                training_idx = 1;
+            }
+            if (training_idx != -1)
+            {
+                squad->cur_routine_idx = training_idx;
+            }
         }
 
         return false;
@@ -910,17 +1066,9 @@ public:
     {
     }
 
-    virtual bool SuppressStateChange(color_ostream &, state_change_event event)
-    {
-        return event == SC_PAUSED || event == SC_UNPAUSED;
-    }
-
     virtual void Run(color_ostream & out)
     {
         using change_type = Population::squad_order_change;
-
-        int32_t start_x, start_y, start_z;
-        Gui::getViewCoords(start_x, start_y, start_z);
 
         kill_orders.clear();
 
@@ -977,116 +1125,76 @@ public:
 
         ai.pop.squad_order_changes.clear();
 
-        if (!kill_orders.empty())
+        // In DF 0.47 this went through the squads sidebar. In v50+ we edit
+        // squad->orders directly: one kill list order per squad holding all
+        // of its targets.
+        for (auto & kill_orders_squad : kill_orders)
         {
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-            if (!*pause_state)
-                Key(interface_key::D_PAUSE);
-            DFAI_ASSERT(*pause_state, "squad target update failed to pause the game");
-            Key(interface_key::D_SQUADS);
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Squads");
-
-            for (auto kill_orders_squad : kill_orders)
+            auto squad = df::squad::find(kill_orders_squad.first);
+            if (!squad)
             {
-                auto squad_pos = std::find_if(plotinfo->squads.list.begin(), plotinfo->squads.list.end(), [&](void *psquad) -> bool
-                {
-                    auto squad = reinterpret_cast<df::squad *>(psquad);
-                    return squad->id == kill_orders_squad.first;
-                }) - plotinfo->squads.list.begin();
-                auto first_squad = [&]() -> ptrdiff_t
-                {
-                    return plotinfo->squads.list.size() > 9 ? std::find_if(plotinfo->squads.list.begin(), plotinfo->squads.list.end(), [](void *psquad)
-                    {
-                        auto squad = reinterpret_cast<df::squad *>(psquad);
-                        return squad->id == plotinfo->squads.squad_list_first_id;
-                    }) - plotinfo->squads.list.begin() : 0;
-                };
+                continue;
+            }
 
-                // Menu is guaranteed to be capped at 10 squads: a, b, c, d, e, f, g, h, i, j. k is reserved for kill orders.
-                while (first_squad() > squad_pos)
+            std::vector<int32_t> targets;
+            for (auto unit_id : kill_orders_squad.second)
+            {
+                if (df::unit::find(unit_id))
                 {
-                    Key(interface_key::SECONDSCROLL_PAGEUP);
+                    targets.push_back(unit_id);
                 }
-                while (first_squad() + 10 <= squad_pos)
+                else
                 {
-                    Key(interface_key::SECONDSCROLL_PAGEDOWN);
+                    ai.debug(out, "[ERROR] Cannot find unit for squad kill order: " + AI::describe_unit(df::unit::find(unit_id)));
                 }
+            }
 
-                Key(static_cast<df::interface_key>(interface_key::OPTION1 + squad_pos - first_squad()));
-
-                if (kill_orders_squad.second.empty())
+            df::squad_order_kill_listst *kill = nullptr;
+            for (size_t i = 0; i < squad->orders.size(); i++)
+            {
+                auto existing = strict_virtual_cast<df::squad_order_kill_listst>(squad->orders.at(i));
+                if (!existing)
                 {
-                    Key(interface_key::D_SQUADS_CANCEL_ORDER);
                     continue;
                 }
 
-                DFAI_ASSERT(std::count(plotinfo->squads.sel_squads.begin(), plotinfo->squads.sel_squads.end(), true) == 1, "did not select a single squad (selected " << std::count(plotinfo->squads.sel_squads.begin(), plotinfo->squads.sel_squads.end(), true) << ")");
-                DFAI_ASSERT(!plotinfo->squads.in_kill_order && !plotinfo->squads.in_kill_list, "in target mode early");
-                Key(interface_key::D_SQUADS_KILL);
-                DFAI_ASSERT(plotinfo->squads.in_kill_order && !plotinfo->squads.in_kill_list, "failed to enter target mode");
-                Key(interface_key::D_SQUADS_KILL_LIST);
-                DFAI_ASSERT(plotinfo->squads.in_kill_list, "failed to enter target list");
-
-                bool remove_only = true;
-                for (auto kill_orders_unit : kill_orders_squad.second)
+                if (!kill && !targets.empty())
                 {
-                    auto unit_it = std::find_if(plotinfo->squads.kill_targets.begin(), plotinfo->squads.kill_targets.end(), [&](df::unit *u) -> bool
-                    {
-                        return u->id == kill_orders_unit;
-                    });
-                    if (unit_it == plotinfo->squads.kill_targets.end())
-                    {
-                        ai.debug(out, "[ERROR] Cannot find unit for squad kill order: " + AI::describe_unit(df::unit::find(kill_orders_unit)));
-                        continue;
-                    }
-
-                    auto unit_pos = int32_t(unit_it - plotinfo->squads.kill_targets.begin());
-                    volatile auto & first_unit = plotinfo->squads.kill_list_scroll;
-
-                    while (first_unit > unit_pos)
-                    {
-                        Key(interface_key::SECONDSCROLL_PAGEUP);
-                    }
-                    while (first_unit + 10 <= unit_pos)
-                    {
-                        Key(interface_key::SECONDSCROLL_PAGEDOWN);
-                    }
-
-                    Key(static_cast<df::interface_key>(interface_key::SEC_OPTION1 + unit_pos - first_unit));
-                    remove_only = false;
+                    // reuse the first kill order
+                    kill = existing;
+                    continue;
                 }
 
-                Key(interface_key::SELECT);
-                Delay();
-
-                if (plotinfo->squads.in_kill_list)
-                {
-                    Key(interface_key::LEAVESCREEN);
-                    Delay();
-
-                    if (remove_only)
-                    {
-                        Key(interface_key::D_SQUADS_CANCEL_ORDER);
-                        Delay();
-                    }
-                }
-
-                if (plotinfo->squads.in_kill_order)
-                {
-                    Key(interface_key::LEAVESCREEN);
-                    Delay();
-                }
-
-                DFAI_ASSERT(!plotinfo->squads.in_kill_order && !plotinfo->squads.in_kill_list, "failed to return to squad list");
+                // merge/cancel: remove any other kill order
+                vector_erase_at(squad->orders, i);
+                // not freed: DFHack 53.14+ refuses to free pool-allocated game objects
+                i--;
             }
 
-            Key(interface_key::LEAVESCREEN);
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-            Key(interface_key::D_PAUSE);
-            DFAI_ASSERT(!*pause_state, "squad target update failed to unpause the game");
-        }
+            if (targets.empty())
+            {
+                continue;
+            }
 
-        ai.ignore_pause(start_x, start_y, start_z);
+            if (!kill)
+            {
+                kill = df::allocate<df::squad_order_kill_listst>();
+                kill->year = *cur_year;
+                kill->year_tick = *cur_year_tick;
+                squad->orders.push_back(kill);
+            }
+
+            kill->units = targets;
+            kill->histfigs.clear();
+            if (targets.size() == 1)
+            {
+                kill->title = "Kill " + AI::describe_unit(df::unit::find(targets.front()));
+            }
+            else
+            {
+                kill->title = stl_sprintf("Kill %zu targets", targets.size());
+            }
+        }
     }
 };
 
@@ -1097,11 +1205,15 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
     for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
         df::squad *sq = df::squad::find(sqid);
+        if (!sq)
+        {
+            continue;
+        }
 
         int32_t score = 0;
         for (auto sp : sq->positions)
         {
-            if (sp->occupant != -1)
+            if (sp && sp->occupant != -1)
             {
                 score++;
             }
@@ -1180,7 +1292,8 @@ bool Population::military_all_squads_attack_unit(color_ostream & out, df::unit *
     bool any = false;
     for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
-        if (military_squad_attack_unit(out, df::squad::find(sqid), u, reason))
+        auto sq = df::squad::find(sqid);
+        if (sq && military_squad_attack_unit(out, sq, u, reason))
             any = true;
     }
     return any;
@@ -1245,7 +1358,8 @@ bool Population::military_cancel_attack_order(color_ostream & out, df::unit *u, 
     bool any = false;
     for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
-        if (military_cancel_attack_order(out, df::squad::find(sqid), u, reason))
+        auto sq = df::squad::find(sqid);
+        if (sq && military_cancel_attack_order(out, sq, u, reason))
             any = true;
     }
     return any;

@@ -4,7 +4,14 @@
 
 #include <unordered_map>
 
+#include "modules/Filesystem.h"
 #include "modules/World.h"
+
+std::string Plan::save_path()
+{
+    // DF v50+ keeps saves in <DF folder>/save/<world folder>/
+    return (Filesystem::getBaseDir() / "save" / World::ReadWorldFolder() / "df-ai-plan.dat").string();
+}
 
 command_result Plan::persist(color_ostream &)
 {
@@ -13,15 +20,14 @@ command_result Plan::persist(color_ostream &)
         // we haven't initialized yet.
         return CR_OK;
     }
-    std::ofstream f("data/save/current/df-ai-plan.dat", std::ofstream::trunc);
+    std::ofstream f(save_path(), std::ofstream::trunc);
     save(f);
     return CR_OK;
 }
 
 command_result Plan::unpersist(color_ostream &)
 {
-    std::remove("data/save/current/df-ai-plan.dat");
-    std::remove(("data/save/" + World::ReadWorldFolder() + "/df-ai-plan.dat").c_str());
+    std::remove(save_path().c_str());
     return CR_OK;
 }
 
@@ -204,6 +210,7 @@ void Plan::save(std::ostream & out)
         r["layout"] = r_layout;
         r["owner"] = Json::Int((*it)->owner);
         r["bld_id"] = Json::Int((*it)->bld_id);
+        r["zone_id"] = Json::Int((*it)->zone_id);
         r["squad_id"] = Json::Int((*it)->squad_id);
         r["level"] = Json::Int((*it)->level);
         r["noblesuite"] = Json::Int((*it)->noblesuite);
@@ -498,6 +505,8 @@ void Plan::load(std::istream & in)
         }
         (*it)->owner = r["owner"].asInt();
         (*it)->bld_id = r["bld_id"].asInt();
+        if (r.isMember("zone_id"))
+            (*it)->zone_id = r["zone_id"].asInt();
         (*it)->squad_id = r["squad_id"].asInt();
         (*it)->level = r["level"].asInt();
         (*it)->noblesuite = r["noblesuite"].asInt();

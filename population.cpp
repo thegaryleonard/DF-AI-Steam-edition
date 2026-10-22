@@ -1,7 +1,6 @@
 #include "ai.h"
 #include "population.h"
 #include "plan.h"
-#include "thirdparty/weblegends/weblegends-plugin.h"
 
 #include "modules/Job.h"
 #include "modules/Maps.h"
@@ -26,7 +25,11 @@
 #include "df/squad_order_kill_listst.h"
 #include "df/squad_position.h"
 #include "df/syndrome.h"
+#include "df/body_part_raw.h"
+#include "df/crime_type.h"
 #include "df/unit_health_info.h"
+#include "df/unit_patient_profile_completed_jobst.h"
+#include "df/unit_wound_layerst.h"
 #include "df/unit_relationship_type.h"
 #include "df/unit_wound.h"
 #include "df/plotinfost.h"
@@ -344,8 +347,8 @@ void Population::report(std::ostream & out, bool html)
                     case occupation_type::SCRIBE:
                         out << " (scribe)";
                         break;
-                    case occupation_type::MESSENGER:
-                        out << " (messenger)";
+                    default:
+                        out << " (" << toLower_cp437(enum_item_key(occ->type)) << ")";
                         break;
                     }
                 }
@@ -424,6 +427,10 @@ void Population::report(std::ostream & out, bool html)
     for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
         df::squad *sq = df::squad::find(sqid);
+        if (!sq)
+        {
+            continue;
+        }
 
         if (html)
         {
@@ -445,7 +452,7 @@ void Population::report(std::ostream & out, bool html)
         }
         for (auto sp : sq->positions)
         {
-            if (sp->occupant == -1)
+            if (!sp || sp->occupant == -1)
             {
                 if (html)
                 {
@@ -665,14 +672,14 @@ void Population::report(std::ostream & out, bool html)
 
         any_crimes = true;
 
-        auto convicted = df::unit::find(crime->convict_data.convicted);
+        auto convicted = df::unit::find(crime->accused);
         auto criminal = df::unit::find(crime->criminal);
-        auto victim = df::unit::find(crime->victim_data.victim);
+        auto victim = df::unit::find(crime->victim);
 
         out << (html ? "<li>" : "- ");
         out << "[" << AI::timestamp(crime->event_year, crime->event_time) << "] ";
         out << (html ? "<b>" : "");
-        using crime_type = df::crime::T_mode;
+        using df::crime_type;
         switch (crime->mode)
         {
         case crime_type::ProductionOrderViolation:
@@ -762,17 +769,17 @@ void Population::report(std::ostream & out, bool html)
             out << "Convicted: " << AI::describe_unit(convicted, html);
             if (crime->flags.bits.sentenced)
             {
-                if (crime->punishment.give_beating || crime->punishment.hammerstrikes || crime->punishment.prison_time)
+                if (crime->punishment.flags.bits.beating || crime->punishment.hammerstrikes || crime->punishment.prison_time)
                 {
                     out << (html ? "<br/>" : "\n  ");
                     out << "Sentenced to";
-                    if (crime->punishment.give_beating)
+                    if (crime->punishment.flags.bits.beating)
                     {
                         out << " a beating";
                     }
                     if (crime->punishment.hammerstrikes)
                     {
-                        if (crime->punishment.give_beating)
+                        if (crime->punishment.flags.bits.beating)
                         {
                             if (crime->punishment.prison_time)
                             {
@@ -787,11 +794,11 @@ void Population::report(std::ostream & out, bool html)
                     }
                     if (crime->punishment.prison_time)
                     {
-                        if (crime->punishment.give_beating && crime->punishment.hammerstrikes)
+                        if (crime->punishment.flags.bits.beating && crime->punishment.hammerstrikes)
                         {
                             out << ",";
                         }
-                        if (crime->punishment.give_beating || crime->punishment.hammerstrikes)
+                        if (crime->punishment.flags.bits.beating || crime->punishment.hammerstrikes)
                         {
                             out << " and";
                         }
@@ -801,7 +808,7 @@ void Population::report(std::ostream & out, bool html)
 
                     if (html)
                     {
-                        out << "<!--" << crime->punishment.give_beating << "," << crime->punishment.hammerstrikes << "," << crime->punishment.prison_time << "-->";
+                        out << "<!--" << crime->punishment.flags.bits.beating << "," << crime->punishment.hammerstrikes << "," << crime->punishment.prison_time << "-->";
                     }
                 }
             }
@@ -841,7 +848,7 @@ void Population::report(std::ostream & out, bool html)
             return false;
         }
 
-        return (wound->flags.whole &~df::unit_wound::T_flags::mask_diagnosed) || syn || wound->dizziness || wound->fever || wound->nausea || wound->numbness || wound->pain || wound->paralysis || !wound->parts.empty();
+        return (wound->flags.whole &~df::unit_wound_flag::mask_diagnosed) || syn || wound->dizziness || wound->fever || wound->nausea || wound->numbness || wound->pain || wound->paralysis || !wound->parts.empty();
     };
     bool any_interesting_wounds = false;
     for (auto u : world->units.active)
@@ -882,7 +889,7 @@ void Population::report(std::ostream & out, bool html)
             {
                 std::string before = html ? "<br/>" : "\n  ";
                 before += "Needs healthcare: ";
-                if (u->health->flags.bits.needs_recovery)
+                if (u->health->flags.bits.should_not_move)
                 {
                     out << before;
                     before = ", ";
@@ -1531,9 +1538,7 @@ void Population::report(std::ostream & out, bool html)
 
         if (html)
         {
-            out << "<li>";
-            weblegends_describe_event(out, d);
-            out << "</li>";
+            out << "<li>" << html_escape(AI::describe_event(d)) << "</li>";
         }
         else
         {
@@ -1578,9 +1583,9 @@ void Population::report(std::ostream & out, bool html)
                 out << "  ";
             }
             out << "item";
-            if (item->role == df::job_item_ref::T_role::Reagent)
+            if (item->role == df::job_role_type::Reagent)
             {
-                auto ji = vector_get(j->item->job_items, item->job_item_idx);
+                auto ji = vector_get(j->item->job_items.elements, item->job_item_idx);
                 auto reaction = ji != nullptr ? df::reaction::find(ji->reaction_id) : nullptr;
                 auto reagent = reaction != nullptr ? vector_get(reaction->reagents, ji->reagent_index) : nullptr;
                 if (reagent)
@@ -1597,7 +1602,7 @@ void Population::report(std::ostream & out, bool html)
                 out << " (" << enum_item_key(item->role) << ")";
             }
             out << ": " << maybe_escape(AI::describe_item(item->item), html);
-            if (item->is_fetching)
+            if (item->flags.bits.is_fetching)
             {
                 out << " (fetching)";
             }
@@ -1606,13 +1611,13 @@ void Population::report(std::ostream & out, bool html)
                 out << "\n";
             }
         }
-        for (size_t i = 0; i < j->item->job_items.size(); i++)
+        for (size_t i = 0; i < j->item->job_items.elements.size(); i++)
         {
             if (handled_items.count(i))
             {
                 continue;
             }
-            auto & item = j->item->job_items.at(i);
+            auto & item = j->item->job_items.elements.at(i);
             if (html)
             {
                 out << "<br/>";
@@ -1809,7 +1814,7 @@ void Population::report(std::ostream & out, bool html)
     std::map<std::string, size_t> boring_job_count;
     for (auto j = world->jobs.list.next; j; j = j->next)
     {
-        if (j->item->items.empty() && j->item->job_items.empty() && j->item->general_refs.empty())
+        if (j->item->items.empty() && j->item->job_items.elements.empty() && j->item->general_refs.empty())
         {
             boring_job_count[AI::describe_job(j->item)]++;
             continue;

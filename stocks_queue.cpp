@@ -4,6 +4,8 @@
 
 #include "Error.h"
 
+#include <algorithm>
+
 #include "modules/Units.h"
 
 #include "df/building_furnacest.h"
@@ -15,12 +17,15 @@
 #include "df/manager_order.h"
 #include "df/manager_order_template.h"
 #include "df/unit_relationship_type.h"
-#include "df/viewscreen_dwarfmodest.h"
+#include "df/workquota_frequency_type.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(world);
 
+// In DF 0.47 this queued chair jobs directly at a mason's workshop through
+// the workshop UI. That UI is gone in v50+, so instead create a one-time
+// manager order restricted to that workshop (manager_order::workshop_id).
 class MasonChairJobExclusive : public ExclusiveCallback
 {
     AI & ai;
@@ -34,13 +39,9 @@ public:
     {
     }
 
-protected:
     void Run(color_ostream & out)
     {
-        int32_t start_x, start_y, start_z;
-        Gui::getViewCoords(start_x, start_y, start_z);
-
-        if (auto workshop = ai.find_room(room_type::workshop, [](room* r) -> bool
+        auto workshop = ai.find_room(room_type::workshop, [](room* r) -> bool
             {
                 if (r->workshop_type != workshop_type::Masons)
                 {
@@ -49,34 +50,46 @@ protected:
 
                 auto bld = r->dfbuilding();
                 return bld && bld->getBuildStage() == bld->getMaxBuildStage();
-            }))
-        {
-            auto bld = virtual_cast<df::building_workshopst>(workshop->dfbuilding());
-            int32_t wanted = min(max(wanted_amount - int(bld->jobs.size()), 0), 10 - int(bld->jobs.size()));
-
-            if (wanted > 0)
-            {
-                Key(interface_key::D_BUILDJOB);
-                Gui::setCursorCoords(workshop->min.x, workshop->min.y, workshop->min.z);
-                Key(interface_key::CURSOR_DOWNRIGHT);
-
-                ai.debug(out, stl_sprintf("queueing %d chairs directly at ", wanted) + ai.describe_room(workshop));
-                while (wanted > 0)
-                {
-                    Key(interface_key::BUILDJOB_ADD);
-                    Key(interface_key::HOTKEY_MASON_CHAIR);
-                    wanted--;
-                }
-
-                Key(interface_key::LEAVESCREEN);
-            }
-        }
-        else
+            });
+        if (!workshop)
         {
             ai.debug(out, "could not find mason's workshop");
+            return;
         }
 
-        ai.ignore_pause(start_x, start_y, start_z);
+        auto bld = virtual_cast<df::building_workshopst>(workshop->dfbuilding());
+        if (!bld)
+        {
+            ai.debug(out, "could not find mason's workshop");
+            return;
+        }
+
+        int32_t wanted = std::min(wanted_amount, 10);
+        for (auto mo : world->manager_orders.all)
+        {
+            if (mo->job_type == job_type::ConstructThrone && mo->workshop_id == bld->id)
+            {
+                wanted -= mo->amount_left;
+            }
+        }
+
+        if (wanted <= 0)
+        {
+            return;
+        }
+
+        auto order = new df::manager_order();
+        order->id = world->manager_orders.manager_order_next_id++;
+        order->job_type = job_type::ConstructThrone;
+        order->mat_type = 0;
+        order->mat_index = -1;
+        order->amount_left = int16_t(wanted);
+        order->amount_total = int16_t(wanted);
+        order->frequency = workquota_frequency_type::OneTime;
+        order->workshop_id = bld->id;
+        world->manager_orders.all.push_back(order);
+
+        ai.debug(out, stl_sprintf("queueing %d chairs directly at ", wanted) + ai.describe_room(workshop));
     }
 };
 
@@ -148,7 +161,8 @@ void Stocks::queue_need(color_ostream & out, stock_item::item what, int32_t amou
     }
     case stock_item::bag:
     {
-        tmpl.job_type = job_type::ConstructChest;
+        // v50+: bags are a separate item type with their own job.
+        tmpl.job_type = job_type::ConstructBag;
         tmpl.material_category.bits.cloth = 1;
         break;
     }
@@ -1134,7 +1148,7 @@ void Stocks::queue_use(color_ostream & out, stock_item::item what, int32_t amoun
 // cut gems
 void Stocks::queue_use_gems(color_ostream & out, int32_t amount, std::ostream & reason)
 {
-    for (auto mo : world->manager_orders)
+    for (auto mo : world->manager_orders.all)
     {
         if (mo->job_type == job_type::CutGems)
         {

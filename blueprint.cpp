@@ -40,21 +40,23 @@ template<typename T>
 void load_objects(color_ostream & out, const std::string & subtype, std::function<void(const std::string & type, const std::string & name, T *t)> store)
 {
     std::string error;
-    std::vector<std::string> types;
-    if (!Filesystem::listdir("df-ai-blueprints/rooms/" + subtype, types))
+    std::vector<std::filesystem::path> type_paths;
+    if (!Filesystem::listdir("df-ai-blueprints/rooms/" + subtype, type_paths))
     {
-        for (auto & type : types)
+        for (auto & type_path : type_paths)
         {
+            std::string type = type_path.filename().string();
             if (type.find('.') != std::string::npos)
             {
                 continue;
             }
 
-            std::vector<std::string> names;
-            if (!Filesystem::listdir("df-ai-blueprints/rooms/" + subtype + "/" + type, names))
+            std::vector<std::filesystem::path> name_paths;
+            if (!Filesystem::listdir("df-ai-blueprints/rooms/" + subtype + "/" + type, name_paths))
             {
-                for (auto & name : names)
+                for (auto & name_path : name_paths)
                 {
+                    std::string name = name_path.filename().string();
                     auto ext = name.rfind(".json");
                     if (ext == std::string::npos || ext != name.size() - strlen(".json"))
                     {
@@ -83,7 +85,7 @@ blueprints_t::blueprints_t(color_ostream & out) : is_valid(true)
     if (!Filesystem::isdir("df-ai-blueprints"))
     {
         is_valid = false;
-        out.printerr("The df-ai-blueprints folder is missing! Download it from https://github.com/BenLubar/df-ai/releases to use the new scriptable blueprint system.\n");
+        out.printerr("The df-ai-blueprints folder is missing! It ships in the df-ai zip next to the hack folder.\n");
         out.printerr("The df-ai-blueprints folder should be inside %s.\n", Filesystem::getcwd().c_str());
         return;
     }
@@ -146,11 +148,12 @@ blueprints_t::blueprints_t(color_ostream & out) : is_valid(true)
         }
     }
 
-    std::vector<std::string> names;
-    if (!Filesystem::listdir("df-ai-blueprints/plans", names))
+    std::vector<std::filesystem::path> name_paths;
+    if (!Filesystem::listdir("df-ai-blueprints/plans", name_paths))
     {
-        for (auto & name : names)
+        for (auto & name_path : name_paths)
         {
+            std::string name = name_path.filename().string();
             auto ext = name.rfind(".json");
             if (ext == std::string::npos || ext != name.size() - strlen(".json"))
             {

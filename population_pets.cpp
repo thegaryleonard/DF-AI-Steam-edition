@@ -3,29 +3,29 @@
 #include "plan.h"
 
 #include "modules/Buildings.h"
-#include "modules/Gui.h"
 #include "modules/Units.h"
 
 #include "df/building_civzonest.h"
 #include "df/building_nest_boxst.h"
 #include "df/caste_raw.h"
 #include "df/creature_raw.h"
+#include "df/general_ref_building_civzone_assignedst.h"
 #include "df/item_eggst.h"
 #include "df/manager_order.h"
 #include "df/manager_order_template.h"
 #include "df/training_assignment.h"
 #include "df/plotinfost.h"
-#include "df/ui_sidebar_menus.h"
 #include "df/unit_misc_trait.h"
 #include "df/unit_relationship_type.h"
 #include "df/unit_wound.h"
-#include "df/viewscreen.h"
+#include "df/unit_wound_layerst.h"
+#include "df/shearable_tissue_layerst.h"
+#include "df/buildingitemst.h"
+#include "df/animal_training_infost.h"
+#include "df/buildings_other_id.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(plotinfo);
-REQUIRE_GLOBAL(ui_building_assign_units);
-REQUIRE_GLOBAL(ui_building_item_cursor);
-REQUIRE_GLOBAL(ui_sidebar_menus);
 REQUIRE_GLOBAL(world);
 
 void Population::update_pets(color_ostream & out)
@@ -38,7 +38,7 @@ void Population::update_pets(color_ostream & out)
 
     int32_t needmilk = 0;
     int32_t needshear = 0;
-    for (auto mo : world->manager_orders)
+    for (auto mo : world->manager_orders.all)
     {
         if (mo->job_type == job_type::MilkCreature)
         {
@@ -83,7 +83,7 @@ void Population::update_pets(color_ostream & out)
                 asn->trainer_id = -1;
                 asn->flags.whole = 0;
                 asn->flags.bits.any_trainer = true;
-                insert_into_vector(plotinfo->equipment.training_assignments, &df::training_assignment::animal_id, asn);
+                insert_into_vector(plotinfo->training.training_assignments, &df::training_assignment::animal_id, asn);
             }
 
             continue;
@@ -105,12 +105,14 @@ void Population::update_pets(color_ostream & out)
 
         if (pet.count(u->id))
         {
-            if (cst->body_size_2.back() <= age && // full grown
+            // v50: caste_raw::body_size_2 is gone; treat an adult that has
+            // reached its base body size as full grown.
+            if (Units::isAdult(u) && u->body.size_info.size_cur >= u->body.size_info.size_base && // full grown
                 u->profession != profession::TRAINED_HUNTER && // not trained
                 u->profession != profession::TRAINED_WAR && // not trained
                 u->relationship_ids[unit_relationship_type::Pet] == -1) // not owned
             {
-                if (std::find_if(u->body.wounds.begin(), u->body.wounds.end(), [](df::unit_wound *w) -> bool { return std::find_if(w->parts.begin(), w->parts.end(), [](df::unit_wound::T_parts *p) -> bool { return p->flags2.bits.gelded; }) != w->parts.end(); }) != u->body.wounds.end() || cst->sex == pronoun_type::it)
+                if (std::find_if(u->body.wounds.begin(), u->body.wounds.end(), [](df::unit_wound *w) -> bool { return std::find_if(w->parts.begin(), w->parts.end(), [](df::unit_wound_layerst *p) -> bool { return p->flags2.bits.gelded; }) != w->parts.end(); }) != u->body.wounds.end() || cst->sex == pronoun_type::it)
                 {
                     // animal can't reproduce, can't work, and will provide maximum butchering reward. kill it.
                     u->flags2.bits.slaughter = true;
@@ -290,49 +292,42 @@ void Population::update_pets(color_ostream & out)
 
 void Population::assign_unit_to_zone(df::unit *u, df::building_civzonest *bld)
 {
-    // FIXME: this should be an ExclusiveCallback
-
-    if (auto ref = Units::getGeneralRef(u, general_ref_type::BUILDING_CIVZONE_ASSIGNED))
+    if (!u || !bld)
     {
-        if (ref->getBuilding() == bld)
-        {
-            // already assigned to the correct zone
-            return;
-        }
-    }
-
-    int32_t start_x, start_y, start_z;
-    Gui::getViewCoords(start_x, start_y, start_z);
-    Gui::getCurViewscreen(true)->feed_key(interface_key::D_CIVZONE);
-    if (plotinfo->main.mode != ui_sidebar_mode::Zones)
-    {
-        // we probably aren't on the main dwarf fortress screen
         return;
     }
-    Gui::revealInDwarfmodeMap(df::coord(bld->x1 + 1, bld->y1, bld->z), true);
-    Gui::setCursorCoords(bld->x1 + 1, bld->y1, bld->z);
-    Gui::getCurViewscreen(true)->feed_key(interface_key::CURSOR_LEFT);
-    while (ui_sidebar_menus->zone.selected != bld)
+
+    // Detach from any previously assigned zone (pasture, pit, pond).
+    for (size_t i = 0; i < u->general_refs.size(); i++)
     {
-        Gui::getCurViewscreen(true)->feed_key(interface_key::CIVZONE_NEXT);
-    }
-    if (Buildings::isPitPond(bld))
-    {
-        Gui::getCurViewscreen(true)->feed_key(interface_key::CIVZONE_POND_OPTIONS);
-    }
-    else if (Buildings::isPenPasture(bld))
-    {
-        Gui::getCurViewscreen(true)->feed_key(interface_key::CIVZONE_PEN_OPTIONS);
-    }
-    if (std::find(ui_building_assign_units->begin(), ui_building_assign_units->end(), u) != ui_building_assign_units->end())
-    {
-        while (ui_building_assign_units->at(*ui_building_item_cursor) != u)
+        auto ref = virtual_cast<df::general_ref_building_civzone_assignedst>(u->general_refs.at(i));
+        if (!ref)
         {
-            Gui::getCurViewscreen(true)->feed_key(interface_key::SECONDSCROLL_DOWN);
+            continue;
         }
-        Gui::getCurViewscreen(true)->feed_key(interface_key::SELECT);
+
+        if (ref->building_id == bld->id)
+        {
+            // already assigned to the correct zone; make sure the zone agrees.
+            insert_into_vector(bld->assigned_units, u->id);
+            return;
+        }
+
+        if (auto old_zone = virtual_cast<df::building_civzonest>(df::building::find(ref->building_id)))
+        {
+            erase_from_vector(old_zone->assigned_units, u->id);
+        }
+
+        vector_erase_at(u->general_refs, i);
+        // not freed: DFHack 53.14+ refuses to free pool-allocated game objects
+        i--;
     }
-    Gui::getCurViewscreen(true)->feed_key(interface_key::LEAVESCREEN);
-    Gui::getCurViewscreen(true)->feed_key(interface_key::LEAVESCREEN);
-    ai.ignore_pause(start_x, start_y, start_z);
+
+    // Same as DFHack's zone plugin: add a civzone-assigned ref to the unit
+    // and the unit id to the zone's sorted assigned_units vector. The game
+    // creates the job to lead the animal there.
+    auto ref = df::allocate<df::general_ref_building_civzone_assignedst>();
+    ref->building_id = bld->id;
+    u->general_refs.push_back(ref);
+    insert_into_vector(bld->assigned_units, u->id);
 }

@@ -19,6 +19,7 @@
 #include "df/item_animaltrapst.h"
 #include "df/item_armorst.h"
 #include "df/item_barrelst.h"
+#include "df/item_bagst.h"
 #include "df/item_binst.h"
 #include "df/item_boxst.h"
 #include "df/item_bucketst.h"
@@ -47,6 +48,7 @@
 #include "df/itemdef_trapcompst.h"
 #include "df/itemdef_weaponst.h"
 #include "df/itemimprovement.h"
+#include "df/kitchen_exc_type.h"
 #include "df/plotinfost.h"
 #include "df/vehicle.h"
 #include "df/world.h"
@@ -196,10 +198,8 @@ Stocks::find_item_info Stocks::find_item_helper(stock_item::item k)
     }
     case stock_item::bag:
     {
-        return find_item_info(items_other_id::BOX, [](df::item *i) -> bool
-        {
-            return i->isBag();
-        });
+        // v50+: bags are their own item type instead of cloth/leather boxes.
+        return find_item_info(items_other_id::BAG);
     }
     case stock_item::bag_plant:
     {
@@ -276,10 +276,8 @@ Stocks::find_item_info Stocks::find_item_helper(stock_item::item k)
     }
     case stock_item::chest:
     {
-        return find_item_info(items_other_id::BOX, [](df::item *i) -> bool
-        {
-            return !i->isBag();
-        });
+        // v50+: bags are no longer boxes, so every box is a chest/coffer.
+        return find_item_info(items_other_id::BOX);
     }
     case stock_item::clay:
     {
@@ -421,7 +419,7 @@ Stocks::find_item_info Stocks::find_item_helper(stock_item::item k)
         std::set<std::tuple<df::item_type, int16_t, int16_t, int32_t>> forbidden;
         for (size_t i = 0; i < plotinfo->kitchen.item_types.size(); i++)
         {
-            if (plotinfo->kitchen.exc_types[i] == kitchen_exc_type::Cook)
+            if (plotinfo->kitchen.exc_types[i].bits.Cook)
             {
                 forbidden.insert(std::make_tuple(plotinfo->kitchen.item_types[i], plotinfo->kitchen.item_subtypes[i], plotinfo->kitchen.mat_types[i], plotinfo->kitchen.mat_indices[i]));
             }
@@ -732,7 +730,7 @@ Stocks::find_item_info Stocks::find_item_helper(stock_item::item k)
             df::item_corpsepiecest *i = virtual_cast<df::item_corpsepiecest>(item);
             auto race = df::creature_raw::find(i->race);
             auto caste = race ? race->caste.at(i->caste) : nullptr;
-            return i->corpse_flags.bits.skull1 && !i->corpse_flags.bits.unbutchered && (!caste || !caste->flags.is_set(caste_raw_flags::CAN_LEARN));
+            return i->corpse_flags.bits.skull && !i->corpse_flags.bits.unbutchered && (!caste || !caste->flags.is_set(caste_raw_flags::CAN_LEARN));
         });
     }
     case stock_item::slab:
@@ -746,7 +744,7 @@ Stocks::find_item_info Stocks::find_item_helper(stock_item::item k)
     {
         return find_item_info(items_other_id::GLOB, [](df::item *i) -> bool
         {
-            if (!virtual_cast<df::item_globst>(i)->mat_state.bits.paste)
+            if (!virtual_cast<df::item_globst>(i)->glob_flags.bits.paste)
             {
                 return false;
             }

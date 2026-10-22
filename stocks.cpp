@@ -6,6 +6,7 @@
 #include "modules/Materials.h"
 
 #include "df/building_farmplotst.h"
+#include "df/buildingitemst.h"
 #include "df/creature_raw.h"
 #include "df/inorganic_raw.h"
 #include "df/item_armorst.h"
@@ -643,7 +644,7 @@ void Stocks::report(std::ostream & out, bool html)
     {
         out << "\n## Orders\n";
     }
-    for (auto mo : world->manager_orders)
+    for (auto mo : world->manager_orders.all)
     {
         if (html)
         {
@@ -806,7 +807,7 @@ void Stocks::queue_slab(color_ostream & out, int32_t histfig_id)
     tmpl.item_subtype = -1;
     tmpl.mat_type = 0;
     tmpl.mat_index = -1;
-    tmpl.hist_figure_id = histfig_id;
+    tmpl.specdata.hist_figure_id = histfig_id;
     add_manager_order(out, tmpl);
 }
 

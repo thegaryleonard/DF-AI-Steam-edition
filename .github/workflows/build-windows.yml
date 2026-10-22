@@ -1,0 +1,102 @@
+name: Build df-ai for Windows
+
+# Builds df-ai.plug.dll against a specific DFHack release using MSVC, the
+# same toolchain DFHack itself is built with. DFHack plugins must be built
+# with MSVC for the exact DFHack version they will be loaded into.
+
+on:
+  push:
+    branches: ['**']
+    tags: ['*']
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      dfhack_ref:
+        description: 'DFHack release tag to build against'
+        required: false
+        default: '53.15-r2'
+
+permissions:
+  contents: write
+
+env:
+  DFHACK_REF: ${{ github.event.inputs.dfhack_ref || '53.15-r2' }}
+
+jobs:
+  build-win64:
+    name: Build win64 (DFHack ${{ github.event.inputs.dfhack_ref || '53.15-r2' }})
+    runs-on: windows-2022
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install build dependencies
+        run: pip install Jinja2
+
+      - name: Clone df-ai
+        uses: actions/checkout@v4
+        with:
+          path: df-ai
+          fetch-depth: 0
+
+      - name: Clone DFHack
+        uses: actions/checkout@v4
+        with:
+          repository: DFHack/dfhack
+          ref: ${{ env.DFHACK_REF }}
+          path: dfhack
+          submodules: true
+
+      - name: Add df-ai as an external DFHack plugin
+        shell: pwsh
+        run: |
+          Copy-Item -Recurse df-ai dfhack/plugins/external/df-ai
+          Set-Content -Path dfhack/plugins/external/CMakeLists.txt -Value 'add_subdirectory(df-ai)'
+
+      - uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Configure DFHack
+        working-directory: dfhack
+        run: |
+          cmake `
+            -S . `
+            -B build `
+            -GNinja `
+            -DDFHACK_BUILD_ARCH=64 `
+            -DCMAKE_BUILD_TYPE=Release `
+            -DBUILD_STONESENSE:BOOL=OFF `
+            -DBUILD_DOCS:BOOL=OFF `
+            -DBUILD_TESTS:BOOL=OFF `
+            -DBUILD_DFLAUNCH:BOOL=OFF
+
+      - name: Build df-ai
+        working-directory: dfhack
+        run: ninja -C build df-ai
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $dll = Get-ChildItem -Recurse dfhack/build -Filter 'df-ai.plug.dll' | Select-Object -First 1
+          if (-not $dll) { throw 'df-ai.plug.dll was not built' }
+          New-Item -ItemType Directory -Force -Path package/hack/plugins | Out-Null
+          New-Item -ItemType Directory -Force -Path package/df-ai-blueprints | Out-Null
+          Copy-Item $dll.FullName package/hack/plugins/
+          Copy-Item -Recurse df-ai/rooms package/df-ai-blueprints/rooms
+          Copy-Item -Recurse df-ai/plans package/df-ai-blueprints/plans
+          Copy-Item df-ai/INSTALL-WINDOWS.md package/
+          Copy-Item df-ai/LICENSE package/
+          Compress-Archive -Path package/* -DestinationPath "df-ai-dfhack-$env:DFHACK_REF-Windows-64bit.zip"
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: df-ai-dfhack-${{ env.DFHACK_REF }}-Windows-64bit
+          path: package/*
+
+      - name: Attach to GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: df-ai-dfhack-${{ env.DFHACK_REF }}-Windows-64bit.zip

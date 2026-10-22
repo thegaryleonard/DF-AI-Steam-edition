@@ -79,7 +79,7 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
                 continue;
             }
 
-            for (auto mo : world->manager_orders)
+            for (auto mo : world->manager_orders.all)
             {
                 if (mo->job_type == job_type::MakeWeapon && mo->item_subtype == idef->subtype)
                 {
@@ -217,7 +217,7 @@ static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::it
         int32_t cnt = ai.stocks.num_needed(what);
         cnt -= ai.stocks.count_subtype[what][id].first;
 
-        for (auto mo : world->manager_orders)
+        for (auto mo : world->manager_orders.all)
         {
             if (mo->job_type == job && mo->item_subtype == idef->subtype)
             {
@@ -349,7 +349,7 @@ static void queue_need_clothes_helper(AI & ai, color_ostream & out, stock_item::
         cnt -= ai.stocks.count_subtype[what][id].first;
 
         bool first_def = true;
-        for (auto mo : world->manager_orders)
+        for (auto mo : world->manager_orders.all)
         {
             if (mo->job_type == job && mo->item_subtype == idef->subtype)
             {

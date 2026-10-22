@@ -3,10 +3,10 @@
 #include "population.h"
 
 #include "modules/Buildings.h"
-#include "modules/Gui.h"
 #include "modules/Maps.h"
 
 #include "df/building_slabst.h"
+#include "df/building_stockpilest.h"
 #include "df/historical_figure.h"
 #include "df/item_plant_growthst.h"
 #include "df/item_plantst.h"
@@ -15,7 +15,6 @@
 #include "df/tile_occupancy.h"
 #include "df/plotinfost.h"
 #include "df/unit.h"
-#include "df/viewscreen_overallstatusst.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(cur_year);
@@ -46,10 +45,19 @@ void Stocks::update(color_ostream & out)
     if (last_managerstall != *cur_year_tick / 28 / 1200)
     {
         last_managerstall = *cur_year_tick / 28 / 1200;
-        if (!world->manager_orders.empty())
+        if (!world->manager_orders.all.empty())
         {
-            auto m = world->manager_orders.front();
-            if (m->status.bits.validated)
+            auto m = world->manager_orders.all.front();
+            if (m->amount_left <= 0)
+            {
+                // We zeroed this order last month and DF did not clean it
+                // up. Drop it from the list so the queue can move on. The
+                // object itself is intentionally not deleted (DFHack 53.14+
+                // refuses to free pool-allocated game objects); this leaks
+                // one small struct.
+                world->manager_orders.all.erase(world->manager_orders.all.begin());
+            }
+            else if (m->status.bits.validated)
             {
                 if (m->job_type == last_managerorder)
                 {
@@ -60,8 +68,9 @@ void Stocks::update(color_ostream & out)
                     }
                     else
                     {
-                        world->manager_orders.erase(world->manager_orders.begin());
-                        delete m;
+                        // Let DF retire the order itself rather than freeing
+                        // game memory from the plugin.
+                        m->amount_left = 0;
                     }
                 }
                 else
@@ -101,13 +110,9 @@ void Stocks::update(color_ostream & out)
 
     if (ai.eventsJson.is_open())
     {
-        // update wealth by opening the status screen
-        Gui::getCurViewscreen(true)->feed_key(interface_key::D_STATUS);
-        if (auto view = strict_virtual_cast<df::viewscreen_overallstatusst>(Gui::getCurViewscreen(true)))
-        {
-            // only leave if we're on the status screen
-            view->feed_key(interface_key::LEAVESCREEN);
-        }
+        // DF 0.47 needed the status screen to be opened to refresh these
+        // values; in v50+ the game keeps plotinfo->tasks.wealth updated on
+        // its own, so just read it.
         Json::Value payload(Json::objectValue);
         payload["total"] = Json::Int(plotinfo->tasks.wealth.total);
         payload["weapons"] = Json::Int(plotinfo->tasks.wealth.weapons);
@@ -201,7 +206,7 @@ void Stocks::update(color_ostream & out)
                 continue;
             }
 
-            if (job->job_type == job_type::PenLargeAnimal || job->job_type == job_type::BringItemToDepot || job->job_type == job_type::StoreItemInHospital || job->job_type == job_type::DumpItem || job->job_type == job_type::FillPond)
+            if (job->job_type == job_type::PenLargeAnimal || job->job_type == job_type::BringItemToDepot || job->job_type == job_type::StoreItemInLocation || job->job_type == job_type::DumpItem || job->job_type == job_type::FillPond)
             {
                 // high priority hauling jobs
                 job->flags.bits.do_now = true;

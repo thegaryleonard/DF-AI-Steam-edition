@@ -6,12 +6,11 @@
 #include "modules/Maps.h"
 
 #include "df/abstract_building.h"
+#include "df/general_ref.h"
 #include "df/building_cagest.h"
 #include "df/building_trapst.h"
 #include "df/item_cagest.h"
 #include "df/tile_occupancy.h"
-#include "df/viewscreen_dwarfmodest.h"
-#include "df/viewscreen_locationsst.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
@@ -491,59 +490,14 @@ public:
 
     void FinalizeTemple(color_ostream & out)
     {
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-        Key(interface_key::D_LOCATIONS);
-
-        ExpectedScreen<df::viewscreen_locationsst> view(this);
-
-        ExpectScreen<df::viewscreen_locationsst>("locations/Locations");
-
-        auto bld = r->dfbuilding();
-
-        bool found = false;
-        for (auto loc : view->locations)
+        // Recognizing a priesthood is done through the v50 locations screen,
+        // which df-ai cannot operate. The temple still works without one.
+        static bool warned = false;
+        if (!warned)
         {
-            if (loc && loc->id == bld->location_id)
-            {
-                found = true;
-                break;
-            }
+            warned = true;
+            ai.debug(out, "[v50] recognizing a priesthood for " + AI::describe_room(r) + " must be done manually for now");
         }
-
-        if (!found)
-        {
-            ai.debug(out, "[ERROR] could not find " + AI::describe_room(r) + " on the list");
-
-            Key(interface_key::LEAVESCREEN);
-
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-            return;
-        }
-
-        while (!view->locations.at(view->location_idx) || view->locations.at(view->location_idx)->id != bld->location_id)
-        {
-            Key(interface_key::STANDARDSCROLL_DOWN);
-        }
-
-        Key(interface_key::STANDARDSCROLL_RIGHT);
-
-        ExpectScreen<df::viewscreen_locationsst>("locations/Occupations");
-
-        Key(interface_key::LOCATION_RECOGNIZE_PRIESTHOOD);
-        Key(interface_key::SELECT);
-
-        ExpectScreen<df::viewscreen_locationsst>("locations/AssignOccupation");
-
-        Key(interface_key::STANDARDSCROLL_DOWN);
-        Key(interface_key::SELECT);
-
-        ExpectScreen<df::viewscreen_locationsst>("locations/Occupations");
-
-        Key(interface_key::LEAVESCREEN);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
     }
 };
 

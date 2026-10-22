@@ -5,7 +5,8 @@
 
 #include "modules/Units.h"
 
-#include "df/building_coffinst.h"
+#include "df/building_civzonest.h"
+#include "df/civzone_type.h"
 #include "df/buildings_other_id.h"
 #include "df/history_event_hist_figure_diedst.h"
 #include "df/plotinfost.h"
@@ -38,6 +39,22 @@ void Population::deathwatch(color_ostream & out)
     seen_death = world->history.events_death.size();
 }
 
+// In DF v50+, coffins no longer own rooms. Burial happens in Tomb civzones
+// (which usually contain a coffin). A tomb zone with no assigned unit is
+// available for burial; its zone_settings.tomb.flags control whether pets
+// and/or citizens may be buried there.
+static df::building_civzonest *coffin_tomb_zone(df::building *bld)
+{
+    for (auto zone : bld->relations)
+    {
+        if (zone && zone->type == civzone_type::Tomb)
+        {
+            return zone;
+        }
+    }
+    return nullptr;
+}
+
 void Population::update_deads(color_ostream & out)
 {
     int32_t want_coffin = 3;
@@ -50,7 +67,7 @@ void Population::update_deads(color_ostream & out)
             ai.stocks.queue_slab(out, u->hist_figure_id);
         }
         else if (Units::isCitizen(u) && Units::isDead(u) && std::find_if(u->owned_buildings.begin(), u->owned_buildings.end(),
-            [](df::building *bld) -> bool { return bld->getType() == building_type::Coffin; }) != u->owned_buildings.end())
+            [](df::building_civzonest *zone) -> bool { return zone->type == civzone_type::Tomb; }) != u->owned_buildings.end())
         {
             want_coffin++;
         }
@@ -58,12 +75,21 @@ void Population::update_deads(color_ostream & out)
 
     for (auto bld : world->buildings.other[buildings_other_id::COFFIN])
     {
-        if (!bld->owner)
+        auto tomb = coffin_tomb_zone(bld);
+        if (!tomb)
+        {
+            // A coffin outside of any tomb zone is still a free coffin as far
+            // as the plan is concerned (the plan module is responsible for
+            // designating the tomb zone around it).
+            want_coffin--;
+            continue;
+        }
+
+        if (tomb->assigned_unit_id == -1)
         {
             want_coffin--;
 
-            df::building_coffinst *coffin = virtual_cast<df::building_coffinst>(bld);
-            if (!coffin->burial_mode.bits.no_pets)
+            if (!tomb->zone_settings.tomb.flags.bits.no_pets)
             {
                 want_pet_coffin--;
             }
@@ -98,10 +124,11 @@ void Population::update_deads(color_ostream & out)
     {
         for (auto bld : world->buildings.other[buildings_other_id::COFFIN])
         {
-            df::building_coffinst *coffin = virtual_cast<df::building_coffinst>(bld);
-            if (!coffin->owner && coffin->burial_mode.bits.no_pets)
+            auto tomb = coffin_tomb_zone(bld);
+            if (tomb && tomb->assigned_unit_id == -1 && tomb->zone_settings.tomb.flags.bits.no_pets)
             {
-                coffin->burial_mode.bits.no_pets = 0;
+                tomb->zone_settings.tomb.flags.bits.no_pets = 0;
+                ai.debug(out, "[RIP] allowing pet burials in tomb zone #" + std::to_string(tomb->id));
 
                 // convert at most one per cycle
                 break;

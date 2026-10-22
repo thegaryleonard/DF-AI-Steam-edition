@@ -2,6 +2,8 @@
 
 #include "event_manager.h"
 #include "room.h"
+
+#include "df/civzone_type.h"
 #include "stocks.h"
 #include "plan_priorities.h"
 
@@ -16,6 +18,8 @@
 
 namespace df
 {
+    struct building_civzonest;
+    struct building_stockpilest;
     struct building;
     struct building_stockpilest;
     struct item;
@@ -90,6 +94,7 @@ public:
     command_result onupdate_register(color_ostream & out);
     command_result onupdate_unregister(color_ostream & out);
 
+    static std::string save_path();
     command_result persist(color_ostream & out);
     command_result unpersist(color_ostream & out);
 
@@ -128,6 +133,15 @@ public:
     bool pastures_ready(color_ostream & out);
 
     void set_owner(color_ostream & out, room *r, int32_t uid);
+
+    // plan_zones.cpp: direct creation of zones, locations and stockpiles (DF v50+)
+    df::building_civzonest *create_zone(color_ostream & out, df::civzone_type type, df::coord min, df::coord max, const std::function<bool(df::coord)> & include = nullptr);
+    int32_t create_location(color_ostream & out, df::building_civzonest *zone, location_type::type type, int32_t data1, int32_t data2);
+    int32_t create_hospital(color_ostream & out, df::building_civzonest *zone);
+    df::building_stockpilest *create_stockpile(color_ostream & out, room *r);
+    static df::civzone_type room_zone_type(room *r, furniture *f);
+    df::building_civzonest *make_room_zone(color_ostream & out, room *r, furniture *f);
+    void remove_room_zone(color_ostream & out, room *r);
 
     bool wantdig(color_ostream & out, room *r, int32_t queue = 0);
     bool digroom(color_ostream & out, room *r, bool immediate = false);

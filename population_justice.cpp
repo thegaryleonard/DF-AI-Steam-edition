@@ -1,19 +1,17 @@
 #include "ai.h"
 #include "population.h"
 
-#include "modules/Gui.h"
+#include "modules/Items.h"
 #include "modules/Units.h"
 
 #include "df/building_civzonest.h"
 #include "df/crime.h"
+#include "df/crime_type.h"
 #include "df/general_ref_contains_itemst.h"
 #include "df/general_ref_contains_unitst.h"
 #include "df/item.h"
 #include "df/items_other_id.h"
-#include "df/punishment.h"
 #include "df/plotinfost.h"
-#include "df/viewscreen_justicest.h"
-#include "df/viewscreen_overallstatusst.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(cur_year);
@@ -147,61 +145,61 @@ void Population::update_crimes(color_ostream & out)
         std::string accusation;
         switch (crime->mode)
         {
-        case df::crime::ProductionOrderViolation:
+        case df::crime_type::ProductionOrderViolation:
             accusation = "violation of a production order";
             break;
-        case df::crime::ExportViolation:
+        case df::crime_type::ExportViolation:
             accusation = "violation of an export ban";
             break;
-        case df::crime::JobOrderViolation:
+        case df::crime_type::JobOrderViolation:
             accusation = "violation of a job order";
             break;
-        case df::crime::ConspiracyToSlowLabor:
+        case df::crime_type::ConspiracyToSlowLabor:
             accusation = "conspiracy to slow labor";
             break;
-        case df::crime::Murder:
+        case df::crime_type::Murder:
             accusation = "murder";
             break;
-        case df::crime::DisorderlyBehavior:
+        case df::crime_type::DisorderlyBehavior:
             accusation = "disorderly conduct";
             break;
-        case df::crime::BuildingDestruction:
+        case df::crime_type::BuildingDestruction:
             accusation = "building destruction";
             break;
-        case df::crime::Vandalism:
+        case df::crime_type::Vandalism:
             accusation = "vandalism";
             break;
-        case df::crime::Theft:
+        case df::crime_type::Theft:
             accusation = "theft";
             break;
-        case df::crime::Robbery:
+        case df::crime_type::Robbery:
             accusation = "robbery";
             break;
-        case df::crime::BloodDrinking:
+        case df::crime_type::BloodDrinking:
             accusation = "vampirism";
             break;
-        case df::crime::Embezzlement:
+        case df::crime_type::Embezzlement:
             accusation = "embezzlement";
             break;
-        case df::crime::AttemptedMurder:
+        case df::crime_type::AttemptedMurder:
             accusation = "attempted murder";
             break;
-        case df::crime::Kidnapping:
+        case df::crime_type::Kidnapping:
             accusation = "kidnapping";
             break;
-        case df::crime::AttemptedKidnapping:
+        case df::crime_type::AttemptedKidnapping:
             accusation = "attempted kidnapping";
             break;
-        case df::crime::AttemptedTheft:
+        case df::crime_type::AttemptedTheft:
             accusation = "attempted theft";
             break;
-        case df::crime::Treason:
+        case df::crime_type::Treason:
             accusation = "treason";
             break;
-        case df::crime::Espionage:
+        case df::crime_type::Espionage:
             accusation = "espionage";
             break;
-        case df::crime::Bribery:
+        case df::crime_type::Bribery:
             accusation = "bribery";
             break;
         }
@@ -211,8 +209,8 @@ void Population::update_crimes(color_ostream & out)
         }
 
         df::unit *criminal = df::unit::find(crime->criminal);
-        df::unit *convicted = df::unit::find(crime->convict_data.convicted);
-        df::unit *victim = df::unit::find(crime->victim_data.victim);
+        df::unit *convicted = df::unit::find(crime->accused);
+        df::unit *victim = df::unit::find(crime->victim);
 
         std::string with_victim;
         if (victim)
@@ -225,73 +223,17 @@ void Population::update_crimes(color_ostream & out)
             ai.debug(out, "[Crime] New crime discovered: " + AI::describe_unit(criminal) + " is accused of " + accusation + with_victim + ".");
         }
 
-        if (crime->flags.bits.needs_trial && criminal && !convicted && AI::is_dwarfmode_viewscreen())
+        if (crime->flags.bits.needs_trial && criminal && !convicted)
         {
-            // FIXME: this should be an ExclusiveCallback
-            ai.debug(out, "[Crime] Convicting " + AI::describe_unit(criminal) + " of " + accusation + with_victim + ".");
-            Gui::getCurViewscreen(true)->feed_key(interface_key::D_STATUS);
-            if (auto screen = virtual_cast<df::viewscreen_overallstatusst>(Gui::getCurViewscreen(true)))
+            // In DF 0.47 the AI convicted the criminal through the justice
+            // screen. The v50 justice interface has no data-only equivalent
+            // that DFHack exposes (conviction triggers sentencing logic inside
+            // the game), so we only log the case once.
+            static std::set<int32_t> logged_trials;
+            if (logged_trials.insert(crime->id).second)
             {
-                auto page = std::find(screen->visible_pages.begin(), screen->visible_pages.end(), df::viewscreen_overallstatusst::Justice);
-                if (page == screen->visible_pages.end())
-                {
-                    ai.debug(out, "[Crime] [ERROR] Could not find justice tab on status screen.");
-                }
-                else
-                {
-                    while (screen->visible_pages.at(screen->page_cursor) != df::viewscreen_overallstatusst::Justice)
-                    {
-                        Gui::getCurViewscreen(true)->feed_key(interface_key::STANDARDSCROLL_RIGHT);
-                    }
-                    Gui::getCurViewscreen(true)->feed_key(interface_key::SELECT);
-                    if (auto justice = virtual_cast<df::viewscreen_justicest>(Gui::getCurViewscreen(true)))
-                    {
-                        auto it = std::find(justice->cases.begin(), justice->cases.end(), crime);
-                        if (it == justice->cases.end())
-                        {
-                            ai.debug(out, "[Crime] Could not find case. Checking " + std::string(justice->cold_cases ? "recent crimes" : "cold cases"));
-                            Gui::getCurViewscreen(true)->feed_key(interface_key::CHANGETAB);
-                            it = std::find(justice->cases.begin(), justice->cases.end(), crime);
-                        }
-                        if (it == justice->cases.end())
-                        {
-                            ai.debug(out, "[Crime] [ERROR] Could not find case.");
-                        }
-                        else
-                        {
-                            while (justice->cases.size() <= size_t(justice->sel_idx_current) || justice->cases.at(size_t(justice->sel_idx_current)) != crime)
-                            {
-                                Gui::getCurViewscreen(true)->feed_key(interface_key::STANDARDSCROLL_DOWN);
-                            }
-                            Gui::getCurViewscreen(true)->feed_key(interface_key::SELECT);
-                            auto convict = std::find(justice->convict_choices.begin(), justice->convict_choices.end(), criminal);
-                            if (convict == justice->convict_choices.end())
-                            {
-                                ai.debug(out, "[Crime] [ERROR] Criminal is not on list of suspects.");
-                                Gui::getCurViewscreen(true)->feed_key(interface_key::LEAVESCREEN);
-                            }
-                            else
-                            {
-                                while (justice->convict_choices.at(justice->cursor_right) != criminal)
-                                {
-                                    Gui::getCurViewscreen(true)->feed_key(interface_key::STANDARDSCROLL_DOWN);
-                                }
-                                Gui::getCurViewscreen(true)->feed_key(interface_key::SELECT);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        ai.debug(out, "[Crime] [ERROR] Could not open justice tab on status screen.");
-                    }
-                    Gui::getCurViewscreen(true)->feed_key(interface_key::LEAVESCREEN);
-                }
+                ai.debug(out, "[v50] [Crime] convicting criminals is not supported yet; " + AI::describe_unit(criminal) + " awaits trial for " + accusation + with_victim + ".");
             }
-            else
-            {
-                ai.debug(out, "[Crime] [ERROR] Could not open status screen.");
-            }
-            Gui::getCurViewscreen(true)->feed_key(interface_key::LEAVESCREEN);
         }
 
         if (convicted && !crime->flags.bits.sentenced)

@@ -3,6 +3,8 @@
 
 #include "df/activity_entry.h"
 #include "df/activity_event_conflictst.h"
+#include "df/conflict_sidest.h"
+#include "df/conflict_statest.h"
 #include "df/creature_raw.h"
 #include "df/historical_entity.h"
 #include "df/job.h"
@@ -23,6 +25,10 @@ bool AI::tag_enemies(color_ostream & out)
     for (auto id : plotinfo->main.fortress_entity->squads)
     {
         auto squad = df::squad::find(id);
+        if (!squad)
+        {
+            continue;
+        }
         for (auto order : squad->orders)
         {
             if (auto kill = virtual_cast<df::squad_order_kill_listst>(order))
@@ -113,7 +119,7 @@ df::unit *AI::is_attacking_citizen(df::unit *u)
 
     is_in_conflict(u, [u, &citizen](df::activity_event_conflictst *conflict) -> bool
     {
-        auto unit_side = std::find_if(conflict->sides.begin(), conflict->sides.end(), [u](const df::activity_event_conflictst::T_sides * side) -> bool
+        auto unit_side = std::find_if(conflict->sides.begin(), conflict->sides.end(), [u](const df::conflict_sidest *side) -> bool
         {
             return std::find(side->unit_ids.begin(), side->unit_ids.end(), u->id) != side->unit_ids.end();
         });
@@ -127,7 +133,12 @@ df::unit *AI::is_attacking_citizen(df::unit *u)
         {
             if (enemy_side->conflict_level >= conflict_level::Lethal)
             {
-                auto side = conflict->sides.at(enemy_side->id);
+                auto side_it = std::find_if(conflict->sides.begin(), conflict->sides.end(), [enemy_side](const df::conflict_sidest *s) -> bool { return s->id == enemy_side->id; });
+                if (side_it == conflict->sides.end())
+                {
+                    continue;
+                }
+                auto side = *side_it;
                 for (auto enemy_id : side->unit_ids)
                 {
                     if (auto enemy = df::unit::find(enemy_id))

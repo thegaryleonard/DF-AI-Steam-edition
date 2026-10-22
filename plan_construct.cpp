@@ -1,4 +1,5 @@
 #include "ai.h"
+#include "df/buildingitemst.h"
 #include "plan.h"
 #include "debug.h"
 
@@ -30,14 +31,10 @@
 #include "df/map_block.h"
 #include "df/plant.h"
 #include "df/plotinfost.h"
-#include "df/ui_sidebar_menus.h"
 #include "df/viewscreen_dwarfmodest.h"
-#include "df/viewscreen_layer_stockpilest.h"
 #include "df/world.h"
 
-REQUIRE_GLOBAL(cursor);
 REQUIRE_GLOBAL(plotinfo);
-REQUIRE_GLOBAL(ui_sidebar_menus);
 REQUIRE_GLOBAL(world);
 
 static bool find_item(df::items_other_id idx, df::item *&item, bool fire_safe = false, bool non_economic = false)
@@ -617,7 +614,7 @@ bool Plan::try_furnish_archerytarget(color_ostream &, room *r, furniture *f, df:
 
     df::building *bld = Buildings::allocInstance(t, building_type::ArcheryTarget);
     Buildings::setSize(bld, df::coord(1, 1, 1));
-    virtual_cast<df::building_archerytargetst>(bld)->archery_direction = f->pos.y > 2 ? df::building_archerytargetst::TopToBottom : df::building_archerytargetst::BottomToTop;
+    // DF v50+ stores the shooting direction on the archery range zone (see make_room_zone).
     std::vector<df::item *> item;
     item.push_back(bould);
     Buildings::constructWithItems(bld, item);
@@ -1234,142 +1231,14 @@ public:
 protected:
     void Run(color_ostream & out)
     {
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-        int32_t start_x, start_y, start_z;
-        Gui::getViewCoords(start_x, start_y, start_z);
-
-        Key(interface_key::D_STOCKPILES);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Stockpiles");
-
-        Gui::revealInDwarfmodeMap(r->min + df::coord(1, 0, 0), true);
-        Gui::setCursorCoords(r->min.x + 1, r->min.y, r->min.z);
-
-        Key(interface_key::CURSOR_LEFT);
-        Key(interface_key::STOCKPILE_CUSTOM);
-        Key(interface_key::STOCKPILE_CUSTOM_SETTINGS);
-
-        // don't constrain the focus string
-        ExpectScreen<df::viewscreen_layer_stockpilest>("");
-
-        ExpectedScreen<df::viewscreen_layer_stockpilest> view(this);
-
-        auto wanted_group = stockpile_keys.map.at(r->stockpile_type);
-        bool seen = false, passed = false;
-        for (size_t i = 0; i < view->group_ids.size(); i++)
+        if (r->dfbuilding())
         {
-            auto group = view->group_ids.at(i);
-            if (group == wanted_group)
-            {
-                seen = true;
-                continue;
-            }
-
-            if (group == stockpile_list::AdditionalOptions)
-            {
-                continue;
-            }
-
-            if (view->settings->flags.whole & view->group_bits.at(i).whole)
-            {
-                passed = seen;
-                while (view->cur_group != group)
-                {
-                    Key(interface_key::STANDARDSCROLL_DOWN);
-                }
-
-                Key(interface_key::STOCKPILE_SETTINGS_DISABLE);
-            }
+            // we already have a stockpile. don't double up.
+            return;
         }
 
-        while (view->cur_group != wanted_group)
-        {
-            Key(passed ? interface_key::STANDARDSCROLL_UP : interface_key::STANDARDSCROLL_DOWN);
-        }
-
-        Key(interface_key::STOCKPILE_SETTINGS_ENABLE);
-        Key(interface_key::STANDARDSCROLL_RIGHT);
-
-        if (r->stockpile_type == stockpile_type::fresh_raw_hide)
-        {
-            Key(interface_key::STOCKPILE_SETTINGS_FORBID_ALL);
-            Key(interface_key::STANDARDSCROLL_RIGHT);
-            Key(interface_key::STANDARDSCROLL_DOWN);
-            DFAI_ASSERT(view->item_status.at(1) == &view->settings->refuse.fresh_raw_hide, "fresh raw hide not in expected location");
-            Key(interface_key::SELECT);
-        }
-        else
-        {
-            Key(interface_key::STOCKPILE_SETTINGS_PERMIT_ALL);
-            if (r->stock_disable.size() > view->list_ids.size() / 2)
-            {
-                std::vector<df::stockpile_list> stock_enable = view->list_ids;
-                for (auto disable : r->stock_disable)
-                {
-                    auto it = std::find(stock_enable.begin(), stock_enable.end(), disable);
-                    if (it != stock_enable.end())
-                    {
-                        stock_enable.erase(it);
-                    }
-                }
-
-                Key(interface_key::STOCKPILE_SETTINGS_FORBID_ALL);
-                KeyNoDelay(interface_key::STOCKPILE_SETTINGS_SPECIFIC1);
-                KeyNoDelay(interface_key::STOCKPILE_SETTINGS_SPECIFIC2);
-
-                for (auto enable : stock_enable)
-                {
-                    while (view->cur_list != enable)
-                    {
-                        Key(interface_key::STANDARDSCROLL_DOWN);
-                    }
-                    Key(interface_key::STOCKPILE_SETTINGS_PERMIT_SUB);
-                }
-            }
-            else
-            {
-                for (auto disable : r->stock_disable)
-                {
-                    while (view->cur_list != disable)
-                    {
-                        Key(interface_key::STANDARDSCROLL_DOWN);
-                    }
-                    Key(interface_key::STOCKPILE_SETTINGS_FORBID_SUB);
-                }
-            }
-
-            if (r->stock_specific1)
-            {
-                Key(interface_key::STOCKPILE_SETTINGS_SPECIFIC1);
-            }
-
-            if (r->stock_specific2)
-            {
-                Key(interface_key::STOCKPILE_SETTINGS_SPECIFIC2);
-            }
-        }
-        Key(interface_key::LEAVESCREEN);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Stockpiles");
-
-        size_t buildings_before = world->buildings.all.size();
-        Key(interface_key::SELECT);
-        for (int16_t x = r->min.x; x < r->max.x; x++)
-        {
-            Key(interface_key::CURSOR_RIGHT);
-        }
-        for (int16_t y = r->min.y; y < r->max.y; y++)
-        {
-            Key(interface_key::CURSOR_DOWN);
-        }
-        Key(interface_key::SELECT);
-        Key(interface_key::LEAVESCREEN);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-        df::building_stockpilest *bld = virtual_cast<df::building_stockpilest>(world->buildings.all.back());
-        if (!bld || buildings_before == world->buildings.all.size())
+        df::building_stockpilest *bld = ai.plan.create_stockpile(out, r);
+        if (!bld)
         {
             ai.debug(out, "Failed to create stockpile: " + AI::describe_room(r));
             return;
@@ -1392,7 +1261,6 @@ protected:
             }
         }
 
-        // TODO: do this through the UI
         // setup stockpile links with adjacent level
         ai.find_room(room_type::stockpile, [&](room *o) -> bool
         {
@@ -1437,8 +1305,6 @@ protected:
             }
             return false; // loop on all stockpiles
         });
-
-        ai.ignore_pause(start_x, start_y, start_z);
     }
 };
 
@@ -1465,11 +1331,10 @@ public:
         ai(ai),
         r(r)
     {
-        dfplex_blacklist = true;
     }
 
 protected:
-    void Run(color_ostream &)
+    void Run(color_ostream & out)
     {
         if (r->dfbuilding())
         {
@@ -1477,82 +1342,50 @@ protected:
             return;
         }
 
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-        int32_t start_x, start_y, start_z;
-        Gui::getViewCoords(start_x, start_y, start_z);
-
-        Key(interface_key::D_CIVZONE);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Zones");
-
-        Gui::revealInDwarfmodeMap(r->min + df::coord(1, 0, 0), true);
-        Gui::setCursorCoords(r->min.x + 1, r->min.y, r->min.z);
-
-        Key(interface_key::CURSOR_LEFT);
-        Key(interface_key::SELECT);
-
-        for (int16_t x = r->min.x; x < r->max.x; x++)
+        df::civzone_type type = civzone_type::MeetingHall;
+        switch (r->type)
         {
-            Key(interface_key::CURSOR_RIGHT);
-        }
-        for (int16_t y = r->min.y; y < r->max.y; y++)
-        {
-            Key(interface_key::CURSOR_DOWN);
-        }
-        for (int16_t z = r->min.z; z < r->max.z; z++)
-        {
-            Key(interface_key::CURSOR_UP_Z);
+        case room_type::infirmary:
+            // In DF v50+, a hospital is a location attached to a zone.
+            type = civzone_type::MeetingHall;
+            break;
+        case room_type::garbagedump:
+            type = civzone_type::Dump;
+            break;
+        case room_type::pasture:
+            type = civzone_type::Pen;
+            break;
+        case room_type::pitcage:
+        case room_type::pond:
+            type = civzone_type::Pond;
+            break;
+        case room_type::location:
+            type = civzone_type::MeetingHall;
+            break;
+        default:
+            break;
         }
 
-        Key(interface_key::SELECT);
-        auto bld = virtual_cast<df::building_civzonest>(world->buildings.all.back());
-        DFAI_ASSERT(bld, "newly created civzone is missing!");
+        auto bld = ai.plan.create_zone(out, type, r->min, r->max, [this](df::coord t) -> bool { return r->include(t); });
+        if (!bld)
+        {
+            ai.debug(out, "Failed to create activity zone: " + AI::describe_room(r));
+            return;
+        }
         r->bld_id = bld->id;
-
-        if (bld->zone_flags.bits.active != 1)
-        {
-            Key(interface_key::CIVZONE_ACTIVE);
-        }
 
         if (r->type == room_type::infirmary)
         {
-            Key(interface_key::CIVZONE_HOSPITAL);
-
-            // for the DFHack animal hospital plugin:
-            Key(interface_key::CIVZONE_ANIMAL_TRAINING);
-        }
-        else if (r->type == room_type::garbagedump)
-        {
-            Key(interface_key::CIVZONE_DUMP);
-        }
-        else if (r->type == room_type::pasture)
-        {
-            Key(interface_key::CIVZONE_PEN);
+            ai.plan.create_hospital(out, bld);
         }
         else if (r->type == room_type::pitcage)
         {
-            Key(interface_key::CIVZONE_POND);
-            if (bld->pit_flags.bits.is_pond != 0)
-            {
-                Key(interface_key::CIVZONE_POND_OPTIONS);
-                ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/ZonesPitInfo");
-                Key(interface_key::CIVZONE_POND_WATER);
-                Key(interface_key::LEAVESCREEN);
-                ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Zones");
-            }
+            // a pit, not a pond: don't fill it with water
+            bld->zone_settings.pond.flag.bits.keep_filled = 0;
         }
         else if (r->type == room_type::pond)
         {
-            Key(interface_key::CIVZONE_POND);
-            if (bld->pit_flags.bits.is_pond != 1)
-            {
-                Key(interface_key::CIVZONE_POND_OPTIONS);
-                ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/ZonesPitInfo");
-                Key(interface_key::CIVZONE_POND_WATER);
-                Key(interface_key::LEAVESCREEN);
-                ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Zones");
-            }
+            bld->zone_settings.pond.flag.bits.keep_filled = 1;
             if (r->temporary && r->workshop && r->workshop->type == room_type::farmplot)
             {
                 ai.plan.add_task(task_type::monitor_farm_irrigation, r);
@@ -1560,79 +1393,20 @@ protected:
         }
         else if (r->type == room_type::location)
         {
-            Key(interface_key::CIVZONE_MEETING);
             for (auto f : r->layout)
             {
                 if (f->type == layout_type::well)
                 {
-                    Key(interface_key::CIVZONE_WATER_SOURCE);
+                    // also let dwarves drink from the well here
+                    ai.plan.create_zone(out, civzone_type::WaterSource, r->min, r->max, [this](df::coord t) -> bool { return r->include(t); });
                     break;
                 }
             }
-            Key(interface_key::ASSIGN_LOCATION);
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/ZonesLocationInfo");
-            Key(interface_key::LOCATION_NEW);
-            bool known = false;
-            switch (r->location_type)
+            if (ai.plan.create_location(out, bld, r->location_type, r->data1, r->data2) == -1)
             {
-            case location_type::guildhall:
-            {
-                Key(interface_key::LOCATION_GUILDHALL);
-                auto gh_type = df::profession(r->data1);
-                DFAI_ASSERT(gh_type != profession::NONE, "guild hall must have profession");
-                do
-                {
-                    Key(interface_key::SECONDSCROLL_DOWN);
-                }
-                while (ui_sidebar_menus->location.cursor_profession &&
-                        ui_sidebar_menus->location.profession.at(ui_sidebar_menus->location.cursor_profession) != gh_type);
-                DFAI_ASSERT(ui_sidebar_menus->location.profession.at(ui_sidebar_menus->location.cursor_profession) == gh_type, "could not find profession for this guildhall");
-                Key(interface_key::SELECT);
-                known = true;
-                break;
+                ai.debug(out, "[ERROR] could not create location for " + AI::describe_room(r));
             }
-            case location_type::tavern:
-                Key(interface_key::LOCATION_INN_TAVERN);
-                known = true;
-                break;
-            case location_type::library:
-                Key(interface_key::LOCATION_LIBRARY);
-                known = true;
-                break;
-            case location_type::temple:
-            {
-                Key(interface_key::LOCATION_TEMPLE);
-                if (r->data1 != -1)
-                {
-                    do
-                    {
-                        Key(interface_key::SECONDSCROLL_DOWN);
-                    }
-                    while (ui_sidebar_menus->location.cursor_deity &&
-                            (ui_sidebar_menus->location.deity_type.at(ui_sidebar_menus->location.cursor_deity) != df::temple_deity_type(r->data1) ||
-                             ui_sidebar_menus->location.deity_data.at(ui_sidebar_menus->location.cursor_deity).Deity != r->data2));
-                    DFAI_ASSERT(ui_sidebar_menus->location.cursor_deity, "could not find religion for this temple");
-                }
-                Key(interface_key::SELECT);
-                known = true;
-                break;
-            }
-            case location_type::_location_type_count:
-                break;
-            }
-            if (!known)
-            {
-                Key(interface_key::LEAVESCREEN);
-                Key(interface_key::LEAVESCREEN);
-            }
-            ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Zones");
         }
-
-        Key(interface_key::LEAVESCREEN);
-
-        ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
-
-        ai.ignore_pause(start_x, start_y, start_z);
     }
 };
 
@@ -1664,8 +1438,10 @@ bool Plan::monitor_farm_irrigation(color_ostream & out, room *r, std::ostream & 
 {
     if (can_place_farm(out, r->workshop, false, reason))
     {
-        auto zone = virtual_cast<df::building_civzonest>(r->dfbuilding());
-        zone->pit_flags.bits.is_pond = 0;
+        if (auto zone = virtual_cast<df::building_civzonest>(r->dfbuilding()))
+        {
+            zone->zone_settings.pond.flag.bits.keep_filled = 0;
+        }
         return true;
     }
 
@@ -1792,13 +1568,6 @@ bool Plan::try_setup_farmplot(color_ostream & out, room *r, std::ostream & reaso
 
 bool Plan::try_endfurnish(color_ostream & out, room *r, furniture *f, std::ostream & reason)
 {
-    if (!AI::is_dwarfmode_viewscreen())
-    {
-        // some of these things need to use the UI.
-        reason << "not on main viewscreen";
-        return false;
-    }
-
     df::building *bld = df::building::find(f->bld_id);
     if (!bld)
     {
@@ -1817,16 +1586,20 @@ bool Plan::try_endfurnish(color_ostream & out, room *r, furniture *f, std::ostre
     }
     else if (f->type == layout_type::coffin)
     {
-        df::building_coffinst *coffin = virtual_cast<df::building_coffinst>(bld);
-        coffin->burial_mode.bits.allow_burial = 1;
-        coffin->burial_mode.bits.no_citizens = 0;
-        coffin->burial_mode.bits.no_pets = 1;
+        // In DF v50+ a coffin is only used for burial inside a tomb zone.
+        if (!f->makeroom)
+        {
+            df::coord t = r->min + f->pos;
+            std::vector<df::building_civzonest *> zones;
+            if (!Buildings::findCivzonesAt(&zones, t))
+            {
+                create_zone(out, civzone_type::Tomb, t, t);
+            }
+        }
     }
     else if (f->type == layout_type::door)
     {
-        df::building_doorst *door = virtual_cast<df::building_doorst>(bld);
-        door->door_flags.bits.pet_passable = 1;
-        door->door_flags.bits.internal = f->internal ? 1 : 0;
+        // DF v50+ removed the pet-passable and internal door settings.
     }
     else if (f->type == layout_type::floodgate)
     {
@@ -1849,13 +1622,7 @@ bool Plan::try_endfurnish(color_ostream & out, room *r, furniture *f, std::ostre
         if (r->type == room_type::pitcage)
         {
             hatch->door_flags.bits.forbidden = 1;
-            hatch->door_flags.bits.pet_passable = 0;
         }
-        else
-        {
-            hatch->door_flags.bits.pet_passable = 1;
-        }
-        hatch->door_flags.bits.internal = f->internal ? 1 : 0;
     }
     else if (f->type == layout_type::lever)
     {
@@ -1866,39 +1633,9 @@ bool Plan::try_endfurnish(color_ostream & out, room *r, furniture *f, std::ostre
     {
         if (!f->makeroom)
         {
-            delete[] bld->room.extents;
-            bld->room.extents = new df::building_extents_type[1];
-            bld->room.extents[0] = building_extents_type::DistanceBoundary;
-            bld->room.x = r->min.x + f->pos.x;
-            bld->room.y = r->min.y + f->pos.y;
-            bld->room.width = 1;
-            bld->room.height = 1;
-            bld->is_room = true;
+            // the whole jail is one dungeon zone in DF v50+
+            make_room_zone(out, r, f);
         }
-        bld->flags.bits.justice = 1;
-    }
-
-    if (r->type == room_type::infirmary)
-    {
-        // Toggle hospital off and on because it's easier than figuring out
-        // what Dwarf Fortress does. Shouldn't cancel any jobs, but might
-        // create jobs if we just built a box.
-
-        int32_t start_x, start_y, start_z;
-        Gui::getViewCoords(start_x, start_y, start_z);
-
-        Gui::getCurViewscreen(true)->feed_key(interface_key::D_CIVZONE);
-
-        df::coord pos = r->pos();
-        Gui::revealInDwarfmodeMap(pos, true);
-        Gui::setCursorCoords(pos.x, pos.y, pos.z);
-
-        Gui::getCurViewscreen(true)->feed_key(interface_key::CURSOR_LEFT);
-        Gui::getCurViewscreen(true)->feed_key(interface_key::CIVZONE_HOSPITAL);
-        Gui::getCurViewscreen(true)->feed_key(interface_key::CIVZONE_HOSPITAL);
-        Gui::getCurViewscreen(true)->feed_key(interface_key::LEAVESCREEN);
-
-        ai.ignore_pause(start_x, start_y, start_z);
     }
 
     if (!f->makeroom)
@@ -1913,67 +1650,23 @@ bool Plan::try_endfurnish(color_ostream & out, room *r, furniture *f, std::ostre
 
     ai.debug(out, "makeroom " + AI::describe_room(r));
 
-    df::coord size = r->size() + df::coord(2, 2, 0);
-
-    delete[] bld->room.extents;
-    bld->room.extents = new df::building_extents_type[size.x * size.y]();
-    bld->room.x = r->min.x - 1;
-    bld->room.y = r->min.y - 1;
-    bld->room.width = size.x;
-    bld->room.height = size.y;
-    auto set_ext = [&bld](int16_t x, int16_t y, df::building_extents_type v)
+    if (!make_room_zone(out, r, f))
     {
-        bld->room.extents[bld->room.width * (y - bld->room.y) + (x - bld->room.x)] = v;
-    };
-    for (int16_t rx = r->min.x - 1; rx <= r->max.x + 1; rx++)
-    {
-        for (int16_t ry = r->min.y - 1; ry <= r->max.y + 1; ry++)
-        {
-            if (ENUM_ATTR(tiletype, shape, *Maps::getTileType(rx, ry, r->min.z)) == tiletype_shape::WALL)
-            {
-                set_ext(rx, ry, building_extents_type::Wall);
-            }
-            else
-            {
-                set_ext(rx, ry, r->include(df::coord(rx, ry, r->min.z)) ? building_extents_type::Interior : building_extents_type::DistanceBoundary);
-            }
-        }
+        reason << " (could not create zone)";
+        return false;
     }
-    for (auto f_ : r->layout)
-    {
-        if (f_->type != layout_type::door)
-            continue;
-        df::coord t = r->min + f_->pos;
-        set_ext(t.x, t.y, building_extents_type::None);
-        // tile in front of the door tile is 4 (TODO door in corner...)
-        if (t.x < r->min.x)
-            set_ext(t.x + 1, t.y, building_extents_type::DistanceBoundary);
-        if (t.x > r->max.x)
-            set_ext(t.x - 1, t.y, building_extents_type::DistanceBoundary);
-        if (t.y < r->min.y)
-            set_ext(t.x, t.y + 1, building_extents_type::DistanceBoundary);
-        if (t.y > r->max.y)
-            set_ext(t.x, t.y - 1, building_extents_type::DistanceBoundary);
-    }
-    bld->is_room = true;
 
     set_owner(out, r, r->owner);
     furnish_room(out, r);
 
-    if (r->type == room_type::dininghall)
+    if (r->type == room_type::barracks)
     {
-        virtual_cast<df::building_tablest>(bld)->table_flags.bits.meeting_hall = 1;
-    }
-    else if (r->type == room_type::barracks)
-    {
-        df::building *bld = r->dfbuilding();
-        if (f->type == layout_type::archery_target)
+        if (r->squad_id != -1)
         {
-            bld = df::building::find(f->bld_id);
-        }
-        if (r->squad_id != -1 && bld)
-        {
-            assign_barrack_squad(out, bld, r->squad_id);
+            if (auto zone = df::building::find(r->zone_id))
+            {
+                assign_barrack_squad(out, zone, r->squad_id);
+            }
         }
     }
 
@@ -2061,8 +1754,8 @@ bool Plan::link_lever(color_ostream &, furniture *src, furniture *dst, std::ostr
     bld->jobs.push_back(job);
     Job::linkIntoWorld(job);
 
-    Job::attachJobItem(job, mechas[0], df::job_item_ref::LinkToTarget);
-    Job::attachJobItem(job, mechas[1], df::job_item_ref::LinkToTrigger);
+    Job::attachJobItem(job, mechas[0], df::job_role_type::LinkToTarget);
+    Job::attachJobItem(job, mechas[1], df::job_role_type::LinkToTrigger);
 
     reason << "waiting for lever to be linked to target";
     return false;

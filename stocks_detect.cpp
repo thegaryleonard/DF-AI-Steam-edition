@@ -5,6 +5,7 @@
 #include "modules/Maps.h"
 
 #include "df/building_actual.h"
+#include "df/buildingitemst.h"
 #include "df/general_ref_building_holderst.h"
 #include "df/general_ref_contained_in_itemst.h"
 #include "df/general_ref_contains_itemst.h"
@@ -15,6 +16,7 @@
 #include "df/reaction_reagent_itemst.h"
 #include "df/reaction_product_itemst.h"
 #include "df/unit.h"
+#include "df/inv_item_role_type.h"
 #include "df/unit_inventory_item.h"
 #include "df/world.h"
 
@@ -29,8 +31,7 @@ bool Stocks::is_item_free(df::item *i, bool allow_nonempty)
         i->flags.bits.encased ||
         i->flags.bits.removed || // deleted object
         i->flags.bits.forbid || // user forbidden (or dumped)
-        i->flags.bits.dump ||
-        i->flags.bits.in_chest) // in infirmary (XXX dwarf owned items ?)
+        i->flags.bits.dump)
     {
         return false;
     }
@@ -71,7 +72,7 @@ bool Stocks::is_item_free(df::item *i, bool allow_nonempty)
                 auto & inv = u->inventory;
                 for (auto ii : inv)
                 {
-                    if (ii->item == i && ii->mode != df::unit_inventory_item::Hauled)
+                    if (ii->item == i && ii->mode != df::inv_item_role_type::Hauled)
                     {
                         return false;
                     }

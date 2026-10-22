@@ -51,6 +51,7 @@ SET(PROJECT_SRCS
     plan_setup.cpp
     plan_setup_blueprint.cpp
     plan_smooth.cpp
+    plan_zones.cpp
     plan_task.cpp
     blueprint.cpp
     blueprint_furniture.cpp

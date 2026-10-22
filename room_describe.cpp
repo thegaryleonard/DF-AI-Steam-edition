@@ -1,4 +1,5 @@
 #include "ai.h"
+#include "df/religious_practice_type.h"
 #include "plan.h"
 
 #include "df/abstract_building_templest.h"
@@ -49,12 +50,12 @@ std::string AI::describe_room(room *r, bool html)
             s << " (" << toLower_cp437(enum_item_key(df::profession(r->data1))) << " guildhall)";
             break;
         case location_type::temple:
-            switch (df::temple_deity_type(r->data1))
+            switch (r->data1)
             {
-            case temple_deity_type::None:
+            case -1:
                 s << " (temple)";
                 break;
-            case temple_deity_type::Deity:
+            case religious_practice_type::WORSHIP_HFID:
                 s << " (temple to ";
                 if (html)
                 {
@@ -74,7 +75,7 @@ std::string AI::describe_room(room *r, bool html)
                 }
                 s << ")";
                 break;
-            case temple_deity_type::Religion:
+            case religious_practice_type::RELIGION_ENID:
                 s << " (temple of ";
                 if (html)
                 {

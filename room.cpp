@@ -44,6 +44,7 @@ room::room(room_type::type type, df::coord mins, df::coord maxs, std::string com
     layout(),
     owner(-1),
     bld_id(-1),
+    zone_id(-1),
     squad_id(-1),
     level(-1),
     noblesuite(-1),
@@ -414,7 +415,7 @@ int32_t room::compute_value() const
         u = world->units.active[0];
     }
 
-    return bld->getRoomValue(u);
+    return bld->getPersonalValue(u);
 }
 
 int32_t room::distance_to(const room *other) const
