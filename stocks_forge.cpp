@@ -75,9 +75,9 @@ bool Stocks::queue_need_forge(color_ostream & out, df::material_flags preference
     if (!metal_pref.count(preference))
     {
         auto & pref = metal_pref[preference];
-        for (size_t mi = 0; mi < world->raws.inorganics.size(); mi++)
+        for (size_t mi = 0; mi < world->raws.inorganics.all.size(); mi++)
         {
-            if (world->raws.inorganics[mi]->material.flags.is_set(preference))
+            if (world->raws.inorganics.all[mi]->material.flags.is_set(preference))
             {
                 pref.insert(int32_t(mi));
             }
@@ -331,7 +331,7 @@ int32_t Stocks::may_forge_bars(color_ostream & out, int32_t mat_index, std::ostr
                     if (i->getMaterial() != 0)
                         continue;
                     bool found = false;
-                    auto & mis = world->raws.inorganics[i->getMaterialIndex()]->metal_ore.mat_index;
+                    auto & mis = world->raws.inorganics.all[i->getMaterialIndex()]->metal_ore.mat_index;
                     for (auto mi : mis)
                     {
                         if (mi == rri->metal_ore)

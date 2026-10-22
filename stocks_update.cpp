@@ -13,14 +13,14 @@
 #include "df/item_slabst.h"
 #include "df/manager_order.h"
 #include "df/tile_occupancy.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/unit.h"
 #include "df/viewscreen_overallstatusst.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 void Stocks::update(color_ostream & out)
@@ -109,16 +109,16 @@ void Stocks::update(color_ostream & out)
             view->feed_key(interface_key::LEAVESCREEN);
         }
         Json::Value payload(Json::objectValue);
-        payload["total"] = Json::Int(ui->tasks.wealth.total);
-        payload["weapons"] = Json::Int(ui->tasks.wealth.weapons);
-        payload["armor"] = Json::Int(ui->tasks.wealth.armor);
-        payload["furniture"] = Json::Int(ui->tasks.wealth.furniture);
-        payload["other"] = Json::Int(ui->tasks.wealth.other);
-        payload["architecture"] = Json::Int(ui->tasks.wealth.architecture);
-        payload["displayed"] = Json::Int(ui->tasks.wealth.displayed);
-        payload["held"] = Json::Int(ui->tasks.wealth.held);
-        payload["imported"] = Json::Int(ui->tasks.wealth.imported);
-        payload["exported"] = Json::Int(ui->tasks.wealth.exported);
+        payload["total"] = Json::Int(plotinfo->tasks.wealth.total);
+        payload["weapons"] = Json::Int(plotinfo->tasks.wealth.weapons);
+        payload["armor"] = Json::Int(plotinfo->tasks.wealth.armor);
+        payload["furniture"] = Json::Int(plotinfo->tasks.wealth.furniture);
+        payload["other"] = Json::Int(plotinfo->tasks.wealth.other);
+        payload["architecture"] = Json::Int(plotinfo->tasks.wealth.architecture);
+        payload["displayed"] = Json::Int(plotinfo->tasks.wealth.displayed);
+        payload["held"] = Json::Int(plotinfo->tasks.wealth.held);
+        payload["imported"] = Json::Int(plotinfo->tasks.wealth.imported);
+        payload["exported"] = Json::Int(plotinfo->tasks.wealth.exported);
         ai.event("wealth", payload);
     }
 
@@ -298,7 +298,7 @@ void Stocks::count_plants(color_ostream &)
 void Stocks::update_ingots(color_ostream & out)
 {
     std::ofstream discard;
-    for (int32_t mat_index = 0; mat_index < int32_t(world->raws.inorganics.size()); mat_index++)
+    for (int32_t mat_index = 0; mat_index < int32_t(world->raws.inorganics.all.size()); mat_index++)
     {
         if (may_forge_bars(out, mat_index, discard, 1, true) >= 150)
         {

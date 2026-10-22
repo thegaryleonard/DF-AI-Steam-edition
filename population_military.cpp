@@ -22,7 +22,7 @@
 #include "df/squad_order_kill_listst.h"
 #include "df/squad_position.h"
 #include "df/squad_uniform_spec.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/uniform_category.h"
 #include "df/unit_misc_trait.h"
 #include "df/viewscreen_dwarfmodest.h"
@@ -30,7 +30,7 @@
 #include "df/world.h"
 
 REQUIRE_GLOBAL(pause_state);
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 class MilitarySetupExclusive : public ExclusiveCallback
@@ -355,7 +355,7 @@ public:
             return u->uniform_item_types[cat].size() == 1 && u->uniform_item_types[cat].at(0) == item_type && u->uniform_item_info[cat].at(0)->material_class == mat_class && u->uniform_item_info[cat].at(0)->indiv_choice.whole == indiv_choice.whole;
         };
 
-        auto selected = std::find_if(ui->main.fortress_entity->uniforms.begin(), ui->main.fortress_entity->uniforms.end(), [&](df::entity_uniform *u) -> bool
+        auto selected = std::find_if(plotinfo->main.fortress_entity->uniforms.begin(), plotinfo->main.fortress_entity->uniforms.end(), [&](df::entity_uniform *u) -> bool
         {
             return u->flags.bits.exact_matches && !u->flags.bits.replace_clothing &&
                 check_uniform_item(u, uniform_category::body, item_type::ARMOR) &&
@@ -367,10 +367,10 @@ public:
                 check_uniform_item(u, uniform_category::weapon, item_type::WEAPON, entity_material_category::None, indiv_choice);
         });
 
-        if (selected != ui->main.fortress_entity->uniforms.end())
+        if (selected != plotinfo->main.fortress_entity->uniforms.end())
         {
             ai.debug(out, "Selected uniform for squad: " + (*selected)->name);
-            return int32_t(selected - ui->main.fortress_entity->uniforms.begin());
+            return int32_t(selected - plotinfo->main.fortress_entity->uniforms.begin());
         }
 
         Key(interface_key::D_MILITARY_UNIFORMS);
@@ -428,12 +428,12 @@ public:
         add_uniform_part(interface_key::D_MILITARY_ADD_SHIELD);
         add_uniform_part(interface_key::D_MILITARY_ADD_WEAPON);
 
-        if (!ui->main.fortress_entity->uniforms.back()->flags.bits.exact_matches)
+        if (!plotinfo->main.fortress_entity->uniforms.back()->flags.bits.exact_matches)
         {
             Key(interface_key::D_MILITARY_EXACT_MATCH);
         }
 
-        if (ui->main.fortress_entity->uniforms.back()->flags.bits.replace_clothing)
+        if (plotinfo->main.fortress_entity->uniforms.back()->flags.bits.replace_clothing)
         {
             Key(interface_key::D_MILITARY_REPLACE_CLOTHING);
         }
@@ -444,7 +444,7 @@ public:
 
         ai.debug(out, ranged ? "Created new uniform for ranged squad." : "Created new uniform for melee squad.");
 
-        return int32_t(ui->main.fortress_entity->uniforms.size() - 1);
+        return int32_t(plotinfo->main.fortress_entity->uniforms.size() - 1);
     }
 
     static bool compare(const df::unit *a, const df::unit *b)
@@ -988,18 +988,18 @@ public:
 
             for (auto kill_orders_squad : kill_orders)
             {
-                auto squad_pos = std::find_if(ui->squads.list.begin(), ui->squads.list.end(), [&](void *psquad) -> bool
+                auto squad_pos = std::find_if(plotinfo->squads.list.begin(), plotinfo->squads.list.end(), [&](void *psquad) -> bool
                 {
                     auto squad = reinterpret_cast<df::squad *>(psquad);
                     return squad->id == kill_orders_squad.first;
-                }) - ui->squads.list.begin();
+                }) - plotinfo->squads.list.begin();
                 auto first_squad = [&]() -> ptrdiff_t
                 {
-                    return ui->squads.list.size() > 9 ? std::find_if(ui->squads.list.begin(), ui->squads.list.end(), [](void *psquad)
+                    return plotinfo->squads.list.size() > 9 ? std::find_if(plotinfo->squads.list.begin(), plotinfo->squads.list.end(), [](void *psquad)
                     {
                         auto squad = reinterpret_cast<df::squad *>(psquad);
-                        return squad->id == ui->squads.squad_list_first_id;
-                    }) - ui->squads.list.begin() : 0;
+                        return squad->id == plotinfo->squads.squad_list_first_id;
+                    }) - plotinfo->squads.list.begin() : 0;
                 };
 
                 // Menu is guaranteed to be capped at 10 squads: a, b, c, d, e, f, g, h, i, j. k is reserved for kill orders.
@@ -1020,28 +1020,28 @@ public:
                     continue;
                 }
 
-                DFAI_ASSERT(std::count(ui->squads.sel_squads.begin(), ui->squads.sel_squads.end(), true) == 1, "did not select a single squad (selected " << std::count(ui->squads.sel_squads.begin(), ui->squads.sel_squads.end(), true) << ")");
-                DFAI_ASSERT(!ui->squads.in_kill_order && !ui->squads.in_kill_list, "in target mode early");
+                DFAI_ASSERT(std::count(plotinfo->squads.sel_squads.begin(), plotinfo->squads.sel_squads.end(), true) == 1, "did not select a single squad (selected " << std::count(plotinfo->squads.sel_squads.begin(), plotinfo->squads.sel_squads.end(), true) << ")");
+                DFAI_ASSERT(!plotinfo->squads.in_kill_order && !plotinfo->squads.in_kill_list, "in target mode early");
                 Key(interface_key::D_SQUADS_KILL);
-                DFAI_ASSERT(ui->squads.in_kill_order && !ui->squads.in_kill_list, "failed to enter target mode");
+                DFAI_ASSERT(plotinfo->squads.in_kill_order && !plotinfo->squads.in_kill_list, "failed to enter target mode");
                 Key(interface_key::D_SQUADS_KILL_LIST);
-                DFAI_ASSERT(ui->squads.in_kill_list, "failed to enter target list");
+                DFAI_ASSERT(plotinfo->squads.in_kill_list, "failed to enter target list");
 
                 bool remove_only = true;
                 for (auto kill_orders_unit : kill_orders_squad.second)
                 {
-                    auto unit_it = std::find_if(ui->squads.kill_targets.begin(), ui->squads.kill_targets.end(), [&](df::unit *u) -> bool
+                    auto unit_it = std::find_if(plotinfo->squads.kill_targets.begin(), plotinfo->squads.kill_targets.end(), [&](df::unit *u) -> bool
                     {
                         return u->id == kill_orders_unit;
                     });
-                    if (unit_it == ui->squads.kill_targets.end())
+                    if (unit_it == plotinfo->squads.kill_targets.end())
                     {
                         ai.debug(out, "[ERROR] Cannot find unit for squad kill order: " + AI::describe_unit(df::unit::find(kill_orders_unit)));
                         continue;
                     }
 
-                    auto unit_pos = int32_t(unit_it - ui->squads.kill_targets.begin());
-                    volatile auto & first_unit = ui->squads.kill_list_scroll;
+                    auto unit_pos = int32_t(unit_it - plotinfo->squads.kill_targets.begin());
+                    volatile auto & first_unit = plotinfo->squads.kill_list_scroll;
 
                     while (first_unit > unit_pos)
                     {
@@ -1059,7 +1059,7 @@ public:
                 Key(interface_key::SELECT);
                 Delay();
 
-                if (ui->squads.in_kill_list)
+                if (plotinfo->squads.in_kill_list)
                 {
                     Key(interface_key::LEAVESCREEN);
                     Delay();
@@ -1071,13 +1071,13 @@ public:
                     }
                 }
 
-                if (ui->squads.in_kill_order)
+                if (plotinfo->squads.in_kill_order)
                 {
                     Key(interface_key::LEAVESCREEN);
                     Delay();
                 }
 
-                DFAI_ASSERT(!ui->squads.in_kill_order && !ui->squads.in_kill_list, "failed to return to squad list");
+                DFAI_ASSERT(!plotinfo->squads.in_kill_order && !plotinfo->squads.in_kill_list, "failed to return to squad list");
             }
 
             Key(interface_key::LEAVESCREEN);
@@ -1094,7 +1094,7 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
 {
     df::squad *squad = nullptr;
     int32_t best = std::numeric_limits<int32_t>::min();
-    for (auto sqid : ui->main.fortress_entity->squads)
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
         df::squad *sq = df::squad::find(sqid);
 
@@ -1178,7 +1178,7 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
 bool Population::military_all_squads_attack_unit(color_ostream & out, df::unit *u, const std::string & reason)
 {
     bool any = false;
-    for (auto sqid : ui->main.fortress_entity->squads)
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
         if (military_squad_attack_unit(out, df::squad::find(sqid), u, reason))
             any = true;
@@ -1243,7 +1243,7 @@ bool Population::military_squad_attack_unit(color_ostream &, df::squad *squad, d
 bool Population::military_cancel_attack_order(color_ostream & out, df::unit *u, const std::string & reason)
 {
     bool any = false;
-    for (auto sqid : ui->main.fortress_entity->squads)
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
         if (military_cancel_attack_order(out, df::squad::find(sqid), u, reason))
             any = true;

@@ -19,13 +19,13 @@
 #include "df/historical_figure.h"
 #include "df/item.h"
 #include "df/job.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/viewscreen_layer_assigntradest.h"
 #include "df/viewscreen_tradegoodsst.h"
 #include "df/viewscreen_tradelistst.h"
 #include "df/world.h"
 
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 void Population::update_trading(color_ostream & out)
@@ -61,7 +61,7 @@ void Population::update_trading(color_ostream & out)
     }
 
     df::caravan_state *caravan = nullptr;
-    for (auto it = ui->caravans.begin(); it != ui->caravans.end(); it++)
+    for (auto it = plotinfo->caravans.begin(); it != plotinfo->caravans.end(); it++)
     {
         if ((*it)->trade_state == df::caravan_state::AtDepot)
         {
@@ -78,15 +78,15 @@ void Population::update_trading(color_ostream & out)
         return;
     }
 
-    auto broker_pos = std::find_if(ui->main.fortress_entity->positions.own.begin(), ui->main.fortress_entity->positions.own.end(), [](df::entity_position *pos) -> bool { return pos->responsibilities[entity_position_responsibility::TRADE]; });
-    if (broker_pos == ui->main.fortress_entity->positions.own.end())
+    auto broker_pos = std::find_if(plotinfo->main.fortress_entity->positions.own.begin(), plotinfo->main.fortress_entity->positions.own.end(), [](df::entity_position *pos) -> bool { return pos->responsibilities[entity_position_responsibility::TRADE]; });
+    if (broker_pos == plotinfo->main.fortress_entity->positions.own.end())
     {
         ai.debug(out, "[trade] Could not find broker position!");
         return;
     }
 
-    auto broker_assignment = std::find_if(ui->main.fortress_entity->positions.assignments.begin(), ui->main.fortress_entity->positions.assignments.end(), [broker_pos](df::entity_position_assignment *asn) -> bool { return asn->position_id == (*broker_pos)->id; });
-    if (broker_assignment == ui->main.fortress_entity->positions.assignments.end())
+    auto broker_assignment = std::find_if(plotinfo->main.fortress_entity->positions.assignments.begin(), plotinfo->main.fortress_entity->positions.assignments.end(), [broker_pos](df::entity_position_assignment *asn) -> bool { return asn->position_id == (*broker_pos)->id; });
+    if (broker_assignment == plotinfo->main.fortress_entity->positions.assignments.end())
     {
         ai.debug(out, "[trade] Could not find broker assignment!");
         return;

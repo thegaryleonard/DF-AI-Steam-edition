@@ -7,22 +7,6 @@
 
 #include "modules/Screen.h"
 
-class PlanSetup;
-
-class viewscreen_ai_plan_setupst : public dfhack_viewscreen
-{
-    PlanSetup & setup;
-
-public:
-    viewscreen_ai_plan_setupst(PlanSetup & setup) : setup(setup) {}
-
-    std::string getFocusString();
-
-    void render();
-
-    static virtual_identity _identity;
-};
-
 class PlanSetup : public ExclusiveCallback
 {
     AI & ai;

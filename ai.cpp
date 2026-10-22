@@ -5,23 +5,21 @@
 #include "plan_setup.h"
 #include "stocks.h"
 #include "camera.h"
-#include "embark.h"
 #include "trade.h"
 
 #include "modules/Gui.h"
 #include "modules/Screen.h"
 
+#include "modules/Maps.h"
+#include "modules/World.h"
+
 #include "df/enabler.h"
-#include "df/viewscreen_dwarfmodest.h"
-#include "df/viewscreen_movieplayerst.h"
-#include "df/viewscreen_optionst.h"
-#include "df/viewscreen_textviewerst.h"
-#include "df/viewscreen_titlest.h"
+#include "df/popup_message.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(enabler);
 REQUIRE_GLOBAL(pause_state);
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 AI::AI() :
@@ -47,52 +45,40 @@ AI::AI() :
     last_announcement_id{ -1 }
 {
     Gui::getViewCoords(last_good_x, last_good_y, last_good_z);
-
-    for (int32_t y = 0; y < 25; y++)
-    {
-        for (int32_t x = 0; x < 80; x++)
-        {
-            lockstep_log_buffer[y][x] = ' ';
-        }
-        lockstep_log_color[y] = 7;
-    }
-
-    if (config.random_embark)
-    {
-        events.register_exclusive(std::make_unique<EmbarkExclusive>(*this));
-    }
 }
 
 AI::~AI()
 {
-    events.remove_dfplex_client();
 }
 
 bool AI::is_dwarfmode_viewscreen()
 {
-    if (ui->main.mode != ui_sidebar_mode::Default)
+    // df-ai no longer drives the UI, so this only checks that a fortress is
+    // loaded and the player is looking at the plain map (no popups/menus).
+    if (!World::isFortressMode() || !Maps::IsValid())
         return false;
     if (!world->status.popups.empty())
         return false;
-    auto view = Gui::getCurViewscreen(false);
-    if (Screen::isDismissed(view))
-        return false;
-    if (!strict_virtual_cast<df::viewscreen_dwarfmodest>(view))
-        return false;
-    return true;
+    return Gui::matchFocusString("dwarfmode/Default", Gui::getDFViewscreen(true));
 }
 
 command_result AI::startup(color_ostream & out)
 {
-    events.create_dfplex_client();
-
-    command_result res = Core::getInstance().runCommand(out, "disable confirm");;
-    if (res == CR_OK && !config.manage_labors.empty())
-        res = Core::getInstance().runCommand(out, "enable " + config.manage_labors);
-    if (res == CR_OK && config.manage_labors == "autolabor")
-        res = Core::getInstance().runCommand(out, "multicmd autolabor PLANT 5 200 ; autolabor HERBALIST 1 3");
-    if (res == CR_OK && config.manage_labors == "labormanager")
-        res = Core::getInstance().runCommand(out, "multicmd labormanager max HERBALIST 3 ; labormanager priority MINE 250");
+    command_result res = CR_OK;
+    if (!config.manage_labors.empty())
+    {
+        // labormanager was not ported to v50+; autolabor works with work details turned off.
+        std::string labor_plugin = config.manage_labors == "labormanager" ? "autolabor" : config.manage_labors;
+        if (Core::getInstance().runCommand(out, "enable " + labor_plugin) != CR_OK)
+        {
+            debug(out, "could not enable " + labor_plugin + "; dwarves will use the game's work details instead");
+        }
+        else if (labor_plugin == "autolabor")
+        {
+            Core::getInstance().runCommand(out, "autolabor PLANT 5 200");
+            Core::getInstance().runCommand(out, "autolabor HERBALIST 1 3");
+        }
+    }
     if (res == CR_OK)
         res = pop.startup(out);
     if (res == CR_OK)
@@ -104,59 +90,10 @@ command_result AI::startup(color_ostream & out)
     return res;
 }
 
-class AbandonExclusive : public ExclusiveCallback
+void AI::abandon(color_ostream & out)
 {
-public:
-    AbandonExclusive() : ExclusiveCallback("abandon", 2) {}
-
-    virtual void Run(color_ostream &)
-    {
-        {
-            auto view = df::allocate<df::viewscreen_optionst>();
-
-            // TODO: These are the options from regular fortress mode. Are they different during a siege?
-            view->options.push_back(df::viewscreen_optionst::Return);
-            view->options.push_back(df::viewscreen_optionst::Save);
-            view->options.push_back(df::viewscreen_optionst::KeyBindings);
-            view->options.push_back(df::viewscreen_optionst::ExportImage);
-            view->options.push_back(df::viewscreen_optionst::MusicSound);
-            view->options.push_back(df::viewscreen_optionst::AbortRetire);
-            view->options.push_back(df::viewscreen_optionst::Abandon);
-
-            Screen::show(std::unique_ptr<df::viewscreen>(view));
-            ExpectScreen<df::viewscreen_optionst>("option");
-        }
-
-        Delay();
-
-        ExpectedScreen<df::viewscreen_optionst> view(this);
-
-        auto option = std::find(view->options.begin(), view->options.end(), df::viewscreen_optionst::Abandon);
-        MoveToItem(&view->sel_idx, int32_t(option - view->options.begin()));
-
-        Key(interface_key::SELECT);
-        if (MaybeExpectScreen<df::viewscreen_titlest>("title"))
-        {
-            // no confirmation before embark
-            return;
-        }
-
-        Key(interface_key::MENU_CONFIRM);
-        while (MaybeExpectScreen<df::viewscreen_optionst>("option"))
-        {
-            Delay();
-        }
-
-        // current view switches to a textviewer at this point
-        ExpectScreen<df::viewscreen_textviewerst>("textviewer");
-        Key(interface_key::SELECT);
-    }
-};
-
-void AI::abandon(color_ostream &)
-{
-    events.remove_dfplex_client();
-    events.register_exclusive(std::make_unique<AbandonExclusive>(), true);
+    // The v50+ abandon flow is a mouse-driven menu that df-ai cannot operate.
+    out << "df-ai: abandoning a fortress automatically is not supported in this version of Dwarf Fortress." << std::endl;
 }
 
 void AI::timeout_sameview(int32_t seconds, std::function<void(color_ostream &)> cb)
@@ -174,7 +111,7 @@ void AI::timeout_sameview(int32_t seconds, std::function<void(color_ostream &)> 
     {
         name = "dfhack/" + hack->getFocusString();
     }
-    else if (virtual_identity *ident = virtual_identity::get(curscreen))
+    else if (auto ident = virtual_identity::get(curscreen))
     {
         name = ident->getName();
     }
@@ -182,14 +119,6 @@ void AI::timeout_sameview(int32_t seconds, std::function<void(color_ostream &)> 
 
     events.onupdate_register_once("timeout_sameview on " + name, [this, curscreen, counter, cb](color_ostream & out) -> bool
     {
-        if (auto view = strict_virtual_cast<df::viewscreen_movieplayerst>(Gui::getCurViewscreen(true)))
-        {
-            if (!view->is_playing)
-            {
-                Screen::dismiss(view);
-                camera.check_record_status();
-            }
-        }
         if (Gui::getCurViewscreen(true) != curscreen)
         {
             delete counter;
@@ -299,14 +228,14 @@ command_result AI::unpersist(color_ostream & out)
 
 bool AI::is_embarking()
 {
-    return events.has_exclusive<EmbarkExclusive>() || events.has_exclusive<PlanSetup>();
+    return events.has_exclusive<PlanSetup>(true);
 }
 
-BOOST_NOINLINE std::ostream & dfai_debug_log()
+DFAI_NOINLINE std::ostream & dfai_debug_log()
 {
     static std::ofstream log;
 
-    if (BOOST_UNLIKELY(!log.is_open()))
+    if (DFAI_UNLIKELY(!log.is_open()))
     {
         log.open("df-ai-debug.log", std::ios::out | std::ios::app);
         log << "\n\ndf-ai debug log opened. version information follows:" << std::endl;

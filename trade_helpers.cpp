@@ -40,12 +40,12 @@
 #include "df/itemdef_weaponst.h"
 #include "df/job.h"
 #include "df/sphere_type.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/unit.h"
 #include "df/viewscreen_tradegoodsst.h"
 
 REQUIRE_GLOBAL(gps);
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 
 Trade::Trade(AI & ai) :
     ai(ai)
@@ -61,7 +61,7 @@ bool Trade::can_trade()
     auto room = ai.find_room(room_type::tradedepot);
     auto bld = room ? room->dfbuilding() : nullptr;
 
-    for (auto & caravan : ui->caravans)
+    for (auto & caravan : plotinfo->caravans)
     {
         if (caravan->trade_state == df::caravan_state::AtDepot && caravan->time_remaining > 0)
         {
@@ -85,7 +85,7 @@ bool Trade::can_trade()
 
 bool Trade::can_move_goods()
 {
-    for (auto & caravan : ui->caravans)
+    for (auto & caravan : plotinfo->caravans)
     {
         if (caravan->trade_state == df::caravan_state::Approaching || (caravan->trade_state == df::caravan_state::AtDepot && caravan->time_remaining > 0))
         {

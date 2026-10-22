@@ -124,7 +124,7 @@ bool Stocks::is_item_free(df::item *i, bool allow_nonempty)
 
 bool Stocks::is_metal_ore(int32_t mi)
 {
-    return world->raws.inorganics[mi]->flags.is_set(inorganic_flags::METAL_ORE);
+    return world->raws.inorganics.all[mi]->flags.is_set(inorganic_flags::METAL_ORE);
 }
 
 bool Stocks::is_metal_ore(df::item *i)
@@ -194,7 +194,7 @@ std::string Stocks::is_raw_coke(df::item *i)
 
 bool Stocks::is_gypsum(int32_t mi)
 {
-    for (auto c = world->raws.inorganics[mi]->material.reaction_class.begin(); c != world->raws.inorganics[mi]->material.reaction_class.end(); c++)
+    for (auto c = world->raws.inorganics.all[mi]->material.reaction_class.begin(); c != world->raws.inorganics.all[mi]->material.reaction_class.end(); c++)
     {
         if (**c == "GYPSUM") // XXX
         {

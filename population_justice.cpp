@@ -11,14 +11,14 @@
 #include "df/item.h"
 #include "df/items_other_id.h"
 #include "df/punishment.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/viewscreen_justicest.h"
 #include "df/viewscreen_overallstatusst.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 void Population::update_caged(color_ostream & out)
@@ -139,7 +139,7 @@ void Population::update_crimes(color_ostream & out)
 
     for (auto crime : world->crimes.all)
     {
-        if (!crime->flags.bits.discovered || crime->site != ui->site_id)
+        if (!crime->flags.bits.discovered || crime->site != plotinfo->site_id)
         {
             continue;
         }

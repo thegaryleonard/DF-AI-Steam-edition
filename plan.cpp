@@ -163,7 +163,7 @@ uint16_t Maps::getTileWalkable(df::coord t)
 {
     DFAI_ASSERT_VALID_TILE(t, "");
     df::map_block *b = getTileBlock(t);
-    if (BOOST_LIKELY(b != nullptr))
+    if (DFAI_LIKELY(b != nullptr))
         return b->walkable[t.x & 0xf][t.y & 0xf];
     return 0;
 }
@@ -231,7 +231,7 @@ void Plan::room_items(color_ostream &, room *r, std::function<void(df::item *)> 
                 for (auto id : items)
                 {
                     auto i = df::item::find(id);
-                    if (BOOST_LIKELY(i && i->flags.bits.on_ground &&
+                    if (DFAI_LIKELY(i && i->flags.bits.on_ground &&
                         r->min.x <= i->pos.x && i->pos.x <= r->max.x &&
                         r->min.y <= i->pos.y && i->pos.y <= r->max.y &&
                         z == i->pos.z))
@@ -593,7 +593,7 @@ int32_t Plan::do_dig_vein(color_ostream & out, int32_t mat, df::coord b, bool pl
 {
     if (!plan_only)
     {
-        ai.debug(out, "dig_vein " + world->raws.inorganics[mat]->id);
+        ai.debug(out, "dig_vein " + world->raws.inorganics.all[mat]->id);
     }
 
     int32_t count = 0;
@@ -633,7 +633,7 @@ int32_t Plan::do_dig_vein(color_ostream & out, int32_t mat, df::coord b, bool pl
     // dig whole block
     // TODO have the dwarves search for the vein
     // TODO mine in (visible?) chunks
-    DFAI_ASSERT_VALID_TILE(b, " (base position for dig_vein(" << world->raws.inorganics[mat]->id << ")");
+    DFAI_ASSERT_VALID_TILE(b, " (base position for dig_vein(" << world->raws.inorganics.all[mat]->id << ")");
     df::map_block *block = Maps::getTileBlock(b);
     int16_t minx = 16, maxx = -1, miny = 16, maxy = -1;
     for (int16_t dx = 0; dx < 16; dx++)

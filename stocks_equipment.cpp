@@ -24,10 +24,10 @@
 #include "df/manager_order.h"
 #include "df/manager_order_template.h"
 #include "df/strain_type.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/world.h"
 
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 // forge weapons
@@ -130,13 +130,13 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
                     best.erase(std::remove_if(best.begin(), best.end(), [](int32_t mat) -> bool
                     {
                         // Safety feature: don't waste candy on ranged weapons.
-                        return world->raws.inorganics[mat]->flags.is_set(inorganic_flags::SPECIAL);
+                        return world->raws.inorganics.all[mat]->flags.is_set(inorganic_flags::SPECIAL);
                     }), best.end());
 
                     std::sort(best.begin(), best.end(), [](int32_t a, int32_t b) -> bool
                     {
                         // Sort ranged weapons based on the lightest metal.
-                        return world->raws.inorganics[a]->material.solid_density < world->raws.inorganics[b]->material.solid_density;
+                        return world->raws.inorganics.all[a]->material.solid_density < world->raws.inorganics.all[b]->material.solid_density;
                     });
                 }
                 else if (idef->flags.is_set(weapon_flags::HAS_EDGE_ATTACK))
@@ -144,13 +144,13 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
                     std::sort(best.begin(), best.end(), [](int32_t a, int32_t b) -> bool
                     {
                         // All weapons grade metals except adamantine will skip this if statement.
-                        if (world->raws.inorganics[a]->material.strength.max_edge != world->raws.inorganics[b]->material.strength.max_edge)
+                        if (world->raws.inorganics.all[a]->material.strength.max_edge != world->raws.inorganics.all[b]->material.strength.max_edge)
                         {
-                            return world->raws.inorganics[a]->material.strength.max_edge > world->raws.inorganics[b]->material.strength.max_edge;
+                            return world->raws.inorganics.all[a]->material.strength.max_edge > world->raws.inorganics.all[b]->material.strength.max_edge;
                         }
 
                         // Sort edged weapons based on the blade strength.
-                        return world->raws.inorganics[a]->material.strength.fracture[strain_type::SHEAR] > world->raws.inorganics[a]->material.strength.fracture[strain_type::SHEAR];
+                        return world->raws.inorganics.all[a]->material.strength.fracture[strain_type::SHEAR] > world->raws.inorganics.all[a]->material.strength.fracture[strain_type::SHEAR];
                     });
                 }
                 else
@@ -158,7 +158,7 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
                     std::sort(best.begin(), best.end(), [](int32_t a, int32_t b) -> bool
                     {
                         // Sort blunt weapons based on the heaviest metal.
-                        return world->raws.inorganics[a]->material.solid_density > world->raws.inorganics[b]->material.solid_density;
+                        return world->raws.inorganics.all[a]->material.solid_density > world->raws.inorganics.all[b]->material.solid_density;
                     });
                 }
 
@@ -187,7 +187,7 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
         }
     };
 
-    auto & ue = ui->main.fortress_entity->entity_raw->equipment;
+    auto & ue = plotinfo->main.fortress_entity->entity_raw->equipment;
     if (digger)
     {
         cant_pickaxe = false;
@@ -251,7 +251,7 @@ static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::it
             std::sort(best.begin(), best.end(), [](int32_t a, int32_t b) -> bool
             {
                 // should roughly order metals by effectiveness
-                return world->raws.inorganics[a]->material.strength.yield[strain_type::IMPACT] > world->raws.inorganics[b]->material.strength.yield[strain_type::IMPACT];
+                return world->raws.inorganics.all[a]->material.strength.yield[strain_type::IMPACT] > world->raws.inorganics.all[b]->material.strength.yield[strain_type::IMPACT];
             });
 
             for (auto mi : best)
@@ -277,7 +277,7 @@ static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::it
 // forge armor pieces
 void Stocks::queue_need_armor(color_ostream & out, stock_item::item what, std::ostream & reason)
 {
-    auto & ue = ui->main.fortress_entity->entity_raw->equipment;
+    auto & ue = plotinfo->main.fortress_entity->entity_raw->equipment;
 
     switch (what)
     {
@@ -442,7 +442,7 @@ void Stocks::queue_need_clothes(color_ostream & out, stock_item::item what, std:
     // try to avoid cancel spam
     int32_t available_cloth = count_free.at(stock_item::cloth) - 20;
 
-    auto & ue = ui->main.fortress_entity->entity_raw->equipment;
+    auto & ue = plotinfo->main.fortress_entity->entity_raw->equipment;
 
     switch (what)
     {

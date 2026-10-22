@@ -14,7 +14,7 @@
 #include "df/manager_order.h"
 #include "df/manager_order_template.h"
 #include "df/training_assignment.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/ui_sidebar_menus.h"
 #include "df/unit_misc_trait.h"
 #include "df/unit_relationship_type.h"
@@ -22,7 +22,7 @@
 #include "df/viewscreen.h"
 #include "df/world.h"
 
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(ui_building_assign_units);
 REQUIRE_GLOBAL(ui_building_item_cursor);
 REQUIRE_GLOBAL(ui_sidebar_menus);
@@ -83,7 +83,7 @@ void Population::update_pets(color_ostream & out)
                 asn->trainer_id = -1;
                 asn->flags.whole = 0;
                 asn->flags.bits.any_trainer = true;
-                insert_into_vector(ui->equipment.training_assignments, &df::training_assignment::animal_id, asn);
+                insert_into_vector(plotinfo->equipment.training_assignments, &df::training_assignment::animal_id, asn);
             }
 
             continue;
@@ -304,7 +304,7 @@ void Population::assign_unit_to_zone(df::unit *u, df::building_civzonest *bld)
     int32_t start_x, start_y, start_z;
     Gui::getViewCoords(start_x, start_y, start_z);
     Gui::getCurViewscreen(true)->feed_key(interface_key::D_CIVZONE);
-    if (ui->main.mode != ui_sidebar_mode::Zones)
+    if (plotinfo->main.mode != ui_sidebar_mode::Zones)
     {
         // we probably aren't on the main dwarf fortress screen
         return;

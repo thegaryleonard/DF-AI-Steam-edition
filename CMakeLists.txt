@@ -34,7 +34,6 @@ SET(PROJECT_SRCS
     df-ai.cpp
     ai.cpp
     config.cpp
-    hooks.cpp
     population.cpp
     population_death.cpp
     population_justice.cpp
@@ -51,7 +50,6 @@ SET(PROJECT_SRCS
     plan_priorities.cpp
     plan_setup.cpp
     plan_setup_blueprint.cpp
-    plan_setup_screen.cpp
     plan_smooth.cpp
     plan_task.cpp
     blueprint.cpp
@@ -70,14 +68,12 @@ SET(PROJECT_SRCS
     stocks_trade.cpp
     stocks_update.cpp
     camera.cpp
-    embark.cpp
     room.cpp
     room_describe.cpp
     trade_helpers.cpp
     trade_manager.cpp
     event_manager.cpp
     exclusive_callback.cpp
-    weblegends.cpp
     military.cpp
     pause.cpp
     log.cpp
@@ -88,7 +84,6 @@ SET(PROJECT_HDRS
     ai.h
     config.h
     debug.h
-    hooks.h
     population.h
     plan.h
     plan_priorities.h
@@ -96,7 +91,6 @@ SET(PROJECT_HDRS
     blueprint.h
     stocks.h
     camera.h
-    embark.h
     room.h
     trade.h
     event_manager.h
@@ -119,28 +113,13 @@ SET_SOURCE_FILES_PROPERTIES( ${PROJECT_HDRS} PROPERTIES HEADER_FILE_ONLY TRUE)
 
 LIST(APPEND PROJECT_SRCS ${PROJECT_HDRS})
 
-set(Boost_USE_STATIC_LIBS ON)
-set(Boost_USE_DEBUG_LIBS OFF)
-set(Boost_USE_RELEASE_LIBS ON)
-set(Boost_USE_MULTITHREADED ON)
-set(Boost_USE_STATIC_RUNTIME OFF)
-set(Boost_USE_DEBUG_RUNTIME OFF)
-find_package(Boost 1.67.0 REQUIRED COMPONENTS context)
-include_directories(${Boost_INCLUDE_DIRS})
 
-LIST(APPEND PROJECT_LIBS jsoncpp_static lua ${ZLIB_LIBRARIES} ${Boost_LIBRARIES})
+LIST(APPEND PROJECT_LIBS jsoncpp_static lua ${ZLIB_LIBRARIES})
 
-IF(UNIX)
-    IF(APPLE)
-        LIST(APPEND PROJECT_LIBS ${CMAKE_BINARY_DIR}/SDL)
-    ELSE()
-        LIST(APPEND PROJECT_LIBS SDL)
-    ENDIF()
-ENDIF()
 
 SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DDFAI_RELEASE")
 
-DFHACK_PLUGIN(df-ai ${PROJECT_SRCS} LINK_LIBRARIES ${PROJECT_LIBS} COMPILE_FLAGS_GCC "-Wall -Wextra -Werror -Wno-unused-parameter" COMPILE_FLAGS_MSVC "/W3 /WX")
+DFHACK_PLUGIN(df-ai ${PROJECT_SRCS} LINK_LIBRARIES ${PROJECT_LIBS} COMPILE_FLAGS_GCC "-Wno-error -Wno-unused-parameter" COMPILE_FLAGS_MSVC "/W3 /WX- /bigobj")
 
 INSTALL(DIRECTORY rooms/ DESTINATION df-ai-blueprints/rooms FILES_MATCHING PATTERN "*.json")
 INSTALL(DIRECTORY plans/ DESTINATION df-ai-blueprints/plans FILES_MATCHING PATTERN "*.json")

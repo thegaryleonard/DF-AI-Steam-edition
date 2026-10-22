@@ -1,10 +1,10 @@
 #include "ai.h"
 #include "camera.h"
-#include "embark.h"
 #include "plan.h"
 #include "population.h"
 
 #include "modules/Gui.h"
+#include "modules/Job.h"
 #include "modules/Translation.h"
 #include "modules/Units.h"
 
@@ -63,7 +63,7 @@ std::string AI::describe_item(df::item *i)
 
 std::string AI::describe_name(const df::language_name & name, bool in_english, bool only_last_part)
 {
-    std::string s = Translation::TranslateName(&name, in_english, only_last_part);
+    std::string s = Translation::translateName(&name, in_english, only_last_part);
     return Translation::capitalize(s);
 }
 
@@ -79,22 +79,8 @@ std::string AI::describe_unit(df::unit *u, bool html)
         return "(unknown unit)";
     }
 
-    // Name
-    std::string s = describe_name(u->name);
-    if (!s.empty())
-    {
-        s += ", ";
-    }
-
-    // Curse Name
-    if (!u->curse.name.empty())
-    {
-        s += u->curse.name;
-        s += " ";
-    }
-
-    // Profession Name
-    s += Units::getProfessionName(u);
+    // Name, curse name, and profession
+    std::string s = Units::getReadableName(u);
     if (html)
     {
         s = html_escape(s);
@@ -106,8 +92,25 @@ std::string AI::describe_unit(df::unit *u, bool html)
     return s;
 }
 
-template<typename T>
-static std::string do_describe_job(T *job)
+std::string AI::describe_job(const df::job *job)
+{
+    if (!job)
+    {
+        return "(unknown job)";
+    }
+    return Job::getName(const_cast<df::job *>(job));
+}
+
+std::string AI::describe_job(const df::manager_order *job)
+{
+    if (!job)
+    {
+        return "(unknown job)";
+    }
+    return Job::getManagerOrderName(const_cast<df::manager_order *>(job));
+}
+
+std::string AI::describe_job(const df::manager_order_template *job)
 {
     if (!job)
     {
@@ -116,42 +119,25 @@ static std::string do_describe_job(T *job)
 
     std::string desc;
     auto button = df::allocate<df::interface_button_building_new_jobst>();
-    button->reaction_name = job->reaction_name;
-    button->hist_figure_id = job->hist_figure_id;
-    button->job_type = job->job_type;
-    button->item_type = job->item_type;
-    button->item_subtype = job->item_subtype;
-    button->mat_type = job->mat_type;
-    button->mat_index = job->mat_index;
-    button->item_category = job->item_category;
-    button->material_category = job->material_category;
-
-    button->getLabel(&desc);
+    button->mstring = job->reaction_name;
+    button->jobtype = job->job_type;
+    button->itemtype = job->item_type;
+    button->subtype = job->item_subtype;
+    button->material = job->mat_type;
+    button->matgloss = job->mat_index;
+    button->specflag = job->specflag;
+    button->job_item_flag = job->material_category;
+    button->specdata = job->specdata;
+    button->text(&desc);
     delete button;
-
     return desc;
-}
-
-std::string AI::describe_job(const df::job *job)
-{
-    return do_describe_job(job);
-}
-
-std::string AI::describe_job(const df::manager_order *job)
-{
-    return do_describe_job(job);
-}
-
-std::string AI::describe_job(const df::manager_order_template *job)
-{
-    return do_describe_job(job);
 }
 
 std::string AI::describe_job(const df::unit *u)
 {
     if (u->job.current_job != nullptr)
     {
-        return do_describe_job(u->job.current_job);
+        return describe_job(u->job.current_job);
     }
 
     std::string s;
@@ -186,7 +172,7 @@ std::string AI::describe_event(df::history_event *event)
 
     df::history_event_context context;
     std::string str;
-    event->getSentence(&str, &context);
+    event->getSentence(&str, &context, true, false);
     return str;
 }
 
@@ -207,79 +193,10 @@ void AI::write_df(std::ostream & out, const std::string & str, const std::string
     out.flush();
 }
 
-void AI::write_lockstep(std::string str, uint8_t color)
-{
-    int32_t lines = 1;
-    size_t pos = 0;
-
-    for (;;)
-    {
-        size_t end = str.find('\n', pos);
-        if (end == std::string::npos)
-        {
-            while (pos + 80 <= str.size())
-            {
-                lines++;
-                pos += 80;
-            }
-            break;
-        }
-        while (pos + 80 <= end)
-        {
-            lines++;
-            pos += 80;
-        }
-        lines++;
-        pos = end + 1;
-    }
-
-    while (lines > 25)
-    {
-        pos = str.find('\n');
-        if (pos >= 80)
-        {
-            pos = 79;
-        }
-        str = str.substr(0, pos + 1);
-        lines--;
-    }
-
-    for (size_t src = lines, dst = 0; src < 25; src++, dst++)
-    {
-        memcpy(lockstep_log_buffer[dst], lockstep_log_buffer[src], 80);
-        lockstep_log_color[dst] = lockstep_log_color[src];
-    }
-
-    for (size_t i = 0, y = 25 - lines; y < 25; y++)
-    {
-        for (size_t x = 0; x < 80; x++)
-        {
-            if (i >= str.size() || str.at(i) == '\n')
-            {
-                lockstep_log_buffer[y][x] = ' ';
-            }
-            else
-            {
-                lockstep_log_buffer[y][x] = str.at(i);
-                i++;
-            }
-        }
-        if (i < str.size() && str.at(i) == '\n')
-        {
-            i++;
-        }
-        lockstep_log_color[y] = color;
-    }
-}
-
 void AI::debug(color_ostream & out, const std::string & str)
 {
     std::string ts = timestamp();
 
-    if (config.lockstep)
-    {
-        write_lockstep("AI: " + ts + " " + str);
-    }
     if (config.write_console)
     {
         write_df(out, "AI: " + ts + " " + str, "\n", "\n", [](const std::string & in) -> std::string { return DF2CONSOLE(in); });
@@ -361,22 +278,10 @@ std::string AI::report(bool html)
 
 void AI::watch_announcements()
 {
-    for (auto it = std::find_if(world->status.announcements.rbegin(), world->status.announcements.rend(), [this](df::report *r) -> bool { return r->id == last_announcement_id; }).base(); it != world->status.announcements.end(); it++)
+    // Previously mirrored announcements into the lockstep overlay, which no
+    // longer exists. Kept as a hook for future use.
+    if (!world->status.announcements.empty())
     {
-        last_announcement_id = (*it)->id;
-        if (!(*it)->flags.bits.announcement ||
-            (*it)->type == announcement_type::UNABLE_TO_COMPLETE_BUILDING ||
-            (*it)->type == announcement_type::CONSTRUCTION_SUSPENDED)
-        {
-            continue;
-        }
-
-        uint8_t color = uint8_t((*it)->color);
-        if ((*it)->bright)
-        {
-            color |= 64;
-        }
-
-        write_lockstep((*it)->text, color);
+        last_announcement_id = world->status.announcements.back()->id;
     }
 }

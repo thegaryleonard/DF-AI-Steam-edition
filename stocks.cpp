@@ -13,12 +13,12 @@
 #include "df/manager_order.h"
 #include "df/manager_order_template.h"
 #include "df/matter_state.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 #define BEGIN_ENUM BEGIN_IMPLEMENT_ENUM
@@ -386,7 +386,7 @@ command_result Stocks::startup(color_ostream & out)
     update_kitchen(out);
     update_plants(out);
     update_simple_metal_ores(out);
-    ui->stockpile.reserved_barrels = 5;
+    plotinfo->stockpile.reserved_barrels = 5;
     return CR_OK;
 }
 
@@ -766,9 +766,9 @@ void Stocks::update_plants(color_ostream &)
             }
         }
     }
-    for (int32_t i = 0; i < int32_t(world->raws.inorganics.size()); i++)
+    for (int32_t i = 0; i < int32_t(world->raws.inorganics.all.size()); i++)
     {
-        if (has_reaction_product(&world->raws.inorganics[i]->material, "FIRED_MAT"))
+        if (has_reaction_product(&world->raws.inorganics.all[i]->material, "FIRED_MAT"))
         {
             clay_stones.insert(i);
         }
@@ -778,13 +778,13 @@ void Stocks::update_plants(color_ostream &)
 void Stocks::update_simple_metal_ores(color_ostream &)
 {
     simple_metal_ores.clear();
-    simple_metal_ores.resize(world->raws.inorganics.size());
-    for (auto it = world->raws.inorganics.begin(); it != world->raws.inorganics.end(); it++)
+    simple_metal_ores.resize(world->raws.inorganics.all.size());
+    for (auto it = world->raws.inorganics.all.begin(); it != world->raws.inorganics.all.end(); it++)
     {
         const auto & bars = (*it)->metal_ore.mat_index;
         for (auto bar : bars)
         {
-            simple_metal_ores.at(bar).insert(it - world->raws.inorganics.begin());
+            simple_metal_ores.at(bar).insert(it - world->raws.inorganics.all.begin());
         }
     }
 }

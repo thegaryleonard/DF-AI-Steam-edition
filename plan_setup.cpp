@@ -6,27 +6,6 @@
 
 #include "df/inorganic_raw.h"
 
-REQUIRE_GLOBAL(pause_state);
-
-class plan_setup_screen_helper
-{
-public:
-    plan_setup_screen_helper(PlanSetup & setup)
-    {
-        Screen::show(std::make_unique<viewscreen_ai_plan_setupst>(setup), plugin_self);
-    }
-    ~plan_setup_screen_helper()
-    {
-        if (auto screen = Gui::getViewscreenByType<viewscreen_ai_plan_setupst>())
-        {
-            Screen::dismiss(screen);
-        }
-        if (*pause_state)
-        {
-            *pause_state = false;
-        }
-    }
-};
 
 PlanSetup::PlanSetup(AI & ai) :
     ExclusiveCallback("blueprint setup", 2),
@@ -43,9 +22,6 @@ PlanSetup::~PlanSetup()
 
 void PlanSetup::Run(color_ostream & out)
 {
-    plan_setup_screen_helper screen_helper(*this);
-    ExpectScreen<viewscreen_ai_plan_setupst>("dfhack/df-ai/plan/setup");
-
     Log("Reading blueprints...");
     blueprints_t blueprints(out);
 
@@ -118,7 +94,6 @@ void PlanSetup::Log(const std::string & message)
     ai.debug(Core::getInstance().getConsole(), "[Setup] " + message);
     log.push_back(std::make_pair(message, true));
     quieter_count = 0;
-    Delay();
 }
 
 void PlanSetup::LogQuiet(const std::string & message, bool quieter)
@@ -148,7 +123,6 @@ void PlanSetup::LogQuiet(const std::string & message, bool quieter)
         }
     }
     quieter_count = 0;
-    Delay();
 }
 
 bool PlanSetup::build_from_blueprint(const blueprints_t & blueprints)

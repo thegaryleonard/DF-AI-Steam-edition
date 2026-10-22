@@ -21,7 +21,7 @@
 #include "df/historical_entity.h"
 #include "df/historical_figure.h"
 #include "df/occupation.h"
-#include "df/ui.h"
+#include "df/plotinfost.h"
 #include "df/viewscreen_dwarfmodest.h"
 #include "df/viewscreen_locationsst.h"
 #include "df/viewscreen_petitionsst.h"
@@ -29,7 +29,7 @@
 #include "df/world_site.h"
 
 REQUIRE_GLOBAL(d_init);
-REQUIRE_GLOBAL(ui);
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 // with a population of 200:
@@ -52,7 +52,7 @@ class AssignOccupationExclusive : public ExclusiveCallback
 
     static df::abstract_building *get_location(int32_t location_id)
     {
-        auto site = ui->main.fortress_site;
+        auto site = plotinfo->main.fortress_site;
         if (!site)
             return nullptr;
 
@@ -236,7 +236,7 @@ public:
 
     void Run(color_ostream & out)
     {
-        if (ui->petitions.empty())
+        if (plotinfo->petitions.empty())
             return;
 
         ExpectScreen<df::viewscreen_dwarfmodest>("dwarfmode/Default");
@@ -327,7 +327,7 @@ public:
                             data1 = loc->profession;
                             break;
                         default:
-                            ai.debug(out, "[Population] rejecting petition to construct a " + toLower(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant) + ": don't know how to construct this location for a petition");
+                            ai.debug(out, "[Population] rejecting petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant) + ": don't know how to construct this location for a petition");
                             Key(interface_key::OPTION2);
                             continue;
                     }
@@ -335,7 +335,7 @@ public:
                     auto found_room = ai.find_room(room_type::location, [type](room *r) -> bool { return r->status == room_status::plan && !r->queue_dig && r->location_type == type; });
                     if (!found_room)
                     {
-                        ai.debug(out, "[Population] rejecting petition to construct a " + toLower(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant) + ": no remaining space for buildings of this type");
+                        ai.debug(out, "[Population] rejecting petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant) + ": no remaining space for buildings of this type");
                         Key(interface_key::OPTION2);
                         break;
                     }
@@ -345,7 +345,7 @@ public:
                     found_room->required_value = required_value;
                     ai.plan.wantdig(out, found_room, -2);
 
-                    ai.debug(out, "[Population] accepting petition to construct a " + toLower(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant));
+                    ai.debug(out, "[Population] accepting petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant));
                     Key(interface_key::OPTION1);
                     break;
                 }
@@ -367,7 +367,7 @@ public:
 
 void Population::update_locations(color_ostream &)
 {
-    if (!ui->petitions.empty())
+    if (!plotinfo->petitions.empty())
     {
         events.queue_exclusive(std::make_unique<CheckPetitionsExclusive>(ai));
     }

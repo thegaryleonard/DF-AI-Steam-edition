@@ -46,7 +46,7 @@ std::string AI::describe_room(room *r, bool html)
         switch (r->location_type)
         {
         case location_type::guildhall:
-            s << " (" << toLower(enum_item_key(df::profession(r->data1))) << " guildhall)";
+            s << " (" << toLower_cp437(enum_item_key(df::profession(r->data1))) << " guildhall)";
             break;
         case location_type::temple:
             switch (df::temple_deity_type(r->data1))

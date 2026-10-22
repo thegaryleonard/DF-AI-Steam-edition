@@ -48,7 +48,7 @@ void Stocks::farmplot(color_ostream & out, room *r, bool initial)
 
     bool subterranean = Maps::getTileDesignation(r->pos())->bits.subterranean;
     df::coord2d region(Maps::getTileBiomeRgn(r->pos()));
-    df::biome_type biome = subterranean ? biome_type::SUBTERRANEAN_WATER : Maps::GetBiomeType(region.x, region.y);
+    df::biome_type biome = subterranean ? biome_type::SUBTERRANEAN_WATER : Maps::getBiomeType(region.x, region.y);
     df::plant_raw_flags plant_biome;
     if (!find_enum_item(&plant_biome, "BIOME_" + enum_item_key(biome)))
     {

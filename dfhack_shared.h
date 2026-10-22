@@ -6,6 +6,18 @@
 #include <PluginManager.h>
 
 #include "DataDefs.h"
+#include "MiscUtils.h"
+
+// DFHack v50+ headers no longer pull these in transitively.
+#include "df/building.h"
+#include "df/inorganic_raw.h"
+#include "df/item.h"
+#include "df/material.h"
+#include "df/plant_raw.h"
+#include "df/plotinfost.h"
+#include "df/tile_designation.h"
+#include "df/unit.h"
+#include "df/world.h"
 
 #include <map>
 #include <memory>
@@ -32,5 +44,13 @@ namespace std
 using namespace DFHack;
 using namespace df::enums;
 
+#ifdef _WIN32
 DFhackDataExport extern DFHack::Plugin *plugin_self;
 DFhackDataExport extern std::vector<std::string> *plugin_globals;
+#else
+extern "C"
+{
+    extern DFHack::Plugin *plugin_self;
+    extern std::vector<std::string> *plugin_globals;
+}
+#endif
