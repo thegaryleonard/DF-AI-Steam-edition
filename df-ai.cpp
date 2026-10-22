@@ -281,12 +281,15 @@ DFhackCExport command_result plugin_onupdate(color_ostream & out)
     if (!check_enabled(out))
         return CR_OK;
 
-    if (plotinfo->main.autosave_request)
+    static bool was_autosave_request = false;
+    bool autosave_request = plotinfo->main.autosave_request;
+    if (autosave_request && !was_autosave_request)
     {
         command_result res = dwarfAI->persist(out);
         if (res != CR_OK)
             return res;
     }
+    was_autosave_request = autosave_request;
 
     events.onupdate(out);
     return CR_OK;

@@ -317,7 +317,7 @@ void Population::check_noble_apartments(color_ostream & out)
     for (auto asn : plotinfo->main.fortress_entity->positions.assignments)
     {
         df::entity_position *pos = binsearch_in_vector(plotinfo->main.fortress_entity->positions.own, asn->position_id);
-        if (pos && pos->required_office > 0 || pos->required_dining > 0 || pos->required_tomb > 0)
+        if (pos && (pos->required_office > 0 || pos->required_dining > 0 || pos->required_tomb > 0))
         {
             if (df::historical_figure *hf = df::historical_figure::find(asn->histfig))
             {

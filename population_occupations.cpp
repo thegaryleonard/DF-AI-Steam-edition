@@ -282,7 +282,7 @@ void Population::update_locations(color_ostream &)
     if (room *tavern = ai.find_room(room_type::location, [](room *r) -> bool { return r->location_type == location_type::tavern && r->dfbuilding(); }))
     {
         df::building *bld = tavern->dfbuilding();
-        if (auto loc = virtual_cast<df::abstract_building_inn_tavernst>(binsearch_in_vector(df::world_site::find(bld->site_id)->buildings, bld->location_id)))
+        if (auto loc = virtual_cast<df::abstract_building_inn_tavernst>((df::world_site::find(bld->site_id) ? binsearch_in_vector(df::world_site::find(bld->site_id)->buildings, bld->location_id) : nullptr)))
         {
             for (auto occ : loc->occupations)
             {
@@ -312,7 +312,7 @@ void Population::update_locations(color_ostream &)
     if (room *library = ai.find_room(room_type::location, [](room *r) -> bool { return r->location_type == location_type::library && r->dfbuilding(); }))
     {
         df::building *bld = library->dfbuilding();
-        if (auto loc = virtual_cast<df::abstract_building_libraryst>(binsearch_in_vector(df::world_site::find(bld->site_id)->buildings, bld->location_id)))
+        if (auto loc = virtual_cast<df::abstract_building_libraryst>((df::world_site::find(bld->site_id) ? binsearch_in_vector(df::world_site::find(bld->site_id)->buildings, bld->location_id) : nullptr)))
         {
             for (auto occ : loc->occupations)
             {
@@ -342,7 +342,7 @@ void Population::update_locations(color_ostream &)
     if (room *temple = ai.find_room(room_type::location, [](room *r) -> bool { return r->location_type == location_type::temple && r->dfbuilding(); }))
     {
         df::building *bld = temple->dfbuilding();
-        if (auto loc = virtual_cast<df::abstract_building_templest>(binsearch_in_vector(df::world_site::find(bld->site_id)->buildings, bld->location_id)))
+        if (auto loc = virtual_cast<df::abstract_building_templest>((df::world_site::find(bld->site_id) ? binsearch_in_vector(df::world_site::find(bld->site_id)->buildings, bld->location_id) : nullptr)))
         {
             for (auto occ : loc->occupations)
             {

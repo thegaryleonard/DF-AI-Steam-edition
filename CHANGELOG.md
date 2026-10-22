@@ -1,3 +1,21 @@
+# 53.15-r2 (unofficial port)
+
+Ported to Dwarf Fortress 53.15 and DFHack 53.15-r2. The v50+ game replaced the keyboard menus df-ai used to drive, so every action now changes game data directly through DFHack.
+
+- Stockpiles are created directly; their settings come from DFHack's `stockpiles` presets plus df-ai's per-room restrictions.
+- Rooms are now zones: bedrooms, offices, dining halls, barracks, archery ranges, tombs and dungeons are created as v50 zones and owned through the zone.
+- Pastures, ponds, pits, garbage dumps and plant-gathering areas are zones.
+- Taverns, temples, libraries, guildhalls and hospitals are created as locations attached to meeting-area zones.
+- Work orders are created and merged directly in the manager order list.
+- Squads are created with DFHack's military API; uniforms, kill orders and training routines are set directly.
+- Nobles and occupations (tavern keeper, performer, scholar, scribe) are appointed directly.
+- Goods the AI is willing to sell are marked for the trade depot when a caravan arrives.
+- Saves are read from and written to `save/<world>/df-ai-plan.dat`.
+- `labormanager` is not available for v50+; `autolabor` is used instead.
+- Removed: automatic world generation and embarking, lockstep mode, CMV movie recording, abandoning forts, dfplex and weblegends integration.
+- Not yet automated (logged once): bartering with caravans, answering petitions, convicting criminals, recognizing temple priesthoods.
+- No longer depends on Boost.
+
 # Future
 
 - Added announcements to the lockstep movie recording log.

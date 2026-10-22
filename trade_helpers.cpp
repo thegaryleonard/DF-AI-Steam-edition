@@ -779,9 +779,12 @@ int32_t Trade::item_or_container_price_for_caravan(df::item *item, df::caravan_s
         else if (auto contains_unit = virtual_cast<df::general_ref_contains_unitst>(ref))
         {
             auto unit2 = df::unit::find(contains_unit->unit_id);
-            auto creature_raw = df::creature_raw::find(unit2->race);
-            auto caste_raw = creature_raw->caste.at(unit2->caste);
-            value = value + caste_raw->misc.petvalue;
+            auto creature_raw = unit2 ? df::creature_raw::find(unit2->race) : nullptr;
+            auto caste_raw = creature_raw ? vector_get(creature_raw->caste, unit2->caste) : nullptr;
+            if (caste_raw)
+            {
+                value = value + caste_raw->misc.petvalue;
+            }
         }
     }
 

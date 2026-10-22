@@ -22,13 +22,17 @@ void AI::unpause()
 {
     // Popup announcements ("mega" announcements) are dismissed by sending the
     // close key to the main fortress screen. Each key closes at most one popup.
-    for (size_t attempts = world->status.popups.size() + 1; !world->status.popups.empty() && attempts > 0; attempts--)
+    for (size_t n = world->status.popups.size(), tries = n + 1; n && tries--; )
     {
         if (auto top = Gui::getDFViewscreen(true))
         {
-            std::set<df::interface_key> keys{ interface_key::LEAVESCREEN };
+            std::set<df::interface_key> keys{ interface_key::CLOSE_MEGA_ANNOUNCEMENT };
             top->feed(&keys);
         }
+        size_t m = world->status.popups.size();
+        if (m >= n)
+            break; // the key didn't close anything; don't keep pressing it
+        n = m;
     }
     World::SetPauseState(false);
     ignore_pause(last_good_x, last_good_y, last_good_z);

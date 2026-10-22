@@ -107,7 +107,7 @@ static void generate_location_name(df::language_name & name, df::language_name_t
 {
     name.type = type;
     name.has_name = true;
-    name.language = -1;
+    name.language = 0;
     for (auto & w : name.words)
     {
         w = -1;
@@ -183,8 +183,8 @@ int32_t Plan::create_location(color_ostream & out, df::building_civzonest *zone,
         if (data1 == -1)
         {
             // dedicated to no deity in particular
-            temple->deity_type = religious_practice_type::WORSHIP_HFID;
-            temple->deity_data.Deity = -1;
+            temple->deity_type = religious_practice_type::NONE;
+            temple->deity_data.Religion = -1;
         }
         else
         {
@@ -263,12 +263,12 @@ int32_t Plan::create_hospital(color_ostream & out, df::building_civzonest *zone)
     generate_location_name(hospital->name, language_name_type::Hospital, ai.rng);
     auto & c = hospital->contents;
     c.desired_splints = 5;
-    c.desired_thread = 5;
-    c.desired_cloth = 5;
+    c.desired_thread = 75000;
+    c.desired_cloth = 50000;
     c.desired_crutches = 5;
-    c.desired_powder = 5;
+    c.desired_powder = 750;
     c.desired_buckets = 2;
-    c.desired_soap = 5;
+    c.desired_soap = 750;
     c.need_more.bits.splints = 1;
     c.need_more.bits.thread = 1;
     c.need_more.bits.cloth = 1;

@@ -50,12 +50,7 @@ void Stocks::update(color_ostream & out)
             auto m = world->manager_orders.all.front();
             if (m->amount_left <= 0)
             {
-                // We zeroed this order last month and DF did not clean it
-                // up. Drop it from the list so the queue can move on. The
-                // object itself is intentionally not deleted (DFHack 53.14+
-                // refuses to free pool-allocated game objects); this leaks
-                // one small struct.
-                world->manager_orders.all.erase(world->manager_orders.all.begin());
+                // Already zeroed; DF retires finished orders on its own.
             }
             else if (m->status.bits.validated)
             {

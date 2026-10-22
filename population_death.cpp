@@ -66,8 +66,13 @@ void Population::update_deads(color_ostream & out)
         {
             ai.stocks.queue_slab(out, u->hist_figure_id);
         }
-        else if (Units::isCitizen(u) && Units::isDead(u) && std::find_if(u->owned_buildings.begin(), u->owned_buildings.end(),
-            [](df::building_civzonest *zone) -> bool { return zone->type == civzone_type::Tomb; }) != u->owned_buildings.end())
+        else if (Units::isCitizen(u) && Units::isDead(u) && std::find_if(world->buildings.other[buildings_other_id::ZONE_TOMB].begin(), world->buildings.other[buildings_other_id::ZONE_TOMB].end(),
+            [u](df::building *b) -> bool
+            {
+                // don't follow u->owned_buildings: DF leaves dangling pointers there for dead units
+                auto zone = virtual_cast<df::building_civzonest>(b);
+                return zone && zone->assigned_unit_id == u->id;
+            }) != world->buildings.other[buildings_other_id::ZONE_TOMB].end())
         {
             want_coffin++;
         }

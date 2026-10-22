@@ -48,6 +48,13 @@ so this version changes game data directly through DFHack instead:
   gathering), locations (tavern, temple, library, guildhall, hospital),
   room ownership, work orders, squad room assignments, marking goods for
   trade, camera following.
-- **Manual for now:** embarking, the actual barter with caravans (goods are
-  moved to the depot for you), recognizing temple priesthoods, abandoning a
-  fortress. See the release notes for the full list.
+- **Also direct:** squads (creation, uniforms, kill orders, training),
+  appointing nobles, tavern keepers/performers/scholars, pasture assignment.
+- **Manual for now** (df-ai logs a message once): embarking, the actual
+  barter with caravans (goods are moved to the depot for you), answering
+  petitions, convicting criminals, recognizing temple priesthoods,
+  abandoning a fortress.
+
+This port compiles and links against DFHack 53.15-r2 but has not yet been
+played through in a live game, so expect rough edges. If something goes
+wrong, `df-ai-debug.log` in the Dwarf Fortress folder has details.

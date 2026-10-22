@@ -864,7 +864,7 @@ void Population::update_military(color_ostream & out)
         for (auto m : military)
         {
             auto u = df::unit::find(m.first);
-            if (!Units::isCitizen(u) || AI::is_in_conflict(u))
+            if (!u || !Units::isCitizen(u) || AI::is_in_conflict(u))
             {
                 continue;
             }
@@ -936,7 +936,7 @@ void Population::update_military(color_ostream & out)
                 }
 
                 auto squad = df::squad::find(u->military.squad_id);
-                if (squad && (squad->leader_position != u->military.squad_position || std::find_if(squad->positions.begin(), squad->positions.end(), [u](df::squad_position *pos) -> bool
+                if (squad && (u->military.squad_position != 0 || std::find_if(squad->positions.begin(), squad->positions.end(), [u](df::squad_position *pos) -> bool
                 {
                     if (!pos || pos->occupant == u->hist_figure_id)
                     {
