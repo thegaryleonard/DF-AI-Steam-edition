@@ -4,6 +4,7 @@
 
 namespace df
 {
+    struct building_tradedepotst;
     struct caravan_state;
     struct creature_raw;
     struct entity_buy_prices;
@@ -22,6 +23,9 @@ public:
     Trade(AI & ai);
     ~Trade();
 
+    // The depot to trade at: df-ai's planned depot if it is built, otherwise any
+    // finished depot (so df-ai can trade in a fort it did not build itself).
+    df::building_tradedepotst *find_depot();
     bool can_trade();
     bool can_move_goods();
     void read_trader_reply(std::string & reply, std::string & mood);

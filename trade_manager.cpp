@@ -35,6 +35,8 @@ REQUIRE_GLOBAL(game);
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
+static df::building_tradedepotst *find_ready_depot(AI & ai);
+
 void Population::update_trading(color_ostream & out)
 {
     bool any_traders = ai.trade.can_move_goods();
@@ -150,8 +152,12 @@ void Population::update_trading(color_ostream & out)
         }
     }
 
-    room *depot = ai.find_room(room_type::tradedepot, [broker](room *r) -> bool { return r->include(Units::getPosition(broker)); });
-    if (!depot)
+    df::building_tradedepotst *depot_bld = find_ready_depot(ai);
+    df::coord broker_at = Units::getPosition(broker);
+    bool at_depot = depot_bld && broker_at.z == depot_bld->z &&
+        broker_at.x >= depot_bld->x1 && broker_at.x <= depot_bld->x2 &&
+        broker_at.y >= depot_bld->y1 && broker_at.y <= depot_bld->y2;
+    if (!at_depot)
     {
         ai.debug(out, "[trade] Broker en route to depot: " + AI::describe_unit(broker) + " (Currently at " + AI::describe_room(ai.find_room_at(Units::getPosition(broker))) + ")");
         return;
@@ -195,24 +201,7 @@ void Population::update_trading(color_ostream & out)
 // Items::markForTrade, the same way DFHack's caravan/movegoods tool does.
 static df::building_tradedepotst *find_ready_depot(AI & ai)
 {
-    room *r = ai.find_room(room_type::tradedepot);
-    if (!r)
-    {
-        return nullptr;
-    }
-    df::building_tradedepotst *bld = virtual_cast<df::building_tradedepotst>(r->dfbuilding());
-    if (!bld || bld->getBuildStage() < bld->getMaxBuildStage())
-    {
-        return nullptr;
-    }
-    for (auto job : bld->jobs)
-    {
-        if (job->job_type == job_type::DestroyBuilding)
-        {
-            return nullptr;
-        }
-    }
-    return bld;
+    return ai.trade.find_depot();
 }
 
 static bool is_tradeable_candidate(df::item *item)
