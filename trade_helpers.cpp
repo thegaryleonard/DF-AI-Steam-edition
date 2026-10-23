@@ -74,7 +74,7 @@ df::building_tradedepotst *Trade::find_depot()
         if (depot_usable(bld))
             return bld;
     }
-    for (auto b : world->buildings.other.TRADE_DEPOT)
+    for (auto b : world->buildings.other[buildings_other_id::TRADE_DEPOT])
     {
         auto bld = virtual_cast<df::building_tradedepotst>(b);
         if (depot_usable(bld))
