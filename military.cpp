@@ -115,48 +115,56 @@ bool AI::tag_enemies(color_ostream & out)
 
 df::unit *AI::is_attacking_citizen(df::unit *u)
 {
-    df::unit *citizen = nullptr;
-
-    is_in_conflict(u, [u, &citizen](df::activity_event_conflictst *conflict) -> bool
+    // Plain loops instead of nested lambdas: MSVC 19.44 fails on the
+    // lambda-in-lambda form here with C2011 (lambda class redefinition).
+    for (auto act_id : u->activities)
     {
-        auto unit_side = std::find_if(conflict->sides.begin(), conflict->sides.end(), [u](const df::conflict_sidest *side) -> bool
+        auto act = df::activity_entry::find(act_id);
+        if (!act)
+            continue;
+        for (auto event : act->events)
         {
-            return std::find(side->unit_ids.begin(), side->unit_ids.end(), u->id) != side->unit_ids.end();
-        });
-        if (unit_side == conflict->sides.end())
-        {
-            // Not in their own fight?
-            return false;
-        }
+            auto conflict = virtual_cast<df::activity_event_conflictst>(event);
+            if (!conflict)
+                continue;
 
-        for (auto enemy_side : (*unit_side)->enemies)
-        {
-            if (enemy_side->conflict_level >= conflict_level::Lethal)
+            df::conflict_sidest *unit_side = nullptr;
+            for (auto side : conflict->sides)
             {
-                auto side_it = std::find_if(conflict->sides.begin(), conflict->sides.end(), [enemy_side](const df::conflict_sidest *s) -> bool { return s->id == enemy_side->id; });
-                if (side_it == conflict->sides.end())
+                if (std::find(side->unit_ids.begin(), side->unit_ids.end(), u->id) != side->unit_ids.end())
                 {
-                    continue;
+                    unit_side = side;
+                    break;
                 }
-                auto side = *side_it;
+            }
+            if (!unit_side)
+                continue; // Not in their own fight?
+
+            for (auto enemy_side : unit_side->enemies)
+            {
+                if (enemy_side->conflict_level < df::conflict_level::Lethal)
+                    continue;
+                df::conflict_sidest *side = nullptr;
+                for (auto s2 : conflict->sides)
+                {
+                    if (s2->id == enemy_side->id)
+                    {
+                        side = s2;
+                        break;
+                    }
+                }
+                if (!side)
+                    continue;
                 for (auto enemy_id : side->unit_ids)
                 {
-                    if (auto enemy = df::unit::find(enemy_id))
-                    {
-                        if (Units::isSane(enemy) && Units::isCitizen(enemy))
-                        {
-                            citizen = enemy;
-                            return true;
-                        }
-                    }
+                    auto enemy = df::unit::find(enemy_id);
+                    if (enemy && Units::isSane(enemy) && Units::isCitizen(enemy))
+                        return enemy;
                 }
             }
         }
-
-        return false;
-    });
-
-    return citizen;
+    }
+    return nullptr;
 }
 
 df::unit *AI::is_hunting_target(df::unit *u)
