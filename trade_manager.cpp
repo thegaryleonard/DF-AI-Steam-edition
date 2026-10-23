@@ -649,27 +649,31 @@ void PerformTradeExclusive::Run(color_ostream & out)
         return ai.stocks.want_trader_item_more(a.item, b.item);
     });
 
-    int32_t max_offer_value = 0;
+    // Budget in the caravan's own valuation, the same one the final check uses.
+    int64_t max_offer_value = 0;
     for (auto & g : fort_goods)
     {
-        max_offer_value += g.price;
+        max_offer_value += perceived_value(g.item, caravan);
     }
-    ai.debug(out, stl_sprintf("[trade] We have %d dorfbux of items we're willing to trade.", max_offer_value));
+    ai.debug(out, stl_sprintf("[trade] We have %d dorfbux (as the traders value them) of items we're willing to trade.", int32_t(max_offer_value)));
 
     // Choose what to request.
     std::vector<good_t> request;
     int32_t request_value = 0;
+    int32_t request_pv = 0;
     for (auto & g : want)
     {
         if (g.price <= 0)
         {
             continue;
         }
-        if ((request_value + g.price) * TRADE_MARGIN_NUM / TRADE_MARGIN_DEN > max_offer_value)
+        int32_t g_pv = perceived_value(g.item, caravan);
+        if ((int64_t(request_pv) + g_pv) * TRADE_MARGIN_NUM / TRADE_MARGIN_DEN > max_offer_value)
         {
             ai.debug(out, "[trade] Cannot afford item, skipping: " + AI::describe_item(g.item));
             continue;
         }
+        request_pv += g_pv;
         request_value += g.price;
         request.push_back(g);
         ai.debug(out, "[trade] Requesting item: " + AI::describe_item(g.item));
