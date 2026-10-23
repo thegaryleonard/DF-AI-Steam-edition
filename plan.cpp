@@ -166,6 +166,24 @@ void AI::dig_tile(df::coord t, df::tile_dig_designation dig)
 
     des->bits.dig = dig;
     Maps::getTileOccupancy(t)->bits.dig_marked = 0;
+    if (dig != tile_dig_designation::No && des->bits.hidden)
+    {
+        // A hidden tile directly under a revealed down/up-down stair (e.g. the
+        // fort entrance stairs df-ai constructs) is never picked up by miners on
+        // DF 53, so the whole plan stalls at the entrance. The game would show
+        // that tile to anyone standing on the stair; reveal it.
+        df::coord above = t + df::coord(0, 0, 1);
+        df::tile_designation *des_above = Maps::isValidTilePos(above) ? Maps::getTileDesignation(above) : nullptr;
+        df::tiletype *tt_above = des_above ? Maps::getTileType(above) : nullptr;
+        if (tt_above && !des_above->bits.hidden)
+        {
+            df::tiletype_shape shape = ENUM_ATTR(tiletype, shape, *tt_above);
+            if (shape == tiletype_shape::STAIR_DOWN || shape == tiletype_shape::STAIR_UPDOWN)
+            {
+                des->bits.hidden = false;
+            }
+        }
+    }
     if (dig != tile_dig_designation::No)
     {
         auto block = Maps::getTileBlock(t);
