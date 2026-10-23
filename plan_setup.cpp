@@ -6,6 +6,8 @@
 
 #include "df/inorganic_raw.h"
 
+REQUIRE_GLOBAL(pause_state);
+
 
 PlanSetup::PlanSetup(AI & ai) :
     ExclusiveCallback("blueprint setup", 2),
@@ -39,7 +41,12 @@ void PlanSetup::Run(color_ostream & out)
     else
     {
         Log("Failed to build blueprint.");
-        AI::abandon(out);
+        // Continuing without a plan dereferences null rooms (fort_entrance etc.)
+        // and crashes the game. Stop the AI instead; plugin_onupdate disables us
+        // on the next frame, outside this callback.
+        out.printerr("df-ai: could not fit any blueprint plan to this map (details in df-ai.log). Disabling df-ai.\n");
+        *pause_state = true;
+        df_ai_setup_failed = true;
         return;
     }
 
