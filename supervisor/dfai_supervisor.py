@@ -243,6 +243,8 @@ class Supervisor:
         self.last_backup = time.time()
         self.last_quicksave = time.time()
         self.seen_crashlogs = self.crashlogs()
+        log_path = Path(CFG["df_dir"]) / "df-ai.log"
+        self.ai_log_pos = log_path.stat().st_size if log_path.exists() else 0
 
     def crashlogs(self):
         d = Path(CFG["df_dir"]) / "crashlogs"
@@ -306,6 +308,24 @@ class Supervisor:
             self.dip_alerted = False
             time.sleep(2)
 
+    def watch_ai_log(self):
+        """Forward notable df-ai log lines (strange moods, deaths) to Discord."""
+        path = Path(CFG["df_dir"]) / "df-ai.log"
+        if not path.exists():
+            return
+        size = path.stat().st_size
+        if size < self.ai_log_pos:          # log was rotated/truncated
+            self.ai_log_pos = 0
+        if size == self.ai_log_pos:
+            return
+        with path.open("rb") as f:
+            f.seek(self.ai_log_pos)
+            chunk = f.read(size - self.ai_log_pos).decode("utf-8", "replace")
+        self.ai_log_pos = size
+        for line in chunk.splitlines():
+            if "[MOOD]" in line and "needs" in line:
+                notify("strange mood: " + line.split("[MOOD]", 1)[1].strip()[:300], ping=True)
+
     def step(self):
         now = time.time()
         if not df_running():
@@ -350,6 +370,7 @@ class Supervisor:
                     return
 
         self.diplomacy()
+        self.watch_ai_log()
 
         if now - self.last_quicksave > CFG["quicksave_every_s"] and not st.get("paused"):
             self.last_quicksave = now
