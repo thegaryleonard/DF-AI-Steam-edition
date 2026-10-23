@@ -182,7 +182,7 @@ bool AI::is_in_conflict(df::unit *u, std::function<bool(df::activity_event_confl
             {
                 if (auto conflict = virtual_cast<df::activity_event_conflictst>(event))
                 {
-                    if (filter(conflict))
+                    if (!filter || filter(conflict))
                     {
                         return true;
                     }

@@ -802,6 +802,8 @@ bool Plan::try_furnish_construction(color_ostream &, df::construction_type ctype
         if (tt == tiletype::ConstructedRampTrackNSEW)
             return true;
         break;
+    default:
+        break;
     }
 
     // fall through = must build actual construction

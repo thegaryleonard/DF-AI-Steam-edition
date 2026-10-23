@@ -106,7 +106,7 @@ public:
     void watch_announcements();
     static df::unit *is_attacking_citizen(df::unit *u);
     static df::unit *is_hunting_target(df::unit *u);
-    static bool is_in_conflict(df::unit *u, std::function<bool(df::activity_event_conflictst *)> filter = [](df::activity_event_conflictst *) -> bool { return true; });
+    static bool is_in_conflict(df::unit *u, std::function<bool(df::activity_event_conflictst *)> filter = nullptr);
 
     void timeout_sameview(int32_t seconds, std::function<void(color_ostream &)> cb);
     void timeout_sameview(std::function<void(color_ostream &)> cb)
