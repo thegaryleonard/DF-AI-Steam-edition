@@ -235,6 +235,9 @@ public:
             // try to fill the same position again before it does.
             FOR_ENUM_ITEMS(entity_position_responsibility, r)
             {
+                // DF 53 added NONE = -1 to this enum; it is not a valid array index.
+                if (r < 0)
+                    continue;
                 if (position->responsibilities[r])
                 {
                     auto & vec = entity->assignments_by_type[r];
