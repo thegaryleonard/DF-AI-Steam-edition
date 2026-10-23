@@ -1,6 +1,6 @@
-# 53.15-r2 (unofficial port)
+# 53.16-r3 (unofficial port)
 
-Ported to Dwarf Fortress 53.15 and DFHack 53.15-r2. The v50+ game replaced the keyboard menus df-ai used to drive, so every action now changes game data directly through DFHack.
+Ported to Dwarf Fortress 53.16 and DFHack 53.16-r3. The v50+ game replaced the keyboard menus df-ai used to drive, so every action now changes game data directly through DFHack.
 
 - Stockpiles are created directly; their settings come from DFHack's `stockpiles` presets plus df-ai's per-room restrictions.
 - Rooms are now zones: bedrooms, offices, dining halls, barracks, archery ranges, tombs and dungeons are created as v50 zones and owned through the zone.

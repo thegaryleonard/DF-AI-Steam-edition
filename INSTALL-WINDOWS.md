@@ -1,13 +1,13 @@
-# df-ai for Dwarf Fortress 53.15 (Windows)
+# df-ai for Dwarf Fortress 53.16 (Windows)
 
-This build of df-ai targets **DFHack 53.15-r2** and **Dwarf Fortress 53.15**
+This build of df-ai targets **DFHack 53.16-r3** and **Dwarf Fortress 53.16**
 (Steam, itch.io or Classic). A DFHack plugin only loads into the exact DFHack
 version it was built for; to rebuild for a newer DFHack, run the GitHub
 Actions workflow with a different `dfhack_ref`.
 
 ## Install
 
-1. Install DFHack 53.15-r2 (Steam: add DFHack to your library, then **launch
+1. Install DFHack 53.16-r3 (Steam: add DFHack to your library, then **launch
    it from the DFHack app once** so it can install itself into Dwarf Fortress).
 2. Find DFHack's `hack` folder. With the Steam version it may not be inside
    the Dwarf Fortress folder any more. In the DFHack console type:
@@ -55,6 +55,6 @@ so this version changes game data directly through DFHack instead:
   petitions, convicting criminals, recognizing temple priesthoods,
   abandoning a fortress.
 
-This port compiles and links against DFHack 53.15-r2 but has not yet been
+This port compiles and links against DFHack 53.16-r3 but has not yet been
 played through in a live game, so expect rough edges. If something goes
 wrong, `df-ai-debug.log` in the Dwarf Fortress folder has details.

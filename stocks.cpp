@@ -716,11 +716,11 @@ void Stocks::update_plants(color_ostream &)
             {
                 if (m->flags.is_set(material_flags::STRUCTURAL_PLANT_MAT))
                 {
-                    drink_plants[i] = j + MaterialInfo::PLANT_BASE;
+                    drink_plants[i] = j + df::builtin_mats::PLANT_1;
                 }
                 else
                 {
-                    drink_fruits[i] = j + MaterialInfo::PLANT_BASE;
+                    drink_fruits[i] = j + df::builtin_mats::PLANT_1;
                 }
                 break;
             }
@@ -762,7 +762,7 @@ void Stocks::update_plants(color_ostream &)
             df::material *m = c->material[j];
             if (has_reaction_product(m, "CHEESE_MAT"))
             {
-                milk_creatures[i] = j + MaterialInfo::CREATURE_BASE;
+                milk_creatures[i] = j + df::builtin_mats::CREATURE_1;
                 break;
             }
         }

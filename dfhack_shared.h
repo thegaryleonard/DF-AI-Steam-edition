@@ -10,6 +10,8 @@
 
 // DFHack v50+ headers no longer pull these in transitively.
 #include "df/building.h"
+#include "df/builtin_mats.h"
+#include "df/global_objects.h"
 #include "df/inorganic_raw.h"
 #include "df/item.h"
 #include "df/material.h"

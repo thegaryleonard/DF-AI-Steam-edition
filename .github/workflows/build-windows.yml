@@ -14,17 +14,17 @@ on:
       dfhack_ref:
         description: 'DFHack release tag to build against'
         required: false
-        default: '53.15-r2'
+        default: '53.16-r3'
 
 permissions:
   contents: write
 
 env:
-  DFHACK_REF: ${{ github.event.inputs.dfhack_ref || '53.15-r2' }}
+  DFHACK_REF: ${{ github.event.inputs.dfhack_ref || '53.16-r3' }}
 
 jobs:
   build-win64:
-    name: Build win64 (DFHack ${{ github.event.inputs.dfhack_ref || '53.15-r2' }})
+    name: Build win64 (DFHack ${{ github.event.inputs.dfhack_ref || '53.16-r3' }})
     runs-on: windows-2022
     steps:
       - name: Set up Python

@@ -2,7 +2,7 @@ Watch Dwarf Fortress play itself!
 
 Plugin for DFHack.
 
-> **This branch is an unofficial port to Dwarf Fortress 53.15 / DFHack 53.15-r2** (the Steam-era game).
+> **This branch is an unofficial port to Dwarf Fortress 53.16 / DFHack 53.16-r3** (the Steam-era game).
 > See [INSTALL-WINDOWS.md](INSTALL-WINDOWS.md) for installing and what is and isn't automated yet.
 > Windows builds are produced by the GitHub Actions workflow in `.github/workflows/build-windows.yml`
 > (Actions tab → *Build df-ai for Windows* → download the artifact).
