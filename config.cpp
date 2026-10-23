@@ -22,7 +22,13 @@ Config::Config() :
     manage_labors("autolabor"),
     manage_nobles(true),
     cancel_announce(0),
-    allow_pause(true)
+    allow_pause(true),
+    direct_trade(true),
+    random_embark(false),
+    random_embark_world(""),
+    world_size(1),
+    embark_width(4),
+    embark_height(4)
 {
 }
 
@@ -82,6 +88,30 @@ void Config::load(color_ostream & out)
             {
                 allow_pause = v["allow_pause"].asBool();
             }
+            if (v.isMember("direct_trade"))
+            {
+                direct_trade = v["direct_trade"].asBool();
+            }
+            if (v.isMember("random_embark"))
+            {
+                random_embark = v["random_embark"].asBool();
+            }
+            if (v.isMember("random_embark_world"))
+            {
+                random_embark_world = v["random_embark_world"].asString();
+            }
+            if (v.isMember("world_size"))
+            {
+                world_size = std::min(std::max(int32_t(v["world_size"].asInt()), 0), 4);
+            }
+            if (v.isMember("embark_width"))
+            {
+                embark_width = int16_t(std::min(std::max(v["embark_width"].asInt(), 1), 16));
+            }
+            if (v.isMember("embark_height"))
+            {
+                embark_height = int16_t(std::min(std::max(v["embark_height"].asInt(), 1), 16));
+            }
             if (v.isMember("plan_verbosity"))
             {
                 debug_category_config.blueprint = v["plan_verbosity"].asInt();
@@ -137,6 +167,12 @@ void Config::save(color_ostream & out)
     setComment(v["manage_nobles"], manage_nobles, "// true or false: should the AI assign administrators in the fortress?");
     setComment(v["cancel_announce"], Json::Int(cancel_announce), "// how many job cancellation notices to show. 0: none, 1: some, 2: most, 3: all");
     setComment(v["allow_pause"], allow_pause, "// true or false: should df-ai allow the game to be paused?");
+    setComment(v["direct_trade"], direct_trade, "// true or false: (experimental) should df-ai complete caravan trades itself? if false, goods are moved to the depot and you trade by hand.");
+    setComment(v["random_embark"], random_embark, "// true or false: (experimental) should df-ai create or pick a world and embark automatically from the title screen, and start a new fort after one falls?");
+    setComment(v["random_embark_world"], random_embark_world, "// save folder name (e.g. \"region1\") of an existing world to embark in, or \"\" to generate a new world.");
+    setComment(v["world_size"], Json::Int(world_size), "// size of generated worlds: 0: pocket, 1: smaller, 2: small, 3: medium, 4: large");
+    setComment(v["embark_width"], Json::Int(embark_width), "// width of the embark area in local tiles (1-16)");
+    setComment(v["embark_height"], Json::Int(embark_height), "// height of the embark area in local tiles (1-16)");
 
 #define DFAI_DEBUG_CATEGORY(x) \
     if (!DFAI_IS_RELEASE || debug_category_config.x) \

@@ -361,7 +361,7 @@ static bool caravan_refuses_item(df::historical_entity *entity, df::item *item)
 // bought or sold.
 
 // TODO: move to config (requested option "direct_trade", default true).
-static const bool DIRECT_TRADE_ENABLED = true;
+#define DIRECT_TRADE_ENABLED (config.direct_trade)
 
 // The 0.47 code offered 110% of the request first and added up to 20% more
 // when the merchant refused; without haggling, always pay the upper bound.

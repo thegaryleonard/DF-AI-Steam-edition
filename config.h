@@ -32,6 +32,12 @@ struct Config
     bool manage_nobles;
     uint8_t cancel_announce;
     bool allow_pause;
+    bool direct_trade;
+    bool random_embark;
+    std::string random_embark_world;
+    int32_t world_size;
+    int16_t embark_width;
+    int16_t embark_height;
 };
 
 extern Config config;

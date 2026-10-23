@@ -33,6 +33,7 @@ execute_process(COMMAND ${CMAKE_COMMAND} -E copy_if_different
 SET(PROJECT_SRCS
     df-ai.cpp
     ai.cpp
+    embark.cpp
     config.cpp
     population.cpp
     population_death.cpp

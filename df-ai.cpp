@@ -2,6 +2,7 @@
 
 #include "ai.h"
 #include "blueprint.h"
+#include "embark.h"
 #include "event_manager.h"
 
 #include <fstream>
@@ -47,6 +48,10 @@ bool check_enabled(color_ostream & out)
 
             events.onupdate_register_once("df-ai start", [](color_ostream & out) -> bool
             {
+                if (embark::is_busy())
+                {
+                    return false;
+                }
                 if (World::isFortressMode() && Maps::IsValid())
                 {
                     command_result res = dwarfAI->onupdate_register(out);
@@ -64,6 +69,9 @@ bool check_enabled(color_ostream & out)
                 return false;
             });
         }
+        // Automatic world generation / embark (config random_embark, off by
+        // default). Only starts from the title screen; no-op otherwise.
+        embark::start(out);
         return true;
     }
     if (dwarfAI)
@@ -119,6 +127,10 @@ DFhackCExport command_result plugin_shutdown(color_ostream & out)
 
 DFhackCExport command_result plugin_enable(color_ostream & out, bool enable)
 {
+    if (enable && !enabled)
+    {
+        embark::reset_failure();
+    }
     enabled = enable;
     check_enabled(out);
     return CR_OK;
@@ -273,6 +285,13 @@ DFhackCExport command_result plugin_onstatechange(color_ostream & out, state_cha
     }
 
     events.onstatechange(out, event);
+
+    // With automatic embarking on, a world unload (fort lost/abandoned/retired)
+    // recreates the AI once the title screen is back, which starts a new embark.
+    if (event == SC_WORLD_UNLOADED && embark::enabled())
+    {
+        full_reset_requested = true;
+    }
     return CR_OK;
 }
 
