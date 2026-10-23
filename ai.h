@@ -165,3 +165,6 @@ public:
 
     bool is_embarking();
 };
+
+// Set when blueprint setup fails; plugin_onupdate then disables df-ai.
+extern bool df_ai_setup_failed;

@@ -29,6 +29,7 @@ REQUIRE_GLOBAL(world);
 // Protected by CoreSuspender
 std::unique_ptr<AI> dwarfAI{ nullptr };
 bool full_reset_requested = false;
+bool df_ai_setup_failed = false;
 
 command_result ai_command(color_ostream & out, std::vector<std::string> & args);
 
@@ -297,6 +298,14 @@ DFhackCExport command_result plugin_onstatechange(color_ostream & out, state_cha
 
 DFhackCExport command_result plugin_onupdate(color_ostream & out)
 {
+    if (df_ai_setup_failed)
+    {
+        df_ai_setup_failed = false;
+        enabled = false;
+        check_enabled(out); // deletes the AI
+        return CR_OK;
+    }
+
     if (!check_enabled(out))
         return CR_OK;
 
