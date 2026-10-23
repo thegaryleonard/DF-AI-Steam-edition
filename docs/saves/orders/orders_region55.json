@@ -1,0 +1,1788 @@
+[
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"id" : 222,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "ShearCreature",
+		"name" : "Shear animal"
+	},
+	{
+		"amount_left" : 3,
+		"amount_total" : 3,
+		"frequency" : "OneTime",
+		"id" : 223,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BUCKET",
+				"value" : 2
+			}
+		],
+		"job" : "MilkCreature",
+		"name" : "Milk animal"
+	},
+	{
+		"amount_left" : 9,
+		"amount_total" : 9,
+		"frequency" : "Daily",
+		"id" : 18,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BED",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructBed",
+		"material_category" : 
+		[
+			"wood"
+		],
+		"name" : "Make bed"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 19,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BARREL",
+				"value" : 10
+			}
+		],
+		"job" : "MakeBarrel",
+		"material_category" : 
+		[
+			"wood"
+		],
+		"name" : "Make wooden barrel"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 20,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BIN",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructBin",
+		"material_category" : 
+		[
+			"wood"
+		],
+		"name" : "Make wooden bin"
+	},
+	{
+		"amount_left" : 4,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 21,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DRINK",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Brew drink from plant",
+		"reaction" : "BREW_DRINK_FROM_PLANT"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 22,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DRINK",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Brew drink from plant",
+		"reaction" : "BREW_DRINK_FROM_PLANT"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 23,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "GEM",
+				"value" : 10
+			}
+		],
+		"job" : "CutGems",
+		"name" : "Cut gems"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 24,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "CHAIR",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructThrone",
+		"material" : "INORGANIC",
+		"name" : "Make rock throne"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 25,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DOOR",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructDoor",
+		"material" : "INORGANIC",
+		"name" : "Make rock door"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 26,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BOX",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructChest",
+		"material" : "INORGANIC",
+		"name" : "Make rock coffer"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 27,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "CABINET",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructCabinet",
+		"material" : "INORGANIC",
+		"name" : "Make rock cabinet"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 28,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "WEAPONRACK",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructWeaponRack",
+		"material" : "INORGANIC",
+		"name" : "Make rock weapon rack"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 29,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "HATCH_COVER",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructHatchCover",
+		"material" : "INORGANIC",
+		"name" : "Make rock hatch cover"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 30,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BLOCKS",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructBlocks",
+		"material" : "INORGANIC",
+		"name" : "Make rock blocks"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 31,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "TRAPPARTS",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructMechanisms",
+		"material" : "INORGANIC",
+		"name" : "Make rock mechanisms"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 32,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "TABLE",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructTable",
+		"material" : "INORGANIC",
+		"name" : "Make rock table"
+	},
+	{
+		"amount_left" : 6,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 33,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"unrotten"
+				],
+				"item_type" : "FOOD",
+				"value" : 10
+			}
+		],
+		"job" : "PrepareMeal",
+		"meal_ingredients" : 4,
+		"name" : "Prepare lavish meal"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 70,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 10
+			}
+		],
+		"job" : "MakeCharcoal",
+		"name" : "Make charcoal"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 71,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"material" : "POTASH",
+				"value" : 10
+			}
+		],
+		"job" : "MakePotashFromAsh",
+		"name" : "Make potash from ash"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 72,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Make soap from oil",
+		"reaction" : "MAKE_SOAP_FROM_OIL"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 73,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Make soap from tallow",
+		"reaction" : "MAKE_SOAP_FROM_TALLOW"
+	},
+	{
+		"amount_left" : 3,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 74,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_WEAPON_SWORD_SHORT",
+				"item_type" : "WEAPON",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_WEAPON_SWORD_SHORT",
+		"job" : "MakeWeapon",
+		"material" : "INORGANIC:STEEL",
+		"name" : "Forge steel short sword"
+	},
+	{
+		"amount_left" : 8,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 75,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_HELM_HELM",
+				"item_type" : "HELM",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_HELM_HELM",
+		"job" : "MakeHelm",
+		"material" : "INORGANIC:STEEL",
+		"name" : "Forge steel helm"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 76,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_ARMOR_BREASTPLATE",
+				"item_type" : "ARMOR",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_ARMOR_BREASTPLATE",
+		"job" : "MakeArmor",
+		"material" : "INORGANIC:STEEL",
+		"name" : "Forge steel breastplate"
+	},
+	{
+		"amount_left" : 9,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 77,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_GLOVES_GAUNTLETS",
+				"item_type" : "GLOVES",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_GLOVES_GAUNTLETS",
+		"job" : "MakeGloves",
+		"material" : "INORGANIC:STEEL",
+		"name" : "Forge pair of steel gauntlets"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 78,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_PANTS_GREAVES",
+				"item_type" : "PANTS",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_PANTS_GREAVES",
+		"job" : "MakePants",
+		"material" : "INORGANIC:STEEL",
+		"name" : "Forge steel greaves"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 79,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_SHOES_BOOTS",
+				"item_type" : "SHOES",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_SHOES_BOOTS",
+		"job" : "MakeShoes",
+		"material" : "INORGANIC:STEEL",
+		"name" : "Forge pair of steel high boots"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 80,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_ARMOR_MAIL_SHIRT",
+				"item_type" : "ARMOR",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_ARMOR_MAIL_SHIRT",
+		"job" : "MakeArmor",
+		"material" : "INORGANIC:STEEL",
+		"name" : "Forge steel mail shirt"
+	},
+	{
+		"amount_left" : 9,
+		"amount_total" : 9,
+		"frequency" : "Daily",
+		"id" : 81,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BED",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructBed",
+		"material_category" : 
+		[
+			"wood"
+		],
+		"name" : "Make bed"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 82,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BARREL",
+				"value" : 10
+			}
+		],
+		"job" : "MakeBarrel",
+		"material_category" : 
+		[
+			"wood"
+		],
+		"name" : "Make wooden barrel"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 83,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BIN",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructBin",
+		"material_category" : 
+		[
+			"wood"
+		],
+		"name" : "Make wooden bin"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 84,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DRINK",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Brew drink from plant",
+		"reaction" : "BREW_DRINK_FROM_PLANT"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 85,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DRINK",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Brew drink from plant",
+		"reaction" : "BREW_DRINK_FROM_PLANT"
+	},
+	{
+		"amount_left" : 8,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 86,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "GEM",
+				"value" : 10
+			}
+		],
+		"job" : "CutGems",
+		"name" : "Cut gems"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 87,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "CHAIR",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructThrone",
+		"material" : "INORGANIC",
+		"name" : "Make rock throne"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 88,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DOOR",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructDoor",
+		"material" : "INORGANIC",
+		"name" : "Make rock door"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 89,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BOX",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructChest",
+		"material" : "INORGANIC",
+		"name" : "Make rock coffer"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 90,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "CABINET",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructCabinet",
+		"material" : "INORGANIC",
+		"name" : "Make rock cabinet"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 91,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "WEAPONRACK",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructWeaponRack",
+		"material" : "INORGANIC",
+		"name" : "Make rock weapon rack"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 92,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "HATCH_COVER",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructHatchCover",
+		"material" : "INORGANIC",
+		"name" : "Make rock hatch cover"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 93,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BLOCKS",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructBlocks",
+		"material" : "INORGANIC",
+		"name" : "Make rock blocks"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 94,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "TRAPPARTS",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructMechanisms",
+		"material" : "INORGANIC",
+		"name" : "Make rock mechanisms"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 95,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "TABLE",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructTable",
+		"material" : "INORGANIC",
+		"name" : "Make rock table"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 96,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"unrotten"
+				],
+				"item_type" : "FOOD",
+				"value" : 10
+			}
+		],
+		"job" : "PrepareMeal",
+		"meal_ingredients" : 4,
+		"name" : "Prepare lavish meal"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 97,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:PIG_IRON",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Make pig iron bars",
+		"reaction" : "PIG_IRON_MAKING"
+	},
+	{
+		"amount_left" : 9,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 98,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "GLOB",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Mash plant into slurry",
+		"reaction" : "MAKE_SLURRY_FROM_PLANT"
+	},
+	{
+		"amount_left" : 8,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 99,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "SHEET",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Press plant slurry into paper sheet",
+		"reaction" : "PRESS_PLANT_PAPER"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 100,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_TOOL_BOOK_BINDING",
+				"item_type" : "TOOL",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_TOOL_BOOK_BINDING",
+		"job" : "MakeTool",
+		"material" : "INORGANIC",
+		"name" : "Make rock book binding"
+	},
+	{
+		"amount_left" : 3,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 101,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_TOOL_QUIRE",
+				"item_type" : "TOOL",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Make quire",
+		"reaction" : "MAKE_QUIRE"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 102,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_TOOL_SCROLL_ROLLERS",
+				"item_type" : "TOOL",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_TOOL_SCROLL_ROLLERS",
+		"job" : "MakeTool",
+		"material" : "INORGANIC",
+		"name" : "Make rock scroll rollers"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 103,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"unrotten"
+				],
+				"item_type" : "FOOD",
+				"value" : 10
+			}
+		],
+		"job" : "PrepareMeal",
+		"meal_ingredients" : 4,
+		"name" : "Prepare lavish meal"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 104,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DRINK",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Brew drink from fruit",
+		"reaction" : "BREW_DRINK_FROM_PLANT_GROWTH"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 105,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DRINK",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Brew drink from plant",
+		"reaction" : "BREW_DRINK_FROM_PLANT"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 147,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"material" : "POTASH",
+				"value" : 10
+			}
+		],
+		"job" : "MakePotashFromAsh",
+		"name" : "Make potash from ash"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 148,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"material" : "ASH",
+				"value" : 10
+			}
+		],
+		"job" : "MakeAsh",
+		"name" : "Make ash"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 149,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 10
+			}
+		],
+		"job" : "MakeCharcoal",
+		"name" : "Make charcoal"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 172,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:BISMUTHINITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:BISMUTH",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:BISMUTHINITE",
+		"name" : "Smelt bismuthinite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 173,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:CASSITERITE",
+				"value" : 25
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:TIN",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:CASSITERITE",
+		"name" : "Smelt cassiterite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 174,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:GALENA",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:LEAD",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:GALENA",
+		"name" : "Smelt galena ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 175,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:GARNIERITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:NICKEL",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:GARNIERITE",
+		"name" : "Smelt garnierite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 176,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:HEMATITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:HEMATITE",
+		"name" : "Smelt hematite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 177,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:HORN_SILVER",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:SILVER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:HORN_SILVER",
+		"name" : "Smelt horn silver ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 178,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:LIMONITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:LIMONITE",
+		"name" : "Smelt limonite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 179,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:MAGNETITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:MAGNETITE",
+		"name" : "Smelt magnetite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 180,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:MALACHITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:COPPER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:MALACHITE",
+		"name" : "Smelt malachite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 181,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_ALUMINUM",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:ALUMINUM",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_ALUMINUM",
+		"name" : "Smelt native aluminum ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 182,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_COPPER",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:COPPER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_COPPER",
+		"name" : "Smelt native copper ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 183,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_GOLD",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:GOLD",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_GOLD",
+		"name" : "Smelt native gold ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 184,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_SILVER",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:SILVER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_SILVER",
+		"name" : "Smelt native silver ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 185,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_PLATINUM",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:PLATINUM",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_PLATINUM",
+		"name" : "Smelt native platinum ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 186,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:SPHALERITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:ZINC",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:SPHALERITE",
+		"name" : "Smelt sphalerite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 187,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:TETRAHEDRITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:COPPER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:TETRAHEDRITE",
+		"name" : "Smelt tetrahedrite ore"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 198,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"reaction_class" : "FLUX",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:PIG_IRON",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Make pig iron bars",
+		"reaction" : "PIG_IRON_MAKING"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 200,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:PIG_IRON",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"reaction_class" : "FLUX",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"name" : "Make steel bars",
+		"reaction" : "STEEL_MAKING"
+	}
+]

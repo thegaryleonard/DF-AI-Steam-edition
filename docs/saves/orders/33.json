@@ -1,0 +1,2359 @@
+[
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 572,
+		"id" : 1033,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_subtype" : "ITEM_ARMOR_DRESS",
+		"job" : "MakeArmor",
+		"material_category" : 
+		[
+			"silk"
+		]
+	},
+	{
+		"amount_left" : 26,
+		"amount_total" : 26,
+		"frequency" : "OneTime",
+		"id" : 1034,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BUCKET",
+				"value" : 2
+			}
+		],
+		"job" : "MilkCreature"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3409,
+		"id" : 1036,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 23,
+		"amount_total" : 23,
+		"frequency" : "OneTime",
+		"hist_figure" : 572,
+		"id" : 1037,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_subtype" : "ITEM_HELM_CAP",
+		"job" : "MakeHelm",
+		"material_category" : 
+		[
+			"cloth"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2302,
+		"id" : 1042,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 1564,
+		"id" : 1043,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3447,
+		"id" : 1050,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2366,
+		"id" : 1057,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2362,
+		"id" : 1060,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3200,
+		"id" : 1063,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 7,
+		"amount_total" : 7,
+		"frequency" : "OneTime",
+		"id" : 1065,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "ShearCreature"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2653,
+		"id" : 1066,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2358,
+		"id" : 1069,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2187,
+		"id" : 1074,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2772,
+		"id" : 1077,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 572,
+		"id" : 1078,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_subtype" : "ITEM_HELM_CAP",
+		"job" : "MakeHelm",
+		"material_category" : 
+		[
+			"silk"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2995,
+		"id" : 1079,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2997,
+		"id" : 1080,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3399,
+		"id" : 1081,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2286,
+		"id" : 1082,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 74,
+		"amount_total" : 74,
+		"frequency" : "OneTime",
+		"hist_figure" : 572,
+		"id" : 1087,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_subtype" : "ITEM_HELM_CAP",
+		"job" : "MakeHelm",
+		"material_category" : 
+		[
+			"yarn"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2223,
+		"id" : 1090,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3009,
+		"id" : 1095,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3627,
+		"id" : 1102,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2798,
+		"id" : 1103,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2617,
+		"id" : 1108,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3007,
+		"id" : 1109,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3675,
+		"id" : 1116,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 1876,
+		"id" : 1117,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3055,
+		"id" : 1118,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 3564,
+		"id" : 1124,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2228,
+		"id" : 1125,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 4,
+		"amount_total" : 4,
+		"frequency" : "OneTime",
+		"hist_figure" : 572,
+		"id" : 1128,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_subtype" : "ITEM_ARMOR_DRESS",
+		"job" : "MakeArmor",
+		"material_category" : 
+		[
+			"yarn"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2365,
+		"id" : 1132,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 1662,
+		"id" : 1135,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2774,
+		"id" : 1136,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2576,
+		"id" : 1139,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 1953,
+		"id" : 1144,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "OneTime",
+		"hist_figure" : 2712,
+		"id" : 1151,
+		"is_active" : false,
+		"is_validated" : false,
+		"job" : "EngraveSlab"
+	},
+	{
+		"amount_left" : 9,
+		"amount_total" : 9,
+		"frequency" : "Daily",
+		"id" : 284,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BED",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructBed",
+		"material_category" : 
+		[
+			"wood"
+		]
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 285,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DRINK",
+				"value" : 100
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "BREW_DRINK_FROM_PLANT"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 286,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DRINK",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "BREW_DRINK_FROM_PLANT"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 287,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "CHAIR",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructThrone",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 288,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "DOOR",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructDoor",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 289,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BOX",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructChest",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 290,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "CABINET",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructCabinet",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 291,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "WEAPONRACK",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructWeaponRack",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 292,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "HATCH_COVER",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructHatchCover",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 293,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BLOCKS",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructBlocks",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 294,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "TRAPPARTS",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructMechanisms",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 295,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "TABLE",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructTable",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 296,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"unrotten"
+				],
+				"item_type" : "FOOD",
+				"value" : 10
+			}
+		],
+		"job" : "PrepareMeal",
+		"meal_ingredients" : 4
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 297,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"unrotten",
+					"body_part",
+					"hair_wool"
+				],
+				"value" : 5
+			}
+		],
+		"job" : "SpinThread",
+		"material_category" : 
+		[
+			"strand"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 298,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"collected",
+					"silk"
+				],
+				"item_type" : "THREAD",
+				"value" : 5
+			},
+			{
+				"condition" : "AtMost",
+				"flags" : 
+				[
+					"silk"
+				],
+				"item_type" : "CLOTH",
+				"value" : 100
+			}
+		],
+		"job" : "WeaveCloth",
+		"material_category" : 
+		[
+			"silk"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 299,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"collected",
+					"plant"
+				],
+				"item_type" : "THREAD",
+				"value" : 5
+			},
+			{
+				"condition" : "AtMost",
+				"flags" : 
+				[
+					"plant"
+				],
+				"item_type" : "CLOTH",
+				"value" : 100
+			}
+		],
+		"job" : "WeaveCloth",
+		"material_category" : 
+		[
+			"plant"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 300,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"collected",
+					"yarn"
+				],
+				"item_type" : "THREAD",
+				"value" : 5
+			},
+			{
+				"condition" : "AtMost",
+				"flags" : 
+				[
+					"yarn"
+				],
+				"item_type" : "CLOTH",
+				"value" : 100
+			}
+		],
+		"job" : "WeaveCloth",
+		"material_category" : 
+		[
+			"yarn"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 301,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"dyeable"
+				],
+				"item_type" : "CLOTH",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"unrotten",
+					"dye"
+				],
+				"value" : 3
+			}
+		],
+		"job" : "DyeCloth"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 302,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"non_economic",
+					"hard"
+				],
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC",
+				"value" : 20
+			},
+			{
+				"condition" : "AtMost",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_subtype" : "ITEM_TOOL_LARGE_POT",
+				"item_type" : "TOOL",
+				"value" : 25
+			}
+		],
+		"item_subtype" : "ITEM_TOOL_LARGE_POT",
+		"job" : "MakeTool",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 303,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"non_economic",
+					"hard"
+				],
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC",
+				"value" : 20
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "GOBLET",
+				"value" : 10
+			}
+		],
+		"job" : "MakeGoblet",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 304,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtMost",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BUCKET",
+				"value" : 10
+			}
+		],
+		"job" : "MakeBucket",
+		"material_category" : 
+		[
+			"wood"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 305,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"non_economic",
+					"hard"
+				],
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC",
+				"value" : 50
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "TRAPPARTS",
+				"value" : 20
+			}
+		],
+		"job" : "ConstructMechanisms",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 306,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "WOOD",
+				"value" : 50
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "SPLINT",
+				"value" : 1
+			}
+		],
+		"job" : "ConstructSplint",
+		"material_category" : 
+		[
+			"wood"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 307,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "WOOD",
+				"value" : 50
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "CRUTCH",
+				"value" : 1
+			}
+		],
+		"job" : "ConstructCrutch",
+		"material_category" : 
+		[
+			"wood"
+		]
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 308,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "ASH",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BUCKET",
+				"value" : 5
+			},
+			{
+				"condition" : "AtMost",
+				"contains" : 
+				[
+					"lye"
+				],
+				"reaction_id" : "MAKE_SOAP_FROM_TALLOW",
+				"value" : 5
+			}
+		],
+		"job" : "MakeLye"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 309,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"unrotten"
+				],
+				"item_type" : "GLOB",
+				"reaction_class" : "TALLOW",
+				"reaction_product" : "SOAP_MAT",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"contains" : 
+				[
+					"lye"
+				],
+				"reaction_id" : "MAKE_SOAP_FROM_TALLOW",
+				"value" : 3
+			},
+			{
+				"condition" : "AtMost",
+				"flags" : 
+				[
+					"soap"
+				],
+				"item_type" : "BAR",
+				"value" : 5
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "MAKE_SOAP_FROM_TALLOW"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 310,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "LIQUID_MISC",
+				"reaction_product" : "SOAP_MAT",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"contains" : 
+				[
+					"lye"
+				],
+				"reaction_id" : "MAKE_SOAP_FROM_OIL",
+				"value" : 3
+			},
+			{
+				"condition" : "AtMost",
+				"flags" : 
+				[
+					"soap"
+				],
+				"item_type" : "BAR",
+				"value" : 5
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "MAKE_SOAP_FROM_OIL"
+	},
+	{
+		"amount_left" : 4,
+		"amount_total" : 4,
+		"frequency" : "Daily",
+		"id" : 311,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "WOOD",
+				"value" : 50
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "ASH",
+				"value" : 10
+			}
+		],
+		"job" : "MakeAsh"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 312,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "ASH",
+				"value" : 5
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "POTASH",
+				"value" : 20
+			}
+		],
+		"job" : "MakePotashFromAsh"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 313,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtMost",
+				"flags" : 
+				[
+					"non_pressed"
+				],
+				"item_type" : "GLOB",
+				"reaction_class" : "PAPER_SLURRY",
+				"value" : 2
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "MAKE_SLURRY_FROM_PLANT"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 314,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"flags" : 
+				[
+					"non_pressed"
+				],
+				"item_type" : "GLOB",
+				"reaction_class" : "PAPER_SLURRY",
+				"reaction_id" : "PRESS_PLANT_PAPER",
+				"value" : 2
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "SHEET",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "PRESS_PLANT_PAPER"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 315,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtMost",
+				"item_type" : "SHEET",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "MAKE_SHEET_FROM_PLANT"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 316,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_TOOL_QUIRE",
+				"item_type" : "TOOL",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "MAKE_QUIRE"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 317,
+		"is_active" : true,
+		"is_validated" : true,
+		"job" : "CutGems"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 318,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_TOOL_BOOK_BINDING",
+				"item_type" : "TOOL",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_TOOL_BOOK_BINDING",
+		"job" : "MakeTool",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 319,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "GreaterThan",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:SILVER",
+				"min_dimension" : 150,
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_AMMO_BOLTS",
+		"job" : "MakeAmmo",
+		"material" : "INORGANIC:SILVER"
+	},
+	{
+		"amount_left" : 7,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 320,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:PIG_IRON",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "PIG_IRON_MAKING"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 321,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "GreaterThan",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"reaction_id" : "STEEL_MAKING",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "STEEL_MAKING"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 322,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "SLAB",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructSlab",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 323,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_ARMOR_BREASTPLATE",
+				"item_type" : "ARMOR",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_ARMOR_BREASTPLATE",
+		"job" : "MakeArmor",
+		"material" : "INORGANIC:STEEL"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 324,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_HELM_HELM",
+				"item_type" : "HELM",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_HELM_HELM",
+		"job" : "MakeHelm",
+		"material" : "INORGANIC:STEEL"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 325,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_GLOVES_GAUNTLETS",
+				"item_type" : "GLOVES",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_GLOVES_GAUNTLETS",
+		"job" : "MakeGloves",
+		"material" : "INORGANIC:STEEL"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 326,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_PANTS_GREAVES",
+				"item_type" : "PANTS",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_PANTS_GREAVES",
+		"job" : "MakePants",
+		"material" : "INORGANIC:STEEL"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 327,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_PANTS_LEGGINGS",
+				"item_type" : "PANTS",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_PANTS_LEGGINGS",
+		"job" : "MakePants",
+		"material" : "INORGANIC:STEEL"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 328,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_SHOES_BOOTS",
+				"item_type" : "SHOES",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_SHOES_BOOTS",
+		"job" : "MakeShoes",
+		"material" : "INORGANIC:STEEL"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 329,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_WEAPON_AXE_BATTLE",
+				"item_type" : "WEAPON",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_WEAPON_AXE_BATTLE",
+		"job" : "MakeWeapon",
+		"material" : "INORGANIC:STEEL"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 330,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "ARMORSTAND",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructArmorStand",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 331,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "GreaterThan",
+				"flags" : 
+				[
+					"unrotten",
+					"bone",
+					"body_part"
+				],
+				"value" : 10
+			}
+		],
+		"job" : "MakeCrafts",
+		"material_category" : 
+		[
+			"bone"
+		]
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 353,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "GreaterThan",
+				"item_type" : "BOULDER",
+				"reaction_class" : "GYPSUM",
+				"reaction_id" : "MAKE_PLASTER_POWDER",
+				"value" : 10
+			},
+			{
+				"condition" : "LessThan",
+				"item_type" : "POWDER_MISC",
+				"material" : "INORGANIC:PLASTER",
+				"value" : 10
+			},
+			{
+				"condition" : "GreaterThan",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 10
+			},
+			{
+				"condition" : "GreaterThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BAG",
+				"reaction_id" : "MAKE_PLASTER_POWDER",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "MAKE_PLASTER_POWDER"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 354,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "GreaterThan",
+				"flags" : 
+				[
+					"unrotten"
+				],
+				"item_type" : "PLANT",
+				"reaction_id" : "PROCESS_PLANT_TO_BAG",
+				"reaction_product" : "BAG_ITEM",
+				"value" : 10
+			},
+			{
+				"condition" : "GreaterThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "BAG",
+				"reaction_id" : "PROCESS_PLANT_TO_BAG",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "PROCESS_PLANT_TO_BAG"
+	},
+	{
+		"amount_left" : 5,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 418,
+		"is_active" : true,
+		"is_validated" : true,
+		"job" : "CustomReaction",
+		"reaction" : "BIND_BOOK"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 424,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "CHAIN",
+				"material" : "INORGANIC:COPPER",
+				"value" : 10
+			}
+		],
+		"job" : "MakeChain",
+		"material" : "INORGANIC:COPPER"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 642,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:BISMUTHINITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:BISMUTH",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:BISMUTHINITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 643,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:CASSITERITE",
+				"value" : 25
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:TIN",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:CASSITERITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 644,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:GALENA",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:LEAD",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:GALENA"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 645,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:GARNIERITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:NICKEL",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:GARNIERITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 646,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:HEMATITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:HEMATITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 647,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:HORN_SILVER",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:SILVER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:HORN_SILVER"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 648,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:LIMONITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:LIMONITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 649,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:MAGNETITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:MAGNETITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 650,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:MALACHITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:COPPER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:MALACHITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 651,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_ALUMINUM",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:ALUMINUM",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_ALUMINUM"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 652,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_COPPER",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:COPPER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_COPPER"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 653,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_GOLD",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:GOLD",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_GOLD"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 654,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_SILVER",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:SILVER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_SILVER"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 655,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:NATIVE_PLATINUM",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:PLATINUM",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:NATIVE_PLATINUM"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 656,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:SPHALERITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:ZINC",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:SPHALERITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 657,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"material" : "INORGANIC:TETRAHEDRITE",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:COPPER",
+				"value" : 10
+			}
+		],
+		"job" : "SmeltOre",
+		"material" : "INORGANIC:TETRAHEDRITE"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 668,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"reaction_class" : "FLUX",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:PIG_IRON",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "PIG_IRON_MAKING"
+	},
+	{
+		"amount_left" : 1,
+		"amount_total" : 1,
+		"frequency" : "Daily",
+		"id" : 670,
+		"is_active" : false,
+		"is_validated" : true,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:IRON",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:PIG_IRON",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BOULDER",
+				"reaction_class" : "FLUX",
+				"value" : 5
+			},
+			{
+				"condition" : "AtLeast",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 100
+			},
+			{
+				"condition" : "AtMost",
+				"item_type" : "BAR",
+				"material" : "INORGANIC:STEEL",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "STEEL_MAKING"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 676,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"flags" : 
+				[
+					"empty"
+				],
+				"item_type" : "COFFIN",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"job" : "ConstructCoffin",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 734,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "POWDER_MISC",
+				"material" : "INORGANIC:PLASTER",
+				"value" : 10
+			}
+		],
+		"job" : "CustomReaction",
+		"reaction" : "MAKE_PLASTER_POWDER"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 800,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_type" : "BAR",
+				"material" : "COAL",
+				"value" : 10
+			}
+		],
+		"job" : "MakeCharcoal"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 1119,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "LessThan",
+				"item_subtype" : "ITEM_TOOL_PEDESTAL",
+				"item_type" : "TOOL",
+				"material" : "INORGANIC",
+				"value" : 10
+			}
+		],
+		"item_subtype" : "ITEM_TOOL_PEDESTAL",
+		"job" : "MakeTool",
+		"material" : "INORGANIC"
+	},
+	{
+		"amount_left" : 10,
+		"amount_total" : 10,
+		"frequency" : "Daily",
+		"id" : 1131,
+		"is_active" : false,
+		"is_validated" : false,
+		"item_conditions" : 
+		[
+			{
+				"condition" : "GreaterThan",
+				"flags" : 
+				[
+					"melt_designated",
+					"allow_melt_dump"
+				],
+				"value" : 10
+			}
+		],
+		"job" : "MeltMetalObject"
+	}
+]
