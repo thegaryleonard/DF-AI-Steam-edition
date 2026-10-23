@@ -798,5 +798,11 @@ namespace embark
     {
         close_embark_help(out);
         hide_fortress_popups();
+        auto & help = game->main_interface.help;
+        if (help.open && enum_item_key(help.context).compare(0, 6, "POPUP_") == 0)
+        {
+            log(out, "closing tutorial popup " + enum_item_key(help.context));
+            help.open = false;
+        }
     }
 }
