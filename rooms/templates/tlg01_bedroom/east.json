@@ -1,0 +1,61 @@
+{
+	"$schema": "https://ben.lubar.me/df-ai-schemas/room-template.json",
+	"f": [
+		{
+			"type": "bed",
+			"makeroom": true,
+			"x": 2,
+			"y": 0,
+			"z": 0
+		},
+		{
+			"type": "cabinet",
+			"ignore": true,
+			"x": 2,
+			"y": 2,
+			"z": 0
+		},
+		{
+			"type": "chest",
+			"ignore": true,
+			"x": 0,
+			"y": 2,
+			"z": 0
+		},
+		{
+			"type": "statue",
+			"ignore": true,
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		{
+			"type": "door",
+			"x": -1,
+			"y": 1,
+			"z": 0
+		}
+	],
+	"r": [
+		{
+			"type": "bedroom",
+			"min": [
+				1,
+				-1,
+				0
+			],
+			"max": [
+				3,
+				1,
+				0
+			],
+			"layout": [
+				0,
+				1,
+				2,
+				3,
+				4
+			]
+		}
+	]
+}
