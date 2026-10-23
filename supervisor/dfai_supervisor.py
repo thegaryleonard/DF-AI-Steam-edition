@@ -7,6 +7,7 @@ Runs outside the game and talks to it through DFHack's dfhack-run.
   - freeze recovery: game unpaused but the clock stopped -> close popups,
     then restart if it stays frozen
   - stuck-paused alert: paused for a long time while df-ai is on
+  - diplomacy: opens and answers diplomat meetings (dfai-diplomacy.lua)
   - a quicksave every 20 min (bounds crash loss) and save backups on a timer
   - alerts via a notify file that a Discord cron job posts
 
@@ -289,6 +290,22 @@ class Supervisor:
         self.last_backup = time.time()
         log(f"backup -> {dst}")
 
+    def diplomacy(self):
+        """Answer diplomat meetings (DF 53 waits for a click on the DIPLOMACY
+        alert; unanswered diplomats leave unhappy). A few steps per poll."""
+        for _ in range(12):
+            out = (dfhack("dfai-diplomacy") or "").strip()
+            if not out or out.startswith("IDLE") or out.startswith("WAITING"):
+                return
+            log(f"diplomacy: {out[:300]}")
+            if out.startswith("NEEDS-HUMAN") or out.startswith("STUCK"):
+                if not getattr(self, "dip_alerted", False):
+                    notify(f"a diplomat meeting needs a human: {out[:200]}", ping=True)
+                    self.dip_alerted = True
+                return
+            self.dip_alerted = False
+            time.sleep(2)
+
     def step(self):
         now = time.time()
         if not df_running():
@@ -331,6 +348,8 @@ class Supervisor:
                 elif now - self.popups_closed_at > 2 * CFG["freeze_s"]:
                     self.restart(f"game clock frozen for {int(stalled)}s on screen {st.get('focus')}")
                     return
+
+        self.diplomacy()
 
         if now - self.last_quicksave > CFG["quicksave_every_s"] and not st.get("paused"):
             self.last_quicksave = now
