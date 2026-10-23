@@ -8,6 +8,7 @@
 #include "modules/Job.h"
 
 #include "df/building.h"
+#include "df/building_tradedepotst.h"
 #include "df/caravan_state.h"
 #include "df/caste_raw.h"
 #include "df/creature_raw.h"
@@ -41,8 +42,10 @@
 #include "df/sphere_type.h"
 #include "df/plotinfost.h"
 #include "df/unit.h"
+#include "df/world.h"
 
 REQUIRE_GLOBAL(plotinfo);
+REQUIRE_GLOBAL(world);
 
 Trade::Trade(AI & ai) :
     ai(ai)
@@ -53,10 +56,36 @@ Trade::~Trade()
 {
 }
 
+static bool depot_usable(df::building_tradedepotst *bld)
+{
+    if (!bld || bld->getBuildStage() < bld->getMaxBuildStage())
+        return false;
+    for (auto job : bld->jobs)
+        if (job->job_type == job_type::DestroyBuilding)
+            return false;
+    return true;
+}
+
+df::building_tradedepotst *Trade::find_depot()
+{
+    if (room *r = ai.find_room(room_type::tradedepot))
+    {
+        auto bld = virtual_cast<df::building_tradedepotst>(r->dfbuilding());
+        if (depot_usable(bld))
+            return bld;
+    }
+    for (auto b : world->buildings.other[buildings_other_id::TRADE_DEPOT])
+    {
+        auto bld = virtual_cast<df::building_tradedepotst>(b);
+        if (depot_usable(bld))
+            return bld;
+    }
+    return nullptr;
+}
+
 bool Trade::can_trade()
 {
-    auto room = ai.find_room(room_type::tradedepot);
-    auto bld = room ? room->dfbuilding() : nullptr;
+    df::building *bld = find_depot();
     if (!bld)
     {
         return false;

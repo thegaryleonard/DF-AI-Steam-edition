@@ -4,6 +4,7 @@
 #include "trade.h"
 
 #include "modules/Items.h"
+#include "modules/Job.h"
 #include "modules/Materials.h"
 #include "modules/Units.h"
 
@@ -19,6 +20,7 @@
 #include "df/creature_raw.h"
 #include "df/entity_position_assignment.h"
 #include "df/general_ref.h"
+#include "df/general_ref_building_holderst.h"
 #include "df/entity_raw.h"
 #include "df/ethic_response.h"
 #include "df/ethic_type.h"
@@ -34,6 +36,8 @@
 REQUIRE_GLOBAL(game);
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
+
+static df::building_tradedepotst *find_ready_depot(AI & ai);
 
 void Population::update_trading(color_ostream & out)
 {
@@ -150,8 +154,12 @@ void Population::update_trading(color_ostream & out)
         }
     }
 
-    room *depot = ai.find_room(room_type::tradedepot, [broker](room *r) -> bool { return r->include(Units::getPosition(broker)); });
-    if (!depot)
+    df::building_tradedepotst *depot_bld = find_ready_depot(ai);
+    df::coord broker_at = Units::getPosition(broker);
+    bool at_depot = depot_bld && broker_at.z == depot_bld->z &&
+        broker_at.x >= depot_bld->x1 && broker_at.x <= depot_bld->x2 &&
+        broker_at.y >= depot_bld->y1 && broker_at.y <= depot_bld->y2;
+    if (!at_depot)
     {
         ai.debug(out, "[trade] Broker en route to depot: " + AI::describe_unit(broker) + " (Currently at " + AI::describe_room(ai.find_room_at(Units::getPosition(broker))) + ")");
         return;
@@ -195,24 +203,7 @@ void Population::update_trading(color_ostream & out)
 // Items::markForTrade, the same way DFHack's caravan/movegoods tool does.
 static df::building_tradedepotst *find_ready_depot(AI & ai)
 {
-    room *r = ai.find_room(room_type::tradedepot);
-    if (!r)
-    {
-        return nullptr;
-    }
-    df::building_tradedepotst *bld = virtual_cast<df::building_tradedepotst>(r->dfbuilding());
-    if (!bld || bld->getBuildStage() < bld->getMaxBuildStage())
-    {
-        return nullptr;
-    }
-    for (auto job : bld->jobs)
-    {
-        if (job->job_type == job_type::DestroyBuilding)
-        {
-            return nullptr;
-        }
-    }
-    return bld;
+    return ai.trade.find_depot();
 }
 
 static bool is_tradeable_candidate(df::item *item)
@@ -271,12 +262,52 @@ static size_t mark_goods_for_trade(color_ostream & out, AI & ai, df::building_tr
     return marked;
 }
 
+// In DF 53 the "request trader" button sets trader_requested AND puts a
+// TradeAtDepot job on the depot; the broker only goes when that job exists.
+// Keep the job in sync with the flag (cf. DFHack's caravan.lua, which removes it).
+static bool sync_trade_job(df::building_tradedepotst *bld, bool want)
+{
+    df::job *existing = nullptr;
+    for (auto job : bld->jobs)
+    {
+        if (job->job_type == job_type::TradeAtDepot)
+        {
+            existing = job;
+            break;
+        }
+    }
+    if (want && !existing)
+    {
+        if (bld->jobs.size() >= 10)
+            return false;
+        auto ref = df::allocate<df::general_ref_building_holderst>();
+        ref->building_id = bld->id;
+        auto job = df::allocate<df::job>();
+        job->job_type = job_type::TradeAtDepot;
+        job->pos = df::coord(bld->centerx, bld->centery, bld->z);
+        job->general_refs.push_back(ref);
+        bld->jobs.push_back(job);
+        Job::linkIntoWorld(job);
+        return true;
+    }
+    if (!want && existing)
+    {
+        Job::removeJob(existing);
+        return true;
+    }
+    return false;
+}
+
 bool Population::set_up_trading(color_ostream & out, bool should_be_trading, bool allow_any_dwarf)
 {
     df::building_tradedepotst *bld = find_ready_depot(ai);
     if (!bld)
     {
         return false;
+    }
+    if (bld->trade_flags.bits.trader_requested && sync_trade_job(bld, should_be_trading))
+    {
+        ai.debug(out, should_be_trading ? "[trade] Added missing TradeAtDepot job for the broker." : "[trade] Removed TradeAtDepot job.");
     }
     bool toggle_restrict = (should_be_trading && allow_any_dwarf && bld->trade_flags.bits.trader_requested && !bld->trade_flags.bits.anyone_can_trade) || (!should_be_trading && bld->trade_flags.bits.anyone_can_trade);
     if (bool(bld->trade_flags.bits.trader_requested) == should_be_trading && !toggle_restrict)
@@ -292,6 +323,7 @@ bool Population::set_up_trading(color_ostream & out, bool should_be_trading, boo
     if (bool(bld->trade_flags.bits.trader_requested) != should_be_trading)
     {
         bld->trade_flags.bits.trader_requested = should_be_trading;
+        sync_trade_job(bld, should_be_trading);
 
         if (should_be_trading)
         {
