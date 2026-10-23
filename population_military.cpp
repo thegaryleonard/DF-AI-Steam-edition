@@ -552,6 +552,9 @@ public:
 
             FOR_ENUM_ITEMS(uniform_category, cat)
             {
+                // DF 53 added NONE = -1 to this enum; it is not a valid array index.
+                if (cat < 0)
+                    continue;
                 auto & specs = pos->equipment.uniform[cat];
                 if (!specs.empty())
                 {
