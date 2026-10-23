@@ -682,67 +682,65 @@ void PerformTradeExclusive::Run(color_ostream & out)
         return;
     }
 
-    int32_t target = request_value * TRADE_MARGIN_NUM / TRADE_MARGIN_DEN;
-    if (target * TRADE_MARGIN_DEN < request_value * TRADE_MARGIN_NUM)
-    {
-        target++;
-    }
-
-    // Choose what to offer: most valuable first until the target is met, then
-    // drop the cheapest items that are not needed to stay over it.
-    std::vector<good_t> offer_sorted = fort_goods;
-    std::stable_sort(offer_sorted.begin(), offer_sorted.end(), [](const good_t & a, const good_t & b) -> bool { return a.price > b.price; });
-    std::vector<good_t> offer;
-    int32_t offer_value = 0;
-    for (auto & g : offer_sorted)
-    {
-        if (offer_value >= target)
-        {
-            break;
-        }
-        offer.push_back(g);
-        offer_value += g.price;
-    }
-    for (auto it = offer.end(); it != offer.begin(); )
-    {
-        --it;
-        if (offer_value - it->price >= target)
-        {
-            offer_value -= it->price;
-            it = offer.erase(it);
-        }
-    }
-
-    if (offer_value < target)
-    {
-        ai.debug(out, stl_sprintf("[trade] Could not put together an offer (requested: %d, offered: %d). Goods stay at the depot for the player.", request_value, offer_value));
-        result = FAILED;
-        return;
-    }
-
-    // Cross-check with DFHack's caravan-aware valuation.
+    // Choose what to offer using the caravan's own valuation (perceived_value):
+    // picking by our price and only checking perceived value at the end made
+    // offers fall just short (requested 1252, offered 1159) and nothing traded.
     int32_t dfhack_request = 0;
-    int32_t dfhack_offer = 0;
     for (auto & g : request)
     {
         dfhack_request += perceived_value(g.item, caravan);
     }
-    for (auto & g : offer)
+    int64_t pv_target = (int64_t(dfhack_request) * TRADE_MARGIN_NUM + TRADE_MARGIN_DEN - 1) / TRADE_MARGIN_DEN;
+    std::vector<std::pair<int32_t, good_t>> offer_sorted;
+    for (auto & g : fort_goods)
     {
-        dfhack_offer += perceived_value(g.item, caravan);
+        int32_t pv = perceived_value(g.item, caravan);
+        if (pv > 0)
+        {
+            offer_sorted.push_back(std::make_pair(pv, g));
+        }
     }
-    if (int64_t(dfhack_offer) * TRADE_MARGIN_DEN < int64_t(dfhack_request) * TRADE_MARGIN_NUM)
+    std::stable_sort(offer_sorted.begin(), offer_sorted.end(), [](const std::pair<int32_t, good_t> & x, const std::pair<int32_t, good_t> & y) -> bool { return x.first > y.first; });
+    std::vector<std::pair<int32_t, good_t>> chosen;
+    int64_t dfhack_offer = 0;
+    for (auto & pg : offer_sorted)
     {
-        ai.debug(out, stl_sprintf("[trade] Offer fails the value check (Items::getValue: requested %d, offered %d). Goods stay at the depot for the player.", dfhack_request, dfhack_offer));
+        if (dfhack_offer >= pv_target)
+        {
+            break;
+        }
+        chosen.push_back(pg);
+        dfhack_offer += pg.first;
+    }
+    // then drop items that are not needed to stay over the target
+    for (auto it = chosen.end(); it != chosen.begin(); )
+    {
+        --it;
+        if (dfhack_offer - it->first >= pv_target)
+        {
+            dfhack_offer -= it->first;
+            it = chosen.erase(it);
+        }
+    }
+    if (dfhack_offer < pv_target)
+    {
+        ai.debug(out, stl_sprintf("[trade] Could not put together an offer the traders accept (they value our request at %d, our best offer at %d). Goods stay at the depot for the player.", dfhack_request, int32_t(dfhack_offer)));
         result = FAILED;
         return;
+    }
+    std::vector<good_t> offer;
+    int32_t offer_value = 0;
+    for (auto & pg : chosen)
+    {
+        offer.push_back(pg.second);
+        offer_value += pg.second.price;
     }
 
     for (auto & g : offer)
     {
         ai.debug(out, "[trade] Offering item: " + AI::describe_item(g.item));
     }
-    ai.debug(out, stl_sprintf("[trade] Requested: %d Offered: %d (Items::getValue: %d / %d)", request_value, offer_value, dfhack_request, dfhack_offer));
+    ai.debug(out, stl_sprintf("[trade] Requested: %d Offered: %d (Items::getValue: %d / %d)", request_value, offer_value, dfhack_request, int32_t(dfhack_offer)));
 
     // Apply the barter. Take purchased items out of merchant containers first;
     // if that fails for an item, it is simply not bought (and the offer is
