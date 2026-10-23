@@ -507,7 +507,9 @@ static bool caravan_still_unloading(df::caravan_state *caravan)
 static bool usable_depot_item(df::item *item)
 {
     auto & flags = item->flags.bits;
-    return !(flags.in_job || flags.removed || flags.garbage_collect || flags.artifact || flags.owned || flags.on_fire || flags.in_building) && item->specific_refs.empty();
+    // No in_building check: on DF 53 every item stored in the depot (trader goods
+    // and ours) has in_building set; callers already require a TEMP depot item.
+    return !(flags.in_job || flags.removed || flags.garbage_collect || flags.artifact || flags.owned || flags.on_fire) && item->specific_refs.empty();
 }
 
 class PerformTradeExclusive : public ExclusiveCallback
