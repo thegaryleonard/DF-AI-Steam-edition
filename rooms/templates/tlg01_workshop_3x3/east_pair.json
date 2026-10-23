@@ -1,0 +1,130 @@
+{
+	"$schema": "https://ben.lubar.me/df-ai-schemas/room-template.json",
+	"f": [
+		{
+			"type": "door",
+			"ignore": true,
+			"x": -1,
+			"y": 1,
+			"z": 0
+		},
+		{
+			"type": "door",
+			"ignore": true,
+			"x": -1,
+			"y": 1,
+			"z": 0
+		}
+	],
+	"r": [
+		{
+			"level": 1,
+			"min": [
+				1,
+				-1,
+				0
+			],
+			"max": [
+				3,
+				1,
+				0
+			],
+			"layout": [
+				0
+			],
+			"placeholder": 0
+		},
+		{
+			"type": "stockpile",
+			"min": [
+				1,
+				-2,
+				0
+			],
+			"max": [
+				3,
+				-2,
+				0
+			],
+			"accesspath": [
+				0
+			],
+			"workshop": 0,
+			"placeholder": 1
+		},
+		{
+			"type": "stockpile",
+			"min": [
+				1,
+				2,
+				0
+			],
+			"max": [
+				3,
+				2,
+				0
+			],
+			"accesspath": [
+				0
+			],
+			"workshop": 0,
+			"placeholder": 1
+		},
+		{
+			"level": 2,
+			"min": [
+				5,
+				-1,
+				0
+			],
+			"max": [
+				7,
+				1,
+				0
+			],
+			"layout": [
+				1
+			],
+			"accesspath": [
+				0
+			],
+			"placeholder": 0
+		},
+		{
+			"type": "stockpile",
+			"min": [
+				5,
+				-2,
+				0
+			],
+			"max": [
+				7,
+				-2,
+				0
+			],
+			"accesspath": [
+				3
+			],
+			"workshop": 3,
+			"placeholder": 1
+		},
+		{
+			"type": "stockpile",
+			"min": [
+				5,
+				2,
+				0
+			],
+			"max": [
+				7,
+				2,
+				0
+			],
+			"accesspath": [
+				3
+			],
+			"workshop": 3,
+			"placeholder": 1
+		}
+	]
+}
