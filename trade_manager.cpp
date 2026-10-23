@@ -7,6 +7,11 @@
 #include "modules/Materials.h"
 #include "modules/Units.h"
 
+#include "df/gamest.h"
+#include "df/main_interface.h"
+#include "df/unit.h"
+#include "df/unit_inventory_item.h"
+
 #include "df/building_item_role_type.h"
 #include "df/building_tradedepotst.h"
 #include "df/buildingitemst.h"
@@ -26,6 +31,7 @@
 #include "df/material.h"
 #include "df/world.h"
 
+REQUIRE_GLOBAL(game);
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
@@ -175,9 +181,9 @@ void Population::update_trading(color_ostream & out)
 
     if (perform_trade(out))
     {
-        // In v50+ the barter must be finished by the player, so the broker
-        // stays requested at the depot until the caravan leaves (at which
-        // point !any_traders dismisses them above).
+        // Either the barter was applied (and the broker dismissed), or it
+        // could not be done and the goods stay at the depot for the player.
+        // Either way, don't try again until this caravan has left.
         did_trade = true;
     }
 }
@@ -329,14 +335,160 @@ static bool caravan_refuses_item(df::historical_entity *entity, df::item *item)
     return false;
 }
 
-// The barter itself happens in the v50 trade interface (trade_interfacest),
-// which is mouse-driven and cannot currently be operated by df-ai. This
-// callback reports what the AI would have offered so that a human can finish
-// the trade, and otherwise does nothing.
+// DF v50+ has no keyboard-operable fortress trade screen: the trade_interfacest
+// (game->main_interface.trade) Trade/Offer/Seize buttons are mouse-only, and
+// df::interface_key has no fortress trade key (A_BARTER_TRADE belongs to the
+// adventure-mode barter screen). DFHack's own confirm specs intercept those
+// buttons via _MOUSE_L only. So df-ai performs the barter by applying its
+// effect to the game data directly:
+//
+//  - goods the merchants unloaded sit in the depot's contained_items with
+//    item.flags.trader set ("NOTYOURS"); buying one clears that flag (and marks
+//    it foreign, "NONWEALTH" = imported). Bought items inside a merchant
+//    container are taken out with Items::moveToBuilding so the merchants do
+//    not pack them up again.
+//  - fort goods given in exchange get flags.trader set, which is what makes
+//    them the merchants' property (it is the flag DFHack's autodump clears to
+//    "take back" trader goods); the merchants pack them up when they leave.
+//
+// The goods are chosen with the same logic as the 0.47 trade screen code
+// (Stocks::want_trader_item / want_trader_item_more / willing_to_trade_item,
+// prices from Trade::item_or_container_price_for_caravan), and the barter is
+// only applied if our offer is worth at least TRADE_MARGIN_NUM/DEN of what we
+// take, measured both with df-ai's price helper and with DFHack's
+// Items::getValue(item, caravan) (the value the DFHack trade overlay shows).
+// Only whole stacks change hands; merchant animals (caged units) are never
+// bought or sold.
+
+// TODO: move to config (requested option "direct_trade", default true).
+static const bool DIRECT_TRADE_ENABLED = true;
+
+// The 0.47 code offered 110% of the request first and added up to 20% more
+// when the merchant refused; without haggling, always pay the upper bound.
+static const int32_t TRADE_MARGIN_NUM = 6;
+static const int32_t TRADE_MARGIN_DEN = 5;
+
+static bool contains_unit(df::item *item)
+{
+    if (Items::getGeneralRef(item, general_ref_type::CONTAINS_UNIT))
+    {
+        return true;
+    }
+    std::vector<df::item *> contents;
+    Items::getContainedItems(item, &contents);
+    for (auto c : contents)
+    {
+        if (contains_unit(c))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Mirrors scripts/internal/caravan/common.lua get_perceived_value.
+static int32_t perceived_value(df::item *item, df::caravan_state *caravan)
+{
+    int32_t value = Items::getValue(item, caravan);
+    std::vector<df::item *> contents;
+    Items::getContainedItems(item, &contents);
+    for (auto c : contents)
+    {
+        value += perceived_value(c, caravan);
+    }
+    return value;
+}
+
+static void set_trader_flag_recursive(df::item *item, bool trader)
+{
+    item->flags.bits.trader = trader;
+    if (!trader)
+    {
+        item->flags.bits.foreign = true;
+    }
+    std::vector<df::item *> contents;
+    Items::getContainedItems(item, &contents);
+    for (auto c : contents)
+    {
+        set_trader_flag_recursive(c, trader);
+    }
+}
+
+static bool trader_flag_is_recursive(df::item *item, bool trader)
+{
+    if (bool(item->flags.bits.trader) != trader)
+    {
+        return false;
+    }
+    std::vector<df::item *> contents;
+    Items::getContainedItems(item, &contents);
+    for (auto c : contents)
+    {
+        if (!trader_flag_is_recursive(c, trader))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+static bool any_refused_or_mandated(df::historical_entity *entity, df::item *item)
+{
+    if (caravan_refuses_item(entity, item) || !Items::checkMandates(item))
+    {
+        return true;
+    }
+    std::vector<df::item *> contents;
+    Items::getContainedItems(item, &contents);
+    for (auto c : contents)
+    {
+        if (any_refused_or_mandated(entity, c))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Matches the "traders ready" test in DFHack's notify (internal/notify) and
+// timestream plugins: a caravan is still unloading while any of its
+// merchants carries trade goods.
+static bool caravan_still_unloading(df::caravan_state *caravan)
+{
+    for (auto unit : world->units.active)
+    {
+        if (unit->civ_id != caravan->entity || !Units::isMerchant(unit))
+        {
+            continue;
+        }
+        for (auto inv : unit->inventory)
+        {
+            if (inv->item && inv->item->flags.bits.trader)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+static bool usable_depot_item(df::item *item)
+{
+    auto & flags = item->flags.bits;
+    return !(flags.in_job || flags.removed || flags.garbage_collect || flags.artifact || flags.owned || flags.on_fire || flags.in_building) && item->specific_refs.empty();
+}
+
 class PerformTradeExclusive : public ExclusiveCallback
 {
 public:
-    PerformTradeExclusive(AI & ai, df::caravan_state *caravan) : ExclusiveCallback{ "perform trade", 2 }, ai(ai), caravan(caravan)
+    enum result_t
+    {
+        RETRY,
+        DONE,
+        FAILED,
+    };
+
+    PerformTradeExclusive(AI & ai, df::caravan_state *caravan, df::building_tradedepotst *bld) : ExclusiveCallback{ "perform trade", 2 }, ai(ai), caravan(caravan), bld(bld), result(RETRY)
     {
     }
 
@@ -345,41 +497,299 @@ public:
 private:
     AI & ai;
     df::caravan_state *caravan;
+    df::building_tradedepotst *bld;
+    result_t result;
+
+    struct good_t
+    {
+        df::item *item;
+        df::item *container; // merchant container the item is in, if any
+        int32_t price;
+    };
 
     friend class Population;
 };
 
 void PerformTradeExclusive::Run(color_ostream & out)
 {
-    ai.debug(out, "[v50] trading with caravans must be done manually for now; goods have been moved to the depot");
+    df::historical_entity *entity = df::historical_entity::find(caravan->entity);
+    df::creature_raw *creature = entity ? df::creature_raw::find(entity->race) : nullptr;
+    std::string from = entity ? AI::describe_name(entity->name) : std::string("an unknown civilization");
 
-    df::building_tradedepotst *bld = find_ready_depot(ai);
-    if (!bld || !caravan)
+    if (game->main_interface.trade.open)
     {
+        ai.debug(out, "[trade] The trade screen is open; leaving the barter to the player for now.");
+        result = RETRY;
         return;
     }
 
-    df::historical_entity *entity = df::historical_entity::find(caravan->entity);
-    df::creature_raw *creature = entity ? df::creature_raw::find(entity->race) : nullptr;
+    if (caravan_still_unloading(caravan))
+    {
+        ai.debug(out, "[trade] Waiting for the traders from " + from + " to unload.");
+        result = RETRY;
+        return;
+    }
 
-    int32_t offer_value = 0;
-    size_t offer_count = 0;
+    if (!ai.trade.can_trade())
+    {
+        ai.debug(out, "[trade] Broker is not ready at the depot yet.");
+        result = RETRY;
+        return;
+    }
+
+    if (!DIRECT_TRADE_ENABLED)
+    {
+        ai.debug(out, "[trade] Automatic trading is disabled; goods are waiting at the depot for the player.");
+        result = FAILED;
+        return;
+    }
+
+    // Item lists, as the trade screen would build them.
+    std::vector<good_t> trader_goods;
+    std::vector<good_t> fort_goods;
     for (auto bi : bld->contained_items)
     {
         df::item *item = bi->item;
-        if (!item || bi->use_mode != df::building_item_role_type::TEMP)
+        if (!item || bi->use_mode != df::building_item_role_type::TEMP || !usable_depot_item(item))
         {
             continue;
         }
-        if (caravan_refuses_item(entity, item))
+
+        if (item->flags.bits.trader)
         {
-            continue;
+            std::vector<df::item *> contents;
+            Items::getContainedItems(item, &contents);
+            if (contents.empty())
+            {
+                trader_goods.push_back(good_t{ item, nullptr, 0 });
+            }
+            else
+            {
+                for (auto c : contents)
+                {
+                    if (c->flags.bits.trader && usable_depot_item(c))
+                    {
+                        trader_goods.push_back(good_t{ c, item, 0 });
+                    }
+                }
+            }
         }
-        offer_value += ai.trade.item_or_container_price_for_caravan(item, caravan, entity, creature, item->getStackSize(), caravan->buy_prices, caravan->sell_prices);
-        offer_count++;
+        else
+        {
+            if (item->getType() == item_type::BIN && !Items::getGeneralRef(item, general_ref_type::CONTAINS_ITEM))
+            {
+                continue;
+            }
+            if (contains_unit(item) || any_refused_or_mandated(entity, item) || !ai.stocks.willing_to_trade_item(out, item))
+            {
+                continue;
+            }
+            int32_t price = ai.trade.item_or_container_price_for_caravan(item, caravan, entity, creature, item->getStackSize(), caravan->buy_prices, caravan->sell_prices);
+            if (price > 0)
+            {
+                fort_goods.push_back(good_t{ item, nullptr, price });
+            }
+        }
     }
 
-    ai.debug(out, stl_sprintf("[trade] %zu item stacks worth about %d dorfbux are waiting at the depot for the traders from ", offer_count, offer_value) + (entity ? AI::describe_name(entity->name) : std::string("an unknown civilization")) + ".");
+    ai.debug(out, stl_sprintf("[trade] Scanning %zu goods offered by the traders from ", trader_goods.size()) + from + "...");
+
+    // What do we want?
+    std::vector<good_t> want;
+    std::vector<df::item *> want_items;
+    for (auto & g : trader_goods)
+    {
+        if (contains_unit(g.item))
+        {
+            continue;
+        }
+        if (ai.stocks.want_trader_item(out, g.item, want_items))
+        {
+            g.price = ai.trade.item_or_container_price_for_caravan(g.item, caravan, entity, creature, g.item->getStackSize(), caravan->buy_prices, caravan->sell_prices);
+            want.push_back(g);
+            want_items.push_back(g.item);
+        }
+    }
+    std::stable_sort(want.begin(), want.end(), [this](const good_t & a, const good_t & b) -> bool
+    {
+        return ai.stocks.want_trader_item_more(a.item, b.item);
+    });
+
+    int32_t max_offer_value = 0;
+    for (auto & g : fort_goods)
+    {
+        max_offer_value += g.price;
+    }
+    ai.debug(out, stl_sprintf("[trade] We have %d dorfbux of items we're willing to trade.", max_offer_value));
+
+    // Choose what to request.
+    std::vector<good_t> request;
+    int32_t request_value = 0;
+    for (auto & g : want)
+    {
+        if (g.price <= 0)
+        {
+            continue;
+        }
+        if ((request_value + g.price) * TRADE_MARGIN_NUM / TRADE_MARGIN_DEN > max_offer_value)
+        {
+            ai.debug(out, "[trade] Cannot afford item, skipping: " + AI::describe_item(g.item));
+            continue;
+        }
+        request_value += g.price;
+        request.push_back(g);
+        ai.debug(out, "[trade] Requesting item: " + AI::describe_item(g.item));
+    }
+
+    if (request.empty())
+    {
+        ai.debug(out, "[trade] Nothing we want and can afford from " + from + "; goods stay at the depot for the player.");
+        result = FAILED;
+        return;
+    }
+
+    int32_t target = request_value * TRADE_MARGIN_NUM / TRADE_MARGIN_DEN;
+    if (target * TRADE_MARGIN_DEN < request_value * TRADE_MARGIN_NUM)
+    {
+        target++;
+    }
+
+    // Choose what to offer: most valuable first until the target is met, then
+    // drop the cheapest items that are not needed to stay over it.
+    std::vector<good_t> offer_sorted = fort_goods;
+    std::stable_sort(offer_sorted.begin(), offer_sorted.end(), [](const good_t & a, const good_t & b) -> bool { return a.price > b.price; });
+    std::vector<good_t> offer;
+    int32_t offer_value = 0;
+    for (auto & g : offer_sorted)
+    {
+        if (offer_value >= target)
+        {
+            break;
+        }
+        offer.push_back(g);
+        offer_value += g.price;
+    }
+    for (auto it = offer.end(); it != offer.begin(); )
+    {
+        --it;
+        if (offer_value - it->price >= target)
+        {
+            offer_value -= it->price;
+            it = offer.erase(it);
+        }
+    }
+
+    if (offer_value < target)
+    {
+        ai.debug(out, stl_sprintf("[trade] Could not put together an offer (requested: %d, offered: %d). Goods stay at the depot for the player.", request_value, offer_value));
+        result = FAILED;
+        return;
+    }
+
+    // Cross-check with DFHack's caravan-aware valuation.
+    int32_t dfhack_request = 0;
+    int32_t dfhack_offer = 0;
+    for (auto & g : request)
+    {
+        dfhack_request += perceived_value(g.item, caravan);
+    }
+    for (auto & g : offer)
+    {
+        dfhack_offer += perceived_value(g.item, caravan);
+    }
+    if (int64_t(dfhack_offer) * TRADE_MARGIN_DEN < int64_t(dfhack_request) * TRADE_MARGIN_NUM)
+    {
+        ai.debug(out, stl_sprintf("[trade] Offer fails the value check (Items::getValue: requested %d, offered %d). Goods stay at the depot for the player.", dfhack_request, dfhack_offer));
+        result = FAILED;
+        return;
+    }
+
+    for (auto & g : offer)
+    {
+        ai.debug(out, "[trade] Offering item: " + AI::describe_item(g.item));
+    }
+    ai.debug(out, stl_sprintf("[trade] Requested: %d Offered: %d (Items::getValue: %d / %d)", request_value, offer_value, dfhack_request, dfhack_offer));
+
+    // Apply the barter. Take purchased items out of merchant containers first;
+    // if that fails for an item, it is simply not bought (and the offer is
+    // re-checked below).
+    std::vector<df::item *> bought;
+    int32_t bought_value = 0;
+    for (auto & g : request)
+    {
+        if (g.container)
+        {
+            if (!Items::moveToBuilding(g.item, bld, df::building_item_role_type::TEMP) || Items::getContainer(g.item) || Items::getHolderBuilding(g.item) != bld)
+            {
+                ai.debug(out, "[trade] Could not take item out of the merchants' container, not buying it: " + AI::describe_item(g.item));
+                continue;
+            }
+        }
+        bought.push_back(g.item);
+        bought_value += g.price;
+    }
+
+    if (bought.empty())
+    {
+        ai.debug(out, "[trade] Could not take any of the requested goods. Goods stay at the depot for the player.");
+        result = FAILED;
+        return;
+    }
+
+    // If some requested items could not be taken, give less in return.
+    if (bought_value < request_value)
+    {
+        int32_t new_target = bought_value * TRADE_MARGIN_NUM / TRADE_MARGIN_DEN + 1;
+        for (auto it = offer.end(); it != offer.begin(); )
+        {
+            --it;
+            if (offer_value - it->price >= new_target)
+            {
+                offer_value -= it->price;
+                it = offer.erase(it);
+            }
+        }
+    }
+
+    for (auto item : bought)
+    {
+        set_trader_flag_recursive(item, false);
+    }
+    for (auto & g : offer)
+    {
+        set_trader_flag_recursive(g.item, true);
+    }
+
+    // Verify that the goods changed sides.
+    bool ok = true;
+    for (auto item : bought)
+    {
+        if (!trader_flag_is_recursive(item, false))
+        {
+            ok = false;
+        }
+    }
+    for (auto & g : offer)
+    {
+        if (!trader_flag_is_recursive(g.item, true))
+        {
+            ok = false;
+        }
+    }
+
+    if (!ok)
+    {
+        ai.debug(out, "[trade] Barter with " + from + " did not apply cleanly; please check the depot.");
+        result = FAILED;
+        return;
+    }
+
+    for (auto item : bought)
+    {
+        ai.debug(out, "[trade] Bought item: " + AI::describe_item(item));
+    }
+    ai.debug(out, stl_sprintf("[trade] Traded %zu stacks worth %d dorfbux for %zu stacks worth %d dorfbux with ", offer.size(), offer_value, bought.size(), bought_value) + from + ".");
+    result = DONE;
 }
 
 bool Population::perform_trade(color_ostream & out)
@@ -391,12 +801,16 @@ bool Population::perform_trade(color_ostream & out)
     }
 
     df::caravan_state *caravan = nullptr;
+    size_t at_depot = 0;
     for (auto c : plotinfo->caravans)
     {
         if (c->trade_state == df::caravan_state::AtDepot && c->time_remaining > 0)
         {
-            caravan = c;
-            break;
+            at_depot++;
+            if (!caravan)
+            {
+                caravan = c;
+            }
         }
     }
 
@@ -405,8 +819,39 @@ bool Population::perform_trade(color_ostream & out)
         return false;
     }
 
+    // Items carry no link to the caravan that owns them, so with two caravans
+    // at the depot we cannot tell whose goods are whose.
+    if (at_depot > 1)
+    {
+        ai.debug(out, "[trade] More than one caravan is at the depot; leaving the trade to the player.");
+        return true;
+    }
+
+    if (caravan->flags.bits.tribute || caravan->flags.bits.offended || caravan->flags.bits.greatly_offended || caravan->flags.bits.seized)
+    {
+        ai.debug(out, "[trade] This caravan will not trade; leaving any goods at the depot.");
+        return true;
+    }
+
     // Runs synchronously; there is no trade screen to wait for.
-    PerformTradeExclusive(ai, caravan).Run(out);
+    PerformTradeExclusive trade(ai, caravan, bld);
+    trade.Run(out);
+
+    switch (trade.result)
+    {
+    case PerformTradeExclusive::RETRY:
+        return false;
+    case PerformTradeExclusive::FAILED:
+        // Logged once by Run; the goods and the broker stay at the depot for
+        // the player until the caravan leaves.
+        return true;
+    case PerformTradeExclusive::DONE:
+        if (set_up_trading(out, false))
+        {
+            ai.debug(out, "[trade] Dismissed broker from depot: finished trade");
+        }
+        return true;
+    }
 
     return true;
 }
