@@ -25,4 +25,8 @@ namespace embark
     // Whether automatic embarking is configured on (restart after the world
     // unloads only makes sense when it is).
     bool enabled();
+
+    // Close the fortress help panel and mark every fortress tutorial popup as
+    // seen/hidden, so a new fort doesn't sit behind tutorial popups.
+    void hide_tutorials(color_ostream & out);
 }

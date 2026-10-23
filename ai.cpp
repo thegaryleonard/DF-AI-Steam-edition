@@ -1,4 +1,5 @@
 #include "ai.h"
+#include "embark.h"
 #include "debug.h"
 #include "population.h"
 #include "plan.h"
@@ -79,6 +80,9 @@ command_result AI::startup(color_ostream & out)
             Core::getInstance().runCommand(out, "autolabor HERBALIST 1 3");
         }
     }
+    // New forts open with tutorial popups that block df-ai's "plain map" checks.
+    embark::hide_tutorials(out);
+
     // DFHack's autotraining adds and removes squad members on its own, which
     // fights df-ai's military management (dismissals undone every day,
     // recruits vanishing). df-ai runs the military, so turn it off.

@@ -793,4 +793,10 @@ namespace embark
         log(out, "starting automatic world selection / embark");
         drv.handle = events.onupdate_register_once("df-ai embark", [](color_ostream & out) -> bool { return step(out); });
     }
+
+    void hide_tutorials(color_ostream & out)
+    {
+        close_embark_help(out);
+        hide_fortress_popups();
+    }
 }
