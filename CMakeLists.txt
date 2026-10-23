@@ -122,6 +122,11 @@ LIST(APPEND PROJECT_LIBS jsoncpp_static lua ${ZLIB_LIBRARIES})
 SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DDFAI_RELEASE")
 
 DFHACK_PLUGIN(df-ai ${PROJECT_SRCS} LINK_LIBRARIES ${PROJECT_LIBS} COMPILE_FLAGS_GCC "-Wno-error -Wno-unused-parameter" COMPILE_FLAGS_MSVC "/W3 /WX- /bigobj")
+if(MSVC)
+    # ship a PDB so DF/DFHack crash logs and dumps can be symbolized
+    target_compile_options(df-ai PRIVATE /Zi)
+    target_link_options(df-ai PRIVATE /DEBUG /OPT:REF /OPT:ICF)
+endif()
 
 INSTALL(DIRECTORY rooms/ DESTINATION df-ai-blueprints/rooms FILES_MATCHING PATTERN "*.json")
 INSTALL(DIRECTORY plans/ DESTINATION df-ai-blueprints/plans FILES_MATCHING PATTERN "*.json")

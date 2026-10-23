@@ -83,6 +83,8 @@ jobs:
           New-Item -ItemType Directory -Force -Path package/hack/plugins | Out-Null
           New-Item -ItemType Directory -Force -Path package/df-ai-blueprints | Out-Null
           Copy-Item $dll.FullName package/hack/plugins/
+          $pdb = Get-ChildItem -Recurse dfhack/build -Filter 'df-ai.plug.pdb' | Select-Object -First 1
+          if ($pdb) { Copy-Item $pdb.FullName package/hack/plugins/ } else { Write-Warning 'no PDB found' }
           Copy-Item -Recurse df-ai/rooms package/df-ai-blueprints/rooms
           Copy-Item -Recurse df-ai/plans package/df-ai-blueprints/plans
           Copy-Item df-ai/INSTALL-WINDOWS.md package/
