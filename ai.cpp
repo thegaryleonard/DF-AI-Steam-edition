@@ -79,6 +79,16 @@ command_result AI::startup(color_ostream & out)
             Core::getInstance().runCommand(out, "autolabor HERBALIST 1 3");
         }
     }
+    // DFHack's autotraining adds and removes squad members on its own, which
+    // fights df-ai's military management (dismissals undone every day,
+    // recruits vanishing). df-ai runs the military, so turn it off.
+    {
+
+        if (Core::getInstance().runCommand(out, "disable autotraining") == CR_OK)
+        {
+            debug(out, "disabled DFHack autotraining (df-ai manages squads itself)");
+        }
+    }
     if (res == CR_OK)
         res = pop.startup(out);
     if (res == CR_OK)

@@ -66,7 +66,7 @@ void Population::update_deads(color_ostream & out)
         {
             ai.stocks.queue_slab(out, u->hist_figure_id);
         }
-        else if (Units::isCitizen(u) && Units::isDead(u) && std::find_if(world->buildings.other[buildings_other_id::ZONE_TOMB].begin(), world->buildings.other[buildings_other_id::ZONE_TOMB].end(),
+        else if (Units::isDead(u) && Units::isOwnGroup(u) && std::find_if(world->buildings.other[buildings_other_id::ZONE_TOMB].begin(), world->buildings.other[buildings_other_id::ZONE_TOMB].end(),
             [u](df::building *b) -> bool
             {
                 // don't follow u->owned_buildings: DF leaves dangling pointers there for dead units
