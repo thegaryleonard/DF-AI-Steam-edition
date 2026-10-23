@@ -7,7 +7,7 @@ Runs outside the game and talks to it through DFHack's dfhack-run.
   - freeze recovery: game unpaused but the clock stopped -> close popups,
     then restart if it stays frozen
   - stuck-paused alert: paused for a long time while df-ai is on
-  - save backups on a timer, keeping the newest few
+  - a quicksave every 20 min (bounds crash loss) and save backups on a timer
   - alerts via a notify file that a Discord cron job posts
 
 Usage:  python dfai_supervisor.py            # run forever
@@ -29,6 +29,7 @@ CFG = {
     "freeze_s": 180,            # unpaused with no clock progress this long = frozen
     "paused_alert_s": 900,      # paused this long with df-ai on = alert once
     "unresponsive_s": 300,      # DF running but DFHack not answering this long = hung
+    "quicksave_every_s": 20 * 60,  # bounds what a crash can lose
     "backup_every_s": 3 * 3600,
     "backups_keep": 6,
     "max_restarts_per_hour": 3,
@@ -239,6 +240,7 @@ class Supervisor:
         self.paused_alerted = False
         self.unresponsive_since = None
         self.last_backup = time.time()
+        self.last_quicksave = time.time()
         self.seen_crashlogs = self.crashlogs()
 
     def crashlogs(self):
@@ -329,6 +331,11 @@ class Supervisor:
                 elif now - self.popups_closed_at > 2 * CFG["freeze_s"]:
                     self.restart(f"game clock frozen for {int(stalled)}s on screen {st.get('focus')}")
                     return
+
+        if now - self.last_quicksave > CFG["quicksave_every_s"] and not st.get("paused"):
+            self.last_quicksave = now
+            out = (dfhack("quicksave", timeout=120) or "").strip()
+            log(f"quicksave: {out[:100]}")
 
         if now - self.last_backup > CFG["backup_every_s"]:
             try:
