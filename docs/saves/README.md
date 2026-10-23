@@ -61,6 +61,10 @@ The user asked the df-ai code session to work this out.
 
 ## Work orders: the user's standing pattern
 
+This section is an overview. The exact amounts and conditions are in the JSON files, so check those before turning any of this into df-ai stock goals.
+- Verified in `start.json`: Daily "LessThan 10 → make 10" for beds, empty barrels, empty bins, gems and others, plus 2 BREW_DRINK_FROM_PLANT orders at "drink < 10". The brewing orders are inactive in that set.
+- Order counts per set: 14–16 (starter sets), 40–85 (full sets), and 114 in `33.json`, which includes 32 EngraveSlab orders. The big sets have 16 SmeltOre orders, one per ore.
+
 Seen in `start`, `starters`, `full`, `sss`, `stopwork` and the forts:
 - **Furniture:** keep 10 of each (Daily, "less than 10 → make 10"): bed, door, chest, cabinet, throne, table, weapon rack, armor stand, hatch cover, blocks, mechanisms, slab, goblet.
 - **Containers:** barrels and bins kept at 10.
