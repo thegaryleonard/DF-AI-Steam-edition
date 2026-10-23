@@ -235,7 +235,9 @@ int32_t Plan::create_location(color_ostream & out, df::building_civzonest *zone,
             break;
         }
     }
-    loc->flags.set(abstract_building_flags::VISITORS_ALLOWED, true);
+    // Citizens and long-term residents only: visitors drink the tavern's stock and
+    // bring vampires, werecreatures and thieves (Blind's guide, docs/blind).
+    loc->flags.set(abstract_building_flags::VISITORS_ALLOWED, false);
     loc->flags.set(abstract_building_flags::NON_CITIZENS_ALLOWED, true);
     loc->flags.set(abstract_building_flags::MEMBERS_ONLY, false);
     contents->building_ids.push_back(zone->id);
@@ -262,12 +264,12 @@ int32_t Plan::create_hospital(color_ostream & out, df::building_civzonest *zone)
     auto hospital = df::allocate<df::abstract_building_hospitalst>();
     generate_location_name(hospital->name, language_name_type::Hospital, ai.rng);
     auto & c = hospital->contents;
-    c.desired_splints = 5;
+    c.desired_splints = 10;
     c.desired_thread = 75000;
     c.desired_cloth = 50000;
-    c.desired_crutches = 5;
+    c.desired_crutches = 10;
     c.desired_powder = 750;
-    c.desired_buckets = 2;
+    c.desired_buckets = 5;
     c.desired_soap = 750;
     c.need_more.bits.splints = 1;
     c.need_more.bits.thread = 1;
@@ -290,7 +292,7 @@ int32_t Plan::create_hospital(color_ostream & out, df::building_civzonest *zone)
             break;
         }
     }
-    hospital->flags.set(abstract_building_flags::VISITORS_ALLOWED, true);
+    hospital->flags.set(abstract_building_flags::VISITORS_ALLOWED, false);
     hospital->flags.set(abstract_building_flags::NON_CITIZENS_ALLOWED, true);
     c.building_ids.push_back(zone->id);
     site->buildings.push_back(hospital);
