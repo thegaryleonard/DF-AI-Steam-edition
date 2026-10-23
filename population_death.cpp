@@ -8,7 +8,10 @@
 #include "df/building_civzonest.h"
 #include "df/civzone_type.h"
 #include "df/buildings_other_id.h"
+#include "df/historical_figure.h"
 #include "df/history_event_hist_figure_diedst.h"
+#include "df/item.h"
+#include "df/items_other_id.h"
 #include "df/plotinfost.h"
 #include "df/world.h"
 
@@ -59,6 +62,35 @@ void Population::update_deads(color_ostream & out)
 {
     int32_t want_coffin = 3;
     int32_t want_pet_coffin = 1;
+
+    // A fort member's body lying unburied makes a ghost (and stress, then
+    // tantrums). The plans put the cemetery behind the metal industry, and the
+    // coffin logic below waits for a dug cemetery, so dig one now if needed.
+    // Match by civilization: dead units lose isOwnGroup.
+    if (!ai.find_room(room_type::cemetery, [](room *r) -> bool { return r->status != room_status::plan; }))
+    {
+        bool unburied = false;
+        for (auto i : world->items.other[items_other_id::ANY_CORPSE])
+        {
+            int16_t race = -1, caste = -1;
+            df::historical_figure *hf = nullptr;
+            df::unit *cu = nullptr;
+            i->getCorpseInfo(&race, &caste, &hf, &cu);
+            if (hf && hf->civ_id == plotinfo->civ_id && !i->flags.bits.in_building && !i->flags.bits.removed)
+            {
+                unburied = true;
+                break;
+            }
+        }
+        if (unburied)
+        {
+            if (auto r = ai.find_room(room_type::cemetery, [](room *c) -> bool { return c->status == room_status::plan; }))
+            {
+                ai.debug(out, "[RIP] a fort member lies unburied and there is no cemetery yet; digging one now");
+                ai.plan.wantdig(out, r, -3);
+            }
+        }
+    }
 
     for (auto u : world->units.all)
     {
