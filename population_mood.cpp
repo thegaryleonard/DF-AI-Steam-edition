@@ -20,6 +20,7 @@
 #include "df/job_item.h"
 #include "df/job_item_ref.h"
 #include "df/job_type.h"
+#include "df/job_type_class.h"
 #include "df/mood_type.h"
 #include "df/unit.h"
 #include "df/world.h"
@@ -64,7 +65,7 @@ void Population::update_moods(color_ostream & out)
             continue;
         }
         df::job *job = u->job.current_job;
-        if (!job || job->job_type != job_type::StrangeMood)
+        if (!job || ENUM_ATTR(job_type, type, job->job_type) != job_type_class::StrangeMood)
         {
             continue;
         }
