@@ -72,7 +72,7 @@ void load_objects(color_ostream & out, const std::string & subtype, std::functio
                     }
                     else
                     {
-                        out.printerr("%s\n", error.c_str());
+                        out.printerr("{}\n", error.c_str());
                     }
                 }
             }
@@ -86,7 +86,7 @@ blueprints_t::blueprints_t(color_ostream & out) : is_valid(true)
     {
         is_valid = false;
         out.printerr("The df-ai-blueprints folder is missing! It ships in the df-ai zip next to the hack folder.\n");
-        out.printerr("The df-ai-blueprints folder should be inside %s.\n", Filesystem::getcwd().c_str());
+        out.printerr("The df-ai-blueprints folder should be inside {}.\n", Filesystem::getcwd().string());
         return;
     }
 
@@ -109,12 +109,12 @@ blueprints_t::blueprints_t(color_ostream & out) : is_valid(true)
         if (type.second.first.empty())
         {
             is_valid = false;
-            out.printerr("%s: no templates\n", type.first.c_str());
+            out.printerr("{}: no templates\n", type.first.c_str());
         }
         if (type.second.second.empty())
         {
             is_valid = false;
-            out.printerr("%s: no instances\n", type.first.c_str());
+            out.printerr("{}: no instances\n", type.first.c_str());
         }
         for (auto tmpl : type.second.first)
         {
@@ -129,14 +129,14 @@ blueprints_t::blueprints_t(color_ostream & out) : is_valid(true)
                 if (!rb->apply(error))
                 {
                     is_valid = false;
-                    out.printerr("%s + %s: %s\n", tmpl.first.c_str(), inst.first.c_str(), error.c_str());
+                    out.printerr("{} + {}: {}\n", tmpl.first.c_str(), inst.first.c_str(), error.c_str());
                     delete rb;
                     continue;
                 }
                 if (rb->warn(error))
                 {
                     is_valid = false;
-                    out.printerr("%s + %s: %s\n", tmpl.first.c_str(), inst.first.c_str(), error.c_str());
+                    out.printerr("{} + {}: {}\n", tmpl.first.c_str(), inst.first.c_str(), error.c_str());
                 }
                 rbs.push_back(rb);
             }
@@ -169,7 +169,7 @@ blueprints_t::blueprints_t(color_ostream & out) : is_valid(true)
             else
             {
                 is_valid = false;
-                out.printerr("%s\n", error.c_str());
+                out.printerr("{}\n", error.c_str());
             }
         }
     }

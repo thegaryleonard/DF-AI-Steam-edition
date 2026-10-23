@@ -387,7 +387,7 @@ void EventManager::onupdate(color_ostream & out)
         }
         catch (std::exception & e)
         {
-            out.printerr("df-ai: %s failed: %s\n", cur->description.c_str(), e.what());
+            out.printerr("df-ai: {} failed: {}\n", cur->description.c_str(), e.what());
         }
         return;
     }

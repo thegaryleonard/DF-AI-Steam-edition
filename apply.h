@@ -270,15 +270,16 @@ static bool df_ai_find_enum_item(T *var, const std::string & name, T count)
 #define END_DECLARE_ENUM(prefix, name) \
             _ ## prefix ## _ ## name ## _count \
         }; \
+        /* declared inside the enum's namespace so ADL finds it from templates (C++20 two-phase lookup) */ \
+        std::ostream & operator <<(std::ostream & stream, name value ); \
     } \
-    std::ostream & operator <<(std::ostream & stream, prefix ## _ ## name :: name name ); \
     namespace DFHack \
     { \
         template<> inline bool find_enum_item< prefix ## _ ## name :: name >( prefix ## _ ## name :: name *var, const std::string & name) { return df_ai_find_enum_item(var, name, prefix ## _ ## name :: _ ## prefix ## _ ## name ## _count); } \
     }
 
 #define BEGIN_IMPLEMENT_ENUM(prefix, name) \
-    std::ostream & operator <<(std::ostream & stream, prefix ## _ ## name :: name name ) \
+    std::ostream & prefix ## _ ## name :: operator <<(std::ostream & stream, prefix ## _ ## name :: name name ) \
     { \
         using _enum = prefix ## _ ## name :: name ; \
         switch ( name ) \
