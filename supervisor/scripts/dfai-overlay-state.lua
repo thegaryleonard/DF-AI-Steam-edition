@@ -72,6 +72,22 @@ if out.ok then
     day = (tick % 33600) // 1200 + 1,
     population = #citizens,
   }
+  -- weather at the fort: current_weather is a 5x5 grid of none/rain/snow
+  local wx = { rain = 0, snow = 0, clear = 0 }
+  local cw = df.global.current_weather
+  for x = 0, 4 do for y = 0, 4 do
+    local v = cw[x][y]
+    if v == df.weather_type.Rain then wx.rain = wx.rain + 1
+    elseif v == df.weather_type.Snow then wx.snow = wx.snow + 1
+    else wx.clear = wx.clear + 1 end
+  end end
+  local seasons = { 'Spring', 'Summer', 'Autumn', 'Winter' }
+  local part = ({ 'Early ', 'Mid', 'Late ' })[(tick // 33600) % 3 + 1]
+  out.weather = {
+    kind = (wx.snow > wx.rain and wx.snow > 0) and 'snow' or (wx.rain > 0 and 'rain' or 'clear'),
+    amount = math.max(wx.rain, wx.snow) / 25,
+    season = part .. (part == 'Mid' and string.lower(seasons[tick // 100800 + 1]) or seasons[tick // 100800 + 1]),
+  }
   local follow = df.unit.find(df.global.plotinfo.follow_unit)
   if not follow or not dfhack.units.isCitizen(follow) then
     -- rotate through citizens every ~2 minutes of wall time when nobody is followed

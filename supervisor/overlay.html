@@ -2,106 +2,285 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>df-ai overlay</title>
+<title>The Fortress Herald</title>
 <style>
-  :root { --bg: rgba(18, 14, 10, 0.88); --gold: #e8b64c; --text: #efe6d6; --dim: #a89c88; --red: #d9604c; --green: #7fbf6a; }
+  :root {
+    --paper: #efe4cc; --paper2: #e6d8b9; --ink: #2b2218; --ink2: #5a4a36; --rule: #3b2f22;
+    --red: #8f2a1c; --green: #3f6b2e; --accent: #7a4b16;
+  }
   * { box-sizing: border-box; }
-  body { margin: 0; width: 480px; font-family: "Segoe UI", system-ui, sans-serif; color: var(--text); background: transparent; }
-  .panel { background: var(--bg); border: 1px solid #5a4a30; border-radius: 10px; margin: 10px; padding: 14px 16px; box-shadow: 0 4px 18px rgba(0,0,0,.5); }
-  h1 { font-size: 22px; margin: 0; color: var(--gold); letter-spacing: .5px; }
-  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--dim); margin: 0 0 8px; }
-  .sub { color: var(--dim); font-size: 13px; margin-top: 2px; }
-  .row { display: flex; justify-content: space-between; font-size: 14px; margin-top: 6px; }
-  .name { font-size: 19px; font-weight: 600; color: var(--gold); }
-  .prof { color: var(--dim); font-size: 13px; margin-bottom: 8px; }
-  .job { font-size: 14px; margin: 6px 0; }
-  .bar { height: 8px; background: #3a3024; border-radius: 4px; overflow: hidden; margin-top: 3px; }
-  .bar > div { height: 100%; transition: width 1s; }
-  .skills div, .family div, .thoughts div { font-size: 13px; padding: 2px 0; }
-  .lvl { color: var(--gold); float: right; }
-  .tag { display: inline-block; font-size: 11px; color: var(--dim); width: 70px; }
+  body { margin: 0; width: 480px; background: transparent; font-family: Georgia, "Times New Roman", serif; color: var(--ink); }
+  .paper {
+    margin: 8px; padding: 14px 16px 12px;
+    background: radial-gradient(ellipse at 30% 20%, #f5ecd8 0%, var(--paper) 55%, var(--paper2) 100%);
+    border: 1px solid #b9a57f; box-shadow: 0 6px 22px rgba(0,0,0,.55), inset 0 0 40px rgba(120,90,40,.18);
+  }
+  .mast { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 6px; }
+  .mast .the { font-size: 12px; letter-spacing: 6px; text-transform: uppercase; color: var(--ink2); }
+  .mast h1 { margin: 0; font-size: 34px; line-height: 1.05; font-weight: 900; letter-spacing: .5px; font-variant: small-caps; }
+  .issue { display: flex; justify-content: space-between; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+           border-bottom: 1px solid var(--rule); padding: 4px 0; margin-bottom: 8px; color: var(--ink2); }
+  .kicker { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 2px; margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .headline { font-size: 22px; font-weight: 900; line-height: 1.1; margin: 4px 0 6px; }
+  .deck { font-style: italic; font-size: 14px; color: var(--ink2); margin-bottom: 8px; }
+  .body { font-size: 14px; line-height: 1.35; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+  .cols > div:first-child { border-right: 1px solid #bba886; padding-right: 10px; }
+  .sub { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin: 8px 0 3px; }
+  .line { font-size: 13px; padding: 1px 0; display: flex; justify-content: space-between; gap: 6px; }
+  .dim { color: var(--ink2); }
   .dead { color: var(--red); }
-  .art-name { font-size: 18px; color: var(--gold); font-weight: 600; }
-  .art-item { font-size: 13px; color: var(--dim); margin-bottom: 8px; }
-  .story div { font-size: 13px; padding: 3px 0; border-left: 2px solid #5a4a30; padding-left: 8px; margin-left: 2px; }
-  .yr { color: var(--gold); font-weight: 600; margin-right: 4px; }
-  .events div { font-size: 13px; padding: 3px 0; border-bottom: 1px solid #2c241a; }
-  .fade { animation: fade .8s; } @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  #card { min-height: 520px; position: relative; }
+  .fadein { animation: fadein .9s ease; } @keyframes fadein { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+  .dots { text-align: center; margin: 6px 0 2px; }
+  .dots span { display: inline-block; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--ink2); margin: 0 3px; }
+  .dots span.on { background: var(--ink); }
+  .bar { height: 7px; background: #d3c29c; border: 1px solid #a8946c; margin-top: 3px; }
+  .bar > div { height: 100%; }
+  .mapwrap { position: relative; border: 1px solid var(--rule); box-shadow: inset 0 0 18px rgba(60,40,10,.35); }
+  canvas { display: block; }
+  .forecast { display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px; }
+  .forecast b { font-size: 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  td { padding: 2px 0; border-bottom: 1px dotted #b9a57f; }
+  td.n { text-align: right; width: 56px; font-variant-numeric: tabular-nums; }
+  td.t { width: 18px; text-align: center; }
+  td.b { width: 120px; padding-left: 8px; }
+  .lvl { height: 6px; background: #d3c29c; }
+  .lvl > div { height: 100%; background: var(--ink2); }
+  .up { color: var(--green); } .down { color: var(--red); }
+  .story div { font-size: 13px; padding: 2px 0 2px 8px; border-left: 2px solid #a8946c; margin-bottom: 3px; }
+  .yr { font-weight: 700; margin-right: 4px; }
+  .late { border-top: 3px double var(--rule); margin-top: 8px; padding-top: 4px; }
+  .late div { font-size: 13px; padding: 3px 0; border-bottom: 1px solid #c9b791; }
 </style>
 </head>
 <body>
-<div class="panel" id="fort"><h1>…</h1></div>
-<div class="panel" id="dwarf"></div>
-<div class="panel" id="artifact"></div>
-<div class="panel" id="events"></div>
+<div class="paper">
+  <div class="mast">
+    <div class="the">The</div>
+    <h1 id="title">Fortress Herald</h1>
+  </div>
+  <div class="issue"><span id="issue-date">…</span><span id="issue-season"></span><span id="issue-pop"></span></div>
+  <div id="card"></div>
+  <div class="dots" id="dots"></div>
+  <div class="late"><div class="kicker"><span>Late Edition</span><span>Stop the presses</span></div><div id="late"></div></div>
+</div>
 <script>
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const pretty = s => String(s ?? '').replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ').toLowerCase()
                        .replace(/(^|\s)\S/g, c => c.toUpperCase());
 const levels = ['Dabbling','Novice','Adequate','Competent','Skilled','Proficient','Talented','Adept','Expert',
                 'Professional','Accomplished','Great','Master','High Master','Grand Master','Legendary'];
+const clean = s => String(s ?? '').replace(/[^\x20-\x7E\u00C0-\u024F]/g, '');
+const firstName = n => clean(String(n).split(',')[0]);
 
-// DF stress: very negative = ecstatic, 0 = fine, high positive = breaking down
+let S = {ok: false}, H = {artifacts: []}, W = null, K = null, prevStocks = null, artIdx = 0;
+
+// ---------- masthead + late edition ----------
+function masthead() {
+  if (!S.ok) return;
+  const f = S.fort;
+  document.getElementById('title').textContent = f.name + ' Herald';
+  document.getElementById('issue-date').textContent = `${f.day} ${f.month}, Yr ${f.year}`;
+  document.getElementById('issue-season').textContent = S.weather ? S.weather.season : '';
+  document.getElementById('issue-pop').textContent = `Pop. ${f.population} · 1☼`;
+  document.getElementById('late').innerHTML = (S.events || []).slice(0, 5).map(e => `<div>${esc(clean(e.text))}</div>`).join('');
+}
+
+// ---------- card: society pages ----------
 function mood(stress) {
-  const pct = Math.max(0, Math.min(100, 50 + stress / 2000));
-  const label = stress < -20000 ? 'Ecstatic' : stress < -5000 ? 'Happy' : stress < 10000 ? 'Content'
-              : stress < 25000 ? 'Stressed' : stress < 50000 ? 'Very stressed' : 'Breaking down';
-  const color = stress < 10000 ? 'var(--green)' : stress < 25000 ? 'var(--gold)' : 'var(--red)';
-  return {pct: 100 - pct, label, color};
+  const label = stress < -20000 ? 'ecstatic' : stress < -5000 ? 'happy' : stress < 10000 ? 'content'
+              : stress < 25000 ? 'stressed' : stress < 50000 ? 'very stressed' : 'near breaking';
+  const pct = Math.max(4, Math.min(100, 50 - stress / 2000));
+  const color = stress < 10000 ? 'var(--green)' : stress < 25000 ? 'var(--accent)' : 'var(--red)';
+  return {label, pct, color};
+}
+function cardDwarf() {
+  const d = S.dwarf; if (!d) return null;
+  const m = mood(d.stress);
+  const prof = clean(d.profession);
+  const t = (d.thoughts || [])[0];
+  const head = t ? `${prof.toUpperCase()} FEELS ${pretty(t.emotion).toUpperCase()}` : `A DAY IN THE LIFE OF A ${prof.toUpperCase()}`;
+  const fam = (d.family || []).map(x => `<div class="line"><span class="dim">${esc(pretty(x.relation))}</span><span class="${x.alive ? '' : 'dead'}">${esc(clean(x.name))}${x.alive ? '' : ' †'}</span></div>`).join('') || '<div class="line dim">No known kin</div>';
+  const sk = (d.skills || []).map(s => `<div class="line"><span>${esc(s.name)}</span><span class="dim">${levels[Math.min(s.level, 15)]}</span></div>`).join('');
+  const th = (d.thoughts || []).slice(0, 3).map(x => `<div class="line"><span>${esc(pretty(x.emotion))}</span><span class="dim">${esc(pretty(x.about))}</span></div>`).join('');
+  return `<div class="kicker"><span>Society Pages</span><span>Dwarf of the Hour</span></div>
+    <div class="headline">${esc(head)}</div>
+    <div class="deck">${esc(firstName(d.name))}, ${d.age}, ${esc(prof.toLowerCase())}, seen today: ${esc(clean(d.job).toLowerCase())}.</div>
+    <div class="line"><span>Spirits</span><span style="color:${m.color}">${m.label}</span></div>
+    <div class="bar"><div style="width:${m.pct}%;background:${m.color}"></div></div>
+    <div class="cols" style="margin-top:8px">
+      <div><div class="sub">Talents</div>${sk}</div>
+      <div><div class="sub">Kin &amp; Gods</div>${fam}</div>
+    </div>
+    ${th ? `<div class="sub">Overheard</div>${th}` : ''}
+    ${d.born != null ? `<div class="line dim" style="margin-top:6px"><span>Born</span><span>Year ${d.born}</span></div>` : ''}`;
 }
 
-let lastDwarf = null;
-function render(st) {
-  if (!st.ok) { document.getElementById('fort').innerHTML = '<h1>Loading the fortress…</h1>'; return; }
-  const f = st.fort;
-  document.getElementById('fort').innerHTML =
-    `<h1>${esc(f.name)}</h1><div class="sub">${esc(f.dwarvish)} · ${esc(f.world)}</div>
-     <div class="row"><span>${f.day} ${esc(f.month)}, Year ${f.year}</span><span>${f.population} dwarves</span></div>`;
-
-  const d = st.dwarf;
-  if (d) {
-    const m = mood(d.stress);
-    const fam = (d.family || []).map(x => `<div><span class="tag">${esc(pretty(x.relation))}</span>${esc(x.name)}${x.alive ? '' : ' <span class="dead">†</span>'}</div>`).join('') || '<div class="sub">No known kin</div>';
-    const sk = (d.skills || []).map(s => `<div>${esc(s.name)}<span class="lvl">${levels[Math.min(s.level, 15)] || s.level}</span></div>`).join('');
-    const th = (d.thoughts || []).slice(0, 4).map(t => `<div>${esc(pretty(t.emotion))} · ${esc(pretty(t.about))}</div>`).join('');
-    document.getElementById('dwarf').innerHTML =
-      `<h2>Now watching</h2>
-       <div class="name ${d.id !== lastDwarf ? 'fade' : ''}">${esc(d.name.split(',')[0])}</div>
-       <div class="prof">${esc(d.profession)} · age ${d.age}${d.born != null ? ` · born ${d.born}` : ''}</div>
-       <div class="job">⚒ ${esc(d.job)}</div>
-       <div class="row" style="font-size:13px"><span>Mood</span><span style="color:${m.color}">${m.label}</span></div>
-       <div class="bar"><div style="width:${m.pct}%;background:${m.color}"></div></div>
-       <div class="cols" style="margin-top:10px">
-         <div><h2>Skills</h2><div class="skills">${sk}</div></div>
-         <div><h2>Kin &amp; gods</h2><div class="family">${fam}</div></div>
-       </div>
-       ${th ? `<h2 style="margin-top:10px">Recent feelings</h2><div class="thoughts">${th}</div>` : ''}`;
-    lastDwarf = d.id;
+// ---------- card: weather & world (scrolling map) ----------
+let mapImg = null, particles = [], mapAnim = null;
+function tileColor(i) {
+  const e = W.elev[i], r = W.rain[i], t = W.temp[i], v = W.veg[i];
+  if (e < 100) { const d = e / 100; return [96 + 40 * d, 128 + 30 * d, 138 + 20 * d]; }          // sea
+  if (W.water && W.water[i]) return [104, 140, 150];                                             // river/lake
+  if (e >= 300) { const k = Math.min(1, (e - 300) / 100); return [138 + 70 * k, 128 + 72 * k, 112 + 80 * k]; } // mountains
+  if (t < 10) return [228, 224, 214];                                                            // tundra/glacier
+  if (r < 20) return [214, 194, 140];                                                            // desert
+  if (v > 66) return [86, 112, 70];                                                              // forest
+  if (v > 33) return [140, 156, 100];                                                            // grassland
+  return [178, 170, 120];                                                                        // scrub
+}
+function buildMap() {
+  const s = 4, c = document.createElement('canvas');
+  c.width = W.w * s; c.height = W.h * s;
+  const g = c.getContext('2d'), img = g.createImageData(c.width, c.height);
+  for (let y = 0; y < W.h; y++) for (let x = 0; x < W.w; x++) {
+    const col = tileColor(y * W.w + x);
+    for (let dy = 0; dy < s; dy++) for (let dx = 0; dx < s; dx++) {
+      const p = ((y * s + dy) * c.width + (x * s + dx)) * 4;
+      const hatch = ((x * s + dx + y * s + dy) % 6 === 0) ? 0.9 : 1;   // engraving-style hatching
+      img.data[p] = col[0] * hatch; img.data[p + 1] = col[1] * hatch; img.data[p + 2] = col[2] * hatch; img.data[p + 3] = 255;
+    }
   }
-  document.getElementById('events').innerHTML = '<h2>Fortress news</h2><div class="events">' +
-    (st.events || []).slice(0, 6).map(e => `<div>${esc(e.text)}</div>`).join('') + '</div>';
+  g.putImageData(img, 0, 0);
+  g.font = 'bold 11px Georgia'; g.textAlign = 'center';
+  for (const st of W.sites || []) {
+    const x = st.x * s + 2, y = st.y * s + 2;
+    g.fillStyle = st.type === 'DarkFortress' ? '#7a1414' : '#2b2218';
+    g.fillRect(x - 2, y - 2, 4, 4);
+    g.fillStyle = st.type === 'DarkFortress' ? 'rgba(122,20,20,.9)' : 'rgba(43,34,24,.85)';
+    g.fillText(clean(st.name), x, y - 5);
+  }
+  mapImg = c; mapImg.scale = s;
+}
+function forecastOf(wx) {
+  return wx.kind === 'snow' ? (wx.amount > .5 ? 'Heavy snow' : 'Light snow')
+       : wx.kind === 'rain' ? (wx.amount > .5 ? 'Heavy rain' : 'Showers') : 'Clear skies';
+}
+function cardMap() {
+  if (!W || !W.w) return null;
+  const wx = S.weather || {kind: 'clear', amount: 0, season: ''};
+  const fc = forecastOf(wx);
+  return `<div class="kicker"><span>Weather &amp; World</span><span>${esc(clean(W.world || ''))}</span></div>
+    <div class="headline">${fc.toUpperCase()} OVER ${esc((S.fort ? S.fort.name : '').toUpperCase())}</div>
+    <div class="mapwrap"><canvas id="map" width="430" height="320"></canvas></div>
+    <div class="forecast"><span>Today: <b>${fc}</b></span><span class="dim">${esc(wx.season || '')}</span></div>
+    <div class="body dim" style="margin-top:4px;font-size:12px">Our correspondents survey the realm from ${esc(S.fort ? S.fort.name : 'the fortress')}. Dark fortresses are marked in red.</div>`;
+}
+function startMap() {
+  const cv = document.getElementById('map'); if (!cv || !mapImg) return;
+  const g = cv.getContext('2d'), s = mapImg.scale;
+  const fx = W.fort ? W.fort.x * s : mapImg.width / 2, fy = W.fort ? W.fort.y * s : mapImg.height / 2;
+  const wx = S.weather || {kind: 'clear', amount: 0};
+  const n = wx.kind === 'clear' ? 0 : Math.round(40 + 160 * wx.amount);
+  particles = Array.from({length: n}, () => ({x: Math.random() * cv.width, y: Math.random() * cv.height, v: .5 + Math.random()}));
+  const t0 = performance.now();
+  cancelAnimationFrame(mapAnim);
+  const frame = now => {
+    const t = (now - t0) / 1000;
+    // slow tour: start over the fort, drift out across the realm and loop around
+    const r = Math.min(mapImg.width, mapImg.height) * 0.33 * Math.sin(Math.min(1, t / 8) * Math.PI / 2);
+    let cx = fx + Math.cos(t / 6) * r, cy = fy + Math.sin(t / 9) * r * 0.8;
+    cx = Math.max(cv.width / 2, Math.min(mapImg.width - cv.width / 2, cx));
+    cy = Math.max(cv.height / 2, Math.min(mapImg.height - cv.height / 2, cy));
+    const ox = cx - cv.width / 2, oy = cy - cv.height / 2;
+    g.drawImage(mapImg, ox, oy, cv.width, cv.height, 0, 0, cv.width, cv.height);
+    const mx = fx - ox + 2, my = fy - oy + 2, pulse = 6 + 3 * Math.sin(t * 3);
+    g.strokeStyle = '#8f2a1c'; g.lineWidth = 2; g.beginPath(); g.arc(mx, my, pulse, 0, 7); g.stroke();
+    g.fillStyle = '#8f2a1c'; g.font = 'bold 13px Georgia'; g.textAlign = 'center'; g.fillText('★ ' + (W.fort ? W.fort.name : ''), mx, my - 12);
+    for (const p of particles) {
+      if (wx.kind === 'snow') { p.y += p.v * .8; p.x += Math.sin(t + p.v * 9) * .4; g.fillStyle = 'rgba(255,255,255,.9)'; g.beginPath(); g.arc(p.x, p.y, 1.2 + p.v, 0, 7); g.fill(); }
+      else { p.y += p.v * 7; p.x -= p.v * 1.5; g.strokeStyle = 'rgba(70,90,120,.55)'; g.lineWidth = 1; g.beginPath(); g.moveTo(p.x, p.y); g.lineTo(p.x + 2, p.y - 8); g.stroke(); }
+      if (p.y > cv.height) { p.y = -5; p.x = Math.random() * (cv.width + 40); }
+    }
+    const v = g.createRadialGradient(cv.width / 2, cv.height / 2, cv.height * .35, cv.width / 2, cv.height / 2, cv.width * .7);
+    v.addColorStop(0, 'rgba(239,228,204,0)'); v.addColorStop(1, 'rgba(120,90,40,.35)');
+    g.fillStyle = v; g.fillRect(0, 0, cv.width, cv.height);
+    mapAnim = requestAnimationFrame(frame);
+  };
+  mapAnim = requestAnimationFrame(frame);
 }
 
-let arts = [], artIdx = 0;
-function showArtifact() {
-  if (!arts.length) { document.getElementById('artifact').innerHTML = '<h2>Legends</h2><div class="sub">Reading the world\'s history…</div>'; return; }
-  const a = arts[artIdx++ % arts.length];
-  const story = a.story.slice(0, 6).map(s => `<div><span class="yr">${s.year}</span>${esc(s.text)}</div>`).join('');
-  document.getElementById('artifact').innerHTML =
-    `<h2>Artifact of legend</h2><div class="fade"><div class="art-name">${esc(a.name)}</div>
-     <div class="art-item">${esc(a.item.replace(/[^\x20-\x7E\u00C0-\u024F]/g, ''))} · "${esc(a.dwarvish)}"</div>
-     <div class="story">${story}</div></div>`;
+// ---------- card: agriculture report ----------
+const AG = [
+  ['Food', [['Prepared meals', 'meals', 200], ['Meat', 'meat', 100], ['Fish', 'fish', 100], ['Plants', 'plants', 300], ['Eggs', 'eggs', 50], ['Seeds', 'seeds', 300]]],
+  ['Drink', [['Drinks', 'drinks', 1500]]],
+  ['Materials', [['Wood', 'wood', 150], ['Stone', 'stone', 500], ['Blocks', 'blocks', 150], ['Metal bars', 'bars', 100], ['Cloth', 'cloth', 50], ['Leather', 'leather', 50], ['Gems', 'gems', 50]]],
+];
+function agHeadline(c) {
+  const g = k => c[k] || 0;
+  if (g('drinks') < 50) return 'DRINK SHORTAGE: CITIZENS ALARMED';
+  if (g('meals') + g('plants') + g('meat') + g('fish') < 60) return 'FAMINE FEARS GRIP FORTRESS';
+  if (!g('meat') && !g('fish')) return 'MEAT SHORTAGE CONTINUES';
+  if (g('drinks') > 1000) return 'BREWERS CELEBRATE RECORD STORES';
+  if (g('wood') < 20) return 'TIMBER SCARCE, CARPENTERS IDLE';
+  return 'STORES HOLD STEADY';
+}
+function cardAg() {
+  if (!K || !K.stocks) return null;
+  const c = K.stocks, p = prevStocks || {};
+  const rows = AG.map(([sec, items]) => `<tr><td colspan="4" class="sub" style="border:0">${sec}</td></tr>` + items.map(([label, key, full]) => {
+    const n = c[key] || 0, was = p[key];
+    const trend = was == null || was === n ? '<span class="dim">–</span>' : n > was ? '<span class="up">▲</span>' : '<span class="down">▼</span>';
+    const pct = Math.min(100, Math.round(100 * n / full));
+    return `<tr><td>${label}</td><td class="n ${n ? '' : 'dead'}">${n.toLocaleString()}</td><td class="t">${trend}</td><td class="b"><div class="lvl"><div style="width:${pct}%"></div></div></td></tr>`;
+  }).join('')).join('');
+  const herd = Object.entries(K.animals || {}).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([k, v]) => `${v} ${esc(k)}${v > 1 ? 's' : ''}`).join(', ');
+  return `<div class="kicker"><span>Agriculture Report</span><span>${K.farms || 0} farm plots</span></div>
+    <div class="headline">${agHeadline(c)}</div>
+    <table>${rows}</table>
+    <div class="sub">Livestock census</div><div class="body">${herd || 'No animals of note.'}</div>`;
 }
 
-async function tick() {
-  try { render(await (await fetch('/state.json')).json()); } catch (e) {}
+// ---------- card: from the archives ----------
+function cardArchive() {
+  if (!H.artifacts || !H.artifacts.length) return null;
+  const a = H.artifacts[artIdx++ % H.artifacts.length];
+  const story = a.story.slice(0, 7).map(s => `<div><span class="yr">${s.year}</span>${esc(clean(s.text))}</div>`).join('');
+  return `<div class="kicker"><span>From the Archives</span><span>Artifacts of Legend</span></div>
+    <div class="headline">${esc(clean(a.name)).toUpperCase()}</div>
+    <div class="deck">The ${esc(clean(a.item).replace(/^[-\s]+|[-\s]+$/g, ''))} known in the old tongue as "${esc(a.dwarvish)}"</div>
+    <div class="story">${story}</div>`;
 }
-async function loadHistory() {
-  try { const h = await (await fetch('/history.json')).json(); if (h.artifacts && h.artifacts.length) arts = h.artifacts; } catch (e) {}
+
+// ---------- rotation ----------
+const CARDS = [
+  {fn: cardDwarf, secs: 25}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardArchive, secs: 20},
+];
+const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
+let cardIdx = params.has('card') ? Number(params.get('card')) - 2 : -1, cardTimer = null;
+function nextCard() {
+  for (let tries = 0; tries < CARDS.length; tries++) {
+    cardIdx = (cardIdx + 1) % CARDS.length;
+    const c = CARDS[cardIdx], html = c.fn();
+    if (!html) continue;
+    const el = document.getElementById('card');
+    el.innerHTML = html; el.classList.remove('fadein'); void el.offsetWidth; el.classList.add('fadein');
+    if (c.after) c.after(); else cancelAnimationFrame(mapAnim);
+    document.getElementById('dots').innerHTML = CARDS.map((_, i) => `<span class="${i === cardIdx ? 'on' : ''}"></span>`).join('');
+    clearTimeout(cardTimer);
+    if (!params.has('hold')) cardTimer = setTimeout(nextCard, c.secs * 1000);
+    return;
+  }
+  clearTimeout(cardTimer); cardTimer = setTimeout(nextCard, 3000);
 }
-tick(); setInterval(tick, 3000);
-loadHistory().then(showArtifact); setInterval(loadHistory, 60000); setInterval(showArtifact, 30000);
+
+// ---------- data ----------
+const get = async u => (await fetch(u, {cache: 'no-store'})).json();
+async function pollState() { try { S = await get('/state.json'); masthead(); } catch (e) {} }
+async function pollStocks() {
+  try { const k = await get('/stocks.json'); if (k && k.stocks) { if (K && K.stocks) prevStocks = K.stocks; K = k; } } catch (e) {}
+}
+async function pollSlow() {
+  try { const h = await get('/history.json'); if (h.artifacts && h.artifacts.length) H = h; } catch (e) {}
+  try { const w = await get('/world.json'); if (w && w.w && (!W || W.world !== w.world)) { W = w; buildMap(); } } catch (e) {}
+}
+(async () => {
+  await Promise.all([pollState(), pollStocks(), pollSlow()]);
+  nextCard();
+  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollSlow, 120000);
+})();
 </script>
 </body>
 </html>
