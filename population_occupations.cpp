@@ -20,6 +20,10 @@
 #include "df/historical_figure.h"
 #include "df/history_event_agreement_formedst.h"
 #include "df/occupation.h"
+#include "df/job_skill.h"
+#include "df/entity_position_responsibility.h"
+#include "df/entity_position.h"
+#include "df/abstract_building_hospitalst.h"
 #include "df/plotinfost.h"
 #include "df/religious_practice_type.h"
 #include "df/world.h"
@@ -105,14 +109,79 @@ public:
 
         if (!slot)
         {
-            ai.debug(out, "[ERROR] could not find vacant occupation " + enum_item_key(occupation) + " at " + get_location_name(location_id));
-            return;
+            // Locations df-ai creates itself (and quickfort's) start with no
+            // occupation slots at all; DF's own location screen adds them.
+            // Add one the same way: a df::occupation owned by the fort group.
+            int32_t next_id = 0;
+            for (auto o : world->occupations.all)
+            {
+                next_id = std::max(next_id, o->id + 1);
+            }
+            slot = df::allocate<df::occupation>();
+            slot->id = next_id;
+            slot->type = occupation;
+            slot->histfig_id = -1;
+            slot->unit_id = -1;
+            slot->location_id = location->id;
+            slot->site_id = location->site_id;
+            slot->group_id = plotinfo->group_id;
+            world->occupations.all.push_back(slot);
+            world->occupations.order_load.push_back(slot);
+            location->occupations.push_back(slot);
+            ai.debug(out, "[Population] created " + enum_item_key(occupation) + " slot at " + get_location_name(location_id));
         }
 
         df::unit *chosen = nullptr;
         int32_t best = std::numeric_limits<int32_t>::max();
+        if (occupation == occupation_type::DOCTOR)
+        {
+            // The chief medical dwarf is the natural doctor; otherwise take
+            // the best diagnostician who isn't already busy elsewhere.
+            for (auto u : world->units.active)
+            {
+                if (!u || !Units::isCitizen(u) || !Units::isAlive(u) || !Units::isSane(u) || !u->occupations.empty())
+                {
+                    continue;
+                }
+                std::vector<Units::NoblePosition> positions;
+                Units::getNoblePositions(&positions, u);
+                for (auto & np : positions)
+                {
+                    if (np.position && np.position->responsibilities[entity_position_responsibility::HEALTH_MANAGEMENT])
+                    {
+                        chosen = u;
+                    }
+                }
+                if (chosen)
+                {
+                    break;
+                }
+            }
+            if (!chosen)
+            {
+                int32_t best_skill = -1;
+                for (auto u : world->units.active)
+                {
+                    if (!u || !Units::isCitizen(u) || !Units::isAdult(u) || !Units::isAlive(u) || !Units::isSane(u) ||
+                        u->military.squad_id != -1 || u->mood != mood_type::None || !u->occupations.empty())
+                    {
+                        continue;
+                    }
+                    int32_t skill = Units::getEffectiveSkill(u, job_skill::DIAGNOSE);
+                    if (skill > best_skill)
+                    {
+                        best_skill = skill;
+                        chosen = u;
+                    }
+                }
+            }
+        }
         for (auto u : world->units.active)
         {
+            if (chosen && occupation == occupation_type::DOCTOR)
+            {
+                break;
+            }
             if (!u || !Units::isCitizen(u) || !Units::isAdult(u) || !Units::isAlive(u) || !Units::isSane(u))
             {
                 continue;
@@ -497,6 +566,27 @@ void Population::update_locations(color_ostream &)
             {
                 events.queue_exclusive(std::make_unique<AssignOccupationExclusive>(ai, loc->id, occupation_type::SCRIBE));
             }
+        }
+    }
+
+    // A hospital only works with a doctor on staff (DF's "no functional
+    // hospital"). One doctor per hospital zone df-ai created.
+    if (room *infirmary = ai.find_room(room_type::infirmary, [](room *r) -> bool { return r->dfbuilding() != nullptr; }))
+    {
+        df::building *bld = infirmary->dfbuilding();
+        auto site = df::world_site::find(bld->site_id);
+        auto loc = virtual_cast<df::abstract_building_hospitalst>(site ? binsearch_in_vector(site->buildings, bld->location_id) : nullptr);
+        bool staffed = loc == nullptr;
+        for (auto occ : loc ? loc->occupations : std::vector<df::occupation *>())
+        {
+            if (occ->unit_id != -1 && occ->type == occupation_type::DOCTOR)
+            {
+                staffed = true;
+            }
+        }
+        if (!staffed)
+        {
+            events.queue_exclusive(std::make_unique<AssignOccupationExclusive>(ai, loc->id, occupation_type::DOCTOR));
         }
     }
 

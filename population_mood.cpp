@@ -96,7 +96,10 @@ void Population::update_moods(color_ostream & out)
             for (auto item : world->items.other[items_other_id::IN_PLAY])
             {
                 df::item_type itype = item->getType();
-                if (!Job::isSuitableItem(ji, itype, item->getSubtype()) ||
+                // isSuitableItem only checks the job item's flags, not its type
+                if ((ji->item_type != item_type::NONE && itype != ji->item_type) ||
+                    (ji->item_subtype != -1 && item->getSubtype() != ji->item_subtype) ||
+                    !Job::isSuitableItem(ji, itype, item->getSubtype()) ||
                     !Job::isSuitableMaterial(ji, item->getMaterial(), item->getMaterialIndex(), itype))
                 {
                     continue;
