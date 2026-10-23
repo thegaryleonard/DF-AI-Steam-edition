@@ -222,6 +222,16 @@ void PlanSetup::place_rooms(std::map<std::string, size_t> & counts, std::map<std
 
         std::shuffle(available_blueprints.begin(), available_blueprints.end(), ai.rng);
 
+        if (try_add == &PlanSetup::try_add_room_outdoor)
+        {
+            // Place the trade depot first, while the ground nearest the fort is still
+            // free; otherwise farms and pastures fill it and the depot lands far away.
+            std::stable_partition(available_blueprints.begin(), available_blueprints.end(), [](const room_blueprint *rb) -> bool
+            {
+                return std::any_of(rb->rooms.begin(), rb->rooms.end(), [](const room_base::room_t *r) -> bool { return r->type == room_type::tradedepot; });
+            });
+        }
+
         bool stop = false;
         size_t failures = 0;
         while (!stop)
@@ -623,11 +633,11 @@ bool PlanSetup::try_add_room_outdoor(const room_blueprint & rb, std::map<std::st
     {
         // Search outward from the starting room (the fort entrance): outdoor rooms
         // such as the trade depot used to land anywhere on the map, sometimes 100
-        // tiles from the fort. The radius grows with each consecutive miss.
+        // tiles from the fort. The radius grows by one tile per miss of this blueprint.
         const room_base::room_t *start_room = rooms.front();
         int16_t cx = int16_t((start_room->min.x + start_room->max.x) / 2);
         int16_t cy = int16_t((start_room->min.y + start_room->max.y) / 2);
-        int16_t r = int16_t(std::min(12 + 2 * outdoor_misses, int32_t(std::max(world->map.x_count, world->map.y_count))));
+        int16_t r = int16_t(std::min(12 + outdoor_misses[&rb], int32_t(std::max(world->map.x_count, world->map.y_count))));
         x = std::uniform_int_distribution<int16_t>(std::max(lo_x, int16_t(cx - r)), std::max(lo_x, std::min(hi_x, int16_t(cx + r))))(ai.rng);
         y = std::uniform_int_distribution<int16_t>(std::max(lo_y, int16_t(cy - r)), std::max(lo_y, std::min(hi_y, int16_t(cy + r))))(ai.rng);
     }
@@ -638,7 +648,7 @@ bool PlanSetup::try_add_room_outdoor(const room_blueprint & rb, std::map<std::st
     }
 
     bool placed = try_add_room_outdoor_shared(rb, counts, instance_counts, plan, x, y);
-    outdoor_misses = placed ? 0 : outdoor_misses + 1;
+    if (placed) outdoor_misses.erase(&rb); else outdoor_misses[&rb]++;
     return placed;
 }
 
