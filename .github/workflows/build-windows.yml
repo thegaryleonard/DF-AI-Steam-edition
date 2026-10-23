@@ -73,7 +73,7 @@ jobs:
 
       - name: Build df-ai
         working-directory: dfhack
-        run: ninja -C build df-ai
+        run: ninja -k 0 -C build df-ai
 
       - name: Package
         shell: pwsh

@@ -238,7 +238,7 @@ struct room
     inline df::coord pos() const
     {
         df::coord s{ size() };
-        return df::coord{ uint16_t(min.x + s.x / 2), uint16_t(min.y + s.y / 2), uint16_t(min.z + s.z / 2) };
+        return df::coord{ int16_t(min.x + s.x / 2), int16_t(min.y + s.y / 2), int16_t(min.z + s.z / 2) };
     }
 
     void dig(bool plan = false, bool channel = false);

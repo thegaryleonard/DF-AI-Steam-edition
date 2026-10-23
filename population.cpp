@@ -750,6 +750,8 @@ void Population::report(std::ostream & out, bool html)
         case crime_type::Bribery:
             out << AI::describe_unit(criminal, html) << " [FIXME:PLACEHOLDER:" << enum_item_key_str(crime->mode) << "] " << AI::describe_unit(victim, html);
             break;
+        default:
+            break;
         }
 
         out << (html ? "</b><br/>" : "\n  ");
@@ -1409,6 +1411,8 @@ void Population::report(std::ostream & out, bool html)
                         out << (op->info.surgery.amputated_part_id == -1 ? "Excised rotten tissue from " : "Amputated ");
                         out << (part ? *part->name_singular.at(0) : "unknown part");
                         out << ".";
+                        break;
+                    default:
                         break;
                     }
                     break;

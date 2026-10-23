@@ -656,6 +656,8 @@ void Population::update_crimes(color_ostream & out)
         case df::crime_type::Bribery:
             accusation = "bribery";
             break;
+        default:
+            break;
         }
         if (accusation.empty())
         {

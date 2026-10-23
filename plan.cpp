@@ -695,7 +695,7 @@ int32_t Plan::do_dig_vein(color_ostream & out, int32_t mat, df::coord b, bool pl
 
     if (need_shaft)
     {
-        df::coord t0{ uint16_t(b.x + (minx + maxx) / 2), uint16_t(b.y + (miny + maxy) / 2), uint16_t(b.z) };
+        df::coord t0{ int16_t(b.x + (minx + maxx) / 2), int16_t(b.y + (miny + maxy) / 2), int16_t(b.z) };
         room *r = find_typed_corridor(out, corridor_type::veinshaft, t0);
         if (r)
         {
