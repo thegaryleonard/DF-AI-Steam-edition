@@ -1331,16 +1331,16 @@
 			"needed": 4
 		},
 		"splint": {
-			"needed": 5
+			"needed": 10
 		},
 		"crutch": {
-			"needed": 3
+			"needed": 10
 		},
 		"soap": {
 			"needed": 5
 		},
 		"bucket": {
-			"needed": 4
+			"needed": 10
 		}
 	}
 }

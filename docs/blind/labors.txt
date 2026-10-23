@@ -1,0 +1,158 @@
+CHAPTER: labors (2:06:56-2:19:16) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[2:06:56] of them and if you don't see any more it means I'm still building said playlist.
+[2:06:59] Thank you very much for watching this video and I hope to see you in the next one.
+[2:07:03] Hello everybody and welcome to another quick Dwarf Fortress tutorial. In this video we're
+[2:07:06] going to be talking about the labor system and specifically the labor menu as well as work details,
+[2:07:11] standing order, kitchen, and stone use. I'll also be covering the tasks screen in this video.
+[2:07:15] So the way the labor system works in Dwarf Fortress is a dwarf with the highest skill
+[2:07:20] under the selected work detail will do the job. So if you have a set of miners let's just say in
+[2:07:27] this instance four miners assigned to mining the dwarf with the highest skill in mining will be the
+[2:07:32] first one assigned to the detail. As other dwarves free up and acquire more available hands to go
+[2:07:39] do those jobs they will then move on and can and join in with those work details. So the highest
+[2:07:44] skilled miner in this case the expert miner would be the first one in this screen to go start doing
+[2:07:49] a mining job whereas somebody like our adequate metal crafter here Kog would be less likely to take
+[2:07:55] the first job. But if Kog is available and Zatan is not Kog would go do the job first and then
+[2:08:01] Zatan would join in shortly after. It's a very contortable system that confuses some people
+[2:08:07] because there's a few quirks to it. First off we have three different sections up here we have
+[2:08:11] everybody does this only selected do this and nobody does this. For the top three assigned jobs
+[2:08:16] miners woodcutters and hunting specific equipment are required in order for these jobs to be
+[2:08:22] completed. For miners they require a pick for wood cutting they require an axe a battle axe
+[2:08:27] specifically and for hunters they require a quiver a crossbow and bolts. Now if they don't
+[2:08:33] have access to these items these jobs can't be completed so sometimes it might seem like oh
+[2:08:37] nobody is hunting perhaps you simply have no bolts or all of the bolts are forbidden or
+[2:08:42] perhaps nobody's chopping down trees. Maybe all of your woodcutters are assigned to alternative tasks
+[2:08:47] alternative tasks that they have much higher skills in so they will prioritize those first.
+[2:08:53] As we go down the list here we now have the option for everybody does this. This is just
+[2:08:58] makes it into a general task where every single dwarf will do it first. But of course the first
+[2:09:02] dwarf to go take this job would be Kib because they are the proficient miner or proficient planter
+[2:09:07] not miner. And if I selected to only selected does this then we could be specific about who
+[2:09:11] specifically we wanted to who specifically we want to complete this task. Then there are some more
+[2:09:16] nebulous tasks that are kind of hidden under the scenes which are exposed via the custom work details
+[2:09:21] options which I'll be talking about in a second. We then later have fishing which is assigned
+[2:09:25] specifically like miners hunters and woodcutters which can be customized a little bit in the
+[2:09:30] standing orders screen. Plant gathering which is for gathering farmed crops as well as items from
+[2:09:37] the surface. By default is set to everybody does this. I currently have it turned off for this
+[2:09:42] particular fortress as it's just my tutorial fortress where I explain things. And then lastly
+[2:09:46] we have stone cutting and engraving. Some of the hidden skills in this screen that are not surfaced
+[2:09:51] in this menu are things like metal crafting. In fact it's one of the most recommended ones to add
+[2:09:55] in a custom work detail. Hauling is just kind of moving items about and also keep in mind
+[2:10:00] children separately do mining under the chores menu that can be found under chores. Did I say
+[2:10:05] mining? I meant hauling. So children will do hauling under chores but we'll talk about that in a second.
+[2:10:10] Lastly here we have orderlies which is stitches so giving dwarves stitches tending to wounds
+[2:10:16] rescuing wounded and bringing wounded and sick or alternatively imprisoned dwarves buckets of
+[2:10:22] water so that they don't die of thirst and to have their wounds cleaned. Dwarves normally drink
+[2:10:26] alcohol but if they're injured or in prison they are brought water for reasons. Underneath the
+[2:10:32] custom work detail screen we can add custom labor options so if we want to be very granular
+[2:10:37] about what dwarf and what type of dwarf can do what job you can use this system. Alternatively
+[2:10:42] you can be very specific about health care, you can be very specific about butchering,
+[2:10:46] you can get right down and add in a metalsmithing one. This is one that I will often add for
+[2:10:50] myself if I have very specific dwarves I want to do metalsmithing because that's one of the
+[2:10:54] nebulous jobs that just kind of happens in the background. Same with gem cutting and a lot of
+[2:10:57] the crafts because that's just one of those jobs that the game will automatically select dwarves
+[2:11:02] that are available for you may want to specialize even further. Now there's a wrinkle with this whole
+[2:11:06] UI setup outside of the detail the work details and the custom work details. If I back out of
+[2:11:11] this screen and select a dwarf I can show you what I'm referring to so if I jump over to let's
+[2:11:16] just say Kosoth here and I click on the labor screen here I have a few more options that I can
+[2:11:21] do but it does break some things so if I want this dwarf to stop mining I can remove that.
+[2:11:27] If I only want this dwarf to mine and maybe only mine and work with plants I can remove this task
+[2:11:34] and set these two to be the only tasks that this dwarf completes. However the wrinkle here is when
+[2:11:40] you do that if you go back to this screen and then I select planting it now says only select to
+[2:11:46] do this even if previously it was set to everybody does this because I've now specifically assigned
+[2:11:51] one dwarf to that task and the game assumes that for this labor I want other dwarves to do that.
+[2:11:56] I don't want other dwarves to do that task I just want that one dwarf to do that task so if you're
+[2:12:00] going to be very specific make sure you're specific for a lot of dwarves and not just assigning
+[2:12:04] individual dwarves to do that task. Next if I say make a metalworking custom detail down here
+[2:12:12] and I select all of the metalworking tasks and we click done and call it metalwork
+[2:12:18] then if I select a dwarf down here and go to labor it does show up down here
+[2:12:23] and because it's a specific new work detail I can assign this dwarf to that and be very granular and
+[2:12:29] specific about what dwarf I want doing what task. The next menu we're going to talk about in this
+[2:12:33] video is the standing order screen. Now the standing order screen is a very important menu
+[2:12:37] that a lot of people miss. There is workshop automation all of these are on by default
+[2:12:43] and it'll allow you to automatically weave thread in looms so if there's thread available
+[2:12:48] thread will automatically be weaved however you can be more specific and you can say no automatic
+[2:12:52] weaving and only queue up jobs manually if you so desire. Same with dyed thread if you're using
+[2:12:58] dyeing you can set it so they only weave dyed thread after the thread has been dyed which is
+[2:13:03] a bit more complicated but I generally just leave it on weave all thread. Same with cloth we can
+[2:13:08] tell our clothing workshops to only use dyed cloth for clothing or we could just let them use any
+[2:13:13] cloth. Down here is a very important one for when you're opening up cavern layers because cavern
+[2:13:18] layers are often full of spiders. Spiders tend to cause some problems for dwarves when like tripping
+[2:13:24] over webs and then all of the dwarves are bucking it out into the caverns to collect all the webs
+[2:13:27] for the looms. If you have a lot of looms constructed you might want to disable this
+[2:13:30] when exploring caverns just to stop your civilians from bucking out there and dying.
+[2:13:34] Slaughter any marked animal meaning any animal that is available to be slaughtered will
+[2:13:37] automatically be slaughtered unless you want that off. Automatic butcher carcasses,
+[2:13:41] automatically clean fish, automate kitchen, automate tannery. You can turn all of these
+[2:13:45] on and off granually if you want. Under hauling you can allow whether or not you want your dwarves
+[2:13:50] to gather animals, food, furniture, bodies, minerals, and wood. I've definitely had some people ask me
+[2:13:56] why aren't my dwarves gathering insert thing here and it's because they accidentally
+[2:13:59] toggled it off in this screen. Very important to keep an eye on.
+[2:14:02] Under here we have refuse and hauling. If you're having problems with bodies being hauled from the
+[2:14:06] surface it might be because they are considered refuse. Bits and pieces scattered about and
+[2:14:11] damaged and destroyed. You may want to enable gather refuse and vermin out remains from outside.
+[2:14:17] Down here we can set whether or not they save or dumps shells or shells skulls bones shells
+[2:14:22] skins and corpses and all that. Underneath sieges and forbidding if you're having problems with
+[2:14:26] your hunters not re-picking up their ammunition you may want to allow
+[2:14:30] claimed use ammunition. I personally generally just leave this to forbid used ammunition
+[2:14:34] during sieges so you don't have your civilians running out into a sieging force
+[2:14:38] to go gather a bunch of bolts. I can always
+[2:14:41] unforbid them later. Claim your dead claim death items the rest of this is pretty self-explanatory.
+[2:14:45] Next we're going to jump over to chores. Now by default children do chores and children do all
+[2:14:50] of the chores. Now this can be very useful if you have a large population of children in your
+[2:14:54] fortress. However the issue is they have delicate little minds and if dwarves are you know hauling
+[2:15:00] bodies to be buried and hauling refuse and skulls and bits and pieces of dead bodies
+[2:15:05] you might have some pretty scarred children. So if you want to keep your kids happy I would be a
+[2:15:09] little bit careful about what you let them do in this screen. Maybe you don't want them hauling
+[2:15:13] animals outside past your corpse pile. Maybe you don't want them hauling water inside on a
+[2:15:18] haunted biome. Maybe there's certain things that you want to keep away from your kids so that
+[2:15:22] they stay sane. Maybe you don't want them cleaning because that's where the blood and
+[2:15:26] vomit from old sieges is. Maybe you do want them doing those things so they get desensitized
+[2:15:30] but you have to deal with some tantrums now and again. Just keep in mind this is a
+[2:15:33] good screen to keep an eye on. Kids can be very helpful in a pinch but don't depend on them for
+[2:15:38] everything because your older more hardened dwarves are generally going to be better at the
+[2:15:42] task for some of these. Lastly and under other we can see how many job cancellations pop up here.
+[2:15:48] We can also just completely mute good job cancellations. Maybe you just don't care
+[2:15:52] about like having jobs cancelled and you know they're happening in the background so it doesn't
+[2:15:56] really matter to you. You can actually just mute these entirely. I often do that. Everybody harvests
+[2:16:00] or only farmers harvest. If you set it to only farmers harvest then you can be a little bit more
+[2:16:05] granular with the work detail screen. Now the nice thing about only farmers harvest is they will gain
+[2:16:11] skills in planting and get better yields. Down here we have mix similar foods and barrels or
+[2:16:18] do not mix. If you want to be very specific about cooking and give and take stockpiles you might
+[2:16:21] want to set that and then prefer zones for water drinking. You can set water zones. This
+[2:16:27] is especially important for wells or drink water from only designated zones. Very important if you
+[2:16:33] have a well and you're underground and you don't want them going to the surface for any reason.
+[2:16:36] Same with fishing. You can do specific designated zones for fishing or they prefer zones for
+[2:16:40] fishing. So if you have a zone and you only want them fishing there definitely check that.
+[2:16:45] Next we're going to have a real quick peek at kitchen menu which allows you to designate
+[2:16:50] different types of things to be cooked or brewed. This is the cooking symbol. This is
+[2:16:54] the brewing symbol. If you don't want something brewed definitely deselect that. If you don't want
+[2:17:00] something cooked deselect that side. This can be very useful for getting rid of seeds that you're
+[2:17:03] not going to be able to use. I've had some people ask me what can I do with this kind of seed.
+[2:17:06] Check your seeds menu. Maybe you can allow them to be cooked. There are plenty of seeds that
+[2:17:10] many people will never actually do anything with in Dwarf Fortress. Probably a good idea to allow
+[2:17:14] them as cooking ingredients as dwarves like to eat them. Then under here for ale is all your ale
+[2:17:18] disappearing and you're cooking fancy meals. You might be using it as part of meals. By
+[2:17:21] default all ale is left on in the cooking drinks section. So just keep an eye on that
+[2:17:27] or keep it in mind. And then lastly there's meat, fish, and others. I generally just leave those
+[2:17:30] all on to be cooked. No problem there. Now next thing is kind of an interesting one.
+[2:17:36] This menu shows you whether or not certain material types are lava safe. If they have
+[2:17:42] this little check mark here it means that they are safe for lava. If they have a little x there
+[2:17:45] it means they will melt when lava hits them. Over here on the right side you can see to use
+[2:17:50] in non-economic jobs. So say for example you want to make something out of a particular
+[2:17:58] type of stone and it's not letting you use it. Check to see if it's forbidden or not forbidden
+[2:18:01] here. By default all of your other stone are available for constructions whereas a lot of
+[2:18:05] the economic stones are not. So if you would like to say use I don't know a certain type of item
+[2:18:15] in non-economic jobs you can allow and disallow in here. The last screen I'm going to talk
+[2:18:20] about in this video is the tasks screen which as you can see is empty right now so let's queue up
+[2:18:24] some tasks and then we'll take a look. So now I have some tasks up here. I have a couple of
+[2:18:29] carpenters workshop tasks as well as a rock altar and I've also told my dwarves to go gather plants.
+[2:18:34] If you for some reason need to cancel a whole bunch of orders let's say you're getting attacked
+[2:18:39] you can pause remove set to repeat and also jump to the location of and check the details
+[2:18:46] of each individual task from the tasks screen. Every now and again I see people saying man
+[2:18:50] a bunch of jobs got cancelled I just want an easy way of unpausing all of them. They'll just show
+[2:18:54] up as paused in here maybe a bunch of construction constructed floors that you wanted to unpause
+[2:18:58] or that you want to unforbid that got cancelled during construction. Well you can unforbid all
+[2:19:02] those right here. You don't need to click on every single thing individually just simply
+[2:19:05] jump to the task screen and you can forbid, unforbid, check details, check locations as well
+[2:19:10] as cancel task overall. Hello everybody and welcome to another quick dwarf fortress tutorial.
+[2:19:15] In this video I'm going to be covering literally everything you can connect to a lever. I've
+[2:19:18] figured this would be an interesting topic as actually exploring this taught me a few things.

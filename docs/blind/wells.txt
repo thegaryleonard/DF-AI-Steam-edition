@@ -1,0 +1,160 @@
+CHAPTER: wells (5:13:22-5:26:16) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[5:13:22] the video. So now a barrel has been constructed and we are going to click on our still and we're going
+[5:13:27] to add a task and brew drink from plant and hopefully they bring down a plump helmet to be brewed.
+[5:13:32] That's my guess as to what they will bring down anyway. Looks like they brought down plump helmets
+[5:13:35] and they're going to go grab that barrel and that barrel is going to be used to brew the alcohol
+[5:13:40] into and then when the dwarf is finished brewing you will see we'll get some more spawn and they
+[5:13:46] will plant it in this field. As you can see it's quite large. Keep in mind this is the lowest
+[5:13:51] possible yield you can get from from a type of farming. Now as you can see the dwarves are running
+[5:13:56] down and they're going to begin planting it or first they'll put it in the bags and then they'll
+[5:13:59] come down here and plant it in the field. Hello everybody and welcome to another dwarf
+[5:14:03] fortress tutorial. In this video I'm going to be covering how to make wells, four different
+[5:14:08] techniques as well as some tips and tricks around these four different techniques of making four
+[5:14:13] different types of wells. We're going to be covering the materials required for a well and
+[5:14:17] how to construct them, how to make a well on the edge of water, buckets, pumps and with an aquifer.
+[5:14:24] And also all of these different sections of the video are time stamped down beneath so if you
+[5:14:28] would like to just simply jump to a specific spot and learn that particular technique links
+[5:14:32] are in the description. Let's dive in. So now that we're in game you can clearly see that there
+[5:14:42] is a big open space of grass right here and we're going to construct a couple of workshops
+[5:14:46] to construct all of the materials that we need to build a well. The first thing we're going
+[5:14:51] to need is a mechanics workshop. Now a mechanics workshop can be constructed out of whatever
+[5:14:55] material you like and uses folders and turns them into mechanisms. So we're going to open
+[5:15:00] up the building screen, we're going to go to workshops, we're going to click on workshops
+[5:15:04] and we're going to grab the mechanics workshop which can either be selected by hitting h
+[5:15:09] on the keyboard or simply clicking it. You're then going to place the mechanics workshop
+[5:15:14] wherever you see fit and then choose your material of choice. The second thing we are
+[5:15:18] going to need to build a well is we are going to need a stone worker shop. Now once again a stone
+[5:15:25] worker shop can be made out of any material you like and can be selected by hitting t on the
+[5:15:30] keyboard in the workshop screen. We're then going to place this workshop and select our material of
+[5:15:35] choice to make the workshop out of. We are going to need a woodworker shop or carpentry shops to
+[5:15:40] be specific. Now this is going to be used to make a bucket. Wood is not the only material you
+[5:15:45] can use to make a bucket. You can also use metal but for this video we're going to be using a
+[5:15:50] woodworker shop and once again we select the material of our choice. Once those three
+[5:15:54] workshops have been constructed we need to make ourselves a clothes workshop. This can be found in
+[5:15:59] the clothing and leather section of the workshop menu. This is going to be used to make a rope.
+[5:16:03] Once that has been placed just like the other workshops we're going to open up the mechanics
+[5:16:08] screen and we are going to queue up some rock mechanisms. From there we're going to open up
+[5:16:12] the stone workers screen and we're going to queue up some rock blocks. And then lastly
+[5:16:17] we are going to open up our clothes shop and carpenter shops and queue up a bucket
+[5:16:22] and a cloth rope. And then once that gets queued up we can see that the dwarves are building all
+[5:16:27] of the materials we need for our well. This brings us to the start of the first type of well.
+[5:16:32] A surface well. This is just any water that you find that isn't salty of course assuming it's
+[5:16:37] not on an ocean so like this puddle or this river here can have a well built on it. So we're going to
+[5:16:43] go hit B on the keyboard or click the build screen. We're going to open up machines and fluids
+[5:16:50] and we are going to go to well. You might be wondering what exactly is a well used for?
+[5:16:54] A well is a space for dwarves to get water. Dwarves do not drink water and do not want to
+[5:16:59] to drink water. They should be drinking alcohol. However if there is no alcohol available they
+[5:17:04] will drink water on a whim. They get really upset if you make them drink water straight out of a
+[5:17:08] puddle and prefer to drink it out of a well if they absolutely need to. Wells are also very
+[5:17:13] important for hospitals as they are how dwarves gain water to clean wounds with. So any injured
+[5:17:19] dwarf is going to need access to a well or some sort of water source. And if it's in a well it'll
+[5:17:24] be a better water source than if it's just pulled directly out of the river. So we're going to place
+[5:17:28] this well down on the ground. We're going to use sandstone blocks. We're going to use an
+[5:17:31] almond bucket and we're going to use a pigtail rope. And we're going to use a chalk mechanism.
+[5:17:37] This is then going to construct this well. And then what we're going to do once we've built the
+[5:17:41] well is we're going to hit Z on the keyboard as the well is building. We're going to select
+[5:17:45] the water source tool and we're going to drag a water source around this well. As you can see
+[5:17:50] some of this water source is over top of this river meaning they will actually use this river
+[5:17:53] as well which we don't want. So we can either build floors or I can remove those squares from
+[5:17:58] the water source allowing for us to have a well that is operational that dwarves have access to.
+[5:18:05] The second type of well is something that you can use underground quite easily if you're somewhere
+[5:18:09] that doesn't have an aquifer. So we're going to use this area by our little farm here.
+[5:18:15] Now the way this type of well works is quite simple. You just need to dig out a little bit
+[5:18:19] of space. Once you have some space dug out then what you're going to do is you are going
+[5:18:24] to channel one layer down. This removes the floor as well as the blocks under the floor.
+[5:18:30] This is what I call a bucket well. This is not the most optimal type of well and not generally
+[5:18:35] what I would recommend you build. However it's good to know how to make different types of wells
+[5:18:41] for your future prosperity indoor fortress. Now we have this hole in the ground which is
+[5:18:46] quite useful and we are going to hit Z on the keyboard. We're then going to go to pit
+[5:18:49] and pond over here on the left. Once I've selected pit and pond we are then going to drag
+[5:18:55] that little zone right over top of the hole. We're then going to click accept.
+[5:19:00] Then here we're going to see two options. We can set it as a pit or we can set it as a pond. We can
+[5:19:05] also tell them to throw animals in there. It's a very good way to throw things you don't like
+[5:19:08] into a volcano but we're going to set it as a pond. Now that it's set as a pond any dwarf
+[5:19:14] that is available is going to go grab a bucket and fill the pond. So our metal crafter here is
+[5:19:20] doing the task. Since the well is at six of seven we'll just call it full. Now what we can do is
+[5:19:28] we can click on the pit pond zone and just set it to be a pit so the dwarves stop dumping buckets
+[5:19:33] of water into it and then simply go to the machines and fluids section once again select
+[5:19:38] the well and then place it over top of the hole. Once again we're going to use blocks,
+[5:19:43] buckets and a rope and our mechanisms and then the dwarves are going to construct it.
+[5:19:47] This will work pretty effectively however keep in mind it will dry up and will need to be refilled
+[5:19:52] which means you'll have to kind of keep an eye on the well itself. Also if your surface water freezes
+[5:19:57] in the winter or if you have to deal with a very long siege you may run out of water.
+[5:20:01] Meaning while this is one of the simpler ways of making a well and safer than leaving it outside
+[5:20:05] it's not the most practical. So let's dive into something a little bit more complicated
+[5:20:10] that's also much more effective. So now we are looking for an aquifer so that we can make
+[5:20:16] a aquifer well. Now aquifers scare a lot of people away however they are one of the most efficient
+[5:20:21] ways to find a well. As you can see we've dug right up to the edge of an aquifer here
+[5:20:25] and what I'm actually going to do is I'm going to force the dwarves to keep digging.
+[5:20:28] Now there's several different ways we could do this we could dig down from the surface
+[5:20:32] into the aquifer or we could just dig sideways into the wall and let the dwarves do their work
+[5:20:38] and push away the aquifer. As the dwarves continue to dig into the aquifer we're going to slowly
+[5:20:44] start to see water dripping down from the ceiling. Now what we're going to do is we're going to wall off
+[5:20:49] the side so that there's a little bit of space for the dwarves to you know um get themselves stuck
+[5:20:54] underground inevitably so we'll have to dig them out. Look at you geshid very intelligent. Now
+[5:21:00] that we've saved the dwarf and sealed off that final spot it's a little bit sticky looking
+[5:21:05] but I'm sure it'll be fine. Now what we're going to do is we're going to go one layer above and
+[5:21:08] we're going to dig up to where the aquifer is from one layer above. So the dwarves are
+[5:21:13] going to dig all the way over. Then what you're going to do once they've dug over is you're going
+[5:21:17] to dig a hole down into the area. This will slowly fill up it'll take a little bit but give it half
+[5:21:22] a season or so. If you accidentally leave any rocks or boulders in with the in with the water
+[5:21:26] an easy way to fix this is simply click on the little invisibility tool and then remove it
+[5:21:30] you don't need to see it there and this will slowly fill up. It'll take a little bit of time
+[5:21:34] because this is only a light aquifer but once you've done that just simply proceed as normal.
+[5:21:39] Grab the machines and fluids tab and place your well on top of it using the same materials as
+[5:21:46] previous. Then what's going to happen is the dwarves are going to come over construct your well
+[5:21:51] and then as this fills up once it hits about I think it's three of five it needs to be full
+[5:21:55] it will be considered a functional well and the dwarves will be able to get water from it.
+[5:22:00] Unlike surface well designs this will not freeze and will be infinite. One of the most
+[5:22:06] important reasons to settle on an aquifer if you ask me. And now we enter into the final type of
+[5:22:11] well. This is going to be filling up a well using a pump system. Now this is going to be a little
+[5:22:17] bit trickier than the previous ones we've done but I should be able to give you a setup that
+[5:22:20] should be quite simple. Now to make a pump you're going to need a pipe section and an
+[5:22:27] enormous corkscrew. There's multiple different materials you can make these out of but for
+[5:22:31] this video we're just going to be using wood. So the first thing we're going to need to do
+[5:22:35] now that the pump pieces are constructed is we're going to need to select where the pump is going to
+[5:22:39] go. It needs two open spaces to be constructed so we're going to pump from here in the water
+[5:22:45] down this way. So as you can see there is some space and we're going to channel down. Now we
+[5:22:50] are then going to wait for the dwarves to dig this out and then go inside of here and then
+[5:22:56] dig one over and then down again. So our well is going to end up going right here and it
+[5:23:03] shouldn't take too long to fill but we're going to have to be a little bit careful
+[5:23:07] on the actual digging of it because we may end up flooding things if I don't do this safely. So
+[5:23:14] instead of doing it so close to the edge here let's actually move it a little bit further
+[5:23:18] this way to give us a little bit more leeway time. Now underneath here this zone is going
+[5:23:23] to need to be dug out so that we can actually get the water to where we need it to be. So
+[5:23:27] we're going to fill up this little space down here and also for fanciness sake we can make
+[5:23:32] the reservoir a little bigger by going down an extra layer. And now that the reservoir is dug out
+[5:23:38] we're going to go one layer above and we are going to channel in this upper layer. Now the last step
+[5:23:45] for this rather precarious setup is we're going to need to set up our pump. We're going to go to
+[5:23:49] the machines and fluids section the build screen click on the pump and we want it to pump from
+[5:23:54] the left to the right. So if you look at these little arrows here on the pump itself you can
+[5:23:57] see that it goes from the left to the right. We're then going to place it right next to the river.
+[5:24:03] We're going to use our pieces the pipe section and the corkscrew as well as a single block to build
+[5:24:08] this. Now something you should know about pumps the front piece right here on the right where the
+[5:24:13] water comes out of acts as a wall. So if I take a wall tool and I build a wall around the front of
+[5:24:19] the pump it will be treated as a wall thus not allowing any water to escape backwards and wash
+[5:24:26] your dwarf back into the creek. I see some people being very scared of using pumps for this kind of
+[5:24:30] reason and I just want you to know that if you just simply build around the front like this it'll be
+[5:24:34] quite safe for the dwarf to operate the pump and you will not need to worry about the dwarf
+[5:24:39] drowning. Of course you could use machines for this but that's a little bit complicated for
+[5:24:42] this video. We have our reservoir and we have our pump we're going to click on the pump and we're
+[5:24:46] going to pump manually. We're going to allow a dwarf to begin pumping and we're going to
+[5:24:51] feather the pause button here as you can see Inaud here has claimed the pump and has begun pumping.
+[5:24:56] It's going to pump quite quickly so we're going to need to be quite careful with this. Here comes
+[5:24:59] the water it fills up the reservoir and just like that we're going to go up to the dwarf and we're
+[5:25:05] going to tell the dwarf to stop pumping. The reservoir fills up we have a good amount of
+[5:25:10] water in there and now we can build our well. There is one final reason why you should use
+[5:25:17] pumps to make your wells like this instead of using an aquifer is if you have salt water
+[5:25:22] and you want clean water this is the only way to purify salt water in dwarf fortress
+[5:25:27] meaning you will not get any like salt in your water and be able to drink it and use it for
+[5:25:32] wounds if it's an ocean. So if you're settled on an ocean you need to know this setup. Granted
+[5:25:37] most ocean embarks also come with an aquifer so you also have the option to make aquifer wells.
+[5:25:43] Now that the well is being constructed I hope that you found this video informative or entertaining
+[5:25:47] or at the very least a little bit interesting. If you would like to see more tutorials check out my
+[5:25:52] channel on YouTube or alternatively the Kitfox channel on YouTube where these videos are being
+[5:25:57] dual posted. I just wanted to say thank you very much to everybody for watching this video and
+[5:26:00] I hope to see you in the next one. Hello everybody and welcome back to another one of those quick
+[5:26:04] dwarf fortress tutorials. In this video we're going to be talking about pump stacks and
+[5:26:07] waterbills so it's going to be a lot of information. So if there's a lot of stuff in this video and it's
+[5:26:13] hard to follow I'm sorry in advance. First thing that we're going to be making is we're going to
+[5:26:16] be making some mechanisms.

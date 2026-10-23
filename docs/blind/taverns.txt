@@ -1,0 +1,100 @@
+CHAPTER: taverns (2:37:12-2:44:31) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[2:37:13] Hello, everybody, and welcome to a complete guide for Dwarf Fortress featuring taverns and dining halls.
+[2:37:19] The goal of this video is to show you exactly how to construct the tavern, how to furnish it,
+[2:37:23] how to lay everything out, what the benefits of different sizes are, what the benefits of dining halls are,
+[2:37:29] setting up rooms for your tavern slash inn, as well as whether or not you should have guests.
+[2:37:34] Hopefully by the end of this video, you will have a good idea of how to construct a tavern and dining hall in Dwarf Fortress.
+[2:37:39] So let's dive in. Now, of course,
+[2:37:41] the first thing you're gonna need to do is select a location for your tavern.
+[2:37:44] This is quite simple on the surface, and for me,
+[2:37:47] I dug a couple layers down and found a nice layer with some stone in it.
+[2:37:50] This is going to give us plenty of space for our tavern, as well as a good location for our dining hall.
+[2:37:55] Now that the dwarves are digging out the tavern,
+[2:37:57] we're going to grab all of the furnishings that we are going to need for a tavern and dining hall.
+[2:38:01] So the first thing that we're going to be grabbing is three separate workshops.
+[2:38:05] That's a craft store shop, a stone workers workshop, and a carpenter shop. Inside of these shops,
+[2:38:10] we have the ability to make all of the items that we need, assuming we have stone and wood available.
+[2:38:15] We're gonna open up the craft store shop initially, and we're gonna make some rock mugs.
+[2:38:18] Now, mugs are necessary for a tavern to function correctly. That, or if we want,
+[2:38:23] we can also make them out of wood and make wooden cups.
+[2:38:25] Maybe you don't have that much stone around, or just don't feel like digging that deep.
+[2:38:28] You can absolutely just make wooden cups and stone mugs. From there,
+[2:38:32] we're gonna move on to the stone workers workshop and queue up a handful of tables, as well as a couple of thrones,
+[2:38:36] to go alongside of our tables. Because, you know, we're gonna need tables and thrones, naturally.
+[2:38:41] We could also make chairs out of wood, but for this video, we're just gonna do everything out of stone.
+[2:38:44] And then lastly, we're going to jump over to our carpenter shop, and we're going to queue up some beds.
+[2:38:50] Now, the reason we're gonna queue up some beds is because we're going to be also attaching some rooms onto our inn,
+[2:38:56] to make a proper inn slash tavern. The final thing that we're gonna need to do is queue up a couple of coffers,
+[2:39:01] because coffers are where mugs are stored in the tavern, alongside of musical instruments.
+[2:39:06] But we'll get to that in a second. Once the dwarves are finished digging out the space for your tavern,
+[2:39:09] you're gonna open up your zone tool. You can do that by either pressing the key Z on the keyboard,
+[2:39:14] or by clicking the button down in the center of the screen. Then, from there,
+[2:39:17] you're going to grab a meeting zone, and then you're gonna click and drag, and set it up as a nice little square,
+[2:39:23] over top of the zone, including the walls. From here,
+[2:39:26] we then select the little plus symbol on the shield that is connected to the zone screen on the left.
+[2:39:32] From there, you're gonna see several different options, inn, tavern, temple, library, etc.
+[2:39:37] But from here, we're just going to simply click on the inn and tavern tab.
+[2:39:41] Then, if we click the little magnifying glass,
+[2:39:43] it's going to give us our expanded options for the inn and tavern tab. The first of which you're gonna see up here at the top.
+[2:39:48] This is whether or not you're going to allow visitors in your tavern. By default,
+[2:39:52] it allows all visitors using the little horsey symbol. Right next to it is the little tent symbol,
+[2:39:56] which allows visitors and long-term residents. And then on the right is the dwarf face symbol,
+[2:40:01] which is citizens only. This is going to minimize the risk of having an open tavern,
+[2:40:05] allowing you to have a tavern that functions in your fortress without the risk of vampires and were creatures and other kind of nasty
+[2:40:11] individuals from stealing things from your fortress and potentially ending your fortress altogether. Right beneath that option is goblets. Now goblets
+[2:40:19] encompasses goblets, mugs, and cups. They are stored in a chest or coffer,
+[2:40:24] which is why we constructed one earlier. And that is going to be placed in the tavern.
+[2:40:28] Granted, the only dwarf that can actually access the mugs is your tavern keeper when they're serving alcohol.
+[2:40:33] So if you're going to use this feature and don't just store them in a stockpile beneath the tavern or something,
+[2:40:38] make sure that you have a tavern keeper assigned. Beneath that is musical instruments. Now musical instruments in Dwarf Fortress are procedurally generated and probably deserve their own video.
+[2:40:46] We're just gonna kind of leave that as is at default.
+[2:40:49] But note when traders come by, you can quite easily purchase musical instruments off of them and they will either be constructed like a piece of
+[2:40:56] furniture, like a table or a chair. And just like the mugs, you can set the number that you would like to have stored in the tab. With all of our
+[2:41:01] furniture constructed and the tavern set up, we're now going to select the furniture that we want for this area.
+[2:41:07] So the way we're gonna do that is we're gonna smooth the whole area just so that it looks a little bit nicer and increases the value ever so slightly.
+[2:41:11] We could also use brick floors or bolder floors to make the place look even prettier.
+[2:41:15] But for this video, we're just gonna smooth it. Then after that, we are going to place our two tables and two chairs. Now keep in mind,
+[2:41:22] when you are placing tables and chairs, only have one chair or throne per table.
+[2:41:27] If you have more than one chair per table or throne per table, the dwarves will actually fight over who gets to use that table space and it'll give them negative thoughts.
+[2:41:35] So just keep that in mind. The next thing we need to do is place our coffer or chest.
+[2:41:39] Once you've done that, if you actually select the zone for the tavern and unpause the game,
+[2:41:45] you can watch it fill up with mugs in real time, assuming you have plenty already made.
+[2:41:49] The next thing we are going to do is we're going to add a stockpile for our drink.
+[2:41:53] We're going to do this by opening up the stockpile tab and then clicking on the custom option,
+[2:41:57] going down to the food tab and then selecting drinks, specifically the plant drinks,
+[2:42:03] because we're not going to have any meat in this fort most likely.
+[2:42:06] We are also going to assign a tavern keeper and select a dwarf that has seemingly decent skills for it.
+[2:42:12] Keep in mind, some dwarves really like doing this task.
+[2:42:14] And if you notice dwarves that particularly like hanging out in the tavern might look into making them into a tavern keeper.
+[2:42:19] Then from there, we now have our stock pile.
+[2:42:21] And as you can see, it is filling up with barrels with the tavern being fully furnished and essentially ready to go.
+[2:42:27] One other thing I would like to mention is when you're actually zoning the initial tavern,
+[2:42:30] make sure that you leave a bunch of open space.
+[2:42:33] This allows the dwarves to dance.
+[2:42:34] If it's at least six by six, to my knowledge, they are able to do the largest possible dances.
+[2:42:39] So make sure you have some space for a dance floor.
+[2:42:40] But with the tavern fully laid out, you can see that we're already designating some bedrooms.
+[2:42:44] Now, these are going to be attached to the tavern because we want this to be an inn and tavern.
+[2:42:48] So we're going to put some beds into them and then link them to the tavern by using the multi select tool
+[2:42:55] to select both of the bedrooms now that they're fully furnished.
+[2:42:57] And then we're going to go to the plus symbol before I unpause the game and dwarf claims them.
+[2:43:02] Then I'm going to assign them to the tavern.
+[2:43:04] If we open up the tavern UI again, you can actually see that there are rooms that are now connected to the tavern.
+[2:43:09] So any long term residents that have been granted residency in the fortress can sleep in these beds.
+[2:43:14] Granted, they can also just use a normal dormitory or the side of the floor or under a table, whatever really suits them.
+[2:43:20] But these are now an option for them.
+[2:43:23] Now that our tavern and inn is fully set up, we're going to do one more thing that I think a lot of people skip.
+[2:43:28] We're going to dig out a small space and this is going to be used as a dining hall.
+[2:43:31] Once it's been dug out, I'm going to grab the dining hall zone from the zone tool and paint over it.
+[2:43:36] Once I've accepted it, I'm going to click on that little plus symbol again and we're going to associate it with the tavern.
+[2:43:42] Now, you don't need to do this.
+[2:43:43] It will operate on its own.
+[2:43:45] However, if you do associate it with the tavern by using this option, dwarves will use it as part of their dancing floor,
+[2:43:52] as well as continue to socialize in the dining hall, which they don't do as often as they would in a tavern.
+[2:43:58] This also allows any visitors in the tavern to also use the dining hall, helping keep them happy as well.
+[2:44:02] Once you've done that, chuck a couple of tables and chairs into it and it'll work in addition with the tavern.
+[2:44:08] Now that you've made it to the end of this guide, I do hope that you have full knowledge now on how to build a inn and tavern and dining hall in Dwarf Fortress.
+[2:44:17] If you have any questions, please leave them down below in the comments section.
+[2:44:20] And if you would like to see more tutorials like this, check out my YouTube channel and also the Kitfox YouTube channel,
+[2:44:25] where you can find more Dwarf Fortress tutorials, well, then you'll ever really need.
+[2:44:29] Thank you very much for watching this video and I hope to see you in the next one.

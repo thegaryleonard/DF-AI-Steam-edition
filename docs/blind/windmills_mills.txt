@@ -1,0 +1,118 @@
+CHAPTER: windmills_mills (5:48:33-5:53:49) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[5:48:33] watching this video and I hope to see you in the next one.
+[5:48:36] Hello everybody.
+[5:48:37] And welcome to another quick dwarf fortress tutorial in this video.
+[5:48:39] We're going to be covering millstones and also windmill power.
+[5:48:43] Windmills can work a number of different ways, but there's one way that makes
+[5:48:45] them work really, really easily.
+[5:48:47] And that's just simply placing them on the ground to use them to generate power.
+[5:48:50] Now we kind of did a video on pump stacks and water wheels, which was
+[5:48:53] very jam packed and kind of fast.
+[5:48:55] And I kind of want to make this one a little bit slower and a little
+[5:48:57] bit more simple for everybody to understand.
+[5:48:59] So I'm going to be building a windmill.
+[5:49:01] Now, windmills are very simple to put together.
+[5:49:03] You simply go to the, uh, machinery and mechanisms section of the game.
+[5:49:08] So, uh, machines and fluids, we're going to click on windmill.
+[5:49:12] Now a windmill is can go pretty much anywhere.
+[5:49:15] It can go up high.
+[5:49:16] It can go down low.
+[5:49:17] It can go right outside anywhere as long as it has access to the sky.
+[5:49:21] Otherwise it will have no wind and it will not work.
+[5:49:23] Now we're going to place it and windmills use wood to be constructed.
+[5:49:26] So it doesn't really matter what type of wood we use as long as we have enough.
+[5:49:28] So bang, we're going to select wood and build our windmill.
+[5:49:31] Then we're going to unpause the game and let our dwarves put together this windmill.
+[5:49:34] And once the windmill is put together, I'll continue the video.
+[5:49:39] So now that the windmill is constructed, you can see that it is spinning.
+[5:49:42] This means it's generating power.
+[5:49:43] If we click on it, we can see how much power it is generating, which is
+[5:49:46] going to vary based on the amount of wind, but as you can see,
+[5:49:48] it's generating 40 power.
+[5:49:50] Now, the next thing we're going to do is we're going to be powering a millstone,
+[5:49:53] which is a very simple thing to set up and power into our fortress.
+[5:49:55] And I'm just going to use it as our example.
+[5:49:57] Now a millstone is used to grind various plants down into flower, which is
+[5:50:01] used as a cooking ingredient indoor fortress.
+[5:50:03] Now millstones do require bags.
+[5:50:04] So do make sure that you have some bags available in this fortress.
+[5:50:08] We have some bags lying around, so that's what I will be using.
+[5:50:10] But if you don't know, don't have any bags, I recommend either making
+[5:50:12] some out of leather or a cloth or silk, or alternatively purchasing
+[5:50:16] some off of your recent, uh, crap thrower or a trader that shows up.
+[5:50:20] Now we're going to click on this add new task button, and then we are
+[5:50:23] going to click on millstone or type in millstone, so make rock millstone.
+[5:50:28] This is done at the stone workers workshop, which I'm assuming you
+[5:50:30] know how to build, and I will be clicking that now.
+[5:50:33] I'm just going to say, do it now.
+[5:50:34] So they get it done quickly.
+[5:50:35] Then also we have this little clothing was set up here that we set up earlier.
+[5:50:38] And as you can see, we have some pigtail socks down here.
+[5:50:40] I'm going to queue up some processing plants, just so that I can get some
+[5:50:44] more fabric to make us an extra bag in case we are out once that is all
+[5:50:47] completed and the millstone is done, I'll continue the video.
+[5:50:50] So as you can see here, the person is coming over to build the, uh,
+[5:50:54] bag that I have ordered up and also our millstone is complete and sitting right here.
+[5:50:59] So what we're going to do is we're going to construct this
+[5:51:00] millstone, so we're going to go to the, uh, once again, back to the machines
+[5:51:03] and fluids section of the build menu.
+[5:51:05] And we are going to be selecting this millstone and giving it a place.
+[5:51:08] Now we can just use the closest one because we know that it is the
+[5:51:11] only one that we have and we are going to place it.
+[5:51:13] However, you'll see that we get a notification, which states that
+[5:51:16] we need to make mechanisms, which is quite easy.
+[5:51:18] So we're going to quickly make up a mechanism shop for the extra step.
+[5:51:22] Now a mechanic shop is kind of used for traps and various other mechanisms,
+[5:51:26] things for power and generally something that you kind of want to have
+[5:51:29] one of during, uh, building any kind of machinery in door fortress.
+[5:51:33] So we're going to quickly make this up and we're going to make two rock
+[5:51:36] mechanisms just to have some extras lying around.
+[5:51:39] Now we're going to be connecting power to this windmill.
+[5:51:42] So what we're going to need is we're going to need a axle.
+[5:51:45] So we're going to, some migrants have arrived.
+[5:51:47] Oh, that's lovely.
+[5:51:47] We're going to click on machines and fluids once again, and
+[5:51:49] then click on horizontal axle.
+[5:51:52] Now these have one of two orientations.
+[5:51:54] We can go North and South, or we can go East and West and we can
+[5:51:57] drag them as long as we want.
+[5:51:58] Welcome newbies.
+[5:51:59] And we're just going to put it up to right about here.
+[5:52:01] Now, one of the most interesting changes with windmills in this version
+[5:52:05] of the game that wasn't possible in previous versions is you can
+[5:52:07] put power out the side previously.
+[5:52:09] You could only have power coming out directly from the bottom, which still works.
+[5:52:12] So if you build it up one layer and channel underneath it and connect a
+[5:52:16] gear to the bottom of it using mechanisms, you can also power things that way.
+[5:52:20] I'll show you how to do that at the very end of the video.
+[5:52:22] So what we're going to do is we are going to, uh, go into machines and fluids.
+[5:52:26] Once again, we're going to build a millstone and we're going to use closest
+[5:52:29] materials and we are going to click right here and it's going to appear.
+[5:52:33] Now a dwarf is going to come over it shortly and they are going to build this.
+[5:52:36] So once it is done, which she'll be here in a moment, here it comes and done.
+[5:52:41] We now have access to our very own millstone and we can add milk.
+[5:52:45] So what we're going to do is we're going to make a, uh, some flower right here.
+[5:52:49] We made a bag up here for the flower and they're going to process
+[5:52:53] the flower out of the quinoa and then that our caniwa or however you pronounce
+[5:52:57] that, and then that is can be cooked at a stove as part of food.
+[5:53:00] And so what we're going to do next is we're going to dig down beneath this thing
+[5:53:04] and we are going to dig two over to right in the middle and right underneath
+[5:53:09] it in the very center, we can hear combats going on somewhere.
+[5:53:11] Well, that's unfortunate.
+[5:53:12] It looks like my hunting elephant is fighting with a badger.
+[5:53:14] Well, I'm sure it'll win.
+[5:53:15] Now, if you want to connect power underneath, maybe you want to
+[5:53:17] do the same setup indoors.
+[5:53:19] We're going to deconstruct our millstone and power it from underneath, just
+[5:53:22] so I can show you how that works.
+[5:53:23] So we're going to deconstruct these two and we're going to go one down.
+[5:53:25] And then what we're going to do is we are going to go back into the
+[5:53:27] machines and fluid section and we are going to select gear assembly and
+[5:53:30] we're going to put it directly beneath this guy and please dog, don't stop it.
+[5:53:34] There you go.
+[5:53:34] So as you can see, it's directly beneath this and it's being powered.
+[5:53:38] And then if we wanted to power it indoors, instead of above ground,
+[5:53:41] what we can do is we can once again, go into the machines and fluid section
+[5:53:44] and we can place our millstone right here and it will again be powered
+[5:53:48] just as it was before, except underground.
+[5:53:50] Instead of out in the.

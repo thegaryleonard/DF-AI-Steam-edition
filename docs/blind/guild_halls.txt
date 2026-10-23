@@ -1,0 +1,100 @@
+CHAPTER: guild_halls (4:12:13-4:17:38) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[4:12:13] for casks and soap, but those two are optional.
+[4:12:16] Hello everybody and welcome to a short Dwarf Fortress tutorial.
+[4:12:18] In this video we're going to be talking about guild halls.
+[4:12:20] Now in the grand scheme of things, this is a relatively recent mechanic that was added
+[4:12:23] to Dwarf Fortress not so long ago.
+[4:12:25] It is a mechanic that I think is kind of important to talk about.
+[4:12:28] It's very similar to zones, or hospitals, or taverns, or temples, or libraries, aside
+[4:12:33] from kind of one specific wrinkle.
+[4:12:36] They don't actually require anything, and are probably just as if not more important
+[4:12:40] than the previous.
+[4:12:42] Now the reason guild halls are important is because that's where children can learn skills.
+[4:12:47] By default the only jobs that children can do is hauling and some cleaning.
+[4:12:51] And they're really not that focused on skilled labor.
+[4:12:55] However, if you make a guild hall, children can be trained kind of like a school.
+[4:12:59] So the way guild halls work is it's a zone not too dissimilar to a tavern, or a hospital,
+[4:13:04] or even a temple for that matter.
+[4:13:07] However it's focused on one particular style of job.
+[4:13:12] So you can have a woodworker's guild hall, you can have a metalworker's guild hall,
+[4:13:16] you can have a doctor's guild hall, you can have a stoneworker's guild hall.
+[4:13:21] And you can set them to, just like any other zone, public for anybody, locked to only members
+[4:13:26] for the guild hall, or citizens and residents only.
+[4:13:30] If you lock it to citizens and residents only, and not guild members only, then anybody in
+[4:13:34] your fortress can visit.
+[4:13:36] And anybody with skills in that particular class of skill can teach the other dwarves in
+[4:13:42] your fortress that skill.
+[4:13:44] Making it extremely useful as a way to get a bunch of skilled doctors, or maybe train
+[4:13:48] everybody on ambushing, or perhaps give everybody some skills in crossbow early on, without
+[4:13:54] really having to do anything else aside from allowing some dwarves to have free time.
+[4:13:58] So the way we're going to make a guild hall real quick is we're going to place a zone.
+[4:14:02] Now we're making this of our own accord, nobody's asked us to make this.
+[4:14:05] However, in Dwarf Fortress, the dwarves will demand a guild hall if you make them wait too
+[4:14:11] long and you manage to get enough dwarves of a particular skill set in your fortress.
+[4:14:17] So what we're going to do is we're going to be making ourselves a little stone crafters
+[4:14:20] hall right here.
+[4:14:21] As you can see, it's kind of just in the corner of my workshops here, and generally
+[4:14:27] just kind of in the way of things, but that's kind of the point.
+[4:14:30] I just kind of want to show you that they don't need to be anything fancy.
+[4:14:34] So now that we've made that zone real quick, it's just set as a meeting hall, we're going
+[4:14:37] to set this area to be smoothed up, just so that it starts to look a little bit nicer.
+[4:14:42] We're going to open the zone screen back up and give it our specifications.
+[4:14:46] So we're going to set it, we're going to click on this little plus sign on the shield
+[4:14:49] here after reselecting the zone.
+[4:14:51] Keep in mind you can select the zone hotkey by hitting N.
+[4:14:56] Now that the, or sorry, not by hitting N, by hitting Z.
+[4:14:59] Once you've selected the zone and clicked this shield, we're going to select it as
+[4:15:03] a guild hall.
+[4:15:04] We have several choices.
+[4:15:05] We could set it as a minery hall, a woodworker hall, carpenter hall, boyer hall, boyers for
+[4:15:08] crossbows and bows, woodcutters for chopping down trees, stoneworker is for stones, which
+[4:15:13] is what I'm going to ask for.
+[4:15:15] Now, as you can see, it says five workers, no established guild.
+[4:15:18] When that number goes up, they will ask, they will establish a guild on their own terms
+[4:15:22] and they will request that you give them a guild hall.
+[4:15:25] At that point, it's going to have specific value amounts and you're going to need to
+[4:15:28] put some statues in there probably, but because we are just building it, we don't
+[4:15:32] have any value requirements.
+[4:15:33] It's not going to stop me though.
+[4:15:34] We are still going to give it furniture.
+[4:15:35] So we've now assigned our guild hall and suddenly these dwarves are going, Oh no,
+[4:15:39] we're not supposed to be here most likely because they're smoothing floors in an
+[4:15:42] area that they're not allowed to be in.
+[4:15:44] Once this meeting place gets up to a value of 2000, uh, it'll be allowed, uh, or
+[4:15:50] it'll, it'll be what a guild would request.
+[4:15:53] So now that we've clicked this little magnifying glass, we can see our details.
+[4:15:55] So now only members can visit if guild is established, which is what happens when
+[4:16:00] you get that certain number of dwarves of the guild.
+[4:16:03] Um, but I'm just going to set it so that citizens can visit.
+[4:16:05] So any citizen in our fortress can visit this guild hall, including children.
+[4:16:09] We're going to need to add a little bit of furniture.
+[4:16:10] And there's a quick tip I want to throw in here as well.
+[4:16:12] I haven't made any yet, but it's worth noting that children are attracted
+[4:16:15] to areas where there are toys.
+[4:16:16] So if we make a little stockpile here and specifically, if we want to train
+[4:16:20] our children on the skill of the skilled hall, we can jump into this stockpile,
+[4:16:24] set it to custom, go to finished goods and type in toys.
+[4:16:29] So now toys are allowed in this stockpile.
+[4:16:30] So as our fortress gains toys, they will be allowed to be stored in this
+[4:16:34] finished good stockpile right here.
+[4:16:36] Now, the next thing we want to do is we want to add a little bit of value to the
+[4:16:39] room, so we are going to throw down some furniture.
+[4:16:42] And by that, I mean, just some tables.
+[4:16:45] Just give these dwarves somewhere to sit while they work and learn.
+[4:16:50] We've run out of tables that is perfect.
+[4:16:52] And we're also going to throw in some thrones for this little here room.
+[4:16:57] And I think that that is kind of the quickest little example of a simple
+[4:17:02] guild hall, keep on, keep an eye on the value of the guild hall.
+[4:17:06] If it's requested by your citizens, make sure you get that value up to 2,000.
+[4:17:09] Otherwise they will be quite disappointed in your inability
+[4:17:12] to create a competent guild hall.
+[4:17:13] Uh, guild hall's value is quite easy to write, raise up rather quickly.
+[4:17:17] If you engrave the walls using the engraving tool and also quite
+[4:17:21] easy to speed up, if you just put a bunch of statues in there.
+[4:17:23] Generally, I would also recommend making them their own enclosed zone,
+[4:17:27] but just for the sake of this video, I wanted to kind of show you that they
+[4:17:29] don't really need to be a whole lot to be a guild hall.
+[4:17:31] And as you can see, this child is already hanging out here.
+[4:17:34] Thank you very much for watching this video about guild halls.
+[4:17:36] Very important way to train your children in skills that
+[4:17:39] they can't otherwise train him.

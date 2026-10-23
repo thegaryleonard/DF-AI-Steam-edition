@@ -1,0 +1,225 @@
+CHAPTER: animals (5:39:35-5:48:33) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[5:39:35] Thank you very much for watching this video and I hope this fortress doesn't die.
+[5:39:40] Hello everybody and welcome to another quick dwarf fortress tutorial.
+[5:39:43] In this video we're going to be covering pastures and butchering.
+[5:39:48] We're also going to be covering the use of cages for livestock and animal training.
+[5:39:52] So this particular episode is going to be a little bit packed, but hopefully it'll be
+[5:39:56] useful information that you can use in your fortress.
+[5:39:59] So first things first, you'll notice here we have this cage, which inside of it has
+[5:40:02] an elephant in it.
+[5:40:03] And it's kind of a shame, it's a very sad elephant.
+[5:40:05] It's a tame elephant that we embarked with and we've put it in this cage for demonstration
+[5:40:10] purposes.
+[5:40:11] Now there's several different ways we can get this elephant out of this cage, but before
+[5:40:14] we talk about that we're going to cover making a zone first.
+[5:40:17] So we're going to make ourselves a pen and pasture zone.
+[5:40:19] So we're going to just select the zone button, either by hitting Z on the keyboard or
+[5:40:23] clicking the button down at the bottom, and then click and drag, and we're going
+[5:40:27] to make a nice non-circle because, well, circles are boring, and then we are going
+[5:40:30] to click accept.
+[5:40:33] And then up here you'll see there's this little button where we can add animals to
+[5:40:36] this zone.
+[5:40:37] Now certain types of animals need to graze, others don't.
+[5:40:39] If you notice an animal that's running around in your fortress and they're hungry,
+[5:40:42] they're probably a grazer and they need to be stationed in one of these grazing
+[5:40:46] zones over top of either grass or floor fungus underground if you've broken into
+[5:40:50] the caverns.
+[5:40:51] So what we're going to do is we're going to assign our elephants and our
+[5:40:56] mule and our cavy, which our guinea pig here does need to be pastured, and then
+[5:41:02] any fowl are good, so birds don't need to be pastured of that sort.
+[5:41:06] Unless if you want to pasture birds, one good use for pasturing birds is nest
+[5:41:10] boxes.
+[5:41:11] If you put a nest box in the pasture, the birds will then normally just go lay
+[5:41:16] their eggs in the nest box.
+[5:41:17] Dwarves will automatically collect these eggs as part of food.
+[5:41:21] So we do actually have a nest box constructed here, so I'm just going to
+[5:41:24] quickly grab one.
+[5:41:25] We're just going to go over here into the workshops, then we're going to go
+[5:41:28] into farming.
+[5:41:29] Excuse me, I have hiccups apparently.
+[5:41:30] We're going to go into farming, and we're just going to plop two of these
+[5:41:32] down, or one of these down, in that zone, and we're also going to assign
+[5:41:36] our birds.
+[5:41:37] Now unfortunately, this keet here that we have is too young to lay eggs
+[5:41:40] yet, but at the very least we'll have an example.
+[5:41:42] We can also chuck this goose in here, and maybe they will lay some eggs
+[5:41:45] for us.
+[5:41:46] Now, once they get all this constructed, we will be able to select this
+[5:41:51] here box, and if you keep an eye on it, you'll immediately see eggs have
+[5:41:54] popped in, right?
+[5:41:55] Our goose has run over and laid us a goose egg.
+[5:41:57] Now, if we forbid this goose egg, you do have to kind of keep an eye on
+[5:42:00] these.
+[5:42:01] If you forbid this goose egg, the dwarves will not collect it and use it
+[5:42:03] as food, and if we have a male goose around, which we don't, then they
+[5:42:08] will hatch after X amount of time and make a bunch of baby geese, and
+[5:42:12] then you can breed your fowl.
+[5:42:14] Otherwise you can use it as a seemingly infinite food source until
+[5:42:17] they decide to fall over and die of old age, or you butcher them.
+[5:42:20] Now the next thing we're going to do is we're going to cover this
+[5:42:22] cage here.
+[5:42:23] So we have this elephant, right?
+[5:42:24] It's in this deconstructed cage.
+[5:42:25] So you click on the cage and there's nothing you can do.
+[5:42:28] The first way that we can get this elephant out of this cage, let's just
+[5:42:31] say we just purchased it, is we could go to cages and restraints and go
+[5:42:34] to cage, and then we can select material after placement, and then if
+[5:42:38] you happen to have a lot of different cages, click these down arrows
+[5:42:41] and then you can select the elephant in the cage.
+[5:42:44] We only have the one cage, so it makes our life easy.
+[5:42:46] And then the dwarves are going to come over here and they're going
+[5:42:48] to construct the cage.
+[5:42:49] Now from here, we can click on the cage once again, and we can click
+[5:42:53] on this checkmark and that will release the elephant from the cage.
+[5:42:58] Now if you want to assign an animal to the cage, you can then click
+[5:43:00] on this arrow here and we can put the elephant back into the cage.
+[5:43:05] Now that's the first way you can let something out of a cage.
+[5:43:08] If it's not tame, you don't really want to do it that way because
+[5:43:10] what's going to end up happening is you're going to end up fighting
+[5:43:12] with whatever you just let out of this cage, right?
+[5:43:15] We're now going to deconstruct the cage again and I'm going to
+[5:43:17] show you a second method of also getting animals out of cages.
+[5:43:19] I actually prefer this second method as I find it easier and less
+[5:43:22] annoying.
+[5:43:23] If you hit Z on the keyboard and pop up your zones and you happen
+[5:43:26] to have a pasture zone, you can then click on that pasture zone.
+[5:43:29] You can click on the animal icon on the pasture zone and then you
+[5:43:33] can find the elephant that's in the cage and they will simply run
+[5:43:36] over the cage, let the elephant out of the cage without you having
+[5:43:39] to construct it and bring it to the pasture zone so that the
+[5:43:42] elephant can graze.
+[5:43:44] One more thing I would like to cover in this video is animal
+[5:43:46] training and then we're also going to cover butchery at the
+[5:43:49] very end.
+[5:43:50] But first I want to cover animal training.
+[5:43:52] So if you make an animal training zone, which can be found
+[5:43:55] right here, then if you happen to have an animal like let's
+[5:43:59] just say a dog or an elephant that you wish to war train or
+[5:44:02] hunting train, then you can press U on the keyboard, go over
+[5:44:07] to pets and livestock tab and then you can select some of
+[5:44:11] these rules here.
+[5:44:13] So in the center here we have training and then over on the
+[5:44:15] right we have butchery and I'll make available as a pet.
+[5:44:18] If you want a dwarf to be able to acquire one of these animals
+[5:44:21] as a pet and make them unbutterable, then you can click
+[5:44:25] this button and it says available as pet and then any
+[5:44:27] dwarf that happens to like dogs could claim this dog as
+[5:44:30] their pet and then that dog can't be slaughtered.
+[5:44:33] Secondly, if you wish to assign a specific trainer you
+[5:44:35] can use this button and then there are two options for
+[5:44:37] dogs here as an example.
+[5:44:39] The two options for dogs are war training, which can then
+[5:44:44] be assigned to a military dwarf to then go out on raids
+[5:44:47] or defend your fortress and they'll also simply go and
+[5:44:49] attack wild animals that are dangerous to your fortress or
+[5:44:52] you can toggle them as hunting where they will
+[5:44:55] specifically seek out small prey and bring them back into
+[5:44:57] your fortress for you or your dwarves will go get them if
+[5:44:59] they decide to not.
+[5:45:00] So for this instance, I'm going to train this dog as
+[5:45:03] these two dogs as war trained.
+[5:45:05] Also, the concept of a hunting elephant is hilarious to
+[5:45:08] me, so we're going to train a hunting elephant as well.
+[5:45:10] Now what we're going to see is we're going to see our
+[5:45:11] dwarves run over and they are going to grab these
+[5:45:17] trainable animals and they're going to bring them
+[5:45:19] over to this zone and as you can see, train stray dog.
+[5:45:22] They're going to bring them to this training zone and
+[5:45:25] then you're going to almost immediately notice these
+[5:45:27] dogs after a couple attempts become a different
+[5:45:30] sprite and then they're going to be hunting dogs and
+[5:45:33] they're going to be much more useful around the
+[5:45:34] fortress than just running around as normal months.
+[5:45:37] So that's training.
+[5:45:39] That's animal pastoring.
+[5:45:40] That's eggs.
+[5:45:41] The last thing we're going to do is butchery.
+[5:45:43] Now, if you're going to butcher an animal, there's
+[5:45:44] two shops you want to make.
+[5:45:45] You want to go to farming and you want to go to
+[5:45:46] Tanner and you want to make one of these because you
+[5:45:48] don't want that good leather to go to waste and
+[5:45:52] then the second thing that you want to build is you
+[5:45:54] want to build a butcher shop and what you're going
+[5:45:57] to do is you're going to place both of these
+[5:45:59] shops and once they're constructed, the dwarves can
+[5:46:03] then have butchered animals to be assigned.
+[5:46:05] So we're going to be a horrible person here and
+[5:46:08] select somebody to eat and our edible animal of
+[5:46:12] choice is, drum roll please, this poor mule.
+[5:46:15] Um, we're going to select the, uh, big old butcher
+[5:46:19] knife button that's going to stay ready for
+[5:46:20] slaughter and then a dwarf is going to run over
+[5:46:22] here and they are going to slaughter this mule as
+[5:46:25] soon as this shop is ready.
+[5:46:26] Here comes the job.
+[5:46:27] As you can see, it's automatically added to the
+[5:46:29] shop.
+[5:46:29] You don't need to add this manually.
+[5:46:31] Now, if you have dead animals around and
+[5:46:33] you're thinking to yourself, why aren't they
+[5:46:35] butchering these dead animals?
+[5:46:36] Keep in mind, dead animals that are mangled or
+[5:46:38] rotten cannot be butchered and also, uh,
+[5:46:41] intelligent creatures like, let's just see, say
+[5:46:43] dwarves or Gorlax cannot be butchered either.
+[5:46:47] Now, as you can see, we have all these bits and
+[5:46:51] pieces and then suddenly there's this stray
+[5:46:53] mule skin right here, right?
+[5:46:54] And then a dwarf is going to grab it, move it
+[5:46:57] over to the Tanner shop and turn it into
+[5:46:59] leather for us.
+[5:47:00] The bigger the animal, the more leather.
+[5:47:01] So if you happen to have a bunch of elephants
+[5:47:04] or a bunch of hydras somehow in your fortress,
+[5:47:06] you might have a very nice source of clothing
+[5:47:08] and or bags.
+[5:47:09] Thank you very much for watching this video.
+[5:47:10] Uh, there is one more thing I would like
+[5:47:12] to cover before we get to the end, however,
+[5:47:14] and that is gelding.
+[5:47:15] Now, if you decide, man, I don't want all of
+[5:47:18] these baby cats everywhere, make yourself a
+[5:47:20] farmer shop, place it up top.
+[5:47:22] Whoopsies, make yourself a farmer shop and
+[5:47:25] place it up top.
+[5:47:26] Can't click the right thing.
+[5:47:27] Make yourself a farmer shop and place it up
+[5:47:29] top right there.
+[5:47:31] Make it out of whatever's closest or whatever
+[5:47:34] you choose to make it out of.
+[5:47:35] And then we can geld our animals.
+[5:47:37] So the way, the way this works is it's just
+[5:47:40] exactly the same process as everything else
+[5:47:41] we've done gelding is spaying or fixing
+[5:47:44] whatever you prefer to use.
+[5:47:45] We're going to fix our yak bull down here
+[5:47:52] using this button toggle whether or not this
+[5:47:54] creature will be gilded.
+[5:47:55] So now we're going to leave the game unpaused
+[5:47:57] and it'll probably be this dwarf or
+[5:47:59] potentially not who's doing the gelding.
+[5:48:01] There we go.
+[5:48:01] Our planter Kib comes over, grabs this yak
+[5:48:05] bull and snips their nuts off.
+[5:48:07] Fun fact, you can actually see the combat
+[5:48:09] log and sometimes they fight back.
+[5:48:11] Nope, not this time.
+[5:48:14] Thank you very much for watching this video.
+[5:48:15] If you like this series and want to see
+[5:48:16] more of them, there's a ton of them on
+[5:48:17] this YouTube channel.
+[5:48:18] If you want to see me play Dwarf Fortress
+[5:48:19] live, go to twitch.tv slash BLINDIRL.
+[5:48:21] Mostly six days a week, actually,
+[5:48:23] because I'm going to take this Friday
+[5:48:24] off, but I've been streaming basically
+[5:48:25] seven days a week since the game came
+[5:48:26] out.
+[5:48:27] However, uh, my normal schedule is going
+[5:48:29] to be Tuesday, Wednesday, Thursdays
+[5:48:30] for a very long period of time and then
+[5:48:32] Sunday afternoons for kind of a bonus
+[5:48:34] stream thing.
+[5:48:34] Thank you very much for watching this
+[5:48:35] video and I hope to see you in the next one.
