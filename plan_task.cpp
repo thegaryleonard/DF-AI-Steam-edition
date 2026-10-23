@@ -395,6 +395,15 @@ void Plan::checkroom(color_ostream & out, room *r)
             r->bld_id = -1;
             construct_room(out, r);
         }
+        // A finished depot/workshop/furnace that lost its building id entirely
+        // (destroyed by a ghost, or the reference was lost across a reload)
+        // was never rebuilt; the depot stayed "Done" while caravans waited.
+        else if (r->status == room_status::finished && r->bld_id == -1 &&
+            (r->type == room_type::tradedepot || r->type == room_type::workshop || r->type == room_type::furnace))
+        {
+            ai.debug(out, "rebuild missing " + AI::describe_room(r));
+            construct_room(out, r);
+        }
     }
 }
 
