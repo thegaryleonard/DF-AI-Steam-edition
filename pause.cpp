@@ -34,6 +34,18 @@ void AI::unpause()
             break; // the key didn't close anything; don't keep pressing it
         n = m;
     }
+    // DF 53 ignores the fed key, and popups block game time until closed.
+    // Remove them directly (cf. DFHack's modtools scripts), logging the text.
+    while (!world->status.popups.empty())
+    {
+        df::popup_message *popup = world->status.popups.front();
+        world->status.popups.erase(world->status.popups.begin());
+        if (popup)
+        {
+            Core::getInstance().getConsole().print("df-ai: closed popup: {}\n", popup->text);
+            delete popup;
+        }
+    }
     World::SetPauseState(false);
     ignore_pause(last_good_x, last_good_y, last_good_z);
 }
