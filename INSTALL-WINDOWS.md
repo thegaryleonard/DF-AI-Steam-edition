@@ -50,10 +50,24 @@ so this version changes game data directly through DFHack instead:
   trade, camera following.
 - **Also direct:** squads (creation, uniforms, kill orders, training),
   appointing nobles, tavern keepers/performers/scholars, pasture assignment.
-- **Manual for now** (df-ai logs a message once): embarking, the actual
-  barter with caravans (goods are moved to the depot for you), answering
-  petitions, convicting criminals, recognizing temple priesthoods,
-  abandoning a fortress.
+- **Experimental, on by default** (turn off in `dfhack-config/df-ai.json`):
+  - `direct_trade`: completes caravan trades itself by transferring the
+    chosen goods. If merchants leave goods behind or a trade looks wrong,
+    set it to `false` and goods will just wait at the depot for you.
+  - `manage_justice`: convicts the culprit of a solved crime by opening the
+    Justice menu and pressing its real keys. It checks that the selected
+    dwarf is the culprit first. Use `justice pardon` to end a sentence.
+  - Petitions: citizenship requests are accepted (via DFHack's `makeown`),
+    and temple/guildhall requests are accepted only when df-ai has a room
+    planned for them; others are declined.
+- **Experimental, off by default:** `random_embark` drives the title screen,
+  world generation and embark for fully hands-off play (and starts a new fort
+  after one falls). Related settings: `random_embark_world` (an existing save
+  folder, or empty for a new world), `world_size`, `embark_width`,
+  `embark_height`. If a step doesn't work, df-ai logs "embark: giving up"
+  and you can finish that step by hand.
+- **Manual for now** (df-ai logs a message once): residency petitions,
+  recognizing temple priesthoods, abandoning a fortress.
 
 This port compiles and links against DFHack 53.16-r3 but has not yet been
 played through in a live game, so expect rough edges. If something goes

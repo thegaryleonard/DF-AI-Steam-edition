@@ -33,6 +33,7 @@ struct Config
     uint8_t cancel_announce;
     bool allow_pause;
     bool direct_trade;
+    bool manage_justice;
     bool random_embark;
     std::string random_embark_world;
     int32_t world_size;

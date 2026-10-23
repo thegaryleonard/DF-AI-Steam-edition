@@ -24,6 +24,7 @@ Config::Config() :
     cancel_announce(0),
     allow_pause(true),
     direct_trade(true),
+    manage_justice(true),
     random_embark(false),
     random_embark_world(""),
     world_size(1),
@@ -91,6 +92,10 @@ void Config::load(color_ostream & out)
             if (v.isMember("direct_trade"))
             {
                 direct_trade = v["direct_trade"].asBool();
+            }
+            if (v.isMember("manage_justice"))
+            {
+                manage_justice = v["manage_justice"].asBool();
             }
             if (v.isMember("random_embark"))
             {
@@ -168,6 +173,7 @@ void Config::save(color_ostream & out)
     setComment(v["cancel_announce"], Json::Int(cancel_announce), "// how many job cancellation notices to show. 0: none, 1: some, 2: most, 3: all");
     setComment(v["allow_pause"], allow_pause, "// true or false: should df-ai allow the game to be paused?");
     setComment(v["direct_trade"], direct_trade, "// true or false: (experimental) should df-ai complete caravan trades itself? if false, goods are moved to the depot and you trade by hand.");
+    setComment(v["manage_justice"], manage_justice, "// true or false: (experimental) should df-ai convict criminals through the Justice menu? a conviction cannot be undone (but DFHack's \"justice pardon\" ends a sentence).");
     setComment(v["random_embark"], random_embark, "// true or false: (experimental) should df-ai create or pick a world and embark automatically from the title screen, and start a new fort after one falls?");
     setComment(v["random_embark_world"], random_embark_world, "// save folder name (e.g. \"region1\") of an existing world to embark in, or \"\" to generate a new world.");
     setComment(v["world_size"], Json::Int(world_size), "// size of generated worlds: 0: pocket, 1: smaller, 2: small, 3: medium, 4: large");

@@ -12,8 +12,12 @@ Ported to Dwarf Fortress 53.16 and DFHack 53.16-r3. The v50+ game replaced the k
 - Goods the AI is willing to sell are marked for the trade depot when a caravan arrives.
 - Saves are read from and written to `save/<world>/df-ai-plan.dat`.
 - `labormanager` is not available for v50+; `autolabor` is used instead.
-- Removed: automatic world generation and embarking, lockstep mode, CMV movie recording, abandoning forts, dfplex and weblegends integration.
-- Not yet automated (logged once): bartering with caravans, answering petitions, convicting criminals, recognizing temple priesthoods.
+- Removed: lockstep mode, CMV movie recording, abandoning forts, dfplex and weblegends integration.
+- Caravan trades are completed by transferring the chosen goods directly (experimental, `direct_trade`).
+- Criminals are convicted through the Justice menu with its own keys, after checking the culprit (experimental, `manage_justice`).
+- Citizenship petitions are accepted via DFHack's `makeown`; temple and guildhall petitions are accepted when a matching room is planned.
+- Automatic world generation and embarking is back as an experimental option (`random_embark`, off by default).
+- Not yet automated (logged once): residency petitions, recognizing temple priesthoods.
 - No longer depends on Boost.
 
 # Future
