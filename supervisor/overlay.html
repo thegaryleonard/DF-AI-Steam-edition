@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>df-ai overlay</title>
+<style>
+  :root { --bg: rgba(18, 14, 10, 0.88); --gold: #e8b64c; --text: #efe6d6; --dim: #a89c88; --red: #d9604c; --green: #7fbf6a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 480px; font-family: "Segoe UI", system-ui, sans-serif; color: var(--text); background: transparent; }
+  .panel { background: var(--bg); border: 1px solid #5a4a30; border-radius: 10px; margin: 10px; padding: 14px 16px; box-shadow: 0 4px 18px rgba(0,0,0,.5); }
+  h1 { font-size: 22px; margin: 0; color: var(--gold); letter-spacing: .5px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--dim); margin: 0 0 8px; }
+  .sub { color: var(--dim); font-size: 13px; margin-top: 2px; }
+  .row { display: flex; justify-content: space-between; font-size: 14px; margin-top: 6px; }
+  .name { font-size: 19px; font-weight: 600; color: var(--gold); }
+  .prof { color: var(--dim); font-size: 13px; margin-bottom: 8px; }
+  .job { font-size: 14px; margin: 6px 0; }
+  .bar { height: 8px; background: #3a3024; border-radius: 4px; overflow: hidden; margin-top: 3px; }
+  .bar > div { height: 100%; transition: width 1s; }
+  .skills div, .family div, .thoughts div { font-size: 13px; padding: 2px 0; }
+  .lvl { color: var(--gold); float: right; }
+  .tag { display: inline-block; font-size: 11px; color: var(--dim); width: 70px; }
+  .dead { color: var(--red); }
+  .art-name { font-size: 18px; color: var(--gold); font-weight: 600; }
+  .art-item { font-size: 13px; color: var(--dim); margin-bottom: 8px; }
+  .story div { font-size: 13px; padding: 3px 0; border-left: 2px solid #5a4a30; padding-left: 8px; margin-left: 2px; }
+  .yr { color: var(--gold); font-weight: 600; margin-right: 4px; }
+  .events div { font-size: 13px; padding: 3px 0; border-bottom: 1px solid #2c241a; }
+  .fade { animation: fade .8s; } @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+</style>
+</head>
+<body>
+<div class="panel" id="fort"><h1>…</h1></div>
+<div class="panel" id="dwarf"></div>
+<div class="panel" id="artifact"></div>
+<div class="panel" id="events"></div>
+<script>
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pretty = s => String(s ?? '').replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ').toLowerCase()
+                       .replace(/(^|\s)\S/g, c => c.toUpperCase());
+const levels = ['Dabbling','Novice','Adequate','Competent','Skilled','Proficient','Talented','Adept','Expert',
+                'Professional','Accomplished','Great','Master','High Master','Grand Master','Legendary'];
+
+// DF stress: very negative = ecstatic, 0 = fine, high positive = breaking down
+function mood(stress) {
+  const pct = Math.max(0, Math.min(100, 50 + stress / 2000));
+  const label = stress < -20000 ? 'Ecstatic' : stress < -5000 ? 'Happy' : stress < 10000 ? 'Content'
+              : stress < 25000 ? 'Stressed' : stress < 50000 ? 'Very stressed' : 'Breaking down';
+  const color = stress < 10000 ? 'var(--green)' : stress < 25000 ? 'var(--gold)' : 'var(--red)';
+  return {pct: 100 - pct, label, color};
+}
+
+let lastDwarf = null;
+function render(st) {
+  if (!st.ok) { document.getElementById('fort').innerHTML = '<h1>Loading the fortress…</h1>'; return; }
+  const f = st.fort;
+  document.getElementById('fort').innerHTML =
+    `<h1>${esc(f.name)}</h1><div class="sub">${esc(f.dwarvish)} · ${esc(f.world)}</div>
+     <div class="row"><span>${f.day} ${esc(f.month)}, Year ${f.year}</span><span>${f.population} dwarves</span></div>`;
+
+  const d = st.dwarf;
+  if (d) {
+    const m = mood(d.stress);
+    const fam = (d.family || []).map(x => `<div><span class="tag">${esc(pretty(x.relation))}</span>${esc(x.name)}${x.alive ? '' : ' <span class="dead">†</span>'}</div>`).join('') || '<div class="sub">No known kin</div>';
+    const sk = (d.skills || []).map(s => `<div>${esc(s.name)}<span class="lvl">${levels[Math.min(s.level, 15)] || s.level}</span></div>`).join('');
+    const th = (d.thoughts || []).slice(0, 4).map(t => `<div>${esc(pretty(t.emotion))} · ${esc(pretty(t.about))}</div>`).join('');
+    document.getElementById('dwarf').innerHTML =
+      `<h2>Now watching</h2>
+       <div class="name ${d.id !== lastDwarf ? 'fade' : ''}">${esc(d.name.split(',')[0])}</div>
+       <div class="prof">${esc(d.profession)} · age ${d.age}${d.born != null ? ` · born ${d.born}` : ''}</div>
+       <div class="job">⚒ ${esc(d.job)}</div>
+       <div class="row" style="font-size:13px"><span>Mood</span><span style="color:${m.color}">${m.label}</span></div>
+       <div class="bar"><div style="width:${m.pct}%;background:${m.color}"></div></div>
+       <div class="cols" style="margin-top:10px">
+         <div><h2>Skills</h2><div class="skills">${sk}</div></div>
+         <div><h2>Kin &amp; gods</h2><div class="family">${fam}</div></div>
+       </div>
+       ${th ? `<h2 style="margin-top:10px">Recent feelings</h2><div class="thoughts">${th}</div>` : ''}`;
+    lastDwarf = d.id;
+  }
+  document.getElementById('events').innerHTML = '<h2>Fortress news</h2><div class="events">' +
+    (st.events || []).slice(0, 6).map(e => `<div>${esc(e.text)}</div>`).join('') + '</div>';
+}
+
+let arts = [], artIdx = 0;
+function showArtifact() {
+  if (!arts.length) { document.getElementById('artifact').innerHTML = '<h2>Legends</h2><div class="sub">Reading the world\'s history…</div>'; return; }
+  const a = arts[artIdx++ % arts.length];
+  const story = a.story.slice(0, 6).map(s => `<div><span class="yr">${s.year}</span>${esc(s.text)}</div>`).join('');
+  document.getElementById('artifact').innerHTML =
+    `<h2>Artifact of legend</h2><div class="fade"><div class="art-name">${esc(a.name)}</div>
+     <div class="art-item">${esc(a.item.replace(/[^\x20-\x7E\u00C0-\u024F]/g, ''))} · "${esc(a.dwarvish)}"</div>
+     <div class="story">${story}</div></div>`;
+}
+
+async function tick() {
+  try { render(await (await fetch('/state.json')).json()); } catch (e) {}
+}
+async function loadHistory() {
+  try { const h = await (await fetch('/history.json')).json(); if (h.artifacts && h.artifacts.length) arts = h.artifacts; } catch (e) {}
+}
+tick(); setInterval(tick, 3000);
+loadHistory().then(showArtifact); setInterval(loadHistory, 60000); setInterval(showArtifact, 30000);
+</script>
+</body>
+</html>
