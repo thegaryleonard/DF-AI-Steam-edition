@@ -15,13 +15,20 @@
 #include "df/agreement_details_data_residency.h"
 #include "df/agreement_party.h"
 #include "df/building.h"
+#include "df/gamest.h"
 #include "df/historical_entity.h"
 #include "df/historical_figure.h"
+#include "df/history_event_agreement_formedst.h"
 #include "df/occupation.h"
 #include "df/plotinfost.h"
+#include "df/religious_practice_type.h"
 #include "df/world.h"
 #include "df/world_site.h"
 
+REQUIRE_GLOBAL(cur_year);
+REQUIRE_GLOBAL(cur_year_tick);
+REQUIRE_GLOBAL(game);
+REQUIRE_GLOBAL(hist_event_next_id);
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
@@ -181,86 +188,240 @@ public:
     {
     }
 
-    // In DF 0.47 the AI answered petitions through the petitions screen.
-    // Accepting a petition in v50+ runs game-side logic (changing a unit's
-    // residency/citizenship, creating location agreements, ...) that DFHack
-    // does not expose, so we only log what the AI would have decided and
-    // leave the petition for the player.
+    // In DF 0.47 the AI answered petitions through the petitions screen,
+    // which no longer exists. In v50+ we apply the result directly:
+    //
+    // - Citizenship: the applicant unit is converted with DFHack's makeown
+    //   script (the same conversion DFHack uses for "make this unit a
+    //   citizen"), then the agreement is marked approved and concluded.
+    // - Location (temple/guildhall): accepting is a promise. The agreement
+    //   is marked approved, recorded as formed, and moved from
+    //   plotinfo->petitions to plotinfo->continuing_agreement_id; the AI
+    //   then plans the location as it did in 0.47.
+    // - Rejection: the agreement keeps/gets flags.petition_not_accepted
+    //   (bay12 NOT_APPROVED) and leaves plotinfo->petitions.
+    //
+    // Residency and parley petitions are left for the player: DF's own
+    // changes to an accepted resident (and to invaders waiting for a parley)
+    // are not documented well enough to reproduce safely.
     void Run(color_ostream & out)
     {
-        static std::set<int32_t> logged;
+        // Agreements we have either reported as unsupported or failed to
+        // answer: never retry them.
+        static std::set<int32_t> given_up;
 
-        for (auto agreement_id : plotinfo->petitions)
+        // The petitions screen caches its own list of agreement ids; don't
+        // change petitions underneath it while the player has it open.
+        if (game->main_interface.petitions.open)
         {
+            return;
+        }
+
+        std::vector<int32_t> pending(plotinfo->petitions.begin(), plotinfo->petitions.end());
+        for (auto agreement_id : pending)
+        {
+            if (given_up.count(agreement_id))
+            {
+                continue;
+            }
+
             auto petition = df::agreement::find(agreement_id);
             if (!petition || petition->details.empty())
             {
                 continue;
             }
 
-            if (!logged.insert(agreement_id).second)
-            {
-                continue;
-            }
-
             auto details = petition->details.at(0);
+            std::string what;
+            bool done = false;
 
-            auto describe_party = [petition](int32_t party_id) -> std::string
-            {
-                auto party = binsearch_in_vector(petition->parties, &df::agreement_party::id, party_id);
-                if (!party)
-                {
-                    party = vector_get(petition->parties, size_t(party_id));
-                }
-                if (!party)
-                    return "(unknown)";
-
-                if (!party->entity_ids.empty())
-                {
-                    auto ent = df::historical_entity::find(party->entity_ids.at(0));
-                    auto name = ent ? &ent->name : nullptr;
-                    return name ? AI::describe_name(*name, true) + ", " + enum_item_key(ent->type) : "(unknown)";
-                }
-
-                if (!party->histfig_ids.empty())
-                {
-                    auto fig = df::historical_figure::find(party->histfig_ids.at(0));
-                    if (auto u = fig ? df::unit::find(fig->unit_id) : nullptr)
-                    {
-                        return AI::describe_unit(u);
-                    }
-                    auto name = fig ? &fig->name : nullptr;
-                    return name ? AI::describe_name(*name, false) : "(unknown)";
-                }
-
-                return "(unknown)";
-            };
-
-            std::string decision;
             switch (details->type)
             {
                 case agreement_details_type::Residency:
-                    decision = "accept residency petition from " + describe_party(details->data.Residency->applicant);
-                    break;
-                case agreement_details_type::Citizenship:
-                    decision = "accept citizenship petition from " + describe_party(details->data.Citizenship->applicant);
-                    break;
+                    ai.debug(out, "[v50] [Population] answering residency petitions is not supported yet; would accept residency petition from " + describe_party(petition, details->data.Residency->applicant) + ".");
+                    given_up.insert(agreement_id);
+                    continue;
                 case agreement_details_type::Parley:
-                    decision = "reject petition for a parley from " + describe_party(details->data.Parley->asker);
+                    ai.debug(out, "[v50] [Population] answering parley petitions is not supported yet; would reject petition for a parley from " + describe_party(petition, details->data.Parley->asker) + ".");
+                    given_up.insert(agreement_id);
+                    continue;
+                case agreement_details_type::Citizenship:
+                    what = "citizenship petition from " + describe_party(petition, details->data.Citizenship->applicant);
+                    done = accept_citizenship(out, petition, details->data.Citizenship, what);
                     break;
                 case agreement_details_type::Location:
                 {
                     auto loc = details->data.Location;
-                    decision = "consider petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(loc->applicant);
+                    what = "petition to construct a " + toLower_cp437(enum_item_key(loc->type)) + " from " + describe_party(petition, loc->applicant);
+                    done = answer_location(out, petition, loc, what);
                     break;
                 }
                 default:
-                    decision = "reject petition of type " + enum_item_key(details->type);
+                    what = "petition of type " + enum_item_key(details->type);
+                    ai.debug(out, "[Population] rejecting " + what);
+                    reject(petition);
+                    done = true;
                     break;
             }
 
-            ai.debug(out, "[v50] [Population] answering petitions is not supported yet; would " + decision + ".");
+            if (!done || std::find(plotinfo->petitions.begin(), plotinfo->petitions.end(), agreement_id) != plotinfo->petitions.end())
+            {
+                ai.debug(out, "[ERROR] [Population] failed to answer " + what + "; leaving it for the player.");
+                given_up.insert(agreement_id);
+            }
         }
+    }
+
+private:
+    static std::string describe_party(df::agreement *petition, int32_t party_id)
+    {
+        auto party = find_party(petition, party_id);
+        if (!party)
+            return "(unknown)";
+
+        if (!party->entity_ids.empty())
+        {
+            auto ent = df::historical_entity::find(party->entity_ids.at(0));
+            auto name = ent ? &ent->name : nullptr;
+            return name ? AI::describe_name(*name, true) + ", " + enum_item_key(ent->type) : "(unknown)";
+        }
+
+        if (!party->histfig_ids.empty())
+        {
+            auto fig = df::historical_figure::find(party->histfig_ids.at(0));
+            if (auto u = fig ? df::unit::find(fig->unit_id) : nullptr)
+            {
+                return AI::describe_unit(u);
+            }
+            auto name = fig ? &fig->name : nullptr;
+            return name ? AI::describe_name(*name, false) : "(unknown)";
+        }
+
+        return "(unknown)";
+    }
+
+    static df::agreement_party *find_party(df::agreement *petition, int32_t party_id)
+    {
+        auto party = binsearch_in_vector(petition->parties, &df::agreement_party::id, party_id);
+        if (!party)
+        {
+            party = vector_get(petition->parties, size_t(party_id));
+        }
+        return party;
+    }
+
+    static void remove_petition(df::agreement *petition)
+    {
+        auto & p = plotinfo->petitions;
+        p.erase(std::remove(p.begin(), p.end(), petition->id), p.end());
+    }
+
+    static void reject(df::agreement *petition)
+    {
+        petition->flags.bits.petition_not_accepted = 1;
+        remove_petition(petition);
+    }
+
+    // Records the approval the way DF does for agreements it forms
+    // (list-waves.lua finds accepted petitions through these events).
+    static void approve(df::agreement *petition)
+    {
+        petition->flags.bits.petition_not_accepted = 0;
+        remove_petition(petition);
+
+        auto event = df::allocate<df::history_event_agreement_formedst>();
+        event->year = *cur_year;
+        event->seconds = *cur_year_tick;
+        event->id = (*hist_event_next_id)++;
+        event->agreement_id = petition->id;
+        world->history.events.push_back(event);
+    }
+
+    bool accept_citizenship(color_ostream & out, df::agreement *petition, df::agreement_details_data_citizenship *data, const std::string & what)
+    {
+        df::unit *u = nullptr;
+        if (auto party = find_party(petition, data->applicant))
+        {
+            for (auto hfid : party->histfig_ids)
+            {
+                auto fig = df::historical_figure::find(hfid);
+                if (fig && (u = df::unit::find(fig->unit_id)))
+                {
+                    break;
+                }
+            }
+        }
+
+        if (!u || !Units::isActive(u) || Units::isDead(u))
+        {
+            ai.debug(out, "[Population] cannot accept " + what + ": applicant is not on the map");
+            return false;
+        }
+
+        ai.debug(out, "[Population] accepting " + what);
+
+        if (!Units::isCitizen(u, true))
+        {
+            // makeown.lua is a module; make_own(unit) is the same conversion
+            // its command form applies to the selected unit.
+            Core::getInstance().runCommand(out, stl_sprintf(":lua dfhack.reqscript('makeown').make_own(df.unit.find(%d))", u->id));
+        }
+
+        if (!Units::isCitizen(u, true))
+        {
+            ai.debug(out, "[ERROR] [Population] makeown did not make " + AI::describe_unit(u) + " a citizen");
+            return false;
+        }
+
+        approve(petition);
+        petition->flags.bits.convicted_accepted = 1;
+        return true;
+    }
+
+    bool answer_location(color_ostream & out, df::agreement *petition, df::agreement_details_data_location *loc, const std::string & what)
+    {
+        auto & difficulty = plotinfo->main.custom_difficulty;
+        int32_t data1 = -1;
+        int32_t data2 = -1;
+        int32_t required_value;
+        location_type::type type;
+        switch (loc->type)
+        {
+            case abstract_building_type::TEMPLE:
+                required_value = loc->tier >= 2 ? difficulty.temple_complex_value : difficulty.temple_value;
+                type = location_type::temple;
+                data1 = int32_t(loc->deity_type);
+                data2 = loc->deity_type == religious_practice_type::RELIGION_ENID ? loc->deity_data.Religion : loc->deity_data.Deity;
+                break;
+            case abstract_building_type::GUILDHALL:
+                required_value = loc->tier >= 2 ? difficulty.grand_guildhall_value : difficulty.guildhall_value;
+                type = location_type::guildhall;
+                data1 = int32_t(loc->profession);
+                break;
+            default:
+                ai.debug(out, "[Population] rejecting " + what + ": don't know how to construct this location for a petition");
+                reject(petition);
+                return true;
+        }
+
+        auto found_room = ai.find_room(room_type::location, [type](room *r) -> bool { return r->status == room_status::plan && !r->queue_dig && r->location_type == type; });
+        if (!found_room)
+        {
+            ai.debug(out, "[Population] rejecting " + what + ": no remaining space for buildings of this type");
+            reject(petition);
+            return true;
+        }
+
+        ai.debug(out, "[Population] accepting " + what);
+
+        approve(petition);
+        insert_into_vector(plotinfo->continuing_agreement_id, petition->id);
+
+        found_room->data1 = data1;
+        found_room->data2 = data2;
+        found_room->required_value = required_value;
+        ai.plan.wantdig(out, found_room, -2);
+        return true;
     }
 };
 
