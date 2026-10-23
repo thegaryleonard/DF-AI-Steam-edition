@@ -12,6 +12,7 @@ class PlanSetup : public ExclusiveCallback
     AI & ai;
     int32_t next_noblesuite;
     int32_t quieter_count;
+    int32_t outdoor_misses;
 
     std::vector<room_base::furniture_t *> layout;
     std::vector<room_base::room_t *> rooms;

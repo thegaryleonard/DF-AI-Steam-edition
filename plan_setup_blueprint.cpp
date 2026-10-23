@@ -616,10 +616,30 @@ bool PlanSetup::try_add_room_outdoor(const room_blueprint & rb, std::map<std::st
         max_y = std::max(max_y, c.y);
     }
 
-    int16_t x = std::uniform_int_distribution<int16_t>(2 - min_x, world->map.x_count - 3 - max_x)(ai.rng);
-    int16_t y = std::uniform_int_distribution<int16_t>(2 - min_y, world->map.y_count - 3 - max_y)(ai.rng);
+    int16_t lo_x = int16_t(2 - min_x), hi_x = int16_t(world->map.x_count - 3 - max_x);
+    int16_t lo_y = int16_t(2 - min_y), hi_y = int16_t(world->map.y_count - 3 - max_y);
+    int16_t x, y;
+    if (!rooms.empty() && rooms.front()->min.isValid())
+    {
+        // Search outward from the starting room (the fort entrance): outdoor rooms
+        // such as the trade depot used to land anywhere on the map, sometimes 100
+        // tiles from the fort. The radius grows with each consecutive miss.
+        const room_base::room_t *start_room = rooms.front();
+        int16_t cx = int16_t((start_room->min.x + start_room->max.x) / 2);
+        int16_t cy = int16_t((start_room->min.y + start_room->max.y) / 2);
+        int16_t r = int16_t(std::min(12 + 2 * outdoor_misses, int32_t(std::max(world->map.x_count, world->map.y_count))));
+        x = std::uniform_int_distribution<int16_t>(std::max(lo_x, int16_t(cx - r)), std::max(lo_x, std::min(hi_x, int16_t(cx + r))))(ai.rng);
+        y = std::uniform_int_distribution<int16_t>(std::max(lo_y, int16_t(cy - r)), std::max(lo_y, std::min(hi_y, int16_t(cy + r))))(ai.rng);
+    }
+    else
+    {
+        x = std::uniform_int_distribution<int16_t>(lo_x, hi_x)(ai.rng);
+        y = std::uniform_int_distribution<int16_t>(lo_y, hi_y)(ai.rng);
+    }
 
-    return try_add_room_outdoor_shared(rb, counts, instance_counts, plan, x, y);
+    bool placed = try_add_room_outdoor_shared(rb, counts, instance_counts, plan, x, y);
+    outdoor_misses = placed ? 0 : outdoor_misses + 1;
+    return placed;
 }
 
 bool PlanSetup::try_add_room_outdoor_shared(const room_blueprint & rb, std::map<std::string, size_t> & counts, std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprint_plan_template & plan, int16_t x, int16_t y)
