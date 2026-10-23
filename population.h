@@ -92,6 +92,8 @@ public:
     void update_citizenlist(color_ostream & out);
     void update_jobs(color_ostream & out);
     void update_deads(color_ostream & out);
+    void update_moods(color_ostream & out);
+    std::set<std::string> mood_warned;
     void update_caged(color_ostream & out);
     void update_military(color_ostream & out);
     void update_crimes(color_ostream & out);

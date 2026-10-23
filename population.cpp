@@ -120,6 +120,7 @@ void Population::update(color_ostream & out)
         break;
     case 6:
         update_deads(out);
+        update_moods(out);
         break;
     case 7:
         update_caged(out);
