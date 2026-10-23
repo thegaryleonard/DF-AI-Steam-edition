@@ -339,6 +339,17 @@ void Stocks::update_corpses(color_ostream & out)
         df::historical_figure *hf = nullptr;
         df::unit *u = nullptr;
         i->getCorpseInfo(&race, &caste, &hf, &u);
+        // Never send a fort member's body to the dump: DF 53 doesn't bury
+        // dump-flagged corpses, so the dead stayed out and came back as ghosts.
+        if (hf && hf->civ_id == plotinfo->civ_id)
+        {
+            if (i->flags.bits.dump)
+            {
+                ai.debug(out, "stocks: undump " + AI::describe_item(i) + " so it can be buried");
+                i->flags.bits.dump = false;
+            }
+            continue;
+        }
         if (is_item_free(i) &&
             i->flags.bits.on_ground && // ignore corpses that are not on the ground
             !i->flags.bits.in_inventory && // ignore corpses in inventories even if they're being hauled
