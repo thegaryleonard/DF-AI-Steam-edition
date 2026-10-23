@@ -1,0 +1,63 @@
+CHAPTER: farming (5:08:13-5:13:22) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[5:08:13] and check it out. Thank you very much for watching these videos, and I hope to see you in the next one.
+[5:08:17] Hello everybody, and welcome to a quick-bore fortress tutorial. This is well even. The last
+[5:08:21] fortress kind of, well, got destroyed by troglodytes and various other things, so we started a new
+[5:08:26] tutorial fortress for these quick videos. This video, we're going to be covering shallow farming,
+[5:08:30] a much requested topic, something I can't really believe I haven't done yet. So what we're going
+[5:08:34] to do is we're going to quickly dig down one tile into the dirt layers, and we're going to be
+[5:08:38] digging. Keep in mind, this is one of the least effective forms of farming, but is an all right
+[5:08:43] stopgap in the early game if you are desperate. So we're going to dig down one layer and dig out
+[5:08:48] a little square, and a kind of little circle, and maybe extend a little bit, and then a little
+[5:08:53] circle. In this video, we will be covering three things. Starting up a farm, brewing basic alcohol,
+[5:08:59] and getting it rolling so that it doesn't screw up and run out of seeds, and making a seed
+[5:09:03] stockpile. Once this little hole is dug out, as well as a little space just above it, for stockpiles and
+[5:09:10] a still, we'll return to the video. So as you can see, this top half is now completely free of
+[5:09:16] stuff. We're going to need something to construct our still out of. We're just going to queue up
+[5:09:21] a couple trees here to be hacked down, and we're going to need to be using, we're going to be
+[5:09:25] using that wood as our material to make our still, just as a reference while they continue
+[5:09:30] to dig out this dirt. The next thing we are going to do is we are going to build a stockpile. So I'm
+[5:09:35] going to build a small stockpile covering around this large of an area doesn't need to be too big,
+[5:09:39] especially initially. Now this stockpile is going to be used for seeds specifically. So what we're
+[5:09:46] going to do is we're going to select food, we're going to go to seeds, and we're going to click
+[5:09:50] all. So this is going to be for all seeds. We could use this for shallow farming, deep farming,
+[5:09:54] we can use this for upper farming. The only thing that we're really going to need in this
+[5:09:58] particular stockpile though, is plump helmet seeds, we're not going to be covering cloth farming. So
+[5:10:04] we're not going to worry about those types of seeds, just sticking with pump plump helmets
+[5:10:08] and alcohol. So what we're going to do is we're going to back out of this window,
+[5:10:12] and we are going to build ourselves our still, which definitely has wood available to be
+[5:10:17] constructed out of now, we are going to go and jump over into farming. And we are going to grab
+[5:10:24] us our still which can be found with the hotkey L. We are going to place this just up here and click
+[5:10:30] go. Once it is available, you'll also notice that they've already filled up this stockpile with seeds,
+[5:10:36] and they're in bags, seeds are stored in bags, we're going to click on this barrel here and
+[5:10:41] we are going to click on the number button and we're going to hit zero to remove all barrels
+[5:10:45] from this stockpile. Just long story short, we don't need to worry about it in this tutorial,
+[5:10:50] just simply remove barrels from your seed seed stockpiles as a rule, you'll thank me later.
+[5:10:56] Now while we wait for them to build that we are also going to construct our farm plots. Now these
+[5:11:00] plump helmets are large mushrooms that grow underground that the dwarves can consume in
+[5:11:04] three ways. They can eat them raw and they enjoy them that way. They can brew them into alcohol and
+[5:11:09] they can cook them into meals. Something we do not want to do is we don't want to cook them into
+[5:11:14] meals. It's okay if you know what you're doing and you have a large food supply to cook them
+[5:11:17] into meals. However, if you are a brand new player you do not want to cook them into meals.
+[5:11:21] And the reason for this is if you cook them into meals, well you lose the spawn, which is what you
+[5:11:27] use to plant more, which is a bad thing. In the background here I've constructed another
+[5:11:37] building which is the farm plot. We're going to wait for that still to get constructed over here
+[5:11:40] while we are waiting on this. And now that everything is constructed we are going to go
+[5:11:45] to the labor menu and we are going to go to the kitchen screen. Now right here you can see
+[5:11:50] these two green permissions underneath vegetables, fruit and leaves. And we have plump helmets
+[5:11:56] listed. This is the only vegetable that we have in our fort right now, which is just a wagon
+[5:12:00] admittedly. And we have these brewable, cookable plants here. So this this plant is allowed to be
+[5:12:08] cooked and this plant is allowed to be brewed. We do not want to cook plump helmets because as
+[5:12:13] I said that will destroy the spawn and we can't plant more as seeds. We want to have
+[5:12:19] access to plump helmet seeds. We want to be able to plant more of them as the seasons go on.
+[5:12:24] If you're an advanced player I wouldn't worry about this too much. Once this is complete
+[5:12:29] we can go here and we can click on the farm plot on one layer underground and we can we're
+[5:12:37] currently in summer. We are going to click on plump helmets and then from here we are going
+[5:12:41] to click on summer and then also go to plump helmets and as you can see they're already
+[5:12:46] planting the spawn. And then we can go to autumn and we're also going to select plump helmets.
+[5:12:51] And then lastly we're going to go to winter and we're also going to select plump helmets.
+[5:12:56] Now keep in mind that there's a bunch of different plant variety here. Plump helmets
+[5:13:00] are just the easiest ones and the most prolific ones to keep planted. Now for the sake of
+[5:13:06] this video rather than waiting for the whole season to go over and the first yield to come
+[5:13:10] through we're going to go up here and I'm going to add a brew task and we're going to uh oh well
+[5:13:16] we don't have any empty food storage items. I'm going to make some barrels and when I make some
+[5:13:20] barrels we will return uh and continue the video. So now a bare

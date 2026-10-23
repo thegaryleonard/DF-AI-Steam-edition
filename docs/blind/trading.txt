@@ -1,0 +1,187 @@
+CHAPTER: trading (4:17:38-4:25:26) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[4:17:38] is already hanging out here.
+[4:17:39] Thank you very much for watching this video about guild halls, a very important way to
+[4:17:42] train your children in skills that they can't otherwise train in.
+[4:17:45] Hello everybody and welcome to a very quick Dwarf Fortress tutorial.
+[4:17:49] In this video we're going to be covering trading, specifically trading with some elves, although
+[4:17:52] this goes for anybody except for the few caveats when trading with elves.
+[4:17:56] So we have these elves that have arrived and they are at our trading depot.
+[4:17:59] The trading depot is one of the first things you should build when building a new fortress.
+[4:18:02] It can be found just here underneath the build menu.
+[4:18:05] So simply click on the build menu, click on trading depot, and then place it wherever you
+[4:18:10] would like.
+[4:18:11] You can place it indoors, however as time goes on and the caravans get bigger, eventually
+[4:18:16] they're going to start bringing wagons.
+[4:18:17] And wagons actually require a decent amount of space to get into your fortress.
+[4:18:21] Two tiles and can't go through doors.
+[4:18:23] However, the initial carts that traders bring are quite small and you can trade with them
+[4:18:30] with only just a door.
+[4:18:32] So theoretically you could put your first one entirely indoors if you wanted to keep
+[4:18:35] it safe from threats.
+[4:18:37] So in order to trade, in the nobles screen, which can be found by pressing N on the keyboard
+[4:18:42] or by clicking on the nobles button down here, we have to have a broker assigned.
+[4:18:49] This is optional.
+[4:18:50] If you have a broker assigned, which can be any dwarf, these two dwarves have some skills
+[4:18:57] needed for brokering, but if you don't have one assigned there is a second option.
+[4:19:00] I do recommend that you have a broker assigned for this task as it will improve that dwarves
+[4:19:06] negotiation skills and over time allow them to get you better prices.
+[4:19:11] But when we click on the trade depot here, once the people are in it, or once they've
+[4:19:16] arrived, we have the option to move goods to and from the depot.
+[4:19:19] Now I don't have a ton to trade in this fortress unfortunately.
+[4:19:23] Our crafts are limited.
+[4:19:25] But what we do have is a couple of crowns around the place.
+[4:19:31] So we're going to sell them this dolomite crown.
+[4:19:33] We also have some earrings, which are also all made of stone.
+[4:19:38] So we're going to bring these over as well.
+[4:19:40] We also have some figurines, as you can see.
+[4:19:43] So elves are good for trading with because they bring useful items.
+[4:19:47] We're also going to sell them a bunch of mugs because mugs are an easy thing for
+[4:19:51] dwarves to make on mass.
+[4:19:53] When elves show up to trade, there is a caveat.
+[4:19:56] They do not like purchasing wood.
+[4:19:58] So we do have to be a little bit careful on what we're bringing to sell to them.
+[4:20:02] So as you can see here, it says they are bringing these 144 items to trade.
+[4:20:06] The other thing that we're going to do is we're going to click broker requested
+[4:20:10] at depot.
+[4:20:10] Now, if you didn't assign a broker, you can just request anyone, but
+[4:20:13] you might get a dwarf with no skills in trading and your prices will suck.
+[4:20:17] So what we're going to click now is broker requested at depot.
+[4:20:20] And so now, as you can see here, broker can access depot.
+[4:20:24] Our broker is currently working on a rock coffin.
+[4:20:26] So once they are finished completing that coffin, they will come over and trade.
+[4:20:29] But it's okay.
+[4:20:30] They have a little bit of time as we need these items to arrive first.
+[4:20:34] So once all 133 items have been brought to trade and our broker has arrived after
+[4:20:38] this meeting they're finishing conducting, then we will discuss trading itself.
+[4:20:43] It is worth noting that you do have a decent amount of time to trade.
+[4:20:46] The traders usually come at the beginning of a season and
+[4:20:48] generally stick around for over a month.
+[4:20:50] So you have a pretty healthy amount of time to trade.
+[4:20:53] If you're not sure where the calendar is,
+[4:20:55] it's located right next to the moon just above the trading screen.
+[4:20:58] Currently, we're in the 13th of slate mid spring in the year 52.
+[4:21:02] Now, as you can see, this is the notification over here on the left that
+[4:21:05] they will be leaving soon.
+[4:21:06] However, we still have a couple of days left and our trader is currently,
+[4:21:09] eh, was coming over to help us, but is out there we go,
+[4:21:12] is now coming to help us, was busy conducting a meeting and
+[4:21:14] speaking with a citizen.
+[4:21:15] But first, they're on their way, now they're on their way over finally.
+[4:21:18] And now that they've arrived, we can trade at the depot.
+[4:21:22] This button becomes white when trading is available.
+[4:21:24] Note, because this is a full screen, screen, the game will pause in the background so
+[4:21:28] you can take all your time and you don't have to worry about pausing.
+[4:21:31] And the elves over here who's Mi-fava-memo-fai-lissi.
+[4:21:37] The elf merchant says, greetings,
+[4:21:38] we are enchanted by your more ethical works, implying they don't want to trade
+[4:21:43] for wood.
+[4:21:44] Now, as you can see, we have all these yellow items,
+[4:21:47] all these shale mugs here.
+[4:21:48] I kind of wish that I was able to get more stuff into the trading,
+[4:21:51] but seeing as they're leaving soon,
+[4:21:52] I kind of want to get part of the trading done at the very least.
+[4:21:55] Now, because I've only brought these shale mugs,
+[4:21:57] I know for a fact none of these items are made out of wood.
+[4:21:59] As our dwarf gets better at trading, if an item has wood in it,
+[4:22:05] they will market a different color.
+[4:22:08] So it does become quite easy to not screw up trading with elves.
+[4:22:11] Although just as kind of a general rule, don't sell them barrels,
+[4:22:15] just don't sell them anything encrusted with wood,
+[4:22:17] and you should be fine.
+[4:22:19] But generally, I just focus on crafts and materials
+[4:22:21] that I made myself, where I am 100% aware what is in our trading options.
+[4:22:27] So now just kind of explaining the UI here.
+[4:22:29] We have our stuff over here on the right,
+[4:22:31] their stuff over here on the left.
+[4:22:33] We can search their stuff with this, or we can search our stuff.
+[4:22:36] We can select all, and we can fold these tabs down,
+[4:22:41] up and down with trading.
+[4:22:43] And then we can kind of skim through what they have.
+[4:22:45] Down here on the bottom, because I haven't actually
+[4:22:49] asked for anything yet, we can just
+[4:22:51] see the total value of my items down here, which
+[4:22:54] is 1, 3, 7, 2, Zephau, which is my personal term for dwarf bucks
+[4:22:58] or money.
+[4:22:59] Over here, you can see their profit.
+[4:23:01] They're going to want to make about 30% profit.
+[4:23:03] However, as we get better at trading and our haggling skill
+[4:23:06] goes up on our broker, the odds that we'll
+[4:23:08] be able to trade for more at better prices go up.
+[4:23:12] So we're just going to kind of take a look
+[4:23:13] at what our options are.
+[4:23:14] Looks like they have a giant kakapo here.
+[4:23:17] And they also have like an ibex, as well as a blue jay,
+[4:23:21] and some other animals in these cages.
+[4:23:22] All right, all right, all right.
+[4:23:23] That's a tab I think I'm going to leave open.
+[4:23:25] We have some toys.
+[4:23:26] We have some sort of musical instrument
+[4:23:29] that we probably don't know how to play, some sandy clay.
+[4:23:31] I'm going to keep the cages open,
+[4:23:33] because that one's interesting.
+[4:23:34] We got some barrels.
+[4:23:35] They're selling a bucket.
+[4:23:37] They're selling some weapons.
+[4:23:39] They're selling a bow.
+[4:23:41] They're selling various other things.
+[4:23:43] But I think the only thing that I want
+[4:23:45] would be that giant animal.
+[4:23:46] So what I think we're going to do here
+[4:23:49] is we're going to just kind of continue skimming through
+[4:23:51] and see what else they have.
+[4:23:51] Oh, they've got seeds.
+[4:23:52] OK, OK.
+[4:23:53] Berries, food, cherries, some gloves.
+[4:23:56] They brought a skirt, a splint, some rope, a loincloth,
+[4:24:02] giggety.
+[4:24:03] Let's keep closing down until we make it down to the bottom.
+[4:24:05] Sweet, all right.
+[4:24:06] So we've kind of gone through everything that they have now.
+[4:24:08] And what I would like to purchase from you
+[4:24:10] is that giant tame kakapo.
+[4:24:12] If it's brought to you by a trader, it's tamed.
+[4:24:14] So you don't need to worry about taming it, which
+[4:24:16] is the best part.
+[4:24:17] So now we have some other buttons here.
+[4:24:18] We can mark all or unmark all.
+[4:24:21] Very useful tools.
+[4:24:22] Once again, I just need to grab my kakapo.
+[4:24:25] Seas will steal everything from their inventory
+[4:24:28] that I have selected.
+[4:24:29] OK, so that will piss them off.
+[4:24:30] I can offer them items as a gift, which
+[4:24:32] gives them this stuff for free and will
+[4:24:35] make their faction happier with me.
+[4:24:37] And then, of course, we have the mark all and unmark all
+[4:24:39] options on the right side.
+[4:24:40] And then, because all we're going to do is trade,
+[4:24:43] let's see if they accept the deal.
+[4:24:44] We can see their profit here, and the value of the item
+[4:24:47] that I'm purchasing, and the amount of weight
+[4:24:49] that they can carry.
+[4:24:50] The weight is listed right here.
+[4:24:52] We're going to click Trade.
+[4:24:54] And they say, ah, wonderful.
+[4:24:55] Thank you for your business.
+[4:24:56] And they seem pleased with the trading.
+[4:24:58] They got just over a 30% sale on that,
+[4:25:00] and we acquired a giant kakapo.
+[4:25:02] If you have any questions about trading,
+[4:25:04] please leave them down in the comment section below.
+[4:25:06] And if you would like to see more videos like this,
+[4:25:07] there's a whole bunch of Dwarf Fortress tutorials
+[4:25:09] on this YouTube channel.
+[4:25:09] Hello, everybody, and welcome to a quick Dwarf Fortress tutorial.
+[4:25:12] In this video, we're going to be covering burrows.
+[4:25:13] Burrows are a way to lock your dwarves
+[4:25:14] into a specific area of the fort
+[4:25:16] or divvy them up into separate areas of the fort
+[4:25:18] to do specific tasks.
+[4:25:19] Burrows are a simple way of either splitting up your dwarves
+[4:25:23] and separating them into different working zones,
+[4:25:25] or alternatively, telling everybody
+[4:25:26] to hide in one room because a monster is about to attack you.
+[4:25:29] So we're going to be using this room right up here
+[4:25:31] as kind of our example.
+[4:25:32] And what we're going to be doing
+[4:25:33] is we're going to...

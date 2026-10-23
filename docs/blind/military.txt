@@ -1,0 +1,240 @@
+CHAPTER: military (4:27:38-4:35:27) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[4:27:38] and as quick and as easy as you want.
+[4:27:40] This is something that gave me a great deal of trouble
+[4:27:42] on my first day of streaming Dwarf Fortress,
+[4:27:44] and hopefully it won't cause the same for you.
+[4:27:47] Hello everybody and welcome
+[4:27:48] to a very quick Dwarf Fortress tutorial.
+[4:27:49] In this video, we're gonna be covering
+[4:27:50] the very basics of setting up a military squad.
+[4:27:52] This video is assuming that you already have
+[4:27:54] some sort of weapons around your fortress,
+[4:27:56] and if you don't have any, that's okay too,
+[4:27:58] but you might wanna make sure that you have
+[4:28:00] at the very least some spears
+[4:28:01] or some shields lying around.
+[4:28:03] It doesn't really matter what material they're made out of
+[4:28:05] as long as you have something.
+[4:28:06] That being said, even if you have nothing,
+[4:28:08] wrestlers are fine too.
+[4:28:09] So we're just gonna really quick make a squad.
+[4:28:12] Now this is gonna be focused on a melee squad.
+[4:28:14] So what you're gonna do is you're going to need
+[4:28:16] to create a new squad.
+[4:28:18] Before you can do that, you're going to need
+[4:28:19] to select a dwarf to assign as militia commander,
+[4:28:22] which is very simple.
+[4:28:23] You simply pop up the Nobles screen.
+[4:28:25] As you can see, we already have one here,
+[4:28:27] and then you're going to click on the plus symbol
+[4:28:31] right next to this button,
+[4:28:32] and you're going to add yourself a new militia commander.
+[4:28:35] But since we already have one,
+[4:28:36] we don't need to assign another one.
+[4:28:37] Once again, that is the Nobles screen down here.
+[4:28:40] And then once you've finished that,
+[4:28:41] you're gonna go over here
+[4:28:42] and we're either gonna press Q to open up the squad sidebar
+[4:28:45] or click on this little flag down here.
+[4:28:47] Then from here, we're going to click on this button
+[4:28:48] to create a new squad.
+[4:28:50] From here, we have a real quick choice.
+[4:28:51] What kind of armor do we want?
+[4:28:52] We can select no uniform, archer,
+[4:28:55] which we'll go over in a different video,
+[4:28:57] or metal armor or leather armor.
+[4:28:59] In this case, we're just gonna select metal armor
+[4:29:01] as I do have full sets of armor
+[4:29:02] in the basement alongside of spears.
+[4:29:04] So now that we've selected metal armor,
+[4:29:06] where we have several options of what we can do.
+[4:29:10] We can select the squad.
+[4:29:13] We have a symbol for the squad.
+[4:29:15] If we select the squad,
+[4:29:16] it's going to allow us to assign a leader to the squad,
+[4:29:19] or we can name the squad.
+[4:29:21] So we're going to name the squad first,
+[4:29:22] and we're just going to call it tutorial squad,
+[4:29:26] which is the best squad.
+[4:29:27] And once we've named the squad,
+[4:29:29] we're going to assign a leader.
+[4:29:30] Now, the nice thing about the way the game works down
+[4:29:32] is it actually gives you the idea
+[4:29:34] of who has some relevant skills.
+[4:29:36] So if they happen to have some skills
+[4:29:38] towards this particular trade,
+[4:29:39] it will actually pop up down beneath.
+[4:29:41] So this, as you can see,
+[4:29:41] this dwarf is an ax dwarf.
+[4:29:43] This dwarf is a spear dwarf, spear dwarf, spear dwarf.
+[4:29:46] If we scroll down a little bit,
+[4:29:47] we'll see our active military,
+[4:29:48] and it will tell us who is in the active military.
+[4:29:50] So what we want to do is we want to find
+[4:29:51] a couple of dwarves that have some skills,
+[4:29:53] or alternatively, if we want to be really picky,
+[4:29:55] we could go into the dwarves descriptions
+[4:29:56] and only select dwarves that have either great skills
+[4:30:00] or don't get easily stressed by combat,
+[4:30:03] but we're not going to worry about that too much.
+[4:30:04] We're going to assign a leader.
+[4:30:05] Once we've assigned a leader,
+[4:30:06] it's going to give us 10 positions.
+[4:30:08] We're going to add an ax dwarf, a dwarf who's another ax dwarf,
+[4:30:12] a dwarf who's a swords dwarf, a spear dwarf,
+[4:30:14] a spear dwarf, a spear dwarf,
+[4:30:16] and running out of relevant skills.
+[4:30:18] Well, that's not too good.
+[4:30:19] Let's scroll down a little bit
+[4:30:20] and see if anybody else has skills.
+[4:30:22] Looks like we're out of relevant skills,
+[4:30:23] so instead of being all fancy
+[4:30:24] and making sure that the dwarves
+[4:30:25] are going to enjoy this job,
+[4:30:26] they're just going to get it.
+[4:30:27] So we're going to give them a few more jobs
+[4:30:30] and we're all the way down to position 10 now
+[4:30:32] and we're going to throw in this trader here.
+[4:30:37] So now that we have our full squad assigned,
+[4:30:39] we can now go back to squads
+[4:30:42] and we have an option here.
+[4:30:44] We can click this button.
+[4:30:45] Now this button allows us to look at our dwarves schedule
+[4:30:49] for tutorial squad.
+[4:30:51] If we open up this button,
+[4:30:52] we can see the original squad that we have as well.
+[4:30:55] This gives us our training schedule
+[4:30:57] and we have a bunch of different options here.
+[4:30:59] We've got monthly orders.
+[4:31:02] We can have them training monthly.
+[4:31:04] If we click this, we can see the full schedule.
+[4:31:06] We can either have them off duty
+[4:31:07] where they don't train at all.
+[4:31:08] If we want them to train like every three months,
+[4:31:12] we can give them staggered training.
+[4:31:14] We could give them constant training,
+[4:31:15] which is what I recommend initially, or ready.
+[4:31:19] If you set them as ready,
+[4:31:20] then all that they will do is stay in their uniforms,
+[4:31:23] ready to fight and waiting and waiting.
+[4:31:29] Until it's time to fight.
+[4:31:31] They will run around and take care of their needs though.
+[4:31:33] So they will pray to gods or go to taverns
+[4:31:36] or eat and drink and the stuff that they do need to do,
+[4:31:38] but they will just be ready to fight on order, right?
+[4:31:40] So we're gonna set them to training.
+[4:31:42] Now the next thing that we're going to do
+[4:31:43] is we're going to make them a barracks.
+[4:31:45] Now a barracks is a very simple zone.
+[4:31:47] As you can see, I kind of have one already set up over here,
+[4:31:49] but we're gonna make you a second one.
+[4:31:50] So a barracks is a zone that is found right here
+[4:31:54] underneath the little flag.
+[4:31:55] We're going to make this barracks and accept it.
+[4:31:57] And then we're going to click on this little flag here.
+[4:32:01] Now this little flag asks us what we wanna do with this space.
+[4:32:04] So we already have the spear magnets,
+[4:32:05] which is our main squad, but we have these three options.
+[4:32:08] We could put beds into this zone
+[4:32:10] and set it up as a sleeping barracks.
+[4:32:12] So I could attach it to that other barracks
+[4:32:13] and make it into a sleeping zone.
+[4:32:15] We could set them to store weapons here,
+[4:32:19] store their squad level equipment here,
+[4:32:22] as well as ammunition, that's more for archers though.
+[4:32:25] And we can also set them to train here.
+[4:32:27] So I'm gonna set this squad to train here.
+[4:32:29] And if we unpause the game very quickly,
+[4:32:31] we will notice they will run up here and begin trading
+[4:32:34] after they go and get all of their gear.
+[4:32:36] So I will resume the video once they return.
+[4:32:39] Something to note while they are selecting their gear,
+[4:32:41] if we actually click on the squad check mark
+[4:32:43] and then click on the equip button,
+[4:32:44] you can actually see the gear
+[4:32:46] as they equip it in real time.
+[4:32:47] It's kind of useful, including their backpacks,
+[4:32:50] which these dwarves do need,
+[4:32:51] as well as like stuff to fill up their backpacks with.
+[4:32:56] Another thing that you can note
+[4:32:57] while we're waiting for the dwarves to show up
+[4:32:59] is we can assign a new uniform if we want
+[4:33:01] by simply clicking on this equip button right down here
+[4:33:04] and then clicking assign uniform
+[4:33:05] and then the uniform we want them to use.
+[4:33:07] If we want them to update equipment,
+[4:33:08] we can click this button that'll make them run off
+[4:33:10] and go get better quality versions of the weapon
+[4:33:12] that they already have.
+[4:33:13] And if we wanna add uniform that is adding one to this list,
+[4:33:17] we can click on that, name the uniform, anything we want.
+[4:33:19] And then by simply clicking on these separate buttons here,
+[4:33:22] we can add different headwear, different leg wear.
+[4:33:24] Maybe we wanna give them something super specific.
+[4:33:26] We can set whether or not we want them
+[4:33:28] to wear it over their clothing.
+[4:33:29] And we can also say whether or not
+[4:33:31] we want them to use partial matches only.
+[4:33:32] So do we want them to strip their normal clothes off
+[4:33:33] to put bigger armor over top?
+[4:33:35] I usually just let them do that,
+[4:33:36] but it does give them a slight dodging debuff
+[4:33:38] I've been told.
+[4:33:39] I've never noticed an issue personally.
+[4:33:40] I will return once everything is fully equipped.
+[4:33:43] So now that the squad has arrived,
+[4:33:45] there are several other things I would like to walk through.
+[4:33:47] There is this tool down here,
+[4:33:48] which is a sign of kill order.
+[4:33:50] I do not recommend ever using this on one of your own dwarves
+[4:33:52] as it can cause some absolute catastrophes
+[4:33:55] of dwarven mental breakdowns.
+[4:33:57] There is the station order, which is pretty useful.
+[4:34:00] It allows you to tell the squad to go somewhere specific.
+[4:34:03] You simply click on the station order
+[4:34:05] and then select the location and then they will go there.
+[4:34:08] If I unpause the game, you'll see them run over there.
+[4:34:11] Then there's the assign a patrol route,
+[4:34:13] which is pretty simple.
+[4:34:15] You simply select way points
+[4:34:16] and then you can turn on the route
+[4:34:18] or turn the route off in the schedule screen.
+[4:34:21] There is the burrow defense.
+[4:34:23] That's a little bit more complicated,
+[4:34:24] but it allows you to tell them
+[4:34:26] to defend a specific section of the map.
+[4:34:27] If you use burrows, this isn't an advanced tutorial.
+[4:34:29] This is just basics after all.
+[4:34:31] And then there's lastly, assign a training order.
+[4:34:35] The squad must be assigned to a barracks with a zone
+[4:34:37] and with the training options set.
+[4:34:39] This is just an automatic training order.
+[4:34:40] But if we turn on schedule, which we've already done,
+[4:34:42] we don't need to worry about that.
+[4:34:43] Also note in the schedule,
+[4:34:44] you can, if you go into the edit screen,
+[4:34:47] you can assign specific different dwarves to schedule
+[4:34:50] and all of that fancy jazz.
+[4:34:52] So while the military and dwarf fortress
+[4:34:55] can be a very complicated thing if overthought,
+[4:34:57] it's also a very simple thing
+[4:34:59] if you just skim over the basics levels of it.
+[4:35:01] Hopefully this video was helpful enough
+[4:35:02] to help you allow, to allow you to set up
+[4:35:04] at the very least a basic military,
+[4:35:06] even if you've just purchased a couple of swords
+[4:35:08] and you have two shields.
+[4:35:09] You don't need a full squad to run a military.
+[4:35:11] Keep in mind, you can run a military
+[4:35:13] with just three dwarves even, or even one dwarf.
+[4:35:15] It's maybe not even a bad idea
+[4:35:16] to set up a military like this
+[4:35:18] with one dwarf and a starter axe
+[4:35:19] right at the start if you're in an untamed wild as an example.
+[4:35:22] Hello everybody, and welcome
+[4:35:23] to another dwarf fortress tutorial.
+[4:35:25] In this video, I'm going to be discussing Mark's dwarves.
+[4:35:27] This is ranged combat dwarves.
+[4:35:29] So dwarves that use crossbows.
+[4:35:31] Now, some people are asking about bows and arrows
+[4:35:33] because bows and arrows.

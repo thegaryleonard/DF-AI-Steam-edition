@@ -1,0 +1,136 @@
+CHAPTER: libraries (6:05:30-6:12:56) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[6:05:30] interact with or nothing ever happens, then that is also Villains Part 2, generally.
+[6:05:34] Which is an upcoming update that'll be out probably around the same time as Adventure
+[6:05:38] Mode if I had to guess.
+[6:05:41] Hello everybody and welcome to another quick port fortress tutorial.
+[6:05:43] In this video we are going to be covering paper making and libraries.
+[6:05:47] For the library section we'll be in this fortress and for the paper making section we'll be
+[6:05:51] in my other fortress.
+[6:05:52] So let's just jump over to the other fortress and quickly learn how to make plant paper
+[6:05:56] and then we'll jump back to this fortress and I'll talk about libraries and what all
+[6:05:59] of the jobs do in each library.
+[6:06:02] We're going to be covering cloth plants paper, using a quern to turn it into a slurry with
+[6:06:07] a screw press.
+[6:06:08] It sounds a little complicated but trust me it's not that bad.
+[6:06:11] Now the reason I like to use cloth plants is because I always have a surplus of them.
+[6:06:16] I generally use them for making cloth and clothing so I always have a pigtail industry
+[6:06:21] set up.
+[6:06:22] If you would like a video on how to do that, check out my video on how to make a simple
+[6:06:25] cloth industry just to give you an idea on how to farm pigtails.
+[6:06:28] We do actually have a pigtail farm just down here which just got harvested from what I can
+[6:06:33] tell.
+[6:06:34] So the first thing that we are going to do is we are going to queue up a quern over
+[6:06:37] here at the stoneworker shop.
+[6:06:39] We're also going to need several mechanisms for our screw press which is going to be the
+[6:06:44] next part of this.
+[6:06:45] So I'm going to queue up several mechanisms as well as our quern and once those are constructed
+[6:06:49] I'll continue speaking.
+[6:06:50] So now that our quern is finished being built at the stoneworker shop we're going to
+[6:06:53] open it up from the farming tab.
+[6:06:55] So over here it's under queue on the hotkey or just simply click it for the quern.
+[6:07:00] Now this video is going to have a lot of terminology here and so you're going to have to kind
+[6:07:03] of bear with me.
+[6:07:04] It does make a lot more sense than it's going to initially seem.
+[6:07:07] The next thing we're going to need to construct is that screw press which we're going to
+[6:07:10] place right beneath it.
+[6:07:12] Now remember instead of using a quern you could also use a mill which will be automatically
+[6:07:16] powered in a little bit faster but gives you the same result.
+[6:07:19] So what we're going to do is we are going to mash plant into slurry.
+[6:07:24] So this slurry is going to be what's the or the thing that's going to become our paper
+[6:07:29] here.
+[6:07:30] So once they've brought a piece of plant over we got a pigtail here they're going to mash
+[6:07:34] this into a slurry which is just like I said sounds like a mess right.
+[6:07:39] And now that we have this plant slurry they've brought a second pigtail over we are going
+[6:07:43] to select the screw press and we're going to add a new task and press the plant slurry
+[6:07:47] into paper sheet.
+[6:07:49] Very simple little task but just has a lot of weird terminology that's confusing.
+[6:07:54] Now you might think sweet we have paper now no you'd actually be wrong.
+[6:07:58] What we need now is we need to go to a craft swarf shop.
+[6:08:01] So I'm just going to real quick drop one down here right beneath us and then at the craft
+[6:08:05] swarf shop we are going to queue up another task.
+[6:08:08] And this task is make a choir and a choir is your actual writing material.
+[6:08:14] From there if you want you can make scroll rollers or book bindings and once the book
+[6:08:17] itself is actually written you can then bind it.
+[6:08:20] It's a bit of a mess of kind of stacking options here but it does kind of make sense once you
+[6:08:27] understand what the words mean.
+[6:08:28] So now that you can now we can select our screw press here and you can see we have two
+[6:08:33] paper sheets and now you can see that they're taking those paper sheets over here and
+[6:08:37] making them into choirs.
+[6:08:38] And at the craft swarf shop we can jump over to rock or various other material types and
+[6:08:42] make book bindings.
+[6:08:44] The book bindings are what will actually be binding the book together.
+[6:08:48] So now that we've talked about making paper from plants what we're going to talk about
+[6:08:52] is libraries.
+[6:08:53] So in order to build a library you simply make a zone just like any other area you would
+[6:08:57] make in your fortress or making a tavern.
+[6:08:59] You open up the zone tool by pressing Z or clicking on it down on the little hot bar
+[6:09:05] down here.
+[6:09:06] Then you click accept on the zone and then from there you're going to click the plus
+[6:09:08] button and you're going to click new library.
+[6:09:10] Now from here underneath this button we can go through all of our settings.
+[6:09:15] The settings are quite simple.
+[6:09:17] But the top of course is to designate whether or not you would like to have visitors or whether
+[6:09:22] or not it's citizens only or whether or not it's citizens and long term residents only.
+[6:09:26] Long term residents of course are like any kind of traveling performance group that lives
+[6:09:30] in your fortress or monster hunters or that kind of folk.
+[6:09:33] All visitors will come of course will allow people from other lands to show up if they
+[6:09:36] are aware of your fortress.
+[6:09:38] Although this could bring crimes and other people that want to steal your books and
+[6:09:41] artifacts and what not.
+[6:09:42] So you know a little bit of risk there.
+[6:09:44] Then under here you can see the number of written objects and then this one's a little bit confusing
+[6:09:48] which is the total number of each to scribe.
+[6:09:51] If you have extra choirs lying around your scribes will copy the books that you have
+[6:09:55] in the fortress.
+[6:09:56] This allows you to then sell fancy engraved codexes and what not or alternatively allows
+[6:10:03] you to just have a lot of copies if you want to have multiple libraries in your fort
+[6:10:07] or something.
+[6:10:08] Then of course the number of chests and the written material.
+[6:10:09] Now we're going to jump over to my already constructed library and I'm going to show
+[6:10:12] you all of these numbers here.
+[6:10:14] So we have written number of the number of written objects in this library is 17.
+[6:10:18] We can make copies of the written objects with this button and then the number of chests
+[6:10:24] in this fortress is current or in this library is 7 and then the amount of writing material.
+[6:10:30] Now I haven't produced any writing material in this fortress which is why I did the
+[6:10:33] tutorial in a different fortress.
+[6:10:35] I will be doing that at a later date in this fortress in my streams.
+[6:10:38] If you want to see some of that you can find those at twitch.tv slash BLIND IRL or
+[6:10:41] of course in the vods on this YouTube channel.
+[6:10:43] The amount of writing material is the number of choirs in this particular library.
+[6:10:48] Once you have choirs and things written then or copies have been made of the books then
+[6:10:53] you can bind them at a craft swarf shop.
+[6:10:56] So if I jump over to one of my craft swarf shops over here I do have the option to
+[6:11:00] bind book.
+[6:11:01] Of course it requires a book binding and a choir as covered earlier in the video.
+[6:11:05] So overall the process is a little fiddly a little bit complex but there is one other
+[6:11:10] thing that I would like to kind of cover here and that's exactly what the scholars
+[6:11:13] and scribes do.
+[6:11:15] Scribes simply copy books and exist in the library and read books.
+[6:11:18] You may want to click this button if you want them to focus on the library removing
+[6:11:21] all other tasks.
+[6:11:22] So all that they do is hang out in the library and copy books and then there's the scholars.
+[6:11:27] The scholars think and the the act of thinking and pondering and think and discussing topics
+[6:11:33] eventually they can make discoveries.
+[6:11:35] If they make a discovery on a new topic that hasn't been discovered in the world
+[6:11:39] yet they can then write a new book about it.
+[6:11:43] It's almost as rare as making an artifact in older worlds because a lot of topics have already
+[6:11:47] been discovered and you have to happen to have a scholar who is interested in a topic.
+[6:11:53] Alternatively if visiting scholars show up and discuss topics that can speed up the process.
+[6:11:58] Having more scholars means there's more dwarves that can discuss topics means it's
+[6:12:01] more likely that they will discover a new topic.
+[6:12:03] The younger the world is the more books they are likely to write because there's more
+[6:12:07] topics that have yet to be discovered.
+[6:12:09] The older the world is the less likely you'll get new topics and instead you're more likely
+[6:12:13] to get autobiographies and tales of how somebody else wrote a book once.
+[6:12:19] It's a bit of a strange system that frankly I don't understand that well.
+[6:12:23] I just understand how it works in theory.
+[6:12:25] In practice the number of books I've actually had written in older fortresses in older
+[6:12:31] worlds are maybe in the single digits.
+[6:12:33] In younger worlds like Long Death which was a fortress that I built that lasted 400
+[6:12:38] something years that fortress which started in the year 5 for that particular world we
+[6:12:43] had hundreds of books by the end of it.
+[6:12:45] There's also some bugs surrounding books that I'm aware of.
+[6:12:47] One of them being I think that dwarves can only write a single page but they can copy
+[6:12:52] like up to hundreds of pages if they get a book that has a lot of pages already.
+[6:12:57] It's a little muddy I'm not entirely sure what the restriction is there but that
+[6:13:01] is kind of my best overview of one way of making paper and life.

@@ -1,0 +1,111 @@
+CHAPTER: metal (5:33:43-5:39:35) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[5:33:43] This is how you connect a pump stack to a water wheel.
+[5:33:47] Hello everybody and welcome back to another quick dwarf fortress tutorial.
+[5:33:49] In this video we're going to be covering metalworking.
+[5:33:52] So we're not going to be doing magma metalworking, just regular metalworking.
+[5:33:56] As you can see here, we have a bunch of furnaces.
+[5:33:58] We also have a bunch more furnaces.
+[5:34:00] We also have two metalsmiths, forges, and two smithies.
+[5:34:05] This is kind of going to be what your complete setup is going to look like.
+[5:34:07] But for the sake of this video, I'm going to be making a smaller setup down here in
+[5:34:11] the corner.
+[5:34:12] What I'm going to be doing is we are going to be using our pre-setup stockpiles, however.
+[5:34:16] Right here you'll notice we have hematites.
+[5:34:18] If you click on it, it'll say that this is the ore of iron.
+[5:34:21] It's for making furniture or building.
+[5:34:24] Right over here we also have platinum nuggets, which is what we're going to be using for
+[5:34:27] this video is we're going to make some jewelry.
+[5:34:29] Now what we're going to do is we're also going to need some wood.
+[5:34:32] I have a big old stockpile of wood right here and it's for making projectiles and
+[5:34:37] all that stuff that wood is for and also generally annoying the elves.
+[5:34:40] We're going to go down here and we are going to construct our workshop.
+[5:34:43] So we're going to go to the workshop screen and we are going to go to furnaces.
+[5:34:46] With this we are going to make a magma, not a magma smelter, a normal smelter.
+[5:34:51] We're going to place that here.
+[5:34:53] Now keep in mind that they can only use rock for this, so you have to have rock or
+[5:34:57] metal around.
+[5:34:58] Just keep that in mind.
+[5:34:59] We're going to use a rock block.
+[5:35:01] We're also going to go back over to furnaces and we are going to make ourselves a...
+[5:35:08] Where is it?
+[5:35:09] A wood furnace.
+[5:35:11] I don't look at the bottom first.
+[5:35:12] We're going to grab that and we're also going to make that out of a block.
+[5:35:15] Let's make that out of limestone as well.
+[5:35:17] And then we're going to just go to the normal workshop section and we are going to make
+[5:35:20] the last bit here, which is a metal smith.
+[5:35:23] Now we can also do this with magma, but we're going to do that at a later date.
+[5:35:27] Now this is going to require an anvil, which I just clicked, and also a block.
+[5:35:31] Now once these three buildings are finished being constructed, we'll continue with the
+[5:35:35] video.
+[5:35:36] Alright, everything's finished being built.
+[5:35:39] Now because I do have a bunch of jobs queued up already, some things might pop up on these,
+[5:35:43] but what we're going to do is we're going to make some stockpiles real quick.
+[5:35:46] I'm going to make a small stockpile and it's going to be specifically for metal ores, which
+[5:35:52] might as well make this look uniform because we're being fancy here in this little tutorial.
+[5:35:57] So we're going to make a small stockpile here.
+[5:35:59] Actually let's do wood first.
+[5:36:01] So we're just going to make a small wood stockpile, which is going to go right there.
+[5:36:05] We're going to make a small metal ores stockpile, which is going to go right here, right in front
+[5:36:12] of the smithy, and we're going to make a small, I guess I theoretically could make a bars and
+[5:36:20] blocks stockpile, but I don't generally use those.
+[5:36:23] So we're just going to make a metal ores stockpile, and then those are the two stockpiles that
+[5:36:28] we're going to need here.
+[5:36:29] Once there's wood in both of the wood in this one and ore in this one, we'll continue
+[5:36:35] with the video.
+[5:36:38] Now that there's wood in this stockpile, we're going to click on it, and we are going to go
+[5:36:42] to this wood furnace here, and we're going to tell them to make some charcoal, and we're
+[5:36:47] going to just set this job to repeat.
+[5:36:48] Keep in mind you can also do all of this stuff through the manager.
+[5:36:50] Now the thing with charcoal is we're going to use that to power the next workshop.
+[5:36:56] Now they're being kind of pesky here.
+[5:36:59] Here what looks like comes some metal ore.
+[5:37:02] Perfect.
+[5:37:03] Guys, that's a sock.
+[5:37:05] Why'd you leave a sock there?
+[5:37:08] Oh, I see, because there's a wheelbarrow underneath it.
+[5:37:11] They're going to run over and get wet metal ore with the wheelbarrow.
+[5:37:14] Dwarves will be dwarves, I suppose.
+[5:37:15] Okay, there we go.
+[5:37:16] Now we have some hematite down here, so we are going to grab this, and we are going
+[5:37:21] to use the charcoal from over here to smelt hematite.
+[5:37:26] Now we could also make pig iron and be real fancy with steel, but instead we're just going
+[5:37:31] to focus on smelting hematite.
+[5:37:33] It's going to be brought up, and then we are going to, once that is complete, select the
+[5:37:39] metalsmith's forge, and we are going to make something out of iron.
+[5:37:42] Now once you have ore of iron or iron bars, if you have a flux stone layer, you can check
+[5:37:49] what those are.
+[5:37:50] There's various different forms of flux stone in the game.
+[5:37:52] Or simply click on this, it'll give you the option to make pig iron.
+[5:37:55] If you can make pig iron, then you can make steel, which is a very useful later alloy for
+[5:38:01] stronger weapons.
+[5:38:02] But we're just going to be focusing on iron today.
+[5:38:04] Now that we've got some iron bars that are getting done, we're going to queue up a few
+[5:38:08] more of these and just put that on repeat.
+[5:38:12] And then we are going to click on the metalsmith's forge.
+[5:38:15] And we are going to click add new task.
+[5:38:17] We're now going to go and select weapons and armor.
+[5:38:21] And that doesn't sound good at all.
+[5:38:23] There are things attacking us in the basement.
+[5:38:24] Well, it's a good thing we have weapons and armor, or it's a good thing we are making
+[5:38:29] stuff out of iron.
+[5:38:30] So I'm going to select weapons and armor right here.
+[5:38:34] And then we are going to select iron.
+[5:38:38] It's going to give us the material options.
+[5:38:40] And we are going to ask them to make us an iron spear so that we can kill the thing that
+[5:38:46] just showed up down in the basement.
+[5:38:48] Looks like there are cavern dwellers down there.
+[5:38:50] Well, that's terrifying.
+[5:38:51] We're just going to cross our fingers and hope that nobody starts dying in the background
+[5:38:56] while they very desperately grab the bars that we just queued up down here and make us
+[5:39:02] an iron spear.
+[5:39:03] They're going to use the charcoal that we forged in the first stockpile.
+[5:39:08] They're going to smelt the hematite in the second stockpile and put it together in the
+[5:39:13] third workshop.
+[5:39:16] Now you don't need to make stockpiles for all of these.
+[5:39:17] You can simply just let things play out.
+[5:39:20] And I'm not entirely certain what's happening down here with all these serpent men, but
+[5:39:25] this has been a very quick Dwarf Fortress tutorial.
+[5:39:26] If you found this video helpful, maybe give this channel a subscription.
+[5:39:30] Otherwise, check me out on Twitch, twitch.tv slash BLINDIRL.
+[5:39:34] Thank you very much for watching this video, and I hope this fortress doesn't die.

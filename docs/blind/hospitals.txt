@@ -1,0 +1,123 @@
+CHAPTER: hospitals (4:04:19-4:12:13) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[4:04:19] side they wanted. Thank you very much for watching this video. If you enjoyed this
+[4:04:22] video and you want to see my face while I play video games live on Twitch you can
+[4:04:25] go to twitch.tv slash BLIND IRL. Hello everybody and welcome to another short
+[4:04:30] Dwarf Fortress tutorial. In this video we're gonna be talking about hospitals
+[4:04:34] and the importance of hospitals and why you should build a hospital and why it
+[4:04:38] is important to build a hospital. Well first and foremost dwarves get hurt and
+[4:04:41] this means that you're gonna need to care for your injuries. So in Dwarf
+[4:04:45] Fortress what dwarves do is they will bring dwarves to the hospital and tend to
+[4:04:49] their wounds. This means a few things need to be set up and you also need a room for
+[4:04:52] it and dedicated to it. So before we do anything else we're going to begin
+[4:04:56] digging out our space for a hospital. This right here is my central staircase
+[4:04:59] which leads up to the surface and the entrance of my fort. I kind of like to
+[4:05:02] have my hospitals somewhere close by to everything that are easily accessible.
+[4:05:05] This is my guest bedroom for dwarves staying in or humans or anybody else
+[4:05:09] who comes by the fortress who's staying in this tavern to hang out in
+[4:05:12] and rest in so might as well have a connection to that as well. It doesn't
+[4:05:15] need to be a particularly large space it just needs to be big enough so that you
+[4:05:19] can fit basically 10 dwarves is what I say usually because a squad is up to 10
+[4:05:24] dwarves so you might as well have a hospital that's big enough to fit the
+[4:05:27] majority of your military which seems intelligent. Now just like any
+[4:05:30] self-respecting dwarf we're gonna begin smoothing the area around our
+[4:05:34] hospital and just kind of begin beautifying it up a little bit. We're
+[4:05:37] going to fill these two up with doors and this one up here with the door. Now
+[4:05:41] if you look over at my stockpile we have a few items in here already we have
+[4:05:44] several beds and we have these coffers which are rock chests chests can be made
+[4:05:49] of wood or metal and coffers can be made of stone and I think boxes are made of
+[4:05:56] glass but any of those will work even a bag will work there's some fighting
+[4:05:59] happening in the basement looks like the war against the troglodytes is
+[4:06:02] continuing so what we are going to be doing is we're going to be placing
+[4:06:05] beds we're going to be placing coffers and we are going to be placing a table
+[4:06:11] and the last thing that we're going to be placing is a traction bench now a
+[4:06:14] traction bench is a little bit tricky it requires a few specific materials it
+[4:06:18] requires a constructed table which can be made at a carpenter shop or a
+[4:06:22] stoneworker shop and it requires a mechanism which can be made at the
+[4:06:27] mechanic shop which is down here and it requires a rope which can be made at
+[4:06:32] the clothing shop with cloth right here so once you have all of those materials
+[4:06:38] we are going to make ourselves a traction bench so we're going to open up the
+[4:06:42] manager's screen over here and we are going to assign a traction bench or we
+[4:06:47] can go down here and we can queue it up at the mechanic shop which is what I'm
+[4:06:51] going to do manually for this video so we're just going to set do this now
+[4:06:54] so that they complete the task immediately and then go back to
+[4:06:57] watching them smooth and polish up our little hospital zone here and once
+[4:07:01] the traction bench is complete and the order has been assigned and the dwarf who
+[4:07:06] is building our traction bench right here rim tar has completed the traction bench
+[4:07:10] we will continue the video now the dwarf is finishing up the traction bench
+[4:07:14] right here so what we're going to do is we're going to just make sure that
+[4:07:16] they continue mining and they seem to have stopped as if as if they found
+[4:07:20] jobs that were more important so what we're going to do is we're going to
+[4:07:22] increase the priority amount on digging out this hospital alright so now as the
+[4:07:27] smoothing gets done we can start placing furniture so the first thing we're
+[4:07:30] going to place is that traction bent the bench that we constructed earlier
+[4:07:33] which is for setting your back and making sure that your body is still
+[4:07:37] functional after a major injury we do have one shale traction bench which
+[4:07:41] was made out of a shale table in fact it looks like we made several so what
+[4:07:45] we're going to do now that we have that traction bench is we are going to
+[4:07:48] throw down some beds we're gonna go back to furniture and we're gonna go
+[4:07:51] and once again remember to click keep building after placement so you don't
+[4:07:56] need to place multiple at a time and because we don't care about materials
+[4:07:59] we'll just place down six beds we'll do three more I'm only placing them where
+[4:08:02] the floors have been smoothed until we run out of beds that'll do just one and
+[4:08:06] then in those last spots there we're gonna place a chest and a table now
+[4:08:11] the table is important because the dwarves will put injured dwarves on the
+[4:08:16] table and I think they apply casts on tables I've seen them do it enough that
+[4:08:21] I'm like well we need to put tables in there and then the the chest is where
+[4:08:26] they store thread and cloth which are used as both bandages and for stitching
+[4:08:33] up wounds as well as crutches and splints now crutches and splints are
+[4:08:39] brought with in the default embark and if you need more they can be queued up
+[4:08:44] quite easily from the manager screen that being said if you do not want to
+[4:08:47] use the manager screen it's also very easy to just queue up a whole bunch at
+[4:08:51] your carpenter shop for both crutches and splints they can also be made in
+[4:08:54] metalworkers shop and in other locations out of different materials but I usually
+[4:08:58] just make them out of wood at least initially because you generally have
+[4:09:00] quite a lot at the start and they're not too difficult to keep in large
+[4:09:04] quantities now that almost everything is placed we're just going to simply place
+[4:09:08] that table that I mentioned earlier which we're gonna plop down right there
+[4:09:11] and now that all of this is done we're going to make this into a zone so we
+[4:09:15] are going to select a meeting zone because that's what this is and then
+[4:09:18] we're going to click and drag and fill up this entire zone right so now that
+[4:09:22] this zone is full we can accept it and we are going to assign a new existing
+[4:09:27] location to this zone and the location we are going to add is a hospital now
+[4:09:32] from now that we've made this into a hospital it's now officially a hospital
+[4:09:35] you can see this little hospital icon up there we can click on this little
+[4:09:39] plus sorry we can click on the little magnifying sign now it's gonna ask us
+[4:09:43] to assign a chief medical dwarf so that the hospital functions properly which
+[4:09:48] means they're gonna pause the game I'm gonna close all of these notifications
+[4:09:51] and these petitions and everything I'm going to open up this screen and we're
+[4:09:55] going to select a chief medical dwarf now this is the noble screen now the noble
+[4:09:59] screen is selected with the hotkey M and we need to assign a chief medical
+[4:10:05] dwarf so the hospital functions so we are going to click simply click on a dwarf
+[4:10:09] that I was gonna say has skills in doctoring but instead we'll just simply
+[4:10:12] pick somebody who's probably handle the body before so fish cleaner
+[4:10:16] congratulations you've just received a massive increase in your
+[4:10:20] responsibilities so asked our fish cleaner is now our chief medical dwarf
+[4:10:23] and is going to be doing all of the hospital related jobs so now that that is
+[4:10:28] completed we're going to open up this hospital zone once again and we are
+[4:10:32] going to click on the expanded options so it's going to tell us what they're
+[4:10:34] going to store in here so in order to have a fully functional hospital you're
+[4:10:39] going to need thread you're going to need cloth you're going to need splints
+[4:10:43] and you're going to need crutches now buckets are important as hell for
+[4:10:48] keeping dwarves alive so you want to have buckets as well and that everything
+[4:10:52] else at this point is optional so now as you can see down here there's a list of
+[4:10:56] other options you can give these are specializations that are not necessary
+[4:10:59] asked the chief medical dwarf will go around just doing all of these tasks
+[4:11:03] but if you want to have very specific dwarfs for certain tasks such as
+[4:11:06] diagnosing surgery and bone-setting this lets you allow this allows you to
+[4:11:11] specifically set those tasks you only need the chief medical dwarf though once
+[4:11:16] again as always do you want to doctor people that are part of your fortress or
+[4:11:20] not or do you want it to be just your dwarfs only we're going to say citizens
+[4:11:23] and long-term residents only here soap is optional but very useful for
+[4:11:27] preventing infection buckets is necessary for keeping dwarves alive
+[4:11:30] powder for casks is optional but ideal if you want to have your bones setting
+[4:11:36] correctly crutches are very important and required for dwarves who can't walk
+[4:11:39] splints are very important and I recommend making a bunch of crutches and
+[4:11:44] splits and storing probably close to ten of them in your hospitals at a time
+[4:11:49] those can be made at the carpenters workshop as mentioned earlier in the
+[4:11:52] video cloth is important and you start with a bunch and as long as you have
+[4:11:55] looms set up and access to spider webs you shouldn't have any problem getting
+[4:12:00] more cloth and thread is comes from the farmers workshop with various
+[4:12:07] different materials such as spinning it off of your livestock or just from
+[4:12:12] spider webs and all of these will should naturally fill themselves up the only
+[4:12:17] one that you'll need to do yourself our powder powder for casks and soap but
+[4:12:20] those two are optional

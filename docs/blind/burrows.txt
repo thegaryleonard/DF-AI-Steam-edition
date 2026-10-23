@@ -1,0 +1,35 @@
+CHAPTER: burrows (4:25:26-4:27:38) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[4:25:26] about to attack you so we're gonna be using this room right up here as kind of
+[4:25:29] our example and what we're going to be doing is we're going to be adding a new
+[4:25:32] burrow so this burrow is going to cover this kind of zone right here now it's
+[4:25:38] got this nice color we can actually do these multilayered if I just simply move
+[4:25:41] up a couple layers but we're just gonna kind of drop in the one square for now
+[4:25:45] now this is just gonna be called test burrow and I can type this is gonna be
+[4:25:52] called test burr B-U-R-R-O-W test burrow and so now the way burrows work is if I
+[4:25:59] assign people to the burrow then they are locked into that region so this can be
+[4:26:03] used for say locking certain dwarves into certain crafting zones or alternatively
+[4:26:08] like I said hiding from an enemy so let's just say we want to hide have dwarves
+[4:26:14] specifically crafting this zone then we look at this tool here toggle weather
+[4:26:18] workshops can source materials from outside of this burrow so say we had a
+[4:26:22] bunch of crafts dwarf shops in here and we wanted the worst be able to go out
+[4:26:25] here to collect stuff for the crafts but we want those dwarves to only use
+[4:26:28] those specific crafts dwarf shops then this would be a good opportunity to leave
+[4:26:31] this on however if we want to use this as an emergency burrow we want to turn
+[4:26:35] this off then we can go in here and we can assign whichever dwarves we want to
+[4:26:39] this as many or as few as possible I really wish that this game had a
+[4:26:43] select all function here as this would make this job because my main use for
+[4:26:48] burrows is locking dwarves away in case of a siege this would make my use for
+[4:26:53] burrows much easier so now that everybody's assigned to it and we turn
+[4:26:57] the burrow on everybody is going to book it from the entire fort into this one
+[4:27:01] region right here just give them a second to kind of think about it for a
+[4:27:05] moment about here they come there they're wandering over as you can see
+[4:27:09] and they're gonna get rather annoyed because why are we suddenly locked in
+[4:27:12] this one small area of the fort well clearly it's because there's five
+[4:27:15] where creatures coming up if we decide that the threat is over or we no longer
+[4:27:19] want them working in this particular burrow for whatever reason or another we
+[4:27:23] can press pause and the dwarves can resume their previous activities that was
+[4:27:28] a very quick tutorial on burrows of course is a very simple application of
+[4:27:31] burrows you can get as complicated and as varied with as many of them as you
+[4:27:34] want or as simple and as quick and as easy as you want this is something that
+[4:27:39] gave me a great deal of trouble on my first day of streaming to our fortress
+[4:27:41] and hopefully it won't cause this

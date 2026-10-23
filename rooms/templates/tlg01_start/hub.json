@@ -245,6 +245,46 @@
 			"z": 0
 		},
 		{
+			"dig": "UpDownStair",
+			"construction": "UpDownStair",
+			"stairs_special": true,
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		{
+			"dig": "UpDownStair",
+			"construction": "UpDownStair",
+			"stairs_special": true,
+			"x": 4,
+			"y": 0,
+			"z": 0
+		},
+		{
+			"dig": "UpDownStair",
+			"construction": "UpDownStair",
+			"stairs_special": true,
+			"x": 0,
+			"y": 4,
+			"z": 0
+		},
+		{
+			"dig": "UpDownStair",
+			"construction": "UpDownStair",
+			"stairs_special": true,
+			"x": 4,
+			"y": 4,
+			"z": 0
+		},
+		{
+			"dig": "UpDownStair",
+			"construction": "UpDownStair",
+			"stairs_special": true,
+			"x": 2,
+			"y": 2,
+			"z": 0
+		},
+		{
 			"type": "door",
 			"x": -1,
 			"y": 2,
@@ -545,18 +585,43 @@
 		{
 			"type": "corridor",
 			"corridor_type": "corridor",
+			"comment": "staircase",
+			"min": [
+				-2,
+				-2,
+				-2
+			],
+			"max": [
+				2,
+				2,
+				-2
+			],
+			"layout": [
+				34,
+				35,
+				36,
+				37,
+				38
+			],
+			"accesspath": [
+				1
+			]
+		},
+		{
+			"type": "corridor",
+			"corridor_type": "corridor",
 			"min": [
 				-1,
 				-9,
-				-1
+				-2
 			],
 			"max": [
 				1,
 				-3,
-				-1
+				-2
 			],
 			"accesspath": [
-				1
+				2
 			],
 			"exits": [
 				[
@@ -573,15 +638,15 @@
 			"min": [
 				-1,
 				3,
-				-1
+				-2
 			],
 			"max": [
 				1,
 				9,
-				-1
+				-2
 			],
 			"accesspath": [
-				1
+				2
 			],
 			"exits": [
 				[
@@ -598,15 +663,15 @@
 			"min": [
 				-9,
 				-1,
-				-1
+				-2
 			],
 			"max": [
 				-3,
 				1,
-				-1
+				-2
 			],
 			"accesspath": [
-				1
+				2
 			],
 			"exits": [
 				[
@@ -623,15 +688,15 @@
 			"min": [
 				3,
 				-1,
-				-1
+				-2
 			],
 			"max": [
 				9,
 				1,
-				-1
+				-2
 			],
 			"accesspath": [
-				1
+				2
 			],
 			"exits": [
 				[
@@ -649,15 +714,15 @@
 			"min": [
 				4,
 				-7,
-				-1
+				-2
 			],
 			"max": [
 				6,
 				-5,
-				-1
+				-2
 			],
 			"accesspath": [
-				2
+				3
 			]
 		},
 		{
@@ -666,20 +731,20 @@
 			"min": [
 				3,
 				-8,
-				-1
+				-2
 			],
 			"max": [
 				3,
 				-4,
-				-1
+				-2
 			],
 			"layout": [
-				34
+				39
 			],
 			"accesspath": [
-				2
+				3
 			],
-			"workshop": 6
+			"workshop": 7
 		},
 		{
 			"type": "stockpile",
@@ -687,17 +752,17 @@
 			"min": [
 				7,
 				-8,
-				-1
+				-2
 			],
 			"max": [
 				7,
 				-4,
-				-1
+				-2
 			],
 			"accesspath": [
-				7
+				8
 			],
-			"workshop": 6
+			"workshop": 7
 		},
 		{
 			"type": "stockpile",
@@ -705,17 +770,17 @@
 			"min": [
 				4,
 				-8,
-				-1
+				-2
 			],
 			"max": [
 				6,
 				-8,
-				-1
+				-2
 			],
 			"accesspath": [
-				7
+				8
 			],
-			"workshop": 6
+			"workshop": 7
 		},
 		{
 			"type": "stockpile",
@@ -723,17 +788,17 @@
 			"min": [
 				4,
 				-4,
-				-1
+				-2
 			],
 			"max": [
 				6,
 				-4,
-				-1
+				-2
 			],
 			"accesspath": [
-				7
+				8
 			],
-			"workshop": 6
+			"workshop": 7
 		},
 		{
 			"type": "stockpile",
@@ -742,18 +807,18 @@
 			"min": [
 				-7,
 				-8,
-				-1
+				-2
 			],
 			"max": [
 				-3,
 				-4,
-				-1
+				-2
 			],
 			"layout": [
-				35
+				40
 			],
 			"accesspath": [
-				2
+				3
 			]
 		},
 		{
@@ -763,15 +828,15 @@
 			"min": [
 				4,
 				5,
-				-1
+				-2
 			],
 			"max": [
 				6,
 				7,
-				-1
+				-2
 			],
 			"accesspath": [
-				3
+				4
 			]
 		},
 		{
@@ -785,203 +850,108 @@
 			"min": [
 				3,
 				4,
-				-1
+				-2
 			],
 			"max": [
 				3,
 				8,
-				-1
-			],
-			"layout": [
-				36
-			],
-			"accesspath": [
-				3
-			],
-			"workshop": 12
-		},
-		{
-			"type": "stockpile",
-			"stockpile_type": "stone",
-			"stock_disable": [
-				"StoneOres",
-				"StoneEconomic",
-				"StoneClay"
-			],
-			"min": [
-				7,
-				4,
-				-1
-			],
-			"max": [
-				7,
-				8,
-				-1
-			],
-			"accesspath": [
-				13
-			],
-			"workshop": 12
-		},
-		{
-			"type": "stockpile",
-			"stockpile_type": "stone",
-			"stock_disable": [
-				"StoneOres",
-				"StoneEconomic",
-				"StoneClay"
-			],
-			"min": [
-				4,
-				4,
-				-1
-			],
-			"max": [
-				6,
-				4,
-				-1
-			],
-			"accesspath": [
-				13
-			],
-			"workshop": 12
-		},
-		{
-			"type": "stockpile",
-			"stockpile_type": "stone",
-			"stock_disable": [
-				"StoneOres",
-				"StoneEconomic",
-				"StoneClay"
-			],
-			"min": [
-				4,
-				8,
-				-1
-			],
-			"max": [
-				6,
-				8,
-				-1
-			],
-			"accesspath": [
-				13
-			],
-			"workshop": 12
-		},
-		{
-			"type": "bedroom",
-			"min": [
-				-7,
-				4,
-				-1
-			],
-			"max": [
-				-3,
-				8,
-				-1
-			],
-			"layout": [
-				37,
-				38
-			],
-			"accesspath": [
-				3
-			]
-		},
-		{
-			"type": "bedroom",
-			"min": [
-				-7,
-				4,
-				-1
-			],
-			"max": [
-				-3,
-				8,
-				-1
-			],
-			"layout": [
-				39
-			],
-			"accesspath": [
-				17
-			]
-		},
-		{
-			"type": "bedroom",
-			"min": [
-				-7,
-				4,
-				-1
-			],
-			"max": [
-				-3,
-				8,
-				-1
-			],
-			"layout": [
-				40
-			],
-			"accesspath": [
-				17
-			]
-		},
-		{
-			"type": "bedroom",
-			"min": [
-				-7,
-				4,
-				-1
-			],
-			"max": [
-				-3,
-				8,
-				-1
+				-2
 			],
 			"layout": [
 				41
 			],
 			"accesspath": [
-				17
-			]
+				4
+			],
+			"workshop": 13
 		},
 		{
-			"type": "bedroom",
+			"type": "stockpile",
+			"stockpile_type": "stone",
+			"stock_disable": [
+				"StoneOres",
+				"StoneEconomic",
+				"StoneClay"
+			],
 			"min": [
-				-7,
+				7,
 				4,
-				-1
+				-2
 			],
 			"max": [
-				-3,
+				7,
 				8,
-				-1
-			],
-			"layout": [
-				42
+				-2
 			],
 			"accesspath": [
-				17
-			]
+				14
+			],
+			"workshop": 13
+		},
+		{
+			"type": "stockpile",
+			"stockpile_type": "stone",
+			"stock_disable": [
+				"StoneOres",
+				"StoneEconomic",
+				"StoneClay"
+			],
+			"min": [
+				4,
+				4,
+				-2
+			],
+			"max": [
+				6,
+				4,
+				-2
+			],
+			"accesspath": [
+				14
+			],
+			"workshop": 13
+		},
+		{
+			"type": "stockpile",
+			"stockpile_type": "stone",
+			"stock_disable": [
+				"StoneOres",
+				"StoneEconomic",
+				"StoneClay"
+			],
+			"min": [
+				4,
+				8,
+				-2
+			],
+			"max": [
+				6,
+				8,
+				-2
+			],
+			"accesspath": [
+				14
+			],
+			"workshop": 13
 		},
 		{
 			"type": "bedroom",
 			"min": [
 				-7,
 				4,
-				-1
+				-2
 			],
 			"max": [
 				-3,
 				8,
-				-1
+				-2
 			],
 			"layout": [
+				42,
 				43
 			],
 			"accesspath": [
-				17
+				4
 			]
 		},
 		{
@@ -989,18 +959,18 @@
 			"min": [
 				-7,
 				4,
-				-1
+				-2
 			],
 			"max": [
 				-3,
 				8,
-				-1
+				-2
 			],
 			"layout": [
 				44
 			],
 			"accesspath": [
-				17
+				18
 			]
 		},
 		{
@@ -1008,18 +978,113 @@
 			"min": [
 				-7,
 				4,
-				-1
+				-2
 			],
 			"max": [
 				-3,
 				8,
-				-1
+				-2
 			],
 			"layout": [
 				45
 			],
 			"accesspath": [
-				17
+				18
+			]
+		},
+		{
+			"type": "bedroom",
+			"min": [
+				-7,
+				4,
+				-2
+			],
+			"max": [
+				-3,
+				8,
+				-2
+			],
+			"layout": [
+				46
+			],
+			"accesspath": [
+				18
+			]
+		},
+		{
+			"type": "bedroom",
+			"min": [
+				-7,
+				4,
+				-2
+			],
+			"max": [
+				-3,
+				8,
+				-2
+			],
+			"layout": [
+				47
+			],
+			"accesspath": [
+				18
+			]
+		},
+		{
+			"type": "bedroom",
+			"min": [
+				-7,
+				4,
+				-2
+			],
+			"max": [
+				-3,
+				8,
+				-2
+			],
+			"layout": [
+				48
+			],
+			"accesspath": [
+				18
+			]
+		},
+		{
+			"type": "bedroom",
+			"min": [
+				-7,
+				4,
+				-2
+			],
+			"max": [
+				-3,
+				8,
+				-2
+			],
+			"layout": [
+				49
+			],
+			"accesspath": [
+				18
+			]
+		},
+		{
+			"type": "bedroom",
+			"min": [
+				-7,
+				4,
+				-2
+			],
+			"max": [
+				-3,
+				8,
+				-2
+			],
+			"layout": [
+				50
+			],
+			"accesspath": [
+				18
 			]
 		},
 		{
@@ -1029,22 +1094,22 @@
 			"min": [
 				-2,
 				-2,
-				-2
+				-3
 			],
 			"max": [
 				2,
 				2,
-				-2
+				-3
 			],
 			"layout": [
-				46,
-				47,
-				48,
-				49,
-				50
+				51,
+				52,
+				53,
+				54,
+				55
 			],
 			"accesspath": [
-				1
+				2
 			]
 		},
 		{
@@ -1053,15 +1118,15 @@
 			"min": [
 				-1,
 				-9,
-				-2
+				-3
 			],
 			"max": [
 				1,
 				-3,
-				-2
+				-3
 			],
 			"accesspath": [
-				25
+				26
 			],
 			"exits": [
 				[
@@ -1078,15 +1143,15 @@
 			"min": [
 				-1,
 				3,
-				-2
+				-3
 			],
 			"max": [
 				1,
 				9,
-				-2
+				-3
 			],
 			"accesspath": [
-				25
+				26
 			],
 			"exits": [
 				[
@@ -1103,15 +1168,15 @@
 			"min": [
 				-9,
 				-1,
-				-2
+				-3
 			],
 			"max": [
 				-3,
 				1,
-				-2
+				-3
 			],
 			"accesspath": [
-				25
+				26
 			],
 			"exits": [
 				[
@@ -1128,15 +1193,15 @@
 			"min": [
 				3,
 				-1,
-				-2
+				-3
 			],
 			"max": [
 				9,
 				1,
-				-2
+				-3
 			],
 			"accesspath": [
-				25
+				26
 			],
 			"exits": [
 				[
@@ -1154,21 +1219,21 @@
 			"min": [
 				3,
 				-7,
-				-2
+				-3
 			],
 			"max": [
 				5,
 				-5,
-				-2
+				-3
 			],
 			"layout": [
-				51,
-				52,
-				53,
-				54
+				56,
+				57,
+				58,
+				59
 			],
 			"accesspath": [
-				26
+				27
 			]
 		},
 		{
@@ -1178,21 +1243,21 @@
 			"min": [
 				-5,
 				-7,
-				-2
+				-3
 			],
 			"max": [
 				-3,
 				-5,
-				-2
+				-3
 			],
 			"layout": [
-				55,
-				56,
-				57,
-				58
+				60,
+				61,
+				62,
+				63
 			],
 			"accesspath": [
-				26
+				27
 			]
 		},
 		{
@@ -1222,18 +1287,18 @@
 			"min": [
 				3,
 				4,
-				-2
+				-3
 			],
 			"max": [
 				7,
 				8,
-				-2
+				-3
 			],
 			"layout": [
-				59
+				64
 			],
 			"accesspath": [
-				27
+				28
 			]
 		},
 		{
@@ -1243,15 +1308,15 @@
 			"min": [
 				-6,
 				5,
-				-2
+				-3
 			],
 			"max": [
 				-4,
 				7,
-				-2
+				-3
 			],
 			"accesspath": [
-				27
+				28
 			]
 		},
 		{
@@ -1280,20 +1345,20 @@
 			"min": [
 				-3,
 				4,
-				-2
+				-3
 			],
 			"max": [
 				-3,
 				8,
-				-2
+				-3
 			],
 			"layout": [
-				60
+				65
 			],
 			"accesspath": [
-				27
+				28
 			],
-			"workshop": 33
+			"workshop": 34
 		},
 		{
 			"type": "stockpile",
@@ -1321,17 +1386,17 @@
 			"min": [
 				-7,
 				4,
-				-2
+				-3
 			],
 			"max": [
 				-7,
 				8,
-				-2
+				-3
 			],
 			"accesspath": [
-				34
+				35
 			],
-			"workshop": 33
+			"workshop": 34
 		},
 		{
 			"type": "stockpile",
@@ -1359,17 +1424,17 @@
 			"min": [
 				-6,
 				4,
-				-2
+				-3
 			],
 			"max": [
 				-4,
 				4,
-				-2
+				-3
 			],
 			"accesspath": [
-				34
+				35
 			],
-			"workshop": 33
+			"workshop": 34
 		},
 		{
 			"type": "stockpile",
@@ -1397,17 +1462,17 @@
 			"min": [
 				-6,
 				8,
-				-2
+				-3
 			],
 			"max": [
 				-4,
 				8,
-				-2
+				-3
 			],
 			"accesspath": [
-				34
+				35
 			],
-			"workshop": 33
+			"workshop": 34
 		},
 		{
 			"type": "corridor",
@@ -1416,22 +1481,22 @@
 			"min": [
 				-2,
 				-2,
-				-3
+				-4
 			],
 			"max": [
 				2,
 				2,
-				-3
+				-4
 			],
 			"layout": [
-				61,
-				62,
-				63,
-				64,
-				65
+				66,
+				67,
+				68,
+				69,
+				70
 			],
 			"accesspath": [
-				25
+				26
 			],
 			"exits": [
 				[
@@ -1448,15 +1513,15 @@
 			"min": [
 				-1,
 				-9,
-				-3
+				-4
 			],
 			"max": [
 				1,
 				-3,
-				-3
+				-4
 			],
 			"accesspath": [
-				38
+				39
 			],
 			"exits": [
 				[
@@ -1485,15 +1550,15 @@
 			"min": [
 				-1,
 				3,
-				-3
+				-4
 			],
 			"max": [
 				1,
 				9,
-				-3
+				-4
 			],
 			"accesspath": [
-				38
+				39
 			],
 			"exits": [
 				[
@@ -1522,15 +1587,15 @@
 			"min": [
 				-9,
 				-1,
-				-3
+				-4
 			],
 			"max": [
 				-3,
 				1,
-				-3
+				-4
 			],
 			"accesspath": [
-				38
+				39
 			],
 			"exits": [
 				[
@@ -1559,15 +1624,15 @@
 			"min": [
 				3,
 				-1,
-				-3
+				-4
 			],
 			"max": [
 				9,
 				1,
-				-3
+				-4
 			],
 			"accesspath": [
-				38
+				39
 			],
 			"exits": [
 				[

@@ -1,0 +1,102 @@
+CHAPTER: plant_cloth (3:52:00-3:58:54) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[3:52:00] Cage traps very overpowered and should be abused upright spikes good for impaling good for repeated impaling
+[3:52:07] Also can jam similar to weapon traps
+[3:52:10] Hello everybody and welcome back to another quick door fortress tutorial in this video
+[3:52:13] We're gonna be talking about plant cloth and making plant cloth
+[3:52:16] So there's many different types of plant cloth that you can make in the game. You can use hemp you can use
+[3:52:21] Romy you can use pigtails and
+[3:52:24] Plant cloth is a very not easy
+[3:52:26] But well, actually I would say easy quick way of making a variety of clothing for your dwarves
+[3:52:33] So we're gonna quickly roll over plant cloth cloth today and explain what you're gonna do
+[3:52:36] So we did this little farming tutorial earlier in this series which you can go watch if you would like
+[3:52:41] And so the first thing that we're going to do is we're gonna make another farm plot
+[3:52:44] We're going to make a pigtail farm plot now pigtails can be brewed into alcohol
+[3:52:47] But by default, I don't think that they're allowed to be brewed into alcohol, which I'll check in a second
+[3:52:51] But we're gonna jump over to workshops
+[3:52:53] We're gonna go to farming and we're gonna gonna go to farm plot
+[3:52:55] We're gonna make a little farm plot here in the corner
+[3:52:57] Now this is just going to be for pigtails pigtails only grow on several seasons of the year and in the alternate seasons
+[3:53:02] We will be growing other things or we could alternatively just leave it blank
+[3:53:06] We don't need to grow every grow things there year-round and the dwarves are gonna come running down here and they're gonna build this now
+[3:53:12] We already have some pigtail seeds as you can see
+[3:53:16] There pigtail seeds now we already have some pigtail seeds so we know they're gonna plant them as soon as they are available
+[3:53:22] They are available in the summer
+[3:53:25] So we're not gonna have to worry about them right now
+[3:53:28] so pigtails in the fall and and in the summer for this particular area and
+[3:53:33] So the thing that we're gonna do up on the surface is we're gonna make two more workshops. We are going to quickly
+[3:53:39] Make ourselves a underneath the clothing and leather. We're gonna make a loom, right?
+[3:53:44] And we're gonna make a farmers workshop. We'll actually do them down here where we have a little bit more space
+[3:53:49] So if we go to workshops and we go to clothing and leather, we're gonna make a loom
+[3:53:52] and we are going to make a
+[3:53:56] Farmers workshop underneath farming now these two workshops are the two things that we're gonna need to make plant cloth now
+[3:54:03] If we look around here, there's probably yeah, see there's rope reads. That's another one rope read fabric
+[3:54:09] so if I say go over here and tell the dwarves to harvest some of this rope read over here and
+[3:54:15] Let's see. What else can we find here that I could use for this grape vines larch
+[3:54:20] Raspberry grape more grape vines raspberry bushes and we'll just tell them to get those as well while we're at it
+[3:54:25] they'll go grab those and
+[3:54:27] two dwarves are gonna run over here and
+[3:54:30] Grab this stuff and then the last workshop that we're gonna need for this
+[3:54:33] Assuming we want to do clothes as we could use clothing now if we planted a bunch of dimple cups
+[3:54:39] We could use those to dye our clothing
+[3:54:40] But we're just going to jump straight over here and make a clothing workshop
+[3:54:44] So now as you can see this is already happening here
+[3:54:47] So I'm just going to suspend this job real quick. What is happening is this dwarf has grabbed pigtail thread
+[3:54:52] By default, you will embark with some pigtail thread
+[3:54:55] There are several auto labors going on in indoor fortress that we're gonna find real quick
+[3:55:00] That so I can explain to you sort of the the default here. So if you go to labor
+[3:55:07] Underneath the work order screen and you go to work details and then you go and by default you'll pop up onto work details
+[3:55:12] Go to standing orders
+[3:55:15] Automatically weave all thread they're going to automatically take all thread from your fortress and this includes spider silk from the caverns
+[3:55:22] spider silk from the surface and on biomes that have spiders on the surface and
+[3:55:26] Any plant fabric that they find you can disable this if you want and then manually assign it in the work
+[3:55:31] In the work orders screen or manually assign it in individual workshops if that is more your shtick
+[3:55:37] Otherwise by default they are set to automatically weave all thread now when making clothing
+[3:55:42] You can tell them to use any cloth you can specifically say only use dyed cloth or you can say just you know
+[3:55:49] Use any cloth automatically connect webs is obviously to run out and collect
+[3:55:53] silk to make cloth out of spider webs and then
+[3:55:57] That we don't need to worry about the rest of these here because that's not relevant to this video
+[3:56:00] but keep in mind once again, that is down here under orders standing orders and
+[3:56:06] Also hauling and dumping is important for other things
+[3:56:08] But we don't need to worry about that same with sieges and forbidding and all that jazz
+[3:56:11] But for here standing orders
+[3:56:15] Automatically weave all threads, so they're already weaving the thread
+[3:56:18] That's the first thing that you need to know now our next goal is to make some more thread
+[3:56:21] so what we're gonna do is we're gonna go over to this farmers workshop and
+[3:56:25] We're just going to check over here. It looks like they've already harvested the rope reed perfect
+[3:56:29] We're gonna go over here to farmer's shop
+[3:56:30] And there's a lot of stuff that we can do here under farmer's shop such as milking animals into milk into milk barrels
+[3:56:36] And then making cheese out of them if we wanted but what we're gonna
+[3:56:39] Do is we're going to going to process plants right here
+[3:56:42] I'm going to set this to repeat process plants someone should grab there we go see we've got the rope reed that we've already
+[3:56:48] They're freshly harvested rope reed dwarf is gonna run over here
+[3:56:51] And they're going to make that rope reed into rope reed and into rope reed thread give it a second
+[3:56:57] Uh-huh see now we have rope reed seeds
+[3:56:59] Which we could plant on the surface if we wanted to do surface farming and rope reed thread and now over here this this dwarf
+[3:57:04] Scott two pieces of pigtail thread, which they are working on automatically and
+[3:57:09] I was kind of hoping they grab the rope reed one, but it doesn't matter too too much
+[3:57:12] But they're eventually gonna grab this rope reed thread from over here
+[3:57:16] They're gonna bring it over to this loom and then now that we're making our cloth
+[3:57:19] We could go to cloth items in the clothing shop
+[3:57:22] And let's just say we wanted to make a cloak so we're gonna make a brand new cloak for our dwarves
+[3:57:27] And look they grab the pigtail cloth from this workshop right here move it over to here
+[3:57:33] And then just like that bang we're gonna have a piece of cloth piece of cloth clothing
+[3:57:38] Let's just say we wanted to make a sock
+[3:57:41] We could also make a sock and that is basic plant farming and clothing industry of course
+[3:57:48] When the seasons are in they will fill this little farm plot up with pigtail seeds
+[3:57:53] And they will grow pigtails as well keep in mind that those pigtails can also be brewed into alcohol
+[3:57:58] Although I think by default they're not set so we're gonna go check that real quick
+[3:58:02] We're gonna go over to this citizens menu
+[3:58:03] We're gonna go to labor menu once again right next to the standing orders menu
+[3:58:07] There's the kitchen menu
+[3:58:08] There is the drinks menu
+[3:58:12] Actually, no we want to be in plants and stuff so we don't currently have access to it
+[3:58:15] I should have checked this before but by default I'm like mostly certain that
+[3:58:21] Pigtails are not set to be brewed in this screen by default. That's the way it's been in the past
+[3:58:25] I don't know how it is in this version
+[3:58:27] But when there's pigtails they will show up on this screen
+[3:58:30] And it will say whether or not that they're set to be brewed if you want to have ample access to pigtail fabric
+[3:58:35] specifically you might not want to brew those that is a very brief rundown on how to make fabric and
+[3:58:41] Different types of cloth and how to like set up a very basic clothing industry if you found this video helpful
+[3:58:47] there's a whole ton of these tutorials on YouTube at this point and the list is just getting longer and
+[3:58:52] If you enjoy watching these videos give this channel a subscription and maybe jump over to the twitch channel and say hi
+[3:58:57] while I'm live on twitch.tv slash BLIND IRL. Thank you very much for watching this video. I hope to see you in the next one

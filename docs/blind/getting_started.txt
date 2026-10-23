@@ -1,0 +1,790 @@
+CHAPTER: getting_started (0:01:30-0:28:44) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[0:01:30] listening to the sound of my voice.
+[0:01:31] So, if either of these things are the case,
+[0:01:33] you're either not listening to this
+[0:01:34] or you just like the sound of my voice.
+[0:01:36] So, based on that second conclusion,
+[0:01:38] let's get on with the tutorials.
+[0:01:41] Hello and welcome to a video about Dwarf Fortress.
+[0:01:45] This video is aimed as a getting started guide
+[0:01:48] to anybody who is just learning to play Dwarf Fortress.
+[0:01:51] Hopefully, it will take about 15 minutes
+[0:01:52] and by the end of this video,
+[0:01:54] you will ideally know how to get started
+[0:01:57] with a brand new fortress.
+[0:01:58] Now, Dwarf Fortress has been known for a very long time
+[0:02:01] to be one of the most complex games ever made,
+[0:02:04] which makes it a little bit daunting for some to get into,
+[0:02:07] but I hope to remedy that a little bit
+[0:02:09] and show you that it's really not that bad.
+[0:02:11] It just kind of has a few quirks
+[0:02:13] that you need to wrap your head around.
+[0:02:15] Something else that's worth noting
+[0:02:16] is Dwarf Fortress isn't really a game,
+[0:02:18] it's a fantasy world simulation.
+[0:02:20] It generates a very large amount of history
+[0:02:24] for you to play around with
+[0:02:25] and the player kind of gets to poke
+[0:02:27] and interact with that simulation in several different ways.
+[0:02:29] In this video, we're gonna be covering Fortress Mode,
+[0:02:32] where you construct a fortress for dwarves
+[0:02:34] in your generated world.
+[0:02:36] Currently, Dwarf Fortress is available in three places.
+[0:02:38] You can purchase it on Steam or itch.io.
+[0:02:41] It's also available for free on the Bay12 Games website,
+[0:02:44] but keep in mind,
+[0:02:45] if you pick it up on Bay12 Games website,
+[0:02:47] you will be playing the ASCII version of the game.
+[0:02:50] Paid versions of the game have these pretty pixels
+[0:02:52] for you to look at with your eyeballs.
+[0:02:53] Once you have launched the game, you will see this button.
+[0:02:57] It says create a new world, we're going to click on that.
+[0:02:59] And then from there, we're going to see this.
+[0:03:02] Now, these are a couple of different parameters
+[0:03:04] for your world.
+[0:03:04] You can set how long your history is going to run,
+[0:03:06] the number of civilizations,
+[0:03:08] the number of beasts, the amount of savagery,
+[0:03:10] but we're going to ignore all that
+[0:03:12] and instead just simply click create a new world.
+[0:03:15] Now, this is going to load a little bit
+[0:03:17] and then it's going to generate our world for us.
+[0:03:20] Now, as you can see, the world is generating.
+[0:03:22] A lot of stats are appearing
+[0:03:24] and you can see some history being written in real time
+[0:03:26] as the game flies through the years.
+[0:03:28] Because we left everything on default,
+[0:03:29] it's going to generate for 100 years,
+[0:03:31] making us a place to stay
+[0:03:33] and a beautiful world for us to live in and explore.
+[0:03:36] Once the world is ready, it'll give you a few options.
+[0:03:38] It says that you can keep the world
+[0:03:40] and return to the main menu,
+[0:03:41] essentially saving the world
+[0:03:42] and then you can generate another world or play now.
+[0:03:45] We're just going to click play now
+[0:03:46] because it's going to speed our process up a little bit here.
+[0:03:49] Then we're going to get another load screen
+[0:03:51] and the game is going to prepare the world for us
+[0:03:53] to then load in and play.
+[0:03:55] It's going to give us a couple of different options.
+[0:03:57] The first one being legends mode,
+[0:03:59] the second one being adventure mode, which is crossed out
+[0:04:02] and then of course fortress mode.
+[0:04:04] Now, because this video,
+[0:04:05] we're not going to be covering legends,
+[0:04:06] we're going to skip that
+[0:04:07] and simply start a fortress in fortress mode.
+[0:04:10] Then we're going to see
+[0:04:11] this interesting little calendar here.
+[0:04:13] This is the world actually moving time forward by two weeks.
+[0:04:16] Every single time you set a new embark location,
+[0:04:18] it moves time forward.
+[0:04:19] We're also going to skip the tutorial
+[0:04:21] as we're not going to be needing that here.
+[0:04:22] And now we can kind of begin exploring our world.
+[0:04:25] We can pan around
+[0:04:26] and see all these different beautiful locations,
+[0:04:28] but there's a couple of buttons down here
+[0:04:30] that I need to cover first.
+[0:04:31] The most important one is this,
+[0:04:33] choose origin civilization.
+[0:04:35] Now this gives us a list of the current dwarven factions
+[0:04:39] that are alive in this world.
+[0:04:40] Right here, we can see that there is some forests here
+[0:04:42] and there are these tiny little green icons here.
+[0:04:45] These are elven civilizations.
+[0:04:47] We can see that there are forests,
+[0:04:49] we can see that there are mountains,
+[0:04:50] some deserts and some brown hills.
+[0:04:52] And of course this little island here
+[0:04:54] is the land of snarling.
+[0:04:56] Now, if we go over here to the other dwarven civilizations,
+[0:04:59] I can click on here
+[0:04:59] and it's going to highlight this small one,
+[0:05:01] very small civilization right here.
+[0:05:03] Only 180 dwarves live in this civilization.
+[0:05:06] So if you're a beginning player,
+[0:05:07] you want to look for a civilization
+[0:05:09] with a larger population.
+[0:05:11] So if we click on the brilliant fountain,
+[0:05:13] we can see that there's this more northern based faction
+[0:05:15] and there are some goblins in the vicinity
+[0:05:17] as well as other dwarves.
+[0:05:19] And then of course the lash of champions,
+[0:05:22] which is in this neighboring mountain field right next
+[0:05:24] to the brilliant fountain.
+[0:05:26] Now these are all pretty decent places for us to start,
+[0:05:31] but I like the look of this little one here on the island
+[0:05:34] because elves, while they can be a little bit tricky
+[0:05:37] to deal with, certainly less of a threat
+[0:05:39] than an army of goblins.
+[0:05:41] So now we can pan around and see where we're going to stay.
+[0:05:44] And of course, as I'm moving the mouse around,
+[0:05:45] you can see that there's oceans
+[0:05:47] with varying levels of aquifer, light and heavy.
+[0:05:50] I do have a video about that,
+[0:05:51] if you would like to check it out.
+[0:05:53] And we have various different metals
+[0:05:55] and things available to us.
+[0:05:57] Now, because I would like to play as this faction,
+[0:05:59] just got to make sure that they're selected,
+[0:06:01] we do have 2900 dwarves living in this faction.
+[0:06:04] We are going to find ourselves a spot to embark.
+[0:06:07] Now, when I click, it's going to zoom us in.
+[0:06:10] And this is going to let us have a very specific view
+[0:06:14] of where we're going to be embarking.
+[0:06:16] One thing that you really should pay attention to
+[0:06:18] is your neighbors here.
+[0:06:20] If you're a new player and you're just starting out,
+[0:06:22] make sure that there's nothing that says tower there.
+[0:06:25] Or you might get invaded by an army of undead on day 12
+[0:06:28] and just get instagib before you know what you're doing.
+[0:06:32] Fortunately, all we have close by are elves
+[0:06:34] and they're not hostile,
+[0:06:35] otherwise they would be marked as hostile.
+[0:06:38] So panning around here,
+[0:06:39] I think that this is a pretty good spot.
+[0:06:41] We know we do have elves
+[0:06:42] that are a short trip to the north,
+[0:06:44] but plenty of friends around.
+[0:06:45] So I'm going to click on the embark button.
+[0:06:48] But there is one other button I would like to show you first.
+[0:06:50] These two show elevation and show cliffs and grades.
+[0:06:52] If you want to find waterfalls,
+[0:06:54] you definitely want to look for something like this
+[0:06:57] because that's going to be a nice big trench for you.
+[0:07:00] So there's definitely a waterfall of some sort right here.
+[0:07:02] So I like this spot.
+[0:07:04] I think this is going to be where we are going to settle
+[0:07:07] for our first fortress.
+[0:07:08] Now, keep in mind,
+[0:07:09] you can increase the size to ludicrous levels of the map,
+[0:07:12] but while this can be tempting,
+[0:07:14] I would recommend against this
+[0:07:16] because it will make your game run slowly.
+[0:07:20] Dwarf fortress is renowned for its lag
+[0:07:23] and you'll never have any problems with space for building
+[0:07:26] even in these small four by four maps.
+[0:07:29] While you can make them huge,
+[0:07:30] your game may run like a slideshow.
+[0:07:32] We're now going to select our location
+[0:07:34] and then click confirm.
+[0:07:36] Now it's going to give us a couple of options
+[0:07:37] and I have some saved profiles here
+[0:07:39] from previous fortresses,
+[0:07:40] but I'm just going to click play now.
+[0:07:42] If you would like to watch a video
+[0:07:44] on how to prepare for a journey carefully,
+[0:07:45] I do have a video on that subject as well.
+[0:07:48] Once you get in game,
+[0:07:49] you're going to see this screen.
+[0:07:50] It says a bunch of text about the area that you're in
+[0:07:53] and we're not going to worry about it too much
+[0:07:55] because while it could be useful for your own fortress,
+[0:07:59] for the sake of this tutorial,
+[0:08:00] flavor text isn't particularly necessary.
+[0:08:02] And now immediately the game is going to be unpaused.
+[0:08:05] So I recommend pausing it as soon as possible
+[0:08:08] once you get in game.
+[0:08:09] Then from there,
+[0:08:10] you can begin panning the camera around
+[0:08:12] using the middle mouse button or the WAS and D keys.
+[0:08:16] If you hold control,
+[0:08:17] you can zoom in and zoom out
+[0:08:19] and this allows you to get a better view of things.
+[0:08:22] And you zoom out by scrolling on the mouse wheel
+[0:08:24] while holding down control
+[0:08:26] and then either hitting C or E,
+[0:08:30] you can move up and down Z levels.
+[0:08:32] You can also do this by scrolling in and out
+[0:08:34] with the mouse wheel.
+[0:08:35] Now Z levels are like layers of Minecraft blocks.
+[0:08:38] So essentially playing fortress mode
+[0:08:40] is kind of like playing flat Minecraft,
+[0:08:42] but there's a bit of a city builder in there.
+[0:08:45] And largely that's what the gameplay of War Fortress is.
+[0:08:48] It's learning to navigate these Z levels
+[0:08:50] and keep yourself oriented.
+[0:08:52] These little ups and down areas around the edge of the map,
+[0:08:56] these are ramps.
+[0:08:57] Ramps are how dwarves access different Z levels.
+[0:08:59] If it's just a sheer flat cliff like over here,
+[0:09:02] they're not going to be able to access those levels
+[0:09:04] as easily.
+[0:09:05] However, they can run up and down the Z levels
+[0:09:08] when there is ramps available.
+[0:09:10] And if you find these ramps confusing,
+[0:09:11] if you press R on the keyboard or click on this button,
+[0:09:15] it will give you little arrows
+[0:09:17] that will signify exactly what is up
+[0:09:19] and what is a down area.
+[0:09:21] So essentially this is an up ramp
+[0:09:23] when we're on the layer with it,
+[0:09:24] but it's a down ramp when we're a layer above it.
+[0:09:26] If I zoom out a little bit more and move up,
+[0:09:28] once again, you can see this
+[0:09:29] has now become a down arrow moving down.
+[0:09:32] And when we scroll down, it's an up arrow moving up.
+[0:09:34] So I'm gonna turn those off
+[0:09:35] because I don't find them particularly necessary.
+[0:09:37] However, they are quite useful for a beginning player.
+[0:09:40] Now, because the game is paused,
+[0:09:42] which I can unpause at any point using the spacebar,
+[0:09:46] you may go, oh wow, I'm lost.
+[0:09:48] Well, here's a very easy way to remedy this.
+[0:09:50] Press F1.
+[0:09:51] If you press F1, it'll teleport you
+[0:09:52] from wherever you are back to the wagon.
+[0:09:55] You can of course rebind hotkeys
+[0:09:56] using this screen right here,
+[0:09:58] but we don't need to worry about that yet.
+[0:10:00] Just remember that if you lose the location of your wagon
+[0:10:02] and you need to figure out how to begin again,
+[0:10:05] just press F1.
+[0:10:07] The next thing I would like to cover
+[0:10:08] is looking at things in your environment.
+[0:10:10] If we pan the mouse around over top of things in the ground,
+[0:10:12] you'll see that there's a little pop-up window
+[0:10:14] up here on the right side of the screen.
+[0:10:16] And it tells me exactly what I'm hovering over.
+[0:10:18] So in this case, it's a pine tree trunk.
+[0:10:20] In this case, it's a piece of barley.
+[0:10:22] And then it's some blueberry bushes
+[0:10:24] as well as some longland grass.
+[0:10:26] Now, these materials and things and sprouts
+[0:10:29] that show up on the surface can be harvested.
+[0:10:32] One of the first tools I'm going to show you
+[0:10:33] is this button, the gather button.
+[0:10:36] Now, this is a very important tool.
+[0:10:38] If you're settling anywhere that is kind of
+[0:10:40] more temperate area where there are things growing,
+[0:10:42] there will always be some plants and food
+[0:10:44] and vegetables around that you can harvest.
+[0:10:47] And this harvest tool will then cause dwarves
+[0:10:50] that have the harvest job available,
+[0:10:52] which we'll cover in a second,
+[0:10:53] to run around and gather food and plants.
+[0:10:56] And then they will put them in a stockpile
+[0:10:58] once you have a stockpile constructed.
+[0:11:00] Stockpiles can be found with this button
+[0:11:01] down here at the bottom or by pressing P on your keyboard.
+[0:11:04] Then you click the new stockpile button.
+[0:11:06] From there, you click and drag
+[0:11:08] and it'll create a stockpile to that shape.
+[0:11:11] Let's just build a small one right here.
+[0:11:13] We're going to accept this stockpile
+[0:11:15] and we're going to select all.
+[0:11:17] Now, there might be some conflicting things on the wiki
+[0:11:19] saying that you shouldn't press this button,
+[0:11:20] but at the current point in this game,
+[0:11:22] it is safe to use all stockpiles.
+[0:11:24] All stockpiles assign everything to the stockpile
+[0:11:26] with the exception of refuse and corpses.
+[0:11:29] But just for my own sanity's sake,
+[0:11:30] I'm actually going to remove stone
+[0:11:32] and wood from this stockpile.
+[0:11:34] Just so it doesn't get immediately covered up
+[0:11:37] with boulders and wood
+[0:11:38] from the trees that we're about to chop down.
+[0:11:40] Now you can see the dwarves running around
+[0:11:42] and gathering stuff
+[0:11:43] and they are going to bring them all over to this stockpile.
+[0:11:45] They are then going to begin unloading this wagon.
+[0:11:48] Once the wagon is unloaded
+[0:11:49] and the dwarves are done moving things around,
+[0:11:51] I'm going to show you the job screen.
+[0:11:52] Now, it seems like this stockpile filled up
+[0:11:54] a little bit quick.
+[0:11:55] So we're actually going to expand this stockpile.
+[0:11:57] We're going to do that by clicking on the stockpile,
+[0:11:59] clicking view stockpile.
+[0:12:01] And then we're going to click on this paint brush button,
+[0:12:04] which is repaint the stockpile.
+[0:12:06] And then from there, we can simply expand the size of it
+[0:12:08] so that the dwarves can continue moving items
+[0:12:11] out of the wagon and into the stockpile.
+[0:12:14] As this is being done,
+[0:12:15] we can then click on the wagon itself
+[0:12:17] and we can see that there are now no items in the wagon.
+[0:12:19] So the stockpile is full.
+[0:12:21] Now that our life possessions are sitting here,
+[0:12:23] we're going to show you the job screen.
+[0:12:25] Now I can do that by pressing Y on the keyboard
+[0:12:27] or by clicking on this little hammer
+[0:12:29] down here in the bottom left.
+[0:12:31] This screen shows you the current assigned tasks.
+[0:12:34] Now it's very simple, right?
+[0:12:36] You don't need to really mess around
+[0:12:38] with the add new work details
+[0:12:40] and make super specific jobs like some people may tell you,
+[0:12:42] but things get a little tricky with these top three, right?
+[0:12:45] You want planters and fisher dwarves
+[0:12:47] can be assigned to only specific dwarves
+[0:12:49] because otherwise they'll just fish 24 seven.
+[0:12:51] Plant gatherers, I generally just leave this as open
+[0:12:54] and the dwarves will automatically assign
+[0:12:56] the highest skill that is available to do the job.
+[0:12:59] And generally they are pretty good about it.
+[0:13:00] So I wouldn't worry about this screen at all aside from this.
+[0:13:03] Now there are three pesky ones up here at the top
+[0:13:06] that do not allow you to set everybody does this.
+[0:13:08] And you might go, why is that?
+[0:13:10] Well, the reason is they require specific items
+[0:13:12] for a uniform in order to be used.
+[0:13:15] The hunters require a quiver, ammunition
+[0:13:17] and a bow or a crossbow.
+[0:13:19] And it needs the correct ammunition
+[0:13:20] for either a bow or crossbow being arrows or bolts,
+[0:13:23] which eventually you'll just have in your fort.
+[0:13:25] So you'll be able to assign a few of these dwarves anyway.
+[0:13:28] In fact, we may already have this stuff
+[0:13:29] for it in the fortress,
+[0:13:30] but we don't need to worry about hunting right now.
+[0:13:33] Then there's wood cutting
+[0:13:34] and wood cutting requires a battle axe
+[0:13:37] or apparently a hail bridge to complete.
+[0:13:40] Someone discovered that recently.
+[0:13:42] Lastly, mining requires a pickaxe.
+[0:13:44] So dwarves cannot chop wood and mine at the same time
+[0:13:49] without some weird conflicts going on.
+[0:13:51] So just make sure that your miners and your wood cutters
+[0:13:53] are separated so that they don't worry about dropping
+[0:13:55] and picking up battle axes
+[0:13:57] and moving things from stockpile to stockpile
+[0:13:59] and jobs getting canceled
+[0:14:00] because they can't find their pickaxe and whatnot.
+[0:14:03] So just make sure that your miners
+[0:14:04] and your wood cutters are separated.
+[0:14:06] You have a minimal number of hunters if you do need them.
+[0:14:09] Keep your fissured dwarves specific to fissured dwarves
+[0:14:11] because fishing is a very dangerous pastime for dwarves
+[0:14:14] and just let the rest be everybody does this.
+[0:14:16] Or if you want to be more specific, select a few
+[0:14:18] and just make sure that you do have dwarves
+[0:14:20] assigned to each job.
+[0:14:21] The next thing I would like to cover is the kitchen menu
+[0:14:24] and just something that you're gonna wanna do
+[0:14:26] as a brand new player right off the bat.
+[0:14:28] So you're gonna wanna click on kitchen,
+[0:14:29] you're gonna wanna find plump helmets
+[0:14:31] and you're gonna wanna click on this little button.
+[0:14:34] It doesn't really matter as to why, long story short,
+[0:14:36] you won't have enough seeds to plant more plump helmets
+[0:14:39] and now we're gonna get into digging.
+[0:14:40] We're now going to click on this tool.
+[0:14:42] This is our digging tool
+[0:14:43] and we're gonna move some stuff down into the fortress.
+[0:14:45] So what we're going to do is I'm gonna click on dig
+[0:14:47] right here and we're going to select the stair tool.
+[0:14:50] Now stairs are pretty simple.
+[0:14:52] You just simply select where you would like them to go,
+[0:14:54] move down the number of Z levels you want to go
+[0:14:56] and then click build.
+[0:14:58] There are some tricky techniques to get through aquifers,
+[0:15:01] but we don't need to worry about that for this video
+[0:15:04] because we're not gonna be digging
+[0:15:05] through an aquifer today.
+[0:15:06] But if you would like to see my video on aquifers,
+[0:15:08] simply check them out on my YouTube channel.
+[0:15:10] I'm sure there's a link in the description.
+[0:15:12] Now as we move down, we can see that we've dug into stone.
+[0:15:15] Now remember, it's a good idea to be a couple of Z levels
+[0:15:18] beneath the surface when you start building your fortress.
+[0:15:21] And the reason for this is if you build right
+[0:15:23] on the surface and you chop down trees,
+[0:15:25] which we'll cover in a moment,
+[0:15:26] it might leave holes in your ceiling
+[0:15:29] if you're only one Z level down.
+[0:15:30] So just make sure that you go down a couple of Z levels.
+[0:15:33] Although we will actually have to build
+[0:15:34] in this layer for some farming.
+[0:15:36] Once we get down to the bottom layer,
+[0:15:38] I'm going to dig out a little living space.
+[0:15:42] And something that you need to keep in mind
+[0:15:43] while playing Dwarf Fortress is dwarves need three things,
+[0:15:46] food, beer, and beds.
+[0:15:48] And if we can provide those three things,
+[0:15:50] dwarves will be very happy or at the very least,
+[0:15:52] survive for more than an extended period of time.
+[0:15:55] But I'm going to show you a fancy little tool here
+[0:15:57] real quick with mining,
+[0:15:58] because we've dug out this area here
+[0:16:00] and we've dug some stairs down to this little area.
+[0:16:02] But up here, I would like to also build
+[0:16:06] some space for farming,
+[0:16:07] but I want him to dig out this lower area first.
+[0:16:10] How can I do that?
+[0:16:11] Well, if I click on the mining tool,
+[0:16:12] there's this little arrow here,
+[0:16:13] which can be accessed by hitting N on the keyboard.
+[0:16:16] Now this is your priorities screen.
+[0:16:17] So I would like him to do this afterwards.
+[0:16:20] And so we're going to dig out this little space
+[0:16:22] and he's going to complete this lower layer
+[0:16:23] before the upper layer.
+[0:16:25] Now, this mining is getting done rather slowly,
+[0:16:26] so let's open back up this mining screen
+[0:16:28] and go, well, our expedition leader here, Zuglar,
+[0:16:31] isn't really doing much currently.
+[0:16:33] So why don't we give them a pick as well?
+[0:16:35] And let's see if we have another pick in the fortress.
+[0:16:37] I'm sure we do.
+[0:16:38] So already has grabbed the pick and is now mining.
+[0:16:41] And it appears that I have collided with an aquifer.
+[0:16:44] Well, that's a little bit awkward.
+[0:16:46] Awkward, awkward, awkward.
+[0:16:49] Anyway, we can simply just remove this area
+[0:16:51] and not worry about it.
+[0:16:52] However, if the ceiling starts dripping, we know why.
+[0:16:55] This being said, we can also continue mining out this area
+[0:16:59] just so that we have a little bit of space for our tavern,
+[0:17:01] which is what I'm going to put down here.
+[0:17:03] Very important for dwarven society.
+[0:17:05] We're also going to need a couple of bedrooms,
+[0:17:06] which I'm going to put on this layer right above,
+[0:17:08] which will probably also collide with the aquifer.
+[0:17:10] So instead, let's go this way.
+[0:17:12] Now I'm going to build a couple of bedrooms here.
+[0:17:14] Next thing we're going to do
+[0:17:15] is we're going to go back up to the surface
+[0:17:17] and we're going to chop down some trees.
+[0:17:18] So I'm going to hit the tree chopping down menu,
+[0:17:21] which is L on the keyboard.
+[0:17:23] And once again, we have the same priority options open
+[0:17:26] and we're going to drag.
+[0:17:27] I'm going to chop down some trees.
+[0:17:28] Dwarves will then run from tree to tree and chop them down,
+[0:17:31] but be careful about chopping down large chunks of trees
+[0:17:33] that are very close together.
+[0:17:34] It can cause some things to happen where trees collapse
+[0:17:36] and this can be rather deadly for dwarves.
+[0:17:38] So just be a little bit careful
+[0:17:40] while chopping down large amounts of trees.
+[0:17:42] Remember how I said that dwarves need food, beer,
+[0:17:44] and beds?
+[0:17:45] Well, it's time to start up with beds.
+[0:17:46] So we're going to make ourselves a workshop.
+[0:17:48] We're going to make a carpenters shop
+[0:17:51] and we're going to place it right here by the entrance.
+[0:17:53] You can put these underground or above ground.
+[0:17:54] It doesn't matter.
+[0:17:56] And we're going to build this out of sandstone
+[0:17:58] because I don't really want to use wood for this.
+[0:18:01] Now they're going to go down
+[0:18:02] and they're going to grab a boulder
+[0:18:03] and they're going to bring it up
+[0:18:04] and they're going to place it right here.
+[0:18:07] Now that we have this carpenter shop constructed,
+[0:18:09] I can click on add a new task
+[0:18:11] and we're going to make some beds.
+[0:18:13] And I'm just going to queue up seven beds here.
+[0:18:16] So that's seven beds queued up
+[0:18:18] and our carpenter is now going to start grabbing wood
+[0:18:21] after they're done felling trees, I assume.
+[0:18:24] And then they're going to start grabbing wood
+[0:18:25] and making us some beds.
+[0:18:27] Looks like my planter got to the job first
+[0:18:29] because the woodcutter was a little bit busy.
+[0:18:31] So they're now hauling these pine trees and making beds.
+[0:18:35] And of course, these beds are now being moved
+[0:18:37] to this stockpile.
+[0:18:38] Now I can scroll back down to that layer
+[0:18:40] where I was going to be farming.
+[0:18:41] And once again,
+[0:18:42] it looks like we collided with that aquifer.
+[0:18:44] Well, I mean, as it is.
+[0:18:46] So we're instead going to dig this way,
+[0:18:48] just so that we can dig into sand more.
+[0:18:49] Most maps will have either a dirt, clay or sand layer
+[0:18:53] and all of these are perfectly suitable for farming.
+[0:18:55] Keep in mind, there are more effective methods of farming,
+[0:18:57] but that's probably a topic for a different video.
+[0:19:00] What we're going to do now
+[0:19:01] is we're going to start moving our stockpiles
+[0:19:02] around a little bit.
+[0:19:03] I'm going to make me a seed stockpile.
+[0:19:05] I'm going to do this
+[0:19:06] by building a little stockpile here in the corner,
+[0:19:08] clicking custom.
+[0:19:09] And then I'm going to go to food
+[0:19:11] and then I'm going to go to seeds
+[0:19:13] and I'm going to click all.
+[0:19:14] The next step from here
+[0:19:15] is we're going to go into this barrels button
+[0:19:18] and I set this button to zero, okay?
+[0:19:20] Just don't ask why.
+[0:19:22] Just remove barrels from your seed stockpiles.
+[0:19:24] You'll thank me later.
+[0:19:26] Then go to this all stockpile that we built initially
+[0:19:29] and go to food,
+[0:19:30] go to seeds and click none.
+[0:19:33] This will simply move the seeds down to the farming layer.
+[0:19:38] Once we've done that,
+[0:19:38] we can press B on the keyboard
+[0:19:40] or click on the place structures and buildings button
+[0:19:43] and click on farming.
+[0:19:46] From here, we can then either hit P on the keyboard
+[0:19:48] or click on farm plots
+[0:19:49] and we're going to build ourselves a nice sized farm plot.
+[0:19:52] This is going to be for plump helmets.
+[0:19:53] If you would like to be a little bit more fancy,
+[0:19:55] you could alternate with plump helmets and pigtails,
+[0:19:57] but plump helmets are probably the most important crop
+[0:20:00] for a beginning player into our fortress
+[0:20:01] because they are brewable into alcohol
+[0:20:04] and dwarves will eat them raw
+[0:20:05] without complaining too much.
+[0:20:08] Now that the farm field is ready to go,
+[0:20:10] I'm going to click on it
+[0:20:11] and we have four seasons worth of planting here.
+[0:20:14] You can worry about fertilizer if you want to be fancy,
+[0:20:16] but I would say don't bother.
+[0:20:18] You can add plump helmets,
+[0:20:20] then go to summer, add plump helmets,
+[0:20:22] then go to autumn, add plump helmets,
+[0:20:24] then go to winter and add plump helmets
+[0:20:26] and dwarves will come booking it down into the fortress
+[0:20:29] and plant all of your plump helmet seeds
+[0:20:31] that you have available
+[0:20:32] or in this case, plump helmet spawn
+[0:20:33] because that's the correct name for them.
+[0:20:35] Task number one is done.
+[0:20:36] The next task we need to do is we need to make bedrooms.
+[0:20:39] Now, because I've got this nice little area cut out here
+[0:20:42] out of this stone, we need some doors
+[0:20:44] and we need some properly dwarfy doors.
+[0:20:47] So I'm going to make a stoneworker's workshop.
+[0:20:49] Now stoneworker's workshops are where bricks are made
+[0:20:53] which cuts the size of boulders into quarters
+[0:20:56] and makes them way lighter
+[0:20:56] and makes your constructions more efficient for walls,
+[0:21:00] but also is a really good spot for making furniture.
+[0:21:02] Of course, I could make this furniture out of wood,
+[0:21:04] but stone doors are a little bit more dwarfy,
+[0:21:07] shall we say.
+[0:21:08] So I'm going to queue up stone doors.
+[0:21:10] Now, if you want to be fancy with your stone doors,
+[0:21:12] this is just a repeating button,
+[0:21:13] which just makes the job repeat.
+[0:21:15] If you want to be fancy, click on the magnifying glass
+[0:21:17] and then you can select a specific material.
+[0:21:19] I'm going to select chalk
+[0:21:21] just so that they're all the same color.
+[0:21:23] While that's being done,
+[0:21:24] I'm going to scroll back down to my bedroom layer
+[0:21:26] and I'm going to press B on the keyboard.
+[0:21:28] Then I'm going to click on furniture
+[0:21:30] and we're going to grab our beds.
+[0:21:31] Now I have several different options here.
+[0:21:33] I can use the closest material,
+[0:21:34] which will just use whatever is nearby,
+[0:21:37] or I can select material after placement
+[0:21:39] because I don't really care about the materials
+[0:21:41] my beds are made out of.
+[0:21:42] I'm just going to click all of these
+[0:21:44] and just bring them as they are closest.
+[0:21:46] Then once some doors have been made,
+[0:21:48] they will start showing up in this stockpile
+[0:21:50] and we can place those as well.
+[0:21:52] So I will continue once my doors are ready.
+[0:21:54] Now my doors are ready to be constructed.
+[0:21:56] So again, we're going to hit the B key.
+[0:21:58] We're going to open up the structures menu.
+[0:22:00] I'm going to click on doors and then,
+[0:22:02] or doors and hatches, click on doors
+[0:22:04] and we are going to place doors in all of these locations.
+[0:22:07] Now the dwarves will just sleep in these beds
+[0:22:09] and they will be happier for just having beds.
+[0:22:12] However, if they can assign them
+[0:22:13] as their own personal bedrooms, they will be even happier.
+[0:22:17] So I'm going to go to the zone tool,
+[0:22:18] which we haven't explored yet.
+[0:22:20] The zone tool are for various different room types.
+[0:22:22] We're going to click on bedrooms
+[0:22:23] and then I'm going to click on multi.
+[0:22:25] Then I'm just going to click and drag
+[0:22:26] because there's doors on these bedrooms.
+[0:22:28] The game automatically detects that these are bedrooms
+[0:22:30] and then we can create bedrooms.
+[0:22:32] Then the dwarves will just simply claim them
+[0:22:33] as they sleep in them.
+[0:22:34] As you can see, this dwarf now feels blissful
+[0:22:37] after sleeping in a good bedroom
+[0:22:38] versus this dwarf that sleeps without a proper room
+[0:22:41] because they are asleep while I made it
+[0:22:43] and haven't claimed it yet.
+[0:22:45] The next and extremely crucial step
+[0:22:46] that I'm going to cover also includes zones.
+[0:22:48] We're going to make a pen and pasture.
+[0:22:50] Every fortress starts off with a couple horses and donkeys
+[0:22:53] or things that pull your wagon.
+[0:22:55] Maybe if you're very lucky, you'll get elephants.
+[0:22:57] And lots of creatures in dwarf fortress are grazing.
+[0:23:00] Now grazing creatures need to be pastured
+[0:23:02] in a pen and pasture zone.
+[0:23:04] So I've queued up this pen pasture zone right here
+[0:23:07] and I'm going to click on this little plus symbol
+[0:23:09] with the bunny rabbit on it.
+[0:23:10] Then I'm going to scroll down
+[0:23:11] and I'm going to add our donkey, our camel, our horse,
+[0:23:15] and also our sheep.
+[0:23:16] These are all of our current grazing animals.
+[0:23:19] The game doesn't really tell you anywhere
+[0:23:21] so I would recommend referencing the wiki
+[0:23:24] if you're confused as to whether or not
+[0:23:25] a animal is grazing or not.
+[0:23:28] But long story short, if you see them wandering around
+[0:23:30] with a little hungry symbol above their head,
+[0:23:31] they're probably grazing
+[0:23:33] and you should probably pasture them somewhere.
+[0:23:35] There are two more things I would like to cover in this video
+[0:23:37] and that is taverns and brewing.
+[0:23:39] The first thing we're going to do is taverns.
+[0:23:41] So I'm going to scroll back up
+[0:23:42] to where these two workshops are
+[0:23:44] and we are going to queue up some tables and chairs.
+[0:23:48] Lastly, we're going to go over to this workshop
+[0:23:50] and I think we're going to make chairs at the workshop
+[0:23:52] because I kind of like the way wooden chairs look sometimes.
+[0:23:55] We're going to make one chair for each table
+[0:23:57] that I'm constructing.
+[0:23:58] And from that, we are going to then go back down
+[0:24:02] to our large area that we've carved out down at the bottom.
+[0:24:04] Now, dwarves need meeting spaces.
+[0:24:05] Meeting spaces allow them to socialize and make friends.
+[0:24:09] Without this, they've kind of become depressed.
+[0:24:11] So we have to give them a space that is sort of public
+[0:24:14] where they can spend their time.
+[0:24:16] Now, we're going to do this by making a tavern.
+[0:24:18] And the way we're going to do that
+[0:24:19] is we're going to make this meeting area zone
+[0:24:21] and cover this area that this dwarf
+[0:24:23] is currently taking out.
+[0:24:25] Of course, we can expand this later
+[0:24:26] by using the repaint tool.
+[0:24:28] From there, we are going to click on
+[0:24:29] assign a new or existing location to this zone.
+[0:24:32] We are then going to add a in slash tavern.
+[0:24:35] Now, the in slash tavern will automatically get visitors
+[0:24:38] which maybe we don't want in a brand new fortress
+[0:24:40] because they just show up and drink all of your alcohol.
+[0:24:42] So we're actually going to set this
+[0:24:44] to citizens and long-term residents only
+[0:24:47] in this middle button here.
+[0:24:48] Now, as you can see,
+[0:24:49] immediately all the dwarves are down and in the tavern
+[0:24:51] and they have this socialized job.
+[0:24:53] If we go to this other screen that we haven't looked at yet
+[0:24:55] which is the unit screen,
+[0:24:56] we can see what everybody's currently doing.
+[0:24:58] And no job means they're literally doing nothing
+[0:25:00] and socializing is considered a task
+[0:25:03] that they have to complete.
+[0:25:04] It's something that they have a need for.
+[0:25:05] They need to socialize and speak with other dwarves
+[0:25:08] and make friends and have a good time.
+[0:25:10] Otherwise, they get quite depressed.
+[0:25:11] Now, we're going to quickly expand this zone
+[0:25:13] because I didn't quite fill it out enough.
+[0:25:16] And then from here, we're going to start brewing alcohol.
+[0:25:18] Now, I personally like to brew alcohol in my taverns
+[0:25:22] especially because you'll know they'll have little spaces
+[0:25:24] to sit with these chairs that we are placing
+[0:25:27] in the tavern right now.
+[0:25:28] And then they'll just be able to drink their alcohol
+[0:25:31] in the tavern.
+[0:25:32] So what we're going to do is we are going to go
+[0:25:35] to the farming tab once again
+[0:25:36] and we're going to build a still.
+[0:25:38] Now, this still is just going to be built out
+[0:25:41] of the nearest material
+[0:25:41] which is going to be a piece of chalk
+[0:25:43] and we're going to see if we can get that last table in.
+[0:25:46] Yes, now we can.
+[0:25:47] So this still, in order to brew alcohol,
+[0:25:49] requires a plant that can be brewed into alcohol
+[0:25:52] which is many things that can be harvested from the surface
+[0:25:54] like I showed you at the beginning
+[0:25:55] or plump helmets which we are growing
+[0:25:57] or any other number of underground crops.
+[0:26:00] But currently, we don't have any empty food storage items
+[0:26:03] which means there's nowhere for us to put the brewed alcohol
+[0:26:06] which means it's probably a good idea
+[0:26:08] for us to go make some barrels.
+[0:26:10] Now, there are a few alternatives to barrels.
+[0:26:12] You can make rock pots at craft store shops.
+[0:26:14] You can make metal barrels.
+[0:26:16] I think you can make glass barrels
+[0:26:18] but that's probably a topic for a different video.
+[0:26:20] Right now, we're just going to make
+[0:26:22] a couple of these barrels.
+[0:26:23] I could set up a repeating task
+[0:26:25] which would just make barrels until they ran out of wood.
+[0:26:27] But I think for this beginning fort,
+[0:26:29] it's just easiest to just create a couple of barrels.
+[0:26:32] Once this dwarf here has made the barrel
+[0:26:34] out of the wood pine logs in this instance,
+[0:26:37] then we're going to check back in with our still
+[0:26:40] and make ourselves some alcohol.
+[0:26:42] Now that the barrel has been constructed
+[0:26:43] and we can see them popping up in our stockpile,
+[0:26:45] I'm going to scroll down to the still
+[0:26:47] and let's see if we can make ourselves some alcohol.
+[0:26:49] Looks like we have some plants that are brewable.
+[0:26:51] So we're going to brew drink from plant.
+[0:26:53] They're going to go grab whatever plant is brewable,
+[0:26:55] probably something we harvest from the surface.
+[0:26:57] Nope, it's some plump helmets and a pine barrel.
+[0:27:00] And then the dwarf is going to make alcohol.
+[0:27:02] So in this video, just to recap,
+[0:27:04] we've covered the job screens.
+[0:27:06] You can assign jobs to your dwarves.
+[0:27:07] We've covered brewing and farming
+[0:27:10] and basic survival techniques for your dwarves
+[0:27:13] as well as making furniture and mining.
+[0:27:16] We also covered the basics of scrolling around the map
+[0:27:19] and now we've made alcohol and we are farming.
+[0:27:22] Which means because we'll be farming throughout the year,
+[0:27:24] even on the off chance that this river freezes,
+[0:27:27] then we will be able to keep making drinks
+[0:27:30] for our dwarves and not die of thirst.
+[0:27:33] There is one more thing I would like to show you, however,
+[0:27:36] and that is necessary because we are fishing.
+[0:27:39] In order for dwarves to be able to consume fish,
+[0:27:41] you need a fishery
+[0:27:42] because they won't eat unprepared fish.
+[0:27:44] So I'm going to place a fishery right here
+[0:27:47] and this is maybe the simplest thing you can do
+[0:27:49] in Dwarf Fortress once you're fishing
+[0:27:50] because they will just automatically go prepare raw fish
+[0:27:54] and then they become edible
+[0:27:55] and your dwarves will eat them
+[0:27:56] and your food counter will go up.
+[0:27:58] If you've made it this far into the video
+[0:27:59] and you've followed along,
+[0:28:01] consider yourself prepped and ready
+[0:28:02] to be a beginner Dwarf Fortress player.
+[0:28:04] Expect much fun and failure,
+[0:28:06] but that is part of the game
+[0:28:07] as you will learn from your failures
+[0:28:09] and hopefully increase over time.
+[0:28:12] One more final tip,
+[0:28:13] when you are finished with a fortress,
+[0:28:15] my recommendation is to retire the fortress
+[0:28:17] or abandon the fortress
+[0:28:18] and then create a new fortress in the same world.
+[0:28:21] I know that there's always the temptation
+[0:28:22] to simply move on and generate a new world.
+[0:28:26] However, if you abandon or retire your fortress
+[0:28:29] and then make a new fortress in the same world,
+[0:28:31] only abandon it if it's in an outer peril,
+[0:28:34] and you're playing as part of the same faction,
+[0:28:36] your old dwarves may show up at your new location
+[0:28:39] and continue stories and allowing threads
+[0:28:42] to really kind of form from fortress to fortress
+[0:28:44] and that's really what gets those story juices flowing
+[0:28:47] like you hear the Addams Brothers talking about.
+[0:28:49] Thank you very much for watching this video.
+[0:28:51] If you would like to see more like it, I have many,
+[0:28:52] and I hope to see you.

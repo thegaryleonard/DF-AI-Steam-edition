@@ -1,0 +1,91 @@
+CHAPTER: temples (2:53:18-2:58:11) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[2:53:18] bedrooms have been selected and are good to go.
+[2:53:21] Dwarves will assign themselves to these bedrooms.
+[2:53:23] This is how you make bedrooms in Dwarf Fortress.
+[2:53:27] Hello everybody and welcome to another quick Dwarf Fortress tutorial.
+[2:53:30] In this video we're going to be covering making a temple.
+[2:53:32] Temples are a very important part of Dwarven society.
+[2:53:34] It allows them to kind of relax, socialize to a degree, as well as pray and meditate
+[2:53:37] to their gods.
+[2:53:38] It's something that a lot of people tend to overthink and it's actually quite a simple
+[2:53:41] system.
+[2:53:42] So we're going to be walking through the basics.
+[2:53:43] It's a zone just like taverns and other things but first because we are going to be building
+[2:53:48] off of this little hallway we're going to need to dig a space for it.
+[2:53:51] Temples can be as small or as big as you like but we're going to keep it reasonable so
+[2:53:55] we're going to go with about yea big.
+[2:53:56] Kind of give it a nice rounded off edge kind of feel to it just so that it doesn't feel
+[2:54:00] like a boring square and we're going to give it a door.
+[2:54:02] Then we're going to wait for our dwarves to dig out this area and once this area
+[2:54:04] has been dug out we will continue with the video.
+[2:54:07] Now that our dwarf here is making some progress we have to do the next thing that
+[2:54:10] any self-respecting dwarf would in a cave which is start smoothing the floors.
+[2:54:14] We don't want to have dingy rocky stubbly floors around our lovely illustrious soon to
+[2:54:20] be temple to our chosen deity or a generic deity.
+[2:54:24] So because there are many gods in any dwarven society you kind of have to select one or
+[2:54:30] you can go with a generic temple.
+[2:54:31] Now this kind of leads to some discussion as to whether or not you should make one temple
+[2:54:35] for every single god or just simply one generic temple.
+[2:54:38] I tend to lean in the direction of just making one temple for everything and then over time
+[2:54:42] opening it up to more gods as they become requested where there's also some fighting
+[2:54:47] going on in the basement as per usual.
+[2:54:49] So as the smoothing continues and we continue to smooth stuff out we can now pretty quickly
+[2:54:54] once an area becomes available select a spot for our altar.
+[2:54:59] Now keep in mind temples are a pretty modular thing and don't actually require any specific
+[2:55:04] furniture.
+[2:55:05] You can just make a temple an open square in an open field.
+[2:55:08] It doesn't even need to be indoors in fact.
+[2:55:10] There really is some fighting going on in the ground and someone's been found dead.
+[2:55:13] As per usual with Dwarf Fortress.
+[2:55:15] So first off we're going to throw a door onto the outside of this just so that it
+[2:55:18] looks like a room or a space unto itself.
+[2:55:21] Very important.
+[2:55:22] So we can either press B on the keyboard or click on the build key and then we're
+[2:55:25] going to click on doors and hatches and grab ourselves a door.
+[2:55:27] This is something that we made at the stoneworker shop previously and it's going to be built
+[2:55:31] right there.
+[2:55:33] Now that everything is dug out and we're just finishing up the smoothing we're going to
+[2:55:35] construct ourselves an altar or also known as an offering place.
+[2:55:39] Underneath the construction menus in either in any of the workshops that can build them
+[2:55:43] either out of wood or out of stone at the stoneworker shop like we did they are referred
+[2:55:47] to as offering places.
+[2:55:49] So we're going to jump into furniture by either pressing B to pop up the build menu
+[2:55:53] and F to press up to get furniture and then we can either press P on the keyboard to
+[2:55:57] grab the offering place or simply click on the offering place.
+[2:56:00] Now this is a small little place of worship essentially.
+[2:56:05] Now the rest of the construction of this here temple is going to be done within the zones
+[2:56:10] screen.
+[2:56:11] There are certain instances where you may need to increase the value of these zones but
+[2:56:15] because this is a temple that we're just building of our own accord and not one that
+[2:56:18] is demanded by our citizens we are not adhered to any specific item values.
+[2:56:23] We can now click on zones and we are going to go to meeting area.
+[2:56:28] We're going to click and drag and fill this entire little spot up with this meeting area
+[2:56:33] and then if we want we can be a little bit fancy and just make sure that things kind
+[2:56:37] of fit and don't look off.
+[2:56:39] So we're going to select all of this with second time although we have it set to a race
+[2:56:42] right now so let's just remove that and build our meeting area.
+[2:56:46] Now from this meeting area we can give it one of these following settings.
+[2:56:52] This one as I said is going to be a temple so we're going to assign it as a new temple.
+[2:56:57] Now we can either assign one of these gods to each different temples of their own and give
+[2:57:01] these specific religions each a temple of their own but that would be incredibly cumbersome
+[2:57:05] and confuse the dwarves pathing and they wouldn't know where to go to pray.
+[2:57:09] So what we're going to do is essentially give a no specific deity temple to everybody where
+[2:57:14] anybody can go and worship at any time.
+[2:57:16] If we want to set details for specific rules with this temple we can click on this little
+[2:57:21] magnifying glass here.
+[2:57:23] We can allow visitors to visit the temple or citizens only.
+[2:57:25] In this instance I think this should be for citizens only.
+[2:57:28] Maybe citizens and long term residents as we do have a couple mercenaries living here.
+[2:57:32] And this is going to be the spot where all dwarves can congregate and worship.
+[2:57:35] If you want to add any other fancy additions to your temple feel free.
+[2:57:38] You can add anything from musical instruments to coffers and chests to store items in.
+[2:57:44] Right down to statues and various other pieces of furniture like chairs and tables or food
+[2:57:49] even if you want.
+[2:57:50] There's still really some fighting going on in the basement that's kind of unfortunate.
+[2:57:55] If you found this tutorial helpful as a way to show your dwarves where to go and worship
+[2:57:59] and get some much needed downtime as our Kvish friend here who is meditating on death just
+[2:58:05] like the basement is doing.
+[2:58:07] If you found this video helpful I recommend checking out this YouTube channel.
+[2:58:09] I got more tutorials on Dwarf Fortress than you could watch in a reasonable amount of
+[2:58:12] time as well as just more Dwarf Fortress than you could reasonably watch in a lifetime.
+[2:58:15] Thank you very much for watching this video and I hope to see you in the next one.

@@ -1,0 +1,40 @@
+CHAPTER: tombs (2:44:31-2:47:20) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[2:44:31] in the next one hello everybody and welcome back to another one of those quick dwarf fortress tutorials
+[2:44:35] in this video we're going to be talking about the things that happen when dwarves die they
+[2:44:38] come back as ghosts and we need to prevent this they have a tendency to haunt and terrorize and
+[2:44:42] damage dwarves that are still living so you do definitely want to deal with your dead quickly
+[2:44:46] now what we're going to do is we're going to make a coffin to bury this dwarf in we could
+[2:44:50] also make a slab if we couldn't find the body so for this video we're going to be queuing up a
+[2:44:54] coffin as well as a slab so once both of these are done we're going to cover both methods now
+[2:44:59] keep in mind you only need to do the slab one if for some reason you no longer have access to the
+[2:45:03] body maybe it got burned maybe you just didn't notice it for a really long time and it's at
+[2:45:07] the bottom of a waterfall and you're too lazy to get it out perhaps it's stuck in a tower somewhere
+[2:45:12] because they locked themselves in and starved to death so now what we're going to do is we're
+[2:45:15] going to dig them a small little space into a wall this can be made by you or just naturally
+[2:45:20] found but it needs to be a little space underground then what we're going to do or inside the
+[2:45:24] building alternatively then we're going to place a door on front of it and then we're going to
+[2:45:27] take our sarcophagus and place it in the room now the reason i put a door on this is so that we can
+[2:45:32] use a secondary function perhaps we want to queue up multiple coffins and then we want to do more of
+[2:45:37] these at once so the way this works you go to the zone tool and then from there you go to the tomb
+[2:45:41] by default you can simply make individual tombs by drawing on them and then clicking its
+[2:45:47] except in between so one tomb right here one tomb right here alternatively what we could do
+[2:45:53] is we could delete both of these and then i could use the multi-tomb option by clicking this button
+[2:45:59] and then clicking and dragging this automatically creates two tombs because it recognizes that
+[2:46:03] there's doors on them and coffins inside and then the dwarf as you can see has already been buried
+[2:46:08] rest in peace cog now if we were to also once again not have access to the body then we could
+[2:46:13] take our slab right here that was made over at the stoneworker shop and we can add another task
+[2:46:18] and click engrave memorial here we can memorialize the dwarfs whose body we haven't been able to get so
+[2:46:24] far as you can see it says entombed some of them are watchful of you in these series may have noticed
+[2:46:28] that in the fortress of well even one dwarf died it was a very unfortunate situation with honey
+[2:46:32] badgers anyway i'm going to now click on this and engrave it for stuck hood the other deceased
+[2:46:38] dwarf now as you can see there is a memorial to stuck hood and we're going to go down here
+[2:46:42] by our little tomb area and we are going to click on slab and we are going to place it
+[2:46:47] and as you can see if i click this little down arrow then it'll say that it's a memorial to this
+[2:46:51] dwarf if you have multiple slabs it will give you a whole list so just make sure you select
+[2:46:55] the right one the dwarf then comes in and memorializes the dwarf and there's no chance
+[2:46:59] of ghost spawning thank you very much for watching this full complete guide on tombs and memorials
+[2:47:04] if you enjoyed this video and you would like to see more just like it i do have a whole ton
+[2:47:07] on this youtube channel and if you'd like to see more longer let's plays i have stuff like that
+[2:47:11] as well as well as vods from me on twitch if you'd like to watch me live you can find me
+[2:47:15] at twitch.tv slash blind irl and thank you very much to everybody who's jumped on the patreon
+[2:47:18] recently cheers everybody and i'll see you in the next one

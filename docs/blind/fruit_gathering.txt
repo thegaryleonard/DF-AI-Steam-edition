@@ -1,0 +1,153 @@
+CHAPTER: fruit_gathering (2:32:11-2:37:12) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[2:32:11] I'll see you in the next one, bye.
+[2:32:13] Hello everybody and welcome back
+[2:32:14] to another quick tour fortress tutorial.
+[2:32:16] In this video we are going to be talking about gather zones.
+[2:32:18] Gather zones are a very easy way
+[2:32:19] to sustainably feed your fortress
+[2:32:21] and a very easy way to quickly feed a fortress
+[2:32:24] if you feel like completely avoiding farming altogether,
+[2:32:27] especially in the early game.
+[2:32:28] So what we're gonna first off do
+[2:32:29] is we're going to make ourselves a food stockpile.
+[2:32:31] So because we've just embarked
+[2:32:33] and we have these lovely elephants here
+[2:32:34] and we do have some dwarves
+[2:32:35] that are underground farming already,
+[2:32:37] they're going to be putting a bunch of food into this.
+[2:32:39] But what we're gonna be doing
+[2:32:40] is we're going to be gathering plants
+[2:32:42] and designating this zone for plants.
+[2:32:44] So we're gonna start off by quickly making a zone.
+[2:32:46] We're gonna click and drag
+[2:32:47] and give it a nice little size here.
+[2:32:49] And this fortress is gonna be building up a little bit.
+[2:32:51] We're gonna be building down in a bit
+[2:32:52] and we're gonna be doing more tutorials in this fort.
+[2:32:54] So it's gonna kind of have things
+[2:32:55] all over the place for a little bit.
+[2:32:56] But we're gonna be placing this
+[2:32:58] and then what we're going to do
+[2:32:59] is we're going to jump over into custom
+[2:33:01] and we're gonna go into food.
+[2:33:02] And then instead of giving you just kind of everything,
+[2:33:05] we're gonna say fruit and leaves.
+[2:33:08] And we are going to say plants.
+[2:33:10] Now this is gonna give us bushes, berries
+[2:33:13] and other things that we're gonna get from the surface
+[2:33:14] as well as kind of tubers
+[2:33:16] and stuff that's gonna come from the trees
+[2:33:18] and all of that jazz.
+[2:33:19] So it's gonna be kind of a nice little variety of things.
+[2:33:22] Now, if you're settling in a more sparse biome,
+[2:33:25] like let's just say something like this
+[2:33:27] where there's some stuff growing,
+[2:33:29] this can be used and worked quite effectively.
+[2:33:32] And let's say you're in a more dense biome
+[2:33:34] where there's a lot of tree coverage.
+[2:33:36] This can also be very useful.
+[2:33:38] So there's two ways we can go about this.
+[2:33:40] We can use the lovely little plant gathering tool
+[2:33:43] and click and drag and gather these little wild plants here.
+[2:33:47] As you can see, these plants are now all selected
+[2:33:51] with the kind of little icon
+[2:33:53] that comes alongside of the plant gathering zone.
+[2:33:55] And it's quite nice.
+[2:33:57] They will gather up quite a bit of food.
+[2:33:58] They'll also gather up quite a lot of plant fiber
+[2:34:00] and we'll use that as part of the like clothing tutorial
+[2:34:04] and the cloth tutorial that we'll do later.
+[2:34:07] But we're gonna close all that off for right now.
+[2:34:09] And the main point of this video
+[2:34:11] is to talk about gathering zones.
+[2:34:13] So if I click on this place zones
+[2:34:16] to establish a meeting areas, pastures and whatnot
+[2:34:19] and close the pesky tutorial,
+[2:34:20] and then right down here,
+[2:34:21] you're gonna see this button that says gather fruit.
+[2:34:23] And it says plant gathering zones are used in locations
+[2:34:26] where plants will be gathered frequently.
+[2:34:29] Use gather designation otherwise.
+[2:34:31] So if you don't want stuff to be gathered frequently,
+[2:34:33] you're gonna wanna be using the gathering designation
+[2:34:35] that I just showed you.
+[2:34:36] Otherwise we can select this.
+[2:34:37] Now we can make this whatever shape we want.
+[2:34:39] I don't like squares,
+[2:34:40] but we just wanna make sure that we gather
+[2:34:42] a good amount of stuff, right?
+[2:34:44] So now we're just gonna click accept on this.
+[2:34:46] And now as you can see,
+[2:34:47] there are three toggles on this.
+[2:34:49] The first toggle is gather fruit in trees
+[2:34:52] in and just above the zones.
+[2:34:54] So essentially what they're gonna do
+[2:34:56] is assuming you embarked with step ladders,
+[2:34:59] which you probably did,
+[2:35:00] especially if you did the default embark,
+[2:35:01] like we did here.
+[2:35:03] If I scroll all the way down, there we go.
+[2:35:04] Coconut step ladder.
+[2:35:06] Of course, you can make more step ladders
+[2:35:09] over here in your carpenters workshop
+[2:35:11] that you should build right away.
+[2:35:12] We could build a couple of these even.
+[2:35:13] Now step ladders, dwarves will use them
+[2:35:17] and they will jump up one layer into trees
+[2:35:19] and then they will pick and gather fruit in this zone
+[2:35:22] if you have step ladders available.
+[2:35:24] Just make sure that you have some extras available
+[2:35:26] because keep in mind,
+[2:35:27] dwarves can get stuck up in trees
+[2:35:28] and usually they can get down,
+[2:35:29] but sometimes they have a hard time of it.
+[2:35:31] So just make sure that if you're gonna do this
+[2:35:33] and you're gonna leave this option on,
+[2:35:36] just be wary that they might get stuck in trees.
+[2:35:39] The second thing that I would like to show you here
+[2:35:42] is gather fruit.
+[2:35:44] This is going to select,
+[2:35:46] get fruit and stuff from these plants.
+[2:35:48] We've got grape vines,
+[2:35:49] we've got these prickleberries,
+[2:35:52] we've got grape leaves,
+[2:35:53] we've got more grapes, more grapes.
+[2:35:56] That can be made into wine, obviously,
+[2:35:58] which is very good for brewing.
+[2:35:59] Raspberry is also good to make into raspberry wine.
+[2:36:01] Dwarves love that stuff.
+[2:36:02] And then lastly, over here, we have fallen fruit.
+[2:36:05] This is only applicable when fruits are in season
+[2:36:08] and they fall from the trees.
+[2:36:09] You can actually see them on the ground
+[2:36:10] when they fall from the trees, it's quite beautiful.
+[2:36:12] You get a large variety of colors
+[2:36:14] and it's one of the things that I really, really liked
+[2:36:16] about the old ASCII versions.
+[2:36:17] And now as you can see,
+[2:36:18] the dwarves are all over here
+[2:36:19] and they are gathering fruits and bringing them back.
+[2:36:22] This technique in very calm biomes
+[2:36:23] where you don't need to worry too much about being outside
+[2:36:25] or if you can kind of cordon off an area of trees
+[2:36:29] and use it kind of like an orchard,
+[2:36:30] you can get a lot of food supply
+[2:36:32] in a very short amount of time
+[2:36:34] without worrying too much about safety
+[2:36:38] or without worrying too much
+[2:36:39] about actually having to manage it yourself.
+[2:36:41] Just keep in mind that if there are scary things around,
+[2:36:44] they will attack your dwarves
+[2:36:45] and you might not want to use this in a riskier biome
+[2:36:47] like untamed wilds or anything haunted or joyous wilds
+[2:36:51] or anything that I would consider,
+[2:36:53] or that anybody would consider dangerous, I suppose.
+[2:36:56] If you found this video helpful,
+[2:36:57] give this channel a subscription,
+[2:36:59] leave a comment down in the description.
+[2:37:00] If you liked it, give this video a thumbs up.
+[2:37:01] And if you want to see my face
+[2:37:02] while I play video games on the internet,
+[2:37:04] check out my Twitch streams at twitch.tv, slash B-L-I-N-D-I-R-L.
+[2:37:07] Thank you very much for watching this video
+[2:37:09] and I hope to see you in the next one.

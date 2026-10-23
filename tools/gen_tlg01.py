@@ -222,25 +222,31 @@ def start():
                                'FoodCheesePlant', 'FoodCheeseAnimal', 'FoodSeeds', 'FoodLeaves', 'FoodMilledPlant',
                                'FoodBoneMeal', 'FoodFat', 'FoodPaste', 'FoodPressedMaterial', 'FoodExtractPlant',
                                'FoodExtractAnimal', 'FoodMiscLiquid']]
-    # level 1 (z-1): food pile, carpenter, mason, starter dormitory
-    c1, h1 = hub_level(t, -1, P + 'hub_room', prefix='l1_', remove=False, corner_rooms={
+    # z-1: bare stair shaft, so the fort proper is 2+ levels under the surface
+    # (Blind: felling trees above a 1-deep fort opens holes in the ceiling)
+    shaft = t.room('shaft', -2, -2, 2, 2, -1, type='corridor', corridor_type='corridor', comment='staircase')
+    for (x, y) in X_STAIRS:
+        shaft.f(x, y, -1, **stair(x, y, -1))
+    shaft.access = ['entrance']
+    # level 1 (z-2): food pile, carpenter, mason, starter dormitory
+    c1, h1 = hub_level(t, -2, P + 'hub_room', prefix='l1_', remove=False, corner_rooms={
         'nw': corner_stockpile('food'),
         'ne': corner_wrapped_workshop({'type': 'workshop', 'workshop_type': 'Carpenters'}, {'stockpile_type': 'wood'}),
         'se': corner_wrapped_workshop({'type': 'workshop', 'workshop_type': 'Masons'},
                                       {'stockpile_type': 'stone', 'stock_disable': ['StoneOres', 'StoneEconomic', 'StoneClay']}),
         'sw': corner_dormitory(8),
     })
-    c1.access = ['entrance']
-    # level 2 (z-2): manager + broker offices side by side, still + drinks room
-    c2, h2 = hub_level(t, -2, P + 'hub_room', prefix='l2_', remove=False, corner_rooms={
+    c1.access = ['shaft']
+    # level 2 (z-3): manager + broker offices side by side, still + drinks room
+    c2, h2 = hub_level(t, -3, P + 'hub_room', prefix='l2_', remove=False, corner_rooms={
         'nw': corner_office(0),
         'ne': corner_office(1),
         'sw': corner_wrapped_workshop(still, plant_pile),
         'se': corner_stockpile('food', comment='drinks', stock_disable=drinks_only),
     })
     c2.access = [c1.name]
-    # level 3 (z-3): open hub, stair continues down
-    c3, h3 = hub_level(t, -3, P + 'hub_room', prefix='l3_', remove=False, down=True,
+    # level 3 (z-4): open hub, stair continues down
+    c3, h3 = hub_level(t, -4, P + 'hub_room', prefix='l3_', remove=False, down=True,
                        corner_rooms={k: 'exit' for k in ('ne', 'nw', 'se', 'sw')})
     c3.access = [c2.name]
     return t
@@ -325,13 +331,18 @@ def location():
     t = T()
     r = t.room('hall', -5, -11, 5, -1, type='location'); r.placeholder = 0
     r.f(-1, 0, type='door'); r.f(1, 0, type='door')
-    for y in (-9, -7, -5, -3):
+    # Blind: a tavern needs ~6x6 open floor for dancing and exactly one chair
+    # per table, so only the back half gets table rows
+    for (x, y) in ((-5, -10), (5, -10)):
+        r.f(x, y, type='chest', placeholder=1)
+    for y in (-9, -7):
         # chair table table chair | aisle | chair table table chair
         for x, kind in ((-5, 'chair'), (-4, 'table'), (-3, 'table'), (-2, 'chair'),
                         (2, 'chair'), (3, 'table'), (4, 'table'), (5, 'chair')):
             r.f(x, y, type=kind, placeholder=1)
     for x in range(-5, 6):
         r.f(x, -11, placeholder=3)
+    r.f(0, -6, placeholder=4)  # altar (offering place) for temples
     s = t.room('pile', -4, -10, 4, -10); s.placeholder = 2; s.workshop = 'hall'
     return t
 
@@ -381,6 +392,8 @@ def main():
         src = os.path.join(rooms, 'instances', 'generic01_' + typ)
         for fn in os.listdir(src):
             obj = json.load(open(os.path.join(src, fn), encoding='utf-8'))
+            if typ == 'location':
+                obj['p'].append({'type': 'offering_place'} if obj['p'][0].get('location_type') == 'temple' else {'skip': True})
             if typ == 'location' and obj['p'][0].get('location_type') == 'tavern':
                 obj['p'][2]['comment'] = 'tavern - booze stockpile'
             write_json(I_DIR(typ, fn[:-5]), obj)
@@ -481,10 +494,10 @@ def make_plan():
         'bin': {'needed': 6},
         'bag': {'needed': 6},
         'coffin': {'needed': 4},
-        'splint': {'needed': 5},
-        'crutch': {'needed': 3},
+        'splint': {'needed': 10},
+        'crutch': {'needed': 10},
         'soap': {'needed': 5},
-        'bucket': {'needed': 4},
+        'bucket': {'needed': 10},
     }
     return plan
 

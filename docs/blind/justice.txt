@@ -1,0 +1,149 @@
+CHAPTER: justice (5:53:49-6:05:30) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[5:53:49] and fluids section and we can place our millstone right here and it will again be powered just as
+[5:53:54] it was before except underground instead of out in the open. Hello everybody and welcome to another
+[5:53:59] quick four fortress tutorial. In this video we're going to be covering the justice system, the
+[5:54:03] captain of the guard, the dungeon master, and the hammer. Also the sheriff which is the captain of
+[5:54:07] the guard but with a different name. Essentially what these jobs allow you to do is it gives you
+[5:54:11] access to this tab in uh the nobles area called the justice justice system and all of these tabs.
+[5:54:16] I'm going to walk through the ui explain what they all mean and what they do and then I'm going
+[5:54:19] to jump to a different fort where I'm going to show you some of this ui in action and kind of what it
+[5:54:23] can cause and what to look for. So the first thing I want to cover is the nobles associated with the
+[5:54:27] justice system. The first one starts off as the sheriff when you have a before you have a mayor
+[5:54:32] and then becomes the captain of the guard. Then once you acquire nobles and royals from there
+[5:54:37] you'll get the dungeon master and the hammer. Now although the hammer shows up when you get a
+[5:54:42] mayor. Now essentially what these jobs do is you assign a dwarf to them. This is Mebziz, our captain
+[5:54:47] of the guard. You assign them a uh they require a study which is an office zone. They require a
+[5:54:53] bedroom just like any normal dwarf and a dining hall. So for this particular dwarf uh they have
+[5:54:58] a study right here which includes a table uh two cabinets and then the the weapon rack and armor
+[5:55:04] stand. Then they have a dining room which is just over here. It says it's overlapping because
+[5:55:08] it's overlapping with some of these bedrooms because I was lazy. And then over here is
+[5:55:11] their bedroom. Now they require these specific buildings in order to function properly. If you
+[5:55:16] do not provide these buildings for them they will not be able to function. They don't need the bedroom
+[5:55:19] but they do at the very minimum need an office. And then the dining hall just makes them happy. I
+[5:55:23] think they actually cover meetings in in the dining hall. Now the uh hammer doesn't need
+[5:55:29] anything specific but the dungeon master does. Now you might wonder to yourself what do these
+[5:55:34] particular roles do? So the captain of the guard is kind of or the sheriff earlier in the game
+[5:55:39] is kind of like the fact the fortress police. When crimes are committed and crimes are things
+[5:55:43] like somebody tries to steal an artifact or a dwarf tantrums and breaks something or somebody
+[5:55:50] got into a fight in the tavern and kicked somebody in the forehead and their nose got knocked off.
+[5:55:55] Those kinds of events are then brought to the office of the captain of the guard.
+[5:56:00] Then they report those events to the captain of the guard and then they show up here in the
+[5:56:04] justice screen. Now in order for the justice screen to work and the captain of the guard to
+[5:56:08] be able to function properly you need some prison cells. If a crime is reported and it shows up in the
+[5:56:13] open cases section of the justice screen and there's witnesses and you click accept which
+[5:56:17] we'll cover in a little bit and you don't have a prison setup the captain of the guard over here
+[5:56:21] will simply go and beat the ever living crap out of the person until they keel over.
+[5:56:26] Now the uh within this screen here if we scroll through you can see total number of desired
+[5:56:33] cages and whatnot in the dungeon. So 12 of 13. This is based off of population. Every 10
+[5:56:37] dwarves you'll need one cage or chain. Our current prison setup is right here and I've just increased
+[5:56:42] the size of it and I'm going to really quickly designate this whole area as a prison and show you
+[5:56:46] how this works. So I've got cages down here and then I've got ropes and more cages and more ropes
+[5:56:52] and they're all in kind of a big open zone. If I click dungeon and I click and drag over
+[5:56:56] this entire zone it'll complete and then as they construct this stuff if I go back over here into
+[5:57:02] the fortress guards 13 of 13 we've got exactly what we need which means now my captain of
+[5:57:06] the guard and hammer won't get upset on unhappy moods underneath the fortress guard screen.
+[5:57:10] You can also appoint dwarves to a militia captain squad if for some reason you have a very
+[5:57:15] crime heavy fortress and they need a lot of help. Now the jobs that they that the different members
+[5:57:22] of this do is the captain of the guard takes crime reports and will take dwarves to prison
+[5:57:27] carry out beatings and will also take care of the prisoners in prison. However if this is
+[5:57:35] getting too much or if you have too large of a fortress then I recommend adding in a dungeon
+[5:57:39] master. The dungeon master will also take crime reports and will help kind of lift some of the
+[5:57:43] work off of the captain of the guard and alternatively if you have a very crime heavy
+[5:57:47] fortress I recommend adding in a hammer. Now the thing about the hammer is the hammer does one
+[5:57:51] job and that is they carry out the beatings. So say perhaps your captain of the guard is in a
+[5:57:56] military squad and training a lot and very very strong. Maybe you don't want your captain of the
+[5:58:00] guard walking over and one-shotting your wrist into pieces because he punched him so hard in
+[5:58:04] the face. What you really want is you want weak jimbo number 44 the hammer over here with the weakest
+[5:58:10] weapon you have in the fortress to walk over and lightly slap them a couple of times so they don't
+[5:58:14] die but they get the so that they get the idea. And then from there you'll see open cases and for
+[5:58:20] this part of the tutorial I'm going to jump over to a different fortress that is significantly more
+[5:58:24] active in let's just say crimes. So now as you can see we are in the fortress of water lungs
+[5:58:30] which is a fortress I'm currently streaming. This fortress if I go through we have all of these
+[5:58:35] unsolved crimes. Now these can be one of two situations these can be a an attempted uh somebody
+[5:58:42] trying to steal something from the fortress this could be somebody committing a crime and not getting
+[5:58:46] reported correctly. In the case of all of these these were all um not reported correctly so we
+[5:58:51] don't have any witnesses because they were reported before my captain of the guard was fully equipped
+[5:58:55] to actually deal with problem dwarves. They can also become unsolvable if the perpetrator gets killed
+[5:59:03] so keep that in mind. Now the part of this system that is half built is the intelligence section
+[5:59:10] this section over here for conspiracies. Now I will jump over to a different save in a little
+[5:59:14] bit that has some active conspiracies and this is why this tutorial has taken so long to make
+[5:59:18] is because I need like four different saves to actually show you everything. But essentially we
+[5:59:23] have these open cases. Now open cases are recently reported crimes. If we for some reason had
+[5:59:30] no witnesses we can go through and we can interrogate anybody in the fortress. So if us
+[5:59:35] the player witnessed a fight happening and it didn't get properly reported I can go and
+[5:59:39] interrogate somebody who would have witnessed that fight and hopefully that will give us
+[5:59:42] some more information as to who did the the violence. Now if you scroll down you can even
+[5:59:47] interrogate a goat if you wish. Although I will admit while this does train your goats
+[5:59:55] or not your goat your captain of the guard speaking ability it will not give you much chance
+[5:59:59] of finding the perpetrator. So I'm going to interrogate two dwarves here and then I will
+[6:00:05] show you the result in the intelligence screen. Now as this dwarf gets dragged off to be
+[6:00:10] interrogated something that is also worth noting is if you have public taverns it might not be
+[6:00:14] a bad idea to just interrogate random visitors that show up. Now the interrogation is complete
+[6:00:19] and the dwarf has been brought to the office to be interrogated we can then go back into the
+[6:00:22] noble screen to see the results. So if we go to the justice screen we can go to intelligence
+[6:00:26] and we can look at this interrogation report. If I click on it it says that we met with the
+[6:00:31] subject on behalf and the subject appealed to the subject's belief in truth and the subject
+[6:00:36] valued honesty and despite being intellectually stubborn and the subject used iton tattooed
+[6:00:42] stake as an alias in the past. So in the past this dwarf has actually lied about who they are
+[6:00:47] and we just learned a little bit of information about this dwarf. Of course this doesn't expose
+[6:00:51] any plots or organizations but it does give us an actors list they haven't committed any crimes
+[6:00:55] so we know they are not involved. Now this system can get quite interesting when you start
+[6:00:59] interrogating people that are trying to steal artifacts because they will give you information
+[6:01:04] like oh this person from an unknown civilization or unknown entity plotted to steal this artifact.
+[6:01:09] Now this is where this gets clunky because this system is half built. This system is supposed to
+[6:01:13] be part of the villains and treachery systems in dwarf fortress and the problem with this is this
+[6:01:20] system is half of a patch. We got part of this system so that Zach and Tarnadums could go work
+[6:01:27] on the steam version that you're seeing now. So these features have actually been in previous
+[6:01:32] versions of the game obviously with the older UI but it's it's unfinished it's impossible to
+[6:01:38] complete a lot of the plots that you'll get screwed out. However you can still get some really
+[6:01:44] interesting bits of lore out of it so it is still worth paying attention to this system and some
+[6:01:48] other reasons why you want to pay attention to this system is as you can see we have a bunch of
+[6:01:51] dwarves in prison here. If I look at them this person this dwarf right here feels guilty after
+[6:01:56] being confined this dwarf over here actually this militia captain Lolar actually feels repentant after
+[6:02:01] being confined meaning this is actively improving their mental health being in prison. You can
+[6:02:06] also make extremely nice prison cells for your dwarves and this will incredibly and greatly
+[6:02:11] increase the happiness of the dwarves. If you have something like a vampire in your fortress and
+[6:02:15] you see them walk in your fortress and they look odd and you're very suspicious of them and you
+[6:02:19] interview them they might just admit to being a vampire and then you can put them in prison and
+[6:02:23] seal off the door permanently. Also little dwarves like this little child here what it's Frank
+[6:02:28] is actually feeling sympathy after bringing somebody water so this dwarf is getting
+[6:02:31] positive moves from it. This dwarf over here is also repentant after being confined and was
+[6:02:37] incredibly stressed beforehand and was like tantruming a whole lot and causing problems in
+[6:02:40] the fortress. So a reason to very much take part in this system of prisons is it can actually
+[6:02:46] improve the overall health of your fortress. I see some people saying oh I ignore it because
+[6:02:50] if you ignore the nobles demands up here and let's say I fail to make ballista arrows again
+[6:02:55] some dwarves might get thrown in prison but a percentage of them will actually improve
+[6:03:00] in mental stability wise while they're in prison unlike real life. So largely I would say that the
+[6:03:06] disorderly conduct under open cases is definitely something you want to pay attention to. If you
+[6:03:10] have an open case it'll show up like this where it says this dwarf JKRT uh committed disorderly
+[6:03:15] conduct and there was seven witnesses. I could interrogate JTRT and get their side of the story
+[6:03:20] first or I could just simply convict them. Once we convict them it states that they have been
+[6:03:24] convicted and then from my from my knowledge it should just go directly into closed cases here.
+[6:03:30] Probably down at the bottom of the list if I had to guess or nope at the top of the list from
+[6:03:34] looks at things I need to unpause the game to ever so slightly repause it and jump back over
+[6:03:38] to closed cases and it hasn't popped up yet they'll get it in there. And then over here we
+[6:03:41] have cold cases which are usually just somebody died before they could possibly be convicted.
+[6:03:48] Now you can still convict dwarves within cold cases and you can also interrogate dwarves and
+[6:03:51] if you can find a witness you can convict them which any dwarf that values the law that was
+[6:03:56] involved in that case or any dwarf who's tangentially involved or related will get
+[6:04:01] happy thoughts about the fact that well this dwarf fallout rain here uh injured Jaden and uh
+[6:04:07] so now all of Jaden's family are oh yes they're happy and if Jaden is still alive in the fortress
+[6:04:12] then that dwarf will be happy as well. Um over here underneath the fortress guard once again
+[6:04:18] lists the fortress guard everybody who's ever been convicted in the fortress and you can select and
+[6:04:22] see what they've been convicted of and then lastly over here under intelligence so let's say we we
+[6:04:27] interrogated this human uh saspa the human mercenary now uh we made intimidating remarks
+[6:04:32] in the late winter of 255 an unidentified creature plotted to assassinate an unidentified creature
+[6:04:36] in order under the influence of unidentified creature via subject so this is something that's
+[6:04:40] completely unrelated to us however in uh in 252 the subject plotted to infiltrate chunky orb that
+[6:04:45] is us in order to steal treasures and prepare a coup under the influence of an unidentified
+[6:04:50] creature now we can theoretically figure out who this unidentified creature is if we keep
+[6:04:54] interrogating people in fact there was one time in a fortress i was able to find the unidentified
+[6:04:58] creature and it just straight up gave me their name however the prepare a coup portion is
+[6:05:02] unfinished so that will never actually happen same with certain artifacts getting stolen it's
+[6:05:07] very difficult to get the artifacts back a lot of this a lot of the artifact theft stuff is
+[6:05:12] primarily an adventure mode feature where you're kind of intended to go find the artifact in
+[6:05:16] adventure mode and then bring it back or and uh the coup stuff that is part of villains part two
+[6:05:21] if you see assassination attempts talked about that is villains part two if you see uh various other
+[6:05:26] things uh that it seems like you can't interact with or nothing ever happens then that is also
+[6:05:31] villains part two generally which is an upcoming update that'll be out probably around the same
+[6:05:37] time as adventure mode if i had to get

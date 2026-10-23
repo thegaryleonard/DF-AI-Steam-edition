@@ -1,0 +1,473 @@
+CHAPTER: embark (0:48:42-1:12:27) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[0:48:42] I'm well aware of that.
+[0:48:43] That is something for a later video.
+[0:48:44] Hello everybody and welcome to a video about Dwarf Fortress.
+[0:48:47] This is a short tutorial about preparing carefully, with the goal of explaining everything that
+[0:48:52] you need to know, at least for the basics, of preparing carefully in Dwarf Fortress.
+[0:48:57] We're going to go over embarking, a few different mechanics, explaining what a few things mean,
+[0:49:01] and do our best to have you set up and prepared to embark carefully.
+[0:49:04] Now keep in mind, if you're a new player at the game, I recommend leaving the tutorial
+[0:49:07] on and just clicking the play now button.
+[0:49:10] Don't worry about preparing carefully, because a lot of this stuff isn't needed.
+[0:49:14] This video is going to include some tips, how I usually embark, as well as what all of the
+[0:49:18] tools and buttons mean, and what you can do with them, and the powers of them.
+[0:49:22] So we're going to start off by embarking.
+[0:49:24] This is a rather large world that I've generated, it's 50 years old, with a whole large number
+[0:49:29] of civilizations.
+[0:49:30] So I've kind of selected a neat spot that I would like to embark, but I'm going to
+[0:49:33] explain a little bit about what everything means before I do that.
+[0:49:36] So since we're looking at the world map here, assuming you've played through the basic tutorial,
+[0:49:41] you probably have a decent idea of what all this means.
+[0:49:43] You see, we have little villages around, little towns of dwarves and elves and humans, alongside
+[0:49:49] of these lovely beautiful mountain homes up here in the mountains.
+[0:49:53] We have various different biomes, from these tropical shrub lands to these mountains, all
+[0:49:58] the way down to these temperate joyous savannas, with deep wilds of swamps and various
+[0:50:04] hunted areas, that are maybe a little bit darker or more brooding.
+[0:50:08] Up in the north here, as you can see, we have these glorious tigers and glaciers and amazing
+[0:50:13] places to settle.
+[0:50:15] So something that I always recommend you start off with first, when choosing a place to embark,
+[0:50:20] is selecting your faction.
+[0:50:22] So here we have this list of different dwarven factions that we can play as.
+[0:50:26] If you want to read more about them, you can do that via legends mode before you get
+[0:50:30] to this screen.
+[0:50:31] But that's another video.
+[0:50:33] I already have a video on that, if you would like to explore that further.
+[0:50:37] But we have the staff of flames, the coastal fountains, and the red mechanism.
+[0:50:42] So why do you want to select your faction and kind of have an idea of where they are
+[0:50:45] before you embark?
+[0:50:46] Well, it's because certain areas are locked off from certain factions.
+[0:50:49] So let's just say you select the squeezing channel, which has one fortress to their
+[0:50:53] name, very, very small little faction, and then decide to settle on this island right
+[0:50:58] here.
+[0:50:59] Well, you're going to have a hard time because they're not going to be able to
+[0:51:01] reach you and you're not going to get as many migrants.
+[0:51:03] You won't get traders and things of that sort.
+[0:51:06] So it is wise to select a faction that is in general proximity of where you are
+[0:51:11] settling in dwarf fortress.
+[0:51:13] So for this particular video, I've selected the greater iron just because I really
+[0:51:17] like Taiga biomes and I like having seasons.
+[0:51:19] So what we're going to be doing is we're going to be selecting an area kind of
+[0:51:24] in this general vicinity close to the greater iron.
+[0:51:27] They have a good number of fortresses.
+[0:51:28] There isn't a huge number of threats nearby.
+[0:51:31] If I go and look at these neighbors, as you can see, there are elves nearby
+[0:51:35] about a day, one and a half days travel away.
+[0:51:39] There are humans that is a day's travel that are hostile that we're currently
+[0:51:42] at war with alongside of goblins, which are a day's travel to the Northwest.
+[0:51:46] Not hostile yet, but could very well become hostile in the future.
+[0:51:50] So I kind of like this side over here, not too far away from everything.
+[0:51:54] The nearest hostile faction is two days away.
+[0:51:56] So we're going to kind of zoom in here now that we're zoomed in by
+[0:52:00] clicking the left mouse button.
+[0:52:01] We have two different options down here that are very important, as well as a
+[0:52:04] lot of information up here that is very important.
+[0:52:06] So the information that we have to look at here is show cliffs and grades.
+[0:52:09] This is going to show us the steepness and the vertical nature of the surrounding
+[0:52:14] cliffs. So an area like this, very, very steep, while as the green is much
+[0:52:18] more flat, as you can see, the kind of sharper the angle, the steeper the
+[0:52:23] elevate the cliffs and grade of the, of the areas.
+[0:52:26] Now, the other button we have here is show elevation.
+[0:52:29] Elevation shows the general elevation of an area.
+[0:52:31] So as you can see, it's kind of like sloping down hills, the lighter, the
+[0:52:34] color, the lower the elevation, the grayer, the color, the higher elevation.
+[0:52:38] Now, remember you cannot embark directly on mountains, at least without
+[0:52:42] mods, so a lot of these pure gray areas are kind of off limits or rather
+[0:52:47] these little mountain icons here are off limits.
+[0:52:49] However, you can still settle partially on mountains.
+[0:52:52] So you could theoretically settle around here.
+[0:52:54] So if I turn this off, we can kind of have a look, see around the cliffs
+[0:52:58] and elevation, I'm a big fan of kind of the elevation in this little spot.
+[0:53:00] But I also, as I said earlier, I'm a big fan of Taiga.
+[0:53:03] So this is a really nice area right here that I'm kind of fond of.
+[0:53:07] Right over here, you can see there is a rampart tunnel to the dwarven
+[0:53:13] mountain halls, which is part of our faction.
+[0:53:15] So we're settling right next door to our friends.
+[0:53:18] So what we're aiming to do here is we're aiming to find a spot that has
+[0:53:22] some interesting stuff for us to mess with close by for eventual fun alongside
+[0:53:27] of making sure that the biome suits our needs.
+[0:53:30] So we're going to zoom in here and kind of look around this cliff area because
+[0:53:37] everything's a reasonable distance away.
+[0:53:38] I'm not seeing any aquifers.
+[0:53:40] Aquifers are useful in the current game.
+[0:53:42] Actually, just make sure you don't settle on a heavy aquifer, but getting
+[0:53:45] through them can still be annoying.
+[0:53:46] So we're just going to avoid that entirely here.
+[0:53:48] So let's just have a peek around.
+[0:53:50] We have iron, gold, copper, nickel, platinum and tin and lead.
+[0:53:55] Not bad.
+[0:53:56] A very wide variety of metals.
+[0:53:58] So the fact that we've got little soil, the lack of soil is kind of hurting me here.
+[0:54:04] We can increase the size of our embark location or lower the
+[0:54:08] size of our embark location.
+[0:54:09] If you're on a weaker PC, I do recommend doing like a three by
+[0:54:12] three or a two by two embark, but on most normal average computers these days,
+[0:54:17] you can run on a four by four.
+[0:54:18] You can increase this number up to six by six, but keep in mind, if you go
+[0:54:22] with these very large embarks, you will experience lag.
+[0:54:25] It's kind of like playing city skylines with the all unlock all tiles mod.
+[0:54:30] Eventually the game's just going to run slowly.
+[0:54:33] It's just kind of a matter of course.
+[0:54:34] So I'm really liking this zone right here.
+[0:54:37] We get a little bit of mountain.
+[0:54:38] We get some vertical stuff.
+[0:54:40] We get some taiga as well as these lovely temperate conifer forests.
+[0:54:44] Uh, everything here is cold.
+[0:54:46] The surroundings are calm, so it's not going to be too difficult.
+[0:54:48] The general difficulty of a region is dependent on your neighbors and
+[0:54:52] the surrounding wildernesses.
+[0:54:54] So the calm note there is very important.
+[0:54:57] If an area is maybe untamed wilds or wilderness, you're going
+[0:55:00] to get a much harsher zone.
+[0:55:02] Now, keep in mind, we do have trees down in this conifer forest as well
+[0:55:06] as in the taiga, but the mountains have no trees.
+[0:55:08] Okay.
+[0:55:09] Um, each one of these different biomes is going to have a different amount of
+[0:55:13] metals, so we kind of want to check them all and do a little scan here,
+[0:55:16] just to have a pretty good idea of what we're in for.
+[0:55:19] So I'm quite liking this embark spot right here.
+[0:55:21] So we're going to click it.
+[0:55:22] Now, the game gives us a few different options here.
+[0:55:25] There's enemies off normal and hard.
+[0:55:27] So if you just want to chill, not fight anything and just like basically
+[0:55:32] have a creative Minecraft style experience, I recommend turning enemies off.
+[0:55:36] However, if you're down for fun, crank it all the way up to hard and
+[0:55:39] you'll get some pretty mean things pretty quickly.
+[0:55:42] The game will be notified of your existence immediately and you'll
+[0:55:45] have to deal with threats very quickly.
+[0:55:47] As far as, as for economy, I will be completely honest.
+[0:55:50] I haven't had enough time with this version of the game to really
+[0:55:53] know how that changes things.
+[0:55:54] Considering the economy has been completely rebalanced.
+[0:55:58] That's something for another video in the custom settings there.
+[0:56:01] Um, so now recommended for new players, just click play now and don't
+[0:56:04] worry too much, but we're going to prepare for this journey carefully.
+[0:56:09] So this gives us a list of dwarves over here on the left and then
+[0:56:14] a list of skills over here on the right.
+[0:56:16] Now there's a few important tabs that we're going to cover
+[0:56:19] in this menu really quickly.
+[0:56:20] So over on the left, we have dwarves.
+[0:56:23] These are the seven dwarves that we're going to be starting with.
+[0:56:25] We can view their thoughts.
+[0:56:27] We can look at their personalities.
+[0:56:29] Consider this like your character creator for an RPG.
+[0:56:32] This is where you're going to sit down and go, all right, what
+[0:56:35] theme do I want for this embark?
+[0:56:38] What kind of character do I want this fortress to be?
+[0:56:41] How do I want to build and design this setup?
+[0:56:45] You can go through the items that they're going to be starting with.
+[0:56:47] These can't be edited or changed.
+[0:56:48] We can look at their health, although because these are brand new
+[0:56:51] dwarves that have been snapped into existence for the purpose of
+[0:56:55] creating this fortress, they have no health issues.
+[0:56:57] The same and their skills have not been selected yet.
+[0:57:00] Although we do know that this dwarf is a novice, is a competent
+[0:57:03] dancer and a novice musician and a wind instrumentalist.
+[0:57:06] Very much a hobbyist.
+[0:57:07] And they have the knowledge of the musical form, the pregnancy
+[0:57:10] of couples, all right.
+[0:57:11] And the musical form, the lyrics of a door.
+[0:57:14] Um, and then over here, like, of course they have nothing yet.
+[0:57:18] Uh, we can look at their personality.
+[0:57:20] We can look at their thoughts, which they don't have any yet
+[0:57:22] cause they don't exist yet.
+[0:57:23] And, um, we know that they are a citizen of the greater iron, which
+[0:57:27] is the faction that we selected.
+[0:57:29] And of course, uh, the God that they worship and their friends.
+[0:57:32] We'll learn more about the God once you get in game, but again,
+[0:57:35] topic for a different video.
+[0:57:36] So now that we've looked at a dwarf's thoughts, we can then
+[0:57:39] click back over to their skills tab.
+[0:57:40] So because these dwarves are all listed as peasants, it means
+[0:57:43] they have no skills at the beginning.
+[0:57:45] So what I generally do when I embark personally is I just go with seven
+[0:57:49] peasants and then assign skills.
+[0:57:51] Once I'm in game and they learn pretty quickly, but especially if
+[0:57:55] you're settling in a harder biome, it's wise to start off with a few
+[0:57:59] points in mining on one dwarf.
+[0:58:00] It's wise to start off with a few points in a wood cutting or carpentry
+[0:58:05] just to get better quality beds off the bat.
+[0:58:06] It's also wise to start off with, um, a Mason.
+[0:58:10] So we're going to do a little bit of skill assigning in a moment
+[0:58:12] after we finished covering the rest of this UI over here.
+[0:58:14] We have items now, this screen looks a little bit daunting initially.
+[0:58:18] However, it's really not that bad over here on the left.
+[0:58:21] Uh, we see our total points for the items that we are currently bringing.
+[0:58:24] So these are your, this is your default embark, uh, profile.
+[0:58:28] This is everything that you need to start a fortress with minimal issue,
+[0:58:32] you know, a wheelbarrow, a step ladder, uh, some crutches in case there's
+[0:58:36] injuries, same as splints, a couple of buckets, which are used for
+[0:58:39] bringing water to people who have injuries, um, some quivers for
+[0:58:43] hunting, uh, some ropes, uh, which are used for making wells, wells,
+[0:58:47] or making, uh, uh, like, uh, prisons, prison cells.
+[0:58:50] Um, we have pigtail thread, which is used for making cloth or
+[0:58:53] stitching up wounds.
+[0:58:54] We have pigtail bags, which is just literal cloth bags used for
+[0:58:58] storing seeds, generally some pond turtle.
+[0:59:00] Now these aren't living.
+[0:59:01] This is food, um, plump helmets.
+[0:59:03] Those can be brewed into alcohol or food.
+[0:59:05] Uh, we have rent, uh, worm meat.
+[0:59:07] I almost read that as rent meat, worm meat, which is just meat.
+[0:59:10] Um, and then of course we have some dwarven ale, some dwarven
+[0:59:12] beer, two picks, two co- two battle axes, which are used for chopping
+[0:59:16] down wood, an iron anvil, very important for dwarfy things, our
+[0:59:20] necessary seeds, and some cloth.
+[0:59:22] Now we have 500 points to spend.
+[0:59:25] Those points go towards our citizens' skills, the items that we bring
+[0:59:29] and the animals that we bring.
+[0:59:31] So over here, this is our inventory that we're going to be embarking
+[0:59:34] with or would be embarking with if we embark with this exact inventory.
+[0:59:38] In the center here are all of the different categories of
+[0:59:40] things that we could bring.
+[0:59:42] And over here currently selected is leather.
+[0:59:44] Using this window, we can search for, let's just say, um, I, well, I
+[0:59:48] mean, up at the top is Bobcat leather.
+[0:59:50] So you could, so if you're looking for a particular type of
+[0:59:52] leather leather to bring with, you could do that.
+[0:59:55] Um, if we go through, we can see, uh, the different cloths we could bring,
+[0:59:58] the different crafts we could bring, which would be a little bit redundant.
+[1:00:01] Uh, the different types of wood we could bring metal bars.
+[1:00:04] Maybe we want to start without any pickaxes or, uh, battle axes
+[1:00:08] for little added challenge and make our own bars off the bat.
+[1:00:11] Uh, we could bring some gems.
+[1:00:13] We could bring some, cut some large gems.
+[1:00:15] Uh, we could bring stone blocks again, anvils.
+[1:00:18] We can see that our faction has access to steel, so we could bring an iron anvil,
+[1:00:22] or we could, uh, sacrifice some points for a steel anvil, which
+[1:00:25] would make the dwarves real happy if they get to use that early on, as
+[1:00:28] well as weapons and all of the other different categories.
+[1:00:31] Now, personally, I don't recommend messing with this too much, at
+[1:00:35] least from a beginner beginner's perspective.
+[1:00:37] Um, you can just leave this entirely default and do just fine.
+[1:00:43] That's something that I just want to say pretty bluntly.
+[1:00:45] When you're messing around with this game initially, you don't
+[1:00:48] want to be changing this too much.
+[1:00:50] However, something that I generally do is I often will bring a little bit
+[1:00:54] of extra alcohol, just purely so that I don't need to worry about
+[1:00:58] brewing booze as quickly.
+[1:01:00] I want to make it at least a fall, uh, on my initial beer stash.
+[1:01:03] Now, since dwarves only have to drink every couple of weeks in game,
+[1:01:06] and it's a good, like six months before the first trade caravan comes
+[1:01:10] by, you have a pretty healthy amount of time with, of not having
+[1:01:14] to worry about brewing booze.
+[1:01:16] So usually I'll just crank these up to about 60 a piece and just
+[1:01:19] kind of not worry about it too much.
+[1:01:21] And then we're going to move over to the animals tab after
+[1:01:24] I increase our initial beer, bring along.
+[1:01:26] So that's going to spend a couple of points and also just for good
+[1:01:29] measure, I'm also going to bring a little bit of extra food.
+[1:01:32] Although food is very easy to access once in game, but
+[1:01:34] that's for another video.
+[1:01:37] Over here, we have animals.
+[1:01:38] So by default, we're not bringing any animals with us.
+[1:01:41] Now here you have the opportunity to bring different animals with you.
+[1:01:45] Uh, this is all of this stuff that my faction has access to.
+[1:01:48] We have of course, young and old variants of all of these different animals.
+[1:01:53] So there's like, you know, uh, lambs and rams and lambs and, uh, and, uh,
+[1:01:58] ewies, which I, I, I've been told I pronounced incorrectly.
+[1:02:00] We have pigs and sows.
+[1:02:02] Uh, we have piglets of course, as well, uh, both male and female variants.
+[1:02:05] And, uh, for some reason, they haven't given us a search tab on this screen,
+[1:02:09] which I think is a little strange personally, if you had to ask me, uh, of
+[1:02:12] course, we also have Drake's, which is now spoiled in the old game.
+[1:02:16] A lot of people used to assume that Drake's were dragons initially, not
+[1:02:18] knowing that it's actually a word for mallard.
+[1:02:20] Uh, but, uh, that's a male duck we could bring.
+[1:02:22] Um, I'd like to, uh, embark with a couple of turkeys usually because, uh,
+[1:02:26] turkeys, uh, give leather as well as a healthy supply of eggs and all
+[1:02:31] that they require is being put into a pasture zone and being left near a
+[1:02:35] nest box, so I'm going to bring a couple of Turkey hens, let's say three
+[1:02:39] of them and one Turkey gobbler, just so that we can make more turkeys
+[1:02:43] because, uh, infinitely multiplying turkeys is generally a positive.
+[1:02:46] If you are farming turkeys, um, a lot of people will recommend bringing
+[1:02:50] cats with as they will stop, uh, your food from being eaten by, um, uh,
+[1:02:57] vermin like rats and mice and such, but in my experience, bringing cats early
+[1:03:02] just kind of leads to a lot of garbage everywhere and the amount that
+[1:03:05] the vermin actually eat is small enough that you don't need to worry about
+[1:03:09] it early, uh, and migrants will bring cats.
+[1:03:11] So instead of that, I'm simply going to bring with two, uh, dogs, which
+[1:03:16] we're going to train for hunt, which I would train for hunting dogs.
+[1:03:21] The next thing we're going to do is jump back over to our dwarves.
+[1:03:23] Now here that we're looking at our dwarves again, we can go
+[1:03:26] through the skills that we want.
+[1:03:27] So as I mentioned before, it's wise to put a bunch of skills in early
+[1:03:31] game, because then you don't need to worry about assigning stuff right
+[1:03:33] when you settle.
+[1:03:34] So we're going to add a couple of points to our first dwarf and
+[1:03:37] give them a little bit of mining.
+[1:03:39] The second dwarf, we're going to give them one point in wood cutting
+[1:03:43] and one point in carpentry right off the bat.
+[1:03:45] That this dwarf is going to go and grab, uh, a, a, a axe and we'll
+[1:03:49] immediately start chopping down wood for us without us needing to
+[1:03:52] worry about assigning those skills, because that is the benefit of this.
+[1:03:55] Instead of having to, you know, assign the different job profiles to your
+[1:03:59] dwarves, all you need to do is just give them the command and
+[1:04:02] they just get right to it.
+[1:04:03] The next thing that I usually give to my next dwarf is a couple more
+[1:04:07] points in mining because it's good to have two miners.
+[1:04:09] We do have two, two picks after all might as well have two miners.
+[1:04:12] Right.
+[1:04:12] Now, the next thing that I always recommend is bring a Mason with you
+[1:04:17] because you're going to start needing to make, uh, thrones.
+[1:04:20] You're going to need to make tables.
+[1:04:21] You're going to make need to make doors and you're probably going to
+[1:04:24] start working on blocks unless you're settling somewhere strange without any
+[1:04:27] stone, it's generally a good idea to bring a dwarf with at least
+[1:04:30] some skill in Mason.
+[1:04:31] Now, unless you're planning on starting off with, uh, blacksmithing super
+[1:04:36] early, you don't necessarily need to bring a blacksmith, but for the
+[1:04:39] sake of this video, I'm going to give a dwarf two points in blacksmithing
+[1:04:42] and two points in weaponsmithing.
+[1:04:45] Uh, the next thing that I would recommend bringing with is a
+[1:04:48] brewer slash planter dwarf, because planting is actually quite an
+[1:04:52] important skill.
+[1:04:53] It's not hard to train.
+[1:04:54] It's something that dwarves train quite quickly, but it is a rather
+[1:04:56] important skill to get the most out of your farm plots.
+[1:04:59] So I'm going to just put, uh, two points and make a salon here into a farmer.
+[1:05:04] Now, as you can see, there are plenty of points left over at that point.
+[1:05:07] This is all just up to you.
+[1:05:09] What you want to throw different points into, right?
+[1:05:12] These are your crucial skills up at the top, your, your, your carving,
+[1:05:16] your, your crafting, your farming, your carpenter, your mining, but we
+[1:05:19] also have some more interesting skills.
+[1:05:21] We have mechanics, we have pottery, we have glazing, paper, making
+[1:05:25] book binders and wax workers, honeybee wax for reference.
+[1:05:29] These alternative jobs are also very useful.
+[1:05:34] I'm going to throw a couple of points on this farmer into, uh, herbalist
+[1:05:44] because you want somebody to be able to run around and gather stuff
+[1:05:46] for you, right?
+[1:05:47] Now, the last one that we're looking at is kind of our other dwarf, right?
+[1:05:51] We have one dwarf left.
+[1:05:52] If we want some, uh, assistance early, because we only have one wood cutting
+[1:05:56] dwarf, we could chuck a couple of points into ax dwarf and make
+[1:05:59] our military chief, or perhaps, uh, we could go into a more specialized
+[1:06:04] labor, perhaps we want a specialized Tanner right off the bat.
+[1:06:07] Those turkeys will be producing leather after all.
+[1:06:10] You have a lot of decisions here and it is up to you, but oh, at least
+[1:06:14] initially, the only thing you really need to worry about are these crucial skills.
+[1:06:19] But for this particular dwarf, let's, we'll just leave them as kind of
+[1:06:22] a general laborer, I think.
+[1:06:23] So I'm going to give them a point in weaving.
+[1:06:27] I'm going to give them a point in cooking and I'm going to give them a point in,
+[1:06:32] where did it go, uh, mechanics.
+[1:06:35] And, uh, I'm going to give them a point in tanning so that we can get some
+[1:06:38] better, uh, animal skin quality made into leather.
+[1:06:43] Now we can look at combat skills.
+[1:06:44] Of course.
+[1:06:45] Uh, there are some pretty sneaky stuff.
+[1:06:48] You, there are some pretty sneaky things you could do with these
+[1:06:50] combat and other skills.
+[1:06:52] Um, you could bring a doctor with, uh, maybe you want to be super cheesy and
+[1:06:56] flood your, and you're planning on flooding your fort.
+[1:06:58] You could then bring a swimmer.
+[1:06:59] Okay.
+[1:06:59] So that is kind of the extent of these more role play, uh, further off skills
+[1:07:06] that maybe, you know, making a dwarf, a very talented poet, while it might be
+[1:07:10] fun, uh, certainly not the most important thing for the long-term survival
+[1:07:15] of your fort, same with things like word Smith and writing, uh, those
+[1:07:19] you can essentially ignore.
+[1:07:21] So all of that aside, now that we've selected our dwarves.
+[1:07:26] We've increased some points in our, uh, embark stuff.
+[1:07:31] I think we can put some more points into our beer and I think we can put
+[1:07:34] some more points into our ale.
+[1:07:36] We're going to scroll down a little bit.
+[1:07:37] Plump helmets are only harvestable in the cavern layers and, uh, they, while
+[1:07:44] they can be grown elsewhere, they grow optimally in the cavern layers.
+[1:07:47] So we're not going to be getting more plump helmets unless we decide to do
+[1:07:50] a shallow garden of them or until we hit the caverns.
+[1:07:54] So what I'm going to recommend we do here is increase the plump helmet count
+[1:07:59] just a little bit, because as you can see, we still have plenty of points left.
+[1:08:02] We're also going to scroll down a little bit and I'm going to
+[1:08:04] bring with an extra wheelbarrow just to kill some more points off.
+[1:08:09] We're going to bring with, uh, an extra ax, an extra pick and an extra anvil.
+[1:08:15] So that's going to clear a lot of points.
+[1:08:17] This is going to give us a very safe and easy embark.
+[1:08:20] Now these are seeds for planting and because we're not going to be getting
+[1:08:25] plump helmets for a while, I'm going to increase the plump helmet count.
+[1:08:28] Keep in mind that every single consumed eaten plump helmet from down here
+[1:08:33] will turn into a plump helmet spawn unless it's cooked.
+[1:08:37] So it's a very good idea to remove plump helmet cooking from the kitchen menu,
+[1:08:41] but we'll worry about that later.
+[1:08:45] So for now we have a pretty good amount of things that we are bringing with.
+[1:08:49] We're going to jump back over to the animals because this is a good way
+[1:08:52] to use up the rest of our points.
+[1:08:54] And I think we're going to bring with, uh, a couple of, uh, cattle, actually
+[1:08:59] not instead of cattle, let's, let's do sheep.
+[1:09:01] Let's do, uh, two lamb or a lamb.
+[1:09:04] And, uh, yeah, cause I only have 32 points after that.
+[1:09:07] Let's do a lamb and then spend the rest on turkeys.
+[1:09:10] Just bring a couple more turkey hens, a couple more gobblers.
+[1:09:13] And, uh, actually, you know, let's, let's knock out two of those.
+[1:09:16] Going to bring with another dog, but I don't quite have enough points.
+[1:09:19] We'll just bring with another turkey hen and then jump over here to, uh, beer
+[1:09:23] and then increase the last and just file out the last of those points.
+[1:09:28] So we could spend a lot more making our door of super skilled, but like I said,
+[1:09:31] they will train up pretty quickly once we in game.
+[1:09:33] So we can save this profile.
+[1:09:35] If I want to be able to select it again next time.
+[1:09:37] Um, then from there we can go into fortresses.
+[1:09:40] So I'm going to click on fortress name.
+[1:09:42] Um, this allows us to select what our fortress is going to be called.
+[1:09:46] Now rift gravel is the default name.
+[1:09:48] So we have several options here.
+[1:09:51] We can hit random a couple of times, like free whips free whips.
+[1:09:55] Excite me.
+[1:09:55] Uh, arch bridges.
+[1:09:57] Uh, let's see what else do we have?
+[1:09:58] Rampart masters.
+[1:10:00] Of course you could just leave this all the way up to chance.
+[1:10:02] Um, we can add in adjectives here.
+[1:10:05] Uh, and these are all translated into the dwarven language, meaning
+[1:10:08] like your choice of words is actually a little bit limited.
+[1:10:11] However, um, considering this game has randomly generated the name
+[1:10:15] for a fortress bulbous sore for me before, um, you can get some
+[1:10:19] pretty interesting combinations.
+[1:10:20] So I'm going to hit random a couple of times over here.
+[1:10:22] Um, until we get something I like, let's go with glaze routes.
+[1:10:28] So now we've selected the name glaze routes from here.
+[1:10:31] We can go to our group name.
+[1:10:32] All of this, by the way, for clarity's sake is completely irrelevant.
+[1:10:36] It is purely role play purposes.
+[1:10:38] That's what we've gotten to at this point with this.
+[1:10:41] Uh, we're going to look at our group name.
+[1:10:42] So this is the name of the local government.
+[1:10:43] This is what other factions are going to know us as.
+[1:10:46] So we're going to be the fortress of, uh, glaze routes of the local
+[1:10:51] dwarven government, the ancient hammer.
+[1:10:54] Now, what would the image of the ancient hammer be?
+[1:10:57] Again, this is all for role play purposes.
+[1:10:59] So let's go to an object.
+[1:11:02] Let's go to an object and type in hammer, uh, a camera as for hammers.
+[1:11:07] So these are all instrument pieces.
+[1:11:08] Okay.
+[1:11:09] Okay.
+[1:11:09] Okay.
+[1:11:09] Let's let's, let's go, uh, war hammer.
+[1:11:12] Uh, perfect.
+[1:11:13] Uh, a war hammer.
+[1:11:14] So this is the image of a war hammer.
+[1:11:16] All right.
+[1:11:16] Let's, let's say an image of a war hammer and, uh, uh, and a dwarf, um,
+[1:11:22] the, and a dwarf.
+[1:11:23] Yes.
+[1:11:23] Uh, the, the dwarf is raising or I know let's say the dwarf is
+[1:11:28] embracing, embracing the war hammer.
+[1:11:31] Um, and we're going to remove the element that I accidentally
+[1:11:35] added here, which is this one.
+[1:11:37] So this is an image of a war hammer and a dwarf.
+[1:11:39] The dwarf is embracing the war hammer, the symbol of the greater iron.
+[1:11:42] So this is the symbol of our faction.
+[1:11:45] Um, and, uh, we're going to keep working and then from there, click done.
+[1:11:51] So we now have a name.
+[1:11:54] We are the fortress of glaze routes.
+[1:11:56] We have a group, we are the ancient hammer.
+[1:11:58] We have a group symbol, which is, uh, an image of a war hammer and a dwarf
+[1:12:02] and the dwarf is embracing the war hammer.
+[1:12:04] And we have our labors selected.
+[1:12:07] We have our items selected and we have our animals selected.
+[1:12:10] And then from there, once again, we can save the embark or we can just
+[1:12:14] click embark, which is, I think what we're going to do.
+[1:12:19] And then it says you have 47 unpicked skills because we haven't filled out
+[1:12:22] all the doors because we opted to bring more items instead and that is okay.
+[1:12:25] And from there you click I'm ready.

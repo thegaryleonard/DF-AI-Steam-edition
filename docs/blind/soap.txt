@@ -1,0 +1,100 @@
+CHAPTER: soap (3:08:29-3:12:47) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[3:08:29] doors, so you don't need to worry about your dwarves making infinite stacks of
+[3:08:33] shells in places where you don't want them.
+[3:08:35] Thank you very much for watching this video.
+[3:08:36] If you want to see more videos like it, there's a ton of
+[3:08:37] them on this YouTube channel.
+[3:08:39] Hello everybody.
+[3:08:40] And we'll come back to another quick dwarf fortress tutorial.
+[3:08:42] In this video, we're going to be covering soap.
+[3:08:44] Now in order to make soap, you're going to need a few things.
+[3:08:46] Let's get started at the top.
+[3:08:48] You're going to need yourself a butcher shop where we just butchered an elephant
+[3:08:51] and you're going to need to butcher an animal.
+[3:08:54] You're going to need yourself a kitchen so that you can make tallow.
+[3:08:56] As you can see, we have elephant tallow in this one.
+[3:08:58] You're going to need yourself a wood furnace so that you can make ash and you're
+[3:09:02] going to need yourself a soap maker shop, which requires a bucket to construct,
+[3:09:06] which can very easily be made at the carpenters workshop.
+[3:09:08] And most embarks have them by default.
+[3:09:10] Lastly, you're also going to need yourself an ashery, which requires a
+[3:09:13] barrel and a bucket to create as well as blocks, which again, you should
+[3:09:18] have all most of these things upon embarking, but if you don't, you can
+[3:09:22] make yourself a two buckets and a barrel real quick and easy at a carpenters workshop.
+[3:09:27] The last thing that you're going to need is you're also going to need a stone
+[3:09:29] worker shop to make yourself a block.
+[3:09:30] Or alternatively, you could make a wooden block at the carpenter
+[3:09:33] shop to get all this construction going.
+[3:09:36] Now we're going to run through the entire list of things that we need to
+[3:09:38] do to make soap and it's just going to be kind of a long list of information.
+[3:09:42] This goes to that goes to that goes to that.
+[3:09:44] This is going to be one of the more advanced quick tutorials
+[3:09:46] that I've done on this channel.
+[3:09:47] So strap in.
+[3:09:48] We're going to start off by opening up the unit screen by pressing view on
+[3:09:51] the keyboard or alternatively click clicking the little face down in the bottom
+[3:09:54] left, we're then going to go over to the livestock and animals section.
+[3:09:56] We're going to slaughter an elephant.
+[3:09:57] Now you can use almost any animal for this, as long as it has a good amount of fat on it.
+[3:10:01] We're using these elephants just for, uh, like, uh, an example purpose.
+[3:10:04] However, uh, if this wasn't just a tutorial for it and it was a real fort,
+[3:10:08] I'd probably use a yak.
+[3:10:09] The nice thing about elephants is they provide a whole lot of fat.
+[3:10:11] Now, as you can see, we scroll down a little bit on this list here.
+[3:10:16] There's going to be a very large amount of fat.
+[3:10:18] This elephant specifically has 19.
+[3:10:20] The other one had 27, the amount of fat varies based on the size of the animal.
+[3:10:23] Then an automatic job is going to be queued up at the kitchen to render fat.
+[3:10:27] So they're going to grab the fat from over here and they're going to run over here.
+[3:10:31] Keep in mind, if you are slaughtering large animals like this, just make sure
+[3:10:33] normally that you would have a large food stockpile as well as a tanner's
+[3:10:36] workshop, just so that stuff doesn't go to waste.
+[3:10:39] Now, what we're going to be doing is we're going to be rendering this fat
+[3:10:42] and it's going to become something called tallow.
+[3:10:44] And then once that fat is rendered into tallow from there, what we're going
+[3:10:47] to do is we're going to go over to the wood furnace.
+[3:10:49] Now the wood furnace takes wood and can do several things with it.
+[3:10:52] It can make ash and it can make charcoal.
+[3:10:55] For this, we're going to be making ash.
+[3:10:57] Charcoal is used for fuel, for smithing.
+[3:11:01] So for smelting metals and such, as well as doing stuff
+[3:11:05] like making glass and porcelain.
+[3:11:06] But for this, we're going to be making ash.
+[3:11:08] So we're going to just set a repeating job for ash here, just so
+[3:11:11] we can get some more ash in here.
+[3:11:13] The next thing that we're going to need is we're going to go to the
+[3:11:15] ashery and we're going to start a job for making lye.
+[3:11:18] Now the ashery is a pretty specialized building and I mostly use it
+[3:11:22] for making, uh, lie.
+[3:11:24] However, you can also make potash for fertilizing, but we're just
+[3:11:27] going to worry about lie here.
+[3:11:29] We're going to make lie and now lie is going to come from the ashery
+[3:11:32] and it's going to go down here and then they're going to run off
+[3:11:34] and they're going to do something interesting.
+[3:11:36] They're going to come back with a bucket.
+[3:11:37] Now, in order to make a good amount of soap in a short period of time,
+[3:11:40] you're going to want a decent amount of buckets.
+[3:11:42] So what I'm going to just going to do over here is I'm just going to
+[3:11:44] run over to this carpentry shop and I'm going to queue up some
+[3:11:47] buckets in the background, just, just a repeating job for the sake of this.
+[3:11:51] I would recommend having a bunch stockpiled up before you start
+[3:11:55] making lie, but once you have like 50 or so, just kind of hanging around,
+[3:11:59] you're generally not going to run out of buckets.
+[3:12:00] You're going to be okay.
+[3:12:02] Then the last thing we're going to do now that we have, uh, ash
+[3:12:06] that has been made into lie, which is sitting in lie buckets.
+[3:12:10] We are then lastly going to take that tallow and make it into soap.
+[3:12:15] So now we can go over to the soap maker shop and we can make soap from tallow.
+[3:12:19] We could also make soap from oil, but that's a little bit more complicated
+[3:12:22] and requires some extra steps and farming specific crops.
+[3:12:25] For me, I think that butchering animals is much easier and quicker
+[3:12:28] method of making soap.
+[3:12:29] So now from there, we can simply take those lie buckets, take those,
+[3:12:33] uh, bits of tallow and make a good chunk of soap and bang, just like that.
+[3:12:37] We have a nice, good little bar of elephant soap.
+[3:12:40] And so each unit of this tallow is going to be made into a bar of soap.
+[3:12:43] Bars of soap are then taken to wells or any sort of water source.
+[3:12:46] And dwarves gives themselves soapy baths, which cleans themselves entirely
+[3:12:50] and they get happy thoughts about it.
+[3:12:51] We used to be able to build castles out of this stuff, frankly,
+[3:12:53] but unfortunately, that's no longer possible in this.

@@ -1,0 +1,87 @@
+CHAPTER: bedrooms (2:47:20-2:53:18) Blind - Dwarf Fortress Complete Tutorial/Guide Compilation
+[2:47:20] I have stuff like that as well as well as vods for me on Twitch. If you'd like to watch me live
+[2:47:23] You can find me at twitch.tv slash BLINDIRL and thank you very much to everybody who's jumped on the patreon recently
+[2:47:28] Cheers everybody and I'll see you in the next one
+[2:47:30] Hello everybody and welcome to a video about dwarf fortress
+[2:47:33] One of the most important things that you'll learn when playing dwarf fortress is that bedrooms are important dwarves need a place to sleep now
+[2:47:39] Of course, you can just scatter a whole bunch of bedrooms around and settle set them as a dormitory
+[2:47:42] But dwarves like individual bedrooms as you can see here
+[2:47:46] We've got this old dugout mining shaft that was multiple different veins of ore including this glorious platinum
+[2:47:51] Which I've smoothed up as a lovely pillar is kind of a centerpiece of the room
+[2:47:54] And we have these little half-finished bedrooms around the edges as well as some mostly and completely unfinished bedrooms
+[2:48:00] We're gonna be walking through the process of multi making a bunch of bedrooms all at once
+[2:48:04] so what we're gonna start off by doing is we're gonna dig out some bedrooms now an ideal bedroom has a
+[2:48:10] Cabinet a chest or a coffer and a bed
+[2:48:14] The cabinet is a place for them to put their clothing
+[2:48:16] The chest and coffer is a place for them to put their items and tools and toys and things and the bed is a place for
+[2:48:21] Them to sleep if you want to get really fancy with it
+[2:48:23] You could give them a weapon rack or an armor stand, but these are optional now
+[2:48:27] What we're going to do is we're gonna make these simple square rooms
+[2:48:30] Of course, you can make them whatever shape you want. You could make them a line
+[2:48:33] You could make them a weird six by six pattern. You could do stars
+[2:48:37] You can really make whatever your heart desires
+[2:48:40] So we're gonna start off by clicking the mining tool and digging into these mountains
+[2:48:43] So I'm going to make a couple of these squares with at least one space for a door
+[2:48:48] Remember dwarves can walk diagonally so we could also make a bedroom styled like this with a door on the corner
+[2:48:54] But just for the sake of this video, we're just going to kind of keep things pretty uniform here
+[2:48:58] so first bedroom second bedroom third bedroom and
+[2:49:03] Fourth bedroom and now that all of this is finished and we've done this little setup
+[2:49:08] We're going to let our dwarves come in and mine
+[2:49:10] So we're going to unpause the game now pretty quickly
+[2:49:12] You will notice the dwarves running over and mining as you can see now
+[2:49:16] The dwarves have begun walking over and started mining out
+[2:49:19] The next thing we're going to do is we have these two unfinished bedrooms down here
+[2:49:23] We're going to begin smoothing the walls as they become available and these new rooms get dug out
+[2:49:28] So we're going to click on this tool here and we're going to smooth the walls
+[2:49:32] This is optional. You do not have to do this, but it will simply make things look a lot better in the long run
+[2:49:37] We're going to select all of the areas as they get dug out and begin smoothing
+[2:49:43] also
+[2:49:44] The priority for smoothing is quite a bit higher in my settings than the mining
+[2:49:49] So we're going to increase the priority on the mining just to get the last of those bedrooms mined out and as they get
+[2:49:53] Finished up what we're going to begin doing here in these previously constructed bedrooms
+[2:49:57] I'm going to open up the build screen by pressing either B on the keyboard or clicking on the button
+[2:50:02] We're then going to go to furniture and from here we can select beds
+[2:50:06] Tables chests cabinets the works. We're going to select a couple of beds
+[2:50:11] So if I click keep building after placement and instead of me having to open up the build screen again
+[2:50:16] It'll just simply automatically select the next bed and we can also use the closest material as I'm not picky about colors
+[2:50:22] So we can just quickly build all of these beds
+[2:50:25] Although I clearly didn't click keep building after placement, which I literally just said to do so click click click
+[2:50:32] Click click click click click as these spaces get done. We still have some more ones that we need to smooth
+[2:50:39] Remember to smooth the floors before you place furniture if you don't do this
+[2:50:45] They will simply smooth around the furniture
+[2:50:48] So now that we've got those beds in we also need to put in those chests and cabinets that I spoke of earlier
+[2:50:53] So we're gonna once again open up the build screen
+[2:50:55] We are going to go to furniture and we are going to go to chests now keep in mind
+[2:50:59] These are all items that I've constructed in various locations around the fortress
+[2:51:04] The the coffers in this case, which are rock chests were constructed at the stoneworker shop
+[2:51:09] And the beds were made in a carpenter shop
+[2:51:12] Sounds like there's some fighting going on in the basement and someone is dead but such as the way of things into our fortress
+[2:51:17] We are going to select
+[2:51:20] The rest of our furniture now so furniture and once again chest
+[2:51:24] Chest kept done and then done. So that's all of our chests and then we need cabinets
+[2:51:28] so we're gonna go back into the build screen and we're going to go to furniture and we are going to select our
+[2:51:34] Cabinets which are right here and once again keep building use closest material select select select
+[2:51:41] Remember dwarves can move on a diagonal
+[2:51:43] So this is not going to be a concern about whether or not they can get into their beds
+[2:51:46] But do not block doorways and walking space with stuff like these now
+[2:51:51] We got two more beds that we need to place in those last two and we're going to click that now
+[2:51:56] Next important thing is doors. All of my doors are made of stone and they were all constructed at the
+[2:52:02] Stoneworker shop as well. So we're going to place door door door door door now
+[2:52:08] Once all of this furniture has been brought into place. We'll continue the video
+[2:52:13] And now that all of the dwarves are bringing the furniture over
+[2:52:16] What we're going to do as soon as the last few beds and things are in place is we are going to make a zone and then
+[2:52:22] We are going to take that zone and we are going to select bedrooms
+[2:52:25] And we're gonna make this whole thing into one bedroom set with one click
+[2:52:30] Previously the way we had to do this was individually selecting each bed and making a bed and then assigning it to a dwarf
+[2:52:34] We don't need to do that anymore
+[2:52:36] So the way this works is we're gonna either hit Z on the keyboard or click on the zone screen, which is this screen
+[2:52:42] From here, we can now go to bedroom. The previously mentioned dormitory option is right here, but we can go to bedrooms now
+[2:52:49] So what we're going to do is instead of just drawing individual bedrooms. We can either draw via square like that or
+[2:52:57] we can
+[2:52:58] Use this to draw independent tiny lines if you want to be very precise, but we're just gonna use the big squares
+[2:53:03] We're going to click multi so we can select multiple bedrooms with one rectangle and it's quite intelligent
+[2:53:08] And as you can see all the furniture is in place
+[2:53:10] Don't mind the naked bulldog running around and we're going to select like this
+[2:53:15] Bang the exception of this one because apparently I forgot to put a bed in it now
+[2:53:19] All of these bedrooms have been selected and are good to go dwarves will assign themselves to these bedrooms
+[2:53:25] This is how you make bedrooms in dwarf fortress
