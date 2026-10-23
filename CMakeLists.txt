@@ -126,6 +126,7 @@ if(MSVC)
     # ship a PDB so DF/DFHack crash logs and dumps can be symbolized
     target_compile_options(df-ai PRIVATE /Zi)
     target_link_options(df-ai PRIVATE /DEBUG /OPT:REF /OPT:ICF)
+    set_target_properties(df-ai PROPERTIES PDB_NAME "df-ai.plug")
 endif()
 
 INSTALL(DIRECTORY rooms/ DESTINATION df-ai-blueprints/rooms FILES_MATCHING PATTERN "*.json")
