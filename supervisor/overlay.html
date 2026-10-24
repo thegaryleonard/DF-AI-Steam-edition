@@ -1407,7 +1407,7 @@ function squadSlots(sq) {
   const cap_ = sq.members.find(m => m.leader) || sq.members[0];
   const kills = sq.members.reduce((a, m) => a + (m.kills || 0), 0);
   return {squad: clean(sq.alias || sq.name || '') || (cap_ ? `${hn(cap_).split(' ')[0]}'s Squad` : 'the Militia'), captain: hn(cap_),
-    members: sq.members.length, n: sq.vacancies || null, kills, routine: sq.routine ? clean(sq.routine) : null, order: (sq.orders || [])[0] || null};
+    members: sq.members.length, n: sq.vacancies || null, kills, routine: sq.routine ? clean(sq.routine).toLowerCase() : null, order: (sq.orders || [])[0] || null};
 }
 function militaryStatus(sq) {
   if (!sq) return 'none';

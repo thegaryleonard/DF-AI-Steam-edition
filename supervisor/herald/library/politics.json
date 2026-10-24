@@ -1,0 +1,1768 @@
+{
+ "order_ads": [
+  {
+   "id": "po-order-01",
+   "text": "WANTED: {n} more of '{job}'. Material: {material}. Apply to {manager}, who has already approved this order and will approve it again."
+  },
+  {
+   "id": "po-order-02",
+   "text": "HELP WANTED: Anyone able to {job}. {n} still owed. No experience required; the last applicant had none either."
+  },
+  {
+   "id": "po-order-03",
+   "text": "{n} x {job} ({material}). Paid in ale. Ale paid in promises. Promises paid by {manager}."
+  },
+  {
+   "id": "po-order-04",
+   "text": "URGENT: {job}, {n} remaining. The workshop is built, the {material} is hauled, the dwarf is at a party."
+  },
+  {
+   "id": "po-order-05",
+   "text": "SEEKING artisan for {job}. {n} outstanding. Must tolerate {manager} checking in every ten minutes."
+  },
+  {
+   "id": "po-order-06",
+   "text": "OPPORTUNITY: {job} in {material}. {n} needed by end of {season}, or whenever. Mostly whenever."
+  },
+  {
+   "id": "po-order-07",
+   "text": "WANTED IN {fort}: {n} times '{job}'. Previous worker left to pick up a sock. That was a season ago."
+  },
+  {
+   "id": "po-order-08",
+   "text": "FREELANCE GIG: {job}. Quantity {n}. {manager} asks applicants not to cancel the job because they were thirsty."
+  },
+  {
+   "id": "po-order-09",
+   "text": "{material}? Hands? Spare afternoon? {n} jobs of '{job}' await. Contact the manager's office, ground floor, next to the overflowing stockpile."
+  },
+  {
+   "id": "po-order-10",
+   "text": "NOTICE: Order '{job}' is {n} short. The bookkeeper is counting. The bookkeeper is always counting."
+  },
+  {
+   "id": "po-order-11",
+   "text": "LOOKING FOR: one dwarf who will {job} without a strange mood. {n} wanted. Artifacts politely declined."
+  },
+  {
+   "id": "po-order-12",
+   "text": "STEADY WORK: {job} ({material}), {n} remaining. Benefits include a chair, possibly one you made yourself."
+  },
+  {
+   "id": "po-order-13",
+   "text": "{manager} seeks volunteers for {job}. {n} needed. Volunteering is mandatory but enthusiasm is optional."
+  },
+  {
+   "id": "po-order-14",
+   "text": "AVAILABLE NOW: an entire workshop, {n} orders of '{job}', and zero dwarves. Ideal for introverts."
+  },
+  {
+   "id": "po-order-15",
+   "text": "CALLING ALL {material} WORKERS: {n} pieces of '{job}' still wanted. Bring your own pick. Do not bring the carp."
+  },
+  {
+   "id": "po-order-16",
+   "text": "{fort} needs {n} more '{job}'. Not for the noble. Probably for the noble. Definitely for the noble."
+  },
+  {
+   "id": "po-order-17",
+   "text": "WANTED: {job}, x{n}. Note from {manager}: 'Repeat' does not mean 'repeat the break'."
+  },
+  {
+   "id": "po-order-18",
+   "text": "POSITION: Order Fulfiller. Duty: {job}. Quota: {n}. Perks: someone will eventually say thank you, in writing, on a slab."
+  },
+  {
+   "id": "po-order-19",
+   "text": "RUSH ORDER: {n} '{job}' in {material}. Rushed since last year. We remain hopeful."
+  },
+  {
+   "id": "po-order-20",
+   "text": "{n} '{job}' required. Workers who stop to admire their own work will be admired back, sternly."
+  },
+  {
+   "id": "po-order-21",
+   "text": "SKILLED OR UNSKILLED: {job}. The order book lists {n}. The order book also lists 'more socks', so it has range."
+  },
+  {
+   "id": "po-order-22",
+   "text": "TRADE NOTICE: {manager} will personally validate your {job}. {n} still waiting for validation and existence."
+  },
+  {
+   "id": "po-order-23",
+   "text": "{material} GOING SPARE. Turn it into '{job}' {n} times and make a stockpile very happy."
+  },
+  {
+   "id": "po-order-24",
+   "text": "SEASONAL WORK, {season}: {job}. {n} left. Previous seasonal worker became a legendary napper."
+  },
+  {
+   "id": "po-order-25",
+   "text": "WANTED: dwarf who finishes things. Specifically '{job}'. Specifically {n} of them. Specifically this year."
+  },
+  {
+   "id": "po-order-26",
+   "text": "IN {fort}, A DREAM: {n} completed orders of '{job}'. Help a manager sleep tonight."
+  },
+  {
+   "id": "po-order-27",
+   "text": "BOOKKEEPER'S PLEA: {job} is behind by {n}. Precision is set to the highest level. So is my anxiety."
+  },
+  {
+   "id": "po-order-28",
+   "text": "OPEN ORDER: {job}. Need {n}. If you cancel due to 'needs {material}', please fetch the {material}. It is right there."
+  },
+  {
+   "id": "po-order-29",
+   "text": "{job}: {n} still wanted. The broker says the elves will pay double. The broker says that about everything."
+  },
+  {
+   "id": "po-order-30",
+   "text": "NOW HIRING for '{job}'. {n} slots. No interview. {manager} just points at the workshop and nods."
+  },
+  {
+   "id": "po-order-31",
+   "text": "LOST: motivation to {job}. If found, return to {manager}. Reward: {n} more orders."
+  },
+  {
+   "id": "po-order-32",
+   "text": "WANTED: {n} x '{job}'. Condition from last month's work order: 'only if fewer than ten.' There are nine. Get moving."
+  },
+  {
+   "id": "po-order-33",
+   "text": "{material} merchants and makers: {job}, {n} needed. Bring paperwork, or a mug, ideally both."
+  },
+  {
+   "id": "po-order-34",
+   "text": "OPEN CALL: {job}. {n} remain. The last dwarf assigned is 'on break' at a party celebrating breaks."
+  },
+  {
+   "id": "po-order-35",
+   "text": "ATTENTION LEGENDARY CRAFTSDWARVES: {n} '{job}' await. Mediocre craftsdwarves also accepted. Desperately."
+  },
+  {
+   "id": "po-order-36",
+   "text": "MANAGER'S DESK: {job}, {n} pending. Please do not tantrum at the desk. It is a {material} desk and costly."
+  },
+  {
+   "id": "po-order-37",
+   "text": "{fort} WORK ORDERS: '{job}' at {n} remaining. Previous estimate of completion: 'soon'. Revised estimate: 'soon-ish'."
+  },
+  {
+   "id": "po-order-38",
+   "text": "WANTED: {n} more '{job}'. Hauler shortage noted. If you can carry {material}, you can carry hope."
+  },
+  {
+   "id": "po-order-39",
+   "text": "GIG ECONOMY, DWARF STYLE: {job}, {n} times. Paid per piece, in respect, minus tax to the noble."
+  },
+  {
+   "id": "po-order-40",
+   "text": "PROMOTION OPPORTUNITY: Complete {n} '{job}' and {manager} will mention you in the next meeting, briefly, by first name."
+  },
+  {
+   "id": "po-order-41",
+   "text": "HONEST WORK FOR HONEST HANDS: {job}. {n} left. Dishonest hands also welcome; the sheriff is asleep."
+  },
+  {
+   "id": "po-order-42",
+   "text": "FINAL NOTICE (FOURTH): {job}, {n} outstanding. {manager} has started drafting a fifth."
+  }
+ ],
+ "recruit_ads": [
+  {
+   "id": "po-recruit-01",
+   "text": "JOIN {squad}! {n} openings. Captain {captain} promises adventure, glory, and an uninterrupted view of the barracks ceiling."
+  },
+  {
+   "id": "po-recruit-02",
+   "text": "{squad} WANTS YOU. Current routine: {routine}. Future routine: also {routine}. Stability is a benefit."
+  },
+  {
+   "id": "po-recruit-03",
+   "text": "BE ALL YOU CAN BE, THEN NAP. {squad} has {n} spots. Inquire with {captain}, who is probably at the tavern."
+  },
+  {
+   "id": "po-recruit-04",
+   "text": "ENLIST TODAY in {squad}: {members} dwarves strong, {kills} kills between them, and plenty of room on the weapon rack."
+  },
+  {
+   "id": "po-recruit-05",
+   "text": "SEE THE WORLD (THE DANGER ROOM). {squad} is recruiting {n}. Spikes are wooden. Mostly."
+  },
+  {
+   "id": "po-recruit-06",
+   "text": "{captain} seeks {n} brave dwarves for {squad}. Must own socks. Uniforms supply everything else, in theory."
+  },
+  {
+   "id": "po-recruit-07",
+   "text": "FREE CROSSBOW* with every {squad} enlistment. *Bolts sold separately, by which we mean not at all."
+  },
+  {
+   "id": "po-recruit-08",
+   "text": "{squad}: {kills} confirmed kills. Recruits get to hear the stories about each one. At length. Every meal."
+  },
+  {
+   "id": "po-recruit-09",
+   "text": "WANTED FOR {squad}: {n} dwarves who do not panic at the word 'goblin'. Panicking at 'elf' is acceptable."
+  },
+  {
+   "id": "po-recruit-10",
+   "text": "THE {fort} MILITIA IS HIRING. {squad} needs {n} more. Pay: honour. Hours: whenever the alarm lever is pulled."
+  },
+  {
+   "id": "po-recruit-11",
+   "text": "NOW SERVING: {squad}. Routine: {routine}. If that says 'Off duty', congratulations, you are already trained."
+  },
+  {
+   "id": "po-recruit-12",
+   "text": "{members} MEMBERS. ONE DREAM. {squad} would like {n} more members and also the dream to be ale."
+  },
+  {
+   "id": "po-recruit-13",
+   "text": "HELMET? NO HELMET? {captain} doesn't judge. {squad} has {n} vacancies and a generous uniform policy."
+  },
+  {
+   "id": "po-recruit-14",
+   "text": "JOIN {squad} AND MEET NEW FRIENDS, such as the captain, a training dummy, and a goblin named Nobody Knows."
+  },
+  {
+   "id": "po-recruit-15",
+   "text": "DO YOU LIKE STANDING IN ONE PLACE? {squad} is on {routine} and needs {n} dwarves to stand in it with them."
+  },
+  {
+   "id": "po-recruit-16",
+   "text": "{squad} RECRUITMENT FAIR: Free sparring. Free bruises. Free counseling from the chief medical dwarf, eventually."
+  },
+  {
+   "id": "po-recruit-17",
+   "text": "VETERANS OF {squad} HAVE {kills} KILLS. Rookies have zero. Join now and widen that gap from the bottom."
+  },
+  {
+   "id": "po-recruit-18",
+   "text": "{captain} PERSONALLY GUARANTEES: no more than two sieges per season. {squad} has {n} openings. Guarantee non-binding."
+  },
+  {
+   "id": "po-recruit-19",
+   "text": "FORMER WOODCUTTERS WELCOME. {squad} seeks {n} dwarves handy with an axe and short on elf friends."
+  },
+  {
+   "id": "po-recruit-20",
+   "text": "LEARN A TRADE: STABBING. {squad} offers on-the-job training. {n} openings. The job is occasionally on you."
+  },
+  {
+   "id": "po-recruit-21",
+   "text": "PROTECT {fort}. Protect its ale. Protect its carp-free brook. {squad} needs {n} defenders, {captain} commanding."
+  },
+  {
+   "id": "po-recruit-22",
+   "text": "{squad} SEEKS HAMMER ENTHUSIASTS. Not the hammerer. Please stop applying, hammerer. {n} openings for everyone else."
+  },
+  {
+   "id": "po-recruit-23",
+   "text": "OFFICE JOBS ARE FOR NOBLES. Real dwarves join {squad}. {members} already did. Room for {n} more."
+  },
+  {
+   "id": "po-recruit-24",
+   "text": "{squad}: NOW WITH SCHEDULES. Current routine is '{routine}'. Recruits get to vote on changing it. Votes are ignored."
+  },
+  {
+   "id": "po-recruit-25",
+   "text": "WE ARE NOT SAYING THE GOBLINS ARE COMING. We are saying {squad} has {n} vacancies and the gate is loud tonight."
+  },
+  {
+   "id": "po-recruit-26",
+   "text": "WANT A TITLE? Join {squad} and you'll be 'Recruit'. Survive and become 'Militia Dwarf'. Survive more: 'Legend'."
+  },
+  {
+   "id": "po-recruit-27",
+   "text": "{kills} KILLS, {members} DWARVES, ONE CAPTAIN: {captain}. {squad} is building a legacy and needs {n} more bricks."
+  },
+  {
+   "id": "po-recruit-28",
+   "text": "{squad} OFFERS FLEXIBLE HOURS. You may train, patrol, or stand perfectly still, depending on orders we forgot to give."
+  },
+  {
+   "id": "po-recruit-29",
+   "text": "TIRED OF HAULING STONE? {squad} hauls nothing but weapons and occasionally a wounded friend. {n} spots open."
+  },
+  {
+   "id": "po-recruit-30",
+   "text": "MILITARY SERVICE FULFILS ALL NEEDS*. *Except sleep, ale, socializing, prayer and seeing family. {squad} recruiting {n}."
+  },
+  {
+   "id": "po-recruit-31",
+   "text": "ANNOUNCING: {squad} Bring-a-Friend Week. Bring a friend. Leave the friend in the danger room. {n} openings."
+  },
+  {
+   "id": "po-recruit-32",
+   "text": "JOIN {captain} IN {squad}, where every dwarf is a hero and every hero is assigned guard duty at the drawbridge."
+  }
+ ],
+ "vacancy_ads": [
+  {
+   "id": "po-vacancy-01",
+   "text": "POSITION VACANT: {post}. {fort} seeks a dwarf of good beard and low expectations. Desk provided; office not."
+  },
+  {
+   "id": "po-vacancy-02",
+   "text": "APPLY NOW: {post}. No experience required. The previous experience-havers are not available for comment."
+  },
+  {
+   "id": "po-vacancy-03",
+   "text": "{fort} REQUIRES A {post}. Duties include duties. Salary includes a room, once someone carves it."
+  },
+  {
+   "id": "po-vacancy-04",
+   "text": "VACANCY: {post}. Applicants must be able to sit very still while being blamed for things."
+  },
+  {
+   "id": "po-vacancy-05",
+   "text": "HIRING: {post}. The appointment will be made by the expedition leader, who has been meaning to for a while."
+  },
+  {
+   "id": "po-vacancy-06",
+   "text": "SEEKING {post}. Must not be the dwarf currently in a strange mood. We checked. Twice."
+  },
+  {
+   "id": "po-vacancy-07",
+   "text": "OPEN POST: {post}. Must enjoy paperwork, a sturdy chair and being shouted at by the mayor."
+  },
+  {
+   "id": "po-vacancy-08",
+   "text": "{post} WANTED. Previous holder left no notes, only an empty mug and a very thoughtful look."
+  },
+  {
+   "id": "po-vacancy-09",
+   "text": "JOB OF A LIFETIME: {post} in {fort}. Lifetime length depends on goblin activity."
+  },
+  {
+   "id": "po-vacancy-10",
+   "text": "OPPORTUNITY KNOCKS: {post}. Opportunity also knocked on the trade depot, but that was an elf."
+  },
+  {
+   "id": "po-vacancy-11",
+   "text": "{fort} TOWN HALL SEEKS {post}. Applications accepted on any flat surface. Please not the mayor."
+  },
+  {
+   "id": "po-vacancy-12",
+   "text": "THE {post} CHAIR IS EMPTY. It is a nice chair. It deserves someone. Is it you?"
+  },
+  {
+   "id": "po-vacancy-13",
+   "text": "POSITION: {post}. Benefits: prestige, a title, and someone else's demands about room quality."
+  },
+  {
+   "id": "po-vacancy-14",
+   "text": "NOW RECRUITING: {post}. Must be literate, sober and both of those things at the same time."
+  },
+  {
+   "id": "po-vacancy-15",
+   "text": "ENTRY-LEVEL ROLE: {post}. Also senior-level. Also the whole department. Apply within."
+  },
+  {
+   "id": "po-vacancy-16",
+   "text": "URGENT: {post} needed. The work has piled up. Physically. Someone should haul it."
+  },
+  {
+   "id": "po-vacancy-17",
+   "text": "{post}: VACANT SINCE THE LAST VACANCY. {fort} invites any dwarf to fill it, please, honestly anyone."
+  },
+  {
+   "id": "po-vacancy-18",
+   "text": "WANTED: {post}. Interview consists of standing in the office and not leaving immediately."
+  },
+  {
+   "id": "po-vacancy-19",
+   "text": "CAREER CHANGE? Become a {post}. Fishers, miners and the dwarf who only hauls socks all eligible."
+  },
+  {
+   "id": "po-vacancy-20",
+   "text": "THE COUNCIL OF {fort} ANNOUNCES: a {post} vacancy. The council is one dwarf. The dwarf is tired."
+  },
+  {
+   "id": "po-vacancy-21",
+   "text": "{post} VACANCY. Previous applicant declined after learning the office lacks a cabinet."
+  },
+  {
+   "id": "po-vacancy-22",
+   "text": "HEADHUNTING: {post}. Not literal headhunting. That is the military's department."
+  },
+  {
+   "id": "po-vacancy-23",
+   "text": "BE THE {post} {fort} DESERVES. Or the one it can get. Either is better than nobody."
+  },
+  {
+   "id": "po-vacancy-24",
+   "text": "ATTENTION AMBITIOUS DWARVES: the {post} post is open. Ambition not required. Showing up is."
+  },
+  {
+   "id": "po-vacancy-25",
+   "text": "{post} POST UNFILLED. The mayor has filled it with a statue temporarily. The statue performs adequately."
+  },
+  {
+   "id": "po-vacancy-26",
+   "text": "APPLY FOR {post}. Expected duties: unknown. Expected dignity: modest. Expected snacks: none."
+  }
+ ],
+ "local": {
+  "vacancies": {
+   "heads": [
+    {
+     "id": "po-loc-vacancies-h-01",
+     "text": "{post} CHAIR SITS EMPTY IN {fort}"
+    },
+    {
+     "id": "po-loc-vacancies-h-02",
+     "text": "{n} OFFICES UNFILLED; TOWN HALL ECHOES"
+    },
+    {
+     "id": "po-loc-vacancies-h-03",
+     "text": "WHO WILL BE {post}? NOBODY, SO FAR"
+    },
+    {
+     "id": "po-loc-vacancies-h-04",
+     "text": "VACANT POSTS HIT {n}; MAYOR SHRUGS"
+    },
+    {
+     "id": "po-loc-vacancies-h-05",
+     "text": "{fort} RUNS ON MISSING OFFICIALS"
+    },
+    {
+     "id": "po-loc-vacancies-h-06",
+     "text": "NAMEPLATE LACKS A NAME, AGAIN"
+    },
+    {
+     "id": "po-loc-vacancies-h-07",
+     "text": "ADMINISTRATION BY ABSENCE"
+    },
+    {
+     "id": "po-loc-vacancies-h-08",
+     "text": "{post} WANTED; INQUIRIES: ZERO"
+    },
+    {
+     "id": "po-loc-vacancies-h-09",
+     "text": "EMPTY DESKS FORM OWN COMMITTEE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-loc-vacancies-b-01",
+     "text": "The post of {post} remains unfilled in {fort} this week. Officials confirm the duties are piling up somewhere, but without a {post} nobody knows exactly where. The mayor described the situation as 'a matter for the {post}.'"
+    },
+    {
+     "id": "po-loc-vacancies-b-02",
+     "text": "{fort} currently has {n} offices without a holder. Supporters argue a government with fewer officials makes fewer mistakes. Critics note it also makes fewer decisions, rooms, and appointments, which may be the same thing."
+    },
+    {
+     "id": "po-loc-vacancies-b-03",
+     "text": "Asked who would become {post}, three dwarves pointed at each other, one pointed at a cat, and the last went to drink. The Herald understands the cat is not eligible but has the most support."
+    },
+    {
+     "id": "po-loc-vacancies-b-04",
+     "text": "A tour of the empty {post} office found a chair, a dusty slab and a single sock. Investigators believe the sock predates the vacancy and may know something."
+    },
+    {
+     "id": "po-loc-vacancies-b-05",
+     "text": "With {n} posts vacant, residents of {fort} have begun performing official duties informally. A miner now settles disputes by shouting. A brewer handles the books. Results are described as 'about the same.'"
+    },
+    {
+     "id": "po-loc-vacancies-b-06",
+     "text": "The expedition leader insists the {post} appointment is 'on the list.' The list, sources confirm, is underneath a larger list titled 'Things Before The List.'"
+    },
+    {
+     "id": "po-loc-vacancies-b-07",
+     "text": "Insiders say the {post} job is cursed. Others say it is simply boring. The Herald notes that in {fort}, both explanations have historically ended the same way: nobody applies."
+    },
+    {
+     "id": "po-loc-vacancies-b-08",
+     "text": "Town hall staffing reached a new low today, with {n} positions open and the remaining officials meeting only to discuss why there are no meetings. Minutes were not taken. There is no clerk."
+    },
+    {
+     "id": "po-loc-vacancies-b-09",
+     "text": "A petition demanding a {post} has been signed by every dwarf in {fort} except the ones who could be appointed. Those dwarves were reportedly 'busy' and 'hiding behind a barrel.'"
+    }
+   ]
+  },
+  "crime": {
+   "heads": [
+    {
+     "id": "po-loc-crime-h-01",
+     "text": "{criminal} CHARGED WITH {crime}"
+    },
+    {
+     "id": "po-loc-crime-h-02",
+     "text": "SHOCK IN {fort}: {crime} REPORTED"
+    },
+    {
+     "id": "po-loc-crime-h-03",
+     "text": "{victim} SPEAKS OUT AFTER INCIDENT"
+    },
+    {
+     "id": "po-loc-crime-h-04",
+     "text": "WHEELS OF JUSTICE GRIND SLOWLY"
+    },
+    {
+     "id": "po-loc-crime-h-05",
+     "text": "SHERIFF OPENS CASE; CLOSES DOOR"
+    },
+    {
+     "id": "po-loc-crime-h-06",
+     "text": "ACCUSED SAYS HE WAS 'JUST STANDING'"
+    },
+    {
+     "id": "po-loc-crime-h-07",
+     "text": "HAMMERER CLEARS HIS SCHEDULE"
+    },
+    {
+     "id": "po-loc-crime-h-08",
+     "text": "CRIME WAVE: ONE DWARF, ONE CRIME"
+    },
+    {
+     "id": "po-loc-crime-h-09",
+     "text": "WITNESSES SAW EVERYTHING, RECALL NOTHING"
+    },
+    {
+     "id": "po-loc-crime-h-10",
+     "text": "{criminal} DENIES ALL; ADMITS SOME"
+    },
+    {
+     "id": "po-loc-crime-h-11",
+     "text": "THE CASE OF THE {crime}"
+    },
+    {
+     "id": "po-loc-crime-h-12",
+     "text": "JAIL CELL GETS FIRST TENANT IN AGES"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-loc-crime-b-01",
+     "text": "{criminal} has been accused of {crime} after an incident involving {victim}. The accused told reporters it was a misunderstanding. {victim} told reporters it was very clearly understood, loudly, in the dining hall."
+    },
+    {
+     "id": "po-loc-crime-b-02",
+     "text": "The sheriff confirmed today that {crime} has occurred, then confirmed lunch. A full investigation is expected after lunch, or possibly after a nap, depending on how the lunch goes."
+    },
+    {
+     "id": "po-loc-crime-b-03",
+     "text": "{victim} said the ordeal left them shaken but resolved to see justice done. Asked what justice looks like, {victim} described the hammerer in considerable, affectionate detail."
+    },
+    {
+     "id": "po-loc-crime-b-04",
+     "text": "Legal experts say {crime} carries a sentence ranging from a stern look to a beating, depending on mood. The mood of the hammerer was listed as 'enthusiastic' at press time."
+    },
+    {
+     "id": "po-loc-crime-b-05",
+     "text": "{criminal} spent the afternoon in the chains near the dining hall, where friends brought ale and enemies brought opinions. Both were delivered at volume, and the ale, witnesses agree, was considerably better received."
+    },
+    {
+     "id": "po-loc-crime-b-06",
+     "text": "Interviews with eleven witnesses produced eleven accounts of {crime}, four involving a carp. Investigators have ruled the carp out. The carp has not been located for confirmation."
+    },
+    {
+     "id": "po-loc-crime-b-07",
+     "text": "Defending {criminal}, a close friend noted the accused 'has always been like this' and 'meant well, probably.' The defence was not accepted, mainly because there is no court."
+    },
+    {
+     "id": "po-loc-crime-b-08",
+     "text": "Tensions between {criminal} and {victim} predate the {crime}, sources say, dating back to a disagreement over who owned a particularly nice mug. The mug has since been thrown."
+    },
+    {
+     "id": "po-loc-crime-b-09",
+     "text": "Officials described the {crime} case as 'open and shut,' then opened and shut a door to make their point. Observers called the gesture powerful and unnecessary."
+    },
+    {
+     "id": "po-loc-crime-b-10",
+     "text": "Accused of {crime}, {criminal} offered a full apology, a partial explanation and zero remorse. The sheriff wrote all three down and filed them in the same cabinet as the socks."
+    },
+    {
+     "id": "po-loc-crime-b-11",
+     "text": "Since news of {crime} broke, residents report locking doors that had no locks and guarding stockpiles that held only stone. {victim} has asked everyone to calm down slightly."
+    },
+    {
+     "id": "po-loc-crime-b-12",
+     "text": "The captain of the guard has promised swift action against {criminal}. Swift, in this context, means after the current season's guard schedule, which is posted in pencil."
+    }
+   ]
+  },
+  "mandate": {
+   "heads": [
+    {
+     "id": "po-loc-mandate-h-01",
+     "text": "{noble} DEMANDS {item}"
+    },
+    {
+     "id": "po-loc-mandate-h-02",
+     "text": "NEW MANDATE ISSUED; WORKSHOPS FROWN"
+    },
+    {
+     "id": "po-loc-mandate-h-03",
+     "text": "NOBLE DISCOVERS NEW FAVOURITE THING"
+    },
+    {
+     "id": "po-loc-mandate-h-04",
+     "text": "'MAKE {item},' SAYS {noble}"
+    },
+    {
+     "id": "po-loc-mandate-h-05",
+     "text": "MANDATE SEASON OPENS EARLY"
+    },
+    {
+     "id": "po-loc-mandate-h-06",
+     "text": "EXPORT BAN ON THINGS NOBODY EXPORTS"
+    },
+    {
+     "id": "po-loc-mandate-h-07",
+     "text": "WORKSHOP TOLD WHAT TO DO, AGAIN"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-loc-mandate-b-01",
+     "text": "{noble} has issued a mandate requiring {item}. Craftsdwarves asked why. The answer was 'because I mandated it,' which, legally, settles the matter, though not emotionally."
+    },
+    {
+     "id": "po-loc-mandate-b-02",
+     "text": "Following the latest mandate for {item}, workshops reported a sharp rise in sighs. Production of {item} has begun. Production of sighs continues to outpace it."
+    },
+    {
+     "id": "po-loc-mandate-b-03",
+     "text": "A spokesdwarf for {noble} clarified that the demand for {item} is 'non-negotiable, but not urgent, unless it is late, in which case it is extremely urgent.'"
+    },
+    {
+     "id": "po-loc-mandate-b-04",
+     "text": "Historians note {noble} has previously demanded goblets, chairs and once a single silver bolt. The new interest in {item} is described as 'a phase' by those who remember the bolt."
+    },
+    {
+     "id": "po-loc-mandate-b-05",
+     "text": "Workers caught ignoring the mandate for {item} face punishment. The sheriff stresses that ignoring it accidentally counts. So does not knowing. So does being a different dwarf with the same name."
+    },
+    {
+     "id": "po-loc-mandate-b-06",
+     "text": "Asked what {noble} plans to do with the {item}, staff confirmed it will be placed in a room, admired once, then forgotten in favour of a new mandate next season."
+    },
+    {
+     "id": "po-loc-mandate-b-07",
+     "text": "Economic analysts warn the {item} mandate could strain supply chains, which in {fort} is one hauler named after a cheese. The hauler has asked for help and a nap."
+    }
+   ]
+  },
+  "officeholder": {
+   "heads": [
+    {
+     "id": "po-loc-officeholder-h-01",
+     "text": "PROFILE: {holder}, {post}"
+    },
+    {
+     "id": "po-loc-officeholder-h-02",
+     "text": "MEET YOUR {post}"
+    },
+    {
+     "id": "po-loc-officeholder-h-03",
+     "text": "{holder}: A LIFE IN SERVICE, MOSTLY SEATED"
+    },
+    {
+     "id": "po-loc-officeholder-h-04",
+     "text": "BEHIND THE DESK WITH {holder}"
+    },
+    {
+     "id": "po-loc-officeholder-h-05",
+     "text": "THE {post} WHO NEVER BLINKS"
+    },
+    {
+     "id": "po-loc-officeholder-h-06",
+     "text": "{holder} ON POWER, ALE, AND CHAIRS"
+    },
+    {
+     "id": "po-loc-officeholder-h-07",
+     "text": "A DAY IN THE LIFE OF {holder}"
+    },
+    {
+     "id": "po-loc-officeholder-h-08",
+     "text": "{post} {holder} BREAKS SILENCE"
+    },
+    {
+     "id": "po-loc-officeholder-h-09",
+     "text": "WHO IS {holder}, REALLY?"
+    },
+    {
+     "id": "po-loc-officeholder-h-10",
+     "text": "{holder} MARKS ANOTHER SEASON IN OFFICE"
+    },
+    {
+     "id": "po-loc-officeholder-h-11",
+     "text": "THE QUIET AMBITION OF {holder}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-loc-officeholder-b-01",
+     "text": "{holder} has served as {post} long enough to have opinions about the chair. 'It's the job,' {holder} said, 'and also the chair. Mostly the chair.' Colleagues describe {holder} as reliable, present and near the tavern."
+    },
+    {
+     "id": "po-loc-officeholder-b-02",
+     "text": "As {post}, {holder} begins each day with a mug of ale, a review of yesterday's problems, and a decision to address them tomorrow. Supporters call this discipline. Critics call it the same thing."
+    },
+    {
+     "id": "po-loc-officeholder-b-03",
+     "text": "{holder} was not elected {post} so much as discovered in the office one morning, already seated. Nobody objected. The arrangement has worked since, in that nobody has objected since."
+    },
+    {
+     "id": "po-loc-officeholder-b-04",
+     "text": "Asked about the hardest part of being {post}, {holder} paused, sipped, and said 'the questions.' The interview ended shortly afterward, at the request of {holder}, who had a meeting with a barrel."
+    },
+    {
+     "id": "po-loc-officeholder-b-05",
+     "text": "Friends of {holder} say the role of {post} has changed them. 'Before, they hauled stone,' one said. 'Now they watch other dwarves haul stone, with authority.'"
+    },
+    {
+     "id": "po-loc-officeholder-b-06",
+     "text": "{holder} keeps a tidy office, with one cabinet, one chest and a collection of complaints arranged by colour. The {post} insists that the colour system is 'working' and 'nearly finished.'"
+    },
+    {
+     "id": "po-loc-officeholder-b-07",
+     "text": "Rumours that {holder} wants a promotion from {post} were firmly denied by {holder}, who then asked whether the mayor's room has a nicer door. It does. {holder} has measured it."
+    },
+    {
+     "id": "po-loc-officeholder-b-08",
+     "text": "In a rare interview, {holder} revealed the secret to surviving as {post}: 'Say yes to the mayor, no to the nobles, and nothing to the elves.' Experts call this sound policy."
+    },
+    {
+     "id": "po-loc-officeholder-b-09",
+     "text": "Not everyone loves {holder}. A disgruntled miner called the {post} 'a beard in a chair.' {holder} responded that the beard is well kept and the chair is masterwork, so, thank you."
+    },
+    {
+     "id": "po-loc-officeholder-b-10",
+     "text": "{holder} recalls the day of appointment as {post}: 'Someone said my name, then left the room. I sat down. I've been sitting ever since.' Asked if they enjoy it, {holder} nodded carefully."
+    },
+    {
+     "id": "po-loc-officeholder-b-11",
+     "text": "A typical afternoon for {holder}, {post}, includes three disputes, two signatures and one long stare out of a fortification. 'The stare is important,' {holder} said. 'People need to see you thinking.'"
+    }
+   ]
+  },
+  "quiet": {
+   "heads": [
+    {
+     "id": "po-loc-quiet-h-01",
+     "text": "NOTHING HAPPENS AT TOWN HALL; DETAILS INSIDE"
+    },
+    {
+     "id": "po-loc-quiet-h-02",
+     "text": "MAYOR NAPS, FORT CONTINUES"
+    },
+    {
+     "id": "po-loc-quiet-h-03",
+     "text": "SLOW DAY: COUNCIL DEBATES CHAIRS"
+    },
+    {
+     "id": "po-loc-quiet-h-04",
+     "text": "NO NEWS IS NEWS, SAYS EDITOR"
+    },
+    {
+     "id": "po-loc-quiet-h-05",
+     "text": "BUREAUCRACY RESTS; DWARVES UNEASY"
+    },
+    {
+     "id": "po-loc-quiet-h-06",
+     "text": "TOWN HALL QUIET ENOUGH TO HEAR CARP"
+    },
+    {
+     "id": "po-loc-quiet-h-07",
+     "text": "OFFICIALS MEET, AGREE TO MEET AGAIN"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-loc-quiet-b-01",
+     "text": "Town hall reported no mandates, no crimes and no appointments today. The mayor spent the morning inspecting a door and the afternoon approving it. The Herald will monitor the door for developments."
+    },
+    {
+     "id": "po-loc-quiet-b-02",
+     "text": "A meeting of the {government} was called to order, then called to lunch, then called off. Officials described it as productive, by which they meant everyone attended lunch."
+    },
+    {
+     "id": "po-loc-quiet-b-03",
+     "text": "In a quiet season for {fort} politics, the most contentious item was whether the meeting hall needs a second table. A vote was taken. The table remains hypothetical."
+    },
+    {
+     "id": "po-loc-quiet-b-04",
+     "text": "No noble demanded anything today. Staff reported feeling uneasy, as if a mandate were hiding behind a pillar. None was found. The pillar was checked twice for good measure."
+    },
+    {
+     "id": "po-loc-quiet-b-05",
+     "text": "The bookkeeper reports all figures balanced, the manager reports all orders queued, and the sheriff reports a nap. Taken together, experts say, {fort} government is functioning exactly as designed."
+    },
+    {
+     "id": "po-loc-quiet-b-06",
+     "text": "Today the town hall of {fort} hosted a dwarf asking for directions, a cat seeking warmth and a petition about mugs that nobody signed. All three were filed under 'pending.'"
+    },
+    {
+     "id": "po-loc-quiet-b-07",
+     "text": "With nothing to govern, the {government} spent the day reorganizing its own records. The records now sit in a nicer cabinet, which officials are calling a historic reform."
+    }
+   ]
+  }
+ },
+ "military": {
+  "off_duty": {
+   "heads": [
+    {
+     "id": "po-mil-off_duty-h-01",
+     "text": "{squad} REMAINS OFF DUTY, BOLDLY"
+    },
+    {
+     "id": "po-mil-off_duty-h-02",
+     "text": "MILITIA ENJOYS ANOTHER DAY OFF"
+    },
+    {
+     "id": "po-mil-off_duty-h-03",
+     "text": "CAPTAIN {captain} DEFENDS LEISURE"
+    },
+    {
+     "id": "po-mil-off_duty-h-04",
+     "text": "{squad}: READY, SOMEDAY"
+    },
+    {
+     "id": "po-mil-off_duty-h-05",
+     "text": "THE SQUAD THAT NEVER CLOCKED IN"
+    },
+    {
+     "id": "po-mil-off_duty-h-06",
+     "text": "WEAPONS RACKED, BEARDS COMBED"
+    },
+    {
+     "id": "po-mil-off_duty-h-07",
+     "text": "{routine}: SQUAD'S NEW FAVOURITE WORD"
+    },
+    {
+     "id": "po-mil-off_duty-h-08",
+     "text": "MILITIA SPOTTED AT TAVERN, AGAIN"
+    },
+    {
+     "id": "po-mil-off_duty-h-09",
+     "text": "OFF DUTY SINCE THE FOUNDING"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-mil-off_duty-b-01",
+     "text": "{squad} remains on '{routine}' this week, as it was last week and, records suggest, at founding. Captain {captain} calls this 'strategic readiness.' Soldiers call it 'Tuesday.' Goblins, reportedly, call it an opportunity."
+    },
+    {
+     "id": "po-mil-off_duty-b-02",
+     "text": "Asked when {squad} would next train, {captain} gestured vaguely at the future. Members were later seen drinking, sleeping and, in one case, carving a tiny statue of a crossbow they have never fired."
+    },
+    {
+     "id": "po-mil-off_duty-b-03",
+     "text": "Critics say an off-duty militia is no militia at all. {captain} disagrees: 'We are a militia. We are simply off.' The {members} members of {squad} nodded from the dining hall."
+    },
+    {
+     "id": "po-mil-off_duty-b-04",
+     "text": "The barracks assigned to {squad} have gathered a fine layer of dust, one sock and a training dummy that has begun to look lonely. 'It will see action,' {captain} promised. 'Eventually.'"
+    },
+    {
+     "id": "po-mil-off_duty-b-05",
+     "text": "{squad} members insist off-duty time is vital for morale. Their morale is excellent. Their combat skill, sources say, is 'mostly theoretical' and 'documented in a song about it.'"
+    },
+    {
+     "id": "po-mil-off_duty-b-06",
+     "text": "In an internal memo, {captain} reminded {squad} that 'off duty' does not mean 'off armour'. The memo was read by nobody because everyone was off duty, which, ironically, proved the point."
+    },
+    {
+     "id": "po-mil-off_duty-b-07",
+     "text": "The danger room built for {squad} remains unused. The spikes have not moved. The lever has not been pulled. Engineers have started calling it the 'mildly concerning room.'"
+    },
+    {
+     "id": "po-mil-off_duty-b-08",
+     "text": "Residents of {fort} feel safer knowing {squad} exists, a recent survey found, though fewer feel safer knowing where it is. Most respondents guessed 'the tavern.' Most respondents were right."
+    },
+    {
+     "id": "po-mil-off_duty-b-09",
+     "text": "Military analysts confirm that {squad}, while off duty, has suffered zero casualties, which is the best record in the fort. They also confirm the squad has achieved zero anything else."
+    }
+   ]
+  },
+  "training": {
+   "heads": [
+    {
+     "id": "po-mil-training-h-01",
+     "text": "{squad} TRAINS HARD, SWEATS HARDER"
+    },
+    {
+     "id": "po-mil-training-h-02",
+     "text": "DANGER ROOM SEES HEAVY USE"
+    },
+    {
+     "id": "po-mil-training-h-03",
+     "text": "CAPTAIN {captain} CALLS IT 'DRILL'"
+    },
+    {
+     "id": "po-mil-training-h-04",
+     "text": "SPARRING INJURIES UP; SPIRITS UP"
+    },
+    {
+     "id": "po-mil-training-h-05",
+     "text": "TRAINING DUMMY FILES COMPLAINT"
+    },
+    {
+     "id": "po-mil-training-h-06",
+     "text": "{squad} PRACTICES FOR UNKNOWN THREAT"
+    },
+    {
+     "id": "po-mil-training-h-07",
+     "text": "MILITIA LEARNS WHICH END IS POINTY"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-mil-training-b-01",
+     "text": "{squad} spent the day training under {captain}, who shouted encouragement and occasionally instructions. Members reported bruises, broken pride and one excellent new insult, which is being entered into the official squad record."
+    },
+    {
+     "id": "po-mil-training-b-02",
+     "text": "Training continues in the barracks, where {members} dwarves strike dummies, each other and once, by accident, the wall. Engineers report the wall held. {captain} reports the wall lost the exchange."
+    },
+    {
+     "id": "po-mil-training-b-03",
+     "text": "Asked what {squad} is training for, {captain} said 'everything.' Asked to be more specific, {captain} said 'goblins, beasts, elves with opinions.' The squad nodded and hit the dummy harder."
+    },
+    {
+     "id": "po-mil-training-b-04",
+     "text": "The chief medical dwarf thanked {squad} for its training schedule, which has kept the hospital busy and the doctor's diagnostic skill climbing steadily. 'Keep sparring,' the doctor said. 'Gently.'"
+    },
+    {
+     "id": "po-mil-training-b-05",
+     "text": "{squad} members gathered for an individual combat drill, an ambush drill and an argument about whose turn it was. The argument went longest. Officers consider it valuable teamwork practice."
+    },
+    {
+     "id": "po-mil-training-b-06",
+     "text": "Observers say {squad} has never looked sharper. The squad's weapons, observers add, have never looked duller. A request for a whetstone has been passed to the manager, then to a drawer."
+    },
+    {
+     "id": "po-mil-training-b-07",
+     "text": "Morale in {squad} is high after a rigorous week of drill. 'I can finally swing an axe without dropping it,' said one recruit. 'Usually,' added {captain}, who was standing slightly back."
+    }
+   ]
+  },
+  "patrol": {
+   "heads": [
+    {
+     "id": "po-mil-patrol-h-01",
+     "text": "{squad} WALKS THE WALLS"
+    },
+    {
+     "id": "po-mil-patrol-h-02",
+     "text": "PATROL ROUTE COMPLETED; SO WAS LUNCH"
+    },
+    {
+     "id": "po-mil-patrol-h-03",
+     "text": "MILITIA SPOTTED MOVING ON PURPOSE"
+    },
+    {
+     "id": "po-mil-patrol-h-04",
+     "text": "CAPTAIN {captain} LEADS LAP OF FORT"
+    },
+    {
+     "id": "po-mil-patrol-h-05",
+     "text": "NO THREATS FOUND; SQUAD KEEPS LOOKING"
+    },
+    {
+     "id": "po-mil-patrol-h-06",
+     "text": "{squad} PATROL TAKES SCENIC ROUTE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-mil-patrol-b-01",
+     "text": "{squad} completed its patrol of {fort} today, walking from the gate to the depot and back. Highlights included a startled hauler, a suspicious barrel and a cat that refused to move."
+    },
+    {
+     "id": "po-mil-patrol-b-02",
+     "text": "Under {captain}, {squad} keeps a steady pace around the perimeter. 'We see everything,' {captain} said. Asked about the badger that walked in last week, {captain} said 'nearly everything.'"
+    },
+    {
+     "id": "po-mil-patrol-b-03",
+     "text": "Residents say they feel safer seeing {squad} march past their bedrooms. They would feel safer still, they added, if the march were not scheduled at the exact hour of sleeping."
+    },
+    {
+     "id": "po-mil-patrol-b-04",
+     "text": "The {members} members of {squad} have worn a visible path into the floor along their patrol route. The mason has requested they vary it slightly, or at least walk in smaller boots."
+    },
+    {
+     "id": "po-mil-patrol-b-05",
+     "text": "Patrol logs show {squad} has found no goblins, one lost child and a sock. The child was returned. The sock, per regulations, was entered into evidence and quietly worn by the captain."
+    },
+    {
+     "id": "po-mil-patrol-b-06",
+     "text": "{captain} describes the patrol as 'a deterrent.' Elves visiting the depot described it as 'rather loud.' {squad} took the elves' comments as confirmation the deterrent works."
+    }
+   ]
+  },
+  "active": {
+   "heads": [
+    {
+     "id": "po-mil-active-h-01",
+     "text": "{squad} DEPLOYED; FORT HOLDS BREATH"
+    },
+    {
+     "id": "po-mil-active-h-02",
+     "text": "CAPTAIN {captain} GIVES THE ORDER"
+    },
+    {
+     "id": "po-mil-active-h-03",
+     "text": "MILITIA ON THE MOVE: '{order}'"
+    },
+    {
+     "id": "po-mil-active-h-04",
+     "text": "{squad} MARCHES OUT WITH PURPOSE"
+    },
+    {
+     "id": "po-mil-active-h-05",
+     "text": "KILL ORDER ISSUED; SQUAD NODS GRIMLY"
+    },
+    {
+     "id": "po-mil-active-h-06",
+     "text": "SOLDIERS STOP DRINKING, START STABBING"
+    },
+    {
+     "id": "po-mil-active-h-07",
+     "text": "THE SQUAD ACTUALLY SHOWED UP"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-mil-active-b-01",
+     "text": "{squad} has been placed under order '{order}' and is moving out. {captain} told reporters there was no time for interviews, then gave a short interview about how there was no time."
+    },
+    {
+     "id": "po-mil-active-b-02",
+     "text": "For once, {squad} is not off duty. Members were seen pulling on armour, finding their weapons and, in two cases, borrowing someone else's helmet. 'Uniform policy is flexible,' {captain} said."
+    },
+    {
+     "id": "po-mil-active-b-03",
+     "text": "The fort's hammerer, broker and three haulers stood by the gate as {squad} marched past on active duty. Applause was scattered. The broker attempted to appraise the squad's armour mid-march."
+    },
+    {
+     "id": "po-mil-active-b-04",
+     "text": "Sources close to {captain} say the order came suddenly. 'One moment we were eating,' a soldier said. 'The next, we were running at something.' The soldier did not specify what. Possibly a goblin."
+    },
+    {
+     "id": "po-mil-active-b-05",
+     "text": "{squad}, {members} strong, is on mission. Families are urged to stay indoors, keep the drawbridge clear and not pull any levers labelled 'do not pull.' Especially that one."
+    },
+    {
+     "id": "po-mil-active-b-06",
+     "text": "Military officials stress that {squad}'s current order is 'routine.' Asked which routine involves screaming, charging and swinging axes, officials said 'ours' and firmly closed the barracks door."
+    },
+    {
+     "id": "po-mil-active-b-07",
+     "text": "Witnesses report {squad} moved with surprising discipline under order '{order}'. One hesitated briefly to grab a mug. {captain} says the mug was 'tactical' and declined further comment."
+    }
+   ]
+  },
+  "understaffed": {
+   "heads": [
+    {
+     "id": "po-mil-understaffed-h-01",
+     "text": "{squad} SHORT {n} SOLDIERS"
+    },
+    {
+     "id": "po-mil-understaffed-h-02",
+     "text": "ONE SQUAD, MANY EMPTY BOOTS"
+    },
+    {
+     "id": "po-mil-understaffed-h-03",
+     "text": "CAPTAIN {captain} RECRUITS A MIRROR"
+    },
+    {
+     "id": "po-mil-understaffed-h-04",
+     "text": "MILITIA HAS {members}, NEEDS MORE"
+    },
+    {
+     "id": "po-mil-understaffed-h-05",
+     "text": "BARRACKS BUNKS SIT EMPTY"
+    },
+    {
+     "id": "po-mil-understaffed-h-06",
+     "text": "{n} VACANCIES; GOBLINS NOT WAITING"
+    },
+    {
+     "id": "po-mil-understaffed-h-07",
+     "text": "SQUAD NOW MOSTLY ENTHUSIASM"
+    },
+    {
+     "id": "po-mil-understaffed-h-08",
+     "text": "WHERE IS EVERYONE? ASKS {captain}"
+    },
+    {
+     "id": "po-mil-understaffed-h-09",
+     "text": "DEFENCE BUDGET: PLENTY. DEFENDERS: FEW"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-mil-understaffed-b-01",
+     "text": "{squad} currently fields {members} dwarves with {n} positions unfilled. {captain} says the squad 'punches above its weight'. Asked to elaborate, {captain} admitted the squad mostly punches the training dummy."
+    },
+    {
+     "id": "po-mil-understaffed-b-02",
+     "text": "With {n} spots open in {squad}, the fort's defence plan relies heavily on the drawbridge and hope. Engineers report the drawbridge works. Hope remains untested under siege conditions."
+    },
+    {
+     "id": "po-mil-understaffed-b-03",
+     "text": "Recruiting for {squad} has stalled. Potential soldiers cite the hours, the danger and the absence of a nice chair. {captain} has offered a chair. The chair is wooden and tells no lies."
+    },
+    {
+     "id": "po-mil-understaffed-b-04",
+     "text": "{captain} confirmed that {squad} has {n} vacancies and suggested anyone interested apply 'immediately, or yesterday.' A queue formed briefly, then turned out to be for the tavern."
+    },
+    {
+     "id": "po-mil-understaffed-b-05",
+     "text": "Analysts note {squad}'s small size makes it agile, quiet and easy to feed. It also makes it easy to surround, they add, which is the part the goblins tend to focus on."
+    },
+    {
+     "id": "po-mil-understaffed-b-06",
+     "text": "A recruitment drive for {squad} produced one volunteer, who later clarified she had been looking for the latrine. {captain} has marked her down as 'possible' and remains optimistic."
+    },
+    {
+     "id": "po-mil-understaffed-b-07",
+     "text": "{squad} has {members} members, and each is now responsible for the work of several. 'I am the left flank, the right flank and the reserve,' one said. 'I am very tired.'"
+    },
+    {
+     "id": "po-mil-understaffed-b-08",
+     "text": "The manager has been asked to free up dwarves for {squad}, but says every hand is needed for work orders. {captain} replied that hands are also needed to hold the gate. A meeting is scheduled."
+    },
+    {
+     "id": "po-mil-understaffed-b-09",
+     "text": "A training dummy in {squad}'s barracks has been given a helmet, a name and a place on the roster. {captain} insists this is morale, not strategy. The dummy has yet to complain."
+    }
+   ]
+  },
+  "veterans": {
+   "heads": [
+    {
+     "id": "po-mil-veterans-h-01",
+     "text": "{squad} TALLIES {kills} KILLS"
+    },
+    {
+     "id": "po-mil-veterans-h-02",
+     "text": "VETERANS OF {squad} HONOURED"
+    },
+    {
+     "id": "po-mil-veterans-h-03",
+     "text": "CAPTAIN {captain}: 'WE REMEMBER EACH ONE'"
+    },
+    {
+     "id": "po-mil-veterans-h-04",
+     "text": "THE SCARRED ONES TELL THEIR TALES"
+    },
+    {
+     "id": "po-mil-veterans-h-05",
+     "text": "{kills} KILLS AND STILL NO GOOD BOOTS"
+    },
+    {
+     "id": "po-mil-veterans-h-06",
+     "text": "HEROES DRINK FREE; ALSO DRINK A LOT"
+    },
+    {
+     "id": "po-mil-veterans-h-07",
+     "text": "BATTLE-HARDENED, MUG-SOFTENED"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-mil-veterans-b-01",
+     "text": "{squad} now counts {kills} kills among its members, a figure {captain} recites at every meal. Newcomers say they have learned to eat faster. Veterans say the story gets better every time."
+    },
+    {
+     "id": "po-mil-veterans-b-02",
+     "text": "The veterans of {squad} were honoured at a feast this week. Each received a mug, a pat on the back and a request from the chief medical dwarf to please stop reopening old wounds while gesturing."
+    },
+    {
+     "id": "po-mil-veterans-b-03",
+     "text": "With {kills} kills recorded, {squad} is the most experienced force in {fort}. 'Experience is a teacher,' {captain} said, 'and the lesson it teaches most often is: duck, then duck again.'"
+    },
+    {
+     "id": "po-mil-veterans-b-04",
+     "text": "Engravers have been commissioned to depict the deeds of {squad} on the barracks walls. Early drafts show a lot of goblins, one memorable carp and {captain} looking taller than in life."
+    },
+    {
+     "id": "po-mil-veterans-b-05",
+     "text": "Asked about the secret to {kills} kills, a veteran of {squad} said 'keep the axe sharp and the ale cold.' A second veteran disagreed and said 'the other way around.' They are still discussing it."
+    },
+    {
+     "id": "po-mil-veterans-b-06",
+     "text": "Veterans of {squad} say the hardest part of service is not battle but peace. 'Nothing to hit,' one sighed, while polishing a shield that has been polished for nine straight days."
+    },
+    {
+     "id": "po-mil-veterans-b-07",
+     "text": "The {members} members of {squad} have survived sieges, ambushes and a terrible misunderstanding with a forgotten beast. Their tally stands at {kills}. Their tolerance for elves remains at zero."
+    }
+   ]
+  },
+  "none": {
+   "heads": [
+    {
+     "id": "po-mil-none-h-01",
+     "text": "FORT HAS NO MILITIA; GOBLINS NOTIFIED"
+    },
+    {
+     "id": "po-mil-none-h-02",
+     "text": "DEFENCE POLICY: OPTIMISM"
+    },
+    {
+     "id": "po-mil-none-h-03",
+     "text": "NO SQUAD, NO CAPTAIN, NO PROBLEM?"
+    },
+    {
+     "id": "po-mil-none-h-04",
+     "text": "{fort} DEFENDED ENTIRELY BY DOORS"
+    },
+    {
+     "id": "po-mil-none-h-05",
+     "text": "MILITIA PLANNED, POSTPONED, FORGOTTEN"
+    },
+    {
+     "id": "po-mil-none-h-06",
+     "text": "THE ARMY OF NOBODY"
+    },
+    {
+     "id": "po-mil-none-h-07",
+     "text": "WEAPON RACKS DISPLAY ZERO WEAPONS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-mil-none-b-01",
+     "text": "{fort} currently has no military whatsoever. Officials say the drawbridge, a few cage traps and a very loud miner will hold any line. The miner has not been consulted and is mining."
+    },
+    {
+     "id": "po-mil-none-b-02",
+     "text": "Asked who protects {fort}, the mayor pointed at the gate, then at the walls, then, after a pause, at the cat. Residents are encouraged to treat the cat with appropriate respect."
+    },
+    {
+     "id": "po-mil-none-b-03",
+     "text": "Without a single squad, {fort} relies on what defence experts call 'the haulers' charge': dwarves running toward danger while carrying stone. It has a perfect record of being tried once."
+    },
+    {
+     "id": "po-mil-none-b-04",
+     "text": "The fort's lone crossbow hangs above the dining hall, unused, unloaded and lovingly dusted. Bolts were requested last season. The request now sits with the manager, behind the socks."
+    },
+    {
+     "id": "po-mil-none-b-05",
+     "text": "Some say a fort without a militia invites trouble. Others say it simply invites peace. Goblin scouts have so far declined to comment, but have been seen taking extensive notes."
+    },
+    {
+     "id": "po-mil-none-b-06",
+     "text": "Plans to form a militia stalled after nobody could agree on a squad name. Leading candidates were 'The Iron Beards' and 'The Ones Who Will Do It Later.' The second is currently winning."
+    },
+    {
+     "id": "po-mil-none-b-07",
+     "text": "The Herald asked the {government} about the absence of any military in {fort}. A spokesdwarf replied that defence is 'everyone's job,' which, critics noted, is a polite way of saying nobody's."
+    }
+   ]
+  }
+ },
+ "world": {
+  "peace": {
+   "heads": [
+    {
+     "id": "po-wor-peace-h-01",
+     "text": "{civ} AT PEACE WITH {n_peace} NATIONS"
+    },
+    {
+     "id": "po-wor-peace-h-02",
+     "text": "FRIENDSHIP WITH {friend} HOLDS"
+    },
+    {
+     "id": "po-wor-peace-h-03",
+     "text": "DIPLOMATS SMILE; NOBODY KNOWS WHY"
+    },
+    {
+     "id": "po-wor-peace-h-04",
+     "text": "PEACE CONTINUES; GENERALS BORED"
+    },
+    {
+     "id": "po-wor-peace-h-05",
+     "text": "{friend_race} NEIGHBOURS STILL CORDIAL"
+    },
+    {
+     "id": "po-wor-peace-h-06",
+     "text": "NO WAR TODAY, SAYS CAPITAL"
+    },
+    {
+     "id": "po-wor-peace-h-07",
+     "text": "TREATY STILL IN FORCE, STILL UNREAD"
+    },
+    {
+     "id": "po-wor-peace-h-08",
+     "text": "TRADE ROUTES OPEN, CARAVANS HOPEFUL"
+    },
+    {
+     "id": "po-wor-peace-h-09",
+     "text": "CARAVAN ARRIVES; NOBODY ATTACKS IT"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-wor-peace-b-01",
+     "text": "{civ} remains at peace with {n_peace} civilizations this season. Diplomats describe relations as 'warm,' 'stable' and 'mostly about tariffs.' The Herald welcomes the news and will report any outbreak of hostility promptly."
+    },
+    {
+     "id": "po-wor-peace-b-02",
+     "text": "Relations with {friend} remain friendly. Their {friend_race} caravans arrive, trade and depart without incident, which in this region qualifies as a historic achievement. The broker credits his smile."
+    },
+    {
+     "id": "po-wor-peace-b-03",
+     "text": "A spokesdwarf for {civ} hailed peace with {friend} as 'a lasting friendship built on mutual respect, shared trade and a mutual unwillingness to march that far.'"
+    },
+    {
+     "id": "po-wor-peace-b-04",
+     "text": "With {n_peace} peaceful neighbours, {civ} faces the rare problem of having nobody to fight. The military has filled the time with drill, ceremony and one very competitive arm-wrestling league."
+    },
+    {
+     "id": "po-wor-peace-b-05",
+     "text": "The {friend_race} delegates of {friend} praised our hospitality, our ale and our 'unusual architecture.' Our architects took the last remark as a compliment. Nobody has checked whether it was."
+    },
+    {
+     "id": "po-wor-peace-b-06",
+     "text": "Peace with {friend} has survived another season, despite a minor incident involving a tree, an axe and a very upset {friend_race}. Both sides have agreed not to discuss the tree."
+    },
+    {
+     "id": "po-wor-peace-b-07",
+     "text": "Merchants report record trade with {friend}, though our broker admits he still cannot read their prices. 'I nod and point,' he said. 'It has worked so far.'"
+    },
+    {
+     "id": "po-wor-peace-b-08",
+     "text": "In a joint statement, {civ} and {friend} pledged continued cooperation, open roads and no surprise sieges. Observers noted the 'no surprise sieges' clause was added in pencil."
+    },
+    {
+     "id": "po-wor-peace-b-09",
+     "text": "Historians observe that {civ} has kept peace with {n_peace} nations longer than anyone expected. The secret, one official said, is simple: 'We are very far away from most of them.'"
+    }
+   ]
+  },
+  "war": {
+   "heads": [
+    {
+     "id": "po-wor-war-h-01",
+     "text": "{civ} AT WAR WITH {enemy}"
+    },
+    {
+     "id": "po-wor-war-h-02",
+     "text": "{enemy_race} HORDES STIR IN THE DARK"
+    },
+    {
+     "id": "po-wor-war-h-03",
+     "text": "WAR ON {n_war} FRONTS, SAYS CAPITAL"
+    },
+    {
+     "id": "po-wor-war-h-04",
+     "text": "SIEGE FEARS GRIP {fort}"
+    },
+    {
+     "id": "po-wor-war-h-05",
+     "text": "{enemy} DECLINES PEACE, AGAIN"
+    },
+    {
+     "id": "po-wor-war-h-06",
+     "text": "BORDERS TENSE; BEARDS BRISTLE"
+    },
+    {
+     "id": "po-wor-war-h-07",
+     "text": "GENERALS STUDY MAPS, SQUINT"
+    },
+    {
+     "id": "po-wor-war-h-08",
+     "text": "THE {enemy_race} QUESTION RETURNS"
+    },
+    {
+     "id": "po-wor-war-h-09",
+     "text": "DRAWBRIDGE OILED, JUST IN CASE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-wor-war-b-01",
+     "text": "{civ} remains at war with {enemy}, according to officials who confirmed the matter without looking up from their ale. Residents are advised to keep the drawbridge in working order and their boots by the door."
+    },
+    {
+     "id": "po-wor-war-b-02",
+     "text": "Reports of {enemy_race} movement near the borders have put {fort} on alert. The alarm lever has been dusted and labelled. The militia has been informed. The militia has been informed again."
+    },
+    {
+     "id": "po-wor-war-b-03",
+     "text": "With wars on {n_war} fronts, the capital urges forts to 'stay vigilant and productive.' Officials did not explain how to be both at once, but suggested crossbow-making as a reasonable compromise."
+    },
+    {
+     "id": "po-wor-war-b-04",
+     "text": "{enemy} has once again rejected peace overtures from {civ}. Diplomats call it disappointing. Generals call it Tuesday. The hammerer, for reasons unknown, called it 'exciting.'"
+    },
+    {
+     "id": "po-wor-war-b-05",
+     "text": "Scouts report {enemy_race} war bands assembling under the banner of {enemy}. The Herald advises readers not to panic, and also to know exactly where the nearest door is."
+    },
+    {
+     "id": "po-wor-war-b-06",
+     "text": "The war with {enemy} has entered another season. Neither side has gained ground, though both have gained grudges. Military historians describe the conflict as 'very consistent.'"
+    },
+    {
+     "id": "po-wor-war-b-07",
+     "text": "A captured {enemy_race} scout has refused to say anything except rude words about our beards. {civ} officials have filed the remarks as intelligence and the scout as a guest of the dungeon master."
+    },
+    {
+     "id": "po-wor-war-b-08",
+     "text": "Merchants warn that the war with {enemy} could disrupt trade. The broker, however, sees opportunity: 'Goblins leave behind a lot of very nice armour,' he said. 'Eventually.'"
+    },
+    {
+     "id": "po-wor-war-b-09",
+     "text": "Our civilization fights on {n_war} fronts, and some fear the strain. The capital insists the situation is under control and asks forts to please, please send more bolts."
+    }
+   ]
+  },
+  "monarch": {
+   "heads": [
+    {
+     "id": "po-wor-monarch-h-01",
+     "text": "{monarch} ISSUES ROYAL DECREE"
+    },
+    {
+     "id": "po-wor-monarch-h-02",
+     "text": "WORD FROM THE MOUNTAINHOME"
+    },
+    {
+     "id": "po-wor-monarch-h-03",
+     "text": "THE CROWN SPEAKS; FORT LISTENS"
+    },
+    {
+     "id": "po-wor-monarch-h-04",
+     "text": "{monarch} 'PLEASED,' SAYS COURT"
+    },
+    {
+     "id": "po-wor-monarch-h-05",
+     "text": "ROYAL VISIT RUMOURED, DREADED"
+    },
+    {
+     "id": "po-wor-monarch-h-06",
+     "text": "MONARCH DEMANDS MORE TRIBUTE"
+    },
+    {
+     "id": "po-wor-monarch-h-07",
+     "text": "{monarch} TURNS ATTENTION TO {fort}"
+    },
+    {
+     "id": "po-wor-monarch-h-08",
+     "text": "LONG LIVE {monarch}, MOST AGREE"
+    },
+    {
+     "id": "po-wor-monarch-h-09",
+     "text": "COURT GOSSIP: THRONE STILL COMFY"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-wor-monarch-b-01",
+     "text": "{monarch}, sovereign of {civ}, has sent greetings to {fort} by way of a liaison who arrived, ate, complained about the bedroom and left. The court considers this a successful exchange."
+    },
+    {
+     "id": "po-wor-monarch-b-02",
+     "text": "A royal decree from {monarch} calls on every fort of {civ} to increase production of 'fine things.' The decree does not specify which things. Craftsdwarves are interpreting it broadly."
+    },
+    {
+     "id": "po-wor-monarch-b-03",
+     "text": "Rumours that {monarch} might relocate to {fort} have spread through the fortress. The mayor has begun quietly measuring rooms. The bookkeeper has begun quietly measuring the treasury."
+    },
+    {
+     "id": "po-wor-monarch-b-04",
+     "text": "{monarch} is said to be pleased with recent tribute. Courtiers caution that 'pleased' is a relative term, and that the monarch was also 'pleased' with the fort that was later asked for more."
+    },
+    {
+     "id": "po-wor-monarch-b-05",
+     "text": "Court sources report {monarch} spends mornings reviewing reports from the forts of {civ}, afternoons signing mandates and evenings demanding a better throne. The throne has been replaced four times."
+    },
+    {
+     "id": "po-wor-monarch-b-06",
+     "text": "In a rare public address, {monarch} praised 'the hardworking dwarves of {civ}' and said 'the future is carved in stone.' Masons applauded. Woodcutters looked down at their axes."
+    },
+    {
+     "id": "po-wor-monarch-b-07",
+     "text": "{monarch} reportedly asked about {fort} during a recent banquet, then asked whether {fort} has good ale. The answer was relayed as 'yes.' Our brewers are taking this very seriously."
+    },
+    {
+     "id": "po-wor-monarch-b-08",
+     "text": "Royal observers say {monarch} has strong opinions about chains, cages and the quality of bedroom furniture. Local nobles have begun upgrading their furniture in case the monarch visits."
+    },
+    {
+     "id": "po-wor-monarch-b-09",
+     "text": "The mountainhome confirms that {monarch} remains in good health, good spirits and good command of {civ}. Petitions should be sent via the liaison, who has asked us not to send so many."
+    }
+   ]
+  },
+  "general": {
+   "heads": [
+    {
+     "id": "po-wor-general-h-01",
+     "text": "GENERAL {general} SURVEYS THE FRONT"
+    },
+    {
+     "id": "po-wor-general-h-02",
+     "text": "{civ} ARMY UNDER NEW ORDERS"
+    },
+    {
+     "id": "po-wor-general-h-03",
+     "text": "GENERAL PRAISES 'GRIT,' 'BEARDS'"
+    },
+    {
+     "id": "po-wor-general-h-04",
+     "text": "WAR COUNCIL MEETS, ARGUES"
+    },
+    {
+     "id": "po-wor-general-h-05",
+     "text": "{general} WANTS MORE BOLTS"
+    },
+    {
+     "id": "po-wor-general-h-06",
+     "text": "GENERAL'S MAP NOW 'MOSTLY ACCURATE'"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-wor-general-b-01",
+     "text": "General {general} of {civ} has reviewed the realm's defences and declared them 'adequate, with room for improvement, mainly the room.' Forts are urged to dig more barracks and fewer dining halls."
+    },
+    {
+     "id": "po-wor-general-b-02",
+     "text": "Speaking to officers, {general} stressed the importance of training, uniforms and actually showing up. Several squads across {civ} reportedly felt personally attacked by the last item."
+    },
+    {
+     "id": "po-wor-general-b-03",
+     "text": "{general} has requested that every fort in {civ} send bolts to the front. {fort}'s manager has queued the order. The order sits behind seventeen orders for mugs."
+    },
+    {
+     "id": "po-wor-general-b-04",
+     "text": "Known for a booming voice and short patience, General {general} once won a battle by shouting the enemy into retreat. Historians call this legend. Soldiers who were there call it Monday."
+    },
+    {
+     "id": "po-wor-general-b-05",
+     "text": "{general} has denied rumours of a major new campaign but confirmed 'several minor campaigns that may become one big campaign if they get together.' Strategists are taking notes."
+    },
+    {
+     "id": "po-wor-general-b-06",
+     "text": "In an interview, {general} praised the fighting spirit of {civ}'s militias but noted 'spirit is not a weapon'. The general then demanded steel, and lots of it, from every smelter available."
+    }
+   ]
+  },
+  "envoys": {
+   "heads": [
+    {
+     "id": "po-wor-envoys-h-01",
+     "text": "LIAISON {liaison} ARRIVES, UNIMPRESSED"
+    },
+    {
+     "id": "po-wor-envoys-h-02",
+     "text": "DIPLOMAT {diplomat} TOURS THE REGION"
+    },
+    {
+     "id": "po-wor-envoys-h-03",
+     "text": "ENVOY EATS, COMPLAINS, LEAVES"
+    },
+    {
+     "id": "po-wor-envoys-h-04",
+     "text": "OUTPOST LIAISON ASKS FOR BETTER ROOM"
+    },
+    {
+     "id": "po-wor-envoys-h-05",
+     "text": "TALKS HELD; NOBODY SATISFIED"
+    },
+    {
+     "id": "po-wor-envoys-h-06",
+     "text": "{civ} SENDS ITS WORDS, NOT ITS GOLD"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "po-wor-envoys-b-01",
+     "text": "{liaison}, outpost liaison for {civ}, arrived this week to discuss trade agreements. Discussions covered imports, exports and whether the guest room counts as a room. {liaison} believes it does not."
+    },
+    {
+     "id": "po-wor-envoys-b-02",
+     "text": "Diplomat {diplomat} reportedly toured the neighbouring realms on behalf of {civ}, bringing gifts, compliments and one strongly worded scroll. The scroll was delivered last. It was the most effective item."
+    },
+    {
+     "id": "po-wor-envoys-b-03",
+     "text": "The meeting with {liaison} lasted four hours, three of which were spent on the topic of ale. The remaining hour covered what the mountainhome wants next year. The answer was, broadly, 'more.'"
+    },
+    {
+     "id": "po-wor-envoys-b-04",
+     "text": "{diplomat} has earned a reputation for patience, tact and an ability to smile at elves for hours without blinking. Colleagues call it a gift. The diplomat calls it 'practice, and pain.'"
+    },
+    {
+     "id": "po-wor-envoys-b-05",
+     "text": "Before leaving, {liaison} asked the mayor for a list of goods {fort} plans to produce. The mayor gave one. The liaison read it, sighed, and asked for 'a different list, but nicer.'"
+    },
+    {
+     "id": "po-wor-envoys-b-06",
+     "text": "Envoys of {civ} confirm that talks continue with all neighbours. Asked for details, a representative of {diplomat} said 'talks are talks' and politely ended the talk."
+    }
+   ]
+  }
+ },
+ "columns": [
+  {
+   "id": "po-col-01",
+   "kick": "From the Benches",
+   "head": "THE MAYOR'S DOOR IS NOT A PUBLIC SERVICE",
+   "body": "Every week, dwarves line up to complain at the mayor's door. Every week, the mayor stays inside. I say this is the system working. A mayor who opens the door is a mayor who must listen. Let us leave democracy closed.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "po-col-02",
+   "kick": "The Bookkeeper's Corner",
+   "head": "PRECISION IS A MORAL VALUE",
+   "body": "Some ask why the bookkeeper insists on counting every sock. I ask why you are not. A fort that does not know its socks cannot know its future. I have counted mine. I have counted yours. We should talk.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "po-col-03",
+   "kick": "Opinion",
+   "head": "LET THE MILITIA REST",
+   "body": "People mock our off-duty squad. Yet what is a militia that never fights? A militia that never loses. In {fort}, our soldiers drink, nap and look tough near the door. That is deterrence. That is policy. That is tradition.",
+   "by": "Old Captain Rigoth"
+  },
+  {
+   "id": "po-col-04",
+   "kick": "Letters From Underground",
+   "head": "MANDATES SHOULD COME WITH SNACKS",
+   "body": "Nobles issue mandates freely, but who feeds the workers? I propose that every mandate arrive with a plate of roast. A cooked carp, minimum. Better mandates, happier dwarves, and a smaller chance of somebody throwing a mug.",
+   "by": "A Concerned Brewer"
+  },
+  {
+   "id": "po-col-05",
+   "kick": "From the Benches",
+   "head": "WHO GUARDS THE GUARD?",
+   "body": "The captain of the guard guards the fort. The sheriff guards the law. But who guards the captain from the dining room on roast day? Nobody. That is where crime begins. I urge reform and a smaller roast.",
+   "by": "Deler Benchsitter"
+  },
+  {
+   "id": "po-col-06",
+   "kick": "The Long View",
+   "head": "OUR CIVILIZATION NEEDS A BETTER SLOGAN",
+   "body": "{civ} is a fine name, but a name is not a slogan. Our neighbours have mottos and banners. We have stone. Lovely stone. Suggestions so far include 'More Stone' and 'Still Stone.' Committee meets next season.",
+   "by": "Momuz the Historian"
+  },
+  {
+   "id": "po-col-07",
+   "kick": "Opinion",
+   "head": "THE CASE AGAINST ELEVEN TABLES",
+   "body": "The council wishes to add another table to the meeting hall. I have sat at the existing ten. Nobody ever uses the far end. More tables mean more distance between officials. Distance, in turn, means fewer decisions.",
+   "by": "Councillor Asob"
+  },
+  {
+   "id": "po-col-08",
+   "kick": "Letters From Underground",
+   "head": "THE MANAGER IS NOT YOUR FRIEND",
+   "body": "He smiles. He waves. He approves your work order. Then he queues forty more. Make no mistake: the manager is not your friend. He is the friend of the work orders. They are many. We are few.",
+   "by": "Anonymous Hauler"
+  },
+  {
+   "id": "po-col-09",
+   "kick": "The Hammer's View",
+   "head": "IN DEFENCE OF THE HAMMERER",
+   "body": "Every dwarf hates the hammerer until there is a thief. Then suddenly the hammerer is popular. I say respect the office year-round. Send a card. Leave a mug. Stay far away from the hammer itself.",
+   "by": "Kib the Former Thief"
+  },
+  {
+   "id": "po-col-10",
+   "kick": "From the Benches",
+   "head": "TRIBUTE IS JUST RENT WITH A CROWN",
+   "body": "The mountainhome calls it tribute. I call it rent. Our fort sends gems, goblets and goodwill; the capital sends a letter. A thank-you letter, true. But a short one, and with spelling I would not accept.",
+   "by": "Deler Benchsitter"
+  },
+  {
+   "id": "po-col-11",
+   "kick": "Opinion",
+   "head": "WE NEED A MINISTER OF SOCKS",
+   "body": "The sock situation in {fort} is out of control. Single socks litter the halls, stockpiles and occasionally the soup. A minister of socks could fix this. I nominate myself, humbly, and have already drafted the first mandate.",
+   "by": "Fikod Sockwatcher"
+  },
+  {
+   "id": "po-col-12",
+   "kick": "The Long View",
+   "head": "POPULATION GROWTH: A WARNING",
+   "body": "With {pop} dwarves in {fort}, every bedroom is now someone's dining room. More migrants arrive each season, each with an opinion about chairs. Growth is good. Growth with furniture shortages is a tantrum waiting to happen.",
+   "by": "Momuz the Historian"
+  },
+  {
+   "id": "po-col-13",
+   "kick": "Letters From Underground",
+   "head": "THE ELVES ARE NOT OUR PROBLEM",
+   "body": "Every time a caravan arrives, the debate begins: should we trade with elves? I say trade with them, smile, and never mention wood. Diplomacy is mostly a list of things we pretend we have never cut down.",
+   "by": "Zon the Trader"
+  },
+  {
+   "id": "po-col-14",
+   "kick": "The Bookkeeper's Corner",
+   "head": "ON THE DIGNITY OF STORAGE",
+   "body": "No dwarf dreams of being a stockpile. Yet the stockpile serves without complaint. It accepts stone, food and that cursed sock. Our leaders could learn from the stockpile. Hold things. Stay quiet. Be organized.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "po-col-15",
+   "kick": "Opinion",
+   "head": "LOSING IS FUN, BUT WINNING IS NICE",
+   "body": "Old dwarves say losing is fun. I respect them. But I have also tried winning, and it is honestly quite good. I propose we try a full season of it before returning to tradition, just to compare.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "po-col-16",
+   "kick": "From the Benches",
+   "head": "THE DUNGEON MASTER SHOULD ANSWER QUESTIONS",
+   "body": "Nobody knows what the dungeon master does all day. Animals go in tame or wild and come out tame or wilder. I ask only for transparency. A report, a meeting, or at least a tour without the bears.",
+   "by": "Deler Benchsitter"
+  },
+  {
+   "id": "po-col-17",
+   "kick": "The Hammer's View",
+   "head": "A STRONG CHAMPION IS A STRONG FORT",
+   "body": "Our champion trains, sweats and occasionally knocks over a training dummy so hard it flies. Critics call it showing off. I call it a statement: this fort has arms, and the arms have opinions.",
+   "by": "Old Captain Rigoth"
+  },
+  {
+   "id": "po-col-18",
+   "kick": "The Long View",
+   "head": "WHY WE STILL NEED A BROKER",
+   "body": "Some wish to abolish the broker. They say he only nods. That nod is a skill. When the caravan arrives, his nod is all that stands between us and paying sixty rocks for a single cheese.",
+   "by": "Momuz the Historian"
+  },
+  {
+   "id": "po-col-19",
+   "kick": "Letters From Underground",
+   "head": "STOP BUILDING DOORS NOBODY OPENS",
+   "body": "The council has approved yet another door. I ask: to what? Behind it is a wall. Behind the wall, another door. This is not architecture. This is a maze, and the mayor is inside.",
+   "by": "Anonymous Hauler"
+  },
+  {
+   "id": "po-col-20",
+   "kick": "Opinion",
+   "head": "THE CHIEF MEDICAL DWARF DESERVES A RAISE",
+   "body": "Our doctor sets bones, cleans wounds and listens to soldiers describe sparring injuries as 'heroic.' Every dwarf in {fort} has been saved, stitched or lectured by the chief medical dwarf. A raise, at minimum. Maybe also a nap.",
+   "by": "A Grateful Patient"
+  },
+  {
+   "id": "po-col-21",
+   "kick": "From the Benches",
+   "head": "CARP ARE A NATIONAL SECURITY ISSUE",
+   "body": "We speak of goblins, beasts and elves. We forget the carp. Quietly, patiently, the carp waits in our brook. Every fisher lost, every wader vanished: the carp's work. I demand a committee. Brave members only.",
+   "by": "Deler Benchsitter"
+  },
+  {
+   "id": "po-col-22",
+   "kick": "The Bookkeeper's Corner",
+   "head": "AGAINST PRODUCTION ORDER VIOLATIONS",
+   "body": "Breaking a production order is not rebellion; it is paperwork chaos. Every unpermitted goblet becomes a ledger entry, every ledger entry a headache. Obey the mandate, dwarves. If not for the noble, then for me.",
+   "by": "Bookkeeper Inod"
+  }
+ ]
+}
