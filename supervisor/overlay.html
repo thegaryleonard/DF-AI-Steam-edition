@@ -123,7 +123,7 @@ let mapImg = null, particles = [], mapAnim = null;
 function tileColor(i) {
   const e = W.elev[i], r = W.rain[i], t = W.temp[i], v = W.veg[i];
   if (e < 100) { const d = e / 100; return [96 + 40 * d, 128 + 30 * d, 138 + 20 * d]; }          // sea
-  if (W.water && W.water[i]) return [104, 140, 150];                                             // river/lake
+  if (W.water && (W.water[i] & 2)) return [104, 140, 150];   // lake (the river flag is set on half the map on v53, so it's ignored)
   if (e >= 300) { const k = Math.min(1, (e - 300) / 100); return [138 + 70 * k, 128 + 72 * k, 112 + 80 * k]; } // mountains
   if (t < 10) return [228, 224, 214];                                                            // tundra/glacier
   if (r < 20) return [214, 194, 140];                                                            // desert
@@ -132,25 +132,41 @@ function tileColor(i) {
   return [178, 170, 120];                                                                        // scrub
 }
 function buildMap() {
-  const s = 4, c = document.createElement('canvas');
+  // scale so the realm always covers the 430x320 frame (small worlds are 65 tiles wide)
+  const s = Math.max(4, Math.ceil(Math.max(430 / W.w, 320 / W.h) * 1.25)), c = document.createElement('canvas');
   c.width = W.w * s; c.height = W.h * s;
   const g = c.getContext('2d'), img = g.createImageData(c.width, c.height);
   for (let y = 0; y < W.h; y++) for (let x = 0; x < W.w; x++) {
     const col = tileColor(y * W.w + x);
     for (let dy = 0; dy < s; dy++) for (let dx = 0; dx < s; dx++) {
       const p = ((y * s + dy) * c.width + (x * s + dx)) * 4;
-      const hatch = ((x * s + dx + y * s + dy) % 6 === 0) ? 0.9 : 1;   // engraving-style hatching
+      const hatch = ((x * s + dx + y * s + dy) % 6 === 0) ? 0.92 : 1;   // engraving-style hatching
       img.data[p] = col[0] * hatch; img.data[p + 1] = col[1] * hatch; img.data[p + 2] = col[2] * hatch; img.data[p + 3] = 255;
     }
   }
   g.putImageData(img, 0, 0);
-  g.font = 'bold 11px Georgia'; g.textAlign = 'center';
+  const fx = W.fort ? W.fort.x : -99, fy = W.fort ? W.fort.y : -99;
+  const dist = st => Math.hypot(st.x - fx, st.y - fy);
+  // every site gets a small symbol, no text
   for (const st of W.sites || []) {
-    const x = st.x * s + 2, y = st.y * s + 2;
+    const x = st.x * s + s / 2, y = st.y * s + s / 2;
+    if (st.type === 'DarkFortress') { g.fillStyle = '#7a1414'; g.beginPath(); g.moveTo(x, y - 4); g.lineTo(x + 4, y + 3); g.lineTo(x - 4, y + 3); g.fill(); }
+    else if (st.type === 'Town' || st.type === 'Fortress') { g.fillStyle = '#2b2218'; g.fillRect(x - 2.5, y - 2.5, 5, 5); }
+    else { g.fillStyle = 'rgba(43,70,30,.8)'; g.beginPath(); g.arc(x, y, 2, 0, 7); g.fill(); }
+  }
+  // names: only the closest few neighbours and the nearest dark fortresses, never overlapping
+  const named = [...(W.sites || [])].filter(st => st.type !== 'ForestRetreat').sort((a, b) => dist(a) - dist(b));
+  const pick = [...named.filter(st => st.type !== 'DarkFortress').slice(0, 6), ...named.filter(st => st.type === 'DarkFortress').slice(0, 3)];
+  const boxes = [[fx * s - 60, fy * s - 30, 120, 22]];   // keep the fort's own label clear
+  g.font = 'italic 12px Georgia'; g.textAlign = 'center';
+  for (const st of pick) {
+    const name = clean(st.name), wpx = g.measureText(name).width + 6;
+    const x = st.x * s + s / 2, y = st.y * s + s / 2 - 7, box = [x - wpx / 2, y - 12, wpx, 15];
+    if (boxes.some(b => box[0] < b[0] + b[2] && b[0] < box[0] + box[2] && box[1] < b[1] + b[3] && b[1] < box[1] + box[3])) continue;
+    boxes.push(box);
+    g.fillStyle = 'rgba(239,228,204,.75)'; g.fillRect(...box);
     g.fillStyle = st.type === 'DarkFortress' ? '#7a1414' : '#2b2218';
-    g.fillRect(x - 2, y - 2, 4, 4);
-    g.fillStyle = st.type === 'DarkFortress' ? 'rgba(122,20,20,.9)' : 'rgba(43,34,24,.85)';
-    g.fillText(clean(st.name), x, y - 5);
+    g.fillText(name, x, y);
   }
   mapImg = c; mapImg.scale = s;
 }
@@ -166,7 +182,7 @@ function cardMap() {
     <div class="headline">${fc.toUpperCase()} OVER ${esc((S.fort ? S.fort.name : '').toUpperCase())}</div>
     <div class="mapwrap"><canvas id="map" width="430" height="320"></canvas></div>
     <div class="forecast"><span>Today: <b>${fc}</b></span><span class="dim">${esc(wx.season || '')}</span></div>
-    <div class="body dim" style="margin-top:4px;font-size:12px">Our correspondents survey the realm from ${esc(S.fort ? S.fort.name : 'the fortress')}. Dark fortresses are marked in red.</div>`;
+    <div class="body dim" style="margin-top:4px;font-size:12px">Our correspondents survey the realm from ${esc(S.fort ? S.fort.name : 'the fortress')}. ▲ dark fortress · ■ town · ● forest retreat</div>`;
 }
 function startMap() {
   const cv = document.getElementById('map'); if (!cv || !mapImg) return;
@@ -186,7 +202,7 @@ function startMap() {
     cy = Math.max(cv.height / 2, Math.min(mapImg.height - cv.height / 2, cy));
     const ox = cx - cv.width / 2, oy = cy - cv.height / 2;
     g.drawImage(mapImg, ox, oy, cv.width, cv.height, 0, 0, cv.width, cv.height);
-    const mx = fx - ox + 2, my = fy - oy + 2, pulse = 6 + 3 * Math.sin(t * 3);
+    const mx = fx - ox + s / 2, my = fy - oy + s / 2, pulse = 6 + 3 * Math.sin(t * 3);
     g.strokeStyle = '#8f2a1c'; g.lineWidth = 2; g.beginPath(); g.arc(mx, my, pulse, 0, 7); g.stroke();
     g.fillStyle = '#8f2a1c'; g.font = 'bold 13px Georgia'; g.textAlign = 'center'; g.fillText('★ ' + (W.fort ? W.fort.name : ''), mx, my - 12);
     for (const p of particles) {
