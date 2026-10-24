@@ -17,6 +17,11 @@
 #include "df/workshop_type.h"
 #include "df/building_workshopst.h"
 
+#include "modules/Buildings.h"
+#include "modules/Maps.h"
+#include "df/tile_designation.h"
+#include "df/tile_occupancy.h"
+#include "df/material.h"
 #include "modules/Items.h"
 #include "modules/Job.h"
 #include "modules/Materials.h"
@@ -85,6 +90,63 @@ static df::workshop_type mood_workshop(df::job_type t)
     }
 }
 
+// Put a workshop down right now on free floor near the moody dwarf. Digging
+// the planned room took weeks: a possessed weaver died of thirst first.
+static df::building *place_workshop_near(df::unit *u, df::workshop_type type)
+{
+    auto free3x3 = [u](df::coord c) -> bool
+    {
+        for (int16_t dx = -1; dx <= 1; dx++)
+        {
+            for (int16_t dy = -1; dy <= 1; dy++)
+            {
+                df::coord t = c + df::coord(dx, dy, 0);
+                df::tiletype *tt = Maps::getTileType(t);
+                if (!tt || ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Floor)
+                    return false;
+                auto des = Maps::getTileDesignation(t);
+                auto occ = Maps::getTileOccupancy(t);
+                if (!des || !occ || des->bits.outside || des->bits.flow_size || occ->bits.building != tile_building_occ::None)
+                    return false;
+            }
+        }
+        return Maps::canWalkBetween(u->pos, c);
+    };
+    df::coord c = AI::spiral_search(u->pos, 30, 2, free3x3);
+    if (!c.isValid())
+        return nullptr;
+
+    // any building material: blocks, then stone boulders, then logs
+    df::item *mat = nullptr;
+    for (auto id : {items_other_id::BLOCKS, items_other_id::BOULDER, items_other_id::WOOD})
+    {
+        for (auto item : world->items.other[id])
+        {
+            auto & f = item->flags.bits;
+            if (f.forbid || f.dump || f.in_job || f.owned || f.trader || f.foreign || f.construction || f.in_building || f.removed || f.garbage_collect || f.hidden)
+                continue;
+            if (id == items_other_id::BOULDER)
+            {
+                MaterialInfo mi(item);
+                if (!mi.isInorganic() || !mi.material->flags.is_set(material_flags::IS_STONE))
+                    continue;
+            }
+            mat = item;
+            break;
+        }
+        if (mat)
+            break;
+    }
+    if (!mat)
+        return nullptr;
+
+    df::building *bld = Buildings::allocInstance(c - df::coord(1, 1, 0), building_type::Workshop, type);
+    Buildings::setSize(bld, df::coord(3, 3, 1));
+    std::vector<df::item *> items{mat};
+    Buildings::constructWithItems(bld, items);
+    return bld;
+}
+
 void Population::update_moods(color_ostream & out)
 {
     for (auto u : world->units.active)
@@ -121,14 +183,13 @@ void Population::update_moods(color_ostream & out)
             }
             if (!have)
             {
-                room *r = ai.find_room(room_type::workshop, [need_ws](room *r) -> bool { return r->workshop_type == need_ws && r->status == room_status::plan; });
-                if (r && ai.plan.digroom(out, r, true))
+                if (df::building *bld = place_workshop_near(u, need_ws))
                 {
-                    ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " needs a " + enum_item_key(need_ws) + " workshop; building one now");
+                    ai.debug(out, stl_sprintf("[MOOD] %s needs a %s workshop; placed one at (%d, %d, %d)", AI::describe_unit(u).c_str(), enum_item_key(need_ws).c_str(), bld->centerx, bld->centery, bld->z));
                 }
-                else if (!r && mood_warned.insert(AI::describe_unit(u) + "|ws").second)
+                else if (mood_warned.insert(AI::describe_unit(u) + "|ws").second)
                 {
-                    ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " needs a " + enum_item_key(need_ws) + " workshop, and none is planned or being built");
+                    ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " needs a " + enum_item_key(need_ws) + " workshop, and there is no free floor or building material for one");
                 }
             }
         }
