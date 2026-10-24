@@ -71,6 +71,7 @@ if out.ok then
     month = months[tick // 33600 + 1],
     day = (tick % 33600) // 1200 + 1,
     population = #citizens,
+    age_days = df.global.plotinfo.fortress_age // 1200,   -- days since embark: running stories can't predate the fort
   }
   -- weather at the fort: current_weather is a 5x5 grid of none/rain/snow
   local wx = { rain = 0, snow = 0, clear = 0 }

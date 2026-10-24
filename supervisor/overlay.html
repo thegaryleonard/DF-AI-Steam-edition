@@ -26,7 +26,7 @@
   .mast { display: grid; grid-template-columns: 74px 1fr 74px; align-items: center; gap: 6px; }
   .ear { border: 1px solid var(--rule); padding: 2px 3px; font-size: 8.5px; line-height: 1.2; text-align: center; text-transform: uppercase; letter-spacing: .4px; color: var(--ink2); }
   .ear b { display: block; font-size: 11px; color: var(--ink); letter-spacing: 0; }
-  .mast h1 { margin: 0; text-align: center; font-family: var(--black); font-weight: normal; font-size: 37px; line-height: .95; white-space: nowrap; }
+  .mast h1 { min-width: 0; overflow: hidden; margin: 0; text-align: center; font-family: var(--black); font-weight: normal; font-size: 37px; line-height: .95; white-space: nowrap; }
   .mast .the { display: block; font-size: 15px; }
   .motto { text-align: center; font-size: 9px; font-style: italic; color: var(--ink2); margin-top: 1px; }
   .issue { display: flex; justify-content: space-between; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
@@ -102,7 +102,14 @@
   .late { margin-top: 3px; border-top: 3px double var(--rule); padding-top: 2px; }
   .late .txt { font-size: 11px; line-height: 1.3; text-align: justify; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
   .late .txt span + span::before { content: " \2756 "; color: var(--accent); }
-  .dots { text-align: center; margin: 3px 0 0; line-height: 0; }
+  .nav { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 3px 0 0; height: 14px; }
+  .nav button { font: 10px Georgia, serif; color: var(--paper); background: var(--ink); border: 0; border-radius: 2px; width: 22px; height: 14px; padding: 0; cursor: pointer; opacity: 0; transition: opacity .25s; }
+  .nav button:disabled { opacity: 0 !important; cursor: default; }
+  .paper:hover .nav button, .paper.held .nav button { opacity: .85; }
+  .nav button:hover { opacity: 1; }
+  #nav-status { font: italic 9.5px Georgia, serif; color: var(--red); letter-spacing: .5px; }
+  .dots span { cursor: pointer; }
+  .dots { text-align: center; line-height: 0; }
   .dots span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; border: 1px solid var(--ink2); margin: 0 3px; }
   .dots span.on { background: var(--ink); }
 </style>
@@ -117,7 +124,7 @@
   <div class="motto">"All the News That's Fit to Engrave" · Published Beneath the Mountain</div>
   <div class="issue"><span id="issue-date">…</span><span id="issue-season"></span><span id="issue-pop"></span></div>
   <div id="card"></div>
-  <div class="dots" id="dots"></div>
+  <div class="nav"><button id="nav-prev" title="Previous page (←)" onclick="navPrev()">◀</button><div class="dots" id="dots"></div><span id="nav-status"></span><button id="nav-hold" onclick="hold(!browsing)">❚❚</button><button id="nav-next" title="Next page (→)" onclick="navNext()">▶</button></div>
   <div class="fold"><div class="col" id="colA"></div><div class="col" id="colB"></div></div>
   <div class="late"><div class="kicker"><span>Late Edition</span><span>Stop the Presses</span></div><div class="txt" id="late"></div></div>
 </div>
@@ -147,7 +154,10 @@ function forecastOf(wx) {
 function masthead() {
   if (!S.ok) return;
   const f = S.fort;
-  document.getElementById('title').textContent = f.name + ' Herald';
+  const pp = paper();
+  document.getElementById('title').textContent = pp.title; document.title = 'The ' + pp.title;
+  document.querySelector('.motto').textContent = `"${pp.motto}" · ${f.name}, ${clean(f.world || '')}`;
+  fitTitle();
   document.getElementById('issue-date').textContent = `${f.day} ${f.month}, Yr ${f.year}`;
   document.getElementById('issue-season').textContent = S.weather ? S.weather.season : '';
   document.getElementById('issue-pop').textContent = `Vol. ${f.year} · Pop. ${f.population}`;
@@ -218,7 +228,7 @@ function context(r) {
 function fillT(s, sl) {
   let ok = true;
   const out = s.replace(/\{(\w+)\}/g, (m, k) => { const v = sl[k]; if (v == null || v === '') { ok = false; return m; } return String(v); });
-  return ok ? out : null;
+  return ok ? ownName(out) : null;
 }
 function fillE(e, sl) {
   const walk = v => typeof v === 'string' ? fillT(v, sl) : Array.isArray(v) ? v.map(walk) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k === 'id' || k === 'when' ? x : walk(x)])) : v;
@@ -252,7 +262,7 @@ const dateOf = d => `${d % 28 + 1} ${MONTHS[Math.floor(d % 336 / 28)]}, Yr ${Mat
 let MEMALL = {}, memLoaded = false, memDirty = false, memTimer = null;
 function mem() {
   const k = (S.fort && S.fort.name) || '?';
-  return MEMALL[k] = MEMALL[k] || {streaks: {}, ended: {}, counters: {}, lastIds: {}, dwarves: {}, started: dayOf(S.fort)};
+  return MEMALL[k] = MEMALL[k] || {streaks: {}, ended: {}, counters: {}, lastIds: {}, dwarves: {}, started: dayOf(S.fort), v: 2};
 }
 function saveMem() {
   if (!memLoaded) return;   // never overwrite the stored history before we've read it
@@ -270,6 +280,14 @@ const COUNTER_OF = [[/CITIZEN_DEATH/, 'death'], [/PET_DEATH/, 'pet'], [/BERSERK|
 function trackStories() {
   const today = dayOf(S.fort); if (today == null || !S.ok || !memLoaded) return;
   const M = mem(), c = (K && K.stocks) || null, wx = S.weather || {}, conds = {};
+  // nothing in this paper's memory can be older than the fort itself (guards against stale dates around an embark)
+  const founded = S.fort.age_days != null ? today - S.fort.age_days : null;
+  if (founded != null) {
+    const clampAt = o => { if (o && o.since < founded) { o.since = founded; memDirty = true; } };
+    if (M.started == null || M.started < founded) { M.started = founded; memDirty = true; }
+    Object.values(M.streaks).forEach(clampAt); Object.values(M.ended).forEach(clampAt);
+    for (const k of Object.keys(M.counters)) if (M.counters[k] < founded) { delete M.counters[k]; memDirty = true; }
+  }
   if (c) for (const [k, f] of Object.entries(STORY_TESTS)) conds[k] = f(c);
   if (wx.kind) { conds.rain = wx.kind === 'rain'; conds.snow = wx.kind === 'snow'; }
   for (const [k, on] of Object.entries(conds)) {
@@ -347,6 +365,110 @@ function followUp(d, lead, who, ctx, r) {
   markSeen([h && h.id, dk && dk.id]);
   return {head: h ? T(h) : null, deck: dk ? T(dk) : null};
 }
+
+// ---------- the paper's own identity: every fort gets its own title, chosen once from its personality ----------
+const PAPER = {
+  generic: ['Herald', 'Gazette', 'Clarion', 'Courier', 'Chronicle', 'Tribune', 'Dispatch', 'Bugle', 'Sentinel', 'Echo', 'Ledger', 'Lantern', 'Register', 'Intelligencer', 'Crier', 'Post'],
+  drink:   ['Tankard', 'Tapster', 'Barrelhead', 'Bung & Spigot', 'Mug'],
+  mining:  ['Pickaxe', 'Seam', 'Lode', 'Delver', 'Rockface', 'Strike'],
+  smith:   ['Anvil', 'Bellows', 'Forge', 'Hammer & Tongs', 'Quench'],
+  farm:    ['Furrow', 'Spore', 'Harvest', 'Plump Helmet', 'Trowel'],
+  herd:    ['Bleat', 'Drover', 'Paddock', 'Hoofbeat'],
+  war:     ['Rampart', 'Warhorn', 'Shield', 'Bulwark', 'Battlement'],
+  cold:    ['Frost', 'Icicle', 'Hearth'],
+  stone:   ['Chisel', 'Mason', 'Cornerstone', 'Quarry'],
+  wood:    ['Sawdust', 'Timberline', 'Axe & Log', 'Woodpile'],
+};
+const MOTTOS = {
+  generic: ["All the News That's Fit to Engrave", 'Published Beneath the Mountain', 'Read Aloud in the Dining Hall Since Day One', 'Printed on Genuine Rock'],
+  drink:   ['Brewed Fresh Daily', 'Best Read With a Full Mug', 'Never Knowingly Sober'],
+  mining:  ['Digging Deeper Than Any Other Paper', 'We Strike the Earth So You Don\'t Have To', 'Breaking Rock, Breaking News'],
+  smith:   ['Hammered Out Every Morning', 'Forged in Fire, Delivered Cold', 'Tempered, Never Brittle'],
+  farm:    ['Rooted in the Community', 'Growing Every Season', 'Fresh From the Farm Plots'],
+  herd:    ['The Voice of the Pasture', 'News You Can Herd', 'Shepherding Public Opinion'],
+  war:     ['Standing Guard Since the First Siege', 'The Paper the Goblins Fear', 'Armed With the Truth'],
+  cold:    ['Keeping You Warm Since the First Frost', 'Cold Facts, Hot Takes'],
+  stone:   ['Set in Stone', 'Carved, Not Written', 'Solid Reporting, Literally'],
+  wood:    ['Felled Fresh Daily', 'Sorry, Elves', 'Printed on Real Trees (Sorry, Elves)'],
+};
+function paperTraits() {   // what this fort is "about", from its stores, herd and history
+  const c = (K && K.stocks) || {}, herd = Object.values((K && K.animals) || {}).reduce((a, b) => a + b, 0), M = mem();
+  const t = [];
+  if ((c.drinks || 0) > 800) t.push('drink');
+  if ((c.gems || 0) > 40) t.push('mining');
+  if ((c.bars || 0) > 120) t.push('smith');
+  if ((K && K.farms || 0) > 15 || (c.plants || 0) > 600) t.push('farm');
+  if (herd > 25) t.push('herd');
+  if (M.counters && M.counters.siege != null) t.push('war');
+  if ((S.weather || {}).kind === 'snow') t.push('cold');
+  if ((c.stone || 0) > 600) t.push('stone');
+  if ((c.wood || 0) > 1000) t.push('wood');
+  return t;
+}
+function paper() {
+  const M = mem();
+  if (M.paper) return M.paper;
+  const f = S.fort || {};
+  if (!memLoaded || !f.name || !(K && K.stocks)) return {noun: 'Herald', title: `${f.name || 'Fortress'} Herald`, motto: MOTTOS.generic[0]};
+  // seeded by the fort's own name, so the same fort always gets the same paper, but each fort a different one
+  let h = 0; for (const ch of f.name + (f.world || '')) h = Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0;
+  const r = rng(h), traits = paperTraits();
+  const trait = traits.length && r() < .7 ? pick(r, traits) : 'generic';
+  let noun = pick(r, PAPER[trait]);
+  if (trait !== 'generic' && !noun.includes('&') && r() < .3) noun += ' & ' + pick(r, PAPER.generic);   // e.g. "Anvil & Courier"
+  M.paper = {noun: noun.split(' & ')[0], title: `${f.name} ${noun}`, motto: pick(r, MOTTOS[trait] || MOTTOS.generic), trait, since: dayOf(f)};
+  memDirty = true; saveMem();
+  return M.paper;
+}
+// library text is written with "the Herald"; each paper talks about itself by its own name
+const ownName = s => { const n = paper().noun; return n === 'Herald' ? s : String(s).replace(/\bHerald(?='s|\b)/g, n); };
+function fitTitle() {   // long names shrink to fit between the ears
+  const el = document.getElementById('title'), h1 = el.parentElement;
+  let size = 37; h1.style.fontSize = size + 'px';
+  while (h1.scrollWidth > h1.clientWidth && size > 18) h1.style.fontSize = (--size) + 'px';
+}
+
+// ---------- back issues: ◀ ▶ scroll through what has been printed, ❚❚ holds the current page ----------
+const ISSUES = [];
+let issuePos = -1, browsing = false, browseTimer = null;
+function recordIssue(isMap) {
+  ISSUES.push({card: document.getElementById('card').innerHTML, a: document.getElementById('colA').innerHTML,
+               b: document.getElementById('colB').innerHTML, dots: document.getElementById('dots').innerHTML, isMap});
+  if (ISSUES.length > 40) ISSUES.shift();
+  issuePos = ISSUES.length - 1; navState();
+}
+function restoreIssue(i) {
+  const x = ISSUES[i]; if (!x) return;
+  issuePos = i;
+  document.getElementById('card').innerHTML = x.card; document.getElementById('colA').innerHTML = x.a;
+  document.getElementById('colB').innerHTML = x.b; document.getElementById('dots').innerHTML = x.dots;
+  if (x.isMap) startMap(); else cancelAnimationFrame(mapAnim);
+  navState();
+}
+function hold(on) {
+  browsing = on; clearTimeout(cardTimer); clearTimeout(browseTimer);
+  // hands off for 90 s, then the presses roll again
+  if (on) browseTimer = setTimeout(() => { browsing = false; nextCard(); }, 90000);
+  else nextCard();
+  navState();
+}
+function navPrev() { if (issuePos > 0) { restoreIssue(issuePos - 1); hold(true); } }
+function navNext() {
+  if (issuePos < ISSUES.length - 1) { restoreIssue(issuePos + 1); hold(true); }
+  else { nextCard(); hold(true); }
+}
+function navState() {
+  const back = ISSUES.length - 1 - issuePos;
+  document.getElementById('nav-prev').disabled = issuePos <= 0;
+  document.getElementById('nav-hold').textContent = browsing ? '▶' : '❚❚';
+  document.getElementById('nav-hold').title = browsing ? 'Resume' : 'Hold this page';
+  const st = document.getElementById('nav-status');
+  st.textContent = back > 0 ? `Back issue · ${back} ago` : browsing ? 'On hold' : '';
+  document.querySelector('.paper').classList.toggle('held', browsing);
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') navPrev(); else if (e.key === 'ArrowRight') navNext(); else if (e.key === ' ') { e.preventDefault(); hold(!browsing); }
+});
 
 // ---------- card: society pages (interview) ----------
 function mood(stress) {
@@ -435,9 +557,9 @@ function cardDwarf() {
       <div class="bar"><div style="width:${m.pct}%;background:${m.color}"></div></div>
       ${sk.slice(0, 5).map(s => `<div class="line"><span>${esc(s.name)}</span><span class="lead"></span><span class="dim">${levels[Math.min(s.level, 15)]}</span></div>`).join('')}
     </div>`;
-  const qa = QA.filter(([, a]) => a).map(([q, a], i) => `<p class="q"><span class="who">Herald:</span> ${esc(q)}</p><p><span class="who">${esc(who)}:</span> ${esc(a)}</p>`
+  const qa = QA.filter(([, a]) => a).map(([q, a], i) => `<p class="q"><span class="who">${esc(paper().noun)}:</span> ${esc(q)}</p><p><span class="who">${esc(who)}:</span> ${esc(a)}</p>`
                        + (i === 1 && pullTxt ? `<div class="pull">“${esc(pullTxt)}”</div>` : '')).join('');
-  return `<div class="kicker"><span>Society Pages</span><span>The Herald Interview</span></div>
+  return `<div class="kicker"><span>Society Pages</span><span>The ${esc(paper().noun)} Interview</span></div>
     <div class="headline">${esc(who.toUpperCase())}: ${esc(headline)}</div>
     <div class="deck">${esc(deck)}${fu && fu.deck ? ' ' + esc(fu.deck) : ''}</div>
     <div class="iv just">${vit}${qa}</div>`;
@@ -745,7 +867,7 @@ function cardBreaking(ev) {
     <div class="headline" style="font-size:25px;text-align:center">${esc(res.t.head)}</div>
     <div class="mapwrap" style="background:#f6eedb;padding:2px">${res.svg}</div>
     <div class="deck" style="font-size:11px;text-align:center;margin:2px 0 4px">${esc(res.t.cap)}</div>
-    <p class="body just dropcap">${esc(clean(ev.text))} ${esc(res.t.rep)} ${esc(res.t.kicker)}</p>`;
+    <p class="body just dropcap">${esc(clean(ev.text))} ${esc(ownName(res.t.rep))} ${esc(res.t.kicker)}</p>`;
 }
 function checkBig() {
   const big = S.big || [];
@@ -835,7 +957,8 @@ function nextCard() {
     if (!html) continue;
     breakingOn = ev.id; showCard(html);
     document.getElementById('dots').innerHTML = '<span class="on" style="background:var(--red);border-color:var(--red)"></span>';
-    clearTimeout(cardTimer); cardTimer = setTimeout(() => { breakingOn = false; nextCard(); }, 25000);
+    recordIssue(false);
+    clearTimeout(cardTimer); cardTimer = setTimeout(() => { breakingOn = false; if (!browsing) nextCard(); }, 25000);
     return;
   }
   for (let tries = 0; tries < CARDS.length; tries++) {
@@ -843,9 +966,10 @@ function nextCard() {
     const c = CARDS[cardIdx], html = c.fn();
     if (!html) continue;
     showCard(html, c.after);
-    document.getElementById('dots').innerHTML = CARDS.map((_, i) => `<span class="${i === cardIdx ? 'on' : ''}"></span>`).join('');
+    document.getElementById('dots').innerHTML = CARDS.map((_, i) => `<span class="${i === cardIdx ? 'on' : ''}" onclick="cardIdx = ${i - 1}; nextCard(); hold(true)"></span>`).join('');
+    recordIssue(c.after === startMap);
     clearTimeout(cardTimer);
-    if (!params.has('hold')) cardTimer = setTimeout(nextCard, c.secs * 1000);
+    if (!params.has('hold') && !browsing) cardTimer = setTimeout(nextCard, c.secs * 1000);
     return;
   }
   clearTimeout(cardTimer); cardTimer = setTimeout(nextCard, 3000);
@@ -875,6 +999,7 @@ async function pollSlow() {
 (async () => {
   await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib()]);
   if (document.fonts && document.fonts.ready) await document.fonts.ready;
+  trackStories(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
   nextCard();
   setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollSlow, 120000);
 })();
