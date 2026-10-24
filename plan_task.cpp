@@ -11,8 +11,12 @@
 #include "df/building_trapst.h"
 #include "df/item_cagest.h"
 #include "df/tile_occupancy.h"
+#include "df/job.h"
+#include "df/job_list_link.h"
+#include "df/world.h"
 
 REQUIRE_GLOBAL(cur_year);
+REQUIRE_GLOBAL(world);
 REQUIRE_GLOBAL(cur_year_tick);
 
 static bool want_reupdate = false;
@@ -254,6 +258,28 @@ bool Plan::is_idle()
 
 bool Plan::checkidle(color_ostream & out, std::ostream & reason)
 {
+    // Smoothing is capped at 1000 outstanding jobs, and rooms are smoothed
+    // only once when finished, so keep topping the queue up from finished
+    // rooms that still have rough tiles (a few rooms per pass).
+    {
+        static size_t smooth_cursor = 0;
+        size_t outstanding = 0;
+        for (auto j : world->jobs.list)
+        {
+            if (j->job_type == job_type::SmoothWall || j->job_type == job_type::SmoothFloor ||
+                j->job_type == job_type::DetailWall || j->job_type == job_type::DetailFloor)
+                outstanding++;
+        }
+        for (int n = 0; outstanding < 500 && n < 8 && !rooms_and_corridors.empty(); n++)
+        {
+            smooth_cursor = (smooth_cursor + 1) % rooms_and_corridors.size();
+            room *r = rooms_and_corridors[smooth_cursor];
+            if (r && r->status == room_status::finished && !r->outdoor)
+                smooth_room(out, r);
+        }
+    }
+
+
     for (auto t : tasks_generic)
     {
         if ((t->type == task_type::want_dig || t->type == task_type::dig_room_immediate) && t->r->type != room_type::corridor && t->r->queue == 0)
