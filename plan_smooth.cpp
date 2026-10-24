@@ -131,7 +131,13 @@ bool Plan::smooth(std::set<df::coord> tiles, bool engrave)
     // remove tiles that are already being smoothed
     for (auto j : world->jobs.list)
     {
-        if (j->job_type == job_type::DetailWall ||
+        // v50+ split smoothing (SmoothWall/SmoothFloor) from engraving
+        // (DetailWall/DetailFloor). Missing the Smooth* jobs made df-ai
+        // re-designate tiles that already had a job, and DF queued a new job
+        // every time: 368k duplicate jobs on 699 tiles, 2 FPS.
+        if (j->job_type == job_type::SmoothWall ||
+            j->job_type == job_type::SmoothFloor ||
+            j->job_type == job_type::DetailWall ||
             j->job_type == job_type::DetailFloor)
         {
             all_already_smooth = false;
