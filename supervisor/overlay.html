@@ -397,6 +397,166 @@ function cardArchive() {
     <div class="story">${story}</div>`;
 }
 
+// ---------- crude illustrations ("artist's impression") ----------
+// Every stroke is drawn twice with a little jitter so it looks scribbled by a dwarf with a charcoal stick.
+let sketchN = 0;
+function Sketch(seed, w = 240, h = 140) {
+  const r = rng(seed), J = (v, a = 1.6) => v + (r() - .5) * 2 * a, out = [], id = 'h' + (++sketchN);
+  const path = (pts, close) => {
+    let d = '';
+    for (let pass = 0; pass < 2; pass++) {
+      const p = pts.map(([x, y]) => [J(x), J(y)]);
+      d = 'M' + p.map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' L') + (close ? ' Z' : '');
+      out.push(`<path d="${d}" fill="none" stroke="#241c13" stroke-width="${pass ? 1 : 1.8}" stroke-linecap="round" stroke-linejoin="round" opacity="${pass ? .55 : .95}"/>`);
+    }
+  };
+  const fill = (pts, f = `url(#${id})`) => out.push(`<path d="M${pts.map(([x, y]) => J(x, .8).toFixed(1) + ' ' + J(y, .8).toFixed(1)).join(' L')} Z" fill="${f}" stroke="none"/>`);
+  const ring = (cx, cy, rx, ry = rx, n = 14, a0 = 0, a1 = Math.PI * 2) => Array.from({length: n + 1}, (_, i) => { const a = a0 + (a1 - a0) * i / n; return [cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]; });
+  const S = {
+    r, line: (x1, y1, x2, y2) => path([[x1, y1], [(x1 + x2) / 2, (y1 + y2) / 2], [x2, y2]]),
+    poly: (pts, hatch) => { if (hatch) fill(pts, hatch === true ? undefined : hatch); path(pts, true); },
+    circle: (cx, cy, rad, hatch, ry) => { const p = ring(cx, cy, rad, ry || rad); if (hatch) fill(p, hatch === true ? undefined : hatch); path(p); },
+    arc: (cx, cy, rx, ry, a0, a1) => path(ring(cx, cy, rx, ry, 8, a0, a1)),
+    text: (x, y, t, size = 11, anchor = 'middle', rot = 0) => out.push(`<text x="${x}" y="${y}" font-family="Comic Sans MS, Segoe Print, cursive" font-size="${size}" text-anchor="${anchor}" fill="#241c13" transform="rotate(${rot.toFixed ? rot : 0} ${x} ${y})">${esc(t)}</text>`),
+    // a labelled arrow, the soul of crude newspaper art
+    label: (x, y, tx, ty, t) => { const half = t.length * 3.3; x = Math.max(half + 4, Math.min(w - half - 4, x)); S.text(x, y, t, 10.5, 'middle', J(0, 4)); S.line(x, y + (ty > y ? 3 : -10), tx, ty); S.line(tx, ty, tx + (x > tx ? 5 : -5), ty + (y > ty ? 4 : -4)); },
+    ground: (y) => S.line(4, y, w - 4, y),
+    dwarf(x, y, s = 1, o = {}) {
+      const hy = y - 47 * s, hr = 8 * s;
+      S.circle(x, hy, hr);
+      S.arc(x, hy - 1 * s, hr + 1, hr + 2, Math.PI, Math.PI * 2);                            // helmet
+      S.line(x - hr - 2, hy - 1 * s, x + hr + 2, hy - 1 * s);
+      S.poly([[x - hr + 1, hy + 2 * s], [x + hr - 1, hy + 2 * s], [x + 2 * s, hy + 22 * s], [x - 2 * s, hy + 24 * s]], true);  // the beard
+      out.push(`<circle cx="${x - 3 * s}" cy="${hy - 1 * s}" r="${1.2 * s}" fill="#241c13"/><circle cx="${x + 3 * s}" cy="${hy - 1 * s}" r="${1.2 * s}" fill="#241c13"/>`);
+      if (o.sad) S.arc(x, hy + 7 * s, 3 * s, 2 * s, Math.PI * 1.1, Math.PI * 1.9);
+      if (o.tears) { S.line(x - 3 * s, hy + 1, x - 4 * s, hy + 6 * s); S.line(x + 3 * s, hy + 1, x + 4 * s, hy + 6 * s); }
+      const by = y - 13 * s;
+      S.poly([[x - 7 * s, hy + 10 * s], [x + 7 * s, hy + 10 * s], [x + 9 * s, by], [x - 9 * s, by]]);  // stubby body
+      S.line(x - 5 * s, by, x - 7 * s, y); S.line(x + 5 * s, by, x + 7 * s, y);                      // legs
+      const ay = hy + 14 * s, up = o.armsUp;
+      S.line(x - 7 * s, ay, x - 15 * s, up ? ay - 14 * s : ay + 10 * s);
+      S.line(x + 7 * s, ay, x + 15 * s, up ? ay - 14 * s : ay + 10 * s);
+      const hx = x + 15 * s, hyy = up ? ay - 14 * s : ay + 10 * s;
+      if (o.pick) { S.line(hx, hyy + 6 * s, hx + 4 * s, hyy - 18 * s); S.arc(hx + 4 * s, hyy - 14 * s, 11 * s, 6 * s, Math.PI * 1.1, Math.PI * 1.9); }
+      if (o.axe) { S.line(hx, hyy + 6 * s, hx + 3 * s, hyy - 18 * s); S.poly([[hx + 3 * s, hyy - 18 * s], [hx + 13 * s, hyy - 22 * s], [hx + 13 * s, hyy - 8 * s], [hx + 3 * s, hyy - 12 * s]], true); }
+      if (o.mug) { S.poly([[hx - 2, hyy - 2], [hx + 7 * s, hyy - 2], [hx + 7 * s, hyy + 8 * s], [hx - 2, hyy + 8 * s]]); }
+      if (o.bubble) S.bubble(x + 10 * s, hy - 26 * s, o.bubble);
+    },
+    goblin(x, y, s = 1) {
+      const hy = y - 40 * s;
+      S.circle(x, hy, 7 * s);
+      S.poly([[x - 6 * s, hy - 2], [x - 16 * s, hy - 7 * s], [x - 6 * s, hy + 3]]); S.poly([[x + 6 * s, hy - 2], [x + 16 * s, hy - 7 * s], [x + 6 * s, hy + 3]]);  // ears
+      S.line(x - 3 * s, hy + 3 * s, x + 3 * s, hy + 3 * s); S.line(x - 2 * s, hy + 3 * s, x - 1 * s, hy + 6 * s);          // teeth
+      S.line(x, hy + 7 * s, x, y - 14 * s); S.line(x, y - 14 * s, x - 6 * s, y); S.line(x, y - 14 * s, x + 6 * s, y);
+      S.line(x, y - 28 * s, x + 12 * s, y - 32 * s); S.line(x + 12 * s, y + 2, x + 12 * s, y - 58 * s);                   // spear
+      S.poly([[x + 9 * s, y - 56 * s], [x + 12 * s, y - 66 * s], [x + 15 * s, y - 56 * s]], true);
+    },
+    gem(x, y, s = 1) { S.poly([[x - 14 * s, y], [x - 8 * s, y - 10 * s], [x + 8 * s, y - 10 * s], [x + 14 * s, y], [x, y + 16 * s]], true); S.line(x - 14 * s, y, x + 14 * s, y); S.line(x - 4 * s, y - 10 * s, x, y + 16 * s); S.line(x + 4 * s, y - 10 * s, x, y + 16 * s); S.sparkles(x, y, 24 * s); },
+    sparkles(x, y, rad, n = 5) { for (let i = 0; i < n; i++) { const a = r() * 6.28, d = rad * (.8 + r() * .5), px = x + Math.cos(a) * d, py = y + Math.sin(a) * d; S.line(px - 4, py, px + 4, py); S.line(px, py - 4, px, py + 4); } },
+    coffin(x, y, s = 1) { S.poly([[x - 10 * s, y - 40 * s], [x + 10 * s, y - 40 * s], [x + 15 * s, y - 28 * s], [x + 9 * s, y], [x - 9 * s, y], [x - 15 * s, y - 28 * s]], true); S.line(x, y - 34 * s, x, y - 16 * s); S.line(x - 6 * s, y - 28 * s, x + 6 * s, y - 28 * s); },
+    wagon(x, y, s = 1, heads = 0) {
+      S.poly([[x - 30 * s, y - 34 * s], [x + 30 * s, y - 34 * s], [x + 28 * s, y - 12 * s], [x - 28 * s, y - 12 * s]], true);
+      S.circle(x - 18 * s, y - 9 * s, 9 * s); S.circle(x + 18 * s, y - 9 * s, 9 * s);
+      for (let i = 0; i < heads; i++) { const hx = x - 22 * s + i * (44 * s / Math.max(1, heads - 1)); S.circle(hx, y - 42 * s, 5 * s); S.poly([[hx - 4 * s, y - 39 * s], [hx + 4 * s, y - 39 * s], [hx, y - 30 * s]], true); }
+    },
+    barrel(x, y, s = 1) { S.poly([[x - 8 * s, y - 22 * s], [x + 8 * s, y - 22 * s], [x + 10 * s, y - 11 * s], [x + 8 * s, y], [x - 8 * s, y], [x - 10 * s, y - 11 * s]]); S.line(x - 10 * s, y - 11 * s, x + 10 * s, y - 11 * s); },
+    beast(x, y, s = 1) {
+      S.poly([[x - 50 * s, y], [x - 54 * s, y - 40 * s], [x - 30 * s, y - 70 * s], [x + 10 * s, y - 76 * s], [x + 44 * s, y - 56 * s], [x + 52 * s, y - 20 * s], [x + 40 * s, y]], true);
+      S.poly([[x - 30 * s, y - 68 * s], [x - 40 * s, y - 90 * s], [x - 20 * s, y - 72 * s]]); S.poly([[x + 4 * s, y - 75 * s], [x + 6 * s, y - 98 * s], [x + 18 * s, y - 72 * s]]);
+      out.push(`<circle cx="${x - 14 * s}" cy="${y - 52 * s}" r="${4 * s}" fill="#fff8e8" stroke="#241c13"/><circle cx="${x + 8 * s}" cy="${y - 54 * s}" r="${4 * s}" fill="#fff8e8" stroke="#241c13"/>`);
+      const ty = y - 32 * s; S.line(x - 26 * s, ty, x + 28 * s, ty);
+      for (let i = 0; i < 6; i++) { const tx = x - 22 * s + i * 9 * s; S.poly([[tx, ty], [tx + 4 * s, ty + 8 * s], [tx + 8 * s, ty]]); }
+    },
+    ghost(x, y, s = 1) { S.poly([...ring(x, y - 40 * s, 16 * s, 16 * s, 8, Math.PI, Math.PI * 2), [x + 16 * s, y], [x + 8 * s, y - 6 * s], [x, y], [x - 8 * s, y - 6 * s], [x - 16 * s, y]], '#fff8e8'); out.push(`<circle cx="${x - 5 * s}" cy="${y - 42 * s}" r="${2.5 * s}" fill="#241c13"/><circle cx="${x + 5 * s}" cy="${y - 42 * s}" r="${2.5 * s}" fill="#241c13"/>`); S.circle(x, y - 32 * s, 3 * s); },
+    heart(x, y, s = 1) { S.poly([[x, y + 10 * s], [x - 12 * s, y - 2 * s], [x - 10 * s, y - 10 * s], [x - 4 * s, y - 12 * s], [x, y - 6 * s], [x + 4 * s, y - 12 * s], [x + 10 * s, y - 10 * s], [x + 12 * s, y - 2 * s]], true); },
+    baby(x, y, s = 1) { S.circle(x, y - 14 * s, 13 * s, false, 9 * s); S.circle(x - 12 * s, y - 20 * s, 7 * s); S.poly([[x - 17 * s, y - 16 * s], [x - 7 * s, y - 16 * s], [x - 12 * s, y - 4 * s]], true); },
+    workshop(x, y, s = 1) { S.poly([[x - 30 * s, y], [x - 30 * s, y - 36 * s], [x + 30 * s, y - 36 * s], [x + 30 * s, y]]); S.poly([[x - 36 * s, y - 36 * s], [x, y - 54 * s], [x + 36 * s, y - 36 * s]], true); S.poly([[x - 8 * s, y], [x - 8 * s, y - 20 * s], [x + 8 * s, y - 20 * s], [x + 8 * s, y]], '#241c13'); },
+    rocks(x, y, n = 6) { for (let i = 0; i < n; i++) { const rx = x + (r() - .5) * 70, ry = y + r() * 50; S.circle(rx, ry, 5 + r() * 6, true); S.line(rx + 6, ry - 10, rx + 10, ry - 18); } },
+    wall(x, y, w2, h2) { S.poly([[x, y], [x, y - h2], [x + w2, y - h2], [x + w2, y]], true); for (let i = 0; i <= w2 - 10; i += 14) S.poly([[x + i, y - h2], [x + i, y - h2 - 8], [x + i + 8, y - h2 - 8], [x + i + 8, y - h2]]); },
+    motion(x, y, n = 3) { for (let i = 0; i < n; i++) S.line(x, y + i * 7, x - 16, y + i * 7 + 2); },
+    bubble(x, y, t) { const wb = Math.max(22, t.length * 6.5); S.circle(x + wb / 2, y, wb / 2 + 4, '#fff8e8', 10); S.line(x + 6, y + 9, x, y + 20); S.text(x + wb / 2, y + 4, t, 11); },
+    svg: () => `<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block"><defs><pattern id="${id}" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(${30 + r() * 30})"><line x1="0" y1="0" x2="0" y2="5" stroke="#241c13" stroke-width="1.1" opacity=".5"/></pattern></defs>${out.join('')}</svg>`,
+  };
+  return S;
+}
+// event kind -> scene, breaking headline, sketch caption, report text. `who` is the first name in the announcement.
+const KINDS = [
+  {re: /SIEGE|NIGHT_ATTACK|AMBUSH|vile force/i, k: 'siege', head: 'ENEMIES AT THE GATES', cap: 'Goblins, as described to our artist by a dwarf who ran past screaming.',
+   rep: 'Armed figures have been sighted outside the fortress. The militia is advised to do its job. Everyone else is advised to stand behind the militia.',
+   draw: S => { S.ground(128); S.wall(150, 128, 80, 50); S.dwarf(190, 70, .8, {axe: true}); [30, 70, 110].forEach(x => S.goblin(x, 128, .9)); S.label(70, 22, 40, 48, 'GOBLINS (PROBABLY)'); }},
+  {re: /MEGABEAST|WEREBEAST|BEAST_AMBUSH/, k: 'beast', head: 'MONSTER SIGHTED, CITIZENS "QUITE ALARMED"', cap: 'Artist\'s impression. Actual beast may be larger. Artist declined to get closer.',
+   rep: 'A creature of terrible size has come to call. Experts recommend not being where it is.',
+   draw: S => { S.ground(128); S.beast(80, 128, 1); S.dwarf(200, 128, .7, {armsUp: true}); S.motion(222, 92); S.label(190, 22, 120, 50, 'VERY BIG'); }},
+  {re: /CITIZEN_DEATH/, k: 'death', head: 'FORTRESS MOURNS', cap: 'Mourners at the graveside. The artist apologises for the hands.',
+   rep: 'A citizen has been lost. The Herald extends its condolences, and reminds readers that the coffin-maker is accepting orders.',
+   draw: S => { S.ground(128); S.coffin(120, 128, 1.3); S.dwarf(55, 128, 1, {sad: true, tears: true}); S.dwarf(185, 128, 1, {sad: true, tears: true}); S.text(120, 70, 'R.I.P.', 14); }},
+  {re: /PET_DEATH/, k: 'pet', head: 'BELOVED PET PASSES', cap: 'A small coffin for a good boy, or girl, or cat. The artist was not told which.',
+   rep: 'A fortress animal has died. It was, by all accounts, a good one.',
+   draw: S => { S.ground(128); S.coffin(120, 128, .7); S.dwarf(70, 128, .9, {sad: true, tears: true}); S.label(185, 50, 132, 100, 'GOOD BOY'); }},
+  {re: /BERSERK|TANTRUM/, k: 'berserk', head: 'TANTRUM IN THE HALLS', cap: 'The incident, reconstructed. The mug did not survive.',
+   rep: 'A citizen has lost their temper in a manner the Herald can only describe as thorough. Furniture is advised to stay out of reach.',
+   draw: S => { S.ground(128); S.dwarf(110, 128, 1.1, {armsUp: true, mug: true}); S.motion(80, 70, 4); S.text(170, 50, '!!!', 26); S.barrel(200, 128, 1); S.text(40, 40, '#@%!', 16, 'middle', -12); }},
+  {re: /STRANGE_MOOD|ARTIFACT_BEGUN|MOOD_BUILDING/, k: 'mood', head: 'CITIZEN "TAKEN BY A MOOD"', cap: 'Our subject, staring at a workshop. This went on for hours.',
+   rep: 'A citizen has withdrawn from society and claimed a workshop. Neighbours report muttering, sketching and demands for materials nobody has.',
+   draw: S => { S.ground(128); S.workshop(165, 128, 1.1); S.dwarf(70, 128, 1, {bubble: '?!'}); S.label(70, 18, 150, 66, 'THE WORKSHOP'); }},
+  {re: /MADE_ARTIFACT|NAMED_ARTIFACT/, k: 'artifact', head: 'LEGENDARY ARTIFACT CREATED', cap: 'The artifact, as glimpsed from the back of the crowd. Not to scale.',
+   rep: 'A work for the ages has been completed. Scholars agree it is very shiny.',
+   draw: S => { S.ground(128); S.dwarf(120, 128, 1.1, {armsUp: true}); S.gem(120, 30, 1); S.dwarf(45, 128, .8); S.dwarf(195, 128, .8); S.text(45, 50, 'ooh', 11); S.text(195, 50, 'aah', 11); }},
+  {re: /MASTERPIECE|MASTERFUL/, k: 'master', head: 'MASTERPIECE!', cap: 'The masterpiece. The artist insists it looked like this.',
+   rep: 'Another masterpiece leaves the workshops. The craftsdwarf would like it known they are available for interviews.',
+   draw: S => { S.ground(128); S.dwarf(90, 128, 1.1, {armsUp: true}); S.barrel(170, 128, 1.4); S.sparkles(170, 95, 22, 6); S.label(200, 30, 175, 90, 'MASTERPIECE (TRUST US)'); }},
+  {re: /STRUCK|FEATURE_DISCOVERY/, k: 'strike', head: 'MINERS STRIKE IT RICH', cap: 'The find, artist\'s impression. Gem shown actual size, according to the miner.',
+   rep: 'Miners report a significant discovery deep in the rock. They have been asked to stop yelling about it.',
+   draw: S => { S.ground(128); S.dwarf(70, 128, 1.1, {pick: true, armsUp: true}); S.gem(170, 85, 1.6); S.label(200, 22, 175, 58, 'ROCK (GOOD)'); }},
+  {re: /MIGRANT/, k: 'migrants', head: 'MIGRANTS ARRIVE', cap: 'The new arrivals. All beards, no plans.',
+   rep: 'A fresh wave of settlers has arrived at the gates, carrying nothing useful and asking where the beds are.',
+   draw: S => { S.ground(128); S.wagon(120, 128, 1.4, 5); S.label(205, 20, 150, 60, 'MORE OF THEM'); S.dwarf(30, 128, .7); }},
+  {re: /CARAVAN/, k: 'caravan', head: 'CARAVAN ARRIVES, TRADE BOOMS', cap: 'The merchants. Their prices, regrettably, could not be drawn.',
+   rep: 'Merchants have reached the trade depot. Haggling is expected to be fierce, dishonest and very long.',
+   draw: S => { S.ground(128); S.wagon(110, 128, 1.3, 1); S.barrel(190, 128, 1); S.barrel(212, 128, .8); S.label(40, 24, 80, 70, 'WARES'); }},
+  {re: /BIRTH_CITIZEN/, k: 'birth', head: 'A CHILD IS BORN', cap: 'Mother and baby doing well. The beard, we are told, is normal.',
+   rep: 'The fortress welcomes its newest citizen, who has already been assigned a hauling job.',
+   draw: S => { S.ground(128); S.dwarf(80, 128, 1.1); S.baby(165, 110, 1.3); S.label(210, 30, 160, 92, 'ALREADY BEARDED'); }},
+  {re: /MARRIAGE/, k: 'marriage', head: 'WEDDING BELLS BENEATH THE MOUNTAIN', cap: 'The happy couple. The artist was not invited and drew this from memory.',
+   rep: 'Two citizens have married. No party was held, because nobody planned one.',
+   draw: S => { S.ground(128); S.dwarf(85, 128, 1); S.dwarf(155, 128, 1); S.heart(120, 40, 1.3); }},
+  {re: /GHOST/, k: 'ghost', head: 'GHOST TERRORISES HALLS', cap: 'The apparition, drawn by a witness with their eyes mostly closed.',
+   rep: 'The restless dead walk among us. The Herald reminds readers that slabs and coffins are cheaper than therapy.',
+   draw: S => { S.ground(128); S.ghost(80, 110, 1.4); S.dwarf(185, 128, .9, {armsUp: true}); S.motion(210, 92); S.text(80, 30, 'boo', 14); }},
+  {re: /CAVE_COLLAPSE/, k: 'collapse', head: 'CAVE-IN!', cap: 'The collapse, reconstructed using rocks.',
+   rep: 'Part of the ceiling has relocated to the floor. Engineers call it "an oversight".',
+   draw: S => { S.ground(128); S.rocks(120, 40, 8); S.dwarf(120, 128, .9, {armsUp: true}); S.text(190, 40, 'OOF', 16); }},
+  {re: /SOLDIER_BECOMES_MASTER/, k: 'soldier', head: 'SOLDIER ACHIEVES MASTERY', cap: 'A master of arms, shown here being terrifying.',
+   rep: 'A member of the militia has reached legendary skill. Goblins are advised to take the long way round.',
+   draw: S => { S.ground(128); S.dwarf(120, 128, 1.3, {axe: true}); S.sparkles(120, 50, 35, 6); }},
+];
+const kindOf = ev => KINDS.find(k => k.re.test(ev.type || '') || (k.k === 'siege' && k.re.test(ev.text || '')));
+const evWho = ev => { const m = clean(ev.text).match(/^([A-Z][^\s,]+ [A-Z][^\s,]+)/); return m ? cap(m[1]) : null; };
+function drawEvent(ev, w, h) { const k = kindOf(ev); if (!k) return null; const sk = Sketch((ev.id || 1) * 31 + 7, w, h); k.draw(sk); return {k, svg: sk.svg()}; }
+function portrait(d) {   // courtroom-sketch style portrait of the interviewee
+  const sk = Sketch(d.id * 13 + 5, 240, 140), m = mood(d.stress);
+  sk.ground(132); sk.dwarf(120, 132, 1.9, {sad: m.label.includes('stress') || m.label === 'near breaking', pick: /mine|dig/i.test(d.job + ((d.skills || [])[0] || {}).name)});
+  return sk.svg();
+}
+
+// ---------- card: breaking news (interrupts the rotation when a big event lands) ----------
+let breakingQ = [], seenBig = null, breakingOn = false;
+function cardBreaking(ev) {
+  const res = drawEvent(ev, 240, 140); if (!res) return null;
+  const who = evWho(ev);
+  return `<div class="kicker"><span>★ Breaking News ★</span><span>Extra! Extra!</span></div>
+    <div class="headline" style="font-size:25px;text-align:center">${esc(res.k.head)}</div>
+    <div class="mapwrap" style="background:#f6eedb;padding:2px">${res.svg}</div>
+    <div class="deck" style="font-size:11px;text-align:center;margin:2px 0 4px">${esc(res.k.cap)}</div>
+    <p class="body just dropcap">${esc(clean(ev.text))} ${esc(res.k.rep)}${who ? (/death/.test(res.k.k) ? ` ${esc(who.split(' ')[0])} could not be reached for comment.` : ` The Herald has asked ${esc(who)} for comment.`) : ''}</p>`;
+}
+function checkBig() {
+  const big = S.big || [];
+  if (!seenBig) { seenBig = new Set(big.map(e => e.id)); return; }      // don't replay old news on page load
+  for (const e of [...big].reverse()) if (!seenBig.has(e.id)) { seenBig.add(e.id); if (kindOf(e)) breakingQ.push(e); }
+  if (breakingQ.length && !breakingOn) nextCard();
+}
+
 // ---------- below the fold: ads, editorials, letters, classifieds ----------
 function citizens() {
   const names = new Set();
@@ -444,6 +604,13 @@ function fillers(r) {
   letter(`someone keeps leaving socks in the dining hall. I know who you are. I will not name you. Yet.`, anyone());
   letter(`I have been assigned to haul the same stone four times. I would like it noted in print.`, anyone() + ', Hauler');
 
+  // our sketch artist: recent big events and a portrait of today's interviewee
+  for (const ev of (S.big || []).filter(e => e.id !== breakingOn).slice(0, 3)) {
+    const res = drawEvent(ev, 240, 140); if (!res) continue;
+    out.push(`<div class="item"><div class="kick">From Our Sketch Artist</div><h3>${esc(res.k.head)}</h3>${res.svg}<p class="just" style="font-style:italic;font-size:10px;margin-top:2px">${esc(clean(ev.text))} ${esc(res.k.cap)}</p></div>`);
+  }
+  if (S.dwarf) { const nm = firstName(S.dwarf.name); out.push(`<div class="item"><div class="kick">Courtroom Sketch</div>${portrait(S.dwarf)}<p style="font-style:italic;font-size:10px;text-align:center">${esc(nm)}, as seen by our artist. Likeness not guaranteed.</p></div>`); }
+
   // classifieds + almanac
   const cls = shuffle(r, [
     '<b>Lost:</b> one sock, left. Great sentimental value.',
@@ -487,16 +654,28 @@ const CARDS = [
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
 let cardIdx = params.has('card') ? Number(params.get('card')) - 2 : -1, cardTimer = null;
+function showCard(html, after) {
+  const el = document.getElementById('card');
+  el.innerHTML = html; el.classList.remove('fadein'); void el.offsetWidth; el.classList.add('fadein');
+  if (after) after(); else cancelAnimationFrame(mapAnim);
+  fillFold();
+}
 function nextCard() {
+  // big news jumps the queue: one Breaking card per new event, then the normal rotation resumes
+  while (breakingQ.length) {
+    const ev = breakingQ.shift(), html = cardBreaking(ev);
+    if (!html) continue;
+    breakingOn = ev.id; showCard(html);
+    document.getElementById('dots').innerHTML = '<span class="on" style="background:var(--red);border-color:var(--red)"></span>';
+    clearTimeout(cardTimer); cardTimer = setTimeout(() => { breakingOn = false; nextCard(); }, 25000);
+    return;
+  }
   for (let tries = 0; tries < CARDS.length; tries++) {
     cardIdx = (cardIdx + 1) % CARDS.length;
     const c = CARDS[cardIdx], html = c.fn();
     if (!html) continue;
-    const el = document.getElementById('card');
-    el.innerHTML = html; el.classList.remove('fadein'); void el.offsetWidth; el.classList.add('fadein');
-    if (c.after) c.after(); else cancelAnimationFrame(mapAnim);
+    showCard(html, c.after);
     document.getElementById('dots').innerHTML = CARDS.map((_, i) => `<span class="${i === cardIdx ? 'on' : ''}"></span>`).join('');
-    fillFold();
     clearTimeout(cardTimer);
     if (!params.has('hold')) cardTimer = setTimeout(nextCard, c.secs * 1000);
     return;
@@ -506,7 +685,12 @@ function nextCard() {
 
 // ---------- data ----------
 const get = async u => (await fetch(u, {cache: 'no-store'})).json();
-async function pollState() { try { S = await get('/state.json'); masthead(); } catch (e) {} }
+async function pollState() {
+  try { S = await get('/state.json'); } catch (e) { return; }
+  // ?breaking=SIEGE (or any announcement type) fakes a fresh big event, for testing the artwork
+  if (params.has('breaking') && seenBig) (S.big = S.big || []).unshift({id: 999999, type: params.get('breaking'), text: params.get('text') || 'Urist McTest has done something newsworthy.', year: 105});
+  masthead(); checkBig();
+}
 async function pollStocks() {
   try { const k = await get('/stocks.json'); if (k && k.stocks) { if (K && K.stocks) prevStocks = K.stocks; K = k; } } catch (e) {}
 }

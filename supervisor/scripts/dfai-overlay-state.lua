@@ -100,7 +100,33 @@ if out.ok then
     local r = reps[i]
     local text = dfhack.df2utf(r.text)
     if r.flags.announcement and #out.events < 8 and not text:find(' cancels ') then
-      out.events[#out.events + 1] = { text = text, year = r.year }
+      out.events[#out.events + 1] = { text = text, year = r.year, type = df.announcement_type[r.type], id = r.id }
+    end
+  end
+  -- big events for the Herald's illustrated "Breaking News" (deaths, sieges, moods, artifacts, migrants...)
+  local BIG = {}
+  for _, n in ipairs{'CITIZEN_DEATH','PET_DEATH','BERSERK_CITIZEN','CITIZEN_TANTRUM','POSSESSED_TANTRUM','STRANGE_MOOD',
+      'ARTIFACT_BEGUN','MADE_ARTIFACT','NAMED_ARTIFACT','MEGABEAST_ARRIVAL','WEREBEAST_ARRIVAL','BEAST_AMBUSH','NIGHT_ATTACK_STARTS',
+      'GHOST_ATTACK','BUILDING_TOPPLED_BY_GHOST','MIGRANT_ARRIVAL','MIGRANT_ARRIVAL_NAMED','D_MIGRANTS_ARRIVAL','CARAVAN_ARRIVAL',
+      'FIRST_CARAVAN_ARRIVAL','BIRTH_CITIZEN','MARRIAGE','CAVE_COLLAPSE','STRUCK_DEEP_METAL','FEATURE_DISCOVERY',
+      'MASTERPIECE_CRAFTED','SOLDIER_BECOMES_MASTER','AMBUSH_DEFENDER','AMBUSH_RESIDENT'} do BIG[n] = true end
+  out.big = {}
+  local seen_type = {}   -- newest one of each kind, so a run of masterpieces doesn't crowd out a death
+  for i = #reps - 1, math.max(0, #reps - 300), -1 do
+    local r = reps[i]
+    if #out.big >= 6 then break end
+    local tn = df.announcement_type[r.type]
+    if r.flags.announcement and tn then
+      local text = (BIG[tn] or tn:find('SIEGE') or tn:find('INVASION')) and dfhack.df2utf(r.text)
+      if not text then
+        -- sieges have no single announcement type; catch them by wording
+        local t = dfhack.df2utf(r.text)
+        if t:find('vile force') or t:find('siege') then text = t; tn = 'SIEGE' end
+      end
+      if text and not seen_type[tn] then
+        seen_type[tn] = true
+        out.big[#out.big + 1] = { id = r.id, type = tn, text = text, year = r.year }
+      end
     end
   end
 end
