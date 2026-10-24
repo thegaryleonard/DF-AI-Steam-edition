@@ -36,6 +36,7 @@ CFG = {
     "max_restarts_per_hour": 3,
     "launch_timeout_s": 300,
     "load_timeout_s": 600,
+    "obs_keeper": False,        # true = restart OBS and start streaming if it closes/crashes (obs_keeper.py)
 }
 CFG_FILE = Path(__file__).with_name("supervisor.json")
 if CFG_FILE.exists():
@@ -328,6 +329,11 @@ class Supervisor:
 
     def step(self):
         now = time.time()
+        if self.obs:
+            try:
+                self.obs.step()
+            except Exception as e:
+                log(f"obs keeper error: {e!r}")
         if not df_running():
             self.restart("Dwarf Fortress is not running (crashed?)")
             return
@@ -385,6 +391,11 @@ class Supervisor:
                 self.last_backup = now
 
     def run(self):
+        self.obs = None
+        if CFG.get("obs_keeper"):
+            from obs_keeper import ObsKeeper
+            self.obs = ObsKeeper(CFG, log, notify)
+            log("obs keeper on: OBS will be restarted and set streaming if it closes")
         install_scripts()
         log("started; watching the game.")
         while True:
