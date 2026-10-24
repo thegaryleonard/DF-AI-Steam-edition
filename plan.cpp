@@ -1418,6 +1418,15 @@ command_result Plan::setup_outdoor_gathering_zones(color_ostream &)
             df::coord t = surface_tile_at(tx, ty, true);
             if (!t.isValid())
                 continue;
+            // Only gather near home: zoning the whole surface sent dwarves
+            // across the map (and out into the rain) for every shrub.
+            if (fort_entrance)
+            {
+                df::coord e = fort_entrance->pos();
+                int32_t dx = t.x - e.x, dy = t.y - e.y;
+                if (dx * dx + dy * dy > 40 * 40)
+                    continue;
+            }
             ground[t.z].insert(df::coord2d(tx % 31, ty % 31));
         }
         i++;
