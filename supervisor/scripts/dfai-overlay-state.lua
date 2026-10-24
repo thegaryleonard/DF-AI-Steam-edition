@@ -68,7 +68,7 @@ local function unit_card(u)
           local d = df.historical_figure.find(n.deity_id)
           label = d and ('Pray to ' .. name_of(d.name, false)) or 'Pray or meditate'
         end
-        nd[#nd + 1] = { name = dfhack.df2utf(label), focus = n.focus_level }
+        nd[#nd + 1] = { name = label, focus = n.focus_level }  -- name_of already returns UTF-8
       end
     end
     table.sort(nd, function(a, b) return a.focus < b.focus end)
