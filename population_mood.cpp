@@ -9,6 +9,7 @@
 #include "ai.h"
 
 #include <sstream>
+#include <limits>
 #include "population.h"
 #include "stocks.h"
 #include "room.h"
@@ -23,6 +24,9 @@
 #include "df/tile_occupancy.h"
 #include "df/material.h"
 #include "modules/Items.h"
+#include "df/map_block.h"
+#include "df/inorganic_raw.h"
+#include "df/block_square_event_mineralst.h"
 #include "df/manager_order_template.h"
 #include "df/material_flags.h"
 #include "modules/Job.h"
@@ -371,6 +375,68 @@ void Population::update_moods(color_ostream & out)
                 {
                     *standing_orders_auto_collect_webs = 1;
                     ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on");
+                }
+            }
+            if (!usable && ji->item_type == item_type::ROUGH && mood_warned.insert(who + "|rough|" + std::to_string(idx)).second)
+            {
+                // No rough gem anywhere: mine one. Look for a gem vein tile
+                // next to a walkable tile the dwarf can reach, near its level.
+                // Bounded (z +-12, a few thousand tiles) so it can't stall DF.
+                df::coord best;
+                int32_t best_d = std::numeric_limits<int32_t>::max();
+                int32_t checked = 0;
+                for (auto block : world->map.map_blocks)
+                {
+                    if (checked > 4000)
+                        break;
+                    if (std::abs(block->map_pos.z - u->pos.z) > 12)
+                        continue;
+                    for (auto ev : block->block_events)
+                    {
+                        auto min = virtual_cast<df::block_square_event_mineralst>(ev);
+                        if (!min)
+                            continue;
+                        auto raw = df::inorganic_raw::find(min->inorganic_mat);
+                        if (!raw || !raw->material.flags.is_set(material_flags::IS_GEM))
+                            continue;
+                        for (int16_t x = 0; x < 16; x++)
+                        {
+                            for (int16_t y = 0; y < 16; y++)
+                            {
+                                if (!min->getassignment(x, y))
+                                    continue;
+                                if (++checked > 4000)
+                                    break;
+                                df::coord t = block->map_pos + df::coord(x, y, 0);
+                                df::tiletype *tt = Maps::getTileType(t);
+                                if (!tt || ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Wall)
+                                    continue;
+                                int32_t d = std::abs(t.x - u->pos.x) + std::abs(t.y - u->pos.y) + 4 * std::abs(t.z - u->pos.z);
+                                if (d >= best_d)
+                                    continue;
+                                for (auto off : {df::coord(1, 0, 0), df::coord(-1, 0, 0), df::coord(0, 1, 0), df::coord(0, -1, 0)})
+                                {
+                                    df::coord n = t + off;
+                                    if (Maps::isValidTilePos(n) && Maps::canWalkBetween(u->pos, n))
+                                    {
+                                        best = t;
+                                        best_d = d;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (best.isValid())
+                {
+                    AI::dig_tile(best, tile_dig_designation::Default);
+                    ai.debug(out, stl_sprintf("[MOOD] no rough gems for %s: mining a gem vein at (%d, %d, %d)", who.c_str(), best.x, best.y, best.z));
+                    usable++;
+                }
+                else
+                {
+                    ai.debug(out, "[MOOD] no rough gems for " + who + " and no reachable gem vein near the fort");
                 }
             }
             if (!usable && ji->item_type == item_type::SMALLGEM)
