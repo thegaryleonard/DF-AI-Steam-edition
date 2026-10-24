@@ -38,6 +38,42 @@ local function unit_card(u)
       } end
     end
   end
+  -- extras for the spectator card (bottom of the broadsheet)
+  card.race = dfhack.df2utf(dfhack.units.getRaceReadableName and dfhack.units.getRaceReadableName(u) or '')
+  card.male = u.sex == 1
+  card.citizen = dfhack.units.isCitizen(u)
+  -- only wounds that still hurt or bleed (old healed scars stay in body.wounds)
+  card.wounds = 0
+  for _, w in ipairs(u.body.wounds) do
+    local live = false
+    for _, wp in ipairs(w.parts) do if (wp.bleeding or 0) > 0 or (wp.pain or 0) > 0 then live = true end end
+    if live then card.wounds = card.wounds + 1 end
+  end
+  card.unconscious = u.flags1.has_mood == false and (u.counters.unconscious or 0) > 0
+  card.hungry = (u.counters2.hunger_timer or 0) > 50000
+  card.thirsty = (u.counters2.thirst_timer or 0) > 25000
+  card.tired = (u.counters2.sleepiness_timer or 0) > 57600
+  card.strange_mood = (u.mood ~= -1 and df.mood_type[u.mood]) or nil
+  local sq = df.squad.find(u.military.squad_id)
+  card.squad = sq and dfhack.df2utf(dfhack.translation and dfhack.translation.translateName(sq.name, true) or dfhack.TranslateName(sq.name, true)) or nil
+  if sq and sq.alias ~= '' then card.squad = dfhack.df2utf(sq.alias) end
+  if sq and (card.squad == nil or card.squad == '') then card.squad = 'Squad ' .. sq.id end
+  card.needs = {}
+  if soul then
+    local nd = {}
+    for _, n in ipairs(soul.personality.needs) do
+      if n.focus_level < -1000 then
+        local label = df.need_type[n.id] or '?'
+        if n.id == df.need_type.PrayOrMeditate then
+          local d = df.historical_figure.find(n.deity_id)
+          label = d and ('Pray to ' .. name_of(d.name, false)) or 'Pray or meditate'
+        end
+        nd[#nd + 1] = { name = dfhack.df2utf(label), focus = n.focus_level }
+      end
+    end
+    table.sort(nd, function(a, b) return a.focus < b.focus end)
+    for i = 1, math.min(4, #nd) do card.needs[i] = nd[i].name end
+  end
   local hf = df.historical_figure.find(u.hist_figure_id)
   if hf then
     card.born = hf.born_year
@@ -95,6 +131,12 @@ if out.ok then
     follow = #citizens > 0 and citizens[(os.time() // 120) % #citizens + 1] or nil
   end
   out.dwarf = unit_card(follow)
+  -- the unit the spectator camera is actually following (any creature), for the on-camera card
+  local cam = df.unit.find(df.global.plotinfo.follow_unit)
+  if cam then
+    local okc, c = pcall(unit_card, cam)
+    out.followed = okc and c or { id = cam.id, name = dfhack.df2utf(dfhack.units.getReadableName(cam)) }
+  end
   out.names = {}   -- citizen names for the Herald's letters and bylines
   for i = 1, math.min(#citizens, 60) do
     out.names[i] = dfhack.df2utf(dfhack.units.getReadableName(citizens[i])):gsub(',.*$', ''):gsub('%s*"[^"]*"', '')

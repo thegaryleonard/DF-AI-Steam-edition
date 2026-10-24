@@ -126,6 +126,25 @@
   .cls div:last-child { border: 0; }
   .cls b { font-variant: small-caps; }
 
+  /* on-camera card: the dwarf the spectator camera follows (bottom third) */
+  .follow { flex: 0 0 27%; min-height: 0; overflow: hidden; margin-top: 4px; padding-top: 3px; border-top: 3px double var(--rule); font-size: 11px; line-height: 1.25; }
+  .follow .kicker { display: flex; justify-content: space-between; }
+  .follow .live { color: var(--red); font-weight: bold; letter-spacing: 1px; }
+  .follow .live::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--red); margin-right: 4px; vertical-align: 0; animation: blink 1.6s infinite; }
+  @keyframes blink { 50% { opacity: .25; } }
+  .follow h3 { margin: 1px 0 0; font-size: 17px; line-height: 1.05; }
+  .follow .sub { font-style: italic; color: var(--ink2); font-size: 11px; margin-bottom: 2px; }
+  .follow .doing { font-size: 12px; padding: 2px 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .follow .doing b { font-variant: small-caps; }
+  .follow .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; margin-top: 3px; }
+  .follow .grid > div:first-child { border-right: 1px solid var(--hair); padding-right: 8px; }
+  .follow .lbl { font-variant: small-caps; font-weight: bold; color: var(--ink2); font-size: 10.5px; letter-spacing: .4px; }
+  .follow .row { display: flex; justify-content: space-between; gap: 4px; white-space: nowrap; overflow: hidden; }
+  .follow .row span:first-child { overflow: hidden; text-overflow: ellipsis; }
+  .follow .bar { height: 5px; background: var(--paper2); border: 1px solid var(--hair); margin: 1px 0 2px; }
+  .follow .bar i { display: block; height: 100%; }
+  .follow .warn { color: var(--red); font-weight: bold; }
+  .follow .th { font-style: italic; font-size: 10.5px; color: var(--ink2); margin-top: 3px; border-top: 1px dotted var(--hair); padding-top: 2px; }
   .late { margin-top: 3px; border-top: 3px double var(--rule); padding-top: 2px; }
   .late .txt { font-size: 11px; line-height: 1.3; text-align: justify; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
   .late .txt span + span::before { content: " \2756 "; color: var(--accent); }
@@ -153,6 +172,7 @@
   <div id="card"></div>
   <div class="nav"><button id="nav-prev" title="Previous page (←)" onclick="navPrev()">◀</button><div class="dots" id="dots"></div><span id="nav-status"></span><button id="nav-hold" onclick="hold(!browsing)">❚❚</button><button id="nav-next" title="Next page (→)" onclick="navNext()">▶</button></div>
   <div class="fold"><div class="col" id="colA"></div><div class="col" id="colB"></div></div>
+  <div class="follow" id="follow"></div>
   <div class="late"><div class="kicker"><span>Late Edition</span><span>Stop the Presses</span></div><div class="txt" id="late"></div></div>
 </div>
 <script>
@@ -1452,13 +1472,56 @@ function nextCard() {
   clearTimeout(cardTimer); cardTimer = setTimeout(nextCard, 3000);
 }
 
+// ---------- on-camera card: abbreviated unit sheet for the followed dwarf ----------
+const NEEDWORD = {DrinkAlcohol: 'A drink', BeWithFriends: 'Friends', AdmireArt: 'Admire art', CraftObject: 'Make something',
+  Socialize: 'Socialize', Excitement: 'Excitement', MartialTraining: 'Martial training', BeCreative: 'Be creative',
+  LearnSomething: 'Learn something', BeWithFamily: 'Family', HelpSomebody: 'Help somebody', StayOccupied: 'Keep busy',
+  ThinkAbstractly: 'Think', Wander: 'Wander', AcquireObject: 'Acquire things', EatGoodMeal: 'A good meal',
+  PrayOrMeditate: 'Pray', HearEloquence: 'Eloquence', AbstractThought: 'Think', MakeMerry: 'Make merry',
+  FightOrBeAggressive: 'A fight', PracticeSkill: 'Practice a skill', SelfExamination: 'Reflect', ExtravagantClothes: 'Fine clothes',
+  BeWithAnimals: 'Animals', Thrill: 'Excitement', SeeAnimal: 'See animals', SeeGreatBeast: 'See a great beast',
+  AdmireNature: 'Nature', ArgueWithSomebody: 'An argument'};
+const EMOTEWORD = e => pretty(e).replace(/^(.)(.*)$/, (m, a, b) => a + b.toLowerCase());
+let followHtml = '';
+function renderFollow() {
+  const el = document.getElementById('follow'); if (!el) return;
+  const d = S.followed || S.dwarf, live = !!S.followed;
+  let html = '';
+  if (d && d.name) {
+    const nm = String(d.name).split(',')[0], nick = (nm.match(/"([^"]+)"/) || [])[1];
+    const given = cap(clean(nm.replace(/\s*"[^"]*"\s*/, ' ').trim()));
+    const m = mood(d.stress || 0);
+    const flags = [d.wounds ? `wounded (${d.wounds})` : '', d.unconscious ? 'unconscious' : '', d.hungry ? 'hungry' : '',
+                   d.thirsty ? 'thirsty' : '', d.tired ? 'exhausted' : ''].filter(Boolean);
+    const skills = (d.skills || []).slice(0, 4).map(s => `<div class="row"><span>${esc(s.name)}</span><span>${esc(levels[Math.min(15, s.level)] || '')}</span></div>`).join('') || '<div><i>No skills to speak of</i></div>';
+    const needs = (d.needs || []).slice(0, 4).map(n => `<div class="row"><span>${esc(NEEDWORD[n] || pretty(n))}</span></div>`).join('') || '<div><i>Wants for nothing</i></div>';
+    const fam = d.family || [], kinOf = r => fam.filter(f => f.relation === r);
+    const sp = kinOf('SPOUSE')[0], kids = kinOf('CHILD'), lov = kinOf('LOVER')[0];
+    const kin = [sp ? `${sp.alive ? 'married to' : 'widowed of'} ${esc(firstName(sp.name))}` : lov ? `sweet on ${esc(firstName(lov.name))}` : '',
+                 kids.length ? `${kids.length} child${kids.length > 1 ? 'ren' : ''}` : '',
+                 kinOf('DEITY').length ? `worships ${esc(firstName(kinOf('DEITY')[0].name))}` : ''].filter(Boolean).join(', ');
+    const th = (d.thoughts || []).slice(0, 3).map(t => `${esc(EMOTEWORD(t.emotion))}: ${esc(pretty(t.about).toLowerCase())}`).join(' · ');
+    html = `<div class="kicker"><span>${live ? '<span class="live">On Camera</span>' : 'Citizen Profile'}</span><span>${d.citizen === false ? esc(d.race || 'Visitor') : 'Citizen'}</span></div>
+      <h3>${esc(given)}${nick ? ` <span style="font-weight:normal;font-style:italic;font-size:13px">"${esc(nick)}"</span>` : ''}</h3>
+      <div class="sub">${esc(clean(d.profession || ''))}${d.age ? `, ${d.age} years old` : ''}${d.squad ? ` · ${esc(clean(d.squad))}` : ''}${d.strange_mood ? ` · <span class="warn">${esc(pretty(d.strange_mood))} mood!</span>` : ''}</div>
+      <div class="doing"><b>Now:</b> ${esc(clean(d.job || 'Idle'))}</div>
+      <div class="grid">
+        <div><div class="lbl">Mood: ${esc(m.label)}</div><div class="bar"><i style="width:${m.pct}%;background:${m.color}"></i></div>
+             <div class="lbl">Health</div><div class="${flags.length ? 'warn' : ''}">${flags.length ? esc(flags.join(', ')) : 'Healthy'}</div>
+             <div class="lbl" style="margin-top:2px">Best at</div>${skills}</div>
+        <div><div class="lbl">Longs for</div>${needs}${kin ? `<div class="lbl" style="margin-top:2px">Kin</div><div>${kin}</div>` : ''}</div>
+      </div>
+      ${th ? `<div class="th"><b>Lately:</b> ${th}</div>` : ''}`;
+  }
+  if (html !== followHtml) { followHtml = html; el.innerHTML = html; }
+}
 // ---------- data ----------
 const get = async u => (await fetch(u, {cache: 'no-store'})).json();
 async function pollState() {
   try { S = await get('/state.json'); } catch (e) { return; }
   // ?breaking=SIEGE (or any announcement type) fakes a fresh big event, for testing the artwork
   if (params.has('breaking') && seenBig) (S.big = S.big || []).unshift({id: 999999, type: params.get('breaking'), text: params.get('text') || 'Urist McTest has done something newsworthy.', year: 105});
-  masthead(); checkBig(); trackStories();
+  masthead(); checkBig(); trackStories(); renderFollow();
 }
 async function pollStocks() {
   try { const k = await get('/stocks.json'); if (k && k.stocks) { if (K && K.stocks) prevStocks = K.stocks; K = k; } } catch (e) {}
