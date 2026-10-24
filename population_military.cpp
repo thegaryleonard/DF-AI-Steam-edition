@@ -37,6 +37,11 @@
 #include "df/uniform_category.h"
 #include "df/unit_misc_trait.h"
 #include "df/world.h"
+#include "df/squad_barracks_infost.h"
+#include "df/civzone_type.h"
+#include "df/buildings_other_id.h"
+#include "df/squad_use_flags.h"
+#include "df/building_civzonest.h"
 #include "df/alert_statest.h"
 #include "df/burrow.h"
 #include "df/weapon_flags.h"
@@ -1211,6 +1216,44 @@ void Population::update_military(color_ostream & out)
     }
 
     arm_soldiers(out);
+
+    // Every squad needs a Barracks zone to train in: squads whose only room
+    // was an archery range never trained (most soldiers had combat skill 0-4
+    // and 6 raw recruits died to one forgotten beast). Share a barracks.
+    {
+        std::vector<df::building_civzonest *> barracks;
+        for (auto b : world->buildings.other[buildings_other_id::ACTIVITY_ZONE])
+        {
+            auto z = virtual_cast<df::building_civzonest>(b);
+            if (z && z->type == civzone_type::Barracks && z->spec_sub_flag.bits.active)
+                barracks.push_back(z);
+        }
+        size_t i = 0;
+        for (auto squad : world->squads.all)
+        {
+            if (barracks.empty())
+                break;
+            if (!squad || squad->entity_id != plotinfo->group_id)
+                continue;
+            bool has = false;
+            for (auto r : squad->rooms)
+            {
+                auto z = virtual_cast<df::building_civzonest>(df::building::find(r->building_id));
+                if (z && z->type == civzone_type::Barracks)
+                    has = true;
+            }
+            if (has)
+                continue;
+            auto z = barracks[i++ % barracks.size()];
+            df::squad_use_flags flags;
+            flags.bits.sleep = 1;
+            flags.bits.train = 1;
+            flags.bits.indiv_eq = 1;
+            flags.bits.squad_eq = 1;
+            Military::updateRoomAssignments(squad->id, z->id, flags);
+            ai.debug(out, stl_sprintf("[MILITARY] squad %d had no barracks; assigned barracks zone %d", squad->id, z->id));
+        }
+    }
 
     // Check barracks construction status.
     ai.find_room(room_type::barracks, [](room *r) -> bool

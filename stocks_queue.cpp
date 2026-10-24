@@ -1169,6 +1169,22 @@ void Stocks::queue_use_gems(color_ostream & out, int32_t amount, std::ostream & 
         return;
     }
 
+    // Keep a few rough gems uncut: strange moods ask for "rough gem" and a
+    // possessed dwarf needed one after every rough gem had been cut.
+    const int32_t KEEP_ROUGH = 5;
+    int32_t free_rough = 0;
+    for (auto i : world->items.other[items_other_id::ROUGH])
+    {
+        if (i->getMaterial() == 0 && is_item_free(i))
+            free_rough++;
+    }
+    if (free_rough <= KEEP_ROUGH)
+    {
+        reason << "keeping the last " << free_rough << " rough gems for strange moods";
+        return;
+    }
+    amount = std::min(amount, free_rough - KEEP_ROUGH);
+
     df::item *base = nullptr;
     for (auto i : world->items.other[items_other_id::ROUGH])
     {
