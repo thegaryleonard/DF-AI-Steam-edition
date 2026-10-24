@@ -10,6 +10,9 @@ IV = set("dwarf first nick prof age skill level skill2 deity kin rel adj about j
 BK = {"who", "first", "fort", "pop", "season", "weather", "event"}
 RUMOR = {"site", "site_kind", "entity", "entity_race", "entity2", "entity2_race", "hf", "hf_race", "hf2", "hf2_race", "region", "artifact",
          "artifact_item", "ago", "source", "fort", "season"}
+POL = {"fort", "pop", "season", "civ", "government", "n", "job", "material", "manager", "squad", "captain", "members", "kills", "routine", "order",
+       "post", "holder", "crime", "criminal", "victim", "noble", "item", "monarch", "general", "diplomat", "liaison", "enemy", "enemy_race",
+       "n_war", "n_peace", "friend", "friend_race"}
 OG = {"days", "since", "n", "fort", "season", "weather", "pop", "drinks", "wood", "meals", "citizen", "nick", "topic"}
 CONDS = set("no_meat drinks_high drinks_low rain snow clear pop_big pop_small dogs_many cats farms_many stone_glut wood_low gems recent_death "
             "recent_mood recent_masterpiece recent_strike recent_promotion recent_migrants recent_caravan spring summer autumn winter".split())
@@ -74,7 +77,7 @@ def check_panel(p, sid):
 
 
 for k, v in lib.items():
-    allowed = IV if k in ("thoughts", "questions", "answers", "decks", "idle_decks") else BK if k == "kinds" else RUMOR if k in ("rumors", "briefs", "depot_gossip", "pouch", "pouch_heads") else OG if k in ("stories", "counters", "followups") else BASE
+    allowed = IV if k in ("thoughts", "questions", "answers", "decks", "idle_decks") else BK if k == "kinds" else RUMOR if k in ("rumors", "briefs", "depot_gossip", "pouch", "pouch_heads") else POL if k in ("order_ads", "recruit_ads", "vacancy_ads", "local", "military", "world", "columns") else OG if k in ("stories", "counters", "followups") else BASE
     walk(v, k, allowed)
 for st in lib.get("strips", []):
     if not 3 <= len(st.get("panels", [])) <= 4: problems.append(f"{st.get('id')}: {len(st.get('panels', []))} panels")

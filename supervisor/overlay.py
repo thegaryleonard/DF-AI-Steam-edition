@@ -24,7 +24,7 @@ LIB_DIR = HERE / "herald" / "library"
 SEEN_FILE = HERE / "herald" / "seen.json"   # library entry id -> unix time last printed, so issues don't repeat
 seen_lock = threading.Lock()
 MEMORY_FILE = HERE / "herald" / "memory.json"   # running stories: shortages, streaks, days-since counters, dwarf grievances
-cache = {"state": {"ok": False}, "history": {"artifacts": []}, "world": {}, "stocks": {}, "rumors": {}, "history_world": None}
+cache = {"state": {"ok": False}, "history": {"artifacts": []}, "world": {}, "stocks": {}, "rumors": {}, "politics": {}, "history_world": None}
 STOCKS_EVERY_S = 30
 RUMORS_EVERY_S = 60   # news the fort has heard from diplomats, the liaison and caravans
 MOCK = "--mock" in sys.argv
@@ -60,6 +60,9 @@ def poller():
             ru = run_json("dfai-overlay-rumors", timeout=30)
             if ru is not None:
                 cache["rumors"] = ru
+            po = run_json("dfai-overlay-politics", timeout=30)   # offices, squads, diplomacy, work orders, crimes
+            if po is not None:
+                cache["politics"] = po
         if time.time() - last_stocks > STOCKS_EVERY_S:
             last_stocks = time.time()
             sk = run_json("dfai-overlay-stocks", timeout=30)
@@ -90,6 +93,8 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = json.dumps(cache["history"]).encode(), "application/json"
         elif self.path.startswith("/stocks.json"):
             body, ctype = json.dumps(cache["stocks"]).encode(), "application/json"
+        elif self.path.startswith("/politics.json"):
+            body, ctype = json.dumps(cache["politics"]).encode(), "application/json"
         elif self.path.startswith("/rumors.json"):
             body, ctype = json.dumps(cache["rumors"]).encode(), "application/json"
         elif self.path.startswith("/world.json"):
@@ -157,7 +162,7 @@ class Handler(BaseHTTPRequestHandler):
 
 def load_mock():
     d = HERE / "mock"
-    for key, name in (("state", "state.json"), ("history", "history.json"), ("world", "world.json"), ("stocks", "stocks.json"), ("rumors", "rumors.json")):
+    for key, name in (("state", "state.json"), ("history", "history.json"), ("world", "world.json"), ("stocks", "stocks.json"), ("rumors", "rumors.json"), ("politics", "politics.json")):
         f = d / name
         if f.exists():
             cache[key] = json.loads(f.read_text(encoding="utf-8"))

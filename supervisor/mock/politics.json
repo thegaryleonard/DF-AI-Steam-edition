@@ -1,0 +1,592 @@
+{
+	"civ": {
+		"name": "The Chambers of Steel",
+		"race": "dwarven"
+	},
+	"civ_posts": [ {
+		"code": "DIPLOMAT",
+		"holder": {
+			"english": "Ilral Tombswar",
+			"here": false,
+			"id": 5998,
+			"name": "Ilral Rakustalnis",
+			"race": "dwarven"
+		},
+		"title": "diplomat"
+	}, {
+		"code": "OUTPOST_LIAISON",
+		"holder": {
+			"english": "Iden Graniteletters",
+			"here": false,
+			"id": 6161,
+			"name": "Iden Loloklolor",
+			"race": "dwarven"
+		},
+		"title": "outpost liaison"
+	}, {
+		"code": "GENERAL",
+		"holder": {
+			"english": "èrith Shoottomes",
+			"here": false,
+			"id": 5880,
+			"name": "èrith Keskalmelbil",
+			"race": "dwarven"
+		},
+		"title": "general"
+	}, {
+		"code": "MONARCH",
+		"holder": {
+			"english": "Oddom Gildtruss",
+			"here": false,
+			"id": 5652,
+			"name": "Oddom Oltartilesh",
+			"race": "dwarven"
+		},
+		"title": "monarch"
+	}, {
+		"code": "BARON",
+		"holder": {
+			"english": "Ingish Arrowbrown",
+			"here": false,
+			"id": 5850,
+			"name": "Ingish Febneb",
+			"race": "dwarven"
+		},
+		"title": "baron"
+	} ],
+	"crimes": [ {
+		"criminal": {
+			"english": "Ilral Bridgeleaders",
+			"here": false,
+			"id": 6400,
+			"name": "Ilral Sazirerar",
+			"race": "dwarven"
+		},
+		"discovered": true,
+		"kind": "ProductionOrderViolation",
+		"victim": {
+			"english": "Dumed Salvelabor",
+			"here": false,
+			"id": 5983,
+			"name": "Dumed Sibrekèrith",
+			"race": "dwarven"
+		},
+		"year": 117
+	}, {
+		"criminal": {
+			"english": "Eshtân Washedbolts",
+			"here": false,
+			"id": 5967,
+			"name": "Eshtân Stelidalåth",
+			"race": "dwarven"
+		},
+		"discovered": true,
+		"kind": "ProductionOrderViolation",
+		"victim": {
+			"english": "Dumed Salvelabor",
+			"here": false,
+			"id": 5983,
+			"name": "Dumed Sibrekèrith",
+			"race": "dwarven"
+		},
+		"year": 116
+	}, {
+		"criminal": {
+			"english": "Tirist Diamondflashes",
+			"here": false,
+			"id": 6385,
+			"name": "Tirist Dorenasiz",
+			"race": "dwarven"
+		},
+		"discovered": true,
+		"kind": "ProductionOrderViolation",
+		"victim": {
+			"english": "Dumed Salvelabor",
+			"here": false,
+			"id": 5983,
+			"name": "Dumed Sibrekèrith",
+			"race": "dwarven"
+		},
+		"year": 115
+	}, {
+		"criminal": {
+			"english": "Geshud Ectogolds",
+			"here": false,
+			"id": 6008,
+			"name": "Geshud Shuthrazlimul",
+			"race": "dwarven"
+		},
+		"discovered": true,
+		"kind": "ProductionOrderViolation",
+		"victim": {
+			"english": "Dumed Salvelabor",
+			"here": false,
+			"id": 5983,
+			"name": "Dumed Sibrekèrith",
+			"race": "dwarven"
+		},
+		"year": 115
+	}, {
+		"criminal": {
+			"english": "Adil Autumnalcity",
+			"here": false,
+			"id": 5991,
+			"name": "Adil Thatthilineth",
+			"race": "dwarven"
+		},
+		"discovered": true,
+		"kind": "ProductionOrderViolation",
+		"victim": {
+			"english": "Dumed Salvelabor",
+			"here": false,
+			"id": 5983,
+			"name": "Dumed Sibrekèrith",
+			"race": "dwarven"
+		},
+		"year": 114
+	}, {
+		"criminal": {
+			"english": "Eshtân Washedbolts",
+			"here": false,
+			"id": 5967,
+			"name": "Eshtân Stelidalåth",
+			"race": "dwarven"
+		},
+		"discovered": true,
+		"kind": "ProductionOrderViolation",
+		"victim": {
+			"english": "Dumed Salvelabor",
+			"here": false,
+			"id": 5983,
+			"name": "Dumed Sibrekèrith",
+			"race": "dwarven"
+		},
+		"year": 114
+	}, {
+		"criminal": {
+			"english": "Oddom Borewheels",
+			"here": false,
+			"id": 6242,
+			"name": "Oddom Atêkkol",
+			"race": "dwarven"
+		},
+		"discovered": true,
+		"kind": "ProductionOrderViolation",
+		"victim": {
+			"english": "Dumed Salvelabor",
+			"here": false,
+			"id": 5983,
+			"name": "Dumed Sibrekèrith",
+			"race": "dwarven"
+		},
+		"year": 114
+	}, {
+		"criminal": {
+			"english": "Domas Roarfurnace",
+			"here": false,
+			"id": 6044,
+			"name": "Domas Orrunsarvesh",
+			"race": "dwarven"
+		},
+		"discovered": true,
+		"kind": "ProductionOrderViolation",
+		"victim": {
+			"english": "Dumed Salvelabor",
+			"here": false,
+			"id": 5983,
+			"name": "Dumed Sibrekèrith",
+			"race": "dwarven"
+		},
+		"year": 113
+	} ],
+	"government": "The Hame of Veiling",
+	"local_posts": [ {
+		"code": "DUNGEON_MASTER",
+		"title": "dungeon master"
+	}, {
+		"code": "HAMMERER",
+		"title": "hammerer"
+	}, {
+		"code": "CHAMPION",
+		"title": "champion"
+	}, {
+		"code": "BOOKKEEPER",
+		"holder": {
+			"english": "Mebzuth Gorgedworked",
+			"here": true,
+			"id": 6584,
+			"name": "Mebzuth îgamducim",
+			"race": "dwarven"
+		},
+		"title": "bookkeeper"
+	}, {
+		"code": "BROKER",
+		"holder": {
+			"english": "Udib Clenchedmachine",
+			"here": true,
+			"id": 6585,
+			"name": "Udib Egaststâkud",
+			"race": "dwarven"
+		},
+		"title": "broker"
+	}, {
+		"code": "CHIEF_MEDICAL_DWARF",
+		"title": "chief medical dwarf"
+	}, {
+		"code": "MANAGER",
+		"holder": {
+			"english": "Minkot Hallskull",
+			"here": true,
+			"id": 6586,
+			"name": "Minkot îtonnekol",
+			"race": "dwarven"
+		},
+		"title": "manager"
+	}, {
+		"code": "MAYOR",
+		"title": "mayor"
+	}, {
+		"code": "EXPEDITION_LEADER",
+		"holder": {
+			"english": "Fath Daggertool",
+			"here": true,
+			"id": 6581,
+			"name": "Fath Uristlòr",
+			"race": "dwarven"
+		},
+		"title": "expedition leader"
+	}, {
+		"code": "CAPTAIN_OF_THE_GUARD",
+		"holder": {
+			"english": "Adil Earthentrumpet",
+			"here": true,
+			"id": 6583,
+			"name": "Adil Bersåkzul",
+			"race": "dwarven"
+		},
+		"squad": true,
+		"title": "captain of the guard"
+	}, {
+		"code": "SHERIFF",
+		"title": "sheriff"
+	}, {
+		"code": "MILITIA_COMMANDER",
+		"title": "militia commander"
+	} ],
+	"mandates": [],
+	"ok": true,
+	"orders": [ {
+		"frequency": "OneTime",
+		"job": "Milk Creature",
+		"left": 0,
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Armor Stand",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Bag",
+		"left": 4,
+		"total": 4
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 3,
+		"material": "rock",
+		"total": 3
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Cabinet",
+		"left": 6,
+		"material": "rock",
+		"total": 6
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Chest",
+		"left": 6,
+		"material": "rock",
+		"total": 6
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Charcoal",
+		"left": 18,
+		"total": 18
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Coffin",
+		"left": 6,
+		"material": "rock",
+		"total": 6
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 4,
+		"material": "rock",
+		"total": 4
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Door",
+		"left": 6,
+		"material": "rock",
+		"total": 6
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 25,
+		"material": "rock",
+		"total": 25
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Floodgate",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Goblet",
+		"left": 15,
+		"material": "rock",
+		"total": 15
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Hatch Cover",
+		"left": 3,
+		"material": "rock",
+		"total": 3
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Mechanisms",
+		"left": 6,
+		"material": "rock",
+		"total": 6
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Tool",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Quern",
+		"left": 4,
+		"material": "rock",
+		"total": 4
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Slab",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Table",
+		"left": 4,
+		"material": "rock",
+		"total": 4
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Toy",
+		"left": 3,
+		"material": "rock",
+		"total": 3
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Weapon Rack",
+		"left": 1,
+		"material": "rock",
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Forge Weapon",
+		"left": 2,
+		"total": 2
+	}, {
+		"frequency": "OneTime",
+		"job": "Prepare Meal",
+		"left": 2,
+		"material": "clear glass",
+		"total": 2
+	}, {
+		"frequency": "OneTime",
+		"job": "Make Ash",
+		"left": 8,
+		"total": 8
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Bed",
+		"left": 6,
+		"total": 6
+	}, {
+		"frequency": "OneTime",
+		"job": "Prepare a Raw Fish",
+		"left": 2,
+		"total": 2
+	}, {
+		"frequency": "OneTime",
+		"job": "Construct Blocks",
+		"left": 3,
+		"material": "rock",
+		"total": 3
+	}, {
+		"frequency": "OneTime",
+		"job": "MAKE_SLURRY_FROM_PLANT",
+		"left": 4,
+		"total": 4
+	}, {
+		"frequency": "OneTime",
+		"job": "Process Plants",
+		"left": 1,
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "BREW_DRINK_FROM_PLANT_GROWTH",
+		"left": 1,
+		"total": 1
+	}, {
+		"frequency": "OneTime",
+		"job": "Milk Creature",
+		"left": 1,
+		"total": 1
+	} ],
+	"petitions": 0,
+	"relations": [ {
+		"kind": "SiteGovernment",
+		"name": "The Naughty Seasons",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Way of Luxuries",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Minion of Folding",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Contingencies of Hobbling",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Humble Vale",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Deity of Flickering",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "Civilization",
+		"name": "The Destined Wickedness",
+		"race": "goblin",
+		"relation": "TotalWar"
+	}, {
+		"kind": "Civilization",
+		"name": "The Oily Boots",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "Civilization",
+		"name": "The Ruthlessness of Bridging",
+		"race": "goblin",
+		"relation": "Peace"
+	}, {
+		"kind": "Civilization",
+		"name": "The Crazed Hex",
+		"race": "goblin",
+		"relation": "Peace"
+	}, {
+		"kind": "Civilization",
+		"name": "The Breed Glaze of Yearlings",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "Civilization",
+		"name": "The Glorious Nations",
+		"race": "human",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The League of Distinguishing",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The High Cruelties",
+		"race": "goblin",
+		"relation": "Skirmishing"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Matched Sin",
+		"race": "goblin",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Spurting Fiend",
+		"race": "goblin",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Distant Letter",
+		"race": "dwarven",
+		"relation": "Peace"
+	}, {
+		"kind": "SiteGovernment",
+		"name": "The Corridor of Gems",
+		"race": "dwarven",
+		"relation": "Peace"
+	} ],
+	"squads": [ {
+		"members": [ {
+			"alive": true,
+			"english": "Adil Earthentrumpet",
+			"here": true,
+			"id": 6583,
+			"kills": 0,
+			"leader": true,
+			"name": "Adil Bersåkzul",
+			"profession": "captain of the guard",
+			"race": "dwarven"
+		} ],
+		"orders": [],
+		"routine": "Off duty",
+		"vacancies": 9
+	} ]
+}

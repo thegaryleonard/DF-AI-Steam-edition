@@ -119,6 +119,8 @@
   ol.top { margin: 2px 0 0 16px; padding: 0; font-size: 10.5px; }
   .vox p { font-size: 10.5px; margin-bottom: 2px; }
   .item.prop .price { text-align: right; font-weight: 900; font-size: 12px; }
+  .squad { font-size: 11px; border: 1px solid var(--rule); padding: 3px 5px; background: rgba(255,250,235,.35); margin-bottom: 4px; }
+  .court div { font-size: 10.5px; padding: 1px 0; border-bottom: 1px dotted var(--hair); }
   .wirelist div { font-size: 11.5px; padding: 2px 0; border-bottom: 1px dotted var(--hair); }
   .item.wire .kick { color: var(--red); }
   .item.wire p { margin-bottom: 2px; }
@@ -1381,6 +1383,127 @@ function cardPouch(ev) {
 }
 async function pollRumors() { try { const r = await get('/rumors.json'); if (r && r.rumors) { RU = r; checkRumors(); } } catch (e) {} }
 
+// ---------- politics: offices, justice, the militia and the wider world (dfai-overlay-politics.lua) ----------
+let PO = {};
+const CRIME = {ProductionOrderViolation: 'violating a production order', ExportViolation: 'violating an export ban', JobOrderViolation: 'ignoring a job order',
+  ConspiracyToSlowLabor: 'conspiring to slow labor', Murder: 'murder', DisorderlyBehavior: 'disorderly behavior', BuildingDestruction: 'destroying a building',
+  Vandalism: 'vandalism', Theft: 'theft', Robbery: 'robbery', BloodDrinking: 'drinking blood', Embezzlement: 'embezzlement', AttemptedMurder: 'attempted murder',
+  Kidnapping: 'kidnapping', AttemptedKidnapping: 'attempted kidnapping', AttemptedTheft: 'attempted theft', TreasonInjury: 'treasonous assault',
+  Treason: 'treason', Espionage: 'espionage', Bribery: 'bribery'};
+const crimeText = k => CRIME[k] || pretty(k || 'mischief').toLowerCase();
+const hn = h => h && h.name ? cap(clean(h.name)) : null;
+function polSlots(r) {
+  const civP = PO.civ_posts || [], loc = PO.local_posts || [];
+  const civHolder = code => hn((civP.find(p => p.code === code) || {}).holder);
+  const rel = PO.relations || [], war = rel.filter(x => /War|Skirmish/.test(x.relation)), peace = rel.filter(x => x.relation === 'Peace');
+  const enemy = war.length ? pick(r, war) : null, friend = peace.length ? pick(r, peace) : null;
+  return {civ: PO.civ && PO.civ.name ? cap(clean(PO.civ.name)) : null, government: PO.government ? cap(clean(PO.government)) : null,
+    monarch: civHolder('MONARCH'), general: civHolder('GENERAL'), diplomat: civHolder('DIPLOMAT'), liaison: civHolder('OUTPOST_LIAISON'),
+    enemy: enemy ? cap(clean(enemy.name)) : null, enemy_race: enemy ? enemy.race : null, n_war: war.length || null, n_peace: peace.length || null,
+    friend: friend ? cap(clean(friend.name)) : null, friend_race: friend ? friend.race : null,
+    manager: hn((loc.find(p => p.code === 'MANAGER') || {}).holder)};
+}
+function squadSlots(sq) {
+  const cap_ = sq.members.find(m => m.leader) || sq.members[0];
+  const kills = sq.members.reduce((a, m) => a + (m.kills || 0), 0);
+  return {squad: clean(sq.alias || sq.name || '') || (cap_ ? `${hn(cap_).split(' ')[0]}'s Squad` : 'the Militia'), captain: hn(cap_),
+    members: sq.members.length, n: sq.vacancies || null, kills, routine: sq.routine ? clean(sq.routine) : null, order: (sq.orders || [])[0] || null};
+}
+function militaryStatus(sq) {
+  if (!sq) return 'none';
+  const o = (sq.orders || []).join(' '), rt = (sq.routine || '').toLowerCase(), kills = sq.members.reduce((a, m) => a + (m.kills || 0), 0);
+  if (/KILL|ATTACK|DEFEND/.test(o)) return 'active';
+  if (/PATROL|STATION|MOVE/.test(o) || /patrol|station/.test(rt)) return 'patrol';
+  if (/TRAIN/.test(o) || /train/.test(rt)) return 'training';
+  if (sq.vacancies >= Math.max(3, sq.members.length)) return 'understaffed';
+  if (kills > 0) return 'veterans';
+  return 'off_duty';
+}
+// one story (head + body) from a library section, filled from real slots
+function polStory(section, key, slots, r) {
+  const S_ = ((LIB[section] || {})[key]) || {}, ctx = context(r);
+  const h = choose1(S_.heads, ctx, r, slots), b = choose1(S_.bodies, ctx, r, slots);
+  return h && b ? {ids: [h.id, b.id], head: T(h), body: T(b)} : null;
+}
+function localStory(r) {
+  const loc = PO.local_posts || [], vac = loc.filter(p => !p.holder), held = loc.filter(p => p.holder), crimes = (PO.crimes || []).filter(c => c.criminal);
+  const opts = [];
+  if (crimes.length) { const c = pick(r, crimes); opts.push(['crime', {crime: crimeText(c.kind), criminal: hn(c.criminal), victim: hn(c.victim)}]); }
+  if ((PO.mandates || []).length) { const m = pick(r, PO.mandates); opts.push(['mandate', {noble: m.noble ? cap(clean(m.noble)).split(',')[0] : null, item: [m.material, pretty(m.item || '').toLowerCase()].filter(Boolean).join(' ')}]); }
+  if (vac.length) { const v = pick(r, vac); opts.push(['vacancies', {post: v.title, n: vac.length}]); }
+  if (held.length) { const h = pick(r, held); opts.push(['officeholder', {post: h.title, holder: hn(h.holder)}]); }
+  opts.push(['quiet', {}]);
+  for (const [k, sl] of shuffle(r, opts.slice(0, -1)).concat([opts[opts.length - 1]])) { const s = polStory('local', k, {...polSlots(r), ...sl}, r); if (s) return s; }
+  return null;
+}
+function militaryStory(r) {
+  const sq = (PO.squads || [])[0];
+  const st = militaryStatus(sq), sl = sq ? squadSlots(sq) : {};
+  return polStory('military', st, {...polSlots(r), ...sl}, r) || (sq && sq.vacancies ? polStory('military', 'understaffed', {...polSlots(r), ...sl}, r) : null);
+}
+function worldStory(r) {
+  const sl = polSlots(r), keys = [];
+  if (sl.n_war) keys.push('war');
+  keys.push(...shuffle(r, ['monarch', 'general', 'envoys', 'peace']));
+  for (const k of keys) { const s = polStory('world', k, sl, r); if (s) return s; }
+  return null;
+}
+function cardPolitics() {
+  if (!PO.ok) return null;
+  const r = rng(Date.now() / 1000 | 0), ids = [];
+  const L = localStory(r), M = militaryStory(r), Wd = worldStory(r);
+  [L, M, Wd].forEach(s => s && ids.push(...s.ids));
+  const lead = (polSlots(r).n_war && Wd) || L || M || Wd;
+  if (!lead) return null;
+  const loc = (PO.local_posts || []).slice(0, 14);
+  const roster = loc.map(p => `<div class="line"><span>${esc(cap(p.title))}</span><span class="lead"></span><span class="${p.holder ? '' : 'dead'}">${p.holder ? esc(hn(p.holder).split(' ')[0]) + (p.holder.here ? '' : ' (abroad)') : 'VACANT'}</span></div>`).join('');
+  const crimes = (PO.crimes || []).filter(c => c.criminal).slice(0, 4).map(c => `<div>❖ <b>${esc(hn(c.criminal))}</b>, ${esc(crimeText(c.kind))}${c.victim ? ` (complainant: ${esc(hn(c.victim))})` : ''}${c.discovered ? '' : ' <i>— unsolved</i>'}</div>`).join('');
+  const sq = (PO.squads || [])[0], ss = sq && squadSlots(sq);
+  const squadBox = sq ? `<div class="sub">The Militia</div><div class="squad"><b>${esc(ss.squad)}</b> · ${esc(ss.routine || 'no routine')}${ss.order ? ' · orders: ' + esc(pretty(ss.order).toLowerCase()) : ''}
+      <div class="bar"><div style="width:${100 * sq.members.length / (sq.members.length + sq.vacancies)}%;background:var(--ink2)"></div></div>
+      <div class="dim">${sq.members.length} enlisted, ${sq.vacancies} vacancies, ${ss.kills} confirmed kills</div>
+      ${sq.members.slice(0, 5).map(m => `<div class="line"><span>${esc(hn(m))}${m.leader ? ' ★' : ''}</span><span class="lead"></span><span class="dim">${m.kills || 0} kills</span></div>`).join('')}</div>`
+    : `<div class="sub">The Militia</div><div class="dim">The fortress has no standing army. The cats are considering it.</div>`;
+  const rel = PO.relations || [], tally = {}; rel.forEach(x => tally[x.relation] = (tally[x.relation] || 0) + 1);
+  const wars = rel.filter(x => /War|Skirmish/.test(x.relation)).slice(0, 4);
+  const sl = polSlots(r);
+  const worldBox = `<div class="sub">World Affairs</div><div class="dim" style="font-size:10.5px">${esc(sl.civ || 'Our civilization')}${sl.monarch ? `, ruled by ${esc(sl.monarch)}` : ''}: at peace with ${tally.Peace || 0}, at war with ${(tally.TotalWar || 0) + (tally.Skirmishing || 0)}${tally.AcceptingTribute || tally.OfferingTribute ? `, tribute with ${(tally.AcceptingTribute || 0) + (tally.OfferingTribute || 0)}` : ''}.</div>
+      ${wars.map(x => `<div class="dead" style="font-size:10.5px">⚔ ${esc(cap(clean(x.name)))} (${esc(x.race || '?')}) — ${esc(pretty(x.relation).toLowerCase())}</div>`).join('')}`;
+  const side = s => s && s !== lead ? `<div class="item"><h3>${esc(s.head)}</h3><p class="just">${esc(s.body)}</p></div>` : '';
+  markSeen(ids);
+  return `<div class="kicker"><span>Affairs of State</span><span>Local · Military · World</span></div>
+    <div class="headline">${esc(lead.head)}</div>
+    <p class="body just dropcap">${esc(lead.body)}</p>
+    <div class="cols2" style="margin-top:5px">
+      <div><div class="sub">Town Hall</div>${roster}${crimes ? `<div class="sub">Court Circular</div><div class="court">${crimes}</div>` : ''}${side(L)}</div>
+      <div>${squadBox}${side(M)}${worldBox}${side(Wd)}</div>
+    </div>`;
+}
+// classifieds built from the real work orders, militia vacancies and empty offices
+function officialItems(ctx, r) {
+  const out = [], sl = polSlots(r);
+  const open = (PO.orders || []).filter(o => o.left > 0);
+  const ads = [];
+  for (const o of shuffle(r, open).slice(0, 3)) {
+    const e = choose1(LIB.order_ads, ctx, r, {...sl, n: o.left, job: o.job ? clean(o.job) : null, material: o.material ? clean(o.material) : null});
+    if (e) ads.push(e);
+  }
+  if (ads.length) out.push({ids: ads.map(a => a.id), html: `<div class="item cls"><div class="kick">Commissions · The Manager's Office</div>${ads.map(a => `<div>${esc(T(a))}</div>`).join('')}<div class="by">${open.length} orders open</div></div>`});
+  for (const sq of (PO.squads || []).filter(s => s.vacancies > 0).slice(0, 1)) {
+    const e = choose1(LIB.recruit_ads, ctx, r, {...sl, ...squadSlots(sq)});
+    if (e) out.push({ids: [e.id], html: `<div class="item ad inv"><div class="eng">The Militia Wants You</div><div class="big">${sq.vacancies} PLACES</div><div class="fine" style="font-size:9px">${esc(T(e))}</div></div>`});
+  }
+  const vac = (PO.local_posts || []).filter(p => !p.holder);
+  if (vac.length) {
+    const v = pick(r, vac), e = choose1(LIB.vacancy_ads, ctx, r, {...sl, post: v.title});
+    if (e) out.push({ids: [e.id], html: `<div class="item ad"><div class="eng">Position Vacant</div><div class="bk">${esc(cap(v.title))}</div><div class="fine">${esc(T(e))}</div></div>`});
+  }
+  const col = choose1(LIB.columns, ctx, r);
+  if (col) out.push({ids: [col.id], html: `<div class="item"><div class="kick">${esc(col.kick || 'Politics')}</div><h3>${esc(col.head)}</h3><p class="just dropcap">${esc(col.body)}</p><div class="by">— ${esc(col.by)}</div></div>`});
+  return out;
+}
+async function pollPolitics() { try { const r = await get('/politics.json'); if (r && r.ok) PO = r; } catch (e) {} }
+
 // ---------- below the fold: ads, editorials, letters, classifieds ----------
 function citizens() {
   const names = new Set();
@@ -1389,7 +1512,7 @@ function citizens() {
   return [...names];
 }
 function fillers(r) {
-  const ctx = context(r), out = [...storyItems(ctx, r), ...pageItems(ctx, r), ...featureItems(ctx, r)];
+  const ctx = context(r), out = [...storyItems(ctx, r), ...officialItems(ctx, r), ...pageItems(ctx, r), ...featureItems(ctx, r)];
   const put = (ids, html) => out.push({ids: [].concat(ids), html});
   // display ads
   for (const a of choose(LIB.ads, ctx, r, 7))
@@ -1439,7 +1562,7 @@ function fillFold() {
 
 // ---------- rotation ----------
 const CARDS = [
-  {fn: cardDwarf, secs: 30}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardArchive, secs: 20},
+  {fn: cardDwarf, secs: 30}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardPolitics, secs: 30}, {fn: cardArchive, secs: 20},
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
 // ?zoom=1.5 scales the whole paper (OBS browser sources: set the source width to 480*zoom)
@@ -1551,11 +1674,11 @@ async function pollSlow() {
   } catch (e) {}
 }
 (async () => {
-  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors()]);
+  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics()]);
   if (document.fonts && document.fonts.ready) await document.fonts.ready;
   trackStories(); checkRumors(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
   nextCard();
-  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollSlow, 120000);
+  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollSlow, 120000);
 })();
 </script>
 </body>
