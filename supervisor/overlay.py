@@ -69,13 +69,16 @@ def poller():
         if st is not None:
             cache["state"] = st
             world = (st.get("fort") or {}).get("world")
+            fort = (st.get("fort") or {}).get("name")
             if st.get("ok") and world and world != cache["history_world"]:
                 h = run_json("dfai-overlay-history", timeout=180)
-                m = run_json("dfai-overlay-world", timeout=120)
                 if h:
                     cache["history"], cache["history_world"] = h, world
+            # the map is per fort, not per world: a new embark in the same world moves the star and the weather
+            if st.get("ok") and world and (world, fort) != cache.get("map_key"):
+                m = run_json("dfai-overlay-world", timeout=120)
                 if m:
-                    cache["world"] = m
+                    cache["world"], cache["map_key"] = m, (world, fort)
         time.sleep(STATE_EVERY_S)
 
 

@@ -692,20 +692,28 @@ function cardMap() {
   const fc = forecastOf(wx);
   return `<div class="kicker"><span>Weather &amp; World</span><span>${esc(clean(W.world || ''))}</span></div>
     <div class="headline">${fc.toUpperCase()} OVER ${esc((S.fort ? S.fort.name : '').toUpperCase())}</div>
-    <div class="mapwrap"><canvas id="map" width="${MAP_W}" height="${MAP_H}"></canvas></div>
+    <div class="mapwrap"><canvas id="map" width="${MAP_W}" height="${MAP_H}" style="width:100%;height:auto"></canvas></div>
     <div class="forecast"><span>Today: <b>${fc}</b></span><span class="dim">▲ dark fortress · ■ town · ● retreat</span></div>`;
 }
 function startMap() {
   const cv = document.getElementById('map'); if (!cv || !mapImg) return;
   const g = cv.getContext('2d'), s = mapImg.scale;
   const fx = W.fort ? W.fort.x * s : mapImg.width / 2, fy = W.fort ? W.fort.y * s : mapImg.height / 2;
-  const wx = S.weather || {kind: 'clear', amount: 0};
-  const n = wx.kind === 'clear' ? 0 : Math.round(40 + 160 * wx.amount);
-  particles = Array.from({length: n}, () => ({x: Math.random() * cv.width, y: Math.random() * cv.height, v: .5 + Math.random()}));
+  let wx = null, wxKey = '';
+  const sky = () => {   // follow the live weather while the card is up: rain can start or stop mid-page
+    const w = S.weather || {kind: 'clear', amount: 0}, k = w.kind + ':' + Math.round((w.amount || 0) * 5);
+    if (k === wxKey) return;
+    wx = w; wxKey = k;
+    const n = wx.kind === 'clear' ? 0 : Math.round(40 + 160 * wx.amount);
+    particles = Array.from({length: n}, () => ({x: Math.random() * cv.width, y: Math.random() * cv.height, v: .5 + Math.random()}));
+    const fc = document.querySelector('.forecast b'); if (fc) fc.textContent = forecastOf(wx);
+  };
+  sky();
   const t0 = performance.now();
   cancelAnimationFrame(mapAnim);
   const frame = now => {
     const t = (now - t0) / 1000;
+    sky();
     const r = Math.min(mapImg.width, mapImg.height) * 0.33 * Math.sin(Math.min(1, t / 8) * Math.PI / 2);
     let cx = fx + Math.cos(t / 6) * r, cy = fy + Math.sin(t / 9) * r * 0.8;
     cx = Math.max(cv.width / 2, Math.min(mapImg.width - cv.width / 2, cx));
@@ -1537,7 +1545,10 @@ async function loadLib() {
 async function pollSlow() {
   loadLib();
   try { const h = await get('/history.json'); if (h.artifacts && h.artifacts.length) H = h; } catch (e) {}
-  try { const w = await get('/world.json'); if (w && w.w && (!W || W.world !== w.world)) { W = w; buildMap(); } } catch (e) {}
+  try {   // rebuild when the world OR the fort changes (a new embark in the same world)
+    const w = await get('/world.json'), key = x => x && [x.world, x.fort && x.fort.name, x.fort && x.fort.x, x.fort && x.fort.y].join('|');
+    if (w && w.w && (!W || key(W) !== key(w))) { W = w; buildMap(); }
+  } catch (e) {}
 }
 (async () => {
   await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors()]);
