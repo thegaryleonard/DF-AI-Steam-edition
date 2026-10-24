@@ -23,6 +23,8 @@
 #include "df/tile_occupancy.h"
 #include "df/material.h"
 #include "modules/Items.h"
+#include "df/manager_order_template.h"
+#include "df/material_flags.h"
 #include "modules/Job.h"
 #include "modules/Materials.h"
 #include "modules/Units.h"
@@ -39,6 +41,7 @@
 #include "df/unit.h"
 #include "df/world.h"
 
+REQUIRE_GLOBAL(standing_orders_auto_collect_webs);
 REQUIRE_GLOBAL(world);
 
 static bool is_strange_mood(df::mood_type m)
@@ -291,6 +294,49 @@ void Population::update_moods(color_ostream & out)
             if (released)
             {
                 ai.debug(out, stl_sprintf("[MOOD] released %d forbidden/dumped item(s) for %s: %s", released, who.c_str(), describe_job_item(ji).c_str()));
+            }
+            if (!usable && ji->item_type == item_type::CLOTH && (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn) &&
+                mood_warned.insert(who + "|cloth|" + std::to_string(idx)).second)
+            {
+                // Weave it: a moody butcher died of thirst needing silk and
+                // plant cloth while 2000 silk threads sat in the stockpile
+                // (nothing ever ordered weaving).
+                auto flag = ji->flags2.bits.plant ? material_flags::THREAD_PLANT : ji->flags2.bits.silk ? material_flags::SILK : material_flags::YARN;
+                int32_t thread = 0;
+                for (auto item : world->items.other[items_other_id::THREAD])
+                {
+                    auto & f = item->flags.bits;
+                    if (f.forbid || f.in_job || f.dump || f.removed || f.trader || f.owned)
+                        continue;
+                    MaterialInfo mi(item);
+                    if (mi.material && mi.material->flags.is_set(flag))
+                        thread++;
+                }
+                std::ostringstream why;
+                df::manager_order_template tmpl;
+                if (thread > 0)
+                {
+                    tmpl.job_type = job_type::WeaveCloth;
+                    if (ji->flags2.bits.plant)
+                        tmpl.material_category.bits.plant = 1;
+                    else if (ji->flags2.bits.silk)
+                        tmpl.material_category.bits.silk = 1;
+                    else
+                        tmpl.material_category.bits.yarn = 1;
+                    ai.stocks.add_manager_order(out, tmpl, 1, why);
+                    ai.debug(out, "[MOOD] ordered " + describe_job_item(ji) + " woven for " + who + " (" + std::to_string(thread) + " thread available) " + why.str());
+                }
+                else if (ji->flags2.bits.plant)
+                {
+                    tmpl.job_type = job_type::ProcessPlants; // pig tails etc. into thread
+                    ai.stocks.add_manager_order(out, tmpl, 2, why);
+                    ai.debug(out, "[MOOD] no plant thread for " + who + ": ordered plant processing " + why.str());
+                }
+                else if (ji->flags2.bits.silk)
+                {
+                    *standing_orders_auto_collect_webs = 1;
+                    ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on");
+                }
             }
             if (!usable && ji->item_type == item_type::SMALLGEM)
             {
