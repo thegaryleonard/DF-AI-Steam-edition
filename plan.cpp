@@ -113,8 +113,27 @@ command_result Plan::startup(color_ostream & out)
     std::ifstream persist(save_path());
     if (persist.good())
     {
-        load(persist);
-        return CR_OK;
+        // A retired fort leaves its plan in the world folder. Without this
+        // check the next fort in that world loaded it and built the old
+        // fort's layout on the new map.
+        Json::Value head(Json::objectValue);
+        bool ours = true;
+        {
+            std::ifstream peek(save_path());
+            Json::CharReaderBuilder b;
+            std::string err;
+            if (Json::parseFromStream(b, peek, &head, &err) && head.isMember("site_id"))
+            {
+                ours = head["site_id"].asInt() == World::GetCurrentSiteId();
+            }
+            // plan files written before this check have no site id; trust them
+        }
+        if (ours)
+        {
+            load(persist);
+            return CR_OK;
+        }
+        ai.debug(out, "df-ai-plan.dat belongs to another fort in this world; planning this fort from scratch");
     }
 
     return setup_blueprint(out);
@@ -1406,6 +1425,64 @@ command_result Plan::setup_outdoor_gathering_zones(color_ostream &)
     });
 
     return CR_OK;
+}
+
+// Fishing needs a FishingArea zone over open water (v50+); df-ai never made
+// one, so forts with a river had no fish. Zone the open-sky water nearest the
+// fort entrance, top water level only. Returns false if there is no water.
+bool Plan::setup_fishing_zone(color_ostream & out)
+{
+    for (auto z : world->buildings.other[buildings_other_id::ACTIVITY_ZONE])
+    {
+        auto zone = virtual_cast<df::building_civzonest>(z);
+        if (zone && zone->type == civzone_type::FishingArea)
+        {
+            return true;
+        }
+    }
+
+    auto is_water = [](df::coord t) -> bool
+    {
+        auto d = Maps::getTileDesignation(t);
+        return d && d->bits.flow_size >= 3 && !d->bits.liquid_type && d->bits.outside;
+    };
+
+    df::coord centre = fort_entrance ? fort_entrance->pos() : df::coord(world->map.x_count / 2, world->map.y_count / 2, 0);
+    df::coord best;
+    best.clear();
+    int32_t best_d = std::numeric_limits<int32_t>::max();
+    for (auto block : world->map.map_blocks)
+    {
+        for (int16_t x = 0; x < 16; x++)
+        {
+            for (int16_t y = 0; y < 16; y++)
+            {
+                df::coord t = block->map_pos + df::coord(x, y, 0);
+                if (!is_water(t) || is_water(t + df::coord(0, 0, 1)))
+                {
+                    continue;
+                }
+                int32_t dx = t.x - centre.x, dy = t.y - centre.y;
+                if (dx * dx + dy * dy < best_d)
+                {
+                    best_d = dx * dx + dy * dy;
+                    best = t;
+                }
+            }
+        }
+    }
+    if (!best.isValid())
+    {
+        ai.debug(out, "no open water for a fishing zone");
+        return false;
+    }
+
+    const int16_t R = 6;
+    df::coord min(std::max(0, best.x - R), std::max(0, best.y - R), best.z);
+    df::coord max(std::min(world->map.x_count - 1, best.x + R), std::min(world->map.y_count - 1, best.y + R), best.z);
+    auto zone = create_zone(out, civzone_type::FishingArea, min, max, is_water);
+    ai.debug(out, stl_sprintf("fishing zone at (%d, %d, %d): %s", best.x, best.y, best.z, zone ? "created" : "failed"));
+    return zone != nullptr;
 }
 
 command_result Plan::setup_blueprint_caverns(color_ostream & out)

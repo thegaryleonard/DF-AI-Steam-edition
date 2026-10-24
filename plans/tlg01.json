@@ -413,41 +413,6 @@
 		},
 		{
 			"continue": true,
-			"name": "Carpenter's Workshop",
-			"action": "dig_immediate",
-			"count": {
-				"match": {
-					"status_not": "plan",
-					"type": "workshop",
-					"workshop_type": "Carpenters"
-				},
-				"is": 0
-			},
-			"match": {
-				"type": "workshop",
-				"workshop_type": "Carpenters",
-				"level": 1
-			}
-		},
-		{
-			"name": "Mason's Workshop",
-			"action": "dig_immediate",
-			"count": {
-				"match": {
-					"status_not": "plan",
-					"type": "workshop",
-					"workshop_type": "Masons"
-				},
-				"is": 0
-			},
-			"match": {
-				"type": "workshop",
-				"workshop_type": "Masons",
-				"level": 1
-			}
-		},
-		{
-			"continue": true,
 			"name": "Starter Farm (Food)",
 			"action": "dig_immediate",
 			"count": {
@@ -490,6 +455,142 @@
 			"match": {
 				"type": "stockpile",
 				"comment": "drinks"
+			}
+		},
+		{
+			"name": "Kitchen",
+			"action": "dig",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "workshop",
+					"workshop_type": "Kitchen",
+					"level": 1
+				},
+				"is": 0
+			},
+			"match": {
+				"type": "workshop",
+				"workshop_type": "Kitchen",
+				"level": 1
+			}
+		},
+		{
+			"name": "Farmer's Workshop",
+			"action": "dig",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "workshop",
+					"workshop_type": "Farmers",
+					"level": 1
+				},
+				"is": 0
+			},
+			"match": {
+				"type": "workshop",
+				"workshop_type": "Farmers",
+				"level": 1
+			}
+		},
+		{
+			"name": "Butcher",
+			"action": "dig",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "workshop",
+					"workshop_type": "Butchers",
+					"level": 1
+				},
+				"is": 0
+			},
+			"match": {
+				"type": "workshop",
+				"workshop_type": "Butchers",
+				"level": 1
+			}
+		},
+		{
+			"name": "Fishery",
+			"action": "dig",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "workshop",
+					"workshop_type": "Fishery",
+					"level": 1
+				},
+				"is": 0
+			},
+			"match": {
+				"type": "workshop",
+				"workshop_type": "Fishery",
+				"level": 1
+			}
+		},
+		{
+			"name": "Well",
+			"action": "dig",
+			"match": {
+				"type": "location",
+				"location_type": "tavern",
+				"comment": "well"
+			}
+		},
+		{
+			"name": "Second Food Stockpile",
+			"action": "dig",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "stockpile",
+					"stockpile_type": "food",
+					"level": 1,
+					"workshop_not": {}
+				},
+				"is": 1
+			},
+			"match": {
+				"type": "stockpile",
+				"stockpile_type": "food",
+				"level": 1,
+				"workshop_not": {}
+			}
+		},
+		{
+			"continue": true,
+			"name": "Carpenter's Workshop",
+			"action": "dig_immediate",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "workshop",
+					"workshop_type": "Carpenters"
+				},
+				"is": 0
+			},
+			"match": {
+				"type": "workshop",
+				"workshop_type": "Carpenters",
+				"level": 1
+			}
+		},
+		{
+			"name": "Mason's Workshop",
+			"action": "dig_immediate",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "workshop",
+					"workshop_type": "Masons"
+				},
+				"is": 0
+			},
+			"match": {
+				"type": "workshop",
+				"workshop_type": "Masons",
+				"level": 1
 			}
 		},
 		{
@@ -572,53 +673,6 @@
 			}
 		},
 		{
-			"name": "Kitchen",
-			"action": "dig",
-			"count": {
-				"match": {
-					"status_not": "plan",
-					"type": "workshop",
-					"workshop_type": "Kitchen",
-					"level": 1
-				},
-				"is": 0
-			},
-			"match": {
-				"type": "workshop",
-				"workshop_type": "Kitchen",
-				"level": 1
-			}
-		},
-		{
-			"name": "Second Food Stockpile",
-			"action": "dig",
-			"count": {
-				"match": {
-					"status_not": "plan",
-					"type": "stockpile",
-					"stockpile_type": "food",
-					"level": 1,
-					"workshop_not": {}
-				},
-				"is": 1
-			},
-			"match": {
-				"type": "stockpile",
-				"stockpile_type": "food",
-				"level": 1,
-				"workshop_not": {}
-			}
-		},
-		{
-			"name": "Well",
-			"action": "dig",
-			"match": {
-				"type": "location",
-				"location_type": "tavern",
-				"comment": "well"
-			}
-		},
-		{
 			"name": "Infirmary",
 			"action": "dig",
 			"count": {
@@ -630,24 +684,6 @@
 			},
 			"match": {
 				"type": "infirmary"
-			}
-		},
-		{
-			"name": "Butcher",
-			"action": "dig",
-			"count": {
-				"match": {
-					"status_not": "plan",
-					"type": "workshop",
-					"workshop_type": "Butchers",
-					"level": 1
-				},
-				"is": 0
-			},
-			"match": {
-				"type": "workshop",
-				"workshop_type": "Butchers",
-				"level": 1
 			}
 		},
 		{
@@ -785,24 +821,6 @@
 			}
 		},
 		{
-			"name": "Farmer's Workshop",
-			"action": "dig",
-			"count": {
-				"match": {
-					"status_not": "plan",
-					"type": "workshop",
-					"workshop_type": "Farmers",
-					"level": 1
-				},
-				"is": 0
-			},
-			"match": {
-				"type": "workshop",
-				"workshop_type": "Farmers",
-				"level": 1
-			}
-		},
-		{
 			"name": "Loom",
 			"action": "dig",
 			"count": {
@@ -876,24 +894,6 @@
 			"match": {
 				"type": "corridor",
 				"comment": "apiary"
-			}
-		},
-		{
-			"name": "Fishery",
-			"action": "dig",
-			"count": {
-				"match": {
-					"status_not": "plan",
-					"type": "workshop",
-					"workshop_type": "Fishery",
-					"level": 1
-				},
-				"is": 0
-			},
-			"match": {
-				"type": "workshop",
-				"workshop_type": "Fishery",
-				"level": 1
 			}
 		},
 		{

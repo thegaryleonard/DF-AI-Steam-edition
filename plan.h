@@ -203,6 +203,7 @@ public:
     command_result setup_blueprint(color_ostream & out);
     command_result setup_blueprint_caverns(color_ostream & out);
     command_result setup_outdoor_gathering_zones(color_ostream & out);
+    bool setup_fishing_zone(color_ostream & out);
 
     std::vector<room *> find_corridor_tosurface(color_ostream & out, corridor_type::type type, df::coord origin);
     room *find_typed_corridor(color_ostream & out, corridor_type::type type, df::coord origin, const std::set<room *> & no_attach_corridors = std::set<room *>());

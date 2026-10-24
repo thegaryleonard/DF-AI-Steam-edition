@@ -300,6 +300,9 @@ void Plan::save(std::ostream & out)
     all["s"] = Watch.to_json();
     all["military_min"] = ai.pop.military_min;
     all["military_max"] = ai.pop.military_max;
+    // the plan file lives in the world's save folder, which a later fort in
+    // the same world shares: remember which fort it belongs to
+    all["site_id"] = Json::Int(World::GetCurrentSiteId());
 
     out << all;
 }

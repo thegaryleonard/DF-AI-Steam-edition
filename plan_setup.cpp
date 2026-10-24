@@ -53,6 +53,9 @@ void PlanSetup::Run(color_ostream & out)
     Log("Creating outdoor gathering zones...");
     ai.plan.setup_outdoor_gathering_zones(out);
 
+    Log("Creating fishing zone...");
+    ai.plan.setup_fishing_zone(out);
+
     Log("Searching for caverns...");
     auto res = ai.plan.setup_blueprint_caverns(out);
     if (res == CR_OK)

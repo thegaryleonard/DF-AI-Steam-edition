@@ -77,6 +77,13 @@ bool check_enabled(color_ostream & out)
     }
     if (dwarfAI)
     {
+        // Save the plan before dropping it. Otherwise disabling (or swapping
+        // in a new build) mid-fort loses every room made since the last game
+        // save, and re-enabling plans the fort again on top of itself.
+        if (World::isFortressMode() && Maps::IsValid())
+        {
+            dwarfAI->persist(out);
+        }
         dwarfAI->onupdate_unregister(out);
         out << "AI: removed onupdate" << std::endl;
         dwarfAI = nullptr;
