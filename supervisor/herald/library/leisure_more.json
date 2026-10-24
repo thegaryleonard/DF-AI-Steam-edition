@@ -1,0 +1,2100 @@
+{
+ "horoscopes": {
+  "Granite": [
+   {
+    "id": "ls2-hs-granite-oldest",
+    "text": "You are older than the fortress, the mountain, and most of its grudges. Act like it. Sigh audibly at anything invented this year, including spoons."
+   },
+   {
+    "id": "ls2-hs-granite-countertop",
+    "text": "A noble wants you polished into a fancy countertop. Endure the smoothing, Granite. Underneath the shine you are still rough, and you both know it."
+   },
+   {
+    "id": "ls2-hs-granite-pressure",
+    "text": "Pressure builds this month. Good. Pressure is how you were made. Ask the overseer for more of it and watch them back away slowly."
+   },
+   {
+    "id": "ls2-hs-granite-lucky-numbers",
+    "text": "Lucky number: one. Unlucky number: any number of goblins above zero. Lucky tile: the one you are standing on, which you will not be leaving."
+   },
+   {
+    "id": "ls2-hs-granite-apology",
+    "text": "You owe someone an apology. Deliver it as a single firm nod. That is the most Granite can manage, and the recipient will frame it."
+   },
+   {
+    "id": "ls2-hs-granite-tone-setter",
+    "text": "As the first month, you set the tone for the year. The tone is 'grumbling.' Excellent work. The other eleven months are already following your lead."
+   }
+  ],
+  "Slate": [
+   {
+    "id": "ls2-hs-slate-roofing",
+    "text": "A human trader will call you 'roofing material.' Remain flat about it. Inside, you are also flat. It is all very consistent, and you like consistent."
+   },
+   {
+    "id": "ls2-hs-slate-wiped-clean",
+    "text": "Wipe yourself clean this month, Slate. Start fresh. Then write the exact same list you had before, because it was a good list."
+   },
+   {
+    "id": "ls2-hs-slate-syllables",
+    "text": "Someone attempts small talk. Respond with one syllable. If they persist, a second syllable. Never a third. Boundaries are a wall you build out of silence."
+   },
+   {
+    "id": "ls2-hs-slate-chalk",
+    "text": "A child draws on you with chalk: a dragon eating the mayor. Keep it. It is the most honest piece of art in {fort}."
+   },
+   {
+    "id": "ls2-hs-slate-layers",
+    "text": "You have layers, Slate. They are all grey. Peel one back this month to reveal a slightly different grey. The stars call this personal growth."
+   },
+   {
+    "id": "ls2-hs-slate-meeting",
+    "text": "You will attend a meeting and say nothing. Afterward, everyone will agree you made the strongest point. Silence wins another argument."
+   }
+  ],
+  "Felsite": [
+   {
+    "id": "ls2-hs-felsite-mug-arc",
+    "text": "You will be carved into a mug, and the mug will be thrown at a noble. For one glorious arc through the air, Felsite, you will matter."
+   },
+   {
+    "id": "ls2-hs-felsite-abundant",
+    "text": "The stone stockpile is full of you. Every pile. Every bin. You are not 'common,' Felsite. You are 'abundantly available.' Put it on a plaque. Made of you."
+   },
+   {
+    "id": "ls2-hs-felsite-that-red-rock",
+    "text": "Nobody can remember your name this month. They call you 'that reddish rock.' Answer to it warmly. Fame is just being misnamed by many people."
+   },
+   {
+    "id": "ls2-hs-felsite-dumped",
+    "text": "A dwarf will mark you for dumping. Do not take it personally. The garbage pile has the best view of the gate, and the best gossip."
+   },
+   {
+    "id": "ls2-hs-felsite-gem-envy",
+    "text": "Stop comparing yourself to the gems. They get cut, ground, and set into the baron's ugliest crown. You get to stay whole. Who is winning?"
+   },
+   {
+    "id": "ls2-hs-felsite-quiet-week",
+    "text": "Lucky day: any day a miner strikes something shinier. Everyone forgets you for a week. Spend it resting under a pile of yourself."
+   }
+  ],
+  "Hematite": [
+   {
+    "id": "ls2-hs-hematite-forge-romance",
+    "text": "Romance sparks at the forge this month. Literally. Step back from the anvil, check your beard for embers, and then flirt."
+   },
+   {
+    "id": "ls2-hs-hematite-goal-list",
+    "text": "You will write a list of goals. Item one: steel. Item two: more steel. Item three: tell people about the steel at length during dinner."
+   },
+   {
+    "id": "ls2-hs-hematite-raise",
+    "text": "Ask for a raise, Hematite. {fort} has no coins worth mentioning. Ask anyway. Ambition does not need a currency; it only needs an audience."
+   },
+   {
+    "id": "ls2-hs-hematite-cave-fish",
+    "text": "Your iron will is tested by a plate of cave fish. You hate cave fish. Eat it. Legends are forged in small, smelly moments."
+   },
+   {
+    "id": "ls2-hs-hematite-cousin",
+    "text": "Armor up, both physically and emotionally. A goblin is not coming. Your cousin is visiting. The preparations are identical."
+   },
+   {
+    "id": "ls2-hs-hematite-rematch",
+    "text": "A sparring partner beats you at last. Demand a rematch. Then another. By winter, the training spears will ask to be reassigned."
+   }
+  ],
+  "Malachite": [
+   {
+    "id": "ls2-hs-malachite-shield-mirror",
+    "text": "Polish your shield until it gleams. Not for battle. For checking your beard between battles. Priorities, Malachite."
+   },
+   {
+    "id": "ls2-hs-malachite-gossip-boomerang",
+    "text": "You start a rumor this month. It returns to you a week later, longer, juicier, and about you. Wear it like a brooch."
+   },
+   {
+    "id": "ls2-hs-malachite-bedroom-tours",
+    "text": "Give guided tours of your bedroom. Charge one mug of wine. Pause meaningfully in front of the engraving of yourself."
+   },
+   {
+    "id": "ls2-hs-malachite-moss",
+    "text": "Green is fashionable again. It was never not fashionable on you. The cavern moss is simply copying, and badly."
+   },
+   {
+    "id": "ls2-hs-malachite-dye",
+    "text": "A trader offers you dye. Buy all of it. Dye your cloak, your beard, and, after a long night, the war dog. He looks fabulous. He is furious."
+   },
+   {
+    "id": "ls2-hs-malachite-self-compliment",
+    "text": "A compliment drought arrives mid-month. Compliment yourself loudly in the dining hall until someone agrees just to make it stop. It counts."
+   }
+  ],
+  "Galena": [
+   {
+    "id": "ls2-hs-galena-eleven-pages",
+    "text": "You will write a list of everything that could go wrong. It runs eleven pages. Page twelve: 'the list gets lost.' Keep it in a locked chest. Check the chest."
+   },
+   {
+    "id": "ls2-hs-galena-door-locked",
+    "text": "Did you lock your door? Yes. Twice? Check. Galena, the door is now so locked the sheriff needs a pickaxe to deliver your mail."
+   },
+   {
+    "id": "ls2-hs-galena-heartbeat",
+    "text": "You lie awake listening for digging. It is your own heartbeat. Write it down anyway. Documentation is a form of courage."
+   },
+   {
+    "id": "ls2-hs-galena-exits",
+    "text": "Count the exits in every room you enter, then count them again on the way out, in case one closed. None have. Count anyway. It soothes you."
+   },
+   {
+    "id": "ls2-hs-galena-calm-month",
+    "text": "A calm month is forecast. You find this deeply suspicious, and you are correct: something is always about to happen. This time it is lunch."
+   },
+   {
+    "id": "ls2-hs-galena-hug",
+    "text": "Someone offers you a hug. Check them for ambushers, rashes, and concealed daggers. Then accept the hug. You need it more than the walls need checking."
+   }
+  ],
+  "Limestone": [
+   {
+    "id": "ls2-hs-limestone-quicklime",
+    "text": "You will be put in a kiln and come out as quicklime. Transformation is painful, Limestone. It is also, apparently, excellent for plaster."
+   },
+   {
+    "id": "ls2-hs-limestone-thank-you",
+    "text": "Someone finally says 'thank you!' They are speaking to the dwarf standing beside you. Smile anyway. You have never been this close."
+   },
+   {
+    "id": "ls2-hs-limestone-boundaries",
+    "text": "Establish boundaries. Draw a line on the floor. Someone will designate a stockpile on it. Draw a second, more emphatic line."
+   },
+   {
+    "id": "ls2-hs-limestone-raised-hand",
+    "text": "Do not volunteer this month. Your arm will rise on its own. Sit on your hand. If that fails, sit on both and hum loudly."
+   },
+   {
+    "id": "ls2-hs-limestone-plaster-cast",
+    "text": "Your soothing presence makes you perfect for the hospital. Specifically, as plaster. It is a compliment. It is also a job."
+   },
+   {
+    "id": "ls2-hs-limestone-small-favor",
+    "text": "A friend asks a small favor. It becomes a large favor, then a lifelong commitment involving a pump. You will say yes. You always say yes."
+   }
+  ],
+  "Sandstone": [
+   {
+    "id": "ls2-hs-sandstone-forgot-why",
+    "text": "You enter a room and forget why. The room also forgets you. Mutual respect. Leave quietly and try the next room."
+   },
+   {
+    "id": "ls2-hs-sandstone-nap-schedule",
+    "text": "Your nap schedule is flawless. Your work schedule is a rumor. The overseer is still looking for evidence that it exists."
+   },
+   {
+    "id": "ls2-hs-sandstone-cistern-beach",
+    "text": "Part of you longs for a beach you have never seen. Lie beside the cistern, close your eyes, and let a bucket drip on your foot. Close enough."
+   },
+   {
+    "id": "ls2-hs-sandstone-purposeful",
+    "text": "You were assigned something important. Nobody, including you, remembers what. Walk around purposefully. From a distance it looks like progress."
+   },
+   {
+    "id": "ls2-hs-sandstone-no-wind",
+    "text": "Go wherever the wind takes you. Underground there is no wind, so the stars predict you will stay in bed. The stars approve of this."
+   },
+   {
+    "id": "ls2-hs-sandstone-accidental-leader",
+    "text": "Disaster strikes {fort}. You shrug. Somehow this calms everyone down. For one afternoon you are a leader, entirely by accident."
+   }
+  ],
+  "Timber": [
+   {
+    "id": "ls2-hs-timber-bed-legacy",
+    "text": "You will be cut into a bed, Timber, and someone will sleep on you for decades. That is a legacy most boulders can only dream about."
+   },
+   {
+    "id": "ls2-hs-timber-charcoal",
+    "text": "Your warmth is appreciated this month, mostly by the wood burner turning you into charcoal. It is a dark gift. Still a gift."
+   },
+   {
+    "id": "ls2-hs-timber-knots",
+    "text": "You are full of knots. The carpenter will complain. Remind them that character is simply wood with opinions."
+   },
+   {
+    "id": "ls2-hs-timber-shout-it",
+    "text": "Something will fall over this month. It may be a tree. It may be you, leaving the tavern. Shout your own name either way."
+   },
+   {
+    "id": "ls2-hs-timber-rings",
+    "text": "Count your rings, Timber. Each one is a year survived. Then remember you are a chair now, and chairs are not expected to count."
+   },
+   {
+    "id": "ls2-hs-timber-glade",
+    "text": "Stay away from forest glades this month. Something out there is keeping score, and the woodcutter has been running it up for years."
+   }
+  ],
+  "Moonstone": [
+   {
+    "id": "ls2-hs-moonstone-dregs",
+    "text": "You read the future in the dregs of your mug. The dregs say 'more wine.' Trust the dregs. The dregs have never been wrong."
+   },
+   {
+    "id": "ls2-hs-moonstone-sleepwalk",
+    "text": "You sleepwalk to a workshop and wake holding a half-finished amulet. Do not finish it. Some mysteries are better left unpolished."
+   },
+   {
+    "id": "ls2-hs-moonstone-wall-whisper",
+    "text": "A wall whispers your name. It is the miner on the other side, lost again. Answer it kindly. You will both feel less alone."
+   },
+   {
+    "id": "ls2-hs-moonstone-third-eye",
+    "text": "Your third eye opens this month. Close it. Trust us, {fort} looks much worse with three eyes."
+   },
+   {
+    "id": "ls2-hs-moonstone-small-doom",
+    "text": "You prophesy doom, as you do every month. This month you are finally right, about a very small doom involving a dropped cheese."
+   },
+   {
+    "id": "ls2-hs-moonstone-moon-letter",
+    "text": "The moon claims you as its own. You have not seen the moon in eleven years. Write it a letter. Ask how it has been."
+   }
+  ],
+  "Opal": [
+   {
+    "id": "ls2-hs-opal-entrance",
+    "text": "Make an entrance this month. Ideally through a door. Last time you tried the ceiling hatch, and the doctor is still upset."
+   },
+   {
+    "id": "ls2-hs-opal-sighs",
+    "text": "Your sighs carry through the fortress. The mason assumes it is a draft and builds a wall. Sigh louder. Make it build a second wall."
+   },
+   {
+    "id": "ls2-hs-opal-feud",
+    "text": "You will start a feud over a chair, a glance, or a cheese. Possibly all three. Win it by fainting at exactly the right moment."
+   },
+   {
+    "id": "ls2-hs-opal-understudy",
+    "text": "A more dramatic dwarf arrives with the migrants. Do not panic. Out-weep them. You have trained your whole life for this."
+   },
+   {
+    "id": "ls2-hs-opal-torchlight",
+    "text": "Your mood changes with the light. The only light underground is torches, so you will be orange all month. Lean into it."
+   },
+   {
+    "id": "ls2-hs-opal-diary",
+    "text": "Write your feelings in a diary. It will reach eight hundred pages. The library will shelve it under 'Weather, Severe.'"
+   }
+  ],
+  "Obsidian": [
+   {
+    "id": "ls2-hs-obsidian-caught-smiling",
+    "text": "Someone catches you smiling. Deny it. Blame the torchlight. Stand somewhere darker until the rumor fades."
+   },
+   {
+    "id": "ls2-hs-obsidian-flute",
+    "text": "You are volcanic glass: sharp, dark, and easily shattered by the elven caravan's flute music. Pack earplugs and an expression."
+   },
+   {
+    "id": "ls2-hs-obsidian-short-sword",
+    "text": "A weaponsmith will make you into a short sword. Finally, a career that matches your personality."
+   },
+   {
+    "id": "ls2-hs-obsidian-could-be-worse",
+    "text": "Last month of the year. Everyone wants to celebrate. You would rather reflect on how the year could have gone worse. It could have. Toast that."
+   },
+   {
+    "id": "ls2-hs-obsidian-corner",
+    "text": "You are invited to a party. You attend as 'the dwarf in the corner.' It is a role, Obsidian, and nobody plays it better."
+   },
+   {
+    "id": "ls2-hs-obsidian-cooling-off",
+    "text": "Cool off this month. You came out of magma; you know how. Hiss briefly, then harden into someone slightly less annoyed."
+   }
+  ]
+ },
+ "advice": [
+  {
+   "id": "ls2-adv-braid-cult",
+   "q": "Dear Urist, I braided my beard in a new style and now three other dwarves copy me. I fear I have started a cult. — Trendsetter in the Tavern",
+   "a": "It is not a cult until they start chanting. Even then, it is mostly a guild. Charge dues and hold meetings nobody attends."
+  },
+  {
+   "id": "ls2-adv-donkey-engraving",
+   "q": "Dear Urist, the engraver carved my likeness on the dining hall wall. It shows me being kicked by a donkey. That only happened once. — Immortalized in Error",
+   "a": "Once is all history requires. Commission a second engraving beside it showing the donkey apologizing. Fiction is how fortresses heal."
+  },
+  {
+   "id": "ls2-adv-pet-boulder",
+   "q": "Dear Urist, I adopted a boulder as a pet. The haulers keep carrying it off to the stockpile. — Bereaved on the Ramps",
+   "a": "Give it a name and a collar. Dwarves will haul anything except a thing with a name; it feels too much like kidnapping."
+  },
+  {
+   "id": "ls2-adv-accidental-mayor",
+   "q": "Dear Urist, I was elected mayor. I did not run. I was in the latrine during the vote. — Accidentally in Charge",
+   "a": "That is how most mayors happen. Smile, wave, and never leave a room during an election again."
+  },
+  {
+   "id": "ls2-adv-dog-ate-ledger",
+   "q": "Dear Urist, the dog ate the stock ledger and now nobody knows how much booze we have. — Panicking in Records",
+   "a": "Recount the barrels at once. Then leave a smaller decoy ledger near his bowl. The dog learns nothing, but he enjoys the paperwork."
+  },
+  {
+   "id": "ls2-adv-one-of-two-axes",
+   "q": "Dear Urist, my rival and I both want the title of Finest Axedwarf. We are the only two axedwarves in the fortress. — Competitive in the Barracks",
+   "a": "Spar for it. The winner gets the title. The loser gets 'Second-Finest Axedwarf,' which is still a top-two finish and fits on a door."
+  },
+  {
+   "id": "ls2-adv-father-in-law-statue",
+   "q": "Dear Urist, my father-in-law commissioned a statue of himself and installed it in our bedroom. — Watched in the Night",
+   "a": "Turn it to face the wall. If he asks, explain that it is contemplating its legacy. He will be flattered and you will finally sleep."
+  },
+  {
+   "id": "ls2-adv-bucket-hoarder",
+   "q": "Dear Urist, my roommate collects buckets. We now own forty buckets and the hospital has none. — Overflowing in Dorm Two",
+   "a": "Donate them to the hospital in your roommate's name. They become a hero, you get floor space, and only the buckets are inconvenienced."
+  },
+  {
+   "id": "ls2-adv-singing-miner",
+   "q": "Dear Urist, I sing while I dig. The miner in the next tunnel says it echoes through the rock and he can no longer think. — Melodious in the Mines",
+   "a": "Learn a duet. If he refuses, sing both parts. Eventually he will join in, purely in self-defence, and you will have a band."
+  },
+  {
+   "id": "ls2-adv-goblin-pen-pal",
+   "q": "Dear Urist, I have been exchanging letters with a goblin by tying them to arrows. He seems nice. He keeps asking where the gate is. — Pen Pal in Peril",
+   "a": "Every friendship has a red flag, and yours is attached to an arrow. Reply with detailed directions to the cage traps."
+  },
+  {
+   "id": "ls2-adv-slept-through-siege",
+   "q": "Dear Urist, I slept through an entire goblin siege. Everyone is angry with me, but I feel wonderfully rested. — Refreshed in the Barracks",
+   "a": "Your body knew you were not needed. Tell them you were guarding the bedroom. The bedroom survived, so technically you were undefeated."
+  },
+  {
+   "id": "ls2-adv-beard-lever",
+   "q": "Dear Urist, my beard got caught in a lever and I accidentally flooded the farm plots. — Tangled and Ashamed",
+   "a": "Beards and levers must never meet. Tuck yours into your belt near machinery. As for the farm, call it irrigation and accept the praise."
+  },
+  {
+   "id": "ls2-adv-cave-croc-pet",
+   "q": "Dear Urist, I tamed a cave crocodile. My neighbors say it is dangerous. It has only eaten one neighbor. — Proud Pet Owner",
+   "a": "That is a strong record, but neighbors are a finite resource. Get it a muzzle, a leash, and its own floor."
+  },
+  {
+   "id": "ls2-adv-gem-jealousy",
+   "q": "Dear Urist, my husband spends more time gazing at his cut gems than at me. — Unpolished in Love",
+   "a": "Wear the gems. All of them, at once. He will have to look at you to admire them, and you will be the most sparkling dwarf in the hall."
+  },
+  {
+   "id": "ls2-adv-surface-daughter",
+   "q": "Dear Urist, my daughter wants to be an herbalist. Outside. Under the sky. Voluntarily. — Shaken at the Hearth",
+   "a": "Pack her a sturdy hat and a warm cloak. Children who go up to the sky come back with plants and opinions. Prepare for both."
+  },
+  {
+   "id": "ls2-adv-retirement",
+   "q": "Dear Urist, I am one hundred and forty and wish to retire. The overseer says retirement is 'not a labor.' — Weary but Willing",
+   "a": "Then make it one. Sit in the meeting hall with a mug every day. If anyone asks, you are supervising morale. You are excellent at it."
+  },
+  {
+   "id": "ls2-adv-goblin-rhymes",
+   "q": "Dear Urist, my friend wrote a poem and asked my honest opinion. It rhymes 'goblin' with 'goblin' eleven times. — Torn in the Library",
+   "a": "Tell him it is 'brave.' That word is a fortress. Nobody in history has successfully attacked 'brave.'"
+  },
+  {
+   "id": "ls2-adv-lost-bedroom",
+   "q": "Dear Urist, the fortress has grown so large I can no longer find my own bedroom. I sleep in a different one each night. — Wandering in the Warrens",
+   "a": "Carve your face on your door. If you wake up beneath a carving of somebody else, apologize, make the bed, and keep walking."
+  },
+  {
+   "id": "ls2-adv-twin-names",
+   "q": "Dear Urist, I named both my twins after their grandfather. In hindsight, having two of the same name in one cradle was a mistake. — Doubly Confused",
+   "a": "Give them nicknames by temperament: 'the Loud One' and 'the Biting One.' They will fight about it for a century, which is a proud dwarven tradition."
+  },
+  {
+   "id": "ls2-adv-hammerer-crush",
+   "q": "Dear Urist, I have a crush on the hammerer. How do I get his attention without committing a crime? — Smitten but Law-Abiding",
+   "a": "Bring him a mug and compliment his hammer's craftsmanship. Avoid the shortcut. Courtship should hurt less than his day job."
+  },
+  {
+   "id": "ls2-adv-fish-cleaner",
+   "q": "Dear Urist, I am the fish cleaner. Nobody sits near me at dinner. I have washed eight times today. — Lonely and Briny",
+   "a": "Seek a dwarf who works in the tannery. Their nose surrendered years ago. It is a match made in the guts department."
+  },
+  {
+   "id": "ls2-adv-baroness-room",
+   "q": "Dear Urist, the baroness says her bedroom is too small. It is the size of three dining halls. — Exhausted Architect",
+   "a": "Engrave her portrait on every wall. A room always feels grander to a noble when it is full of their favorite subject."
+  },
+  {
+   "id": "ls2-adv-engraved-breakup",
+   "q": "Dear Urist, I ended my courtship by engraving it on the meeting hall wall. It is now the fortress's most-read story. — Publicly Single",
+   "a": "Engravings are forever. Commission another beside it showing you riding a dragon. History will be confused, and that is enough."
+  },
+  {
+   "id": "ls2-adv-tipsy-plant",
+   "q": "Dear Urist, I secretly dislike strong drink. I pour my mug into a potted plant when no one is looking. The plant is now very cheerful. — Sober Undercover",
+   "a": "Keep pouring. The plant's happiness counts toward fortress morale, and frankly it has earned its own stool at the tavern."
+  },
+  {
+   "id": "ls2-adv-trap-tester",
+   "q": "Dear Urist, I was voted the fortress's official Trap Tester. Unanimously. Including my wife. — Concerned in the Corridor",
+   "a": "A unanimous vote is both an honor and a warning. Test the traps with a long pole and a short memory, and maybe have a talk at home."
+  },
+  {
+   "id": "ls2-adv-childhood-chair",
+   "q": "Dear Urist, the baron took a chair for his dining room. It is a crude chair I made as a child. — Seated on the Floor",
+   "a": "Your childhood work is now noble furniture. Make more crude chairs. Soon the baron will own your entire terrible early career, and you will be a collected artist."
+  },
+  {
+   "id": "ls2-adv-anniversary-axe",
+   "q": "Dear Urist, I forgot our anniversary. My wife has said nothing, but she has started sharpening her axe at dinner. — Nervous at the Table",
+   "a": "Present a cut gem by sundown. Failing that, sharpen your own axe at dinner too. Now it is a hobby you share."
+  },
+  {
+   "id": "ls2-adv-yak-manners",
+   "q": "Dear Urist, my yak follows me into the dining hall and eats from other dwarves' plates. — Embarrassed Rancher",
+   "a": "Teach the yak manners, or study its strategy. It has never once gone hungry, and nobody has ever once argued with it."
+  },
+  {
+   "id": "ls2-adv-dreams-in-squares",
+   "q": "Dear Urist, I am a mason. I have cut nine thousand blocks. Now I dream in squares. — Cubed in the Workshop",
+   "a": "Carve one round thing. A ball, a bowl, a disappointing moon. Your mind needs a curve. Then return to blocks; we still need walls."
+  },
+  {
+   "id": "ls2-adv-one-song",
+   "q": "Dear Urist, our fortress only knows one song. It is about a goat's journey to the trade depot. We sing it at every wedding and funeral. — Repetitive in Rehearsal",
+   "a": "Write a sequel about the goat's journey home. Audiences love a returning hero, and the goat has clearly been through a lot."
+  },
+  {
+   "id": "ls2-adv-fishing-spouse",
+   "q": "Dear Urist, my spouse joined the fishery and comes home each night smelling of turtle and triumph. I feel left out. — Dry-Footed in the Halls",
+   "a": "Take up fishing together, then compete. Nothing strengthens a marriage like a lifelong argument over who caught the bigger turtle."
+  },
+  {
+   "id": "ls2-adv-nickname-splat",
+   "q": "Dear Urist, after one small incident involving a ramp and a wheelbarrow, my nickname is now 'Splat.' — Renamed Without Consent",
+   "a": "Nicknames last until a bigger incident replaces them. Be patient. In a fortress, someone else is always about to do something worse."
+  },
+  {
+   "id": "ls2-adv-hiccups",
+   "q": "Dear Urist, I have had the hiccups since the last caravan. The doctor prescribed 'a fright,' then opened the cavern door. — Still Hiccuping, Now Also Running",
+   "a": "The cure worked; the hiccups are just too slow to notice you are already terrified. Give them a week. Keep the door closed."
+  }
+ ],
+ "recipes": [
+  {
+   "id": "ls2-rc-recipe-remedy",
+   "title": "Morning-After Miner's Remedy",
+   "ingredients": [
+    "one raw egg",
+    "a cup of last night's ale",
+    "a pickaxe for leaning on",
+    "total silence"
+   ],
+   "method": "Crack the egg into the ale. Drink it without looking. Lean on the pickaxe until the cavern stops spinning. If anyone speaks, add more silence. Repeat until noon or retirement."
+  },
+  {
+   "id": "ls2-rc-decade-loaf",
+   "title": "Ten-Year Cave Wheat Loaf",
+   "ingredients": [
+    "cave wheat flour",
+    "water",
+    "salt",
+    "one decade"
+   ],
+   "method": "Knead. Bake. Store in the food stockpile. Dwarven bread does not go stale; it simply becomes historical. Slice with a saw and serve with commemorative gravy."
+  },
+  {
+   "id": "ls2-rc-wheel-cheese",
+   "title": "Fortress Wheel Cheese",
+   "ingredients": [
+    "goat milk",
+    "a press",
+    "a dark cellar",
+    "one armed guard"
+   ],
+   "method": "Press the curds into a wheel and age it in the cellar. Post the guard, because the wheel is now the fortress's second most valuable object. Roll it to the dining hall on feast days."
+  },
+  {
+   "id": "ls2-rc-dragonfire-chili",
+   "title": "Dragonfire Chili",
+   "ingredients": [
+    "beans",
+    "hide root",
+    "one pepper of unknown origin",
+    "a bucket brigade"
+   ],
+   "method": "Simmer everything. Add the pepper one tiny flake at a time. Taste. Weep. Alert the bucket brigade. Serve only to dwarves with dragon-grade constitutions who are seated near the well."
+  },
+  {
+   "id": "ls2-rc-strawberry-shortcake",
+   "title": "Surface Strawberry Shortcake",
+   "ingredients": [
+    "wild strawberries",
+    "cream",
+    "cave wheat sponge",
+    "one herbalist brave enough to go outside"
+   ],
+   "method": "Send the herbalist up into the terrifying open air. Wait. Receive strawberries and a breathless account of clouds. Layer onto the sponge. Thank the herbalist, who will be under a blanket for a week."
+  },
+  {
+   "id": "ls2-rc-slow-yak-stew",
+   "title": "All-Winter Yak Stew",
+   "ingredients": [
+    "one yak's worth of meat",
+    "cave carrots",
+    "a cauldron",
+    "the entire winter"
+   ],
+   "method": "Put the yak in the cauldron. Light the fire. Return when the snow melts. The stew is ready when the cook has grown a second beard."
+  },
+  {
+   "id": "ls2-rc-gem-candy",
+   "title": "Rough-Cut Gem Drops",
+   "ingredients": [
+    "dwarven sugar",
+    "dye",
+    "gem-shaped molds",
+    "a gem setter with poor eyesight"
+   ],
+   "method": "Boil the sugar, color it, and pour it into the molds. Hide the drops among the real gems. Watch the gem setter try to set a sweet into the baron's crown. The baron will not notice until he licks it."
+  },
+  {
+   "id": "ls2-rc-glazed-roast",
+   "title": "Beekeeper's Glazed Roast",
+   "ingredients": [
+    "a roast",
+    "honey",
+    "one beekeeper",
+    "three stings, minimum"
+   ],
+   "method": "Glaze the roast thickly with honey. Pay the beekeeper in compliments and ointment. Roast until sticky. Serve to applause and one distant, angry buzzing."
+  },
+  {
+   "id": "ls2-rc-lobster-bisque",
+   "title": "Cave Lobster Bisque",
+   "ingredients": [
+    "one cave lobster",
+    "cream",
+    "a long argument about whether it counts as a lobster"
+   ],
+   "method": "Simmer gently while the dining hall debates the lobster's family tree. By the time they agree, the bisque is cold. Reheat and serve. The debate continues over seconds."
+  },
+  {
+   "id": "ls2-rc-tiered-cake",
+   "title": "Eleven-Tier Celebration Cake",
+   "ingredients": [
+    "flour",
+    "sugar",
+    "a mason",
+    "support pillars"
+   ],
+   "method": "Bake each tier. Have the mason inspect it for structural soundness. Install support pillars between layers. When serving, never remove the last pillar. Ask the miners how that goes."
+  },
+  {
+   "id": "ls2-rc-smoked-crackers",
+   "title": "Smelter-Side 'Smoked' Crackers",
+   "ingredients": [
+    "flour",
+    "a smelter",
+    "one easily distracted cook"
+   ],
+   "method": "Place the crackers near the smelter. Turn away for one minute to watch an argument. Return to charcoal. Rename the dish 'smoked.' Serve with confidence; dwarves respect commitment."
+  },
+  {
+   "id": "ls2-rc-baron-breakfast",
+   "title": "The Baron's Breakfast in Bed",
+   "ingredients": [
+    "six courses",
+    "a gold tray",
+    "eleven corridors of walking"
+   ],
+   "method": "Carry the tray through all eleven corridors. The baron says it is cold. Carry it back. Reheat. Carry it again. He is now asleep. Eat it yourself in corridor seven, where nobody can see."
+  },
+  {
+   "id": "ls2-rc-cage-gruel",
+   "title": "Cage-Trap Hospitality Gruel",
+   "ingredients": [
+    "leftover porridge",
+    "a cage",
+    "a very long spoon"
+   ],
+   "method": "Captured goblins must eat too, apparently. Ladle the gruel into a bowl and slide it through the bars with the long spoon. Avoid eye contact. Do not expect the spoon back."
+  },
+  {
+   "id": "ls2-rc-ale-biscuits",
+   "title": "Increasingly Optimistic Ale Biscuits",
+   "ingredients": [
+    "flour",
+    "a splash of ale",
+    "another splash of ale",
+    "a quick check that it is still daytime"
+   ],
+   "method": "Mix the dough with ale. Taste the ale to confirm it is good. Taste again. The biscuits grow larger and more hopeful as the afternoon goes on. Bake whatever shape you are left with."
+  },
+  {
+   "id": "ls2-rc-rum-cake",
+   "title": "Do-Not-Light Rum Cake",
+   "ingredients": [
+    "dwarven rum",
+    "dwarven sugar",
+    "a sponge cake",
+    "a strict no-torches policy"
+   ],
+   "method": "Soak the cake in rum until it could be ignited by a stern look. Keep away from torches, forges, and anyone who has ever said 'watch this.' Serve at the end of a long winter."
+  },
+  {
+   "id": "ls2-rc-bat-wings",
+   "title": "Ceiling-Caught Bat Wings",
+   "ingredients": [
+    "giant bat wings",
+    "spicy sauce",
+    "a net on a very long pole"
+   ],
+   "method": "Catch the bats with the net. Season the wings. Fry until crisp. Eat while glancing upward nervously, because their relatives are watching from the ceiling and taking notes."
+  },
+  {
+   "id": "ls2-rc-haunted-leftovers",
+   "title": "Haunted Leftovers",
+   "ingredients": [
+    "yesterday's stew",
+    "one pot",
+    "a ghost with opinions"
+   ],
+   "method": "Leave the stew on the stove. Return to find it on the table. Then on the floor. Then on your pillow. The ghost wants you to eat it. Eat it. The haunting ends, and so does your appetite."
+  },
+  {
+   "id": "ls2-rc-danger-picnic",
+   "title": "Danger Room Picnic",
+   "ingredients": [
+    "a blanket",
+    "sandwiches",
+    "training spears, blunted, ideally"
+   ],
+   "method": "Spread the blanket between the spear traps. Eat quickly between thrusts. It is romantic, efficient, and both of you will leave as better dodgers."
+  },
+  {
+   "id": "ls2-rc-salted-nuts",
+   "title": "Tavern Table Nuts",
+   "ingredients": [
+    "roasted rock nuts",
+    "salt",
+    "more salt",
+    "a shrewd tavern keeper"
+   ],
+   "method": "Salt the nuts generously, then salt them again. Place a bowl on every table. Watch drink orders double. The tavern keeper calls this cooking. The brewer calls it a business plan."
+  },
+  {
+   "id": "ls2-rc-river-ice",
+   "title": "Frozen River Shaved Ice",
+   "ingredients": [
+    "one frozen river, partially",
+    "dwarven syrup",
+    "a chisel"
+   ],
+   "method": "Chisel a small block from the frozen river. Pour syrup over it. Eat quickly before spring. Do not chisel too deep; things beneath the ice also enjoy dessert."
+  },
+  {
+   "id": "ls2-rc-garlic-sausage",
+   "title": "Sheriff's Garlic Sausage",
+   "ingredients": [
+    "sausage meat",
+    "an aggressive amount of garlic",
+    "a seating chart"
+   ],
+   "method": "Make the sausage, then add garlic until the kitchen weeps. Serve to the entire dining hall and watch closely. Whoever refuses it is either very rude or very undead. Fetch the sheriff either way."
+  },
+  {
+   "id": "ls2-rc-migrant-soup",
+   "title": "Migrant Welcome Soup",
+   "ingredients": [
+    "one pot of soup",
+    "water",
+    "more water",
+    "a smile"
+   ],
+   "method": "Each time a wave of migrants arrives, add water. The soup grows. The flavor departs. By the seventh wave you are serving warm hope in a bowl. Keep smiling while you ladle."
+  },
+  {
+   "id": "ls2-rc-pocket-pies",
+   "title": "Hauler's Pocket Pies",
+   "ingredients": [
+    "pastry",
+    "minced meat",
+    "gravy",
+    "one deep pocket"
+   ],
+   "method": "Fill and crimp each pie. Haulers eat while walking, so size each pie to last exactly one bucket's journey across the fortress. That is two pies per bucket, or one lunch per lever."
+  }
+ ],
+ "riddles": [
+  {
+   "id": "ls2-rd-down-levels",
+   "q": "Why did the miner visit the doctor?",
+   "a": "He had been feeling down lately. About two hundred levels down."
+  },
+  {
+   "id": "ls2-rd-on-the-rocks",
+   "q": "Why did the dwarf drink his ale in the quarry?",
+   "a": "He liked it on the rocks."
+  },
+  {
+   "id": "ls2-rd-captured-goblin",
+   "q": "What do you call a goblin who has stopped attacking?",
+   "a": "Captured."
+  },
+  {
+   "id": "ls2-rd-hide-seek-kobold",
+   "q": "Why won't dwarves play hide and seek with kobolds?",
+   "a": "Anything you hide, they keep."
+  },
+  {
+   "id": "ls2-rd-apology-engraving",
+   "q": "How does a dwarf apologize?",
+   "a": "He engraves it on a wall, two years later, in the least visited corridor in the fortress."
+  },
+  {
+   "id": "ls2-rd-anvil-hammer",
+   "q": "What did the anvil say to the hammer?",
+   "a": "'Stop hitting on me.'"
+  },
+  {
+   "id": "ls2-rd-noble-cave-in",
+   "q": "What is the difference between a noble and a cave-in?",
+   "a": "A cave-in eventually stops making demands."
+  },
+  {
+   "id": "ls2-rd-river-riddle",
+   "q": "I have a bed but never sleep, banks but no gold, and a mouth where the carp do all the talking. What am I?",
+   "a": "A river."
+  },
+  {
+   "id": "ls2-rd-tree-cross",
+   "q": "What do you get when you cross a dwarf with a tree?",
+   "a": "Lumber, and one very upset elf."
+  },
+  {
+   "id": "ls2-rd-smooth-wall",
+   "q": "Why was the wall so easy to get along with?",
+   "a": "It had been smoothed over."
+  },
+  {
+   "id": "ls2-rd-mason-election",
+   "q": "Why did the mason win the election?",
+   "a": "Solid foundation, and a lot of support."
+  },
+  {
+   "id": "ls2-rd-kobold-bank",
+   "q": "Where does a kobold keep its savings?",
+   "a": "In your pocket. Check it."
+  },
+  {
+   "id": "ls2-rd-necro-book-club",
+   "q": "Why was the necromancer thrown out of the book club?",
+   "a": "He kept bringing back things everyone wanted to stay buried."
+  },
+  {
+   "id": "ls2-rd-loudest-room",
+   "q": "What is the loudest room in the fortress?",
+   "a": "Whichever one the bookkeeper is standing in when he finds a discrepancy."
+  },
+  {
+   "id": "ls2-rd-tunnel-grows",
+   "q": "What grows larger the more a miner takes away from it?",
+   "a": "A tunnel. Also the miner's ego."
+  },
+  {
+   "id": "ls2-rd-hands-no-mug",
+   "q": "What has hands but cannot hold a mug?",
+   "a": "The statue of the mayor. Much like the mayor."
+  },
+  {
+   "id": "ls2-rd-hist-ore-y",
+   "q": "What is a dwarf's favorite school subject?",
+   "a": "Hist-ore-y."
+  },
+  {
+   "id": "ls2-rd-break-ice",
+   "q": "Why did the dwarf bring a pickaxe to the party?",
+   "a": "Somebody told him to break the ice."
+  },
+  {
+   "id": "ls2-rd-dragon-reviews",
+   "q": "Why did the dragon refuse to attack the fortress?",
+   "a": "It read the reviews: 'Too crunchy. Too much armor. Not enough seasoning.'"
+  },
+  {
+   "id": "ls2-rd-boulder-difference",
+   "q": "What is the difference between a dwarf and a boulder?",
+   "a": "About two days of hauling, and the boulder complains less."
+  },
+  {
+   "id": "ls2-rd-axe-friendship",
+   "q": "How do you know a dwarf truly trusts you?",
+   "a": "He lets you hold his axe. Briefly. Under supervision. While watching."
+  },
+  {
+   "id": "ls2-rd-no-beard",
+   "q": "What do you call a dwarf with no beard?",
+   "a": "A disguise."
+  },
+  {
+   "id": "ls2-rd-heavy-doors",
+   "q": "Why are dwarven doors so heavy?",
+   "a": "A light door is just an invitation."
+  },
+  {
+   "id": "ls2-rd-onion",
+   "q": "What do dwarves and onions have in common?",
+   "a": "Many layers, they make you cry, and they are best kept underground."
+  },
+  {
+   "id": "ls2-rd-inside-joke",
+   "q": "What kind of joke does an engraver like best?",
+   "a": "An inside one, carved into the wall where only the fortress can see it."
+  },
+  {
+   "id": "ls2-rd-stairs-up",
+   "q": "Why don't dwarves trust staircases?",
+   "a": "They are always up to something. Or down to something. You never know which."
+  },
+  {
+   "id": "ls2-rd-empty-hall",
+   "q": "What is the fastest way to empty a dining hall?",
+   "a": "Announce that the bard is taking requests."
+  },
+  {
+   "id": "ls2-rd-troll-table",
+   "q": "Why are trolls terrible at negotiation?",
+   "a": "Every meeting ends with someone eating the table."
+  },
+  {
+   "id": "ls2-rd-forgot-order",
+   "q": "What did the forgotten beast say after swallowing the miner?",
+   "a": "'I don't remember ordering this.'"
+  },
+  {
+   "id": "ls2-rd-no-drink-dwarf",
+   "q": "What do you call a dwarf who does not drink?",
+   "a": "A rumor."
+  },
+  {
+   "id": "ls2-rd-never-done",
+   "q": "What is the hardest part of building a fortress?",
+   "a": "Telling the dwarves it is finished. They never believe you, and they are always right."
+  },
+  {
+   "id": "ls2-rd-spider-jokes",
+   "q": "What do you call a giant cave spider that tells jokes?",
+   "a": "Hilarious, from very, very far away."
+  },
+  {
+   "id": "ls2-rd-short-funerals",
+   "q": "Why are dwarven funerals so short?",
+   "a": "The slab is already carved, the ghost is already complaining, and supper is at six."
+  },
+  {
+   "id": "ls2-rd-siege-recital",
+   "q": "What is worse than a goblin siege?",
+   "a": "A goblin siege during the bard's recital. Nobody knows which way to flee."
+  },
+  {
+   "id": "ls2-rd-finger-count",
+   "q": "How do dwarves greet each other after a long time apart?",
+   "a": "Each one quietly counts the other's fingers."
+  },
+  {
+   "id": "ls2-rd-temporary-fortress",
+   "q": "What do you call a fortress with no booze?",
+   "a": "Temporary."
+  },
+  {
+   "id": "ls2-rd-support-pillar",
+   "q": "I am made of stone, I hold up the ceiling, and removing me teaches everyone a lesson. What am I?",
+   "a": "The last support pillar. The lesson is 'don't.'"
+  },
+  {
+   "id": "ls2-rd-goblin-tourist",
+   "q": "What do you call a goblin archer who never hits anything?",
+   "a": "A tourist."
+  },
+  {
+   "id": "ls2-rd-dragon-story",
+   "q": "What is taller than a mountain but fits in a dwarf's pocket?",
+   "a": "His story about the time he fought a dragon."
+  },
+  {
+   "id": "ls2-rd-bees",
+   "q": "What is golden, sticky, and covered in angry bees?",
+   "a": "The honey stockpile, the day after the beekeeper quit."
+  },
+  {
+   "id": "ls2-rd-bravest-words",
+   "q": "What is the bravest thing a dwarf can say at a meeting?",
+   "a": "'Honestly, I think the elves had a point.'"
+  },
+  {
+   "id": "ls2-rd-crown-weight",
+   "q": "What gets heavier the longer a noble wears it?",
+   "a": "The crown. Also everybody's patience."
+  },
+  {
+   "id": "ls2-rd-yak-shave",
+   "q": "Why did the dwarf refuse to shear the yak?",
+   "a": "The yak's beard was better than his, and he wasn't ready to talk about it."
+  },
+  {
+   "id": "ls2-rd-ramp-cheese",
+   "q": "Why did the cheese roll down the ramp?",
+   "a": "To escape the dining hall. It did not get far. Nothing does."
+  },
+  {
+   "id": "ls2-rd-tavern-closing",
+   "q": "When does a dwarven tavern close?",
+   "a": "Nobody knows. Nobody has ever stayed sober long enough to find out."
+  },
+  {
+   "id": "ls2-rd-goat-depot",
+   "q": "Why did the goat sit at the trade depot all day?",
+   "a": "It heard the caravan was buying and wanted an honest appraisal."
+  },
+  {
+   "id": "ls2-rd-hospital-quiet",
+   "q": "Why is the hospital the quietest room in the fortress?",
+   "a": "Everyone inside is either asleep, in traction, or pretending to be both to avoid hauling."
+  },
+  {
+   "id": "ls2-rd-cave-croc-vote",
+   "q": "Why do cave crocodiles never run for mayor?",
+   "a": "They would win, and then they would eat the council."
+  }
+ ],
+ "jumble": [
+  {
+   "id": "ls2-jb-slate",
+   "word": "SLATE",
+   "clue": "Clean surface, grey personality"
+  },
+  {
+   "id": "ls2-jb-galena",
+   "word": "GALENA",
+   "clue": "Silver's lead-heavy hiding place"
+  },
+  {
+   "id": "ls2-jb-malachite",
+   "word": "MALACHITE",
+   "clue": "Green stone with expensive taste"
+  },
+  {
+   "id": "ls2-jb-limestone",
+   "word": "LIMESTONE",
+   "clue": "Gives its all to the steel and gets no credit"
+  },
+  {
+   "id": "ls2-jb-sandstone",
+   "word": "SANDSTONE",
+   "clue": "Crumbly, cosy, easily distracted"
+  },
+  {
+   "id": "ls2-jb-timber",
+   "word": "TIMBER",
+   "clue": "Month named after a tree, oddly"
+  },
+  {
+   "id": "ls2-jb-moonstone",
+   "word": "MOONSTONE",
+   "clue": "Glows faintly with unearned mystery"
+  },
+  {
+   "id": "ls2-jb-opal",
+   "word": "OPAL",
+   "clue": "Gem with a different mood every minute"
+  },
+  {
+   "id": "ls2-jb-marble",
+   "word": "MARBLE",
+   "clue": "Statue stone for nobles who want to be remembered"
+  },
+  {
+   "id": "ls2-jb-basalt",
+   "word": "BASALT",
+   "clue": "Dark rock from a hot past"
+  },
+  {
+   "id": "ls2-jb-chalk",
+   "word": "CHALK",
+   "clue": "Writes on slate, rubs off on everything"
+  },
+  {
+   "id": "ls2-jb-gold",
+   "word": "GOLD",
+   "clue": "Shiny reason nobles exist"
+  },
+  {
+   "id": "ls2-jb-silver",
+   "word": "SILVER",
+   "clue": "Second place, still mandatory"
+  },
+  {
+   "id": "ls2-jb-copper",
+   "word": "COPPER",
+   "clue": "Turns green with envy over time"
+  },
+  {
+   "id": "ls2-jb-bronze",
+   "word": "BRONZE",
+   "clue": "Copper and tin, now a couple"
+  },
+  {
+   "id": "ls2-jb-platinum",
+   "word": "PLATINUM",
+   "clue": "Too heavy to wield, too pretty to melt"
+  },
+  {
+   "id": "ls2-jb-charcoal",
+   "word": "CHARCOAL",
+   "clue": "Wood that has seen the fire and come back black"
+  },
+  {
+   "id": "ls2-jb-kiln",
+   "word": "KILN",
+   "clue": "Hot box that turns mud into mugs"
+  },
+  {
+   "id": "ls2-jb-furnace",
+   "word": "FURNACE",
+   "clue": "Smelter's bigger, angrier cousin"
+  },
+  {
+   "id": "ls2-jb-tanner",
+   "word": "TANNER",
+   "clue": "Turns hides into leather and noses into retirement"
+  },
+  {
+   "id": "ls2-jb-weaver",
+   "word": "WEAVER",
+   "clue": "Loom operator, thread whisperer"
+  },
+  {
+   "id": "ls2-jb-clothier",
+   "word": "CLOTHIER",
+   "clue": "Makes the cloaks Malachite brags about"
+  },
+  {
+   "id": "ls2-jb-carpenter",
+   "word": "CARPENTER",
+   "clue": "Turns trees into beds, to elven horror"
+  },
+  {
+   "id": "ls2-jb-jeweler",
+   "word": "JEWELER",
+   "clue": "Puts rocks on rings and charges for it"
+  },
+  {
+   "id": "ls2-jb-butcher",
+   "word": "BUTCHER",
+   "clue": "Cats avoid this dwarf's gaze"
+  },
+  {
+   "id": "ls2-jb-fishery",
+   "word": "FISHERY",
+   "clue": "Workshop that smells like a decision"
+  },
+  {
+   "id": "ls2-jb-hunter",
+   "word": "HUNTER",
+   "clue": "Leaves with a crossbow, returns with a story"
+  },
+  {
+   "id": "ls2-jb-farmer",
+   "word": "FARMER",
+   "clue": "Grows plump helmets, in plump numbers"
+  },
+  {
+   "id": "ls2-jb-herbalist",
+   "word": "HERBALIST",
+   "clue": "Goes outside on purpose, the brave fool"
+  },
+  {
+   "id": "ls2-jb-beekeeper",
+   "word": "BEEKEEPER",
+   "clue": "Sweet job, stinging reviews"
+  },
+  {
+   "id": "ls2-jb-thresher",
+   "word": "THRESHER",
+   "clue": "Beats plants for a living, legally"
+  },
+  {
+   "id": "ls2-jb-miller",
+   "word": "MILLER",
+   "clue": "Grinds grain and grudges alike"
+  },
+  {
+   "id": "ls2-jb-doctor",
+   "word": "DOCTOR",
+   "clue": "Diagnoses everything as a broken leg"
+  },
+  {
+   "id": "ls2-jb-surgeon",
+   "word": "SURGEON",
+   "clue": "Sharp tools, shaky confidence"
+  },
+  {
+   "id": "ls2-jb-suture",
+   "word": "SUTURE",
+   "clue": "Stitch in time, with thread from a spider"
+  },
+  {
+   "id": "ls2-jb-splint",
+   "word": "SPLINT",
+   "clue": "Wooden friend for a broken leg"
+  },
+  {
+   "id": "ls2-jb-crutch",
+   "word": "CRUTCH",
+   "clue": "Third leg, on loan from the hospital"
+  },
+  {
+   "id": "ls2-jb-bandage",
+   "word": "BANDAGE",
+   "clue": "Cloth wrap for the latest carp encounter"
+  },
+  {
+   "id": "ls2-jb-traction",
+   "word": "TRACTION",
+   "clue": "Kind of bench nobody wants to lie on"
+  },
+  {
+   "id": "ls2-jb-loom",
+   "word": "LOOM",
+   "clue": "Where thread goes to become something"
+  },
+  {
+   "id": "ls2-jb-quern",
+   "word": "QUERN",
+   "clue": "Hand mill for the patient and the strong"
+  },
+  {
+   "id": "ls2-jb-llama",
+   "word": "LLAMA",
+   "clue": "Woolly, spitty, and on the trade road"
+  },
+  {
+   "id": "ls2-jb-goat",
+   "word": "GOAT",
+   "clue": "Milk, cheese, and unsolicited headbutts"
+  },
+  {
+   "id": "ls2-jb-donkey",
+   "word": "DONKEY",
+   "clue": "Kicks dwarves, appears in engravings"
+  },
+  {
+   "id": "ls2-jb-alpaca",
+   "word": "ALPACA",
+   "clue": "Fluffier llama with better publicity"
+  },
+  {
+   "id": "ls2-jb-mule",
+   "word": "MULE",
+   "clue": "Stubborn pack animal, Granite's spirit beast"
+  },
+  {
+   "id": "ls2-jb-crocodile",
+   "word": "CROCODILE",
+   "clue": "Cave pet that eats one neighbor, max"
+  },
+  {
+   "id": "ls2-jb-spider",
+   "word": "SPIDER",
+   "clue": "Giant cave version provides silk and screaming"
+  },
+  {
+   "id": "ls2-jb-cobweb",
+   "word": "COBWEB",
+   "clue": "Silk harvest, sticky business"
+  },
+  {
+   "id": "ls2-jb-hammerer",
+   "word": "HAMMERER",
+   "clue": "Noble enforcer with a very blunt opinion"
+  },
+  {
+   "id": "ls2-jb-dungeon",
+   "word": "DUNGEON",
+   "clue": "The sheriff's least cosy guest room"
+  },
+  {
+   "id": "ls2-jb-crypt",
+   "word": "CRYPT",
+   "clue": "Quiet neighborhood, picky residents"
+  },
+  {
+   "id": "ls2-jb-tomb",
+   "word": "TOMB",
+   "clue": "Final apartment, no migrants allowed"
+  },
+  {
+   "id": "ls2-jb-scroll",
+   "word": "SCROLL",
+   "clue": "Rolled-up wisdom, or a rolled-up grudge"
+  },
+  {
+   "id": "ls2-jb-codex",
+   "word": "CODEX",
+   "clue": "Bound book, heavier than the scholar"
+  },
+  {
+   "id": "ls2-jb-bookcase",
+   "word": "BOOKCASE",
+   "clue": "Holds scrolls the dwarves pretend to read"
+  },
+  {
+   "id": "ls2-jb-pedestal",
+   "word": "PEDESTAL",
+   "clue": "Display stand for things too nice to use"
+  },
+  {
+   "id": "ls2-jb-cabinet",
+   "word": "CABINET",
+   "clue": "Where clothing goes to be forgotten"
+  },
+  {
+   "id": "ls2-jb-coffer",
+   "word": "COFFER",
+   "clue": "Box for valuables, bait for kobolds"
+  },
+  {
+   "id": "ls2-jb-hatch",
+   "word": "HATCH",
+   "clue": "A door, but on the floor"
+  },
+  {
+   "id": "ls2-jb-floodgate",
+   "word": "FLOODGATE",
+   "clue": "Hold back the river, or very much do not"
+  },
+  {
+   "id": "ls2-jb-grate",
+   "word": "GRATE",
+   "clue": "Lets water through, stops carp, mostly"
+  },
+  {
+   "id": "ls2-jb-ramp",
+   "word": "RAMP",
+   "clue": "Stairs that gave up"
+  },
+  {
+   "id": "ls2-jb-pillar",
+   "word": "PILLAR",
+   "clue": "Never remove the last one"
+  },
+  {
+   "id": "ls2-jb-channel",
+   "word": "CHANNEL",
+   "clue": "Ditch with a purpose and a waterfall risk"
+  },
+  {
+   "id": "ls2-jb-moat",
+   "word": "MOAT",
+   "clue": "Wet welcome mat for goblins"
+  },
+  {
+   "id": "ls2-jb-spike",
+   "word": "SPIKE",
+   "clue": "Pointy greeting in the hallway floor"
+  },
+  {
+   "id": "ls2-jb-warhammer",
+   "word": "WARHAMMER",
+   "clue": "Settles disputes from the top down"
+  },
+  {
+   "id": "ls2-jb-mace",
+   "word": "MACE",
+   "clue": "Spiky club for refined brutality"
+  },
+  {
+   "id": "ls2-jb-bolts",
+   "word": "BOLTS",
+   "clue": "Ammunition the marksdwarf mostly misses with"
+  },
+  {
+   "id": "ls2-jb-quiver",
+   "word": "QUIVER",
+   "clue": "Bolt holder, or a recruit's knees"
+  },
+  {
+   "id": "ls2-jb-gauntlet",
+   "word": "GAUNTLET",
+   "clue": "Armored glove, also a hallway full of traps"
+  },
+  {
+   "id": "ls2-jb-greaves",
+   "word": "GREAVES",
+   "clue": "Shin armor for those who kick goblins"
+  },
+  {
+   "id": "ls2-jb-buckler",
+   "word": "BUCKLER",
+   "clue": "Small shield, big attitude"
+  },
+  {
+   "id": "ls2-jb-leggings",
+   "word": "LEGGINGS",
+   "clue": "Lower half of looking ready"
+  },
+  {
+   "id": "ls2-jb-cloak",
+   "word": "CLOAK",
+   "clue": "Every Malachite owns twelve"
+  },
+  {
+   "id": "ls2-jb-mittens",
+   "word": "MITTENS",
+   "clue": "Thumbs together, warmth forever"
+  },
+  {
+   "id": "ls2-jb-amulet",
+   "word": "AMULET",
+   "clue": "Necklace from a mood, possibly cursed"
+  },
+  {
+   "id": "ls2-jb-bracelet",
+   "word": "BRACELET",
+   "clue": "Wrist bling demanded by the baron"
+  },
+  {
+   "id": "ls2-jb-earring",
+   "word": "EARRING",
+   "clue": "Favorite target of kobold thieves"
+  },
+  {
+   "id": "ls2-jb-crown",
+   "word": "CROWN",
+   "clue": "Heavy hat, heavier ego"
+  },
+  {
+   "id": "ls2-jb-scepter",
+   "word": "SCEPTER",
+   "clue": "Royal stick, for pointing at things"
+  },
+  {
+   "id": "ls2-jb-figurine",
+   "word": "FIGURINE",
+   "clue": "Tiny statue, big feelings"
+  },
+  {
+   "id": "ls2-jb-totem",
+   "word": "TOTEM",
+   "clue": "Carved skull with a story"
+  },
+  {
+   "id": "ls2-jb-goblet",
+   "word": "GOBLET",
+   "clue": "A mug that went to finishing school"
+  },
+  {
+   "id": "ls2-jb-flask",
+   "word": "FLASK",
+   "clue": "Pocket-sized booze stockpile"
+  },
+  {
+   "id": "ls2-jb-waterskin",
+   "word": "WATERSKIN",
+   "clue": "Container a dwarf hopes never to use for water"
+  },
+  {
+   "id": "ls2-jb-rocknut",
+   "word": "ROCKNUT",
+   "clue": "Quarry bush seed, oil source, tooth hazard"
+  },
+  {
+   "id": "ls2-jb-pigtail",
+   "word": "PIGTAIL",
+   "clue": "Plant, not pig part, makes cloth and ale"
+  },
+  {
+   "id": "ls2-jb-fortress",
+   "word": "FORTRESS",
+   "clue": "Home sweet hole in the ground"
+  },
+  {
+   "id": "ls2-jb-outpost",
+   "word": "OUTPOST",
+   "clue": "A fortress before it becomes a problem"
+  },
+  {
+   "id": "ls2-jb-embark",
+   "word": "EMBARK",
+   "clue": "Seven dwarves, one wagon, zero plan"
+  },
+  {
+   "id": "ls2-jb-berserk",
+   "word": "BERSERK",
+   "clue": "Way past a tantrum"
+  },
+  {
+   "id": "ls2-jb-titan",
+   "word": "TITAN",
+   "clue": "Enormous visitor nobody invited"
+  },
+  {
+   "id": "ls2-jb-colossus",
+   "word": "COLOSSUS",
+   "clue": "Bronze giant with a heavy step"
+  },
+  {
+   "id": "ls2-jb-hydra",
+   "word": "HYDRA",
+   "clue": "More heads than the noble council"
+  },
+  {
+   "id": "ls2-jb-minotaur",
+   "word": "MINOTAUR",
+   "clue": "Bull-headed problem from the labyrinth"
+  },
+  {
+   "id": "ls2-jb-bogeyman",
+   "word": "BOGEYMAN",
+   "clue": "Giggling nightmare for dwarves who walk alone"
+  },
+  {
+   "id": "ls2-jb-clowns",
+   "word": "CLOWNS",
+   "clue": "What lies below. Don't dig."
+  },
+  {
+   "id": "ls2-jb-thief",
+   "word": "THIEF",
+   "clue": "Kobold job title"
+  },
+  {
+   "id": "ls2-jb-snatcher",
+   "word": "SNATCHER",
+   "clue": "Goblin who visits the nursery uninvited"
+  },
+  {
+   "id": "ls2-jb-ambush",
+   "word": "AMBUSH",
+   "clue": "Goblins hiding in the bushes, poorly"
+  },
+  {
+   "id": "ls2-jb-werebeast",
+   "word": "WEREBEAST",
+   "clue": "Fine neighbor twenty-nine days a month"
+  },
+  {
+   "id": "ls2-jb-unicorn",
+   "word": "UNICORN",
+   "clue": "One-horned rarity, elves love it"
+  },
+  {
+   "id": "ls2-jb-honey",
+   "word": "HONEY",
+   "clue": "Sticky gold from bees"
+  },
+  {
+   "id": "ls2-jb-tallow",
+   "word": "TALLOW",
+   "clue": "Fat that becomes soap or candles"
+  },
+  {
+   "id": "ls2-jb-soap",
+   "word": "SOAP",
+   "clue": "Hospital essential no dwarf uses at home"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "ls2-qz-ideal-drinks",
+   "q": "How many drinks per season does a dwarf need?",
+   "options": [
+    "Yes",
+    "Zero, ideally",
+    "One, sipped slowly"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-hammerer-job",
+   "q": "What does the fortress hammerer do?",
+   "options": [
+    "Tunes the bard's drums",
+    "Carries out punishments ordered by the law",
+    "Repairs the forge's hammers"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-adamantine-nickname",
+   "q": "Which nickname do miners give adamantine?",
+   "options": [
+    "Elf-bark",
+    "Crunchy gravel",
+    "Candy"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-bottom-of-world",
+   "q": "What is waiting at the very bottom of the world?",
+   "options": [
+    "Something you should not dig into",
+    "A secret, very exclusive tavern",
+    "A spare aquifer"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-embark-first",
+   "q": "What is the wisest first priority after embarking?",
+   "options": [
+    "Building a sculpture garden",
+    "Setting up booze production",
+    "Opening an elven embassy"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-war-animal",
+   "q": "Which animal is most commonly trained for war?",
+   "options": [
+    "Goldfish",
+    "Kittens",
+    "Dogs"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-mood-no-materials",
+   "q": "What becomes of a dwarf whose strange mood goes unfulfilled?",
+   "options": [
+    "They go insane",
+    "They take up knitting",
+    "They file a polite complaint"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-elephant",
+   "q": "Which surface animal is infamous among old fortresses for stomping everyone flat?",
+   "options": [
+    "The rabbit",
+    "The elephant",
+    "The butterfly"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-monarch",
+   "q": "Which noble may move in once the fortress grows wealthy and important?",
+   "options": [
+    "A dragon tamer",
+    "A florist",
+    "The monarch"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-fun-meaning",
+   "q": "In dwarven terminology, 'fun' usually means:",
+   "options": [
+    "A catastrophe",
+    "A birthday party",
+    "A long nap"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-goblin-gate",
+   "q": "Goblins approach the front gate. What should you do first?",
+   "options": [
+    "Write them a letter",
+    "Pull the drawbridge lever",
+    "Offer refreshments"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-armok",
+   "q": "Armok is associated with what?",
+   "options": [
+    "Bread",
+    "Butterflies",
+    "Blood"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-pig-tail-thread",
+   "q": "Which underground plant provides thread for cloth?",
+   "options": [
+    "Pig tail",
+    "Cave carrot",
+    "Plump helmet"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-sweet-pod-sugar",
+   "q": "Which crop is milled into dwarven sugar?",
+   "options": [
+    "Rock nut",
+    "Sweet pod",
+    "Cave wheat"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-rock-nut-origin",
+   "q": "Rock nuts are the seeds of which plant?",
+   "options": [
+    "Plump helmet",
+    "Elven oak",
+    "Quarry bush"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-best-weapon-metal",
+   "q": "Which material makes the finest weapons of all?",
+   "options": [
+    "Adamantine",
+    "Pine wood",
+    "Aged cheese"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-cage-trap-catch",
+   "q": "What does a cage trap catch?",
+   "options": [
+    "Bad moods",
+    "Creatures that walk over it",
+    "Rainwater"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-wood-burner",
+   "q": "Which job turns logs into charcoal?",
+   "options": [
+    "Bard",
+    "Fish dissector",
+    "Wood burner"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-forgotten-beast-material",
+   "q": "What can a forgotten beast be made of?",
+   "options": [
+    "Almost anything, from steel to snot",
+    "Only cheese",
+    "Exclusively rainbows"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-migrant-origin",
+   "q": "Where do migrant waves usually come from?",
+   "options": [
+    "Falling from the sky",
+    "The rest of the dwarven civilization",
+    "Crawling out of the aquifer"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-silk-source",
+   "q": "Where does dwarven silk come from?",
+   "options": [
+    "Silkworm farms on the surface",
+    "Very fluffy bats",
+    "Giant cave spider webs"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-embark-seven",
+   "q": "How many dwarves usually set out on an embark?",
+   "options": [
+    "Seven",
+    "One hundred",
+    "Two and a cat"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-wagon-fate",
+   "q": "What usually happens to the embark wagon?",
+   "options": [
+    "It drives itself home",
+    "It is taken apart for wood",
+    "It is elected mayor"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-bedroom-needs",
+   "q": "What makes a dwarf happiest about their bedroom?",
+   "options": [
+    "A tree growing through it",
+    "An open sky overhead",
+    "A good bed and fine furniture"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-cmd-manages",
+   "q": "What does the chief medical dwarf oversee?",
+   "options": [
+    "The hospital",
+    "The tavern stock",
+    "The bard's setlist"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-elf-season",
+   "q": "In which season do elven caravans usually arrive?",
+   "options": [
+    "Deep winter",
+    "Spring",
+    "Only at midnight"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-dwarf-caravan-season",
+   "q": "When does the dwarven caravan from the homeland usually arrive?",
+   "options": [
+    "Every week",
+    "Only during sieges",
+    "Autumn"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-human-caravan-season",
+   "q": "Human caravans usually arrive in which season?",
+   "options": [
+    "Summer",
+    "Winter",
+    "Disguise"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-water-magma",
+   "q": "What forms when water meets magma?",
+   "options": [
+    "Soup",
+    "Obsidian",
+    "Nothing interesting"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-steel-recipe",
+   "q": "Which metal is made from iron, flux, and fuel?",
+   "options": [
+    "Copper",
+    "Gold",
+    "Steel"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-bronze-recipe",
+   "q": "Bronze is made by combining copper with:",
+   "options": [
+    "Tin",
+    "Cheese",
+    "Gold"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-charcoal-fuel",
+   "q": "Which fuel is made by burning wood?",
+   "options": [
+    "Felsite",
+    "Charcoal",
+    "Ale"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-engraver-job",
+   "q": "Which job carves images into smoothed walls?",
+   "options": [
+    "Fish cleaner",
+    "Butcher",
+    "Engraver"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-legendary-meaning",
+   "q": "What does it mean when a dwarf's skill is 'legendary'?",
+   "options": [
+    "They are the best of the best",
+    "They tell legends at dinner",
+    "They are fictional"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-soap-ingredients",
+   "q": "Which two things are combined to make soap?",
+   "options": [
+    "Wine and wishes",
+    "Lye and tallow",
+    "Sand and sorrow"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-glass-from",
+   "q": "Glass is made in a furnace mainly from:",
+   "options": [
+    "Ice",
+    "Spider silk",
+    "Sand"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-crundle",
+   "q": "Which of these creatures lives in the caverns?",
+   "options": [
+    "The crundle",
+    "The penguin",
+    "The parrot"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-bogeyman",
+   "q": "What is a bogeyman, according to dwarves who travel alone at night?",
+   "options": [
+    "A nose-related ailment",
+    "A cackling creature that ambushes lone travelers",
+    "A minor noble title"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-web-thrower",
+   "q": "Which giant cavern creature shoots webs?",
+   "options": [
+    "Giant cave sheep",
+    "Giant cave librarian",
+    "Giant cave spider"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-refuse-pile",
+   "q": "What belongs in a refuse stockpile?",
+   "options": [
+    "Bones, shells, and other leftovers",
+    "Only gold bars",
+    "Visiting diplomats"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-prayer-room",
+   "q": "Where do devout dwarves most like to pray?",
+   "options": [
+    "A latrine",
+    "A temple",
+    "A dungeon cell"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-dwarf-need",
+   "q": "Which of these is a genuine dwarven need?",
+   "options": [
+    "To photosynthesize",
+    "To be mistaken for an elf",
+    "To drink alcohol"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-rum-plant",
+   "q": "Which underground crop is brewed into dwarven rum?",
+   "options": [
+    "Sweet pods",
+    "Rock nuts",
+    "Quarry bush leaves"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-wine-plant",
+   "q": "Plump helmets are brewed into:",
+   "options": [
+    "Dwarven milk",
+    "Dwarven wine",
+    "Dwarven soup"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-beer-plant",
+   "q": "Cave wheat is brewed into:",
+   "options": [
+    "Dwarven ink",
+    "Nothing, it refuses",
+    "Dwarven beer"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-ale-plant",
+   "q": "Pig tails can be brewed into:",
+   "options": [
+    "Dwarven ale",
+    "Elven tea",
+    "Goblin cider"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-quality-ladder",
+   "q": "Which of these quality levels is the highest?",
+   "options": [
+    "Well-crafted",
+    "Exceptional",
+    "Finely-crafted"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-crime-investigator",
+   "q": "Who investigates crimes in the fortress?",
+   "options": [
+    "The cat",
+    "The goblin ambassador",
+    "The sheriff"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-chasm-crossing",
+   "q": "What lets dwarves safely cross a chasm?",
+   "options": [
+    "A bridge",
+    "A trampoline",
+    "Optimism"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-embark-meaning",
+   "q": "In dwarven terms, what does 'embark' mean?",
+   "options": [
+    "Barking at elves",
+    "Setting out to found a new fortress",
+    "Climbing a tree"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-calendar-shape",
+   "q": "How is the dwarven year divided?",
+   "options": [
+    "Four seasons named after mugs",
+    "Seven weeks of feasting",
+    "Twelve months named after stones and such"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-iron-ore-month",
+   "q": "Which month is named after an iron ore?",
+   "options": [
+    "Hematite",
+    "Opal",
+    "Timber"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-not-a-stone",
+   "q": "Which dwarven month is not named after a stone at all?",
+   "options": [
+    "Granite",
+    "Timber",
+    "Slate"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-color-gem-month",
+   "q": "Which month shares its name with a gem whose colors seem to shift?",
+   "options": [
+    "Felsite",
+    "Limestone",
+    "Opal"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-militia-off-duty",
+   "q": "What do militia dwarves do when not fighting?",
+   "options": [
+    "Train and spar",
+    "Knit scarves for goblins",
+    "Nap on the battlefield"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-tantrum-spiral",
+   "q": "A 'tantrum spiral' is when:",
+   "options": [
+    "A dwarf spins very fast in anger",
+    "Upset dwarves upset other dwarves until the fort collapses",
+    "A staircase is built in a circle"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "ls2-qz-dump-zone",
+   "q": "What does a garbage dump zone do?",
+   "options": [
+    "Stores spare hats",
+    "Hosts weekly parties",
+    "Collects items marked to be thrown away"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "ls2-qz-mountainhome",
+   "q": "What turns a fortress into the capital of the civilization?",
+   "options": [
+    "The monarch moving in",
+    "Painting a new sign",
+    "Elven approval"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "ls2-qz-petitioners",
+   "q": "Who sometimes arrives asking permission to live in the fortress?",
+   "options": [
+    "Clouds",
+    "Wandering performers and scholars",
+    "Statues"
+   ],
+   "answer": 1
+  }
+ ]
+}

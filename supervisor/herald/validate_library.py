@@ -5,7 +5,7 @@ import collections, glob, json, os, re, sys
 HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "library")
 BASE = set("fort pop year month season weather world drinks meals plants seeds stone wood bars gems cloth thread blocks herd dogs cats "
            "topanimal topanimal_n farms citizen citizen2 citizen_first artifact artifact_item mineral masterwork masterwright promoted post "
-           "deadname moodname cause prof".split())
+           "deadname moodname cause prof town town2 darkfort darkfort2 retreat hillock".split())
 IV = set("dwarf first nick prof age skill level skill2 deity kin rel adj about job fort season weather".split())
 BK = {"who", "first", "fort", "pop", "season", "weather", "event"}
 OG = {"days", "since", "n", "fort", "season", "weather", "pop", "drinks", "wood", "meals", "citizen", "nick", "topic"}
@@ -81,6 +81,14 @@ for g in lib.get("gags", []):
     check_panel(g.get("panel", {}), g.get("id"))
 for j in lib.get("jumble", []):
     if not re.fullmatch(r"[A-Za-z]{4,9}", j.get("word", "")): problems.append(f"{j.get('id')}: jumble word {j.get('word')!r}")
+for pl in lib.get("polls", []):
+    if len(pl.get("options", [])) != len(pl.get("pct", [])) or sum(pl.get("pct", [])) != 100: problems.append(f"{pl.get('id')}: poll pct")
+for rv in lib.get("reviews", []):
+    if not 1 <= int(rv.get("stars", 0)) <= 5: problems.append(f"{rv.get('id')}: stars")
+for q in lib.get("quiz", []):
+    if len(q.get("options", [])) != 3 or q.get("answer") not in (0, 1, 2): problems.append(f"{q.get('id')}: quiz")
+words = collections.Counter(j.get("word", "").upper() for j in lib.get("jumble", []))
+problems += [f"duplicate jumble word {w}" for w, c in words.items() if c > 1]
 problems += [f"duplicate id {i}" for i, c in ids.items() if c > 1]
 
 

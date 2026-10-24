@@ -1,0 +1,3356 @@
+{
+ "strips": [
+  {
+   "id": "cc-bk-recount",
+   "title": "The Bookkeeper",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "barrel",
+      "barrel",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "One barrel. Two barrels. Three..."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug"
+      }
+     ],
+     "caption": "The Bookkeeper takes stock."
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "barrel",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "...forty-one barrels. Final count."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Great! So we have 41?"
+      }
+     ],
+     "caption": "Six hours later."
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "barrel",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "We HAD 41. You drank one while I counted."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "think": "Make that two."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-bk-cats",
+   "title": "The Bookkeeper",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Census complete. {cats} cats, exactly."
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "sleep"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Who let a new one in? I just finished!"
+      },
+      {
+       "who": "cat",
+       "pos": "center",
+       "pose": "stand"
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Correction: {cats} cats, exactly, ish."
+      },
+      {
+       "who": "cat",
+       "pos": "center",
+       "pose": "sleep"
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "sleep"
+      }
+     ],
+     "caption": "Precision has left the fort."
+    }
+   ],
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "cc-bk-sock",
+   "title": "The Bookkeeper",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "sock",
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Ledger says: one sock. Left."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Where's the right one?"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "The ledger does not speculate."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Can the ledger guess?"
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [
+      "sock",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "center",
+       "pose": "happy",
+       "think": "Ledger says zero kobolds."
+      }
+     ],
+     "caption": "Meanwhile, off the books."
+    }
+   ]
+  },
+  {
+   "id": "cc-bk-self-audit",
+   "title": "The Bookkeeper",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "stand",
+       "say": "Population: {pop}. Counted twice."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "stand",
+       "think": "Did I count myself?"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table",
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad",
+       "say": "I have audited myself. There are discrepancies."
+      }
+     ],
+     "sign": "UNDER REVIEW"
+    }
+   ]
+  },
+  {
+   "id": "cc-bk-wagon",
+   "title": "The Bookkeeper",
+   "panels": [
+    {
+     "bg": "depot",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "One wagon of goods, three hundred even!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ],
+     "caption": "The caravan arrives."
+    },
+    {
+     "bg": "depot",
+     "props": [
+      "wagon",
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "angry",
+       "say": "I count 299 goods and one suspicious wagon."
+      }
+     ]
+    },
+    {
+     "bg": "depot",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "The wagon is the wagon."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "So it SAYS. Four wheels. Like last year. Hm."
+      }
+     ]
+    }
+   ],
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "cc-bk-ghost",
+   "title": "The Bookkeeper",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "coffin",
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Coffins: twelve. Occupied: eleven."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Who's missing?"
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Me! Just out for a walk."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin",
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Then you're double-counted. Pick one."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "sign": "LIABILITIES"
+    }
+   ]
+  },
+  {
+   "id": "cc-bk-drinks",
+   "title": "The Bookkeeper",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Drinks on hand: {drinks}."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Is that a lot?"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "It's a NUMBER. Numbers aren't 'a lot.'"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "mug",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Drinks on hand: a feeling."
+      },
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "mug"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug"
+      }
+     ],
+     "caption": "After the party."
+    }
+   ]
+  },
+  {
+   "id": "cc-tt-request",
+   "title": "Tavern Tales",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "table",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Play something ELSE!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Something else, coming right up!"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "Ohhh, strike the earth, the earth, the earth..."
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug",
+       "think": "Verse two hundred and twelve."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp"
+      }
+     ],
+     "caption": "It was not something else."
+    }
+   ]
+  },
+  {
+   "id": "cc-tt-title",
+   "title": "Tavern Tales",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "What's your song called?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "'The Song.'"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "And your second song?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "'The Song, Reprise.'"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "What's the difference?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "In the reprise I stand on a table."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-tt-critics",
+   "title": "Tavern Tales",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "table",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "A thrown mug! A critic!"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "mug",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry"
+      },
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "angry"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "A standing ovation of mugs!"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "mug",
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Those were all of my mugs."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Encore!"
+      }
+     ],
+     "sign": "MUG FEE: 1"
+    }
+   ]
+  },
+  {
+   "id": "cc-tt-elf",
+   "title": "Tavern Tales",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "I know four hundred songs about trees."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ],
+     "caption": "An elven bard visits."
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Song one: 'Bark.' Song two: 'More Bark.'"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug",
+       "say": "PLAY YOUR ONE SONG AGAIN!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "First request in nine years."
+      }
+     ],
+     "caption": "The elf left after song thirty."
+    }
+   ]
+  },
+  {
+   "id": "cc-tt-ghost",
+   "title": "Tavern Tales",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "And now, verse ten!"
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "angry",
+       "say": "Not THIS song again."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "He passed during verse nine."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "He's been waiting for ten."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "center",
+       "pose": "sad",
+       "say": "I can't rest until it ends."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Then you'll love verse eleven."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-tt-dry",
+   "title": "Tavern Tales",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "We're out of booze."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Then I'll sing until we're not."
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "barrel",
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "FASTER! He's reached the chorus!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "pick"
+      }
+     ],
+     "caption": "The still, moments later."
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel",
+      "barrel",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug",
+       "say": "Here. Drink. Please stop."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Music fixes everything!"
+      }
+     ],
+     "caption": "Brewing record set."
+    }
+   ],
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "cc-tt-new-song",
+   "title": "Tavern Tales",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "I wrote a second song!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Finally! Let's hear it!"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "...htrae eht ekirts, hhhO"
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "That's the first song backwards."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Critics call it 'challenging.'"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-nn-borrow",
+   "title": "Necro Next Door",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "door",
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Hello, neighbour! May I borrow some bones?"
+      }
+     ],
+     "sign": "THE TOWER",
+     "caption": "The necromancer next door."
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "We do NOT lend bones."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Of course. Silly of me."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "happy",
+       "say": "He can have mine. I'm not using them."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-nn-noise",
+   "title": "Necro Next Door",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Your zombies moaned ALL night."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "So sorry! They're learning a song."
+      }
+     ],
+     "sign": "THE TOWER"
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Who's teaching them?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Your bard. He only knows the one."
+      }
+     ],
+     "sign": "THE TOWER"
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "rain"
+     ],
+     "cast": [
+      {
+       "who": "goblin",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Ohhh, strike the earth..."
+      },
+      {
+       "who": "goblin",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "...the earth, the earth!"
+      }
+     ],
+     "caption": "Undead choir, verse 40."
+    }
+   ]
+  },
+  {
+   "id": "cc-nn-siege",
+   "title": "Necro Next Door",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "goblin",
+       "pos": "left",
+       "pose": "angry"
+      },
+      {
+       "who": "goblin",
+       "pos": "center",
+       "pose": "angry"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "A siege! Shall I tidy that up for you?"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "cloud"
+     ],
+     "cast": [
+      {
+       "who": "goblin",
+       "pos": "left",
+       "pose": "sleep"
+      },
+      {
+       "who": "goblin",
+       "pos": "center",
+       "pose": "sleep"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp"
+      }
+     ],
+     "caption": "A polite flick of the wrist."
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "cloud"
+     ],
+     "cast": [
+      {
+       "who": "goblin",
+       "pos": "left",
+       "pose": "happy"
+      },
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "happy",
+       "say": "They're mine now. You're welcome!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "So they're still here."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-nn-pie",
+   "title": "Necro Next Door",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "door",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "A pie, to welcome you to the cavern!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "What's in it?"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "door",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Mostly pie. A little Gerald."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Who's Gerald?"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Gerald is the pie. Say hello, Gerald."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "caption": "The pie waved."
+    }
+   ]
+  },
+  {
+   "id": "cc-nn-ghostsitting",
+   "title": "Necro Next Door",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Could you watch my ghosts this week?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "How many could there be?"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "happy"
+      },
+      {
+       "who": "ghost",
+       "pos": "center",
+       "pose": "armsUp"
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ],
+     "caption": "Several."
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Bedtime. All of you."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "angry",
+       "say": "He lets us haunt till midnight!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-nn-library",
+   "title": "Necro Next Door",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "table",
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Returning this book. Lovely read."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "It's two hundred years overdue."
+      }
+     ],
+     "sign": "LIBRARY"
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Ah, but I was dead for most of it."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "angry",
+       "say": "That doesn't pause the fine."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table",
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Then I'll send the borrower who died."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Hi. It's me. I have no coins."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-ps-since-spring",
+   "title": "Pump Stack",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "armsUp",
+       "say": "Just covering a quick pump shift!"
+      }
+     ],
+     "caption": "Spring."
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "armsUp",
+       "say": "Any minute now, someone will relieve me."
+      }
+     ],
+     "caption": "Summer."
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "cloud"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad",
+       "say": "Has anyone seen my replacement?"
+      }
+     ],
+     "caption": "Spring, a year later."
+    }
+   ]
+  },
+  {
+   "id": "cc-ps-purpose",
+   "title": "Pump Stack",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "What's all this pumping for?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "No idea. They said 'pump.'"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "So I pump."
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "crown",
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Oh, that was for my bath. Last winter."
+      }
+     ],
+     "caption": "Upstairs, the noble remembers."
+    }
+   ]
+  },
+  {
+   "id": "cc-ps-thirst",
+   "title": "Pump Stack",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Could someone bring me a drink?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "There's a hauling priority for that."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "And where am I on it?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Right after this one stone."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "think": "He's been carrying it a month."
+      }
+     ],
+     "caption": "The stone remains in transit."
+    }
+   ]
+  },
+  {
+   "id": "cc-ps-overflow",
+   "title": "Pump Stack",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Pumping magma up to the forges!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Where does the overflow go?"
+      }
+     ],
+     "sign": "MAGMA UP"
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Down."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "And what's down?"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin",
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "angry",
+       "say": "It arrived."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad",
+       "say": "It was warm, at least."
+      }
+     ],
+     "caption": "Downstairs."
+    }
+   ]
+  },
+  {
+   "id": "cc-ps-strength",
+   "title": "Pump Stack",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "A year of pumping. Feel these arms."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Join the militia, soldier!"
+      }
+     ],
+     "caption": "The captain visits."
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Can't. If I let go, the fort floods."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Can't someone swap in?"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "rain"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Last swap was spring. Look how it went."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-ps-honour",
+   "title": "Pump Stack",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "happy",
+       "say": "For your service, a title!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "Can I stop pumping?"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Heavens, no. The title is 'Pump Baron.'"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "armsUp",
+       "think": "Same job. Heavier hat."
+      }
+     ],
+     "caption": "Mandate: Baron must keep pumping."
+    }
+   ]
+  },
+  {
+   "id": "cc-ps-carp",
+   "title": "Pump Stack",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Odd. The pump just got heavier."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      },
+      {
+       "who": "carp",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Thanks for the lift."
+      }
+     ],
+     "caption": "Something came up the pipe."
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "well",
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "How long have you been in there?"
+      },
+      {
+       "who": "carp",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Since spring. Like you."
+      }
+     ],
+     "sign": "NO CARP"
+    }
+   ]
+  },
+  {
+   "id": "cc-mm-formation",
+   "title": "Militia Mondays",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Drill time! Stand in formation!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Could we stand in it at the tavern?"
+      }
+     ],
+     "sign": "BARRACKS"
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "No!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "...That's just the queue for the bar."
+      },
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "mug"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug"
+      }
+     ],
+     "caption": "Formation achieved."
+    }
+   ]
+  },
+  {
+   "id": "cc-mm-danger-room",
+   "title": "Militia Mondays",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Recruits, welcome to the danger room!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Is there a safe room?"
+      }
+     ],
+     "sign": "DANGER ROOM"
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "That's the tavern."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Say no more, sir."
+      }
+     ],
+     "sign": "DANGER ROOM"
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "mug",
+       "say": "Reporting for safety, sir."
+      }
+     ],
+     "caption": "Training was brief."
+    }
+   ]
+  },
+  {
+   "id": "cc-mm-monday",
+   "title": "Militia Mondays",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Goblins at the gate! To arms!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Is it Monday?"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "...Yes?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "We drill on Mondays. We don't fight."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug"
+      },
+      {
+       "who": "goblin",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Same. Mondays are the worst."
+      }
+     ],
+     "caption": "The siege was postponed."
+    }
+   ]
+  },
+  {
+   "id": "cc-mm-armoury",
+   "title": "Militia Mondays",
+   "panels": [
+    {
+     "bg": "workshop",
+     "props": [
+      "anvil"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Pick your weapon, recruit."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "This one."
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "anvil",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "A mug is NOT a weapon!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "goblin",
+       "pos": "left",
+       "pose": "sleep"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy"
+      },
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "stand",
+       "say": "...Fine. A mug is a weapon."
+      }
+     ],
+     "caption": "One tantrum later."
+    }
+   ]
+  },
+  {
+   "id": "cc-mm-why",
+   "title": "Militia Mondays",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Recruits! WHY do we fight?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "So the booze stays safe from goblins!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "happy"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel",
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug",
+       "say": "FOR THE BOOZE!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "We're keeping it safe in here."
+      }
+     ],
+     "caption": "Morale: excellent. Booze: shrinking."
+    }
+   ]
+  },
+  {
+   "id": "cc-mm-patrol",
+   "title": "Militia Mondays",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Patrol route: the whole fort."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Yes, captain!"
+      }
+     ],
+     "sign": "PATROL"
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "mug",
+       "say": "Checkpoint one: tavern. Secure."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "mug",
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Checkpoint two: also tavern."
+      }
+     ],
+     "caption": "Checkpoints three to nine: tavern."
+    }
+   ]
+  },
+  {
+   "id": "cc-dd-stethoscope",
+   "title": "Doctor Doctor",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug",
+       "say": "Say 'ahh.'"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Is that a mug?"
+      }
+     ],
+     "caption": "The chief medical dwarf."
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "It's a stethoscope that holds ale."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "What do you hear?"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug",
+       "say": "Diagnosis: I was thirsty."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-dd-sniff-scan",
+   "title": "Doctor Doctor",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "The dog will now scan your bones."
+      },
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "stand",
+       "think": "Bone. Bone. BONE. Bone."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Good news: you have all your bones."
+      },
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy",
+       "think": "For now."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-dd-second-opinion",
+   "title": "Doctor Doctor",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "You'll live."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "I'd like a second opinion."
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      },
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Woof."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "The second opinion agrees. So does the third."
+      },
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy"
+      },
+      {
+       "who": "dog",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    }
+   ],
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "cc-dd-splint",
+   "title": "Doctor Doctor",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "That leg needs a splint."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Thank goodness."
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "We're out of splints. Have a mug."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "For the leg?"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "For your mood. The leg is on its own."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-dd-moon",
+   "title": "Doctor Doctor",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "I get very hairy every full moon."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Let's ask the dog."
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Woof."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "The dog says that's normal."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "left",
+       "pose": "happy"
+      },
+      {
+       "who": "dog",
+       "pos": "right",
+       "pose": "happy",
+       "think": "Finally, a friend my size."
+      }
+     ],
+     "caption": "That night."
+    }
+   ]
+  },
+  {
+   "id": "cc-dd-reflex",
+   "title": "Doctor Doctor",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug",
+       "say": "Now I tap your knee with the mug."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp"
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Excellent kick!"
+      }
+     ],
+     "caption": "The mug went far."
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "crown",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Who threw a mug at me?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Not a tantrum, my lord. A reflex!"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gags": [
+  {
+   "id": "cx-elf-apology-trade",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "wagon",
+     "tree"
+    ],
+    "cast": [
+     {
+      "who": "elf",
+      "pos": "center",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "\"We accept payment in apologies, one per chair you own.\"",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "cx-ceiling-too-far",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sun",
+     "cloud"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Day one aboveground: the ceiling is too far away and nobody will fix it."
+  },
+  {
+   "id": "cx-mood-shopping-list",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "workshop",
+     "gem"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "armsUp"
+     }
+    ]
+   },
+   "caption": "Strange mood requests: one gem, one log, and 'a little privacy, Doris.'",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "cx-cat-door",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "door"
+    ],
+    "cast": [
+     {
+      "who": "cat",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "cat",
+      "pos": "center",
+      "pose": "happy"
+     },
+     {
+      "who": "cat",
+      "pos": "right",
+      "pose": "sleep"
+     }
+    ]
+   },
+   "caption": "The cats have installed their own door. Nobody remembers approving it.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "cx-beast-name",
+   "panel": {
+    "bg": "cavern",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "beast",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "The forgotten beast would like to be remembered, preferably as 'Steve.'"
+  },
+  {
+   "id": "cx-titan-directions",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "tree",
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "beast",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ],
+    "sign": "ELVES ->"
+   },
+   "caption": "The hill titan asked for the tavern. We gave him the elves' address."
+  },
+  {
+   "id": "cx-kobold-lost-found",
+   "panel": {
+    "bg": "cavern",
+    "props": [
+     "sign",
+     "sock",
+     "gem"
+    ],
+    "cast": [
+     {
+      "who": "kobold",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ],
+    "sign": "LOST+FOUND"
+   },
+   "caption": "The kobold's lost and found is thriving. Everything in it is ours."
+  },
+  {
+   "id": "cx-roll-call",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "Roll call: Urist, Urist, Urist. And the new migrant, Urist."
+  },
+  {
+   "id": "cx-winning-myth",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ],
+    "sign": "LOSING=FUN"
+   },
+   "caption": "The scholars agree: 'winning' is a myth invented by elves."
+  },
+  {
+   "id": "cx-helmet-personalities",
+   "panel": {
+    "bg": "farm",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "{citizen} says every plump helmet has its own personality. Most are 'plump.'"
+  },
+  {
+   "id": "cx-dining-hall-cheese",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table",
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "mug"
+     }
+    ]
+   },
+   "caption": "The dining hall is 'legendary' thanks to one engraving of a very nice cheese."
+  },
+  {
+   "id": "cx-dig-down",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "pick"
+     }
+    ]
+   },
+   "caption": "'Dig down,' they said. Nobody ever mentioned when to stop."
+  },
+  {
+   "id": "cx-not-a-vampire",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "coffin"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "He's not a vampire. He just hates sunlight and sleeps where the missing dwarves were."
+  },
+  {
+   "id": "cx-siege-tavern",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "barrel",
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "goblin",
+      "pos": "left",
+      "pose": "mug"
+     },
+     {
+      "who": "goblin",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Week three of the siege. The goblins' tavern is now nicer than ours."
+  },
+  {
+   "id": "cx-rock-rock",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "rocks",
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "\"Is that just a rock?\" \"It's a ☼rock☼. Notice the little suns.\""
+  },
+  {
+   "id": "cx-well-queue",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "well"
+    ],
+    "cast": [
+     {
+      "who": "cat",
+      "pos": "left",
+      "pose": "sleep"
+     },
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "The line for the well is {pop} dwarves long. The front of it is a cat."
+  },
+  {
+   "id": "cx-carp-pump",
+   "panel": {
+    "bg": "cavern",
+    "props": [
+     "well"
+    ],
+    "cast": [
+     {
+      "who": "carp",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The carp has learned to work the pump. It's pumping the dwarves OUT."
+  },
+  {
+   "id": "cx-minecart-commute",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "armsUp"
+     }
+    ]
+   },
+   "caption": "Minecart commute: three seconds. Recovery time: three weeks."
+  },
+  {
+   "id": "cx-noble-planet",
+   "panel": {
+    "bg": "bedroom",
+    "props": [
+     "bed",
+     "crown"
+    ],
+    "cast": [
+     {
+      "who": "noble",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "The baron likes his new bedroom, except that it's in the same fort as us."
+  },
+  {
+   "id": "cx-thesis-review",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table",
+     "mug"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "The scholar's thesis, 'Why Is the Sky?', received peer review: a thrown mug."
+  },
+  {
+   "id": "cx-poetry-water",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "mug",
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "angry"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "Poetry night: twelve odes to wine, one to water, and a brawl about the water one."
+  },
+  {
+   "id": "cx-furniture-unhappy",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table",
+     "mug"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "{citizen_first} has been upset since the {weather}. The furniture is now upset too."
+  },
+  {
+   "id": "cx-artifact-ranking",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "gem"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "{artifact} was voted the fort's finest treasure. The dwarf who made it came second."
+  },
+  {
+   "id": "cx-slab-reference",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "coffin"
+    ],
+    "cast": [
+     {
+      "who": "ghost",
+      "pos": "left",
+      "pose": "sad"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The ghost wants a memorial slab. The mason wants to see some references."
+  },
+  {
+   "id": "cx-coffin-bestseller",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "coffin",
+     "bed"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Carpenter's best seller: the coffin. Second best: the bed, for practice."
+  },
+  {
+   "id": "cx-overseer-personal",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Somewhere above the sky, someone clicked 'dig' 400 times. Down here it feels personal."
+  },
+  {
+   "id": "cx-dogs-fetch",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "dog",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "dog",
+      "pos": "center",
+      "pose": "sleep"
+     },
+     {
+      "who": "dog",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "{dogs} dogs in the fort, and not one will fetch the hammerer.",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "cx-ration-moods",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "barrel",
+     "barrel",
+     "barrel"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "mug"
+     }
+    ]
+   },
+   "caption": "{drinks} drinks in stock. Rations are now measured in barrels per dwarf per mood.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "cx-tree-hug-talks",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "tree"
+    ],
+    "cast": [
+     {
+      "who": "elf",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "axe"
+     }
+    ]
+   },
+   "caption": "The elf is hugging the last tree. The woodcutter is hugging his axe. Talks go on."
+  },
+  {
+   "id": "cx-tailor-claws",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "workshop",
+     "sock"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The tailor no longer asks about the claw marks. He just charges extra."
+  },
+  {
+   "id": "cx-veteran-baby",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "baby",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "The baby has survived three sieges and still refuses to eat plump helmets."
+  },
+  {
+   "id": "cx-open-plan",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks",
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "We call it an 'open-plan layout.' The engineer calls it 'the cave-in.'"
+  },
+  {
+   "id": "cx-rain-research",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "rain",
+     "cloud"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "Urist has stood in the rain for an hour 'to see what the fuss is about.'",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "cx-wheelbarrow",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "New wheelbarrows: now one dwarf can move one stone, but more slowly."
+  },
+  {
+   "id": "cx-crown-mandate",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "crown",
+     "gem"
+    ],
+    "cast": [
+     {
+      "who": "noble",
+      "pos": "left",
+      "pose": "angry"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Mandate: three ☼crowns☼ by spring. Stock: one crown and one very sweaty jeweler."
+  },
+  {
+   "id": "cx-welcome-sign",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sign",
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "elf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ],
+    "sign": "KEEP GOING"
+   },
+   "caption": "Welcome to {fort}. Population {pop}. Elves, please keep going."
+  }
+ ]
+}

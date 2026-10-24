@@ -110,6 +110,13 @@
   .flip { display: inline-block; transform: rotate(180deg); }
   .ingr { font-size: 9.5px; font-style: italic; color: var(--accent); margin-bottom: 2px; }
   .item.obit { border: 1px solid var(--ink); padding: 4px 6px; background: rgba(0,0,0,.04); }
+  .stars { color: var(--accent); font-size: 11px; letter-spacing: 1px; }
+  .pbar { position: relative; font-size: 10px; padding: 1px 3px; margin: 2px 0; border: 1px solid var(--hair); display: flex; justify-content: space-between; }
+  .pbar > div { position: absolute; left: 0; top: 0; bottom: 0; background: rgba(122,75,22,.25); z-index: 0; }
+  .pbar span, .pbar b { position: relative; z-index: 1; }
+  ol.top { margin: 2px 0 0 16px; padding: 0; font-size: 10.5px; }
+  .vox p { font-size: 10.5px; margin-bottom: 2px; }
+  .item.prop .price { text-align: right; font-weight: 900; font-size: 12px; }
   .cls div { padding: 1px 0; border-bottom: 1px dotted var(--hair); }
   .cls div:last-child { border: 0; }
   .cls b { font-variant: small-caps; }
@@ -229,7 +236,7 @@ function context(r) {
     topanimal: top && top[1] > 1 ? top[0] : null, topanimal_n: top && top[1] > 1 ? top[1] : null, farms: n(K && K.farms),
     citizen: ppl[0], citizen2: ppl[1], citizen_first: ppl[2] ? ppl[2].split(' ')[0] : null, _people: ppl,
     artifact: art ? clean(art.name) : null, artifact_item: art ? clean(art.item).replace(/^[-\s«]+|[-\s»]+$/g, '').replace(/[«»]/g, '') : null,
-    ...news,
+    ...news, ...worldSlots(r),
   };
   const se = (wx.season || '').toLowerCase(), g = k => c[k] || 0;
   const conds = new Set(Object.entries({
@@ -247,7 +254,10 @@ function context(r) {
 function fillT(s, sl) {
   let ok = true;
   const out = s.replace(/\{(\w+)\}/g, (m, k) => { const v = sl[k]; if (v == null || v === '') { ok = false; return m; } return String(v); });
-  return ok ? ownName(out) : null;
+  if (!ok) return null;
+  // an ALL-CAPS headline template keeps its caps after the names are filled in ("MASSIVEBARBS TO QUAKEFOCUS")
+  const bare = s.replace(/\{\w+\}/g, '');
+  return ownName(/[A-Z]{4}/.test(bare) && !/[a-z]/.test(bare) ? out.toUpperCase() : out);
 }
 function fillE(e, sl) {
   const walk = v => typeof v === 'string' ? fillT(v, sl) : Array.isArray(v) ? v.map(walk) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k === 'id' || k === 'when' ? x : walk(x)])) : v;
@@ -1153,6 +1163,63 @@ function pageItems(ctx, r) {
   return out;
 }
 
+// ---------- features: world news, reviews, polls, top lists, vox pops, help wanted, property, announcements ----------
+function worldSlots(r) {
+  if (!W || !W.sites || !W.fort) return {};
+  const fx = W.fort.x, fy = W.fort.y, near = t => W.sites.filter(s => s.type === t && clean(s.name) && s.name !== W.fort.name)
+    .sort((a, b) => Math.hypot(a.x - fx, a.y - fy) - Math.hypot(b.x - fx, b.y - fy)).slice(0, 5).map(s => cap(clean(s.name)));
+  const two = l => { const sh = shuffle(r, l); return [sh[0] || null, sh[1] || null]; };
+  const [town, town2] = two(near('Town')), [darkfort, darkfort2] = two(near('DarkFortress'));
+  return {town, town2, darkfort, darkfort2, retreat: two(near('ForestRetreat'))[0], hillock: two(near('Fortress'))[0]};
+}
+const stars = n => '★'.repeat(Math.max(0, Math.min(5, n | 0))) + '☆'.repeat(5 - Math.max(0, Math.min(5, n | 0)));
+function featureItems(ctx, r) {
+  const out = [], put = (ids, html) => out.push({ids: [].concat(ids), html});
+  const wn = choose1(LIB.world_news, ctx, r);
+  if (wn) put(wn.id, `<div class="item"><div class="kick">${esc(wn.kick || 'Foreign Desk')}</div><h3>${esc(wn.head)}</h3><p class="just dropcap">${esc(wn.body)}</p></div>`);
+  const tr = choose1(LIB.travel, ctx, r);
+  if (tr) put(tr.id, `<div class="item"><div class="kick">Travel</div><h3>${esc(tr.head)}</h3><p class="just">${esc(tr.body)}</p></div>`);
+  const la = choose1(LIB.letters_abroad, ctx, r);
+  if (la) put(la.id, `<div class="item"><div class="kick">Letters From Abroad</div><p class="just"><i>Sir,</i> ${esc(la.body)}</p><div class="by">— ${esc(la.by)}</div></div>`);
+  for (const a of choose(LIB.world_ads, ctx, r, 1))
+    put(a.id, `<div class="item ad${a.inv ? ' inv' : ''}">${(a.lines || []).map(([st, tx]) => `<div class="${esc(st)}">${esc(tx)}</div>`).join('')}</div>`);
+  const rv = choose1(LIB.reviews, ctx, r);
+  if (rv) put(rv.id, `<div class="item"><div class="kick">${esc(rv.kind || 'Review')}</div><h3>${esc(rv.head)}</h3><div class="stars">${stars(rv.stars)}</div><p class="just">${esc(rv.body)}</p><div class="by">— ${esc(rv.by)}</div></div>`);
+  const pl = choose1(LIB.polls, ctx, r);
+  if (pl && pl.options && pl.pct) put(pl.id, `<div class="item poll"><div class="kick">The ${esc(paper().noun)} Poll</div><h3>${esc(pl.q)}</h3>${pl.options.map((o, i) => `<div class="pbar"><span>${esc(o)}</span><b>${pl.pct[i] | 0}%</b><div style="width:${pl.pct[i] | 0}%"></div></div>`).join('')}${pl.note ? `<div class="by">${esc(pl.note)}</div>` : ''}</div>`);
+  const tl = choose1(LIB.toplists, ctx, r);
+  if (tl) put(tl.id, `<div class="item"><div class="kick">The List</div><h3>${esc(tl.head)}</h3><ol class="top">${(tl.items || []).map(x => `<li>${esc(x)}</li>`).join('')}</ol></div>`);
+  const vp = choose1(LIB.voxpops, ctx, r), people = ctx.sl._people || [];
+  if (vp && people.length >= 3) {
+    const ans = shuffle(r, vp.answers || []).slice(0, 3), who = shuffle(r, people);
+    put(vp.id, `<div class="item vox"><div class="kick">Dwarf on the Street</div><h3>${esc(vp.q)}</h3>${ans.map((a, i) => `<p><b>${esc(who[i])}:</b> “${esc(a)}”</p>`).join('')}</div>`);
+  }
+  const hw = choose(LIB.help_wanted, ctx, r, 3);
+  if (hw.length) put(hw.map(x => x.id), `<div class="item cls"><div class="kick">Situations Vacant</div>${hw.map(x => `<div>${esc(T(x))}</div>`).join('')}</div>`);
+  const re = choose1(LIB.real_estate, ctx, r);
+  if (re) put(re.id, `<div class="item prop"><div class="kick">Property</div><h3>${esc(re.head)}</h3><p class="just">${esc(re.text)}</p><div class="price">${esc(re.price || 'POA')}</div></div>`);
+  const an = choose(LIB.announcements, ctx, r, 2);
+  if (an.length) put(an.map(x => x.id), `<div class="item"><div class="kick">Announcements</div>${an.map(x => `<p class="just"><b>${esc((x.kind || '').toUpperCase())}.</b> ${esc(x.text)}</p>`).join('')}</div>`);
+  return out;
+}
+function cardForeign() {
+  if (!LIB.world_news || !LIB.world_news.length) return null;
+  const r = rng(Date.now() / 1000 | 0), ctx = context(r);
+  const news = choose(LIB.world_news, ctx, r, 3), tr = choose1(LIB.travel, ctx, r), la = choose(LIB.letters_abroad, ctx, r, 2);
+  if (!news.length) return null;
+  markSeen([...news, tr, ...la].filter(Boolean).map(x => x.id));
+  const [lead, ...rest] = news, world = clean((W && W.world) || (S.fort || {}).world || 'the World');
+  return `<div class="kicker"><span>Foreign Desk</span><span>News From ${esc(world)}</span></div>
+    <div class="headline">${esc(lead.head)}</div>
+    <div class="deck">${esc(lead.kick || 'From our correspondent')}</div>
+    <p class="body just dropcap">${esc(lead.body)}</p>
+    <div class="cols2" style="margin-top:5px">
+      <div>${rest.map(n => `<div class="item"><div class="kick">${esc(n.kick || 'Abroad')}</div><h3>${esc(n.head)}</h3><p class="just">${esc(n.body)}</p></div>`).join('')}</div>
+      <div>${tr ? `<div class="item"><div class="kick">Travel</div><h3>${esc(tr.head)}</h3><p class="just">${esc(tr.body)}</p></div>` : ''}
+           ${la.map(l => `<div class="item"><div class="kick">Letters From Abroad</div><p class="just"><i>Sir,</i> ${esc(l.body)}</p><div class="by">— ${esc(l.by)}</div></div>`).join('')}</div>
+    </div>`;
+}
+
 // ---------- below the fold: ads, editorials, letters, classifieds ----------
 function citizens() {
   const names = new Set();
@@ -1161,7 +1228,7 @@ function citizens() {
   return [...names];
 }
 function fillers(r) {
-  const ctx = context(r), out = [...storyItems(ctx, r), ...pageItems(ctx, r)];
+  const ctx = context(r), out = [...storyItems(ctx, r), ...pageItems(ctx, r), ...featureItems(ctx, r)];
   const put = (ids, html) => out.push({ids: [].concat(ids), html});
   // display ads
   for (const a of choose(LIB.ads, ctx, r, 7))
@@ -1211,7 +1278,7 @@ function fillFold() {
 
 // ---------- rotation ----------
 const CARDS = [
-  {fn: cardDwarf, secs: 30}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardArchive, secs: 20},
+  {fn: cardDwarf, secs: 30}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardArchive, secs: 20},
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
 let cardIdx = params.has('card') ? Number(params.get('card')) - 2 : -1, cardTimer = null;
