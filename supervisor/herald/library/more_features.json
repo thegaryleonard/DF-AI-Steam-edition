@@ -1,0 +1,3418 @@
+{
+ "reviews": [
+  {
+   "id": "x3-rv-rock-nut-tasting",
+   "kind": "Dining",
+   "head": "Rock Nut Tasting Menu, Seven Courses",
+   "body": "Course one was a rock nut. Course two was a rock nut, warmer. By course five the chef was visibly running out of ideas and simply placed the bag on the table. Texture: geological. The paste course was bold, in that it was also a rock nut.",
+   "stars": 2,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "x3-rv-quarry-bush-salad",
+   "kind": "Dining",
+   "head": "Quarry Bush Leaves, Lightly Dressed",
+   "body": "The menu calls them 'leaves'. I call them 'what the farmer found'. Crunchy, bitter, faintly accusing. A worthy side dish for anyone who has wronged the kitchen. I have apparently wronged the kitchen.",
+   "stars": 3,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "x3-rv-prepared-meal-mystery",
+   "kind": "Dining",
+   "head": "The Fine Meal, Ingredients Unlisted",
+   "body": "The waiter described it as 'a fine stew of dwarven syrup, cave lobster and a third thing'. I asked about the third thing. He said the cook also asked about the third thing. Delicious, with an aftertaste of questions.",
+   "stars": 4,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "x3-rv-dimple-dye-gala",
+   "kind": "Dining",
+   "head": "Dimple Cup Gala Dinner",
+   "body": "Every dish at this gala was dyed blue, including the bread, the cheese and, for a brief moment, the host. Flavour unremarkable. Colour unforgettable. I left with a blue beard and a deep sense of occasion.",
+   "stars": 3,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "x3-rv-one-act-hauling",
+   "kind": "Theatre",
+   "head": "'Job Cancelled: Interrupted', a Farce",
+   "body": "A dwarf sets out to haul a mug. He is interrupted by a cat. He sets out again. A different cat. Ninety minutes, eleven cats, zero mugs. The audience wept with recognition. The mug, I understand, is still on the floor.",
+   "stars": 5,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "x3-rv-ghost-matinee",
+   "kind": "Theatre",
+   "head": "'Unmemorialised', a Ghost Story Matinee",
+   "body": "The ghost in the lead role was a genuine ghost who wandered on stage looking for a slab. The cast improvised around her bravely. Three understudies fainted. She received a standing ovation and, afterwards, a slab. Best ending this season.",
+   "stars": 4,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "x3-rv-liaison-drama",
+   "kind": "Theatre",
+   "head": "'The Liaison Asks About Trade', a Monologue",
+   "body": "One actor, one chair, two hours of asking whether we would like to discuss the trade agreement. We would not. He asks again. The final act, in which he leaves until next year, drew the loudest cheer I have ever heard.",
+   "stars": 2,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "x3-rv-poem-on-ramps",
+   "kind": "Poetry",
+   "head": "'Up, Then Down, Then Up', a Poem on Ramps",
+   "body": "A bold experiment: every line of this poem climbs one z-level, then descends. Readers on the lower floors reported missing the middle stanza entirely. I read it standing on a ramp and frankly felt very moved, mostly upward.",
+   "stars": 4,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "x3-rv-haiku-mandates",
+   "kind": "Poetry",
+   "head": "Mandate Haiku, Collected",
+   "body": "Seventeen syllables per mandate, eighteen if the noble insisted. Highlight: 'Make three gold goblets / I do not need three goblets / I need you to try.' The collection ends with a haiku banning haiku. Seems fair.",
+   "stars": 3,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "x3-rv-verse-of-the-axe",
+   "kind": "Poetry",
+   "head": "'Ballad of {masterwright}', by an Admirer",
+   "body": "Thirty stanzas praising {masterwright}'s recent work, each rhyming 'masterpiece' with 'piece' and then, with growing desperation, 'geese'. The sentiment is real. The geese are not explained. Recommended to the subject's mother.",
+   "stars": 3,
+   "by": "Ingish Pagebeard",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "x3-rv-codex-on-doors",
+   "kind": "Books",
+   "head": "'A Codex on Doors, With Some Remarks on Hatches'",
+   "body": "A thorough treatment. The author has opened every door in the fortress and closed most of them. The chapter on forbidden doors is gripping. The appendix on hatches is for specialists. I finished it and immediately locked myself in.",
+   "stars": 4,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "x3-rv-quire-on-minecarts",
+   "kind": "Books",
+   "head": "'Momentum, and Other Regrets', a Quire",
+   "body": "Written in the hospital by a former minecart enthusiast, this short work explains track physics in plain language: things go fast, then they stop, then you are in the hospital. Diagrams drawn left-handed for reasons made clear in chapter one.",
+   "stars": 4,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "x3-rv-scroll-of-names",
+   "kind": "Books",
+   "head": "'Every Dwarf Called Urist', a Scroll",
+   "body": "Exhaustive. Literally exhausting. The scroll unrolled across the dining hall, through the kitchen and into the tavern, where it was used as a tablecloth. Scholars call it definitive. Everyone else calls it the tablecloth.",
+   "stars": 2,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "x3-rv-drum-and-dirge",
+   "kind": "Music",
+   "head": "Drum Recital During the Siege",
+   "body": "The drummer played straight through the goblin assault and never once lost the beat, chiefly because he was locked behind the drawbridge with nowhere else to be. Tempo: brisk. Encore: involuntary. Siege: unaffected.",
+   "stars": 4,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "x3-rv-new-musical-form",
+   "kind": "Music",
+   "head": "Premiere of a New Musical Form",
+   "body": "The composer explained the form for forty minutes: one melody, played on a lyre, then interrupted by a second lyre that disagrees. The performance itself lasted nine seconds. The explanation was better. I would attend the explanation again.",
+   "stars": 3,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "x3-rv-migrant-shanty",
+   "kind": "Music",
+   "head": "Migrant Shanties at the Gate",
+   "body": "Newcomers sang the long songs of the road, about walking, then walking, then a hill. The fortress joined in on the chorus, which was simply 'are we there yet'. Rousing stuff. Nobody had the heart to tell them the beds are not built.",
+   "stars": 4,
+   "by": "Dastot Quillwhisker",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-rv-smoothed-corridor",
+   "kind": "Architecture",
+   "head": "The Smoothed Corridor, East Wing",
+   "body": "Smooth as a cheese and nearly as tempting to lick, which I am told several apprentices have done. The engraver has not yet arrived, leaving the walls in a state of pure promise. A corridor at the height of its potential.",
+   "stars": 4,
+   "by": "Kib Plumbline"
+  },
+  {
+   "id": "x3-rv-statue-garden",
+   "kind": "Architecture",
+   "head": "The Statue Garden, Level Four",
+   "body": "Forty statues in one room, every one of them depicting a dwarf looking at another statue. The effect is recursive and deeply unsettling. Excellent for raising room value. Terrible for anyone who wants to be alone with their thoughts.",
+   "stars": 3,
+   "by": "Kib Plumbline"
+  },
+  {
+   "id": "x3-rv-stair-tower",
+   "kind": "Architecture",
+   "head": "The Great Up/Down Staircase",
+   "body": "One hundred and four levels of straight stair, top to bottom, no landings, no railings, no mercy. A triumph of ambition over knees. I climbed it once for this review. I am writing it from the hospital, where the view is worse.",
+   "stars": 4,
+   "by": "Kib Plumbline"
+  },
+  {
+   "id": "x3-rv-menacing-spikes",
+   "kind": "Fashion",
+   "head": "The Spiked Band, Menacing with Bone",
+   "body": "This season's must-have bracelet is encircled with bands of menacing spikes, menacing with spikes, and menacing in general. Wearers report excellent respect at the dining table and great difficulty scratching their noses.",
+   "stars": 4,
+   "by": "Fikod Hemstitch"
+  },
+  {
+   "id": "x3-rv-military-underwear",
+   "kind": "Fashion",
+   "head": "The Militia's New Uniform, Partially Worn",
+   "body": "Someone ticked 'replace clothing' on the uniform order and the entire squad paraded in steel helms, breastplates and nothing else. Bold, breezy, historically unprecedented. The goblins retreated immediately. Five stars for tactics, one for modesty.",
+   "stars": 3,
+   "by": "Fikod Hemstitch"
+  },
+  {
+   "id": "x3-rv-pig-tail-tunic",
+   "kind": "Fashion",
+   "head": "Pig Tail Fibre Tunics",
+   "body": "Made from the plant, not the pig, as the clothier has explained to every single customer. Soft, durable, breathable, and impossible to wear without someone asking about the pig. Fashion should start conversations. This one never ends.",
+   "stars": 4,
+   "by": "Fikod Hemstitch"
+  },
+  {
+   "id": "x3-rv-tavern-performers",
+   "kind": "Taverns",
+   "head": "The Tavern, Visitor Night",
+   "body": "Packed with travelling performers, a poet, two bards and a monster slayer who wanted a job. Nobody bought a drink; everyone asked for residency. The keeper served a single mug to forty petitioners. Atmosphere: hopeful. Profits: hypothetical.",
+   "stars": 3,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "x3-rv-syrup-snug",
+   "kind": "Taverns",
+   "head": "The Snug Behind the Still, {drinks} in Stock",
+   "body": "With {drinks} drinks in the barrels, the snug has the warm glow of a place that will not run dry this week. The seats are barrels. The barrels are full. Customers keep checking. Every check is a joy.",
+   "stars": 5,
+   "by": "Morul Ladlebeard",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "x3-rv-winter-tavern",
+   "kind": "Taverns",
+   "head": "The Tavern, Snowed In",
+   "body": "The surface entrance is buried, which the regulars consider a feature. Nobody new can get in, nobody old wants to leave, and the fire is stoked with old furniture of questionable sentimental value. Cozy, smoky, slightly illegal.",
+   "stars": 4,
+   "by": "Morul Ladlebeard",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x3-rv-cavern-picnic",
+   "kind": "Dining",
+   "head": "Picnic in the First Cavern",
+   "body": "Lovely fungus trees, soft moss, a gentle drip. Lunch was interrupted by a giant cave toad who joined us uninvited and ate the cheese, the basket and some of the blanket. He was a better guest than my cousin. Four stars, one for the toad.",
+   "stars": 4,
+   "by": "Morul Ladlebeard"
+  }
+ ],
+ "polls": [
+  {
+   "id": "x3-pl-ramp-or-stairs",
+   "q": "Ramps or stairs?",
+   "options": [
+    "Stairs",
+    "Ramps",
+    "Fall gracefully"
+   ],
+   "pct": [
+    48,
+    37,
+    15
+   ],
+   "note": "Fifteen percent was the hospital ward, voting as a bloc."
+  },
+  {
+   "id": "x3-pl-liaison-question",
+   "q": "When the liaison asks about trade, you:",
+   "options": [
+    "Discuss trade",
+    "Hide in the tavern",
+    "Pretend to be a statue"
+   ],
+   "pct": [
+    6,
+    51,
+    43
+   ],
+   "note": "The liaison was given the questionnaire. He asked about trade."
+  },
+  {
+   "id": "x3-pl-best-z-level",
+   "q": "Your favourite z-level?",
+   "options": [
+    "The one with the beds",
+    "The one with the barrels",
+    "The one we haven't dug yet",
+    "Whatever is below the magma"
+   ],
+   "pct": [
+    21,
+    44,
+    25,
+    10
+   ],
+   "note": "Ten percent of respondents were miners and are no longer available for comment."
+  },
+  {
+   "id": "x3-pl-engraving-subject",
+   "q": "What should we engrave on the dining hall walls?",
+   "options": [
+    "Our victories",
+    "Cheese",
+    "Nothing, smooth is fine",
+    "The overseer, smiling"
+   ],
+   "pct": [
+    31,
+    28,
+    30,
+    11
+   ],
+   "note": "The overseer submitted eleven ballots."
+  },
+  {
+   "id": "x3-pl-nickname-policy",
+   "q": "Should dwarves be allowed to choose their own nicknames?",
+   "options": [
+    "Yes",
+    "No",
+    "Only if it's 'Thunderbeard'"
+   ],
+   "pct": [
+    55,
+    12,
+    33
+   ],
+   "note": "Thirty-three percent of the fort now wants to be called Thunderbeard."
+  },
+  {
+   "id": "x3-pl-vampire-test",
+   "q": "How do we find the vampire?",
+   "options": [
+    "Check who never drinks",
+    "Check who never sleeps",
+    "Ask nicely",
+    "There is no vampire"
+   ],
+   "pct": [
+    38,
+    25,
+    7,
+    30
+   ],
+   "note": "Thirty percent said there is no vampire. We have noted their names. All of them."
+  },
+  {
+   "id": "x3-pl-lever-labels",
+   "q": "Should levers be labelled?",
+   "options": [
+    "Absolutely",
+    "Ruins the surprise",
+    "What lever?"
+   ],
+   "pct": [
+    62,
+    24,
+    14
+   ],
+   "note": "A lever was pulled during polling. Something somewhere is now flooded."
+  },
+  {
+   "id": "x3-pl-animal-names",
+   "q": "Best name for the newest {topanimal}?",
+   "options": [
+    "Urist",
+    "Also Urist",
+    "Lunch",
+    "Sir"
+   ],
+   "pct": [
+    27,
+    18,
+    22,
+    33
+   ],
+   "note": "'Lunch' polled strongly among the kitchen staff."
+  },
+  {
+   "id": "x3-pl-cavern-day-trip",
+   "q": "Would you visit the caverns for fun?",
+   "options": [
+    "Yes, with a sword",
+    "Yes, with a militia",
+    "No",
+    "I am already lost there"
+   ],
+   "pct": [
+    18,
+    29,
+    49,
+    4
+   ],
+   "note": "Four percent sent their answers by echo."
+  },
+  {
+   "id": "x3-pl-chair-shortage",
+   "q": "Where do you sit when all chairs are taken?",
+   "options": [
+    "The floor",
+    "A barrel",
+    "A noble",
+    "I stand, defiantly"
+   ],
+   "pct": [
+    40,
+    35,
+    3,
+    22
+   ],
+   "note": "Three percent have been reported to the sheriff."
+  },
+  {
+   "id": "x3-pl-mood-materials",
+   "q": "If you were taken by a fey mood, what would you demand?",
+   "options": [
+    "Bone",
+    "Shells",
+    "Something red",
+    "A nap"
+   ],
+   "pct": [
+    17,
+    14,
+    33,
+    36
+   ],
+   "note": "Thirty-six percent misunderstood the question and are content."
+  },
+  {
+   "id": "x3-pl-mandate-goblets",
+   "q": "The noble's mandate for {bars} goblets is:",
+   "options": [
+    "Reasonable",
+    "Unreasonable",
+    "Already ignored"
+   ],
+   "pct": [
+    9,
+    31,
+    60
+   ],
+   "note": "The noble disputes these figures, and the existence of figures."
+  },
+  {
+   "id": "x3-pl-ice-or-river",
+   "q": "In winter, the frozen river is:",
+   "options": [
+    "A bridge",
+    "A floor",
+    "A trap",
+    "Spring's problem"
+   ],
+   "pct": [
+    26,
+    19,
+    21,
+    34
+   ],
+   "note": "Several dwarves who answered 'a floor' were in the river come spring."
+  },
+  {
+   "id": "x3-pl-migrant-skill",
+   "q": "Most useful skill a migrant can bring?",
+   "options": [
+    "Mining",
+    "Brewing",
+    "Their own bed",
+    "Leaving"
+   ],
+   "pct": [
+    24,
+    39,
+    30,
+    7
+   ],
+   "note": "The latest wave were all fish dissectors. We love them anyway.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-pl-sheriff-confidence",
+   "q": "Do you trust the fortress justice system?",
+   "options": [
+    "Yes",
+    "No",
+    "I was jailed for answering this poll"
+   ],
+   "pct": [
+    20,
+    35,
+    45
+   ],
+   "note": "The jail has a new suggestion box. It is also in jail."
+  },
+  {
+   "id": "x3-pl-tantrum-warning",
+   "q": "Best early sign of a tantrum?",
+   "options": [
+    "Stomping",
+    "Muttering about chairs",
+    "Ominous glove removal",
+    "The mug is already airborne"
+   ],
+   "pct": [
+    15,
+    30,
+    22,
+    33
+   ],
+   "note": "Respondents who chose 'mug' were interviewed wearing helmets."
+  },
+  {
+   "id": "x3-pl-forgotten-beast-name",
+   "q": "Forgotten beasts should be named:",
+   "options": [
+    "Something pronounceable",
+    "After the overseer",
+    "Not at all; just run"
+   ],
+   "pct": [
+    22,
+    18,
+    60
+   ],
+   "note": "The current beast has a name of forty letters. We call him Steve. Quietly."
+  },
+  {
+   "id": "x3-pl-dining-hall-music",
+   "q": "Music in the dining hall?",
+   "options": [
+    "Yes, gentle lyre",
+    "Yes, loud drums",
+    "No, I chew in silence"
+   ],
+   "pct": [
+    36,
+    29,
+    35
+   ],
+   "note": "The drummers chewed loudly in protest."
+  },
+  {
+   "id": "x3-pl-best-season",
+   "q": "Best season in {fort}?",
+   "options": [
+    "Spring",
+    "Summer",
+    "Autumn",
+    "Winter",
+    "There are seasons?"
+   ],
+   "pct": [
+    12,
+    9,
+    14,
+    11,
+    54
+   ],
+   "note": "Most respondents had not been outside since embark."
+  },
+  {
+   "id": "x3-pl-meat-memory",
+   "q": "When did you last eat meat?",
+   "options": [
+    "Recently",
+    "A while ago",
+    "I remember it fondly",
+    "What is meat?"
+   ],
+   "pct": [
+    3,
+    17,
+    52,
+    28
+   ],
+   "note": "The kitchen asks that you stop licking the butcher's block.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "x3-pl-barrel-count",
+   "q": "Is {drinks} drinks enough?",
+   "options": [
+    "Yes",
+    "For now",
+    "Never",
+    "Already less"
+   ],
+   "pct": [
+    8,
+    22,
+    41,
+    29
+   ],
+   "note": "Twenty-nine percent were standing at the barrels while answering.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "x3-pl-dog-ratio",
+   "q": "We have {dogs} dogs. Thoughts?",
+   "options": [
+    "Perfect",
+    "More dogs",
+    "Fewer dogs",
+    "The dogs have thoughts too"
+   ],
+   "pct": [
+    21,
+    44,
+    6,
+    29
+   ],
+   "note": "A dog filled in six ballots. All said 'more dogs'.",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "x3-pl-pond-turtle",
+   "q": "Should pond turtles be pets or food?",
+   "options": [
+    "Pets",
+    "Food",
+    "Neighbours"
+   ],
+   "pct": [
+    33,
+    41,
+    26
+   ],
+   "note": "The turtles have taken the result very slowly."
+  },
+  {
+   "id": "x3-pl-hatch-policy",
+   "q": "Should the cellar have a hatch?",
+   "options": [
+    "Yes",
+    "Only a locked one",
+    "We have a cellar?"
+   ],
+   "pct": [
+    28,
+    47,
+    25
+   ],
+   "note": "The cellar was found mid-poll. It had a hatch. Behind it, another cellar."
+  },
+  {
+   "id": "x3-pl-winter-wear",
+   "q": "Correct winter outfit for the surface?",
+   "options": [
+    "Two cloaks",
+    "Three cloaks",
+    "Stay inside",
+    "A tunic and confidence"
+   ],
+   "pct": [
+    18,
+    15,
+    58,
+    9
+   ],
+   "note": "Nine percent are thawing in the hospital.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x3-pl-bridge-trust",
+   "q": "Do you stand on the drawbridge?",
+   "options": [
+    "Never",
+    "Only when it's down",
+    "I live on it"
+   ],
+   "pct": [
+    61,
+    34,
+    5
+   ],
+   "note": "Five percent have been relocated, somewhat abruptly."
+  },
+  {
+   "id": "x3-pl-statue-subject",
+   "q": "The next statue should depict:",
+   "options": [
+    "A great hero",
+    "A great meal",
+    "Another statue",
+    "{citizen}"
+   ],
+   "pct": [
+    20,
+    28,
+    15,
+    37
+   ],
+   "note": "{citizen} denies campaigning but was seen handing out cheese."
+  },
+  {
+   "id": "x3-pl-rain-dance",
+   "q": "Is rain good?",
+   "options": [
+    "Yes, free washing",
+    "No, it's wet",
+    "It's just sky leaking"
+   ],
+   "pct": [
+    22,
+    31,
+    47
+   ],
+   "note": "The rain declined to vote and kept falling.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x3-pl-artifact-storage",
+   "q": "Where should we keep our finest artifact?",
+   "options": [
+    "A pedestal",
+    "A locked vault",
+    "In plain sight, to annoy elves"
+   ],
+   "pct": [
+    32,
+    25,
+    43
+   ],
+   "note": "The artifact was not consulted, as it is a chair."
+  },
+  {
+   "id": "x3-pl-noble-room",
+   "q": "Should the baron get a bigger bedroom?",
+   "options": [
+    "Yes",
+    "No",
+    "Give him the hallway"
+   ],
+   "pct": [
+    11,
+    38,
+    51
+   ],
+   "note": "The baron has filed a complaint about the hallway. It was filed in the hallway."
+  }
+ ],
+ "toplists": [
+  {
+   "id": "x3-tl-fey-demands",
+   "head": "TOP FIVE THINGS A FEY DWARF WILL NOT ACCEPT INSTEAD",
+   "items": [
+    "'Something red' that is a cat",
+    "A rock that 'looks like a bone'",
+    "Your apology",
+    "A shell drawn on paper",
+    "The overseer's word that it's coming"
+   ]
+  },
+  {
+   "id": "x3-tl-lever-labels",
+   "head": "TOP FIVE THINGS THE UNLABELLED LEVER MIGHT DO",
+   "items": [
+    "Open the drawbridge",
+    "Close the drawbridge on someone",
+    "Flood the tavern",
+    "Feed the magma",
+    "Nothing, ominously"
+   ]
+  },
+  {
+   "id": "x3-tl-bogeyman-tips",
+   "head": "TOP FIVE WAYS TO AVOID BOGEYMEN AT NIGHT",
+   "items": [
+    "Do not walk alone",
+    "Do not walk outside",
+    "Do not walk",
+    "Bring a dog, a friend and a friend's dog",
+    "Simply be a cat"
+   ]
+  },
+  {
+   "id": "x3-tl-liaison-dodges",
+   "head": "TOP FIVE WAYS TO AVOID THE LIAISON",
+   "items": [
+    "Be in a different room",
+    "Be in a different fort",
+    "Answer every question with 'trade?'",
+    "Lock the meeting room from inside",
+    "Become a noble, then avoid yourself"
+   ]
+  },
+  {
+   "id": "x3-tl-job-interruptions",
+   "head": "TOP FIVE REASONS YOUR JOB WAS CANCELLED",
+   "items": [
+    "Interrupted by a cat",
+    "Interrupted by a different cat",
+    "Item unavailable (it is in your hand)",
+    "Too injured",
+    "Went on break for a season"
+   ]
+  },
+  {
+   "id": "x3-tl-caverns-residents",
+   "head": "TOP FIVE NEIGHBOURS IN THE FIRST CAVERN",
+   "items": [
+    "Giant cave toads (friendly-ish)",
+    "Crundles (rude)",
+    "Blind cave ogres (very rude)",
+    "A troglodyte who wants your boots",
+    "The thing we haven't named yet"
+   ]
+  },
+  {
+   "id": "x3-tl-stockpile-crimes",
+   "head": "TOP FIVE STOCKPILE CRIMES",
+   "items": [
+    "One gem in the furniture pile",
+    "A sock in the food pile",
+    "Food in the refuse pile",
+    "A dwarf in the refuse pile",
+    "Every cat, everywhere"
+   ]
+  },
+  {
+   "id": "x3-tl-uniform-mistakes",
+   "head": "TOP FIVE MILITIA UNIFORM MISTAKES",
+   "items": [
+    "Forgot the pants",
+    "Two helmets, no shield",
+    "Training axe in a real war",
+    "Crossbow used as a club",
+    "Showed up in a nightcap"
+   ]
+  },
+  {
+   "id": "x3-tl-noble-demands",
+   "head": "TOP FIVE NOBLE ROOM REQUIREMENTS",
+   "items": [
+    "Gold everywhere",
+    "More gold everywhere",
+    "A throne facing the gold",
+    "A window to admire the gold",
+    "Fewer dwarves near the gold"
+   ]
+  },
+  {
+   "id": "x3-tl-ghost-complaints",
+   "head": "TOP FIVE GHOST COMPLAINTS",
+   "items": [
+    "No slab",
+    "Wrong name on the slab",
+    "Slab in a draughty spot",
+    "Coffin too small",
+    "The living are too loud"
+   ]
+  },
+  {
+   "id": "x3-tl-ways-to-name-artifact",
+   "head": "TOP FIVE ACTUAL ARTIFACT NAMES THIS YEAR",
+   "items": [
+    "'The Rumbling Gloves of Ecstasy'",
+    "'Crumbledbeards'",
+    "'The Joyful Shield of Nothing'",
+    "'Spearstep the Tidy'",
+    "'A Bucket', just that"
+   ]
+  },
+  {
+   "id": "x3-tl-thieves-prefer",
+   "head": "TOP FIVE ITEMS THIEVES PREFER",
+   "items": [
+    "Our best goblet",
+    "Our second-best goblet",
+    "The goblet we hid",
+    "A child (returned immediately)",
+    "The guestbook, signed"
+   ]
+  },
+  {
+   "id": "x3-tl-minecart-rules",
+   "head": "TOP FIVE MINECART SAFETY RULES",
+   "items": [
+    "Hands in",
+    "Beard in",
+    "Mind the end of the track",
+    "There is always an end of the track",
+    "Refer to rule four"
+   ]
+  },
+  {
+   "id": "x3-tl-trade-goods-elves-refuse",
+   "head": "TOP FIVE GOODS THE ELVES REFUSED",
+   "items": [
+    "A wooden bed",
+    "A wooden bucket",
+    "A 'stone' that was a painted log",
+    "An apology carved in oak",
+    "Our caravan guard, Bob"
+   ]
+  },
+  {
+   "id": "x3-tl-dwarf-needs",
+   "head": "TOP FIVE UNMET NEEDS AT {fort}",
+   "items": [
+    "Drink",
+    "Pray",
+    "Drink, again",
+    "Be with friends (who are drinking)",
+    "Eat a good meal (to soak up the drink)"
+   ]
+  },
+  {
+   "id": "x3-tl-prisoner-perks",
+   "head": "TOP FIVE THINGS THE CAGED GOBLIN HAS ASKED FOR",
+   "items": [
+    "Water",
+    "A blanket",
+    "A better cage",
+    "Our newspaper",
+    "To join the militia"
+   ]
+  },
+  {
+   "id": "x3-tl-first-year-mistakes",
+   "head": "TOP FIVE FIRST-YEAR MISTAKES",
+   "items": [
+    "Digging into the river",
+    "Digging into the aquifer",
+    "Digging into the cavern",
+    "Digging, broadly",
+    "Forgetting a door"
+   ]
+  },
+  {
+   "id": "x3-tl-hospital-sounds",
+   "head": "TOP FIVE SOUNDS FROM THE HOSPITAL",
+   "items": [
+    "'Hold still'",
+    "'That's not a splint, that's a log'",
+    "'Who keeps stealing the crutches?'",
+    "'More soap'",
+    "Polite screaming"
+   ]
+  },
+  {
+   "id": "x3-tl-magma-uses-banned",
+   "head": "TOP FIVE MAGMA USES THE OVERSEER HAS BANNED",
+   "items": [
+    "Soup",
+    "Baths",
+    "Night lights",
+    "Throwing it at elves",
+    "Pranks"
+   ]
+  },
+  {
+   "id": "x3-tl-reasons-miners-sing",
+   "head": "TOP FIVE REASONS MINERS SING",
+   "items": [
+    "To keep rhythm",
+    "To scare off crundles",
+    "To annoy the masons",
+    "They struck something shiny",
+    "Nobody has told them to stop"
+   ]
+  },
+  {
+   "id": "x3-tl-mason-walls-in",
+   "head": "TOP FIVE THINGS MASONS HAVE WALLED IN BY ACCIDENT",
+   "items": [
+    "Themselves",
+    "Another mason",
+    "A cat (released)",
+    "The tavern's only door",
+    "A whole stockpile of masons' stone"
+   ]
+  },
+  {
+   "id": "x3-tl-ravens-took",
+   "head": "TOP FIVE THINGS THE BIRDS TOOK THIS SEASON",
+   "items": [
+    "A bracelet",
+    "A crown",
+    "A very small hammer",
+    "One {seeds} seed, specifically",
+    "Our dignity"
+   ]
+  },
+  {
+   "id": "x3-tl-ways-pass-winter",
+   "head": "TOP FIVE WAYS TO PASS THE WINTER",
+   "items": [
+    "Drink",
+    "Engrave things",
+    "Engrave things about drinking",
+    "Watch the ice",
+    "Count the barrels again"
+   ],
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x3-tl-gem-pile-uses",
+   "head": "TOP FIVE THINGS TO DO WITH {gems} ROUGH GEMS",
+   "items": [
+    "Cut them",
+    "Count them",
+    "Build a gem window",
+    "Decorate a cat",
+    "Sleep on them like a dragon"
+   ],
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "x3-tl-caravan-questions",
+   "head": "TOP FIVE QUESTIONS THE CARAVAN ASKED",
+   "items": [
+    "Where is the depot?",
+    "Why is the depot inside a mountain?",
+    "Why is the road a ramp?",
+    "Why is the ramp on fire?",
+    "Can we leave now?"
+   ],
+   "when": [
+    "recent_caravan"
+   ]
+  }
+ ],
+ "voxpops": [
+  {
+   "id": "x3-vp-lever-pulled",
+   "q": "Did you pull the lever?",
+   "answers": [
+    "No. Which lever? No.",
+    "I pulled a lever. Not THE lever. A lever.",
+    "The lever pulled me, if anything.",
+    "I was in the tavern with eleven witnesses, all asleep.",
+    "Was it the one that floods things? Then no.",
+    "I'm a mechanic. I don't pull them. I just make them irresistible."
+   ]
+  },
+  {
+   "id": "x3-vp-vampire-rumour",
+   "q": "Is there a vampire in {fort}?",
+   "answers": [
+    "Absolutely not, said the bookkeeper who has not slept in nine years.",
+    "If there is, I hope they can haul.",
+    "I've never seen anyone not drink. That's the problem.",
+    "There was a pale dwarf in the hall, but that was just my cousin after the surface.",
+    "I sleep with a clove of garlic. We don't grow garlic. I sleep with an onion-shaped rock.",
+    "Leave him alone, he's a lovely dwarf. Very thirsty."
+   ]
+  },
+  {
+   "id": "x3-vp-liaison-visit",
+   "q": "What did you tell the liaison?",
+   "answers": [
+    "That I was a statue. He believed me for an hour.",
+    "I said 'trade' and ran.",
+    "He asked about the trade agreement. I asked about his hat. We both left unsatisfied.",
+    "I gave him a mug. He wrote it down as a treaty.",
+    "He asked if we had any complaints. I gave him the list. He's still reading it.",
+    "Nothing. I've been in the latrine since he arrived. It's lovely in here."
+   ]
+  },
+  {
+   "id": "x3-vp-fey-mood-witness",
+   "q": "What did you see during the strange mood?",
+   "answers": [
+    "{moodname} locked the door and screamed for shells. We don't have shells.",
+    "A blur. A hammer. A sudden, beautiful {artifact_item}.",
+    "I handed over a bone and was thanked in a language I'd never heard.",
+    "Honestly it looked like a normal workday, but louder.",
+    "I'd like my leather back.",
+    "The door opened, the artifact came out, and {moodname} asked what day it was."
+   ],
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "x3-vp-cavern-breach",
+   "q": "What did you think when we broke into the caverns?",
+   "answers": [
+    "That there should've been a door there.",
+    "Mostly 'run'.",
+    "The moss is lovely. The things standing on it are not.",
+    "I thought: more room for beds. Then I saw the crundles.",
+    "I was the miner. I'm still thinking it.",
+    "Finally, somewhere with a ceiling high enough for my hat."
+   ]
+  },
+  {
+   "id": "x3-vp-military-life",
+   "q": "What's life like in the militia?",
+   "answers": [
+    "Up at dawn, punch a dummy, nap. Honestly great.",
+    "My uniform is a helmet and an optimistic attitude.",
+    "We spar, we bleed, we tell each other we're improving.",
+    "The captain says I'm a natural. A natural what, he won't say.",
+    "I trained with a crossbow for a year. I hit things with it. Not with bolts. With it.",
+    "The danger room has taught me many things, mainly to walk faster."
+   ]
+  },
+  {
+   "id": "x3-vp-engraving-opinion",
+   "q": "What's your favourite engraving in the fort?",
+   "answers": [
+    "The one of the dwarf and the cheese. The cheese is laughing.",
+    "The image of the fortress being founded. I'm in it, looking surprised.",
+    "The one of an elf being struck down. Very soothing.",
+    "The image of a ring. Just a ring. It's art.",
+    "The one in my bedroom. It's of my bedroom.",
+    "There's one of the cat. The cat looks at it. I worry about the cat."
+   ]
+  },
+  {
+   "id": "x3-vp-best-z-level",
+   "q": "Where in the fort do you feel most at home?",
+   "answers": [
+    "Anywhere with a barrel at arm's length.",
+    "The forge. It's warm, it's loud, nobody asks questions.",
+    "The bottom of the up/down stairs, recovering.",
+    "The library. Not to read. To nap without being hauled.",
+    "Next to the magma. My mother said I was born for it. I think she meant something else.",
+    "The refuse pile. Don't judge me. It's quiet."
+   ]
+  },
+  {
+   "id": "x3-vp-thief-sighting",
+   "q": "Did you see the thief?",
+   "answers": [
+    "I saw a goblet walk out of the depot. I assumed it had somewhere to be.",
+    "Small, green, holding my bracelet, waving.",
+    "No, but my dog did, and he's still barking about it.",
+    "The thief was very polite. He said 'excuse me' on the way out.",
+    "I saw nothing. I was guarding the gate.",
+    "Yes, and I'd like to formally apologise for waving back."
+   ]
+  },
+  {
+   "id": "x3-vp-trade-depot-haul",
+   "q": "What's the best thing you ever traded for?",
+   "answers": [
+    "A barrel of exotic syrup. The barrel was nicer than the syrup.",
+    "A pet I can't name. It eats rope.",
+    "Three socks. Not a pair. Three. I'm living my truth.",
+    "An elven song. I paid in tables. Worth it, don't tell anyone.",
+    "A human hat. It has a brim. I can't see anything. I love it.",
+    "My cousin, back. They'd sold him. Long story."
+   ],
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x3-vp-winter-ice",
+   "q": "What do you do when the river freezes?",
+   "answers": [
+    "Walk on it, nervously.",
+    "Bring a pick and make a well. Lose the pick. Make another well.",
+    "Slide. Then hospital.",
+    "Write a strongly worded letter to the river.",
+    "Sit in the tavern pretending rivers don't exist.",
+    "Last year I got frozen in it to my knees. Lovely view."
+   ],
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x3-vp-prisoner-opinion",
+   "q": "How do you feel about the caged goblin?",
+   "answers": [
+    "He's alright. He's got opinions about masonry.",
+    "I feed him on Tuesdays. He's a picky eater for a goblin.",
+    "We play cards. He cheats. I cheat back. It's fair.",
+    "He's been here longer than half the migrants and complains less.",
+    "He hums. Nicely. He taught me a goblin lullaby. Every verse is about spears. It's weirdly soothing.",
+    "The cage is nicer than my room, frankly."
+   ]
+  },
+  {
+   "id": "x3-vp-worship",
+   "q": "Who do you pray to, and how's it going?",
+   "answers": [
+    "The god of rivers and boredom. Very responsive.",
+    "Mostly to whoever keeps the barrels full.",
+    "I pray at the temple, the dining hall and occasionally to my pick.",
+    "I haven't been able to pray in a year. I'm told my god has moved on.",
+    "Our deity of fire and cheese is generous with both.",
+    "I prayed for a better bedroom. I got a better bed. Close enough."
+   ]
+  },
+  {
+   "id": "x3-vp-noble-arrival",
+   "q": "What do you think of the new noble?",
+   "answers": [
+    "He walks into rooms like he owns them. He does own some of them.",
+    "He's demanded a throne. We gave him a stool with ambition.",
+    "He made a mandate for crowns. I'm a fish cleaner.",
+    "Pleasant enough when he's asleep.",
+    "His hat has its own bedroom now.",
+    "I like him. He's nice to the cats. He's not nice to anyone else."
+   ]
+  },
+  {
+   "id": "x3-vp-pet-pickings",
+   "q": "If you could adopt any animal, which?",
+   "answers": [
+    "A {topanimal}, obviously, there are {topanimal_n} of them and they need homes.",
+    "A giant cave toad. Low maintenance, high presence.",
+    "An elephant. I've heard stories. I want to be the story.",
+    "A cat, but a well-behaved one, if such exists.",
+    "A forgotten beast, a small one. A starter beast.",
+    "The goblin's cage pet. We've grown close."
+   ]
+  },
+  {
+   "id": "x3-vp-dwarf-syrup",
+   "q": "Sweet pod syrup: overrated or underrated?",
+   "answers": [
+    "Underrated. I put it on everything, including other syrup.",
+    "It's sticky. I'm still sticky from last spring.",
+    "My grandfather was a syrup maker. He was mostly sticky, mostly happy.",
+    "Overrated. Rock nut paste is the true condiment.",
+    "I've never had it. It's always 'for the cook'.",
+    "It's delicious, and also the strongest glue in the fort."
+   ]
+  },
+  {
+   "id": "x3-vp-seasons-change",
+   "q": "What's the first thing you do in {season}?",
+   "answers": [
+    "Ask someone what {season} is like up top.",
+    "Change socks. Annually.",
+    "Check the barrels. Same as every season.",
+    "Reposition my bed slightly to the left. Ritual.",
+    "Haul. Everything. All of it. That's every season, actually.",
+    "Write the date on the wall so I know how long I've been down here."
+   ]
+  },
+  {
+   "id": "x3-vp-bridge-feelings",
+   "q": "How do you feel about the drawbridge?",
+   "answers": [
+    "I respect it. It doesn't respect me.",
+    "I stood on it once when it was raised. I'll describe the trip when I'm well.",
+    "It's our best defender. It's killed more goblins than the militia.",
+    "It's a door that thinks it's a wall.",
+    "I wave to it every morning. Something about it seems lonely.",
+    "Please stop asking. My cousin was in its way."
+   ]
+  },
+  {
+   "id": "x3-vp-night-noises",
+   "q": "What woke you up last night?",
+   "answers": [
+    "A cat walking across my face. Standard.",
+    "The forge. Someone works nights for no reason.",
+    "A distant scream. Possibly singing. Possibly joyful.",
+    "The ghost, again. It wanted me to know the slab was crooked.",
+    "My own snoring. It echoes off the smoothed walls.",
+    "The drawbridge. Who raises a drawbridge at midnight? Rhetorical."
+   ]
+  },
+  {
+   "id": "x3-vp-new-arrival-advice",
+   "q": "What's the first thing a baby in {fort} should learn?",
+   "answers": [
+    "Where the barrels are.",
+    "How to dodge mugs during tantrums.",
+    "Never touch the lever.",
+    "That the sky is a rumour and should stay that way.",
+    "To haul. Start them early. They've got good grip.",
+    "How to tell a cat from a cat-shaped trap."
+   ]
+  }
+ ],
+ "help_wanted": [
+  {
+   "id": "x3-hw-lever-operator",
+   "text": "LEVER PULLER: Wait by the lever. Pull only when told. You will never be told. Excellent opportunity for patient, curious dwarves who can resist anything except levers."
+  },
+  {
+   "id": "x3-hw-cage-feeder",
+   "text": "WANTED: Dwarf to feed the caged goblin. He bites, but only out of habit. Must not answer when he asks to 'just open it a bit'."
+  },
+  {
+   "id": "x3-hw-dye-maker",
+   "text": "DYER sought. Dimple cups provided. Every item in the fort is currently beige, including the moods. Bring colour, bring hope, bring a bucket."
+  },
+  {
+   "id": "x3-hw-thread-spinner",
+   "text": "SPINNER needed. We have {thread} thread and twice as many requests for trousers. Spinning wheel provided. Spare finger insurance not."
+  },
+  {
+   "id": "x3-hw-ghost-liaison",
+   "text": "GHOST LIAISON: Listen to ghost complaints, write them down, arrange slabs. Night shift. Hazard pay in candles. Previous liaison is now a client."
+  },
+  {
+   "id": "x3-hw-well-digger",
+   "text": "WELL DIGGER needed. Must dig straight down until water appears. Must stop digging when water appears. Second part is where previous applicants struggled."
+  },
+  {
+   "id": "x3-hw-engraving-critic",
+   "text": "ART CRITIC: Walk the corridors and describe each engraving aloud. Our last critic described one as 'a dwarf, and a dwarf'. He was correct. We want more than correct."
+  },
+  {
+   "id": "x3-hw-trap-tester",
+   "text": "CAGE TRAP INSPECTOR: Check that each cage trap is armed. Our last inspector checked by walking. He is in cage number four. He reports it works."
+  },
+  {
+   "id": "x3-hw-archivist",
+   "text": "SCRIBE wanted to copy books for the library. Original books are mostly about rocks. Copies may be about anything you like, as long as nobody checks."
+  },
+  {
+   "id": "x3-hw-depot-guard",
+   "text": "DEPOT GUARD: Watch the merchants. Watch the thieves. If the merchants are the thieves, watch both, and please send a note to the broker."
+  },
+  {
+   "id": "x3-hw-syrup-presser",
+   "text": "PRESSER needed for sweet pods. Fruit provided. Sticky fingers guaranteed. Sticky everything guaranteed. We have stopped trying to un-stick the press."
+  },
+  {
+   "id": "x3-hw-noble-mandate-reader",
+   "text": "MANDATE READER: Read the noble's demands aloud to the workshops, then soften the bad news. Must be able to say 'crowns, again' without sighing."
+  },
+  {
+   "id": "x3-hw-cheese-guard",
+   "text": "TEMPORARY: Someone to guard the cheese while the chef sleeps. The cheese has been taken three nights running. The chef suspects himself."
+  },
+  {
+   "id": "x3-hw-pump-replacement",
+   "text": "WANTED: Two strong dwarves to relieve the pump operators, who have not stopped since spring and have begun to hum in perfect unison. Urgent. Spooky."
+  },
+  {
+   "id": "x3-hw-cavern-surveyor",
+   "text": "SURVEYOR for the first cavern. Draw a map, note the toads, flee from the rest. Map need not be accurate, just not on fire."
+  },
+  {
+   "id": "x3-hw-migrant-counter",
+   "text": "CENSUS TAKER: {pop} dwarves, probably. Count them. Then count them again, since they keep moving. Cats do not count, no matter what they claim.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-hw-crutch-finder",
+   "text": "WANTED: Whoever took all the crutches. You aren't in trouble. The hospital just needs them back for the dwarves who are in trouble."
+  },
+  {
+   "id": "x3-hw-bee-keeper",
+   "text": "BEEKEEPER wanted. Hives provided. Bees provided. Bees not consulted. Honey highly probable, swelling very probable."
+  },
+  {
+   "id": "x3-hw-soap-maker",
+   "text": "SOAP MAKER needed. We have lye, we have tallow, we have a fort that smells like a fort. Please hurry. Please."
+  },
+  {
+   "id": "x3-hw-bridge-watcher",
+   "text": "BRIDGE ATTENDANT: Warn dwarves standing on the drawbridge before it rises. Shout clearly. Shout early. Shout again. Shouting skills a must."
+  },
+  {
+   "id": "x3-hw-woodburner",
+   "text": "WOOD BURNER: Turn {wood} logs into charcoal before the elves find out and send a letter. Quiet work. Very warm. Smells of guilt."
+  },
+  {
+   "id": "x3-hw-meat-finder",
+   "text": "HUNTER sought. Desperately. The fort hasn't seen meat since the founding, and someone has started carving cheese into steak shapes. Please help.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "x3-hw-brewer-urgent",
+   "text": "EMERGENCY BREWER: The barrels are low. The dwarves are lower. Do not walk past the tavern without a mug in each hand and an excuse in your mouth.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "x3-hw-shearer",
+   "text": "SHEARER for our {herd} head of livestock. Wool is useful. Animals disagree. Bring shears, patience, and a willingness to be chased round the pasture."
+  },
+  {
+   "id": "x3-hw-tutor",
+   "text": "TUTOR needed for the children of {fort}. Subjects: reading, counting, not touching levers. The children already know the third one, theoretically."
+  }
+ ],
+ "real_estate": [
+  {
+   "id": "x3-re-vampire-crypt",
+   "head": "Quiet Crypt, Night Owl Preferred",
+   "text": "Ideal for residents who sleep all day and drink something other than wine. Previous tenant moved out suddenly after the sheriff 'asked a few questions'. Excellent soundproofing.",
+   "price": "40☼"
+  },
+  {
+   "id": "x3-re-cage-loft",
+   "head": "Former Goblin Cage, Spacious",
+   "text": "Bars on every side for excellent airflow. Comes with a view of the depot and the goblin who used to live here, now just next door. He's quiet. Mostly.",
+   "price": "8☼"
+  },
+  {
+   "id": "x3-re-artifact-gallery",
+   "head": "Studio Overlooking the Artifact Pedestal",
+   "text": "Wake up to a view of {artifact}. Walk past it. Walk past it again. Rumours of mood-induced envy are exaggerated. Tenants may not touch the artifact.",
+   "price": "300☼"
+  },
+  {
+   "id": "x3-re-ramp-cottage",
+   "head": "Cottage on a Ramp",
+   "text": "Floors at three different heights, with charm at all of them. Furniture slides gently east over time. Ideal for dwarves who enjoy waking up somewhere slightly new.",
+   "price": "18☼"
+  },
+  {
+   "id": "x3-re-temple-annex",
+   "head": "Temple Annex, Prayer-Adjacent",
+   "text": "Live where you pray. Pray where you live. Neighbours are pious, loud and very early. Includes complimentary sermon through the wall.",
+   "price": "60☼"
+  },
+  {
+   "id": "x3-re-smoothed-suite",
+   "head": "Fully Smoothed Bedroom",
+   "text": "Walls smooth as river glass. Floors smooth as cheese. Engraver booked for next year, possibly. Mirror-quality surfaces; tenants with unflattering beards be warned.",
+   "price": "90☼"
+  },
+  {
+   "id": "x3-re-cistern-view",
+   "head": "Bedroom Above the Cistern",
+   "text": "Gentle trickling sounds all night. Damp, but calming. Do not open the floor hatch. If you do open the floor hatch, close it, and tell nobody.",
+   "price": "25☼"
+  },
+  {
+   "id": "x3-re-liaison-quarters",
+   "head": "Guest Room, Usually Liaison",
+   "text": "Occupied one season a year by a liaison who asks about trade. Available the rest of the year. Do not leave anything behind; it will be discussed as trade.",
+   "price": "12☼"
+  },
+  {
+   "id": "x3-re-workshop-mezzanine",
+   "head": "Above-the-Workshop Mezzanine",
+   "text": "Close to the forge, the anvil, and every single hammer blow. Ideal for heavy sleepers or dwarves already deafened by previous tenancies. Rent includes ringing.",
+   "price": "22☼"
+  },
+  {
+   "id": "x3-re-cavern-cliffside",
+   "head": "Cliffside Nook, First Cavern",
+   "text": "Breathtaking view of glowing fungus trees. Breathtaking neighbours, in that they will take your breath. Fortification wall included. Door strongly recommended.",
+   "price": "35☼"
+  },
+  {
+   "id": "x3-re-hollow-mountain",
+   "head": "Room Inside the Mountain Top",
+   "text": "The highest bedroom in {fort}. Close to the sky, but not too close. Windows sealed for your comfort. Elevation sickness and existential dread included at no charge.",
+   "price": "45☼"
+  },
+  {
+   "id": "x3-re-gem-window-flat",
+   "head": "Flat With Genuine Gem Window",
+   "text": "One wall set with cut stones from our pile of {gems} gems, sparkling in the forge light. Neighbours stare. Thieves stare. Bring curtains, which we don't make.",
+   "price": "250☼",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "x3-re-barrel-cellar",
+   "head": "Snug Barrel-Cellar Bunk",
+   "text": "Sleep among {drinks} drinks. Guests report waking refreshed, or at least waking. Landlord asks tenants not to tap the walls, or the barrels.",
+   "price": "30☼",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "x3-re-migrant-dormitory",
+   "head": "Migrant Dormitory, Lightly Furnished",
+   "text": "One room, forty beds, one door. Perfect for arrivals who want to meet everyone immediately and very closely. Bring earplugs, a name tag and a sense of humour.",
+   "price": "free with arrival",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-re-pasture-lodge",
+   "head": "Lodge on the Pasture Edge",
+   "text": "Stunning view of a herd of {herd}, every one of which also has a stunning view of you. Fresh air, fresh grass, fresh droppings. Not recommended for dwarves who fear the sky or mud.",
+   "price": "14☼"
+  },
+  {
+   "id": "x3-re-hidden-room",
+   "head": "Secret Room Behind Bookshelf",
+   "text": "Located somewhere in the library. We're not saying where. Tenants must find it themselves. Three applicants have already failed; one moved into the wrong bookcase.",
+   "price": "a password"
+  },
+  {
+   "id": "x3-re-forge-heat-studio",
+   "head": "Studio Beside the Magma Forge",
+   "text": "Never cold again. Never comfortable again. Laundry dries instantly. So do you. Beard trimming optional, as it trims itself.",
+   "price": "70☼"
+  },
+  {
+   "id": "x3-re-noble-closet",
+   "head": "Noble's Former Closet",
+   "text": "Was a closet. Then the noble demanded a bigger room, so it became a closet again. Gilded doorknob retained. Feel important while sleeping upright.",
+   "price": "55☼"
+  },
+  {
+   "id": "x3-re-watchtower",
+   "head": "Watchtower Bunk, Surface Wall",
+   "text": "See goblins coming. See elves coming. See weather coming. You will be the first to know everything and the first to be shot at. Bracing views.",
+   "price": "5☼ and a helmet"
+  },
+  {
+   "id": "x3-re-mud-cellar",
+   "head": "Cellar With Natural Irrigation",
+   "text": "Excellent for growing fungus, bad for keeping socks dry. Rain on the surface reaches you eventually, as a gentle drip, as a friendly reminder.",
+   "price": "10☼",
+   "when": [
+    "rain"
+   ]
+  }
+ ],
+ "announcements": [
+  {
+   "id": "x3-an-born-in-tavern",
+   "kind": "Births",
+   "text": "A baby boy was born in the tavern this week, between a barrel and a bard. He has been named after the barrel. The bard has written a song about it, which the parents are pretending to enjoy."
+  },
+  {
+   "id": "x3-an-born-siege-pause",
+   "kind": "Births",
+   "text": "A girl was born during the goblin siege. The goblins, hearing the news, paused to send a congratulatory spear. The family has hung it on the nursery wall, point safely outward."
+  },
+  {
+   "id": "x3-an-born-caravan",
+   "kind": "Births",
+   "text": "A traveling merchant gave birth at the depot and has asked whether the baby may be counted as trade goods. The broker has declined, firmly but politely."
+  },
+  {
+   "id": "x3-an-first-steps",
+   "kind": "Births",
+   "text": "Congratulations to the youngest dwarf in {fort}, who took her first steps this week directly towards the lever room. She has been gently relocated. Twice."
+  },
+  {
+   "id": "x3-an-born-with-beard",
+   "kind": "Births",
+   "text": "Triplets were born this week, all with beards. The midwife confirms this is unusual. The father confirms it is normal in his family. The mother has questions."
+  },
+  {
+   "id": "x3-an-wed-forge",
+   "kind": "Marriages",
+   "text": "Two blacksmiths married at the forge, exchanging rings they made themselves in the heat of the ceremony. The rings were too hot to wear. They will wear them next week."
+  },
+  {
+   "id": "x3-an-wed-cavern",
+   "kind": "Marriages",
+   "text": "{citizen} and {citizen2} were married on the edge of the first cavern. A giant cave toad attended and was not invited. It ate the cake. The vows were renewed elsewhere."
+  },
+  {
+   "id": "x3-an-wed-hauler",
+   "kind": "Marriages",
+   "text": "Two haulers married this week, after meeting while carrying the same stone in opposite directions. They have now agreed on a direction. The stone has been placed on display."
+  },
+  {
+   "id": "x3-an-wed-dungeon",
+   "kind": "Marriages",
+   "text": "The sheriff married the dwarf he jailed last season. The wedding took place in the jail. The groom insists it was a romantic choice. The bride insists it was convenient."
+  },
+  {
+   "id": "x3-an-promo-broker",
+   "kind": "Promotions",
+   "text": "Our new broker began his tenure by appraising every object in the fort, including his own coat. The coat is worth eight urists. He has started wearing it more confidently."
+  },
+  {
+   "id": "x3-an-promo-tavern",
+   "kind": "Promotions",
+   "text": "The fort's new tavern keeper has been installed. His first act was to serve himself. His second was to serve himself again. Business hours are expected to resume shortly."
+  },
+  {
+   "id": "x3-an-promo-recent",
+   "kind": "Promotions",
+   "text": "{promoted} has been elevated to {post}, with full rights to a larger chair. The chair is being built now. Until then, {promoted} is sitting in two regular chairs, side by side.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "x3-an-promo-chief-medic",
+   "kind": "Promotions",
+   "text": "We have a chief medical dwarf at last. She has already ordered splints, crutches, buckets and, mysteriously, one cat. Asked about the cat, she said 'for morale'."
+  },
+  {
+   "id": "x3-an-arrive-scholar",
+   "kind": "Arrivals",
+   "text": "A visiting scholar has arrived to research 'the effects of beards on intelligence'. He has no beard. He has already been laughed out of the tavern twice."
+  },
+  {
+   "id": "x3-an-arrive-monster-slayer",
+   "kind": "Arrivals",
+   "text": "A monster slayer arrived at the gate and asked for residency. We showed him the caverns. He asked for a different residency. Talks continue."
+  },
+  {
+   "id": "x3-an-arrive-migrants-goat",
+   "kind": "Arrivals",
+   "text": "The latest migrants have arrived with a goat, a cart and a strong opinion about our beds. Please welcome them, and please do not let them redesign the bedrooms.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-an-arrive-caravan-bard",
+   "kind": "Arrivals",
+   "text": "The caravan arrived with a merchant who sings every price. The broker has asked him to stop. He sang 'no'. Haggling has been described as operatic.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x3-an-arrive-mood-artifact",
+   "kind": "Arrivals",
+   "text": "Please welcome {artifact}, the newest resident of {fort}. This fine {artifact_item} emerged with {moodname} after a long, loud week. It will be receiving visitors at its pedestal.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "x3-an-anniv-founding-mug",
+   "kind": "Anniversaries",
+   "text": "The first mug ever made at {fort} turns one year old. It has been thrown nineteen times, mended twice, and is still the most popular mug in the tavern."
+  },
+  {
+   "id": "x3-an-anniv-wall",
+   "kind": "Anniversaries",
+   "text": "It has been a year since the great wall was finished. The wall has kept out goblins, elves and one stubborn caravan. Celebrations planned at the wall, from the inside."
+  },
+  {
+   "id": "x3-an-anniv-overseer",
+   "kind": "Anniversaries",
+   "text": "Happy anniversary to the overseer, who has worked tirelessly for one year by sitting at his desk thinking about the fort. He reports good progress. The fort reports moderate confusion."
+  },
+  {
+   "id": "x3-an-anniv-masterwork",
+   "kind": "Anniversaries",
+   "text": "One year since {masterwright} finished {masterwork}, and the fort is still talking about it, mainly because {masterwright} brings it up at every meal.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "x3-an-engage-miners",
+   "kind": "Engagements",
+   "text": "Two miners are engaged after a proposal delivered by striking a vein of gold in the shape of a heart. Experts say it was a coincidence. The couple says it was fate."
+  },
+  {
+   "id": "x3-an-engage-dwarf-cat",
+   "kind": "Engagements",
+   "text": "{citizen_first} has announced an engagement to a dwarf who has a cat. Friends say the true romance is between {citizen_first} and the cat. The cat has not made a statement."
+  },
+  {
+   "id": "x3-an-engage-lever",
+   "kind": "Engagements",
+   "text": "A mechanic proposed by building a lever that, when pulled, lowers a sign reading 'will you?'. She pulled it. The sign fell on her. She said yes, from the hospital."
+  }
+ ],
+ "sports": [
+  {
+   "id": "x3-sp-lever-pulling-final",
+   "head": "LEVER-PULLING FINAL ENDS IN FLOOD",
+   "body": "The inaugural lever-pulling championship ended early when the finalist pulled the wrong lever and flooded the stadium. Judges awarded points for technique, deducted points for the water, and adjourned to the tavern on the floor above."
+  },
+  {
+   "id": "x3-sp-stair-climb",
+   "head": "UP/DOWN STAIR CLIMB WON BY A DWARF WHO TOOK THE RAMP",
+   "body": "Organisers of the hundred-level stair climb have disqualified the winner after it emerged he used a ramp for the final forty levels. He has appealed, arguing that a ramp is 'basically a slanted stair'. The appeal will be heard on level one."
+  },
+  {
+   "id": "x3-sp-cage-trap-dash",
+   "head": "CAGE-TRAP DASH: TWO FINISHERS, NINE CAGED",
+   "body": "Eleven runners entered the cage-trap obstacle course. Two crossed the line. The other nine are being released one at a time by a mechanic who is being paid by the hour and is in no hurry at all."
+  },
+  {
+   "id": "x3-sp-crossbow-melee",
+   "head": "MARKSDWARVES WIN MELEE TOURNAMENT",
+   "body": "In a stunning upset, the fort's marksdwarves have won the melee tournament by hitting everyone with their crossbows. They have still never fired a bolt. Coaches call this 'a style'. Bowyers call it 'a waste of a good stock'."
+  },
+  {
+   "id": "x3-sp-toad-racing",
+   "head": "GIANT TOAD RACING DEBUTS IN THE CAVERN",
+   "body": "The first season of giant cave toad racing got under way with six toads, six jockeys and one finish line. Five toads sat down. One ate its jockey, briefly. The winning toad hopped twice. Attendance was excellent, mostly from a safe distance."
+  },
+  {
+   "id": "x3-sp-snowball-fight",
+   "head": "SNOWBALL FIGHT SPILLS INTO TANTRUM",
+   "body": "A friendly snowball fight on the surface turned unfriendly when a snowball contained a rock, and the rock contained a grudge. Final score: snow 1, everyone else undetermined. Medics have asked players to keep their grudges indoors.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x3-sp-goblin-tryout",
+   "head": "CAGED GOBLIN ASKS TO JOIN MILITIA TEAM",
+   "body": "The goblin captured last season has formally requested a place on the militia sparring team. Coaches admit he has 'real talent and a great work ethic'. The overseer has noted that he also has 'a spear-shaped history'. The cage stays shut."
+  },
+  {
+   "id": "x3-sp-pump-relay",
+   "head": "PUMP RELAY: OPERATORS STILL WON'T HAND OVER",
+   "body": "The pump relay was scheduled to last one hour. It is now in its ninth day because neither operator will let go of the handle 'until the job's done'. The job is unclear. Spectators have brought cots."
+  },
+  {
+   "id": "x3-sp-fishing-derby",
+   "head": "FISHING DERBY WON WITH A TURTLE",
+   "body": "The annual fishing derby was won by a dwarf who reeled in a pond turtle, sat on it, and refused to get up. Judges ruled the turtle 'technically a catch'. The turtle has refused to comment, slowly."
+  },
+  {
+   "id": "x3-sp-beard-length",
+   "head": "BEARD-LENGTH OPEN: A TANGLED FINISH",
+   "body": "The beard-length open ended in confusion when the top three finalists' beards became knotted together on the podium. Judges declared a joint win. The winners have been walking everywhere together since. They say it's fine."
+  },
+  {
+   "id": "x3-sp-hauling-blind",
+   "head": "BLINDFOLD HAULING TRIALS END AT THE MOAT",
+   "body": "Contestants in the blindfold hauling trials were asked to carry a stone from the quarry to the stockpile without looking. Most reached the moat. The stone made it the whole way, as nobody was carrying it at the end."
+  },
+  {
+   "id": "x3-sp-military-parade",
+   "head": "PARADE DRILL ABANDONED AFTER UNIFORM MIX-UP",
+   "body": "The squad's parade drill was cancelled when half the soldiers arrived in full steel and the other half in nothing but helmets. The captain called it 'not ideal'. The crowd called it 'the best parade in years'."
+  },
+  {
+   "id": "x3-sp-forgotten-beast-friendly",
+   "head": "FRIENDLY AGAINST FORGOTTEN BEAST ENDS IN FORGOTTEN FRIENDLY",
+   "body": "An exhibition sparring match against the forgotten beast was scheduled by mistake. Nobody remembers who booked it. Nobody remembers most of the match. The beast now holds the cavern's championship belt, wearing it as a necklace."
+  },
+  {
+   "id": "x3-sp-engraving-sprint",
+   "head": "SPEED-ENGRAVING RECORD FALLS TO A DOODLE",
+   "body": "An engraver set a new speed record by carving 'a dwarf' in eight seconds. Critics say it is 'a line with a beard'. Officials confirmed the record anyway. The old record holder, who carved a whole siege in a day, is taking it badly."
+  },
+  {
+   "id": "x3-sp-drawbridge-jump",
+   "head": "DRAWBRIDGE LONG-JUMP POSTPONED INDEFINITELY",
+   "body": "The drawbridge long-jump has been postponed after organisers realised the event required someone to raise the bridge while athletes were on it. Volunteers to pull the lever were plentiful. Volunteers to jump were not."
+  },
+  {
+   "id": "x3-sp-dodge-mug",
+   "head": "MUG-DODGING: DEFENDING CHAMPION RETIRES",
+   "body": "The fort's undefeated mug-dodger has hung up his helmet after nine seasons. In his farewell speech he thanked his reflexes, his mother and every angry dwarf who ever threw a mug. He was then hit by a mug."
+  },
+  {
+   "id": "x3-sp-meat-sprint",
+   "head": "SAUSAGE SPRINT CANCELLED: NO SAUSAGE",
+   "body": "This year's sausage sprint, in which runners chase a sausage on a string, has been cancelled for want of sausage. A rock nut on a string was proposed. Athletes have declined to chase it, citing dignity.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "x3-sp-cat-sitting",
+   "head": "COMPETITIVE CAT-SITTING: WINNER NEVER STOOD UP",
+   "body": "In the cat-sitting championship, contestants must remain seated while a cat sleeps on their lap. The winner has now been seated for eleven days. Organisers are delivering food. The cat has no plans to move.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "x3-sp-dog-agility",
+   "head": "DOG AGILITY TRIAL WON BY THE DOG WHO IGNORED IT",
+   "body": "The agility trial for the fort's {dogs} dogs was won by a hound who lay down at the start and refused every jump. Judges ruled the other dogs had 'overexerted themselves on obstacles'. The winner was given a bone.",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "x3-sp-migrant-games",
+   "head": "MIGRANT GAMES: NEWCOMERS WIN 'FINDING A BED'",
+   "body": "The welcome games for the latest arrivals included events in finding a bed, finding a different bed, and being told the bed is taken. The newcomers swept all three. The old guard has demanded a rematch in 'having a bed'.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-sp-cavern-swim-relay",
+   "head": "UNDERGROUND LAKE RELAY: FISH WIN",
+   "body": "The cavern-lake relay was abandoned after the third leg when a swimmer was overtaken by a cave fish, then a second cave fish, then a sense of terror. The fish were not entered, but finished first. Medals have been sent to the lake."
+  },
+  {
+   "id": "x3-sp-bookkeeper-endurance",
+   "head": "BOOKKEEPER ENDURANCE COUNT GOES LONG",
+   "body": "The bookkeeper has entered the endurance count, an event in which competitors count every item in the fort without stopping. He is on item forty thousand. He has no competitors. He is still going. He refuses to be timed."
+  },
+  {
+   "id": "x3-sp-hammer-throw",
+   "head": "HAMMER THROW: HAMMERER DISQUALIFIED FOR CONTEXT",
+   "body": "The fort's hammerer has been disqualified from the hammer throw after spectators pointed out his technique 'reminded them of work'. He insists the event is about distance. Nobody stood close enough to measure."
+  },
+  {
+   "id": "x3-sp-wrestling-noble",
+   "head": "NOBLE ENTERS WRESTLING, WINS BY MANDATE",
+   "body": "The baron entered the wrestling tournament and won every bout by issuing a mandate that his opponents lie down. Referees are reviewing the rulebook. The rulebook is being reviewed by the baron, who has added a page."
+  },
+  {
+   "id": "x3-sp-caravan-tug",
+   "head": "CARAVAN TUG-OF-WAR: THE YAK WINS",
+   "body": "A tug-of-war between our haulers and the caravan's guards was settled by the caravan's yak, who pulled both teams into the depot. The yak has been offered a hauling contract. The yak's agent, a merchant, is negotiating.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x3-sp-summer-sunbath",
+   "head": "SURFACE SUNBATHING EVENT GETS NO ENTRANTS",
+   "body": "The first ever surface sunbathing contest was held this summer. Nobody entered. One dwarf walked past on the way to the woodpile and was declared the winner by default. He has asked that his name be withheld.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x3-sp-autumn-harvest",
+   "head": "HARVEST DASH: FARMERS FLATTEN THE FARMS",
+   "body": "The autumn harvest dash was intended to celebrate our farms. Competitors trampled most of them. The winner crossed the line with a single plump helmet, which was then also trampled. Next year's event will be held in a corridor.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "x3-sp-spring-thaw-regatta",
+   "head": "SPRING THAW REGATTA: BARRELS DIDN'T FLOAT",
+   "body": "The spring regatta saw six barrels launched into the thawing river with a dwarf in each. All six barrels sank. All six dwarves were recovered. The barrels were recovered later, and are being blamed.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "x3-sp-hide-and-seek",
+   "head": "HIDE-AND-SEEK FINAL: SEEKER STILL LOOKING",
+   "body": "The hide-and-seek final began three seasons ago and the hider has not yet been found. Rumours suggest he has walled himself into a room by accident. The mason responsible has been asked to look. He says he's 'pretty sure he wasn't in there'."
+  },
+  {
+   "id": "x3-sp-whittling-cup",
+   "head": "WHITTLING CUP CONTROVERSY: ELVES OBJECT",
+   "body": "The whittling cup drew a formal complaint from a visiting elf, who described the event as 'a festival of murder'. The winning entry was a small wooden elf, which only made things worse. The trophy is, unhelpfully, wooden."
+  }
+ ],
+ "scores": [
+  {
+   "id": "x3-sc-anvil-hammer",
+   "text": "Anvil 400, Hammer 400 (anvil unbeaten in career)"
+  },
+  {
+   "id": "x3-sc-scholars-debate",
+   "text": "Scholars 2 Arguments, Library 0 Silence"
+  },
+  {
+   "id": "x3-sc-ramp-stairs",
+   "text": "Ramps 2, Stairs 2 (players exhausted, ambulance late)"
+  },
+  {
+   "id": "x3-sc-crundles-larder",
+   "text": "Crundles 4, Larder Door 3 (door reinforced)"
+  },
+  {
+   "id": "x3-sc-stairs-knees",
+   "text": "Up/Down Stairs 104, Knees 0"
+  },
+  {
+   "id": "x3-sc-mason-wall",
+   "text": "Mason 1, Himself 0 (walled in, freed Thursday)"
+  },
+  {
+   "id": "x3-sc-ravens-crown",
+   "text": "Ravens 1 Crown, Royal Guard 0 Crowns"
+  },
+  {
+   "id": "x3-sc-brook-fishers",
+   "text": "Brook 1, Fishers 0 (fish too clever, brook too shallow)"
+  },
+  {
+   "id": "x3-sc-goblin-cage",
+   "text": "Caged Goblin 0, Cage 1 (goblin appealing)"
+  },
+  {
+   "id": "x3-sc-thieves-goblets",
+   "text": "Thieves 2 Goblets, Guards 0 Goblets (thieves waved)"
+  },
+  {
+   "id": "x3-sc-engravers-masons",
+   "text": "Engravers 14, Masons 13 (masons claim walls were theirs)"
+  },
+  {
+   "id": "x3-sc-hospital-crutches",
+   "text": "Patients 12, Crutches 3 (crutches missing, inquiry)"
+  },
+  {
+   "id": "x3-sc-windmill-wind",
+   "text": "Windmill 0, Calm Day 1 (millers napping)"
+  },
+  {
+   "id": "x3-sc-brewer-drinker",
+   "text": "Brewers 6 barrels, Drinkers 7 barrels (deficit)"
+  },
+  {
+   "id": "x3-sc-elves-wood",
+   "text": "Elves 0, Wooden Bucket 1 (elves refused handshake)"
+  },
+  {
+   "id": "x3-sc-ghost-slab",
+   "text": "Ghost 1, Slab Engraver 0 (engraver now very motivated)"
+  },
+  {
+   "id": "x3-sc-noble-mandate",
+   "text": "Baron's Mandates 5, Crowns Made 0 (hammerer warming up)"
+  },
+  {
+   "id": "x3-sc-minecart-wall-replay",
+   "text": "End of Track 1, Minecart Rider 0 (rider asks 'what end?')"
+  },
+  {
+   "id": "x3-sc-miners-cavern",
+   "text": "Miners 1 Hole, Cavern Things Many (door ordered)"
+  },
+  {
+   "id": "x3-sc-cat-chair",
+   "text": "Cats 1 Chair, Dwarves 0 Chairs (standing room only)"
+  },
+  {
+   "id": "x3-sc-pond-turtle",
+   "text": "Turtle 1, Fisher 0 (fisher sat on, gently)"
+  },
+  {
+   "id": "x3-sc-sweet-pod-press",
+   "text": "Syrup 1, Screw Press 0 (press stuck, forever)"
+  },
+  {
+   "id": "x3-sc-drawbridge-caravan",
+   "text": "Drawbridge 1, Caravan Wagon 0 (wagon in two pieces)"
+  },
+  {
+   "id": "x3-sc-dogs-cats-final",
+   "text": "Dogs 0, Cats 0 (nap declared, match abandoned)"
+  },
+  {
+   "id": "x3-sc-snow-haulers",
+   "text": "Snow 4, Haulers 1 (logs found in spring)",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x3-sc-rain-refuse",
+   "text": "Rain 1, Refuse Pile 1 (smell wins on aggregate)",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x3-sc-migrants-beds",
+   "text": "Migrants {pop}, Beds Not Quite {pop}",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-sc-barrels-thirst",
+   "text": "Barrels {drinks}, Thirst Unbeaten",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "x3-sc-meat-cheese",
+   "text": "Cheese 31, Meat 0 (meat did not travel)",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "x3-sc-caravan-broker",
+   "text": "Broker 1 Bargain, Merchant 12 Bargains",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x3-sc-mood-workshop",
+   "text": "{moodname} 1 Artifact, Workshop 0 Doors (door kicked in)",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "x3-sc-aquifer-pump",
+   "text": "Aquifer 1, Pump Stack 1 (replay at high tide)"
+  },
+  {
+   "id": "x3-sc-dining-hall-fistfight",
+   "text": "Table 3, Bench 2, Dwarves Involved 0 (they ducked)"
+  },
+  {
+   "id": "x3-sc-mayor-election",
+   "text": "Mayor 1 Vote, Everyone Else 0 (one voter)"
+  },
+  {
+   "id": "x3-sc-training-dummy-comeback",
+   "text": "Training Dummy 1, Recruit 0 (recruit tripped, dummy credited)"
+  }
+ ],
+ "obits": [
+  {
+   "id": "x3-ob-lever-curious",
+   "text": "{deadname}, {prof}, has {cause}. Endlessly curious, they once asked what every lever in the fort did and were told. They wrote it all down. The notes are the only reason the drawbridge still works.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-liaison-friend",
+   "text": "{deadname} has {cause}. A gracious {prof}, they were the only dwarf who ever let the liaison finish a sentence. The liaison has sent a card asking whether this affects the trade agreement.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-first-engraving",
+   "text": "We remember {deadname}, a {prof} whose first engraving was 'a dwarf' and whose last was 'a dwarf, beautifully'. They have {cause}. Their walls will outlive us all, and frankly judge us.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-barrel-namer",
+   "text": "{deadname}, a {prof}, has {cause}. They gave every barrel in the cellar a name and greeted each by name every morning. The barrels are still here. They miss being called Gerda, Fist and Old Grumble.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-goblin-pen-pal",
+   "text": "{deadname} has {cause}. A patient {prof}, they taught the caged goblin to play cards and lost to him every single time. The goblin has asked to attend the funeral. The cage will be wheeled.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-ramp-defender",
+   "text": "The fortress mourns {deadname}, a {prof} and lifelong defender of ramps over stairs. They have {cause}. A ramp will be named in their honour. The stairs have declined to send flowers.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-pump-legend",
+   "text": "{deadname}, {prof}, has {cause}. They operated the same pump for six straight seasons and were thought by many to be part of it. The pump has been turning slower since. Engineers find no mechanical fault.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-caravan-haggler",
+   "text": "Farewell to {deadname}, a {prof} who haggled a human merchant down to paying us for his own wagon. They have {cause}. The merchant's caravan sends condolences and requests the wagon back.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-never-wore-pants",
+   "text": "{deadname} has {cause}. A loyal {prof} and veteran of the militia's notorious trouserless season, they never once complained about the draught. A pair of trousers will be buried with them, finally.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-hatch-keeper",
+   "text": "We say goodbye to {deadname}, a {prof} who knew where every hatch in the fortress led. They have {cause}. Several hatches now lead to places nobody can identify. Please do not open the green one.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-toad-tamer",
+   "text": "{deadname}, {prof}, has {cause}. They tamed a giant cave toad using only patience and cheese, and rode it, once, the length of the cavern. The toad has been told. It sat down for a long while.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-tantrum-proof",
+   "text": "{deadname} has {cause}. A serene {prof}, they never threw a single mug in their entire life, a feat that left their friends deeply suspicious. A mug has been placed on the slab, unthrown, as a tribute.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-slab-engraver-irony",
+   "text": "The fortress has lost {deadname}, a {prof} who engraved more memorial slabs than anyone in our history. They have {cause}. Out of respect, their slab is being engraved by three dwarves at once. It is a little crowded.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-winter-walker",
+   "text": "{deadname}, {prof}, has {cause}. They liked to walk across the frozen river every winter, 'to check'. They always reported back that it was frozen. We will check ourselves now, from the bank.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-bed-hoarder",
+   "text": "{deadname} has {cause}. A thoughtful {prof}, they claimed four separate bedrooms over their lifetime and slept in none of them, preferring the dining hall floor. The bedrooms have been reassigned. The floor has been left alone.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-pet-yak",
+   "text": "Farewell to {deadname}, a {prof} survived by one loyal yak who follows nobody else and stands at the tomb door each morning. They have {cause}. The yak has been given a blanket and a small sign reading 'good yak'.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-migrant-greeter",
+   "text": "{deadname}, a {prof}, has {cause}. They greeted every migrant wave at the gate personally, with a mug and the words 'the beds are that way, sort of'. The next arrivals will be met by a sign that says the same.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-dye-master",
+   "text": "We remember {deadname}, a {prof} who dyed everything they owned a single shade of blue, including, on one occasion, the overseer. They have {cause}. The fort will wear blue this week, some of it permanently.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-artifact-polisher",
+   "text": "{deadname} has {cause}. A devoted {prof}, they polished {artifact} every morning, though nobody asked them to and it was already perfect. The artifact looks slightly duller today. Everyone has noticed.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-hospital-escapee",
+   "text": "{deadname}, {prof}, has {cause}. Over a long life they escaped the hospital nine times, once while still in traction. The chief medical dwarf calls them 'the worst patient I ever loved'. A crutch has been retired in their honour.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-bookkeeper-count",
+   "text": "Farewell to {deadname}, a {prof} who could tell you, at any moment, exactly how many {stone} stones we had. They have {cause}. Nobody knows the number now. We are told it is 'a lot'.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-nickname-giver",
+   "text": "{deadname} has {cause}. A merry {prof}, they gave everyone in {fort} a nickname, and most of them stuck. Several dwarves are now unsure of their real names. The bookkeeper will sort it out, eventually.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-forge-singer",
+   "text": "The forge falls silent for {deadname}, a {prof} who hummed in time with the hammer and could keep a tune through a whole steel breastplate. They have {cause}. The smiths will hum their song this week, slightly off-beat.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-ghost-warning",
+   "text": "{deadname}, {prof}, has {cause}. Friends ask that a slab be engraved within the week, as {deadname} was always punctual and would hate to haunt anyone late. The engravers have been notified, firmly.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-ob-cavern-mapper",
+   "text": "We say farewell to {deadname}, a {prof} who mapped the first cavern by walking every inch of it and naming each mushroom tree. They have {cause}. The map is in the library. It is mostly drawings of mushrooms with names.",
+   "when": [
+    "recent_death"
+   ]
+  }
+ ],
+ "gossip": [
+  {
+   "id": "x3-gs-lever-secret",
+   "text": "Whispers in the corridors say {citizen} knows what the unlabelled lever does and is refusing to tell anyone. {citizen} insists there is no unlabelled lever. Nobody has asked which lever."
+  },
+  {
+   "id": "x3-gs-goblin-cards",
+   "text": "The caged goblin's card games have become the hottest ticket in the fort. Players report he cheats, gloats and offers excellent conversation. A waiting list has formed. The cage has been moved closer to the tavern."
+  },
+  {
+   "id": "x3-gs-bookkeeper-sleep",
+   "text": "Overheard at breakfast: nobody has ever seen the bookkeeper eat, sleep or go outside. Friends say he's simply dedicated. Others have begun leaving garlic-shaped rocks near his office, just in case."
+  },
+  {
+   "id": "x3-gs-noble-throne",
+   "text": "Society insiders report that the baron has demanded a throne, received a throne, and then demanded a slightly different throne. The old throne is now in the tavern, where it has become the most fought-over seat in {fort}."
+  },
+  {
+   "id": "x3-gs-nickname-war",
+   "text": "{citizen} has started calling {citizen2} 'Thunderbeard'. {citizen2} has started calling {citizen} 'Drizzlechin'. Both claim to be winning. Neighbours have chosen sides and nicknames of their own."
+  },
+  {
+   "id": "x3-gs-cavern-romance",
+   "text": "Two miners have been spending a suspicious amount of time 'surveying' the first cavern together. Witnesses report they have surveyed the same mushroom tree eleven times. The toads are said to be supportive."
+  },
+  {
+   "id": "x3-gs-tavern-throne-fight",
+   "text": "A quarrel over who gets the good chair in the tavern ended with both dwarves sitting in it at once. They have now spent three evenings in silence, side by side, neither willing to concede. It's being called a romance by some."
+  },
+  {
+   "id": "x3-gs-engraving-portrait",
+   "text": "{citizen} was dismayed to discover an engraving of themselves on the dining hall wall, looking 'unflatteringly surprised'. The engraver says it was drawn from life. {citizen} says they were only surprised because of the engraver."
+  },
+  {
+   "id": "x3-gs-vampire-gossip",
+   "text": "The fortress rumour mill is turning on the question of the dwarf who never touches wine. Sources say it is a vampire. Other sources say it is a dwarf with a strict brewer's diet. The dwarf, asked, just smiled. Too widely."
+  },
+  {
+   "id": "x3-gs-cheese-thief",
+   "text": "The kitchen has been losing one wheel of cheese a night. Insiders say the chef has begun sleeping in the larder. Witnesses say the chef has been seen in the larder, eating cheese, asleep. The investigation continues."
+  },
+  {
+   "id": "x3-gs-pet-feud",
+   "text": "Two dwarves with pet yaks are not speaking after one yak ate the other's hat. The owners met to settle the matter, and both yaks ate both hats. The owners now share a common grievance and are, apparently, friends."
+  },
+  {
+   "id": "x3-gs-hospital-romance",
+   "text": "Hospital staff report a blossoming romance between a patient and the dwarf who keeps bringing water. Friends say the patient has been 'mysteriously re-injured' four times this season. The water-bringer says it's 'just good service'."
+  },
+  {
+   "id": "x3-gs-dye-scandal",
+   "text": "The fort's dyers are at war after one of them dyed the other's beard blue while he slept. The victim has responded by dyeing his rival's entire bedroom. Interior decorators call it 'the bluest feud in history'."
+  },
+  {
+   "id": "x3-gs-lost-nickname",
+   "text": "{citizen_first} has lost a nickname. The old nickname, 'Hammerfist', was abandoned after an incident at the bakery. Several new nicknames have been proposed. {citizen_first} has rejected all of them, especially 'Breadfist'."
+  },
+  {
+   "id": "x3-gs-migrant-celebrity",
+   "text": "One of the new arrivals is said to have been famous back home, for something involving a cart and a hill. The details are unclear, but the fort's welcome has been noticeably warmer, mostly in hopes of hearing the story.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-gs-caravan-flirt",
+   "text": "The caravan's guard captain was seen sharing a mug with {citizen} on the depot steps. The caravan has now left. {citizen} has been on the depot steps every evening since, staring at the road, with two mugs.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x3-gs-promotion-parties",
+   "text": "{promoted} has thrown three parties in a week to celebrate becoming {post}. Guests report the parties are nice, if a little heavy on speeches about how hard it is to be {post}.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "x3-gs-mood-aftermath",
+   "text": "Since emerging with {artifact}, {moodname} has been seen visiting it daily and whispering to it. Close friends say this is normal after a mood. Other friends say it is normal for {moodname} anyway.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "x3-gs-masterpiece-envy",
+   "text": "Since {masterwright} made {masterwork}, several rival craftsdwarves have been working late. One has produced a masterwork of their own: a mug reading 'not bad, {masterwright}'. It is very finely made.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "x3-gs-well-proposal",
+   "text": "A dwarf tried to propose at the top of the up/down staircase this week, but by the time the partner climbed up to hear it, both were too winded to speak. They settled for a nod. Friends say it counts."
+  },
+  {
+   "id": "x3-gs-forbidden-door",
+   "text": "Gossips have been asking why a door near the cellar has been forbidden since spring. The overseer says it's 'nothing'. The mechanic says it's 'something'. The noise behind it says it's 'hungry'."
+  },
+  {
+   "id": "x3-gs-dog-loyalty",
+   "text": "The kennel master is said to be devastated after a dog he raised from a puppy decided it preferred the butcher. Insiders say it was 'just a matter of smell'. The kennel master has started carrying sausages in his pocket."
+  },
+  {
+   "id": "x3-gs-wedding-planning",
+   "text": "Rumour has it {citizen} and {citizen2} are planning a wedding, but cannot agree on a venue: one wants the forge, the other wants the library. A compromise has been reached: the corridor between them, which is long, draughty and neutral."
+  },
+  {
+   "id": "x3-gs-bard-rivalry",
+   "text": "Two bards are in an escalating feud over who sings louder. The first performed on the stairs. The second performed on the surface. The first is now planning a concert in the magma forge, which everyone hopes is a bluff."
+  },
+  {
+   "id": "x3-gs-secret-room",
+   "text": "Several readers have written in about a rumoured secret room behind the library's bookshelves. The librarian says there is no secret room. The librarian was later seen walking into a bookshelf and not coming out."
+  },
+  {
+   "id": "x3-gs-socks-to-scarves",
+   "text": "Fashion watchers report that dwarves short of pairs are now wearing odd socks as scarves. The trend started with {citizen}, who had one sock and a cold neck, and has since spread wildly through the fort."
+  },
+  {
+   "id": "x3-gs-overseer-hobby",
+   "text": "The overseer has taken up whittling, which has made the elves furious and the woodworkers nervous. His first carving is a small wooden overseer. Several dwarves say it does more work than the original."
+  },
+  {
+   "id": "x3-gs-depot-romance-merchant",
+   "text": "A human merchant is said to have written a love letter to our depot. Not a dwarf at the depot. The depot itself. He described its ramps as 'majestic'. The broker has filed the letter under 'trade'."
+  },
+  {
+   "id": "x3-gs-dueling-cooks",
+   "text": "The fort's two cooks have been preparing increasingly elaborate meals to impress the noble. The noble has eaten every one and said 'adequate' to each. Both cooks are now plotting against the noble, together."
+  },
+  {
+   "id": "x3-gs-snowball-ambush",
+   "text": "Sources report that someone has been hiding snowballs in the cellar to throw at unsuspecting dwarves later in the year. The prank has so far failed, as the snowballs have all become small puddles.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x3-gs-summer-sunburn",
+   "text": "A dwarf who spent an hour on the surface this summer has returned with a sunburned nose and an air of great importance. He has told everyone. He has shown everyone. Some have asked him to stop pointing at it.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x3-gs-fey-scare",
+   "text": "{citizen} spent an afternoon staring at a pile of bones and muttering, which caused a panic about a strange mood. It turned out {citizen} was just trying to remember where they left their pick. The pick was in the bones."
+  },
+  {
+   "id": "x3-gs-artifact-crush",
+   "text": "Several dwarves are said to be in love with {artifact}. The {artifact_item} has received anonymous gifts, flowers and one poem. Its maker finds this flattering, then concerning, then deeply concerning."
+  },
+  {
+   "id": "x3-gs-ghost-gossip",
+   "text": "The latest ghost in the corridors is said to have strong opinions about the new bedroom layout. It has been seen rearranging chairs at night. Several dwarves have admitted the new layout is better and the ghost is right."
+  },
+  {
+   "id": "x3-gs-kitten-custody",
+   "text": "Two dwarves are locked in a custody battle over a kitten that adopted both of them on the same afternoon. The sheriff has proposed shared custody. The kitten has proposed a third dwarf entirely.",
+   "when": [
+    "cats"
+   ]
+  }
+ ],
+ "weather_jokes": [
+  {
+   "id": "x3-wj-rain-roof",
+   "text": "Rain falling on the surface. Down here we have a roof made of a whole mountain, which is the correct amount of roof.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x3-wj-rain-elves",
+   "text": "A rainy day for the elves, who will spend it standing in the downpour thanking the trees for drinking. We will spend it indoors, drinking for the trees.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x3-wj-rain-farmers",
+   "text": "Rain on the surface is good news for any surface farms, and bad news for anyone carrying cloth to the depot. Pick one and live with it.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x3-wj-rain-pasture",
+   "text": "Light rain on the pasture. The herd will be wet, the herd will smell, and the herd will want to come inside. Do not let the herd come inside.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x3-wj-rain-caravan",
+   "text": "Rain expected. Any caravan on the road will be late, damp and in no mood to haggle, which is the ideal time to haggle.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x3-wj-snow-tracks",
+   "text": "Snow on the surface, which helpfully shows the footprints of everything walking around up there. We advise not studying them too closely.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x3-wj-snow-beard",
+   "text": "Fresh snow today. Beards worn outdoors may collect it. Beards collecting more than a handful will be considered wildlife and treated accordingly.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x3-wj-snow-elves",
+   "text": "Snowy conditions mean the elves can no longer pretend it's always spring in their forest. We expect a strongly worded letter blaming us.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x3-wj-snow-dig",
+   "text": "Snow lying deep on the surface. Miners say it's 'just soft stone'. Do not mine the snow. Do not smooth the snow. Do not engrave the snow.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x3-wj-snow-goblins",
+   "text": "Snow and frost expected, which slows goblins down. It slows dwarves down more. On balance, an excellent day to stay behind the drawbridge.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x3-wj-clear-sun-glare",
+   "text": "Clear skies today with strong sunlight. Dwarves on surface duty should squint heroically and pretend it is the glow of a forge.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "x3-wj-clear-birds",
+   "text": "A clear day, which brings out the birds. Keep an eye on your bracelets, rings and crowns. The birds have been watching your jewellery for some time.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "x3-wj-clear-woodcutting",
+   "text": "Fine and dry today. Excellent woodcutting weather, say the woodcutters. Terrible woodcutting weather, say the trees, through their elven spokesmen.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "x3-wj-clear-stargazing",
+   "text": "Clear skies tonight, ideal for stargazing. Anyone wishing to look at the stars may do so through the narrow slot in the fortification, one eye at a time.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "x3-wj-forge-front",
+   "text": "A warm front is spreading from the forges towards the dining hall, bringing smoky conditions and scattered sparks. Beards should be tucked in."
+  },
+  {
+   "id": "x3-wj-cavern-fog",
+   "text": "Thick fog in the first cavern this morning, created by something breathing heavily. We hope it is the moss. We suspect it is not the moss."
+  },
+  {
+   "id": "x3-wj-mist-generator",
+   "text": "Light mist expected near the waterfall, as usual. Dwarves passing through will feel refreshed and slightly happier. Dwarves who stop to enjoy it will be hauled away by a busy colleague."
+  },
+  {
+   "id": "x3-wj-draught-corridor",
+   "text": "A stiff draught is blowing through the east corridor since someone left the surface door open. The door has been closed. The draught has been blamed on a ghost anyway."
+  },
+  {
+   "id": "x3-wj-drinks-drought",
+   "text": "Drought warning: barrels in the tavern have fallen to {drinks}. Conditions are expected to become dry, then tense, then throwy.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "x3-wj-drinks-flood",
+   "text": "Flood warning in the cellar: {drinks} drinks on hand and rising. Dwarves are advised to drink responsibly, then drink a little more, to ease pressure on the barrels.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "x3-wj-spring-mud",
+   "text": "Spring has arrived on the surface, bringing mud, more mud and a swarm of very small flies. Every dwarf who went outside this week has come back covered in at least two of these.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "x3-wj-summer-heat",
+   "text": "A hot summer day on the surface. The pond is warm, the grass is crisp, and the elves are lying on rocks like lizards. A good day to stay below and pretend none of this is happening.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x3-wj-autumn-wind",
+   "text": "Autumn winds are picking up, blowing leaves into the depot and into the soup. Cooks say the leaves 'add texture'. Diners say they add leaves.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "x3-wj-winter-silence",
+   "text": "Winter is here and the surface has gone quiet, except for the wind, the wolves and the distant sound of an elf apologising to a frozen tree.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x3-wj-weather-generic",
+   "text": "Outside today: {weather}. Inside today: forge-warm, rock-solid, and a light shower of mugs near the tavern by evening."
+  },
+  {
+   "id": "x3-wj-tantrum-storm",
+   "text": "Tantrum warning in effect for the craftsdwarf corridor after a mandate was ignored. Expect scattered shouting and isolated furniture breakage. Shelter behind a bench."
+  },
+  {
+   "id": "x3-wj-magma-humidity",
+   "text": "Magma level slightly higher this week. Humidity remains very low, temperature remains very high, and the forge crew remains extremely cheerful about it."
+  },
+  {
+   "id": "x3-wj-miasma-clearing",
+   "text": "The miasma front over the butcher's shop has cleared. Visibility is good, smells are fine, and the refuse pile has been moved further away, for now."
+  },
+  {
+   "id": "x3-wj-aquifer-drip",
+   "text": "Persistent drizzle continues on level six, as the aquifer has decided to come and visit. Bring a bucket. Bring an umbrella. Bring a mason with spare blocks."
+  },
+  {
+   "id": "x3-wj-season-of",
+   "text": "It is {season} in year {year}. The surface is doing whatever it does in {season}. The fort is doing what it always does, which is drinking and digging."
+  }
+ ],
+ "corrections": [
+  {
+   "id": "x3-cr-lever-label",
+   "text": "Last issue we said the lever by the dining hall 'opens the pantry'. It does not. It opens the floodgate. We apologise to everyone in the dining hall, and to the pantry, which remains closed."
+  },
+  {
+   "id": "x3-cr-goblin-name",
+   "text": "We previously referred to the caged goblin as 'Kevin'. He has asked us to point out that his name is Snodub Gorespear. He has also asked that we keep calling him Kevin, as he has grown fond of it."
+  },
+  {
+   "id": "x3-cr-liaison-wrong",
+   "text": "Our report said the liaison had 'no further questions'. This was optimistic. He has many further questions. All of them are about trade."
+  },
+  {
+   "id": "x3-cr-toad-wedding",
+   "text": "An announcement last week said the giant cave toad was best man at a wedding. It was a guest. It did not perform any duties. It ate the cake, which is not a duty."
+  },
+  {
+   "id": "x3-cr-bridge-label",
+   "text": "We described the drawbridge as 'a safe place to stand'. It is a safe place to stand only when it is down. We regret the error, and so does the dwarf who now lives on the far side of the moat."
+  },
+  {
+   "id": "x3-cr-ramp-stair",
+   "text": "A map printed last issue showed a staircase where there is in fact a ramp. Readers who attempted to climb the ramp as stairs are reminded that ramps are also climbable, just differently."
+  },
+  {
+   "id": "x3-cr-vampire-denial",
+   "text": "We reported that the bookkeeper is a vampire. We have been asked to state that the bookkeeper is not a vampire, and to state it after sundown, when the bookkeeper can read it personally."
+  },
+  {
+   "id": "x3-cr-windmill-report",
+   "text": "Last issue claimed the new windmill 'runs on enthusiasm'. It runs on wind. On calm days it does not run at all, regardless of how enthusiastically the millers shout at it."
+  },
+  {
+   "id": "x3-cr-artifact-value",
+   "text": "We stated that {artifact} was worth 'quite a bit'. The correct value is 'more than this entire newspaper office, the staff and our cat'. We apologise to the artifact."
+  },
+  {
+   "id": "x3-cr-forbidden-door",
+   "text": "Last issue listed the forbidden door near the cellar as 'probably fine'. Please disregard. Please do not open the door. Please do not lean on the door. Please stop knocking on the door."
+  },
+  {
+   "id": "x3-cr-mood-confusion",
+   "text": "We said a dwarf was 'taken by a fey mood'. The dwarf in question was taken by a nap. They have since woken up and produced nothing at all, which we apologise for suggesting otherwise."
+  },
+  {
+   "id": "x3-cr-dye-blue",
+   "text": "A previous issue said the overseer's beard was dyed blue 'as a fashion statement'. The overseer was asleep at the time. The statement was made by the dyer. We regret the confusion."
+  },
+  {
+   "id": "x3-cr-migrant-count",
+   "text": "We previously described the latest migrant wave as 'small'. It was not small. Our reporter counted the first cart and then went to lunch. {pop} dwarves now live here. Several of them are in our office.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "x3-cr-promotion-name",
+   "text": "Last issue congratulated the wrong dwarf on becoming {post}. The correct dwarf is {promoted}. The wrong dwarf has enjoyed the attention very much and has asked if he can keep the hat.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "x3-cr-masterwork-maker",
+   "text": "In our last issue, {masterwork} was credited to 'some dwarf'. It was made by {masterwright}, who has contacted us several times to make sure we know. We know.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "x3-cr-strike-mineral",
+   "text": "We reported that miners had struck 'something shiny'. It was {mineral}. Our science desk would like to stress that 'shiny' is not a mineral, and has been sent back to the library.",
+   "when": [
+    "recent_strike"
+   ]
+  },
+  {
+   "id": "x3-cr-caravan-goods",
+   "text": "Our caravan report listed 'three bins of rare cheese'. Two of the bins were cheese. The third bin was the merchant, napping. He has asked for a mention, and an apology for the word 'rare'.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x3-cr-death-cause",
+   "text": "Our recent notice about {deadname} contained an embarrassing error about the cause of death. We apologise to the family, the hospital, and to the carp, who was not involved this time.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x3-cr-drinks-figure",
+   "text": "We reported last issue that the tavern had 'plenty' of drink. The bookkeeper says the figure is {drinks}. Readers are asked to adjust their expectations and their pace.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "x3-cr-meat-sighting",
+   "text": "We reported a 'meat sighting' near the kitchen. It was a mushroom shaped like a sausage. Dwarves who rushed to the kitchen are asked to return to work and to put the mushroom down.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "x3-cr-snow-sand",
+   "text": "Last week's forecast called for 'sand'. We meant snow. Dwarves who went outside expecting a pleasant beach day are thawing in the hospital and do not want to hear from us.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x3-cr-nickname-wrong",
+   "text": "We used the nickname 'Drizzlechin' for {citizen}. This nickname is not used by anyone except {citizen2}. We apologise to {citizen}, who has asked to be called 'Thunderbeard', which nobody uses either."
+  },
+  {
+   "id": "x3-cr-engraver-subject",
+   "text": "A caption last issue read 'An engraving of a dwarf and a cheese. The dwarf is laughing.' In fact, the cheese is laughing. The dwarf is weeping. We regret misreading the room."
+  },
+  {
+   "id": "x3-cr-noble-throne-size",
+   "text": "We said the baron's new throne was 'grand'. The baron has asked us to amend this to 'very grand'. The carpenter has asked us to amend it to 'two chairs nailed together'. We print both."
+  },
+  {
+   "id": "x3-cr-hospital-crutches",
+   "text": "We reported that the hospital had 'no shortage of crutches'. The hospital has three crutches and twelve patients. The shortage is real, and so is the queue for the good crutch."
+  },
+  {
+   "id": "x3-cr-bogeyman-myth",
+   "text": "Our previous issue dismissed bogeymen as a myth. Following a large number of letters, all written in shaky handwriting and many received at night, we now accept bogeymen are real. Stay indoors."
+  },
+  {
+   "id": "x3-cr-soap-claim",
+   "text": "We previously claimed the fortress 'smells fine'. Our reporter had a cold. Since recovering, he has withdrawn the claim, and the article, and has been seen running towards the soapmaker's workshop."
+  },
+  {
+   "id": "x3-cr-cheese-wheel",
+   "text": "We said the kitchen lost a cheese 'to a thief'. The chef has since confessed he ate it while sleepwalking. The thief, a goblin, has asked us to clear his name of this one specifically."
+  },
+  {
+   "id": "x3-cr-weather-wrong-world",
+   "text": "We wrote that the weather was {weather} across the whole of {world}. This was an overreach. Our weather desk only looked out of one door."
+  },
+  {
+   "id": "x3-cr-year-mistake",
+   "text": "Our masthead last week claimed it was 'about year something'. It is year {year}. The editor responsible has been given a calendar and strong encouragement to look at it."
+  },
+  {
+   "id": "x3-cr-temple-deity",
+   "text": "We misidentified the god worshipped in our temple as 'the god of rivers and boredom'. The correct title is 'the god of rivers and patience'. Worshippers were too patient to complain until now."
+  },
+  {
+   "id": "x3-cr-well-depth",
+   "text": "We reported the well as 'ten levels deep'. It is ten levels deep, then a lake, then a cave, then something that hums. Please do not drop more buckets in to check."
+  },
+  {
+   "id": "x3-cr-smoothed-wall",
+   "text": "We congratulated the masons on 'freshly engraved' walls. The walls were only smoothed. The engraving is next year. The masons enjoyed the praise and have asked if they can keep it."
+  },
+  {
+   "id": "x3-cr-comic-misattribution",
+   "text": "Our Funny Pages credited last week's comic to the fortress's bard. It was drawn by a child. The child is offended. The bard is relieved. The comic was better than the bard's."
+  },
+  {
+   "id": "x3-cr-trap-spelling",
+   "text": "Last issue's safety notice said 'beware the weapon traps' when it should have said 'beware the weapon traps, and the cage traps, and the stone-fall traps, and just generally the gate'."
+  },
+  {
+   "id": "x3-cr-dog-count",
+   "text": "We reported the fort has {dogs} dogs. One of them has written to say he is 'more of a wolf'. We have checked. He is a dog. We decline to correct the figure.",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "x3-cr-population-pet",
+   "text": "The obituaries column last issue was written about a dwarf who turned out to be an alive yak. The yak is fine. We regret the error, and the yak regrets the flowers."
+  },
+  {
+   "id": "x3-cr-magma-cooking",
+   "text": "Our recipe page advised 'searing your steak over the magma channel'. Do not do this. The steak will not survive. Nor will the spatula. Nor, in one tragic test case, the chef's eyebrows."
+  },
+  {
+   "id": "x3-cr-elf-height",
+   "text": "An earlier story described the visiting elves as 'twice as tall as a dwarf'. They are roughly one and a half times as tall. They also asked us to note that they are 'twice as wise'. We have declined."
+  },
+  {
+   "id": "x3-cr-library-book-count",
+   "text": "We reported that the library holds 'many books'. It holds four books, two of which are about rocks. One of the other two is a menu. The librarian asks you to come and read it."
+  }
+ ],
+ "world_news": [
+  {
+   "id": "x3-wn-liaison-lost",
+   "kick": "Diplomacy",
+   "head": "LIAISON LOST BETWEEN {hillock} AND {fort}",
+   "body": "The mountainhome's outpost liaison set out for {hillock} two seasons ago and has not been seen since. Search parties report finding a trail of abandoned questionnaires about trade. Each one is unanswered. Each one is signed hopefully."
+  },
+  {
+   "id": "x3-wn-goblin-library",
+   "kick": "Goblin Affairs",
+   "head": "{darkfort} OPENS LIBRARY; ALL BOOKS ABOUT SPEARS",
+   "body": "The goblins of {darkfort} have opened their first public library. It contains four hundred books, every one titled 'Spear'. Scholars from {town} visited and report the prose is 'repetitive but sincere'. Late fees are paid in prisoners."
+  },
+  {
+   "id": "x3-wn-elves-wood-scandal",
+   "kick": "Elven Affairs",
+   "head": "ELF CAUGHT WITH WOODEN SPOON AT {retreat}",
+   "body": "An elf at {retreat} has been publicly shamed after a wooden spoon was found in his hut. He insists the spoon 'grew that way'. The spoon has been given a state funeral. The elf has been sentenced to eating soup with his hands."
+  },
+  {
+   "id": "x3-wn-human-cheese-war",
+   "kick": "Economy",
+   "head": "{town} AND {town2} AT ODDS OVER CHEESE",
+   "body": "Trade between {town} and {town2} has collapsed after a dispute about which city's cheese is 'more yellow'. Both cities have now banned the other's cheese. Smugglers report record profits and a strong yellow smell along the border."
+  },
+  {
+   "id": "x3-wn-kobold-ambassador",
+   "kick": "Diplomacy",
+   "head": "KOBOLDS SEND AMBASSADOR; HE STEALS EMBASSY",
+   "body": "The kobolds of {world} have sent their first ambassador to {town2}. He presented his credentials, made a stirring speech, and was found that night carrying the embassy's front door down the road. Talks are said to be continuing, without a door."
+  },
+  {
+   "id": "x3-wn-titan-tourism",
+   "kick": "Rumours",
+   "head": "TITAN SPOTTED NEAR {hillock}, ASKS FOR DIRECTIONS",
+   "body": "Travellers near {hillock} report a titan of great size stopped them on the road to ask the way to the nearest dwarven fortress. They pointed in the opposite direction. Our correspondent wishes to thank them personally."
+  },
+  {
+   "id": "x3-wn-necro-pension",
+   "kick": "Scandal",
+   "head": "NECROMANCER DRAWS PENSIONS FOR ENTIRE ARMY",
+   "body": "Officials at {town} have discovered that a local necromancer has been claiming retirement pensions for four hundred undead soldiers. He argues they are 'technically veterans'. A hearing has been scheduled, which the soldiers will attend in silence."
+  },
+  {
+   "id": "x3-wn-dwarf-drought",
+   "kick": "Dwarven Affairs",
+   "head": "{hillock} BREWERS STRIKE OVER BARREL SIZES",
+   "body": "Brewers at {hillock} have laid down their mugs in protest at a new noble mandate requiring 'smaller, more elegant barrels'. Production has stopped. Tantrums have started. The noble has been offered a very small, very elegant barrel, at speed."
+  },
+  {
+   "id": "x3-wn-goblin-vacation",
+   "kick": "Goblin Affairs",
+   "head": "{darkfort2} ANNOUNCES 'SIEGE-FREE SEASON'",
+   "body": "In a surprise move, {darkfort2} has declared a season without sieges so its soldiers can 'rest, reflect and sharpen things'. Neighbouring fortresses have welcomed the news and are using the time to sharpen things of their own."
+  },
+  {
+   "id": "x3-wn-human-tax-sky",
+   "kick": "Economy",
+   "head": "{town2} INTRODUCES TAX ON LOOKING AT THE SKY",
+   "body": "The humans of {town2} have introduced a tax on any citizen caught looking upward. Dwarven visitors have been delighted to discover they owe nothing. Humans are said to be walking around staring firmly at their feet."
+  },
+  {
+   "id": "x3-wn-elves-reject-gift",
+   "kick": "Elven Affairs",
+   "head": "{retreat} REJECTS STONE STATUE AS 'TOO STILL'",
+   "body": "A statue gifted to {retreat} as a gesture of friendship has been returned with a note complaining that it 'doesn't grow, doesn't sway, and doesn't do anything at all'. The sculptor has replied that this was the whole point."
+  },
+  {
+   "id": "x3-wn-caravan-wrong-fort",
+   "kick": "Trade",
+   "head": "CARAVAN FROM {town} DELIVERS TO WRONG FORTRESS",
+   "body": "A human caravan bound for us arrived instead at {hillock}, which accepted all the goods, thanked the merchants, and sent them home. The merchants have only just noticed. {hillock} has sent a thank-you note."
+  },
+  {
+   "id": "x3-wn-map-mistake",
+   "kick": "Cartography",
+   "head": "MAPMAKERS ADD A MOUNTAIN TO {world} BY ACCIDENT",
+   "body": "A mountain drawn on the latest maps of {world} has been revealed to be a dribble of dwarven ale. Explorers sent to climb it found a flat field and an awkward silence. The stain is still listed as the highest point in the region."
+  },
+  {
+   "id": "x3-wn-beast-pacifist",
+   "kick": "Rumours",
+   "head": "FORGOTTEN BEAST NEAR {town} 'JUST WANTS TO BE REMEMBERED'",
+   "body": "A forgotten beast in the caverns under {town} has reportedly asked visitors to tell people about it. 'It's in the name,' said one witness. 'It's lonely.' The beast is said to have eaten the witness's companion while making this point."
+  },
+  {
+   "id": "x3-wn-goblin-cookbook",
+   "kick": "Arts Abroad",
+   "head": "GOBLIN COOKBOOK BECOMES SURPRISE BESTSELLER",
+   "body": "'Feasts of {darkfort}' has become the season's most popular book among humans of {town2}, mostly as a horror novel. The author is said to be delighted, confused, and preparing a second volume entitled 'More Meat'."
+  },
+  {
+   "id": "x3-wn-dwarf-mayor-hat",
+   "kick": "Dwarven Affairs",
+   "head": "{hillock} MAYOR'S HAT DECLARED A SEPARATE NOBLE",
+   "body": "After years of being consulted on matters of state, the mayor of {hillock}'s hat has been formally granted its own title. It is now Baroness of Brims. Its first mandate demands a smaller dwarf beneath it."
+  },
+  {
+   "id": "x3-wn-human-knight-quest",
+   "kick": "Foreign Desk",
+   "head": "HUMAN KNIGHT VOWS TO SLAY DRAGON, SLAYS LIZARD",
+   "body": "A knight from {town} who swore to slay the dragon of {world} has returned triumphant, carrying the body of a medium-sized lizard. Asked about the discrepancy, he pointed out that the lizard 'had a very bad attitude'."
+  },
+  {
+   "id": "x3-wn-elven-election",
+   "kick": "Elven Affairs",
+   "head": "{retreat} HOLDS ELECTION; TREE WINS",
+   "body": "The elves of {retreat} have elected an ancient oak as their new leader, after it received every vote cast. Opposition elves argue the tree did not campaign. Supporters say that is exactly why it won."
+  },
+  {
+   "id": "x3-wn-goblin-lost-war",
+   "kick": "Goblin Affairs",
+   "head": "{darkfort} FORGETS WHO IT IS AT WAR WITH",
+   "body": "Goblin generals at {darkfort} have admitted they no longer remember who they are fighting. 'We have the spears,' said one, 'and the enthusiasm. We're just missing a target.' Every neighbouring settlement has been asked to keep very quiet."
+  },
+  {
+   "id": "x3-wn-human-bathhouse",
+   "kick": "Science",
+   "head": "{town} SCHOLARS CONFIRM BATHING 'NOT DANGEROUS'",
+   "body": "A study by the scholars of {town} has concluded that regular bathing does not weaken the body or anger the gods. Dwarven readers are urged to treat these findings with the caution due to any study done above ground."
+  },
+  {
+   "id": "x3-wn-dwarf-artifact-loan",
+   "kick": "Dwarven Affairs",
+   "head": "{hillock} ASKS TO BORROW OUR ARTIFACT",
+   "body": "Officials at {hillock} have written to request a loan of {artifact} for their great hall, 'just for a season'. Our overseer has replied that the last thing we lent {hillock} was a bucket, which is still being discussed."
+  },
+  {
+   "id": "x3-wn-weather-abroad",
+   "kick": "Weather Abroad",
+   "head": "IT RAINED UP IN {town2}, WITNESSES SAY",
+   "body": "Residents of {town2} report a brief period of rain falling upward last week. Scholars blame 'weather'. Dwarven experts blame 'the sky, generally'. Nobody blames the necromancer, who was seen nearby, giggling."
+  },
+  {
+   "id": "x3-wn-trade-route",
+   "kick": "Trade",
+   "head": "NEW ROAD LINKS {town} TO {darkfort}; NOBODY USES IT",
+   "body": "A paved road now connects the human city of {town} with the goblin stronghold at {darkfort}. Traffic has been light, consisting of one merchant who misread the signs and a large number of goblins heading in only one direction."
+  },
+  {
+   "id": "x3-wn-scholar-dispute",
+   "kick": "Scholarship",
+   "head": "SCHOLARS OF {world} SPLIT OVER 'IS A ROCK A STONE'",
+   "body": "A conference of the great minds of {world} broke up in disarray after two days of debating whether rocks and stones are the same thing. A dwarven delegate who said 'obviously yes' was escorted out for 'oversimplifying'."
+  },
+  {
+   "id": "x3-wn-migration-trend",
+   "kick": "Dwarven Affairs",
+   "head": "{hillock} REPORTS MIGRANTS MOVING TO {fort}",
+   "body": "Leaders at {hillock} have complained that their dwarves keep leaving for {fort}, citing 'better barrels and a more interesting newspaper'. We are flattered. We have also run out of beds. Please slow down."
+  },
+  {
+   "id": "x3-wn-goblin-snatcher-union",
+   "kick": "Goblin Affairs",
+   "head": "SNATCHERS OF {darkfort2} FORM A UNION",
+   "body": "Goblin snatchers at {darkfort2} have unionised, demanding shorter nights, longer sacks and a bonus for every baby returned in good condition. Their employers are said to be furious. Their victims are said to be quietly supportive."
+  },
+  {
+   "id": "x3-wn-necro-tower-noise",
+   "kick": "Night Desk",
+   "head": "{town} NEIGHBOURS COMPLAIN OF TOWER NOISE",
+   "body": "Residents near the necromancer's tower outside {town} have filed complaints about late-night rattling, moaning and organ music. The necromancer has apologised for the organ music and refused to apologise for anything else."
+  },
+  {
+   "id": "x3-wn-elf-dwarf-friendship",
+   "kick": "Diplomacy",
+   "head": "ELF AND DWARF FRIENDS FOR THIRTY YEARS, BOTH EMBARRASSED",
+   "body": "A dwarf from {hillock} and an elf from {retreat} have revealed a decades-long friendship. 'We don't talk about trees,' the elf explained. 'We don't talk about chairs,' said the dwarf. 'We mostly don't talk.' Both families are appalled."
+  },
+  {
+   "id": "x3-wn-dragon-lair-property",
+   "kick": "Property",
+   "head": "DRAGON'S LAIR NEAR {town2} UNDERGOES RENOVATION",
+   "body": "The famous dragon's lair outside {town2} has been remodelled after the dragon complained about 'drafts and adventurers'. New features include a front door, a back door and a sign reading 'NO HEROES'. Heroes say the sign is 'a challenge'."
+  },
+  {
+   "id": "x3-wn-world-age",
+   "kick": "Historians' Corner",
+   "head": "HISTORIANS SAY {world} IS 'ROUGHLY OLD'",
+   "body": "After decades of research, historians have announced that the world of {world} is 'quite old, roughly'. They have not been more specific. Asked how old exactly, the head historian said 'older than me', then sat down for a long rest."
+  }
+ ],
+ "travel": [
+  {
+   "id": "x3-tr-goblin-bnb",
+   "head": "{darkfort2}: BED AND BREAKFAST, MOSTLY BREAKFAST",
+   "body": "The goblins of {darkfort2} are proud of their new guesthouse. There is no bed. Breakfast is served at all hours, sometimes by surprise, sometimes to you. Our reviewer left with a full stomach and a profound suspicion about what it was full of."
+  },
+  {
+   "id": "x3-tr-hillock-library",
+   "head": "{hillock} LIBRARY TOUR",
+   "body": "{hillock} boasts the largest dwarven library in the region, all six books of it. Our guide read us the first chapter of each, then asked us to leave because we had read too much. The gift shop sells the same six books, slightly cheaper."
+  },
+  {
+   "id": "x3-tr-town-market-fish",
+   "head": "{town} FISH MARKET: LOUD",
+   "body": "Humans at the {town} fish market shout prices at each other from a distance of three feet. Nobody seems to buy anything. Everyone seems happy. Our reporter bought a fish, was shouted at for buying the fish, and fled with the fish. Lovely fish."
+  },
+  {
+   "id": "x3-tr-retreat-tree-house",
+   "head": "STAYING IN A TREE AT {retreat}",
+   "body": "Our hosts at {retreat} offered us a room inside a living tree. It creaked all night, swayed in the wind, and dropped an acorn on our reviewer every hour, on the hour. The elves say the tree 'liked us'. We left before it liked us more."
+  },
+  {
+   "id": "x3-tr-world-mountains",
+   "head": "THE GREAT MOUNTAINS OF {world}: A PROPER HOLIDAY",
+   "body": "At last, a destination worthy of a dwarf: vast mountains, stone everywhere, and no trees above a certain point. We spent three blissful days staring at granite. Our only regret is that we had to come back down, where the sky is."
+  },
+  {
+   "id": "x3-tr-darkfort-tour-moat",
+   "head": "{darkfort}'S FAMOUS MOAT OF SPIKES",
+   "body": "The tour guide at {darkfort} spent half an hour explaining the moat of spikes, its history, its many victims and its 'rich cultural meaning'. We asked if we could go round it. He laughed for twenty minutes. We went round it. It took a week."
+  },
+  {
+   "id": "x3-tr-town2-opera",
+   "head": "AN EVENING AT THE {town2} OPERA",
+   "body": "The human opera at {town2} lasted five hours and was about a man who could not decide whether to marry. In the end he married. Nobody was crushed, burnt or eaten. The audience called it 'heartbreaking'. We were baffled and also bored."
+  },
+  {
+   "id": "x3-tr-hillock-spa",
+   "head": "{hillock} MUD BATHS: ACCIDENTALLY RELAXING",
+   "body": "The mud baths at {hillock} are, we discovered, the result of a burst aquifer that nobody fixed. Locals have made the best of it. Our reviewer sat in the mud for an hour and emerged calmer, dirtier, and unable to locate one of his boots."
+  },
+  {
+   "id": "x3-tr-caravan-to-darkfort",
+   "head": "BY CARAVAN TO {darkfort}: DON'T",
+   "body": "We joined a merchant caravan heading for {darkfort}, under the impression it was a trade mission. It was a trade mission. We were the goods. Our reviewer was eventually returned, having been judged 'too complain-y' for resale."
+  },
+  {
+   "id": "x3-tr-retreat-festival",
+   "head": "{retreat} SPRING FESTIVAL",
+   "body": "The elves of {retreat} celebrate spring with a festival of dancing among flowers. Our reviewer was asked to join and did, stiffly, in boots. A circle formed around him. It was not admiration. It was the elves, keeping their distance from the boots."
+  },
+  {
+   "id": "x3-tr-town-castle-dungeon",
+   "head": "THE DUNGEONS OF {town} CASTLE",
+   "body": "We were delighted to find something underground in {town}, and toured the castle dungeons with real enthusiasm. Damp, dark, beautifully cut stone. Our reviewer asked to stay a night. The guards agreed, and only let him out after a week."
+  },
+  {
+   "id": "x3-tr-world-coast",
+   "head": "THE COAST OF {world}: A LOT OF WATER",
+   "body": "We travelled to the coast to see the sea. It is a large amount of water with no walls. The carp there are bigger, angrier and many. Our reviewer did not go in, did not get near, and has asked us never to send him anywhere wet again."
+  },
+  {
+   "id": "x3-tr-hillock-tavern-crawl",
+   "head": "A TAVERN CRAWL OF {hillock}",
+   "body": "{hillock} has only one tavern, but its corridors are so long that walking from one end of the bar to the other counts as a crawl. Fine drink, friendly locals, and a shocking lack of chairs. We drank standing. It felt like home."
+  },
+  {
+   "id": "x3-tr-darkfort2-arena",
+   "head": "{darkfort2} ARENA: FRONT-ROW SEATS",
+   "body": "The fighting pits of {darkfort2} offer front-row seats to every visitor. Unfortunately, the front row is in the pit. Our reviewer won two bouts, lost one, and returned home with a trophy, a limp and a contract he did not sign."
+  },
+  {
+   "id": "x3-tr-town2-bridge",
+   "head": "WALKING THE {town2} BRIDGE",
+   "body": "The humans of {town2} are very proud of their great stone bridge, a fine structure crossing a river full of carp. Our reviewer walked it in eleven seconds, very fast, without looking down. He gives it five stars, from a distance."
+  },
+  {
+   "id": "x3-tr-retreat-tea",
+   "head": "ELVEN TEA AT {retreat}",
+   "body": "The elves served tea made from leaves, flowers, a small twig and one moth. They called it 'the forest in a cup'. It tasted like a forest, specifically the floor of it. Our reviewer drank it to be polite and has been unwell since."
+  },
+  {
+   "id": "x3-tr-town-festival-sky",
+   "head": "{town} SKY FESTIVAL: ALARMING",
+   "body": "The humans of {town} hold an annual festival to celebrate 'the open sky'. It consists of standing in a field, looking up. Our reviewer attended under a large hat and a small table. He survived. He does not recommend it."
+  },
+  {
+   "id": "x3-tr-world-desert",
+   "head": "THE DESERTS OF {world}: SAND",
+   "body": "We visited the great desert to the south. It is all sand. No stone, no water, no shade and no barrels. A camel tried to eat our map. We let it. The map was also mostly sand by then. Zero stars, which is also how many trees there were."
+  },
+  {
+   "id": "x3-tr-hillock-forge",
+   "head": "{hillock} FORGE TOUR: WARM WELCOME",
+   "body": "The forges of {hillock} glow day and night, and visitors are welcome to watch the smiths at work, which they do very loudly. Our reviewer received a small iron souvenir and a large scorch mark. He has framed both."
+  },
+  {
+   "id": "x3-tr-darkfort-gift-shop",
+   "head": "THE GIFT SHOP AT {darkfort}",
+   "body": "We are told the tower of {darkfort} now has a gift shop. It sells spears, little spears, spear keyrings, and postcards of spears. We bought a mug. It was also a spear. The mug cannot hold drink, but we use it as a spear."
+  }
+ ],
+ "letters_abroad": [
+  {
+   "id": "x3-la-town-bed-height",
+   "body": "The beds in {town} are so high off the ground that I need a ladder to get into one. I asked the humans why they sleep so far up. They asked me why I sleep 'in a hole'. Neither of us won. I sleep on the floor now. It is the only correct height.",
+   "by": "A Weary Traveller, in {town}"
+  },
+  {
+   "id": "x3-la-retreat-name-tree",
+   "body": "The elves at {retreat} have named a tree after me, as a gesture of goodwill. It is a very small tree. I have checked the others, and they are all named after elves and much larger. I suspect a message. Please advise.",
+   "by": "An Envoy, Somewhat Offended, at {retreat}"
+  },
+  {
+   "id": "x3-la-darkfort-mail",
+   "body": "Your newspaper arrived at {darkfort} at last. The goblins read it aloud and laughed at all the wrong parts, especially the obituaries. They've asked for a subscription. I've told them it'll cost them my freedom. They are thinking about it.",
+   "by": "A Prisoner of Some Standing, {darkfort}"
+  },
+  {
+   "id": "x3-la-hillock-mood",
+   "body": "A dwarf at {hillock} went into a fey mood and demanded our fortress's artifact as raw material. I am writing to ask whether you would lend it. It would only be for a moment. She would only sort of destroy it.",
+   "by": "A Worried Neighbour at {hillock}"
+  },
+  {
+   "id": "x3-la-town2-human-friend",
+   "body": "I've made a human friend in {town2}. He is very tall and asks lots of questions about beards. I've answered them all. He has started growing one. It is thin and sad. Please send advice. And a comb.",
+   "by": "A Dwarf of Good Cheer, in {town2}"
+  },
+  {
+   "id": "x3-la-world-journey",
+   "body": "I have now walked across the whole of {world} and wish to report that it is, in my estimate, mostly grass. I came home to tell you this in person, but nobody would listen at the gate, so I am writing to the paper.",
+   "by": "A Walker, Now Home"
+  },
+  {
+   "id": "x3-la-goblin-recipe",
+   "body": "Since my capture at {darkfort2}, I have been put to work in the goblin kitchens. They have no concept of cheese. I have introduced it. There is now a small cheese cult forming among the guards. I am not sure I will be released, or that I want to be.",
+   "by": "A Cook, Detained, at {darkfort2}"
+  },
+  {
+   "id": "x3-la-hillock-complaint",
+   "body": "I write to complain that {fort} has been sending us its migrants' worst habits. They arrived at {hillock}, slept in our dining hall, sang until morning and stole our good mugs. We would like them back. The habits, not the dwarves.",
+   "by": "The Steward of {hillock}"
+  },
+  {
+   "id": "x3-la-town-guard-confusion",
+   "body": "The guards of {town} keep stopping me to ask if I'm a child. I am a hundred and four. I have a beard to my belt. I have explained this. They have apologised and then asked whether my parents know where I am. Please help.",
+   "by": "An Elderly Dwarf, in {town}"
+  },
+  {
+   "id": "x3-la-retreat-meal",
+   "body": "The elves of {retreat} invited me to a feast, which was a bowl of berries and a long speech about the berries. I asked whether there would be a second course. The elves said 'this is the second course'. I am writing from hunger.",
+   "by": "A Hungry Guest, at {retreat}"
+  },
+  {
+   "id": "x3-la-darkfort-escape",
+   "body": "I have escaped from {darkfort} and wish to thank the goblin guard who left the gate open. He did it on purpose. He wished me well. He asked me to tell everyone he is 'not like the other goblins'. I've told you. Please don't tell the other goblins.",
+   "by": "A Free Dwarf, Again"
+  },
+  {
+   "id": "x3-la-town2-weather",
+   "body": "It has been raining in {town2} for nineteen days. The humans carry small cloth roofs on sticks. I have asked to borrow one and been told 'everybody has their own'. I am building one of stone. It is heavy. Progress is slow.",
+   "by": "A Damp Mason, in {town2}"
+  },
+  {
+   "id": "x3-la-hillock-beard-contest",
+   "body": "Please inform the beard-length contest at {fort} that {hillock} wishes to challenge. Our champion's beard is long enough to tie in a knot around a cart, which she has done. The cart is ours. We will bring it.",
+   "by": "The Beard Committee of {hillock}"
+  },
+  {
+   "id": "x3-la-world-wrong-map",
+   "body": "I purchased a map of {world} from your advertisers and followed it faithfully. It led me into a lake. I am writing from the lake. The map is also in the lake. I would like a refund, preferably a dry one.",
+   "by": "A Swimmer, Unwillingly"
+  },
+  {
+   "id": "x3-la-town-ceiling",
+   "body": "The humans of {town} have a fine market, good bread and pleasant manners. They do not have ceilings outdoors. I have asked about this repeatedly. They tell me it's 'the sky'. I think they are making excuses.",
+   "by": "A Sceptic, Lodging in {town}"
+  },
+  {
+   "id": "x3-la-retreat-lost-axe",
+   "body": "Would whoever left an axe outside the gates of {retreat} please collect it? The elves have been weeping at it daily for a month. They have built a little fence around it. It is now a shrine to the dangers of dwarves. I would like my axe back.",
+   "by": "An Ex-Woodcutter, at {retreat}"
+  },
+  {
+   "id": "x3-la-darkfort2-pen-pal",
+   "body": "I am a goblin of {darkfort2} and I have read your paper for a year. I want to say that I like the comics. I do not like the obituaries, as several are about my cousins. Please print more comics. And fewer cousins.",
+   "by": "A Reader at {darkfort2}"
+  },
+  {
+   "id": "x3-la-hillock-trade-offer",
+   "body": "Our noble at {hillock} wishes to trade a dozen steel goblets for a single barrel of your famous ale. Our noble has never tasted your ale. He just likes the idea of being envied. Please send it and say nothing.",
+   "by": "A Steward, Quietly, at {hillock}"
+  },
+  {
+   "id": "x3-la-town2-wedding-invite",
+   "body": "I have been invited to a human wedding in {town2} and asked to bring a gift. I have carved them a fine granite bowl. They asked why it is so heavy. I asked why their table is made of wood. The wedding is now on hold.",
+   "by": "A Guest, Possibly Uninvited, in {town2}"
+  },
+  {
+   "id": "x3-la-world-elder-advice",
+   "body": "I am the oldest dwarf I know in {world}, and the secret to a long life is simple: drink at every meal, never go outside, and never, under any circumstances, ask a lever what it does. Please print this. My grandchildren don't listen.",
+   "by": "A Very Old Dwarf, Abroad"
+  }
+ ],
+ "world_ads": [
+  {
+   "id": "x3-wa-ceiling-hire",
+   "lines": [
+    [
+     "bk",
+     "Portable Ceilings Ltd."
+    ],
+    [
+     "big",
+     "VISITING {town}?"
+    ],
+    [
+     "eng",
+     "BRING A ROOF THAT FOLLOWS YOU"
+    ],
+    [
+     "fine",
+     "Four dwarves, one slab, one sense of security. Bearers paid by the hour. Bearers may tire. Roof may fall."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-goblin-phrasebook",
+   "lines": [
+    [
+     "bk",
+     "Snarl & Speak"
+    ],
+    [
+     "big",
+     "LEARN GOBLIN"
+    ],
+    [
+     "eng",
+     "AS SPOKEN AT {darkfort}"
+    ],
+    [
+     "fine",
+     "Key phrases: 'please', 'no thank you', 'that is my leg'. Audio course is mostly screaming. Course completed by 3 dwarves."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "x3-wa-elf-disguise",
+   "lines": [
+    [
+     "bk",
+     "Leafy Disguises"
+    ],
+    [
+     "big",
+     "BLEND IN AT {retreat}"
+    ],
+    [
+     "eng",
+     "STILTS, EARS & A SMILE"
+    ],
+    [
+     "fine",
+     "Fools most elves for up to six minutes. Do not speak. Do not sit on any furniture. Do not reveal the axe."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-hillock-exchange",
+   "lines": [
+    [
+     "bk",
+     "{hillock} Migrant Exchange"
+    ],
+    [
+     "big",
+     "SWAP A DWARF"
+    ],
+    [
+     "eng",
+     "OUR MINER FOR YOUR BREWER"
+    ],
+    [
+     "fine",
+     "All trades final. Dwarves returned only with matching socks. We will not take back bards."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-carp-insurance",
+   "lines": [
+    [
+     "bk",
+     "River Peril Mutual"
+    ],
+    [
+     "big",
+     "CROSSING TO {town2}?"
+    ],
+    [
+     "eng",
+     "INSURE YOUR ANKLES"
+    ],
+    [
+     "fine",
+     "Covers bites, nibbles and full swallowings. Claims assessed by our panel of carp. Panel has never paid out."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "x3-wa-world-guide",
+   "lines": [
+    [
+     "bk",
+     "Rockwise Guides"
+    ],
+    [
+     "big",
+     "THE DWARF'S GUIDE TO {world}"
+    ],
+    [
+     "eng",
+     "ONLY THE UNDERGROUND BITS"
+    ],
+    [
+     "fine",
+     "Six hundred pages of caves, cellars and tunnels. Surface sections left blank for your own safety."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-necro-cleaners",
+   "lines": [
+    [
+     "bk",
+     "Boneshine Cleaning"
+    ],
+    [
+     "big",
+     "HAUNTED TOWER NEAR {town}?"
+    ],
+    [
+     "eng",
+     "WE DUST THE UNDEAD"
+    ],
+    [
+     "fine",
+     "Skeletons polished, zombies freshened, necromancers politely ignored. Not liable for anything that gets up again."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-sky-goggles",
+   "lines": [
+    [
+     "bk",
+     "Squint-Away Goggles"
+    ],
+    [
+     "big",
+     "THE SUN IN {town2}"
+    ],
+    [
+     "eng",
+     "IS VERY RUDE"
+    ],
+    [
+     "fine",
+     "Thick smoky lenses for dwarves abroad. Blocks glare, sky and most of your surroundings. Do not wear near rivers."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-goblin-ransom",
+   "lines": [
+    [
+     "bk",
+     "Prompt Recovery Co."
+    ],
+    [
+     "big",
+     "TAKEN TO {darkfort2}?"
+    ],
+    [
+     "eng",
+     "WE KNOW THE BACK DOOR"
+    ],
+    [
+     "fine",
+     "Our agents have been captured only twice and escaped once. Success rate: hopeful. Payment in advance, for obvious reasons."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "x3-wa-hillock-cheese",
+   "lines": [
+    [
+     "bk",
+     "Old Hillock Dairy"
+    ],
+    [
+     "big",
+     "CHEESE OF {hillock}"
+    ],
+    [
+     "eng",
+     "NOW SHIPPING TO {fort}"
+    ],
+    [
+     "fine",
+     "Aged in the cellars of {hillock} until it complains. Rind may be harder than the plate. Rind may be the plate."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-elf-apology-cards",
+   "lines": [
+    [
+     "bk",
+     "Sorry Cards"
+    ],
+    [
+     "big",
+     "UPSET AN ELF?"
+    ],
+    [
+     "eng",
+     "SEND OUR CARDS TO {retreat}"
+    ],
+    [
+     "fine",
+     "Printed on stone, never paper. Messages include 'it was already dead' and 'the chair was a gift'. Delivery by fast dwarf."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-caravan-seat",
+   "lines": [
+    [
+     "bk",
+     "Wagon Seats Direct"
+    ],
+    [
+     "big",
+     "RIDE TO {town}"
+    ],
+    [
+     "eng",
+     "ON TOP OF THE GOODS"
+    ],
+    [
+     "fine",
+     "You will be seated on a crate of mugs. Crate may be sold mid-journey. Passengers may be sold mid-journey. We don't think so."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-darkfort-souvenirs",
+   "lines": [
+    [
+     "bk",
+     "Tower Trinkets"
+    ],
+    [
+     "big",
+     "I SURVIVED {darkfort}"
+    ],
+    [
+     "eng",
+     "THE COMMEMORATIVE MUG"
+    ],
+    [
+     "fine",
+     "Available only to survivors, which keeps stock levels very manageable. Mug is spear-shaped. Do not drink from it."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "x3-wa-hillock-movers",
+   "lines": [
+    [
+     "bk",
+     "Down & Across Removals"
+    ],
+    [
+     "big",
+     "MOVING TO {hillock}?"
+    ],
+    [
+     "eng",
+     "WE CARRY EVERYTHING"
+    ],
+    [
+     "fine",
+     "Including beds, barrels, bins and grandparents. Stones carried one at a time, very slowly, by experienced haulers."
+    ]
+   ]
+  },
+  {
+   "id": "x3-wa-world-almanac",
+   "lines": [
+    [
+     "bk",
+     "The Almanac of {world}"
+    ],
+    [
+     "big",
+     "KNOW YOUR WORLD"
+    ],
+    [
+     "eng",
+     "EVERY SITE, EVERY SIEGE"
+    ],
+    [
+     "fine",
+     "Updated yearly. Several entries now read 'gone'. Goblin section written in a hurry by a very nervous scholar."
+    ]
+   ]
+  }
+ ]
+}

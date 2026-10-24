@@ -1,0 +1,3105 @@
+{
+ "strips": [
+  {
+   "id": "cd-sd-nine-alibis",
+   "title": "Sock Detective",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed",
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "stand",
+       "say": "One sock left. The other one... gone."
+      }
+     ],
+     "caption": "It was night. It's always night."
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "think": "Everyone's a suspect. Even the cat."
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Where were you at shift change?"
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Meow."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad",
+       "think": "Nine alibis. One per life."
+      }
+     ],
+     "caption": "The cat walked. Cats always walk."
+    }
+   ]
+  },
+  {
+   "id": "cd-sd-kobold-den",
+   "title": "Sock Detective",
+   "panels": [
+    {
+     "bg": "depot",
+     "props": [
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Nice sock, kid. Where's its partner?"
+      },
+      {
+       "who": "kobold",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "depot",
+     "props": [],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "Sock? What sock? No sock here."
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [
+      "sock",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Four hundred socks. Not one pair."
+      },
+      {
+       "who": "kobold",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ],
+     "caption": "A search of the suspect's den."
+    }
+   ]
+  },
+  {
+   "id": "cd-sd-sock-puppet",
+   "title": "Sock Detective",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Elves don't wear socks. So talk."
+      },
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "We wear nothing that was ever alive."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "tree",
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Then why is there a sock on your hand?"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "tree",
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "This is Leaf. Leaf is my friend."
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "think": "I need a drink. Leaf too."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-sd-forge-trail",
+   "title": "Sock Detective",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "stand",
+       "think": "A trail of lint. Fresh."
+      }
+     ],
+     "caption": "The lint led somewhere hot."
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "anvil",
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Seen any socks, smith?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Socks? Best fuel there is."
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "anvil"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "think": "Some cases close themselves."
+      }
+     ],
+     "caption": "Case closed. Case also on fire."
+    }
+   ]
+  },
+  {
+   "id": "cd-sd-baron-mandate",
+   "title": "Sock Detective",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "crown",
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Baron. You're wearing eleven socks."
+      },
+      {
+       "who": "noble",
+       "pos": "right",
+       "pose": "stand",
+       "say": "I mandated socks."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "You didn't say WHOSE socks."
+      },
+      {
+       "who": "noble",
+       "pos": "right",
+       "pose": "happy",
+       "say": "I didn't have to."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad"
+      }
+     ],
+     "sign": "MANDATE",
+     "caption": "In this fort, the law wears socks."
+    }
+   ]
+  },
+  {
+   "id": "cd-sd-inside-job",
+   "title": "Sock Detective",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "angry",
+       "say": "My own sock. Gone. Now it's personal."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "pick",
+       "think": "I'll turn over every rock."
+      }
+     ],
+     "caption": "He turned over every rock."
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed",
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad",
+       "say": "It was on my other foot. Over the first."
+      }
+     ],
+     "caption": "The perp was the detective."
+    }
+   ]
+  },
+  {
+   "id": "cd-mw-new-home",
+   "title": "Migrant Wagon",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "wagon",
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "Here we are, kids! Our new home!"
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Where is it?"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "wagon",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Down."
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Down where?"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "center",
+       "pose": "angry",
+       "say": "The SKY? Disgusting. Take me down."
+      }
+     ],
+     "caption": "One week later."
+    }
+   ],
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "cd-mw-cheesemaker",
+   "title": "Migrant Wagon",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Name and skills?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Master cheesemaker, sir!"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Wonderful. You're a hauler."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Dear, I'm a hauler."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "We all are. I was a poet."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-mw-the-bedroom",
+   "title": "Migrant Wagon",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed",
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "And this is your bedroom!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Where are the other beds?"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Other? That's for all nine of you."
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sleep"
+      },
+      {
+       "who": "cat",
+       "pos": "center",
+       "pose": "sleep"
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "sleep"
+      }
+     ],
+     "caption": "The cat got the bed."
+    }
+   ]
+  },
+  {
+   "id": "cd-mw-small-mugs",
+   "title": "Migrant Wagon",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "stand",
+       "say": "What's for dinner?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Wine."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "stand",
+       "say": "And for the children?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Smaller mugs."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "center",
+       "pose": "happy",
+       "think": "This fort has values."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-mw-rule-four",
+   "title": "Migrant Wagon",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Rule one: stay out of the caverns."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ],
+     "caption": "Orientation day."
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Rule two: don't wave at the carp."
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "happy",
+       "say": "What's rule four?"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "The dwarf who knew rule four is gone."
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-mw-veterans",
+   "title": "Migrant Wagon",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Look, dear. New migrants."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "So fresh. So naive."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Remember when we were like that?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "That was last month."
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "GET OFF MY BED!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "caption": "Assimilation complete."
+    }
+   ],
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "cd-wn-rain",
+   "title": "Weather or Not",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Fancy a walk outside?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "It's raining."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Water falls out of the sky?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Unfiltered. No bucket."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "rain",
+      "cloud"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "It's in my beard."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "It's in my soul."
+      }
+     ],
+     "caption": "They went anyway."
+    }
+   ],
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "cd-wn-snow",
+   "title": "Weather or Not",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Snow! Let's go out and play."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Absolutely not."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door",
+      "cloud"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "It's only frozen rain."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "angry",
+       "say": "It's rain that's planning something."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "think": "The snow is listening."
+      }
+     ],
+     "caption": "They stayed in. The snow plotted on."
+    }
+   ],
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "cd-wn-clear",
+   "title": "Weather or Not",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "door",
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Clear skies! Not a cloud!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "So, no ceiling at all."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "The sun is lovely."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "angry",
+       "say": "The sun is a fire nobody tends."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "It's looking at me."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Told you."
+      }
+     ]
+    }
+   ],
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "cd-wn-spring",
+   "title": "Weather or Not",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Spring! Flowers! Birdsong!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Elves."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "...Elves?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Spring is when they bloom."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "tree",
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "center",
+       "pose": "armsUp",
+       "say": "Hellooo, friends!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "angry",
+       "say": "Close the door. CLOSE IT."
+      }
+     ],
+     "caption": "Elves: a seasonal allergy."
+    }
+   ],
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "cd-wn-autumn",
+   "title": "Weather or Not",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "The leaves are falling."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Trees, falling apart in public."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "center",
+       "pose": "sad",
+       "say": "He's not falling apart. He's letting go."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Gross."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Very gross."
+      }
+     ],
+     "caption": "Back inside, quickly."
+    }
+   ],
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "cd-wn-winter",
+   "title": "Weather or Not",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "cloud"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "The river froze solid!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "So the carp can't get us!"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "Take THAT, carp!"
+      }
+     ]
+    },
+    {
+     "bg": "none",
+     "props": [],
+     "cast": [
+      {
+       "who": "carp",
+       "pos": "center",
+       "pose": "angry",
+       "think": "Spring is coming."
+      }
+     ],
+     "caption": "Beneath the ice."
+    }
+   ],
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "cd-dm-roll-call",
+   "title": "Doggo Militia",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "angry",
+       "say": "Militia! Fall in for drill!"
+      }
+     ],
+     "sign": "BARRACKS"
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "left",
+       "pose": "happy"
+      },
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy"
+      },
+      {
+       "who": "dog",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ],
+     "caption": "Nobody else showed up."
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "left",
+       "pose": "stand",
+       "think": "Finally. A real army."
+      }
+     ],
+     "caption": "Attendance: one hundred percent dog."
+    }
+   ],
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "cd-dm-boot",
+   "title": "Doggo Militia",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "goblin",
+       "pos": "right",
+       "pose": "angry",
+       "say": "Surrender, dwarves!"
+      },
+      {
+       "who": "dog",
+       "pos": "left",
+       "pose": "stand"
+      }
+     ],
+     "caption": "The siege arrives."
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "left",
+       "pose": "armsUp"
+      },
+      {
+       "who": "goblin",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Not the ankles!"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy",
+       "think": "Captured one boot. Big win."
+      }
+     ],
+     "caption": "The goblins retreated, unevenly."
+    }
+   ]
+  },
+  {
+   "id": "cd-dm-captain",
+   "title": "Doggo Militia",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "stand",
+       "say": "For bravery, I name you Captain."
+      },
+      {
+       "who": "dog",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "stand"
+      }
+     ],
+     "caption": "The captain issued his first order."
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Orders from the top: walkies."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Again? We just did walkies."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-dm-intel",
+   "title": "Doggo Militia",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "left",
+       "pose": "stand",
+       "think": "The cats are a spy network."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "left",
+       "pose": "angry"
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ],
+     "caption": "Surveillance, day forty."
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "happy",
+       "think": "We are, actually."
+      }
+     ]
+    }
+   ],
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "cd-dm-danger-room",
+   "title": "Doggo Militia",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Danger room is for dwarves only."
+      },
+      {
+       "who": "dog",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "sign": "DANGER"
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "stand"
+      }
+     ],
+     "caption": "Later that night."
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy",
+       "think": "Every spear is a stick. Fetch."
+      }
+     ],
+     "caption": "Training: exceeded expectations."
+    }
+   ]
+  },
+  {
+   "id": "cd-dm-it-worked",
+   "title": "Doggo Militia",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "left",
+       "pose": "angry"
+      },
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "angry"
+      }
+     ],
+     "caption": "Six hours of barking."
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "There's nothing out there, boys."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dog",
+       "pos": "left",
+       "pose": "happy",
+       "think": "Exactly. It worked."
+      },
+      {
+       "who": "dog",
+       "pos": "center",
+       "pose": "happy"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-ee-sapling",
+   "title": "Elf Exchange Student",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Thank you for having me!"
+      }
+     ],
+     "sign": "WELCOME ELF"
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "I brought a gift. A sapling!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Why is everyone holding axes?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "axe"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "axe"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-ee-dinner",
+   "title": "Elf Exchange Student",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "table",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Is this cup... made of wood?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Stone."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table",
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Oh, thank the forest."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "sad"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "The table, though. Pure oak."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-ee-feelings",
+   "title": "Elf Exchange Student",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "WHO TOOK MY CHAIR?"
+      },
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "In my forest we'd talk about feelings."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "angry",
+       "think": "Oh. I see the appeal."
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy"
+      }
+     ],
+     "caption": "Cultural exchange: working."
+    }
+   ]
+  },
+  {
+   "id": "cd-ee-permission",
+   "title": "Elf Exchange Student",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "pick",
+       "say": "I've asked the rock for permission."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "And?"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "It said no."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "pick",
+       "say": "Rocks always say no. That's the fun."
+      },
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "stand"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-ee-essay",
+   "title": "Elf Exchange Student",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "My essay! Chapter one: they love the dark."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Chapter two: they fear the sky."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "And chapter three?"
+      },
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "They're scared of ME. It's sweet."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-ee-going-home",
+   "title": "Elf Exchange Student",
+   "panels": [
+    {
+     "bg": "depot",
+     "props": [
+      "wagon",
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Goodbye! I'll miss you all!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "left",
+       "pose": "pick",
+       "say": "Mother, I've decided to become a miner."
+      },
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "caption": "Back in the forest."
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "elf",
+       "pos": "center",
+       "pose": "angry"
+      }
+     ],
+     "sign": "WAR",
+     "caption": "The elves have declared war."
+    }
+   ],
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "cd-ou-one-tunnel",
+   "title": "Old Man Urist",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Back in my day, this fort was one tunnel."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "pick",
+       "say": "Slept in it. Ate in it. Drank in it."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "One barrel. We called it 'the tavern.'"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "And it was enough?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-ou-carp-mayor",
+   "title": "Old Man Urist",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "mug",
+       "say": "I once wrestled a carp for a mug of wine."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Who won?"
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "The carp."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "He's the mayor now."
+      },
+      {
+       "who": "carp",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-ou-ceiling",
+   "title": "Old Man Urist",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "When I was a lad, there was no sky."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "sun"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Grandpa, there's always been a sky."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "cloud"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Not with a proper ceiling over it."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "caption": "Standards have slipped."
+    }
+   ]
+  },
+  {
+   "id": "cd-ou-nobody-came",
+   "title": "Old Man Urist",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Migrants! Bah! In my day nobody came."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Why not?"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "We never told anybody where we were."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "think": "Just me and a rock. Paradise."
+      }
+     ],
+     "caption": "The good old days."
+    }
+   ],
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "cd-ou-uphill",
+   "title": "Old Man Urist",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "We walked to the well uphill. Both ways."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "The fort is all ramps, Grandpa."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "That's what I SAID."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd-ou-show-off",
+   "title": "Old Man Urist",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Kadol! You haven't aged a day!"
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad",
+       "say": "I died, Urist. Forty years ago."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Show-off."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    }
+   ],
+   "when": [
+    "recent_death"
+   ]
+  }
+ ],
+ "gags": [
+  {
+   "id": "cdx-sock-council",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "sock",
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The sock council needs a matching pair for quorum. It has never met."
+  },
+  {
+   "id": "cdx-engraving-pipe",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "workshop"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The engraving shows the magma pipe's design, then its triumph, then the funeral."
+  },
+  {
+   "id": "cdx-kitten-price",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "wagon",
+     "barrel"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "cat",
+      "pos": "center",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "\"Forty barrels for a kitten?\" \"She's a ☼kitten☼. Note the little suns.\"",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "cdx-mood-door",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "door",
+     "workshop"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Three months in a mood, {citizen_first} made a door. It opens both ways. Emotionally.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "cdx-pump-question",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "well"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The pump stack works perfectly, provided nobody asks where the water goes."
+  },
+  {
+   "id": "cdx-splint-hours",
+   "panel": {
+    "bg": "bedroom",
+    "props": [
+     "bed"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "Hospital visiting hours begin when the patient stops throwing the splint."
+  },
+  {
+   "id": "cdx-gravel",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "The bookkeeper has finished counting the rocks. He'd like a word about the gravel."
+  },
+  {
+   "id": "cdx-return-dwarves",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ],
+    "sign": "FULL MOON"
+   },
+   "caption": "Full moon tonight. Please return all borrowed dwarves by sunset."
+  },
+  {
+   "id": "cdx-titan-directions",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sun"
+    ],
+    "cast": [
+     {
+      "who": "beast",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The hill titan asked for directions. We pointed up, out, and very far away."
+  },
+  {
+   "id": "cdx-necro-book-club",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "ghost",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "ghost",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The necromancer's book club only discusses dead authors. In person."
+  },
+  {
+   "id": "cdx-slab-lever",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "coffin"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "The memorial slab reads: 'Here lies Urist. He wanted to see what the lever did.'",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "cdx-biggest-room",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks",
+     "crown"
+    ],
+    "cast": [
+     {
+      "who": "noble",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "The duke demanded the biggest bedroom in the fort. Technically, that's the mine."
+  },
+  {
+   "id": "cdx-letters-home",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The dwarven caravan brought letters from the Mountainhomes. Every one says 'Send beer.'",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "cdx-siege-washroom",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "door"
+    ],
+    "cast": [
+     {
+      "who": "goblin",
+      "pos": "left",
+      "pose": "sad"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "Day four of the siege. A goblin has knocked to ask if we have a washroom."
+  },
+  {
+   "id": "cdx-kobold-trust",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "gem"
+    ],
+    "cast": [
+     {
+      "who": "kobold",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "A kobold returned something it stole. Experts warn this is how it steals trust."
+  },
+  {
+   "id": "cdx-baby-veteran",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "baby",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Proud parents: their baby has been carried into more battles than the captain."
+  },
+  {
+   "id": "cdx-cat-vote",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "cat",
+      "pos": "left",
+      "pose": "sleep"
+     },
+     {
+      "who": "cat",
+      "pos": "center",
+      "pose": "sleep"
+     },
+     {
+      "who": "cat",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Motion to rename the dining hall the 'nap hall' passes, {cats} cats to zero.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "cdx-one-bone",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "dog",
+      "pos": "left",
+      "pose": "angry"
+     },
+     {
+      "who": "dog",
+      "pos": "center",
+      "pose": "stand"
+     },
+     {
+      "who": "dog",
+      "pos": "right",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "{dogs} dogs, one bone, and a full diplomatic crisis.",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "cdx-brewer-whispers",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "barrel"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "{drinks} drinks left. The brewer now speaks only in whispers and avoids eye contact.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "cdx-barrel-chairs",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "barrel",
+     "mug"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "mug"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "With {drinks} drinks in stock, the tavern has replaced all its chairs with barrels.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "cdx-cook-ambition",
+   "panel": {
+    "bg": "farm",
+    "props": [
+     "well"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "carp",
+      "pos": "right",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "No meat in stores. The cook has started looking at the carp with real ambition.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "cdx-free-water",
+   "panel": {
+    "bg": "farm",
+    "props": [
+     "rain",
+     "cloud"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The farmer calls the rain 'free water.' The fort reminds him nothing is free.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "cdx-cozy-delay",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "wagon",
+     "cloud"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "sad"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Snow buried the trade depot. The merchants are calling it 'a cozy delay.' Day nine.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "cdx-artifact-room",
+   "panel": {
+    "bg": "bedroom",
+    "props": [
+     "bed",
+     "gem"
+    ],
+    "cast": [
+     {
+      "who": "noble",
+      "pos": "right",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "{artifact} now has its own bedroom. It has nicer furniture than the mayor."
+  },
+  {
+   "id": "cdx-that-stuff",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "cloud"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "Today's weather: {weather}. Dwarves describe it as 'that stuff up there.'"
+  },
+  {
+   "id": "cdx-second-cavern",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ],
+    "sign": "WELCOME"
+   },
+   "caption": "{fort}: population {pop}, plus whatever lives in the second cavern."
+  },
+  {
+   "id": "cdx-seal-it",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The scholars finally proved the sky exists. Then they voted to wall it in."
+  },
+  {
+   "id": "cdx-carp-rhyme",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "mug"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "armsUp"
+     }
+    ]
+   },
+   "caption": "The bard's new ballad rhymes 'carp' with 'carp.' Critics call it 'bold.'"
+  },
+  {
+   "id": "cdx-minecart-mail",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Minecart mail arrives in seconds. The letters arrive as confetti."
+  },
+  {
+   "id": "cdx-well-wishes",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "well"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Wishes made at the well this year: 412. Granted: 0. Buckets lost: 411."
+  },
+  {
+   "id": "cdx-beast-forgot",
+   "panel": {
+    "bg": "cavern",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "beast",
+      "pos": "center",
+      "pose": "sleep"
+     }
+    ]
+   },
+   "caption": "The forgotten beast's attack has been postponed. It forgot."
+  },
+  {
+   "id": "cdx-left-boots",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "sad"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "The new militia uniforms are complete, except the left boots. Ask the kobolds."
+  },
+  {
+   "id": "cdx-mug-exception",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table",
+     "mug",
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ],
+    "sign": "NO MUGS"
+   },
+   "caption": "Dining hall rule: no throwing mugs, except in emotional emergencies. It is always one."
+  },
+  {
+   "id": "cdx-hauler-union",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "sad"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "The haulers' union demands one break per stone. There are four million stones."
+  },
+  {
+   "id": "cdx-stockpile-stack",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "barrel",
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The overseer designated a new stockpile. It is directly on top of the old one."
+  },
+  {
+   "id": "cdx-losing-accounts",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ],
+    "sign": "LOSING=FUN"
+   },
+   "caption": "The motto is 'Losing is Fun.' The accounts say we're having the time of our lives."
+  },
+  {
+   "id": "cdx-mug-landed",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "mug"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Tantrum update: the mug thrown last spring has finally landed."
+  },
+  {
+   "id": "cdx-vintage",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "barrel",
+     "mug"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "mug"
+     }
+    ]
+   },
+   "caption": "New vintage: plump helmet wine, aged three days. Notes of mushroom and apology."
+  },
+  {
+   "id": "cdx-stairs-opinion",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "angry"
+     },
+     {
+      "who": "dog",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The migrants brought nothing but seven dogs and strong opinions about the stairs.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "cdx-ghost-tax",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "coffin"
+    ],
+    "cast": [
+     {
+      "who": "ghost",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The ghost won't pay rent, but has offered to haunt the tax collector for free.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "cdx-stay-under",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sun"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Clear skies today. Officials urge everyone to stay calm and stand under something.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "cdx-summer-forge",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "anvil",
+     "sun"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Summer heat: even the magma forge has asked for a day off.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "cdx-leaf-grief",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "tree"
+    ],
+    "cast": [
+     {
+      "who": "elf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Autumn: the elves' annual season of grieving every single leaf, individually.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "cdx-ale-medicine",
+   "panel": {
+    "bg": "bedroom",
+    "props": [
+     "bed",
+     "barrel"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The hospital stocks one medicine. It is also sold in the tavern, cheaper."
+  }
+ ]
+}
