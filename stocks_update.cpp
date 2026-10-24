@@ -16,6 +16,9 @@
 #include "df/plotinfost.h"
 #include "df/unit.h"
 #include "df/world.h"
+#include "df/workquota_frequency_type.h"
+#include "df/job.h"
+#include "df/job_list_link.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
@@ -39,6 +42,25 @@ void Stocks::update(color_ostream & out)
         {
             i->flags.bits.forbid = 0;
         }
+    }
+
+    // Runaway one-time orders: in DF 53 an order whose count drops below
+    // zero (several jobs finishing at once) is never retired and keeps
+    // making jobs forever. Quakefocus had a "1 armor stand" order at -1981
+    // and a "4 thrones" order at -148, burying a workshop in furniture.
+    for (size_t i = world->manager_orders.all.size(); i-- > 0; )
+    {
+        auto mo = world->manager_orders.all[i];
+        if (!mo || mo->frequency != workquota_frequency_type::OneTime || mo->amount_left >= 0)
+            continue;
+        for (auto link = world->jobs.list.next; link; link = link->next)
+        {
+            if (link->item && link->item->order_id == mo->id)
+                link->item->order_id = -1;
+        }
+        ai.debug(out, stl_sprintf("[Stocks] removed runaway order #%d %s (%d remaining, total %d)", mo->id, AI::describe_job(mo).c_str(), int32_t(mo->amount_left), int32_t(mo->amount_total)));
+        vector_erase_at(world->manager_orders.all, i);
+        delete mo;
     }
 
     // trim stalled manager orders once per month

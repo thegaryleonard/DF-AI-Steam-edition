@@ -56,6 +56,12 @@ static bool mood_item_matches(df::job_item *ji, df::item *item)
     MaterialInfo minfo(item);
     if (!minfo.isValid())
         return false;
+    // Moods want whole pieces: a cloth requirement has min_dimension 10000,
+    // and leftover 2000-8000 scraps (dressings, hospital cloth) never count.
+    // Counting them hid that the fort had no usable silk cloth at all
+    // (Tobul, a fey miner, died of thirst with 7 silk scraps "available").
+    if (ji->min_dimension > 0 && item->getTotalDimension() < ji->min_dimension)
+        return false;
     // DFHack's ItemTypeInfo::matches only accepts plant/silk/yarn for THREAD,
     // so "silk cloth" / "plant cloth" never matched anything. Check those
     // material flags ourselves.
