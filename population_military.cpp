@@ -1,4 +1,5 @@
 #include "ai.h"
+#include <fstream>
 #include "exclusive_callback.h"
 #include "population.h"
 #include "plan.h"
@@ -36,6 +37,8 @@
 #include "df/uniform_category.h"
 #include "df/unit_misc_trait.h"
 #include "df/world.h"
+#include "df/alert_statest.h"
+#include "df/burrow.h"
 #include "df/weapon_flags.h"
 
 REQUIRE_GLOBAL(cur_year);
@@ -864,6 +867,89 @@ void Population::arm_soldiers(color_ostream & out)
         eq.update.bits.weapon = 1;
 }
 
+// Megabeasts, forgotten beasts and invaders: send civilians indoors with a
+// civilian alert (a "Safety" burrow flood-filled over the indoor fort), and
+// lift it once nothing dangerous has been reachable for a while. A forgotten
+// beast killed ~24 civilians caught outdoors in Quakefocus.
+void Population::civilian_alert(color_ostream & out, bool danger)
+{
+    static int quiet_checks = 0;
+    auto & alerts = plotinfo->alerts;
+    if (!danger)
+    {
+        if (alerts.civ_alert_idx > 0 && ++quiet_checks >= 8)
+        {
+            alerts.civ_alert_idx = 0;
+            ai.debug(out, "[MILITARY] danger gone: civilian alert lifted");
+        }
+        return;
+    }
+    quiet_checks = 0;
+    if (alerts.civ_alert_idx > 0)
+        return;
+
+    // find or create the Safety burrow
+    df::burrow *safety = nullptr;
+    for (auto b : plotinfo->burrows.list)
+    {
+        if (b && b->name == "Safety")
+            safety = b;
+    }
+    if (!safety)
+    {
+        safety = df::allocate<df::burrow>();
+        safety->id = plotinfo->burrows.next_id++;
+        safety->name = "Safety";
+        safety->tile = 8;
+        safety->fg_color = 7;
+        safety->bg_color = 0;
+        plotinfo->burrows.list.push_back(safety);
+    }
+
+    // (re)flood the indoor fort from a citizen standing inside, so the
+    // burrow keeps up with new digging
+    df::unit *seed = nullptr;
+    for (auto id : citizen)
+    {
+        auto u = df::unit::find(id);
+        auto d = u ? Maps::getTileDesignation(u->pos) : nullptr;
+        if (d && !d->bits.outside && !d->bits.flow_size)
+        {
+            seed = u;
+            break;
+        }
+    }
+    if (seed)
+    {
+        std::ofstream discard;
+        color_ostream_wrapper discard_wrapper(discard);
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("burrow tiles flood-add Safety -c %d,%d,%d", seed->pos.x, seed->pos.y, seed->pos.z));
+    }
+
+    // find or create the alert that uses it
+    int32_t idx = -1;
+    for (size_t i = 0; i < alerts.list.size(); i++)
+    {
+        auto a = alerts.list[i];
+        if (a && a->name == "Civilian alert")
+            idx = int32_t(i);
+    }
+    if (idx == -1)
+    {
+        auto a = df::allocate<df::alert_statest>();
+        a->id = alerts.next_id++;
+        a->name = "Civilian alert";
+        alerts.list.push_back(a);
+        idx = int32_t(alerts.list.size() - 1);
+    }
+    auto a = alerts.list[idx];
+    if (std::find(a->burrows.begin(), a->burrows.end(), safety->id) == a->burrows.end())
+        a->burrows.push_back(safety->id);
+
+    alerts.civ_alert_idx = idx;
+    ai.debug(out, "[MILITARY] danger on the map: civilian alert, everyone into the Safety burrow");
+}
+
 void Population::update_military(color_ostream & out)
 {
     bool need_pick = false, need_axe = false;
@@ -1063,6 +1149,7 @@ void Population::update_military(color_ostream & out)
     // soldiers in the middle of a forgotten beast attack. (Underworld demons
     // behind solid rock are unreachable and don't count.)
     bool under_attack = false;
+    bool great_danger = false;
     df::unit *anchor = nullptr;
     for (auto id : citizen)
     {
@@ -1078,10 +1165,15 @@ void Population::update_military(color_ostream & out)
                 Maps::canWalkBetween(anchor->pos, u->pos))
             {
                 under_attack = true;
-                break;
+                if (Units::isGreatDanger(u) || u->flags1.bits.active_invader)
+                {
+                    great_danger = true;
+                    break;
+                }
             }
         }
     }
+    civilian_alert(out, great_danger);
 
     if (citizen_military > max_military && !under_attack)
     {
