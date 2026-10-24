@@ -3,6 +3,7 @@
 #include "population.h"
 #include "plan.h"
 
+#include "modules/Filesystem.h"
 #include "modules/Job.h"
 #include "modules/Maps.h"
 #include "modules/Materials.h"
@@ -39,6 +40,8 @@
 #include "df/unit_wound.h"
 #include "df/plotinfost.h"
 #include "df/world.h"
+#include "df/workquota_frequency_type.h"
+#include "df/manager_order.h"
 #include "df/wound_curse_info.h"
 
 REQUIRE_GLOBAL(cur_year);
@@ -281,6 +284,28 @@ void Population::update_citizenlist(color_ostream & out)
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor FISH %d %d", std::max(1, pop / 8), std::max(2, pop / 5)));
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor HUNT 1 %d", std::max(1, pop / 12)));
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor CARPENTER %d 200", std::max(1, pop / 12)));
+
+        // The user's standing work orders (dfhack-config/orders/start.json:
+        // daily keep-10 beds, empty barrels, empty bins and gems, plus a
+        // batch of stone furniture). Import once the fort is past the food
+        // rush (20 dwarves), and never twice: a daily "bin < 10" order means
+        // they are already in (reloads must not duplicate them).
+        static bool standing_orders_checked = false;
+        if (!standing_orders_checked && pop >= 20)
+        {
+            standing_orders_checked = true;
+            bool have = false;
+            for (auto o : world->manager_orders.all)
+            {
+                if (o && o->job_type == job_type::ConstructBin && o->frequency == df::workquota_frequency_type::Daily)
+                    have = true;
+            }
+            if (!have && Filesystem::isfile("dfhack-config/orders/start.json"))
+            {
+                Core::getInstance().runCommand(discard_wrapper, "orders import start");
+                ai.debug(out, "[Population] imported the standing work orders (orders import start)");
+            }
+        }
 
         // DF 53 only lets a hospital's DOCTOR occupation holders treat its
         // patients, and they need the medical labors on. autolabor handed
