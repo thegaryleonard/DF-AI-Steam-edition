@@ -1,0 +1,3073 @@
+{
+ "strips": [
+  {
+   "id": "cb-baby-axe-grabbed",
+   "title": "Baby Axe",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Siege! Grab whatever you can!"
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "sleep"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "I grabbed the baby."
+      },
+      {
+       "who": "goblin",
+       "pos": "right",
+       "pose": "angry",
+       "say": "Prepare to die, dwarf!"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Goo."
+      },
+      {
+       "who": "goblin",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "caption": "The goblins retreated. Unclear why."
+    }
+   ]
+  },
+  {
+   "id": "cb-baby-axe-sock",
+   "title": "Baby Axe",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "axe"
+      },
+      {
+       "who": "baby",
+       "pos": "center",
+       "pose": "sad",
+       "think": "Lost my sock last siege."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Has anyone seen a small sock?"
+      },
+      {
+       "who": "goblin",
+       "pos": "right",
+       "pose": "angry",
+       "say": "We are in the middle of a war!"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "goblin",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Found it. Truce?"
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Truce."
+      }
+     ],
+     "caption": "The longest peace in fort history."
+    }
+   ]
+  },
+  {
+   "id": "cb-baby-axe-review",
+   "title": "Baby Axe",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "center",
+       "pose": "stand",
+       "say": "Time for the annual militia review."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "This year: three goblins, one troll."
+      },
+      {
+       "who": "noble",
+       "pos": "right",
+       "pose": "stand",
+       "say": "And the baby?"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Eleven."
+      },
+      {
+       "who": "noble",
+       "pos": "right",
+       "pose": "sad",
+       "think": "Promote the baby."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-baby-axe-nap",
+   "title": "Baby Axe",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "axe",
+       "say": "TAKE THAT! AND THAT!"
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "sleep"
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "sleep"
+      },
+      {
+       "who": "beast",
+       "pos": "right",
+       "pose": "angry",
+       "say": "ROOOAAAR!"
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "armsUp",
+       "say": "WAAAAH!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "NOW he wakes up."
+      }
+     ],
+     "caption": "Bedtime: the true enemy."
+    }
+   ]
+  },
+  {
+   "id": "cb-baby-axe-carp",
+   "title": "Baby Axe",
+   "panels": [
+    {
+     "bg": "outside",
+     "props": [
+      "tree"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Just a quick drink at the river."
+      },
+      {
+       "who": "baby",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "stand",
+       "think": "Amateur."
+      },
+      {
+       "who": "carp",
+       "pos": "right",
+       "pose": "angry",
+       "say": "Hello, little snack."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "carp",
+       "pos": "left",
+       "pose": "sad",
+       "say": "He BIT me."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "That's my boy."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-baby-axe-veteran",
+   "title": "Baby Axe",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "sad",
+       "say": "I've seen forty sieges."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "You're two."
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "center",
+       "pose": "sad",
+       "say": "Two very long years."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "baby",
+       "pos": "left",
+       "pose": "mug",
+       "say": "Milk. Neat."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Rough day, soldier?"
+      }
+     ],
+     "caption": "Veterans' night at {fort}."
+    }
+   ]
+  },
+  {
+   "id": "cb-bomrek-night",
+   "title": "The Ghost of Bomrek",
+   "panels": [
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sleep"
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "Boooo."
+      }
+     ]
+    },
+    {
+     "bg": "bedroom",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Bomrek, it is the middle of the night."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Engrave me a slab and I'll go."
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "The masons are all hauling."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Then I shall sing."
+      }
+     ],
+     "caption": "He sang. All night."
+    }
+   ]
+  },
+  {
+   "id": "cb-bomrek-typo",
+   "title": "The Ghost of Bomrek",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Your slab is done!"
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "happy",
+       "say": "At last!"
+      }
+     ],
+     "sign": "BOMREL R.I.P."
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "angry",
+       "say": "That is not my name."
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Close enough?"
+      }
+     ],
+     "sign": "BOMREL R.I.P."
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "center",
+       "pose": "angry",
+       "say": "Close enough to haunt you forever."
+      }
+     ],
+     "sign": "BOMREL R.I.P."
+    }
+   ]
+  },
+  {
+   "id": "cb-bomrek-mandate",
+   "title": "The Ghost of Bomrek",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "stand",
+       "say": "I mandate three more crowns."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "stand",
+       "say": "I mandate one slab."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "angry",
+       "say": "You can't mandate. You're dead."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad",
+       "say": "You can't craft. You're useless."
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "crown",
+      "anvil"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "pick",
+       "say": "Crowns it is."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Typical."
+      }
+     ],
+     "caption": "Priority queue: unchanged."
+    }
+   ]
+  },
+  {
+   "id": "cb-bomrek-coffin",
+   "title": "The Ghost of Bomrek",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "We built you a coffin, Bomrek!"
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Finally!"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "center",
+       "pose": "sad",
+       "say": "Someone is already in it."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "coffin"
+     ],
+     "cast": [
+      {
+       "who": "cat",
+       "pos": "center",
+       "pose": "sleep",
+       "say": "It's mine now."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "caption": "Claimed by right of nap."
+    }
+   ]
+  },
+  {
+   "id": "cb-bomrek-tavern",
+   "title": "The Ghost of Bomrek",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "stand",
+       "say": "One dwarven wine, please."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "You can't drink, Bomrek."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "sad",
+       "say": "I can't rest either. Pour it."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "sad",
+       "think": "Still can't drink."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Shame to waste it."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-bomrek-newcomer",
+   "title": "The Ghost of Bomrek",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "happy",
+       "say": "A new ghost! Welcome, {deadname}!"
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad",
+       "say": "Where's my slab?"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Oh, there's a waiting list."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "stand",
+       "say": "How long?"
+      }
+     ],
+     "sign": "SLAB QUEUE"
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "left",
+       "pose": "happy",
+       "say": "I've been number one for a decade."
+      },
+      {
+       "who": "ghost",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ],
+     "sign": "SLAB QUEUE"
+    }
+   ],
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "cb-moody-shells",
+   "title": "Moody",
+   "panels": [
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "armsUp",
+       "think": "I NEED... SHELLS."
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Shells! Bones! Something!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "We live inside a mountain."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      },
+      {
+       "who": "carp",
+       "pos": "right",
+       "pose": "happy",
+       "say": "I have bones. Let's negotiate."
+      }
+     ],
+     "caption": "Negotiations went poorly."
+    }
+   ]
+  },
+  {
+   "id": "cb-moody-mineral",
+   "title": "Moody",
+   "panels": [
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "armsUp",
+       "say": "I claim this workshop!"
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "Now bring me {mineral}!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "We have none of that."
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad",
+       "think": "Then I shall stare."
+      }
+     ],
+     "caption": "Day 40 of staring."
+    }
+   ]
+  },
+  {
+   "id": "cb-moody-artifact",
+   "title": "Moody",
+   "panels": [
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Behold! {artifact}!"
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy"
+      },
+      {
+       "who": "noble",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Magnificent! What is it?"
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "It's a {artifact_item}."
+      },
+      {
+       "who": "noble",
+       "pos": "right",
+       "pose": "sad",
+       "say": "...Can I wear it?"
+      }
+     ],
+     "caption": "He could not wear it."
+    }
+   ],
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "cb-moody-leather",
+   "title": "Moody",
+   "panels": [
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "think": "Must... have... leather."
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "angry",
+       "say": "Don't even think it."
+      }
+     ]
+    },
+    {
+     "bg": "depot",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad"
+      },
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "No leather. Only ethically sourced feelings."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-moody-sand",
+   "title": "Moody",
+   "panels": [
+    {
+     "bg": "workshop",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "armsUp",
+       "say": "I require GLASS."
+      }
+     ],
+     "sign": "WANT: GLASS"
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Glass needs sand."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "angry",
+       "say": "Then DIG SAND!"
+      }
+     ],
+     "sign": "WANT: GLASS"
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "There is no sand. I will go insane."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Again?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-moody-nothing",
+   "title": "Moody",
+   "panels": [
+    {
+     "bg": "workshop",
+     "props": [
+      "workshop"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "A fey mood! I need almost nothing!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Almost?"
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "gem",
+      "anvil"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "A gem, a bar, a log, and silence."
+      }
+     ]
+    },
+    {
+     "bg": "workshop",
+     "props": [
+      "gem",
+      "anvil"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "That's not nothing."
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "angry",
+       "say": "SILENCE WAS ON THE LIST."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-haul-monitor-one-stone",
+   "title": "Haul Monitor",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "happy",
+       "say": "One stone. Easy job."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Dropped it off. Done!"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad",
+       "say": "...It's back."
+      }
+     ],
+     "caption": "It is a different stone. He knows."
+    }
+   ]
+  },
+  {
+   "id": "cb-haul-monitor-lunch",
+   "title": "Haul Monitor",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Dinner's ready!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Can't. Hauling."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "table",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "think": "So hungry. Must haul."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sad",
+       "say": "Stockpile full. Taking it back."
+      }
+     ],
+     "sign": "FULL",
+     "caption": "{stone} moved today: same one."
+    }
+   ]
+  },
+  {
+   "id": "cb-haul-monitor-gerald",
+   "title": "Haul Monitor",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "I've named this one Gerald."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Where's Gerald?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Overseer said dump unused stone."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "well"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Gerald wasn't unused. He had me."
+      }
+     ],
+     "caption": "Gerald now lives in the well."
+    }
+   ]
+  },
+  {
+   "id": "cb-haul-monitor-minecart",
+   "title": "Haul Monitor",
+   "panels": [
+    {
+     "bg": "workshop",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "We built a minecart! No more hauling!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "wagon",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Freedom!"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "wagon",
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Who hauls the stone TO the minecart?"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-haul-monitor-retire",
+   "title": "Haul Monitor",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Twenty years of hauling. Retire."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "sad",
+       "say": "And leave the stone?"
+      },
+      {
+       "who": "noble",
+       "pos": "left",
+       "pose": "angry",
+       "say": "It's a rock."
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks",
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "sleep"
+      }
+     ],
+     "caption": "He retired. Next to it."
+    }
+   ]
+  },
+  {
+   "id": "cb-haul-monitor-glut",
+   "title": "Haul Monitor",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "There is {stone} everywhere!"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "center",
+       "pose": "armsUp",
+       "say": "JOB SECURITY!"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "rocks"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy"
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "stand",
+       "say": "He's going to outlive the mountain."
+      }
+     ]
+    }
+   ],
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "cb-beast-friends-hello",
+   "title": "Beast Friends",
+   "panels": [
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Hi! I'm new here!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "AAAAAH!"
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "center",
+       "pose": "sad",
+       "say": "Everyone always runs."
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Friend?"
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "stand",
+       "say": "I don't run. I don't do anything."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-beast-friends-party",
+   "title": "Beast Friends",
+   "panels": [
+    {
+     "bg": "cavern",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Party at my lair! Everyone come!"
+      }
+     ],
+     "sign": "BEAST PARTY"
+    },
+    {
+     "bg": "cavern",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Will there be booze?"
+      },
+      {
+       "who": "beast",
+       "pos": "right",
+       "pose": "happy",
+       "say": "There will be webs."
+      }
+     ],
+     "sign": "BEAST PARTY"
+    },
+    {
+     "bg": "cavern",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "center",
+       "pose": "sad"
+      }
+     ],
+     "sign": "BEAST PARTY",
+     "caption": "Attendance: zero. Webs: plenty."
+    }
+   ]
+  },
+  {
+   "id": "cb-beast-friends-gift",
+   "title": "Beast Friends",
+   "panels": [
+    {
+     "bg": "cavern",
+     "props": [
+      "gem"
+     ],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "right",
+       "pose": "happy",
+       "say": "I brought you a shiny gem!"
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand"
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [
+      "gem"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Oh! Thank you!"
+      },
+      {
+       "who": "beast",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Why am I swelling?"
+      },
+      {
+       "who": "beast",
+       "pos": "right",
+       "pose": "happy",
+       "say": "It means you like it!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-beast-friends-tavern",
+   "title": "Beast Friends",
+   "panels": [
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "left",
+       "pose": "stand",
+       "say": "One ale, please."
+      },
+      {
+       "who": "dwarf",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Dwarves only, pal."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "barrel"
+     ],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "left",
+       "pose": "happy",
+       "say": "I'm a dwarf. A very tall one."
+      }
+     ]
+    },
+    {
+     "bg": "tavern",
+     "props": [
+      "mug",
+      "table"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Fair enough."
+      },
+      {
+       "who": "beast",
+       "pos": "right",
+       "pose": "mug",
+       "say": "Cheers!"
+      }
+     ],
+     "caption": "Best customer in years."
+    }
+   ]
+  },
+  {
+   "id": "cb-beast-friends-hugs",
+   "title": "Beast Friends",
+   "panels": [
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "axe",
+       "say": "CHARGE!"
+      },
+      {
+       "who": "beast",
+       "pos": "right",
+       "pose": "armsUp",
+       "say": "HUGS!"
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "center",
+       "pose": "sad"
+      }
+     ],
+     "caption": "A communication breakdown."
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "ghost",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Finally, people visit me!"
+      }
+     ],
+     "sign": "OUR VICTORY",
+     "caption": "The fort made a statue."
+    }
+   ]
+  },
+  {
+   "id": "cb-beast-friends-letter",
+   "title": "Beast Friends",
+   "panels": [
+    {
+     "bg": "cavern",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "center",
+       "pose": "sad",
+       "say": "Dear surface. I am lonely."
+      }
+     ],
+     "sign": "LETTER"
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "It says it is made of fire."
+      },
+      {
+       "who": "noble",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Write back."
+      }
+     ],
+     "sign": "LETTER"
+    },
+    {
+     "bg": "cavern",
+     "props": [
+      "sign"
+     ],
+     "cast": [
+      {
+       "who": "beast",
+       "pos": "center",
+       "pose": "happy",
+       "say": "We walled you in. Love, {fort}."
+      }
+     ],
+     "sign": "REPLY",
+     "caption": "He read 'love' and stopped."
+    }
+   ]
+  },
+  {
+   "id": "cb-kobold-capers-crown",
+   "title": "Kobold Capers",
+   "panels": [
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "center",
+       "pose": "stand",
+       "think": "Tonight: the big score."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "left",
+       "pose": "happy",
+       "say": "The noble's crown! Mine!"
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [
+      "sock"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "center",
+       "pose": "happy",
+       "say": "Got a sock instead. Still counts."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-kobold-capers-dogs",
+   "title": "Kobold Capers",
+   "panels": [
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "center",
+       "pose": "stand",
+       "say": "Sneaking... sneaking..."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "door"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "left",
+       "pose": "sad"
+      },
+      {
+       "who": "dog",
+       "pos": "right",
+       "pose": "angry",
+       "say": "WOOF."
+      }
+     ]
+    },
+    {
+     "bg": "outside",
+     "props": [],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "center",
+       "pose": "sad",
+       "say": "{dogs} dogs. My map said two."
+      }
+     ],
+     "caption": "Back to planning school."
+    }
+   ],
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "cb-kobold-capers-crew",
+   "title": "Kobold Capers",
+   "panels": [
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "left",
+       "pose": "stand",
+       "say": "I need an inside man."
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "stand",
+       "say": "What's my cut?"
+      }
+     ]
+    },
+    {
+     "bg": "cavern",
+     "props": [],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "left",
+       "pose": "happy",
+       "say": "All the vermin you can eat."
+      },
+      {
+       "who": "cat",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Deal."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [
+      "bed"
+     ],
+     "cast": [
+      {
+       "who": "cat",
+       "pos": "left",
+       "pose": "sleep"
+      },
+      {
+       "who": "kobold",
+       "pos": "right",
+       "pose": "sad",
+       "say": "My inside man fell asleep inside."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cb-kobold-capers-disguise",
+   "title": "Kobold Capers",
+   "panels": [
+    {
+     "bg": "cavern",
+     "props": [
+      "crown"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "center",
+       "pose": "happy",
+       "say": "The perfect disguise: a noble."
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "My lord! Any mandates?"
+      },
+      {
+       "who": "kobold",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Uh... more shiny?"
+      }
+     ]
+    },
+    {
+     "bg": "hall",
+     "props": [],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "happy",
+       "say": "Most reasonable noble we've had."
+      },
+      {
+       "who": "kobold",
+       "pos": "right",
+       "pose": "happy"
+      }
+     ],
+     "caption": "He was elected mayor."
+    }
+   ]
+  },
+  {
+   "id": "cb-kobold-capers-caravan",
+   "title": "Kobold Capers",
+   "panels": [
+    {
+     "bg": "depot",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "center",
+       "pose": "armsUp",
+       "say": "A caravan! Riches!"
+      }
+     ]
+    },
+    {
+     "bg": "depot",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "left",
+       "pose": "stand",
+       "say": "What's in the wagon?"
+      },
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "Nothing. We didn't cut anything."
+      }
+     ]
+    },
+    {
+     "bg": "depot",
+     "props": [
+      "wagon"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "left",
+       "pose": "sad",
+       "say": "Then I'll steal nothing."
+      },
+      {
+       "who": "elf",
+       "pos": "right",
+       "pose": "happy",
+       "say": "That will be forty coins."
+      }
+     ]
+    }
+   ],
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "cb-kobold-capers-rough-gem",
+   "title": "Kobold Capers",
+   "panels": [
+    {
+     "bg": "mine",
+     "props": [
+      "gem"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "center",
+       "pose": "armsUp",
+       "say": "THE GEM!"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "gem"
+     ],
+     "cast": [
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Take it. It's uncut. Worthless."
+      },
+      {
+       "who": "kobold",
+       "pos": "right",
+       "pose": "sad"
+      }
+     ]
+    },
+    {
+     "bg": "mine",
+     "props": [
+      "gem"
+     ],
+     "cast": [
+      {
+       "who": "kobold",
+       "pos": "right",
+       "pose": "stand",
+       "say": "Fine. Cut it. I'll come back."
+      },
+      {
+       "who": "dwarf",
+       "pos": "left",
+       "pose": "stand",
+       "say": "Thursday good?"
+      }
+     ],
+     "caption": "Repeat customer."
+    }
+   ]
+  }
+ ],
+ "gags": [
+  {
+   "id": "cg-carp-lifeguard",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "carp",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ],
+    "sign": "SWIM HERE"
+   },
+   "caption": "The carp have started a lifeguard program. Enrollment is mandatory."
+  },
+  {
+   "id": "cg-elf-natural-wood",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "wagon",
+     "tree"
+    ],
+    "cast": [
+     {
+      "who": "elf",
+      "pos": "center",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "\"This bowl? From a tree that died of natural sadness.\""
+  },
+  {
+   "id": "cg-magma-hot-tub",
+   "panel": {
+    "bg": "none",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Urist calls the magma channel a 'hot tub.' The coroner calls it 'Tuesday.'"
+  },
+  {
+   "id": "cg-left-sock",
+   "panel": {
+    "bg": "bedroom",
+    "props": [
+     "sock",
+     "bed"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "He has been searching for the left sock since the second siege."
+  },
+  {
+   "id": "cg-cat-census",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "cat",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "cat",
+      "pos": "center",
+      "pose": "happy"
+     },
+     {
+      "who": "cat",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The census counts {cats} cats. The cats' census counts one dwarf, barely.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "cg-tantrum-forecast",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "mug",
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "Today's forecast: scattered mugs, with a chance of flying tables."
+  },
+  {
+   "id": "cg-quality-marks",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "anvil"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "\"The little suns mean it's better than you.\""
+  },
+  {
+   "id": "cg-plump-helmet-roommate",
+   "panel": {
+    "bg": "farm",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "Plump helmets: breakfast, lunch, dinner, and, since the flood, roommate."
+  },
+  {
+   "id": "cg-sky-fear",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sun",
+     "cloud"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "sad"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "\"It's just the sky, Urist.\" \"That's what it wants you to think.\""
+  },
+  {
+   "id": "cg-miasma-ambience",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The cook insists the miasma is 'part of the ambience.'"
+  },
+  {
+   "id": "cg-strike-the-earth",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "pick"
+     }
+    ]
+   },
+   "caption": "\"Strike the earth!\" The earth has filed a formal complaint."
+  },
+  {
+   "id": "cg-aquifer-basement",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rain"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "sad"
+     },
+     {
+      "who": "carp",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Aquifer breached. The basement is a lake. The lake has tenants."
+  },
+  {
+   "id": "cg-one-kitten",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "cat",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "cat",
+      "pos": "center",
+      "pose": "sleep"
+     },
+     {
+      "who": "cat",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Day 12 of 'we'll just keep one kitten.'",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "cg-necromancer-neighbors",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "tree"
+    ],
+    "cast": [
+     {
+      "who": "ghost",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The necromancer's tower: lovely views, terrible neighbors, worse neighbors after."
+  },
+  {
+   "id": "cg-bookkeeper-never-sleeps",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "The new bookkeeper never sleeps, never eats, and the records are spotless. Odd."
+  },
+  {
+   "id": "cg-well-wish",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "well"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "\"I wish for a bucket.\""
+  },
+  {
+   "id": "cg-dwarven-syrup",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "barrel",
+     "mug"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "mug"
+     }
+    ]
+   },
+   "caption": "Dwarven syrup: for the dwarf who finds wine a bit too watery."
+  },
+  {
+   "id": "cg-minecart-safety",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "armsUp"
+     }
+    ]
+   },
+   "caption": "Minecart safety rule one: there are no minecart safety rules."
+  },
+  {
+   "id": "cg-hospital-treatment",
+   "panel": {
+    "bg": "bedroom",
+    "props": [
+     "bed"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sleep"
+     }
+    ]
+   },
+   "caption": "The hospital's only treatment: a bed, a splint, and a strongly worded note."
+  },
+  {
+   "id": "cg-bard-carp-ballad",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "armsUp"
+     }
+    ]
+   },
+   "caption": "The bard knows one song. It's about a carp. It is forty minutes long."
+  },
+  {
+   "id": "cg-library-on-rocks",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The library has three books, all titled 'On Rocks.' Volume 2 is a rock."
+  },
+  {
+   "id": "cg-migrant-opinions",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "angry"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "New migrants: no skills, fourteen opinions about the beds.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "cg-overseer-watches",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "cat",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The overseer sees all. Mostly it sees the cats."
+  },
+  {
+   "id": "cg-siege-patience",
+   "panel": {
+    "bg": "outside",
+    "props": [],
+    "cast": [
+     {
+      "who": "goblin",
+      "pos": "left",
+      "pose": "angry"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "mug"
+     }
+    ]
+   },
+   "caption": "\"We have {drinks} drinks inside. Take your time out there.\"",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "cg-werebeast-morning",
+   "panel": {
+    "bg": "bedroom",
+    "props": [
+     "bed"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "Urist swears he's just 'not a morning person.' The full moon disagrees."
+  },
+  {
+   "id": "cg-cave-in-efficiency",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Technically, the cave-in was the fastest mining we've ever done."
+  },
+  {
+   "id": "cg-danger-room-grads",
+   "panel": {
+    "bg": "workshop",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "Danger room graduates: three. Danger room survivors: also three. Mostly."
+  },
+  {
+   "id": "cg-noble-mandate",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "crown"
+    ],
+    "cast": [
+     {
+      "who": "noble",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "Today's mandate: no more things I don't like. Tomorrow's: no more things."
+  },
+  {
+   "id": "cg-craft-swap",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "We offered stone crafts. They offered our stone crafts back, at a markup."
+  },
+  {
+   "id": "cg-meeting-hall",
+   "panel": {
+    "bg": "hall",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "sleep"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "Meeting hall attendance is at a record high. No one knows what the meeting is."
+  },
+  {
+   "id": "cg-coffin-sale",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "coffin",
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ],
+    "sign": "2 FOR 1"
+   },
+   "caption": "Coffins, two for one. Unrelated: the forgotten beast woke up."
+  },
+  {
+   "id": "cg-weather-report",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "rain"
+    ],
+    "cast": [
+     {
+      "who": "elf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "Weather: {weather}. Dwarves: indoors. Elves: outside, hugging it."
+  },
+  {
+   "id": "cg-one-well",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "well"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "angry"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "{pop} dwarves. One well. Infinite opinions about the bucket."
+  },
+  {
+   "id": "cg-year-review",
+   "panel": {
+    "bg": "mine",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "Year {year} in review: like last year, but with more {stone}."
+  },
+  {
+   "id": "cg-baby-return-policy",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "baby",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ],
+    "sign": "MILITIA RULES"
+   },
+   "caption": "Babies may be carried into battle but must be returned washed."
+  },
+  {
+   "id": "cg-dog-adopts-goblin",
+   "panel": {
+    "bg": "outside",
+    "props": [],
+    "cast": [
+     {
+      "who": "dog",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "goblin",
+      "pos": "right",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The war dogs have adopted a goblin. He is now a very good boy."
+  },
+  {
+   "id": "cg-masterwork-pride",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "workshop"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "{masterwright} made a masterwork {masterwork}. Nobody can make them stop mentioning it.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "cg-promotion-chair",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "crown",
+     "table"
+    ],
+    "cast": [
+     {
+      "who": "noble",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "{promoted} is now {post}. First official act: a bigger chair.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "cg-frozen-carp",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "cloud"
+    ],
+    "cast": [
+     {
+      "who": "carp",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "Winter in {fort}: the river froze with three carp still glaring.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "cg-wood-shortage",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "axe"
+     }
+    ]
+   },
+   "caption": "Wood is so scarce the carpenter now points at rocks and says 'tree.'",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "cg-listening-helmets",
+   "panel": {
+    "bg": "farm",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The farmer talks to the plump helmets. Worse, they're starting to answer."
+  },
+  {
+   "id": "cg-gem-mostly-air",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "gem"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "The jeweler cut it so finely it's now mostly air. Valued at triple.",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "cg-drinks-low",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "barrel"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "sad"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "{drinks} drinks left. The dwarves have begun drafting a strongly worded song.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "cg-elf-wooden-cart",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "elf",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "The elven diplomat demands we stop cutting trees. He arrived in a wooden cart."
+  },
+  {
+   "id": "cg-short-merchant",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "kobold",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ],
+    "sign": "NO KOBOLDS"
+   },
+   "caption": "\"Technically, I'm a very short merchant.\""
+  },
+  {
+   "id": "cg-fort-motto",
+   "panel": {
+    "bg": "outside",
+    "props": [
+     "sign"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ],
+    "sign": "LOSING IS FUN"
+   },
+   "caption": "The founding motto. The second motto, carved below, just says 'Run.'"
+  },
+  {
+   "id": "cg-haul-priority",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "barrel",
+     "rocks"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "Hauling order: booze, booze, booze, food, booze, then that one stone."
+  },
+  {
+   "id": "cg-strange-mood-door",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "door",
+     "workshop"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "\"I said I needed SILENCE, not a knock asking if I need silence.\""
+  }
+ ]
+}

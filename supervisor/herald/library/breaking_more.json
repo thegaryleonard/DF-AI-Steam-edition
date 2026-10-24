@@ -1,0 +1,1860 @@
+{
+  "kinds": {
+    "siege": {
+      "heads": [
+        {
+          "id": "bk2-siege-head-1",
+          "text": "DRAWBRIDGE LEVER: WHICH ONE?!"
+        },
+        {
+          "id": "bk2-siege-head-2",
+          "text": "GOBLINS RSVP WITH SPEARS"
+        },
+        {
+          "id": "bk2-siege-head-3",
+          "text": "VISITORS ARRIVE ON WAR BEASTS"
+        },
+        {
+          "id": "bk2-siege-head-4",
+          "text": "AMBUSH! (THEY WERE HIDING)"
+        },
+        {
+          "id": "bk2-siege-head-5",
+          "text": "SIEGE DAY: HAULING SUSPENDED"
+        },
+        {
+          "id": "bk2-siege-head-6",
+          "text": "THE HORDE HAS A DRUMMER NOW"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-siege-cap-1",
+          "text": "The enemy siege tower, which the artist confused with a very tall goblin. Both are bad."
+        },
+        {
+          "id": "bk2-siege-cap-2",
+          "text": "A goblin on a war beast. The beast is drawn more sympathetically than the goblin."
+        },
+        {
+          "id": "bk2-siege-cap-3",
+          "text": "Our lever room. Forty levers, one labelled 'BRIDGE?', one labelled 'DO NOT'."
+        },
+        {
+          "id": "bk2-siege-cap-4",
+          "text": "Our archers in the tower, drawn mid-yawn, as observed."
+        },
+        {
+          "id": "bk2-siege-cap-5",
+          "text": "The horde's drummer. The artist could not draw sound and has drawn a headache instead."
+        },
+        {
+          "id": "bk2-siege-cap-6",
+          "text": "The kitchen staff barricading a door with a table. The table is doing most of the work."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-siege-rep-1",
+          "text": "Scouts say the horde marched three seasons to get here and seems determined to make it worth the walk. Hospitality staff have been instructed to provide nothing."
+        },
+        {
+          "id": "bk2-siege-rep-2",
+          "text": "The broker was mid-trade when the horde appeared and asked whether the goblins might be interested in some fine stone crafts. They are not interested in crafts."
+        },
+        {
+          "id": "bk2-siege-rep-3",
+          "text": "{who} was sent to pull the drawbridge lever, pulled the lever for the upstairs cistern instead, and is now very unpopular with the archers, who are damp."
+        },
+        {
+          "id": "bk2-siege-rep-4",
+          "text": "Civilian alerts have been raised. Dwarves who ignore them will be assumed to be brave, busy or deaf, in that order."
+        },
+        {
+          "id": "bk2-siege-rep-5",
+          "text": "The goblins appear to have brought a war banner and a list of demands written on the back of a stolen tapestry. The demands are mostly 'everything.'"
+        },
+        {
+          "id": "bk2-siege-rep-6",
+          "text": "The hospital has stocked fresh thread, cloth and splints, and the chief medical dwarf has stretched, cracked his knuckles and said 'here we go.'"
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-siege-label-1",
+          "text": "SIEGE TOWER"
+        },
+        {
+          "id": "bk2-siege-label-2",
+          "text": "LEVER (WRONG)"
+        },
+        {
+          "id": "bk2-siege-label-3",
+          "text": "WAR BEAST"
+        },
+        {
+          "id": "bk2-siege-label-4",
+          "text": "ARCHER (YAWNING)"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-siege-kick-1",
+          "text": "The Herald will publish as usual, from the basement."
+        },
+        {
+          "id": "bk2-siege-kick-2",
+          "text": "Do not trade with the besiegers. They are not a caravan."
+        },
+        {
+          "id": "bk2-siege-kick-3",
+          "text": "{first} reminds everyone that the bridge is not lever 12."
+        },
+        {
+          "id": "bk2-siege-kick-4",
+          "text": "Our sympathies to anyone currently on the surface."
+        }
+      ]
+    },
+    "beast": {
+      "heads": [
+        {
+          "id": "bk2-beast-head-1",
+          "text": "IT CAME FROM THE THIRD CAVERN"
+        },
+        {
+          "id": "bk2-beast-head-2",
+          "text": "BEAST HAS ONE EYE, MANY OPINIONS"
+        },
+        {
+          "id": "bk2-beast-head-3",
+          "text": "WEBS IN THE CORRIDOR. BIG WEBS."
+        },
+        {
+          "id": "bk2-beast-head-4",
+          "text": "SCALY VISITOR TRIES THE DOOR"
+        },
+        {
+          "id": "bk2-beast-head-5",
+          "text": "BEAST SPOTTED; STAIRS AVOIDED"
+        },
+        {
+          "id": "bk2-beast-head-6",
+          "text": "THE DEEP SENDS A HOUSEGUEST"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-beast-cap-1",
+          "text": "The beast, according to three witnesses who did not agree on the number of heads."
+        },
+        {
+          "id": "bk2-beast-cap-2",
+          "text": "A footprint left in the cavern mud. The artist fell into it while measuring."
+        },
+        {
+          "id": "bk2-beast-cap-3",
+          "text": "The creature is made of crystal, or glass, or possibly ice. It was very shiny and very cross."
+        },
+        {
+          "id": "bk2-beast-cap-4",
+          "text": "Artist's impression of the beast's breath. Please hold your own breath while viewing."
+        },
+        {
+          "id": "bk2-beast-cap-5",
+          "text": "The cavern entrance, with a 'NO' sign the artist added after the fact."
+        },
+        {
+          "id": "bk2-beast-cap-6",
+          "text": "The cavern farmer who first spotted it, still pointing. He has been pointing for a day."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-beast-rep-1",
+          "text": "The creature is described as a huge blob of molten glass with gleaming wings and a dreadful habit of looking straight at you. Nobody expected the wings."
+        },
+        {
+          "id": "bk2-beast-rep-2",
+          "text": "Scholars consulted the library and found the creature listed under 'Do Not.' The entry was short and written in an obvious hurry."
+        },
+        {
+          "id": "bk2-beast-rep-3",
+          "text": "{who} met the beast at the cavern farm and backed away so slowly that the crops grew noticeably during the retreat."
+        },
+        {
+          "id": "bk2-beast-rep-4",
+          "text": "The beast reportedly spits a substance that causes blisters, coughing and deep regret. The chief medical dwarf has requested more soap and a different job."
+        },
+        {
+          "id": "bk2-beast-rep-5",
+          "text": "Military planners proposed a cage trap. The beast is larger than any cage. The planners proposed a larger cage. The carpenter proposed retirement."
+        },
+        {
+          "id": "bk2-beast-rep-6",
+          "text": "The creature has been seen sniffing the walls, which experts say means curiosity, hunger or a strong opinion about our masonry. All three are bad."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-beast-label-1",
+          "text": "CRYSTAL?"
+        },
+        {
+          "id": "bk2-beast-label-2",
+          "text": "WINGS (WHY)"
+        },
+        {
+          "id": "bk2-beast-label-3",
+          "text": "THE SLIME"
+        },
+        {
+          "id": "bk2-beast-label-4",
+          "text": "POINTING DWARF"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-beast-kick-1",
+          "text": "The cavern is closed for the season, or for good."
+        },
+        {
+          "id": "bk2-beast-kick-2",
+          "text": "{first} reports a sudden interest in surface living."
+        },
+        {
+          "id": "bk2-beast-kick-3",
+          "text": "Please stop leaving snacks by the cavern hatch."
+        },
+        {
+          "id": "bk2-beast-kick-4",
+          "text": "Taxonomists have filed it under 'absolutely not.'"
+        }
+      ]
+    },
+    "death": {
+      "heads": [
+        {
+          "id": "bk2-death-head-1",
+          "text": "THE FORT GROWS QUIETER BY ONE"
+        },
+        {
+          "id": "bk2-death-head-2",
+          "text": "SLAB ORDERED, TEARS PROVIDED"
+        },
+        {
+          "id": "bk2-death-head-3",
+          "text": "DWARF RETURNS TO THE STONE"
+        },
+        {
+          "id": "bk2-death-head-4",
+          "text": "REST WELL, OLD BEARD"
+        },
+        {
+          "id": "bk2-death-head-5",
+          "text": "THE TAVERN RAISES A MUG"
+        },
+        {
+          "id": "bk2-death-head-6",
+          "text": "FUNERAL HELD; NOBODY TRIPS"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-death-cap-1",
+          "text": "The empty seat at dinner. The artist drew it with great care and a lot of grey."
+        },
+        {
+          "id": "bk2-death-cap-2",
+          "text": "The tomb, drawn before the bookkeeper assigned it, so it is labelled 'TOMB (TBD).'"
+        },
+        {
+          "id": "bk2-death-cap-3",
+          "text": "A mug raised in salute. The artist drew forty mugs, because everyone raised one."
+        },
+        {
+          "id": "bk2-death-cap-4",
+          "text": "The deceased's favourite chair, already claimed by three different dwarves."
+        },
+        {
+          "id": "bk2-death-cap-5",
+          "text": "Artist's impression of eternal rest: a very long nap with no hauling in it."
+        },
+        {
+          "id": "bk2-death-cap-6",
+          "text": "A dwarf carrying a coffin alone. Nobody helped. That is hauling for you."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-death-rep-1",
+          "text": "{first} is survived by a bedroom full of crafted goods, a grudge against one particular door, and a well-worn stool nobody is permitted to sit on."
+        },
+        {
+          "id": "bk2-death-rep-2",
+          "text": "The tavern keeper has retired {first}'s regular stool for one week, after which it returns to service, because stools do not grow on trees, and we have no trees."
+        },
+        {
+          "id": "bk2-death-rep-3",
+          "text": "Friends recall that {first} once spent an entire season admiring a fine table. The table has been invited to the funeral and placed near the front."
+        },
+        {
+          "id": "bk2-death-rep-4",
+          "text": "A job has been posted to carry the body to the tombs. Three dwarves accepted it. One actually arrived. The other two are 'on their way.'"
+        },
+        {
+          "id": "bk2-death-rep-5",
+          "text": "The mayor gave a short speech, mostly about himself, and closed by mispronouncing the deceased's name. Mourners agreed {first} would have expected nothing less."
+        },
+        {
+          "id": "bk2-death-rep-6",
+          "text": "The population of {fort} is now {pop}. The bookkeeper wrote it down, checked it twice, then left the office for a long, private cry in the stockpile."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-death-label-1",
+          "text": "EMPTY CHAIR"
+        },
+        {
+          "id": "bk2-death-label-2",
+          "text": "THE TOMB (TBD)"
+        },
+        {
+          "id": "bk2-death-label-3",
+          "text": "RAISED MUG"
+        },
+        {
+          "id": "bk2-death-label-4",
+          "text": "THE MAYOR (WRONG)"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-death-kick-1",
+          "text": "Donations of ale to the wake are encouraged and inevitable."
+        },
+        {
+          "id": "bk2-death-kick-2",
+          "text": "{first} would have hated all this fuss."
+        },
+        {
+          "id": "bk2-death-kick-3",
+          "text": "The tombs are open; please queue politely."
+        },
+        {
+          "id": "bk2-death-kick-4",
+          "text": "A slab is on order. Do not let this become a ghost story."
+        }
+      ]
+    },
+    "pet": {
+      "heads": [
+        {
+          "id": "bk2-pet-head-1",
+          "text": "TINY PAWS, BIG LOSS"
+        },
+        {
+          "id": "bk2-pet-head-2",
+          "text": "FORT SAYS GOODBYE TO A FRIEND"
+        },
+        {
+          "id": "bk2-pet-head-3",
+          "text": "KENNELS IN MOURNING"
+        },
+        {
+          "id": "bk2-pet-head-4",
+          "text": "BELOVED BEAST LAID TO REST"
+        },
+        {
+          "id": "bk2-pet-head-5",
+          "text": "ONE LESS WAG IN THE HALLS"
+        },
+        {
+          "id": "bk2-pet-head-6",
+          "text": "PET OWNER ASKS FOR QUIET"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-pet-cap-1",
+          "text": "The pet's collar, hung by the door. The artist drew it from memory and one small bell."
+        },
+        {
+          "id": "bk2-pet-cap-2",
+          "text": "The pet's water bowl, untouched. The artist apologises for being this sad in ink."
+        },
+        {
+          "id": "bk2-pet-cap-3",
+          "text": "The animal mid-yawn, a pose it held for most of its life."
+        },
+        {
+          "id": "bk2-pet-cap-4",
+          "text": "The kennel, decorated with flowers the artist describes as 'mostly cave moss.'"
+        },
+        {
+          "id": "bk2-pet-cap-5",
+          "text": "A small parade of mourners. The parrot at the front is not real; the artist wanted a parrot."
+        },
+        {
+          "id": "bk2-pet-cap-6",
+          "text": "The pet as drawn by the owner's child: four legs, a big smile and a crown."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-pet-rep-1",
+          "text": "The animal will be remembered for following its owner everywhere, including into the forge, the barracks and, once, a private audience with the baron."
+        },
+        {
+          "id": "bk2-pet-rep-2",
+          "text": "{who} has adopted a stony silence and asked that nobody say the word 'fetch' in the dining hall for a while."
+        },
+        {
+          "id": "bk2-pet-rep-3",
+          "text": "Its favourite activities were sleeping, demanding food and walking directly under hauling dwarves. The fortress will be quieter, and slightly safer."
+        },
+        {
+          "id": "bk2-pet-rep-4",
+          "text": "The animal trainer has written a heartfelt tribute that reads, in full: 'Good. Very good. The best.' It has been pinned to the kennel door."
+        },
+        {
+          "id": "bk2-pet-rep-5",
+          "text": "A small engraving has been commissioned showing the pet on a sunny day. The engraver has never seen a sunny day and will be guessing."
+        },
+        {
+          "id": "bk2-pet-rep-6",
+          "text": "With the loss, {fort} counts {pop} citizens and one sad, empty corner of the dining hall that nobody has the heart to walk through."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-pet-label-1",
+          "text": "EMPTY BOWL"
+        },
+        {
+          "id": "bk2-pet-label-2",
+          "text": "THE COLLAR"
+        },
+        {
+          "id": "bk2-pet-label-3",
+          "text": "KENNEL"
+        },
+        {
+          "id": "bk2-pet-label-4",
+          "text": "A SMALL BELL"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-pet-kick-1",
+          "text": "Belly rubs are suspended for one day in tribute."
+        },
+        {
+          "id": "bk2-pet-kick-2",
+          "text": "{first} is accepting condolences and treats."
+        },
+        {
+          "id": "bk2-pet-kick-3",
+          "text": "The kennel door has been left open, just in case."
+        },
+        {
+          "id": "bk2-pet-kick-4",
+          "text": "Tributes may be left beside the bowl."
+        }
+      ]
+    },
+    "berserk": {
+      "heads": [
+        {
+          "id": "bk2-berserk-head-1",
+          "text": "STATUE TOPPLED IN FIT OF PIQUE"
+        },
+        {
+          "id": "bk2-berserk-head-2",
+          "text": "BEARD-PULLING INCIDENT REPORTED"
+        },
+        {
+          "id": "bk2-berserk-head-3",
+          "text": "RAGE! ON THE STAIRS, OF ALL PLACES"
+        },
+        {
+          "id": "bk2-berserk-head-4",
+          "text": "COUNSEL OFFERED, CHAIR THROWN"
+        },
+        {
+          "id": "bk2-berserk-head-5",
+          "text": "SHERIFF ARRIVES AFTER THE FACT"
+        },
+        {
+          "id": "bk2-berserk-head-6",
+          "text": "THE BAD MOOD HAS ESCALATED"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-berserk-cap-1",
+          "text": "The toppled statue, which depicted a dwarf being calm. The irony was not lost on anyone."
+        },
+        {
+          "id": "bk2-berserk-cap-2",
+          "text": "The sheriff arriving, drawn as a beard with boots. He arrived at the very end."
+        },
+        {
+          "id": "bk2-berserk-cap-3",
+          "text": "A dent in the wall, roughly the shape of somebody's fist and somebody's opinion."
+        },
+        {
+          "id": "bk2-berserk-cap-4",
+          "text": "Artist's impression of the root cause: a bedroom the size of a cupboard."
+        },
+        {
+          "id": "bk2-berserk-cap-5",
+          "text": "A mug lodged in the ceiling. Nobody has asked for it back."
+        },
+        {
+          "id": "bk2-berserk-cap-6",
+          "text": "The calm-down room. It contains one chair, now in three pieces."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-berserk-rep-1",
+          "text": "The episode began when {first} was told the new bedroom would be ready 'soon,' a word with a long and bitter history in this fortress."
+        },
+        {
+          "id": "bk2-berserk-rep-2",
+          "text": "Witnesses say {who} toppled a statue, kicked a barrel and then sat down hard on the stairs, which cracked under the weight of the feelings involved."
+        },
+        {
+          "id": "bk2-berserk-rep-3",
+          "text": "The tavern has been closed for repairs and for a long community conversation about where furniture should and should not land."
+        },
+        {
+          "id": "bk2-berserk-rep-4",
+          "text": "Fortress justice has opened an investigation, which consists of the sheriff asking 'who did this' and everyone pointing at {first}."
+        },
+        {
+          "id": "bk2-berserk-rep-5",
+          "text": "Stress experts recommend fine meals, a nice bedroom and a long rest. The fortress can offer one of those, and it is not the meals or the bedroom."
+        },
+        {
+          "id": "bk2-berserk-rep-6",
+          "text": "After the outburst, {first} reportedly felt 'a bit better' and apologised to a door. The door has not yet accepted the apology."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-berserk-label-1",
+          "text": "STATUE (DOWN)"
+        },
+        {
+          "id": "bk2-berserk-label-2",
+          "text": "FIST DENT"
+        },
+        {
+          "id": "bk2-berserk-label-3",
+          "text": "SHERIFF (LATE)"
+        },
+        {
+          "id": "bk2-berserk-label-4",
+          "text": "THE STAIRS"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-berserk-kick-1",
+          "text": "Repairs will begin once everyone stops being upset."
+        },
+        {
+          "id": "bk2-berserk-kick-2",
+          "text": "{first} is 'taking some time.' Please give it to them."
+        },
+        {
+          "id": "bk2-berserk-kick-3",
+          "text": "Do not mention bedrooms in the tavern this week."
+        },
+        {
+          "id": "bk2-berserk-kick-4",
+          "text": "The statue has been stood back up, cautiously."
+        }
+      ]
+    },
+    "mood": {
+      "heads": [
+        {
+          "id": "bk2-mood-head-1",
+          "text": "DWARF WHISPERS TO A ROCK"
+        },
+        {
+          "id": "bk2-mood-head-2",
+          "text": "MYSTERIOUS ORDERS FOR CLOTH"
+        },
+        {
+          "id": "bk2-mood-head-3",
+          "text": "FEY! FEY! (NOBODY KNOWS WHY)"
+        },
+        {
+          "id": "bk2-mood-head-4",
+          "text": "FORGE DOOR BARRED FROM INSIDE"
+        },
+        {
+          "id": "bk2-mood-head-5",
+          "text": "ARTIST AT WORK; DO NOT DISTURB"
+        },
+        {
+          "id": "bk2-mood-head-6",
+          "text": "MUSE ARRIVES WITHOUT WARNING"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-mood-cap-1",
+          "text": "The dwarf sketching on the workshop wall. The artist tried to copy it and got a nosebleed."
+        },
+        {
+          "id": "bk2-mood-cap-2",
+          "text": "A hauler bringing a log to the door. He was shooed away. It was the wrong log."
+        },
+        {
+          "id": "bk2-mood-cap-3",
+          "text": "Artist's impression of what is being made: a blank square marked 'SECRET.'"
+        },
+        {
+          "id": "bk2-mood-cap-4",
+          "text": "Strange symbols chalked on the floor. The cleaners have been told to leave them be."
+        },
+        {
+          "id": "bk2-mood-cap-5",
+          "text": "The workshop window glowing at midnight. There is no window. The artist insists."
+        },
+        {
+          "id": "bk2-mood-cap-6",
+          "text": "The dwarf's dinner plate, untouched for days. This worries the cook more than anything."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-mood-rep-1",
+          "text": "{who} rose from bed in the middle of the night, said 'leather, and something soft,' and walked straight into the leather works, mildly evicting the tanner."
+        },
+        {
+          "id": "bk2-mood-rep-2",
+          "text": "The demands on the door now include 'something old,' 'something green' and a word the bookkeeper believes means 'gem.' Haulers are searching under everything."
+        },
+        {
+          "id": "bk2-mood-rep-3",
+          "text": "The mood has gripped {first} so completely that a passing noble was ignored outright. Witnesses called it the bravest thing they have ever seen."
+        },
+        {
+          "id": "bk2-mood-rep-4",
+          "text": "Scholars are divided on whether moods come from the gods, the stone or bad cheese. All agree it is best not to interrupt, whichever it is."
+        },
+        {
+          "id": "bk2-mood-rep-5",
+          "text": "Haulers have brought cloth, wood, bone and a rock. The dwarf took the rock and sent everything else back with a polite growl."
+        },
+        {
+          "id": "bk2-mood-rep-6",
+          "text": "Neighbours of the workshop report humming, then hammering, then a long silence, then laughter. The laughter was the worst part."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-mood-label-1",
+          "text": "SECRET"
+        },
+        {
+          "id": "bk2-mood-label-2",
+          "text": "CHALK MARKS"
+        },
+        {
+          "id": "bk2-mood-label-3",
+          "text": "WRONG LOG"
+        },
+        {
+          "id": "bk2-mood-label-4",
+          "text": "THE MUSE"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-mood-kick-1",
+          "text": "Results expected soon, or never, or with spikes."
+        },
+        {
+          "id": "bk2-mood-kick-2",
+          "text": "{first} requests no visitors and one very specific gem."
+        },
+        {
+          "id": "bk2-mood-kick-3",
+          "text": "Please keep the stockpiles stocked, for everyone's sanity."
+        },
+        {
+          "id": "bk2-mood-kick-4",
+          "text": "The Herald will not knock either."
+        }
+      ]
+    },
+    "artifact": {
+      "heads": [
+        {
+          "id": "bk2-artifact-head-1",
+          "text": "A LEGEND IS FORGED"
+        },
+        {
+          "id": "bk2-artifact-head-2",
+          "text": "BEHOLD: AN EXTREMELY FANCY CHAIR"
+        },
+        {
+          "id": "bk2-artifact-head-3",
+          "text": "WORKSHOP PRODUCES A TREASURE"
+        },
+        {
+          "id": "bk2-artifact-head-4",
+          "text": "THE MOODY DWARF HAS DELIVERED"
+        },
+        {
+          "id": "bk2-artifact-head-5",
+          "text": "ARTIFACT NAMED; NOBODY CAN SAY IT"
+        },
+        {
+          "id": "bk2-artifact-head-6",
+          "text": "WEALTH GOES UP, GOBLINS NOTICE"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-artifact-cap-1",
+          "text": "The artifact on a pedestal. The pedestal is not an artifact, but tried its very best."
+        },
+        {
+          "id": "bk2-artifact-cap-2",
+          "text": "The item's name, written out in full. It runs off the edge of the page."
+        },
+        {
+          "id": "bk2-artifact-cap-3",
+          "text": "The creator's hands, which shook for a day afterward. The artist's hands shook too."
+        },
+        {
+          "id": "bk2-artifact-cap-4",
+          "text": "The artifact, encircled with bands of gold, studded with gems and smudged by the artist."
+        },
+        {
+          "id": "bk2-artifact-cap-5",
+          "text": "A queue of admirers. The queue went around the dining hall twice."
+        },
+        {
+          "id": "bk2-artifact-cap-6",
+          "text": "The bookkeeper, appraising. The bookkeeper fainted shortly after this drawing."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-artifact-rep-1",
+          "text": "The new treasure has been given a name meaning, roughly, 'The Candle of Loud Agreement.' Its creator says the name came to them in a dream about stairs."
+        },
+        {
+          "id": "bk2-artifact-rep-2",
+          "text": "The object depicts the fortress itself, in which the fortress displays an image of the object. Philosophers have been asked to stop thinking about it."
+        },
+        {
+          "id": "bk2-artifact-rep-3",
+          "text": "{who} has been granted the title of legendary craftsdwarf, a new bedroom and the right never to haul again, which is the bit everyone is jealous of."
+        },
+        {
+          "id": "bk2-artifact-rep-4",
+          "text": "Neighbouring holds have already asked to borrow it for a festival. The answer is no. They will be informed in writing, also no."
+        },
+        {
+          "id": "bk2-artifact-rep-5",
+          "text": "The artifact is too valuable to use and too heavy to steal, which our security correspondent calls 'the best combination available.'"
+        },
+        {
+          "id": "bk2-artifact-rep-6",
+          "text": "Rumours that the item is cursed have been firmly denied by its creator, who then quickly left the room for reasons they could not explain."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-artifact-label-1",
+          "text": "LEGENDARY"
+        },
+        {
+          "id": "bk2-artifact-label-2",
+          "text": "PEDESTAL"
+        },
+        {
+          "id": "bk2-artifact-label-3",
+          "text": "THE QUEUE"
+        },
+        {
+          "id": "bk2-artifact-label-4",
+          "text": "NAME (LONG)"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-artifact-kick-1",
+          "text": "The artifact will not be lent, traded or used as a doorstop."
+        },
+        {
+          "id": "bk2-artifact-kick-2",
+          "text": "{first} is now insufferable, and has earned it."
+        },
+        {
+          "id": "bk2-artifact-kick-3",
+          "text": "Thieves are reminded that the guard is awake. Mostly."
+        },
+        {
+          "id": "bk2-artifact-kick-4",
+          "text": "Its full name will be printed in a later, larger edition."
+        }
+      ]
+    },
+    "master": {
+      "heads": [
+        {
+          "id": "bk2-master-head-1",
+          "text": "WORKMANSHIP MAKES GROWN DWARF CRY"
+        },
+        {
+          "id": "bk2-master-head-2",
+          "text": "EXQUISITE BARREL ROCKS TAVERN"
+        },
+        {
+          "id": "bk2-master-head-3",
+          "text": "A MASTERWORK BED. NOBODY SLEEPS"
+        },
+        {
+          "id": "bk2-master-head-4",
+          "text": "CRAFTSDWARF HITS NEW PEAK"
+        },
+        {
+          "id": "bk2-master-head-5",
+          "text": "TINY DETAIL, HUGE BOASTING"
+        },
+        {
+          "id": "bk2-master-head-6",
+          "text": "FLAWLESS. ABSOLUTELY FLAWLESS."
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-master-cap-1",
+          "text": "The masterwork under a cloth, at the creator's request, for dramatic reveals at dinner."
+        },
+        {
+          "id": "bk2-master-cap-2",
+          "text": "The workbench where it was made. The artist drew a halo over it. It is just a bench."
+        },
+        {
+          "id": "bk2-master-cap-3",
+          "text": "The creator's apprentice looking on, holding a much worse version of the same thing."
+        },
+        {
+          "id": "bk2-master-cap-4",
+          "text": "A dwarf admiring the piece so closely that their beard got into the drawing too."
+        },
+        {
+          "id": "bk2-master-cap-5",
+          "text": "The stockpile, with the masterwork placed on top of everything else, as demanded."
+        },
+        {
+          "id": "bk2-master-cap-6",
+          "text": "A close view of the joinery. The artist borrowed the jeweler's lens and had to give it back."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-master-rep-1",
+          "text": "{who} unveiled the piece at dinner, waited for applause, received some, and has been describing the applause in detail ever since."
+        },
+        {
+          "id": "bk2-master-rep-2",
+          "text": "The work is so fine that a passing noble demanded it for a mandate. The creator replied that it was 'already spoken for,' by the creator."
+        },
+        {
+          "id": "bk2-master-rep-3",
+          "text": "The apprentice asked how it was done. The master said 'practice.' The apprentice has asked to become a hauler instead."
+        },
+        {
+          "id": "bk2-master-rep-4",
+          "text": "Market watchers say the piece could fetch a fortune from the next caravan, assuming the creator can be separated from it, which seems increasingly unlikely."
+        },
+        {
+          "id": "bk2-master-rep-5",
+          "text": "{first} received a happy thought from the work, and the rest of {fort} received a long lecture on the importance of good tools."
+        },
+        {
+          "id": "bk2-master-rep-6",
+          "text": "Examiners agree the piece is 'masterfully designed' and have asked that this phrase stop being shouted down corridors at night."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-master-label-1",
+          "text": "MASTERWORK"
+        },
+        {
+          "id": "bk2-master-label-2",
+          "text": "APPRENTICE"
+        },
+        {
+          "id": "bk2-master-label-3",
+          "text": "UNDER CLOTH"
+        },
+        {
+          "id": "bk2-master-label-4",
+          "text": "HALO (BENCH)"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-master-kick-1",
+          "text": "The piece is not to be sat on, drunk from or traded."
+        },
+        {
+          "id": "bk2-master-kick-2",
+          "text": "{first} accepts compliments in person, daily, at length."
+        },
+        {
+          "id": "bk2-master-kick-3",
+          "text": "Rival workshops report a sudden rise in sulking."
+        },
+        {
+          "id": "bk2-master-kick-4",
+          "text": "The next masterpiece is already being bragged about."
+        }
+      ]
+    },
+    "strike": {
+      "heads": [
+        {
+          "id": "bk2-strike-head-1",
+          "text": "GEMS! ACTUAL GEMS! CLAIMS MINER"
+        },
+        {
+          "id": "bk2-strike-head-2",
+          "text": "MAGMA FOUND; EVERYONE STEPS BACK"
+        },
+        {
+          "id": "bk2-strike-head-3",
+          "text": "MINE OPENS INTO SOMETHING DAMP"
+        },
+        {
+          "id": "bk2-strike-head-4",
+          "text": "RICH VEIN; MINERS DO A JIG"
+        },
+        {
+          "id": "bk2-strike-head-5",
+          "text": "THE ROCK WAS HIDING THIS ALL ALONG"
+        },
+        {
+          "id": "bk2-strike-head-6",
+          "text": "PICKAXE FINDS NEW NEIGHBOURS"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-strike-cap-1",
+          "text": "The magma sea, glowing. The artist used every orange on hand and borrowed a red."
+        },
+        {
+          "id": "bk2-strike-cap-2",
+          "text": "A gem cluster drawn at five times scale, to match the miner's description."
+        },
+        {
+          "id": "bk2-strike-cap-3",
+          "text": "Cross-section of the dig. The arrow labelled 'US' is extremely small."
+        },
+        {
+          "id": "bk2-strike-cap-4",
+          "text": "The miner who found it, already asking for a better bedroom."
+        },
+        {
+          "id": "bk2-strike-cap-5",
+          "text": "Artist's impression of the vein: a wiggly yellow line and the word 'MONEY.'"
+        },
+        {
+          "id": "bk2-strike-cap-6",
+          "text": "The first ore cart, drawn moments before it tipped over."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-strike-rep-1",
+          "text": "Miners broke into a pocket of gems so large that the jeweler has requested a chair, a lamp and to be left alone for most of the season."
+        },
+        {
+          "id": "bk2-strike-rep-2",
+          "text": "{who} reports striking a vein of ore 'thick as a beard and twice as shiny,' a phrase since written on the mine wall in charcoal."
+        },
+        {
+          "id": "bk2-strike-rep-3",
+          "text": "Engineers confirm the heat rising from the lower tunnels is magma. They describe it as 'useful,' 'exciting' and 'please do not lean over.'"
+        },
+        {
+          "id": "bk2-strike-rep-4",
+          "text": "The forges are expected to be busy for years. The smiths have quietly asked whether they could be busy in slightly smaller amounts."
+        },
+        {
+          "id": "bk2-strike-rep-5",
+          "text": "The new cavern is full of strange mushrooms, strange sounds and, according to one scout, a strange smell of wet dog. No dog has been found."
+        },
+        {
+          "id": "bk2-strike-rep-6",
+          "text": "With the find, {fort} officially has something worth stealing. Our security correspondent has asked for a raise and a helmet."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-strike-label-1",
+          "text": "GEMS!!!"
+        },
+        {
+          "id": "bk2-strike-label-2",
+          "text": "MAGMA (HOT)"
+        },
+        {
+          "id": "bk2-strike-label-3",
+          "text": "ORE CART"
+        },
+        {
+          "id": "bk2-strike-label-4",
+          "text": "'US'"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-strike-kick-1",
+          "text": "Please do not lick the ore to test it."
+        },
+        {
+          "id": "bk2-strike-kick-2",
+          "text": "{first} has been promoted to 'the one who found it.'"
+        },
+        {
+          "id": "bk2-strike-kick-3",
+          "text": "Digging resumes after a short celebration."
+        },
+        {
+          "id": "bk2-strike-kick-4",
+          "text": "The jeweler is not taking visitors."
+        }
+      ]
+    },
+    "migrants": {
+      "heads": [
+        {
+          "id": "bk2-migrants-head-1",
+          "text": "NEW DWARVES; NEW NAMES TO FORGET"
+        },
+        {
+          "id": "bk2-migrants-head-2",
+          "text": "STRANGERS AT GATE CLAIM KINSHIP"
+        },
+        {
+          "id": "bk2-migrants-head-3",
+          "text": "THE GATE OPENS, IN THEY POUR"
+        },
+        {
+          "id": "bk2-migrants-head-4",
+          "text": "POPULATION SPIKE STUNS KITCHEN"
+        },
+        {
+          "id": "bk2-migrants-head-5",
+          "text": "NEW ARRIVALS SIZE UP THE TAVERN"
+        },
+        {
+          "id": "bk2-migrants-head-6",
+          "text": "REFUGEES OF A LESSER FORT ARRIVE"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-migrants-cap-1",
+          "text": "The newcomers' names, written on a slate the artist ran out of room on."
+        },
+        {
+          "id": "bk2-migrants-cap-2",
+          "text": "A migrant carrying everything they own: one bag, mostly empty."
+        },
+        {
+          "id": "bk2-migrants-cap-3",
+          "text": "The housing officer looking at a list, then at the bedrooms, then at the list."
+        },
+        {
+          "id": "bk2-migrants-cap-4",
+          "text": "A small migrant child waving at a goat. The goat did not wave back."
+        },
+        {
+          "id": "bk2-migrants-cap-5",
+          "text": "New arrivals queuing at the dining hall. The queue is longer than the hall."
+        },
+        {
+          "id": "bk2-migrants-cap-6",
+          "text": "The migrants' old fort, as they describe it: 'smaller, sadder, damper.'"
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-migrants-rep-1",
+          "text": "The latest arrivals include a jeweler with no gems, a bone carver with no bones and a brewer with a very firm handshake. The brewer is already popular."
+        },
+        {
+          "id": "bk2-migrants-rep-2",
+          "text": "{who} arrived claiming to be a retired champion. The barracks have scheduled a sparring session to test this. The claimant has scheduled a long nap."
+        },
+        {
+          "id": "bk2-migrants-rep-3",
+          "text": "Newcomers were given a tour lasting four minutes, three of which were spent pointing at the tavern. All questions were about the tavern."
+        },
+        {
+          "id": "bk2-migrants-rep-4",
+          "text": "The population of {fort} has reached {pop}, and the bookkeeper has requested a bigger ledger and some quiet time alone with it."
+        },
+        {
+          "id": "bk2-migrants-rep-5",
+          "text": "One migrant asked where the farms were and was shown a single damp room of mushrooms. The migrant has since gone very quiet."
+        },
+        {
+          "id": "bk2-migrants-rep-6",
+          "text": "Housing officials have assigned the newcomers to 'the dormitory,' which is a corridor with a rug. The rug is said to be very nice."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-migrants-label-1",
+          "text": "NEWCOMER"
+        },
+        {
+          "id": "bk2-migrants-label-2",
+          "text": "THE DORMITORY"
+        },
+        {
+          "id": "bk2-migrants-label-3",
+          "text": "NAME SLATE"
+        },
+        {
+          "id": "bk2-migrants-label-4",
+          "text": "ONE BAG"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-migrants-kick-1",
+          "text": "Name tags are recommended for at least a season."
+        },
+        {
+          "id": "bk2-migrants-kick-2",
+          "text": "{first} has already joined a grudge."
+        },
+        {
+          "id": "bk2-migrants-kick-3",
+          "text": "The kitchen thanks you for your patience, and is crying."
+        },
+        {
+          "id": "bk2-migrants-kick-4",
+          "text": "Welcome. The rug is very nice."
+        }
+      ]
+    },
+    "caravan": {
+      "heads": [
+        {
+          "id": "bk2-caravan-head-1",
+          "text": "DEPOT BUSY; BROKER HIDES"
+        },
+        {
+          "id": "bk2-caravan-head-2",
+          "text": "HUMAN TRADERS, LOUD AND TALL"
+        },
+        {
+          "id": "bk2-caravan-head-3",
+          "text": "MERCHANT YAKS DEMAND RESPECT"
+        },
+        {
+          "id": "bk2-caravan-head-4",
+          "text": "TRADE GOODS INCLUDE A BIRDCAGE"
+        },
+        {
+          "id": "bk2-caravan-head-5",
+          "text": "LIAISON ARRIVES WITH CLIPBOARD"
+        },
+        {
+          "id": "bk2-caravan-head-6",
+          "text": "WAGON TOO WIDE FOR THE GATE"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-caravan-cap-1",
+          "text": "The wagon, wedged in the entrance. The artist drew the haulers pushing. They were watching."
+        },
+        {
+          "id": "bk2-caravan-cap-2",
+          "text": "The liaison with a list of requests. The list goes off the page."
+        },
+        {
+          "id": "bk2-caravan-cap-3",
+          "text": "An exotic item for sale. The artist could not identify it and labelled it 'thing.'"
+        },
+        {
+          "id": "bk2-caravan-cap-4",
+          "text": "The broker counting coins on her fingers. She ran out of fingers."
+        },
+        {
+          "id": "bk2-caravan-cap-5",
+          "text": "Pack animals resting in the depot. One is chewing the artist's sketchbook."
+        },
+        {
+          "id": "bk2-caravan-cap-6",
+          "text": "Traders laying out their goods. They have laid out a great deal of rope."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-caravan-rep-1",
+          "text": "The outpost liaison has arrived to discuss trade agreements, export quotas and 'concerns about your goblin situation.' The mayor has developed a sudden cold."
+        },
+        {
+          "id": "bk2-caravan-rep-2",
+          "text": "Traders offered rope, cages, cloth and one exotic bird priced like a small house. The bird has been insulting dwarves in at least two languages."
+        },
+        {
+          "id": "bk2-caravan-rep-3",
+          "text": "{who} was assigned to carry goods to the depot and has so far carried one stool, set it down and sat on it for the rest of the afternoon."
+        },
+        {
+          "id": "bk2-caravan-rep-4",
+          "text": "The wagon could not fit through the entrance, so the merchants have set up in the courtyard, where the weather can watch the haggling too."
+        },
+        {
+          "id": "bk2-caravan-rep-5",
+          "text": "The broker reports the merchants were impressed by our crafts and less impressed by our roads, our gate, our smell and our general attitude."
+        },
+        {
+          "id": "bk2-caravan-rep-6",
+          "text": "With traders in {fort} this {season}, citizens are reminded that selling the furniture out from under a noble is frowned upon, however tempting."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-caravan-label-1",
+          "text": "THE LIAISON"
+        },
+        {
+          "id": "bk2-caravan-label-2",
+          "text": "WAGON (STUCK)"
+        },
+        {
+          "id": "bk2-caravan-label-3",
+          "text": "A ROPE"
+        },
+        {
+          "id": "bk2-caravan-label-4",
+          "text": "RUDE BIRD"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-caravan-kick-1",
+          "text": "Haggling lessons are offered at the depot, free."
+        },
+        {
+          "id": "bk2-caravan-kick-2",
+          "text": "{first} bought a cage. Nobody knows why."
+        },
+        {
+          "id": "bk2-caravan-kick-3",
+          "text": "Trade agreements are binding, mostly."
+        },
+        {
+          "id": "bk2-caravan-kick-4",
+          "text": "The bird will not be staying. Please."
+        }
+      ]
+    },
+    "birth": {
+      "heads": [
+        {
+          "id": "bk2-birth-head-1",
+          "text": "PUDGY NEWCOMER JOINS FORTRESS"
+        },
+        {
+          "id": "bk2-birth-head-2",
+          "text": "NURSERY GAINS A NOISY TENANT"
+        },
+        {
+          "id": "bk2-birth-head-3",
+          "text": "BABY WEIGHS LESS THAN AN AXE"
+        },
+        {
+          "id": "bk2-birth-head-4",
+          "text": "FIRST CRY HEARD IN THE DEEP"
+        },
+        {
+          "id": "bk2-birth-head-5",
+          "text": "WEE BEARDLING SAYS HELLO"
+        },
+        {
+          "id": "bk2-birth-head-6",
+          "text": "SLEEPLESS DAYS AHEAD FOR PARENTS"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-birth-cap-1",
+          "text": "The baby's tiny boots, which the leatherworker made from scraps and pride."
+        },
+        {
+          "id": "bk2-birth-cap-2",
+          "text": "Grandparents crowding the cradle. The cradle is a barrel, cut in half."
+        },
+        {
+          "id": "bk2-birth-cap-3",
+          "text": "The baby asleep. The artist tiptoed, which made no difference to the drawing."
+        },
+        {
+          "id": "bk2-birth-cap-4",
+          "text": "Artist's impression of the baby's future: a small figure holding a very big hammer."
+        },
+        {
+          "id": "bk2-birth-cap-5",
+          "text": "The whole tavern raising a mug. The baby raising a fist."
+        },
+        {
+          "id": "bk2-birth-cap-6",
+          "text": "The baby's footprint, pressed into a clay tablet for the archive."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-birth-rep-1",
+          "text": "The baby was born in the middle of a busy workday and immediately interrupted it, which elders say is the mark of a true dwarf."
+        },
+        {
+          "id": "bk2-birth-rep-2",
+          "text": "{who} welcomed a child this {season}, and the tavern has started a betting pool on the first word. 'Ale' is the clear favourite."
+        },
+        {
+          "id": "bk2-birth-rep-3",
+          "text": "The leatherworker made tiny boots, the carpenter a tiny cradle and the weaponsmith a tiny axe, which has been confiscated."
+        },
+        {
+          "id": "bk2-birth-rep-4",
+          "text": "With the new arrival, {fort} counts {pop} citizens. The bookkeeper wrote the number in large, proud letters, then in smaller, careful ones."
+        },
+        {
+          "id": "bk2-birth-rep-5",
+          "text": "Doctors report the baby is strong, alert and has already bitten one doctor. The doctor took it as a compliment and had it bandaged anyway."
+        },
+        {
+          "id": "bk2-birth-rep-6",
+          "text": "The parents are said to be tired, happy and unsure where the baby should sleep. The fortress has suggested 'a drawer.'"
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-birth-label-1",
+          "text": "TINY BOOTS"
+        },
+        {
+          "id": "bk2-birth-label-2",
+          "text": "BARREL CRADLE"
+        },
+        {
+          "id": "bk2-birth-label-3",
+          "text": "GRANDPARENT"
+        },
+        {
+          "id": "bk2-birth-label-4",
+          "text": "FIRST FIST"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-birth-kick-1",
+          "text": "The betting pool on the first word remains open."
+        },
+        {
+          "id": "bk2-birth-kick-2",
+          "text": "{first} is asking for quiet. The baby disagrees."
+        },
+        {
+          "id": "bk2-birth-kick-3",
+          "text": "Weapons are not appropriate baby gifts, again."
+        },
+        {
+          "id": "bk2-birth-kick-4",
+          "text": "Lullabies may be sung in the tavern, softly."
+        }
+      ]
+    },
+    "marriage": {
+      "heads": [
+        {
+          "id": "bk2-marriage-head-1",
+          "text": "VOWS EXCHANGED OVER A FORGE"
+        },
+        {
+          "id": "bk2-marriage-head-2",
+          "text": "COUPLE MERGES TWO GRUDGE LISTS"
+        },
+        {
+          "id": "bk2-marriage-head-3",
+          "text": "WEDDING FEAST; WE HAD STEW"
+        },
+        {
+          "id": "bk2-marriage-head-4",
+          "text": "TAVERN HOSTS THE NUPTIALS"
+        },
+        {
+          "id": "bk2-marriage-head-5",
+          "text": "TRUE LOVE CONQUERS HAULING"
+        },
+        {
+          "id": "bk2-marriage-head-6",
+          "text": "\"I DO,\" SAYS DWARF. SO DO THEY."
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-marriage-cap-1",
+          "text": "The vows being spoken. The artist wrote them down, but the ink ran."
+        },
+        {
+          "id": "bk2-marriage-cap-2",
+          "text": "The wedding toast: forty mugs and one wobbly speech."
+        },
+        {
+          "id": "bk2-marriage-cap-3",
+          "text": "A beard braided with silver wire for the occasion. The artist practised on his own."
+        },
+        {
+          "id": "bk2-marriage-cap-4",
+          "text": "The best friend, who lost the rings and found them in the stew."
+        },
+        {
+          "id": "bk2-marriage-cap-5",
+          "text": "The newlyweds dancing. Their feet are drawn as small blurs, out of kindness."
+        },
+        {
+          "id": "bk2-marriage-cap-6",
+          "text": "The couple's combined grudge list, nailed to their bedroom door."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-marriage-rep-1",
+          "text": "The pair have combined their belongings, their bedrooms and their grudge lists, which now share four goblins, one elf and a particular door in the east wing."
+        },
+        {
+          "id": "bk2-marriage-rep-2",
+          "text": "{who} married at the tavern while a performer played a slightly wrong tune on a bone flute. Guests agreed it set the mood, whatever the mood was."
+        },
+        {
+          "id": "bk2-marriage-rep-3",
+          "text": "The couple was introduced by a mutual friend, who now insists on being thanked at every meal, and is."
+        },
+        {
+          "id": "bk2-marriage-rep-4",
+          "text": "During the toast, the best friend called the couple 'two solid stones in one wall,' which was meant warmly and received with confused applause."
+        },
+        {
+          "id": "bk2-marriage-rep-5",
+          "text": "The ceremony took place in {fort} this {season}. Guests enjoyed stew, a song and the rare sight of the mayor saying something nice."
+        },
+        {
+          "id": "bk2-marriage-rep-6",
+          "text": "The newlyweds have requested a shared workshop. The manager has requested that they not use it to argue about dinner."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-marriage-label-1",
+          "text": "THE VOWS"
+        },
+        {
+          "id": "bk2-marriage-label-2",
+          "text": "BRAIDED BEARD"
+        },
+        {
+          "id": "bk2-marriage-label-3",
+          "text": "BEST FRIEND"
+        },
+        {
+          "id": "bk2-marriage-label-4",
+          "text": "GRUDGE LIST"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-marriage-kick-1",
+          "text": "Wedding gifts may be left at the tavern, labelled."
+        },
+        {
+          "id": "bk2-marriage-kick-2",
+          "text": "{first} has promised to share the good chair."
+        },
+        {
+          "id": "bk2-marriage-kick-3",
+          "text": "The bone flute player is booked through spring."
+        },
+        {
+          "id": "bk2-marriage-kick-4",
+          "text": "Divorce is not a dwarven concept. Grudges are."
+        }
+      ]
+    },
+    "ghost": {
+      "heads": [
+        {
+          "id": "bk2-ghost-head-1",
+          "text": "HAUNTING REPORTED IN THE TOMBS"
+        },
+        {
+          "id": "bk2-ghost-head-2",
+          "text": "SPECTRE DEMANDS PROPER SLAB"
+        },
+        {
+          "id": "bk2-ghost-head-3",
+          "text": "GHOSTLY MOANING IN THE TAVERN"
+        },
+        {
+          "id": "bk2-ghost-head-4",
+          "text": "PALE VISITOR DRIFTS THROUGH WALL"
+        },
+        {
+          "id": "bk2-ghost-head-5",
+          "text": "WRATHFUL SPIRIT THROWS A CHAIR"
+        },
+        {
+          "id": "bk2-ghost-head-6",
+          "text": "HALLWAY CHILL HAS A NAME NOW"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-ghost-cap-1",
+          "text": "The ghost peering into the kitchen. It cannot eat. It looks anyway."
+        },
+        {
+          "id": "bk2-ghost-cap-2",
+          "text": "A floating mug, with no hands visible. The artist wishes to move rooms."
+        },
+        {
+          "id": "bk2-ghost-cap-3",
+          "text": "The mason racing to the workshop with a slab block. The ghost is right behind him."
+        },
+        {
+          "id": "bk2-ghost-cap-4",
+          "text": "The ghost's favourite haunting spot: the exact middle of the busiest corridor."
+        },
+        {
+          "id": "bk2-ghost-cap-5",
+          "text": "A dwarf reading the ghost its own obituary. It did not seem to help."
+        },
+        {
+          "id": "bk2-ghost-cap-6",
+          "text": "Artist's impression of a cold breeze. It is a wiggly line. It was very cold."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-ghost-rep-1",
+          "text": "The spirit of {first} has been seen drifting down the main corridor, sighing at the stockpiles and pointing at things that were never put away properly."
+        },
+        {
+          "id": "bk2-ghost-rep-2",
+          "text": "A haunting in the tombs has become a full nightly tour, in which the ghost appears, moans and gestures pointedly at the empty memorial wall."
+        },
+        {
+          "id": "bk2-ghost-rep-3",
+          "text": "Witnesses say {who} has returned in spirit and has been rattling doors, toppling chairs and generally making the barrels feel unwelcome."
+        },
+        {
+          "id": "bk2-ghost-rep-4",
+          "text": "The mason was told to drop everything and engrave a slab at once. He dropped everything, including a block on his foot, and is limping to the workshop."
+        },
+        {
+          "id": "bk2-ghost-rep-5",
+          "text": "The tavern keeper reports a regular who arrives nightly, orders nothing and stares at the ale. The regular is translucent. The keeper is considering a ban."
+        },
+        {
+          "id": "bk2-ghost-rep-6",
+          "text": "Residents of {fort} who meet the spirit are advised to stay calm, avoid eye contact and, if possible, compliment its former craftsmanship."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-ghost-label-1",
+          "text": "SPIRIT"
+        },
+        {
+          "id": "bk2-ghost-label-2",
+          "text": "FLOATING MUG"
+        },
+        {
+          "id": "bk2-ghost-label-3",
+          "text": "THE MASON (FAST)"
+        },
+        {
+          "id": "bk2-ghost-label-4",
+          "text": "CHILLY"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-ghost-kick-1",
+          "text": "The memorial slab is in progress, honest."
+        },
+        {
+          "id": "bk2-ghost-kick-2",
+          "text": "{first} is welcome to rest any time now."
+        },
+        {
+          "id": "bk2-ghost-kick-3",
+          "text": "Please stop leaving ale out for the ghost."
+        },
+        {
+          "id": "bk2-ghost-kick-4",
+          "text": "Haunted rooms will be cleaned when brave volunteers appear."
+        }
+      ]
+    },
+    "collapse": {
+      "heads": [
+        {
+          "id": "bk2-collapse-head-1",
+          "text": "ROOF MAKES SUDDEN DECISION"
+        },
+        {
+          "id": "bk2-collapse-head-2",
+          "text": "TUNNEL SHORTER THAN IT WAS"
+        },
+        {
+          "id": "bk2-collapse-head-3",
+          "text": "STAIRCASE NOW A RAMP"
+        },
+        {
+          "id": "bk2-collapse-head-4",
+          "text": "MASON ADMITS 'SOME ERRORS'"
+        },
+        {
+          "id": "bk2-collapse-head-5",
+          "text": "GROUND FLOOR, FORMERLY UPSTAIRS"
+        },
+        {
+          "id": "bk2-collapse-head-6",
+          "text": "\"WE MEANT THAT,\" SAYS ARCHITECT"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-collapse-cap-1",
+          "text": "The site of the collapse, with a sign planted that reads 'MIND THE GAP.'"
+        },
+        {
+          "id": "bk2-collapse-cap-2",
+          "text": "A haul team clearing boulders. They are hauling one boulder each, slowly."
+        },
+        {
+          "id": "bk2-collapse-cap-3",
+          "text": "The architect's original plan, which has no ceiling drawn on it at all."
+        },
+        {
+          "id": "bk2-collapse-cap-4",
+          "text": "A dwarf sitting on the rubble eating lunch, entirely unbothered."
+        },
+        {
+          "id": "bk2-collapse-cap-5",
+          "text": "Artist's impression of the noise: a jagged line that runs right off the page."
+        },
+        {
+          "id": "bk2-collapse-cap-6",
+          "text": "The former staircase, now an uneven slope. A minecart is already rolling down it."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-collapse-rep-1",
+          "text": "A channeling project went one channel too far, and the floor above politely joined the floor below. Engineers are calling it 'aggressive renovation.'"
+        },
+        {
+          "id": "bk2-collapse-rep-2",
+          "text": "{who} was digging out a bedroom when the ceiling came down and now has a very roomy bedroom with excellent air flow and no ceiling."
+        },
+        {
+          "id": "bk2-collapse-rep-3",
+          "text": "The architect insists the plans were sound and points to the plans, which turn out to contain no ceiling, only a doodle of a mug."
+        },
+        {
+          "id": "bk2-collapse-rep-4",
+          "text": "Officials cordoned off the area with a rope, two barrels and a sign. Dwarves walked straight past all three to have a look."
+        },
+        {
+          "id": "bk2-collapse-rep-5",
+          "text": "The collapse created a lovely open space that the mayor has already claimed as a private dining room, pending the removal of rubble."
+        },
+        {
+          "id": "bk2-collapse-rep-6",
+          "text": "Haulers report the rubble is plentiful. Masons report the blocks will be lovely. Everyone else would like to stop hearing rumbling, please."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-collapse-label-1",
+          "text": "MIND THE GAP"
+        },
+        {
+          "id": "bk2-collapse-label-2",
+          "text": "ROPE BARRIER"
+        },
+        {
+          "id": "bk2-collapse-label-3",
+          "text": "BOULDER"
+        },
+        {
+          "id": "bk2-collapse-label-4",
+          "text": "THE PLANS"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-collapse-kick-1",
+          "text": "Please channel responsibly."
+        },
+        {
+          "id": "bk2-collapse-kick-2",
+          "text": "{first} has been asked to stop pointing upward nervously."
+        },
+        {
+          "id": "bk2-collapse-kick-3",
+          "text": "The new open space is not a dining room yet."
+        },
+        {
+          "id": "bk2-collapse-kick-4",
+          "text": "Our ceiling remains in place at time of printing."
+        }
+      ]
+    },
+    "soldier": {
+      "heads": [
+        {
+          "id": "bk2-soldier-head-1",
+          "text": "AXEDWARF ACHIEVES GREATNESS"
+        },
+        {
+          "id": "bk2-soldier-head-2",
+          "text": "MILITIA FINALLY HAS A HERO"
+        },
+        {
+          "id": "bk2-soldier-head-3",
+          "text": "SHIELD WALL GAINS A LEGEND"
+        },
+        {
+          "id": "bk2-soldier-head-4",
+          "text": "CROSSBOW ACE HITS EVERY TARGET"
+        },
+        {
+          "id": "bk2-soldier-head-5",
+          "text": "BARRACKS CROWN A NEW BEST"
+        },
+        {
+          "id": "bk2-soldier-head-6",
+          "text": "DRILL SERGEANT SHEDS ONE TEAR"
+        }
+      ],
+      "caps": [
+        {
+          "id": "bk2-soldier-cap-1",
+          "text": "The new legend practising on a dummy that has visibly given up."
+        },
+        {
+          "id": "bk2-soldier-cap-2",
+          "text": "A crossbow bolt in the exact centre of the target. Another is in the artist's hat."
+        },
+        {
+          "id": "bk2-soldier-cap-3",
+          "text": "The soldier's helmet, polished until the artist could see himself in it."
+        },
+        {
+          "id": "bk2-soldier-cap-4",
+          "text": "The barracks cheering. Two soldiers are asleep, as is barracks custom."
+        },
+        {
+          "id": "bk2-soldier-cap-5",
+          "text": "The drill sergeant, crying, then pretending not to be."
+        },
+        {
+          "id": "bk2-soldier-cap-6",
+          "text": "Artist's impression of courage: a beard blowing heroically in no wind at all."
+        }
+      ],
+      "reps": [
+        {
+          "id": "bk2-soldier-rep-1",
+          "text": "{who} reached legendary skill through sheer stubbornness, sparring daily for two years and losing to the dummy twice. That was long ago. The dummy remembers."
+        },
+        {
+          "id": "bk2-soldier-rep-2",
+          "text": "The drill sergeant called the achievement 'adequate,' then excused himself, and was later found weeping into a shield."
+        },
+        {
+          "id": "bk2-soldier-rep-3",
+          "text": "Militia records note that {first} has slain zero goblins, nineteen dummies and one particularly bold rat. Goblins are on the waitlist."
+        },
+        {
+          "id": "bk2-soldier-rep-4",
+          "text": "The new champion has asked for a better weapon. The weaponsmith has asked for steel. The miner has asked for a quiet life."
+        },
+        {
+          "id": "bk2-soldier-rep-5",
+          "text": "Strategists say {fort} is now defended by at least one dwarf who knows which end of the axe goes forward. This is a significant upgrade."
+        },
+        {
+          "id": "bk2-soldier-rep-6",
+          "text": "The champion chose a heroic nickname and asked everyone to use it. The barracks has chosen a different nickname instead."
+        }
+      ],
+      "labels": [
+        {
+          "id": "bk2-soldier-label-1",
+          "text": "LEGEND"
+        },
+        {
+          "id": "bk2-soldier-label-2",
+          "text": "BULLSEYE"
+        },
+        {
+          "id": "bk2-soldier-label-3",
+          "text": "HELMET (SHINY)"
+        },
+        {
+          "id": "bk2-soldier-label-4",
+          "text": "DRILL SERGEANT"
+        }
+      ],
+      "kickers": [
+        {
+          "id": "bk2-soldier-kick-1",
+          "text": "The dummy has been replaced, and the old one honoured."
+        },
+        {
+          "id": "bk2-soldier-kick-2",
+          "text": "{first} will accept challengers after breakfast."
+        },
+        {
+          "id": "bk2-soldier-kick-3",
+          "text": "Goblins: you have been warned, again."
+        },
+        {
+          "id": "bk2-soldier-kick-4",
+          "text": "Sparring sessions are open to spectators and medics."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1088 @@
+{
+  "stories": {
+    "no_meat": {
+      "heads": [
+        {
+          "id": "og2-no-meat-heads-1",
+          "text": "MEAT WATCH: DAY {days}, NO ROAST"
+        },
+        {
+          "id": "og2-no-meat-heads-2",
+          "text": "DAY {days}: BUTCHER TAKES UP KNITTING"
+        },
+        {
+          "id": "og2-no-meat-heads-3",
+          "text": "MEAT REPORT NO. {n}: NOTHING TO CARVE"
+        },
+        {
+          "id": "og2-no-meat-heads-4",
+          "text": "DAY {days}: HUNTERS BLAME THE WIND"
+        },
+        {
+          "id": "og2-no-meat-heads-5",
+          "text": "LARDER CHECKED, RECHECKED: NO MEAT"
+        },
+        {
+          "id": "og2-no-meat-heads-6",
+          "text": "DAY {days}: SAUSAGE NOW A LEGEND"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-no-meat-bodies-1",
+          "text": "Day {days} of the Meat Watch. The butcher, idle since {since}, has taken up knitting. He has made a scarf, a second scarf, and a small woollen ham, which he keeps on his workbench and will not discuss."
+        },
+        {
+          "id": "og2-no-meat-bodies-2",
+          "text": "Report number {n}. The hunters went out again and came back with an excuse about the wind. With {pop} dwarves sharing {meals} meals of mushroom, {citizen} has started a petition titled simply 'Bacon.'"
+        },
+        {
+          "id": "og2-no-meat-bodies-3",
+          "text": "The Meat Watch reaches day {days}. Kitchen staff tried pressing plump helmets into the shape of a drumstick. The shape was convincing. The taste was not. The stick was a real stick and caused a minor injury."
+        },
+        {
+          "id": "og2-no-meat-bodies-4",
+          "text": "Since {since} the larder has offered only greens. A visiting merchant was asked whether he had any meat. He said yes, and that it was his lunch. Negotiations broke down shortly after. Day {days} of the Watch."
+        },
+        {
+          "id": "og2-no-meat-bodies-5",
+          "text": "Day {days}. The fortress's last goat has been granted honorary citizenship and a personal guard, mainly so nobody at dinner gets ideas. The goat is enjoying the attention. {citizen} has stopped making eye contact with it."
+        },
+        {
+          "id": "og2-no-meat-bodies-6",
+          "text": "Meat Watch, installment {n}. The tavern storyteller now performs a nightly piece called 'The Roast,' which is an hour of him describing a roast. It sells out every evening and is the most popular show in {fort}."
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-no-meat-ended-heads-1",
+          "text": "ROAST SERVED; WATCH CLOSES AT DAY {days}"
+        },
+        {
+          "id": "og2-no-meat-ended-heads-2",
+          "text": "HUNTERS VINDICATED, LARDER STOCKED"
+        },
+        {
+          "id": "og2-no-meat-ended-heads-3",
+          "text": "BUTCHER PUTS DOWN THE KNITTING"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-no-meat-ended-bodies-1",
+          "text": "The Meat Watch, open since {since}, has closed. The hunters returned with an actual animal and enormous smugness. The butcher has set aside his knitting, though he keeps the woollen ham for sentimental reasons."
+        },
+        {
+          "id": "og2-no-meat-ended-bodies-2",
+          "text": "After {n} installments, the larder holds meat. The storyteller's nightly show 'The Roast' has been canceled due to the availability of roast. He is said to be thrilled and slightly unemployed."
+        },
+        {
+          "id": "og2-no-meat-ended-bodies-3",
+          "text": "Meat returned on day {days}. The goat has kept its citizenship, its guard and its dignity, by popular vote. {citizen} shook its hoof at a small ceremony and then went straight to dinner."
+        }
+      ]
+    },
+    "no_fish": {
+      "heads": [
+        {
+          "id": "og2-no-fish-heads-1",
+          "text": "FISH VIGIL DAY {days}: RODS STILL DRY"
+        },
+        {
+          "id": "og2-no-fish-heads-2",
+          "text": "DAY {days}: FISH CLEANER ON STANDBY"
+        },
+        {
+          "id": "og2-no-fish-heads-3",
+          "text": "REPORT NO. {n}: THE WATER WINS AGAIN"
+        },
+        {
+          "id": "og2-no-fish-heads-4",
+          "text": "DAY {days}: NETS RETURN EMPTY, SMUG"
+        },
+        {
+          "id": "og2-no-fish-heads-5",
+          "text": "NO FISH, MUCH DRAMA, DAY {days}"
+        },
+        {
+          "id": "og2-no-fish-heads-6",
+          "text": "DAY {days}: BROOK DECLINES TO SHARE"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-no-fish-bodies-1",
+          "text": "Day {days} of the Fish Vigil. The fishery has tried new bait: worms, bread, a nice stone and, most recently, a heartfelt letter. The letter sank. The stone sank. The fish, wherever they are, remain unmoved."
+        },
+        {
+          "id": "og2-no-fish-bodies-2",
+          "text": "Report number {n}. {citizen} sat by the brook from dawn to dusk and reports seeing one fin, a ripple and something that winked. The Herald has listed the wink as unconfirmed."
+        },
+        {
+          "id": "og2-no-fish-bodies-3",
+          "text": "Since {since}, no fish. The fish cleaner now teaches a class in fish cleaning using drawings of fish. It is well attended. Students say the drawings come out very clean."
+        },
+        {
+          "id": "og2-no-fish-bodies-4",
+          "text": "Day {days}. A diver volunteered to look for the fish personally. He came back up quickly, said 'no,' and asked to be reassigned to anything without water in it. The request was granted."
+        },
+        {
+          "id": "og2-no-fish-bodies-5",
+          "text": "Fish Vigil, installment {n}. The fishery moved its stools to a different stretch of the brook. The fish, it seems, moved too. The fisherdwarves now suspect an informant."
+        },
+        {
+          "id": "og2-no-fish-bodies-6",
+          "text": "The vigil enters day {days}. This {season}, under {weather}, the rods hang over the water like small, sad flags. {pop} dwarves have asked about fish. The answer, since {since}, has not changed."
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-no-fish-ended-heads-1",
+          "text": "FIN-ALLY: FISH VIGIL ENDS ON DAY {days}"
+        },
+        {
+          "id": "og2-no-fish-ended-heads-2",
+          "text": "NETS FULL; FISHERY FORGIVES THE BROOK"
+        },
+        {
+          "id": "og2-no-fish-ended-heads-3",
+          "text": "FISH CLEANER BACK AT WORK, WEEPING"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-no-fish-ended-bodies-1",
+          "text": "The Fish Vigil that began on {since} has ended. A catch came in this morning, wriggling and offended. The fish cleaner's class has graduated to real fish and is reportedly overwhelmed."
+        },
+        {
+          "id": "og2-no-fish-ended-bodies-2",
+          "text": "After {n} reports, fish are in the stores. The letter-writing campaign to the brook has been declared a success by its organizer, {citizen}, against all available evidence."
+        },
+        {
+          "id": "og2-no-fish-ended-bodies-3",
+          "text": "Fish returned on day {days}. The diver has been invited back into the water to celebrate. He has declined, politely, from a safe distance."
+        }
+      ]
+    },
+    "drinks_low": {
+      "heads": [
+        {
+          "id": "og2-drinks-low-heads-1",
+          "text": "{drinks} DRINKS LEFT; MANY FEELINGS"
+        },
+        {
+          "id": "og2-drinks-low-heads-2",
+          "text": "THIRST COUNT REPORT NO. {n}"
+        },
+        {
+          "id": "og2-drinks-low-heads-3",
+          "text": "DAY {days}: TAVERN GOES ACOUSTIC"
+        },
+        {
+          "id": "og2-drinks-low-heads-4",
+          "text": "BARRELS ECHO WHEN TAPPED, DAY {days}"
+        },
+        {
+          "id": "og2-drinks-low-heads-5",
+          "text": "DAY {days}: BREWER WORKS DOUBLE SHIFTS"
+        },
+        {
+          "id": "og2-drinks-low-heads-6",
+          "text": "STILL DRY, STILL GRUMPY, DAY {days}"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-drinks-low-bodies-1",
+          "text": "Day {days} of the Thirst Count, with {drinks} drinks remaining. The tavern has taken down its sign and put up one reading 'PLEASE BE PATIENT.' The new sign has been punched twice."
+        },
+        {
+          "id": "og2-drinks-low-bodies-2",
+          "text": "Report number {n} on the shortage that began on {since}. {citizen} has been seen tapping empty barrels and listening closely, in case one of them is lying. None of them are lying. They are all empty."
+        },
+        {
+          "id": "og2-drinks-low-bodies-3",
+          "text": "Day {days}. Farmers have been told to plant brewable crops in every free space, including, at one point, a crack in the dining hall floor. Something is growing there now. It is not yet ale."
+        },
+        {
+          "id": "og2-drinks-low-bodies-4",
+          "text": "Thirst Count, installment {n}. The fortress musicians have stopped playing drinking songs out of respect and switched to working songs, which are slower and much sadder."
+        },
+        {
+          "id": "og2-drinks-low-bodies-5",
+          "text": "The dry spell continues into day {days}. With {pop} dwarves and {drinks} drinks, the mathematicians have stopped doing the division. It was causing them distress. They have asked for a drink."
+        },
+        {
+          "id": "og2-drinks-low-bodies-6",
+          "text": "Since {since}, the still has run without rest. The brewer sleeps beside it now, one hand on a barrel, and talks to it in her sleep. Witnesses call it very sweet and slightly concerning."
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-drinks-low-ended-heads-1",
+          "text": "TAPS FLOW; THIRST COUNT CLOSED"
+        },
+        {
+          "id": "og2-drinks-low-ended-heads-2",
+          "text": "{drinks} DRINKS IN STOCK; TAVERN EXHALES"
+        },
+        {
+          "id": "og2-drinks-low-ended-heads-3",
+          "text": "DRY SPELL OVER AFTER {n} REPORTS"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-drinks-low-ended-bodies-1",
+          "text": "The Thirst Count that began on {since} has ended. The tavern took down its 'PLEASE BE PATIENT' sign and put the old one back. Patrons asked to keep the punched one as a souvenir."
+        },
+        {
+          "id": "og2-drinks-low-ended-bodies-2",
+          "text": "Drinks stand at {drinks} after a dry spell that reached day {days}. The musicians have returned to drinking songs and perform them with tremendous feeling and slightly slurred lyrics."
+        },
+        {
+          "id": "og2-drinks-low-ended-bodies-3",
+          "text": "After {n} reports, the fortress is wet again. The brewer woke up, looked at the full barrels and went straight back to sleep for a well-earned day. {citizen} is guarding her door."
+        }
+      ]
+    },
+    "famine": {
+      "heads": [
+        {
+          "id": "og2-famine-heads-1",
+          "text": "DAY {days}: KITCHEN STIRS AN EMPTY POT"
+        },
+        {
+          "id": "og2-famine-heads-2",
+          "text": "FAMINE REPORT NO. {n}: STILL GROWLING"
+        },
+        {
+          "id": "og2-famine-heads-3",
+          "text": "DAY {days}: {meals} MEALS, MANY MOUTHS"
+        },
+        {
+          "id": "og2-famine-heads-4",
+          "text": "FARMERS ASK CROPS TO HURRY, DAY {days}"
+        },
+        {
+          "id": "og2-famine-heads-5",
+          "text": "DAY {days}: BELTS TIGHTENED A NOTCH"
+        },
+        {
+          "id": "og2-famine-heads-6",
+          "text": "LARDER AUDIT FINDS ONE (1) BEAN"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-famine-bodies-1",
+          "text": "Day {days} of the Hunger Ledger. The bookkeeper conducted a full larder audit and found {meals} meals and one bean. The bean is now on display under guard. Visitors are asked not to look at it hungrily."
+        },
+        {
+          "id": "og2-famine-bodies-2",
+          "text": "Report number {n} on the famine that began on {since}. Dwarves are tightening their belts. The leatherworker reports a boom in belt repairs and is being paid in promises of future soup."
+        },
+        {
+          "id": "og2-famine-bodies-3",
+          "text": "Day {days}. The cook has begun preparing meals 'with feeling' to make up for the lack of ingredients. {citizen} says the feeling was mostly regret, with a hint of water."
+        },
+        {
+          "id": "og2-famine-bodies-4",
+          "text": "Hunger Ledger, installment {n}. Farmers have taken to singing to the crops. The crops have not responded. The farmers say this is normal. The fortress says it would like to eat the farmers' optimism."
+        },
+        {
+          "id": "og2-famine-bodies-5",
+          "text": "The famine reaches day {days}. With {pop} dwarves and {meals} meals, the dining hall has introduced a seating chart, a waiting list and a short motivational speech before each serving."
+        },
+        {
+          "id": "og2-famine-bodies-6",
+          "text": "Since {since}, the larder has been empty enough to echo. A dwarf shouted 'hello' into it as a joke. The echo replied 'hello' and then, faintly, 'hungry.' Nobody is sure about that last part."
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-famine-ended-heads-1",
+          "text": "BEAN RETIRED; FAMINE ENDS ON DAY {days}"
+        },
+        {
+          "id": "og2-famine-ended-heads-2",
+          "text": "POTS FULL AGAIN, LEDGER SHUT"
+        },
+        {
+          "id": "og2-famine-ended-heads-3",
+          "text": "FARMERS' SINGING CREDITED WITH HARVEST"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-famine-ended-bodies-1",
+          "text": "The Hunger Ledger opened on {since} is closed. The larder is stocked, and the guarded bean has been retired to a place of honour in the bookkeeper's office, where it will be ignored."
+        },
+        {
+          "id": "og2-famine-ended-bodies-2",
+          "text": "The famine ended on day {days}. The seating chart has been abolished, and dwarves may sit wherever they like, which mostly means right next to the food."
+        },
+        {
+          "id": "og2-famine-ended-bodies-3",
+          "text": "After {n} reports, there is food. The farmers credit their singing. The crops decline to comment. {citizen} credits nobody and is too busy eating to say more."
+        }
+      ]
+    },
+    "wood_low": {
+      "heads": [
+        {
+          "id": "og2-wood-low-heads-1",
+          "text": "DAY {days}: {wood} LOGS AND A SPLINTER"
+        },
+        {
+          "id": "og2-wood-low-heads-2",
+          "text": "TIMBER REPORT NO. {n}: STILL STONE"
+        },
+        {
+          "id": "og2-wood-low-heads-3",
+          "text": "DAY {days}: CARPENTER CARVES THIN AIR"
+        },
+        {
+          "id": "og2-wood-low-heads-4",
+          "text": "WOODCUTTERS REQUEST A SMALLER SKY"
+        },
+        {
+          "id": "og2-wood-low-heads-5",
+          "text": "DAY {days}: BARREL WAITLIST GROWS"
+        },
+        {
+          "id": "og2-wood-low-heads-6",
+          "text": "LOG COUNT, DAY {days}: BEDS ON HOLD"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-wood-low-bodies-1",
+          "text": "Day {days} of the Log Count. The fortress holds {wood} logs and one decorative splinter, which the carpenter keeps in a little box. He opens the box sometimes. It helps."
+        },
+        {
+          "id": "og2-wood-low-bodies-2",
+          "text": "Report number {n}. The woodcutters reached the tree line, looked up at a tree, then at the sky beyond the tree, and came back to the gate for a lie-down. {citizen} called it 'very understandable.'"
+        },
+        {
+          "id": "og2-wood-low-bodies-3",
+          "text": "Day {days}. The barrel waiting list now runs to three pages. The brewer is at the top, the bookkeeper is second, and a goat is somehow fourth. Nobody remembers adding the goat."
+        },
+        {
+          "id": "og2-wood-low-bodies-4",
+          "text": "Log Count, installment {n}. Since {since}, every new chair has been made of stone. Visitors say the dining hall now looks like a quarry with manners. Sitting down makes a sound."
+        },
+        {
+          "id": "og2-wood-low-bodies-5",
+          "text": "With {wood} logs left, the carpenter has begun practising his craft in the air, miming every cut and joint. Observers say it is very moving. It produces no furniture."
+        },
+        {
+          "id": "og2-wood-low-bodies-6",
+          "text": "The wood shortage enters day {days}. A cavern mushroom tree has been proposed as an alternative. The woodcutter assigned to it has gone below and sends regular updates that all say 'big.'"
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-wood-low-ended-heads-1",
+          "text": "CARPENTER HUGS A LOG; COUNT ENDS"
+        },
+        {
+          "id": "og2-wood-low-ended-heads-2",
+          "text": "TIMBER RESTORED ON DAY {days}"
+        },
+        {
+          "id": "og2-wood-low-ended-heads-3",
+          "text": "STONE CHAIRS RETIRE WITH DIGNITY"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-wood-low-ended-bodies-1",
+          "text": "The Log Count begun on {since} has ended. Logs have arrived in quantity, and the carpenter has been seen hugging one. The splinter in the box has been introduced to its new friends."
+        },
+        {
+          "id": "og2-wood-low-ended-bodies-2",
+          "text": "Wood is plentiful again after a shortage that reached day {days}. The barrel waiting list has been cleared, including the goat, who has received a barrel and seems content."
+        },
+        {
+          "id": "og2-wood-low-ended-bodies-3",
+          "text": "After {n} reports, beds are being built from real wood again. {citizen} lay in the first one and said it was 'soft, like a lie you want to believe.'"
+        }
+      ]
+    },
+    "rain": {
+      "heads": [
+        {
+          "id": "og2-rain-heads-1",
+          "text": "DAY {days}: THE SKY IS STILL CRYING"
+        },
+        {
+          "id": "og2-rain-heads-2",
+          "text": "DRIZZLE DIARY NO. {n}: PUDDLES WIN"
+        },
+        {
+          "id": "og2-rain-heads-3",
+          "text": "DAY {days}: MUD TRACKED INTO EVERYTHING"
+        },
+        {
+          "id": "og2-rain-heads-4",
+          "text": "RAIN PERSISTS; BEARDS NEVER DRY"
+        },
+        {
+          "id": "og2-rain-heads-5",
+          "text": "DAY {days}: HAULERS GROW GILLS (RUMOR)"
+        },
+        {
+          "id": "og2-rain-heads-6",
+          "text": "SKY KEEPS POURING, DAY {days}"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-rain-bodies-1",
+          "text": "Day {days} of the Drizzle Diary. Dwarves coming in from outdoors have tracked so much mud into the dining hall that a small patch of moss has begun to grow under the long table. It has been named and will be voted on."
+        },
+        {
+          "id": "og2-rain-bodies-2",
+          "text": "Report number {n} on the rain that began on {since}. {citizen} has been 'caught in the rain' so often that her list of recent thoughts is now nothing but rain, plus one line about a nice dinner."
+        },
+        {
+          "id": "og2-rain-bodies-3",
+          "text": "Day {days}. Farmers on the surface plots report the crops are delighted. The farmers are not. The Herald notes this is the first time crops and dwarves have disagreed in public."
+        },
+        {
+          "id": "og2-rain-bodies-4",
+          "text": "Drizzle Diary, installment {n}. Engineers finally found a lever they believed controlled the rain. It controlled the floodgate to the farms. The farms are now also wet. The rain continues."
+        },
+        {
+          "id": "og2-rain-bodies-5",
+          "text": "The rain enters day {days}. This {season}, with {weather} overhead, haulers have started walking outside with buckets over their heads. Visibility is zero. Dryness is high. Two collided with a wagon."
+        },
+        {
+          "id": "og2-rain-bodies-6",
+          "text": "Since {since}, the sky has offered rain and nothing else. The bookkeeper now records rainfall in 'beards,' the depth needed to soak one. We are currently at eleven beards."
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-rain-ended-heads-1",
+          "text": "DRIZZLE DIARY CLOSED; BUCKETS REMOVED"
+        },
+        {
+          "id": "og2-rain-ended-heads-2",
+          "text": "DAY {days}: SKY FINALLY WRUNG OUT"
+        },
+        {
+          "id": "og2-rain-ended-heads-3",
+          "text": "RAIN ENDS; MOSS UNDER TABLE REMAINS"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-rain-ended-bodies-1",
+          "text": "The rain that began on {since} has stopped. Haulers have removed the buckets from their heads and are walking normally again, mostly into each other, out of habit."
+        },
+        {
+          "id": "og2-rain-ended-bodies-2",
+          "text": "After {n} reports, the sky is dry. The moss under the dining table has won its vote and will be allowed to stay. {citizen} has been appointed its gardener and takes the role very seriously."
+        },
+        {
+          "id": "og2-rain-ended-bodies-3",
+          "text": "The Drizzle Diary closes at day {days}, with a final total of many beards of rain. The bookkeeper has declared the unit official. Nobody has the heart to tell her otherwise."
+        }
+      ]
+    },
+    "snow": {
+      "heads": [
+        {
+          "id": "og2-snow-heads-1",
+          "text": "DAY {days}: SNOWDWARF POPULATION RISES"
+        },
+        {
+          "id": "og2-snow-heads-2",
+          "text": "SNOW BULLETIN NO. {n}: STILL WHITE"
+        },
+        {
+          "id": "og2-snow-heads-3",
+          "text": "DAY {days}: DEPOT LOST UNDER DRIFTS"
+        },
+        {
+          "id": "og2-snow-heads-4",
+          "text": "FROSTBITE AND FEELINGS, DAY {days}"
+        },
+        {
+          "id": "og2-snow-heads-5",
+          "text": "DAY {days}: ICICLES ON THE MAYOR"
+        },
+        {
+          "id": "og2-snow-heads-6",
+          "text": "SNOW CONTINUES; SLEDS PROPOSED"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-snow-bodies-1",
+          "text": "Day {days} of the Snow Bulletin. The trade depot has vanished under a drift. A dwarf has been posted where it used to be, holding a sign reading 'DEPOT, PROBABLY.' He is very cold and quite proud."
+        },
+        {
+          "id": "og2-snow-bodies-2",
+          "text": "Report number {n} on the snow that began on {since}. {citizen} proposed using sleds to haul goods. A prototype went straight down the ramp, through the gate and onto the frozen brook. The proposal is on ice."
+        },
+        {
+          "id": "og2-snow-bodies-3",
+          "text": "Day {days}. The snowdwarves outside now outnumber the real dwarves on the surface. Several have been given names. One was appointed to a minor noble position by clerical error."
+        },
+        {
+          "id": "og2-snow-bodies-4",
+          "text": "Snow Bulletin, installment {n}. The mayor stepped out to inspect the drifts and came back with icicles in his beard. He refuses to remove them and insists they are a new style."
+        },
+        {
+          "id": "og2-snow-bodies-5",
+          "text": "The snow enters day {days}. This {season}, the {weather} has made the surface a white blur. {pop} dwarves are crammed indoors, which has done wonders for warmth and nothing for tempers."
+        },
+        {
+          "id": "og2-snow-bodies-6",
+          "text": "Since {since} it has snowed without pause. A goblin ambush was spotted, then lost, then found again, frozen in place and looking deeply unhappy. It has been left there for the time being."
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-snow-ended-heads-1",
+          "text": "DEPOT FOUND; SNOW BULLETIN ENDS"
+        },
+        {
+          "id": "og2-snow-ended-heads-2",
+          "text": "DAY {days}: SNOWDWARVES BEGIN TO MELT"
+        },
+        {
+          "id": "og2-snow-ended-heads-3",
+          "text": "MAYOR'S ICICLES FINALLY MELT"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-snow-ended-bodies-1",
+          "text": "The snow that began on {since} has stopped. The trade depot has been dug out exactly where the sign said, to the great relief of the dwarf holding it, who has gone inside to thaw."
+        },
+        {
+          "id": "og2-snow-ended-bodies-2",
+          "text": "After {n} reports, it has stopped snowing. The snowdwarves are melting, including the one accidentally made a noble. A short farewell was held, and {citizen} said a few words."
+        },
+        {
+          "id": "og2-snow-ended-bodies-3",
+          "text": "The Snow Bulletin closes at day {days}. The mayor's icicles have melted, ending his new style. He has announced it will return next winter. Everyone has been warned."
+        }
+      ]
+    },
+    "drinks_high": {
+      "heads": [
+        {
+          "id": "og2-drinks-high-heads-1",
+          "text": "DAY {days}: BARRELS STACKED TO CEILING"
+        },
+        {
+          "id": "og2-drinks-high-heads-2",
+          "text": "{drinks} DRINKS; DWARVES UNWORRIED"
+        },
+        {
+          "id": "og2-drinks-high-heads-3",
+          "text": "GLUT REPORT NO. {n}: SPLASHING NOW"
+        },
+        {
+          "id": "og2-drinks-high-heads-4",
+          "text": "DAY {days}: BREWERS ASKED TO GO HOME"
+        },
+        {
+          "id": "og2-drinks-high-heads-5",
+          "text": "ALE IN THE BEDROOMS, DAY {days}"
+        },
+        {
+          "id": "og2-drinks-high-heads-6",
+          "text": "DAY {days}: TAVERN EXPANDS SIDEWAYS"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-drinks-high-bodies-1",
+          "text": "Day {days} of the Great Ale Glut. With {drinks} drinks in store, barrels are stacked to the ceiling in the main hall. Dwarves now navigate by memory and the occasional slosh of a full barrel."
+        },
+        {
+          "id": "og2-drinks-high-bodies-2",
+          "text": "Report number {n}. The brewers were told to go home, and went home, and brewed there. {citizen} reports that her bedroom now contains a small still and a brewer she has never met."
+        },
+        {
+          "id": "og2-drinks-high-bodies-3",
+          "text": "Day {days}. The tavern has knocked through a wall into the next room to fit more barrels, and then into the room after that. It is now the largest room in {fort}, and the loudest."
+        },
+        {
+          "id": "og2-drinks-high-bodies-4",
+          "text": "Glut Report, installment {n}. A proposal for a staircase built from barrels was approved by the engineers and enthusiastically tested by everyone. Several steps have since been drunk."
+        },
+        {
+          "id": "og2-drinks-high-bodies-5",
+          "text": "The glut continues on day {days}. With {pop} dwarves and {drinks} drinks, the bookkeeper calculates that each dwarf could drink for a very long time. Many have taken this as a challenge."
+        },
+        {
+          "id": "og2-drinks-high-bodies-6",
+          "text": "Since {since}, there has been more ale than space. Barrels now serve as tables, seats, beds, a lectern and, in one case, a very cheerful bridge over a small drop."
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-drinks-high-ended-heads-1",
+          "text": "BARREL STAIRCASE DRUNK; GLUT OVER"
+        },
+        {
+          "id": "og2-drinks-high-ended-heads-2",
+          "text": "DAY {days}: TAVERN BACK TO ONE ROOM"
+        },
+        {
+          "id": "og2-drinks-high-ended-heads-3",
+          "text": "BREWERS ALLOWED BACK HOME"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-drinks-high-ended-bodies-1",
+          "text": "The Great Ale Glut that began on {since} has ended. The barrel staircase has been consumed step by step and replaced with stone. Nobody climbs it with the same joy."
+        },
+        {
+          "id": "og2-drinks-high-ended-bodies-2",
+          "text": "After {n} reports of abundance, stores have fallen to sensible levels. The tavern has bricked up its new rooms and is back to its usual size and its usual volume, which is loud."
+        },
+        {
+          "id": "og2-drinks-high-ended-bodies-3",
+          "text": "The glut closed on day {days}. {citizen} got her bedroom back, minus the still, plus one brewer who still does not know where he lives. He has been given a cot."
+        }
+      ]
+    },
+    "stone_glut": {
+      "heads": [
+        {
+          "id": "og2-stone-glut-heads-1",
+          "text": "DAY {days}: ROCKS OUTNUMBER DWARVES"
+        },
+        {
+          "id": "og2-stone-glut-heads-2",
+          "text": "STONE REPORT NO. {n}: MORE PEBBLES"
+        },
+        {
+          "id": "og2-stone-glut-heads-3",
+          "text": "DAY {days}: HAULERS REQUEST BIGGER ARMS"
+        },
+        {
+          "id": "og2-stone-glut-heads-4",
+          "text": "BOULDER BLOCKS DINING HALL DOOR"
+        },
+        {
+          "id": "og2-stone-glut-heads-5",
+          "text": "DAY {days}: MASON SEES ROCKS IN DREAMS"
+        },
+        {
+          "id": "og2-stone-glut-heads-6",
+          "text": "LOOSE STONE COUNT HITS NEW HIGH"
+        }
+      ],
+      "bodies": [
+        {
+          "id": "og2-stone-glut-bodies-1",
+          "text": "Day {days} of the Stone Situation. A census of loose rock was attempted and abandoned once it became clear the stones outnumbered the dwarves by a wide margin. With only {pop} dwarves, the rocks win comfortably."
+        },
+        {
+          "id": "og2-stone-glut-bodies-2",
+          "text": "Report number {n}. A boulder has come to rest directly in front of the dining hall door. Dwarves must now climb over it to eat. {citizen} has started charging a small toll, paid in bread."
+        },
+        {
+          "id": "og2-stone-glut-bodies-3",
+          "text": "Day {days}. The mason has begun seeing rocks in his dreams. He says they are 'just sitting there, waiting to become something.' He wakes up and they are all still there, waiting."
+        },
+        {
+          "id": "og2-stone-glut-bodies-4",
+          "text": "Stone Situation, installment {n}. Haulers requested bigger arms, longer days and fewer miners. They were granted none of these and given a wheelbarrow, which they love very much."
+        },
+        {
+          "id": "og2-stone-glut-bodies-5",
+          "text": "Since {since}, loose stone has piled up faster than it can be moved. The minecart track is buried, the stockpile is full, and a new stockpile has been made for the old stockpile's overflow."
+        },
+        {
+          "id": "og2-stone-glut-bodies-6",
+          "text": "Day {days}. Children of {fort} have started building small forts out of the loose stones. The engineers admit these are structurally better than some of the adult work."
+        }
+      ],
+      "ended_heads": [
+        {
+          "id": "og2-stone-glut-ended-heads-1",
+          "text": "BOULDER MOVED; DINNER ACCESSIBLE"
+        },
+        {
+          "id": "og2-stone-glut-ended-heads-2",
+          "text": "DAY {days}: LAST PEBBLE STOCKPILED"
+        },
+        {
+          "id": "og2-stone-glut-ended-heads-3",
+          "text": "MASON DREAMS OF NOTHING AT LAST"
+        }
+      ],
+      "ended_bodies": [
+        {
+          "id": "og2-stone-glut-ended-bodies-1",
+          "text": "The Stone Situation that began on {since} is over. The boulder blocking the dining hall has been hauled away, ending {citizen}'s toll business. She has retired with a small fortune in bread."
+        },
+        {
+          "id": "og2-stone-glut-ended-bodies-2",
+          "text": "After {n} reports, loose stone is under control. The mason says that last night, for the first time in weeks, he dreamed about nothing at all. He calls it the finest dream of his life."
+        },
+        {
+          "id": "og2-stone-glut-ended-bodies-3",
+          "text": "The rock clutter ended on day {days}. The minecart track has been dug out and is running again. The children's stone forts have been left standing by unanimous vote of the engineers."
+        }
+      ]
+    }
+  },
+  "counters": {
+    "death": [
+      {
+        "id": "og2-counter-death-1",
+        "text": "Days since the tombs took a new tenant: {days}"
+      },
+      {
+        "id": "og2-counter-death-2",
+        "text": "Days the slab engraver has been bored: {days}"
+      },
+      {
+        "id": "og2-counter-death-3",
+        "text": "Days since 'losing is fun' was said sadly: {days}"
+      },
+      {
+        "id": "og2-counter-death-4",
+        "text": "WAKE-FREE DAYS: {days}"
+      },
+      {
+        "id": "og2-counter-death-5",
+        "text": "Days since the tavern held a memorial toast: {days}"
+      }
+    ],
+    "pet": [
+      {
+        "id": "og2-counter-pet-1",
+        "text": "Days since the kennels went quiet: {days}"
+      },
+      {
+        "id": "og2-counter-pet-2",
+        "text": "Days with every tail still wagging: {days}"
+      },
+      {
+        "id": "og2-counter-pet-3",
+        "text": "Days since an empty food bowl made us sad: {days}"
+      },
+      {
+        "id": "og2-counter-pet-4",
+        "text": "KENNEL ROLL CALL COMPLETE: DAY {days}"
+      },
+      {
+        "id": "og2-counter-pet-5",
+        "text": "Days since a pet got its own little tomb: {days}"
+      }
+    ],
+    "tantrum": [
+      {
+        "id": "og2-counter-tantrum-1",
+        "text": "Days since a door was blamed for anything: {days}"
+      },
+      {
+        "id": "og2-counter-tantrum-2",
+        "text": "Days without a statue being toppled: {days}"
+      },
+      {
+        "id": "og2-counter-tantrum-3",
+        "text": "Days since the sheriff put his boots on: {days}"
+      },
+      {
+        "id": "og2-counter-tantrum-4",
+        "text": "CALM STREAK: {days} DAYS (KNOCK ON STONE)"
+      },
+      {
+        "id": "og2-counter-tantrum-5",
+        "text": "Days since a table took flight: {days}"
+      }
+    ],
+    "mood": [
+      {
+        "id": "og2-counter-mood-1",
+        "text": "Days since a workshop door was barred: {days}"
+      },
+      {
+        "id": "og2-counter-mood-2",
+        "text": "Days since a hauler was sent for 'something old': {days}"
+      },
+      {
+        "id": "og2-counter-mood-3",
+        "text": "Days without anyone going fey: {days}"
+      },
+      {
+        "id": "og2-counter-mood-4",
+        "text": "MUSE ABSENT: DAY {days}"
+      },
+      {
+        "id": "og2-counter-mood-5",
+        "text": "Days since someone whispered 'more' at a door: {days}"
+      }
+    ],
+    "artifact": [
+      {
+        "id": "og2-counter-artifact-1",
+        "text": "Days since a pedestal was needed: {days}"
+      },
+      {
+        "id": "og2-counter-artifact-2",
+        "text": "Days since anything got an unsayable name: {days}"
+      },
+      {
+        "id": "og2-counter-artifact-3",
+        "text": "Days since the bookkeeper fainted at a value: {days}"
+      },
+      {
+        "id": "og2-counter-artifact-4",
+        "text": "LEGEND-FREE DAYS: {days}"
+      },
+      {
+        "id": "og2-counter-artifact-5",
+        "text": "Days since a strange mood paid off: {days}"
+      }
+    ],
+    "masterpiece": [
+      {
+        "id": "og2-counter-masterpiece-1",
+        "text": "Days since anyone bragged at dinner: {days}"
+      },
+      {
+        "id": "og2-counter-masterpiece-2",
+        "text": "Days since a crafter wept at their own work: {days}"
+      },
+      {
+        "id": "og2-counter-masterpiece-3",
+        "text": "Days of strictly average goods: {days}"
+      },
+      {
+        "id": "og2-counter-masterpiece-4",
+        "text": "BRAG-FREE DAYS: {days}"
+      },
+      {
+        "id": "og2-counter-masterpiece-5",
+        "text": "Days since a rival workshop sulked: {days}"
+      }
+    ],
+    "migrants": [
+      {
+        "id": "og2-counter-migrants-1",
+        "text": "Days since the ledger needed more pages: {days}"
+      },
+      {
+        "id": "og2-counter-migrants-2",
+        "text": "Days since a stranger claimed to be a cousin: {days}"
+      },
+      {
+        "id": "og2-counter-migrants-3",
+        "text": "Days since the dormitory rug got new sleepers: {days}"
+      },
+      {
+        "id": "og2-counter-migrants-4",
+        "text": "NEW-FACE DROUGHT: DAY {days}"
+      },
+      {
+        "id": "og2-counter-migrants-5",
+        "text": "Days since the kitchen panicked at a headcount: {days}"
+      }
+    ],
+    "caravan": [
+      {
+        "id": "og2-counter-caravan-1",
+        "text": "Days since the depot saw a wagon: {days}"
+      },
+      {
+        "id": "og2-counter-caravan-2",
+        "text": "Days since we bought something we didn't need: {days}"
+      },
+      {
+        "id": "og2-counter-caravan-3",
+        "text": "Days since a liaison brought a clipboard: {days}"
+      },
+      {
+        "id": "og2-counter-caravan-4",
+        "text": "TRADE-FREE DAYS: {days}"
+      },
+      {
+        "id": "og2-counter-caravan-5",
+        "text": "Days since a pack animal glared at us: {days}"
+      }
+    ],
+    "strike": [
+      {
+        "id": "og2-counter-strike-1",
+        "text": "Days since a miner did a little jig: {days}"
+      },
+      {
+        "id": "og2-counter-strike-2",
+        "text": "Days since the jeweler had something to do: {days}"
+      },
+      {
+        "id": "og2-counter-strike-3",
+        "text": "Days since the earth felt generous: {days}"
+      },
+      {
+        "id": "og2-counter-strike-4",
+        "text": "GEM-FREE DAYS: {days}"
+      },
+      {
+        "id": "og2-counter-strike-5",
+        "text": "Days since someone yelled 'ORE!' down a tunnel: {days}"
+      }
+    ],
+    "birth": [
+      {
+        "id": "og2-counter-birth-1",
+        "text": "Days since tiny boots were made: {days}"
+      },
+      {
+        "id": "og2-counter-birth-2",
+        "text": "Days since a first-word betting pool: {days}"
+      },
+      {
+        "id": "og2-counter-birth-3",
+        "text": "Days since a barrel was cut into a cradle: {days}"
+      },
+      {
+        "id": "og2-counter-birth-4",
+        "text": "BABY-FREE DAYS: {days} (EARPLUGS RETIRED)"
+      },
+      {
+        "id": "og2-counter-birth-5",
+        "text": "Days since the nursery woke everyone up: {days}"
+      }
+    ],
+    "siege": [
+      {
+        "id": "og2-counter-siege-1",
+        "text": "Days since the archers had something to do: {days}"
+      },
+      {
+        "id": "og2-counter-siege-2",
+        "text": "Days since a goblin banner was spotted: {days}"
+      },
+      {
+        "id": "og2-counter-siege-3",
+        "text": "Days the drawbridge has stayed down: {days}"
+      },
+      {
+        "id": "og2-counter-siege-4",
+        "text": "HORDE-FREE DAYS: {days}"
+      },
+      {
+        "id": "og2-counter-siege-5",
+        "text": "Days since the hospital stocked extra thread: {days}"
+      }
+    ]
+  },
+  "followups": {
+    "heads": [
+      {
+        "id": "og2-followup-head-1",
+        "text": "{topic}: AN UPDATE NOBODY ASKED FOR"
+      },
+      {
+        "id": "og2-followup-head-2",
+        "text": "{topic} TALKS ENTER ROUND {n}"
+      },
+      {
+        "id": "og2-followup-head-3",
+        "text": "{topic} GRUDGE NOW {days} DAYS OLD"
+      },
+      {
+        "id": "og2-followup-head-4",
+        "text": "BACK ON {topic}, OBVIOUSLY"
+      },
+      {
+        "id": "og2-followup-head-5",
+        "text": "{topic}: THE SEQUEL"
+      },
+      {
+        "id": "og2-followup-head-6",
+        "text": "{topic}, CONTINUED (AND CONTINUED)"
+      },
+      {
+        "id": "og2-followup-head-7",
+        "text": "{topic} QUESTION STILL UNANSWERED"
+      },
+      {
+        "id": "og2-followup-head-8",
+        "text": "THIS AGAIN: {topic}"
+      },
+      {
+        "id": "og2-followup-head-9",
+        "text": "{topic} ISSUE REFUSES TO DIE"
+      },
+      {
+        "id": "og2-followup-head-10",
+        "text": "{topic} WOES, INSTALLMENT {n}"
+      },
+      {
+        "id": "og2-followup-head-11",
+        "text": "LATEST ON {topic}: SAME AS BEFORE"
+      },
+      {
+        "id": "og2-followup-head-12",
+        "text": "{topic} MATTER RAISED ONCE MORE"
+      },
+      {
+        "id": "og2-followup-head-13",
+        "text": "{topic}: STILL NOT OVER IT"
+      },
+      {
+        "id": "og2-followup-head-14",
+        "text": "{topic} DISPUTE HITS DAY {days}"
+      }
+    ],
+    "decks": [
+      {
+        "id": "og2-followup-deck-1",
+        "text": "{nick} sought out the Herald again today, as expected, to discuss {topic}. This is visit number {n}. Our reporter now keeps a chair warm for the occasion."
+      },
+      {
+        "id": "og2-followup-deck-2",
+        "text": "The {topic} file, opened on {since}, now fills an entire drawer. {nick} has asked for a second drawer. The archivist has asked for a second archivist."
+      },
+      {
+        "id": "og2-followup-deck-3",
+        "text": "On day {days} of the {topic} matter, {nick} told us the situation was 'exactly as bad as before, which is somehow worse.' We print this in full."
+      },
+      {
+        "id": "og2-followup-deck-4",
+        "text": "{nick} wishes it known that {topic} is not a grudge, it is a principle. A principle, {nick} explained, is a grudge that has been carved into stone."
+      },
+      {
+        "id": "og2-followup-deck-5",
+        "text": "For interview {n}, {nick} brought diagrams explaining {topic} in clear, careful detail. They have been framed, and then quietly put away."
+      },
+      {
+        "id": "og2-followup-deck-6",
+        "text": "Somewhere in {fort}, {nick} is thinking about {topic}. We know this because {nick} came straight to our office to tell us. Again. That makes {n}."
+      },
+      {
+        "id": "og2-followup-deck-7",
+        "text": "Asked what would resolve {topic}, {nick} said 'an apology, a mug of ale and the other party moving to a different fortress.' Talks are not expected to progress."
+      },
+      {
+        "id": "og2-followup-deck-8",
+        "text": "The Herald's position on {topic} remains neutral. {nick}'s position remains extremely loud, as it has been since {since}, and shows no sign of quieting."
+      },
+      {
+        "id": "og2-followup-deck-9",
+        "text": "{nick} opened today's interview with 'you know what this is about,' and we did. It was {topic}. It has been {topic} for {days} days."
+      },
+      {
+        "id": "og2-followup-deck-10",
+        "text": "Tavern regulars now finish {nick}'s sentences about {topic} for them. {nick} does not appreciate this and has added it to the grievance, which is now two grievances."
+      }
+    ]
+  }
+}

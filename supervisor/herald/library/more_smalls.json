@@ -1,0 +1,2351 @@
+{
+ "ads": [
+  {
+   "id": "x2-ad-dark-tower-realty",
+   "lines": [
+    [
+     "bk",
+     "Dark Tower Realty"
+    ],
+    [
+     "eng",
+     "NECROMANCER-GRADE ESTATES"
+    ],
+    [
+     "fine",
+     "Tall, spooky, fully staffed. The staff are deceased but extremely punctual. Previous owner may return; he does that."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-hand-retrieval",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "HAND LOOSE?"
+    ],
+    [
+     "eng",
+     "SEVERED LIMB RETRIEVAL"
+    ],
+    [
+     "fine",
+     "Your old hand has reanimated and is crawling toward the kitchen. We net it, bag it and return it. Please stop waving at it."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-pale-table",
+   "lines": [
+    [
+     "bk",
+     "The Pale Table"
+    ],
+    [
+     "eng",
+     "FINE DINING · NOBODY EATS"
+    ],
+    [
+     "fine",
+     "Our most loyal patron has not touched a meal in ninety years and never misses a night. The bookkeeper vouches for him. The bookkeeper is him."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-honest-ages",
+   "lines": [
+    [
+     "bk",
+     "Honest Ages Census"
+    ],
+    [
+     "eng",
+     "HOW OLD ARE YOU, REALLY?"
+    ],
+    [
+     "fine",
+     "Claim to be 34 but remember the founding wagon? We would love a chat. In daylight. Near the well. Bring a mirror."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-minecart-express",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "MINECART EXPRESS"
+    ],
+    [
+     "eng",
+     "QUARRY TO STOCKPILE IN SECONDS"
+    ],
+    [
+     "fine",
+     "Rides are not offered. The thing on the track that looked like a passenger has been reclassified as cargo."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-track-stop-mutual",
+   "lines": [
+    [
+     "bk",
+     "Track Stop Mutual"
+    ],
+    [
+     "eng",
+     "DERAILMENT COVERAGE"
+    ],
+    [
+     "fine",
+     "Cart left the rails, crossed the dining hall and stopped inside a wall? You are covered. The wall is not."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-pump-staffing",
+   "lines": [
+    [
+     "bk",
+     "Pump Stack Staffing"
+    ],
+    [
+     "eng",
+     "OPERATORS WANTED · FOREVER"
+    ],
+    [
+     "fine",
+     "Turn the crank. Keep turning the crank. Our longest-serving operator was hired in spring and has not been told it is winter."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-screw-pump-academy",
+   "lines": [
+    [
+     "bk",
+     "Screw Pump Academy"
+    ],
+    [
+     "eng",
+     "LEARN WHICH END IS UP"
+    ],
+    [
+     "fine",
+     "Our graduates tell intake from output on the first try about half the time. The other half now live on a lower, wetter level."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-traction-holidays",
+   "lines": [
+    [
+     "bk",
+     "Traction Bench Holidays"
+    ],
+    [
+     "eng",
+     "REST · RECOVER · STRETCH"
+    ],
+    [
+     "fine",
+     "Lie perfectly still for a season while a chief medical dwarf adjusts you. Fully booked by militia recruits through next year."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-suture-circle",
+   "lines": [
+    [
+     "bk",
+     "The Suture Circle"
+    ],
+    [
+     "eng",
+     "SEWING · KNITTING · SURGERY"
+    ],
+    [
+     "fine",
+     "One hobby group, three uses. Bring your own thread. Bring your own patient. Biscuits after."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-soap-exists",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "SOAP"
+    ],
+    [
+     "eng",
+     "IT EXISTS · ASK YOUR DOCTOR"
+    ],
+    [
+     "fine",
+     "Made from tallow and lye by a dwarf who would like to be thanked for once. The hospital uses it. Nobody else has noticed."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-open-stage",
+   "lines": [
+    [
+     "bk",
+     "Open Stage Night"
+    ],
+    [
+     "eng",
+     "THE TAVERN · ANY TALENT"
+    ],
+    [
+     "fine",
+     "Poets, dancers, and a visiting bard with nine verses about a battle he was not at. Thrown mugs count as applause and will not be returned."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-petition-office",
+   "lines": [
+    [
+     "bk",
+     "Residency Petition Office"
+    ],
+    [
+     "eng",
+     "VISITORS: PLEASE QUEUE"
+    ],
+    [
+     "fine",
+     "Seven poets, two monster hunters and a mercenary with 'a few questions about the vault' all wish to stay. Reviewed whenever the mayor wakes."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-song-form-registry",
+   "lines": [
+    [
+     "bk",
+     "Song Form Registry"
+    ],
+    [
+     "eng",
+     "INVENT A NEW KIND OF MUSIC"
+    ],
+    [
+     "fine",
+     "Last year's registered form, 'The Thunderous Lament of Pebbles,' is three dwarves tapping a rock. It was a smash."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-debating-alcove",
+   "lines": [
+    [
+     "bk",
+     "The Debating Alcove"
+    ],
+    [
+     "eng",
+     "TONIGHT: IS A ROCK A ROCK?"
+    ],
+    [
+     "fine",
+     "Two philosophers, one rock, no conclusion. Admission free. Exit not guaranteed before dawn."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-quire-supply",
+   "lines": [
+    [
+     "bk",
+     "Quire & Scroll Supply"
+    ],
+    [
+     "eng",
+     "WRITE YOUR TREATISE TODAY"
+    ],
+    [
+     "fine",
+     "Every scholar in the fort is writing a book. Nobody is reading one. Blank quires sold in bulk to the hopeful."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-historians-hire",
+   "lines": [
+    [
+     "bk",
+     "Historians For Hire"
+    ],
+    [
+     "eng",
+     "YOUR FORT · IN THREE VOLUMES"
+    ],
+    [
+     "fine",
+     "Volume one covers the unloading of the wagon. It is very thorough. Volume two is still unloading."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-cradle-cuirass",
+   "lines": [
+    [
+     "bk",
+     "Cradle & Cuirass"
+    ],
+    [
+     "eng",
+     "ARMOR FOR THE YOUNGEST RECRUIT"
+    ],
+    [
+     "fine",
+     "Mothers keep carrying infants into battle. We cannot stop that, but we can make the infant a very small helmet."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-baby-on-board",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "BABY ON BOARD"
+    ],
+    [
+     "eng",
+     "A SHIELD SIGN FOR SQUAD MOTHERS"
+    ],
+    [
+     "fine",
+     "Hang it on your shield so the goblins know. The goblins will not care. The sign is mostly for you."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-bookkeeper-office",
+   "lines": [
+    [
+     "bk",
+     "Ledger Office Outfitters"
+    ],
+    [
+     "eng",
+     "A CHAIR. A TABLE. A DOOR."
+    ],
+    [
+     "fine",
+     "Your bookkeeper will not record a single barrel until given a proper office. Ours come with a door he can close and count behind."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-underlake-fish",
+   "lines": [
+    [
+     "bk",
+     "Underlake Fish Market"
+    ],
+    [
+     "eng",
+     "FRESH CAVE FISH DAILY"
+    ],
+    [
+     "fine",
+     "Pale, eyeless and very calm. Unlike the surface carp, cave fish have never once attacked a fisherdwarf. They are saving it for something."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-fish-cleaner",
+   "lines": [
+    [
+     "bk",
+     "The Fish Cleaner's Table"
+    ],
+    [
+     "eng",
+     "YOUR CATCH, PREPARED"
+    ],
+    [
+     "fine",
+     "We remove the scales, the bones and whatever that third thing is. Turtle shells forwarded to whoever is currently in a mood."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-fey-registry",
+   "lines": [
+    [
+     "bk",
+     "Fey Supply Registry"
+    ],
+    [
+     "eng",
+     "PRE-REGISTER YOUR MOOD"
+    ],
+    [
+     "fine",
+     "Tell us now which rare material you will scream for later. Popular this year: 'a specific bone' and 'whatever is behind that elf.'"
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-human-emporium",
+   "lines": [
+    [
+     "bk",
+     "Human Goods Emporium"
+    ],
+    [
+     "eng",
+     "TALL FOLK · TALL PRICES"
+    ],
+    [
+     "fine",
+     "Imported from the human towns: big cloth, big boots, and a jar of something they swear is 'pickled.' Mind your head on the merchant."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-liaison-translation",
+   "lines": [
+    [
+     "bk",
+     "Liaison Translation Services"
+    ],
+    [
+     "eng",
+     "WHAT DID THE HUMAN MEAN?"
+    ],
+    [
+     "fine",
+     "When the diplomat says 'we treasure our relations,' he means 'please stop sending us rock mugs.' We translate. You ignore. Everyone wins."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-titan-season",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "HILL TITAN SEASON"
+    ],
+    [
+     "eng",
+     "STAY INSIDE · STAY SMALL"
+    ],
+    [
+     "fine",
+     "It is the size of a hill because it was, until Tuesday, the hill. Bridge up, doors shut, voices low."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-titan-sightseeing",
+   "lines": [
+    [
+     "bk",
+     "Titan Sightseeing"
+    ],
+    [
+     "eng",
+     "ONE GIANT · NO REFUNDS"
+    ],
+    [
+     "fine",
+     "Watch the titan from our narrow observation slit. If the titan looks back, the tour has concluded."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-fog-lanterns",
+   "lines": [
+    [
+     "bk",
+     "Surface Fog Lanterns"
+    ],
+    [
+     "eng",
+     "CAN'T SEE THE SKY? GOOD."
+    ],
+    [
+     "fine",
+     "Fog is the only weather dwarves approve of. Our lanterns help you find the depot without accidentally finding the horizon."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-blood-rain-crew",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "BLOOD RAIN?"
+    ],
+    [
+     "eng",
+     "EVIL BIOME CLEAN-UP CREW"
+    ],
+    [
+     "fine",
+     "We mop the courtyard, scrub the yaks, and assure the migrants this is unusual, while knowing full well it is not."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-frost-tunnelling",
+   "when": [
+    "winter"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Frost Tunnelling Ltd."
+    ],
+    [
+     "eng",
+     "WINTER: THE AQUIFER SLEEPS"
+    ],
+    [
+     "fine",
+     "Dig through it while it is frozen, wall it off before it thaws. Our motto: hurry. Our second motto: HURRY."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-cool-cellars",
+   "when": [
+    "summer"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Cool Cellars Co."
+    ],
+    [
+     "eng",
+     "{season}: KEEP THE WINE DOWN"
+    ],
+    [
+     "fine",
+     "Store your barrels three levels deeper, where the heat cannot find them and neither can the mayor."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-thaw-watch",
+   "when": [
+    "spring"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Thaw Watch"
+    ],
+    [
+     "eng",
+     "THE RIVER IS BACK"
+    ],
+    [
+     "fine",
+     "Every spring the frozen river melts all at once. Anyone still standing on it is promoted, immediately, to fish."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-forager-tours",
+   "when": [
+    "autumn"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Autumn Forager Tours"
+    ],
+    [
+     "eng",
+     "PICK WILD BERRIES · FLEE"
+    ],
+    [
+     "fine",
+     "A guided herbalism walk. Gather strawberries, prickle berries and the full attention of a bear. Baskets provided. Running not taught."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-well-well-well",
+   "lines": [
+    [
+     "bk",
+     "Well, Well, Well"
+    ],
+    [
+     "eng",
+     "WELL DIGGERS SINCE THE FOUNDING"
+    ],
+    [
+     "fine",
+     "We dig down to water, hang a bucket, and leave before anyone asks what happens when the cistern overflows."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-corridor-hospitality",
+   "lines": [
+    [
+     "bk",
+     "Corridor Hospitality"
+    ],
+    [
+     "eng",
+     "WEAPON TRAPS · TASTEFULLY HIDDEN"
+    ],
+    [
+     "fine",
+     "Greet uninvited guests with a ☼serrated disc☼. Residents walk over them unharmed, which is either engineering or trust."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-caged-curiosities",
+   "lines": [
+    [
+     "bk",
+     "Caged Curiosities"
+    ],
+    [
+     "eng",
+     "SEE WHAT THE TRAPS CAUGHT"
+    ],
+    [
+     "fine",
+     "This week: one goblin thief, a giant toad, and a merchant who took a shortcut. The merchant would like to be released. Feeding at noon."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-undead-temps",
+   "lines": [
+    [
+     "bk",
+     "Undead Temp Agency"
+    ],
+    [
+     "eng",
+     "WORKERS WHO NEVER TIRE"
+    ],
+    [
+     "fine",
+     "Our staff never sleep, eat or drink. They also never stop, or listen, or keep their arms on. Not available in any fort we like."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-sweet-pod-syrup",
+   "lines": [
+    [
+     "bk",
+     "Sweet Pod Syrup Works"
+    ],
+    [
+     "eng",
+     "DWARVEN SYRUP · BY THE JUG"
+    ],
+    [
+     "fine",
+     "Pour it on anything. Most dwarves pour it on more syrup. There are no dentists down here, so who is going to stop you."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-green-glass",
+   "lines": [
+    [
+     "bk",
+     "Green Glass Works"
+    ],
+    [
+     "eng",
+     "FROM SAND TO WINDOWS"
+    ],
+    [
+     "fine",
+     "Our windows let in light from the next room, which is darker. Collect all nine shades of green."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-obsidian-casting",
+   "lines": [
+    [
+     "bk",
+     "Obsidian Casting Co."
+    ],
+    [
+     "eng",
+     "MAGMA + WATER = WALLS"
+    ],
+    [
+     "fine",
+     "Fresh stone, made while you wait. Please wait very far away, and above, and behind something."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-sheriff-office",
+   "lines": [
+    [
+     "bk",
+     "Office of the Sheriff"
+    ],
+    [
+     "eng",
+     "CRIME? REPORT IT TODAY!"
+    ],
+    [
+     "fine",
+     "The sheriff will investigate, accuse whoever is standing nearest, and close the case by lunch. Justice: fast."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-fort-mint",
+   "lines": [
+    [
+     "bk",
+     "The Fort Mint"
+    ],
+    [
+     "eng",
+     "COINS · NOW WITH NO USE"
+    ],
+    [
+     "fine",
+     "Freshly struck copper, stacked in a coffer, never once spent. Collect them, count them, polish them, wonder why."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-catapult-delivery",
+   "lines": [
+    [
+     "bk",
+     "Catapult Delivery"
+    ],
+    [
+     "eng",
+     "PARCELS TO ANY GOBLIN"
+    ],
+    [
+     "fine",
+     "Rocks delivered over the wall in under a second. Accuracy guaranteed to within the same region."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-hive-and-honey",
+   "lines": [
+    [
+     "bk",
+     "Hive & Honey"
+    ],
+    [
+     "eng",
+     "MEAD · WAX · STINGS"
+    ],
+    [
+     "fine",
+     "Our beekeeper is covered head to toe in bees and says he is 'fine.' We have chosen to believe him."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-lending-library",
+   "lines": [
+    [
+     "bk",
+     "The {fort} Lending Library"
+    ],
+    [
+     "eng",
+     "LATE FEES WAIVED FOR GHOSTS"
+    ],
+    [
+     "fine",
+     "One scholar has kept 'On Proper Masonry' for six years. He is dead. We would still like it back."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-anvil-futures",
+   "lines": [
+    [
+     "bk",
+     "Anvil Futures Exchange"
+    ],
+    [
+     "eng",
+     "{bars} BARS ON THE BOOKS"
+    ],
+    [
+     "fine",
+     "Invest in metal! Watch it become a mug. Watch the mug inspire a mood. Watch the mood become an axe nobody can lift."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-stud-everything",
+   "when": [
+    "gems"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Stud-Everything Studio"
+    ],
+    [
+     "eng",
+     "{gems} GEMS · ZERO RESTRAINT"
+    ],
+    [
+     "fine",
+     "We will encrust your bed, your door, your chamber pot and your cat. The cat has lodged a formal complaint."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-hospital-drive",
+   "lines": [
+    [
+     "bk",
+     "Hospital Supply Drive"
+    ],
+    [
+     "eng",
+     "{thread} THREAD · {cloth} CLOTH"
+    ],
+    [
+     "fine",
+     "The chief medical dwarf asks that you stop weaving it all into hats. Some of us are bleeding."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-war-dog-academy",
+   "when": [
+    "dogs_many"
+   ],
+   "lines": [
+    [
+     "bk",
+     "War Dog Academy"
+    ],
+    [
+     "eng",
+     "{dogs} GOOD DOGS · ONE GOBLIN"
+    ],
+    [
+     "fine",
+     "Every graduate is trained to bite exactly one goblin. Next siege, they will have to share him."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-shearing-salon",
+   "lines": [
+    [
+     "bk",
+     "Shearing Season Salon"
+    ],
+    [
+     "eng",
+     "{herd} ANIMALS · ONE PAIR OF SHEARS"
+    ],
+    [
+     "fine",
+     "Wool, hair and a single alpaca's dignity, collected by appointment. The alpaca did not make the appointment."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-second-bar",
+   "when": [
+    "pop_big"
+   ],
+   "lines": [
+    [
+     "bk",
+     "The Tavern, Expanded"
+    ],
+    [
+     "eng",
+     "{pop} THIRSTY DWARVES"
+    ],
+    [
+     "fine",
+     "We have built a second bar, so the queue for the first bar has somewhere to queue."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-depot-etiquette",
+   "when": [
+    "recent_caravan"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Depot Etiquette Classes"
+    ],
+    [
+     "eng",
+     "THE HUMANS ARE HERE"
+    ],
+    [
+     "fine",
+     "Do not ask how tall they are. Do not ask what 'sunburn' is. Do not offer them a 1x1 bedroom; they will not fit."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-eternal-rest",
+   "when": [
+    "recent_death"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Eternal Rest Assurance"
+    ],
+    [
+     "eng",
+     "{deadname} STAYS DOWN"
+    ],
+    [
+     "fine",
+     "Coffin lids sealed, bolted and engraved 'NO.' Recommended in any year a necromancer is reported nearby, which is every year."
+    ]
+   ]
+  },
+  {
+   "id": "x2-ad-noble-etiquette",
+   "when": [
+    "recent_promotion"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Noble Etiquette Lessons"
+    ],
+    [
+     "eng",
+     "SO, {promoted}, YOU'RE A {post}"
+    ],
+    [
+     "fine",
+     "Learn to demand things you have never seen, in a voice nobody can refuse. Week two: banning the export of mugs."
+    ]
+   ]
+  }
+ ],
+ "editorials": [
+  {
+   "id": "x2-ed-necromancer-next-door",
+   "kick": "Commentary",
+   "head": "A NECROMANCER HAS MOVED IN NEXT DOOR",
+   "body": "A tower has appeared on the hill, which is how you can tell a scholar has given up on peer review. The occupant raises the dead, which is rude, and raises them in our direction, which is ruder. We ask only that he keep his undead off the trade road. The caravan has enough problems.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "x2-ed-dear-urist-bookkeeper",
+   "kick": "Advice Column",
+   "head": "DEAR URIST: OUR BOOKKEEPER NEVER SLEEPS",
+   "body": "Dear Urist, our bookkeeper never sleeps, never eats, is pale as limestone and claims to be 31 despite appearing in the founding mural. Should I worry? — Concerned. Dear Concerned: the ledgers have never been more accurate. Ask no questions. Do not nap near the office. — Urist",
+   "by": "Urist, Our Advice Columnist"
+  },
+  {
+   "id": "x2-ed-minecart-physics",
+   "kick": "Science",
+   "head": "MINECART PHYSICS: A STRONGLY WORDED PRIMER",
+   "body": "Our engineering desk has calculated that a loaded minecart travelling downhill carries the force of four angry yaks. A dwarf standing on the track carries the force of one surprised dwarf. Four is greater than one. Please memorise this sum, or at the very least the location of the track.",
+   "by": "Our Engineering Correspondent"
+  },
+  {
+   "id": "x2-ed-pump-operator-praise",
+   "kick": "Opinion",
+   "head": "IN PRAISE OF THE PUMP OPERATOR",
+   "body": "Somewhere below us, a dwarf is turning a crank. He has been turning it since spring. He has not asked why. The water rises because of him; the flooding of the lower dormitory is also, possibly, because of him, and will be discussed at the inquiry. Spare a thought, and a sandwich, for the pump stack.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "x2-ed-hospital-review",
+   "kick": "Health",
+   "head": "HOSPITAL REVIEW: FOUR BEDS, ONE OPINION",
+   "body": "We visited the hospital as patients and left as experts. The beds are firm. The traction bench is firmer. The doctor is enthusiastic, which is the most frightening thing a doctor can be. Recovery times are excellent for those who recover. We award it four splints out of five, and one crutch.",
+   "by": "Our Health Correspondent"
+  },
+  {
+   "id": "x2-ed-poetry-night",
+   "kick": "Arts",
+   "head": "POETRY NIGHT: A REVIEW, WITH APOLOGIES",
+   "body": "The visiting poet recited his epic 'Ode to a Boulder' in a form our scholars call 'the long kind.' Some dwarves wept. Others slept. One wept in his sleep, which the poet counted as two reviews. The ale was excellent. The poet has asked to stay forever. The mayor is 'considering it' from behind a door.",
+   "by": "Our Arts Critic"
+  },
+  {
+   "id": "x2-ed-nobody-reads",
+   "kick": "Commentary",
+   "head": "WHO IS READING ALL THESE BOOKS? NOBODY.",
+   "body": "The fort now holds dozens of books by our scholars, including three about the moon written by dwarves who have never seen it. Not one has been read by a non-scholar. Scholars read each other's books, object to them, and write new books about the objection. It is a closed loop, like a pump stack, but with footnotes.",
+   "by": "Our Literary Editor"
+  },
+  {
+   "id": "x2-ed-aquifer-on-purpose",
+   "kick": "Opinion",
+   "head": "WE TAPPED THE AQUIFER ON PURPOSE THIS TIME",
+   "body": "For years the aquifer was our enemy. Then an engineer proposed one tidy hole and the word 'well.' Now the aquifer is our water supply and our enemy, which is efficient. Clean water flows to the hospital. Less clean water flows to the lower dormitory, which has been officially renamed 'the pool.'",
+   "by": "Our Engineering Correspondent"
+  },
+  {
+   "id": "x2-ed-babies-at-siege",
+   "kick": "Military Affairs",
+   "head": "PLEASE STOP BRINGING BABIES TO THE SIEGE",
+   "body": "Our militia includes several new mothers, who bring their infants into battle because nobody else will hold them. Last siege, a baby was used to block a goblin spear. The baby is fine and is now the most decorated soldier in the fort. We still recommend a nursery. Or a babysitter. Or a door.",
+   "by": "Our Military Correspondent"
+  },
+  {
+   "id": "x2-ed-inventory-twice",
+   "kick": "Business",
+   "head": "INVENTORY COUNT REVEALS FORT OWNS ITSELF TWICE",
+   "body": "The bookkeeper has finished the count. We apparently own twice as many beds as dwarves and half as many dwarves as the census claims. Several items exist only in the ledger. Several more exist only outside it. The bookkeeper has requested a bigger office and, if possible, a smaller fort.",
+   "by": "Our Business Correspondent"
+  },
+  {
+   "id": "x2-ed-cave-fish-review",
+   "kick": "Food Critic",
+   "head": "CAVE FISH: A REVIEW OF SOMETHING WITHOUT EYES",
+   "body": "Caught in the first cavern lake, the cave fish is pale, meek and tastes faintly of the dark. It does not bite like the carp. It does not do anything. Roasted with cave wheat, it achieves a flavour your critic can only describe as 'present.' Recommended for dwarves who find taste exhausting.",
+   "by": "Our Food Critic"
+  },
+  {
+   "id": "x2-ed-large-gem",
+   "kick": "Commentary",
+   "head": "WHERE DOES ONE EVEN FIND 'A LARGE GEM'?",
+   "body": "{moodname} has seized a workshop and is demanding 'shells, cloth and a large gem,' with drawings for clarity. We have checked the stockpiles. We have shells. We have cloth. We have a medium gem and a great deal of hope. Readers are asked to search their coffers before the screaming starts, or the other thing.",
+   "by": "The Editorial Board",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "x2-ed-humans-enormous",
+   "kick": "Business",
+   "head": "THE HUMANS HAVE ARRIVED AND THEY ARE ENORMOUS",
+   "body": "The human caravan reached the depot this week, led by a merchant who had to fold in half to look at our goods. They offered cloth by the acre and cheese by the wheel. We offered stone mugs. They looked at the mugs the way we look at the sky. A deal was eventually struck, mostly by them.",
+   "by": "Our Business Correspondent",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x2-ed-titan-not-hill",
+   "kick": "Military Affairs",
+   "head": "THE TITAN IS NOT A HILL. PLEASE STOP CLIMBING IT.",
+   "body": "Scouts report a titan resting on the eastern slope. Several woodcutters mistook it for a hill and attempted a picnic. The titan has been patient so far. Titans are famously patient, right up to the moment they are not. Raise the bridge. Lower your voices. Leave the sandwiches where they are.",
+   "by": "Our Military Correspondent"
+  },
+  {
+   "id": "x2-ed-summer-sun",
+   "kick": "Weather Desk",
+   "head": "SUMMER: THE SUN IS DOING IT AGAIN",
+   "body": "It is {season}, which on the surface means 'the sun is closer and angrier.' The grass browns. The yaks pant. Haulers return from the depot glowing, and not with joy. We remind readers that the magma sea is also warm and has never once asked you to go outside. Stay downstairs, where weather is a rumour.",
+   "by": "Our Weather Desk",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x2-ed-winter-unchanged",
+   "kick": "Opinion",
+   "head": "WINTER IS HERE AND NOTHING HAS CHANGED. LOVELY.",
+   "body": "Up top, the world has frozen solid. Rivers are roads. Trees are icicles. Elves are complaining. Down here it is the same temperature it has been for two hundred years. Our ancestors solved winter long ago with an invention called 'a roof made of mountain.' Pity the surface. Then get back to work.",
+   "by": "The Editorial Board",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x2-ed-fog-knows-place",
+   "kick": "Weather Desk",
+   "head": "FOG: FINALLY, A SKY THAT KNOWS ITS PLACE",
+   "body": "This morning a fog rolled across the hills and hid the horizon entirely. For a few glorious hours the surface felt cosy, close and only mildly terrifying. Haulers went outside without being dragged. One woodcutter whistled. Then the fog lifted and the sky was back, enormous and unrepentant. We will treasure the memory.",
+   "by": "Our Weather Desk"
+  },
+  {
+   "id": "x2-ed-undead-siege",
+   "kick": "Military Affairs",
+   "head": "THE UNDEAD SIEGE: A FAIR ASSESSMENT",
+   "body": "The dead arrived at dawn and the militia acquitted itself well. Notes for next time: cutting a zombie in half produces two problems. A severed arm does not count as a surrender. And our hauler, who calmly took the remains to the refuse pile, should not have been surprised when the refuse pile stood up.",
+   "by": "Our Military Correspondent"
+  },
+  {
+   "id": "x2-ed-ride-the-minecarts",
+   "kick": "Opinion",
+   "head": "WHY CAN'T WE RIDE THE MINECARTS?",
+   "body": "Every day the minecarts zoom past full of stone, having a lovely time. Every day the haulers walk. This paper asks: why should rocks travel faster than dwarves? The engineering desk replies that rocks do not mind hitting walls. This paper replies that neither do several of our readers. The debate continues.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "x2-ed-astronomy-indoors",
+   "kick": "Science",
+   "head": "ASTRONOMY: A STUDY OF THE STARS, FROM INDOORS",
+   "body": "Our astronomer has published her findings on the night sky without going outside, working from a sketch a migrant made of 'some dots.' Her conclusions: the stars are small, far away and probably gems. The elves dispute this. Our astronomer has asked whether any elf has ever mined a star. None have.",
+   "by": "Our Science Correspondent"
+  },
+  {
+   "id": "x2-ed-tavern-outnumbers",
+   "kick": "Society",
+   "head": "SOCIETY: THE TAVERN NOW OUTNUMBERS THE FORT",
+   "body": "With only {pop} residents, the fort is outnumbered by its own tavern. On any given night you will find a human poet, two elven dancers, a monster hunter, and one dwarf, usually the tavern keeper. Locals are urged to drop in occasionally so the visitors remember whose fort this is.",
+   "by": "Our Society Columnist",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "x2-ed-dear-urist-doctor",
+   "kick": "Advice Column",
+   "head": "DEAR URIST: THE DOCTOR WANTS TO 'TRY SOMETHING'",
+   "body": "Dear Urist, I went to the hospital with a stubbed toe and the doctor says he would like to 'try something he read about.' He is holding a saw. — Toe. Dear Toe: our doctor has read one book, and it was about masonry. Thank him warmly and walk out briskly on whichever foot remains your favourite. — Urist",
+   "by": "Urist, Our Advice Columnist"
+  },
+  {
+   "id": "x2-ed-soap-carving",
+   "kick": "Sport",
+   "head": "SOAP CARVING CHAMPIONSHIP: DOCTOR FURIOUS",
+   "body": "The first soap carving contest produced a ☼soap carp☼, a soap axe and a replica of the mayor that drew gasps for its accuracy and its smell. Sadly, the soap was the hospital's entire supply. The chief medical dwarf called the event 'unsanitary, in the exact opposite way you would expect.'",
+   "by": "Our Sporting Correspondent"
+  },
+  {
+   "id": "x2-ed-library-ghost",
+   "kick": "Religion",
+   "head": "THE GHOST IN THE LIBRARY WOULD LIKE QUIET",
+   "body": "The library now hosts a ghost, believed to be a scholar who died mid-sentence. He haunts the history shelves and shushes anyone who turns a page too loudly. Our religion desk has proposed a memorial slab. The ghost has proposed that we 'finish chapter four first.' Negotiations continue in whispers.",
+   "by": "Our Religion Correspondent"
+  },
+  {
+   "id": "x2-ed-mayor-election",
+   "kick": "Noble Affairs",
+   "head": "ELECTION RESULT: WHOEVER TALKED MOST",
+   "body": "The fort has chosen a new mayor by the traditional method: whoever spent the most time chatting in the meeting hall wins. Our new leader's platform is a fondness for gossip and a promise to 'think about the well.' Her first mandate demands a ☼mug☼. Her second demands that we stop mentioning the first.",
+   "by": "Our Court Correspondent"
+  },
+  {
+   "id": "x2-ed-stress-survey",
+   "kick": "Health",
+   "head": "IS EVERYONE ALRIGHT? A STRESS SURVEY",
+   "body": "This paper asked readers how they feel. Answers included 'fine,' 'fine,' 'I saw a corpse and felt nothing,' and 'please stop asking.' One hauler reported that he 'doesn't really care about anything anymore,' then moved four boulders without complaint. Management calls him a role model. Our health desk calls him concerning.",
+   "by": "Our Health Correspondent"
+  },
+  {
+   "id": "x2-ed-letter-to-world",
+   "kick": "Commentary",
+   "head": "AN OPEN LETTER TO THE PEOPLES OF {world}",
+   "body": "To the civilisations of {world}: we hear you have been talking about us. Yes, we dug too deep once. Yes, the carp incident. Yes, the business with the elf and the chair. But we have also produced fine walls, fine mugs and almost no fires this year. We ask for a fresh start, and that you stop sending necromancers.",
+   "by": "The Editorial Board"
+  }
+ ],
+ "letters": [
+  {
+   "id": "x2-lt-raised-cousin",
+   "body": "my cousin was raised from the dead last week by the necromancer on the hill. He walked straight home and resumed sitting in my chair. Death has not changed him at all. I had rather hoped it would.",
+   "by": "A Disappointed Cousin"
+  },
+  {
+   "id": "x2-lt-drained-roommate",
+   "body": "my roommate does not sleep, eat or drink, and every few nights someone on our corridor wakes up feeling 'drained.' My roommate blames the ale. I would like the ale tested. And my roommate, if possible.",
+   "by": "Name Withheld (Sleeping With A Candle)"
+  },
+  {
+   "id": "x2-lt-night-owl-reply",
+   "body": "I wish to respond to recent gossip. I am simply a night owl with a pale complexion and a light appetite. I have been this way for three hundred years. That is all. Please stop leaving garlic on my desk.",
+   "by": "The Bookkeeper (Age 34)"
+  },
+  {
+   "id": "x2-lt-struck-by-cart",
+   "body": "I was struck by a minecart while crossing the track. I would like to thank the cart for stopping eventually, and the wall for stopping the cart. I would like nothing further to do with the engineer.",
+   "by": "Patient, Traction Bench Two"
+  },
+  {
+   "id": "x2-lt-engineer-proud",
+   "body": "I designed the new minecart line and I want it known that it works perfectly. Stone goes in at the top and arrives at the bottom almost instantly, and often on the correct level.",
+   "by": "The Engineer (Proud)"
+  },
+  {
+   "id": "x2-lt-still-pumping",
+   "body": "I am still at the pump. I was told to work the pump and nobody has told me to stop. Is it still spring? Is there still a fort? Please send ale down the stairs. Gently. I cannot let go of the crank.",
+   "by": "The Pump Operator, Twelve Levels Down"
+  },
+  {
+   "id": "x2-lt-floating-furniture",
+   "body": "one of the pumps in the stack was installed backwards. I know this because I live at the bottom of the stack. My furniture now floats. I am told the design is 'very elegant.' So is my bed. It is drifting toward the door.",
+   "by": "A Resident Of The Bottom"
+  },
+  {
+   "id": "x2-lt-thrown-meals",
+   "body": "I have been in the hospital a whole season and wish to praise the care. I would also ask why my meals arrive by being thrown through the doorway. I am told it 'saves time.' I am in traction. I have not caught one.",
+   "by": "Bed Four, Hospital"
+  },
+  {
+   "id": "x2-lt-which-leg",
+   "body": "the chief medical dwarf diagnosed me with 'a bad leg.' Very precise. When I asked which leg, he looked at both of them for a long time and said 'yes.'",
+   "by": "{citizen}"
+  },
+  {
+   "id": "x2-lt-bard-petition",
+   "body": "I am a travelling bard and have performed in your tavern every night for a year. I hereby petition for residency. I have also composed a song about your mayor. Approve my petition and nobody need ever hear it.",
+   "by": "A Visiting Bard (Very Talented)"
+  },
+  {
+   "id": "x2-lt-dancers-tables",
+   "body": "the visiting dancers have performed 'The Leaping of Ages' eleven times this week. It is very energetic. It involves our tables. I would like, once, to eat at a table that is not also a stage.",
+   "by": "A Diner Who Has Been Kicked"
+  },
+  {
+   "id": "x2-lt-tavern-mugs",
+   "body": "as your tavern keeper, I remind patrons that the mugs belong to the tavern. They are not souvenirs, weapons or hats. I have one mug left. I sleep holding it.",
+   "by": "The Tavern Keeper"
+  },
+  {
+   "id": "x2-lt-mud-rebuttal",
+   "body": "I am a scholar and the author of 'On The Nature Of Mud.' A rival has published 'Mud: A Rebuttal.' I challenge him to a public debate or a wrestling match, whichever he is worse at.",
+   "by": "A Scholar Of Mud"
+  },
+  {
+   "id": "x2-lt-loud-philosopher",
+   "body": "the library is meant to be quiet, yet every evening a philosopher climbs onto a table and asks 'what is a beard, really?' at full volume. I know what a beard is. I am wearing one. Please make him stop.",
+   "by": "Trying To Read In Peace"
+  },
+  {
+   "id": "x2-lt-bedroom-is-pipe",
+   "body": "I was against tapping the aquifer, but I must admit the water is excellent. I would admit it more warmly if my former bedroom were not now the pipe.",
+   "by": "A Former Bedroom Owner"
+  },
+  {
+   "id": "x2-lt-aquifer-crew",
+   "body": "I am on the crew digging through the frozen aquifer this winter. If you are reading this, I am either finished or extremely wet. Please check on me, and bring a towel either way.",
+   "by": "The Aquifer Crew",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x2-lt-militia-mother",
+   "body": "I am a mother in the militia and I will bring my baby to battle if I please. She has more kills than half of Squad Two. Squad Two knows what they did.",
+   "by": "A Militia Mother"
+  },
+  {
+   "id": "x2-lt-squad-two-reply",
+   "body": "I write on behalf of Squad Two to clarify that the baby had help. We softened that goblin up considerably. We simply did not finish him. Babies get all the glory.",
+   "by": "Squad Two (Collectively)"
+  },
+  {
+   "id": "x2-lt-mug-count",
+   "body": "I am the bookkeeper and I have finished counting. I now know exactly how many mugs were thrown this year. The number is larger than the number of mugs. I am looking into it.",
+   "by": "The Bookkeeper (Weary)"
+  },
+  {
+   "id": "x2-lt-corridor-ledgers",
+   "body": "I have been asked to keep the ledgers in a corridor because there is 'no room for an office.' There is room for a second statue garden. I have counted the statues. Twice. Out of spite.",
+   "by": "The Bookkeeper (Corridor Branch)"
+  },
+  {
+   "id": "x2-lt-eyeless-stare",
+   "body": "I caught a cave fish today. It has no eyes. It stared at me anyway. I have released it and moved bedrooms.",
+   "by": "A Fisherdwarf, Lower Cavern"
+  },
+  {
+   "id": "x2-lt-defence-cave-fish",
+   "body": "in defence of cave fish: yes, it is pale, and yes, it tastes like the dark, but it has never once dragged anyone into a lake. Can the carp say the same? The carp cannot.",
+   "by": "The Cook"
+  },
+  {
+   "id": "x2-lt-bones-seen-sun",
+   "body": "{moodname} has asked me for 'the bones of a creature that has seen the sun.' I offered a yak bone. Apparently the yak 'did not truly see it.' Please advise quickly; there is screaming.",
+   "by": "{citizen}, Stockpile Keeper",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "x2-lt-partly-my-crown",
+   "body": "I gave up my only pearl to a dwarf in a strange mood. He made a ☼crown☼ with it and now wears it to dinner. I would like the record to show that it is partly my crown.",
+   "by": "A Former Pearl Owner"
+  },
+  {
+   "id": "x2-lt-tall-for-target",
+   "body": "the human trader told me I was 'very short, for a merchant.' I told him he was 'very tall, for a target.' We then had a very pleasant trade.",
+   "by": "A Depot Clerk",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x2-lt-liaison-beer",
+   "body": "the human liaison asked our mayor which goods we would like to see next year. The mayor said 'beer.' The liaison wrote it down. Next year we will receive beer. Diplomacy is sometimes simple.",
+   "by": "The Mayor's Assistant"
+  },
+  {
+   "id": "x2-lt-farm-on-titan",
+   "body": "I would like to apologise to the titan. I thought it was a hill and planted a farm on it. The farm is now somewhere else, and so is the titan, and I am in the hospital.",
+   "by": "A Farmer (Former)"
+  },
+  {
+   "id": "x2-lt-love-fog",
+   "body": "it was foggy today and I have never been happier. I could not see the sky, the horizon or a single elf. Can we have fog every day? I will pay for it in socks.",
+   "by": "A Woodcutter Who Loves Fog"
+  },
+  {
+   "id": "x2-lt-courtyard-swamp",
+   "body": "the {weather} has turned the courtyard into a swamp, and a small fish has been seen in it. Please, nobody tell the carp there is a new lake.",
+   "by": "{citizen}",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x2-lt-yak-hair-migrant",
+   "body": "it is {season} and the yaks are moulting. There is so much hair in the pasture that I mistook a heap of it for a migrant and assigned it a bed.",
+   "by": "The Animal Caretaker",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x2-lt-elf-flower",
+   "body": "an elf came all the way from the forest to tell me the trees are blooming, and brought me a flower. I hauled it to the refuse pile out of habit. He has not stopped crying.",
+   "by": "A Hauler, On Reflection",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "x2-lt-librarian-clarifies",
+   "body": "I wish to clarify that becoming a necromancer is not an inevitable consequence of reading too much. It is merely a common one. The library remains open.",
+   "by": "The Head Librarian"
+  },
+  {
+   "id": "x2-lt-waving-hand",
+   "body": "a severed hand has been wandering the lower corridor for a week. It has not hurt anyone. It waved at me. I waved back. Should I have? I feel we are now acquainted.",
+   "by": "A Dwarf, Lower Corridor"
+  },
+  {
+   "id": "x2-lt-well-echo",
+   "body": "I dropped a bucket down the well and shouted my name to hear the echo. The echo shouted back a different name. I will not be returning to the well.",
+   "by": "Name Withheld (Out Of Fear Of The Well)"
+  },
+  {
+   "id": "x2-lt-coin-wall",
+   "body": "I have been paid in coins for ten years and have nowhere to spend them. I have built a small coin wall in my bedroom. The bookkeeper calls this 'technically an investment.'",
+   "by": "{citizen}"
+  },
+  {
+   "id": "x2-lt-nothing-rhymes-lye",
+   "body": "I am the soap maker. Nobody has ever thanked me, yet whenever the hospital runs out, the whole fort suddenly knows my name. I would like a song. The bard says nothing rhymes with lye.",
+   "by": "The Soap Maker"
+  },
+  {
+   "id": "x2-lt-catapult-practice",
+   "body": "I am the siege operator. I have been told to stop firing the catapult at the elven caravan 'for practice.' I would like the elves to know that the practice is going very well.",
+   "by": "The Siege Operator"
+  },
+  {
+   "id": "x2-lt-green-window",
+   "body": "I paid for a green glass window so I could enjoy the view. The view is the next room, where {citizen2} has been looking back. We are now friends. That was not the plan.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "x2-lt-gem-premonition",
+   "body": "I hear there are {gems} gems in the vault. I would like one. Not for anything. I just have a feeling a mood is coming and I like to be prepared.",
+   "by": "{citizen}",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "x2-lt-dogs-no-fetch",
+   "body": "{dogs} dogs and not one of them will fetch. I threw a stick yesterday. It is still on the floor. Every dog looked at it, then at me, with pity.",
+   "by": "A Disappointed Hunter",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "x2-lt-reserve-a-log",
+   "body": "I would like a wooden coffin when I go. I am told there are only {wood} logs left and I will 'probably get stone.' I am not dead yet. I would like to reserve a log.",
+   "by": "An Elderly Carpenter",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "x2-lt-artifact-maker",
+   "body": "{artifact} has been placed on a pedestal in the library and the scholars have written four books about it. I made it. Not one of them has asked me a single question.",
+   "by": "The Maker, Ignored"
+  },
+  {
+   "id": "x2-lt-tall-guest",
+   "body": "I am a human merchant from elsewhere in {world}. Your dwarves are very kind, but I would like a bed I can lie down in without my feet in the corridor.",
+   "by": "A Tall Guest"
+  }
+ ],
+ "classifieds": [
+  {
+   "id": "x2-cl-wanted-cart-yeller",
+   "tag": "Wanted",
+   "text": "Stout dwarf to stand at the bottom of the minecart ramp and yell 'CART!' Must be loud. Must be fast. Must not still be there when it arrives."
+  },
+  {
+   "id": "x2-cl-sale-bent-minecart",
+   "tag": "For Sale",
+   "text": "Minecart, slightly bent. Driven once through a wall at full speed. Still rolls, mostly to the left."
+  },
+  {
+   "id": "x2-cl-lost-commute",
+   "tag": "Lost",
+   "text": "My route to work. The engineers laid a minecart track straight through it. I now commute by careful hopping."
+  },
+  {
+   "id": "x2-cl-services-backwards-pump",
+   "tag": "Services",
+   "text": "Pump stack inspections. We find the pump that is backwards. There is always one pump that is backwards."
+  },
+  {
+   "id": "x2-cl-wanted-drain",
+   "tag": "Wanted",
+   "text": "Anyone who knows where the drain goes. The pump stack moves water up beautifully. Nobody planned for down."
+  },
+  {
+   "id": "x2-cl-rooms-pump-side",
+   "tag": "Rooms",
+   "text": "Cosy bedroom beside the pump stack. Soothing creak, rhythmic slosh, occasional total flood. Priced to move, ideally upward."
+  },
+  {
+   "id": "x2-cl-found-library-zombie",
+   "tag": "Found",
+   "text": "One zombie, standing in the library, reading nothing, for a week. The scholars have not noticed. Militia please collect quietly."
+  },
+  {
+   "id": "x2-cl-personal-night-owl",
+   "tag": "Personal",
+   "text": "Pale gentledwarf, eternally 34, night owl, light eater, seeks companion for midnight walks. Must have a strong pulse and a poor memory."
+  },
+  {
+   "id": "x2-cl-seeking-second-opinion",
+   "tag": "Seeking",
+   "text": "A second opinion. The first opinion was 'amputate,' delivered before I had finished saying 'splinter.'"
+  },
+  {
+   "id": "x2-cl-sale-crutch",
+   "tag": "For Sale",
+   "text": "Crutch, one, barely leaned on. Owner recovered fully, then danced, then needed two."
+  },
+  {
+   "id": "x2-cl-apology-humming-doctor",
+   "tag": "Apology",
+   "text": "To the chief medical dwarf: I am sorry I fled mid-suture. You were humming. It felt like an omen."
+  },
+  {
+   "id": "x2-cl-notice-endless-mug",
+   "tag": "Notice",
+   "text": "The tavern's 'Endless Mug' is not a promise. It is the name of the mug. Please return it."
+  },
+  {
+   "id": "x2-cl-wanted-shorter-poet",
+   "tag": "Wanted",
+   "text": "A poet with fewer than nine verses. Any subject. The current poet's epic about his own beard is entering its third season."
+  },
+  {
+   "id": "x2-cl-personal-dancer",
+   "tag": "Personal",
+   "text": "Visiting dancer seeks a partner who can keep pace. Previous partner retired to a chair and refuses to leave it."
+  },
+  {
+   "id": "x2-cl-trade-well-poem",
+   "tag": "For Trade",
+   "text": "One poem, handwritten, about the well. Will trade for a drink from the well. Or any drink. Or silence."
+  },
+  {
+   "id": "x2-cl-services-titan-horn",
+   "tag": "Services",
+   "text": "Instrument maker. Lyres, drums, and a horn carved from a titan's toenail. Sounds like nothing you have heard. Like nothing you want to."
+  },
+  {
+   "id": "x2-cl-wanted-library-quiet",
+   "tag": "Wanted",
+   "text": "Quiet. Library patrons, please stop gasping at plot twists. It is a history of masonry. There was one plot twist, on page forty, and it was a lintel."
+  },
+  {
+   "id": "x2-cl-lost-secret-recipe",
+   "tag": "Lost",
+   "text": "A scroll titled 'My Secret Recipe.' If found, do not read it. Especially do not read it aloud in the dining hall. Again."
+  },
+  {
+   "id": "x2-cl-sale-elf-phrasebook",
+   "tag": "For Sale",
+   "text": "Book, lightly used: 'How To Speak To Elves.' The pages are blank. That is the advice."
+  },
+  {
+   "id": "x2-cl-missing-research-scholar",
+   "tag": "Missing",
+   "text": "One scholar, last seen near the necromancer's tower 'for research.' If he returns, check for a pulse before giving back his room."
+  },
+  {
+   "id": "x2-cl-rooms-library-nook",
+   "tag": "Rooms",
+   "text": "Library nook, quiet, warm, very small. Ideal for scholars who enjoy reading by the light of somebody else's lamp."
+  },
+  {
+   "id": "x2-cl-free-aquifer-water",
+   "tag": "Free",
+   "text": "Water from the new aquifer well. Clear, cold, endless. Endless is the problem. Bring buckets. Bring everyone's buckets."
+  },
+  {
+   "id": "x2-cl-sale-sandy-layer",
+   "tag": "For Sale",
+   "text": "Sand, from the sandy layer just above the aquifer. Excellent for glass. We dug it out ourselves. Then, briefly, we swam."
+  },
+  {
+   "id": "x2-cl-found-barracks-baby",
+   "tag": "Found",
+   "text": "A baby, in the barracks, holding a crossbow bolt. Mother identified, militia notified, bolt confiscated, baby displeased."
+  },
+  {
+   "id": "x2-cl-wanted-siege-sitter",
+   "tag": "Wanted",
+   "text": "Babysitter for siege days. Must hold an infant and a shield. Ideally not the infant's mother, who keeps charging."
+  },
+  {
+   "id": "x2-cl-services-freelance-count",
+   "tag": "Services",
+   "text": "Freelance bookkeeping. I count your belongings to the last item, announce that something is missing, and refuse to say which."
+  },
+  {
+   "id": "x2-cl-notice-recount",
+   "tag": "Notice",
+   "text": "The bookkeeper is not ignoring you. He is recounting the same barrel. The barrel keeps being hauled."
+  },
+  {
+   "id": "x2-cl-sale-glowing-fish",
+   "tag": "For Sale",
+   "text": "Cave fish, eyeless, very fresh. Slight glow. The glow is normal. We think."
+  },
+  {
+   "id": "x2-cl-wanted-lake-fisher",
+   "tag": "Wanted",
+   "text": "Fisherdwarf for the cavern lake. Cave fish harmless. Cave crocodiles less so. Please fish quickly."
+  },
+  {
+   "id": "x2-cl-seeking-not-large",
+   "tag": "Seeking",
+   "text": "A moody craftsdwarf urgently wants 'the bones of something large.' Volunteers who are not large are asked to line up anyway, so she can rule them out."
+  },
+  {
+   "id": "x2-cl-trade-shell-protection",
+   "tag": "For Trade",
+   "text": "One shell, rare, exotic, irresistible to moody craftsdwarves. Will trade for protection from moody craftsdwarves."
+  },
+  {
+   "id": "x2-cl-apology-big-one",
+   "tag": "Apology",
+   "text": "To the human merchant I kept calling 'the big one': you were all big. I should have been more specific."
+  },
+  {
+   "id": "x2-cl-notice-duck-twice",
+   "tag": "Notice",
+   "text": "Human visitors: our doorways were built for dwarves. Duck. Then duck again. The second door is lower."
+  },
+  {
+   "id": "x2-cl-sale-human-bed",
+   "tag": "For Sale",
+   "text": "Human-sized bed, bought from the caravan by mistake. Sleeps four dwarves, or one dwarf with strong opinions about space."
+  },
+  {
+   "id": "x2-cl-reward-woke-titan",
+   "tag": "Reward",
+   "text": "For information on whoever woke the titan. Not to punish you. Just so you can apologise to it, from very far away."
+  },
+  {
+   "id": "x2-cl-missing-eastern-hill",
+   "tag": "Missing",
+   "text": "The eastern hill. Last seen standing up and walking off. Please do not go looking for it. It may come looking for you."
+  },
+  {
+   "id": "x2-cl-lost-in-fog",
+   "tag": "Lost",
+   "text": "In the fog: one hauler, one wheelbarrow, one sense of direction. Last heard humming cheerfully near the depot. First time he has hummed in years."
+  },
+  {
+   "id": "x2-cl-wanted-shovels-mud",
+   "tag": "Wanted",
+   "text": "Shovels. The courtyard is mud to the knee. A yak has been missing since breakfast, although we can still see its horns.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x2-cl-free-snow",
+   "tag": "Free",
+   "text": "Snow. All you want. Shovel it out of the entrance and keep it. Please. Keep all of it.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x2-cl-personal-seeks-cloud",
+   "tag": "Personal",
+   "text": "Lonely woodcutter seeks cloud. Any cloud. The sky is clear today and I feel very exposed.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "x2-cl-services-cellar-tours",
+   "tag": "Services",
+   "text": "Cellar tours this {season}. Come downstairs where it is cool. Stay as long as you like. Several guests have stayed until autumn.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x2-cl-trade-berries-volunteer",
+   "tag": "For Trade",
+   "text": "One sack of autumn berries for one dwarf willing to go outside next time instead of me.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "x2-cl-wanted-ice-breaker",
+   "tag": "Wanted",
+   "text": "Someone to break the ice on the well each morning this {season}. Bring a pick. Bring a second pick. Bring a third; the first two are in the well.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x2-cl-wanted-song-sponsor",
+   "tag": "Wanted",
+   "text": "{citizen_first} seeks a sponsor for a new tavern song form. Requires three dancers, a drum, and something that goes 'bong.'"
+  },
+  {
+   "id": "x2-cl-notice-schedule-injuries",
+   "tag": "Notice",
+   "text": "With {pop} dwarves sharing the hospital's beds, injuries must now be scheduled. Thursday is full.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "x2-cl-wanted-bandage-cloth",
+   "tag": "Wanted",
+   "text": "Cloth for bandages. The fort holds {cloth} bolts, all reserved for 'fashion.' Fashion does not stop bleeding."
+  },
+  {
+   "id": "x2-cl-reward-coffin-necro",
+   "tag": "Reward",
+   "text": "To whoever finds {deadname}'s missing coffin before the necromancer does. He has been asking around.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x2-cl-found-mineral-cart",
+   "tag": "Found",
+   "text": "{mineral}, in a minecart, with no miner. The miner is presumably further up the track, walking.",
+   "when": [
+    "recent_strike"
+   ]
+  },
+  {
+   "id": "x2-cl-wanted-pump-blocks",
+   "tag": "Wanted",
+   "text": "Engineer requires {blocks} blocks for a new pump stack. That is all of them. He promises this is the last pump stack, as he did last time."
+  },
+  {
+   "id": "x2-cl-personal-tavern-human",
+   "tag": "Personal",
+   "text": "{citizen} would like {citizen2} to know they were seen dancing with a human at the tavern. We are not jealous. We are taller than we look."
+  },
+  {
+   "id": "x2-cl-services-necro-removal",
+   "tag": "Services",
+   "text": "Necromancer removal. We knock on the tower, ask him nicely to leave, and run. Results vary. The running is guaranteed."
+  },
+  {
+   "id": "x2-cl-apology-cart-soup",
+   "tag": "Apology",
+   "text": "To everyone in the dining hall: the minecart was not supposed to go that far. Or that fast. Or through the soup."
+  },
+  {
+   "id": "x2-cl-notice-monster-hunter",
+   "tag": "Notice",
+   "text": "Visiting monster hunter seeks monsters. We pointed him at the caverns, the titan and the bookkeeper. He chose the bookkeeper. We wish him well."
+  },
+  {
+   "id": "x2-cl-free-syrup-beard",
+   "tag": "Free",
+   "text": "Dwarven syrup, half a jug, now permanently stuck to the jug. And the table. And my beard. Beard not included, though it may come with it."
+  }
+ ],
+ "notices": [
+  {
+   "id": "x2-nt-carts-right-of-way",
+   "text": "Minecarts have right of way. They insist."
+  },
+  {
+   "id": "x2-nt-not-a-rock",
+   "text": "Do not ride in the minecarts. They are for rocks. You are not a rock, however you feel today."
+  },
+  {
+   "id": "x2-nt-look-three-ways",
+   "text": "At track crossings: look left, look right, look left again. The cart is behind you."
+  },
+  {
+   "id": "x2-nt-gears-load-bearing",
+   "text": "Do not fiddle with the pump stack gears. Every gear is load-bearing. Somehow."
+  },
+  {
+   "id": "x2-nt-flooded-on-purpose",
+   "text": "The lower levels are flooded on purpose. Mostly."
+  },
+  {
+   "id": "x2-nt-visiting-hours",
+   "text": "Hospital visiting hours: whenever the patient cannot run away."
+  },
+  {
+   "id": "x2-nt-soap-not-snack",
+   "text": "Hospital soap is not a snack, a carving block or a gift."
+  },
+  {
+   "id": "x2-nt-traction-coat-rack",
+   "text": "Patients in traction are not coat racks."
+  },
+  {
+   "id": "x2-nt-paid-in-applause",
+   "text": "Tavern performers are paid in applause. Please applaud harder; they are hungry."
+  },
+  {
+   "id": "x2-nt-dancing-tables",
+   "text": "Table dancing in the tavern only. The dining hall tables have filed a grievance."
+  },
+  {
+   "id": "x2-nt-petition-daily",
+   "text": "Visitors may petition for residency no more than once per day."
+  },
+  {
+   "id": "x2-nt-books-not-props",
+   "text": "Library books are for reading, not for propping up wobbly scholars."
+  },
+  {
+   "id": "x2-nt-debates-to-quarry",
+   "text": "Loud scholarly debates will be relocated to the quarry, where it is louder."
+  },
+  {
+   "id": "x2-nt-no-necro-cards",
+   "text": "Necromancers are not eligible for library cards."
+  },
+  {
+   "id": "x2-nt-dead-stay-put",
+   "text": "The dead are asked to remain where they were put."
+  },
+  {
+   "id": "x2-nt-uncle-not-uncle",
+   "text": "If your late uncle comes home, do not let him in. He is not your uncle any more. He just looks like him, but worse."
+  },
+  {
+   "id": "x2-nt-garlic-suspended",
+   "text": "Garlic sales suspended at the request of the bookkeeper."
+  },
+  {
+   "id": "x2-nt-aquifer-lying",
+   "text": "The new well is open. Do not drink from the aquifer directly by lying in it."
+  },
+  {
+   "id": "x2-nt-infants-no-weapons",
+   "text": "Infants are not issued weapons. They keep finding them anyway."
+  },
+  {
+   "id": "x2-nt-collect-babies",
+   "text": "Squad mothers: please collect your babies after the siege. We have four unclaimed."
+  },
+  {
+   "id": "x2-nt-count-the-knocks",
+   "text": "The bookkeeper's door is closed. That means counting. Do not knock; he will count the knocks."
+  },
+  {
+   "id": "x2-nt-cave-fish-pets",
+   "text": "Cave fish are not pets. They do not know they are pets. They do not know anything."
+  },
+  {
+   "id": "x2-nt-lake-after-dark",
+   "text": "No fishing in the cavern lake after dark. It is always dark. No fishing in the cavern lake."
+  },
+  {
+   "id": "x2-nt-mood-no-haggling",
+   "text": "Mood materials are to be surrendered without argument, haggling or a sad face."
+  },
+  {
+   "id": "x2-nt-shells-property",
+   "text": "All shells in the fort are the property of whoever is about to have a mood."
+  },
+  {
+   "id": "x2-nt-humans-mind-heads",
+   "text": "Humans in the depot: mind your heads on the ceiling, the lintel and the noble."
+  },
+  {
+   "id": "x2-nt-nothing-breathing",
+   "text": "Do not sell the humans anything that is still breathing."
+  },
+  {
+   "id": "x2-nt-hill-moved",
+   "text": "The hill on the horizon has moved. Do not go near the hill."
+  },
+  {
+   "id": "x2-nt-titan-quietly",
+   "text": "All titan sightings must be reported. Quietly."
+  },
+  {
+   "id": "x2-nt-fog-reprieve",
+   "text": "Fog advisory: the sky is temporarily hidden. Go outside while you can bear it."
+  },
+  {
+   "id": "x2-nt-summer-complaints",
+   "text": "Haulers working outdoors this {season} are entitled to one complaint per hour.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x2-nt-winter-yaks",
+   "text": "{season} reminder: frozen yaks are not statues. Please bring them inside.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x2-nt-spring-river",
+   "text": "The thaw has begun. All dwarves off the river before it remembers being a river.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "x2-nt-autumn-leaves",
+   "text": "Leaves are falling outside. Do not haul them. They are not ours.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "x2-nt-tavern-pour-own",
+   "text": "{pop} dwarves, one tavern keeper. Pour your own.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "x2-nt-tavern-counting",
+   "text": "{drinks} drinks in stock. The tavern keeper has been asked to stop counting aloud. He is weeping with joy.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "x2-nt-deadname-catacombs",
+   "text": "{deadname} will be laid to rest in the catacombs. Any reappearance will be handled by the militia, gently.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "x2-nt-mood-silence-fish",
+   "text": "{moodname} has requested silence and a cave fish. Please provide both.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "x2-nt-no-wrestling-guards",
+   "text": "Caravan guards are guests. Do not challenge them to wrestling. Again.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x2-nt-mineral-cart",
+   "text": "{mineral} cart now running. Stand clear of the track or become part of the shipment.",
+   "when": [
+    "recent_strike"
+   ]
+  },
+  {
+   "id": "x2-nt-bards-masterwork",
+   "text": "{masterwright} has made a {masterwork}. The bards are already writing about it. Brace yourselves.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "x2-nt-post-near-tavern",
+   "text": "The new {post}, {promoted}, has requested an office near the tavern. Approved, sadly.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "x2-nt-rope-too",
+   "text": "The well bucket is on a rope for a reason. Please return the rope too."
+  },
+  {
+   "id": "x2-nt-coins-not-anything",
+   "text": "Coins are not food. Coins are not mood materials. Coins are, it turns out, not anything."
+  },
+  {
+   "id": "x2-nt-levers-order",
+   "text": "Lever 12 floods the cavern. Lever 13 drains it. Do not pull them in that order."
+  }
+ ],
+ "proverbs": [
+  {
+   "id": "x2-pv-bolt-the-lid",
+   "text": "The dead walk only where the living forgot to bolt the lid."
+  },
+  {
+   "id": "x2-pv-necro-friends",
+   "text": "A necromancer is a scholar with no friends among the living."
+  },
+  {
+   "id": "x2-pv-tower-book",
+   "text": "Never lend a book to a dwarf who owns a tower."
+  },
+  {
+   "id": "x2-pv-sleepless-bookkeeper",
+   "text": "A bookkeeper who never sleeps keeps more than ledgers."
+  },
+  {
+   "id": "x2-pv-cart-regret",
+   "text": "The minecart does not brake for regret."
+  },
+  {
+   "id": "x2-pv-track-ends-wall",
+   "text": "Every minecart track ends in a wall, eventually."
+  },
+  {
+   "id": "x2-pv-water-pump-operator",
+   "text": "Water flows downhill, the pump flows uphill, and the operator flows nowhere."
+  },
+  {
+   "id": "x2-pv-humming-doctor",
+   "text": "Fear the doctor who hums."
+  },
+  {
+   "id": "x2-pv-soap-heals",
+   "text": "A hospital with soap heals twice as fast as a hospital with opinions."
+  },
+  {
+   "id": "x2-pv-bard-missed-battle",
+   "text": "The bard sings longest about the battle he missed."
+  },
+  {
+   "id": "x2-pv-tavern-without-poet",
+   "text": "A tavern without a poet is quieter, and that is all there is to say."
+  },
+  {
+   "id": "x2-pv-disagree-in-ink",
+   "text": "Scholars write books so other scholars may disagree in ink."
+  },
+  {
+   "id": "x2-pv-library-quarry",
+   "text": "A library is a quarry for the mind. Mind the cave-ins."
+  },
+  {
+   "id": "x2-pv-tap-twice",
+   "text": "Tap the aquifer once and you have a well. Tap it twice and you have a lake."
+  },
+  {
+   "id": "x2-pv-baby-nap",
+   "text": "A baby in battle has nothing to lose but its nap."
+  },
+  {
+   "id": "x2-pv-bookkeeper-knows",
+   "text": "The bookkeeper knows how many mugs you broke."
+  },
+  {
+   "id": "x2-pv-cave-fish-fear",
+   "text": "The cave fish fears nothing, for it has seen nothing."
+  },
+  {
+   "id": "x2-pv-mood-stockpile",
+   "text": "The mood takes what it needs, and the stockpile weeps."
+  },
+  {
+   "id": "x2-pv-bone-is-yours",
+   "text": "A strange mood asks for only one bone, and it is always yours."
+  },
+  {
+   "id": "x2-pv-trade-human-short",
+   "text": "Trade with a human, and you will both leave feeling short."
+  },
+  {
+   "id": "x2-pv-hill-stands",
+   "text": "When the hill stands up, sit down."
+  },
+  {
+   "id": "x2-pv-fog-polite",
+   "text": "Fog is the sky trying to be polite."
+  },
+  {
+   "id": "x2-pv-summer-reminder",
+   "text": "Summer bakes the surface so dwarves remember why they left it."
+  },
+  {
+   "id": "x2-pv-winter-brewer",
+   "text": "Winter freezes the brook, but never the brewer."
+  },
+  {
+   "id": "x2-pv-same-mud",
+   "text": "Spring mud and autumn mud are the same mud, older."
+  },
+  {
+   "id": "x2-pv-coin-stacked",
+   "text": "A coin unspent is a coin well stacked."
+  },
+  {
+   "id": "x2-pv-syrup-beard",
+   "text": "Syrup in the beard outlasts syrup in the jug."
+  },
+  {
+   "id": "x2-pv-well-echoes",
+   "text": "The well echoes only what the well wishes."
+  },
+  {
+   "id": "x2-pv-trap-knows-step",
+   "text": "The trap you built knows your step and welcomes the goblin's."
+  },
+  {
+   "id": "x2-pv-catapult-hobby",
+   "text": "The first catapult stone is a warning; the second is a hobby."
+  },
+  {
+   "id": "x2-pv-soap-maker-thanked",
+   "text": "The soap maker is thanked only when there is no soap."
+  },
+  {
+   "id": "x2-pv-socks-bandages",
+   "text": "Weave socks for the feet and bandages for the folly."
+  },
+  {
+   "id": "x2-pv-dancers-floor",
+   "text": "The dancer's stage is the diner's table."
+  }
+ ],
+ "almanac": [
+  {
+   "id": "x2-al-raised-hand",
+   "text": "The constellation of the Raised Hand is visible this week. Check that all buried relatives remain buried."
+  },
+  {
+   "id": "x2-al-pump-omens",
+   "text": "Pump operators: the omens predict another week of pumping. The omens are guessing, but they are rarely wrong."
+  },
+  {
+   "id": "x2-al-cart-bends",
+   "text": "Minecart riders (there are none, officially): beware sharp bends this week, and every week."
+  },
+  {
+   "id": "x2-al-scholars-readers",
+   "text": "A good week for scholars, who will finish a book. A poor week for everyone else, who will be handed it."
+  },
+  {
+   "id": "x2-al-house-bookkeeper",
+   "text": "The moon enters the House of the Bookkeeper. Everything you own will be counted, and found wanting."
+  },
+  {
+   "id": "x2-al-cave-fish-rise",
+   "text": "Cave fish rise toward the lake surface this week, seeking a light they have never seen. Fisherdwarves: be that light, briefly."
+  },
+  {
+   "id": "x2-al-lute-visitor",
+   "text": "Expect a visitor at the tavern bearing a lute, a long story and no intention of leaving."
+  },
+  {
+   "id": "x2-al-infants-drafted",
+   "text": "Infants born this season will be strong, loud and, in all likelihood, drafted."
+  },
+  {
+   "id": "x2-al-titan-tiptoe",
+   "text": "A titan dozes on the eastern hills. The omens advise everyone to tiptoe until further notice."
+  },
+  {
+   "id": "x2-al-fog-reprieve",
+   "text": "Fog is predicted. Dwarves suffering sky-fright may enjoy a brief reprieve. Elves will get lost in it, which is a bonus."
+  },
+  {
+   "id": "x2-al-summer-humans",
+   "text": "Summer: the human caravan approaches, along with its height. Practise looking up without screaming.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x2-al-winter-sieges",
+   "text": "Winter: excellent conditions for a siege, if you are a goblin, and for staying in bed, if you are anyone else.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x2-al-spring-stumps",
+   "text": "Spring: the elves return to inspect last year's stumps. Plant a sapling near the depot and look innocent.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "x2-al-autumn-relatives",
+   "text": "Autumn: the dwarven caravan comes home from the mountainhomes. Expect gossip, beer and relatives.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "x2-al-rain-engravers",
+   "text": "{weather} forecast. Mud will be tracked across every engraved floor. The engravers have been sedated in advance.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "x2-al-snow-herd-sneezes",
+   "text": "{weather} continues. The pasture has become one white yak-shaped mystery. Count the herd by sneezes.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "x2-al-mood-door",
+   "text": "A workshop door will remain shut for some days. When it opens, the fort will be one artifact richer and one stockpile poorer.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "x2-al-year-hospital",
+   "text": "In the year {year} the stars counsel: build a hospital before you need one. They have seen your stairs."
+  },
+  {
+   "id": "x2-al-world-necromancers",
+   "text": "Across {world} the necromancers are restless. Fortunately so are the goblins, and the two rarely coordinate."
+  },
+  {
+   "id": "x2-al-bardic-stars",
+   "text": "The bardic stars align: every poem recited this week will turn out to be about the poet."
+  },
+  {
+   "id": "x2-al-coins-week",
+   "text": "A strong week for coins. They will stay exactly where you stacked them, which is all coins have ever done."
+  }
+ ],
+ "trivia": [
+  {
+   "id": "x2-tv-necro-librarians",
+   "text": "Did you know? Most necromancers began as librarians who were told to 'keep it down' one time too many."
+  },
+  {
+   "id": "x2-tv-vampire-ledgers",
+   "text": "Did you know? Forts with vampire bookkeepers report the most accurate ledgers and the most tired residents."
+  },
+  {
+   "id": "x2-tv-first-minecart",
+   "text": "On this day, the first minecart was built. Its first passenger was a rock. Its second was an engineer who 'just wanted to see.'"
+  },
+  {
+   "id": "x2-tv-longest-pump-stack",
+   "text": "Did you know? The tallest pump stack ever built needed forty operators and lifted water eleven levels, so it could fall back down twelve."
+  },
+  {
+   "id": "x2-tv-traction-mug",
+   "text": "Did you know? A dwarf in traction can still throw a mug, though only straight up."
+  },
+  {
+   "id": "x2-tv-first-handwash",
+   "text": "On this day, a doctor washed his hands with soap for the first time. Nobody noticed, and the hospital's survival rate doubled."
+  },
+  {
+   "id": "x2-tv-poetic-forms",
+   "text": "Did you know? Dwarven bards recognise fifty-seven poetic forms, fifty-five of which are about axes."
+  },
+  {
+   "id": "x2-tv-long-recital",
+   "text": "On this day, a visiting poet recited for so long that half his audience aged out of the militia."
+  },
+  {
+   "id": "x2-tv-grocery-list",
+   "text": "Did you know? The oldest book in the dwarven libraries is a grocery list. Scholars have written nine commentaries on it."
+  },
+  {
+   "id": "x2-tv-aquifer-capacity",
+   "text": "Did you know? An aquifer holds enough water to fill every mug in the fort, then every bedroom, then the fort."
+  },
+  {
+   "id": "x2-tv-sling-baby",
+   "text": "On this day, a baby in a sling slew a goblin lasher during a siege. Nobody has told her yet."
+  },
+  {
+   "id": "x2-tv-infant-sleep",
+   "text": "Did you know? Dwarven infants can sleep through a siege, a cave-in and a bard, but not through the word 'bath.'"
+  },
+  {
+   "id": "x2-tv-bookkeeper-precision",
+   "text": "Did you know? A bookkeeper's precision can be raised from 'estimated' to 'exact,' at the cost of a dwarf who can never stop counting."
+  },
+  {
+   "id": "x2-tv-cave-fish-sky",
+   "text": "Did you know? Cave fish have lived in darkness so long that they consider the sky a myth, as do most of our readers."
+  },
+  {
+   "id": "x2-tv-soft-and-sad",
+   "text": "On this day, a strange mood demanded 'something soft and something sad.' The fort supplied a sock and a poet."
+  },
+  {
+   "id": "x2-tv-knee-beard",
+   "text": "Did you know? A human's knee is roughly level with a dwarf's beard, which makes greetings awkward for everyone."
+  },
+  {
+   "id": "x2-tv-human-shirt",
+   "text": "Did you know? A human shirt needs six times the cloth of a dwarven one, and humans seem to think this is normal."
+  },
+  {
+   "id": "x2-tv-titan-hills",
+   "text": "Did you know? A titan can sleep for a century. Most of the hills in {world} have, at some point, been checked."
+  },
+  {
+   "id": "x2-tv-fog-walk",
+   "text": "On this day, a fog so thick rolled over the hills that a dwarf walked outside and enjoyed it. He has never spoken of it since."
+  },
+  {
+   "id": "x2-tv-coins-unspent",
+   "text": "Did you know? No copper coin minted in {fort} has ever been spent. Several have been thrown."
+  },
+  {
+   "id": "x2-tv-sun-judging",
+   "text": "Did you know? Every {season} the sun comes so close to the surface that woodcutters report feeling judged.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "x2-tv-frozen-moat-yak",
+   "text": "Did you know? In winter the moat freezes thick enough to hold a yak, which is how a yak once attended a feast uninvited.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "x2-tv-well-secrets",
+   "text": "Did you know? The well in {fort} has heard more secrets than the bookkeeper, and kept almost as many."
+  },
+  {
+   "id": "x2-tv-syrup-fish",
+   "text": "On this day, a dwarf tried dwarven syrup on a cave fish. It was the last new recipe anyone attempted for a year."
+  },
+  {
+   "id": "x2-tv-catapult-feeling",
+   "text": "Did you know? A catapult throws a stone farther than any dwarf can throw a mug, but with far less feeling."
+  },
+  {
+   "id": "x2-tv-human-anything-else",
+   "text": "Did you know? A human merchant can load an entire stockpile of mugs and still ask whether we have 'anything else.'",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "x2-tv-magma-neighbours",
+   "text": "Did you know? Fire imps and magma crabs are proof that even the magma sea has residents who complain about the neighbours."
+  }
+ ],
+ "ears": [
+  {
+   "id": "x2-er-fewer-undead",
+   "text": "Now with fewer undead"
+  },
+  {
+   "id": "x2-er-necro-free",
+   "text": "Necromancer-free since Tuesday"
+  },
+  {
+   "id": "x2-er-bookkeeper-twice",
+   "text": "Counted twice by the bookkeeper"
+  },
+  {
+   "id": "x2-er-minecart-delivered",
+   "text": "Minecart-delivered (dented)"
+  },
+  {
+   "id": "x2-er-pumped-up",
+   "text": "Pumped up from Level Twelve"
+  },
+  {
+   "id": "x2-er-hospital-approved",
+   "text": "Hospital-approved (barely)"
+  },
+  {
+   "id": "x2-er-sung-by-bards",
+   "text": "Sung by bards, regrettably"
+  },
+  {
+   "id": "x2-er-library-copy",
+   "text": "Library copy, please whisper"
+  },
+  {
+   "id": "x2-er-aquifer-tested",
+   "text": "Aquifer-tested"
+  },
+  {
+   "id": "x2-er-baby-proof",
+   "text": "Baby-proof, militia edition"
+  },
+  {
+   "id": "x2-er-cave-fish-cannot-read",
+   "text": "Cave fish cannot read this"
+  },
+  {
+   "id": "x2-er-humans-duck",
+   "text": "Humans: please duck"
+  },
+  {
+   "id": "x2-er-titan-sighting",
+   "text": "Printed during a titan sighting"
+  },
+  {
+   "id": "x2-er-fog-edition",
+   "text": "Fog edition"
+  },
+  {
+   "id": "x2-er-soap-not-included",
+   "text": "Soap not included"
+  },
+  {
+   "id": "x2-er-no-garlic",
+   "text": "Contains no garlic"
+  }
+ ]
+}

@@ -29,6 +29,18 @@ STOCKS_EVERY_S = 30
 MOCK = "--mock" in sys.argv
 
 
+def deep_merge(into, new):
+    """Library files can extend each other: lists concatenate, dicts merge recursively (e.g. interview_more.json adds headlines)."""
+    for k, v in new.items():
+        if k in into and isinstance(into[k], list) and isinstance(v, list):
+            into[k] = into[k] + v
+        elif k in into and isinstance(into[k], dict) and isinstance(v, dict):
+            deep_merge(into[k], v)
+        else:
+            into[k] = v
+    return into
+
+
 def run_json(script, timeout=60):
     out = sup.dfhack(script, timeout=timeout)
     if not out or "{" not in out:
@@ -75,7 +87,7 @@ class Handler(BaseHTTPRequestHandler):
             lib = {}
             for f in sorted(LIB_DIR.glob("*.json")):   # re-read each time so library edits show up on refresh
                 try:
-                    lib.update(json.loads(f.read_text(encoding="utf-8")))
+                    deep_merge(lib, json.loads(f.read_text(encoding="utf-8")))
                 except ValueError as e:
                     print(f"library: bad JSON in {f.name}: {e}", flush=True)
             body, ctype = json.dumps(lib).encode(), "application/json"

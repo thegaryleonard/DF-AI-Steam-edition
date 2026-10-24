@@ -1,0 +1,3166 @@
+{
+ "thoughts": {
+  "bedroom": {
+   "good": [
+    {
+     "id": "iv2-th-bedroom-g-01",
+     "text": "I put a statue in my bedroom. Now two of us in there have good taste."
+    },
+    {
+     "id": "iv2-th-bedroom-g-02",
+     "text": "My bedroom shares a wall with the still. It bubbles me to sleep every night."
+    },
+    {
+     "id": "iv2-th-bedroom-g-03",
+     "text": "The miners carved my room from one perfect vein of blue stone. I sleep inside a gem."
+    },
+    {
+     "id": "iv2-th-bedroom-g-04",
+     "text": "My bedroom is so far from the trade depot that no elf will ever find it. Bliss."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-bedroom-b-01",
+     "text": "My bedroom shares a wall with the smelter. I sleep in a sauna."
+    },
+    {
+     "id": "iv2-th-bedroom-b-02",
+     "text": "They dug my bedroom right under the cistern. The ceiling drips with menace."
+    },
+    {
+     "id": "iv2-th-bedroom-b-03",
+     "text": "Someone stored three barrels of rotting meat in my room 'temporarily'. That was a season ago."
+    },
+    {
+     "id": "iv2-th-bedroom-b-04",
+     "text": "My bed is wooden. Every time the elves visit, I feel a tree judging me."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-bedroom-hg-01",
+     "text": "BEDROOM GETS A STATUE"
+    },
+    {
+     "id": "iv2-th-bedroom-hg-02",
+     "text": "SLEEPS NEXT TO THE STILL"
+    },
+    {
+     "id": "iv2-th-bedroom-hg-03",
+     "text": "ROOM \"BLUE AND BEAUTIFUL\""
+    },
+    {
+     "id": "iv2-th-bedroom-hg-04",
+     "text": "HIDES FROM ELVES IN ROOM"
+    },
+    {
+     "id": "iv2-th-bedroom-hg-05",
+     "text": "ROOM SMOOTHED, SPIRIT TOO"
+    },
+    {
+     "id": "iv2-th-bedroom-hg-06",
+     "text": "DOOR LOCKS, CAT DEFEATED"
+    },
+    {
+     "id": "iv2-th-bedroom-hg-07",
+     "text": "UPGRADES FROM DORMITORY"
+    },
+    {
+     "id": "iv2-th-bedroom-hg-08",
+     "text": "ROOM \"BIGGER THAN NOBLE'S\""
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-bedroom-hb-01",
+     "text": "SMELTER NEXT DOOR \"A SAUNA\""
+    },
+    {
+     "id": "iv2-th-bedroom-hb-02",
+     "text": "CEILING DRIPS, DWARF FUMES"
+    },
+    {
+     "id": "iv2-th-bedroom-hb-03",
+     "text": "MEAT BARRELS IN BEDROOM"
+    },
+    {
+     "id": "iv2-th-bedroom-hb-04",
+     "text": "BED MADE OF TREE, SHUDDERS"
+    },
+    {
+     "id": "iv2-th-bedroom-hb-05",
+     "text": "ROOM IS ACTUALLY A HALLWAY"
+    },
+    {
+     "id": "iv2-th-bedroom-hb-06",
+     "text": "STILL NO BED ASSIGNED"
+    },
+    {
+     "id": "iv2-th-bedroom-hb-07",
+     "text": "BEDROOM DUG INTO AQUIFER"
+    },
+    {
+     "id": "iv2-th-bedroom-hb-08",
+     "text": "WALLS \"FULL OF ECHOES\""
+    }
+   ]
+  },
+  "work": {
+   "good": [
+    {
+     "id": "iv2-th-work-g-01",
+     "text": "The overseer gave me a work order and every material was already in the stockpile. I nearly fainted."
+    },
+    {
+     "id": "iv2-th-work-g-02",
+     "text": "I built a whole bridge today. It has not collapsed yet. Bridges are mostly about the 'yet'."
+    },
+    {
+     "id": "iv2-th-work-g-03",
+     "text": "My workshop is twelve steps from the stockpile. I counted them, lovingly."
+    },
+    {
+     "id": "iv2-th-work-g-04",
+     "text": "I made something so fine the broker begged to sell it. I said no. He wept."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-work-b-01",
+     "text": "Somebody linked my lever to the wrong door. I have been flooding the barracks all morning."
+    },
+    {
+     "id": "iv2-th-work-b-02",
+     "text": "I spent all day building a wall, and then another dwarf was told to take it down."
+    },
+    {
+     "id": "iv2-th-work-b-03",
+     "text": "My job was suspended because a dwarf was standing in the way. Standing. For an hour."
+    },
+    {
+     "id": "iv2-th-work-b-04",
+     "text": "I was drafted into the militia mid-project. My half-carved statue now looks like a potato."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-work-hg-01",
+     "text": "TWELVE STEPS TO STOCKPILE"
+    },
+    {
+     "id": "iv2-th-work-hg-02",
+     "text": "BRIDGE HOLDS, FOR NOW"
+    },
+    {
+     "id": "iv2-th-work-hg-03",
+     "text": "WORK ORDER \"FLAWLESS\""
+    },
+    {
+     "id": "iv2-th-work-hg-04",
+     "text": "REFUSES TO SELL MASTERPIECE"
+    },
+    {
+     "id": "iv2-th-work-hg-05",
+     "text": "SHIFT ENDS ON TIME, SHOCK"
+    },
+    {
+     "id": "iv2-th-work-hg-06",
+     "text": "NOBODY STOOD IN THE WAY"
+    },
+    {
+     "id": "iv2-th-work-hg-07",
+     "text": "WORKBENCH \"JUST RIGHT\""
+    },
+    {
+     "id": "iv2-th-work-hg-08",
+     "text": "OUT-WORKS THE WHOLE SHIFT"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-work-hb-01",
+     "text": "LEVER FLOODS BARRACKS"
+    },
+    {
+     "id": "iv2-th-work-hb-02",
+     "text": "WALL BUILT, THEN UNBUILT"
+    },
+    {
+     "id": "iv2-th-work-hb-03",
+     "text": "JOB SUSPENDED BY LOITERER"
+    },
+    {
+     "id": "iv2-th-work-hb-04",
+     "text": "STATUE LEFT \"A POTATO\""
+    },
+    {
+     "id": "iv2-th-work-hb-05",
+     "text": "NO MATERIALS, NO MERCY"
+    },
+    {
+     "id": "iv2-th-work-hb-06",
+     "text": "DRAFTED MID-CHISEL"
+    },
+    {
+     "id": "iv2-th-work-hb-07",
+     "text": "SHIFT \"NINE HOURS TOO LONG\""
+    },
+    {
+     "id": "iv2-th-work-hb-08",
+     "text": "WORKSHOP BURIED IN CLUTTER"
+    }
+   ]
+  },
+  "bored": {
+   "good": [
+    {
+     "id": "iv2-th-bored-g-01",
+     "text": "I watched the water wheel turn all afternoon. It never once let me down."
+    },
+    {
+     "id": "iv2-th-bored-g-02",
+     "text": "A whole day with no orders. I polished my pick until I could see my beard in it."
+    },
+    {
+     "id": "iv2-th-bored-g-03",
+     "text": "Nothing to do, so I took the long way to the dining hall. All forty stairs. Bliss."
+    },
+    {
+     "id": "iv2-th-bored-g-04",
+     "text": "I sat in the statue garden and thought about nothing. The nothing was excellent."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-bored-b-01",
+     "text": "I have read the same wall engraving so many times I could carve it blindfolded."
+    },
+    {
+     "id": "iv2-th-bored-b-02",
+     "text": "I have been 'No Job' for so long it is practically my profession."
+    },
+    {
+     "id": "iv2-th-bored-b-03",
+     "text": "I paced the corridor until the floor was smooth. The engraver got the credit."
+    },
+    {
+     "id": "iv2-th-bored-b-04",
+     "text": "I asked the overseer for work. He assigned me to wait. I am terrible at waiting."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-bored-hg-01",
+     "text": "WATCHES WATER WHEEL, CONTENT"
+    },
+    {
+     "id": "iv2-th-bored-hg-02",
+     "text": "POLISHES PICK TO A MIRROR"
+    },
+    {
+     "id": "iv2-th-bored-hg-03",
+     "text": "TAKES LONG WAY, LOVES IT"
+    },
+    {
+     "id": "iv2-th-bored-hg-04",
+     "text": "THINKS OF NOTHING, WINS"
+    },
+    {
+     "id": "iv2-th-bored-hg-05",
+     "text": "SAVORS A DAY OFF"
+    },
+    {
+     "id": "iv2-th-bored-hg-06",
+     "text": "LOAFS WITH DIGNITY"
+    },
+    {
+     "id": "iv2-th-bored-hg-07",
+     "text": "BREAK \"WELL DESERVED\""
+    },
+    {
+     "id": "iv2-th-bored-hg-08",
+     "text": "NAPS IN STATUE GARDEN"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-bored-hb-01",
+     "text": "\"NO JOB\" NOW A CAREER"
+    },
+    {
+     "id": "iv2-th-bored-hb-02",
+     "text": "PACES FLOOR SMOOTH"
+    },
+    {
+     "id": "iv2-th-bored-hb-03",
+     "text": "TOLD TO WAIT, CANNOT"
+    },
+    {
+     "id": "iv2-th-bored-hb-04",
+     "text": "MEMORIZES WALL CARVING"
+    },
+    {
+     "id": "iv2-th-bored-hb-05",
+     "text": "RESTLESS HANDS ALERT"
+    },
+    {
+     "id": "iv2-th-bored-hb-06",
+     "text": "IDLE AND ITCHY"
+    },
+    {
+     "id": "iv2-th-bored-hb-07",
+     "text": "BEGS FOR HAULING (!)"
+    },
+    {
+     "id": "iv2-th-bored-hb-08",
+     "text": "BOREDOM HITS NEW DEPTH"
+    }
+   ]
+  },
+  "lonely": {
+   "good": [
+    {
+     "id": "iv2-th-lonely-g-01",
+     "text": "My new friend and I sat on the same bench without a word for an hour. Perfect friendship."
+    },
+    {
+     "id": "iv2-th-lonely-g-02",
+     "text": "Three dwarves invited me to dinner. Two of them even knew my name."
+    },
+    {
+     "id": "iv2-th-lonely-g-03",
+     "text": "I made a friend in the latest migrant wave. He hates trees too."
+    },
+    {
+     "id": "iv2-th-lonely-g-04",
+     "text": "I have so many friends now I need a bigger table. A good problem."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-lonely-b-01",
+     "text": "My only friend got married and now talks about nothing but their spouse's beard."
+    },
+    {
+     "id": "iv2-th-lonely-b-02",
+     "text": "Everyone I know moved to a fortress across the mountains. They took the good mugs."
+    },
+    {
+     "id": "iv2-th-lonely-b-03",
+     "text": "I sat in the tavern a whole evening. The tavern keeper was the only one who spoke, to charge me."
+    },
+    {
+     "id": "iv2-th-lonely-b-04",
+     "text": "My best friend joined the militia. Now they march past me twice a day, eyes front."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-lonely-hg-01",
+     "text": "SILENT BENCH BUDDY FOUND"
+    },
+    {
+     "id": "iv2-th-lonely-hg-02",
+     "text": "INVITED TO DINNER"
+    },
+    {
+     "id": "iv2-th-lonely-hg-03",
+     "text": "BONDS OVER HATING TREES"
+    },
+    {
+     "id": "iv2-th-lonely-hg-04",
+     "text": "NEEDS A BIGGER TABLE"
+    },
+    {
+     "id": "iv2-th-lonely-hg-05",
+     "text": "MIGRANT BECOMES BEST PAL"
+    },
+    {
+     "id": "iv2-th-lonely-hg-06",
+     "text": "BELOVED IN THE TAVERN"
+    },
+    {
+     "id": "iv2-th-lonely-hg-07",
+     "text": "\"SO MANY FRIENDS\""
+    },
+    {
+     "id": "iv2-th-lonely-hg-08",
+     "text": "CIRCLE OF FRIENDS GROWS"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-lonely-hb-01",
+     "text": "FRIEND LOST TO MARRIAGE"
+    },
+    {
+     "id": "iv2-th-lonely-hb-02",
+     "text": "PALS MOVED, TOOK MUGS"
+    },
+    {
+     "id": "iv2-th-lonely-hb-03",
+     "text": "ONLY THE BARKEEP SPOKE"
+    },
+    {
+     "id": "iv2-th-lonely-hb-04",
+     "text": "FRIEND MARCHES PAST"
+    },
+    {
+     "id": "iv2-th-lonely-hb-05",
+     "text": "TABLE FOR ONE, AGAIN"
+    },
+    {
+     "id": "iv2-th-lonely-hb-06",
+     "text": "\"NOBODY VISITS\""
+    },
+    {
+     "id": "iv2-th-lonely-hb-07",
+     "text": "PINES FOR COMPANY"
+    },
+    {
+     "id": "iv2-th-lonely-hb-08",
+     "text": "WAVES, GETS NO WAVE BACK"
+    }
+   ]
+  },
+  "unmet_need": {
+   "good": [
+    {
+     "id": "iv2-th-unmet-need-g-01",
+     "text": "I finally got to wander about aimlessly, as I require. My aimlessness was magnificent."
+    },
+    {
+     "id": "iv2-th-unmet-need-g-02",
+     "text": "I needed to make something with my own hands. I made a ring. It is crooked. I love it."
+    },
+    {
+     "id": "iv2-th-unmet-need-g-03",
+     "text": "I got some fighting practice in. Hitting a training dummy does wonders for the soul."
+    },
+    {
+     "id": "iv2-th-unmet-need-g-04",
+     "text": "I learned something today. My brain had been begging for it like a hungry cat."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-unmet-need-b-01",
+     "text": "I need to craft something, but every workshop is full of apprentices making mugs."
+    },
+    {
+     "id": "iv2-th-unmet-need-b-02",
+     "text": "I have not been to a party in ages. I am not sure this fortress has ever had a party."
+    },
+    {
+     "id": "iv2-th-unmet-need-b-03",
+     "text": "I need to see my family. They are three mountains and two goblin camps away."
+    },
+    {
+     "id": "iv2-th-unmet-need-b-04",
+     "text": "I used to admire nature. Then I moved under a mountain. Poor planning on my part."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-unmet-need-hg-01",
+     "text": "WANDERS AIMLESSLY, THRIVES"
+    },
+    {
+     "id": "iv2-th-unmet-need-hg-02",
+     "text": "CROOKED RING \"BELOVED\""
+    },
+    {
+     "id": "iv2-th-unmet-need-hg-03",
+     "text": "BEATS UP DUMMY, AT PEACE"
+    },
+    {
+     "id": "iv2-th-unmet-need-hg-04",
+     "text": "BRAIN FINALLY FED"
+    },
+    {
+     "id": "iv2-th-unmet-need-hg-05",
+     "text": "ITCH THOROUGHLY SCRATCHED"
+    },
+    {
+     "id": "iv2-th-unmet-need-hg-06",
+     "text": "FEELS \"FOCUSED\" AGAIN"
+    },
+    {
+     "id": "iv2-th-unmet-need-hg-07",
+     "text": "INNER LIFE IN ORDER"
+    },
+    {
+     "id": "iv2-th-unmet-need-hg-08",
+     "text": "NEEDS LIST: ALL TICKED"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-unmet-need-hb-01",
+     "text": "EVERY WORKSHOP FULL"
+    },
+    {
+     "id": "iv2-th-unmet-need-hb-02",
+     "text": "FORT HAS \"NEVER PARTIED\""
+    },
+    {
+     "id": "iv2-th-unmet-need-hb-03",
+     "text": "FAMILY \"THREE MOUNTAINS\" AWAY"
+    },
+    {
+     "id": "iv2-th-unmet-need-hb-04",
+     "text": "MISSES NATURE, UNDERGROUND"
+    },
+    {
+     "id": "iv2-th-unmet-need-hb-05",
+     "text": "LONGS TO MAKE THINGS"
+    },
+    {
+     "id": "iv2-th-unmet-need-hb-06",
+     "text": "UNFOCUSED AND FURIOUS"
+    },
+    {
+     "id": "iv2-th-unmet-need-hb-07",
+     "text": "NEEDS PILE UP"
+    },
+    {
+     "id": "iv2-th-unmet-need-hb-08",
+     "text": "ITCH GOES UNSCRATCHED"
+    }
+   ]
+  },
+  "syndrome": {
+   "good": [
+    {
+     "id": "iv2-th-syndrome-g-01",
+     "text": "Something in the cave water made my beard grow an inch overnight. I am keeping it."
+    },
+    {
+     "id": "iv2-th-syndrome-g-02",
+     "text": "I breathed in some spores and now everything smells of fresh bread. Even the refuse pile."
+    },
+    {
+     "id": "iv2-th-syndrome-g-03",
+     "text": "A creature spat on me and now I cannot feel pain. I walked into a door twice, for science."
+    },
+    {
+     "id": "iv2-th-syndrome-g-04",
+     "text": "I feel fast. Faster than a hauler with an empty wheelbarrow. Faster than gossip."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-syndrome-b-01",
+     "text": "I touched a forgotten beast's blood and my fingers have been tingling for a week."
+    },
+    {
+     "id": "iv2-th-syndrome-b-02",
+     "text": "A cave spider bit me. My legs will not move, but my opinions are fully mobile."
+    },
+    {
+     "id": "iv2-th-syndrome-b-03",
+     "text": "I have sneezed sparks ever since I licked that crystal. The carpenters have banned me."
+    },
+    {
+     "id": "iv2-th-syndrome-b-04",
+     "text": "I keep forgetting my own name. The doctor blames the cavern dust. I say who is asking."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-syndrome-hg-01",
+     "text": "BEARD GROWS INCH OVERNIGHT"
+    },
+    {
+     "id": "iv2-th-syndrome-hg-02",
+     "text": "SPORES SMELL OF BREAD"
+    },
+    {
+     "id": "iv2-th-syndrome-hg-03",
+     "text": "FEELS NO PAIN, TESTS IT"
+    },
+    {
+     "id": "iv2-th-syndrome-hg-04",
+     "text": "\"FASTER THAN GOSSIP\""
+    },
+    {
+     "id": "iv2-th-syndrome-hg-05",
+     "text": "CAVE WATER \"MAGICAL\""
+    },
+    {
+     "id": "iv2-th-syndrome-hg-06",
+     "text": "SEES SOUNDS, ENJOYS THEM"
+    },
+    {
+     "id": "iv2-th-syndrome-hg-07",
+     "text": "STRANGE DUST, GREAT DAY"
+    },
+    {
+     "id": "iv2-th-syndrome-hg-08",
+     "text": "GLOWS, NOW A NIGHTLIGHT"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-syndrome-hb-01",
+     "text": "BEAST BLOOD TINGLES"
+    },
+    {
+     "id": "iv2-th-syndrome-hb-02",
+     "text": "BITTEN BY CAVE SPIDER"
+    },
+    {
+     "id": "iv2-th-syndrome-hb-03",
+     "text": "SNEEZES SPARKS, BANNED"
+    },
+    {
+     "id": "iv2-th-syndrome-hb-04",
+     "text": "FORGETS OWN NAME"
+    },
+    {
+     "id": "iv2-th-syndrome-hb-05",
+     "text": "VISION GOES PURPLE"
+    },
+    {
+     "id": "iv2-th-syndrome-hb-06",
+     "text": "SPORE COUGH WORSENS"
+    },
+    {
+     "id": "iv2-th-syndrome-hb-07",
+     "text": "SWOLLEN, GRUMPY, GREEN"
+    },
+    {
+     "id": "iv2-th-syndrome-hb-08",
+     "text": "TOUCHED THE WRONG GOO"
+    }
+   ]
+  },
+  "skill": {
+   "good": [
+    {
+     "id": "iv2-th-skill-g-01",
+     "text": "I can tell granite from diorite by licking it now. Progress has a taste."
+    },
+    {
+     "id": "iv2-th-skill-g-02",
+     "text": "The fort's legendary craftsdwarf nodded at me. Second-best day of my life, after my first ale."
+    },
+    {
+     "id": "iv2-th-skill-g-03",
+     "text": "I used to ruin one in three. Now I ruin one in ten. Basically a master."
+    },
+    {
+     "id": "iv2-th-skill-g-04",
+     "text": "I have become so good the workshop practically runs on my name. Well, on me."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-skill-b-01",
+     "text": "An apprentice half my age just out-skilled me. I am considering a strange mood out of spite."
+    },
+    {
+     "id": "iv2-th-skill-b-02",
+     "text": "I trained so long in the barracks I forgot how to do my actual job."
+    },
+    {
+     "id": "iv2-th-skill-b-03",
+     "text": "My work is stuck at well-crafted. The little dashes around it are laughing at me."
+    },
+    {
+     "id": "iv2-th-skill-b-04",
+     "text": "My teacher left before finishing my training. I now know exactly half a trade."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-skill-hg-01",
+     "text": "LICKS ROCKS, LEARNS"
+    },
+    {
+     "id": "iv2-th-skill-hg-02",
+     "text": "LEGEND NODS AT DWARF"
+    },
+    {
+     "id": "iv2-th-skill-hg-03",
+     "text": "RUINS ONE IN TEN NOW"
+    },
+    {
+     "id": "iv2-th-skill-hg-04",
+     "text": "TOP OF THE TRADE"
+    },
+    {
+     "id": "iv2-th-skill-hg-05",
+     "text": "MASTERWORK, FINALLY"
+    },
+    {
+     "id": "iv2-th-skill-hg-06",
+     "text": "\"I AM GETTING GOOD\""
+    },
+    {
+     "id": "iv2-th-skill-hg-07",
+     "text": "SKILL UP, BEARD UP"
+    },
+    {
+     "id": "iv2-th-skill-hg-08",
+     "text": "OUTCLASSES OLD MASTER"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-skill-hb-01",
+     "text": "BEATEN BY APPRENTICE"
+    },
+    {
+     "id": "iv2-th-skill-hb-02",
+     "text": "FORGETS DAY JOB"
+    },
+    {
+     "id": "iv2-th-skill-hb-03",
+     "text": "STUCK AT WELL-CRAFTED"
+    },
+    {
+     "id": "iv2-th-skill-hb-04",
+     "text": "HALF-TRAINED, ALL GRUMPY"
+    },
+    {
+     "id": "iv2-th-skill-hb-05",
+     "text": "SKILL RUSTS IN BARRACKS"
+    },
+    {
+     "id": "iv2-th-skill-hb-06",
+     "text": "PRACTICES, GETS NOWHERE"
+    },
+    {
+     "id": "iv2-th-skill-hb-07",
+     "text": "TEACHER GONE, LESSON TOO"
+    },
+    {
+     "id": "iv2-th-skill-hb-08",
+     "text": "\"I PEAKED\", MOPES"
+    }
+   ]
+  },
+  "miasma": {
+   "good": [
+    {
+     "id": "iv2-th-miasma-g-01",
+     "text": "The smell from the butcher's shop is so strong it cured my three-year cold."
+    },
+    {
+     "id": "iv2-th-miasma-g-02",
+     "text": "Somebody finally hauled the old goblin away. You could hear the whole fortress inhale."
+    },
+    {
+     "id": "iv2-th-miasma-g-03",
+     "text": "I have learned to breathe through my beard. It filters out most of the purple."
+    },
+    {
+     "id": "iv2-th-miasma-g-04",
+     "text": "Thanks to the smell, I have the whole corridor to myself. Nobody else will walk it."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-miasma-b-01",
+     "text": "The refuse pile has grown so tall it has its own weather now."
+    },
+    {
+     "id": "iv2-th-miasma-b-02",
+     "text": "There is a dead cat in the well room. The other cats know. The other cats are staring."
+    },
+    {
+     "id": "iv2-th-miasma-b-03",
+     "text": "My mug tasted of rot this morning. The mug was clean. The air was not."
+    },
+    {
+     "id": "iv2-th-miasma-b-04",
+     "text": "I sat down to dinner, but the smell had taken the seat first."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-miasma-hg-01",
+     "text": "SMELL CURES OLD COLD"
+    },
+    {
+     "id": "iv2-th-miasma-hg-02",
+     "text": "GOBLIN HAULED, FORT INHALES"
+    },
+    {
+     "id": "iv2-th-miasma-hg-03",
+     "text": "BREATHES THROUGH BEARD"
+    },
+    {
+     "id": "iv2-th-miasma-hg-04",
+     "text": "HAS STINKY HALL TO SELF"
+    },
+    {
+     "id": "iv2-th-miasma-hg-05",
+     "text": "\"I HAVE NO NOSE LEFT\""
+    },
+    {
+     "id": "iv2-th-miasma-hg-06",
+     "text": "STENCH? \"CHARACTER\""
+    },
+    {
+     "id": "iv2-th-miasma-hg-07",
+     "text": "UNBOTHERED BY ROT"
+    },
+    {
+     "id": "iv2-th-miasma-hg-08",
+     "text": "PRAISES REFUSE HAULER"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-miasma-hb-01",
+     "text": "REFUSE PILE GETS WEATHER"
+    },
+    {
+     "id": "iv2-th-miasma-hb-02",
+     "text": "DEAD CAT IN WELL ROOM"
+    },
+    {
+     "id": "iv2-th-miasma-hb-03",
+     "text": "MUG TASTES OF ROT"
+    },
+    {
+     "id": "iv2-th-miasma-hb-04",
+     "text": "SMELL TAKES DINNER SEAT"
+    },
+    {
+     "id": "iv2-th-miasma-hb-05",
+     "text": "BUTCHER \"TOO CLOSE\""
+    },
+    {
+     "id": "iv2-th-miasma-hb-06",
+     "text": "ROT CLOUD SPREADS"
+    },
+    {
+     "id": "iv2-th-miasma-hb-07",
+     "text": "HOLDS BREATH FOR A WEEK"
+    },
+    {
+     "id": "iv2-th-miasma-hb-08",
+     "text": "\"WHO LEFT THAT THERE?\""
+    }
+   ]
+  },
+  "death": {
+   "good": [
+    {
+     "id": "iv2-th-death-g-01",
+     "text": "The fallen got a masterwork coffin. I have put my name down for the next one."
+    },
+    {
+     "id": "iv2-th-death-g-02",
+     "text": "Our fallen hero got a memorial engraving. In it he is twice his real height. He earned it."
+    },
+    {
+     "id": "iv2-th-death-g-03",
+     "text": "I outlived the forgotten beast. I plan to outlive everything else, too."
+    },
+    {
+     "id": "iv2-th-death-g-04",
+     "text": "The goblin who stole my sock is dead. The sock is avenged."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-death-b-01",
+     "text": "We buried my friend in a corridor because nobody had dug the tomb yet."
+    },
+    {
+     "id": "iv2-th-death-b-02",
+     "text": "This time the coffin maker is the one who died. Nobody knows who makes his coffin."
+    },
+    {
+     "id": "iv2-th-death-b-03",
+     "text": "Someone used my bedroom as a temporary morgue. Temporary, they said."
+    },
+    {
+     "id": "iv2-th-death-b-04",
+     "text": "Three funerals this week. I have run out of solemn faces."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-death-hg-01",
+     "text": "BOOKS NEXT COFFIN"
+    },
+    {
+     "id": "iv2-th-death-hg-02",
+     "text": "MEMORIAL \"TWICE LIFE SIZE\""
+    },
+    {
+     "id": "iv2-th-death-hg-03",
+     "text": "OUTLIVES THE BEAST"
+    },
+    {
+     "id": "iv2-th-death-hg-04",
+     "text": "SOCK AVENGED AT LAST"
+    },
+    {
+     "id": "iv2-th-death-hg-05",
+     "text": "SURVIVES ANOTHER SIEGE"
+    },
+    {
+     "id": "iv2-th-death-hg-06",
+     "text": "\"STILL HERE\", BOASTS"
+    },
+    {
+     "id": "iv2-th-death-hg-07",
+     "text": "HONORS THE FALLEN"
+    },
+    {
+     "id": "iv2-th-death-hg-08",
+     "text": "TOMB \"VERY TASTEFUL\""
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-death-hb-01",
+     "text": "FRIEND BURIED IN HALLWAY"
+    },
+    {
+     "id": "iv2-th-death-hb-02",
+     "text": "WHO BURIES COFFIN MAKER?"
+    },
+    {
+     "id": "iv2-th-death-hb-03",
+     "text": "BEDROOM USED AS MORGUE"
+    },
+    {
+     "id": "iv2-th-death-hb-04",
+     "text": "OUT OF SOLEMN FACES"
+    },
+    {
+     "id": "iv2-th-death-hb-05",
+     "text": "FUNERALS PILE UP"
+    },
+    {
+     "id": "iv2-th-death-hb-06",
+     "text": "GRIEVES, STILL HAULS"
+    },
+    {
+     "id": "iv2-th-death-hb-07",
+     "text": "TOMBS FULL, NOW WHAT?"
+    },
+    {
+     "id": "iv2-th-death-hb-08",
+     "text": "ANOTHER SLAB NEEDED"
+    }
+   ]
+  },
+  "rain": {
+   "good": [
+    {
+     "id": "iv2-th-rain-g-01",
+     "text": "The rain filled every bucket in the fort. Nobody had to visit the carp well today."
+    },
+    {
+     "id": "iv2-th-rain-g-02",
+     "text": "The rain made the wildflowers smell nice. I said that out loud. I take it back."
+    },
+    {
+     "id": "iv2-th-rain-g-03",
+     "text": "I stood under the drawbridge and listened to the rain drum on it. Very soothing."
+    },
+    {
+     "id": "iv2-th-rain-g-04",
+     "text": "Rain means the elves stay home. I danced. Briefly."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-rain-b-01",
+     "text": "It rained into the trade depot. The cloth is soggy and the elves blamed me personally."
+    },
+    {
+     "id": "iv2-th-rain-b-02",
+     "text": "The rain flooded the entrance ramp. I slid down it on my back like an otter."
+    },
+    {
+     "id": "iv2-th-rain-b-03",
+     "text": "A rain cloud followed me from the woodpile to the door. I swear it was aiming."
+    },
+    {
+     "id": "iv2-th-rain-b-04",
+     "text": "The rain fell sideways today. Sideways! Not even the weather follows the plan."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-rain-hg-01",
+     "text": "RAIN FILLS ALL BUCKETS"
+    },
+    {
+     "id": "iv2-th-rain-hg-02",
+     "text": "ADMITS FLOWERS SMELL NICE"
+    },
+    {
+     "id": "iv2-th-rain-hg-03",
+     "text": "DRAWBRIDGE RAIN \"SOOTHING\""
+    },
+    {
+     "id": "iv2-th-rain-hg-04",
+     "text": "DANCES, BRIEFLY"
+    },
+    {
+     "id": "iv2-th-rain-hg-05",
+     "text": "RAIN KEEPS ELVES AWAY"
+    },
+    {
+     "id": "iv2-th-rain-hg-06",
+     "text": "SKIPS THE CARP WELL"
+    },
+    {
+     "id": "iv2-th-rain-hg-07",
+     "text": "\"GOOD SOAK\" FOR BEARD"
+    },
+    {
+     "id": "iv2-th-rain-hg-08",
+     "text": "PUDDLES, PLEASED"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-rain-hb-01",
+     "text": "DEPOT CLOTH SOAKED"
+    },
+    {
+     "id": "iv2-th-rain-hb-02",
+     "text": "SLIDES DOWN WET RAMP"
+    },
+    {
+     "id": "iv2-th-rain-hb-03",
+     "text": "STALKED BY RAIN CLOUD"
+    },
+    {
+     "id": "iv2-th-rain-hb-04",
+     "text": "RAIN FALLS SIDEWAYS"
+    },
+    {
+     "id": "iv2-th-rain-hb-05",
+     "text": "MUD UP TO THE BEARD"
+    },
+    {
+     "id": "iv2-th-rain-hb-06",
+     "text": "WET LOGS, WETTER MOOD"
+    },
+    {
+     "id": "iv2-th-rain-hb-07",
+     "text": "BEARD DRIPS ALL DAY"
+    },
+    {
+     "id": "iv2-th-rain-hb-08",
+     "text": "SKY LEAKS AGAIN"
+    }
+   ]
+  },
+  "sky": {
+   "good": [
+    {
+     "id": "iv2-th-sky-g-01",
+     "text": "I saw a bird today. It did not attack me. We parted as equals."
+    },
+    {
+     "id": "iv2-th-sky-g-02",
+     "text": "The stars came out and I counted eleven before going back in. Eleven is plenty."
+    },
+    {
+     "id": "iv2-th-sky-g-03",
+     "text": "Sunrise looks like magma rising. I finally see why surface folk put up with it."
+    },
+    {
+     "id": "iv2-th-sky-g-04",
+     "text": "I lay on the grass and the grass did not swallow me. Two stars out of five."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-sky-b-01",
+     "text": "A cloud covered the sun, then the sun came back. The sky cannot make up its mind."
+    },
+    {
+     "id": "iv2-th-sky-b-02",
+     "text": "I looked up and there was no ceiling. I looked down and there was a goblin."
+    },
+    {
+     "id": "iv2-th-sky-b-03",
+     "text": "The wind took my hat. The sky is a thief."
+    },
+    {
+     "id": "iv2-th-sky-b-04",
+     "text": "A bird dropped something on my beard. The sky has declared war."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-sky-hg-01",
+     "text": "BIRD \"PARTED AS EQUALS\""
+    },
+    {
+     "id": "iv2-th-sky-hg-02",
+     "text": "COUNTS ELEVEN STARS"
+    },
+    {
+     "id": "iv2-th-sky-hg-03",
+     "text": "SUNRISE \"LIKE MAGMA\""
+    },
+    {
+     "id": "iv2-th-sky-hg-04",
+     "text": "LIES ON GRASS, SURVIVES"
+    },
+    {
+     "id": "iv2-th-sky-hg-05",
+     "text": "SQUINTS BRAVELY AT SUN"
+    },
+    {
+     "id": "iv2-th-sky-hg-06",
+     "text": "GOES OUT, COMES BACK"
+    },
+    {
+     "id": "iv2-th-sky-hg-07",
+     "text": "MOON \"QUITE ROUND\""
+    },
+    {
+     "id": "iv2-th-sky-hg-08",
+     "text": "OPEN AIR \"BEARABLE\""
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-sky-hb-01",
+     "text": "SKY \"INDECISIVE\""
+    },
+    {
+     "id": "iv2-th-sky-hb-02",
+     "text": "LOOKS UP, GOBLIN APPEARS"
+    },
+    {
+     "id": "iv2-th-sky-hb-03",
+     "text": "WIND STEALS HAT"
+    },
+    {
+     "id": "iv2-th-sky-hb-04",
+     "text": "BIRD BOMBS BEARD"
+    },
+    {
+     "id": "iv2-th-sky-hb-05",
+     "text": "NO CEILING, NO THANKS"
+    },
+    {
+     "id": "iv2-th-sky-hb-06",
+     "text": "SURFACE \"TOO SURFACEY\""
+    },
+    {
+     "id": "iv2-th-sky-hb-07",
+     "text": "FLEES INDOORS, GASPING"
+    },
+    {
+     "id": "iv2-th-sky-hb-08",
+     "text": "HORIZON \"TOO FAR AWAY\""
+    }
+   ]
+  },
+  "drink": {
+   "good": [
+    {
+     "id": "iv2-th-drink-g-01",
+     "text": "Tried the new batch of sunshine. They named it after the sky, the only nice thing the sky ever did."
+    },
+    {
+     "id": "iv2-th-drink-g-02",
+     "text": "Somebody stacked a pyramid of full barrels in the stockpile. I stood and admired it for an hour."
+    },
+    {
+     "id": "iv2-th-drink-g-03",
+     "text": "Dwarven rum on a cold night. My toes, my beard and my outlook all warmed up."
+    },
+    {
+     "id": "iv2-th-drink-g-04",
+     "text": "The tavern keeper had my mug poured before I asked. That is love, in dwarf terms."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-drink-b-01",
+     "text": "Someone used my mug to mix paint. My ale now tastes faintly of blue."
+    },
+    {
+     "id": "iv2-th-drink-b-02",
+     "text": "The barrels went to the trade depot. The ale went with them. I went into despair."
+    },
+    {
+     "id": "iv2-th-drink-b-03",
+     "text": "Swamp whiskey again. It tastes exactly like its name."
+    },
+    {
+     "id": "iv2-th-drink-b-04",
+     "text": "I was slow to the barrel, and now a queue of thirsty miners stands between me and happiness."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-drink-hg-01",
+     "text": "SUNSHINE BREW \"GLORIOUS\""
+    },
+    {
+     "id": "iv2-th-drink-hg-02",
+     "text": "ADMIRES BARREL PYRAMID"
+    },
+    {
+     "id": "iv2-th-drink-hg-03",
+     "text": "RUM WARMS EVERY TOE"
+    },
+    {
+     "id": "iv2-th-drink-hg-04",
+     "text": "BARKEEP KNOWS THE ORDER"
+    },
+    {
+     "id": "iv2-th-drink-hg-05",
+     "text": "STILL BUBBLES ALL NIGHT"
+    },
+    {
+     "id": "iv2-th-drink-hg-06",
+     "text": "TAVERN TAB FORGIVEN"
+    },
+    {
+     "id": "iv2-th-drink-hg-07",
+     "text": "FIRST SIP OF THE SEASON"
+    },
+    {
+     "id": "iv2-th-drink-hg-08",
+     "text": "TOASTS THE STILL"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-drink-hb-01",
+     "text": "MUG USED FOR PAINT"
+    },
+    {
+     "id": "iv2-th-drink-hb-02",
+     "text": "ALE SOLD TO CARAVAN"
+    },
+    {
+     "id": "iv2-th-drink-hb-03",
+     "text": "SWAMP WHISKEY \"SWAMPY\""
+    },
+    {
+     "id": "iv2-th-drink-hb-04",
+     "text": "STUCK IN THE ALE QUEUE"
+    },
+    {
+     "id": "iv2-th-drink-hb-05",
+     "text": "TAPS AN EMPTY BARREL"
+    },
+    {
+     "id": "iv2-th-drink-hb-06",
+     "text": "WARNS OF DRY TAVERN"
+    },
+    {
+     "id": "iv2-th-drink-hb-07",
+     "text": "BREW TASTES OF SOCK"
+    },
+    {
+     "id": "iv2-th-drink-hb-08",
+     "text": "PARCHED SINCE BREAKFAST"
+    }
+   ]
+  },
+  "food": {
+   "good": [
+    {
+     "id": "iv2-th-food-g-01",
+     "text": "The cook topped the roast with prickle berries. I stood up and saluted it."
+    },
+    {
+     "id": "iv2-th-food-g-02",
+     "text": "Quarry bush leaf rolls. Crunchy, bitter, and exactly as dwarven as I am."
+    },
+    {
+     "id": "iv2-th-food-g-03",
+     "text": "The cook named a dish after me. It is mostly pig tail, but it is mine."
+    },
+    {
+     "id": "iv2-th-food-g-04",
+     "text": "Fresh cheese from our own goats. The cheese maker is my new favorite dwarf."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-food-b-01",
+     "text": "Dinner was a single raw sweet pod, and I had to share it."
+    },
+    {
+     "id": "iv2-th-food-b-02",
+     "text": "The roast was cooked over magma. Burnt outside, raw inside, middle still on fire."
+    },
+    {
+     "id": "iv2-th-food-b-03",
+     "text": "The food stockpile was full of gnawed scraps and one very guilty-looking rat."
+    },
+    {
+     "id": "iv2-th-food-b-04",
+     "text": "Someone took my meal off the table while I fetched ale. I suspect the dog."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-food-hg-01",
+     "text": "BERRY ROAST SALUTED"
+    },
+    {
+     "id": "iv2-th-food-hg-02",
+     "text": "QUARRY BUSH \"VERY DWARF\""
+    },
+    {
+     "id": "iv2-th-food-hg-03",
+     "text": "DISH NAMED IN HONOR"
+    },
+    {
+     "id": "iv2-th-food-hg-04",
+     "text": "CHEESE MAKER BELOVED"
+    },
+    {
+     "id": "iv2-th-food-hg-05",
+     "text": "THREE-COURSE TRIUMPH"
+    },
+    {
+     "id": "iv2-th-food-hg-06",
+     "text": "PLATE LICKED CLEAN"
+    },
+    {
+     "id": "iv2-th-food-hg-07",
+     "text": "STEW \"NEARLY FAMOUS\""
+    },
+    {
+     "id": "iv2-th-food-hg-08",
+     "text": "FULL BELLY, FULL HEART"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-food-hb-01",
+     "text": "SHARES ONE SWEET POD"
+    },
+    {
+     "id": "iv2-th-food-hb-02",
+     "text": "ROAST ON FIRE INSIDE"
+    },
+    {
+     "id": "iv2-th-food-hb-03",
+     "text": "RAT CAUGHT RED-PAWED"
+    },
+    {
+     "id": "iv2-th-food-hb-04",
+     "text": "DOG STEALS DINNER"
+    },
+    {
+     "id": "iv2-th-food-hb-05",
+     "text": "SEEDS FOR SUPPER"
+    },
+    {
+     "id": "iv2-th-food-hb-06",
+     "text": "COOK MISSING, PANS COLD"
+    },
+    {
+     "id": "iv2-th-food-hb-07",
+     "text": "\"ANOTHER RAW MUSHROOM\""
+    },
+    {
+     "id": "iv2-th-food-hb-08",
+     "text": "BELLY GROWLS AT OVERSEER"
+    }
+   ]
+  },
+  "dining": {
+   "good": [
+    {
+     "id": "iv2-th-dining-g-01",
+     "text": "The dining hall has a waterfall now. My ale has never felt so scenic."
+    },
+    {
+     "id": "iv2-th-dining-g-02",
+     "text": "They put a masterwork table in the dining hall. I ate gently, out of respect."
+    },
+    {
+     "id": "iv2-th-dining-g-03",
+     "text": "The dining hall opens onto the tavern now. Two steps from stew to song."
+    },
+    {
+     "id": "iv2-th-dining-g-04",
+     "text": "The new dining hall has so many seats I tried six before choosing one."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-dining-b-01",
+     "text": "The dining hall doubles as the hospital now. I ate my soup beside a dwarf getting stitches."
+    },
+    {
+     "id": "iv2-th-dining-b-02",
+     "text": "Forty dwarves and one table. We eat in shifts, like a mine."
+    },
+    {
+     "id": "iv2-th-dining-b-03",
+     "text": "The dining hall floor is sticky. Nobody will say with what."
+    },
+    {
+     "id": "iv2-th-dining-b-04",
+     "text": "They put the dining hall on the surface. The sky watches me eat."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-dining-hg-01",
+     "text": "WATERFALL AT DINNER"
+    },
+    {
+     "id": "iv2-th-dining-hg-02",
+     "text": "EATS GENTLY AT MASTERWORK"
+    },
+    {
+     "id": "iv2-th-dining-hg-03",
+     "text": "TWO STEPS STEW TO SONG"
+    },
+    {
+     "id": "iv2-th-dining-hg-04",
+     "text": "TRIES SIX SEATS"
+    },
+    {
+     "id": "iv2-th-dining-hg-05",
+     "text": "MEAL WITH A VIEW (OF ROCK)"
+    },
+    {
+     "id": "iv2-th-dining-hg-06",
+     "text": "DINING HALL \"GLEAMING\""
+    },
+    {
+     "id": "iv2-th-dining-hg-07",
+     "text": "ELBOW ROOM AT LAST"
+    },
+    {
+     "id": "iv2-th-dining-hg-08",
+     "text": "PRAISES SEATING CHART"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-dining-hb-01",
+     "text": "SOUP SERVED BESIDE SURGERY"
+    },
+    {
+     "id": "iv2-th-dining-hb-02",
+     "text": "ONE TABLE, FORTY DWARVES"
+    },
+    {
+     "id": "iv2-th-dining-hb-03",
+     "text": "DINING FLOOR \"STICKY\""
+    },
+    {
+     "id": "iv2-th-dining-hb-04",
+     "text": "SKY WATCHES DINNER"
+    },
+    {
+     "id": "iv2-th-dining-hb-05",
+     "text": "DRAFTY HALL CHILLS STEW"
+    },
+    {
+     "id": "iv2-th-dining-hb-06",
+     "text": "TABLE WOBBLES, ALE SPILLS"
+    },
+    {
+     "id": "iv2-th-dining-hb-07",
+     "text": "CATS ON EVERY CHAIR"
+    },
+    {
+     "id": "iv2-th-dining-hb-08",
+     "text": "MEAL INTERRUPTED BY SIEGE"
+    }
+   ]
+  },
+  "sleep": {
+   "good": [
+    {
+     "id": "iv2-th-sleep-g-01",
+     "text": "I napped in the hay with the yaks. Best rest since the mountainhomes."
+    },
+    {
+     "id": "iv2-th-sleep-g-02",
+     "text": "I slept through an entire goblin siege. I am told we won. Well rested and victorious."
+    },
+    {
+     "id": "iv2-th-sleep-g-03",
+     "text": "My new bed is so soft I sank into it like a pick into clay."
+    },
+    {
+     "id": "iv2-th-sleep-g-04",
+     "text": "I woke before the bell for once and watched the miners stagger in. Smug and refreshed."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-sleep-b-01",
+     "text": "I fell asleep at my workshop and woke up with a chisel stuck to my cheek."
+    },
+    {
+     "id": "iv2-th-sleep-b-02",
+     "text": "Nightmares again. I dreamt the elves had planted a tree in my bedroom."
+    },
+    {
+     "id": "iv2-th-sleep-b-03",
+     "text": "My bed was taken, so I slept on the stairs. The stairs had other plans."
+    },
+    {
+     "id": "iv2-th-sleep-b-04",
+     "text": "I was so tired I fell asleep walking and woke up in the caverns."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-sleep-hg-01",
+     "text": "NAPS WITH YAKS, BLISSFUL"
+    },
+    {
+     "id": "iv2-th-sleep-hg-02",
+     "text": "SLEEPS THROUGH SIEGE"
+    },
+    {
+     "id": "iv2-th-sleep-hg-03",
+     "text": "SINKS INTO SOFT BED"
+    },
+    {
+     "id": "iv2-th-sleep-hg-04",
+     "text": "UP BEFORE THE BELL"
+    },
+    {
+     "id": "iv2-th-sleep-hg-05",
+     "text": "EIGHT HOURS, ZERO SIEGES"
+    },
+    {
+     "id": "iv2-th-sleep-hg-06",
+     "text": "SNORES IN HARMONY"
+    },
+    {
+     "id": "iv2-th-sleep-hg-07",
+     "text": "BLANKET \"PERFECTION\""
+    },
+    {
+     "id": "iv2-th-sleep-hg-08",
+     "text": "WAKES WELL RESTED, SMUG"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-sleep-hb-01",
+     "text": "WAKES WITH CHISEL ON FACE"
+    },
+    {
+     "id": "iv2-th-sleep-hb-02",
+     "text": "DREAMS OF AN ELF TREE"
+    },
+    {
+     "id": "iv2-th-sleep-hb-03",
+     "text": "SLEEPS ON THE STAIRS"
+    },
+    {
+     "id": "iv2-th-sleep-hb-04",
+     "text": "SLEEPWALKS TO CAVERNS"
+    },
+    {
+     "id": "iv2-th-sleep-hb-05",
+     "text": "SHARES BED WITH CAT ARMY"
+    },
+    {
+     "id": "iv2-th-sleep-hb-06",
+     "text": "TOSSES, TURNS, TANTRUMS"
+    },
+    {
+     "id": "iv2-th-sleep-hb-07",
+     "text": "\"HAVE NOT SLEPT IN DAYS\""
+    },
+    {
+     "id": "iv2-th-sleep-hb-08",
+     "text": "YAWNS THROUGH THE SHIFT"
+    }
+   ]
+  },
+  "prayer": {
+   "good": [
+    {
+     "id": "iv2-th-prayer-g-01",
+     "text": "{deity} sent me a sign: a perfectly round pebble. I keep it in my sock."
+    },
+    {
+     "id": "iv2-th-prayer-g-02",
+     "text": "The new temple has room to kneel and a little shelf for ale offerings. {deity} approves."
+    },
+    {
+     "id": "iv2-th-prayer-g-03",
+     "text": "I asked {deity} for patience and was immediately assigned hauling. A test. I passed."
+    },
+    {
+     "id": "iv2-th-prayer-g-04",
+     "text": "I prayed to {deity} at the new altar and felt the stone hum. Or a miner was digging below."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-prayer-b-01",
+     "text": "The temple was turned into a stockpile. {deity} is now somewhere behind the stone bins."
+    },
+    {
+     "id": "iv2-th-prayer-b-02",
+     "text": "A dwarf who follows a different god prays in my corner. We are fighting a quiet war of hymns."
+    },
+    {
+     "id": "iv2-th-prayer-b-03",
+     "text": "I prayed for the rain to stop and it snowed. {deity} has a sense of humor I do not share."
+    },
+    {
+     "id": "iv2-th-prayer-b-04",
+     "text": "I forgot {deity}'s feast day. Now everything I touch breaks a little."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-prayer-hg-01",
+     "text": "RECEIVES PEBBLE FROM GODS"
+    },
+    {
+     "id": "iv2-th-prayer-hg-02",
+     "text": "ALE OFFERINGS ACCEPTED"
+    },
+    {
+     "id": "iv2-th-prayer-hg-03",
+     "text": "PASSES DIVINE HAULING TEST"
+    },
+    {
+     "id": "iv2-th-prayer-hg-04",
+     "text": "ALTAR STONE HUMS"
+    },
+    {
+     "id": "iv2-th-prayer-hg-05",
+     "text": "TEMPLE \"FEELS HOLY\""
+    },
+    {
+     "id": "iv2-th-prayer-hg-06",
+     "text": "BLESSED, BEARDED, BOLD"
+    },
+    {
+     "id": "iv2-th-prayer-hg-07",
+     "text": "HYMN SUNG IN KEY (ONCE)"
+    },
+    {
+     "id": "iv2-th-prayer-hg-08",
+     "text": "\"THE GODS NODDED\""
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-prayer-hb-01",
+     "text": "TEMPLE TURNED STOCKPILE"
+    },
+    {
+     "id": "iv2-th-prayer-hb-02",
+     "text": "HYMN WAR IN THE CORNER"
+    },
+    {
+     "id": "iv2-th-prayer-hb-03",
+     "text": "PRAYS FOR SUN, GETS SNOW"
+    },
+    {
+     "id": "iv2-th-prayer-hb-04",
+     "text": "MISSES A FEAST DAY"
+    },
+    {
+     "id": "iv2-th-prayer-hb-05",
+     "text": "GODS \"NOT ANSWERING\""
+    },
+    {
+     "id": "iv2-th-prayer-hb-06",
+     "text": "ALTAR USED AS A TABLE"
+    },
+    {
+     "id": "iv2-th-prayer-hb-07",
+     "text": "FAITH SHAKEN BY CAVE-IN"
+    },
+    {
+     "id": "iv2-th-prayer-hb-08",
+     "text": "KNEELS ON GRAVEL, WINCES"
+    }
+   ]
+  },
+  "talk": {
+   "good": [
+    {
+     "id": "iv2-th-talk-g-01",
+     "text": "I told the story of the time I outran a carp. Everyone believed it. Even me."
+    },
+    {
+     "id": "iv2-th-talk-g-02",
+     "text": "We debated whether cats count as nobles. We agreed: worse."
+    },
+    {
+     "id": "iv2-th-talk-g-03",
+     "text": "The mayor asked for my opinion. He wrote nothing down, but he asked."
+    },
+    {
+     "id": "iv2-th-talk-g-04",
+     "text": "I made a new friend by complaining about the stairs. Shared suffering is the best mortar."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-talk-b-01",
+     "text": "I told my best joke and someone explained it back to me. Wrongly."
+    },
+    {
+     "id": "iv2-th-talk-b-02",
+     "text": "I was midway through a fine rant when the dinner bell rang. An unfinished rant festers."
+    },
+    {
+     "id": "iv2-th-talk-b-03",
+     "text": "A migrant corrected my pronunciation of 'magma'. In my own fortress!"
+    },
+    {
+     "id": "iv2-th-talk-b-04",
+     "text": "I argued that plump helmets are mushrooms. They are. I lost anyway."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-talk-hg-01",
+     "text": "OUTRAN CARP, SAYS STORY"
+    },
+    {
+     "id": "iv2-th-talk-hg-02",
+     "text": "CATS RULED \"WORSE THAN NOBLES\""
+    },
+    {
+     "id": "iv2-th-talk-hg-03",
+     "text": "MAYOR ASKS OPINION"
+    },
+    {
+     "id": "iv2-th-talk-hg-04",
+     "text": "BONDS OVER STAIRS"
+    },
+    {
+     "id": "iv2-th-talk-hg-05",
+     "text": "CROWD LAUGHS ON CUE"
+    },
+    {
+     "id": "iv2-th-talk-hg-06",
+     "text": "RANT \"WELL RECEIVED\""
+    },
+    {
+     "id": "iv2-th-talk-hg-07",
+     "text": "GOSSIP OF THE SEASON"
+    },
+    {
+     "id": "iv2-th-talk-hg-08",
+     "text": "TALKS ALL NIGHT, HAPPILY"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-talk-hb-01",
+     "text": "JOKE EXPLAINED, WRONGLY"
+    },
+    {
+     "id": "iv2-th-talk-hb-02",
+     "text": "RANT CUT SHORT BY BELL"
+    },
+    {
+     "id": "iv2-th-talk-hb-03",
+     "text": "CORRECTED ON \"MAGMA\""
+    },
+    {
+     "id": "iv2-th-talk-hb-04",
+     "text": "LOSES MUSHROOM DEBATE"
+    },
+    {
+     "id": "iv2-th-talk-hb-05",
+     "text": "INTERRUPTED SIX TIMES"
+    },
+    {
+     "id": "iv2-th-talk-hb-06",
+     "text": "TALKED OVER BY NOBLE"
+    },
+    {
+     "id": "iv2-th-talk-hb-07",
+     "text": "GOSSIP ABOUT OWN BEARD"
+    },
+    {
+     "id": "iv2-th-talk-hb-08",
+     "text": "QUARREL REACHES TAVERN"
+    }
+   ]
+  },
+  "art": {
+   "good": [
+    {
+     "id": "iv2-th-art-g-01",
+     "text": "There is a cat figurine on my shelf. The only cat that has never knocked anything over."
+    },
+    {
+     "id": "iv2-th-art-g-02",
+     "text": "A bard performed in the tavern. I did not understand the song. I clapped anyway."
+    },
+    {
+     "id": "iv2-th-art-g-03",
+     "text": "I saw an engraving of the fortress founding. I am in it, in the background, hauling."
+    },
+    {
+     "id": "iv2-th-art-g-04",
+     "text": "The new statue in the plaza shows a dwarf punching a tree. Finally, public art I support."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-art-b-01",
+     "text": "The bard sang a song about elves. In our tavern. Over our ale."
+    },
+    {
+     "id": "iv2-th-art-b-02",
+     "text": "Someone engraved the time I fell down the well. In great detail. With labels."
+    },
+    {
+     "id": "iv2-th-art-b-03",
+     "text": "The mayor's statue is bigger than the founder's. Politics."
+    },
+    {
+     "id": "iv2-th-art-b-04",
+     "text": "There is a poem about carp on the dining hall wall, and I have to eat beneath it."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-art-hg-01",
+     "text": "CAT FIGURINE \"PERFECT\""
+    },
+    {
+     "id": "iv2-th-art-hg-02",
+     "text": "CLAPS FOR BARD ANYWAY"
+    },
+    {
+     "id": "iv2-th-art-hg-03",
+     "text": "APPEARS IN HISTORY CARVING"
+    },
+    {
+     "id": "iv2-th-art-hg-04",
+     "text": "STATUE PUNCHES TREE"
+    },
+    {
+     "id": "iv2-th-art-hg-05",
+     "text": "MOVED BY CRAFTED ANKLET"
+    },
+    {
+     "id": "iv2-th-art-hg-06",
+     "text": "GALLERY VISIT \"BRACING\""
+    },
+    {
+     "id": "iv2-th-art-hg-07",
+     "text": "WEEPS AT GEM WINDOW"
+    },
+    {
+     "id": "iv2-th-art-hg-08",
+     "text": "\"THAT BRACELET!\" SIGHS"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-art-hb-01",
+     "text": "BARD SINGS OF ELVES"
+    },
+    {
+     "id": "iv2-th-art-hb-02",
+     "text": "FALL IMMORTALIZED IN STONE"
+    },
+    {
+     "id": "iv2-th-art-hb-03",
+     "text": "MAYOR STATUE \"TOO BIG\""
+    },
+    {
+     "id": "iv2-th-art-hb-04",
+     "text": "DINES UNDER CARP POEM"
+    },
+    {
+     "id": "iv2-th-art-hb-05",
+     "text": "SCULPTURE FALLS ON TOE"
+    },
+    {
+     "id": "iv2-th-art-hb-06",
+     "text": "ART \"LOOKS LIKE GOBLIN\""
+    },
+    {
+     "id": "iv2-th-art-hb-07",
+     "text": "MUG DESIGN \"DERIVATIVE\""
+    },
+    {
+     "id": "iv2-th-art-hb-08",
+     "text": "ENGRAVER MISSPELLS NAME"
+    }
+   ]
+  },
+  "combat": {
+   "good": [
+    {
+     "id": "iv2-th-combat-g-01",
+     "text": "I blocked a crossbow bolt with my mug. The mug survived. The ale did not."
+    },
+    {
+     "id": "iv2-th-combat-g-02",
+     "text": "I sparred with the captain and landed one punch. One! I am having it engraved."
+    },
+    {
+     "id": "iv2-th-combat-g-03",
+     "text": "The goblin ambush ran straight into our traps. I just stood there with my axe, looking heroic."
+    },
+    {
+     "id": "iv2-th-combat-g-04",
+     "text": "I kicked a troll in the shin. It sat down and wept. Very moving."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-combat-b-01",
+     "text": "My militia captain keeps scheduling training during dinner."
+    },
+    {
+     "id": "iv2-th-combat-b-02",
+     "text": "I swung at a goblin and hit the door frame. The door frame won."
+    },
+    {
+     "id": "iv2-th-combat-b-03",
+     "text": "The war dog fled before I did. That is a first, and I resent it."
+    },
+    {
+     "id": "iv2-th-combat-b-04",
+     "text": "I lost my helmet in battle and my dignity shortly after."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-combat-hg-01",
+     "text": "MUG BLOCKS BOLT"
+    },
+    {
+     "id": "iv2-th-combat-hg-02",
+     "text": "LANDS ONE PUNCH, ENGRAVES IT"
+    },
+    {
+     "id": "iv2-th-combat-hg-03",
+     "text": "TRAPS DO THE WORK"
+    },
+    {
+     "id": "iv2-th-combat-hg-04",
+     "text": "MAKES TROLL WEEP"
+    },
+    {
+     "id": "iv2-th-combat-hg-05",
+     "text": "DUEL WON ON POINTS"
+    },
+    {
+     "id": "iv2-th-combat-hg-06",
+     "text": "SHIELD WALL HOLDS"
+    },
+    {
+     "id": "iv2-th-combat-hg-07",
+     "text": "DRILL \"INVIGORATING\""
+    },
+    {
+     "id": "iv2-th-combat-hg-08",
+     "text": "BRAVEST IN THE BARRACKS"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-combat-hb-01",
+     "text": "TRAINING DURING DINNER"
+    },
+    {
+     "id": "iv2-th-combat-hb-02",
+     "text": "LOSES TO DOOR FRAME"
+    },
+    {
+     "id": "iv2-th-combat-hb-03",
+     "text": "WAR DOG FLEES FIRST"
+    },
+    {
+     "id": "iv2-th-combat-hb-04",
+     "text": "HELMET LOST, PRIDE TOO"
+    },
+    {
+     "id": "iv2-th-combat-hb-05",
+     "text": "AMBUSHED BY KOBOLDS"
+    },
+    {
+     "id": "iv2-th-combat-hb-06",
+     "text": "SPAR LEAVES BRUISES"
+    },
+    {
+     "id": "iv2-th-combat-hb-07",
+     "text": "AXE STUCK IN WALL"
+    },
+    {
+     "id": "iv2-th-combat-hb-08",
+     "text": "\"WHERE WAS THE MILITIA?\""
+    }
+   ]
+  },
+  "ghost": {
+   "good": [
+    {
+     "id": "iv2-th-ghost-g-01",
+     "text": "The ghost of the old miner still digs at night. Free labor. I am not complaining."
+    },
+    {
+     "id": "iv2-th-ghost-g-02",
+     "text": "A friendly ghost reminded me where I left my pick. Very helpful dead people here."
+    },
+    {
+     "id": "iv2-th-ghost-g-03",
+     "text": "I told the ghost a joke and it laughed. A cold laugh, but a laugh."
+    },
+    {
+     "id": "iv2-th-ghost-g-04",
+     "text": "Since we engraved the slab, the halls are quiet. I miss the moaning a little."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-ghost-b-01",
+     "text": "The ghost keeps arranging my socks into an unsettling pattern."
+    },
+    {
+     "id": "iv2-th-ghost-b-02",
+     "text": "A ghost followed me to the latrine. There are limits."
+    },
+    {
+     "id": "iv2-th-ghost-b-03",
+     "text": "The brewer's ghost haunts the stills. Now all the ale is cold. Too cold."
+    },
+    {
+     "id": "iv2-th-ghost-b-04",
+     "text": "I woke at three in the morning with a ghost on my chest, asking about its slab."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-ghost-hg-01",
+     "text": "GHOST DIGS FOR FREE"
+    },
+    {
+     "id": "iv2-th-ghost-hg-02",
+     "text": "GHOST FINDS LOST PICK"
+    },
+    {
+     "id": "iv2-th-ghost-hg-03",
+     "text": "MAKES GHOST LAUGH"
+    },
+    {
+     "id": "iv2-th-ghost-hg-04",
+     "text": "MISSES THE MOANING"
+    },
+    {
+     "id": "iv2-th-ghost-hg-05",
+     "text": "SLAB WORKS, HALLS QUIET"
+    },
+    {
+     "id": "iv2-th-ghost-hg-06",
+     "text": "SPIRIT \"GOOD COMPANY\""
+    },
+    {
+     "id": "iv2-th-ghost-hg-07",
+     "text": "HAUNTING \"WELL MANNERED\""
+    },
+    {
+     "id": "iv2-th-ghost-hg-08",
+     "text": "GHOST LEAVES IN PEACE"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-ghost-hb-01",
+     "text": "GHOST SORTS MY SOCKS"
+    },
+    {
+     "id": "iv2-th-ghost-hb-02",
+     "text": "HAUNTED IN THE LATRINE"
+    },
+    {
+     "id": "iv2-th-ghost-hb-03",
+     "text": "GHOST CHILLS THE ALE"
+    },
+    {
+     "id": "iv2-th-ghost-hb-04",
+     "text": "GHOST SITS ON CHEST"
+    },
+    {
+     "id": "iv2-th-ghost-hb-05",
+     "text": "WAILING ALL NIGHT"
+    },
+    {
+     "id": "iv2-th-ghost-hb-06",
+     "text": "CHAIRS STACKED BY SPIRIT"
+    },
+    {
+     "id": "iv2-th-ghost-hb-07",
+     "text": "GHOST STEALS DINNER SEAT"
+    },
+    {
+     "id": "iv2-th-ghost-hb-08",
+     "text": "SLAB STILL UNCARVED"
+    }
+   ]
+  },
+  "animals": {
+   "good": [
+    {
+     "id": "iv2-th-animals-g-01",
+     "text": "The goats followed me across the pasture. I am their leader now."
+    },
+    {
+     "id": "iv2-th-animals-g-02",
+     "text": "A kitten fell asleep in my helmet. I will be going helmetless for a while."
+    },
+    {
+     "id": "iv2-th-animals-g-03",
+     "text": "I named the new alpaca after myself. We have the same haircut."
+    },
+    {
+     "id": "iv2-th-animals-g-04",
+     "text": "The war dog fetched me a goblin's boot. Thoughtful creature."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-animals-b-01",
+     "text": "A pig ate my lunch, then looked at me as if I were dessert."
+    },
+    {
+     "id": "iv2-th-animals-b-02",
+     "text": "The peacocks screech at dawn. Every dawn. All of them."
+    },
+    {
+     "id": "iv2-th-animals-b-03",
+     "text": "A cat adopted me without asking. Now I am responsible for a creature that despises me."
+    },
+    {
+     "id": "iv2-th-animals-b-04",
+     "text": "The cave crocodiles got out of their cage again. They wait by the stairs."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-animals-hg-01",
+     "text": "LEADS THE GOATS"
+    },
+    {
+     "id": "iv2-th-animals-hg-02",
+     "text": "KITTEN NAPS IN HELMET"
+    },
+    {
+     "id": "iv2-th-animals-hg-03",
+     "text": "NAMES ALPACA FOR SELF"
+    },
+    {
+     "id": "iv2-th-animals-hg-04",
+     "text": "DOG FETCHES GOBLIN BOOT"
+    },
+    {
+     "id": "iv2-th-animals-hg-05",
+     "text": "HORSE \"VERY RESPECTFUL\""
+    },
+    {
+     "id": "iv2-th-animals-hg-06",
+     "text": "GREETED BY PIGS DAILY"
+    },
+    {
+     "id": "iv2-th-animals-hg-07",
+     "text": "MADE HONORARY YAK"
+    },
+    {
+     "id": "iv2-th-animals-hg-08",
+     "text": "PASTURE \"A PARADISE\""
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-animals-hb-01",
+     "text": "PIG EYES DWARF HUNGRILY"
+    },
+    {
+     "id": "iv2-th-animals-hb-02",
+     "text": "PEACOCKS SCREECH AT DAWN"
+    },
+    {
+     "id": "iv2-th-animals-hb-03",
+     "text": "ADOPTED BY HOSTILE CAT"
+    },
+    {
+     "id": "iv2-th-animals-hb-04",
+     "text": "CROCODILES ESCAPE AGAIN"
+    },
+    {
+     "id": "iv2-th-animals-hb-05",
+     "text": "STEPS IN SOMETHING"
+    },
+    {
+     "id": "iv2-th-animals-hb-06",
+     "text": "GOAT EATS BEARD"
+    },
+    {
+     "id": "iv2-th-animals-hb-07",
+     "text": "CATS SPLIT INTO FACTIONS"
+    },
+    {
+     "id": "iv2-th-animals-hb-08",
+     "text": "BITTEN BY OWN PET"
+    }
+   ]
+  },
+  "trade": {
+   "good": [
+    {
+     "id": "iv2-th-trade-g-01",
+     "text": "I sold the humans a stone mug for a whole bolt of silk. They have no idea what they did."
+    },
+    {
+     "id": "iv2-th-trade-g-02",
+     "text": "The caravan brought cheese from the mountainhomes. It tastes like my childhood, plus mold."
+    },
+    {
+     "id": "iv2-th-trade-g-03",
+     "text": "A merchant says our fortress is sung about in far-off lands. Probably lying. Still flattering."
+    },
+    {
+     "id": "iv2-th-trade-g-04",
+     "text": "The dwarven caravan brought gossip from home: my old rival lost his beard in a forge accident."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-trade-b-01",
+     "text": "The traders asked for wood. We are a stone fortress! Why would we have wood?"
+    },
+    {
+     "id": "iv2-th-trade-b-02",
+     "text": "The broker fell asleep at the depot and the humans left with our patience."
+    },
+    {
+     "id": "iv2-th-trade-b-03",
+     "text": "I wanted to buy a new pick, and the merchant only had elven baskets."
+    },
+    {
+     "id": "iv2-th-trade-b-04",
+     "text": "The trade depot was built outside the walls. The goblins came to trade too, by force."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-trade-hg-01",
+     "text": "MUG FOR SILK, A STEAL"
+    },
+    {
+     "id": "iv2-th-trade-hg-02",
+     "text": "CHEESE FROM HOME ARRIVES"
+    },
+    {
+     "id": "iv2-th-trade-hg-03",
+     "text": "FORT SUNG IN FAR LANDS"
+    },
+    {
+     "id": "iv2-th-trade-hg-04",
+     "text": "RIVAL LOSES BEARD"
+    },
+    {
+     "id": "iv2-th-trade-hg-05",
+     "text": "DEPOT BUSTLING"
+    },
+    {
+     "id": "iv2-th-trade-hg-06",
+     "text": "BROKER HAGGLES LIKE A LORD"
+    },
+    {
+     "id": "iv2-th-trade-hg-07",
+     "text": "BUYS ONE NICE ANVIL"
+    },
+    {
+     "id": "iv2-th-trade-hg-08",
+     "text": "PROFIT! (PROBABLY)"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-trade-hb-01",
+     "text": "TRADERS WANT WOOD?!"
+    },
+    {
+     "id": "iv2-th-trade-hb-02",
+     "text": "BROKER NAPS AT DEPOT"
+    },
+    {
+     "id": "iv2-th-trade-hb-03",
+     "text": "ONLY ELVEN BASKETS"
+    },
+    {
+     "id": "iv2-th-trade-hb-04",
+     "text": "GOBLINS JOIN THE TRADE"
+    },
+    {
+     "id": "iv2-th-trade-hb-05",
+     "text": "WAGON STUCK AT GATE"
+    },
+    {
+     "id": "iv2-th-trade-hb-06",
+     "text": "OVERCHARGED FOR ROPE"
+    },
+    {
+     "id": "iv2-th-trade-hb-07",
+     "text": "HUMANS SNIFF AT CRAFTS"
+    },
+    {
+     "id": "iv2-th-trade-hb-08",
+     "text": "CARAVAN LATE, AGAIN"
+    }
+   ]
+  },
+  "other": {
+   "good": [
+    {
+     "id": "iv2-th-other-g-01",
+     "text": "If you must know, {about} has me feeling {adj}. Print it in big letters."
+    },
+    {
+     "id": "iv2-th-other-g-02",
+     "text": "I woke up thinking about {about}, and I was still {adj} about it at lunch."
+    },
+    {
+     "id": "iv2-th-other-g-03",
+     "text": "Some dwarves get poems written about them. I get {about}, and I am {adj} about that."
+    },
+    {
+     "id": "iv2-th-other-g-04",
+     "text": "Between you, me and the cat, {about} has left me feeling {adj}."
+    }
+   ],
+   "bad": [
+    {
+     "id": "iv2-th-other-b-01",
+     "text": "Every time someone mentions {about}, I go {adj} all over again. Thanks for that."
+    },
+    {
+     "id": "iv2-th-other-b-02",
+     "text": "{about}. Just {about}. If you were me, you would be {adj} too."
+    },
+    {
+     "id": "iv2-th-other-b-03",
+     "text": "I carved my feelings about {about} into a rock. The rock says {adj}."
+    },
+    {
+     "id": "iv2-th-other-b-04",
+     "text": "The overseer says I dwell on {about}. I do. It makes me {adj}, and then I dwell on that."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "iv2-th-other-hg-01",
+     "text": "SURPRISINGLY UPBEAT"
+    },
+    {
+     "id": "iv2-th-other-hg-02",
+     "text": "IN A FINE TEMPER"
+    },
+    {
+     "id": "iv2-th-other-hg-03",
+     "text": "GRINS AT REPORTER"
+    },
+    {
+     "id": "iv2-th-other-hg-04",
+     "text": "\"NO COMPLAINTS\" (RARE)"
+    },
+    {
+     "id": "iv2-th-other-hg-05",
+     "text": "SPIRITS UP, BEARD TOO"
+    },
+    {
+     "id": "iv2-th-other-hg-06",
+     "text": "CHIPPER, ADMITS IT"
+    },
+    {
+     "id": "iv2-th-other-hg-07",
+     "text": "BEAMING LIKE A FORGE"
+    },
+    {
+     "id": "iv2-th-other-hg-08",
+     "text": "HAS A GOOD FEELING"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "iv2-th-other-hb-01",
+     "text": "BROODS OVER IT"
+    },
+    {
+     "id": "iv2-th-other-hb-02",
+     "text": "\"DO NOT ASK\""
+    },
+    {
+     "id": "iv2-th-other-hb-03",
+     "text": "CARVES FEELINGS IN ROCK"
+    },
+    {
+     "id": "iv2-th-other-hb-04",
+     "text": "DWELLING, AND PROUD"
+    },
+    {
+     "id": "iv2-th-other-hb-05",
+     "text": "GRUMBLES ON RECORD"
+    },
+    {
+     "id": "iv2-th-other-hb-06",
+     "text": "ADDS \"ONE MORE THING\""
+    },
+    {
+     "id": "iv2-th-other-hb-07",
+     "text": "SCOWLS FOR THE PAPER"
+    },
+    {
+     "id": "iv2-th-other-hb-08",
+     "text": "NOT IN THE MOOD"
+    }
+   ]
+  }
+ },
+ "questions": {
+  "job": [
+   {
+    "id": "iv2-q-job-01",
+    "text": "If your trade were a stone, which stone would it be?"
+   },
+   {
+    "id": "iv2-q-job-02",
+    "text": "Does your work ever get you out of hauling?"
+   },
+   {
+    "id": "iv2-q-job-03",
+    "text": "What tool could you not live without?"
+   },
+   {
+    "id": "iv2-q-job-04",
+    "text": "What is the hardest part of your trade that nobody notices?"
+   },
+   {
+    "id": "iv2-q-job-05",
+    "text": "How did you end up doing what you do in {fort}?"
+   },
+   {
+    "id": "iv2-q-job-06",
+    "text": "Would an elf understand your job if we explained it very slowly?"
+   }
+  ],
+  "mood": [
+   {
+    "id": "iv2-q-mood-01",
+    "text": "Has anything thrown a mug at your spirits lately?"
+   },
+   {
+    "id": "iv2-q-mood-02",
+    "text": "On a scale from raw plump helmet to masterwork, how are you?"
+   },
+   {
+    "id": "iv2-q-mood-03",
+    "text": "How is your beard feeling, emotionally?"
+   },
+   {
+    "id": "iv2-q-mood-04",
+    "text": "Is the {season} getting to you?"
+   },
+   {
+    "id": "iv2-q-mood-05",
+    "text": "Would you say you are thriving, or merely not on fire?"
+   },
+   {
+    "id": "iv2-q-mood-06",
+    "text": "How has {fort} been treating your nerves?"
+   }
+  ],
+  "complaint": [
+   {
+    "id": "iv2-q-complaint-01",
+    "text": "What would make you throw a tantrum this week?"
+   },
+   {
+    "id": "iv2-q-complaint-02",
+    "text": "Who is the worst hauler in {fort}, and why is it not you?"
+   },
+   {
+    "id": "iv2-q-complaint-03",
+    "text": "If you had a lever, what would you flood?"
+   },
+   {
+    "id": "iv2-q-complaint-04",
+    "text": "What is the one job you would ban forever?"
+   },
+   {
+    "id": "iv2-q-complaint-05",
+    "text": "What does the overseer keep getting wrong?"
+   },
+   {
+    "id": "iv2-q-complaint-06",
+    "text": "What drives you to the edge of a strange mood?"
+   }
+  ],
+  "deity": [
+   {
+    "id": "iv2-q-deity-01",
+    "text": "Does your god have opinions on ale?"
+   },
+   {
+    "id": "iv2-q-deity-02",
+    "text": "What do you ask of the gods, mostly?"
+   },
+   {
+    "id": "iv2-q-deity-03",
+    "text": "Do the gods listen down here, under all this rock?"
+   },
+   {
+    "id": "iv2-q-deity-04",
+    "text": "Has your faith ever saved you from a carp?"
+   },
+   {
+    "id": "iv2-q-deity-05",
+    "text": "Do you have a favorite hymn?"
+   },
+   {
+    "id": "iv2-q-deity-06",
+    "text": "Where in {fort} do you go to pray?"
+   }
+  ],
+  "kin": [
+   {
+    "id": "iv2-q-kin-01",
+    "text": "Does {kin} visit often?"
+   },
+   {
+    "id": "iv2-q-kin-02",
+    "text": "What is the best thing about your {rel}?"
+   },
+   {
+    "id": "iv2-q-kin-03",
+    "text": "Do you and {kin} share a trade, or just grudges?"
+   },
+   {
+    "id": "iv2-q-kin-04",
+    "text": "What would {kin} say about you, if we asked?"
+   },
+   {
+    "id": "iv2-q-kin-05",
+    "text": "Has your {rel} ever embarrassed you in the dining hall?"
+   },
+   {
+    "id": "iv2-q-kin-06",
+    "text": "When did you last share a mug with {kin}?"
+   }
+  ],
+  "nokin": [
+   {
+    "id": "iv2-q-nokin-01",
+    "text": "Do you get lonely in {fort}?"
+   },
+   {
+    "id": "iv2-q-nokin-02",
+    "text": "Would you marry for a bigger bedroom?"
+   },
+   {
+    "id": "iv2-q-nokin-03",
+    "text": "What would your ideal companion be like?"
+   },
+   {
+    "id": "iv2-q-nokin-04",
+    "text": "Any family back in the mountainhomes?"
+   },
+   {
+    "id": "iv2-q-nokin-05",
+    "text": "Who keeps you company in the evenings?"
+   },
+   {
+    "id": "iv2-q-nokin-06",
+    "text": "Does a cat count as family?"
+   }
+  ],
+  "last": [
+   {
+    "id": "iv2-q-last-01",
+    "text": "Anything to tell the overseer, while the overseer is reading?"
+   },
+   {
+    "id": "iv2-q-last-02",
+    "text": "If you had one mug to raise, who would you toast?"
+   },
+   {
+    "id": "iv2-q-last-03",
+    "text": "What do you hope the next {season} brings?"
+   },
+   {
+    "id": "iv2-q-last-04",
+    "text": "What is the secret to a long life in {fort}?"
+   },
+   {
+    "id": "iv2-q-last-05",
+    "text": "How would you like to be remembered?"
+   },
+   {
+    "id": "iv2-q-last-06",
+    "text": "Any warnings for our younger readers?"
+   }
+  ]
+ },
+ "answers": {
+  "job_match": [
+   {
+    "id": "iv2-a-job-match-01",
+    "text": "I am {prof} through and through. {level} {skill}, with the scars to prove it, mostly from stairs."
+   },
+   {
+    "id": "iv2-a-job-match-02",
+    "text": "Every fort needs a {level} {skill}. This one got me, and frankly it does not deserve me."
+   },
+   {
+    "id": "iv2-a-job-match-03",
+    "text": "My grandmother was a {skill}. I am a {level} {skill}. Family tradition, with improvements."
+   },
+   {
+    "id": "iv2-a-job-match-04",
+    "text": "I kept a tally on the wall of every job I finished as {level} {skill}. I ran out of wall."
+   },
+   {
+    "id": "iv2-a-job-match-05",
+    "text": "When something breaks, they shout for the {prof}. When it is fixed, they forget. Such is life as a {level} {skill}."
+   },
+   {
+    "id": "iv2-a-job-match-06",
+    "text": "I do not do it for glory. I do it because I am a {level} {skill} and nobody else will."
+   }
+  ],
+  "job_mismatch": [
+   {
+    "id": "iv2-a-job-mismatch-01",
+    "text": "They wrote {prof} on my door by mistake. I am a {level} {skill}, and I have stopped correcting them."
+   },
+   {
+    "id": "iv2-a-job-mismatch-02",
+    "text": "I came here to be the {prof}. The fortress had other plans: {level} {skill}."
+   },
+   {
+    "id": "iv2-a-job-mismatch-03",
+    "text": "Ask me to do {prof} work and I will stare at you. Ask the {level} {skill} and I will stare a bit less."
+   },
+   {
+    "id": "iv2-a-job-mismatch-04",
+    "text": "My trade is {prof}, but the overseer keeps handing me {skill} jobs. Now I am {level}. Funny how that works."
+   },
+   {
+    "id": "iv2-a-job-mismatch-05",
+    "text": "Officially {prof}. Unofficially {level} {skill}. Spiritually, still waiting for my bedroom."
+   },
+   {
+    "id": "iv2-a-job-mismatch-06",
+    "text": "I have the title of {prof} and the hands of a {level} {skill}. The two have never been introduced."
+   }
+  ],
+  "skill2_good": [
+   {
+    "id": "iv2-a-skill2-good-01",
+    "text": "I am also a fine {skill2}. It is the hobby that pays in ale."
+   },
+   {
+    "id": "iv2-a-skill2-good-02",
+    "text": "On rest days I am the {skill2}. A dwarf once named a child after my work. Just the one."
+   },
+   {
+    "id": "iv2-a-skill2-good-03",
+    "text": "The {skill2} work? I could do it asleep. Once, I did."
+   },
+   {
+    "id": "iv2-a-skill2-good-04",
+    "text": "Do not let the title fool you. My {skill2} work is the talk of the tavern."
+   },
+   {
+    "id": "iv2-a-skill2-good-05",
+    "text": "Quietly, I am a gifted {skill2}. The quiet part is my modesty. It is very small."
+   },
+   {
+    "id": "iv2-a-skill2-good-06",
+    "text": "My second trade is {skill2}. Some say it is really my first. I let them."
+   }
+  ],
+  "skill2_bad": [
+   {
+    "id": "iv2-a-skill2-bad-01",
+    "text": "I also attempt the {skill2} trade. 'Attempt' is the important word there."
+   },
+   {
+    "id": "iv2-a-skill2-bad-02",
+    "text": "My {skill2} work is best described as enthusiastic."
+   },
+   {
+    "id": "iv2-a-skill2-bad-03",
+    "text": "I once helped out as {skill2}. They still have not found all the pieces."
+   },
+   {
+    "id": "iv2-a-skill2-bad-04",
+    "text": "I am a {skill2} the way a goblin is a guest: technically, and nobody is happy about it."
+   },
+   {
+    "id": "iv2-a-skill2-bad-05",
+    "text": "Every apprentice {skill2} needs a first disaster. I have had eleven."
+   },
+   {
+    "id": "iv2-a-skill2-bad-06",
+    "text": "The {skill2} workshop has a drawing of my face on the door, crossed out."
+   }
+  ],
+  "mood_ecstatic": [
+   {
+    "id": "iv2-a-mood-ecstatic-01",
+    "text": "Ecstatic! I tipped my helmet to a goblin by mistake, and even that felt right."
+   },
+   {
+    "id": "iv2-a-mood-ecstatic-02",
+    "text": "I am happier than a miner who just struck adamantine. Not that I did. Not that I would tell you."
+   },
+   {
+    "id": "iv2-a-mood-ecstatic-03",
+    "text": "So joyful I offered to haul. Voluntarily. Mark the date."
+   },
+   {
+    "id": "iv2-a-mood-ecstatic-04",
+    "text": "Perfect. My bedroom, my ale, my beard: all magnificent. Next question."
+   },
+   {
+    "id": "iv2-a-mood-ecstatic-05",
+    "text": "Elated. Any lighter and I would float up into that terrible sky."
+   },
+   {
+    "id": "iv2-a-mood-ecstatic-06",
+    "text": "Wonderful! I have not had a single bad thought since the last caravan."
+   }
+  ],
+  "mood_happy": [
+   {
+    "id": "iv2-a-mood-happy-01",
+    "text": "Good, thanks. My socks matched this morning. Both of them."
+   },
+   {
+    "id": "iv2-a-mood-happy-02",
+    "text": "Pleasant. I found an extra plump helmet in my pocket. Old, but a nice surprise."
+   },
+   {
+    "id": "iv2-a-mood-happy-03",
+    "text": "Rather well. The cat let me sit in my own chair."
+   },
+   {
+    "id": "iv2-a-mood-happy-04",
+    "text": "Happy. Not cartwheel happy, but solid quiet-nod happy."
+   },
+   {
+    "id": "iv2-a-mood-happy-05",
+    "text": "In good spirits, and in good ale, which helps the spirits."
+   },
+   {
+    "id": "iv2-a-mood-happy-06",
+    "text": "Not bad at all. My last job finished without one cancellation notice."
+   }
+  ],
+  "mood_content": [
+   {
+    "id": "iv2-a-mood-content-01",
+    "text": "So-so. Like ale that has been left out. Still ale."
+   },
+   {
+    "id": "iv2-a-mood-content-02",
+    "text": "Even. Level. Like a well-smoothed floor."
+   },
+   {
+    "id": "iv2-a-mood-content-03",
+    "text": "Fine, in the sense that nothing has exploded today."
+   },
+   {
+    "id": "iv2-a-mood-content-04",
+    "text": "Content, mostly. I would like one more chair, but I am not greedy."
+   },
+   {
+    "id": "iv2-a-mood-content-05",
+    "text": "Neither up nor down. Somewhere around ground level, which is too close to the sky."
+   },
+   {
+    "id": "iv2-a-mood-content-06",
+    "text": "Adequate. I would rate myself well-crafted. Not finely. Just well."
+   }
+  ],
+  "mood_stressed": [
+   {
+    "id": "iv2-a-mood-stressed-01",
+    "text": "Twitchy. A door slammed and I dropped a whole tray of mugs."
+   },
+   {
+    "id": "iv2-a-mood-stressed-02",
+    "text": "On edge. I have been arguing with my pick, and losing."
+   },
+   {
+    "id": "iv2-a-mood-stressed-03",
+    "text": "Strained. My list of complaints just started a second page."
+   },
+   {
+    "id": "iv2-a-mood-stressed-04",
+    "text": "Frazzled. The overseer moves my workshop more often than I move my feet."
+   },
+   {
+    "id": "iv2-a-mood-stressed-05",
+    "text": "Uneasy. I sleep with one eye open now, mostly on the cats."
+   },
+   {
+    "id": "iv2-a-mood-stressed-06",
+    "text": "Stretched thin, like the last ale at the bottom of the barrel."
+   }
+  ],
+  "mood_very_stressed": [
+   {
+    "id": "iv2-a-mood-very-stressed-01",
+    "text": "Dreadful. I have started a grudge against the floor. The floor knows why."
+   },
+   {
+    "id": "iv2-a-mood-very-stressed-02",
+    "text": "Bad. I am one cancelled job away from screaming at a wheelbarrow."
+   },
+   {
+    "id": "iv2-a-mood-very-stressed-03",
+    "text": "Wretched. I asked for a hug and someone handed me a crutch."
+   },
+   {
+    "id": "iv2-a-mood-very-stressed-04",
+    "text": "Rotten. I cried into my stew, which honestly improved the seasoning."
+   },
+   {
+    "id": "iv2-a-mood-very-stressed-05",
+    "text": "Not good. I have counted every crack in the ceiling and named the worst ones."
+   },
+   {
+    "id": "iv2-a-mood-very-stressed-06",
+    "text": "Grim. My beard is full of knots, and I think they are emotional."
+   }
+  ],
+  "mood_breaking": [
+   {
+    "id": "iv2-a-mood-breaking-01",
+    "text": "Stand back. I can hear the furniture begging."
+   },
+   {
+    "id": "iv2-a-mood-breaking-02",
+    "text": "I am this close to going berserk, and I only tell you because you have a pen."
+   },
+   {
+    "id": "iv2-a-mood-breaking-03",
+    "text": "I am fine, I said, while holding a chair over my head."
+   },
+   {
+    "id": "iv2-a-mood-breaking-04",
+    "text": "Something is about to get thrown, and the mugs know it. They are trembling on the shelf."
+   },
+   {
+    "id": "iv2-a-mood-breaking-05",
+    "text": "Tell my family I said good luck. To the fortress, not to me."
+   },
+   {
+    "id": "iv2-a-mood-breaking-06",
+    "text": "Hear that? That is my last nerve being hauled off to a stockpile."
+   }
+  ],
+  "deity": [
+   {
+    "id": "iv2-a-deity-01",
+    "text": "{deity} and I have an arrangement. I pray, and {deity} pretends not to see me nap."
+   },
+   {
+    "id": "iv2-a-deity-02",
+    "text": "I wear a little carving of {deity} on a string. It has saved me from three cave-ins and one cook."
+   },
+   {
+    "id": "iv2-a-deity-03",
+    "text": "{deity} is the reason I still have both ears. Long story. Involves a troll."
+   },
+   {
+    "id": "iv2-a-deity-04",
+    "text": "I named my pick after {deity}. Every swing is a small prayer, and a small rock."
+   },
+   {
+    "id": "iv2-a-deity-05",
+    "text": "Some dwarves doubt the gods. I doubt the dwarves. {deity} is fine."
+   },
+   {
+    "id": "iv2-a-deity-06",
+    "text": "I once heard {deity} speak. It may have been the plumbing. I choose to believe."
+   }
+  ],
+  "kin_alive": [
+   {
+    "id": "iv2-a-kin-alive-01",
+    "text": "{kin}, my {rel}? We eat breakfast together and argue about which of us is the better dwarf. Me."
+   },
+   {
+    "id": "iv2-a-kin-alive-02",
+    "text": "My {rel} {kin} is the only one who can tell when I am lying. I avoid {kin} at dice."
+   },
+   {
+    "id": "iv2-a-kin-alive-03",
+    "text": "{kin} taught me everything I know, except humility. That lesson did not take."
+   },
+   {
+    "id": "iv2-a-kin-alive-04",
+    "text": "I made {kin} a mug once. {kin} still uses it, which is as close as a dwarf gets to saying I love you."
+   },
+   {
+    "id": "iv2-a-kin-alive-05",
+    "text": "My {rel}, {kin}, works on the far side of the fort. We wave across the chasm every morning."
+   },
+   {
+    "id": "iv2-a-kin-alive-06",
+    "text": "{kin}? Doing well. Recently started a feud with a goat, and is winning."
+   }
+  ],
+  "kin_dead": [
+   {
+    "id": "iv2-a-kin-dead-01",
+    "text": "My {rel}, {kin}, rests below. Every time I pass the tomb, I knock twice. It was our joke."
+   },
+   {
+    "id": "iv2-a-kin-dead-02",
+    "text": "{kin} left me a pick and a grudge. I use both daily."
+   },
+   {
+    "id": "iv2-a-kin-dead-03",
+    "text": "We lost {kin} to a carp. I have not forgiven water since."
+   },
+   {
+    "id": "iv2-a-kin-dead-04",
+    "text": "I carved {kin}'s name over my bedroom door. Now they watch over me, and my socks."
+   },
+   {
+    "id": "iv2-a-kin-dead-05",
+    "text": "{kin} would have liked this fortress. Would have complained about it endlessly, but liked it."
+   },
+   {
+    "id": "iv2-a-kin-dead-06",
+    "text": "I still set out {kin}'s favorite stool at dinner. Nobody sits on it. Nobody dares."
+   }
+  ],
+  "nokin": [
+   {
+    "id": "iv2-a-nokin-01",
+    "text": "No kin. I am a lone dwarf, like one stone in a very large wall."
+   },
+   {
+    "id": "iv2-a-nokin-02",
+    "text": "Family? I came here with six strangers and a wagon. We are not close."
+   },
+   {
+    "id": "iv2-a-nokin-03",
+    "text": "Nobody yet. I am waiting for a dwarf who appreciates a good drainage channel."
+   },
+   {
+    "id": "iv2-a-nokin-04",
+    "text": "No family, but the tavern keeper knows my name, which is nearly as good."
+   },
+   {
+    "id": "iv2-a-nokin-05",
+    "text": "I had a sweetheart once. Then a migrant wave brought someone with a longer beard."
+   },
+   {
+    "id": "iv2-a-nokin-06",
+    "text": "Single. The whole bed is mine, including the cold side."
+   }
+  ],
+  "signoff": [
+   {
+    "id": "iv2-a-signoff-01",
+    "text": "Never build your stockpile next to the magma. Or do, and write the Herald a letter about it."
+   },
+   {
+    "id": "iv2-a-signoff-02",
+    "text": "Dig in straight lines, and life will mostly follow."
+   },
+   {
+    "id": "iv2-a-signoff-03",
+    "text": "Take a mug of ale to your neighbor. Then take it back. It is your ale."
+   },
+   {
+    "id": "iv2-a-signoff-04",
+    "text": "If a dwarf in a strange mood asks for your sock, give it. Do not argue."
+   },
+   {
+    "id": "iv2-a-signoff-05",
+    "text": "Wear a helmet in the caverns. Wear two near the stairs."
+   },
+   {
+    "id": "iv2-a-signoff-06",
+    "text": "Say hello to the trader, goodbye to your bins, and never thank an elf."
+   },
+   {
+    "id": "iv2-a-signoff-07",
+    "text": "Keep your pick sharp and your opinions sharper."
+   },
+   {
+    "id": "iv2-a-signoff-08",
+    "text": "If the drawbridge is up, stay inside. If it is down, stay inside anyway."
+   },
+   {
+    "id": "iv2-a-signoff-09",
+    "text": "Wash your beard before festivals. The mayor notices."
+   },
+   {
+    "id": "iv2-a-signoff-10",
+    "text": "Never pull a lever you did not label yourself."
+   },
+   {
+    "id": "iv2-a-signoff-11",
+    "text": "Lock up the cheese. The cats are organizing."
+   },
+   {
+    "id": "iv2-a-signoff-12",
+    "text": "Always look up before you mine. Something might be looking down."
+   },
+   {
+    "id": "iv2-a-signoff-13",
+    "text": "Give your haulers a break and your nobles a long hallway."
+   },
+   {
+    "id": "iv2-a-signoff-14",
+    "text": "Be patient with migrants. You were one once, and you were terrible."
+   },
+   {
+    "id": "iv2-a-signoff-15",
+    "text": "Rest your back, raise your mug, and lower your expectations."
+   },
+   {
+    "id": "iv2-a-signoff-16",
+    "text": "Never trust a quiet cavern or a cheerful goblin."
+   },
+   {
+    "id": "iv2-a-signoff-17",
+    "text": "Sweep your floors. Somewhere in that dust is someone's sock."
+   },
+   {
+    "id": "iv2-a-signoff-18",
+    "text": "Hide your best chair when the noble comes calling."
+   },
+   {
+    "id": "iv2-a-signoff-19",
+    "text": "Stay off the ice in spring. That is how you meet the carp."
+   },
+   {
+    "id": "iv2-a-signoff-20",
+    "text": "Remember the fallen, honor the brewers, and forget the elves."
+   },
+   {
+    "id": "iv2-a-signoff-21",
+    "text": "May your stone be smooth and your ale never warm."
+   },
+   {
+    "id": "iv2-a-signoff-22",
+    "text": "Go to bed early. The siege will still be there in the morning."
+   }
+  ]
+ },
+ "decks": [
+  {
+   "id": "iv2-deck-01",
+   "text": "Mid-{job}, {dwarf}, {age}, {prof}, waved our reporter over and immediately regretted it."
+  },
+  {
+   "id": "iv2-deck-02",
+   "text": "The Herald caught {dwarf} ({age}, {prof}) halfway through '{job}' and asked for a few words. We got several."
+  },
+  {
+   "id": "iv2-deck-03",
+   "text": "{dwarf}, {age}, {prof}, did not stop '{job}' for the Herald, but did slow down slightly, which counts."
+  },
+  {
+   "id": "iv2-deck-04",
+   "text": "Our correspondent shadowed {dwarf}, {age}, the {prof}, through one round of '{job}' and three complaints."
+  },
+  {
+   "id": "iv2-deck-05",
+   "text": "We found {dwarf}, {age}, {prof}, busy with '{job}', and asked the questions nobody else in {fort} dares to."
+  },
+  {
+   "id": "iv2-deck-06",
+   "text": "Still dusty from '{job}', {dwarf}, {age}, {prof}, gave the Herald an interview between sighs."
+  },
+  {
+   "id": "iv2-deck-07",
+   "text": "The Herald's {season} profile: {dwarf}, {age}, {prof}, currently and grudgingly on '{job}'."
+  },
+  {
+   "id": "iv2-deck-08",
+   "text": "{dwarf}, {age}, {prof}, was mid-{job} when our reporter arrived holding ale. Negotiations were brief."
+  },
+  {
+   "id": "iv2-deck-09",
+   "text": "Readers asked who keeps {fort} running. Today's answer: {dwarf}, {age}, {prof}, doing '{job}'."
+  },
+  {
+   "id": "iv2-deck-10",
+   "text": "Leaning on the tools of '{job}', {dwarf}, {age}, the fort's {prof}, spoke to the Herald at length."
+  },
+  {
+   "id": "iv2-deck-11",
+   "text": "Between grunts of effort on '{job}', {dwarf}, {age}, {prof}, shared some views on life in {fort}."
+  },
+  {
+   "id": "iv2-deck-12",
+   "text": "Our reporter tripped over {dwarf}, {age}, {prof}, mid-{job}. The apology became an interview."
+  },
+  {
+   "id": "iv2-deck-13",
+   "text": "Ask the fort about '{job}' and they point to {dwarf}, {age}, {prof}. So the Herald went and asked."
+  }
+ ],
+ "idle_decks": [
+  {
+   "id": "iv2-idle-deck-01",
+   "text": "{dwarf}, {age}, {prof}, was found lying in the meeting hall pondering the ceiling. The Herald pondered too."
+  },
+  {
+   "id": "iv2-idle-deck-02",
+   "text": "No job, no hurry: {dwarf}, {age}, {prof}, talked to the Herald while carefully not doing anything."
+  },
+  {
+   "id": "iv2-idle-deck-03",
+   "text": "We caught {dwarf}, {age}, {prof}, between tasks and between mugs, and asked about everything."
+  },
+  {
+   "id": "iv2-idle-deck-04",
+   "text": "{dwarf}, {age}, the fort's {prof}, has no current assignment and a great many opinions."
+  },
+  {
+   "id": "iv2-idle-deck-05",
+   "text": "Found leaning on a wall in {fort} this {season}, {dwarf}, {age}, {prof}, had nowhere to be. Until now."
+  },
+  {
+   "id": "iv2-idle-deck-06",
+   "text": "The overseer forgot to give {dwarf}, {age}, {prof}, any work. The Herald did not forget its questions."
+  },
+  {
+   "id": "iv2-idle-deck-07",
+   "text": "Spotted idling by the still, {dwarf}, {age}, {prof}, swore it was a short break. We pulled up a stool."
+  }
+ ]
+}

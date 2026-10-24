@@ -95,6 +95,21 @@
   .item.board { background: #2e3a2c; color: #f2eee0; padding: 5px 7px; border: 3px solid #6b4a2a; font-family: 'Segoe Print', 'Comic Sans MS', cursive; font-size: 10.5px; }
   .item.board .kick { color: #e8d9a8; text-align: center; }
   .item.board div + div { border-top: 1px dashed rgba(242,238,224,.3); }
+  .strip { margin-bottom: 4px; }
+  .strip-title { font-family: var(--black); font-size: 15px; line-height: 1; margin: 2px 0 1px; }
+  .panels { display: flex; gap: 3px; }
+  .panel { flex: 1; border: 1.5px solid var(--ink); background: #fbf5e6; line-height: 0; }
+  .item.gag .panel { margin: 2px 0; }
+  .gag-cap { font-style: italic; text-align: center; font-size: 10.5px; margin-top: 2px; }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
+  .cols2 > div:first-child { border-right: 1px solid var(--hair); padding-right: 9px; }
+  .scope div { padding: 1px 0; font-size: 10.5px; border-bottom: 1px dotted var(--hair); }
+  .scope b { font-variant: small-caps; color: var(--accent); }
+  .puzzle .jw { letter-spacing: 2px; font-family: 'Courier New', monospace; }
+  .ans { margin-top: 3px; font-size: 9.5px; color: var(--ink2); text-align: right; }
+  .flip { display: inline-block; transform: rotate(180deg); }
+  .ingr { font-size: 9.5px; font-style: italic; color: var(--accent); margin-bottom: 2px; }
+  .item.obit { border: 1px solid var(--ink); padding: 4px 6px; background: rgba(0,0,0,.04); }
   .cls div { padding: 1px 0; border-bottom: 1px dotted var(--hair); }
   .cls div:last-child { border: 0; }
   .cls b { font-variant: small-caps; }
@@ -185,7 +200,11 @@ function newsSlots() {
   }
   for (const b of big) {
     const t = clean(b.text), nm = (t.match(/^([^,]+),/) || [])[1];
-    if (b.type === 'CITIZEN_DEATH' && nm && !o.deadname) o.deadname = cap(nm);
+    if (b.type === 'CITIZEN_DEATH' && nm && !o.deadname) {
+      o.deadname = cap(nm);
+      const m = t.match(/^[^,]+,\s*(.+?) has (.+?)\.?$/);   // "Bomrek Enshalcatten, Miner has been found dead, dehydrated."
+      if (m) { o.prof = m[1].toLowerCase(); o.cause = m[2].replace(/^been found dead,?\s*/, '').replace(/^been /, '') || 'mysterious circumstances'; }
+    }
     if (/MOOD/.test(b.type) && nm && !o.moodname) o.moodname = cap(nm);
     if (/MASTERPIECE/.test(b.type) && !o.masterwork) { const m = t.match(/^(.+?) has created an? masterpiece (.+?)!?$/); if (m) { o.masterwright = cap(m[1]); o.masterwork = m[2].replace(/\[\d+\]/, '').trim(); } }
     if (/STRUCK/.test(b.type) && !o.mineral) { const m = t.match(/struck (.+?)!/); if (m) o.mineral = m[1]; }
@@ -208,7 +227,7 @@ function context(r) {
     gems: n(c.gems), cloth: n(c.cloth), thread: n(c.thread), blocks: n(c.blocks),
     herd: n(Object.values(an_).reduce((a, b) => a + b, 0)), dogs: n(an_.dogs), cats: n(an_.cats),
     topanimal: top && top[1] > 1 ? top[0] : null, topanimal_n: top && top[1] > 1 ? top[1] : null, farms: n(K && K.farms),
-    citizen: ppl[0], citizen2: ppl[1], citizen_first: ppl[2] ? ppl[2].split(' ')[0] : null,
+    citizen: ppl[0], citizen2: ppl[1], citizen_first: ppl[2] ? ppl[2].split(' ')[0] : null, _people: ppl,
     artifact: art ? clean(art.name) : null, artifact_item: art ? clean(art.item).replace(/^[-\s«]+|[-\s»]+$/g, '').replace(/[«»]/g, '') : null,
     ...news,
   };
@@ -242,7 +261,12 @@ function choose(list, ctx, r, n = 1, extra = {}) {
   for (const e of list || []) {
     if (!e || !e.id || issueUsed.has(e.id)) continue;
     if ((e.when || []).some(c => !ctx.conds.has(c))) continue;
-    const f = fillE(e, sl); if (!f) continue;
+    let esl = sl;
+    if (sl._people && sl._people.length > 2 && !extra.citizen) {   // a different correspondent for every piece, not one dwarf writing every letter
+      const pp = sl._people, i = Math.floor(r() * pp.length), j = (i + 1 + Math.floor(r() * (pp.length - 1))) % pp.length;
+      esl = {...sl, citizen: pp[i], citizen2: pp[j], citizen_first: pp[(j + 1) % pp.length].split(' ')[0]};
+    }
+    const f = fillE(e, esl); if (!f) continue;
     const topical = (e.when && e.when.length) || NEWSY.test(JSON.stringify(e));
     cands.push({f, score: (SEEN[e.id] || 0) - (topical ? 86400 : 0) + r() * 1800});
   }
@@ -286,6 +310,8 @@ function trackStories() {
     const clampAt = o => { if (o && o.since < founded) { o.since = founded; memDirty = true; } };
     if (M.started == null || M.started < founded) { M.started = founded; memDirty = true; }
     Object.values(M.streaks).forEach(clampAt); Object.values(M.ended).forEach(clampAt);
+    // one report per game day at most (older builds counted every printing)
+    for (const st of Object.values(M.streaks)) if (st.n > today - st.since + 1) { st.n = today - st.since + 1; memDirty = true; }
     for (const k of Object.keys(M.counters)) if (M.counters[k] < founded) { delete M.counters[k]; memDirty = true; }
   }
   if (c) for (const [k, f] of Object.entries(STORY_TESTS)) conds[k] = f(c);
@@ -327,7 +353,7 @@ function storyItems(ctx, r) {
   for (const [k, st] of act.slice(0, 2)) {
     const ex = {days: today - st.since, since: dateOf(st.since), n: st.n + 1};
     const h = choose1(O[k].heads, ctx, r, ex), b = choose1(O[k].bodies, ctx, r, ex); if (!h || !b) continue;
-    st.n++; memDirty = true;
+    if (st.lastDay !== today) { st.n++; st.lastDay = today; memDirty = true; }
     items.push({ids: [h.id, b.id], html: `<div class="item run"><div class="kick">Running Story · Day ${ex.days}</div><h3>${esc(T(h))}</h3><p class="just">${esc(T(b))}</p></div>`});
   }
   for (const [k, en] of Object.entries(M.ended)) {
@@ -718,7 +744,7 @@ function Sketch(seed, w = 240, h = 140) {
   const fill = (pts, f = `url(#${id})`) => out.push(`<path d="M${pts.map(([x, y]) => J(x, .8).toFixed(1) + ' ' + J(y, .8).toFixed(1)).join(' L')} Z" fill="${f}" stroke="none"/>`);
   const ring = (cx, cy, rx, ry = rx, n = 14, a0 = 0, a1 = Math.PI * 2) => Array.from({length: n + 1}, (_, i) => { const a = a0 + (a1 - a0) * i / n; return [cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]; });
   const S = {
-    r, line: (x1, y1, x2, y2) => path([[x1, y1], [(x1 + x2) / 2, (y1 + y2) / 2], [x2, y2]]),
+    r, raw: x => out.push(x), line: (x1, y1, x2, y2) => path([[x1, y1], [(x1 + x2) / 2, (y1 + y2) / 2], [x2, y2]]),
     poly: (pts, hatch) => { if (hatch) fill(pts, hatch === true ? undefined : hatch); path(pts, true); },
     circle: (cx, cy, rad, hatch, ry) => { const p = ring(cx, cy, rad, ry || rad); if (hatch) fill(p, hatch === true ? undefined : hatch); path(p); },
     arc: (cx, cy, rx, ry, a0, a1) => path(ring(cx, cy, rx, ry, 8, a0, a1)),
@@ -876,6 +902,257 @@ function checkBig() {
   if (breakingQ.length && !breakingOn) nextCard();
 }
 
+// ---------- the funny pages: comic strips and gag cartoons drawn from library scripts ----------
+// A strip is described in the library (bg, props, cast with poses and speech); this turns it into scribbled panels.
+function wrapText(t, maxChars) {
+  const words = String(t).split(/\s+/), lines = []; let cur = '';
+  for (const w of words) { if ((cur + ' ' + w).trim().length > maxChars && cur) { lines.push(cur); cur = w; } else cur = (cur + ' ' + w).trim(); }
+  if (cur) lines.push(cur);
+  return lines;
+}
+function extend(S) {
+  const {line, poly, circle, arc, text} = S, r = S.r;
+  Object.assign(S, {
+    noble(x, y, s, o) { S.dwarf(x, y, s, o); S.crown(x, y - 58 * s, s); },
+    crown(x, y, s = 1) { poly([[x - 7 * s, y + 4 * s], [x - 8 * s, y - 5 * s], [x - 4 * s, y], [x, y - 7 * s], [x + 4 * s, y], [x + 8 * s, y - 5 * s], [x + 7 * s, y + 4 * s]], '#e6c75a'); },
+    elf(x, y, s = 1, o = {}) {
+      const hy = y - 66 * s;
+      circle(x, hy, 6 * s);
+      poly([[x - 5 * s, hy - 1], [x - 14 * s, hy - 7 * s], [x - 5 * s, hy + 3]]); poly([[x + 5 * s, hy - 1], [x + 14 * s, hy - 7 * s], [x + 5 * s, hy + 3]]);
+      line(x - 5 * s, hy - 3 * s, x - 7 * s, hy + 14 * s); line(x + 5 * s, hy - 3 * s, x + 7 * s, hy + 14 * s);   // long hair
+      S.raw(`<circle cx="${x - 2 * s}" cy="${hy}" r="${s}" fill="#241c13"/><circle cx="${x + 2 * s}" cy="${hy}" r="${s}" fill="#241c13"/>`);
+      arc(x, hy + 2 * s, 2.5 * s, 1.5 * s, .1, Math.PI - .1);                                               // serene smile
+      line(x, hy + 6 * s, x, y - 24 * s); line(x, y - 24 * s, x - 6 * s, y); line(x, y - 24 * s, x + 6 * s, y);
+      const up = o.armsUp; line(x, hy + 14 * s, x - 11 * s, up ? hy : hy + 26 * s); line(x, hy + 14 * s, x + 11 * s, up ? hy : hy + 26 * s);
+      // a leaf, always a leaf
+      poly([[x + 11 * s, up ? hy : hy + 26 * s], [x + 18 * s, (up ? hy : hy + 26 * s) - 7 * s], [x + 20 * s, (up ? hy : hy + 26 * s) + 1]], 'rgba(63,107,46,.6)');
+    },
+    kobold(x, y, s = 1) {
+      const hy = y - 26 * s;
+      circle(x, hy, 6 * s);
+      poly([[x - 4 * s, hy - 3], [x - 15 * s, hy - 10 * s], [x - 5 * s, hy + 2]]); poly([[x + 4 * s, hy - 3], [x + 15 * s, hy - 10 * s], [x + 5 * s, hy + 2]]);
+      S.raw(`<circle cx="${x - 2 * s}" cy="${hy - 1}" r="${1.3 * s}" fill="#241c13"/><circle cx="${x + 2 * s}" cy="${hy - 1}" r="${1.3 * s}" fill="#241c13"/>`);
+      line(x, hy + 6 * s, x, y - 8 * s); line(x, y - 8 * s, x - 4 * s, y); line(x, y - 8 * s, x + 4 * s, y);
+      line(x, hy + 10 * s, x + 9 * s, hy + 6 * s); circle(x + 14 * s, hy + 2 * s, 6 * s, true);              // the loot sack
+      line(x, hy + 10 * s, x - 8 * s, hy + 14 * s);
+    },
+    cat(x, y, s = 1) {
+      circle(x, y - 8 * s, 12 * s, false, 7 * s); circle(x + 12 * s, y - 18 * s, 6 * s);
+      poly([[x + 8 * s, y - 22 * s], [x + 9 * s, y - 30 * s], [x + 12 * s, y - 24 * s]]); poly([[x + 13 * s, y - 24 * s], [x + 16 * s, y - 30 * s], [x + 17 * s, y - 21 * s]]);
+      arc(x - 16 * s, y - 20 * s, 6 * s, 12 * s, Math.PI * .5, Math.PI * 1.4);                                // tail
+      line(x + 15 * s, y - 17 * s, x + 23 * s, y - 18 * s); line(x + 15 * s, y - 16 * s, x + 23 * s, y - 14 * s);  // whiskers
+      S.raw(`<circle cx="${x + 10 * s}" cy="${y - 19 * s}" r="${.9 * s}" fill="#241c13"/><circle cx="${x + 14 * s}" cy="${y - 19 * s}" r="${.9 * s}" fill="#241c13"/>`);
+      line(x - 6 * s, y - 2 * s, x - 7 * s, y); line(x + 6 * s, y - 2 * s, x + 7 * s, y);
+    },
+    dog(x, y, s = 1) {
+      circle(x, y - 12 * s, 14 * s, false, 7 * s); circle(x + 15 * s, y - 22 * s, 6 * s);
+      poly([[x + 11 * s, y - 25 * s], [x + 8 * s, y - 15 * s], [x + 12 * s, y - 18 * s]], true);
+      line(x - 14 * s, y - 14 * s, x - 21 * s, y - 22 * s);
+      [-9, -4, 5, 10].forEach(d => line(x + d * s, y - 6 * s, x + d * s, y));
+      S.raw(`<circle cx="${x + 17 * s}" cy="${y - 23 * s}" r="${.9 * s}" fill="#241c13"/><circle cx="${x + 21 * s}" cy="${y - 20 * s}" r="${1.4 * s}" fill="#241c13"/>`);
+    },
+    carp(x, y, s = 1) {
+      const cy = y - 16 * s;
+      poly([[x - 18 * s, cy], [x - 6 * s, cy - 9 * s], [x + 10 * s, cy - 8 * s], [x + 18 * s, cy], [x + 10 * s, cy + 8 * s], [x - 6 * s, cy + 9 * s]], 'rgba(122,75,22,.25)');
+      poly([[x - 18 * s, cy], [x - 28 * s, cy - 9 * s], [x - 26 * s, cy + 9 * s]]);                            // tail
+      S.raw(`<circle cx="${x + 10 * s}" cy="${cy - 2 * s}" r="${2 * s}" fill="#fff8e8" stroke="#241c13"/><circle cx="${x + 10.5 * s}" cy="${cy - 2 * s}" r="${.9 * s}" fill="#8f2a1c"/>`);
+      for (let i = 0; i < 3; i++) poly([[x + 12 * s + i * 2 * s, cy + 3 * s], [x + 13 * s + i * 2 * s, cy + 6 * s], [x + 14 * s + i * 2 * s, cy + 3 * s]]);  // teeth
+      for (let i = -1; i <= 1; i++) arc(x + i * 14 * s, y - 2 * s, 7 * s, 2 * s, Math.PI, Math.PI * 2);           // water
+    },
+    tree(x, y, s = 1) { line(x - 3 * s, y, x - 2 * s, y - 34 * s); line(x + 3 * s, y, x + 2 * s, y - 34 * s); circle(x, y - 46 * s, 16 * s, 'rgba(63,107,46,.35)', 13 * s); },
+    well(x, y, s = 1) { poly([[x - 12 * s, y], [x - 12 * s, y - 16 * s], [x + 12 * s, y - 16 * s], [x + 12 * s, y]], true); line(x - 10 * s, y - 16 * s, x - 10 * s, y - 36 * s); line(x + 10 * s, y - 16 * s, x + 10 * s, y - 36 * s); poly([[x - 15 * s, y - 34 * s], [x, y - 44 * s], [x + 15 * s, y - 34 * s]]); line(x, y - 34 * s, x, y - 24 * s); },
+    door(x, y, s = 1) { poly([[x - 10 * s, y], [x - 10 * s, y - 32 * s], [x - 6 * s, y - 38 * s], [x + 6 * s, y - 38 * s], [x + 10 * s, y - 32 * s], [x + 10 * s, y]]); circle(x + 6 * s, y - 16 * s, 1.5 * s); },
+    bed(x, y, s = 1) { poly([[x - 18 * s, y - 4], [x - 18 * s, y - 14 * s], [x + 18 * s, y - 14 * s], [x + 18 * s, y - 4]], true); line(x - 18 * s, y - 4, x - 18 * s, y); line(x + 18 * s, y - 4, x + 18 * s, y); circle(x - 12 * s, y - 17 * s, 5 * s, '#fff8e8', 3 * s); },
+    table(x, y, s = 1) { line(x - 16 * s, y - 16 * s, x + 16 * s, y - 16 * s); line(x - 12 * s, y - 16 * s, x - 12 * s, y); line(x + 12 * s, y - 16 * s, x + 12 * s, y); },
+    anvil(x, y, s = 1) { poly([[x - 14 * s, y - 16 * s], [x + 10 * s, y - 16 * s], [x + 16 * s, y - 20 * s], [x + 6 * s, y - 10 * s], [x + 4 * s, y - 4 * s], [x + 8 * s, y], [x - 8 * s, y], [x - 4 * s, y - 4 * s], [x - 6 * s, y - 10 * s]], '#241c13'); },
+    mugP(x, y, s = 1) { poly([[x - 4 * s, y], [x - 4 * s, y - 9 * s], [x + 4 * s, y - 9 * s], [x + 4 * s, y]]); arc(x + 5 * s, y - 5 * s, 3 * s, 3 * s, -Math.PI / 2, Math.PI / 2); },
+    sock(x, y, s = 1) { poly([[x - 3 * s, y - 16 * s], [x + 3 * s, y - 16 * s], [x + 3 * s, y - 5 * s], [x + 10 * s, y - 4 * s], [x + 10 * s, y], [x - 3 * s, y]], 'rgba(143,42,28,.35)'); },
+    sun(x, y, s = 1) { circle(x, y, 7 * s, 'rgba(230,199,90,.5)'); for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; line(x + Math.cos(a) * 10 * s, y + Math.sin(a) * 10 * s, x + Math.cos(a) * 14 * s, y + Math.sin(a) * 14 * s); } },
+    cloud(x, y, s = 1) { [[-8, 0, 7], [0, -4, 8], [9, 0, 7]].forEach(([dx, dy, rr]) => circle(x + dx * s, y + dy * s, rr * s, '#fff8e8')); },
+    rainP(x, y, w) { for (let i = 0; i < 9; i++) { const px = x + r() * w, py = y + r() * 40; line(px, py, px - 3, py + 8); } },
+    sign(x, y, t, s = 1) {
+      line(x, y, x, y - 30 * s);
+      const tw = Math.max(26, t.length * 6.2 + 10);
+      poly([[x - tw / 2, y - 44 * s], [x + tw / 2, y - 44 * s], [x + tw / 2, y - 30 * s], [x - tw / 2, y - 30 * s]], '#f3e7c8');
+      text(x, y - 34 * s, t, 8.5);
+    },
+    zzz(x, y) { text(x, y, 'z', 8); text(x + 5, y - 6, 'z', 10); text(x + 11, y - 14, 'Z', 12); },
+    steam(x, y) { arc(x - 6, y, 3, 5, Math.PI * .5, Math.PI * 1.5); arc(x + 6, y, 3, 5, -Math.PI * .5, Math.PI * .5); },
+    smile(x, y, s) { arc(x, y, 3 * s, 2 * s, .2, Math.PI - .2); },
+  });
+  return S;
+}
+const POSX = {left: 30, center: 75, right: 120};
+function drawBg(S, bg, W_, H_) {
+  const g = H_ - 8;
+  S.line(2, g, W_ - 2, g);
+  if (bg === 'hall') { S.poly([[6, g], [6, 18], [14, 18], [14, g]], true); S.poly([[W_ - 14, g], [W_ - 14, 18], [W_ - 6, 18], [W_ - 6, g]], true); S.line(2, 18, W_ - 2, 18); }
+  else if (bg === 'mine') { S.poly([[0, 0], [W_, 0], [W_, 10], [W_ * .8, 16], [W_ * .6, 9], [W_ * .4, 17], [W_ * .2, 10], [0, 15]], true); for (let i = 0; i < 6; i++) S.circle(10 + S.r() * (W_ - 20), g - 2 - S.r() * 4, 1.5); }
+  else if (bg === 'outside') { for (let i = 0; i < 7; i++) { const x = 8 + S.r() * (W_ - 16); S.line(x, g, x - 2, g - 5); S.line(x, g, x + 2, g - 5); } }
+  else if (bg === 'farm') { for (let i = 0; i < 4; i++) S.line(4, g - 4 - i * 6, W_ - 4, g - 6 - i * 6); for (let i = 0; i < 5; i++) { const x = 12 + i * 28; S.circle(x, g - 12, 2.5, 'rgba(110,60,120,.5)'); } }
+  else if (bg === 'tavern') { S.poly([[0, g - 34], [W_, g - 34], [W_, g - 30], [0, g - 30]], true); S.mugP(18, g - 34, .8); S.mugP(W_ - 20, g - 34, .8); }
+  else if (bg === 'depot') { S.poly([[W_ - 30, g], [W_ - 30, g - 18], [W_ - 8, g - 18], [W_ - 8, g]], true); S.line(W_ - 30, g - 18, W_ - 8, g); }
+  else if (bg === 'bedroom') { S.poly([[30, g], [40, g - 6], [W_ - 40, g - 6], [W_ - 30, g]], 'rgba(143,42,28,.15)'); }
+  else if (bg === 'workshop') { S.line(4, g - 20, 40, g - 20); S.line(8, g - 20, 8, g); S.line(36, g - 20, 36, g); S.line(12, g - 24, 22, g - 30); }
+  else if (bg === 'cavern') { for (let i = 0; i < 7; i++) { const x = 6 + i * 23; S.poly([[x - 5, 0], [x + 5, 0], [x, 10 + S.r() * 14]], true); } S.line(W_ - 16, g, W_ - 16, g - 36); S.circle(W_ - 16, g - 40, 9, 'rgba(110,60,120,.35)', 5); }
+}
+function drawChar(S, c, x, g) {
+  const who = c.who || 'dwarf', pose = c.pose || 'stand', s = 1.05;
+  const o = {pick: pose === 'pick', axe: pose === 'axe', mug: pose === 'mug', armsUp: pose === 'armsUp' || pose === 'happy', sad: pose === 'sad'};
+  let top = g - 60;   // head height, for bubble tails
+  if (who === 'dwarf' || who === 'noble') {
+    S[who](x, g, s, o); top = g - 47 * s - 10;
+    const hy = g - 47 * s;
+    if (pose === 'happy') S.smile(x, hy + 4 * s, s);
+    if (pose === 'angry') { S.line(x - 6 * s, hy - 5 * s, x - 1, hy - 3 * s); S.line(x + 6 * s, hy - 5 * s, x + 1, hy - 3 * s); S.steam(x, hy - 18 * s); }
+    if (pose === 'sleep') S.zzz(x + 8, hy - 8);
+    if (who === 'noble') top -= 8;
+  } else if (who === 'elf') { S.elf(x, g, s, o); top = g - 66 * s - 8; }
+  else if (who === 'goblin') { S.goblin(x, g, s); top = g - 40 * s - 8; }
+  else if (who === 'kobold') { S.kobold(x, g, s); top = g - 26 * s - 8; }
+  else if (who === 'cat') { S.cat(x - 6, g, s); top = g - 30 * s; }
+  else if (who === 'dog') { S.dog(x - 6, g, s); top = g - 30 * s; }
+  else if (who === 'carp') { S.carp(x, g, s); top = g - 28 * s; }
+  else if (who === 'ghost') { S.ghost(x, g - 6, s); top = g - 62 * s; }
+  else if (who === 'beast') { S.beast(x, g, .5); top = g - 52; }
+  else if (who === 'baby') { S.baby(x + 4, g, s); top = g - 30 * s; }
+  if (pose === 'sleep' && !['dwarf', 'noble'].includes(who)) S.zzz(x + 6, top - 4);
+  return top;
+}
+function drawProps(S, props, castX, W_, g, signText) {
+  const ground = (props || []).filter(p => !['sun', 'cloud', 'rain', 'crown'].includes(p));
+  const free = [14, 52, 98, 136].filter(x => castX.every(cx => Math.abs(cx - x) > 22));
+  let i = 0;
+  for (const p of props || []) {
+    if (p === 'sun') { S.sun(W_ - 18, 18); continue; }
+    if (p === 'cloud') { S.cloud(W_ - 30, 16); continue; }
+    if (p === 'rain') { S.cloud(36, 14); S.cloud(W_ - 36, 12); S.rainP(10, 24, W_ - 20); continue; }
+    const x = free.length ? free[i++ % free.length] : 14 + (i++ * 37) % (W_ - 20);
+    const sc = .7;
+    if (p === 'barrel') S.barrel(x, g, sc); else if (p === 'mug') S.mugP(x, g, 1); else if (p === 'coffin') S.coffin(x, g, .55);
+    else if (p === 'gem') S.gem(x, g - 14, .5); else if (p === 'tree') S.tree(x, g, .8); else if (p === 'well') S.well(x, g, .8);
+    else if (p === 'door') S.door(x, g, .9); else if (p === 'bed') S.bed(x, g, .8); else if (p === 'table') S.table(x, g, .8);
+    else if (p === 'anvil') S.anvil(x, g, .7); else if (p === 'workshop') S.workshop(x, g, .45); else if (p === 'wagon') S.wagon(x, g, .5);
+    else if (p === 'rocks') S.rocks(x, g - 30, 3); else if (p === 'sock') S.sock(x, g, .9); else if (p === 'crown') S.crown(x, g - 6, 1);
+    else if (p === 'sign') { const t = signText || '?!', half = Math.max(26, t.length * 6.2 + 10) / 2; S.sign(Math.max(half + 2, Math.min(W_ - half - 2, x)), g, t, .9); }
+  }
+}
+function drawBubbles(S, cast, tops, W_, startY) {
+  const speakers = cast.map((c, i) => ({c, i})).filter(({c}) => c.say || c.think).slice(0, 2);
+  if (!speakers.length) return;
+  const minTop = Math.min(...speakers.map(({i}) => tops[i]));
+  // layout 1: stacked full-width bubbles; layout 2 (when that would cover heads): side by side; then smaller type
+  const plan = (chars, fs) => speakers.map(({c}) => { const lines = wrapText(c.say || c.think, chars), lh = fs + 1.2; return {lines, lh, fs, bh: lines.length * lh + 6, bw: Math.max(...lines.map(l => l.length)) * fs * .55 + 12}; });
+  let mode = 'stack', P = plan(25, 8.3);
+  const stackH = P.reduce((a, b) => a + b.bh + 5, 0);
+  if (startY + stackH > minTop + 4 && speakers.length === 2) { mode = 'side'; P = plan(14, 8.3); if (startY + Math.max(...P.map(b => b.bh)) > minTop + 4) P = plan(16, 7.2); }
+  else if (startY + stackH > minTop + 4) P = plan(30, 7.2);
+  let y = startY;
+  speakers.forEach(({c, i}, k) => {
+    const b = P[k], think = !c.say, cx = POSX[c.pos] || 75;
+    let bw = Math.min(mode === 'side' ? W_ / 2 - 5 : W_ - 8, b.bw), bx, by;
+    if (mode === 'side') { bx = k === 0 ? 3 : W_ - 3 - bw; by = startY; }
+    else { bx = Math.max(4, Math.min(W_ - 4 - bw, cx - bw / 2)); by = y; y += b.bh + 5; }
+    const tipY = Math.max(by + b.bh + 4, Math.min(tops[i], by + b.bh + 16)), baseX = Math.max(bx + 6, Math.min(bx + bw - 6, cx));
+    if (think) { S.circle(baseX + 2, by + b.bh + 4, 2); S.circle(cx + 1, tipY, 1.4); }
+    else S.raw(`<path d="M${baseX - 4} ${by + b.bh - 2} L${baseX + 4} ${by + b.bh - 2} L${cx} ${tipY} Z" fill="#fffaf0" stroke="#241c13" stroke-width="1"/>`);
+    S.raw(`<rect x="${bx}" y="${by}" width="${bw}" height="${b.bh}" rx="${think ? 9 : 6}" fill="#fffaf0" stroke="#241c13" stroke-width="1.1" ${think ? 'stroke-dasharray="3 2"' : ''}/>`);
+    S.raw(`<text x="${bx + bw / 2}" y="${by + b.lh + 1}" font-family="Comic Sans MS, Segoe Print, cursive" font-size="${b.fs}" text-anchor="middle" fill="#241c13">${b.lines.map((l, n) => `<tspan x="${bx + bw / 2}" dy="${n ? b.lh : 0}">${esc(l)}</tspan>`).join('')}</text>`);
+  });
+}
+function drawPanel(p, seed, W_ = 150, H_ = 128) {
+  const S = extend(Sketch(seed, W_, H_)), g = H_ - 8;
+  drawBg(S, p.bg, W_, H_);
+  const cast = (p.cast || []).slice(0, 3), castX = cast.map(c => POSX[c.pos] || 75);
+  drawProps(S, p.props, castX, W_, g, p.sign);
+  const tops = cast.map((c, i) => drawChar(S, c, castX[i], g));
+  let y0 = 4;
+  if (p.caption) {
+    const lines = wrapText(p.caption, 30), bh = lines.length * 9 + 5;
+    S.raw(`<rect x="2" y="2" width="${W_ - 4}" height="${bh}" fill="#f3e7c8" stroke="#241c13"/><text font-family="Georgia, serif" font-style="italic" font-size="8" fill="#241c13">${lines.map((l, k) => `<tspan x="6" y="${10 + k * 9}">${esc(l)}</tspan>`).join('')}</text>`);
+    y0 = bh + 6;
+  }
+  drawBubbles(S, cast, tops, W_, y0);
+  return S.svg();
+}
+function stripHtml(st, seed) {
+  const panels = (st.panels || []).slice(0, 4);
+  return `<div class="strip"><div class="strip-title">${esc(st.title || 'Untitled')}</div><div class="panels">${panels.map((p, i) => `<div class="panel">${drawPanel(p, seed * 7 + i)}</div>`).join('')}</div></div>`;
+}
+function gagHtml(gg, seed) {
+  return `<div class="item gag"><div class="kick">Cartoon</div><div class="panel">${drawPanel(gg.panel || {}, seed, 160, 120)}</div><p class="gag-cap">${esc(gg.caption)}</p></div>`;
+}
+function cardFunnies() {
+  if (!LIB.strips || !LIB.strips.length) return null;
+  const r = rng(Date.now() / 1000 | 0), ctx = context(r);
+  const strips = choose(LIB.strips, ctx, r, 3); if (!strips.length) return null;
+  markSeen(strips.map(s => s.id));
+  return `<div class="kicker"><span>The Funny Pages</span><span>${esc(pick(r, ['Sunday Edition', 'Colour Supplement (Colour Not Included)', 'Drawn By Hand, Mostly', 'For Readers Of All Ages Over 12']))}</span></div>
+    ${strips.map((s, i) => stripHtml(s, (Date.now() / 1000 | 0) + i * 101)).join('')}`;
+}
+
+// ---------- pastimes: horoscopes, puzzles, advice, recipes, quiz ----------
+const flip = t => `<span class="flip">${esc(t)}</span>`;   // answers printed upside down, like a real puzzle page
+function jumbleOf(word, r) {
+  const w = word.toUpperCase().replace(/[^A-Z]/g, '');
+  for (let i = 0; i < 12; i++) { const s = shuffle(r, w.split('')).join(''); if (s !== w) return s; }
+  return w.split('').reverse().join('');
+}
+function horoscopeItem(ctx, r, n = 3) {
+  const H_ = LIB.horoscopes; if (!H_) return null;
+  const cur = (S.fort || {}).month, signs = [cur, ...shuffle(r, MONTHS.filter(m => m !== cur))].filter(m => H_[m]).slice(0, n);
+  const ids = [], rows = [];
+  for (const m of signs) { const e = choose1(H_[m], ctx, r); if (e) { ids.push(e.id); rows.push(`<div><b>${esc(m.toUpperCase())}${m === cur ? ' ☼' : ''}</b> ${esc(T(e))}</div>`); } }
+  return rows.length ? {ids, html: `<div class="item scope"><div class="kick">Your Stars, by Madame Ônul</div>${rows.join('')}</div>`} : null;
+}
+function jumbleItem(ctx, r) {
+  const js_ = choose(LIB.jumble, ctx, r, 3); if (js_.length < 2) return null;
+  return {ids: js_.map(j => j.id), html: `<div class="item puzzle"><div class="kick">Jumble</div>${js_.map(j => `<div><b class="jw">${jumbleOf(j.word, r)}</b> <i>${esc(j.clue)}</i></div>`).join('')}<div class="ans">Answers: ${flip(js_.map(j => j.word.toUpperCase()).join(' · '))}</div></div>`};
+}
+function riddleItem(ctx, r) {
+  const e = choose1(LIB.riddles, ctx, r); if (!e) return null;
+  return {ids: [e.id], html: `<div class="item puzzle"><div class="kick">Riddle Me This</div><p class="just">${esc(e.q)}</p><div class="ans">${flip(e.a)}</div></div>`};
+}
+function quizItem(ctx, r) {
+  const qs = choose(LIB.quiz, ctx, r, 2); if (!qs.length) return null;
+  return {ids: qs.map(q => q.id), html: `<div class="item puzzle"><div class="kick">Pub Quiz</div>${qs.map((q, i) => `<p><b>${i + 1}.</b> ${esc(q.q)} ${(q.options || []).map((o, k) => `<i>(${'abc'[k]})</i> ${esc(o)}`).join(' ')}</p>`).join('')}<div class="ans">${flip(qs.map((q, i) => `${i + 1}${'abc'[q.answer] || '?'}`).join(' '))}</div></div>`};
+}
+function adviceItem(ctx, r) {
+  const e = choose1(LIB.advice, ctx, r); if (!e) return null;
+  return {ids: [e.id], html: `<div class="item"><div class="kick">Dear Urist</div><p class="just"><i>${esc(e.q)}</i></p><p class="just" style="margin-top:2px"><b>Urist says:</b> ${esc(e.a)}</p></div>`};
+}
+function recipeItem(ctx, r) {
+  const e = choose1(LIB.recipes, ctx, r); if (!e) return null;
+  return {ids: [e.id], html: `<div class="item"><div class="kick">Cooking With Urist</div><h3>${esc(e.title)}</h3><div class="ingr">${(e.ingredients || []).map(esc).join(' · ')}</div><p class="just">${esc(e.method)}</p></div>`};
+}
+function cardPastimes() {
+  if (!LIB.horoscopes && !LIB.jumble) return null;
+  const r = rng(Date.now() / 1000 | 0), ctx = context(r);
+  const left = [horoscopeItem(ctx, r, 5), riddleItem(ctx, r)].filter(Boolean), right = [jumbleItem(ctx, r), adviceItem(ctx, r), quizItem(ctx, r), recipeItem(ctx, r)].filter(Boolean);
+  markSeen([...left, ...right].flatMap(x => x.ids));
+  return `<div class="kicker"><span>Pastimes &amp; Diversions</span><span>Puzzles · Stars · Advice</span></div>
+    <div class="cols2"><div>${left.map(x => x.html).join('')}</div><div>${right.map(x => x.html).join('')}</div></div>`;
+}
+// extra fold pieces: cartoons, sport, gossip, obituaries, weather quips, corrections
+function pageItems(ctx, r) {
+  const out = [], put = (ids, html) => out.push({ids: [].concat(ids), html});
+  for (const g of choose(LIB.gags, ctx, r, 2)) put(g.id, gagHtml(g, (Date.now() / 1000 | 0) + g.id.length));
+  const sp = choose1(LIB.sports, ctx, r);
+  if (sp) put(sp.id, `<div class="item"><div class="kick">Sport</div><h3>${esc(sp.head)}</h3><p class="just dropcap">${esc(sp.body)}</p></div>`);
+  const sc = choose(LIB.scores, ctx, r, 4);
+  if (sc.length) put(sc.map(x => x.id), `<div class="item cls"><div class="kick">Results &amp; Fixtures</div>${sc.map(x => `<div>${esc(T(x))}</div>`).join('')}</div>`);
+  const gs = choose1(LIB.gossip, ctx, r);
+  if (gs) put(gs.id, `<div class="item"><div class="kick">Overheard in the Meeting Hall</div><p class="just"><i>${esc(T(gs))}</i></p></div>`);
+  const ob = choose1(LIB.obits, ctx, r);
+  if (ob) put(ob.id, `<div class="item obit"><div class="kick">Obituaries</div><p class="just">${esc(T(ob))}</p></div>`);
+  const wj = choose1(LIB.weather_jokes, ctx, r);
+  if (wj) put(wj.id, `<div class="item"><div class="kick">Forecast</div><p class="just">${esc(T(wj))}</p></div>`);
+  const cr = choose1(LIB.corrections, ctx, r);
+  if (cr) put(cr.id, `<div class="item"><div class="kick">Corrections</div><p class="just" style="font-size:10px">${esc(T(cr))}</p></div>`);
+  for (const f of [horoscopeItem(ctx, r, 2), jumbleItem(ctx, r), riddleItem(ctx, r)]) if (f && r() < .5) out.push(f);
+  return out;
+}
+
 // ---------- below the fold: ads, editorials, letters, classifieds ----------
 function citizens() {
   const names = new Set();
@@ -884,7 +1161,7 @@ function citizens() {
   return [...names];
 }
 function fillers(r) {
-  const ctx = context(r), out = [...storyItems(ctx, r)];
+  const ctx = context(r), out = [...storyItems(ctx, r), ...pageItems(ctx, r)];
   const put = (ids, html) => out.push({ids: [].concat(ids), html});
   // display ads
   for (const a of choose(LIB.ads, ctx, r, 7))
@@ -934,7 +1211,7 @@ function fillFold() {
 
 // ---------- rotation ----------
 const CARDS = [
-  {fn: cardDwarf, secs: 30}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardArchive, secs: 20},
+  {fn: cardDwarf, secs: 30}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardArchive, secs: 20},
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
 let cardIdx = params.has('card') ? Number(params.get('card')) - 2 : -1, cardTimer = null;
