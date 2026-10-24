@@ -51,8 +51,20 @@ void Stocks::update(color_ostream & out)
     for (size_t i = world->manager_orders.all.size(); i-- > 0; )
     {
         auto mo = world->manager_orders.all[i];
-        if (!mo || mo->frequency != workquota_frequency_type::OneTime || mo->amount_left >= 0)
+        if (!mo || mo->frequency != workquota_frequency_type::OneTime || mo->amount_left > 0)
             continue;
+        if (mo->amount_left == 0)
+        {
+            // finished but never retired: drop it once no job still uses it
+            bool used = false;
+            for (auto link = world->jobs.list.next; link; link = link->next)
+            {
+                if (link->item && link->item->order_id == mo->id)
+                    used = true;
+            }
+            if (used)
+                continue;
+        }
         for (auto link = world->jobs.list.next; link; link = link->next)
         {
             if (link->item && link->item->order_id == mo->id)

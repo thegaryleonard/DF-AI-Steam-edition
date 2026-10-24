@@ -1150,7 +1150,8 @@ void Stocks::queue_use_gems(color_ostream & out, int32_t amount, std::ostream & 
 {
     for (auto mo : world->manager_orders.all)
     {
-        if (mo->job_type == job_type::CutGems)
+        // finished (0 left) and repeating user orders don't count
+        if (mo->job_type == job_type::CutGems && mo->amount_left > 0 && mo->frequency == workquota_frequency_type::OneTime)
         {
             reason << "there is already a manager order to cut gems: " << AI::describe_job(mo) << " (" << mo->amount_left << " remaining)";
             return;

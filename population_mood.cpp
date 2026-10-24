@@ -447,7 +447,20 @@ void Population::update_moods(color_ostream & out)
             }
             if (!usable && ji->item_type == item_type::SMALLGEM)
             {
-                // cut one from the rough gems the miners bring up
+                // cut one from the rough gems the miners bring up; that needs
+                // a Jeweler's workshop, which the plan may not have built yet
+                // (a fey carpenter died of thirst next to 150 rough gems)
+                bool have_jeweler = false;
+                for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_JEWELER])
+                {
+                    if (bld->getBuildStage() == bld->getMaxBuildStage())
+                        have_jeweler = true;
+                }
+                if (!have_jeweler && mood_warned.insert(who + "|jeweler").second)
+                {
+                    if (df::building *bld = place_workshop_near(u, workshop_type::Jewelers))
+                        ai.debug(out, stl_sprintf("[MOOD] no Jeweler's workshop for %s's gem: placed one (building %d)", who.c_str(), bld->id));
+                }
                 std::ostringstream why;
                 ai.stocks.queue_use_gems(out, 1, why);
                 ai.debug(out, "[MOOD] queued gem cutting for " + who + (why.str().empty() ? std::string() : " (" + why.str() + ")"));
