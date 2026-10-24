@@ -91,6 +91,12 @@ bool Plan::smooth(std::set<df::coord> tiles, bool engrave)
     // remove tiles that are not smoothable
     for (auto it = tiles.begin(); it != tiles.end(); )
     {
+        // off the map
+        if (!Maps::getTileType(*it) || !Maps::getTileDesignation(*it))
+        {
+            tiles.erase(it++);
+            continue;
+        }
         // not a smoothable material
         df::tiletype tt = *Maps::getTileType(*it);
         df::tiletype_material mat = ENUM_ATTR(tiletype, material, tt);
@@ -133,6 +139,7 @@ bool Plan::smooth(std::set<df::coord> tiles, bool engrave)
     }
 
     // remove tiles that are already being smoothed
+    size_t outstanding = 0;
     for (auto j : world->jobs.list)
     {
         // v50+ split smoothing (SmoothWall/SmoothFloor) from engraving
@@ -146,7 +153,22 @@ bool Plan::smooth(std::set<df::coord> tiles, bool engrave)
         {
             all_already_smooth = false;
             tiles.erase(j->pos);
+            outstanding++;
         }
+    }
+
+    // Pace the work: DF scans the whole job list for every idle dwarf, and a
+    // mature fort queued 7k smoothing jobs at once for 3 smoothers. Keep at
+    // most SMOOTH_JOB_CAP outstanding; the rest is designated as these finish.
+    const size_t SMOOTH_JOB_CAP = 1000;
+    if (outstanding >= SMOOTH_JOB_CAP)
+    {
+        return tiles.empty() && all_already_smooth;
+    }
+    while (tiles.size() > SMOOTH_JOB_CAP - outstanding)
+    {
+        tiles.erase(std::prev(tiles.end()));
+        all_already_smooth = false;
     }
 
     // mark the tiles to be smoothed!
