@@ -924,6 +924,23 @@ void Population::civilian_alert(color_ostream & out, bool danger)
         std::ofstream discard;
         color_ostream_wrapper discard_wrapper(discard);
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("burrow tiles flood-add Safety -c %d,%d,%d", seed->pos.x, seed->pos.y, seed->pos.z));
+
+        // The 3D flood follows stairs down to the mines and caverns, which is
+        // exactly where forgotten beasts come from: 15 dwarves died inside
+        // the "Safety" burrow 30 levels below the living quarters. Keep only
+        // the levels from 4 below the lowest bedroom up.
+        int16_t lowest = 0x7fff;
+        ai.find_room(room_type::bedroom, [&lowest](room *r) -> bool
+        {
+            if (r->min.z < lowest)
+                lowest = r->min.z;
+            return false; // visit them all
+        });
+        if (lowest != 0x7fff && lowest > 4)
+        {
+            Core::getInstance().runCommand(discard_wrapper, stl_sprintf("burrow tiles box-remove Safety 0,0,0 %d,%d,%d",
+                world->map.x_count - 1, world->map.y_count - 1, lowest - 5));
+        }
     }
 
     // find or create the alert that uses it
