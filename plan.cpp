@@ -1424,7 +1424,8 @@ command_result Plan::setup_outdoor_gathering_zones(color_ostream &)
             {
                 df::coord e = fort_entrance->pos();
                 int32_t dx = t.x - e.x, dy = t.y - e.y;
-                if (dx * dx + dy * dy > 40 * 40)
+                // 40 tiles still meant 54 zones / 5.7k jobs on a hillside
+                if (dx * dx + dy * dy > 20 * 20)
                     continue;
             }
             ground[t.z].insert(df::coord2d(tx % 31, ty % 31));
