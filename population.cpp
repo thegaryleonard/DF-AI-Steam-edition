@@ -20,6 +20,8 @@
 #include "df/job.h"
 #include "df/job_item.h"
 #include "df/occupation.h"
+#include "df/entity_position_responsibility.h"
+#include "df/entity_position.h"
 #include "df/unit_labor.h"
 #include "df/occupation_type.h"
 #include "df/reaction.h"
@@ -320,6 +322,18 @@ void Population::update_citizenlist(color_ostream & out)
                 if (!u || !Units::isCitizen(u) || !Units::isAlive(u))
                     continue;
                 bool doc = doctors.count(u->id) != 0;
+                if (!doc)
+                {
+                    // the chief medical dwarf treats patients too (DF gives
+                    // that noble the medical labors on its own)
+                    std::vector<Units::NoblePosition> positions;
+                    Units::getNoblePositions(&positions, u);
+                    for (auto & np : positions)
+                    {
+                        if (np.position && np.position->responsibilities[entity_position_responsibility::HEALTH_MANAGEMENT])
+                            doc = true;
+                    }
+                }
                 for (auto l : medical)
                     u->status.labors[l] = doc;
             }
