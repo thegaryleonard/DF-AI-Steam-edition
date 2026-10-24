@@ -5,6 +5,7 @@
 #include "debug.h"
 
 #include "modules/Military.h"
+#include "modules/Maps.h"
 #include "modules/Units.h"
 
 #include "df/entity_material_category.h"
@@ -989,7 +990,32 @@ void Population::update_military(color_ostream & out)
         return citizen.count(member.first);
     });
 
-    if (citizen_military > max_military)
+    // Never thin the army while something hostile that can reach the fort
+    // is on the map: each death lowers the quota, and df-ai dismissed three
+    // soldiers in the middle of a forgotten beast attack. (Underworld demons
+    // behind solid rock are unreachable and don't count.)
+    bool under_attack = false;
+    df::unit *anchor = nullptr;
+    for (auto id : citizen)
+    {
+        anchor = df::unit::find(id);
+        if (anchor)
+            break;
+    }
+    if (anchor)
+    {
+        for (auto u : world->units.active)
+        {
+            if (u && Units::isAlive(u) && Units::isDanger(u) && !u->flags1.bits.caged && !u->flags1.bits.inactive &&
+                Maps::canWalkBetween(anchor->pos, u->pos))
+            {
+                under_attack = true;
+                break;
+            }
+        }
+    }
+
+    if (citizen_military > max_military && !under_attack)
     {
         auto mid = soldiers.begin() + std::min(citizen_military - max_military, soldiers.size());
         std::partial_sort(soldiers.begin(), mid, soldiers.end(), &MilitarySetupExclusive::Dismiss::compare);
