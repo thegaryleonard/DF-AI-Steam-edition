@@ -44,6 +44,38 @@
 REQUIRE_GLOBAL(standing_orders_auto_collect_webs);
 REQUIRE_GLOBAL(world);
 
+// Job::isSuitableItem checks material flags (silk/plant/yarn) against the job
+// item's own (blank) material and fails every cloth; isSuitableMaterial does
+// not know the item type. Check the item type with the item's real material.
+static bool mood_item_matches(df::job_item *ji, df::item *item)
+{
+    MaterialInfo minfo(item);
+    if (!minfo.isValid())
+        return false;
+    // DFHack's ItemTypeInfo::matches only accepts plant/silk/yarn for THREAD,
+    // so "silk cloth" / "plant cloth" never matched anything. Check those
+    // material flags ourselves.
+    auto itype = item->getType();
+    if ((itype == item_type::CLOTH || itype == item_type::THREAD) &&
+        (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn))
+    {
+        if (ji->mat_type != -1 && (ji->mat_type != minfo.type || ji->mat_index != minfo.index))
+            return false;
+        if (!minfo.material)
+            return false;
+        auto & mf = minfo.material->flags;
+        if (ji->flags2.bits.plant && !mf.is_set(material_flags::THREAD_PLANT))
+            return false;
+        if (ji->flags2.bits.silk && !mf.is_set(material_flags::SILK))
+            return false;
+        if (ji->flags2.bits.yarn && !mf.is_set(material_flags::YARN))
+            return false;
+        return true;
+    }
+    ItemTypeInfo iinfo(itype, item->getSubtype());
+    return iinfo.isValid() && iinfo.matches(*ji, &minfo, false, itype);
+}
+
 static bool is_strange_mood(df::mood_type m)
 {
     return m == mood_type::Fey || m == mood_type::Secretive || m == mood_type::Possessed ||
@@ -226,8 +258,7 @@ void Population::update_moods(color_ostream & out)
                 // isSuitableItem only checks the job item's flags, not its type
                 if ((ji->item_type != item_type::NONE && itype != ji->item_type) ||
                     (ji->item_subtype != -1 && item->getSubtype() != ji->item_subtype) ||
-                    !Job::isSuitableItem(ji, itype, item->getSubtype()) ||
-                    !Job::isSuitableMaterial(ji, item->getMaterial(), item->getMaterialIndex(), itype))
+                    !mood_item_matches(ji, item))
                 {
                     continue;
                 }
@@ -267,20 +298,24 @@ void Population::update_moods(color_ostream & out)
                     }
                     if ((ji->item_type != item_type::NONE && itype != ji->item_type) ||
                         (ji->item_subtype != -1 && item->getSubtype() != ji->item_subtype) ||
-                        !Job::isSuitableItem(ji, itype, item->getSubtype()) ||
-                        !Job::isSuitableMaterial(ji, item->getMaterial(), item->getMaterialIndex(), itype))
+                        !mood_item_matches(ji, item))
                     {
                         continue;
                     }
+                    // in a location chest: take it out; loose (hospital cloth
+                    // hauled to a stockpile keeps the flag): just claim it
                     df::building *holder = Items::getHolderBuilding(item);
-                    if (!holder || holder->getType() != building_type::Box)
+                    if (holder && holder->getType() != building_type::Box)
                     {
                         continue;
                     }
-                    df::coord pos = Items::getPosition(item);
-                    if (!Items::moveToGround(item, pos))
+                    if (holder)
                     {
-                        continue;
+                        df::coord pos = Items::getPosition(item);
+                        if (!Items::moveToGround(item, pos))
+                        {
+                            continue;
+                        }
                     }
                     f.foreign = false;
                     got += ji->quantity > 100 ? item->getTotalDimension() : item->getStackSize();
