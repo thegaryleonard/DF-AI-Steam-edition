@@ -571,7 +571,17 @@ void Population::update_locations(color_ostream &)
 
     // A hospital only works with a doctor on staff (DF's "no functional
     // hospital"). One doctor per hospital zone df-ai created.
-    if (room *infirmary = ai.find_room(room_type::infirmary, [](room *r) -> bool { return r->dfbuilding() != nullptr; }))
+    // Every infirmary: tlg01 digs "Additional Infirmaries", and only the
+    // first one used to get a doctor (Quakefocus had 2 of 4 hospitals with
+    // no DOCTOR slot, so patients taken there were never treated).
+    std::vector<room *> infirmaries;
+    ai.find_room(room_type::infirmary, [&infirmaries](room *r) -> bool
+    {
+        if (r->dfbuilding() != nullptr)
+            infirmaries.push_back(r);
+        return false;
+    });
+    for (room *infirmary : infirmaries)
     {
         df::building *bld = infirmary->dfbuilding();
         auto site = df::world_site::find(bld->site_id);
