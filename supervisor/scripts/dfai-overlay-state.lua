@@ -94,6 +94,10 @@ if out.ok then
     follow = #citizens > 0 and citizens[(os.time() // 120) % #citizens + 1] or nil
   end
   out.dwarf = unit_card(follow)
+  out.names = {}   -- citizen names for the Herald's letters and bylines
+  for i = 1, math.min(#citizens, 60) do
+    out.names[i] = dfhack.df2utf(dfhack.units.getReadableName(citizens[i])):gsub(',.*$', ''):gsub('%s*"[^"]*"', '')
+  end
   out.events = {}
   local reps = df.global.world.status.reports
   for i = #reps - 1, math.max(0, #reps - 40), -1 do

@@ -150,6 +150,95 @@ function masthead() {
   document.getElementById('late').innerHTML = (S.events || []).slice(0, 8).map(e => `<span>${esc(clean(e.text))}</span>`).join('');
 }
 
+// ---------- the library: pregenerated pieces tailored to current events, never repeating soon ----------
+// herald/library/*.json holds hundreds of templates with {slots} and "when" conditions. Every entry printed is
+// reported to /seen, and picks always prefer the least-recently printed entry, with topical ones first.
+let LIB = {}, SEEN = {}, issueUsed = new Set();
+const NEWSY = /\{(mineral|masterwork|masterwright|promoted|post|deadname|moodname)\}/;
+function markSeen(ids) {
+  ids = [...new Set(ids)].filter(Boolean); if (!ids.length) return;
+  const now = Date.now() / 1000 | 0; ids.forEach(i => SEEN[i] = now);
+  fetch('/seen', {method: 'POST', body: JSON.stringify({ids})}).catch(() => {});
+}
+function newsSlots() {
+  const o = {}, evs = (S.events || []).map(e => clean(e.text)), big = S.big || [];
+  for (const t of evs) {
+    let m;
+    if (!o.mineral && (m = t.match(/struck (.+?)!/))) o.mineral = m[1].replace(/^(some|an?) /, '');
+    if (!o.masterwork && (m = t.match(/^(.+?) has created an? masterpiece (.+?)!?$/))) { o.masterwright = cap(m[1]); o.masterwork = m[2].replace(/\[\d+\]/, '').trim(); }
+    if (!o.promoted && (m = t.match(/^(.+?) has become an? (.+?)\.$/))) { o.promoted = cap(m[1]); o.post = m[2].toLowerCase(); }
+  }
+  for (const b of big) {
+    const t = clean(b.text), nm = (t.match(/^([^,]+),/) || [])[1];
+    if (b.type === 'CITIZEN_DEATH' && nm && !o.deadname) o.deadname = cap(nm);
+    if (/MOOD/.test(b.type) && nm && !o.moodname) o.moodname = cap(nm);
+    if (/MASTERPIECE/.test(b.type) && !o.masterwork) { const m = t.match(/^(.+?) has created an? masterpiece (.+?)!?$/); if (m) { o.masterwright = cap(m[1]); o.masterwork = m[2].replace(/\[\d+\]/, '').trim(); } }
+    if (/STRUCK/.test(b.type) && !o.mineral) { const m = t.match(/struck (.+?)!/); if (m) o.mineral = m[1]; }
+    if (/MIGRANT/.test(b.type)) o._migrants = 1;
+    if (/CARAVAN/.test(b.type)) o._caravan = 1;
+  }
+  return o;
+}
+function context(r) {
+  const c = (K && K.stocks) || {}, an_ = (K && K.animals) || {}, f = S.fort || {}, wx = S.weather || {};
+  const names = [...new Set([...(S.names || []), ...citizens()])].map(n => cap(clean(n))).filter(n => n.trim());
+  const ppl = shuffle(r, names), art = H.artifacts && H.artifacts.length ? pick(r, H.artifacts) : null;
+  const top = Object.entries(an_).sort((a, b) => b[1] - a[1])[0];
+  const n = v => v ? Number(v).toLocaleString() : null;
+  const news = newsSlots();
+  const sl = {
+    fort: f.name, pop: f.population, year: f.year, month: f.month, season: wx.season, weather: wx.kind ? forecastOf(wx).toLowerCase() : null,
+    world: clean((W && W.world) || f.world || ''),
+    drinks: n(c.drinks), meals: n(c.meals), plants: n(c.plants), seeds: n(c.seeds), stone: n(c.stone), wood: n(c.wood), bars: n(c.bars),
+    gems: n(c.gems), cloth: n(c.cloth), thread: n(c.thread), blocks: n(c.blocks),
+    herd: n(Object.values(an_).reduce((a, b) => a + b, 0)), dogs: n(an_.dogs), cats: n(an_.cats),
+    topanimal: top && top[1] > 1 ? top[0] : null, topanimal_n: top && top[1] > 1 ? top[1] : null, farms: n(K && K.farms),
+    citizen: ppl[0], citizen2: ppl[1], citizen_first: ppl[2] ? ppl[2].split(' ')[0] : null,
+    artifact: art ? clean(art.name) : null, artifact_item: art ? clean(art.item).replace(/^[-\s«]+|[-\s»]+$/g, '').replace(/[«»]/g, '') : null,
+    ...news,
+  };
+  const se = (wx.season || '').toLowerCase(), g = k => c[k] || 0;
+  const conds = new Set(Object.entries({
+    no_meat: !g('meat') && !g('fish'), drinks_high: g('drinks') > 1000, drinks_low: K && K.stocks && g('drinks') < 100,
+    rain: wx.kind === 'rain', snow: wx.kind === 'snow', clear: wx.kind === 'clear', pop_big: f.population > 30, pop_small: f.population < 15,
+    dogs_many: (an_.dogs || 0) > 5, cats: (an_.cats || 0) > 0, farms_many: (K && K.farms) > 10, stone_glut: g('stone') > 400,
+    wood_low: K && K.stocks && g('wood') < 20, gems: g('gems') > 0, recent_death: !!news.deadname, recent_mood: !!news.moodname,
+    recent_masterpiece: !!news.masterwork, recent_strike: !!news.mineral, recent_promotion: !!news.promoted,
+    recent_migrants: !!news._migrants, recent_caravan: !!news._caravan,
+    spring: se.includes('spring'), summer: se.includes('summer'), autumn: se.includes('autumn'), winter: se.includes('winter'),
+  }).filter(([, v]) => v).map(([k]) => k));
+  return {sl, conds};
+}
+// fill every string in an entry; null if any slot is missing (that entry just isn't eligible right now)
+function fillT(s, sl) {
+  let ok = true;
+  const out = s.replace(/\{(\w+)\}/g, (m, k) => { const v = sl[k]; if (v == null || v === '') { ok = false; return m; } return String(v); });
+  return ok ? out : null;
+}
+function fillE(e, sl) {
+  const walk = v => typeof v === 'string' ? fillT(v, sl) : Array.isArray(v) ? v.map(walk) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k === 'id' || k === 'when' ? x : walk(x)])) : v;
+  const out = walk(e), bad = JSON.stringify(out).includes('null');   // a failed fill leaves null somewhere
+  return bad ? null : out;
+}
+// least-recently printed first; topical entries get a day's head start; never twice in one issue
+function choose(list, ctx, r, n = 1, extra = {}) {
+  const sl = {...ctx.sl, ...extra}, now = Date.now() / 1000;
+  const cands = [];
+  for (const e of list || []) {
+    if (!e || !e.id || issueUsed.has(e.id)) continue;
+    if ((e.when || []).some(c => !ctx.conds.has(c))) continue;
+    const f = fillE(e, sl); if (!f) continue;
+    const topical = (e.when && e.when.length) || NEWSY.test(JSON.stringify(e));
+    cands.push({f, score: (SEEN[e.id] || 0) - (topical ? 86400 : 0) + r() * 1800});
+  }
+  cands.sort((a, b) => a.score - b.score);
+  const got = cands.slice(0, n).map(c => c.f);
+  got.forEach(g => issueUsed.add(g.id));
+  return got;
+}
+const choose1 = (list, ctx, r, extra) => choose(list, ctx, r, 1, extra)[0];
+const T = x => x ? (typeof x === 'string' ? x : x.text) : '';
+
 // ---------- card: society pages (interview) ----------
 function mood(stress) {
   const label = stress < -20000 ? 'ecstatic' : stress < -5000 ? 'happy' : stress < 10000 ? 'content'
@@ -169,82 +258,66 @@ const ADJ = {BLISS:'blissful',SATISFACTION:'satisfied',EUPHORIA:'euphoric',JOY:'
   RESTLESSNESS:'restless',TERROR:'terrified',WORRY:'worried',DEJECTION:'dejected',NOSTALGIA:'nostalgic',FURY:'furious',RAGE:'enraged',
   SHOCK:'shocked',ALARM:'alarmed',GLOOM:'gloomy',HOPELESSNESS:'hopeless',MELANCHOLY:'melancholy',REGRET:'regretful',VEXATION:'vexed'};
 const adj = e => ADJ[e] || String(e || 'something').toLowerCase();
-// [regex on thought type, (good, adj, emotion) => [quote, headline]]
-const QUOTES = [
-  [/^BedroomQuality/, (g, a) => g ? [`Have you seen my bedroom? I'm ${a}. The walls are smooth. The door closes. Luxury.`, 'BEDROOM IS "A TRIUMPH"']
-                                    : [`My bedroom? I've seen nicer cave-ins. I'm ${a}, frankly.`, 'BEDROOM "A DISGRACE"']],
-  [/SatisfiedAtWork|^Work/, (g, a) => [`Honest work. A dwarf could get ${a} just thinking about it.`, 'HONEST WORK STILL MATTERS']],
-  [/NeedsUnfulfilled/, (g, a, e) => e === 'BOREDOM' ? [`I'm bored. Nobody has started a fight in days.`, 'FORT "TOO QUIET"']
-                                  : e === 'LONELINESS' ? [`I haven't had a proper chat with a friend in ages. Write that down. Someone might visit.`, 'A LONELY LIFE BELOW']
-                                  : [`Something's missing. I can't put my pick on it. I'm ${a}.`, 'SOMETHING IS MISSING']],
-  [/Syndrome/, (g, a) => [`I ate something in the caverns and now I feel ${a}. Highly recommend. Don't print that.`, 'CAVERN SNACK "LIFE CHANGING"']],
-  [/ImproveSkill|Skill/, (g, a) => [`I got better at something today. I won't say what. It's personal.`, 'SKILLS ON THE RISE']],
-  [/Miasma/, (g, a) => [`The smell. THE SMELL. Would somebody please haul away whatever that is?`, 'MIASMA SCANDAL DEEPENS']],
-  [/Death|Died|Killed|Corpse/, (g, a) => [`We lost someone. I'd rather not talk about it.`, 'A FORTRESS IN MOURNING']],
-  [/Rain|Snow|Weather/, (g, a) => [`It rained on me. Outside was a mistake and I'll say so in print.`, 'OUTSIDE "A MISTAKE"']],
-  [/Sun|Sky|Cave/, (g, a) => [`The sky is too big. Something should be done about it.`, 'SKY STILL TOO BIG']],
-  [/Drink|Alcohol|Booze/, (g, a) => g ? [`The drink here is excellent. I'm ${a}. Put that on a barrel.`, 'ALE PRAISED'] : [`The drink situation is, and I choose my words carefully, an outrage.`, 'DRINK CRISIS']],
-  [/Eat|Meal|Food|Hunger|Ate/, (g, a) => g ? [`Had a lovely meal. ${a[0].toUpperCase() + a.slice(1)}, I was.`, 'DINING REVIEW: FIVE PICKS'] : [`I'd kill for a roast. Not literally. Mostly.`, 'WHERE IS THE MEAT?']],
-  [/Dining|Table|Chair/, (g, a) => [`Have you seen the dining hall lately? I'm ${a}.`, 'DINING HALL UNDER REVIEW']],
-  [/Sleep|Rest|Tired|Bed/, (g, a) => [`I could sleep for a season. Possibly two.`, 'EXHAUSTION SWEEPS FORT']],
-  [/Pray|Worship|Temple/, (g, a) => [`I spent some time with the gods. Very ${a}.`, 'FAITH ON THE RISE']],
-  [/Talk|Conversation|Comfort|Friend|Argue/, (g, a) => g ? [`Had a good chat today. Left me ${a}.`, 'GOSSIP: A REVIEW'] : [`Somebody said something to me and I've been ${a} ever since.`, 'A WAR OF WORDS']],
-  [/Art|Craft|Masterpiece|Admire|Decor/, (g, a) => [`I saw some fine craftsdwarfship today. Left me ${a}.`, 'ART LOVERS REJOICE']],
-  [/Attack|Fight|Combat|Injur|Pain|Wound/, (g, a) => [`Something hit me. I hit it back. I'm ${a} about the whole affair.`, 'VIOLENCE IN THE HALLS']],
-  [/Ghost|Haunt/, (g, a) => [`There's a ghost. Nobody believes me. I'm ${a}.`, 'GHOST SIGHTED']],
-  [/Train|Animal|Pet/, (g, a) => [`The animals and I have an understanding. I'm ${a}.`, 'ANIMALS: OUR FRIENDS?']],
-  [/Trade|Caravan|Merchant/, (g, a) => [`The merchants were here. I'm ${a}. Ask me why. Actually don't.`, 'TRADE TALK']],
+// DF thought type (+ emotion) -> interview library category
+const CATS = [
+  [/^BedroomQuality/, 'bedroom'], [/SatisfiedAtWork|^Work/, 'work'], [/NeedsUnfulfilled/, t => t.emotion === 'BOREDOM' ? 'bored' : t.emotion === 'LONELINESS' ? 'lonely' : 'unmet_need'],
+  [/Syndrome/, 'syndrome'], [/ImproveSkill|Skill/, 'skill'], [/Miasma/, 'miasma'], [/Death|Died|Killed|Corpse/, 'death'], [/Rain|Snow|Weather/, 'rain'],
+  [/Sun|Sky|Cave/, 'sky'], [/Drink|Alcohol|Booze/, 'drink'], [/Dining|Table|Chair/, 'dining'], [/Eat|Meal|Food|Hunger|Ate/, 'food'], [/Sleep|Rest|Tired|Bed/, 'sleep'],
+  [/Pray|Worship|Temple/, 'prayer'], [/Talk|Conversation|Comfort|Friend|Argu|Insult|Flatter/, 'talk'], [/Art|Craft|Masterpiece|Admire|Decor/, 'art'],
+  [/Attack|Fight|Combat|Injur|Pain|Wound/, 'combat'], [/Ghost|Haunt/, 'ghost'], [/Train|Animal|Pet/, 'animals'], [/Trade|Caravan|Merchant/, 'trade'],
 ];
-function quoteFor(t) {
-  const g = GOOD.has(t.emotion), a = adj(t.emotion);
-  for (const [re, fn] of QUOTES) if (re.test(t.about)) { const [q, h] = fn(g, a, t.emotion); return {q, h, g}; }
-  return {q: `${pretty(t.about)}. I'll be honest, it left me ${a}.`, h: `${pretty(t.about).toUpperCase()}: A DWARF SPEAKS`, g};
-}
-const SIGNOFF = ['Strike the earth.', 'Stay out of the caverns.', 'Brew more. That\'s it. That\'s the message.', 'Don\'t feed the carp. Don\'t go near the carp.',
-  'Whoever keeps leaving socks in the dining hall: I know.', 'Dig deeper. But not too deep. You know what I mean.', 'If you see an elf, no you didn\'t.',
-  'Wash your hands. Or don\'t. I\'m not a doctor.', 'Tell the overseer I want a statue. Of me.', 'Hail the mountainhome!'];
-const DEITY_A = ['{d}, every day. Well, most days.', '{d}. We have an arrangement.', '{d}, when I remember. Don\'t tell {d}.', 'I keep a small shrine to {d} under my bed. It is mostly a rock.'];
+const catOf = t => { for (const [re, c] of CATS) if (re.test(t.about)) return typeof c === 'function' ? c(t) : c; return 'other'; };
+const MOODKEY = {ecstatic: 'mood_ecstatic', happy: 'mood_happy', content: 'mood_content', stressed: 'mood_stressed', 'very stressed': 'mood_very_stressed', 'near breaking': 'mood_breaking'};
 function cardDwarf() {
-  const d = S.dwarf; if (!d) return null;
-  const r = rng(d.id * 7919 + 13);
+  const d = S.dwarf, IV = LIB; if (!d || !IV.answers) return null;
+  const r = rng(Date.now() / 1000 | 0), ctx = context(r);
   const m = mood(d.stress);
   const prof = clean(d.profession).toLowerCase();
   const full = firstName(d.name), nick = (full.match(/"([^"]+)"/) || [])[1];
   const plain = full.replace(/\s*"[^"]*"\s*/, ' ').trim(), first = plain.split(' ')[0];
   const who = nick || first;
   const sk = d.skills || [], top = sk[0];
-  const thoughts = (d.thoughts || []).filter((t, i, a) => a.findIndex(u => u.about === t.about && u.emotion === t.emotion) === i);
-  const qs = thoughts.map(quoteFor);
-  const good = qs.find(x => x.g), bad = qs.find(x => !x.g);
   const deity = (d.family || []).find(x => x.relation === 'DEITY');
   const kin = (d.family || []).filter(x => x.relation !== 'DEITY');
-  const job = clean(d.job || '').toLowerCase();
-  const doing = !job || /no job|idle/.test(job) ? 'loitering near the meeting hall' : `hard at work (assignment: ${job})`;
-
+  const job = clean(d.job || '').toLowerCase(), idle = !job || /no job|idle/.test(job);
+  const me = {dwarf: plain, first, nick: who, prof, age: d.age, job: idle ? null : job, deity: deity ? clean(deity.name) : null,
+              skill: top ? top.name.toLowerCase() : null, level: top ? levels[Math.min(top.level, 15)].toLowerCase() : null, skill2: sk[1] ? sk[1].name.toLowerCase() : null};
+  const A = IV.answers, Q = IV.questions || {}, used = [];
+  const say = (list, extra = {}) => { const e = choose1(list, ctx, r, {...me, ...extra}); if (e) used.push(e.id); return e ? T(e) : null; };
+  const ask = (k, extra) => say(Q[k], extra) || '...';
+  // quotes from the dwarf's real recent thoughts
+  const thoughts = (d.thoughts || []).filter((t, i, a) => a.findIndex(u => u.about === t.about && u.emotion === t.emotion) === i);
+  let good = null, bad = null;
+  for (const t of thoughts) {
+    const g = GOOD.has(t.emotion); if (g ? good : bad) continue;
+    const cat = (IV.thoughts || {})[catOf(t)] || (IV.thoughts || {}).other; if (!cat) continue;
+    const extra = {adj: adj(t.emotion), about: pretty(t.about).toLowerCase()};
+    const q = say(g ? cat.good : cat.bad, extra); if (!q) continue;
+    const h = say(g ? cat.heads_good : cat.heads_bad, extra);
+    if (g) good = {q, h}; else bad = {q, h};
+  }
   const QA = [];
   if (top) {
-    const lv = levels[Math.min(top.level, 15)].toLowerCase(), skn = top.name.toLowerCase();
-    let a = prof.includes(skn.split(' ')[0]) ? `${an(lv).replace(/^a/, 'A')} ${skn}. Ask anyone.` : `Officially? ${an(prof).replace(/^a/, 'A')}. But I'm ${an(lv)} ${skn}, and everybody knows it.`;
-    if (sk[1]) a += ` I also do a little ${sk[1].name.toLowerCase()}${sk[1].level >= 6 ? ', and I do it well' : ', badly'}.`;
-    QA.push(['Tell our readers what you do down here.', a]);
+    const sq = x => x.replace(/[^a-z]/g, ''), match = sq(prof).includes(sq(me.skill).slice(0, 5)) || sq(me.skill).includes(sq(prof).slice(0, 5));
+    let a = say(match ? A.job_match : A.job_mismatch) || '';
+    if (sk[1]) a += ' ' + (say(sk[1].level >= 6 ? A.skill2_good : A.skill2_bad) || '');
+    QA.push([ask('job'), a.trim()]);
   }
-  const moodA = {ecstatic: 'Never better. Write "radiant".', happy: 'Good. Better than good. Put "good".', content: 'Fine. Can\'t complain. I mean I could.',
-    stressed: 'I\'m holding it together. Mostly.', 'very stressed': 'Do NOT ask me that today.', 'near breaking': 'One more question like that and I start throwing mugs.'}[m.label];
-  QA.push(['How are the spirits?', moodA + (good ? ' ' + good.q : '')]);
-  if (bad) QA.push([pick(r, ['Anything bothering you?', 'Any complaints for the overseer?', 'Off the record?']), bad.q]);
-  if (deity) QA.push(['Who do you pray to?', pick(r, DEITY_A).replaceAll('{d}', clean(deity.name))]);
+  QA.push([ask('mood'), [say(A[MOODKEY[m.label]]), good && good.q].filter(Boolean).join(' ')]);
+  if (bad) QA.push([ask('complaint'), bad.q]);
+  if (deity) QA.push([ask('deity'), say(A.deity)]);
   for (const k of kin.slice(0, 2)) {
-    const rel = pretty(k.relation).toLowerCase(), nm = clean(k.name);
-    QA.push([`And your ${rel}?`, k.alive ? pick(r, [`${nm}? Finest dwarf in the realm. Print that in big letters.`, `${nm} is well. I think. We should talk more.`])
-                                         : `I still think about ${nm} every day. Put that in your paper.`]);
+    const ex = {kin: clean(k.name), rel: pretty(k.relation).toLowerCase()};
+    QA.push([ask('kin', ex), say(k.alive ? A.kin_alive : A.kin_dead, ex)]);
   }
-  if (!kin.length) QA.push(['Any family in the fortress?', pick(r, ['Just me and the rock. The rock is a good listener.', 'Not yet. Is that an offer?', 'The fortress is my family. Also, nobody likes me.'])]);
-  QA.push(['Any last words for the readers?', pick(r, SIGNOFF)]);
-
+  if (!kin.length) QA.push([ask('nokin'), say(A.nokin)]);
+  QA.push([ask('last'), say(A.signoff)]);
   const lead = bad || good;
-  const headline = lead ? lead.h : `${prof.toUpperCase()} SPEAKS OUT`;
-  const sents = (lead || {q: QA[QA.length - 1][1]}).q.split(/(?<=[.!?])\s/);
+  const headline = (lead && lead.h) || `${prof.toUpperCase()} SPEAKS OUT`;
+  const sents = (lead ? lead.q : QA[QA.length - 1][1] || '').split(/(?<=[.!?])\s/);
   const pullTxt = sents[0].length < 30 && sents[1] ? sents[0] + ' ' + sents[1] : sents[0];
+  const deck = say(idle ? IV.idle_decks : IV.decks) || `Our correspondent caught up with ${plain}, ${d.age}, ${prof}.`;
+  markSeen(used);
   const vit = `<div class="vitals"><div class="sub">Vital Statistics</div>
       <div class="line"><span>Age</span><span class="lead"></span><span>${d.age}</span></div>
       ${d.born != null ? `<div class="line"><span>Born</span><span class="lead"></span><span>Yr ${d.born}</span></div>` : ''}
@@ -252,11 +325,11 @@ function cardDwarf() {
       <div class="bar"><div style="width:${m.pct}%;background:${m.color}"></div></div>
       ${sk.slice(0, 5).map(s => `<div class="line"><span>${esc(s.name)}</span><span class="lead"></span><span class="dim">${levels[Math.min(s.level, 15)]}</span></div>`).join('')}
     </div>`;
-  const qa = QA.map(([q, a], i) => `<p class="q"><span class="who">Herald:</span> ${esc(q)}</p><p><span class="who">${esc(who)}:</span> ${esc(a)}</p>`
-                       + (i === 1 ? `<div class="pull">“${esc(pullTxt)}”</div>` : '')).join('');
+  const qa = QA.filter(([, a]) => a).map(([q, a], i) => `<p class="q"><span class="who">Herald:</span> ${esc(q)}</p><p><span class="who">${esc(who)}:</span> ${esc(a)}</p>`
+                       + (i === 1 && pullTxt ? `<div class="pull">“${esc(pullTxt)}”</div>` : '')).join('');
   return `<div class="kicker"><span>Society Pages</span><span>The Herald Interview</span></div>
     <div class="headline">${esc(who.toUpperCase())}: ${esc(headline)}</div>
-    <div class="deck">Our correspondent found ${esc(plain)}, ${d.age}, ${esc(prof)}, ${esc(doing)}, and asked the questions the fortress is asking.</div>
+    <div class="deck">${esc(deck)}</div>
     <div class="iv just">${vit}${qa}</div>`;
 }
 
@@ -419,7 +492,7 @@ function Sketch(seed, w = 240, h = 140) {
     arc: (cx, cy, rx, ry, a0, a1) => path(ring(cx, cy, rx, ry, 8, a0, a1)),
     text: (x, y, t, size = 11, anchor = 'middle', rot = 0) => out.push(`<text x="${x}" y="${y}" font-family="Comic Sans MS, Segoe Print, cursive" font-size="${size}" text-anchor="${anchor}" fill="#241c13" transform="rotate(${rot.toFixed ? rot : 0} ${x} ${y})">${esc(t)}</text>`),
     // a labelled arrow, the soul of crude newspaper art
-    label: (x, y, tx, ty, t) => { const half = t.length * 3.3; x = Math.max(half + 4, Math.min(w - half - 4, x)); S.text(x, y, t, 10.5, 'middle', J(0, 4)); S.line(x, y + (ty > y ? 3 : -10), tx, ty); S.line(tx, ty, tx + (x > tx ? 5 : -5), ty + (y > ty ? 4 : -4)); },
+    label: (x, y, tx, ty, t) => { t = S.labelText || t; const half = t.length * 3.3; x = Math.max(half + 4, Math.min(w - half - 4, x)); S.text(x, y, t, 10.5, 'middle', J(0, 4)); S.line(x, y + (ty > y ? 3 : -10), tx, ty); S.line(tx, ty, tx + (x > tx ? 5 : -5), ty + (y > ty ? 4 : -4)); },
     ground: (y) => S.line(4, y, w - 4, y),
     dwarf(x, y, s = 1, o = {}) {
       const hy = y - 47 * s, hr = 8 * s;
@@ -532,7 +605,22 @@ const KINDS = [
 ];
 const kindOf = ev => KINDS.find(k => k.re.test(ev.type || '') || (k.k === 'siege' && k.re.test(ev.text || '')));
 const evWho = ev => { const m = clean(ev.text).match(/^([A-Z][^\s,]+ [A-Z][^\s,]+)/); return m ? cap(m[1]) : null; };
-function drawEvent(ev, w, h) { const k = kindOf(ev); if (!k) return null; const sk = Sketch((ev.id || 1) * 31 + 7, w, h); k.draw(sk); return {k, svg: sk.svg()}; }
+const evText = {};
+function eventText(ev, k) {   // headline/caption/report/arrow label for one event, picked once and reused
+  if (evText[ev.id]) return evText[ev.id];
+  const L = (LIB.kinds || {})[k.k] || {}, r = rng(ev.id * 17 + 3), ctx = context(r), ids = [];
+  const who = evWho(ev), extra = {who, first: who ? who.split(' ')[0] : null, event: clean(ev.text)};
+  const pk = (list, dflt) => { const e = choose1(list, ctx, r, extra); if (e) ids.push(e.id); return e ? T(e) : dflt; };
+  const t = {head: pk(L.heads, k.head), cap: pk(L.caps, k.cap), rep: pk(L.reps, k.rep), label: pk(L.labels, null), kicker: pk(L.kickers, '')};
+  markSeen(ids);
+  return evText[ev.id] = t;
+}
+function drawEvent(ev, w, h) {
+  const k = kindOf(ev); if (!k) return null;
+  const t = eventText(ev, k), sk = Sketch((ev.id || 1) * 31 + 7, w, h);
+  sk.labelText = t.label; k.draw(sk);
+  return {k, t, svg: sk.svg()};
+}
 function portrait(d) {   // courtroom-sketch style portrait of the interviewee
   const sk = Sketch(d.id * 13 + 5, 240, 140), m = mood(d.stress);
   sk.ground(132); sk.dwarf(120, 132, 1.9, {sad: m.label.includes('stress') || m.label === 'near breaking', pick: /mine|dig/i.test(d.job + ((d.skills || [])[0] || {}).name)});
@@ -543,12 +631,11 @@ function portrait(d) {   // courtroom-sketch style portrait of the interviewee
 let breakingQ = [], seenBig = null, breakingOn = false;
 function cardBreaking(ev) {
   const res = drawEvent(ev, 240, 140); if (!res) return null;
-  const who = evWho(ev);
   return `<div class="kicker"><span>★ Breaking News ★</span><span>Extra! Extra!</span></div>
-    <div class="headline" style="font-size:25px;text-align:center">${esc(res.k.head)}</div>
+    <div class="headline" style="font-size:25px;text-align:center">${esc(res.t.head)}</div>
     <div class="mapwrap" style="background:#f6eedb;padding:2px">${res.svg}</div>
-    <div class="deck" style="font-size:11px;text-align:center;margin:2px 0 4px">${esc(res.k.cap)}</div>
-    <p class="body just dropcap">${esc(clean(ev.text))} ${esc(res.k.rep)}${who ? (/death/.test(res.k.k) ? ` ${esc(who.split(' ')[0])} could not be reached for comment.` : ` The Herald has asked ${esc(who)} for comment.`) : ''}</p>`;
+    <div class="deck" style="font-size:11px;text-align:center;margin:2px 0 4px">${esc(res.t.cap)}</div>
+    <p class="body just dropcap">${esc(clean(ev.text))} ${esc(res.t.rep)} ${esc(res.t.kicker)}</p>`;
 }
 function checkBig() {
   const big = S.big || [];
@@ -565,69 +652,33 @@ function citizens() {
   return [...names];
 }
 function fillers(r) {
-  const c = (K && K.stocks) || {}, herdMap = (K && K.animals) || {}, f = S.fort || {}, wx = S.weather || {};
-  const fort = f.name || 'the fortress', pop = f.population || 0;
-  const people = citizens();
-  const anyone = (about = '') => { const ok = people.filter(n => !about.includes(n)); return ok.length ? pick(r, ok) : 'A Concerned Citizen'; };
-  const herd = Object.values(herdMap).reduce((a, b) => a + b, 0);
-  const art = H.artifacts && H.artifacts.length ? pick(r, H.artifacts) : null;
-  const out = [];
-  const ad = (html, inv) => out.push(`<div class="item ad${inv ? ' inv' : ''}">${html}</div>`);
-  const ed = (kick, h, body, by) => out.push(`<div class="item"><div class="kick">${kick}</div><h3>${h}</h3><p class="just dropcap">${body}</p>${by ? `<div class="by">— ${esc(by)}</div>` : ''}</div>`);
-  const letter = (body, by) => out.push(`<div class="item"><div class="kick">Letters to the Editor</div><p class="just"><i>Sir,</i> ${body}</p><div class="by">— ${esc(by)}</div></div>`);
-
+  const ctx = context(r), out = [];
+  const put = (ids, html) => out.push({ids: [].concat(ids), html});
   // display ads
-  if (c.drinks) ad(`<div class="eng">The Tipsy Anvil</div><div class="big">${c.drinks.toLocaleString()} BARRELS</div><div class="eng">on tap tonight</div><div class="fine">Drink responsibly. Or don't. We're not your mother.</div>`);
-  if ((herdMap.dogs || 0) > 3) ad(`<div class="big">FREE DOGS</div><div class="eng">${herdMap.dogs} available</div><div class="fine">Most bite. Some bite less. Good homes only.</div>`, true);
-  ad(`<div class="bk">Magma-Proof Boots</div><div class="eng">As worn by no survivors</div><div class="fine">*Not proof against magma. Not proof against much.</div>`);
-  ad(`<div class="eng">Tired of carp?</div><div class="big">STAY OUT OF THE WATER</div><div class="fine">A message from the Carp Survivors' Guild (membership: 2)</div>`);
-  ad(`<div class="bk">Urist &amp; Sons</div><div class="eng">Fine Coffins · All Sizes</div><div class="fine">Pre-order now and save. You'll need one eventually. Look around.</div>`, true);
-  ad(`<div class="eng">Now with fewer rocks!</div><div class="big">ROCK NUT OIL</div><div class="fine">Some rocks remain. Chew carefully.</div>`);
-  if (art) ad(`<div class="eng">As seen in legend</div><div class="bk">${esc(clean(art.name))}</div><div class="eng">genuine replicas · 1☼</div><div class="fine">Not affiliated with whichever goblin owns the original.</div>`);
-  if (c.gems) ad(`<div class="big">${c.gems} GEMS</div><div class="eng">and not one cut properly</div><div class="fine">Jewelers wanted. Apply at the stockpile. Bring a chisel.</div>`, true);
-  ad(`<div class="bk">The Meeting Hall</div><div class="eng">Come for the gossip</div><div class="fine">Stay because the door is jammed.</div>`);
-
-  // editorials
-  if (!c.meat && !c.fish) ed('Opinion', 'WHERE IS THE MEAT?', `For another season this paper must ask a simple question. ${herd ? `${herd} animals graze in our pastures, ` : ''}yet not one steak has reached the dining hall, and no fisherdwarf has so much as looked at a river. The Herald calls on the overseer to appoint a butcher before tempers reach the ale casks.`, 'The Editorial Board');
-  if (c.drinks > 1000) ed('Opinion', 'IN PRAISE OF THE BREWERS', `With ${c.drinks.toLocaleString()} drinks in store, ${esc(fort)} is, by any honest measure, a success. Kings are remembered for their wars. We shall be remembered for our barrels. Raise a mug to the stills.`, 'The Editorial Board');
-  if ((K && K.farms) > 10) ed('Commentary', `${K.farms} FARM PLOTS: ARE WE BECOMING ELVES?`, `It begins with a few plump helmets. Then a second plot, then a tenth. Before long a dwarf is talking to the plants and refusing to cut down trees. This columnist has seen it happen. Stay vigilant.`, anyone() + ', Columnist');
-  if (pop > 30) ed('Opinion', 'WHO ARE ALL THESE PEOPLE?', `${pop} souls now crowd these halls. This writer remembers when it was seven dwarves and a wagon. Nobody asked us. Nobody ever asks us.`, 'A Founding Member (Probably)');
-  if (wx.kind === 'rain' || wx.kind === 'snow') ed('Weather Desk', 'OUTSIDE CONTINUES TO BE A MISTAKE', `Our weather desk reports ${forecastOf(wx).toLowerCase()} once more above ${esc(fort)}. Readers are advised that the sky remains open and unregulated. Stay below.`, 'Weather Desk');
-  if (c.stone > 400) ed('Business', 'STONE GLUT DEPRESSES PRICES', `With ${c.stone} stones lying about, the price of a rock has fallen to an all-time low. Masons say they are "not worried." Masons say that about everything.`, 'Financial Correspondent');
-
-  // letters, built from today's news
-  const evs = (S.events || []).map(e => clean(e.text));
-  const strike = evs.find(t => /struck/.test(t)), master = evs.find(t => /masterpiece/.test(t)), become = evs.find(t => /has become a/.test(t));
-  if (strike) letter(`my neighbour reports "${esc(strike.replace(/^You have /, 'we have '))}" and will not stop talking about it. It is just a rock. We live in a rock.`, anyone() + ', Miner');
-  if (master) letter(`I read that ${esc(master.replace(/!$/, ''))}. Fine. Good for them. Some of us also work hard and nobody writes it down.`, anyone(master));
-  if (become) letter(`the news that ${esc(become.replace(/\.$/, ''))} came as a shock. Nobody asked the rest of us. Is this a democracy? (It is not.)`, anyone(become));
-  letter(`someone keeps leaving socks in the dining hall. I know who you are. I will not name you. Yet.`, anyone());
-  letter(`I have been assigned to haul the same stone four times. I would like it noted in print.`, anyone() + ', Hauler');
-
+  for (const a of choose(LIB.ads, ctx, r, 7))
+    put(a.id, `<div class="item ad${a.inv ? ' inv' : ''}">${(a.lines || []).map(([st, tx]) => `<div class="${esc(st)}">${esc(tx)}</div>`).join('')}</div>`);
+  // editorials / columns
+  for (const e of choose(LIB.editorials, ctx, r, 3))
+    put(e.id, `<div class="item"><div class="kick">${esc(e.kick || 'Opinion')}</div><h3>${esc(e.head)}</h3><p class="just dropcap">${esc(e.body)}</p>${e.by ? `<div class="by">— ${esc(e.by)}</div>` : ''}</div>`);
+  // letters
+  for (const l of choose(LIB.letters, ctx, r, 3))
+    put(l.id, `<div class="item"><div class="kick">Letters to the Editor</div><p class="just"><i>Sir,</i> ${esc(l.body)}</p><div class="by">— ${esc(l.by)}</div></div>`);
+  // classifieds block
+  const cls = choose(LIB.classifieds, ctx, r, 4);
+  if (cls.length) put(cls.map(c => c.id), `<div class="item cls"><div class="kick">Classifieds</div>${cls.map(c => `<div><b>${esc(c.tag)}:</b> ${esc(c.text)}</div>`).join('')}</div>`);
+  // almanac + proverb, trivia
+  const al = choose1(LIB.almanac, ctx, r), pv = choose1(LIB.proverbs, ctx, r);
+  if (al || pv) put([al && al.id, pv && pv.id], `<div class="item"><div class="kick">Almanac</div><p class="just">${al ? esc(T(al)) + ' ' : ''}${pv ? `Proverb of the day: <i>"${esc(T(pv))}"</i>` : ''}</p></div>`);
+  const tv = choose1(LIB.trivia, ctx, r);
+  if (tv) put(tv.id, `<div class="item"><div class="kick">On This Day</div><p class="just">${esc(T(tv))}</p></div>`);
   // our sketch artist: recent big events and a portrait of today's interviewee
-  for (const ev of (S.big || []).filter(e => e.id !== breakingOn).slice(0, 3)) {
+  for (const ev of (S.big || []).filter(e => e.id !== breakingOn).slice(0, 2)) {
     const res = drawEvent(ev, 240, 140); if (!res) continue;
-    out.push(`<div class="item"><div class="kick">From Our Sketch Artist</div><h3>${esc(res.k.head)}</h3>${res.svg}<p class="just" style="font-style:italic;font-size:10px;margin-top:2px">${esc(clean(ev.text))} ${esc(res.k.cap)}</p></div>`);
+    put([], `<div class="item"><div class="kick">From Our Sketch Artist</div><h3>${esc(res.t.head)}</h3>${res.svg}<p class="just" style="font-style:italic;font-size:10px;margin-top:2px">${esc(clean(ev.text))} ${esc(res.t.cap)}</p></div>`);
   }
-  if (S.dwarf) { const nm = firstName(S.dwarf.name); out.push(`<div class="item"><div class="kick">Courtroom Sketch</div>${portrait(S.dwarf)}<p style="font-style:italic;font-size:10px;text-align:center">${esc(nm)}, as seen by our artist. Likeness not guaranteed.</p></div>`); }
-
-  // classifieds + almanac
-  const cls = shuffle(r, [
-    '<b>Lost:</b> one sock, left. Great sentimental value.',
-    !c.fish ? '<b>Wanted:</b> fisherdwarf. Will train. Carp not included.' : '<b>For sale:</b> fish. Smells fine. Ask anyone.',
-    c.seeds ? `<b>For sale:</b> ${c.seeds} seeds, mostly plump helmet.` : null,
-    '<b>Seeking:</b> roommate for 1×1 bedroom. Must love stone.',
-    (herdMap.cats || 0) ? `<b>Missing:</b> cat (one of ${herdMap.cats}). Answers to nothing. Last seen near the kitchen.` : null,
-    '<b>Services:</b> dull picks sharpened while u wait.',
-    c.thread ? `<b>Free:</b> ${c.thread} spools of thread. Please take some.` : null,
-    '<b>Personal:</b> M, 87, beard to knees, seeks dwarf who enjoys long walks to the magma sea.',
-    '<b>Notice:</b> the well is NOT a bathtub.',
-  ].filter(Boolean)).slice(0, 4);
-  out.push(`<div class="item cls"><div class="kick">Classifieds</div>${cls.map(x => `<div>${x}</div>`).join('')}</div>`);
-  out.push(`<div class="item"><div class="kick">Almanac</div><p class="just"><b>${esc(wx.season || '')}.</b> ${esc(forecastOf(wx))}. Proverb of the day: <i>"${pick(r, ['A dwarf without a beard is a dwarf in disguise.', 'Dig not where the carp can see you.', 'The deeper the mine, the shorter the friends.', 'Never trust a tree.', 'Losing is fun.', 'A full barrel is a full heart.'])}"</i></p></div>`);
-  const tiny = shuffle(r, ['The well is NOT a bathtub.', 'Do not lick the cave moss.', 'Please return all mugs to the dining hall.',
-    'Carp sightings: report to the militia.', 'Socks found? Bring them to the Herald.', 'Elves: no.', 'Remember: up is outside.', 'Beards trimmed. Half price. No refunds.'])
-    .map(t => `<div class="item ad tiny"><div class="eng">Notice</div>${esc(t)}</div>`);
+  if (S.dwarf) put([], `<div class="item"><div class="kick">Courtroom Sketch</div>${portrait(S.dwarf)}<p style="font-style:italic;font-size:10px;text-align:center">${esc(firstName(S.dwarf.name))}, as seen by our artist. Likeness not guaranteed.</p></div>`);
+  // small notices go last: they plug the leftover gaps at the bottom of the columns
+  const tiny = choose(LIB.notices, ctx, r, 8).map(nt => ({ids: [nt.id], html: `<div class="item ad tiny"><div class="eng">Notice</div>${esc(T(nt))}</div>`}));
   return [...shuffle(r, out), ...tiny];
 }
 function fillFold() {
@@ -635,17 +686,18 @@ function fillFold() {
   const A = document.getElementById('colA'), B = document.getElementById('colB');
   A.innerHTML = ''; B.innerHTML = '';
   const limit = A.clientHeight; if (limit < 30) return;
-  const r = rng(Date.now() / 1000 | 0);
+  const r = rng(Date.now() / 1000 | 0), placed = [];
   const used = col => col.lastElementChild ? col.lastElementChild.offsetTop + col.lastElementChild.offsetHeight : 0;
-  for (const html of fillers(r)) {
+  for (const it of fillers(r)) {
     const first = used(A) <= used(B) ? A : B;
     for (const target of [first, first === A ? B : A]) {
-      const t = document.createElement('template'); t.innerHTML = html.trim();
+      const t = document.createElement('template'); t.innerHTML = it.html.trim();
       const el = t.content.firstElementChild; target.appendChild(el);
-      if (el.offsetTop + el.offsetHeight <= limit) break;
+      if (el.offsetTop + el.offsetHeight <= limit) { placed.push(...it.ids); break; }
       el.remove();
     }
   }
+  markSeen(placed);   // only what actually made it into print counts as used
 }
 
 // ---------- rotation ----------
@@ -660,7 +712,13 @@ function showCard(html, after) {
   if (after) after(); else cancelAnimationFrame(mapAnim);
   fillFold();
 }
+function newIssue() {
+  issueUsed = new Set();
+  const r = rng(Date.now() / 1000 | 0), ear = choose1(LIB.ears, context(r), r);
+  if (ear) { document.getElementById('ear-r').innerHTML = `Price<b>1☼</b>${esc(T(ear))}`; markSeen([ear.id]); }
+}
 function nextCard() {
+  newIssue();
   // big news jumps the queue: one Breaking card per new event, then the normal rotation resumes
   while (breakingQ.length) {
     const ev = breakingQ.shift(), html = cardBreaking(ev);
@@ -694,12 +752,17 @@ async function pollState() {
 async function pollStocks() {
   try { const k = await get('/stocks.json'); if (k && k.stocks) { if (K && K.stocks) prevStocks = K.stocks; K = k; } } catch (e) {}
 }
+async function loadLib() {
+  try { const l = await get('/library.json'); if (l && Object.keys(l).length) LIB = l; } catch (e) {}
+  try { SEEN = Object.assign(await get('/seen.json'), SEEN); } catch (e) {}
+}
 async function pollSlow() {
+  loadLib();
   try { const h = await get('/history.json'); if (h.artifacts && h.artifacts.length) H = h; } catch (e) {}
   try { const w = await get('/world.json'); if (w && w.w && (!W || W.world !== w.world)) { W = w; buildMap(); } } catch (e) {}
 }
 (async () => {
-  await Promise.all([pollState(), pollStocks(), pollSlow()]);
+  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib()]);
   if (document.fonts && document.fonts.ready) await document.fonts.ready;
   nextCard();
   setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollSlow, 120000);

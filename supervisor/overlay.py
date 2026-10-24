@@ -20,6 +20,9 @@ import dfai_supervisor as sup
 PORT = 8765
 STATE_EVERY_S = 4
 HERE = Path(__file__).parent
+LIB_DIR = HERE / "herald" / "library"
+SEEN_FILE = HERE / "herald" / "seen.json"   # library entry id -> unix time last printed, so issues don't repeat
+seen_lock = threading.Lock()
 cache = {"state": {"ok": False}, "history": {"artifacts": []}, "world": {}, "stocks": {}, "history_world": None}
 STOCKS_EVERY_S = 30
 MOCK = "--mock" in sys.argv
@@ -67,6 +70,16 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = json.dumps(cache["stocks"]).encode(), "application/json"
         elif self.path.startswith("/world.json"):
             body, ctype = json.dumps(cache["world"]).encode(), "application/json"
+        elif self.path.startswith("/library.json"):
+            lib = {}
+            for f in sorted(LIB_DIR.glob("*.json")):   # re-read each time so library edits show up on refresh
+                try:
+                    lib.update(json.loads(f.read_text(encoding="utf-8")))
+                except ValueError as e:
+                    print(f"library: bad JSON in {f.name}: {e}", flush=True)
+            body, ctype = json.dumps(lib).encode(), "application/json"
+        elif self.path.startswith("/seen.json"):
+            body, ctype = (SEEN_FILE.read_bytes() if SEEN_FILE.exists() else b"{}"), "application/json"
         elif self.path.split("?")[0] in ("/", "/index.html"):
             body, ctype = (HERE / "overlay.html").read_bytes(), "text/html; charset=utf-8"
         else:
@@ -77,6 +90,24 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
         self.wfile.write(body)
+
+    def do_POST(self):
+        # the page reports which library entries it just printed: {"ids": [...]}
+        if not self.path.startswith("/seen"):
+            self.send_error(404)
+            return
+        try:
+            ids = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0) or b"{}").get("ids", [])
+        except ValueError:
+            ids = []
+        with seen_lock:
+            seen = json.loads(SEEN_FILE.read_text(encoding="utf-8")) if SEEN_FILE.exists() else {}
+            now = int(time.time())
+            seen.update({str(i): now for i in ids[:200]})
+            SEEN_FILE.parent.mkdir(parents=True, exist_ok=True)
+            SEEN_FILE.write_text(json.dumps(seen), encoding="utf-8")
+        self.send_response(204)
+        self.end_headers()
 
     def log_message(self, *a):
         pass

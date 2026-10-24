@@ -1,0 +1,905 @@
+{
+  "editorials": [
+    {
+      "id": "ed-carp-question",
+      "kick": "Opinion",
+      "head": "THE CARP QUESTION CAN NO LONGER BE IGNORED",
+      "body": "For too long this fort has treated the brook as scenery. It is not scenery. It is a moat full of muscular fish with opinions about ankles. We propose a modest compromise: no more filling waterskins at the shore without a militia escort and a written will. The carp have not agreed to these terms.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-in-defense-of-the-sock",
+      "kick": "Commentary",
+      "head": "IN DEFENSE OF THE LONE SOCK",
+      "body": "Every dwarf in this fort owns at least one sock that has outlived its partner. We call them orphans. We leave them in the refuse pile. But the lone sock has endured what its twin could not, and I say it deserves a place of honour on the mantel, beside the axe and the second-best mug.",
+      "by": "A Sock Enthusiast, Lower Dormitory"
+    },
+    {
+      "id": "ed-elves-and-the-tree-thing",
+      "kick": "Opinion",
+      "head": "ON THE ELVES, AND THE TREE THING",
+      "body": "Our elven visitors once again declined to purchase our fine wooden bins on the grounds that a tree had been involved. We would gently point out that they arrived on a wooden wagon, pulled by a creature that eats trees, carrying a tree-bark bag of berries. We do not judge. We merely keep a ledger.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-dear-urist-mug",
+      "kick": "Advice Column",
+      "head": "DEAR URIST: MY ROOMMATE THROWS MUGS",
+      "body": "Dear Urist, my roommate throws a mug at me every time he is unhappy, which is daily. What do I do? -- Bruised In The Barracks. Dear Bruised, catch the mug. Fill the mug. Hand it back with ale in it. You will be surprised how quickly a thrown mug becomes a raised one. Also, wear a helm.",
+      "by": "Urist, Our Advice Columnist"
+    },
+    {
+      "id": "ed-dear-urist-sky",
+      "kick": "Advice Column",
+      "head": "DEAR URIST: THE SKY IS TOO BIG",
+      "body": "Dear Urist, I was sent to gather plants and the ceiling was missing. I have not stopped vomiting. -- Pale In The Pasture. Dear Pale, the sky is simply a cavern with very poor engineering. Pretend there is a roof. Pretend it is high. If that fails, bring a bucket and a friend who likes buckets.",
+      "by": "Urist, Our Advice Columnist"
+    },
+    {
+      "id": "ed-dear-urist-mood",
+      "when": [
+        "recent_mood"
+      ],
+      "kick": "Advice Column",
+      "head": "DEAR URIST: MY HUSBAND HAS TAKEN A WORKSHOP",
+      "body": "Dear Urist, {moodname} has locked themself in a workshop, muttering about shells and bones and refusing supper. -- Worried. Dear Worried, this is a strange mood and it is perfectly normal. Leave the shells outside the door. Do not ask questions. Do not, under any circumstances, say the word 'deadline'.",
+      "by": "Urist, Our Advice Columnist"
+    },
+    {
+      "id": "ed-food-critic-plump-helmet",
+      "kick": "Food Critic",
+      "head": "A PLUMP HELMET, REVISITED",
+      "body": "I ordered the plump helmet. It arrived raw, on a stone plate, in the dining hall, precisely as it did last week and the week before. It was purple. It was round. It was, I regret to report, delicious again. One star deducted for predictability, one star restored for hope. Three stars overall.",
+      "by": "Our Food Critic"
+    },
+    {
+      "id": "ed-food-critic-no-meat",
+      "when": [
+        "no_meat"
+      ],
+      "kick": "Food Critic",
+      "head": "THE KITCHEN'S BOLD NEW VEGETABLE ERA",
+      "body": "The butchery is empty, and our cooks have responded with a menu best described as courageous. Tonight's roast was a plump helmet wearing a smaller plump helmet. The garnish was a third plump helmet, pointing accusingly. I am told elves eat like this every day. I am now told why elves look like that.",
+      "by": "Our Food Critic"
+    },
+    {
+      "id": "ed-food-critic-meals",
+      "kick": "Food Critic",
+      "head": "{meals} MEALS, AND NOT ONE WORTH A SONG",
+      "body": "Our larder holds {meals} prepared meals, and I have sampled a respectable fraction of them. The lavish roasts are lavish. The fine biscuits are fine. And yet none of them has made me weep, which is the only true test. Cooks: please consider adding a little cave spider silk for texture. I am joking. Mostly.",
+      "by": "Our Food Critic"
+    },
+    {
+      "id": "ed-sport-danger-room",
+      "kick": "Sport",
+      "head": "DANGER ROOM LEAGUE: SPEARS 3, SHINS 0",
+      "body": "Another thrilling week in the danger room, where the militia faced the upright spear traps in a best-of-nine. The spears remain undefeated. Coaches praised the squad's footwork, which consisted mainly of hopping. Next week: the squad attempts the same thing again, this time with helmets on, in what pundits are calling 'a bold tactical shift'.",
+      "by": "Our Sporting Correspondent"
+    },
+    {
+      "id": "ed-sport-hauling-derby",
+      "kick": "Sport",
+      "head": "HAULING DERBY ENDS IN DRAW, AGAIN",
+      "body": "The annual Stockpile Derby, in which two haulers race to carry a single stone to the far stockpile, ended in a tie for the fourth consecutive year after both competitors stopped halfway for a drink and forgot what they were doing. Officials declared the stone the winner. The stone has declined interviews.",
+      "by": "Our Sporting Correspondent"
+    },
+    {
+      "id": "ed-sport-wrestling",
+      "kick": "Sport",
+      "head": "WRESTLING: {citizen_first} BITES ANOTHER EAR",
+      "body": "Sparring resumed in the barracks this week, with {citizen_first} once again winning by the controversial 'bite the ear and hold it' technique. The referee ruled it legal, citing the rulebook, which consists of one page reading 'no axes, probably'. The ear has filed a formal grievance with the sheriff.",
+      "by": "Our Sporting Correspondent"
+    },
+    {
+      "id": "ed-sport-cat-racing",
+      "when": [
+        "cats"
+      ],
+      "kick": "Sport",
+      "head": "CAT RACING SEASON OPENS WITH {cats} ENTRANTS",
+      "body": "The fort's informal cat racing league opened with {cats} entrants, none of whom ran in the intended direction. The winner was declared to be whichever cat was asleep on the finish line. Bookmakers report heavy losses. One cat adopted a dwarf mid-race, which officials agreed was technically a forfeit by the dwarf.",
+      "by": "Our Sporting Correspondent"
+    },
+    {
+      "id": "ed-science-magma",
+      "kick": "Science",
+      "head": "SCIENCE: IS MAGMA SIMPLY HOT WATER?",
+      "body": "Our science desk has studied magma for many seasons and can now confirm several findings. It is orange. It is warm. It does not, as one apprentice insisted, make a good bath. Further research is planned, pending the replacement of our science desk, which was made of wood and is no longer with us.",
+      "by": "Our Science Correspondent"
+    },
+    {
+      "id": "ed-science-sock-physics",
+      "kick": "Science",
+      "head": "NEW STUDY: WHERE DO THE SOCKS GO?",
+      "body": "After a three-season survey, researchers believe missing socks are not lost but merely relocated to a single unknown point deep beneath the fort. They have named it the Sockularity. A funding request to dig toward it was approved by the overseer, who has personally lost eleven socks and wants them back.",
+      "by": "Our Science Correspondent"
+    },
+    {
+      "id": "ed-science-cave-adaptation",
+      "kick": "Science",
+      "head": "SCIENCE: WHY DOES DAYLIGHT HURT?",
+      "body": "Cave adaptation, the condition in which a dwarf who has lived underground becomes sick upon seeing the sun, is now well understood. The sun is too bright, too far up, and has never been inspected by a mason. Our recommendation remains unchanged: build a roof over the outdoors. Engineers are reviewing the plans.",
+      "by": "Our Science Correspondent"
+    },
+    {
+      "id": "ed-science-mineral",
+      "when": [
+        "recent_strike"
+      ],
+      "kick": "Science",
+      "head": "{mineral}: A GEOLOGIST'S HUMBLE REVIEW",
+      "body": "The miners have struck {mineral}, and this desk has spent a full afternoon licking it. Findings: it is a rock. It is a nice rock. Tastes faintly of ambition. We recommend everyone stop by and admire it before a hauler moves it to a stockpile three levels away, where it will never be seen again.",
+      "by": "Our Mining Correspondent"
+    },
+    {
+      "id": "ed-noble-mandate",
+      "kick": "Noble Affairs",
+      "head": "MANDATE OF THE WEEK: MORE CROWNS, SOMEHOW",
+      "body": "Our noble has issued a mandate requiring three gold crowns be crafted this month, despite the fort possessing no gold, no crown-maker, and no third head. Failure carries the usual penalty of a stern look and possibly a hammering. The jeweler has requested clarification. The noble has requested a fourth crown.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-noble-bedroom",
+      "kick": "Noble Affairs",
+      "head": "THE NOBLE WISHES HIS BEDROOM 'GRANDER'",
+      "body": "The noble has rejected his bedroom for the third time, describing it as 'a cupboard with ideas'. The masons smoothed the walls. They engraved the walls. They engraved pictures of the noble admiring the walls. He remains unmoved. We have suggested he try the barracks, which are quite grand, if you are a spear.",
+      "by": "Our Court Correspondent"
+    },
+    {
+      "id": "ed-noble-promotion",
+      "when": [
+        "recent_promotion"
+      ],
+      "kick": "Noble Affairs",
+      "head": "CONGRATULATIONS, SORT OF, TO {promoted}",
+      "body": "This paper extends its warmest wishes to {promoted}, who has been appointed {post}. The role comes with a nicer chair, a heavier conscience, and the right to be blamed for everything. We wish them a long and successful term, and remind them that the last person in the job is still mentioned in hushed tones.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-military-goblin-siege",
+      "kick": "Military Affairs",
+      "head": "GOBLINS: A REVIEW OF THEIR MANNERS",
+      "body": "When goblins next visit, we ask that they at least knock. Our last siege arrived without warning, ate nothing, drank nothing, and left in pieces. As hosts, we found it rude. As a militia, we found it educational. As a newspaper, we found it excellent for sales. Mixed reviews overall.",
+      "by": "Our Military Correspondent"
+    },
+    {
+      "id": "ed-military-drill",
+      "kick": "Military Affairs",
+      "head": "THE MILITIA HAS DISCOVERED SITTING",
+      "body": "Inspection of the barracks found the militia's training schedule has been replaced with what the captain calls 'strategic resting'. Squad members are observed sitting in a defensive posture for many hours at a time. Asked what they are defending against, the captain pointed at the dining hall and said, quite firmly, 'hunger'.",
+      "by": "Our Military Correspondent"
+    },
+    {
+      "id": "ed-military-kobolds",
+      "kick": "Military Affairs",
+      "head": "KOBOLD THIEF RATES FORT 'MOSTLY STEALABLE'",
+      "body": "A kobold caught near the trade depot with a silver goblet under each arm has, under questioning, described our security as 'tolerable' and our goblets as 'excellent'. We thank him for the review. We do not thank him for the goblets. The dogs have been asked to step up their game considerably.",
+      "by": "Our Military Correspondent"
+    },
+    {
+      "id": "ed-weather-rain",
+      "when": [
+        "rain"
+      ],
+      "kick": "Weather Desk",
+      "head": "IT IS {weather} AND WE ARE INSIDE. GOOD.",
+      "body": "The surface is currently enjoying {weather}, according to the one dwarf who went outside to check and has not yet stopped complaining. Our advice is the same as always: remain underground, where the only thing falling from the ceiling is the occasional cave-in. Much more predictable. Much more dwarven.",
+      "by": "Our Weather Desk"
+    },
+    {
+      "id": "ed-weather-snow",
+      "when": [
+        "snow"
+      ],
+      "kick": "Weather Desk",
+      "head": "SNOW: THE SKY'S DANDRUFF RETURNS",
+      "body": "Snow has been sighted on the surface in the form of {weather}. Woodcutters report frozen beards. Herders report frozen yaks. The brook has gone solid, and somewhere under the ice the carp are plotting quietly. Enjoy the respite, citizens. Spring is coming, and the carp have had all winter to stretch.",
+      "by": "Our Weather Desk"
+    },
+    {
+      "id": "ed-weather-clear",
+      "when": [
+        "clear"
+      ],
+      "kick": "Weather Desk",
+      "head": "CLEAR SKIES: A FORMAL COMPLAINT",
+      "body": "The surface is reporting clear skies, which means the sky is fully visible, all of it, at once, with nothing in the way. This desk finds that unacceptable. We have filed a request with the overseer for clouds. Failing that, a tarp. Failing that, a very large sock.",
+      "by": "Our Weather Desk"
+    },
+    {
+      "id": "ed-society-meeting-hall",
+      "kick": "Society",
+      "head": "SOCIETY: WHO WAS SEEN AT THE MEETING HALL",
+      "body": "The meeting hall was alive this week with the cream of fort society. {citizen} wore a fetching dyed cloak. {citizen2} wore an expression of mild disdain. A dog wore nothing at all and was the toast of the evening. The ale flowed, the bards bellowed, and only two tables were flipped.",
+      "by": "Our Society Columnist"
+    },
+    {
+      "id": "ed-society-migrants",
+      "when": [
+        "recent_migrants"
+      ],
+      "kick": "Society",
+      "head": "A WARM WELCOME TO OUR NEW NEIGHBOURS",
+      "body": "A fresh wave of migrants has arrived, bringing the population to {pop}. Among them: four fishers, two cheesemakers, and a dwarf whose only skill appears to be 'standing nearby'. We welcome them all. Please do not touch the carp. Please do not make eye contact with the noble. Beds are, in theory, forthcoming.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-religion-temple",
+      "kick": "Religion",
+      "head": "THE GODS WOULD LIKE A BIGGER TEMPLE",
+      "body": "Our temple, a small room containing a single statue and a lot of hope, has been described by visiting priests as 'cosy'. Worshippers report that prayers are heard but may be echoing back. A fundraising drive is underway. Donations of gems, ale, and unused socks may be left by the statue.",
+      "by": "Our Religion Correspondent"
+    },
+    {
+      "id": "ed-religion-ghost",
+      "kick": "Religion",
+      "head": "ON THE PROPER CARE OF GHOSTS",
+      "body": "A reminder to all citizens: if your late relative appears in the dining hall at night, howling, this is a sign they would like a slab or a coffin, not a conversation. Please do not offer them soup. They cannot have soup. That is, in fact, part of what is bothering them.",
+      "by": "Our Religion Correspondent"
+    },
+    {
+      "id": "ed-obituary",
+      "when": [
+        "recent_death"
+      ],
+      "kick": "Commentary",
+      "head": "FAREWELL TO {deadname}",
+      "body": "This paper notes with sadness the passing of {deadname}, who will be remembered for many things, chiefly by the masons, who are now carving the slab. Let us honour them with a moment of silence, a mug of ale, and a gentle request that they not come back and haunt the kitchen. Rest well.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-masterpiece-review",
+      "when": [
+        "recent_masterpiece"
+      ],
+      "kick": "Commentary",
+      "head": "A MASTERPIECE, AND WE'RE ALL A BIT JEALOUS",
+      "body": "{masterwright} has produced a {masterwork} of such quality that three apprentices have already thrown their tools into the magma in despair. The rest of us are simply admiring it from a respectful distance. Well done. Also, a little less, next time. Some of us have feelings, and also aprons.",
+      "by": "Our Arts Critic"
+    },
+    {
+      "id": "ed-artifact-tour",
+      "kick": "Commentary",
+      "head": "A VISIT TO {artifact}, SINCE YOU ASKED",
+      "body": "Our fort's prized artifact, {artifact}, a {artifact_item}, remains on display, guarded by two dwarves and one very suspicious cat. Visitors are asked not to touch it, lick it, or wear it to the tavern. The artisan who made it has not spoken in seasons, apart from the occasional whispered 'you're welcome'.",
+      "by": "Our Arts Critic"
+    },
+    {
+      "id": "ed-business-trade-depot",
+      "when": [
+        "recent_caravan"
+      ],
+      "kick": "Business",
+      "head": "TRADE DEPOT DEALS: WE PAID TOO MUCH",
+      "body": "The caravan has come and gone, and our broker reports a triumphant season of trading. We sold forty stone mugs. We bought one bag of salt. Our broker calls this 'a strategic position'. Economists call it 'what usually happens'. The salt is lovely, and we will treasure it, and we will never use it.",
+      "by": "Our Business Correspondent"
+    },
+    {
+      "id": "ed-business-stone-glut",
+      "when": [
+        "stone_glut"
+      ],
+      "kick": "Business",
+      "head": "STONE PRICES COLLAPSE; {stone} ON HAND",
+      "body": "With {stone} stones in the stockpiles, the price of a single rock has fallen to roughly nothing, and possibly below nothing. Merchants are paying us to keep it. Masons are working through the night on mugs, and we are now the proud owners of more mugs than mouths. Invest in shelves.",
+      "by": "Our Business Correspondent"
+    },
+    {
+      "id": "ed-business-wood-low",
+      "when": [
+        "wood_low"
+      ],
+      "kick": "Business",
+      "head": "WOOD SHORTAGE: ONLY {wood} LOGS REMAIN",
+      "body": "The fort has a mere {wood} logs left, and the carpenters are carving each bed with the solemnity of a funeral. Woodcutters have been sent out, though they report the elves are watching from the treeline and 'making notes'. Consumers are urged to sleep on stone for now. It builds character, and also bruises.",
+      "by": "Our Business Correspondent"
+    },
+    {
+      "id": "ed-drinks-low",
+      "when": [
+        "drinks_low"
+      ],
+      "kick": "Opinion",
+      "head": "ONLY {drinks} DRINKS LEFT. THIS IS A CRISIS.",
+      "body": "We do not wish to alarm anyone. However, there are only {drinks} drinks in the fort, and that is not enough to be cheerful about. A dwarf without ale is a dwarf who is working slowly and thinking about mugs. Brewers, we beg you. Haulers, bring barrels. Elves, stay away from the plump helmets.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-drinks-high",
+      "when": [
+        "drinks_high"
+      ],
+      "kick": "Opinion",
+      "head": "WITH {drinks} DRINKS, WE MUST ASK: WHY STOP?",
+      "body": "The fort now holds {drinks} drinks, a figure so heroic it has its own gravitational pull. Some have called for moderation. This newspaper answers: moderation is for surface-dwellers. Let us continue brewing until we run out of barrels, and then until we run out of room, and then a little bit past that.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-overseer-performance",
+      "kick": "Opinion",
+      "head": "THE OVERSEER: A PERFORMANCE REVIEW",
+      "body": "The overseer, whose voice we hear only in our heads, has had a busy season. Highlights: digging a stair straight into a cavern for 'ventilation'. Lowlights: the same thing, but with the cavern being full of things. We award a solid B minus. Grading by the board was conducted entirely while hiding.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-aquifer",
+      "kick": "Opinion",
+      "head": "THE AQUIFER IS NOT A WATER FEATURE",
+      "body": "We continue to receive complaints from citizens who believe the damp layer of rock beneath the fort is a 'charming wellspring'. It is not charming. It is an aquifer, and it wants to come inside. Please stop poking it with picks. We are building a fortress, not a lake with walls.",
+      "by": "Our Engineering Correspondent"
+    },
+    {
+      "id": "ed-cave-ins",
+      "kick": "Science",
+      "head": "CAVE-INS: A REMINDER ABOUT FLOORS",
+      "body": "Miners are reminded that a ceiling is not optional. When you dig out the last support beneath a large overhang, you are not 'opening up the space'. You are inviting the space to come downstairs and join you. Engineers suggest leaving a pillar. Then another. Then perhaps one more for luck.",
+      "by": "Our Engineering Correspondent"
+    },
+    {
+      "id": "ed-forgotten-beast",
+      "kick": "Military Affairs",
+      "head": "FORGOTTEN BEAST: CAN WE REMEMBER IT LESS?",
+      "body": "A forgotten beast has been spotted in the caverns. It is described as a giant, featherless, one-eyed slug that breathes something unpleasant. We had, as a community, successfully forgotten it until this morning. We would like to go back to that. Please brick up the stairway. Please brick it up twice.",
+      "by": "Our Military Correspondent"
+    },
+    {
+      "id": "ed-catsplosion",
+      "when": [
+        "cats"
+      ],
+      "kick": "Opinion",
+      "head": "THE CAT SITUATION, AS OF THIS MORNING",
+      "body": "The census lists {cats} cats in the fort, though this number was out of date before the ink was dry. Each new cat adopts a dwarf of its choosing, and the dwarves have no say in the matter. We are not saying there is a problem. We are merely noting that the cats now outvote the noble.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-dogs-many",
+      "when": [
+        "dogs_many"
+      ],
+      "kick": "Society",
+      "head": "{dogs} DOGS AND COUNTING: WHO'S A GOOD FORT?",
+      "body": "With {dogs} dogs in residence, every corridor now has a resident greeter, and every greeter has a strong opinion about your boots. Breeders insist this is a security measure. Haulers insist it is a tripping hazard. The dogs insist it is mealtime. The dogs have been right three times this week already.",
+      "by": "Our Society Columnist"
+    },
+    {
+      "id": "ed-farms-many",
+      "when": [
+        "farms_many"
+      ],
+      "kick": "Business",
+      "head": "{farms} FARM PLOTS: AGRICULTURAL REVOLUTION?",
+      "body": "With {farms} farm plots now tilled, our farmers have become the most powerful lobby in the fort. They demand better buckets, longer naps, and a statue of a plump helmet in the meeting hall. Two of these demands are reasonable. The statue is already being carved, so please do not tell the farmers which two.",
+      "by": "Our Business Correspondent"
+    },
+    {
+      "id": "ed-pop-small",
+      "when": [
+        "pop_small"
+      ],
+      "kick": "Commentary",
+      "head": "A SMALL FORT IS A HAPPY FORT, PROBABLY",
+      "body": "With just {pop} residents, {fort} is what estate agents call 'intimate'. Everyone knows everyone. Everyone knows who left their socks in the dining hall. There is no hiding, no gossip that doesn't reach its subject by suppertime, and no excuse for not hauling. We call it community. Others call it a closet.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-pop-big",
+      "when": [
+        "pop_big"
+      ],
+      "kick": "Commentary",
+      "head": "{pop} DWARVES AND STILL ONE WELL",
+      "body": "Our population has reached {pop}, a figure that would make any fortress proud. It would make any fortress prouder still if more than one well were available. Lines now stretch back through the dining hall and into the stairwell. Some dwarves are living in the queue. We recommend another well, or a bigger bucket.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-season-spring",
+      "when": [
+        "spring"
+      ],
+      "kick": "Opinion",
+      "head": "SPRING IN {fort}: A HYMN TO MUD",
+      "body": "It is {season} in {fort}, and with it comes the great thaw. Ice becomes water, water becomes mud, and mud becomes the main ingredient in every hauler's boots. The carp are awake. The elves will visit soon. We ask that everyone take a moment to appreciate spring, then quickly go back underground.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-season-autumn",
+      "when": [
+        "autumn"
+      ],
+      "kick": "Opinion",
+      "head": "AUTUMN: TIME TO COUNT THE BARRELS",
+      "body": "It is {season} once more, the season when every dwarf suddenly remembers the stockpiles. Farmers harvest. Brewers brew. Haulers haul, and then stop hauling for a drink, and then forget what they were hauling. Winter approaches. The caravan approaches. Our ledgers approach a state best described as 'creative'.",
+      "by": "Our Business Correspondent"
+    },
+    {
+      "id": "ed-losing-is-fun",
+      "kick": "Commentary",
+      "head": "LOSING IS FUN, AND WE ARE VERY GOOD AT IT",
+      "body": "A visiting scholar recently asked why our fortress keeps doing things that seem certain to end in flooding, fire, or flying carp. We told him the old proverb. He did not understand it. He was then trampled by a yak, which, we feel, helped him understand it a great deal more quickly.",
+      "by": "The Editorial Board"
+    },
+    {
+      "id": "ed-werebeast",
+      "kick": "Advice Column",
+      "head": "DEAR URIST: MY FRIEND HOWLS AT THE MOON",
+      "body": "Dear Urist, my friend got bitten by a strange beast and now goes a bit hairy once a month. -- Concerned. Dear Concerned, this is a werebeast situation and it calls for a locked room, a hearty dinner placed inside, and a polite distance. Do not take up hairdressing as a hobby. Not this month.",
+      "by": "Urist, Our Advice Columnist"
+    },
+    {
+      "id": "ed-miasma",
+      "kick": "Opinion",
+      "head": "THAT SMELL IS NOT THE CHEESE",
+      "body": "The odour near the old storeroom is not, as some have suggested, a new and adventurous cheese. It is miasma. Something has been left to rot, and that something was once a lunch. Please put your refuse in the refuse pile, outside, where it belongs and where the vultures can enjoy it.",
+      "by": "Our Health Correspondent"
+    },
+    {
+      "id": "ed-gems",
+      "when": [
+        "gems"
+      ],
+      "kick": "Business",
+      "head": "{gems} GEMS AND NOWHERE TO PUT THEM",
+      "body": "Our stockpiles hold {gems} gems, a treasure of envy-inducing proportions. The jewelers are delighted. The nobles are delighted. The haulers who must move them are less delighted, as gems are small and keep rolling under things. We propose a gem-encrusted floor. It would be easier to find, at least.",
+      "by": "Our Business Correspondent"
+    },
+    {
+      "id": "ed-strike-the-earth",
+      "kick": "Commentary",
+      "head": "STRIKE THE EARTH? THE EARTH STRIKES BACK",
+      "body": "The famous motto of our people is 'Strike the earth!' Nobody has ever asked the earth for its opinion. This newspaper did, and the earth, through a falling boulder, made its position clear. We now suggest a gentler motto: 'Tap the earth, politely, and see how it feels about that.'",
+      "by": "Our Mining Correspondent"
+    }
+  ],
+  "letters": [
+    {
+      "id": "lt-sock-thief",
+      "body": "I wish to report that my left sock has once again vanished. I do not accuse anyone. I merely note that {citizen2} has been walking with unusual warmth in one foot.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-hauler-one-stone",
+      "body": "I have spent all season carrying a single stone from one end of the fort to the other. I am told this is important work. I am told this by people sitting down.",
+      "by": "A Hauler (Still Carrying It)"
+    },
+    {
+      "id": "lt-elf-trees",
+      "body": "the elven trader called my bed 'a murdered oak'. It is a perfectly good bed. I sleep on it nightly, and I have never heard it complain once, unlike certain visitors.",
+      "by": "A Carpenter Of Good Standing"
+    },
+    {
+      "id": "lt-carp-ankle",
+      "body": "I write from the hospital, where I am recovering from a carp. Not a carp bite. A carp. The whole fish. It came out of the water with real intent.",
+      "by": "Patient, Bed Three, Hospital"
+    },
+    {
+      "id": "lt-noble-mandate-anon",
+      "body": "I would like to complain about the noble's latest mandate. I would like to, but I will not, because I am fond of my kneecaps. I hope this letter speaks for itself.",
+      "by": "Name Withheld (Out Of Fear Of The Mayor)"
+    },
+    {
+      "id": "lt-mug-thrown",
+      "body": "my neighbour threw a mug at me during a tantrum. I would like to state for the record that it was my mug, and I would like it back, preferably not at speed.",
+      "by": "Formerly Owner Of A Mug"
+    },
+    {
+      "id": "lt-dining-hall-seat",
+      "body": "someone keeps sitting in my chair in the dining hall. It is the third chair from the left. Everyone knows it is mine. I carved my name in it. Twice.",
+      "by": "Third Chair From The Left"
+    },
+    {
+      "id": "lt-overseer-voice",
+      "body": "I hear a voice in my head telling me to dig. Physicians tell me it is simply the overseer. I would like the overseer to know that I also have hobbies.",
+      "by": "A Miner With Hobbies"
+    },
+    {
+      "id": "lt-cat-adoption",
+      "when": [
+        "cats"
+      ],
+      "body": "a cat has adopted me. I did not ask for this. I am now responsible for a small animal who sleeps on my face and hates my beard. Please advise.",
+      "by": "{citizen}, Reluctant Cat Owner"
+    },
+    {
+      "id": "lt-cats-count",
+      "when": [
+        "cats"
+      ],
+      "body": "your paper reports {cats} cats in the fort. I counted more than that in my bedroom alone this morning. Either the census is wrong or my bedroom is very popular.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-sky-complaint",
+      "body": "I was sent to cut trees and discovered the sky. Nobody warned me. It is enormous and it has no walls. I demand to know who approved it.",
+      "by": "A Woodcutter, Indoors Now"
+    },
+    {
+      "id": "lt-magma-bath",
+      "body": "I would like to correct a previous letter from my brother, who claimed magma makes a fine bath. He was mistaken. I would also like to formally request his boots.",
+      "by": "The Surviving Brother"
+    },
+    {
+      "id": "lt-food-critic-reply",
+      "body": "your food critic described my roast as 'ambitious'. I have been cooking for thirty years. It is not ambitious. It is a yak, and it was trying its very best.",
+      "by": "The Kitchen Staff"
+    },
+    {
+      "id": "lt-plump-helmet-again",
+      "body": "I have eaten plump helmets every day for two years. I am not complaining. I just want someone to know. I want it to be written down somewhere.",
+      "by": "A Regular In The Dining Hall"
+    },
+    {
+      "id": "lt-danger-room",
+      "body": "I am writing to protest my reassignment to the danger room. I was told it was a 'training opportunity'. The spears seem to be learning a great deal more than I am.",
+      "by": "Militia Recruit (Recovering)"
+    },
+    {
+      "id": "lt-militia-captain",
+      "body": "I am the captain of the militia and I would like to clarify that we are not lazy. We are conserving energy for an emergency, which we will recognise immediately.",
+      "by": "The Militia Captain"
+    },
+    {
+      "id": "lt-kobold-confession",
+      "body": "I am a kobold and I took your goblet. I am sorry. Not very sorry. It is a nice goblet. Please leave another one by the door next week.",
+      "by": "A Small Visitor (Not A Kobold)"
+    },
+    {
+      "id": "lt-ghost-letter",
+      "body": "I am a ghost and I would like a slab. Every night I wander the dining hall and everyone screams. I just want a nice rock with my name on it.",
+      "by": "A Ghost, Dining Hall (Nights)"
+    },
+    {
+      "id": "lt-recent-death-slab",
+      "when": [
+        "recent_death"
+      ],
+      "body": "the late {deadname} still owes me four copper coins and a whetstone. I do not wish to speak ill of the dead. I merely wish to be paid by them.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-recent-death-memorial",
+      "when": [
+        "recent_death"
+      ],
+      "body": "I propose a memorial to {deadname}, ideally before they decide to haunt the brewery. They loved that brewery. They will not leave quietly. Please, a slab, quickly.",
+      "by": "{citizen}, Brewer"
+    },
+    {
+      "id": "lt-mood-workshop",
+      "when": [
+        "recent_mood"
+      ],
+      "body": "{moodname} has taken over my workshop and is shrieking for shells. I have no shells. I have offered a turnip. The turnip was refused with some violence.",
+      "by": "{citizen}, Craftsdwarf"
+    },
+    {
+      "id": "lt-mood-jealous",
+      "when": [
+        "recent_mood"
+      ],
+      "body": "I have worked in this fort for years and never had a strange mood. {moodname} has been here a fortnight and is already making legendary furniture. I call this favouritism.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-masterpiece-proud",
+      "when": [
+        "recent_masterpiece"
+      ],
+      "body": "I am the proud parent of {masterwright}, who has made a {masterwork}. I would like everyone to know. I have already told everyone. I would like them to know again.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-masterpiece-sour",
+      "when": [
+        "recent_masterpiece"
+      ],
+      "body": "everyone is talking about the {masterwork} made by {masterwright}. I have also made things this month. Several mugs. Nobody writes about the mugs. The mugs are fine, thank you for asking.",
+      "by": "{citizen}, Stonecrafter"
+    },
+    {
+      "id": "lt-promotion-sour",
+      "when": [
+        "recent_promotion"
+      ],
+      "body": "I note with interest that {promoted} has been made {post}. I note also that I applied, and that my application was used to wedge a door. I am above bitterness.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-promotion-office",
+      "when": [
+        "recent_promotion"
+      ],
+      "body": "I write as the new {post}. I have been in the role one day and already received nine complaints, two threats and a sock. I do not know what the sock means.",
+      "by": "{promoted}"
+    },
+    {
+      "id": "lt-migrants-beds",
+      "when": [
+        "recent_migrants"
+      ],
+      "body": "I am a new arrival and I was promised a bed. I have been given a patch of floor and a dog. The dog is lovely. The floor is less lovely.",
+      "by": "{citizen}, Migrant"
+    },
+    {
+      "id": "lt-migrants-old-guard",
+      "when": [
+        "recent_migrants"
+      ],
+      "body": "in my day we arrived with seven dwarves and a wagon, and we liked it. These new migrants want rooms. Rooms! We had a hole. We were grateful for the hole.",
+      "by": "{citizen}, Founding Settler"
+    },
+    {
+      "id": "lt-caravan-salt",
+      "when": [
+        "recent_caravan"
+      ],
+      "body": "the caravan has left and I have finally discovered what we traded my prized granite statue for. A bag of salt. I would like it known that I am being very calm.",
+      "by": "{citizen}, Mason"
+    },
+    {
+      "id": "lt-caravan-elf-merchant",
+      "when": [
+        "recent_caravan"
+      ],
+      "body": "the visiting merchant asked if our fort had 'any less violent' goods. I showed him our mugs. He asked why they were dented. I declined to discuss it.",
+      "by": "{citizen}, Broker"
+    },
+    {
+      "id": "lt-strike-mineral",
+      "when": [
+        "recent_strike"
+      ],
+      "body": "I was the miner who struck the {mineral}. I would like credit. I would also like a mug. A small statue would also be acceptable. Mostly I would like credit.",
+      "by": "{citizen}, Miner"
+    },
+    {
+      "id": "lt-strike-skeptic",
+      "when": [
+        "recent_strike"
+      ],
+      "body": "everyone is celebrating the discovery of {mineral}. I have looked at it closely. It is a rock. I have seen many rocks. I fail to see what the fuss is.",
+      "by": "{citizen}, Sceptic"
+    },
+    {
+      "id": "lt-rain-surface",
+      "when": [
+        "rain"
+      ],
+      "body": "I have been asked to haul logs in {weather}. My beard is wet. My boots are wet. My feelings are also, I regret to say, quite damp.",
+      "by": "{citizen}, Hauler"
+    },
+    {
+      "id": "lt-snow-yak",
+      "when": [
+        "snow"
+      ],
+      "body": "I want it known that the yaks are standing in {weather} while I am indoors. The yaks seem fine. I, however, have developed concerns about the yaks.",
+      "by": "{citizen}, Herder"
+    },
+    {
+      "id": "lt-clear-skies-fear",
+      "when": [
+        "clear"
+      ],
+      "body": "I looked up today and saw clear skies and absolutely nothing above them. I have not slept since. I would like the overseer to put something up there.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-drinks-low-plea",
+      "when": [
+        "drinks_low"
+      ],
+      "body": "I am told we have only {drinks} drinks left. I would like to know who drank the others. I would also like to know if they need a friend next time.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-drinks-high-pride",
+      "when": [
+        "drinks_high"
+      ],
+      "body": "with {drinks} drinks in the cellar, I would like to propose a holiday. It need not be long. It need only last until the barrels are lighter.",
+      "by": "{citizen}, Brewer"
+    },
+    {
+      "id": "lt-no-meat",
+      "when": [
+        "no_meat"
+      ],
+      "body": "the butcher tells me there is no meat in the fort. I have eaten plump helmets for a week. I have begun to dream of yaks, in a manner I find troubling.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-dogs-many-boots",
+      "when": [
+        "dogs_many"
+      ],
+      "body": "with {dogs} dogs living in the fort, I would like to know which of them has my boots. I am not angry. I would just like my boots.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-herd-animals",
+      "body": "the census says we have {herd} animals, and most of them are {topanimal}. I would like to know when the {topanimal} will start paying rent.",
+      "by": "{citizen}, Bookkeeper"
+    },
+    {
+      "id": "lt-stone-glut-mugs",
+      "when": [
+        "stone_glut"
+      ],
+      "body": "I have been asked to make another stone mug. I have made four hundred. We have {stone} stones. I fear the stone is winning and that I am losing.",
+      "by": "{citizen}, Mason"
+    },
+    {
+      "id": "lt-wood-low-bed",
+      "when": [
+        "wood_low"
+      ],
+      "body": "I have been told there are only {wood} logs left, and so my bed has been 'delayed'. I have been sleeping in a barrel. It is cramped, but it smells of ale.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-gems-floor",
+      "when": [
+        "gems"
+      ],
+      "body": "I tripped over a gem in the corridor this morning. A whole gem! On the floor! I want to know who is leaving gems around, and also where.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-farms-many-complaint",
+      "when": [
+        "farms_many"
+      ],
+      "body": "we now have {farms} farm plots and I have been assigned to all of them. I am one farmer. I would like to meet the others, if they exist.",
+      "by": "{citizen}, Farmer"
+    },
+    {
+      "id": "lt-pop-small-gossip",
+      "when": [
+        "pop_small"
+      ],
+      "body": "in a fort of only {pop} dwarves, everyone knows I snore. I would like the fort to know that everyone else also snores, and that I have been keeping notes.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-pop-big-well",
+      "when": [
+        "pop_big"
+      ],
+      "body": "with {pop} dwarves sharing one well, I have been waiting for a drink of water since early {season}. I have made friends in the queue. One of them has had a baby.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-spring-mud",
+      "when": [
+        "spring"
+      ],
+      "body": "it is {season} again, and the mud has returned. I have washed my boots three times today. Each time, the mud returns with its friends.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-summer-heat",
+      "when": [
+        "summer"
+      ],
+      "body": "it is {season} and the surface is far too warm. I spent an hour outside and my beard nearly wilted. Please send down a block of ice, and a hug.",
+      "by": "{citizen}, Woodcutter"
+    },
+    {
+      "id": "lt-winter-brook",
+      "when": [
+        "winter"
+      ],
+      "body": "the brook has frozen over, and the carp are trapped beneath the ice. I have seen them looking up at me. I do not like how they are looking up at me.",
+      "by": "{citizen}, Fisherdwarf"
+    },
+    {
+      "id": "lt-autumn-harvest",
+      "when": [
+        "autumn"
+      ],
+      "body": "the harvest is in and I have been asked to haul every last plump helmet to a stockpile on the far side of the fort. Is there not a closer stockpile? Is there?",
+      "by": "{citizen}, Hauler"
+    },
+    {
+      "id": "lt-artifact-guard",
+      "body": "I have been guarding {artifact} for two seasons. Nobody has tried to steal it. I am beginning to suspect it is guarding me.",
+      "by": "{citizen}, Guard"
+    },
+    {
+      "id": "lt-artifact-wear",
+      "body": "I would like permission to wear {artifact}, the {artifact_item}, to the tavern on special occasions. Only once. Only for a night. I will return it, more or less, intact.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-forgotten-beast-reminder",
+      "body": "I am writing to remind everyone that there is still a forgotten beast in the caverns. I know you all forgot. That is the problem. That is, in fact, its whole name.",
+      "by": "Concerned Citizen, Lower Levels"
+    },
+    {
+      "id": "lt-goblin-siege-tea",
+      "body": "the last goblin siege ruined my afternoon nap. If the goblins insist on coming again, could they at least come after supper? We are civilised people. We have a schedule.",
+      "by": "A Retired Axedwarf"
+    },
+    {
+      "id": "lt-tantrum-apology",
+      "body": "I apologise for flipping the dining table last week. I was upset. I am still upset. But I did not need to flip the table. Someone else's table, maybe.",
+      "by": "Name Withheld (Out Of Embarrassment)"
+    },
+    {
+      "id": "lt-feud-beard",
+      "body": "{citizen2} claims to have the finest beard in the fort. I would point out that I have been growing mine since before {citizen2} was born. Mine is also braided.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-feud-bed",
+      "body": "I would like {citizen2} to know that the bedroom they were given is the one I asked for. I have nothing more to say. I have, in fact, a great deal more to say.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-trade-depot-loiter",
+      "body": "I would ask that dwarves stop loitering in the trade depot when there is no caravan. It is not a meeting hall. It is a depot. It is lonely and it needs its space.",
+      "by": "The Broker"
+    },
+    {
+      "id": "lt-aquifer-damp",
+      "body": "my bedroom has become moist. I am told this is the aquifer. I was not told about the aquifer when I moved in. I would like to formally object to being moist.",
+      "by": "A Moist Resident"
+    },
+    {
+      "id": "lt-cave-in-ceiling",
+      "body": "the ceiling of the old storeroom fell in last week. I was in the old storeroom. I would like to suggest that ceilings be checked more often, particularly mine.",
+      "by": "A Survivor Of The Old Storeroom"
+    },
+    {
+      "id": "lt-miasma-cheese",
+      "body": "I would like to apologise for the smell near the kitchen. It was my cheese. It was an experiment. The experiment has escaped and I can no longer find it.",
+      "by": "The Cheesemaker"
+    },
+    {
+      "id": "lt-werebeast-neighbour",
+      "body": "my neighbour has started howling once a month and growing hair in unusual places. I would not mind, but he keeps borrowing my comb.",
+      "by": "Name Withheld (Out Of Concern For The Comb)"
+    },
+    {
+      "id": "lt-temple-donation",
+      "body": "I donated three socks to the temple fund. I am now told the gods prefer gems. I would like my socks back, or at least the warmer one.",
+      "by": "A Cold-Footed Worshipper"
+    },
+    {
+      "id": "lt-overseer-stairs",
+      "body": "the overseer recently dug a staircase directly into my bedroom. I now have neighbours on four levels. I would like a door, or perhaps an apology carved in stone.",
+      "by": "Name Withheld (Out Of Fear Of The Overseer)"
+    },
+    {
+      "id": "lt-meeting-hall-bard",
+      "body": "the bard in the meeting hall knows only one song and it is about a carp. I have heard it forty times. I am beginning to sympathise with the carp.",
+      "by": "A Regular At The Meeting Hall"
+    },
+    {
+      "id": "lt-fort-name",
+      "body": "I write to say that I love {fort}. Truly. It is damp and dark and the carp are vicious, but it is home. Also my wife asked me to write this.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-world-traveller",
+      "body": "I have travelled across {world} and seen many forts, and none so committed to mugs as this one. I say this as both a compliment and a warning.",
+      "by": "A Visiting Scholar"
+    },
+    {
+      "id": "lt-year-reflection",
+      "body": "now that it is the year {year}, I would like to report that I still have not found my other sock. I have found many other socks. None of them were mine.",
+      "by": "{citizen}"
+    },
+    {
+      "id": "lt-editor-complaint",
+      "body": "I object to your newspaper. It is printed on cloth that could have been a sock. I will be reading it anyway, as there is nothing else to do.",
+      "by": "A Loyal Reader"
+    },
+    {
+      "id": "lt-crossword-request",
+      "body": "I would like a puzzle page. Something simple. I have spent many winters underground and my mind has turned largely to stone, and also mud.",
+      "by": "A Hauler With Time On His Hands"
+    }
+  ]
+}

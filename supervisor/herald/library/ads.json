@@ -1,0 +1,1583 @@
+{
+ "ads": [
+  {
+   "id": "ad-carp-mutual",
+   "lines": [
+    [
+     "bk",
+     "Carp Mutual Assurance"
+    ],
+    [
+     "eng",
+     "WE COVER WHAT THE CARP TOOK"
+    ],
+    [
+     "fine",
+     "Policy void if you were fishing, wading, drinking from the brook, or looking at the brook."
+    ]
+   ]
+  },
+  {
+   "id": "ad-leafbane",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "LEAFBANE"
+    ],
+    [
+     "eng",
+     "ELF REPELLENT · EXTRA STRENGTH"
+    ],
+    [
+     "fine",
+     "Just mention you cut down a tree. Results in moments. Not for use near caravans you'd like to keep."
+    ]
+   ]
+  },
+  {
+   "id": "ad-odd-sock-investigations",
+   "lines": [
+    [
+     "bk",
+     "Odd Sock Detectives"
+    ],
+    [
+     "eng",
+     "ONE SOCK? WE FIND THE OTHER"
+    ],
+    [
+     "fine",
+     "Thirty years in business. No case closed. Our filing cabinets are full, mostly of left socks."
+    ]
+   ]
+  },
+  {
+   "id": "ad-mugs-mended",
+   "lines": [
+    [
+     "bk",
+     "Mugs Mended Here"
+    ],
+    [
+     "eng",
+     "TANTRUM DAMAGE A SPECIALTY"
+    ],
+    [
+     "fine",
+     "Mug thrown at a noble? We repair the mug. The noble is handled by a separate department."
+    ]
+   ]
+  },
+  {
+   "id": "ad-braided-chin",
+   "lines": [
+    [
+     "bk",
+     "The Braided Chin"
+    ],
+    [
+     "eng",
+     "BEARD SALON & GROOMING"
+    ],
+    [
+     "fine",
+     "Now offering beard-in-a-bottle for the tragically clean-shaven. Elves need not inquire."
+    ]
+   ]
+  },
+  {
+   "id": "ad-magma-tours",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "MAGMA TOURS"
+    ],
+    [
+     "eng",
+     "SEE THE SEA · FEEL THE SEA"
+    ],
+    [
+     "fine",
+     "Railings optional. Refunds unavailable, for reasons that will become obvious."
+    ]
+   ]
+  },
+  {
+   "id": "ad-slab-and-sons",
+   "lines": [
+    [
+     "bk",
+     "Slab & Sons Coffinry"
+    ],
+    [
+     "eng",
+     "BOXES FOR EVERY OCCASION"
+    ],
+    [
+     "fine",
+     "Free engraved slab with every coffin, so Grandpa stops rearranging the dining hall at night."
+    ]
+   ]
+  },
+  {
+   "id": "ad-militia-recruiting",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "THE FORT NEEDS YOU"
+    ],
+    [
+     "eng",
+     "JOIN THE MILITIA TODAY"
+    ],
+    [
+     "fine",
+     "Free helmet. Free danger room. Training spears are blunt-ish. Mostly-ish."
+    ]
+   ]
+  },
+  {
+   "id": "ad-overseer-hotline",
+   "lines": [
+    [
+     "bk",
+     "Ask the Overseer"
+    ],
+    [
+     "eng",
+     "COMPLAINTS LINE · ALWAYS OPEN"
+    ],
+    [
+     "fine",
+     "Your complaint has been noted, designated, and queued behind 4,000 hauling jobs."
+    ]
+   ]
+  },
+  {
+   "id": "ad-gneiss-acres",
+   "lines": [
+    [
+     "bk",
+     "Gneiss Acres Estates"
+    ],
+    [
+     "eng",
+     "LUXURY 1x1 BEDROOMS"
+    ],
+    [
+     "fine",
+     "Each suite includes a door, a bed and nearly enough room to turn around. Cabinet sold separately."
+    ]
+   ]
+  },
+  {
+   "id": "ad-sky-fright-clinic",
+   "lines": [
+    [
+     "bk",
+     "Sky Fright Clinic"
+    ],
+    [
+     "eng",
+     "CAVE ADAPTED? WE CAN HELP"
+    ],
+    [
+     "fine",
+     "Gradual exposure therapy. Week one: a window. Week twelve: a cloud. Buckets provided."
+    ]
+   ]
+  },
+  {
+   "id": "ad-plump-helmets",
+   "lines": [
+    [
+     "big",
+     "PLUMP HELMETS"
+    ],
+    [
+     "eng",
+     "EAT 'EM · BREW 'EM"
+    ],
+    [
+     "fine",
+     "Please do not wear them. They are not helmets. The militia has asked us to say this again."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ad-whiskers-rehoming",
+   "when": [
+    "cats"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Whiskers Rehoming"
+    ],
+    [
+     "eng",
+     "{cats} CATS SEEK DWARVES"
+    ],
+    [
+     "fine",
+     "You did not choose the cat. The cat chose you. It also chose your bedroom and your lunch."
+    ]
+   ]
+  },
+  {
+   "id": "ad-cat-surplus",
+   "when": [
+    "cats"
+   ],
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "CAT SURPLUS!"
+    ],
+    [
+     "eng",
+     "BUY ONE, GET NINE"
+    ],
+    [
+     "fine",
+     "Kittens ripen in roughly a season. Return policy: they come back on their own."
+    ]
+   ]
+  },
+  {
+   "id": "ad-kobold-watch",
+   "lines": [
+    [
+     "bk",
+     "Kobold Watch Society"
+    ],
+    [
+     "eng",
+     "SEEN A SNEAKY LITTLE FELLOW?"
+    ],
+    [
+     "fine",
+     "Report missing goblets, missing earrings, and missing members of the Kobold Watch Society."
+    ]
+   ]
+  },
+  {
+   "id": "ad-mandate-fulfilment",
+   "lines": [
+    [
+     "bk",
+     "Mandate Fulfilment Co."
+    ],
+    [
+     "eng",
+     "WHATEVER HIS LORDSHIP WANTS"
+    ],
+    [
+     "fine",
+     "Three ☼crystal glass☼ chairs by Tuesday? Done. Please stop asking us what crystal glass is."
+    ]
+   ]
+  },
+  {
+   "id": "ad-urist-registry",
+   "lines": [
+    [
+     "bk",
+     "The Urist Registry"
+    ],
+    [
+     "eng",
+     "IS YOUR NAME URIST?"
+    ],
+    [
+     "fine",
+     "You are not alone. Statistically, you are never alone. Weekly meetings. Very crowded."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ad-losing-is-fun",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "LOSING IS FUN"
+    ],
+    [
+     "eng",
+     "A PUBLIC SERVICE REMINDER"
+    ],
+    [
+     "fine",
+     "Brought to you by the Department of Morale, which is currently on fire."
+    ]
+   ]
+  },
+  {
+   "id": "ad-strike-the-earth",
+   "when": [
+    "recent_strike"
+   ],
+   "lines": [
+    [
+     "big",
+     "STRIKE THE EARTH"
+    ],
+    [
+     "eng",
+     "FRESH {mineral} IN STOCK"
+    ],
+    [
+     "fine",
+     "Straight from the rock face. The miners' guild reminds you to look up before mining the ceiling."
+    ]
+   ]
+  },
+  {
+   "id": "ad-dry-feet",
+   "lines": [
+    [
+     "bk",
+     "Dry Feet Damp-Proofing"
+    ],
+    [
+     "eng",
+     "AQUIFER? WHAT AQUIFER?"
+    ],
+    [
+     "fine",
+     "Our last client's fort is now a well-regarded lake. Testimonials available by boat."
+    ]
+   ]
+  },
+  {
+   "id": "ad-roofwatch",
+   "lines": [
+    [
+     "bk",
+     "Roofwatch Engineering"
+    ],
+    [
+     "eng",
+     "CAVE-IN INSPECTIONS"
+    ],
+    [
+     "fine",
+     "We tap every support to see if it holds. Our inspectors are very brave and also very flat."
+    ]
+   ]
+  },
+  {
+   "id": "ad-haggle-school",
+   "when": [
+    "recent_caravan"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Depot Haggle School"
+    ],
+    [
+     "eng",
+     "OUT-BARGAIN ANY CARAVAN"
+    ],
+    [
+     "fine",
+     "Learn to trade forty stone crafts for one barrel of something that might be cheese."
+    ]
+   ]
+  },
+  {
+   "id": "ad-bark-free-goods",
+   "lines": [
+    [
+     "bk",
+     "Bark-Free Goods Ltd."
+    ],
+    [
+     "eng",
+     "100% NO-TREE GUARANTEE"
+    ],
+    [
+     "fine",
+     "Every item grown from honest stone. Elven inspectors are welcome to inspect elsewhere."
+    ]
+   ]
+  },
+  {
+   "id": "ad-siege-getaways",
+   "lines": [
+    [
+     "bk",
+     "Siege Week Getaways"
+    ],
+    [
+     "eng",
+     "ESCAPE TO YOUR BEDROOM"
+    ],
+    [
+     "fine",
+     "Goblins at the gate? Bridge is up, view is nil, room service is a plump helmet. Bliss."
+    ]
+   ]
+  },
+  {
+   "id": "ad-forgotten-beast-lost",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "LOST: ONE BEAST"
+    ],
+    [
+     "eng",
+     "FORGOTTEN · REWARD OFFERED"
+    ],
+    [
+     "fine",
+     "Answers to nothing. Breathes something. If found, please continue forgetting it."
+    ]
+   ]
+  },
+  {
+   "id": "ad-full-moon-tailoring",
+   "lines": [
+    [
+     "bk",
+     "Full Moon Tailoring"
+    ],
+    [
+     "eng",
+     "STRETCH-FIT TROUSERS"
+    ],
+    [
+     "fine",
+     "For the dwarf who becomes a giant badger once a month and is tired of buying new pants."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ad-mood-supplies",
+   "when": [
+    "recent_mood"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Mood Supplies Depot"
+    ],
+    [
+     "eng",
+     "{moodname}, WE HAVE IT"
+    ],
+    [
+     "fine",
+     "Shells, bones, raw green glass. Whatever the voices said. No questions. Please, no questions."
+    ]
+   ]
+  },
+  {
+   "id": "ad-heirloom-guard",
+   "lines": [
+    [
+     "bk",
+     "Heirloom Guard"
+    ],
+    [
+     "eng",
+     "PROTECTING {artifact}"
+    ],
+    [
+     "fine",
+     "Every artifact is priceless until a kobold prices it. Insure your {artifact_item} today."
+    ]
+   ]
+  },
+  {
+   "id": "ad-masterwork-gallery",
+   "when": [
+    "recent_masterpiece"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Masterwork Gallery"
+    ],
+    [
+     "eng",
+     "NOW SHOWING: {masterwork}"
+    ],
+    [
+     "fine",
+     "By {masterwright}. Do not touch it, sit on it, or praise it insufficiently within earshot."
+    ]
+   ]
+  },
+  {
+   "id": "ad-plaque-engravers",
+   "when": [
+    "recent_promotion"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Door Plaque Engravers"
+    ],
+    [
+     "eng",
+     "HAIL {promoted}!"
+    ],
+    [
+     "fine",
+     "New {post}? Tell everyone with a fine door sign. They will still ask you to haul rocks."
+    ]
+   ]
+  },
+  {
+   "id": "ad-spirit-removal",
+   "when": [
+    "recent_death"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Ghost Removal Services"
+    ],
+    [
+     "eng",
+     "HAUNTED? WE SLAB IT"
+    ],
+    [
+     "fine",
+     "In memory of {deadname}, who wishes it known they have not left and would like their room back."
+    ]
+   ]
+  },
+  {
+   "id": "ad-fresh-air-ventures",
+   "lines": [
+    [
+     "bk",
+     "Fresh Air Ventures"
+    ],
+    [
+     "eng",
+     "MIASMA REMOVAL · DISCREET"
+    ],
+    [
+     "fine",
+     "If you can see the smell, you need us. If you can hear the smell, you need a priest."
+    ]
+   ]
+  },
+  {
+   "id": "ad-the-long-table",
+   "lines": [
+    [
+     "bk",
+     "The Long Table"
+    ],
+    [
+     "eng",
+     "DINING HALL · SEATS ALL"
+    ],
+    [
+     "fine",
+     "Tonight's special: whatever is in the barrel. The wall engravings depict a better meal."
+    ]
+   ]
+  },
+  {
+   "id": "ad-drink-shortage",
+   "when": [
+    "drinks_low"
+   ],
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "DRINK SHORTAGE"
+    ],
+    [
+     "eng",
+     "ONLY {drinks} DRINKS REMAIN"
+    ],
+    [
+     "fine",
+     "Do NOT drink the water. Dwarves who drink water start talking about their feelings."
+    ]
+   ]
+  },
+  {
+   "id": "ad-overflowing-tankard",
+   "when": [
+    "drinks_high"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Overflowing Tankard"
+    ],
+    [
+     "eng",
+     "{drinks} DRINKS ON TAP"
+    ],
+    [
+     "fine",
+     "Happy hour runs from Early Spring to Late Winter. Closing time is a myth told to children."
+    ]
+   ]
+  },
+  {
+   "id": "ad-mock-meat",
+   "when": [
+    "no_meat"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Mock Meat Emporium"
+    ],
+    [
+     "eng",
+     "TASTES ALMOST LIKE YAK"
+    ],
+    [
+     "fine",
+     "Our cave wheat cutlets fool four dwarves in ten. The other six have since become poets."
+    ]
+   ]
+  },
+  {
+   "id": "ad-free-rocks",
+   "when": [
+    "stone_glut"
+   ],
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "FREE ROCKS"
+    ],
+    [
+     "eng",
+     "{stone} AND COUNTING"
+    ],
+    [
+     "fine",
+     "Take one, take ten. We are begging you. The stockpile has started its own stockpile."
+    ]
+   ]
+  },
+  {
+   "id": "ad-last-log-exchange",
+   "when": [
+    "wood_low"
+   ],
+   "lines": [
+    [
+     "bk",
+     "The Last Log Exchange"
+    ],
+    [
+     "eng",
+     "ONLY {wood} LOGS REMAIN"
+    ],
+    [
+     "fine",
+     "Prices up 400%. The elves have been informed and are said to be absolutely delighted."
+    ]
+   ]
+  },
+  {
+   "id": "ad-underground-umbrellas",
+   "when": [
+    "rain"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Underground Umbrellas"
+    ],
+    [
+     "eng",
+     "FORECAST: {weather}"
+    ],
+    [
+     "fine",
+     "Why carry an umbrella when you could simply live under a mountain? Leases available."
+    ]
+   ]
+  },
+  {
+   "id": "ad-moat-skating",
+   "when": [
+    "snow"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Frozen Moat Skating"
+    ],
+    [
+     "eng",
+     "OPEN WHILE THE SNOW LASTS"
+    ],
+    [
+     "fine",
+     "Skates rented by the hour. The carp under the ice are not for rent. They come free."
+    ]
+   ]
+  },
+  {
+   "id": "ad-daylight-excursions",
+   "when": [
+    "clear"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Daylight Excursions"
+    ],
+    [
+     "eng",
+     "{weather}! STEP OUTSIDE!"
+    ],
+    [
+     "fine",
+     "A guided walk to the trade depot and back. Your guide will hold your hand the entire time."
+    ]
+   ]
+  },
+  {
+   "id": "ad-spring-planting",
+   "when": [
+    "spring"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Spring Planting Supply"
+    ],
+    [
+     "eng",
+     "{seeds} SEEDS IN STOCK"
+    ],
+    [
+     "fine",
+     "Plump helmet spawn, cave wheat, pig tail, and rope reed for the farmer who enjoys a challenge."
+    ]
+   ]
+  },
+  {
+   "id": "ad-summer-sale",
+   "when": [
+    "summer"
+   ],
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "SUMMER SALE"
+    ],
+    [
+     "eng",
+     "EVERYTHING MUST GO (OUTSIDE)"
+    ],
+    [
+     "fine",
+     "All goods 2% off. Items stored outdoors may be warm, wet, or claimed by a vulture."
+    ]
+   ]
+  },
+  {
+   "id": "ad-harvest-festival",
+   "when": [
+    "autumn"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Harvest Festival"
+    ],
+    [
+     "eng",
+     "{farms} FIELDS · ONE PARTY"
+    ],
+    [
+     "fine",
+     "Celebrate a bountiful harvest in the meeting hall by standing near some barrels."
+    ]
+   ]
+  },
+  {
+   "id": "ad-hearth-and-forge",
+   "when": [
+    "winter"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Hearth & Forge Rentals"
+    ],
+    [
+     "eng",
+     "WINTER WARMTH GUARANTEED"
+    ],
+    [
+     "fine",
+     "Sit by our forge all season. Beard singeing is not a defect. It is a look."
+    ]
+   ]
+  },
+  {
+   "id": "ad-doggy-day-hall",
+   "when": [
+    "dogs_many"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Doggy Day Hall"
+    ],
+    [
+     "eng",
+     "{dogs} DOGS · ONE KEEPER"
+    ],
+    [
+     "fine",
+     "Our keeper is fine. Nobody has seen our keeper since the last litter. Our keeper is fine."
+    ]
+   ]
+  },
+  {
+   "id": "ad-crowd-relief",
+   "when": [
+    "pop_big"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Crowd Relief Tunnels"
+    ],
+    [
+     "eng",
+     "{pop} DWARVES · ONE HALLWAY"
+    ],
+    [
+     "fine",
+     "Tired of a forty-minute walk to the well? So are we. Express corridor opens next year."
+    ]
+   ]
+  },
+  {
+   "id": "ad-lonely-fort-socials",
+   "when": [
+    "pop_small"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Lonely Fort Socials"
+    ],
+    [
+     "eng",
+     "ONLY {pop} OF US? MINGLE!"
+    ],
+    [
+     "fine",
+     "Meet everyone in the fort in a single evening. Then again tomorrow. And forever."
+    ]
+   ]
+  },
+  {
+   "id": "ad-welcome-migrants",
+   "when": [
+    "recent_migrants"
+   ],
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "WELCOME MIGRANTS"
+    ],
+    [
+     "eng",
+     "PLEASE TAKE A NUMBER"
+    ],
+    [
+     "fine",
+     "Beds assigned in the order received. Current wait: three seasons. Floor available now."
+    ]
+   ]
+  },
+  {
+   "id": "ad-mushroom-mavens",
+   "when": [
+    "farms_many"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Mushroom Mavens Guild"
+    ],
+    [
+     "eng",
+     "{farms} PLOTS & GROWING"
+    ],
+    [
+     "fine",
+     "Seeking dwarves able to stare at a mushroom with purpose. Some mushroom experience preferred."
+    ]
+   ]
+  },
+  {
+   "id": "ad-cut-and-polish",
+   "when": [
+    "gems"
+   ],
+   "lines": [
+    [
+     "bk",
+     "Cut & Polish Jewellers"
+    ],
+    [
+     "eng",
+     "{gems} GEMS IN THE VAULT"
+    ],
+    [
+     "fine",
+     "Every stone cut to a dazzling shine, then set into a mug nobody will ever dare drink from."
+    ]
+   ]
+  },
+  {
+   "id": "ad-pig-tail-couture",
+   "lines": [
+    [
+     "bk",
+     "Pig Tail Couture"
+    ],
+    [
+     "eng",
+     "FASHIONS FOR THE FORT"
+    ],
+    [
+     "fine",
+     "This season's look: the same tunic, in a slightly different brown."
+    ]
+   ]
+  },
+  {
+   "id": "ad-haulers-wanted",
+   "lines": [
+    [
+     "big",
+     "HAULERS WANTED"
+    ],
+    [
+     "eng",
+     "NO EXPERIENCE · NO REST"
+    ],
+    [
+     "fine",
+     "Carry one stone across the fort. Then the next. There are {stone}. Benefits: exercise."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ad-calm-cavern-spa",
+   "lines": [
+    [
+     "bk",
+     "The Calm Cavern Spa"
+    ],
+    [
+     "eng",
+     "TANTRUM PREVENTION SUITES"
+    ],
+    [
+     "fine",
+     "Statue gardens, fine meals, an engraved ceiling. Everything to stop you throwing that cabinet."
+    ]
+   ]
+  },
+  {
+   "id": "ad-meeting-hall-nightly",
+   "inv": true,
+   "lines": [
+    [
+     "bk",
+     "Meeting Hall Nightly"
+    ],
+    [
+     "eng",
+     "STANDING · TALKING · ROOM"
+    ],
+    [
+     "fine",
+     "Hundreds of dwarves stood here and chatted about nothing. You could be one of them."
+    ]
+   ]
+  },
+  {
+   "id": "ad-danger-room-gym",
+   "lines": [
+    [
+     "bk",
+     "The Danger Room Gym"
+    ],
+    [
+     "eng",
+     "GET FIT · GET POKED (A BIT)"
+    ],
+    [
+     "fine",
+     "Upright training spears, lovingly blunted. Results in one season or your money back, minus bandages."
+    ]
+   ]
+  },
+  {
+   "id": "ad-wanted-bucket",
+   "lines": [
+    [
+     "big",
+     "WANTED"
+    ],
+    [
+     "eng",
+     "ONE (1) WORKING BUCKET"
+    ],
+    [
+     "fine",
+     "The hospital urgently requests a bucket that does not currently contain lye, socks or a cat."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ad-mason-wanted",
+   "lines": [
+    [
+     "bk",
+     "Mason Wanted"
+    ],
+    [
+     "eng",
+     "MUST LIKE ROCKS. A LOT."
+    ],
+    [
+     "fine",
+     "Successful applicant will make 400 rock doors. Unsuccessful applicant will make 401."
+    ]
+   ]
+  },
+  {
+   "id": "ad-lost-and-found",
+   "lines": [
+    [
+     "bk",
+     "Lost & Found Office"
+    ],
+    [
+     "eng",
+     "OPEN EVERY DAY OF THE YEAR"
+    ],
+    [
+     "fine",
+     "Holding: 812 socks, a cheese of unknown age, and someone's whole forgotten beast. Claim promptly."
+    ]
+   ]
+  },
+  {
+   "id": "ad-wine-tasting",
+   "lines": [
+    [
+     "bk",
+     "Dwarven Wine Tasting"
+    ],
+    [
+     "eng",
+     "VINTAGE: LAST WEEK"
+    ],
+    [
+     "fine",
+     "Notes of dirt, mushroom and courage. Pairs well with a second glass of the same."
+    ]
+   ]
+  },
+  {
+   "id": "ad-prickle-berry-inn",
+   "inv": true,
+   "lines": [
+    [
+     "bk",
+     "The Prickle Berry Inn"
+    ],
+    [
+     "eng",
+     "FINEST ALE BELOW GROUND"
+    ],
+    [
+     "fine",
+     "Voted Best Tavern by everyone too drunk to find the other tavern."
+    ]
+   ]
+  },
+  {
+   "id": "ad-noble-room-upgrades",
+   "lines": [
+    [
+     "bk",
+     "Noble Room Upgrades"
+    ],
+    [
+     "eng",
+     "MAKE HIS LORDSHIP STOP"
+    ],
+    [
+     "fine",
+     "Gold-studded walls, a ☼silver☼ bed, and a door that locks from outside. Peace at last."
+    ]
+   ]
+  },
+  {
+   "id": "ad-axe-and-ingot",
+   "lines": [
+    [
+     "bk",
+     "Axe & Ingot Smithy"
+    ],
+    [
+     "eng",
+     "{bars} BARS · ZERO EXCUSES"
+    ],
+    [
+     "fine",
+     "Battle axes, war hammers, and one sword someone ordered in a strange mood and never collected."
+    ]
+   ]
+  },
+  {
+   "id": "ad-rock-mug-outlet",
+   "lines": [
+    [
+     "bk",
+     "Rock Mug Outlet"
+    ],
+    [
+     "eng",
+     "FACTORY SECONDS: 90% OFF"
+    ],
+    [
+     "fine",
+     "Slight chips. Some have a hole in the bottom, which our designers call 'open-air drinking.'"
+    ]
+   ]
+  },
+  {
+   "id": "ad-ghost-walk",
+   "inv": true,
+   "lines": [
+    [
+     "bk",
+     "Midnight Ghost Walk"
+    ],
+    [
+     "eng",
+     "THE FORT'S MOST HAUNTED"
+    ],
+    [
+     "fine",
+     "Visit the hallway of a dwarf who never got a slab. He leads the second half of the tour himself."
+    ]
+   ]
+  },
+  {
+   "id": "ad-beware-the-carp",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "BEWARE THE CARP"
+    ],
+    [
+     "eng",
+     "A MESSAGE FROM THE BROOK"
+    ],
+    [
+     "fine",
+     "The carp is not your friend. The carp has never been your friend. The carp knows where you live."
+    ]
+   ]
+  },
+  {
+   "id": "ad-grand-wagon-tours",
+   "lines": [
+    [
+     "bk",
+     "Grand Wagon Tours"
+    ],
+    [
+     "eng",
+     "SEE ALL OF {world}"
+    ],
+    [
+     "fine",
+     "Twelve sites in twelve days. Ten are dark fortresses. Please remain inside the wagon at all times."
+    ]
+   ]
+  },
+  {
+   "id": "ad-civic-pride",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "CIVIC PRIDE"
+    ],
+    [
+     "eng",
+     "{fort}: STILL HERE!"
+    ],
+    [
+     "fine",
+     "Celebrating another day without a catastrophe anyone has officially reported."
+    ]
+   ]
+  },
+  {
+   "id": "ad-calendar-engravers",
+   "lines": [
+    [
+     "bk",
+     "Calendar Engravers"
+    ],
+    [
+     "eng",
+     "NEW FOR THE YEAR {year}"
+    ],
+    [
+     "fine",
+     "Every month shows a different dwarf hauling a different rock. Collect all twelve."
+    ]
+   ]
+  },
+  {
+   "id": "ad-ironsole-boots",
+   "lines": [
+    [
+     "bk",
+     "Ironsole Boots"
+    ],
+    [
+     "eng",
+     "BOOTS THAT STAY ON"
+    ],
+    [
+     "fine",
+     "\"Nine years in these boots and I've never once taken them off.\" — {citizen}, who sits alone at dinner"
+    ]
+   ]
+  },
+  {
+   "id": "ad-hearthmate",
+   "lines": [
+    [
+     "bk",
+     "Hearthmate Matchmaking"
+    ],
+    [
+     "eng",
+     "FIND YOUR FORTRESS FOREVER"
+    ],
+    [
+     "fine",
+     "We matched {citizen} with {citizen2}. They have since spoken twice. Practically married."
+    ]
+   ]
+  },
+  {
+   "id": "ad-room-sale",
+   "lines": [
+    [
+     "bk",
+     "Bedroom Sale, Today"
+    ],
+    [
+     "eng",
+     "EVERYTHING {citizen_first} OWNS"
+    ],
+    [
+     "fine",
+     "One bed, one cabinet, one coffer holding a single earring. Seller upgrading to a 1x2."
+    ]
+   ]
+  },
+  {
+   "id": "ad-pasture-penthouses",
+   "lines": [
+    [
+     "bk",
+     "Pasture Penthouses"
+    ],
+    [
+     "eng",
+     "NOW HOUSING {topanimal_n} {topanimal}"
+    ],
+    [
+     "fine",
+     "Grassy open-air living. Each tenant gets its own patch of grass until roughly Tuesday."
+    ]
+   ]
+  },
+  {
+   "id": "ad-meals-pantry",
+   "lines": [
+    [
+     "bk",
+     "Prepared Meals Pantry"
+    ],
+    [
+     "eng",
+     "{meals} MEALS · NO WAITING"
+    ],
+    [
+     "fine",
+     "Fine roasts from ingredients we choose not to disclose. Mostly helmets. Probably helmets."
+    ]
+   ]
+  },
+  {
+   "id": "ad-spider-silk",
+   "lines": [
+    [
+     "bk",
+     "Spider Silk Spinners"
+    ],
+    [
+     "eng",
+     "CAVE SPIDER SILK · FRESH"
+    ],
+    [
+     "fine",
+     "Collected by brave dwarves from cavern webs. Ask how many dwarves are still attached."
+    ]
+   ]
+  },
+  {
+   "id": "ad-block-party",
+   "lines": [
+    [
+     "bk",
+     "Block Party Supplies"
+    ],
+    [
+     "eng",
+     "{blocks} BLOCKS IN STOCK"
+    ],
+    [
+     "fine",
+     "Build a small private fortress inside the larger fortress. We won't tell the overseer."
+    ]
+   ]
+  },
+  {
+   "id": "ad-brookside-fishery",
+   "lines": [
+    [
+     "bk",
+     "Brookside Fishery"
+    ],
+    [
+     "eng",
+     "NOW HIRING FISHERDWARVES"
+    ],
+    [
+     "fine",
+     "Good pay, plus a free carp-safety seminar. The carp will also be attending."
+    ]
+   ]
+  },
+  {
+   "id": "ad-drawbridges",
+   "lines": [
+    [
+     "bk",
+     "Up & Over Drawbridges"
+    ],
+    [
+     "eng",
+     "KEEPS OUT THE NEIGHBORS"
+    ],
+    [
+     "fine",
+     "Raised at the pull of a lever. Kindly check for dwarves standing on it before pulling."
+    ]
+   ]
+  },
+  {
+   "id": "ad-pull-the-lever",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "PULL THE LEVER"
+    ],
+    [
+     "eng",
+     "SOMETHING WILL HAPPEN"
+    ],
+    [
+     "fine",
+     "Nobody remembers what it is connected to. Volunteers wanted. Bring a friend you can spare."
+    ]
+   ]
+  },
+  {
+   "id": "ad-honest-abacus",
+   "lines": [
+    [
+     "bk",
+     "Honest Abacus Ltd."
+    ],
+    [
+     "eng",
+     "BOOKKEEPING · PRECISE COUNTS"
+    ],
+    [
+     "fine",
+     "We counted every item in the fort, then started over. We are still on the barrels."
+    ]
+   ]
+  },
+  {
+   "id": "ad-barracks-bunks",
+   "lines": [
+    [
+     "bk",
+     "Barracks Bunk Rentals"
+    ],
+    [
+     "eng",
+     "SLEEP IN YOUR ARMOR"
+    ],
+    [
+     "fine",
+     "Nod off in full steel plate and wake a hero, or at least with a helmet-shaped dent in your cheek."
+    ]
+   ]
+  },
+  {
+   "id": "ad-wagon-paving",
+   "lines": [
+    [
+     "bk",
+     "Wagon Access Paving"
+    ],
+    [
+     "eng",
+     "3-WIDE ROADS · NO TREES"
+    ],
+    [
+     "fine",
+     "Did the caravan turn back again? Our crews will widen your road. Elves invoiced separately."
+    ]
+   ]
+  },
+  {
+   "id": "ad-splints-and-crutches",
+   "lines": [
+    [
+     "bk",
+     "Splints & Crutches Co."
+    ],
+    [
+     "eng",
+     "THE HOSPITAL IS OPEN"
+    ],
+    [
+     "fine",
+     "Ten splints, ten crutches, and a doctor who has read the first page of a book about it."
+    ]
+   ]
+  },
+  {
+   "id": "ad-temple-of-whoever",
+   "lines": [
+    [
+     "bk",
+     "Temple of Whoever"
+    ],
+    [
+     "eng",
+     "ALL DEITIES WELCOME"
+    ],
+    [
+     "fine",
+     "Pray to your god of caverns, wealth or mud. Our priest nods supportively at every one."
+    ]
+   ]
+  },
+  {
+   "id": "ad-quiet-scroll",
+   "lines": [
+    [
+     "bk",
+     "Quiet Scroll Library"
+    ],
+    [
+     "eng",
+     "BOOKS ABOUT ROCKS & MORE"
+    ],
+    [
+     "fine",
+     "Most borrowed: 'The Rocks Of This Place,' a study of the rocks in this place. Sequel forthcoming."
+    ]
+   ]
+  },
+  {
+   "id": "ad-wagon-of-the-month",
+   "inv": true,
+   "lines": [
+    [
+     "bk",
+     "Season's Greetings"
+    ],
+    [
+     "eng",
+     "FROM ALL OF US, THIS {season}"
+    ],
+    [
+     "fine",
+     "Wishing every dwarf a {season} free of carp, elves, and nobles with new ideas."
+    ]
+   ]
+  },
+  {
+   "id": "ad-weather-report-shop",
+   "lines": [
+    [
+     "bk",
+     "Stone Barometers"
+    ],
+    [
+     "eng",
+     "KNOW THE WEATHER INDOORS"
+    ],
+    [
+     "fine",
+     "It is always 'rock' down here. Our barometer confirms this with great accuracy. Very soothing."
+    ]
+   ]
+  }
+ ]
+}
