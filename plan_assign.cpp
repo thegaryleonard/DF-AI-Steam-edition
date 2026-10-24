@@ -7,6 +7,10 @@
 #include "df/building_civzonest.h"
 #include "df/general_ref.h"
 #include "df/squad.h"
+#include "df/world.h"
+#include "df/buildings_other_id.h"
+
+REQUIRE_GLOBAL(world);
 #include "df/squad_use_flags.h"
 #include "modules/Military.h"
 #include "df/caste_raw.h"
@@ -313,6 +317,22 @@ void Plan::assign_barrack_squad(color_ostream &, df::building *bld, int32_t squa
     flags.bits.indiv_eq = 1;
     flags.bits.squad_eq = 1;
     Military::updateRoomAssignments(squad_id, zone->id, flags);
+
+    // A squad whose room is only an archery range never got a training
+    // activity or its weapons (squad 67 stood idle, unarmed). Give it a
+    // barracks too; DF lets squads share one.
+    if (zone->type != civzone_type::Barracks)
+    {
+        for (auto b : world->buildings.other[buildings_other_id::ACTIVITY_ZONE])
+        {
+            auto z = virtual_cast<df::building_civzonest>(b);
+            if (z && z->type == civzone_type::Barracks && z->spec_sub_flag.bits.active)
+            {
+                Military::updateRoomAssignments(squad_id, z->id, flags);
+                break;
+            }
+        }
+    }
 }
 
 void Plan::getcoffin(color_ostream & out)

@@ -36,6 +36,7 @@
 #include "df/uniform_category.h"
 #include "df/unit_misc_trait.h"
 #include "df/world.h"
+#include "df/weapon_flags.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
@@ -504,6 +505,8 @@ public:
         auto add_uniform_part = [&](df::uniform_category cat, df::item_type type)
         {
             auto info = new df::entity_uniform_item();
+            info->mattype = -1;
+            info->matindex = -1; // default 0 = one specific material; nothing matched
             if (type == item_type::WEAPON)
             {
                 info->material_class = entity_material_category::None;
@@ -574,7 +577,7 @@ public:
                     {
                         spec->material_class = info->material_class;
                         spec->mattype = info->mattype;
-                        spec->matindex = info->matindex;
+                        spec->matindex = info->mattype == -1 ? -1 : info->matindex;
                         spec->color = info->item_color;
                         spec->indiv_choice = info->indiv_choice;
                         if (info->indiv_choice.bits.ranged)
@@ -795,6 +798,71 @@ public:
         return best;
     }
 };
+
+// DF 53 did not hand weapons to some df-ai squads (8 soldiers fought a
+// forgotten beast barehanded with 8 free maces in the stockpile). Assign a
+// free weapon directly, the way the squad equipment screen does.
+void Population::arm_soldiers(color_ostream & out)
+{
+    auto & eq = plotinfo->equipment;
+    auto & unassigned = eq.items_unassigned[item_type::WEAPON];
+    bool changed = false;
+    for (auto squad : world->squads.all)
+    {
+        if (!squad || squad->entity_id != plotinfo->group_id)
+            continue;
+        for (auto pos : squad->positions)
+        {
+            if (!pos || pos->occupant == -1)
+                continue;
+            for (auto spec : pos->equipment.uniform[uniform_category::weapon])
+            {
+                if (!spec->assigned.empty())
+                    continue;
+                bool want_ranged = spec->indiv_choice.bits.ranged;
+                df::item *pick = nullptr;
+                for (auto id : unassigned)
+                {
+                    auto w = virtual_cast<df::item_weaponst>(df::item::find(id));
+                    if (!w || !w->subtype)
+                        continue;
+                    auto & f = w->flags.bits;
+                    if (f.forbid || f.foreign || f.trader || f.in_inventory || f.in_job || f.owned || f.removed || f.garbage_collect)
+                        continue;
+                    if (w->subtype->flags.is_set(weapon_flags::TRAINING))
+                        continue;
+                    // leave picks and axes for miners and woodcutters
+                    if (w->subtype->skill_melee == job_skill::MINING || w->subtype->skill_melee == job_skill::AXE)
+                        continue;
+                    if (spec->item_subtype != -1 && w->subtype->subtype != spec->item_subtype)
+                        continue;
+                    bool is_ranged = w->subtype->skill_ranged != job_skill::NONE;
+                    if (spec->item_subtype == -1 && is_ranged != want_ranged)
+                        continue;
+                    pick = w;
+                    break;
+                }
+                if (!pick)
+                    continue;
+                spec->assigned.push_back(pick->id);
+                pos->equipment.assigned_items.push_back(pick->id);
+                erase_from_vector(unassigned, pick->id);
+                insert_into_vector(eq.items_assigned[item_type::WEAPON], pick->id);
+                if (auto hf = df::historical_figure::find(pos->occupant))
+                {
+                    if (auto u = df::unit::find(hf->unit_id))
+                    {
+                        u->uniform.pickup_flags.bits.update = 1;
+                        ai.debug(out, "[MILITARY] gave " + AI::describe_item(pick) + " to " + AI::describe_unit(u));
+                    }
+                }
+                changed = true;
+            }
+        }
+    }
+    if (changed)
+        eq.update.bits.weapon = 1;
+}
 
 void Population::update_military(color_ostream & out)
 {
@@ -1032,6 +1100,8 @@ void Population::update_military(color_ostream & out)
     {
         events.queue_exclusive(std::make_unique<MilitarySetupExclusive::Draft>(ai, want_draft.begin(), want_draft.end()));
     }
+
+    arm_soldiers(out);
 
     // Check barracks construction status.
     ai.find_room(room_type::barracks, [](room *r) -> bool
