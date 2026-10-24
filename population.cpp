@@ -266,6 +266,12 @@ void Population::update_citizenlist(color_ostream & out)
     if (config.manage_labors == "autolabor")
     {
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor HERBALIST 1 %d", int(citizen.size() / 4)));
+        // autolabor caps fishing and hunting at one dwarf and keeps a single
+        // carpenter; a growing fort starves for fish, meat and barrels.
+        int pop = int(citizen.size());
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor FISH %d %d", std::max(1, pop / 8), std::max(2, pop / 5)));
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor HUNT 1 %d", std::max(1, pop / 12)));
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor CARPENTER %d 200", std::max(1, pop / 12)));
     }
     else if (config.manage_labors == "labormanager")
     {
