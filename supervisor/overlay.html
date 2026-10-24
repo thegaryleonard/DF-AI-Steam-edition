@@ -5,66 +5,116 @@
 <title>The Fortress Herald</title>
 <style>
   :root {
-    --paper: #efe4cc; --paper2: #e6d8b9; --ink: #2b2218; --ink2: #5a4a36; --rule: #3b2f22;
+    --paper: #efe4cc; --paper2: #e3d4b2; --ink: #241c13; --ink2: #5a4a36; --rule: #3b2f22; --hair: #a8946c;
     --red: #8f2a1c; --green: #3f6b2e; --accent: #7a4b16;
+    --black: "Old English Text MT", "UnifrakturMaguntia", Georgia, serif;
+    --body: Georgia, "Times New Roman", serif;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; width: 480px; background: transparent; font-family: Georgia, "Times New Roman", serif; color: var(--ink); }
+  html, body { height: 100%; }
+  body { margin: 0; width: 480px; overflow: hidden; background: transparent; font-family: var(--body); color: var(--ink); }
   .paper {
-    margin: 8px; padding: 14px 16px 12px;
+    margin: 6px; height: calc(100vh - 12px); min-height: 860px; padding: 8px 11px 8px;
+    display: flex; flex-direction: column; overflow: hidden;
     background: radial-gradient(ellipse at 30% 20%, #f5ecd8 0%, var(--paper) 55%, var(--paper2) 100%);
     border: 1px solid #b9a57f; box-shadow: 0 6px 22px rgba(0,0,0,.55), inset 0 0 40px rgba(120,90,40,.18);
   }
-  .mast { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 6px; }
-  .mast .the { font-size: 12px; letter-spacing: 6px; text-transform: uppercase; color: var(--ink2); }
-  .mast h1 { margin: 0; font-size: 34px; line-height: 1.05; font-weight: 900; letter-spacing: .5px; font-variant: small-caps; }
-  .issue { display: flex; justify-content: space-between; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
-           border-bottom: 1px solid var(--rule); padding: 4px 0; margin-bottom: 8px; color: var(--ink2); }
-  .kicker { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 2px; margin-bottom: 6px; display: flex; justify-content: space-between; }
-  .headline { font-size: 22px; font-weight: 900; line-height: 1.1; margin: 4px 0 6px; }
-  .deck { font-style: italic; font-size: 14px; color: var(--ink2); margin-bottom: 8px; }
-  .body { font-size: 14px; line-height: 1.35; }
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
-  .cols > div:first-child { border-right: 1px solid #bba886; padding-right: 10px; }
-  .sub { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin: 8px 0 3px; }
-  .line { font-size: 13px; padding: 1px 0; display: flex; justify-content: space-between; gap: 6px; }
+  p { margin: 0; }
+  .just { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+
+  /* masthead with ears */
+  .mast { display: grid; grid-template-columns: 74px 1fr 74px; align-items: center; gap: 6px; }
+  .ear { border: 1px solid var(--rule); padding: 2px 3px; font-size: 8.5px; line-height: 1.2; text-align: center; text-transform: uppercase; letter-spacing: .4px; color: var(--ink2); }
+  .ear b { display: block; font-size: 11px; color: var(--ink); letter-spacing: 0; }
+  .mast h1 { margin: 0; text-align: center; font-family: var(--black); font-weight: normal; font-size: 37px; line-height: .95; white-space: nowrap; }
+  .mast .the { display: block; font-size: 15px; }
+  .motto { text-align: center; font-size: 9px; font-style: italic; color: var(--ink2); margin-top: 1px; }
+  .issue { display: flex; justify-content: space-between; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
+           border-top: 3px double var(--rule); border-bottom: 1px solid var(--rule); padding: 2px 0; margin: 3px 0 5px; color: var(--ink2); }
+
+  .kicker { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 1px; margin-bottom: 3px; display: flex; justify-content: space-between; }
+  .headline { font-size: 21px; font-weight: 900; line-height: 1.02; margin: 2px 0 3px; letter-spacing: -.2px; }
+  .deck { font-style: italic; font-size: 12.5px; line-height: 1.25; color: var(--ink2); margin-bottom: 4px; }
+  .body { font-size: 12.5px; line-height: 1.28; }
+  .sub { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin: 4px 0 1px; }
+  .line { font-size: 11.5px; line-height: 1.25; display: flex; justify-content: space-between; gap: 4px; }
+  .line .lead { flex: 1; border-bottom: 1px dotted var(--hair); margin-bottom: 3px; }
   .dim { color: var(--ink2); }
   .dead { color: var(--red); }
-  #card { min-height: 520px; position: relative; }
   .fadein { animation: fadein .9s ease; } @keyframes fadein { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
-  .dots { text-align: center; margin: 6px 0 2px; }
-  .dots span { display: inline-block; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--ink2); margin: 0 3px; }
-  .dots span.on { background: var(--ink); }
-  .bar { height: 7px; background: #d3c29c; border: 1px solid #a8946c; margin-top: 3px; }
+  .bar { height: 5px; background: #d3c29c; border: 1px solid var(--hair); margin: 1px 0 3px; }
   .bar > div { height: 100%; }
+
+  /* interview */
+  .iv { font-size: 12.5px; line-height: 1.28; }
+  .iv p { margin-bottom: 3px; }
+  .iv .q { font-weight: 700; }
+  .iv .who { font-variant: small-caps; font-weight: 700; letter-spacing: .3px; }
+  .iv .q .who { color: var(--accent); }
+  .vitals { float: right; width: 150px; margin: 2px 0 4px 9px; border: 1px solid var(--rule); padding: 3px 5px 2px; background: rgba(255,250,235,.35); }
+  .vitals .sub { margin-top: 0; text-align: center; border-bottom: 1px solid var(--rule); }
+  .pull { clear: both; margin: 4px 0 5px; padding: 3px 0; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--rule);
+          font-size: 15.5px; font-style: italic; font-weight: 700; line-height: 1.15; text-align: center; }
+  .dropcap::first-letter { float: left; font-size: 34px; line-height: .8; padding: 3px 3px 0 0; font-weight: 900; }
+
+  /* map / tables / archive */
   .mapwrap { position: relative; border: 1px solid var(--rule); box-shadow: inset 0 0 18px rgba(60,40,10,.35); }
   canvas { display: block; }
-  .forecast { display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px; }
-  .forecast b { font-size: 18px; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  td { padding: 2px 0; border-bottom: 1px dotted #b9a57f; }
-  td.n { text-align: right; width: 56px; font-variant-numeric: tabular-nums; }
-  td.t { width: 18px; text-align: center; }
-  td.b { width: 120px; padding-left: 8px; }
-  .lvl { height: 6px; background: #d3c29c; }
+  .forecast { display: flex; justify-content: space-between; align-items: baseline; margin-top: 3px; font-size: 12px; }
+  .forecast b { font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  td { padding: 0; border-bottom: 1px dotted #b9a57f; line-height: 1.35; }
+  td.n { text-align: right; width: 50px; font-variant-numeric: tabular-nums; }
+  td.t { width: 16px; text-align: center; }
+  td.b { width: 110px; padding-left: 6px; }
+  .lvl { height: 5px; background: #d3c29c; }
   .lvl > div { height: 100%; background: var(--ink2); }
   .up { color: var(--green); } .down { color: var(--red); }
-  .story div { font-size: 13px; padding: 2px 0 2px 8px; border-left: 2px solid #a8946c; margin-bottom: 3px; }
+  .story div { font-size: 12px; line-height: 1.25; padding: 1px 0 1px 7px; border-left: 2px solid var(--hair); margin-bottom: 2px; }
   .yr { font-weight: 700; margin-right: 4px; }
-  .late { border-top: 3px double var(--rule); margin-top: 8px; padding-top: 4px; }
-  .late div { font-size: 13px; padding: 3px 0; border-bottom: 1px solid #c9b791; }
+
+  /* below the fold: ads, editorials, letters, classifieds */
+  .fold { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; margin-top: 5px; padding-top: 4px; border-top: 3px double var(--rule); overflow: hidden; }
+  .fold > .col { overflow: hidden; min-height: 0; position: relative; }
+  .fold > .col:first-child { border-right: 1px solid var(--hair); padding-right: 9px; }
+  .item { margin-bottom: 6px; padding-bottom: 5px; border-bottom: 1px solid var(--hair); font-size: 11px; line-height: 1.24; }
+  .item .kick { font-size: 8.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+  .item h3 { margin: 0 0 2px; font-size: 13.5px; line-height: 1.05; font-weight: 900; }
+  .item .by { font-style: italic; color: var(--ink2); text-align: right; font-size: 10px; margin-top: 1px; }
+  .item.ad { border: 2px solid var(--ink); outline: 1px solid var(--ink); outline-offset: -5px; padding: 7px 8px; text-align: center; background: rgba(255,250,235,.3); }
+  .ad .big { font-family: Playbill, "Engravers MT", Impact, serif; font-size: 25px; line-height: .95; letter-spacing: .5px; }
+  .ad .eng { font-family: "Engravers MT", Castellar, Georgia, serif; font-size: 10px; letter-spacing: 1px; line-height: 1.15; }
+  .ad .bk { font-family: var(--black); font-size: 20px; line-height: 1; }
+  .ad .fine { font-size: 8px; font-style: italic; color: var(--ink2); margin-top: 2px; }
+  .ad.inv { background: var(--ink); color: var(--paper); outline-color: var(--paper); }
+  .ad.inv .fine { color: #cdbd9b; }
+  .item.ad.tiny { padding: 3px 6px; outline: 0; border-width: 1px; font-size: 10.5px; font-style: italic; }
+  .item.ad.tiny .eng { font-style: normal; font-size: 8.5px; }
+  .cls div { padding: 1px 0; border-bottom: 1px dotted var(--hair); }
+  .cls div:last-child { border: 0; }
+  .cls b { font-variant: small-caps; }
+
+  .late { margin-top: 3px; border-top: 3px double var(--rule); padding-top: 2px; }
+  .late .txt { font-size: 11px; line-height: 1.3; text-align: justify; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .late .txt span + span::before { content: " \2756 "; color: var(--accent); }
+  .dots { text-align: center; margin: 3px 0 0; line-height: 0; }
+  .dots span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; border: 1px solid var(--ink2); margin: 0 3px; }
+  .dots span.on { background: var(--ink); }
 </style>
 </head>
 <body>
 <div class="paper">
   <div class="mast">
-    <div class="the">The</div>
-    <h1 id="title">Fortress Herald</h1>
+    <div class="ear" id="ear-l">Weather<b>…</b></div>
+    <h1><span class="the">The</span><span id="title">Fortress Herald</span></h1>
+    <div class="ear" id="ear-r">Price<b>1☼</b>Two if you<br>ask nicely</div>
   </div>
+  <div class="motto">"All the News That's Fit to Engrave" · Published Beneath the Mountain</div>
   <div class="issue"><span id="issue-date">…</span><span id="issue-season"></span><span id="issue-pop"></span></div>
   <div id="card"></div>
   <div class="dots" id="dots"></div>
-  <div class="late"><div class="kicker"><span>Late Edition</span><span>Stop the presses</span></div><div id="late"></div></div>
+  <div class="fold"><div class="col" id="colA"></div><div class="col" id="colB"></div></div>
+  <div class="late"><div class="kicker"><span>Late Edition</span><span>Stop the Presses</span></div><div class="txt" id="late"></div></div>
 </div>
 <script>
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -73,22 +123,34 @@ const pretty = s => String(s ?? '').replace(/([a-z])([A-Z])/g, '$1 $2').replace(
 const levels = ['Dabbling','Novice','Adequate','Competent','Skilled','Proficient','Talented','Adept','Expert',
                 'Professional','Accomplished','Great','Master','High Master','Grand Master','Legendary'];
 const clean = s => String(s ?? '').replace(/[^\x20-\x7E\u00C0-\u024F]/g, '');
-const firstName = n => clean(String(n).split(',')[0]);
+const cap = s => s.replace(/(^|[\s"])(\S)/g, (m, a, b) => a + b.toUpperCase());   // DF leaves accented initials lowercase (îton)
+const firstName = n => cap(clean(String(n).split(',')[0]));
+const an = w => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
+
+// deterministic randomness: same dwarf -> same interview; fillers reshuffle each card
+function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const pick = (r, a) => a[Math.floor(r() * a.length)];
+function shuffle(r, a) { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
 let S = {ok: false}, H = {artifacts: []}, W = null, K = null, prevStocks = null, artIdx = 0;
 
 // ---------- masthead + late edition ----------
+function forecastOf(wx) {
+  return !wx ? 'Unknown' : wx.kind === 'snow' ? (wx.amount > .5 ? 'Heavy snow' : 'Light snow')
+       : wx.kind === 'rain' ? (wx.amount > .5 ? 'Heavy rain' : 'Showers') : 'Clear skies';
+}
 function masthead() {
   if (!S.ok) return;
   const f = S.fort;
   document.getElementById('title').textContent = f.name + ' Herald';
   document.getElementById('issue-date').textContent = `${f.day} ${f.month}, Yr ${f.year}`;
   document.getElementById('issue-season').textContent = S.weather ? S.weather.season : '';
-  document.getElementById('issue-pop').textContent = `Pop. ${f.population} · 1☼`;
-  document.getElementById('late').innerHTML = (S.events || []).slice(0, 5).map(e => `<div>${esc(clean(e.text))}</div>`).join('');
+  document.getElementById('issue-pop').textContent = `Vol. ${f.year} · Pop. ${f.population}`;
+  document.getElementById('ear-l').innerHTML = `Weather<b>${esc(forecastOf(S.weather))}</b>${S.weather && S.weather.kind !== 'clear' ? 'Stay below' : 'Go outside?<br>Why'}`;
+  document.getElementById('late').innerHTML = (S.events || []).slice(0, 8).map(e => `<span>${esc(clean(e.text))}</span>`).join('');
 }
 
-// ---------- card: society pages ----------
+// ---------- card: society pages (interview) ----------
 function mood(stress) {
   const label = stress < -20000 ? 'ecstatic' : stress < -5000 ? 'happy' : stress < 10000 ? 'content'
               : stress < 25000 ? 'stressed' : stress < 50000 ? 'very stressed' : 'near breaking';
@@ -96,26 +158,106 @@ function mood(stress) {
   const color = stress < 10000 ? 'var(--green)' : stress < 25000 ? 'var(--accent)' : 'var(--red)';
   return {label, pct, color};
 }
+const GOOD = new Set(['BLISS','SATISFACTION','EUPHORIA','JOY','CONTENTMENT','PLEASURE','DELIGHT','ELATION','HAPPINESS','FONDNESS',
+  'GRATITUDE','PRIDE','RELIEF','ENJOYMENT','AMUSEMENT','LOVE','TRIUMPH','HOPE','ADORATION','EAGERNESS','ENTHUSIASM','EXHILARATION',
+  'FREEDOM','INTEREST','LUST','OPTIMISM','RAPTURE','THRILL','ACCEPTANCE','AROUSAL','ASTONISHMENT','CARING','COMPASSION','SYMPATHY']);
+const ADJ = {BLISS:'blissful',SATISFACTION:'satisfied',EUPHORIA:'euphoric',JOY:'joyful',CONTENTMENT:'content',PLEASURE:'pleased',DELIGHT:'delighted',
+  ELATION:'elated',FONDNESS:'fond',GRATITUDE:'grateful',PRIDE:'proud',RELIEF:'relieved',ENJOYMENT:'delighted',AMUSEMENT:'amused',
+  DISGUST:'disgusted',UNEASINESS:'uneasy',BOREDOM:'bored',LONELINESS:'lonely',GRIEF:'grief-stricken',ANGER:'angry',ANNOYANCE:'annoyed',
+  IRRITATION:'irritated',FEAR:'afraid',HORROR:'horrified',SADNESS:'sad',DESPAIR:'in despair',MISERY:'miserable',DISTRESS:'distressed',
+  EMBARRASSMENT:'embarrassed',SHAME:'ashamed',GUILT:'guilty',FRUSTRATION:'frustrated',DISAPPOINTMENT:'disappointed',ANXIETY:'anxious',
+  RESTLESSNESS:'restless',TERROR:'terrified',WORRY:'worried',DEJECTION:'dejected',NOSTALGIA:'nostalgic',FURY:'furious',RAGE:'enraged',
+  SHOCK:'shocked',ALARM:'alarmed',GLOOM:'gloomy',HOPELESSNESS:'hopeless',MELANCHOLY:'melancholy',REGRET:'regretful',VEXATION:'vexed'};
+const adj = e => ADJ[e] || String(e || 'something').toLowerCase();
+// [regex on thought type, (good, adj, emotion) => [quote, headline]]
+const QUOTES = [
+  [/^BedroomQuality/, (g, a) => g ? [`Have you seen my bedroom? I'm ${a}. The walls are smooth. The door closes. Luxury.`, 'BEDROOM IS "A TRIUMPH"']
+                                    : [`My bedroom? I've seen nicer cave-ins. I'm ${a}, frankly.`, 'BEDROOM "A DISGRACE"']],
+  [/SatisfiedAtWork|^Work/, (g, a) => [`Honest work. A dwarf could get ${a} just thinking about it.`, 'HONEST WORK STILL MATTERS']],
+  [/NeedsUnfulfilled/, (g, a, e) => e === 'BOREDOM' ? [`I'm bored. Nobody has started a fight in days.`, 'FORT "TOO QUIET"']
+                                  : e === 'LONELINESS' ? [`I haven't had a proper chat with a friend in ages. Write that down. Someone might visit.`, 'A LONELY LIFE BELOW']
+                                  : [`Something's missing. I can't put my pick on it. I'm ${a}.`, 'SOMETHING IS MISSING']],
+  [/Syndrome/, (g, a) => [`I ate something in the caverns and now I feel ${a}. Highly recommend. Don't print that.`, 'CAVERN SNACK "LIFE CHANGING"']],
+  [/ImproveSkill|Skill/, (g, a) => [`I got better at something today. I won't say what. It's personal.`, 'SKILLS ON THE RISE']],
+  [/Miasma/, (g, a) => [`The smell. THE SMELL. Would somebody please haul away whatever that is?`, 'MIASMA SCANDAL DEEPENS']],
+  [/Death|Died|Killed|Corpse/, (g, a) => [`We lost someone. I'd rather not talk about it.`, 'A FORTRESS IN MOURNING']],
+  [/Rain|Snow|Weather/, (g, a) => [`It rained on me. Outside was a mistake and I'll say so in print.`, 'OUTSIDE "A MISTAKE"']],
+  [/Sun|Sky|Cave/, (g, a) => [`The sky is too big. Something should be done about it.`, 'SKY STILL TOO BIG']],
+  [/Drink|Alcohol|Booze/, (g, a) => g ? [`The drink here is excellent. I'm ${a}. Put that on a barrel.`, 'ALE PRAISED'] : [`The drink situation is, and I choose my words carefully, an outrage.`, 'DRINK CRISIS']],
+  [/Eat|Meal|Food|Hunger|Ate/, (g, a) => g ? [`Had a lovely meal. ${a[0].toUpperCase() + a.slice(1)}, I was.`, 'DINING REVIEW: FIVE PICKS'] : [`I'd kill for a roast. Not literally. Mostly.`, 'WHERE IS THE MEAT?']],
+  [/Dining|Table|Chair/, (g, a) => [`Have you seen the dining hall lately? I'm ${a}.`, 'DINING HALL UNDER REVIEW']],
+  [/Sleep|Rest|Tired|Bed/, (g, a) => [`I could sleep for a season. Possibly two.`, 'EXHAUSTION SWEEPS FORT']],
+  [/Pray|Worship|Temple/, (g, a) => [`I spent some time with the gods. Very ${a}.`, 'FAITH ON THE RISE']],
+  [/Talk|Conversation|Comfort|Friend|Argue/, (g, a) => g ? [`Had a good chat today. Left me ${a}.`, 'GOSSIP: A REVIEW'] : [`Somebody said something to me and I've been ${a} ever since.`, 'A WAR OF WORDS']],
+  [/Art|Craft|Masterpiece|Admire|Decor/, (g, a) => [`I saw some fine craftsdwarfship today. Left me ${a}.`, 'ART LOVERS REJOICE']],
+  [/Attack|Fight|Combat|Injur|Pain|Wound/, (g, a) => [`Something hit me. I hit it back. I'm ${a} about the whole affair.`, 'VIOLENCE IN THE HALLS']],
+  [/Ghost|Haunt/, (g, a) => [`There's a ghost. Nobody believes me. I'm ${a}.`, 'GHOST SIGHTED']],
+  [/Train|Animal|Pet/, (g, a) => [`The animals and I have an understanding. I'm ${a}.`, 'ANIMALS: OUR FRIENDS?']],
+  [/Trade|Caravan|Merchant/, (g, a) => [`The merchants were here. I'm ${a}. Ask me why. Actually don't.`, 'TRADE TALK']],
+];
+function quoteFor(t) {
+  const g = GOOD.has(t.emotion), a = adj(t.emotion);
+  for (const [re, fn] of QUOTES) if (re.test(t.about)) { const [q, h] = fn(g, a, t.emotion); return {q, h, g}; }
+  return {q: `${pretty(t.about)}. I'll be honest, it left me ${a}.`, h: `${pretty(t.about).toUpperCase()}: A DWARF SPEAKS`, g};
+}
+const SIGNOFF = ['Strike the earth.', 'Stay out of the caverns.', 'Brew more. That\'s it. That\'s the message.', 'Don\'t feed the carp. Don\'t go near the carp.',
+  'Whoever keeps leaving socks in the dining hall: I know.', 'Dig deeper. But not too deep. You know what I mean.', 'If you see an elf, no you didn\'t.',
+  'Wash your hands. Or don\'t. I\'m not a doctor.', 'Tell the overseer I want a statue. Of me.', 'Hail the mountainhome!'];
+const DEITY_A = ['{d}, every day. Well, most days.', '{d}. We have an arrangement.', '{d}, when I remember. Don\'t tell {d}.', 'I keep a small shrine to {d} under my bed. It is mostly a rock.'];
 function cardDwarf() {
   const d = S.dwarf; if (!d) return null;
+  const r = rng(d.id * 7919 + 13);
   const m = mood(d.stress);
-  const prof = clean(d.profession);
-  const t = (d.thoughts || [])[0];
-  const head = t ? `${prof.toUpperCase()} FEELS ${pretty(t.emotion).toUpperCase()}` : `A DAY IN THE LIFE OF A ${prof.toUpperCase()}`;
-  const fam = (d.family || []).map(x => `<div class="line"><span class="dim">${esc(pretty(x.relation))}</span><span class="${x.alive ? '' : 'dead'}">${esc(clean(x.name))}${x.alive ? '' : ' †'}</span></div>`).join('') || '<div class="line dim">No known kin</div>';
-  const sk = (d.skills || []).map(s => `<div class="line"><span>${esc(s.name)}</span><span class="dim">${levels[Math.min(s.level, 15)]}</span></div>`).join('');
-  const th = (d.thoughts || []).slice(0, 3).map(x => `<div class="line"><span>${esc(pretty(x.emotion))}</span><span class="dim">${esc(pretty(x.about))}</span></div>`).join('');
-  return `<div class="kicker"><span>Society Pages</span><span>Dwarf of the Hour</span></div>
-    <div class="headline">${esc(head)}</div>
-    <div class="deck">${esc(firstName(d.name))}, ${d.age}, ${esc(prof.toLowerCase())}, seen today: ${esc(clean(d.job).toLowerCase())}.</div>
-    <div class="line"><span>Spirits</span><span style="color:${m.color}">${m.label}</span></div>
-    <div class="bar"><div style="width:${m.pct}%;background:${m.color}"></div></div>
-    <div class="cols" style="margin-top:8px">
-      <div><div class="sub">Talents</div>${sk}</div>
-      <div><div class="sub">Kin &amp; Gods</div>${fam}</div>
-    </div>
-    ${th ? `<div class="sub">Overheard</div>${th}` : ''}
-    ${d.born != null ? `<div class="line dim" style="margin-top:6px"><span>Born</span><span>Year ${d.born}</span></div>` : ''}`;
+  const prof = clean(d.profession).toLowerCase();
+  const full = firstName(d.name), nick = (full.match(/"([^"]+)"/) || [])[1];
+  const plain = full.replace(/\s*"[^"]*"\s*/, ' ').trim(), first = plain.split(' ')[0];
+  const who = nick || first;
+  const sk = d.skills || [], top = sk[0];
+  const thoughts = (d.thoughts || []).filter((t, i, a) => a.findIndex(u => u.about === t.about && u.emotion === t.emotion) === i);
+  const qs = thoughts.map(quoteFor);
+  const good = qs.find(x => x.g), bad = qs.find(x => !x.g);
+  const deity = (d.family || []).find(x => x.relation === 'DEITY');
+  const kin = (d.family || []).filter(x => x.relation !== 'DEITY');
+  const job = clean(d.job || '').toLowerCase();
+  const doing = !job || /no job|idle/.test(job) ? 'loitering near the meeting hall' : `hard at work (assignment: ${job})`;
+
+  const QA = [];
+  if (top) {
+    const lv = levels[Math.min(top.level, 15)].toLowerCase(), skn = top.name.toLowerCase();
+    let a = prof.includes(skn.split(' ')[0]) ? `${an(lv).replace(/^a/, 'A')} ${skn}. Ask anyone.` : `Officially? ${an(prof).replace(/^a/, 'A')}. But I'm ${an(lv)} ${skn}, and everybody knows it.`;
+    if (sk[1]) a += ` I also do a little ${sk[1].name.toLowerCase()}${sk[1].level >= 6 ? ', and I do it well' : ', badly'}.`;
+    QA.push(['Tell our readers what you do down here.', a]);
+  }
+  const moodA = {ecstatic: 'Never better. Write "radiant".', happy: 'Good. Better than good. Put "good".', content: 'Fine. Can\'t complain. I mean I could.',
+    stressed: 'I\'m holding it together. Mostly.', 'very stressed': 'Do NOT ask me that today.', 'near breaking': 'One more question like that and I start throwing mugs.'}[m.label];
+  QA.push(['How are the spirits?', moodA + (good ? ' ' + good.q : '')]);
+  if (bad) QA.push([pick(r, ['Anything bothering you?', 'Any complaints for the overseer?', 'Off the record?']), bad.q]);
+  if (deity) QA.push(['Who do you pray to?', pick(r, DEITY_A).replaceAll('{d}', clean(deity.name))]);
+  for (const k of kin.slice(0, 2)) {
+    const rel = pretty(k.relation).toLowerCase(), nm = clean(k.name);
+    QA.push([`And your ${rel}?`, k.alive ? pick(r, [`${nm}? Finest dwarf in the realm. Print that in big letters.`, `${nm} is well. I think. We should talk more.`])
+                                         : `I still think about ${nm} every day. Put that in your paper.`]);
+  }
+  if (!kin.length) QA.push(['Any family in the fortress?', pick(r, ['Just me and the rock. The rock is a good listener.', 'Not yet. Is that an offer?', 'The fortress is my family. Also, nobody likes me.'])]);
+  QA.push(['Any last words for the readers?', pick(r, SIGNOFF)]);
+
+  const lead = bad || good;
+  const headline = lead ? lead.h : `${prof.toUpperCase()} SPEAKS OUT`;
+  const sents = (lead || {q: QA[QA.length - 1][1]}).q.split(/(?<=[.!?])\s/);
+  const pullTxt = sents[0].length < 30 && sents[1] ? sents[0] + ' ' + sents[1] : sents[0];
+  const vit = `<div class="vitals"><div class="sub">Vital Statistics</div>
+      <div class="line"><span>Age</span><span class="lead"></span><span>${d.age}</span></div>
+      ${d.born != null ? `<div class="line"><span>Born</span><span class="lead"></span><span>Yr ${d.born}</span></div>` : ''}
+      <div class="line"><span>Spirits</span><span class="lead"></span><span style="color:${m.color}">${m.label}</span></div>
+      <div class="bar"><div style="width:${m.pct}%;background:${m.color}"></div></div>
+      ${sk.slice(0, 5).map(s => `<div class="line"><span>${esc(s.name)}</span><span class="lead"></span><span class="dim">${levels[Math.min(s.level, 15)]}</span></div>`).join('')}
+    </div>`;
+  const qa = QA.map(([q, a], i) => `<p class="q"><span class="who">Herald:</span> ${esc(q)}</p><p><span class="who">${esc(who)}:</span> ${esc(a)}</p>`
+                       + (i === 1 ? `<div class="pull">“${esc(pullTxt)}”</div>` : '')).join('');
+  return `<div class="kicker"><span>Society Pages</span><span>The Herald Interview</span></div>
+    <div class="headline">${esc(who.toUpperCase())}: ${esc(headline)}</div>
+    <div class="deck">Our correspondent found ${esc(plain)}, ${d.age}, ${esc(prof)}, ${esc(doing)}, and asked the questions the fortress is asking.</div>
+    <div class="iv just">${vit}${qa}</div>`;
 }
 
 // ---------- card: weather & world (scrolling map) ----------
@@ -131,9 +273,10 @@ function tileColor(i) {
   if (v > 33) return [140, 156, 100];                                                            // grassland
   return [178, 170, 120];                                                                        // scrub
 }
+const MAP_W = 456, MAP_H = 300;
 function buildMap() {
-  // scale so the realm always covers the 430x320 frame (small worlds are 65 tiles wide)
-  const s = Math.max(4, Math.ceil(Math.max(430 / W.w, 320 / W.h) * 1.25)), c = document.createElement('canvas');
+  // scale so the realm always covers the frame (small worlds are 65 tiles wide)
+  const s = Math.max(4, Math.ceil(Math.max(MAP_W / W.w, MAP_H / W.h) * 1.25)), c = document.createElement('canvas');
   c.width = W.w * s; c.height = W.h * s;
   const g = c.getContext('2d'), img = g.createImageData(c.width, c.height);
   for (let y = 0; y < W.h; y++) for (let x = 0; x < W.w; x++) {
@@ -147,19 +290,17 @@ function buildMap() {
   g.putImageData(img, 0, 0);
   const fx = W.fort ? W.fort.x : -99, fy = W.fort ? W.fort.y : -99;
   const dist = st => Math.hypot(st.x - fx, st.y - fy);
-  // every site gets a small symbol, no text
   for (const st of W.sites || []) {
     const x = st.x * s + s / 2, y = st.y * s + s / 2;
     if (st.type === 'DarkFortress') { g.fillStyle = '#7a1414'; g.beginPath(); g.moveTo(x, y - 4); g.lineTo(x + 4, y + 3); g.lineTo(x - 4, y + 3); g.fill(); }
     else if (st.type === 'Town' || st.type === 'Fortress') { g.fillStyle = '#2b2218'; g.fillRect(x - 2.5, y - 2.5, 5, 5); }
     else { g.fillStyle = 'rgba(43,70,30,.8)'; g.beginPath(); g.arc(x, y, 2, 0, 7); g.fill(); }
   }
-  // names: only the closest few neighbours and the nearest dark fortresses, never overlapping
   const named = [...(W.sites || [])].filter(st => st.type !== 'ForestRetreat').sort((a, b) => dist(a) - dist(b));
-  const pick = [...named.filter(st => st.type !== 'DarkFortress').slice(0, 6), ...named.filter(st => st.type === 'DarkFortress').slice(0, 3)];
-  const boxes = [[fx * s - 60, fy * s - 30, 120, 22]];   // keep the fort's own label clear
+  const pk = [...named.filter(st => st.type !== 'DarkFortress').slice(0, 6), ...named.filter(st => st.type === 'DarkFortress').slice(0, 3)];
+  const boxes = [[fx * s - 60, fy * s - 30, 120, 22]];
   g.font = 'italic 12px Georgia'; g.textAlign = 'center';
-  for (const st of pick) {
+  for (const st of pk) {
     const name = clean(st.name), wpx = g.measureText(name).width + 6;
     const x = st.x * s + s / 2, y = st.y * s + s / 2 - 7, box = [x - wpx / 2, y - 12, wpx, 15];
     if (boxes.some(b => box[0] < b[0] + b[2] && b[0] < box[0] + box[2] && box[1] < b[1] + b[3] && b[1] < box[1] + box[3])) continue;
@@ -170,19 +311,14 @@ function buildMap() {
   }
   mapImg = c; mapImg.scale = s;
 }
-function forecastOf(wx) {
-  return wx.kind === 'snow' ? (wx.amount > .5 ? 'Heavy snow' : 'Light snow')
-       : wx.kind === 'rain' ? (wx.amount > .5 ? 'Heavy rain' : 'Showers') : 'Clear skies';
-}
 function cardMap() {
   if (!W || !W.w) return null;
   const wx = S.weather || {kind: 'clear', amount: 0, season: ''};
   const fc = forecastOf(wx);
   return `<div class="kicker"><span>Weather &amp; World</span><span>${esc(clean(W.world || ''))}</span></div>
     <div class="headline">${fc.toUpperCase()} OVER ${esc((S.fort ? S.fort.name : '').toUpperCase())}</div>
-    <div class="mapwrap"><canvas id="map" width="430" height="320"></canvas></div>
-    <div class="forecast"><span>Today: <b>${fc}</b></span><span class="dim">${esc(wx.season || '')}</span></div>
-    <div class="body dim" style="margin-top:4px;font-size:12px">Our correspondents survey the realm from ${esc(S.fort ? S.fort.name : 'the fortress')}. ▲ dark fortress · ■ town · ● forest retreat</div>`;
+    <div class="mapwrap"><canvas id="map" width="${MAP_W}" height="${MAP_H}"></canvas></div>
+    <div class="forecast"><span>Today: <b>${fc}</b></span><span class="dim">▲ dark fortress · ■ town · ● retreat</span></div>`;
 }
 function startMap() {
   const cv = document.getElementById('map'); if (!cv || !mapImg) return;
@@ -195,7 +331,6 @@ function startMap() {
   cancelAnimationFrame(mapAnim);
   const frame = now => {
     const t = (now - t0) / 1000;
-    // slow tour: start over the fort, drift out across the realm and loop around
     const r = Math.min(mapImg.width, mapImg.height) * 0.33 * Math.sin(Math.min(1, t / 8) * Math.PI / 2);
     let cx = fx + Math.cos(t / 6) * r, cy = fy + Math.sin(t / 9) * r * 0.8;
     cx = Math.max(cv.width / 2, Math.min(mapImg.width - cv.width / 2, cx));
@@ -236,33 +371,119 @@ function agHeadline(c) {
 function cardAg() {
   if (!K || !K.stocks) return null;
   const c = K.stocks, p = prevStocks || {};
-  const rows = AG.map(([sec, items]) => `<tr><td colspan="4" class="sub" style="border:0">${sec}</td></tr>` + items.map(([label, key, full]) => {
+  const row = ([label, key, full]) => {
     const n = c[key] || 0, was = p[key];
     const trend = was == null || was === n ? '<span class="dim">–</span>' : n > was ? '<span class="up">▲</span>' : '<span class="down">▼</span>';
     const pct = Math.min(100, Math.round(100 * n / full));
     return `<tr><td>${label}</td><td class="n ${n ? '' : 'dead'}">${n.toLocaleString()}</td><td class="t">${trend}</td><td class="b"><div class="lvl"><div style="width:${pct}%"></div></div></td></tr>`;
-  }).join('')).join('');
-  const herd = Object.entries(K.animals || {}).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([k, v]) => `${v} ${esc(k)}${v > 1 ? 's' : ''}`).join(', ');
+  };
+  const rows = AG.map(([sec, items]) => `<tr><td colspan="4" class="sub" style="border:0">${sec}</td></tr>` + items.map(row).join('')).join('');
+  const herd = Object.entries(K.animals || {}).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([k, v]) => `${v} ${esc(v === 1 ? k.replace(/ies$/, 'y').replace(/(ss)?s$/, (m, ss) => ss || '') : k)}`).join(', ');
   return `<div class="kicker"><span>Agriculture Report</span><span>${K.farms || 0} farm plots</span></div>
     <div class="headline">${agHeadline(c)}</div>
     <table>${rows}</table>
-    <div class="sub">Livestock census</div><div class="body">${herd || 'No animals of note.'}</div>`;
+    <div class="sub">Livestock census</div><div class="body" style="font-size:11.5px">${herd || 'No animals of note.'}</div>`;
 }
 
 // ---------- card: from the archives ----------
 function cardArchive() {
   if (!H.artifacts || !H.artifacts.length) return null;
   const a = H.artifacts[artIdx++ % H.artifacts.length];
-  const story = a.story.slice(0, 7).map(s => `<div><span class="yr">${s.year}</span>${esc(clean(s.text))}</div>`).join('');
+  const seen = new Set(), story = a.story.filter(s => { const k = s.year + s.text; if (seen.has(k)) return false; seen.add(k); return true; })
+    .slice(0, 8).map(s => `<div><span class="yr">${s.year}</span>${esc(clean(s.text))}</div>`).join('');
   return `<div class="kicker"><span>From the Archives</span><span>Artifacts of Legend</span></div>
     <div class="headline">${esc(clean(a.name)).toUpperCase()}</div>
     <div class="deck">The ${esc(clean(a.item).replace(/^[-\s]+|[-\s]+$/g, ''))} known in the old tongue as "${esc(a.dwarvish)}"</div>
     <div class="story">${story}</div>`;
 }
 
+// ---------- below the fold: ads, editorials, letters, classifieds ----------
+function citizens() {
+  const names = new Set();
+  for (const e of S.events || []) { const m = clean(e.text).match(/^([A-Z][^\s,]+ [A-Z][^\s,]+) (has|is|was|cancels)/); if (m) names.add(m[1]); }
+  if (S.dwarf) names.add(firstName(S.dwarf.name).replace(/\s*"[^"]*"\s*/, ' ').trim());
+  return [...names];
+}
+function fillers(r) {
+  const c = (K && K.stocks) || {}, herdMap = (K && K.animals) || {}, f = S.fort || {}, wx = S.weather || {};
+  const fort = f.name || 'the fortress', pop = f.population || 0;
+  const people = citizens();
+  const anyone = (about = '') => { const ok = people.filter(n => !about.includes(n)); return ok.length ? pick(r, ok) : 'A Concerned Citizen'; };
+  const herd = Object.values(herdMap).reduce((a, b) => a + b, 0);
+  const art = H.artifacts && H.artifacts.length ? pick(r, H.artifacts) : null;
+  const out = [];
+  const ad = (html, inv) => out.push(`<div class="item ad${inv ? ' inv' : ''}">${html}</div>`);
+  const ed = (kick, h, body, by) => out.push(`<div class="item"><div class="kick">${kick}</div><h3>${h}</h3><p class="just dropcap">${body}</p>${by ? `<div class="by">— ${esc(by)}</div>` : ''}</div>`);
+  const letter = (body, by) => out.push(`<div class="item"><div class="kick">Letters to the Editor</div><p class="just"><i>Sir,</i> ${body}</p><div class="by">— ${esc(by)}</div></div>`);
+
+  // display ads
+  if (c.drinks) ad(`<div class="eng">The Tipsy Anvil</div><div class="big">${c.drinks.toLocaleString()} BARRELS</div><div class="eng">on tap tonight</div><div class="fine">Drink responsibly. Or don't. We're not your mother.</div>`);
+  if ((herdMap.dogs || 0) > 3) ad(`<div class="big">FREE DOGS</div><div class="eng">${herdMap.dogs} available</div><div class="fine">Most bite. Some bite less. Good homes only.</div>`, true);
+  ad(`<div class="bk">Magma-Proof Boots</div><div class="eng">As worn by no survivors</div><div class="fine">*Not proof against magma. Not proof against much.</div>`);
+  ad(`<div class="eng">Tired of carp?</div><div class="big">STAY OUT OF THE WATER</div><div class="fine">A message from the Carp Survivors' Guild (membership: 2)</div>`);
+  ad(`<div class="bk">Urist &amp; Sons</div><div class="eng">Fine Coffins · All Sizes</div><div class="fine">Pre-order now and save. You'll need one eventually. Look around.</div>`, true);
+  ad(`<div class="eng">Now with fewer rocks!</div><div class="big">ROCK NUT OIL</div><div class="fine">Some rocks remain. Chew carefully.</div>`);
+  if (art) ad(`<div class="eng">As seen in legend</div><div class="bk">${esc(clean(art.name))}</div><div class="eng">genuine replicas · 1☼</div><div class="fine">Not affiliated with whichever goblin owns the original.</div>`);
+  if (c.gems) ad(`<div class="big">${c.gems} GEMS</div><div class="eng">and not one cut properly</div><div class="fine">Jewelers wanted. Apply at the stockpile. Bring a chisel.</div>`, true);
+  ad(`<div class="bk">The Meeting Hall</div><div class="eng">Come for the gossip</div><div class="fine">Stay because the door is jammed.</div>`);
+
+  // editorials
+  if (!c.meat && !c.fish) ed('Opinion', 'WHERE IS THE MEAT?', `For another season this paper must ask a simple question. ${herd ? `${herd} animals graze in our pastures, ` : ''}yet not one steak has reached the dining hall, and no fisherdwarf has so much as looked at a river. The Herald calls on the overseer to appoint a butcher before tempers reach the ale casks.`, 'The Editorial Board');
+  if (c.drinks > 1000) ed('Opinion', 'IN PRAISE OF THE BREWERS', `With ${c.drinks.toLocaleString()} drinks in store, ${esc(fort)} is, by any honest measure, a success. Kings are remembered for their wars. We shall be remembered for our barrels. Raise a mug to the stills.`, 'The Editorial Board');
+  if ((K && K.farms) > 10) ed('Commentary', `${K.farms} FARM PLOTS: ARE WE BECOMING ELVES?`, `It begins with a few plump helmets. Then a second plot, then a tenth. Before long a dwarf is talking to the plants and refusing to cut down trees. This columnist has seen it happen. Stay vigilant.`, anyone() + ', Columnist');
+  if (pop > 30) ed('Opinion', 'WHO ARE ALL THESE PEOPLE?', `${pop} souls now crowd these halls. This writer remembers when it was seven dwarves and a wagon. Nobody asked us. Nobody ever asks us.`, 'A Founding Member (Probably)');
+  if (wx.kind === 'rain' || wx.kind === 'snow') ed('Weather Desk', 'OUTSIDE CONTINUES TO BE A MISTAKE', `Our weather desk reports ${forecastOf(wx).toLowerCase()} once more above ${esc(fort)}. Readers are advised that the sky remains open and unregulated. Stay below.`, 'Weather Desk');
+  if (c.stone > 400) ed('Business', 'STONE GLUT DEPRESSES PRICES', `With ${c.stone} stones lying about, the price of a rock has fallen to an all-time low. Masons say they are "not worried." Masons say that about everything.`, 'Financial Correspondent');
+
+  // letters, built from today's news
+  const evs = (S.events || []).map(e => clean(e.text));
+  const strike = evs.find(t => /struck/.test(t)), master = evs.find(t => /masterpiece/.test(t)), become = evs.find(t => /has become a/.test(t));
+  if (strike) letter(`my neighbour reports "${esc(strike.replace(/^You have /, 'we have '))}" and will not stop talking about it. It is just a rock. We live in a rock.`, anyone() + ', Miner');
+  if (master) letter(`I read that ${esc(master.replace(/!$/, ''))}. Fine. Good for them. Some of us also work hard and nobody writes it down.`, anyone(master));
+  if (become) letter(`the news that ${esc(become.replace(/\.$/, ''))} came as a shock. Nobody asked the rest of us. Is this a democracy? (It is not.)`, anyone(become));
+  letter(`someone keeps leaving socks in the dining hall. I know who you are. I will not name you. Yet.`, anyone());
+  letter(`I have been assigned to haul the same stone four times. I would like it noted in print.`, anyone() + ', Hauler');
+
+  // classifieds + almanac
+  const cls = shuffle(r, [
+    '<b>Lost:</b> one sock, left. Great sentimental value.',
+    !c.fish ? '<b>Wanted:</b> fisherdwarf. Will train. Carp not included.' : '<b>For sale:</b> fish. Smells fine. Ask anyone.',
+    c.seeds ? `<b>For sale:</b> ${c.seeds} seeds, mostly plump helmet.` : null,
+    '<b>Seeking:</b> roommate for 1×1 bedroom. Must love stone.',
+    (herdMap.cats || 0) ? `<b>Missing:</b> cat (one of ${herdMap.cats}). Answers to nothing. Last seen near the kitchen.` : null,
+    '<b>Services:</b> dull picks sharpened while u wait.',
+    c.thread ? `<b>Free:</b> ${c.thread} spools of thread. Please take some.` : null,
+    '<b>Personal:</b> M, 87, beard to knees, seeks dwarf who enjoys long walks to the magma sea.',
+    '<b>Notice:</b> the well is NOT a bathtub.',
+  ].filter(Boolean)).slice(0, 4);
+  out.push(`<div class="item cls"><div class="kick">Classifieds</div>${cls.map(x => `<div>${x}</div>`).join('')}</div>`);
+  out.push(`<div class="item"><div class="kick">Almanac</div><p class="just"><b>${esc(wx.season || '')}.</b> ${esc(forecastOf(wx))}. Proverb of the day: <i>"${pick(r, ['A dwarf without a beard is a dwarf in disguise.', 'Dig not where the carp can see you.', 'The deeper the mine, the shorter the friends.', 'Never trust a tree.', 'Losing is fun.', 'A full barrel is a full heart.'])}"</i></p></div>`);
+  const tiny = shuffle(r, ['The well is NOT a bathtub.', 'Do not lick the cave moss.', 'Please return all mugs to the dining hall.',
+    'Carp sightings: report to the militia.', 'Socks found? Bring them to the Herald.', 'Elves: no.', 'Remember: up is outside.', 'Beards trimmed. Half price. No refunds.'])
+    .map(t => `<div class="item ad tiny"><div class="eng">Notice</div>${esc(t)}</div>`);
+  return [...shuffle(r, out), ...tiny];
+}
+function fillFold() {
+  // pack items into the two columns, shortest column first; anything that would be cut off is skipped
+  const A = document.getElementById('colA'), B = document.getElementById('colB');
+  A.innerHTML = ''; B.innerHTML = '';
+  const limit = A.clientHeight; if (limit < 30) return;
+  const r = rng(Date.now() / 1000 | 0);
+  const used = col => col.lastElementChild ? col.lastElementChild.offsetTop + col.lastElementChild.offsetHeight : 0;
+  for (const html of fillers(r)) {
+    const first = used(A) <= used(B) ? A : B;
+    for (const target of [first, first === A ? B : A]) {
+      const t = document.createElement('template'); t.innerHTML = html.trim();
+      const el = t.content.firstElementChild; target.appendChild(el);
+      if (el.offsetTop + el.offsetHeight <= limit) break;
+      el.remove();
+    }
+  }
+}
+
 // ---------- rotation ----------
 const CARDS = [
-  {fn: cardDwarf, secs: 25}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardArchive, secs: 20},
+  {fn: cardDwarf, secs: 30}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardArchive, secs: 20},
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
 let cardIdx = params.has('card') ? Number(params.get('card')) - 2 : -1, cardTimer = null;
@@ -275,6 +496,7 @@ function nextCard() {
     el.innerHTML = html; el.classList.remove('fadein'); void el.offsetWidth; el.classList.add('fadein');
     if (c.after) c.after(); else cancelAnimationFrame(mapAnim);
     document.getElementById('dots').innerHTML = CARDS.map((_, i) => `<span class="${i === cardIdx ? 'on' : ''}"></span>`).join('');
+    fillFold();
     clearTimeout(cardTimer);
     if (!params.has('hold')) cardTimer = setTimeout(nextCard, c.secs * 1000);
     return;
@@ -294,6 +516,7 @@ async function pollSlow() {
 }
 (async () => {
   await Promise.all([pollState(), pollStocks(), pollSlow()]);
+  if (document.fonts && document.fonts.ready) await document.fonts.ready;
   nextCard();
   setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollSlow, 120000);
 })();
