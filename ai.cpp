@@ -50,6 +50,11 @@ AI::AI() :
 
 AI::~AI()
 {
+    // One-shot callbacks (the plan's background task loops, zone setup,
+    // exclusive screens...) capture pointers into this AI. Left registered,
+    // they ran after it was deleted: disable then enable crashed in
+    // Plan::update's task loop writing to a freed task.
+    events.clear();
 }
 
 bool AI::is_dwarfmode_viewscreen()
