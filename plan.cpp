@@ -1486,10 +1486,20 @@ bool Plan::setup_fishing_zone(color_ostream & out)
         return false;
     }
 
-    const int16_t R = 6;
-    df::coord min(std::max(0, best.x - R), std::max(0, best.y - R), best.z);
-    df::coord max(std::min(world->map.x_count - 1, best.x + R), std::min(world->map.y_count - 1, best.y + R), best.z);
-    auto zone = create_zone(out, civzone_type::FishingArea, min, max, is_water);
+    // Fishers stand on the bank inside the zone. A brook or river is water
+    // cut into rock with open air above it, so the bank is one level up: zone
+    // that level (the whole rectangle, banks and all). Water-only zones on the
+    // water level got no fishing jobs at all.
+    int16_t zlevel = best.z;
+    df::tiletype *above = Maps::getTileType(best + df::coord(0, 0, 1));
+    if (above && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *above)) == tiletype_shape_basic::Open)
+    {
+        zlevel = best.z + 1;
+    }
+    const int16_t R = 7;
+    df::coord min(std::max(0, best.x - R), std::max(0, best.y - R), zlevel);
+    df::coord max(std::min(world->map.x_count - 1, best.x + R), std::min(world->map.y_count - 1, best.y + R), zlevel);
+    auto zone = create_zone(out, civzone_type::FishingArea, min, max);
     ai.debug(out, stl_sprintf("fishing zone at (%d, %d, %d): %s", best.x, best.y, best.z, zone ? "created" : "failed"));
     return zone != nullptr;
 }
