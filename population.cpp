@@ -1,4 +1,5 @@
 #include "ai.h"
+#include <set>
 #include "population.h"
 #include "plan.h"
 
@@ -19,6 +20,8 @@
 #include "df/job.h"
 #include "df/job_item.h"
 #include "df/occupation.h"
+#include "df/unit_labor.h"
+#include "df/occupation_type.h"
 #include "df/reaction.h"
 #include "df/reaction_reagent.h"
 #include "df/squad.h"
@@ -276,6 +279,51 @@ void Population::update_citizenlist(color_ostream & out)
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor FISH %d %d", std::max(1, pop / 8), std::max(2, pop / 5)));
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor HUNT 1 %d", std::max(1, pop / 12)));
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor CARPENTER %d 200", std::max(1, pop / 12)));
+
+        // DF 53 only lets a hospital's DOCTOR occupation holders treat its
+        // patients, and they need the medical labors on. autolabor handed
+        // those labors to random dwarves and stripped them from the doctors,
+        // so 14 patients waited with nobody diagnosing them. Once the fort
+        // has doctors, take the medical labors away from autolabor and give
+        // them to the doctors only.
+        std::set<int32_t> doctors;
+        int32_t site = plotinfo->site_id;
+        for (auto o : world->occupations.all)
+        {
+            if (o && o->type == occupation_type::DOCTOR && o->site_id == site && o->unit_id != -1)
+            {
+                doctors.insert(o->unit_id);
+            }
+        }
+        static const df::unit_labor medical[] = { unit_labor::DIAGNOSE, unit_labor::SURGERY, unit_labor::SUTURING, unit_labor::BONE_SETTING };
+        static const char *const medical_names[] = { "DIAGNOSE", "SURGERY", "SUTURING", "BONE_SETTING" };
+        static bool medical_disabled = false;
+        if (doctors.empty())
+        {
+            if (medical_disabled)
+            {
+                for (auto n : medical_names)
+                    Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor %s reset", n));
+                medical_disabled = false;
+            }
+        }
+        else
+        {
+            if (!medical_disabled)
+            {
+                for (auto n : medical_names)
+                    Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor %s disable", n));
+                medical_disabled = true;
+            }
+            for (auto u : world->units.active)
+            {
+                if (!u || !Units::isCitizen(u) || !Units::isAlive(u))
+                    continue;
+                bool doc = doctors.count(u->id) != 0;
+                for (auto l : medical)
+                    u->status.labors[l] = doc;
+            }
+        }
     }
     else if (config.manage_labors == "labormanager")
     {
