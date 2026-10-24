@@ -187,6 +187,15 @@ void Stocks::update(color_ostream & out)
                 continue;
             }
 
+            if (need_more(stock_item::drink) && job->job_type == job_type::MakeBarrel)
+            {
+                // and brewing needs an empty barrel: Quakefocus sat at 15
+                // drinks with 16 full barrels while the only carpenter made
+                // doors and chests
+                job->flags.bits.do_now = true;
+                continue;
+            }
+
             if (need_more(stock_item::meal) && job->job_type == job_type::PrepareMeal)
             {
                 // food is pretty important too
