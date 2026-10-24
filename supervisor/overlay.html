@@ -119,6 +119,9 @@
   ol.top { margin: 2px 0 0 16px; padding: 0; font-size: 10.5px; }
   .vox p { font-size: 10.5px; margin-bottom: 2px; }
   .item.prop .price { text-align: right; font-weight: 900; font-size: 12px; }
+  .wirelist div { font-size: 11.5px; padding: 2px 0; border-bottom: 1px dotted var(--hair); }
+  .item.wire .kick { color: var(--red); }
+  .item.wire p { margin-bottom: 2px; }
   .cls div { padding: 1px 0; border-bottom: 1px dotted var(--hair); }
   .cls div:last-child { border: 0; }
   .cls b { font-variant: small-caps; }
@@ -343,6 +346,15 @@ function trackStories() {
     }
   }
   for (const k of Object.keys(M.ended)) if (today - M.ended[k].until > 7) { delete M.ended[k]; memDirty = true; }
+  // caravan arrivals, so rumours can be credited to the merchants who brought them
+  for (const b of S.big || []) {
+    if (!/CARAVAN/.test(b.type || '')) continue;
+    M.caravans = M.caravans || [];
+    if (!M.caravans.some(c => c.id === b.id)) {
+      const who = (clean(b.text).match(/from (.+?) (?:has|have) arrived/i) || [])[1] || null;
+      M.caravans.push({id: b.id, day: b.tick != null ? b.year * 336 + Math.floor(b.tick / 1200) : today, who}); M.caravans = M.caravans.slice(-12); memDirty = true;
+    }
+  }
   for (const b of S.big || []) {
     const ck = (COUNTER_OF.find(([re]) => re.test(b.type || '')) || [])[1]; if (!ck) continue;
     if (M.lastIds[ck] !== b.id) { M.lastIds[ck] = b.id; M.counters[ck] = b.tick != null && b.year != null ? b.year * 336 + Math.floor(b.tick / 1200) : today; memDirty = true; }
@@ -900,6 +912,7 @@ function portrait(d) {   // courtroom-sketch style portrait of the interviewee
 // ---------- card: breaking news (interrupts the rotation when a big event lands) ----------
 let breakingQ = [], seenBig = null, breakingOn = false;
 function cardBreaking(ev) {
+  if (ev.type === 'RUMORS') return cardPouch(ev);
   const res = drawEvent(ev, 240, 140); if (!res) return null;
   return `<div class="kicker"><span>★ Breaking News ★</span><span>Extra! Extra!</span></div>
     <div class="headline" style="font-size:25px;text-align:center">${esc(res.t.head)}</div>
@@ -1197,6 +1210,7 @@ function worldSlots(r) {
 const stars = n => '★'.repeat(Math.max(0, Math.min(5, n | 0))) + '☆'.repeat(5 - Math.max(0, Math.min(5, n | 0)));
 function featureItems(ctx, r) {
   const out = [], put = (ids, html) => out.push({ids: [].concat(ids), html});
+  for (const f of [wireItem(r), gossipItem(r)]) if (f) out.push(f);
   const wn = choose1(LIB.world_news, ctx, r);
   if (wn) put(wn.id, `<div class="item"><div class="kick">${esc(wn.kick || 'Foreign Desk')}</div><h3>${esc(wn.head)}</h3><p class="just dropcap">${esc(wn.body)}</p></div>`);
   const tr = choose1(LIB.travel, ctx, r);
@@ -1225,22 +1239,119 @@ function featureItems(ctx, r) {
   return out;
 }
 function cardForeign() {
-  if (!LIB.world_news || !LIB.world_news.length) return null;
-  const r = rng(Date.now() / 1000 | 0), ctx = context(r);
-  const news = choose(LIB.world_news, ctx, r, 3), tr = choose1(LIB.travel, ctx, r), la = choose(LIB.letters_abroad, ctx, r, 2);
-  if (!news.length) return null;
-  markSeen([...news, tr, ...la].filter(Boolean).map(x => x.id));
-  const [lead, ...rest] = news, world = clean((W && W.world) || (S.fort || {}).world || 'the World');
+  const r = rng(Date.now() / 1000 | 0), ctx = context(r), world = clean((W && W.world) || (S.fort || {}).world || 'the World');
+  // real news first: what diplomats, the liaison and caravans actually told the fort
+  const real = chooseRumors(5, r), ids = [];
+  let lead = null;
+  for (const o of real) {
+    const h = rumorPiece(o.x, 'heads', r), b = rumorPiece(o.x, 'bodies', r);
+    if (h && b) { lead = {o, h, b}; ids.push(o.id, h.id, b.id); break; }
+  }
+  const briefs = real.filter(o => !lead || o !== lead.o).map(o => { const b = rumorPiece(o.x, 'briefs', r); if (b) ids.push(o.id, b.id); return b && {o, b}; }).filter(Boolean).slice(0, 4);
+  const news = choose(LIB.world_news, ctx, r, lead ? 1 : 3), tr = choose1(LIB.travel, ctx, r), la = choose(LIB.letters_abroad, ctx, r, lead ? 1 : 2);
+  if (!lead && !news.length) return null;
+  ids.push(...[...news, tr, ...la].filter(Boolean).map(x => x.id));
+  markSeen(ids);
+  const L = lead ? {head: lead.h.text, deck: `${lead.o.x.happened ? 'Happened ' + agoOf(lead.o.x.happened) + '. ' : ''}Heard ${learnedOn(lead.o.x)}, via ${rumorSlots(lead.o.x).source}.`, body: lead.b.text}
+                 : {head: news[0].head, deck: news[0].kick || 'From our correspondent', body: news[0].body};
+  const rest = lead ? news : news.slice(1);
   return `<div class="kicker"><span>Foreign Desk</span><span>News From ${esc(world)}</span></div>
-    <div class="headline">${esc(lead.head)}</div>
-    <div class="deck">${esc(lead.kick || 'From our correspondent')}</div>
-    <p class="body just dropcap">${esc(lead.body)}</p>
+    <div class="headline">${esc(L.head)}</div>
+    <div class="deck">${esc(L.deck)}</div>
+    <p class="body just dropcap">${esc(L.body)}</p>
     <div class="cols2" style="margin-top:5px">
-      <div>${rest.map(n => `<div class="item"><div class="kick">${esc(n.kick || 'Abroad')}</div><h3>${esc(n.head)}</h3><p class="just">${esc(n.body)}</p></div>`).join('')}</div>
+      <div>${briefs.length ? `<div class="item wire"><div class="kick">On the Wire</div>${briefs.map(({o, b}) => `<p class="just">❖ ${esc(b.text)} <i class="dim">(via ${esc(rumorSlots(o.x).source)})</i></p>`).join('')}</div>` : ''}
+           ${rest.map(n => `<div class="item"><div class="kick">${esc(n.kick || 'Abroad')}</div><h3>${esc(n.head)}</h3><p class="just">${esc(n.body)}</p></div>`).join('')}</div>
       <div>${tr ? `<div class="item"><div class="kick">Travel</div><h3>${esc(tr.head)}</h3><p class="just">${esc(tr.body)}</p></div>` : ''}
            ${la.map(l => `<div class="item"><div class="kick">Letters From Abroad</div><p class="just"><i>Sir,</i> ${esc(l.body)}</p><div class="by">— ${esc(l.by)}</div></div>`).join('')}</div>
     </div>`;
 }
+
+// ---------- rumours: real news the fort heard from diplomats, the liaison and caravans ----------
+// DF's rumour system (fort government's rumor_info, the Civilizations/World Info screen), read by dfai-overlay-rumors.lua.
+let RU = {rumors: [], visits: []};
+const SITE_KIND = {Town: 'town', DarkFortress: 'dark fortress', Fortress: 'fortress', PlayerFortress: 'fortress', MountainHalls: 'mountain hall',
+  ForestRetreat: 'forest retreat', Cave: 'cave', Camp: 'camp', Monument: 'monument', LairShrine: 'lair', Hamlet: 'hamlet', ImportantLocation: 'landmark',
+  Labyrinth: 'labyrinth', Shrine: 'shrine', Tomb: 'tomb', Vault: 'vault', Fort: 'fort', DarkPits: 'dark pits', Hillocks: 'hillocks'};
+const NUMW = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+function agoOf(h) {
+  const y = (S.fort || {}).year; if (!h || y == null) return null;
+  const d = y - h[0]; return d <= 0 ? 'this year' : d === 1 ? 'last year' : `${NUMW[d] || d} years ago`;
+}
+const rumorKey = x => `rm:${x.type}:${(x.happened || []).join('.')}:${(x.site || {}).name || ''}:${(x.hf || {}).name || ''}:${(x.artifact || {}).name || ''}`;
+const learnedDay = x => x.learned[0] * 336 + Math.floor(Math.max(0, x.learned[1]) / 1200);
+function rumorSource(x) {
+  const ld = learnedDay(x);
+  for (const v of RU.visits || []) {
+    if (v.kind !== 'diplomat' || v.year == null) continue;
+    const vd = v.year * 336 + Math.floor(Math.max(0, v.tick || 0) / 1200);
+    if (Math.abs(ld - vd) <= 2) return v.who ? `${v.civ && v.civ.race === 'dwarven' ? 'the outpost liaison' : 'the diplomat'} ${cap(clean(v.who))}` : 'the outpost liaison';
+  }
+  for (const c of (mem().caravans || [])) if (ld >= c.day && ld - c.day <= 20) return c.who ? `merchants of ${c.who}` : 'the merchants at the depot';
+  return pick(rng(ld), ['a passing traveller', 'a tired messenger', 'a goblin who wandered in, lost', 'a migrant with a lot to say', 'the bard, who heard it from another bard']);
+}
+function rumorSlots(x) {
+  const n = o => o && o.name ? cap(clean(o.name)) : null;
+  return {site: n(x.site), site_kind: x.site ? (SITE_KIND[x.site.kind] || 'settlement') : null, entity: n(x.entity), entity_race: x.entity && x.entity.race || null,
+    entity2: n(x.entity2), entity2_race: x.entity2 && x.entity2.race || null, hf: n(x.hf), hf_race: x.hf && x.hf.race || null,
+    hf2: n(x.hf2), hf2_race: x.hf2 && x.hf2.race || null, region: n(x.region), artifact: n(x.artifact),
+    artifact_item: x.artifact && x.artifact.item ? clean(x.artifact.item).replace(/[*«»≡☼+-]/g, '').trim() : null,
+    ago: agoOf(x.happened), source: rumorSource(x)};
+}
+// least-recently printed first, with freshly heard news jumping the queue
+function chooseRumors(n, r) {
+  const today = dayOf(S.fort) || 0;
+  const c = (RU.rumors || []).filter(x => x && x.type && !x.outmoded && x.learned).map(x => {
+    const id = rumorKey(x), fresh = Math.max(0, 40 - (today - learnedDay(x)));
+    return {x, id, score: (SEEN[id] || 0) - fresh * 7200 + r() * 1800};
+  }).filter(o => !issueUsed.has(o.id)).sort((a, b) => a.score - b.score);
+  const out = [], seenText = new Set();
+  const types = new Set();   // one story per kind per page: 57 refugee reports shouldn't crowd out the one succession
+  for (const o of c) { if (out.length >= n) break; if (types.has(o.x.type) && c.some(z => !types.has(z.x.type) && !out.includes(z))) continue; types.add(o.x.type); out.push(o); issueUsed.add(o.id); }
+  return out;
+}
+function rumorPiece(x, field, r) {
+  const list = field === 'briefs' ? (LIB.briefs || {})[x.type] : ((LIB.rumors || {})[x.type] || {})[field];
+  const e = choose1(list, context(r), r, rumorSlots(x));
+  return e ? {id: e.id, text: T(e)} : null;
+}
+const learnedOn = x => { const d = learnedDay(x); return dateOf(d); };
+function wireItem(r) {
+  const [o] = chooseRumors(1, r); if (!o) return null;
+  const b = rumorPiece(o.x, 'briefs', r); if (!b) return null;
+  return {ids: [o.id, b.id], html: `<div class="item wire"><div class="kick">On the Wire · ${esc(o.x.type.replace(/_/g, ' '))}</div><p class="just">${esc(b.text)}</p><div class="by">— via ${esc(rumorSlots(o.x).source)}</div></div>`};
+}
+function gossipItem(r) {
+  const [o] = chooseRumors(1, r); if (!o) return null;
+  const e = choose1(LIB.depot_gossip, context(r), r, rumorSlots(o.x)); if (!e) return null;
+  return {ids: [o.id, e.id], html: `<div class="item"><div class="kick">Overheard at the Depot</div><p class="just"><i>${esc(T(e))}</i></p></div>`};
+}
+// new rumours since the last look: the Diplomatic Pouch interrupts like breaking news
+function checkRumors() {
+  if (!memLoaded || !(RU.rumors || []).length) return;
+  const M = mem(), maxDay = Math.max(...RU.rumors.map(learnedDay));
+  if (M.rumorsTo == null) { M.rumorsTo = maxDay; saveMem(); return; }        // first sight of this fort: don't replay old news
+  const fresh = RU.rumors.filter(x => learnedDay(x) > M.rumorsTo && !x.outmoded);
+  if (!fresh.length) return;
+  M.rumorsTo = maxDay; saveMem();
+  breakingQ.push({id: 'pouch-' + maxDay, type: 'RUMORS', list: fresh});
+  if (!breakingOn) nextCard();
+}
+function cardPouch(ev) {
+  const r = rng(ev.id.length * 977 + (Date.now() / 1000 | 0)), ctx = context(r), first = ev.list[0];
+  const src = rumorSlots(first).source, ids = [];
+  const head = choose1(LIB.pouch_heads, ctx, r), intro = choose1(LIB.pouch, ctx, r, {source: src});
+  const sk = extend(Sketch(ev.id.length * 31 + 3, 240, 120));
+  sk.ground(112); sk.dwarf(70, 112, 1, {bubble: 'Psst!'}); sk.wagon(165, 112, 1, 2); sk.label(200, 18, 168, 60, 'NEWS (UNVERIFIED)');
+  const items = ev.list.slice(0, 6).map(x => { const b = rumorPiece(x, 'briefs', r); if (b) ids.push(b.id, rumorKey(x)); return b ? `<div>❖ ${esc(b.text)}</div>` : ''; }).join('');
+  markSeen([head && head.id, intro && intro.id, ...ids]);
+  return `<div class="kicker"><span>★ The Diplomatic Pouch ★</span><span>Just In</span></div>
+    <div class="headline" style="font-size:24px;text-align:center">${esc(head ? T(head) : 'NEWS FROM ABROAD')}</div>
+    <div class="mapwrap" style="background:#f6eedb;padding:2px">${sk.svg()}</div>
+    <p class="body just dropcap" style="margin-top:4px">${esc(intro ? T(intro) : `News arrives by way of ${src}.`)}</p>
+    <div class="wirelist">${items}</div>`;
+}
+async function pollRumors() { try { const r = await get('/rumors.json'); if (r && r.rumors) { RU = r; checkRumors(); } } catch (e) {} }
 
 // ---------- below the fold: ads, editorials, letters, classifieds ----------
 function citizens() {
@@ -1363,11 +1474,11 @@ async function pollSlow() {
   try { const w = await get('/world.json'); if (w && w.w && (!W || W.world !== w.world)) { W = w; buildMap(); } } catch (e) {}
 }
 (async () => {
-  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib()]);
+  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors()]);
   if (document.fonts && document.fonts.ready) await document.fonts.ready;
-  trackStories(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
+  trackStories(); checkRumors(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
   nextCard();
-  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollSlow, 120000);
+  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollSlow, 120000);
 })();
 </script>
 </body>
