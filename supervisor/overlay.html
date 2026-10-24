@@ -1434,6 +1434,9 @@ const CARDS = [
   {fn: cardDwarf, secs: 30}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardArchive, secs: 20},
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
+// ?zoom=1.5 scales the whole paper (OBS browser sources: set the source width to 480*zoom)
+if (params.has('zoom')) { const z = Math.max(0.5, Math.min(3, Number(params.get('zoom')) || 1)); document.body.style.zoom = z;
+  addEventListener('DOMContentLoaded', () => { const pp = document.querySelector('.paper'); pp.style.height = `calc(${100 / z}vh - 12px)`; pp.style.minHeight = '0'; }); }
 let cardIdx = params.has('card') ? Number(params.get('card')) - 2 : -1, cardTimer = null;
 function showCard(html, after) {
   const el = document.getElementById('card');
