@@ -1,0 +1,1324 @@
+{
+ "stories": {
+  "no_meat": {
+   "heads": [
+    {
+     "id": "no-meat-heads-1",
+     "text": "MEAT WATCH, DAY {days}"
+    },
+    {
+     "id": "no-meat-heads-2",
+     "text": "DAY {days}: STILL NO STEAK"
+    },
+    {
+     "id": "no-meat-heads-3",
+     "text": "STEW REMAINS THEORETICAL, DAY {days}"
+    },
+    {
+     "id": "no-meat-heads-4",
+     "text": "MEAT WATCH ENTERS DAY {days}"
+    },
+    {
+     "id": "no-meat-heads-5",
+     "text": "BUTCHER'S BLOCK GATHERS DUST"
+    },
+    {
+     "id": "no-meat-heads-6",
+     "text": "DAY {days}: DWARVES EYE THE CATS"
+    },
+    {
+     "id": "no-meat-heads-7",
+     "text": "NO SAUSAGE, NO FISH, NO HOPE"
+    },
+    {
+     "id": "no-meat-heads-8",
+     "text": "MEAT WATCH INSTALLMENT {n}"
+    },
+    {
+     "id": "no-meat-heads-9",
+     "text": "HUNTERS RETURN WITH STORIES ONLY"
+    },
+    {
+     "id": "no-meat-heads-10",
+     "text": "DAY {days}: ROAST NOW A RUMOR"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "no-meat-bodies-1",
+     "text": "Day {days} of the Meat Watch. Stores hold no meat and no fish, as they have since {since}. The butcher has begun sharpening knives purely for emotional support. Plump helmets continue to volunteer for every meal, unthanked."
+    },
+    {
+     "id": "no-meat-bodies-2",
+     "text": "This is the Herald's report number {n} on the meat situation, and the situation remains: none. {citizen} was seen staring at a cat for a long time. The cat stared back. Neither party has commented."
+    },
+    {
+     "id": "no-meat-bodies-3",
+     "text": "The Meat Watch, begun on {since}, now stands at day {days}. The dining hall menu has been rewritten to call plump helmets 'cave steak.' Nobody is fooled. Several dwarves have asked that the menu be thrown into the magma."
+    },
+    {
+     "id": "no-meat-bodies-4",
+     "text": "Day {days} without meat or fish. The fishery reports that the brook contains carp, but that the carp contain opinions. Fishing is suspended until someone volunteers who does not value their legs."
+    },
+    {
+     "id": "no-meat-bodies-5",
+     "text": "Still no meat. With {pop} mouths to feed and {meals} prepared meals, all of them vegetable, morale has settled into a quiet, chewy despair. {citizen} has started describing beef from memory at dinner, slowly, to no one."
+    },
+    {
+     "id": "no-meat-bodies-6",
+     "text": "Installment {n} of the Meat Watch finds the fortress at day {days}. The hunters went out and came back with a nice rock and an elf's apology. The rock has been placed in the larder for morale."
+    },
+    {
+     "id": "no-meat-bodies-7",
+     "text": "Elders recall a time before {since}, when sausages were real. Younger dwarves suspect the elders are making it up. The Herald's food critic resigned that same week and has not been replaced."
+    },
+    {
+     "id": "no-meat-bodies-8",
+     "text": "Day {days}. A delegation has asked whether goblins count as meat. The Herald does not take positions on menu matters, but notes that the last goblin siege smelled of nothing appetizing whatsoever."
+    },
+    {
+     "id": "no-meat-bodies-9",
+     "text": "The butcher's shop, idle since {since}, has been converted into a quiet room for dwarves who wish to remember bacon in private. Bookings are full through the season. Day {days} of the Watch continues."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "no-meat-ended-heads-1",
+     "text": "MEAT RETURNS; FORTRESS WEEPS INTO STEW"
+    },
+    {
+     "id": "no-meat-ended-heads-2",
+     "text": "BUTCHER EMPLOYED AGAIN"
+    },
+    {
+     "id": "no-meat-ended-heads-3",
+     "text": "MEAT WATCH ENDS ON DAY {days}"
+    },
+    {
+     "id": "no-meat-ended-heads-4",
+     "text": "\"SAUSAGE ISN'T A MYTH,\" SAYS EVERYONE"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "no-meat-ended-bodies-1",
+     "text": "The Meat Watch, begun on {since}, is over. Meat has entered the stores. The butcher wept, then worked. Plump helmets have been granted a well-earned rest and a small ceremony in their honor."
+    },
+    {
+     "id": "no-meat-ended-bodies-2",
+     "text": "Real meat sits in the larder at last. Several dwarves have visited it simply to look at it. One has asked to be buried near it. The request is under review by the bookkeeper."
+    },
+    {
+     "id": "no-meat-ended-bodies-3",
+     "text": "Herald readers will recall {n} installments of this story. That is enough. There is meat now. {citizen} described the first bite as 'like coming home, if home were a roast.'"
+    },
+    {
+     "id": "no-meat-ended-bodies-4",
+     "text": "Meat has been delivered to the stores, ending a watch that reached day {days}. The cats are said to be relieved, for reasons the cats prefer not to discuss in print."
+    }
+   ]
+  },
+  "no_fish": {
+   "heads": [
+    {
+     "id": "no-fish-heads-1",
+     "text": "FISH VIGIL, DAY {days}"
+    },
+    {
+     "id": "no-fish-heads-2",
+     "text": "DAY {days}: NOT ONE FISH"
+    },
+    {
+     "id": "no-fish-heads-3",
+     "text": "FISHERY REPORTS ZERO, AGAIN"
+    },
+    {
+     "id": "no-fish-heads-4",
+     "text": "CARP WIN ROUND {n}"
+    },
+    {
+     "id": "no-fish-heads-5",
+     "text": "DAY {days} WITHOUT A FILLET"
+    },
+    {
+     "id": "no-fish-heads-6",
+     "text": "BROOK STILL HOARDING FISH, DAY {days}"
+    },
+    {
+     "id": "no-fish-heads-7",
+     "text": "FISHERDWARVES: \"THEY SAW US\""
+    },
+    {
+     "id": "no-fish-heads-8",
+     "text": "FISH VIGIL REPORT NO. {n}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "no-fish-bodies-1",
+     "text": "Day {days} of the Fish Vigil. Our stores have held no fish since {since}. The fisherdwarves report that fish exist, are nearby, and are aware of them. Talks with the brook are ongoing."
+    },
+    {
+     "id": "no-fish-bodies-2",
+     "text": "Report number {n} on the fish shortage. {citizen} returned from the pond with a boot, a stone, and a strong feeling of being watched. The boot has been filed under footwear. The feeling has been filed under carp."
+    },
+    {
+     "id": "no-fish-bodies-3",
+     "text": "No fish for the fortress, day {days}. The fish cleaner has cleaned her workshop, her tools, her apron, and, in desperation, a plump helmet. 'It felt wrong,' she said. 'But I needed it.'"
+    },
+    {
+     "id": "no-fish-bodies-4",
+     "text": "Since {since}, not a single fish has crossed the larder threshold. Theories include cold water, warm water, and carp running an organized protection racket. The Herald leans toward the third and has hired a guard."
+    },
+    {
+     "id": "no-fish-bodies-5",
+     "text": "The Fish Vigil enters day {days} with {pop} dwarves and no fish among them. A fishing contest was announced, held, and won by nobody. The prize, a fish-shaped mug, was quietly put away."
+    },
+    {
+     "id": "no-fish-bodies-6",
+     "text": "Day {days}. The fishery has posted a sign reading 'BITES: 0.' Below it someone has added 'CARP BITES: 3,' which the Herald understands refers to the fisherdwarves and not the fishing."
+    },
+    {
+     "id": "no-fish-bodies-7",
+     "text": "This is installment {n} of the Fish Vigil. The kitchen now serves 'fish-adjacent stew,' which is plump helmet stew eaten while sitting near the brook. Attendance is low. The carp attend every evening."
+    },
+    {
+     "id": "no-fish-bodies-8",
+     "text": "Since {since} the fishing rods have caught only weather. This {season} has brought {weather} and no fish. Our fisherdwarves now sit by the water mostly for the quiet, and to keep an eye on the carp."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "no-fish-ended-heads-1",
+     "text": "FISH LANDED; VIGIL CLOSES"
+    },
+    {
+     "id": "no-fish-ended-heads-2",
+     "text": "A FISH! AN ACTUAL FISH!"
+    },
+    {
+     "id": "no-fish-ended-heads-3",
+     "text": "FISH VIGIL ENDS ON DAY {days}"
+    },
+    {
+     "id": "no-fish-ended-heads-4",
+     "text": "BROOK RELENTS"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "no-fish-ended-bodies-1",
+     "text": "The Fish Vigil, opened on {since}, is closed. A fish has entered the stores. It was small, wet, and deeply surprised. The fish cleaner held it up for the dining hall to applaud."
+    },
+    {
+     "id": "no-fish-ended-bodies-2",
+     "text": "Fish are back in stock after a vigil that reached day {days}. The carp have issued no statement, but were seen sulking near the drawbridge, which is unlike them, or very like them."
+    },
+    {
+     "id": "no-fish-ended-bodies-3",
+     "text": "After {n} reports from the Herald, the fishery has finally delivered. {citizen} ate the first fish slowly and with great dignity, then demanded a second, with slightly less."
+    },
+    {
+     "id": "no-fish-ended-bodies-4",
+     "text": "Fish have returned to the larder. The fisherdwarves have been granted a holiday, which they intend to spend as far from the water as possible, out of habit and out of fear."
+    }
+   ]
+  },
+  "drinks_low": {
+   "heads": [
+    {
+     "id": "drinks-low-heads-1",
+     "text": "THIRST COUNT, DAY {days}"
+    },
+    {
+     "id": "drinks-low-heads-2",
+     "text": "ONLY {drinks} DRINKS LEFT, DAY {days}"
+    },
+    {
+     "id": "drinks-low-heads-3",
+     "text": "DAY {days}: STILL SIPPING CAREFULLY"
+    },
+    {
+     "id": "drinks-low-heads-4",
+     "text": "BREWERS UNDER PRESSURE, DAY {days}"
+    },
+    {
+     "id": "drinks-low-heads-5",
+     "text": "MUGS HALF EMPTY, DAY {days}"
+    },
+    {
+     "id": "drinks-low-heads-6",
+     "text": "WATER CONSUMED; DWARVES APPALLED"
+    },
+    {
+     "id": "drinks-low-heads-7",
+     "text": "DRY SPELL REPORT NO. {n}"
+    },
+    {
+     "id": "drinks-low-heads-8",
+     "text": "DAY {days}: DWARVES COUNT EVERY SIP"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "drinks-low-bodies-1",
+     "text": "Day {days} of the Thirst Count. The fortress holds {drinks} drinks for {pop} dwarves, a ratio our mathematicians describe as 'upsetting.' Brewers have been asked to work faster and to stop sampling."
+    },
+    {
+     "id": "drinks-low-bodies-2",
+     "text": "Report number {n} on the drink shortage, which began on {since}. {citizen} was seen drinking water from the well and has since been visited by three concerned friends and one noble."
+    },
+    {
+     "id": "drinks-low-bodies-3",
+     "text": "Drinks stand at {drinks}. Brewable plants are being guarded more closely than the gems. One dwarf asked for 'just a small mug, to look at.' He was given a small mug. It was empty."
+    },
+    {
+     "id": "drinks-low-bodies-4",
+     "text": "Day {days} of rationing. The tavern keeper has started pouring drinks into a mug with a very thick bottom. Customers have noticed. A tantrum was narrowly averted by a well-timed song about ale."
+    },
+    {
+     "id": "drinks-low-bodies-5",
+     "text": "The dry spell, first reported on {since}, continues. Dwarves are working more slowly, which our health correspondent blames on sobriety and the dwarves call 'principle.' Hauling rates are down across the fortress."
+    },
+    {
+     "id": "drinks-low-bodies-6",
+     "text": "Thirst Count, installment {n}. The still is running day and night and has been asked to hurry. The still did not respond, being a still, but the brewer says it seemed to understand."
+    },
+    {
+     "id": "drinks-low-bodies-7",
+     "text": "Day {days}. With just {drinks} drinks in stock, the dining hall has fallen quiet. Without ale, conversation drifts to topics like the sky, which only makes everyone feel worse. Brewers, please hurry."
+    },
+    {
+     "id": "drinks-low-bodies-8",
+     "text": "A dwarf without ale is a dwarf with time to think, and the fortress has been thinking since {since}. The results are mostly complaints. The Herald prints them as a public service. We would also like a drink."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "drinks-low-ended-heads-1",
+     "text": "BARRELS FULL; THIRST COUNT ENDS"
+    },
+    {
+     "id": "drinks-low-ended-heads-2",
+     "text": "ALE RESTORED, MORALE FOLLOWS"
+    },
+    {
+     "id": "drinks-low-ended-heads-3",
+     "text": "DRY SPELL ENDS ON DAY {days}"
+    },
+    {
+     "id": "drinks-low-ended-heads-4",
+     "text": "FORTRESS TOASTS ITS BREWERS"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "drinks-low-ended-bodies-1",
+     "text": "The Thirst Count, begun on {since}, is over. Barrels are filling. The tavern keeper has retired the thick-bottomed mug and buried it with honors, which he says was the least it deserved."
+    },
+    {
+     "id": "drinks-low-ended-bodies-2",
+     "text": "Drinks are back to comfortable levels after a dry spell that reached day {days}. Walking speed is up. Hiccups are up. Complaints about the sky are down considerably."
+    },
+    {
+     "id": "drinks-low-ended-bodies-3",
+     "text": "The Herald followed this shortage for {n} reports, and today we lay it to rest. {citizen} raised the first full mug and said, 'Never again.' Then, after drinking it, 'Well. Another.'"
+    },
+    {
+     "id": "drinks-low-ended-bodies-4",
+     "text": "Brewers worked through the night and the stores are stocked again. The fortress thanked them by drinking most of it immediately, which the brewers say is the highest praise they know."
+    }
+   ]
+  },
+  "famine": {
+   "heads": [
+    {
+     "id": "famine-heads-1",
+     "text": "HUNGER LEDGER, DAY {days}"
+    },
+    {
+     "id": "famine-heads-2",
+     "text": "DAY {days}: LARDER ECHOES"
+    },
+    {
+     "id": "famine-heads-3",
+     "text": "FAMINE ENTERS DAY {days}"
+    },
+    {
+     "id": "famine-heads-4",
+     "text": "FOOD STORES: A FEW CRUMBS"
+    },
+    {
+     "id": "famine-heads-5",
+     "text": "DAY {days}: SEEDS EYED HUNGRILY"
+    },
+    {
+     "id": "famine-heads-6",
+     "text": "RATIONING REPORT NO. {n}"
+    },
+    {
+     "id": "famine-heads-7",
+     "text": "COOKS IDLE, POTS EMPTY, DAY {days}"
+    },
+    {
+     "id": "famine-heads-8",
+     "text": "DAY {days}: STOMACHS FILE COMPLAINT"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "famine-bodies-1",
+     "text": "Day {days} of the Hunger Ledger. The larder is nearly empty, with {meals} meals for {pop} dwarves. Cooks stir empty pots to keep their skills sharp. It is not helping anyone eat."
+    },
+    {
+     "id": "famine-bodies-2",
+     "text": "Report number {n} on the famine that began on {since}. Farmers have been asked to grow faster. The plump helmets have been asked to plump. Both groups say they are already doing their best."
+    },
+    {
+     "id": "famine-bodies-3",
+     "text": "Day {days}. Dwarves now eat standing up, to save time between whatever is left. {citizen} has proposed a ballot to name the last meal. The front-runner is 'Final Stew.' Voting closes when the stew does."
+    },
+    {
+     "id": "famine-bodies-4",
+     "text": "The famine continues. Seeds are guarded by an axedwarf, which seems excessive until one sees the look in everyone's eyes. The dining hall has not been this quiet since the ghost incident."
+    },
+    {
+     "id": "famine-bodies-5",
+     "text": "Since {since}, our food stores have been described as 'thin,' then 'thinner,' and now, by the bookkeeper, as 'a matter of opinion.' The Herald has eaten its own opinion pages. They were dry."
+    },
+    {
+     "id": "famine-bodies-6",
+     "text": "Hunger Ledger, installment {n}. The kitchen reports {meals} prepared meals. The dining hall reports a great many chairs. The math does not work, and everyone in the fortress has done it twice."
+    },
+    {
+     "id": "famine-bodies-7",
+     "text": "Day {days} of near-famine. Rumors of hidden sausages in the noble's quarters have been officially denied, which, under fortress custom, means a search party will form after lunch, if there is lunch."
+    },
+    {
+     "id": "famine-bodies-8",
+     "text": "Dwarves have begun staring at the farm plots for long stretches, as if looking might help things grow. Farmers have asked them to stop. The plants seem nervous. Day {days} of the Ledger."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "famine-ended-heads-1",
+     "text": "LARDER FULL AGAIN; LEDGER CLOSED"
+    },
+    {
+     "id": "famine-ended-heads-2",
+     "text": "FAMINE ENDS ON DAY {days}"
+    },
+    {
+     "id": "famine-ended-heads-3",
+     "text": "FORTRESS EATS; EVERYONE CALMS DOWN"
+    },
+    {
+     "id": "famine-ended-heads-4",
+     "text": "HARVEST SAVES THE DAY"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "famine-ended-bodies-1",
+     "text": "The Hunger Ledger, opened on {since}, is closed. Food has returned. Cooks are cooking actual ingredients. The guard on the seed barrel has been reassigned and has eaten three meals in a row."
+    },
+    {
+     "id": "famine-ended-bodies-2",
+     "text": "The famine has ended after reaching day {days}. A feast was held. It went very well until someone asked about next season, at which point the room went quiet for a moment."
+    },
+    {
+     "id": "famine-ended-bodies-3",
+     "text": "After {n} grim reports, the Herald is delighted to declare the famine over. {citizen} celebrated by eating slowly, simply because she could. Onlookers called it beautiful and a little smug."
+    },
+    {
+     "id": "famine-ended-bodies-4",
+     "text": "Stores are full again. The bookkeeper has upgraded the larder from 'a matter of opinion' to 'adequate.' Dwarves now complain about the taste instead of the quantity, which is a good sign."
+    }
+   ]
+  },
+  "wood_low": {
+   "heads": [
+    {
+     "id": "wood-low-heads-1",
+     "text": "LOG COUNT, DAY {days}"
+    },
+    {
+     "id": "wood-low-heads-2",
+     "text": "ONLY {wood} LOGS LEFT, DAY {days}"
+    },
+    {
+     "id": "wood-low-heads-3",
+     "text": "DAY {days}: CARPENTER IDLE"
+    },
+    {
+     "id": "wood-low-heads-4",
+     "text": "TREES REMAIN OUTSIDE, DAY {days}"
+    },
+    {
+     "id": "wood-low-heads-5",
+     "text": "BEDS ON BACKORDER, DAY {days}"
+    },
+    {
+     "id": "wood-low-heads-6",
+     "text": "WOODCUTTERS VS. THE SKY, ROUND {n}"
+    },
+    {
+     "id": "wood-low-heads-7",
+     "text": "DAY {days}: BARRELS RUN SHORT"
+    },
+    {
+     "id": "wood-low-heads-8",
+     "text": "TIMBER WATCH REPORT NO. {n}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wood-low-bodies-1",
+     "text": "Day {days} of the Log Count. The fortress has {wood} logs. The carpenter has been reduced to whittling, then to staring. Woodcutters are reminded that the trees are outside, under the sky, which is unfortunately very big."
+    },
+    {
+     "id": "wood-low-bodies-2",
+     "text": "Report number {n} on the wood shortage, which began on {since}. Beds are rationed. Barrels are rationed. {citizen} asked whether a bed could be carved from stone. It can. It is not comfortable."
+    },
+    {
+     "id": "wood-low-bodies-3",
+     "text": "With only {wood} logs in stock, the fortress is considering going outside. The idea was received poorly. A compromise: one dwarf will go outside while the rest watch from the gate, wincing."
+    },
+    {
+     "id": "wood-low-bodies-4",
+     "text": "Day {days} without enough wood. The elves, hearing of our shortage, sent a warm letter of congratulations. It has been forwarded to the magma for a reply."
+    },
+    {
+     "id": "wood-low-bodies-5",
+     "text": "Since {since}, the woodpile has dwindled. Brewers want barrels, sleepers want beds, and the bookkeeper wants a desk. The carpenter wants everyone to stop asking. Log Count, day {days}."
+    },
+    {
+     "id": "wood-low-bodies-6",
+     "text": "Log Count, installment {n}. Woodcutters report the trees are 'right there, very large, very tall, and under a lot of sky.' They have asked for a hat with a brim and a better reason."
+    },
+    {
+     "id": "wood-low-bodies-7",
+     "text": "Day {days}. The fortress burns a single log in the dining hall each evening, for warmth and for the memory of having logs. This is a poor use of a log. Everyone agrees. Everyone still comes."
+    },
+    {
+     "id": "wood-low-bodies-8",
+     "text": "Without timber, construction has turned entirely to stone, which is plentiful, gray, and unloved. {citizen} described the new stone chairs as 'a very honest experience.' Day {days} of the Log Count."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "wood-low-ended-heads-1",
+     "text": "LOGS STACKED; COUNT ENDS"
+    },
+    {
+     "id": "wood-low-ended-heads-2",
+     "text": "WOODPILE RESTORED ON DAY {days}"
+    },
+    {
+     "id": "wood-low-ended-heads-3",
+     "text": "CARPENTER BUSY AGAIN, THANK URIST"
+    },
+    {
+     "id": "wood-low-ended-heads-4",
+     "text": "AXES TRIUMPH OVER SKY"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "wood-low-ended-bodies-1",
+     "text": "The Log Count, begun on {since}, is over. Logs fill the stockpile. The carpenter has been seen smiling, which nobody has seen in a while. Beds are being built again, lovingly, one at a time."
+    },
+    {
+     "id": "wood-low-ended-bodies-2",
+     "text": "The woodpile is restored after a shortage that reached day {days}. The woodcutters have come back inside and are recovering under a low, reassuring ceiling with a mug of ale each."
+    },
+    {
+     "id": "wood-low-ended-bodies-3",
+     "text": "After {n} Herald reports, wood is plentiful again. The elves have sent a second letter, noticeably less congratulatory. It has been forwarded to the same place as the first."
+    },
+    {
+     "id": "wood-low-ended-bodies-4",
+     "text": "Logs have arrived in welcome quantities. Brewers have barrels, sleepers have beds, and the bookkeeper has a desk, which she has already declared too small. Fortress life returns to normal."
+    }
+   ]
+  },
+  "rain": {
+   "heads": [
+    {
+     "id": "rain-heads-1",
+     "text": "DRIZZLE DIARY, DAY {days}"
+    },
+    {
+     "id": "rain-heads-2",
+     "text": "DAY {days}: IT IS STILL RAINING"
+    },
+    {
+     "id": "rain-heads-3",
+     "text": "RAIN, DAY {days}; SKY UNREPENTANT"
+    },
+    {
+     "id": "rain-heads-4",
+     "text": "SKY LEAKING, DAY {days}"
+    },
+    {
+     "id": "rain-heads-5",
+     "text": "MUD REPORT NO. {n}"
+    },
+    {
+     "id": "rain-heads-6",
+     "text": "DAY {days}: HAULERS SOGGY"
+    },
+    {
+     "id": "rain-heads-7",
+     "text": "RAIN CONTINUES; DWARVES STAY IN"
+    },
+    {
+     "id": "rain-heads-8",
+     "text": "DAY {days}: SOCKS NEVER DRY"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "rain-bodies-1",
+     "text": "Day {days} of the Drizzle Diary. It has rained since {since}. The sky, already too big, is now also wet. Haulers coming in from outside are asked to wring out their beards before entering the dining hall."
+    },
+    {
+     "id": "rain-bodies-2",
+     "text": "Report number {n} on the rain. {citizen} went outside to check whether it was still raining. It was. She came back and confirmed it. This took most of the morning, and she has asked for a towel and a raise."
+    },
+    {
+     "id": "rain-bodies-3",
+     "text": "Day {days}. The rain has not stopped. Socks left outside to dry have become a small marsh. One sock is now home to a frog. The frog may stay, as it pays no rent but causes no trouble."
+    },
+    {
+     "id": "rain-bodies-4",
+     "text": "The rain that began on {since} continues into day {days}. The fortress has stopped calling it 'weather' and started calling it 'the situation.' Hauling outside is now considered a dare."
+    },
+    {
+     "id": "rain-bodies-5",
+     "text": "Drizzle Diary, installment {n}. The {season} sky offers {weather} and nothing else. The noble has demanded that the rain be stopped. Engineers looked into it and found no lever."
+    },
+    {
+     "id": "rain-bodies-6",
+     "text": "Day {days} of rain. The wood stockpile is soaked, the mud is ankle-deep, and the carp are thrilled. The Herald has not managed to deliver a dry copy outside since {since}."
+    },
+    {
+     "id": "rain-bodies-7",
+     "text": "Rain, day {days}. Dwarves who must go outside now do so in pairs, so one can hold a shield over the other's ale. Outdoor productivity is down. Ale integrity is up. Everyone counts this a win."
+    },
+    {
+     "id": "rain-bodies-8",
+     "text": "The rain persists. Our weather correspondent has been asked to stop opening each report with 'Well.' He has replaced it with 'Again.' It is day {days}. Again."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "rain-ended-heads-1",
+     "text": "RAIN STOPS; SKY STILL TOO BIG"
+    },
+    {
+     "id": "rain-ended-heads-2",
+     "text": "DRIZZLE DIARY CLOSES ON DAY {days}"
+    },
+    {
+     "id": "rain-ended-heads-3",
+     "text": "SUN APPEARS; DWARVES SUSPICIOUS"
+    },
+    {
+     "id": "rain-ended-heads-4",
+     "text": "MUD BEGINS SLOW RETREAT"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "rain-ended-bodies-1",
+     "text": "The rain that began on {since} has stopped. The sky is now dry but remains far too large. Haulers have returned outside, blinking. The frog has moved out of the sock."
+    },
+    {
+     "id": "rain-ended-bodies-2",
+     "text": "The Drizzle Diary closes on day {days}. Dwarves stepped outside this morning, looked up, and quickly looked down again. The rain has gone. The sky's general attitude has not improved."
+    },
+    {
+     "id": "rain-ended-bodies-3",
+     "text": "After {n} Herald reports, it is no longer raining. {citizen} says she misses nothing about it except the excuse. Wet socks are being gathered for a mass drying ceremony."
+    },
+    {
+     "id": "rain-ended-bodies-4",
+     "text": "The rain has finally ended. The mud is drying slowly into a firm, unpleasant crust. The carp are said to be disappointed. The Herald considers this a victory for everyone else."
+    }
+   ]
+  },
+  "snow": {
+   "heads": [
+    {
+     "id": "snow-heads-1",
+     "text": "SNOW BULLETIN, DAY {days}"
+    },
+    {
+     "id": "snow-heads-2",
+     "text": "DAY {days}: STILL SNOWING"
+    },
+    {
+     "id": "snow-heads-3",
+     "text": "SNOW ENTERS DAY {days}"
+    },
+    {
+     "id": "snow-heads-4",
+     "text": "DRIFTS REACH THE GATE, DAY {days}"
+    },
+    {
+     "id": "snow-heads-5",
+     "text": "BEARDS FROZEN, REPORT NO. {n}"
+    },
+    {
+     "id": "snow-heads-6",
+     "text": "DAY {days}: BROOK FROZEN, CARP FURIOUS"
+    },
+    {
+     "id": "snow-heads-7",
+     "text": "HAULERS LOST IN WHITE, BRIEFLY"
+    },
+    {
+     "id": "snow-heads-8",
+     "text": "DAY {days}: SKY SHEDDING AGAIN"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "snow-bodies-1",
+     "text": "Day {days} of the Snow Bulletin. It has snowed since {since}. The sky, too big at the best of times, is now dropping itself on us in pieces. Beards freeze stiff on the walk to the woodpile."
+    },
+    {
+     "id": "snow-bodies-2",
+     "text": "Report number {n} on the snow. {citizen} went to haul a log and returned an hour later as a small, cross snowdwarf. He has been thawed in the dining hall, where he continues to drip and complain."
+    },
+    {
+     "id": "snow-bodies-3",
+     "text": "Day {days}. Snow has piled against the trade depot. The brook has frozen solid, which has upset the carp considerably and pleased the fisherdwarves for the first time in living memory."
+    },
+    {
+     "id": "snow-bodies-4",
+     "text": "The snow that started on {since} continues. Dwarves have built snow sculptures of themselves, then of plump helmets, then of ale. Morale is now being expressed entirely through ice."
+    },
+    {
+     "id": "snow-bodies-5",
+     "text": "Snow Bulletin, installment {n}. This {season} brings {weather}, and the fortress brings complaints. Outdoor work is limited to dwarves who own two pairs of socks, which is to say almost no one."
+    },
+    {
+     "id": "snow-bodies-6",
+     "text": "Day {days} of snow. A goblin scout was seen near the edge of the map, waist-deep in a drift and visibly reconsidering his career. The Herald wishes him a long, cold walk home."
+    },
+    {
+     "id": "snow-bodies-7",
+     "text": "The snowfall has not let up. Haulers report they can no longer see the sky, which several describe as 'the one good thing about this.' Day {days} of the Bulletin, and counting."
+    },
+    {
+     "id": "snow-bodies-8",
+     "text": "Day {days}. Ice has formed on the inside of the front gate, the outside of the woodpile, and the top of the noble's head. The noble has declared winter canceled. Winter has not responded."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "snow-ended-heads-1",
+     "text": "SNOW STOPS; DRIFTS REMAIN"
+    },
+    {
+     "id": "snow-ended-heads-2",
+     "text": "SNOW BULLETIN ENDS ON DAY {days}"
+    },
+    {
+     "id": "snow-ended-heads-3",
+     "text": "THAW BEGINS; CARP RELEASED"
+    },
+    {
+     "id": "snow-ended-heads-4",
+     "text": "SKY TAKES A BREAK FROM FALLING"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "snow-ended-bodies-1",
+     "text": "The snow that began on {since} has stopped. Drifts remain, but the sky has paused. Haulers are digging out the depot. The snow sculptures of ale are being mourned as they melt."
+    },
+    {
+     "id": "snow-ended-bodies-2",
+     "text": "The Snow Bulletin closes on day {days}. The brook is thawing, and the carp are free again and in a terrible mood. Fisherdwarves are advised to resume their usual caution."
+    },
+    {
+     "id": "snow-ended-bodies-3",
+     "text": "After {n} reports, the Herald is pleased to say it has stopped snowing. {citizen} celebrated by going outside without a hat and has already come to regret it."
+    },
+    {
+     "id": "snow-ended-bodies-4",
+     "text": "The snowfall is over. The noble claims credit, citing his decree canceling winter. Nobody has the energy to argue. Spare socks are being returned to their rightful owners, mostly."
+    }
+   ]
+  },
+  "drinks_high": {
+   "heads": [
+    {
+     "id": "drinks-high-heads-1",
+     "text": "ALE GLUT, DAY {days}"
+    },
+    {
+     "id": "drinks-high-heads-2",
+     "text": "{drinks} DRINKS AND COUNTING"
+    },
+    {
+     "id": "drinks-high-heads-3",
+     "text": "DAY {days}: BARRELS EVERYWHERE"
+    },
+    {
+     "id": "drinks-high-heads-4",
+     "text": "BREWERS ASKED TO PLEASE STOP"
+    },
+    {
+     "id": "drinks-high-heads-5",
+     "text": "GLUT REPORT NO. {n}: STILL TOO MUCH"
+    },
+    {
+     "id": "drinks-high-heads-6",
+     "text": "DAY {days}: HALLWAYS FULL OF BARRELS"
+    },
+    {
+     "id": "drinks-high-heads-7",
+     "text": "TOO MUCH ALE? DAY {days} SAYS YES"
+    },
+    {
+     "id": "drinks-high-heads-8",
+     "text": "DAY {days}: TAVERN DECLARES VICTORY"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "drinks-high-bodies-1",
+     "text": "Day {days} of the Great Ale Glut. The fortress holds {drinks} drinks for {pop} dwarves. Barrels line the halls, the stairs, and one unfortunate bedroom. Nobody is complaining, but someone has stubbed a toe."
+    },
+    {
+     "id": "drinks-high-bodies-2",
+     "text": "Report number {n} on the ale surplus that began on {since}. Brewers were asked to slow down. They responded by brewing a celebratory batch in honor of being asked. The surplus has grown."
+    },
+    {
+     "id": "drinks-high-bodies-3",
+     "text": "Day {days}. With {drinks} drinks on hand, the bookkeeper has stopped counting barrels and now measures stores in 'rooms.' Current estimate: four rooms of ale and a corridor of mead."
+    },
+    {
+     "id": "drinks-high-bodies-4",
+     "text": "The ale glut continues. {citizen} proposed trading ale to the elves, then withdrew the proposal after remembering that elves would only waste it on being elves. The ale stays."
+    },
+    {
+     "id": "drinks-high-bodies-5",
+     "text": "Glut Report, installment {n}. Haulers spend most of the day moving barrels from one place with too many barrels to another place with too many barrels. They call it the best job they have ever had."
+    },
+    {
+     "id": "drinks-high-bodies-6",
+     "text": "Day {days} of abundance. Tantrums are down, songs are up, and the dining hall has become a place of joy, noise, and occasional shoving. Wood stocks stand at {wood}, most of it now barrels."
+    },
+    {
+     "id": "drinks-high-bodies-7",
+     "text": "Since {since}, the fortress has had more ale than it can reasonably drink, though it has been trying very hard. Medical staff remind dwarves that water exists. Dwarves remind medical staff that it does not need to."
+    },
+    {
+     "id": "drinks-high-bodies-8",
+     "text": "Day {days}. A barrel rolled down the main stairway this morning and was cheered all the way to the bottom. The Herald notes this is the most exciting thing to happen without a goblin in some time."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "drinks-high-ended-heads-1",
+     "text": "ALE GLUT ENDS; HALLWAYS CLEAR"
+    },
+    {
+     "id": "drinks-high-ended-heads-2",
+     "text": "BARRELS DOWN TO SENSIBLE LEVELS"
+    },
+    {
+     "id": "drinks-high-ended-heads-3",
+     "text": "GLUT CLOSES ON DAY {days}"
+    },
+    {
+     "id": "drinks-high-ended-heads-4",
+     "text": "FORTRESS DRANK IT. ALL OF IT."
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "drinks-high-ended-bodies-1",
+     "text": "The Great Ale Glut that began on {since} is over. Stores have fallen to merely generous. Hallways are passable once more, and the unfortunate bedroom has been returned to its sleeper."
+    },
+    {
+     "id": "drinks-high-ended-bodies-2",
+     "text": "The Glut ended on day {days}, not through restraint but through effort. The fortress drank its way out. Brewers were told they may resume brewing, and did so within the minute."
+    },
+    {
+     "id": "drinks-high-ended-bodies-3",
+     "text": "After {n} reports on too much ale, the Herald announces the condition resolved. {citizen} called it 'the best problem we ever had,' then asked whether it could come back."
+    },
+    {
+     "id": "drinks-high-ended-bodies-4",
+     "text": "Barrels have been reduced to a sensible number. Haulers are disappointed. The bookkeeper has returned to counting barrels one at a time and says she misses measuring ale in rooms."
+    }
+   ]
+  },
+  "stone_glut": {
+   "heads": [
+    {
+     "id": "stone-glut-heads-1",
+     "text": "STONE SITUATION, DAY {days}"
+    },
+    {
+     "id": "stone-glut-heads-2",
+     "text": "DAY {days}: ROCKS EVERYWHERE"
+    },
+    {
+     "id": "stone-glut-heads-3",
+     "text": "PEBBLES PERSIST, DAY {days}"
+    },
+    {
+     "id": "stone-glut-heads-4",
+     "text": "STONE COUNT REPORT NO. {n}"
+    },
+    {
+     "id": "stone-glut-heads-5",
+     "text": "DAY {days}: HAULERS DEFEATED BY ROCKS"
+    },
+    {
+     "id": "stone-glut-heads-6",
+     "text": "FLOORS NOW MOSTLY BOULDERS"
+    },
+    {
+     "id": "stone-glut-heads-7",
+     "text": "DAY {days}: TRIPPING HAZARD ESCALATES"
+    },
+    {
+     "id": "stone-glut-heads-8",
+     "text": "MINERS STILL MAKING MORE ROCKS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "stone-glut-bodies-1",
+     "text": "Day {days} of the Stone Situation. Loose stones carpet the tunnels, the workshops, and the bottom of every staircase. Miners continue to strike the earth, and the earth continues to leave pieces of itself lying around."
+    },
+    {
+     "id": "stone-glut-bodies-2",
+     "text": "Report number {n} on the rock clutter that began on {since}. Haulers carry one stone to the stockpile, then return to find two more. {citizen} started naming them. She stopped at forty-one."
+    },
+    {
+     "id": "stone-glut-bodies-3",
+     "text": "Day {days}. Walking from the bedrooms to the dining hall now involves climbing. Dwarves arrive at meals winded and bruised. The mason has been asked to turn the rocks into anything, anything at all."
+    },
+    {
+     "id": "stone-glut-bodies-4",
+     "text": "The stone glut continues. The mason has made blocks, mugs, tables, doors, and statues. There are still more stones. The mason asked for a rest and was given a stone bench."
+    },
+    {
+     "id": "stone-glut-bodies-5",
+     "text": "Stone Situation, installment {n}. Engineers propose dumping stones into the magma. The magma has been consulted, appears willing, and is being prepared for a busy season."
+    },
+    {
+     "id": "stone-glut-bodies-6",
+     "text": "Since {since}, loose rock has been piling up. A cat was lost for two days among the boulders and emerged with a new sense of purpose. Day {days} of the Situation."
+    },
+    {
+     "id": "stone-glut-bodies-7",
+     "text": "Day {days}. Several dwarves claim to have tripped over the same stone three times, and that it moves. The Herald examined the stone. It appears to be an ordinary stone. It also appears smug."
+    },
+    {
+     "id": "stone-glut-bodies-8",
+     "text": "Rock clutter remains extreme. The noble demanded a rock-free corridor to his office. Haulers cleared it. Miners immediately dug through the wall beside it. Day {days} of the Situation."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "stone-glut-ended-heads-1",
+     "text": "FLOORS VISIBLE AGAIN"
+    },
+    {
+     "id": "stone-glut-ended-heads-2",
+     "text": "STONE SITUATION ENDS ON DAY {days}"
+    },
+    {
+     "id": "stone-glut-ended-heads-3",
+     "text": "LAST LOOSE ROCK HAULED, PROBABLY"
+    },
+    {
+     "id": "stone-glut-ended-heads-4",
+     "text": "MASON EARNS A LONG NAP"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "stone-glut-ended-bodies-1",
+     "text": "The Stone Situation that began on {since} has been resolved. Floors are visible. Dwarves have rediscovered the color of their own tunnels and report that it is gray, as suspected."
+    },
+    {
+     "id": "stone-glut-ended-bodies-2",
+     "text": "Stone clutter ended on day {days}, thanks to tireless haulers and a very hungry magma channel. The smug stone was the last to go. It went quietly, which was somehow worse."
+    },
+    {
+     "id": "stone-glut-ended-bodies-3",
+     "text": "After {n} Herald reports, loose rock has dropped to manageable levels. {citizen} celebrated by walking to dinner in a straight line, which she had not done in some time."
+    },
+    {
+     "id": "stone-glut-ended-bodies-4",
+     "text": "The rocks are gone, or at least tidy. The mason has been sent to bed for a well-earned rest. Miners are reminded, gently, that every hole they dig makes another rock."
+    }
+   ]
+  }
+ },
+ "counters": {
+  "death": [
+   {
+    "id": "counter-death-1",
+    "text": "Days since our last funeral: {days}"
+   },
+   {
+    "id": "counter-death-2",
+    "text": "Days without a coffin order: {days}"
+   },
+   {
+    "id": "counter-death-3",
+    "text": "FUNERAL-FREE DAYS: {days}"
+   },
+   {
+    "id": "counter-death-4",
+    "text": "Days the coffin-maker has sat idle: {days}"
+   },
+   {
+    "id": "counter-death-5",
+    "text": "Days since anyone was carved onto a slab: {days}"
+   }
+  ],
+  "pet": [
+   {
+    "id": "counter-pet-1",
+    "text": "Days since a pet was lost: {days}"
+   },
+   {
+    "id": "counter-pet-2",
+    "text": "Days without a cat funeral: {days}"
+   },
+   {
+    "id": "counter-pet-3",
+    "text": "PETS ALL ACCOUNTED FOR: DAY {days}"
+   },
+   {
+    "id": "counter-pet-4",
+    "text": "Days since the last dog's memorial: {days}"
+   },
+   {
+    "id": "counter-pet-5",
+    "text": "Days since a pet slab was engraved: {days}"
+   }
+  ],
+  "tantrum": [
+   {
+    "id": "counter-tantrum-1",
+    "text": "Days without a tantrum: {days}"
+   },
+   {
+    "id": "counter-tantrum-2",
+    "text": "Days since a mug was thrown in anger: {days}"
+   },
+   {
+    "id": "counter-tantrum-3",
+    "text": "Days since the last stomping fit: {days}"
+   },
+   {
+    "id": "counter-tantrum-4",
+    "text": "TANTRUM-FREE DAYS: {days} (DON'T JINX IT)"
+   },
+   {
+    "id": "counter-tantrum-5",
+    "text": "Days since anyone punched a noble: {days}"
+   }
+  ],
+  "mood": [
+   {
+    "id": "counter-mood-1",
+    "text": "Days since a strange mood: {days}"
+   },
+   {
+    "id": "counter-mood-2",
+    "text": "Days without someone seizing a workshop: {days}"
+   },
+   {
+    "id": "counter-mood-3",
+    "text": "Days since anyone demanded shells: {days}"
+   },
+   {
+    "id": "counter-mood-4",
+    "text": "Days since the last fey dwarf: {days}"
+   },
+   {
+    "id": "counter-mood-5",
+    "text": "Days of perfectly normal crafting: {days}"
+   }
+  ],
+  "artifact": [
+   {
+    "id": "counter-artifact-1",
+    "text": "Days since our last artifact: {days}"
+   },
+   {
+    "id": "counter-artifact-2",
+    "text": "Days since anything got a legendary name: {days}"
+   },
+   {
+    "id": "counter-artifact-3",
+    "text": "ARTIFACT DROUGHT: DAY {days}"
+   },
+   {
+    "id": "counter-artifact-4",
+    "text": "Days since anything was declared priceless: {days}"
+   },
+   {
+    "id": "counter-artifact-5",
+    "text": "Days since a sock changed history: {days}"
+   }
+  ],
+  "masterpiece": [
+   {
+    "id": "counter-masterpiece-1",
+    "text": "Days since our last masterpiece: {days}"
+   },
+   {
+    "id": "counter-masterpiece-2",
+    "text": "Days of merely competent work: {days}"
+   },
+   {
+    "id": "counter-masterpiece-3",
+    "text": "Days since a crafter showed off: {days}"
+   },
+   {
+    "id": "counter-masterpiece-4",
+    "text": "MASTERPIECE-FREE DAYS: {days}"
+   },
+   {
+    "id": "counter-masterpiece-5",
+    "text": "Days since anything was 'exceptionally designed': {days}"
+   }
+  ],
+  "migrants": [
+   {
+    "id": "counter-migrants-1",
+    "text": "Days since migrants arrived: {days}"
+   },
+   {
+    "id": "counter-migrants-2",
+    "text": "Days without new faces at the gate: {days}"
+   },
+   {
+    "id": "counter-migrants-3",
+    "text": "Days since anyone asked 'where do I sleep?': {days}"
+   },
+   {
+    "id": "counter-migrants-4",
+    "text": "MIGRANT-FREE DAYS: {days}"
+   },
+   {
+    "id": "counter-migrants-5",
+    "text": "Days since a wave of cousins showed up: {days}"
+   }
+  ],
+  "caravan": [
+   {
+    "id": "counter-caravan-1",
+    "text": "Days since a caravan visited: {days}"
+   },
+   {
+    "id": "counter-caravan-2",
+    "text": "Days without a trader at the depot: {days}"
+   },
+   {
+    "id": "counter-caravan-3",
+    "text": "Days since we haggled with anyone: {days}"
+   },
+   {
+    "id": "counter-caravan-4",
+    "text": "CARAVAN DROUGHT: DAY {days}"
+   },
+   {
+    "id": "counter-caravan-5",
+    "text": "Days since an elf lectured us about trees: {days}"
+   }
+  ],
+  "strike": [
+   {
+    "id": "counter-strike-1",
+    "text": "Days since a mineral strike: {days}"
+   },
+   {
+    "id": "counter-strike-2",
+    "text": "Days since a miner yelled 'OOH, SHINY': {days}"
+   },
+   {
+    "id": "counter-strike-3",
+    "text": "Days of digging plain old rock: {days}"
+   },
+   {
+    "id": "counter-strike-4",
+    "text": "STRIKE-FREE DAYS: {days} (STRIKE HARDER)"
+   },
+   {
+    "id": "counter-strike-5",
+    "text": "Days since the earth gave us anything nice: {days}"
+   }
+  ],
+  "birth": [
+   {
+    "id": "counter-birth-1",
+    "text": "Days since a birth: {days}"
+   },
+   {
+    "id": "counter-birth-2",
+    "text": "Days without a new baby beard: {days}"
+   },
+   {
+    "id": "counter-birth-3",
+    "text": "Days since a baby was brought to the forge: {days}"
+   },
+   {
+    "id": "counter-birth-4",
+    "text": "NURSERY QUIET: DAY {days}"
+   },
+   {
+    "id": "counter-birth-5",
+    "text": "Days since the fortress grew by one: {days}"
+   }
+  ],
+  "siege": [
+   {
+    "id": "counter-siege-1",
+    "text": "Days since a siege: {days}"
+   },
+   {
+    "id": "counter-siege-2",
+    "text": "Days without goblins at the gate: {days}"
+   },
+   {
+    "id": "counter-siege-3",
+    "text": "Days since anyone pulled the bridge lever: {days}"
+   },
+   {
+    "id": "counter-siege-4",
+    "text": "GOBLIN-FREE DAYS: {days}"
+   },
+   {
+    "id": "counter-siege-5",
+    "text": "Days since the last ambush was 'a bit much': {days}"
+   }
+  ]
+ },
+ "followups": {
+  "heads": [
+   {
+    "id": "followup-head-1",
+    "text": "{topic} SAGA ENTERS DAY {days}"
+   },
+   {
+    "id": "followup-head-2",
+    "text": "STILL GOING ON ABOUT {topic}"
+   },
+   {
+    "id": "followup-head-3",
+    "text": "{topic}, PART {n}"
+   },
+   {
+    "id": "followup-head-4",
+    "text": "{topic}: INTERVIEW NO. {n}"
+   },
+   {
+    "id": "followup-head-5",
+    "text": "ONCE MORE, WITH FEELING: {topic}"
+   },
+   {
+    "id": "followup-head-6",
+    "text": "{topic} REMAINS A PROBLEM"
+   },
+   {
+    "id": "followup-head-7",
+    "text": "RETURNS TO {topic}, AGAIN"
+   },
+   {
+    "id": "followup-head-8",
+    "text": "{topic}: DAY {days} OF GRIEVANCE"
+   },
+   {
+    "id": "followup-head-9",
+    "text": "HAS NOT FORGOTTEN {topic}"
+   },
+   {
+    "id": "followup-head-10",
+    "text": "{topic} COMPLAINT, VOLUME {n}"
+   },
+   {
+    "id": "followup-head-11",
+    "text": "{topic} FILE REOPENED"
+   },
+   {
+    "id": "followup-head-12",
+    "text": "\"ABOUT {topic}...\" AGAIN"
+   },
+   {
+    "id": "followup-head-13",
+    "text": "WILL NOT LET {topic} GO"
+   },
+   {
+    "id": "followup-head-14",
+    "text": "NEW CHAPTER IN {topic} ORDEAL"
+   }
+  ],
+  "decks": [
+   {
+    "id": "followup-deck-1",
+    "text": "This is the Herald's interview number {n} with {nick} on the subject of {topic}, a grievance first aired on {since}."
+   },
+   {
+    "id": "followup-deck-2",
+    "text": "{nick} has now raised {topic} with this paper {n} times. Each time the Herald has listened politely and printed it. We will continue to do so."
+   },
+   {
+    "id": "followup-deck-3",
+    "text": "Readers may remember {nick}'s earlier remarks about {topic}. {nick} certainly does, and has asked us to remember them harder."
+   },
+   {
+    "id": "followup-deck-4",
+    "text": "The matter of {topic} has occupied {nick} since {since}. The Herald has given it a permanent shelf in the archive, right next to the carp folder."
+   },
+   {
+    "id": "followup-deck-5",
+    "text": "Day {days} of {nick} versus {topic}. Neither side shows any sign of backing down. Our reporter has requested a chair and a mug."
+   },
+   {
+    "id": "followup-deck-6",
+    "text": "Our correspondent approached {nick} hoping to discuss anything else at all. The conversation reached {topic} in under a minute, a new fortress record."
+   },
+   {
+    "id": "followup-deck-7",
+    "text": "Interview {n} on {topic}. {nick} wishes it noted that nothing has changed, that nothing will change, and that this is everyone else's fault."
+   },
+   {
+    "id": "followup-deck-8",
+    "text": "Previously in the Herald: {nick} complained about {topic}. Today in the Herald: see previous. We print it anyway, because a grievance unprinted is a tantrum waiting."
+   },
+   {
+    "id": "followup-deck-9",
+    "text": "{nick} first mentioned {topic} to us on {since} and has not really stopped. Historians have begun taking notes. So, wearily, have we."
+   },
+   {
+    "id": "followup-deck-10",
+    "text": "The Herald once hoped {topic} was a passing phase for {nick}. That hope was filed on {since} and has aged about as well as an unclaimed plump helmet."
+   },
+   {
+    "id": "followup-deck-11",
+    "text": "Asked whether things had improved regarding {topic}, {nick} laughed for some time, then explained in detail why not, for interview number {n}."
+   },
+   {
+    "id": "followup-deck-12",
+    "text": "{nick} returns to the Herald's pages, and to {topic}, with the steady determination of a dwarf hauling one single stone across the entire fortress."
+   }
+  ]
+ }
+}

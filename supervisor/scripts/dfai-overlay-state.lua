@@ -129,7 +129,7 @@ if out.ok then
       end
       if text and not seen_type[tn] then
         seen_type[tn] = true
-        out.big[#out.big + 1] = { id = r.id, type = tn, text = text, year = r.year }
+        out.big[#out.big + 1] = { id = r.id, type = tn, text = text, year = r.year, tick = r.time }
       end
     end
   end

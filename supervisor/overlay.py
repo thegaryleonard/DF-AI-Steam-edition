@@ -23,6 +23,7 @@ HERE = Path(__file__).parent
 LIB_DIR = HERE / "herald" / "library"
 SEEN_FILE = HERE / "herald" / "seen.json"   # library entry id -> unix time last printed, so issues don't repeat
 seen_lock = threading.Lock()
+MEMORY_FILE = HERE / "herald" / "memory.json"   # running stories: shortages, streaks, days-since counters, dwarf grievances
 cache = {"state": {"ok": False}, "history": {"artifacts": []}, "world": {}, "stocks": {}, "history_world": None}
 STOCKS_EVERY_S = 30
 MOCK = "--mock" in sys.argv
@@ -80,6 +81,8 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = json.dumps(lib).encode(), "application/json"
         elif self.path.startswith("/seen.json"):
             body, ctype = (SEEN_FILE.read_bytes() if SEEN_FILE.exists() else b"{}"), "application/json"
+        elif self.path.startswith("/memory.json"):
+            body, ctype = (MEMORY_FILE.read_bytes() if MEMORY_FILE.exists() else b"{}"), "application/json"
         elif self.path.split("?")[0] in ("/", "/index.html"):
             body, ctype = (HERE / "overlay.html").read_bytes(), "text/html; charset=utf-8"
         else:
@@ -92,6 +95,22 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_POST(self):
+        if self.path.startswith("/memory"):
+            # the page owns the running-stories logic and stores its whole memory object here
+            raw = self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0)
+            try:
+                json.loads(raw)
+            except ValueError:
+                self.send_error(400)
+                return
+            with seen_lock:
+                MEMORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+                tmp = MEMORY_FILE.with_suffix(".tmp")
+                tmp.write_bytes(raw)
+                tmp.replace(MEMORY_FILE)
+            self.send_response(204)
+            self.end_headers()
+            return
         # the page reports which library entries it just printed: {"ids": [...]}
         if not self.path.startswith("/seen"):
             self.send_error(404)
