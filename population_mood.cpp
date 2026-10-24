@@ -8,6 +8,11 @@
 
 #include "ai.h"
 #include "population.h"
+#include "room.h"
+#include "plan.h"
+#include "df/buildings_other_id.h"
+#include "df/workshop_type.h"
+#include "df/building_workshopst.h"
 
 #include "modules/Items.h"
 #include "modules/Job.h"
@@ -57,6 +62,26 @@ static std::string describe_job_item(df::job_item *ji)
     return s;
 }
 
+// The workshop each strange mood claims (Brooding/Fell take any workshop;
+// the glassmaker needs a glass furnace, which df-ai plans as a furnace).
+static df::workshop_type mood_workshop(df::job_type t)
+{
+    switch (t)
+    {
+    case job_type::StrangeMoodCrafter: return workshop_type::Craftsdwarfs;
+    case job_type::StrangeMoodJeweller: return workshop_type::Jewelers;
+    case job_type::StrangeMoodForge: return workshop_type::MetalsmithsForge;
+    case job_type::StrangeMoodMagmaForge: return workshop_type::MagmaForge;
+    case job_type::StrangeMoodCarpenter: return workshop_type::Carpenters;
+    case job_type::StrangeMoodMason: return workshop_type::Masons;
+    case job_type::StrangeMoodBowyer: return workshop_type::Bowyers;
+    case job_type::StrangeMoodTanner: return workshop_type::Leatherworks;
+    case job_type::StrangeMoodWeaver: return workshop_type::Loom;
+    case job_type::StrangeMoodMechanics: return workshop_type::Mechanics;
+    default: return workshop_type::Custom;   // none needed / not handled
+    }
+}
+
 void Population::update_moods(color_ostream & out)
 {
     for (auto u : world->units.active)
@@ -69,6 +94,40 @@ void Population::update_moods(color_ostream & out)
         if (!job || ENUM_ATTR(job_type, type, job->job_type) != job_type_class::StrangeMood)
         {
             continue;
+        }
+
+        // No workshop claimed yet: the fort may not have the kind this mood
+        // needs (a possessed weaver and no loom). Build the planned one now.
+        df::workshop_type need_ws = mood_workshop(job->job_type);
+        if (!Job::getHolder(job) && need_ws != workshop_type::Custom)
+        {
+            bool have = false;
+            for (auto b : world->buildings.other[buildings_other_id::WORKSHOP_ANY])
+            {
+                auto ws = virtual_cast<df::building_workshopst>(b);
+                if (ws && ws->type == need_ws && ws->getBuildStage() == ws->getMaxBuildStage())
+                {
+                    have = true;
+                    break;
+                }
+            }
+            // already being dug or built for this mood (or anything else)?
+            if (!have && ai.find_room(room_type::workshop, [need_ws](room *r) -> bool { return r->workshop_type == need_ws && r->status != room_status::plan; }))
+            {
+                have = true;
+            }
+            if (!have)
+            {
+                room *r = ai.find_room(room_type::workshop, [need_ws](room *r) -> bool { return r->workshop_type == need_ws && r->status == room_status::plan; });
+                if (r && ai.plan.digroom(out, r, true))
+                {
+                    ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " needs a " + enum_item_key(need_ws) + " workshop; building one now");
+                }
+                else if (!r && mood_warned.insert(AI::describe_unit(u) + "|ws").second)
+                {
+                    ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " needs a " + enum_item_key(need_ws) + " workshop, and none is planned or being built");
+                }
+            }
         }
 
         for (size_t idx = 0; idx < job->job_items.elements.size(); idx++)
