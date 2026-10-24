@@ -17,9 +17,13 @@ bool Plan::smooth_room(color_ostream &, room *r, bool engrave)
     auto insert_tile = [&](df::coord t)
     {
         auto tt = Maps::getTileType(t);
+        // off the map (a room on the map edge): getTileType is null, and
+        // dereferencing it crashed DF in checkidle -> smooth_room
+        if (!tt || !room_by_z.count(t.z))
+            return;
         auto & room_z = room_by_z.at(t.z);
         if (ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Wall ||
-            std::find_if(room_z.begin(), room_z.end(), [t](room* o) -> bool { return o->include(t) && o->dig_mode(t) != tile_dig_designation::No &&
+            std::find_if(room_z.begin(), room_z.end(), [t](room* o) -> bool { return o && o->include(t) && o->dig_mode(t) != tile_dig_designation::No &&
                 std::find_if(o->layout.begin(), o->layout.end(), [t, o](furniture* f) -> bool { return o->min + f->pos == t &&
                     f->dig == tile_dig_designation::No && f->construction == construction_type::Wall; }) == o->layout.end(); }) == room_z.end())
         {
@@ -28,7 +32,7 @@ bool Plan::smooth_room(color_ostream &, room *r, bool engrave)
     };
     for (auto f : r->layout)
     {
-        if (f->type == layout_type::door)
+        if (!f || f->type == layout_type::door)
         {
             continue;
         }
