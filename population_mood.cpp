@@ -16,6 +16,7 @@
 
 #include "df/item.h"
 #include "df/items_other_id.h"
+#include "df/building.h"
 #include "df/job.h"
 #include "df/job_item.h"
 #include "df/job_item_ref.h"
@@ -120,6 +121,50 @@ void Population::update_moods(color_ostream & out)
             }
 
             std::string who = AI::describe_unit(u);
+            if (!usable)
+            {
+                // Last resort: supplies a location holds (hospital cloth,
+                // thread, splints in the hospital chest) are flagged foreign
+                // and invisible to the mood. A dying dwarf beats a full chest.
+                int32_t need = ji->quantity - have, got = 0;
+                for (auto item : world->items.other[items_other_id::IN_PLAY])
+                {
+                    if (got >= need)
+                    {
+                        break;
+                    }
+                    df::item_type itype = item->getType();
+                    auto & f = item->flags.bits;
+                    if (!f.foreign || f.trader || f.in_job || f.owned || f.artifact || f.removed || f.garbage_collect)
+                    {
+                        continue;
+                    }
+                    if ((ji->item_type != item_type::NONE && itype != ji->item_type) ||
+                        (ji->item_subtype != -1 && item->getSubtype() != ji->item_subtype) ||
+                        !Job::isSuitableItem(ji, itype, item->getSubtype()) ||
+                        !Job::isSuitableMaterial(ji, item->getMaterial(), item->getMaterialIndex(), itype))
+                    {
+                        continue;
+                    }
+                    df::building *holder = Items::getHolderBuilding(item);
+                    if (!holder || holder->getType() != building_type::Box)
+                    {
+                        continue;
+                    }
+                    df::coord pos = Items::getPosition(item);
+                    if (!Items::moveToGround(item, pos))
+                    {
+                        continue;
+                    }
+                    f.foreign = false;
+                    got += ji->quantity > 100 ? item->getTotalDimension() : item->getStackSize();
+                    usable++;
+                }
+                if (got)
+                {
+                    ai.debug(out, stl_sprintf("[MOOD] took %s from a location chest for %s", describe_job_item(ji).c_str(), who.c_str()));
+                }
+            }
             if (released)
             {
                 ai.debug(out, stl_sprintf("[MOOD] released %d forbidden/dumped item(s) for %s: %s", released, who.c_str(), describe_job_item(ji).c_str()));
