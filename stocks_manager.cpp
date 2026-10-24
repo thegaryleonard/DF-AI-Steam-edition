@@ -73,6 +73,13 @@ int32_t Stocks::count_manager_orders(color_ostream &, const df::manager_order_te
 
     for (auto mo : world->manager_orders.all)
     {
+        // Only df-ai's own one-time orders count as "already queued".
+        // Repeating orders imported from the user's order sets can sit
+        // inactive forever (their conditions aren't met); counting them made
+        // df-ai stop brewing with 20 "queued" drinks that never got made, and
+        // a 67-dwarf fort ran dry.
+        if (mo->frequency != workquota_frequency_type::OneTime)
+            continue;
         if (template_equals(mo, &tmpl))
         {
             amount += mo->amount_left;
