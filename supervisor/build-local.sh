@@ -11,12 +11,15 @@ set -euo pipefail
 DFAI="$(cd "$(dirname "$0")/.." && pwd -W)"
 DFHACK="${DFHACK:-C:/dfbuild/dfhack}"
 DF="${DF:-/c/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress}"
+# DFHack's codegen needs XML::LibXML, which git's bundled perl lacks. Use
+# Strawberry Perl through a wrapper that skips its teardown segfault.
+PERL="${PERL:-$DFAI/supervisor/tools/perl.bat}"
 VSDEV="${VSDEV:-C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Auxiliary/Build/vcvars64.bat}"
 
 # df-ai lives in DFHack's external plugin folder as a junction to this clone
 EXT="$DFHACK/plugins/external"
 if [ ! -e "$EXT/df-ai/CMakeLists.txt" ]; then
-  cmd //c "mklink /J $(cygpath -w "$EXT/df-ai") $(cygpath -w "$DFAI")" >/dev/null
+  cmd /c "mklink /J $(cygpath -w "$EXT/df-ai") $(cygpath -w "$DFAI")" >/dev/null
 fi
 echo 'add_subdirectory(df-ai)' > "$EXT/CMakeLists.txt"
 
@@ -29,9 +32,10 @@ if not exist build\\build.ninja (
   cmake -S . -B build -GNinja -DDFHACK_BUILD_ARCH=64 -DCMAKE_BUILD_TYPE=Release ^
     -DBUILD_STONESENSE:BOOL=OFF -DBUILD_DOCS:BOOL=OFF -DBUILD_TESTS:BOOL=OFF -DBUILD_DFLAUNCH:BOOL=OFF || exit /b 1
 )
+cmake -S . -B build -DPERL_EXECUTABLE=$PERL >nul || exit /b 1
 ninja -C build df-ai || exit /b 1
 EOF
-cmd //c "$BAT"
+cmd /c "$BAT"
 DLL=$(find "$DFHACK/build" -name 'df-ai.plug.dll' | head -1)
 echo "built: $DLL"
 
