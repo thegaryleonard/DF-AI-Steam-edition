@@ -41,9 +41,16 @@
 #include "df/unit_wound.h"
 #include "df/plotinfost.h"
 #include "df/world.h"
+#include "df/items_other_id.h"
+#include "df/item.h"
+#include "df/workshop_type.h"
+#include "df/buildings_other_id.h"
+#include "df/building.h"
 #include "df/workquota_frequency_type.h"
 #include "df/manager_order.h"
 #include "df/wound_curse_info.h"
+
+df::building *place_workshop_near(df::coord origin, df::workshop_type type); // population_mood.cpp
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
@@ -319,6 +326,34 @@ void Population::update_citizenlist(color_ostream & out)
             }
         }
         up_tree_since.swap(still);
+    }
+
+    // Drink production must grow with the fort: the plan's later stills come
+    // long after the migrants (Creaturemirrored reached 67 dwarves on one
+    // still and dwarves died of thirst). Below 3 drinks per dwarf, add a still
+    // next to an existing one, up to one per 25 dwarves.
+    {
+        int32_t drinks = 0;
+        for (auto item : world->items.other[items_other_id::DRINK])
+            drinks += item->getStackSize();
+        int32_t stills = 0, building = 0;
+        df::building *first = nullptr;
+        for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_STILL])
+        {
+            if (bld->getBuildStage() < bld->getMaxBuildStage())
+                building++;
+            else
+                stills++;
+            if (!first)
+                first = bld;
+        }
+        int32_t pop = int32_t(citizen.size());
+        if (first && !building && drinks < 3 * pop && stills < pop / 25 + 1)
+        {
+            df::coord near(first->centerx, first->centery + 2, first->z);
+            if (df::building *bld = place_workshop_near(near, workshop_type::Still))
+                ai.debug(out, stl_sprintf("[Population] drinks low (%d for %d dwarves, %d stills): placed another still (building %d)", drinks, pop, stills, bld->id));
+        }
     }
 
     std::ofstream discard;

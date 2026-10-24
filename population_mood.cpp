@@ -137,9 +137,9 @@ static df::workshop_type mood_workshop(df::job_type t)
 
 // Put a workshop down right now on free floor near the moody dwarf. Digging
 // the planned room took weeks: a possessed weaver died of thirst first.
-static df::building *place_workshop_near(df::unit *u, df::workshop_type type)
+df::building *place_workshop_near(df::coord origin, df::workshop_type type)
 {
-    auto free3x3 = [u](df::coord c) -> bool
+    auto free3x3 = [origin](df::coord c) -> bool
     {
         for (int16_t dx = -1; dx <= 1; dx++)
         {
@@ -155,9 +155,9 @@ static df::building *place_workshop_near(df::unit *u, df::workshop_type type)
                     return false;
             }
         }
-        return Maps::canWalkBetween(u->pos, c);
+        return Maps::canWalkBetween(origin, c);
     };
-    df::coord c = AI::spiral_search(u->pos, 30, 2, free3x3);
+    df::coord c = AI::spiral_search(origin, 30, 2, free3x3);
     if (!c.isValid())
         return nullptr;
 
@@ -228,7 +228,7 @@ void Population::update_moods(color_ostream & out)
             }
             if (!have)
             {
-                if (df::building *bld = place_workshop_near(u, need_ws))
+                if (df::building *bld = place_workshop_near(u->pos, need_ws))
                 {
                     ai.debug(out, stl_sprintf("[MOOD] %s needs a %s workshop; placed one at (%d, %d, %d)", AI::describe_unit(u).c_str(), enum_item_key(need_ws).c_str(), bld->centerx, bld->centery, bld->z));
                 }
@@ -458,7 +458,7 @@ void Population::update_moods(color_ostream & out)
                 }
                 if (!have_jeweler && mood_warned.insert(who + "|jeweler").second)
                 {
-                    if (df::building *bld = place_workshop_near(u, workshop_type::Jewelers))
+                    if (df::building *bld = place_workshop_near(u->pos, workshop_type::Jewelers))
                         ai.debug(out, stl_sprintf("[MOOD] no Jeweler's workshop for %s's gem: placed one (building %d)", who.c_str(), bld->id));
                 }
                 std::ostringstream why;
