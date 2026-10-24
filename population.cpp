@@ -39,6 +39,8 @@
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
 REQUIRE_GLOBAL(standing_orders_forbid_used_ammo);
+REQUIRE_GLOBAL(standing_orders_gather_refuse_outside);
+REQUIRE_GLOBAL(standing_orders_gather_vermin_remains);
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
@@ -77,6 +79,10 @@ int32_t Population::days_since(int32_t year, int32_t tick)
 command_result Population::startup(color_ostream &)
 {
     *standing_orders_forbid_used_ammo = 0;
+    // refuse outside (fishing shells, hunted animals' remains) was marked
+    // for dumping but never hauled: 560 shells and skeletons sat on the bank
+    *standing_orders_gather_refuse_outside = 1;
+    *standing_orders_gather_vermin_remains = 1;
     return CR_OK;
 }
 
