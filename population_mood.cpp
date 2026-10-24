@@ -7,7 +7,10 @@
 // dumping, and log clearly when the fort has nothing that fits.
 
 #include "ai.h"
+
+#include <sstream>
 #include "population.h"
+#include "stocks.h"
 #include "room.h"
 #include "plan.h"
 #include "df/buildings_other_id.h"
@@ -227,6 +230,14 @@ void Population::update_moods(color_ostream & out)
             if (released)
             {
                 ai.debug(out, stl_sprintf("[MOOD] released %d forbidden/dumped item(s) for %s: %s", released, who.c_str(), describe_job_item(ji).c_str()));
+            }
+            if (!usable && ji->item_type == item_type::SMALLGEM)
+            {
+                // cut one from the rough gems the miners bring up
+                std::ostringstream why;
+                ai.stocks.queue_use_gems(out, 1, why);
+                ai.debug(out, "[MOOD] queued gem cutting for " + who + (why.str().empty() ? std::string() : " (" + why.str() + ")"));
+                usable++;
             }
             if (!usable)
             {

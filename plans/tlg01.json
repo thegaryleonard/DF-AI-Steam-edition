@@ -664,6 +664,38 @@
 			}
 		},
 		{
+			"name": "Bowyer's Workshop",
+			"action": "dig",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "workshop",
+					"workshop_type": "Bowyers"
+				},
+				"is": 0
+			},
+			"match": {
+				"type": "workshop",
+				"workshop_type": "Bowyers"
+			}
+		},
+		{
+			"name": "Jeweler's Workshop",
+			"action": "dig",
+			"count": {
+				"match": {
+					"status_not": "plan",
+					"type": "workshop",
+					"workshop_type": "Jewelers"
+				},
+				"is": 0
+			},
+			"match": {
+				"type": "workshop",
+				"workshop_type": "Jewelers"
+			}
+		},
+		{
 			"continue": true,
 			"name": "Entrance Static Defenses",
 			"action": "unignore_furniture",
