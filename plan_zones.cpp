@@ -82,7 +82,9 @@ df::building_civzonest *Plan::create_zone(color_ostream & out, df::civzone_type 
         bld->zone_settings.pond.flag.bits.keep_filled = 1;
         break;
     case civzone_type::PlantGathering:
-        bld->zone_settings.gather.flags.bits.pick_trees = 1;
+        // no tree climbing: pickers get stranded in tree crowns and die of
+        // thirst up there (fallen fruit is still gathered)
+        bld->zone_settings.gather.flags.bits.pick_trees = 0;
         bld->zone_settings.gather.flags.bits.pick_shrubs = 1;
         bld->zone_settings.gather.flags.bits.gather_fallen = 1;
         break;

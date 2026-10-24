@@ -1,5 +1,6 @@
 #include "ai.h"
 #include <set>
+#include <map>
 #include "population.h"
 #include "plan.h"
 
@@ -271,6 +272,53 @@ void Population::update_citizenlist(color_ostream & out)
             }
             ai.event("del citizen", payload);
         }
+    }
+
+    // Dwarves stranded in tree crowns (fruit picking, felled neighbours)
+    // starve there: Creaturemirrored lost a miner who sat on a branch until
+    // he died of thirst. After 3 days up a tree, put them on the ground below.
+    {
+        static std::map<int32_t, int32_t> up_tree_since;
+        int32_t now = *cur_year * 403200 + *cur_year_tick;
+        std::map<int32_t, int32_t> still;
+        for (auto id : citizen)
+        {
+            df::unit *u = df::unit::find(id);
+            if (!u || Units::isDead(u))
+                continue;
+            df::tiletype *tt = Maps::getTileType(u->pos);
+            if (!tt || ENUM_ATTR(tiletype, material, *tt) != tiletype_material::TREE)
+                continue;
+            auto it = up_tree_since.find(id);
+            int32_t since = it == up_tree_since.end() ? now : it->second;
+            if (now - since < 3 * 1200)
+            {
+                still[id] = since;
+                continue;
+            }
+            // first open floor below that isn't part of the tree
+            for (df::coord t = u->pos - df::coord(0, 0, 1); t.z >= 0; t.z--)
+            {
+                df::tiletype *bt = Maps::getTileType(t);
+                if (!bt)
+                    break;
+                auto bshape = ENUM_ATTR(tiletype, shape, *bt);
+                if (ENUM_ATTR(tiletype, material, *bt) == tiletype_material::TREE && bshape != tiletype_shape::FLOOR)
+                    continue;
+                if (bshape == tiletype_shape::EMPTY)
+                    continue;
+                if (ENUM_ATTR(tiletype_shape, basic_shape, bshape) == tiletype_shape_basic::Wall)
+                {
+                    t.z++; // standing on top of solid ground
+                }
+                if (Units::teleport(u, t))
+                {
+                    ai.debug(out, "[Population] rescued " + AI::describe_unit(u) + " stuck in a tree for 3 days: moved to the ground below");
+                }
+                break;
+            }
+        }
+        up_tree_since.swap(still);
     }
 
     std::ofstream discard;
