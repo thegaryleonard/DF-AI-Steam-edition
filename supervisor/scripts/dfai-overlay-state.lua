@@ -135,6 +135,38 @@ if out.ok then
   local tour = rawget(_G, 'dfai_tour')
   if tour and tour.current then
     out.tour = { name = tour.current.name, kind = tour.current.kind, detail = tour.current.detail }
+    -- live facts for the On Camera card: who is here and what the workshop is making
+    local okl, live = pcall(function()
+      local p = tour.current.pos
+      if not p then return nil end
+      local L = { present = {}, people = 0, animals = 0 }
+      local b = dfhack.buildings.findAtTile(p)
+      if b and #b.jobs > 0 then
+        local j = b.jobs[0]
+        L.job = dfhack.df2utf(dfhack.job.getName(j))
+        local w = dfhack.job.getWorker(j)
+        if w then L.worker = dfhack.df2utf(dfhack.units.getReadableName(w)):gsub(',.*$', ''):gsub('%s*"[^"]*"', '') end
+        L.queued = #b.jobs
+      end
+      for _, u in ipairs(df.global.world.units.active) do
+        if u.pos.z == p.z and math.abs(u.pos.x - p.x) <= 7 and math.abs(u.pos.y - p.y) <= 7
+            and dfhack.units.isAlive(u) and not dfhack.units.isHidden(u) then
+          if dfhack.units.isCitizen(u) or dfhack.units.isVisitor(u) then
+            L.people = L.people + 1
+            if #L.present < 3 then
+              local cj = u.job.current_job
+              L.present[#L.present + 1] = {
+                name = dfhack.df2utf(dfhack.units.getReadableName(u)):gsub(',.*$', ''):gsub('%s*"[^"]*"', ''),
+                doing = cj and dfhack.df2utf(dfhack.job.getName(cj)) or nil }
+            end
+          elseif dfhack.units.isAnimal(u) then
+            L.animals = L.animals + 1
+          end
+        end
+      end
+      return L
+    end)
+    if okl then out.tour.live = live end
   end
   -- the unit the spectator camera is actually following (any creature), for the on-camera card
   local cam = df.unit.find(df.global.plotinfo.follow_unit)
