@@ -734,7 +734,14 @@ bool Plan::try_digpitshaft(color_ostream & out, room *r, std::ostream & reason)
             }
         }
     }
-    if (Maps::getTileDesignation(s0)->bits.dig != tile_dig_designation::Channel)
+    // DF 53 clears the dig flag once a job exists, so look for the job too
+    bool queued = Maps::getTileDesignation(s0)->bits.dig == tile_dig_designation::Channel;
+    for (auto job : world->jobs.list)
+    {
+        if (job->pos == s0 && ENUM_ATTR(job_type, type, job->job_type) == job_type_class::Digging)
+            queued = true;
+    }
+    if (!queued)
     {
         ai.debug(out, "[PIT] pit shaft channeled; cutting off its access stair");
         AI::dig_tile(s0, tile_dig_designation::Channel);
