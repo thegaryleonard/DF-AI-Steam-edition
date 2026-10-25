@@ -33,7 +33,7 @@ if not exist build\\build.ninja (
     -DBUILD_STONESENSE:BOOL=OFF -DBUILD_DOCS:BOOL=OFF -DBUILD_TESTS:BOOL=OFF -DBUILD_DFLAUNCH:BOOL=OFF || exit /b 1
 )
 cmake -S . -B build -DPERL_EXECUTABLE=$PERL >nul || exit /b 1
-ninja -C build df-ai || exit /b 1
+ninja -C build df-ai dfai_portrait || exit /b 1
 EOF
 cmd /c "$BAT"
 DLL=$(find "$DFHACK/build" -name 'df-ai.plug.dll' | head -1)
@@ -48,5 +48,14 @@ if [ "${1:-}" = install ]; then
   PDB="${DLL%.dll}.pdb"; [ -f "$PDB" ] && cp "$PDB" "$DF/hack/plugins/"
   "$RUN" load df-ai
   "$RUN" enable df-ai
+  # the portrait helper (no state; safe to swap)
+  PDLL=$(find "$DFHACK/build" -name 'dfai_portrait.plug.dll' | head -1)
+  if [ -n "$PDLL" ]; then
+    "$RUN" unload dfai_portrait >/dev/null 2>&1 || true
+    cp "$PDLL" "$DF/hack/plugins/"
+    [ -f "${PDLL%.dll}.pdb" ] && cp "${PDLL%.dll}.pdb" "$DF/hack/plugins/"
+    cp "$DFAI/portrait/dfai_portrait.lua" "$DF/hack/lua/plugins/"
+    "$RUN" load dfai_portrait
+  fi
   echo "installed and enabled"
 fi

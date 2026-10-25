@@ -14,7 +14,7 @@ import zlib
 import dfai_supervisor as sup
 
 CACHE_S = 60
-TARGET = 160          # about this many pixels on the long side
+TARGET = 192          # about this many pixels on the long side
 _cache = {}
 _lock = threading.Lock()
 
@@ -42,7 +42,7 @@ def _card(w, h, data):
     x0, x1, y0, y1 = min(xs), max(xs) + 1, min(ys), max(ys) + 1
     cw, ch = x1 - x0, y1 - y0
     side = max(cw, ch) + 2
-    k = max(1, TARGET // side)
+    k = max(1, -(-TARGET // side))   # round up: crisp 2x for the 96 px portrait
     ox, oy = (side - cw) // 2, side - ch - 1       # centred, standing on the bottom
     blank = b"\x00\x00\x00\x00"
     rows = []

@@ -1,12 +1,13 @@
 -- dfai-portrait: write a unit's picture as raw RGBA for the broadsheet's card.
 --   dfai-portrait <unit id> <outfile>
--- Uses the unit's sheet icon (its map sprite with what it's holding, built by
--- DF when the unit is drawn), else the plain map sprite. Read-only: copies
+-- Uses DF's portrait when it has been built, else the unit's sheet icon (map
+-- sprite with what it's holding), else the plain map sprite. Read-only: copies
 -- pixels out of the SDL surface DF already made; changes nothing in the game.
 -- Output: "RGBA w h\n" + w*h*4 bytes. Prints "OK w h texpos" or "NONE why".
 --
--- (DF's real 96x96 portrait only exists while the unit sheet is open, and
--- building it from Lua crashed the game: don't try that here.)
+-- DF's real 96x96 portrait is built by the dfai_portrait plugin from the
+-- render pass (dfai-portrait-builder.lua). Never build it from here: calling
+-- DF's portrait code outside rendering, or from Lua, crashed the game.
 local args = {...}
 
 local function dump(texpos, out)
@@ -38,7 +39,9 @@ end
 
 local u = df.unit.find(tonumber(args[1] or ''))
 if not u or not args[2] then print('NONE no unit') return end
-for _, tp in ipairs({u.sheet_icon_texpos, u.texpos[0][0]}) do
+-- DF's own portrait (dfai-portrait-builder has DF make it), else the sprite
+if u.portrait_texpos == 0 then rawset(_G, 'dfai_portrait_want', u.id) end
+for _, tp in ipairs({u.portrait_texpos, u.sheet_icon_texpos, u.texpos[0][0]}) do
     local w, h = dump(tp, args[2])
     if w then print(('OK %d %d %d'):format(w, h, tp)) return end
 end

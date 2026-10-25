@@ -123,6 +123,9 @@ LIST(APPEND PROJECT_LIBS jsoncpp_static lua ${ZLIB_LIBRARIES})
 SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DDFAI_RELEASE")
 
 DFHACK_PLUGIN(df-ai ${PROJECT_SRCS} LINK_LIBRARIES ${PROJECT_LIBS} COMPILE_FLAGS_GCC "-Wno-error -Wno-unused-parameter" COMPILE_FLAGS_MSVC "/W3 /WX- /bigobj")
+
+# DF's own unit portraits for the stream broadsheet (version-specific; see portrait/dfai_portrait.cpp)
+DFHACK_PLUGIN(dfai_portrait portrait/dfai_portrait.cpp COMPILE_FLAGS_MSVC "/W3 /WX-")
 if(MSVC)
     # ship a PDB so DF/DFHack crash logs and dumps can be symbolized
     target_compile_options(df-ai PRIVATE /Zi)
