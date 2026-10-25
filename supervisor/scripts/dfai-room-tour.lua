@@ -252,11 +252,11 @@ local function show_guest()
     return true
 end
 
--- threats: forgotten beasts, megabeasts, titans, demons, invaders. When one is
--- first seen (uncovered map) the camera jumps to it for THREAT_SECS, and again
--- every THREAT_GAP while it's around. Fights themselves: spectate's prefer-conflict.
+-- threats: forgotten beasts, megabeasts, titans, demons, invaders. While any
+-- is on uncovered map the camera stays on threats (the audience wants blood,
+-- user's call), rotating between them every THREAT_SECS, least recently shown first.
 local THREAT_SECS = 30
-local THREAT_GAP = 180
+local THREAT_GAP = 0
 
 local function is_threat(u)
     if not dfhack.units.isActive(u) or dfhack.units.isDead(u) or dfhack.units.isCitizen(u) then return false end
@@ -275,9 +275,6 @@ local function pick_threat()
         local ok, th = pcall(is_threat, u)
         if ok and th then
             local t = tour.threat_seen[u.id] or 0
-            -- invaders come in crowds: one look per squad-ish, by race
-            local key = dfhack.units.isInvader(u) and ('race' .. u.race) or u.id
-            t = math.max(t, tour.threat_seen[key] or 0)
             if now - t >= THREAT_GAP and (not best or t < best_t) then best, best_t = u, t end
         end
     end
@@ -289,7 +286,6 @@ local function show_threat()
     if not u then return false end
     local now = os.time()
     tour.threat_seen[u.id] = now
-    if dfhack.units.isInvader(u) then tour.threat_seen['race' .. u.race] = now end
     dfhack.run_command_silent('disable', 'spectate')
     df.global.plotinfo.follow_unit = u.id
     tour.guest, tour.current, tour.threat = u.id, nil, true
@@ -333,7 +329,8 @@ local function step()
             back_to_dwarves() -- the camera lost the guest (or someone took it)
         elseif not u or not dfhack.units.isActive(u) or dfhack.units.isDead(u)
             or now - tour.last_switch >= (tour.threat and THREAT_SECS or GUEST_SECS) then
-            back_to_dwarves()
+            -- a threat's time is up (or it died): next threat if any, else dwarves
+            if not (tour.threat and show_threat()) then back_to_dwarves() end
         end
     elseif spectate_on() and now - tour.last_switch >= DWARF_SECS then
         show_next_room()
