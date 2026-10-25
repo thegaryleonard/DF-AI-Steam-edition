@@ -180,6 +180,7 @@ public:
     bool is_smooth(df::coord t, bool engrave = false);
 
     bool try_digcistern(color_ostream & out, room *r);
+    bool try_digpitshaft(color_ostream & out, room *r, std::ostream & reason);
     bool try_setup_farmplot(color_ostream & out, room *r, std::ostream & reason);
     bool try_endfurnish(color_ostream & out, room *r, furniture *f, std::ostream & reason);
 

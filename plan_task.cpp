@@ -35,6 +35,10 @@ void Plan::update(color_ostream &)
             task *t = *it;
             if ((t->type != task_type::dig_room && t->type != task_type::dig_room_immediate) || (t->r->type == room_type::corridor && (t->r->corridor_type == corridor_type::veinshaft || t->r->corridor_type == corridor_type::outpost)))
                 continue;
+            // a pit's hatch and dump tiles wait (possibly a long time) for the
+            // shaft below; they must not hold dig slots meanwhile
+            if (t->r->type == room_type::pitcage || t->r->type == room_type::garbagedump)
+                continue;
             df::coord size = t->r->size();
             if (t->r->type != room_type::corridor || size.z > 1)
                 nrdig[t->r->queue]++;
@@ -147,7 +151,7 @@ void Plan::update(color_ostream &)
                 del = try_digcistern(out, t.r);
                 break;
             case task_type::dig_garbage:
-                del = true;
+                del = try_digpitshaft(out, t.r, reason);
                 break;
             case task_type::check_idle:
                 del = checkidle(out, reason);
@@ -494,7 +498,7 @@ bool Plan::digroom(color_ostream & out, room *r, bool immediate)
     });
 
     df::coord size = r->size();
-    if (r->type != room_type::corridor || size.z > 1)
+    if ((r->type != room_type::corridor || size.z > 1) && r->type != room_type::pitcage && r->type != room_type::garbagedump)
     {
         nrdig[r->queue]++;
         if (size.x * size.y * size.z >= 10)

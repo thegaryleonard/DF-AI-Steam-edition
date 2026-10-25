@@ -154,6 +154,11 @@ void room::dig(bool plan, bool channel)
                         continue;
                     }
                     df::tile_dig_designation dm = channel ? tile_dig_designation::Channel : dig_mode(t);
+                    if (dm == tile_dig_designation::Channel && pit_channel_blocked(t))
+                    {
+                        // underground pit: the top stays shut until the shaft below is dug and sealed
+                        continue;
+                    }
                     if (((dm == tile_dig_designation::DownStair || dm == tile_dig_designation::Channel) && ENUM_ATTR(tiletype, shape, *tt) != tiletype_shape::STAIR_DOWN && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Open) || ENUM_ATTR(tiletype, shape, *tt) == tiletype_shape::WALL)
                     {
                         AI::dig_tile(t, dm);
@@ -180,6 +185,10 @@ void room::dig(bool plan, bool channel)
             if (ENUM_ATTR(tiletype, material, *tt) == tiletype_material::CONSTRUCTION)
                 continue;
 
+            if (f->dig == tile_dig_designation::Channel && pit_channel_blocked(t))
+            {
+                continue;
+            }
             if (f->dig != tile_dig_designation::Default)
             {
                 if (ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Wall || (f->dig == tile_dig_designation::Channel && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Open))
@@ -197,6 +206,22 @@ void room::dig(bool plan, bool channel)
             }
         }
     }
+}
+
+// True for a Channel designation at the top of an underground pit shaft that
+// is not dug and sealed yet. Channeling there early turns the rock below into
+// a ramp, which is exactly the walk-in access the shaft must never have.
+bool pit_channel_blocked(df::coord t)
+{
+    extern std::unique_ptr<AI> dwarfAI;
+    if (!dwarfAI)
+        return false;
+    return dwarfAI->find_room(room_type::corridor, [t](room *r) -> bool
+    {
+        return r->corridor_type == corridor_type::pitshaft && !r->channeled &&
+            t.z == r->max.z + 1 &&
+            r->min.x <= t.x && t.x <= r->max.x && r->min.y <= t.y && t.y <= r->max.y;
+    }) != nullptr;
 }
 
 bool room::include(df::coord t) const
@@ -230,8 +255,10 @@ df::tile_dig_designation room::dig_mode(df::coord t) const
         }
     }
 
-    if (type != room_type::corridor)
+    if (type != room_type::corridor || corridor_type == corridor_type::pitshaft)
     {
+        // a pit shaft is dug as plain floors on every level (its stair column
+        // comes from the layout); the shaft tiles are channeled afterwards
         return tile_dig_designation::Default;
     }
     bool wantup = include(t + df::coord(0, 0, 1));

@@ -158,6 +158,14 @@ bool Plan::construct_room(color_ostream & out, room *r)
         add_task(task_type::monitor_room_value, r);
     }
 
+    if (r->type == room_type::corridor && r->corridor_type == corridor_type::pitshaft)
+    {
+        furnish_room(out, r);
+        // channel the shaft open, then seal its access stair (try_digpitshaft)
+        add_task(task_type::dig_garbage, r);
+        return true;
+    }
+
     if (r->type == room_type::corridor)
     {
         return furnish_room(out, r);
@@ -284,6 +292,15 @@ bool Plan::try_furnish(color_ostream & out, room *r, furniture *f, std::ostream 
     if (ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, tt)) == tiletype_shape_basic::Wall)
     {
         reason << "waiting for wall to be excavated";
+        return false;
+    }
+
+    if (f->dig == tile_dig_designation::Channel && f->type != layout_type::none &&
+        ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, tt)) != tiletype_shape_basic::Open)
+    {
+        // a hatch (or well) goes over the hole, not on the floor that is
+        // still waiting to be channeled (underground pits dig their floors first)
+        reason << "waiting for channel";
         return false;
     }
 

@@ -62,6 +62,7 @@ BEGIN_ENUM(corridor, type) \
     ENUM_ITEM(aqueduct) \
     ENUM_ITEM(outpost) \
     ENUM_ITEM(walkable) \
+    ENUM_ITEM(pitshaft) \
 END_ENUM(corridor, type) \
 \
 BEGIN_ENUM(farm, type) \
@@ -263,6 +264,9 @@ struct room
     int32_t distance_to(const room *other) const;
     bool low_grass() const;
 };
+
+// underground pit shaft (corridor_type pitshaft): channels at its top wait for the seal
+bool pit_channel_blocked(df::coord t);
 
 struct furniture
 {

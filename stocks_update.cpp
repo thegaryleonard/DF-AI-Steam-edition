@@ -373,7 +373,17 @@ void Stocks::update_corpses(color_ostream & out)
         updating_corpses = false;
         return;
     }
-    df::coord t = r->min + df::coord(1, 0, -1);
+    // where dumped things end up: the floor under the dump tile when the dump
+    // is a hole (underground pit), else the old surface pit's floor
+    df::coord t = r->min;
+    while (t.z > 0 && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *Maps::getTileType(t))) == tiletype_shape_basic::Open)
+    {
+        t.z--;
+    }
+    if (t == r->min)
+    {
+        t = r->min + df::coord(1, 0, -1);
+    }
 
     for (auto i : world->items.other[items_other_id::ANY_CORPSE])
     {

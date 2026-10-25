@@ -12,6 +12,7 @@
 #include "df/general_ref_building_triggertargetst.h"
 #include "df/job.h"
 #include "df/map_block.h"
+#include "df/unit.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(world);
@@ -600,4 +601,144 @@ bool Plan::pull_lever(color_ostream &, furniture *f, std::ostream & reason)
     reason << "waiting for someone to pull " << AI::describe_furniture(f);
 
     return true;
+}
+
+
+// Underground pit (corridor_type pitshaft): the shaft is first dug as plain
+// floors on every level from a stair column beside it, so channeling those
+// floors afterwards never turns rock into ramps. Then the stair is cut off at
+// the top (channel + constructed floor), so nothing at the bottom - corpses,
+// refuse, survivors - is ever reachable from the fort. Only after that may the
+// hatch and the dump at the top be channeled (pit_channel_blocked).
+bool Plan::try_digpitshaft(color_ostream & out, room *r, std::ostream & reason)
+{
+    if (r->channeled)
+        return true;
+
+    std::set<std::pair<int16_t, int16_t>> stairs;
+    for (auto f : r->layout)
+    {
+        if (f->dig == tile_dig_designation::UpDownStair || f->dig == tile_dig_designation::UpStair || f->dig == tile_dig_designation::DownStair)
+        {
+            stairs.insert(std::make_pair(int16_t(r->min.x + f->pos.x), int16_t(r->min.y + f->pos.y)));
+        }
+    }
+    if (stairs.empty())
+    {
+        reason << "pit shaft has no access stair in its layout";
+        return false;
+    }
+
+    auto basic = [](df::coord t) -> df::tiletype_shape_basic
+    {
+        return ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *Maps::getTileType(t)));
+    };
+
+    // 1. channel every shaft floor except the bottom one
+    int32_t left = 0;
+    for (int16_t z = r->max.z; z > r->min.z; z--)
+    {
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+        {
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+            {
+                if (stairs.count(std::make_pair(x, y)))
+                    continue;
+                df::coord t(x, y, z);
+                if (basic(t) == tiletype_shape_basic::Open)
+                    continue;
+                left++;
+                if (basic(t - df::coord(0, 0, 1)) == tiletype_shape_basic::Wall)
+                {
+                    // not dug below yet: channeling now would leave a ramp
+                    continue;
+                }
+                if (Maps::getTileDesignation(t)->bits.dig != tile_dig_designation::Channel)
+                {
+                    AI::dig_tile(t, tile_dig_designation::Channel);
+                }
+            }
+        }
+    }
+    if (left)
+    {
+        reason << "channeling the pit shaft: " << left << " tiles left";
+        return false;
+    }
+
+    // 2. cut the access stair off at the top
+    df::coord s0(stairs.begin()->first, stairs.begin()->second, r->max.z + 1);
+    df::tiletype stt = *Maps::getTileType(s0);
+    auto sb = ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, stt));
+
+    df::unit *inside = nullptr;
+    for (auto u : world->units.active)
+    {
+        if (Units::isDead(u) || !Units::isActive(u))
+            continue;
+        if (r->include(Units::getPosition(u)) || Units::getPosition(u) == s0)
+        {
+            inside = u;
+            break;
+        }
+    }
+
+    if (ENUM_ATTR(tiletype, material, stt) == tiletype_material::CONSTRUCTION && sb == tiletype_shape_basic::Floor)
+    {
+        if (inside && Units::isCitizen(inside))
+        {
+            // someone got shut in while the floor went up: bring them back up
+            df::coord to = AI::spiral_search(s0, 2, 1, [s0](df::coord t) -> bool
+            {
+                return t.z == s0.z && t != s0 && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *Maps::getTileType(t))) == tiletype_shape_basic::Floor && Maps::getTileWalkable(t) != 0;
+            });
+            if (to.isValid() && Units::teleport(inside, to))
+            {
+                ai.debug(out, "[PIT] " + AI::describe_unit(inside) + " was shut in the pit shaft; moved back up");
+            }
+            reason << "waiting for " << AI::describe_unit(inside) << " to get out of the pit shaft";
+            return false;
+        }
+        r->channeled = true;
+        ai.debug(out, "[PIT] pit shaft sealed: " + AI::describe_room(r) + "; the pit bottom is now out of reach");
+        return true;
+    }
+
+    if (sb == tiletype_shape_basic::Open)
+    {
+        if (!try_furnish_construction(out, construction_type::Floor, s0, reason))
+        {
+            return false;
+        }
+        reason << "sealing the pit shaft (floor over its stair)";
+        return false;
+    }
+
+    // a stair still leads down: nobody may be in there when it goes
+    if (inside)
+    {
+        reason << "waiting for " << AI::describe_unit(inside) << " to leave the pit shaft";
+        return false;
+    }
+    // nothing down there is worth a trip
+    room_items(out, r, [](df::item *i) { i->flags.bits.forbid = true; });
+    // stop the stair's own room from re-digging or rebuilding the stair
+    for (auto rr : r->accesspath)
+    {
+        for (auto f : rr->layout)
+        {
+            if (rr->min + f->pos == s0)
+            {
+                f->dig = tile_dig_designation::Channel;
+                f->construction = construction_type::NONE;
+            }
+        }
+    }
+    if (Maps::getTileDesignation(s0)->bits.dig != tile_dig_designation::Channel)
+    {
+        ai.debug(out, "[PIT] pit shaft channeled; cutting off its access stair");
+        AI::dig_tile(s0, tile_dig_designation::Channel);
+    }
+    reason << "channeling the top of the pit shaft's access stair";
+    return false;
 }

@@ -1235,6 +1235,12 @@ void Plan::fixup_open(color_ostream & out, room *r)
     {
         return;
     }
+    if (r->type == room_type::corridor && r->corridor_type == corridor_type::pitshaft)
+    {
+        // the shaft is channeled open on purpose (try_digpitshaft): never
+        // build floors or stairs back into it
+        return;
+    }
 
     for (int16_t x = r->min.x; x <= r->max.x; x++)
     {

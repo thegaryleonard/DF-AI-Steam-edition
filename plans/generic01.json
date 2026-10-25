@@ -17,6 +17,7 @@
 			"generic01_cemetery",
 			"generic01_corridor",
 			"generic01_dormitory",
+			"generic01_execution_pit",
 			"generic01_infirmary",
 			"generic01_jail",
 			"generic01_location",
@@ -38,8 +39,7 @@
 		"generic01_mineshaft",
 		"generic01_outdoor_farm",
 		"generic01_outpost_entrance",
-		"generic01_pasture",
-		"generic01_pitting_tower"
+		"generic01_pasture"
 	],
 	"count_as": {
 		"generic01_dormitory/generic/generic": {
@@ -65,7 +65,7 @@
 		"generic01_nobleroom": [4, 8],
 		"generic01_outpost_entrance": [1, 1],
 		"generic01_pasture": [0, 10],
-		"generic01_pitting_tower": [1, 1],
+		"generic01_execution_pit": [1, 1],
 		"generic01_stair": [0, 100],
 		"generic01_start": [1, 1],
 		"generic01_well": [1, 1]
@@ -725,7 +725,7 @@
 			}
 		},
 		{
-			"name": "Pitting Tower",
+			"name": "Execution Pit",
 			"action": "dig",
 			"match": {
 				"type": "pitcage"

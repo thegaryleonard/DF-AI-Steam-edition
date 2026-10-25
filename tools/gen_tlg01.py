@@ -15,7 +15,7 @@ What makes it TLG-style (see rooms/TLG01.md for sources):
     farm, still + drink pile, dormitory, depot, craftsdwarf, mechanic + traps...
 
 Room types that TLG does not do differently (depot, well/cistern, mineshaft,
-pitting tower, pastures, plain corridors, jail, barracks, ...) are copied from
+execution pit, pastures, plain corridors, jail, barracks, ...) are copied from
 generic01 with the prefix renamed so the plan is self-contained.
 
 Run from the repo root:  python tools/gen_tlg01.py && python tools/bpcheck.py --plan tlg01
@@ -354,7 +354,7 @@ def write_json(path, obj):
         f.write('\n')
 
 COPY = ['apiary', 'barracks', 'cage_trap', 'corridor', 'corridor_stair', 'depot', 'jail', 'mineshaft',
-        'mineshaft_segment', 'nobleroom', 'outdoor_farm', 'outpost_entrance', 'pasture', 'pitting_tower',
+        'mineshaft_segment', 'nobleroom', 'outdoor_farm', 'outpost_entrance', 'pasture', 'execution_pit',
         'stockpile', 'underground_farm_extension', 'underground_farm_start', 'well', 'workshop_1x1',
         'workshop_5x5']
 
@@ -421,13 +421,13 @@ def make_plan():
         # close to the stairs ("closer to the hub = faster work")
         P + 'hub_room': [P + 'workshop_3x3', P + 'infirmary', P + 'jail', P + 'cemetery',
                          P + 'underground_farm_start'],
-        P + 'generic': [P + 'bedrooms', P + 'cemetery', P + 'corridor', P + 'infirmary', P + 'jail',
+        P + 'generic': [P + 'bedrooms', P + 'cemetery', P + 'corridor', P + 'execution_pit', P + 'infirmary', P + 'jail',
                         P + 'location', P + 'nobleroom', P + 'underground_farm_start',
                         P + 'workshop_3x3', P + 'workshop_5x5'],
         P + 'wide': [P + 'barracks', P + 'stockpile', P + 'well'],
     }
     plan['outdoor'] = [P + n for n in ('apiary', 'cage_trap', 'depot', 'mineshaft', 'outdoor_farm',
-                                       'outpost_entrance', 'pasture', 'pitting_tower')]
+                                       'outpost_entrance', 'pasture')]
     plan['count_as'] = {P + 'start/hub/generic': {P + 'bedroom': 8}}
     plan['limits'] = {
         P + 'apiary': [1, 1],
@@ -447,7 +447,7 @@ def make_plan():
         P + 'nobleroom': [4, 8],
         P + 'outpost_entrance': [1, 1],
         P + 'pasture': [0, 6],
-        P + 'pitting_tower': [1, 1],
+        P + 'execution_pit': [1, 1],   # underground (see gen_execution_pit.py)
         P + 'start': [1, 1],
         P + 'well': [1, 1],
     }
