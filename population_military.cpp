@@ -45,6 +45,12 @@
 #include "df/alert_statest.h"
 #include "df/burrow.h"
 #include "df/weapon_flags.h"
+#include "df/squad_schedule_entry.h"
+#include "df/squad_schedule_order.h"
+#include "df/squad_schedulest.h"
+#include "df/squad_order_trainst.h"
+#include "df/squad_month_positionst.h"
+#include "df/unit_relationship_type.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
@@ -972,6 +978,179 @@ void Population::civilian_alert(color_ostream & out, bool danger)
     ai.debug(out, "[MILITARY] danger on the map: civilian alert, everyone into the Safety burrow");
 }
 
+bool Population::is_doctor(df::unit *u)
+{
+    for (auto occ : u->occupations)
+    {
+        if (occ && occ->type == occupation_type::DOCTOR)
+            return true;
+    }
+    return false;
+}
+
+// A parent carries their baby into battle (and babies die there).
+bool Population::carries_baby(df::unit *u)
+{
+    for (auto other : world->units.active)
+    {
+        if (other && Units::isBaby(other) && Units::isAlive(other) &&
+            (other->relationship_ids[unit_relationship_type::Mother] == u->id || other->relationship_ids[unit_relationship_type::Father] == u->id))
+            return true;
+    }
+    return false;
+}
+
+// Training rotates through every squad over the year. Squads are split into
+// G groups (G = number of squads, at least 2, at most 4); group k trains in
+// the months m with m % G == k, so each squad trains 12/G months spread over
+// the year and only about 1/G of the army trains at a time while the rest
+// works. Squads sharing a barracks get different groups where possible, so a
+// barracks holds one training squad at a time. This rewrites each fort
+// squad's "Staggered training" routine and puts off-duty squads with a
+// barracks on it.
+void Population::schedule_training(color_ostream & out)
+{
+    auto entity = plotinfo->main.fortress_entity;
+    if (!entity)
+        return;
+
+    int32_t routine_idx = -1;
+    auto & routines = plotinfo->alerts.routines;
+    for (size_t i = 0; i < routines.size(); i++)
+    {
+        if (routines.at(i)->name == "Staggered training")
+            routine_idx = int32_t(i);
+    }
+    if (routine_idx == -1 && routines.size() > 1)
+        routine_idx = 1;
+    if (routine_idx == -1)
+        return;
+
+    std::vector<df::squad *> squads;
+    for (auto sqid : entity->squads)
+    {
+        auto squad = df::squad::find(sqid);
+        if (!squad || size_t(routine_idx) >= squad->schedule.routine.size())
+            continue;
+        if (std::none_of(squad->positions.begin(), squad->positions.end(), [](df::squad_position *p) { return p && p->occupant != -1; }))
+            continue;
+        squads.push_back(squad);
+    }
+    if (squads.empty())
+        return;
+    std::sort(squads.begin(), squads.end(), [](df::squad *a, df::squad *b) { return a->id < b->id; });
+
+    int32_t groups = std::min(std::max(int32_t(squads.size()), int32_t(2)), int32_t(4));
+
+    auto barracks_of = [](df::squad *squad) -> int32_t
+    {
+        for (auto r : squad->rooms)
+        {
+            auto z = virtual_cast<df::building_civzonest>(df::building::find(r->building_id));
+            if (z && z->type == civzone_type::Barracks)
+                return z->id;
+        }
+        return -1;
+    };
+
+    std::map<int32_t, std::vector<int32_t>> taken_by_barracks; // barracks -> groups already training there
+    std::vector<int32_t> group_load(groups, 0);
+    for (size_t k = 0; k < squads.size(); k++)
+    {
+        auto squad = squads.at(k);
+        int32_t bar = barracks_of(squad);
+
+        // least-loaded group that no other squad in this barracks uses
+        int32_t group = -1;
+        auto & taken = taken_by_barracks[bar];
+        if (int32_t(taken.size()) >= groups)
+            taken.clear();
+        for (int32_t g = 0; g < groups; g++)
+        {
+            if (bar != -1 && std::find(taken.begin(), taken.end(), g) != taken.end())
+                continue;
+            if (group == -1 || group_load.at(g) < group_load.at(group))
+                group = g;
+        }
+        if (group == -1)
+            group = int32_t(k % groups);
+        taken.push_back(group);
+        group_load.at(group)++;
+
+        auto rt = squad->schedule.routine.at(routine_idx);
+        int32_t members = int32_t(squad->positions.size());
+
+        bool already = true;
+        for (int32_t m = 0; m < 12; m++)
+        {
+            bool want = m % groups == group;
+            auto & orders = rt->month[m].orders;
+            bool has = orders.size() == 1 && orders.at(0) && strict_virtual_cast<df::squad_order_trainst>(orders.at(0)->order);
+            if (want != has || (!want && !orders.empty()))
+                already = false;
+        }
+
+        if (!already)
+        {
+            std::vector<df::squad_schedule_order *> spare;
+            for (int32_t m = 0; m < 12; m++)
+            {
+                auto & orders = rt->month[m].orders;
+                for (auto o : orders)
+                {
+                    if (o && strict_virtual_cast<df::squad_order_trainst>(o->order))
+                        spare.push_back(o);
+                }
+                orders.clear(); // other orders are dropped (not freed: pool-allocated)
+                for (auto a : rt->month[m].order_assignments)
+                {
+                    if (a)
+                        a->assigned_order_idx = -1;
+                }
+            }
+            for (int32_t m = 0; m < 12; m++)
+            {
+                if (m % groups != group)
+                    continue;
+                df::squad_schedule_order *o = nullptr;
+                if (!spare.empty())
+                {
+                    o = spare.back();
+                    spare.pop_back();
+                }
+                else
+                {
+                    o = df::allocate<df::squad_schedule_order>();
+                    auto train = df::allocate<df::squad_order_trainst>();
+                    train->year = *cur_year;
+                    train->year_tick = *cur_year_tick;
+                    o->order = train;
+                    o->positions.resize(squad->positions.size(), false);
+                }
+                rt->month[m].orders.push_back(o);
+            }
+            std::string months;
+            for (int32_t m = 0; m < 12; m++)
+                months += m % groups == group ? 'T' : '.';
+            ai.debug(out, stl_sprintf("[MILITARY] training rotation: squad %d %s: group %d of %d, months %s", squad->id, AI::describe_name(squad->name, true).c_str(), group + 1, groups, months.c_str()));
+        }
+        for (int32_t m = 0; m < 12; m++)
+        {
+            for (auto o : rt->month[m].orders)
+            {
+                if (o)
+                    o->min_count = members;
+            }
+        }
+
+        if (squad->cur_routine_idx == 0 && bar != -1)
+        {
+            squad->cur_routine_idx = routine_idx;
+            ai.debug(out, stl_sprintf("[MILITARY] squad %d put on the training rotation", squad->id));
+        }
+    }
+}
+
 void Population::update_military(color_ostream & out)
 {
     bool need_pick = false, need_axe = false;
@@ -1085,7 +1264,8 @@ void Population::update_military(color_ostream & out)
                 }
                 std::vector<Units::NoblePosition> positions;
                 if (!Units::isChild(u) && !Units::isBaby(u) && u->mood == mood_type::None && !Units::getNoblePositions(&positions, u) &&
-                    !u->status.labors[unit_labor::MINE] && !u->status.labors[unit_labor::CUTWOOD] && !u->status.labors[unit_labor::HUNT])
+                    !u->status.labors[unit_labor::MINE] && !u->status.labors[unit_labor::CUTWOOD] && !u->status.labors[unit_labor::HUNT] &&
+                    Units::isSane(u) && !is_doctor(u) && !carries_baby(u))
                 {
                     draft_pool.push_back(u);
                 }
@@ -1161,6 +1341,12 @@ void Population::update_military(color_ostream & out)
 
     size_t max_military = citizen.size() * military_min / 100;
     size_t min_military = citizen.size() * military_max / 100;
+    // A grown fort (20+ citizens, the point where the standing orders start)
+    // drafts everyone who can and should fight: adults who aren't nobles,
+    // doctors, miners/woodcutters/hunters (their tools are their weapons),
+    // parents of babies, moody or insane. Training rotates (schedule_training),
+    // so most soldiers work on any given month.
+    bool everyone_fights = citizen.size() >= 20;
     size_t citizen_military = std::count_if(military.begin(), military.end(), [this](const std::pair<const int32_t, int32_t> & member) -> bool
     {
         return citizen.count(member.first);
@@ -1197,7 +1383,11 @@ void Population::update_military(color_ostream & out)
     }
     civilian_alert(out, great_danger);
 
-    if (citizen_military > max_military && !under_attack)
+    if (everyone_fights)
+    {
+        want_draft.insert(want_draft.end(), draft_pool.begin(), draft_pool.end());
+    }
+    else if (citizen_military > max_military && !under_attack)
     {
         auto mid = soldiers.begin() + std::min(citizen_military - max_military, soldiers.size());
         std::partial_sort(soldiers.begin(), mid, soldiers.end(), &MilitarySetupExclusive::Dismiss::compare);
@@ -1216,6 +1406,7 @@ void Population::update_military(color_ostream & out)
     }
 
     arm_soldiers(out);
+    schedule_training(out);
 
     // Every squad needs a Barracks zone to train in: squads whose only room
     // was an archery range never trained (most soldiers had combat skill 0-4

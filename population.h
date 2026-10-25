@@ -97,6 +97,9 @@ public:
     void update_caged(color_ostream & out);
     void update_military(color_ostream & out);
     void arm_soldiers(color_ostream & out);
+    void schedule_training(color_ostream & out);
+    static bool is_doctor(df::unit *u);
+    static bool carries_baby(df::unit *u);
     void civilian_alert(color_ostream & out, bool danger);
     void update_crimes(color_ostream & out);
     void update_locations(color_ostream & out);
