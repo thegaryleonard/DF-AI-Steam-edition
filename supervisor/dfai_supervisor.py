@@ -326,8 +326,10 @@ class Supervisor:
             chunk = f.read(size - self.ai_log_pos).decode("utf-8", "replace")
         self.ai_log_pos = size
         for line in chunk.splitlines():
+            # strange moods are handled by df-ai and, if one gets stuck, by the
+            # mood watchdog (an agent job): log them, don't post them to Discord
             if "[MOOD]" in line and "needs" in line:
-                notify("strange mood: " + line.split("[MOOD]", 1)[1].strip()[:300], ping=True)
+                log("mood: " + line.split("[MOOD]", 1)[1].strip()[:300])
 
     def step(self):
         now = time.time()

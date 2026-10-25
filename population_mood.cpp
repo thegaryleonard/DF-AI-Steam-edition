@@ -373,12 +373,14 @@ void Population::update_moods(color_ostream & out)
                         tmpl.material_category.bits.yarn = 1;
                     ai.stocks.add_manager_order(out, tmpl, 1, why);
                     ai.debug(out, "[MOOD] ordered " + describe_job_item(ji) + " woven for " + who + " (" + std::to_string(thread) + " thread available) " + why.str());
+                    usable++;
                 }
                 else if (ji->flags2.bits.plant)
                 {
                     tmpl.job_type = job_type::ProcessPlants; // pig tails etc. into thread
                     ai.stocks.add_manager_order(out, tmpl, 2, why);
                     ai.debug(out, "[MOOD] no plant thread for " + who + ": ordered plant processing " + why.str());
+                    usable++;
                 }
                 else if (ji->flags2.bits.silk)
                 {
@@ -468,6 +470,16 @@ void Population::update_moods(color_ostream & out)
                 ai.stocks.queue_use_gems(out, 1, why);
                 ai.debug(out, "[MOOD] queued gem cutting for " + who + (why.str().empty() ? std::string() : " (" + why.str() + ")"));
                 usable++;
+            }
+            if (!usable && ji->item_type == item_type::BAR && mood_warned.insert(who + "|bar|" + std::to_string(idx)).second)
+            {
+                // No metal bar: smelt some ore (the moody dwarf takes any metal
+                // unless the mood asks for a specific one)
+                std::ostringstream why;
+                ai.stocks.queue_use_metal_ore(out, 2, why);
+                ai.debug(out, "[MOOD] no metal bars for " + who + ": queued ore smelting (" + why.str() + ")");
+                if (why.str().find("could not") == std::string::npos && why.str().find("not enough") == std::string::npos)
+                    usable++;
             }
             if (!usable && ji->item_type == item_type::SKIN_TANNED && mood_warned.insert(who + "|leather|" + std::to_string(idx)).second)
             {
