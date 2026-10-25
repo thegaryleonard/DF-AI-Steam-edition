@@ -139,15 +139,75 @@ local function show_next_room()
     return true
 end
 
+-- guests: interesting creatures that aren't the fort's dwarves (visitors,
+-- merchants, diplomats, animal people, elves, goblins, odd peaceful beasts)
+local GUEST_SECS = 25
+local GUEST_GAP = 120 -- the same guest isn't shown again for this long
+
+local function revealed(u)
+    local f = dfhack.maps.getTileFlags(xyz2pos(dfhack.units.getPosition(u)))
+    return f and not f.hidden
+end
+
+local function is_guest(u)
+    if not dfhack.units.isActive(u) or dfhack.units.isDead(u) or dfhack.units.isCitizen(u) then return false end
+    if dfhack.units.isForgottenBeast(u) or dfhack.units.isMegabeast(u) or dfhack.units.isSemiMegabeast(u)
+        or dfhack.units.isTitan(u) or dfhack.units.isDemon(u) or dfhack.units.isInvader(u) or dfhack.units.isGreatDanger(u) then
+        return false
+    end
+    if u.flags1.caged or u.flags1.chained or dfhack.units.isTame(u) or dfhack.units.isUndead(u) then return false end
+    if dfhack.units.isDanger(u) and not (dfhack.units.isVisitor(u) or dfhack.units.isMerchant(u) or dfhack.units.isDiplomat(u)) then
+        return false -- invaders and monsters: spectate's own hostile picks cover those
+    end
+    if not revealed(u) then return false end
+    local raw = df.creature_raw.find(u.race)
+    if not raw then return false end
+    if dfhack.units.isVisitor(u) or dfhack.units.isMerchant(u) or dfhack.units.isDiplomat(u) or dfhack.units.isForest(u) then
+        return true
+    end
+    -- animal people and other people (elves, goblins, humans, kobolds...)
+    if raw.flags.HAS_ANY_INTELLIGENT_SPEAKS or raw.flags.HAS_ANY_INTELLIGENT_LEARNS then return u.race ~= df.global.plotinfo.race_id end
+    -- odd peaceful wildlife: fanciful/good/evil creatures, not vermin swarms
+    return (raw.flags.FANCIFUL or raw.flags.GOOD or raw.flags.EVIL) and not dfhack.units.isForgottenBeast(u) and not dfhack.units.isDemon(u)
+end
+
+is_guest_check = is_guest
+
+local function pick_guest()
+    tour.guest_seen = tour.guest_seen or {}
+    local best, best_t
+    local now = os.time()
+    for _, u in ipairs(df.global.world.units.active) do
+        local ok, g = pcall(is_guest, u)
+        if ok and g then
+            local t = tour.guest_seen[u.id] or 0
+            if now - t >= GUEST_GAP and (not best or t < best_t) then best, best_t = u, t end
+        end
+    end
+    return best
+end
+
+local function show_guest()
+    local u = pick_guest()
+    if not u then return false end
+    tour.guest_seen[u.id] = os.time()
+    dfhack.run_command_silent('disable', 'spectate')
+    df.global.plotinfo.follow_unit = u.id
+    tour.guest, tour.current = u.id, nil
+    tour.last_switch = os.time()
+    return true
+end
+
 local function back_to_dwarves()
-    tour.current = nil
+    if tour.guest and df.global.plotinfo.follow_unit == tour.guest then
+        df.global.plotinfo.follow_unit = -1 -- let spectate pick a dwarf right away
+    end
+    tour.current, tour.guest = nil, nil
     dfhack.run_command_silent('enable', 'spectate')
     tour.last_switch = os.time()
 end
 
-local function tick()
-    if not tour.running then return end
-    dfhack.timeout(TICK_FRAMES, 'frames', tick)
+local function step()
     if not dfhack.isMapLoaded() or not dfhack.gui.matchFocusString('dwarfmode/Default') then
         return
     end
@@ -157,10 +217,29 @@ local function tick()
             tour.current = nil -- a person moved the map: leave the camera to them
             return
         end
-        if now - tour.last_switch >= ROOM_SECS then back_to_dwarves() end
+        if now - tour.last_switch >= ROOM_SECS then
+            -- after a room, visit a guest if one is around, else back to dwarves
+            tour.current = nil
+            if not show_guest() then back_to_dwarves() end
+        end
+    elseif tour.guest then
+        local u = df.unit.find(tour.guest)
+        if df.global.plotinfo.follow_unit ~= tour.guest then
+            back_to_dwarves() -- the camera lost the guest (or someone took it)
+        elseif not u or not dfhack.units.isActive(u) or now - tour.last_switch >= GUEST_SECS then
+            back_to_dwarves()
+        end
     elseif spectate_on() and now - tour.last_switch >= DWARF_SECS then
         show_next_room()
     end
+end
+
+local function tick()
+    if not tour.running then return end
+    dfhack.timeout(TICK_FRAMES, 'frames', tick)
+    tour.ticks = (tour.ticks or 0) + 1
+    local ok, err = pcall(step)
+    if not ok then tour.last_error = tostring(err) end
 end
 
 -- on-screen label for the room being shown
@@ -189,7 +268,17 @@ local function banner_lines()
     if not u then return nil end
     local name = dfhack.units.getReadableName(u):gsub(',.*$', '')
     local prof = dfhack.units.getProfessionName(u)
-    local job = u.job.current_job and dfhack.job.getName(u.job.current_job) or 'No job'
+    if u.race ~= df.global.plotinfo.race_id then
+        local raw = df.creature_raw.find(u.race)
+        local cname = raw and raw.name[0] or ''
+        if cname ~= '' and not prof:lower():find(cname:lower(), 1, true) then prof = cname:gsub('^%l', string.upper) .. ' ' .. prof end
+        if prof:upper() == name:upper() then prof = dfhack.units.isWildlife(u) and 'Wild creature' or 'Guest' end
+        if dfhack.units.isMerchant(u) then prof = prof .. ' (merchant)'
+        elseif dfhack.units.isDiplomat(u) then prof = prof .. ' (diplomat)'
+        elseif dfhack.units.isVisitor(u) then prof = prof .. ' (visitor)' end
+    end
+    local job = u.job.current_job and dfhack.job.getName(u.job.current_job)
+        or (u.race ~= df.global.plotinfo.race_id and 'Wandering' or 'No job')
     return name:upper(), prof .. ': ' .. job
 end
 RoomLabel_banner_lines = banner_lines
@@ -221,8 +310,16 @@ elseif cmd == 'stop' then
     print('dfai-room-tour: stopped')
 elseif cmd == 'next' then
     print(show_next_room() and ('showing ' .. tour.current.name) or 'no rooms')
+elseif cmd == 'guests' then
+    for _, u in ipairs(df.global.world.units.active) do
+        local ok, g = pcall(is_guest, u)
+        if ok and g then print(u.id, df.creature_raw.find(u.race).creature_id, dfhack.units.getReadableName(u)) end
+    end
+elseif cmd == 'guest' then
+    print(show_guest() and ('following ' .. dfhack.units.getReadableName(df.unit.find(tour.guest))) or 'no guests')
 elseif cmd == 'list' then
     for i, r in ipairs(find_rooms()) do print(i, r.kind, r.name, r.pos.x, r.pos.y, r.pos.z) end
 else
+    if tour.last_error then print('last error: ' .. tour.last_error) end
     print('dfai-room-tour: ' .. (tour.running and 'running' or 'stopped') .. (tour.current and (', showing ' .. tour.current.name) or ''))
 end
