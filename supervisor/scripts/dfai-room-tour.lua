@@ -137,14 +137,14 @@ local function tick()
 end
 
 -- on-screen label for the room being shown
-RoomLabel = defclass(RoomLabel, overlay.OverlayWidget)
+RoomLabel = defclass(nil, overlay.OverlayWidget)  -- fresh class: reusing the old table kept stale methods across reloads
 RoomLabel.ATTRS{
-    desc = 'Shows the name of the room the stream camera is visiting.',
+    desc = 'Stream banner: the room the camera is visiting, or the followed creature.',
     default_pos = {x = 60, y = 10},
     default_enabled = true,
     viewscreens = 'dwarfmode/Default',
     frame = {w = 52, h = 4},
-    visible = function() local t = rawget(_G, 'dfai_tour') return t ~= nil and t.current ~= nil end,
+    visible = function() local t = rawget(_G, 'dfai_tour') return (t ~= nil and t.current ~= nil) or df.global.plotinfo.follow_unit ~= -1 end,
 }
 
 local function centered(s, w)
@@ -154,14 +154,28 @@ local function centered(s, w)
     return (' '):rep(pad) .. s .. (' '):rep(w - #s - pad)
 end
 
-function RoomLabel:onRenderBody(dc)
+-- what the banner shows: the room being toured, else the followed creature
+local function banner_lines()
     local r = tour.current
-    if not r then return end
+    if r then return dfhack.utf2df(r.name):upper(), r.kind end
+    local u = df.unit.find(df.global.plotinfo.follow_unit)
+    if not u then return nil end
+    local name = dfhack.units.getReadableName(u):gsub(',.*$', '')
+    local prof = dfhack.units.getProfessionName(u)
+    local job = u.job.current_job and dfhack.job.getName(u.job.current_job) or 'No job'
+    return name:upper(), prof .. ': ' .. job
+end
+RoomLabel_banner_lines = banner_lines
+
+function RoomLabel:onRenderBody(dc)
+    local l1, l2 = banner_lines()
+    if not l1 then return end
+    local r = {name = l1, kind = l2}
     local w, h = self.frame.w, self.frame.h
     local bg = {ch = 32, fg = COLOR_BLACK, bg = COLOR_BLACK}
     dc:fill(0, 0, w - 1, h - 1, bg)
     dc:seek(0, 0):pen{fg = COLOR_BROWN, bg = COLOR_BLACK}:string(('='):rep(w))
-    dc:seek(0, 1):pen{fg = COLOR_YELLOW, bg = COLOR_BLACK}:string(centered(dfhack.utf2df(r.name):upper(), w))
+    dc:seek(0, 1):pen{fg = COLOR_YELLOW, bg = COLOR_BLACK}:string(centered(r.name, w))
     dc:seek(0, 2):pen{fg = COLOR_GREY, bg = COLOR_BLACK}:string(centered(r.kind, w))
     dc:seek(0, 3):pen{fg = COLOR_BROWN, bg = COLOR_BLACK}:string(('='):rep(w))
 end
