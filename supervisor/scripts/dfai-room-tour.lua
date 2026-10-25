@@ -86,7 +86,34 @@ local function find_rooms()
     if n >= 3 then
         add('The Mist Chamber', 'Mist Generator', xyz2pos(px // n, py // n, pz - 1))
     end
-    return rooms
+    local wx, wy, wz, wn = 0, 0, nil, 0
+    for _, b in ipairs(df.global.world.buildings.other.WINDMILL) do
+        if not wz or b.z == wz then
+            wz = b.z
+            wx, wy, wn = wx + b.centerx, wy + b.centery, wn + 1
+        end
+    end
+    if wn >= 2 then
+        add('The Windmills', 'They power the mist generator', xyz2pos(wx // wn, wy // wn, wz))
+    end
+    -- places df-ai planned that have no DF zone (written by supervisor/dfai_poi.py)
+    local pois = {}
+    local ok, data = pcall(function()
+        return require('json').decode_file(dfhack.getDFPath() .. '/dfhack-config/dfai-poi.json')
+    end)
+    local s = site()
+    if ok and data and s and data.site_id == s.id then
+        for _, p in ipairs(data.pois or {}) do
+            pois[#pois + 1] = {name = p.name, kind = p.kind, pos = xyz2pos(p.x, p.y, p.z)}
+        end
+    end
+    -- interleave rooms and points of interest so the tour mixes them
+    local mixed, i, j = {}, 1, 1
+    while i <= #rooms or j <= #pois do
+        if i <= #rooms then mixed[#mixed + 1] = rooms[i]; i = i + 1 end
+        if j <= #pois then mixed[#mixed + 1] = pois[j]; j = j + 1 end
+    end
+    return mixed
 end
 
 local function spectate_on()

@@ -1626,7 +1626,9 @@ function renderFollow() {
     Hospital: 'Beds, splints and a doctor who learned on the job.', 'Dining Hall': 'Meals are taken here, mostly with cutlery.',
     'Meeting Hall': 'Idle dwarves gather here to share rumours.', Barracks: 'The fort's soldiers train, sleep and polish things here.',
     Pasture: 'The fort's herds graze underground, out of the rain.', 'Trade Depot': 'Caravans unload here; the broker haggles.',
-    'Mist Generator': 'Pumps on the roof spray water into mist. Dwarves walking through feel refreshed.'};
+    'Mist Generator': 'Pumps on the roof spray water into mist. Dwarves walking through feel refreshed.',
+    Workshop: 'Where the fort makes things, some of them on purpose.', Furnace: 'Hot work. Mind the beard.',
+    Entrance: 'The way in. Also, regrettably, the way in for everything else.'};
   if (S.tour && S.tour.name) {
     html = `<div class="kicker"><span><span class="live">On Camera</span></span><span>Room Tour</span></div>
       <h3>${esc(clean(S.tour.name))}</h3><div class="sub">${esc(S.tour.kind)}</div>

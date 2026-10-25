@@ -378,6 +378,15 @@ class Supervisor:
         self.diplomacy()
         self.watch_ai_log()
 
+        # room tour points of interest from df-ai's plan (dfai_poi.py)
+        if now - getattr(self, "last_poi", 0) > 600:
+            self.last_poi = now
+            try:
+                import dfai_poi
+                dfai_poi.main()
+            except Exception as e:
+                log(f"poi refresh failed: {e!r}")
+
         if now - self.last_quicksave > CFG["quicksave_every_s"] and not st.get("paused"):
             self.last_quicksave = now
             out = (dfhack("quicksave", timeout=120) or "").strip()
