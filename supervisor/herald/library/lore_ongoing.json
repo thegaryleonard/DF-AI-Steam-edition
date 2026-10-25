@@ -1,0 +1,2766 @@
+{
+ "stories": {
+  "no_meat": {
+   "heads": [
+    {
+     "id": "lo-no_meat-heads-1",
+     "text": "MEAT WATCH: SEARABBEYS RECORD IN SIGHT"
+    },
+    {
+     "id": "lo-no_meat-heads-2",
+     "text": "DAY {days}: ELDERS INVOKE SEARABBEYS"
+    },
+    {
+     "id": "lo-no_meat-heads-3",
+     "text": "THE MEAT WATCH RETURNS, DAY {days}"
+    },
+    {
+     "id": "lo-no_meat-heads-4",
+     "text": "DOGS AVOID EYE CONTACT, DAY {days}"
+    },
+    {
+     "id": "lo-no_meat-heads-5",
+     "text": "MAYOR CHARGES THE LARDER, DAY {days}"
+    },
+    {
+     "id": "lo-no_meat-heads-6",
+     "text": "MEAT WATCH NO. {n}: OVERSEER 'ON IT'"
+    },
+    {
+     "id": "lo-no_meat-heads-7",
+     "text": "DAY {days}: HUNTERS SENT TO PICK PLANTS"
+    },
+    {
+     "id": "lo-no_meat-heads-8",
+     "text": "STEAK SIGHTED; WAS A RED ROCK"
+    },
+    {
+     "id": "lo-no_meat-heads-9",
+     "text": "DAY {days}: STEW CONSISTS OF HOPE"
+    },
+    {
+     "id": "lo-no_meat-heads-10",
+     "text": "LIAISON OFFERS EVERYTHING BUT MEAT"
+    },
+    {
+     "id": "lo-no_meat-heads-11",
+     "text": "DAY {days}: ARMOR STANDS NOT EDIBLE"
+    },
+    {
+     "id": "lo-no_meat-heads-12",
+     "text": "MEAT WATCH: OLD-TIMERS SAY 'AGAIN?'"
+    },
+    {
+     "id": "lo-no_meat-heads-13",
+     "text": "DAY {days}: BUTCHER RE-SHARPENS KNIFE"
+    },
+    {
+     "id": "lo-no_meat-heads-14",
+     "text": "MEAT WATCH, SEASON TWO, DAY {days}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-no_meat-bodies-1",
+     "text": "Day {days} of the Meat Watch, a phrase first printed back at {past_fort} and never meant to be printed again. That fort lasted {past_fort_years}. Its founders mostly remember the vegetables.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_meat-bodies-2",
+     "text": "Installment {n}. Veterans of {past_fort} say the trick to a meatless fortress is to stop looking at the dogs. {citizen} has not learned the trick. The dogs have learned to walk faster.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_meat-bodies-3",
+     "text": "The Meat Watch reaches day {days}. The Overseer has responded by queuing a further batch of plant gathering, in the rain, across the entire map. The plants, at least, are thrilled to be wanted."
+    },
+    {
+     "id": "lo-no_meat-bodies-4",
+     "text": "Since {since} the larder has held vegetables and one strongly worded note. The mayor has charged the larder with a production order violation. The larder has not appeared in court."
+    },
+    {
+     "id": "lo-no_meat-bodies-5",
+     "text": "Day {days}. The hunters were reassigned to haul stone, then to smooth a wall, then to gather plants. Asked when they might hunt, the Overseer queued a throne. The hunters have taken this to mean 'later'."
+    },
+    {
+     "id": "lo-no_meat-bodies-6",
+     "text": "Report {n} on the meat situation. Elders note that {past_fort} also went without meat, and then {past_fort_fate}. Nobody is drawing conclusions. Everybody is drawing conclusions.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_meat-bodies-7",
+     "text": "Day {days}. With {meals} meals on hand, every one of them plant-based, {citizen} has begun naming each plump helmet before eating it. This was meant to help. It has made dinner a funeral."
+    },
+    {
+     "id": "lo-no_meat-bodies-8",
+     "text": "The Meat Watch, begun on {since}, has inspired the Overseer to build a fourth butcher's shop. There is still nothing to butcher. The Herald notes the fort now has more butcheries than butchers."
+    },
+    {
+     "id": "lo-no_meat-bodies-9",
+     "text": "Day {days}. {liaison} was asked about meat imports, replied 'There is much to share,' recommended an import agreement, and asked for rings at a startling markup. No meat was shared."
+    },
+    {
+     "id": "lo-no_meat-bodies-10",
+     "text": "Report {n}. A strange mood struck the fortress this week and demanded, of all things, meat. Those familiar with moods say this is typical: they always ask for the one thing the fort has run out of."
+    },
+    {
+     "id": "lo-no_meat-bodies-11",
+     "text": "Day {days} without meat or fish among {pop} dwarves. The cook has begun serving 'roast' that is a seared turnip with an apologetic expression. The expression is the cook's."
+    },
+    {
+     "id": "lo-no_meat-bodies-12",
+     "text": "Since {since} the fort has eaten greens. A historian reminds readers that {record_fort} is remembered for {record} and still no lunch. 'At least we are consistent,' said the historian, chewing a leaf.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_meat-bodies-13",
+     "text": "Day {days}. The militia of one was asked to go hunting as a training exercise. The captain is still listed as 'Off duty' and the nine empty places did not volunteer either."
+    },
+    {
+     "id": "lo-no_meat-bodies-14",
+     "text": "Meat Watch report {n}. A cat was seen catching a vermin and eating it in front of the dining hall. Several dwarves called it 'showing off'. The cat has been asked to dine privately."
+    },
+    {
+     "id": "lo-no_meat-bodies-15",
+     "text": "Day {days}. Elders of {past_fort} recall their own meat drought ending only when a caravan arrived. Every dwarf now stands at the depot each morning, staring down the road, holding a plate.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_meat-bodies-16",
+     "text": "The kitchens report day {days} of the drought of meat. Someone suggested the fish of the brook. The fisherdwarf, last seen in a strange mood demanding rough gems, could not be reached."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-no_meat-ended_heads-1",
+     "text": "MEAT WATCH ENDS; SEARABBEYS AVENGED"
+    },
+    {
+     "id": "lo-no_meat-ended_heads-2",
+     "text": "DAY {days}: A SAUSAGE, AT LAST"
+    },
+    {
+     "id": "lo-no_meat-ended_heads-3",
+     "text": "BUTCHERIES FINALLY BUTCHER"
+    },
+    {
+     "id": "lo-no_meat-ended_heads-4",
+     "text": "LARDER ACQUITTED; MEAT IN STOCK"
+    },
+    {
+     "id": "lo-no_meat-ended_heads-5",
+     "text": "DOGS RELAX AS MEAT ARRIVES"
+    },
+    {
+     "id": "lo-no_meat-ended_heads-6",
+     "text": "WATCH CLOSED AFTER {days} DAYS"
+    },
+    {
+     "id": "lo-no_meat-ended_heads-7",
+     "text": "OVERSEER TAKES CREDIT FOR STEAK"
+    },
+    {
+     "id": "lo-no_meat-ended_heads-8",
+     "text": "ROAST SERVED; HISTORY RECORDED"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-no_meat-ended_bodies-1",
+     "text": "The Meat Watch begun on {since} is over after {days} days. The Herald has framed the first sausage and hung it beside a sketch of {past_fort}, so future dwarves know what was lost and what was found.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_meat-ended_bodies-2",
+     "text": "Meat is back after {days} days. The mayor has dropped the production order violation against the larder. The larder has made no statement, but is reportedly much fuller."
+    },
+    {
+     "id": "lo-no_meat-ended_bodies-3",
+     "text": "After {n} reports, the Meat Watch is closed. The dogs, who had spent the drought walking briskly and avoiding eye contact, have resumed lying around in doorways."
+    },
+    {
+     "id": "lo-no_meat-ended_bodies-4",
+     "text": "Meat has returned to the stores. The Overseer has queued a celebratory batch of armor stands. Staff are asked to stand respectfully beside them while eating."
+    },
+    {
+     "id": "lo-no_meat-ended_bodies-5",
+     "text": "The Watch has ended. {citizen} cried over a plate of roast and then asked for seconds before finishing the first. The cook called it 'the best review I have ever had'."
+    },
+    {
+     "id": "lo-no_meat-ended_bodies-6",
+     "text": "The {days}-day Meat Watch is closed. Veterans of {past_fort} gathered in the dining hall to eat in silence. One raised a mug to the old fort; another raised a drumstick.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_meat-ended_bodies-7",
+     "text": "Meat has entered the larder after {days} days. The four butcher's shops now have work, and the Overseer, sensing success, has ordered a fifth. Nobody has the heart to argue."
+    },
+    {
+     "id": "lo-no_meat-ended_bodies-8",
+     "text": "The meat drought, begun on {since}, has ended. The turnips that served nobly as 'roast' have been granted retirement and a small plaque reading 'You tried'."
+    }
+   ]
+  },
+  "no_fish": {
+   "heads": [
+    {
+     "id": "lo-no_fish-heads-1",
+     "text": "FISH VIGIL: THE BROOK REMEMBERS"
+    },
+    {
+     "id": "lo-no_fish-heads-2",
+     "text": "DAY {days}: FISHER IN A MOOD, NOT A NET"
+    },
+    {
+     "id": "lo-no_fish-heads-3",
+     "text": "DAY {days}: CARP SEEN SMIRKING"
+    },
+    {
+     "id": "lo-no_fish-heads-4",
+     "text": "VIGIL NO. {n}: RODS STILL DRY"
+    },
+    {
+     "id": "lo-no_fish-heads-5",
+     "text": "FISHERY NOW SMOOTHED; STILL NO FISH"
+    },
+    {
+     "id": "lo-no_fish-heads-6",
+     "text": "DAY {days}: NETS MOVED TO GEM STORAGE"
+    },
+    {
+     "id": "lo-no_fish-heads-7",
+     "text": "OVERSEER QUEUES 'FISH (ANY)'"
+    },
+    {
+     "id": "lo-no_fish-heads-8",
+     "text": "DAY {days}: BROOK FILES COUNTER-CLAIM"
+    },
+    {
+     "id": "lo-no_fish-heads-9",
+     "text": "FISHING POSTED; NOBODY FISHES"
+    },
+    {
+     "id": "lo-no_fish-heads-10",
+     "text": "DAY {days}: THE CISTERN IS NOT A POND"
+    },
+    {
+     "id": "lo-no_fish-heads-11",
+     "text": "VIGIL NO. {n}: FISHERDWARF ON BRANCH"
+    },
+    {
+     "id": "lo-no_fish-heads-12",
+     "text": "MIST RING SPRAYS; NO FISH IN MIST"
+    },
+    {
+     "id": "lo-no_fish-heads-13",
+     "text": "DAY {days}: FISH CLEANER TAKES A NAP"
+    },
+    {
+     "id": "lo-no_fish-heads-14",
+     "text": "BROOK STILL PRIVATE, DAY {days}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-no_fish-bodies-1",
+     "text": "Day {days} of the Fish Vigil. The fisherdwarf was last seen in a strange mood demanding rough gems, every gem in the fortress having already been cut. The brook, unaware, remains full of fish."
+    },
+    {
+     "id": "lo-no_fish-bodies-2",
+     "text": "Report {n}. The Overseer has queued a work order for 'fish (any)'. The order was picked up by a mason, who carved a stone fish and handed it in. It has been accepted, for the ledger."
+    },
+    {
+     "id": "lo-no_fish-bodies-3",
+     "text": "Day {days}. The old fort of {past_fort} went without fish so long its paper ran out of names for the shortage. This paper has only just started. Today's name: the Fish Vigil.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_fish-bodies-4",
+     "text": "No fish since {since}. The Overseer assigned the fisherdwarf to gather plants across the whole map, in the rain. He walked past four streams on the way. He has asked us to print his annoyance."
+    },
+    {
+     "id": "lo-no_fish-bodies-5",
+     "text": "Day {days}. The {season} {weather} has driven the carp deeper. The fishery has been smoothed, engraved and given a nice stone table. It remains a beautiful room with no fish in it."
+    },
+    {
+     "id": "lo-no_fish-bodies-6",
+     "text": "Vigil report {n}. Someone proposed fishing in the cistern. The engineers point out that the cistern feeds the mist generator, and nobody wants carp in their happy thoughts."
+    },
+    {
+     "id": "lo-no_fish-bodies-7",
+     "text": "Day {days}. {citizen} went down to the brook with a net and returned to report the fish 'were all looking at me'. The fortress has decided this counts as reconnaissance."
+    },
+    {
+     "id": "lo-no_fish-bodies-8",
+     "text": "Since {since} the fishery has been idle. Its staff spent the time on the Overseer's endless smoothing queue, and the fishery walls now shine so brightly the fish could see themselves, if there were any."
+    },
+    {
+     "id": "lo-no_fish-bodies-9",
+     "text": "Day {days}. A fisherdwarf once climbed a tree to look for fish from above. The Herald reminds readers what happened to the miner on the tree branch, and asks all fishers to remain on the ground."
+    },
+    {
+     "id": "lo-no_fish-bodies-10",
+     "text": "Report {n} of the Fish Vigil. With {pop} dwarves waiting, the cook has drawn a fish on the bottom of every plate. Diners report 'a moment of hope, then the usual disappointment'."
+    },
+    {
+     "id": "lo-no_fish-bodies-11",
+     "text": "Day {days}. The brook has been officially charged by the mayor's office with a production order violation. It continues to flow, which the mayor is treating as contempt."
+    },
+    {
+     "id": "lo-no_fish-bodies-12",
+     "text": "No fish since {since}. The outpost liaison was asked if the mountainhomes could send fish. 'There is much to share,' he said, and then shared nothing, which is consistent at least."
+    },
+    {
+     "id": "lo-no_fish-bodies-13",
+     "text": "Day {days}. An old hand from {past_fort} recalls having a heap of rough gems and no fish. 'Now we have no rough gems and no fish,' she said. 'So in a sense we have grown.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_fish-bodies-14",
+     "text": "Vigil report {n}. A carp was briefly seen near the fishing zone, then left. Fishers describe it as 'a tease'. The cat that witnessed the event has stopped eating for grief."
+    },
+    {
+     "id": "lo-no_fish-bodies-15",
+     "text": "Day {days} of the Vigil. The fisherdwarf has been promoted, demoted and reassigned four times by the Overseer this season. He has fished zero times. He is getting very good at walking."
+    },
+    {
+     "id": "lo-no_fish-bodies-16",
+     "text": "The Vigil continues past day {days}. In the {weather}, the brook looks the same as ever. The fortress, on the other hand, looks hungrier, damper and increasingly suspicious of water."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-no_fish-ended_heads-1",
+     "text": "FISH LANDED; VIGIL DECLARED A SUCCESS"
+    },
+    {
+     "id": "lo-no_fish-ended_heads-2",
+     "text": "FISHERDWARF ACTUALLY FISHES"
+    },
+    {
+     "id": "lo-no_fish-ended_heads-3",
+     "text": "CARP OUTWITTED AFTER {days} DAYS"
+    },
+    {
+     "id": "lo-no_fish-ended_heads-4",
+     "text": "STONE FISH RETIRED FROM LEDGER"
+    },
+    {
+     "id": "lo-no_fish-ended_heads-5",
+     "text": "BROOK SETTLES WITH THE MAYOR"
+    },
+    {
+     "id": "lo-no_fish-ended_heads-6",
+     "text": "A FILLET, AT LAST"
+    },
+    {
+     "id": "lo-no_fish-ended_heads-7",
+     "text": "FISHERY FINALLY SMELLS OF FISH"
+    },
+    {
+     "id": "lo-no_fish-ended_heads-8",
+     "text": "VIGIL CLOSES; NETS DRY OUT"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-no_fish-ended_bodies-1",
+     "text": "The Fish Vigil, begun on {since}, has ended after {days} days. A real fish now lies in the stores. The mason's stone fish has been removed from the ledger and placed on a shelf of honour."
+    },
+    {
+     "id": "lo-no_fish-ended_bodies-2",
+     "text": "Fish have arrived. The fisherdwarf, between moods and plant duty, finally stood at the water and fished. 'I knew how all along,' he told this paper. 'Nobody ever let me.'"
+    },
+    {
+     "id": "lo-no_fish-ended_bodies-3",
+     "text": "After {n} reports the vigil is over. The mayor has dropped all charges against the brook. The brook has accepted the apology in the usual way, by continuing to flow."
+    },
+    {
+     "id": "lo-no_fish-ended_bodies-4",
+     "text": "The {days}-day Vigil is closed. The fishery, smoothed and engraved during the wait, now finally smells of fish. The engravers are said to be quietly devastated."
+    },
+    {
+     "id": "lo-no_fish-ended_bodies-5",
+     "text": "Fish once more grace the table. {citizen} ate one and declared it 'better than the drawing on the plate'. The cook has agreed to stop drawing fish on the plates."
+    },
+    {
+     "id": "lo-no_fish-ended_bodies-6",
+     "text": "The Vigil has ended. The cats are back to their usual position of looking smug near the fishery door. Peace, of a kind, has returned."
+    },
+    {
+     "id": "lo-no_fish-ended_bodies-7",
+     "text": "Fish has entered the larder. Veterans of {past_fort}, who once waited far longer, have called the {days}-day wait 'cute' and returned to their drinks.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-no_fish-ended_bodies-8",
+     "text": "After {days} days the fishery has produced a fish. The Overseer celebrated by queuing a fishery in every hall. Construction is unlikely, but the spirit is noted."
+    }
+   ]
+  },
+  "drinks_low": {
+   "heads": [
+    {
+     "id": "lo-drinks_low-heads-1",
+     "text": "THIRST COUNT: REMEMBER BOMREK"
+    },
+    {
+     "id": "lo-drinks_low-heads-2",
+     "text": "{drinks} DRINKS LEFT; NO TREES, PLEASE"
+    },
+    {
+     "id": "lo-drinks_low-heads-3",
+     "text": "DRY SPELL NO. {n}: NOBODY CLIMB ANYTHING"
+    },
+    {
+     "id": "lo-drinks_low-heads-4",
+     "text": "DAY {days}: QUAKEFOCUS VETERANS TENSE"
+    },
+    {
+     "id": "lo-drinks_low-heads-5",
+     "text": "THE THIRST PARADOX, IN REVERSE"
+    },
+    {
+     "id": "lo-drinks_low-heads-6",
+     "text": "DAY {days}: MIST RING EYED THIRSTILY"
+    },
+    {
+     "id": "lo-drinks_low-heads-7",
+     "text": "{drinks} DRINKS; BREWER SUMMONED"
+    },
+    {
+     "id": "lo-drinks_low-heads-8",
+     "text": "DAY {days}: OVERSEER QUEUES A THRONE"
+    },
+    {
+     "id": "lo-drinks_low-heads-9",
+     "text": "DRY SPELL: WELL GETS A QUEUE"
+    },
+    {
+     "id": "lo-drinks_low-heads-10",
+     "text": "DAY {days}: STILLS SMOOTHED, NOT USED"
+    },
+    {
+     "id": "lo-drinks_low-heads-11",
+     "text": "BARRELS MISSING; BREWERS HAULING ROCK"
+    },
+    {
+     "id": "lo-drinks_low-heads-12",
+     "text": "DAY {days}: STAY ON THE GROUND, MINERS"
+    },
+    {
+     "id": "lo-drinks_low-heads-13",
+     "text": "THIRST COUNT NO. {n}: SIP SLOWLY"
+    },
+    {
+     "id": "lo-drinks_low-heads-14",
+     "text": "DAY {days}: ALE GLUT NOW A FAIRY TALE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-drinks_low-bodies-1",
+     "text": "Day {days} of the Thirst Count, with {drinks} drinks in stock. Dwarves have been known to die of thirst beside full shelves. Is a shortage better or worse? Nobody wishes to find out."
+    },
+    {
+     "id": "lo-drinks_low-bodies-2",
+     "text": "Report {n}. Every miner has been reminded, in writing, that trees are not a source of drink. The reminder follows the well-known case of the miner who died of thirst on a branch."
+    },
+    {
+     "id": "lo-drinks_low-bodies-3",
+     "text": "Day {days}. The brewers have been reassigned by the Overseer to haul loose stone, smooth a corridor and gather plants in the rain. The still sits idle, beautifully engraved."
+    },
+    {
+     "id": "lo-drinks_low-bodies-4",
+     "text": "Since {since} the barrels have been emptying. Veterans of {past_fort}, which lasted {past_fort_years}, have taken the current {drinks} drinks very calmly, mostly by hoarding a private mug.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-drinks_low-bodies-5",
+     "text": "Day {days}. The mist generator keeps spraying water for happy thoughts. Thirsty dwarves have been seen standing in it with their mouths open. The Overseer has called this 'efficient'."
+    },
+    {
+     "id": "lo-drinks_low-bodies-6",
+     "text": "Thirst Count report {n}. {citizen} has been appointed Keeper of the Last Barrel and sleeps beside it. Visitors are told politely that the barrel is 'resting'."
+    },
+    {
+     "id": "lo-drinks_low-bodies-7",
+     "text": "Day {days}. The well has a queue. The queue has a queue. With {pop} dwarves and {drinks} drinks, the fortress has discovered water and does not care for it."
+    },
+    {
+     "id": "lo-drinks_low-bodies-8",
+     "text": "Since {since} supplies have dwindled. The mayor's office has filed production order violations against the brewery, the farm plots and, somehow, the well. The well denies everything."
+    },
+    {
+     "id": "lo-drinks_low-bodies-9",
+     "text": "Day {days}. The outpost liaison has recommended an import agreement for drink. He did not mention when, or how much, or why he was holding an empty mug when he said it."
+    },
+    {
+     "id": "lo-drinks_low-bodies-10",
+     "text": "Report {n}. Dwarves have died of thirst beside piles of rough gems before. Elders now nervously check whether anyone is sitting near anything shiny with a dry throat."
+    },
+    {
+     "id": "lo-drinks_low-bodies-11",
+     "text": "Day {days}. Only {drinks} drinks remain. The Overseer has responded with an order for twelve more thrones. Dwarves agree the thrones are lovely and that one cannot drink a throne."
+    },
+    {
+     "id": "lo-drinks_low-bodies-12",
+     "text": "The Thirst Count, running since {since}, reaches report {n}. Brewers have asked for plants. Plant gatherers have asked for boots. The Overseer has asked for more smoothing."
+    },
+    {
+     "id": "lo-drinks_low-bodies-13",
+     "text": "Day {days}. Elders tell young dwarves stories of the great ale glut of {past_fort}, when barrels lined the halls. The young dwarves suspect the elders are just thirsty.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-drinks_low-bodies-14",
+     "text": "Report {n}. A strange mood has struck and demanded a barrel. The fortress gave the barrel. It was, regrettably, the last full one. The artifact is said to be very handsome and completely dry."
+    },
+    {
+     "id": "lo-drinks_low-bodies-15",
+     "text": "Day {days}. A hauler has been caught carrying a mug to the refuse pile. Asked why, he said the Overseer told him to. Dwarves have formed a cordon around the drink stockpile."
+    },
+    {
+     "id": "lo-drinks_low-bodies-16",
+     "text": "Since {since} the barrels have rung hollow. {citizen} has started tapping each one at dawn, like a doctor listening for a heartbeat. Most of them, sadly, are gone."
+    },
+    {
+     "id": "lo-drinks_low-bodies-w1",
+     "text": "Day {days} of the Thirst Count, with {drinks} drinks in stock. At Searabbeys a miner died of thirst with 1,994 drinks on the shelves. Is a shortage better or worse? Nobody wishes to find out.",
+     "world": "The Enchanted Planes"
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-drinks_low-ended_heads-1",
+     "text": "THIRST COUNT CLOSED; NOBODY ON A BRANCH"
+    },
+    {
+     "id": "lo-drinks_low-ended_heads-2",
+     "text": "BREWERS FREED FROM ROCK DUTY"
+    },
+    {
+     "id": "lo-drinks_low-ended_heads-3",
+     "text": "DRINKS RESTORED AFTER {days} DAYS"
+    },
+    {
+     "id": "lo-drinks_low-ended_heads-4",
+     "text": "LAST BARREL KEEPER STANDS DOWN"
+    },
+    {
+     "id": "lo-drinks_low-ended_heads-5",
+     "text": "STILL FIRES UP; FORTRESS CHEERS"
+    },
+    {
+     "id": "lo-drinks_low-ended_heads-6",
+     "text": "PARADOX AVOIDED, NARROWLY"
+    },
+    {
+     "id": "lo-drinks_low-ended_heads-7",
+     "text": "QUEUE AT THE WELL DISBANDS"
+    },
+    {
+     "id": "lo-drinks_low-ended_heads-8",
+     "text": "ALE BACK; MIST RING LEFT IN PEACE"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-drinks_low-ended_bodies-1",
+     "text": "The Thirst Count, begun on {since}, has closed after {days} days. Barrels are full once more, nobody died on a branch, and nobody died next to gems. The Herald calls this a historic success."
+    },
+    {
+     "id": "lo-drinks_low-ended_bodies-2",
+     "text": "Drink is back. The brewers, freed at last from hauling stone, have filled the cellars. The Overseer has thanked them by queuing more smoothing, which they have agreed to do slowly."
+    },
+    {
+     "id": "lo-drinks_low-ended_bodies-3",
+     "text": "After {n} reports the drought is over. {citizen}, Keeper of the Last Barrel, has been relieved of duty and issued a personal mug, which is reportedly not being shared."
+    },
+    {
+     "id": "lo-drinks_low-ended_bodies-4",
+     "text": "The dry spell has ended after {days} days. The mist generator is once again used for happy thoughts rather than desperate gulping. The pumps report feeling appreciated again."
+    },
+    {
+     "id": "lo-drinks_low-ended_bodies-5",
+     "text": "Drinks have returned. The mayor has withdrawn charges against the well. The well, as a gesture of goodwill, continues to provide water nobody wants now that there is ale."
+    },
+    {
+     "id": "lo-drinks_low-ended_bodies-6",
+     "text": "The Thirst Count is over. Veterans of {past_fort} say this was 'nothing' compared to the old days, and then drank three mugs each without stopping.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-drinks_low-ended_bodies-7",
+     "text": "After {days} days, the barrels are full. The queue at the well has disbanded. Several dwarves have kept queuing out of habit and are being gently led to the tavern."
+    },
+    {
+     "id": "lo-drinks_low-ended_bodies-8",
+     "text": "The drought is officially over. The Herald would like to thank the brewers, the farmers and the one dwarf who carried plants in the rain for {days} days without complaint, mostly."
+    }
+   ]
+  },
+  "famine": {
+   "heads": [
+    {
+     "id": "lo-famine-heads-1",
+     "text": "FAMINE, DAY {days}: QUAKEFOCUS RERUN"
+    },
+    {
+     "id": "lo-famine-heads-2",
+     "text": "DAY {days}: 17 PLANTS WOULD BE NICE"
+    },
+    {
+     "id": "lo-famine-heads-3",
+     "text": "HUNGER LEDGER NO. {n}: THRONES UP"
+    },
+    {
+     "id": "lo-famine-heads-4",
+     "text": "DAY {days}: {meals} MEALS, MANY THRONES"
+    },
+    {
+     "id": "lo-famine-heads-5",
+     "text": "COOKS REASSIGNED TO SMOOTHING"
+    },
+    {
+     "id": "lo-famine-heads-6",
+     "text": "DAY {days}: ARMOR STANDS NOT FOOD"
+    },
+    {
+     "id": "lo-famine-heads-7",
+     "text": "FAMINE: VETERANS SAY 'WE KNOW'"
+    },
+    {
+     "id": "lo-famine-heads-8",
+     "text": "DAY {days}: LARDER SMOOTHED, EMPTY"
+    },
+    {
+     "id": "lo-famine-heads-9",
+     "text": "PLANT GATHERERS LOST IN RAIN"
+    },
+    {
+     "id": "lo-famine-heads-10",
+     "text": "DAY {days}: KITCHEN FILES COMPLAINT"
+    },
+    {
+     "id": "lo-famine-heads-11",
+     "text": "LEDGER NO. {n}: SEEDS UNDER GUARD"
+    },
+    {
+     "id": "lo-famine-heads-12",
+     "text": "DAY {days}: LIAISON EATS OUR SNACKS"
+    },
+    {
+     "id": "lo-famine-heads-13",
+     "text": "FAMINE: MAYOR CHARGES THE SOUP"
+    },
+    {
+     "id": "lo-famine-heads-14",
+     "text": "DAY {days}: CHILD IN MOOD WANTS LUNCH"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-famine-bodies-1",
+     "text": "Famine, day {days}. Those who remember {past_fort} say they have seen worse. They are handling this one well. They are also hiding food in their beards.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-famine-bodies-2",
+     "text": "Hunger Ledger report {n}. With {meals} meals for {pop} dwarves, the Overseer has responded decisively by queuing more armor stands. The stands are sturdy, handsome, and not at all edible."
+    },
+    {
+     "id": "lo-famine-bodies-3",
+     "text": "Day {days}. The cooks have been reassigned to the smoothing queue, now longer than the fortress itself. 'Our walls have never been shinier,' said one, 'and our stomachs have never been louder.'"
+    },
+    {
+     "id": "lo-famine-bodies-4",
+     "text": "Since {since} the larder has been mostly echo. Farmers report the plots are doing their best. The plots report the farmers keep getting sent across the map to gather plants in the rain instead."
+    },
+    {
+     "id": "lo-famine-bodies-5",
+     "text": "Day {days}. Every fortress has a famine counter, and every famine counter runs longer than planned. The Herald has printed a reminder card: 'It has been worse. It has also been better. Eat slowly.'"
+    },
+    {
+     "id": "lo-famine-bodies-6",
+     "text": "Report {n}. The mayor's office has filed a production order violation against the soup. The soup, being mostly water, could not be found to serve the papers on."
+    },
+    {
+     "id": "lo-famine-bodies-7",
+     "text": "Day {days}. The outpost liaison visited and ate a full meal at the guest table while praising the fortress's 'much to share'. The guest table has since been moved behind a curtain."
+    },
+    {
+     "id": "lo-famine-bodies-8",
+     "text": "Hunger Ledger, day {days}. {citizen} has been seen guarding the seed stockpile with a mug and a stare. The seeds are the future. The future is being eyed by every dwarf who walks past."
+    },
+    {
+     "id": "lo-famine-bodies-9",
+     "text": "Since {since}, meals have been rare. A historian notes that {record_fort} is remembered for {record}, much of it made during hungry years. 'Every famine,' she said, 'is also a furniture boom.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-famine-bodies-10",
+     "text": "Day {days}. A child in a strange mood demanded plant cloth. The fortress, short of food, was asked to give up plants for cloth. Parents report it was a difficult dinner conversation."
+    },
+    {
+     "id": "lo-famine-bodies-11",
+     "text": "Report {n}. The hunters, the fishers and the gatherers have all been assigned to haul loose stones. Only {meals} meals remain. The stones are very well organised now. Nobody can eat them either."
+    },
+    {
+     "id": "lo-famine-bodies-12",
+     "text": "Day {days}. The kitchen has been engraved with images of feasts. Diners report that the engravings help for about a minute, then make it much worse."
+    },
+    {
+     "id": "lo-famine-bodies-13",
+     "text": "Since {since}, belts have tightened. Elders compare it to {past_fort}, which {past_fort_fate}. 'At least we had soup,' one said, wistfully. 'Glorious mushroom soup.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-famine-bodies-14",
+     "text": "Day {days}. The Overseer has queued four more hospitals. Two will have no doctor, as is tradition. Diners ask whether a hospital could perhaps serve a meal."
+    },
+    {
+     "id": "lo-famine-bodies-15",
+     "text": "Hunger Ledger report {n}. A dwarf was found standing in the dining hall at dawn, waiting for lunch. By dusk there were {pop} of them. Lunch never arrived. They have agreed to try again tomorrow."
+    },
+    {
+     "id": "lo-famine-bodies-16",
+     "text": "Day {days}. The militia of one has been ordered to defend the larder. The captain remains 'Off duty', which, in fairness, matches the larder's status."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-famine-ended_heads-1",
+     "text": "FAMINE ENDS; QUAKEFOCUS VETS UNIMPRESSED"
+    },
+    {
+     "id": "lo-famine-ended_heads-2",
+     "text": "LARDER FULL; THRONES PAUSED"
+    },
+    {
+     "id": "lo-famine-ended_heads-3",
+     "text": "COOKS RETURN FROM SMOOTHING DUTY"
+    },
+    {
+     "id": "lo-famine-ended_heads-4",
+     "text": "HUNGER LEDGER CLOSED AT DAY {days}"
+    },
+    {
+     "id": "lo-famine-ended_heads-5",
+     "text": "SOUP ACQUITTED; MEALS SERVED"
+    },
+    {
+     "id": "lo-famine-ended_heads-6",
+     "text": "SEED GUARD STANDS DOWN"
+    },
+    {
+     "id": "lo-famine-ended_heads-7",
+     "text": "LUNCH ARRIVES; WAITERS CHEER"
+    },
+    {
+     "id": "lo-famine-ended_heads-8",
+     "text": "FAMINE OVER; BELTS LOOSENED"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-famine-ended_bodies-1",
+     "text": "The famine begun on {since} has ended after {days} days. Veterans of {past_fort} called it 'a light snack of a famine' and ate twice as much as anyone.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-famine-ended_bodies-2",
+     "text": "Meals are back. The cooks have returned from the smoothing queue, leaving behind several brilliant walls and a strong conviction that cooking is the better job."
+    },
+    {
+     "id": "lo-famine-ended_bodies-3",
+     "text": "After {n} reports the Hunger Ledger is closed. The mayor has dropped charges against the soup, which is now thick enough to be served papers if needed."
+    },
+    {
+     "id": "lo-famine-ended_bodies-4",
+     "text": "The famine is over. {citizen}, who guarded the seed stockpile for {days} days, has been thanked by the fortress with an entire meal, eaten standing guard out of habit."
+    },
+    {
+     "id": "lo-famine-ended_bodies-5",
+     "text": "Food has returned. The Overseer has celebrated by pausing the armor stand order. The pause is temporary, but the dining hall is now visible again for the first time in weeks."
+    },
+    {
+     "id": "lo-famine-ended_bodies-6",
+     "text": "After {days} days of hunger, lunch arrived. The dwarves who had been waiting in the dining hall cheered so loudly that the militia captain briefly came on duty to check, then left again."
+    },
+    {
+     "id": "lo-famine-ended_bodies-7",
+     "text": "The Hunger Ledger closes. Farmers, freed from plant-gathering across the map, have reported a fine harvest from the plots right outside the door, which had been there all along."
+    },
+    {
+     "id": "lo-famine-ended_bodies-8",
+     "text": "The famine has lifted after {days} days. The engraved feasts on the kitchen walls are no longer considered cruel. They are now considered a menu."
+    }
+   ]
+  },
+  "wood_low": {
+   "heads": [
+    {
+     "id": "lo-wood_low-heads-1",
+     "text": "LOG COUNT: TREES NOW CONSIDERED UNSAFE"
+    },
+    {
+     "id": "lo-wood_low-heads-2",
+     "text": "DAY {days}: {wood} LOGS, 900 THRONES"
+    },
+    {
+     "id": "lo-wood_low-heads-3",
+     "text": "TIMBER NO. {n}: NOBODY CLIMB TREES"
+    },
+    {
+     "id": "lo-wood_low-heads-4",
+     "text": "DAY {days}: WOODCUTTER GATHERS PLANTS"
+    },
+    {
+     "id": "lo-wood_low-heads-5",
+     "text": "CARPENTER CARVES STONE IN PROTEST"
+    },
+    {
+     "id": "lo-wood_low-heads-6",
+     "text": "DAY {days}: COFFIN WAITLIST FORMS"
+    },
+    {
+     "id": "lo-wood_low-heads-7",
+     "text": "LOG COUNT: OVERSEER ORDERS THRONES"
+    },
+    {
+     "id": "lo-wood_low-heads-8",
+     "text": "DAY {days}: BEDS NOW BEDROLLS OF HOPE"
+    },
+    {
+     "id": "lo-wood_low-heads-9",
+     "text": "{wood} LOGS; CARPENTER COUNTS TWICE"
+    },
+    {
+     "id": "lo-wood_low-heads-10",
+     "text": "DAY {days}: ELVES SEND 'THOUGHTS'"
+    },
+    {
+     "id": "lo-wood_low-heads-11",
+     "text": "TIMBER NO. {n}: BARRELS OF MEMORY"
+    },
+    {
+     "id": "lo-wood_low-heads-12",
+     "text": "DAY {days}: WINDMILL WANTS A FRIEND"
+    },
+    {
+     "id": "lo-wood_low-heads-13",
+     "text": "LOG COUNT: TREES BLAMED FOR EVERYTHING"
+    },
+    {
+     "id": "lo-wood_low-heads-14",
+     "text": "DAY {days}: STOCKPILE MOSTLY BARK"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-wood_low-bodies-1",
+     "text": "Day {days} of the Log Count, with {wood} logs left. Woodcutters have been reminded that dwarves have died of thirst stuck on tree branches. They now cut trees from the ground only, and with feeling."
+    },
+    {
+     "id": "lo-wood_low-bodies-2",
+     "text": "Report {n}. The Overseer has queued a fresh batch of thrones, apparently aiming at a round hundred. The carpenter has asked whether thrones could be stone. The masons have asked to be left out of it."
+    },
+    {
+     "id": "lo-wood_low-bodies-3",
+     "text": "Day {days}. The woodcutter has been reassigned to gather plants across the whole map, in the rain. He has walked past roughly four hundred trees. He has been instructed not to touch any of them."
+    },
+    {
+     "id": "lo-wood_low-bodies-4",
+     "text": "Since {since} the woodpile has shrunk to {wood} logs. The carpenter has begun carving stone in protest. The masons are taking this as a personal insult and the dispute has reached the mayor."
+    },
+    {
+     "id": "lo-wood_low-bodies-5",
+     "text": "Day {days}. Coffins are wooden or stone; the fortress is short of one and sick of the other. A waitlist has formed. Members are asked to remain alive in the meantime."
+    },
+    {
+     "id": "lo-wood_low-bodies-6",
+     "text": "Timber report {n}. {citizen} has been sleeping on the floor since the bed order stalled. The floor is 'fine', apparently. This has also been said in sleep, angrily, eleven times."
+    },
+    {
+     "id": "lo-wood_low-bodies-7",
+     "text": "Day {days}. The elves of a nearby retreat have sent a letter expressing 'thoughts' about our logging. The letter was written on bark, which the carpenter has gratefully added to stock."
+    },
+    {
+     "id": "lo-wood_low-bodies-8",
+     "text": "Since {since}, logs have been precious. A miner climbed a tree to check how many trees were left. Rescue is under way. The Herald begs readers: there is no reason to be in a tree."
+    },
+    {
+     "id": "lo-wood_low-bodies-9",
+     "text": "Day {days}. The windmill has requested a second windmill for company. Engineers say there is not enough wood for that. The windmill has continued to turn, lonely."
+    },
+    {
+     "id": "lo-wood_low-bodies-10",
+     "text": "Report {n}. The mayor's office has filed production order violations against the forest for failing to come indoors. The forest has not replied. It never does."
+    },
+    {
+     "id": "lo-wood_low-bodies-11",
+     "text": "Day {days}. Barrels are in short supply. The brewers report that ale must be stored somewhere, and some have begun storing it inside themselves, which they call 'a temporary measure'."
+    },
+    {
+     "id": "lo-wood_low-bodies-12",
+     "text": "Since {since} the carpenter has had to say no to everything. A strange mood demanded wood; the fortress gave the last good log. The resulting artifact is a chair. Nobody may sit on it."
+    },
+    {
+     "id": "lo-wood_low-bodies-13",
+     "text": "Day {days}. With {wood} logs left, veterans recall {record_fort} and its {record}, and wonder aloud how many logs went into all that. The answer, according to records, is 'yes'.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-wood_low-bodies-14",
+     "text": "Timber report {n}. A woodcutter returned from the surface soaked, scratched and holding a single branch. He refused to discuss where the rest of the tree went."
+    },
+    {
+     "id": "lo-wood_low-bodies-15",
+     "text": "Day {days}. The Overseer has queued a wooden throne, a wooden bed and a wooden armor stand. The carpenter has queued a long lie-down."
+    },
+    {
+     "id": "lo-wood_low-bodies-16",
+     "text": "Since {since}, the stockpile has been mostly bark and opinions. Hauler {citizen} has started bringing in twigs one at a time, which is admirable and about as useful as it sounds."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-wood_low-ended_heads-1",
+     "text": "WOODPILE RESTORED; NOBODY UP A TREE"
+    },
+    {
+     "id": "lo-wood_low-ended_heads-2",
+     "text": "LOG COUNT CLOSED AT DAY {days}"
+    },
+    {
+     "id": "lo-wood_low-ended_heads-3",
+     "text": "CARPENTER STOPS CARVING STONE"
+    },
+    {
+     "id": "lo-wood_low-ended_heads-4",
+     "text": "BEDS DELIVERED; FLOOR RETIRES"
+    },
+    {
+     "id": "lo-wood_low-ended_heads-5",
+     "text": "COFFIN WAITLIST CLEARED, HAPPILY"
+    },
+    {
+     "id": "lo-wood_low-ended_heads-6",
+     "text": "FOREST ACQUITTED BY MAYOR"
+    },
+    {
+     "id": "lo-wood_low-ended_heads-7",
+     "text": "WINDMILL GETS A FRIEND"
+    },
+    {
+     "id": "lo-wood_low-ended_heads-8",
+     "text": "TIMBER BACK; THRONES THREATENED"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-wood_low-ended_bodies-1",
+     "text": "The Log Count, begun on {since}, has ended after {days} days. Logs are stacked high, nobody is stuck in a tree, and the carpenter has put down the chisel she was using on stone, to the masons' relief."
+    },
+    {
+     "id": "lo-wood_low-ended_bodies-2",
+     "text": "Wood is back. The Overseer immediately queued a fresh run of thrones and armor stands. The carpenter has asked that at least one bed go first. Negotiations continue."
+    },
+    {
+     "id": "lo-wood_low-ended_bodies-3",
+     "text": "After {n} reports, timber is restored. {citizen} has a bed again and slept for an entire day. Nobody intervened. It seemed the least the fortress could do."
+    },
+    {
+     "id": "lo-wood_low-ended_bodies-4",
+     "text": "The Log Count is over. The coffin waitlist has been cleared without anybody needing a coffin, which the Herald counts as the best possible outcome."
+    },
+    {
+     "id": "lo-wood_low-ended_bodies-5",
+     "text": "Logs have returned after {days} days. The mayor has dropped the charge against the forest, citing 'insufficient indoorness'. The forest has not commented."
+    },
+    {
+     "id": "lo-wood_low-ended_bodies-6",
+     "text": "The timber shortage has ended. Engineers have built the lonely windmill a companion. The two now turn together, and the engineers swear the first one turns more cheerfully."
+    },
+    {
+     "id": "lo-wood_low-ended_bodies-7",
+     "text": "Wood is plentiful once more. The woodcutters were thanked at a small ceremony, held well away from trees, on the ground, for safety."
+    },
+    {
+     "id": "lo-wood_low-ended_bodies-8",
+     "text": "The {days}-day Log Count is closed. Barrels are being built again, and the brewers who had been 'storing ale internally' have agreed to stop."
+    }
+   ]
+  },
+  "rain": {
+   "heads": [
+    {
+     "id": "lo-rain-heads-1",
+     "text": "DRIZZLE DIARY: PLANT GATHERERS SOAKED"
+    },
+    {
+     "id": "lo-rain-heads-2",
+     "text": "DAY {days}: OVERSEER SENDS ALL OUTSIDE"
+    },
+    {
+     "id": "lo-rain-heads-3",
+     "text": "RAIN NO. {n}: HERBALISTS DRIP"
+    },
+    {
+     "id": "lo-rain-heads-4",
+     "text": "DAY {days}: MIST RING NOW REDUNDANT"
+    },
+    {
+     "id": "lo-rain-heads-5",
+     "text": "SKY JOINS THE MIST RING, DAY {days}"
+    },
+    {
+     "id": "lo-rain-heads-6",
+     "text": "DAY {days}: STOCKPILES OF WET LEAVES"
+    },
+    {
+     "id": "lo-rain-heads-7",
+     "text": "RAIN: SEARABBEYS WAS WETTER (CLAIM)"
+    },
+    {
+     "id": "lo-rain-heads-8",
+     "text": "DAY {days}: CISTERN OVERJOYED"
+    },
+    {
+     "id": "lo-rain-heads-9",
+     "text": "DRIZZLE NO. {n}: MAYOR CHARGES CLOUDS"
+    },
+    {
+     "id": "lo-rain-heads-10",
+     "text": "DAY {days}: HAULERS DEMAND HATS"
+    },
+    {
+     "id": "lo-rain-heads-11",
+     "text": "RAIN; OVERSEER QUEUES MORE PLANTS"
+    },
+    {
+     "id": "lo-rain-heads-12",
+     "text": "DAY {days}: NOBODY SHELTER IN TREES"
+    },
+    {
+     "id": "lo-rain-heads-13",
+     "text": "DRIZZLE NO. {n}: WINDMILLS SPIN WET"
+    },
+    {
+     "id": "lo-rain-heads-14",
+     "text": "DAY {days}: STRAWBERRIES, SOAKED"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-rain-bodies-1",
+     "text": "Day {days} of the Drizzle Diary. As is traditional, the Overseer has responded to rain by ordering every spare dwarf to gather plants across the entire map. The plants are delighted. The dwarves are damp."
+    },
+    {
+     "id": "lo-rain-bodies-2",
+     "text": "Report {n}. The mist generator, built to spray water for happy thoughts, has been shut off. Engineers say the sky has the matter in hand and is doing it for free."
+    },
+    {
+     "id": "lo-rain-bodies-3",
+     "text": "Day {days}. {citizen} returned from plant gathering so wet that a puddle followed indoors and up two flights of stairs. The puddle has been given a small room."
+    },
+    {
+     "id": "lo-rain-bodies-4",
+     "text": "Since {since} it has rained. The cistern is so full it has started to look smug. Engineers are reviewing the floodgates, and the floodgates are reviewing the engineers."
+    },
+    {
+     "id": "lo-rain-bodies-5",
+     "text": "Day {days}. Veterans of {past_fort} insist it rained harder there. The rain, listening, has decided to settle the argument here.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-rain-bodies-6",
+     "text": "Drizzle Diary, report {n}. The mayor's office has filed a production order violation against the clouds. A clerk was sent outside to serve the papers. The papers dissolved on contact."
+    },
+    {
+     "id": "lo-rain-bodies-7",
+     "text": "Day {days}. The {season} {weather} continues. Herbalists bringing in armfuls of soaked leaves have filled three stockpiles. The cook is asked to make salad. The cook has declined."
+    },
+    {
+     "id": "lo-rain-bodies-8",
+     "text": "Report {n}. Dwarves are reminded that trees are not shelter. The fortress remembers the miner on the branch, and asks that everyone get wet on the ground, like adults."
+    },
+    {
+     "id": "lo-rain-bodies-9",
+     "text": "Day {days}. The windmills are spinning wet. Engineers report this does not improve them. They also report that one engineer is now spinning wet, which did not improve him either."
+    },
+    {
+     "id": "lo-rain-bodies-10",
+     "text": "Since {since} the sky has leaked. The hauler who brings loose stone in from the surface has started carrying them in a bucket, for the water, and the stones, both at once."
+    },
+    {
+     "id": "lo-rain-bodies-11",
+     "text": "Day {days}. The Overseer has queued plant gathering for the far edge of the map. Dwarves have been seen trudging there in single file, like a soggy parade nobody asked to see."
+    },
+    {
+     "id": "lo-rain-bodies-12",
+     "text": "Drizzle report {n}. The liaison arrived in the rain, removed his cloak, said 'There is much to share', and shook it all over the depot. Wet news is still news, this paper supposes."
+    },
+    {
+     "id": "lo-rain-bodies-13",
+     "text": "Day {days}. In the {weather}, strawberries gathered from the far hills arrived half juice. The brewer has accepted them happily, and the fortress has quietly hoped for an ale glut."
+    },
+    {
+     "id": "lo-rain-bodies-14",
+     "text": "Since {since} the rain has fallen. {citizen} has been caught in it so often that even the sound of pouring ale now causes flinching. A slow reintroduction to the tavern is under way."
+    },
+    {
+     "id": "lo-rain-bodies-15",
+     "text": "Day {days}. The militia of one was ordered to patrol the surface in the rain. The captain remains 'Off duty', and the nine empty places stayed perfectly dry."
+    },
+    {
+     "id": "lo-rain-bodies-16",
+     "text": "Report {n} on the rain. The Herald's own printing press has begun to curl at the edges. Readers holding a wavy copy of this paper are holding a historical document. Please dry it."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-rain-ended_heads-1",
+     "text": "RAIN STOPS; PLANT GATHERERS WRING OUT"
+    },
+    {
+     "id": "lo-rain-ended_heads-2",
+     "text": "DRIZZLE DIARY CLOSED AT DAY {days}"
+    },
+    {
+     "id": "lo-rain-ended_heads-3",
+     "text": "MIST RING SWITCHED BACK ON"
+    },
+    {
+     "id": "lo-rain-ended_heads-4",
+     "text": "CLOUDS ACQUITTED; SUN ON PAROLE"
+    },
+    {
+     "id": "lo-rain-ended_heads-5",
+     "text": "PUDDLE EVICTED FROM ITS ROOM"
+    },
+    {
+     "id": "lo-rain-ended_heads-6",
+     "text": "SOGGY PARADE COMES HOME"
+    },
+    {
+     "id": "lo-rain-ended_heads-7",
+     "text": "SKY DRIES; CISTERN SULKS"
+    },
+    {
+     "id": "lo-rain-ended_heads-8",
+     "text": "DAY {days}: DWARVES SEE OWN FEET"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-rain-ended_bodies-1",
+     "text": "The rain begun on {since} has stopped after {days} days. Plant gatherers have been wrung out and hung by the fire. The Overseer, finding the map dry, immediately ordered more gathering. In the sun this time."
+    },
+    {
+     "id": "lo-rain-ended_bodies-2",
+     "text": "The Drizzle Diary closes after {n} reports. The mist generator has been switched back on, since dwarves were beginning to miss being damp on purpose rather than by accident."
+    },
+    {
+     "id": "lo-rain-ended_bodies-3",
+     "text": "Rain has ended. The mayor has dropped charges against the clouds, which have left the area. The clerk who served them has dried out and requests an indoor posting."
+    },
+    {
+     "id": "lo-rain-ended_bodies-4",
+     "text": "The sky is dry. {citizen} has been reunited with a pair of dry socks and wept quietly. The puddle that followed indoors has been evicted from its room and mopped."
+    },
+    {
+     "id": "lo-rain-ended_bodies-5",
+     "text": "After {days} days the rain is over. The cistern, filled to the brim, will keep the mist generator running for a year. Engineers call this 'the silver lining', then go to bed."
+    },
+    {
+     "id": "lo-rain-ended_bodies-6",
+     "text": "The rain has stopped. Dwarves stepping outside were reportedly suspicious of the sun, as they always are, and three went back in to wait and see if it was a trick."
+    },
+    {
+     "id": "lo-rain-ended_bodies-7",
+     "text": "After {n} reports the Drizzle Diary is closed. Three stockpiles of soaked leaves are drying in the hall. The fortress smells like a forest. The elves would be thrilled."
+    },
+    {
+     "id": "lo-rain-ended_bodies-8",
+     "text": "Rain over after {days} days. The windmills report spinning dry for the first time since {since}. Engineers say it makes no difference to them, and also that it feels nicer."
+    }
+   ]
+  },
+  "snow": {
+   "heads": [
+    {
+     "id": "lo-snow-heads-1",
+     "text": "SNOW BULLETIN: GATHERERS STILL OUT"
+    },
+    {
+     "id": "lo-snow-heads-2",
+     "text": "DAY {days}: PLANTS WANTED, IN SNOW"
+    },
+    {
+     "id": "lo-snow-heads-3",
+     "text": "SNOW NO. {n}: MIST RING FREEZES"
+    },
+    {
+     "id": "lo-snow-heads-4",
+     "text": "DAY {days}: CISTERN NOW A SKATING RINK"
+    },
+    {
+     "id": "lo-snow-heads-5",
+     "text": "DRIFTS BURY THE ARMOR STANDS"
+    },
+    {
+     "id": "lo-snow-heads-6",
+     "text": "DAY {days}: LIAISON STUCK AT DEPOT"
+    },
+    {
+     "id": "lo-snow-heads-7",
+     "text": "SNOW NO. {n}: WINDMILLS ICED"
+    },
+    {
+     "id": "lo-snow-heads-8",
+     "text": "DAY {days}: TREES SLIPPERY; STAY OFF"
+    },
+    {
+     "id": "lo-snow-heads-9",
+     "text": "SNOW: QUAKEFOCUS VETS SHRUG"
+    },
+    {
+     "id": "lo-snow-heads-10",
+     "text": "DAY {days}: BROOK SOLID; FISHERS FREE"
+    },
+    {
+     "id": "lo-snow-heads-11",
+     "text": "SNOW NO. {n}: MAYOR CHARGES WINTER"
+    },
+    {
+     "id": "lo-snow-heads-12",
+     "text": "DAY {days}: SMOOTHERS POLISH ICE"
+    },
+    {
+     "id": "lo-snow-heads-13",
+     "text": "SNOW BURIES THE REFUSE PILE, KINDLY"
+    },
+    {
+     "id": "lo-snow-heads-14",
+     "text": "DAY {days}: GOBLINS LATE, SNOW BLAMED"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-snow-bodies-1",
+     "text": "Day {days} of the Snow Bulletin. The Overseer, undaunted, has ordered plant gathering across the whole map. Gatherers report the map is white, the plants are underneath it, and their beards are now solid."
+    },
+    {
+     "id": "lo-snow-bodies-2",
+     "text": "Report {n}. The mist generator has frozen into a cluster of glittering spikes. Engineers call it 'unexpectedly beautiful'. Dwarves who walked through it for happy thoughts call it something else."
+    },
+    {
+     "id": "lo-snow-bodies-3",
+     "text": "Day {days}. The cistern has frozen over. {citizen} was found skating on it at midnight and has been gently invited to stop, and also to teach lessons."
+    },
+    {
+     "id": "lo-snow-bodies-4",
+     "text": "Since {since} the snow has fallen. The refuse pile is now buried under a clean white blanket. The fortress has agreed, for once, to leave the garbage exactly where it is."
+    },
+    {
+     "id": "lo-snow-bodies-5",
+     "text": "Day {days}. Drifts have buried the stock of armor stands left outside. Elders recall {record_fort} and its {record}. 'Snowfall like this,' one said, 'would only have covered half.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-snow-bodies-6",
+     "text": "Report {n}. The outpost liaison arrived just before the drifts and is now snowed in at the depot. He has said 'There is much to share' fourteen times. Nobody has asked what."
+    },
+    {
+     "id": "lo-snow-bodies-7",
+     "text": "Day {days}. In the {season} {weather}, the brook has frozen solid. The fisherdwarves have been released from duty and are visibly relieved, since they never caught anything anyway."
+    },
+    {
+     "id": "lo-snow-bodies-8",
+     "text": "Since {since}, snow. Dwarves are reminded that trees are no safer in winter. They are, in fact, slipperier. The fortress remembers the miner on the branch and asks everyone to stay low."
+    },
+    {
+     "id": "lo-snow-bodies-9",
+     "text": "Day {days}. The smoothers have finished every wall and begun smoothing the ice. The ice was already smooth. The Overseer has queued 300 more jobs to be sure."
+    },
+    {
+     "id": "lo-snow-bodies-10",
+     "text": "Snow Bulletin report {n}. The mayor's office has filed a production order violation against winter. Winter has not responded and is expected to leave on its own schedule."
+    },
+    {
+     "id": "lo-snow-bodies-11",
+     "text": "Day {days}. The windmills have iced over. Engineers have climbed up with hammers. The Herald notes the windmills are not trees, and is only mildly worried."
+    },
+    {
+     "id": "lo-snow-bodies-12",
+     "text": "Since {since} it has snowed. The {enemy_race} armies of {enemy} were expected this season and have not come. Scholars credit the snow. The militia of one credits nothing, being off duty.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lo-snow-bodies-13",
+     "text": "Day {days}. With {pop} dwarves indoors, the halls are crowded and the tavern is full. The brewers report record sales. The snow, in a sense, is good for business."
+    },
+    {
+     "id": "lo-snow-bodies-14",
+     "text": "Report {n}. Veterans of {past_fort}, which lasted {past_fort_years}, have described this snowfall as 'pleasant' and gone outside in their socks to prove it.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-snow-bodies-15",
+     "text": "Day {days}. A snowdwarf built in the courtyard has been given an office. The fortress has so many vacant offices, from hammerer to chief medical dwarf, that nobody objected."
+    },
+    {
+     "id": "lo-snow-bodies-16",
+     "text": "Since {since}, the snow. The {weather} has made the depot invisible. Merchants, if any, are advised to follow the sound of dwarves complaining about the cold."
+    },
+    {
+     "id": "lo-snow-bodies-w1",
+     "text": "Day {days}. Drifts have buried the old stock of armor stands left outside. Elders recall Quakefocus had 1,981. 'Snowfall like this,' one said, 'would only have covered half.'",
+     "world": "The Enchanted Planes"
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-snow-ended_heads-1",
+     "text": "THAW: THE ARMOR STANDS REEMERGE"
+    },
+    {
+     "id": "lo-snow-ended_heads-2",
+     "text": "SNOW BULLETIN CLOSED AT DAY {days}"
+    },
+    {
+     "id": "lo-snow-ended_heads-3",
+     "text": "LIAISON DUG OUT OF DEPOT"
+    },
+    {
+     "id": "lo-snow-ended_heads-4",
+     "text": "MIST RING THAWS; THOUGHTS HAPPY"
+    },
+    {
+     "id": "lo-snow-ended_heads-5",
+     "text": "SNOWDWARF RESIGNS OFFICE, MELTS"
+    },
+    {
+     "id": "lo-snow-ended_heads-6",
+     "text": "WINTER ACQUITTED, LEAVES TOWN"
+    },
+    {
+     "id": "lo-snow-ended_heads-7",
+     "text": "CISTERN MELTS; SKATING SUSPENDED"
+    },
+    {
+     "id": "lo-snow-ended_heads-8",
+     "text": "DAY {days}: REFUSE PILE VISIBLE AGAIN"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-snow-ended_bodies-1",
+     "text": "The snow begun on {since} has stopped after {days} days. As the drifts melt, the old armor stands are reappearing one by one, like an army returning home from nowhere in particular."
+    },
+    {
+     "id": "lo-snow-ended_bodies-2",
+     "text": "The thaw has come. The outpost liaison has been dug out of the depot and departed, still saying 'There is much to share'. Nothing was shared. Tradition holds."
+    },
+    {
+     "id": "lo-snow-ended_bodies-3",
+     "text": "After {n} reports, the Snow Bulletin is closed. The mist generator has thawed and is spraying happy thoughts again. The engineers who admired its ice spikes are quietly sad."
+    },
+    {
+     "id": "lo-snow-ended_bodies-4",
+     "text": "The snow has melted. The snowdwarf that held office during the winter has resigned in the traditional manner, by melting. The office is vacant again, along with all the others."
+    },
+    {
+     "id": "lo-snow-ended_bodies-5",
+     "text": "Snow over after {days} days. The mayor has dropped charges against winter, which left without paying. The clerk has filed the matter under 'next year'."
+    },
+    {
+     "id": "lo-snow-ended_bodies-6",
+     "text": "The thaw is here. {citizen}, who skated on the cistern all winter, has hung up the skates and now teaches lessons on the dining hall floor, which has been smoothed far too well."
+    },
+    {
+     "id": "lo-snow-ended_bodies-7",
+     "text": "The snows are gone. Unfortunately so is the white blanket over the refuse pile. The pit has been seen again, and it remembers everyone."
+    },
+    {
+     "id": "lo-snow-ended_bodies-8",
+     "text": "After {days} days, the snow has stopped. Plant gatherers sent out in the drifts have returned with three plants and nine stories. The Herald will print the stories."
+    }
+   ]
+  },
+  "drinks_high": {
+   "heads": [
+    {
+     "id": "lo-drinks_high-heads-1",
+     "text": "ALE GLUT: SEARABBEYS LEVELS REACHED"
+    },
+    {
+     "id": "lo-drinks_high-heads-2",
+     "text": "{drinks} DRINKS; IS ANYONE THIRSTY?"
+    },
+    {
+     "id": "lo-drinks_high-heads-3",
+     "text": "GLUT NO. {n}: CHECK ON THE MINERS"
+    },
+    {
+     "id": "lo-drinks_high-heads-4",
+     "text": "DAY {days}: BARRELS BLOCK THE STAIRS"
+    },
+    {
+     "id": "lo-drinks_high-heads-5",
+     "text": "{drinks} DRINKS; ELDERS GET NERVOUS"
+    },
+    {
+     "id": "lo-drinks_high-heads-6",
+     "text": "DAY {days}: THE PARADOX HAUNTS US"
+    },
+    {
+     "id": "lo-drinks_high-heads-7",
+     "text": "GLUT NO. {n}: DRINK, PLEASE, ANYONE"
+    },
+    {
+     "id": "lo-drinks_high-heads-8",
+     "text": "DAY {days}: MUGS ISSUED BY DECREE"
+    },
+    {
+     "id": "lo-drinks_high-heads-9",
+     "text": "ALE GLUT: OVERSEER ORDERS MORE"
+    },
+    {
+     "id": "lo-drinks_high-heads-10",
+     "text": "DAY {days}: BREWER IN A MOOD (HAPPY)"
+    },
+    {
+     "id": "lo-drinks_high-heads-11",
+     "text": "GLUT NO. {n}: MAYOR CHARGES BARRELS"
+    },
+    {
+     "id": "lo-drinks_high-heads-12",
+     "text": "DAY {days}: TAVERN NOW SEVEN ROOMS"
+    },
+    {
+     "id": "lo-drinks_high-heads-13",
+     "text": "ALE GLUT; LIAISON STAYS FOR DINNER"
+    },
+    {
+     "id": "lo-drinks_high-heads-14",
+     "text": "DAY {days}: BARREL WALL REACHES ROOF"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-drinks_high-bodies-1",
+     "text": "Day {days} of the Ale Glut, with {drinks} drinks in stock. Dwarves have died of thirst beside full shelves before. Every miner has therefore been personally handed a mug and watched until finished."
+    },
+    {
+     "id": "lo-drinks_high-bodies-2",
+     "text": "Report {n}. Elders have begun walking the halls asking every dwarf 'Have you had a drink today?' The question is meant kindly. After the fifth time, it is not received kindly."
+    },
+    {
+     "id": "lo-drinks_high-bodies-3",
+     "text": "Day {days}. The barrels now block the main stair. Haulers report it takes longer to reach the drinks than it does to make them, which the brewers consider a personal victory."
+    },
+    {
+     "id": "lo-drinks_high-bodies-4",
+     "text": "Since {since} the cellars have overflowed. The Overseer has responded by ordering more brewing, on the principle that if some is good then {drinks} is better, and more than {drinks} is best."
+    },
+    {
+     "id": "lo-drinks_high-bodies-5",
+     "text": "Day {days}. With {drinks} drinks among {pop} dwarves, the Herald must ask the question that history demands: is anyone up a tree? Please check. Please check now."
+    },
+    {
+     "id": "lo-drinks_high-bodies-6",
+     "text": "Glut report {n}. The mayor's office has filed a production order violation against the barrels for 'excessive success'. The barrels have been ordered to appear in court, and simply rolled there."
+    },
+    {
+     "id": "lo-drinks_high-bodies-7",
+     "text": "Day {days}. {citizen} has taken to sleeping in the tavern 'to save the walk'. Seven other dwarves have done the same. The tavern now has a waitlist for floor space."
+    },
+    {
+     "id": "lo-drinks_high-bodies-8",
+     "text": "Since {since} the ale has flowed. The liaison visited, sampled four types, and recommended an import agreement for more. He was gently escorted to the depot, smiling broadly."
+    },
+    {
+     "id": "lo-drinks_high-bodies-9",
+     "text": "Day {days}. Barrels line the corridor to the refuse pit. Haulers are reminded NOT to haul ale to the garbage pit, nor to haul refuse from it. Recent history has opinions on both."
+    },
+    {
+     "id": "lo-drinks_high-bodies-10",
+     "text": "Report {n}. The brewer was struck by a strange mood and demanded a barrel. The fortress has {drinks} drinks and thousands of barrels. For once, a mood asked for something we had."
+    },
+    {
+     "id": "lo-drinks_high-bodies-11",
+     "text": "Day {days}. The glut has reached a point where the stockpile has a stockpile. Engineers propose a pipe to the mist generator, so the happy thoughts can be served alcoholic."
+    },
+    {
+     "id": "lo-drinks_high-bodies-12",
+     "text": "Since {since}, plenty. Veterans of {past_fort} have refused to drink faster. 'You never know,' one said, clutching three mugs. 'You never know.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-drinks_high-bodies-13",
+     "text": "Day {days}. The Overseer has queued 300 more barrels, a number that alarms readers who remember the thrones. Nobody knows where they will go. The tavern has volunteered a hallway."
+    },
+    {
+     "id": "lo-drinks_high-bodies-14",
+     "text": "Glut report {n}. A dwarf was seen pouring ale on a farm plot 'to help'. The plot is now very relaxed. The crops, reportedly, have started singing."
+    },
+    {
+     "id": "lo-drinks_high-bodies-15",
+     "text": "Day {days}. With {wood} logs left and every one of them now a barrel, the carpenter has asked that someone please drink faster so she can have her wood back."
+    },
+    {
+     "id": "lo-drinks_high-bodies-16",
+     "text": "Report {n}. Barrels are now stacked in the hospital. The hospital has no doctor anyway, as is traditional. The patients say they feel much better."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-drinks_high-ended_heads-1",
+     "text": "GLUT ENDS; NOBODY DIED OF THIRST"
+    },
+    {
+     "id": "lo-drinks_high-ended_heads-2",
+     "text": "STAIRS VISIBLE; BARRELS DRUNK"
+    },
+    {
+     "id": "lo-drinks_high-ended_heads-3",
+     "text": "ALE GLUT CLOSED AT DAY {days}"
+    },
+    {
+     "id": "lo-drinks_high-ended_heads-4",
+     "text": "BARRELS ACQUITTED, MOSTLY EMPTY"
+    },
+    {
+     "id": "lo-drinks_high-ended_heads-5",
+     "text": "TAVERN SHRINKS TO ONE ROOM"
+    },
+    {
+     "id": "lo-drinks_high-ended_heads-6",
+     "text": "ELDERS STOP ASKING 'DRINK TODAY?'"
+    },
+    {
+     "id": "lo-drinks_high-ended_heads-7",
+     "text": "HOSPITAL GETS ITS BEDS BACK"
+    },
+    {
+     "id": "lo-drinks_high-ended_heads-8",
+     "text": "GLUT OVER; PARADOX DEFEATED"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-drinks_high-ended_bodies-1",
+     "text": "The Ale Glut, begun on {since}, is over after {days} days. In all that time not one dwarf died of thirst amid plenty, which in this world counts as a towering achievement."
+    },
+    {
+     "id": "lo-drinks_high-ended_bodies-2",
+     "text": "The stairs are clear. Haulers walk freely again. {citizen}, who slept in the tavern for {days} days, has been located and sent home, where the bed was a strange surprise."
+    },
+    {
+     "id": "lo-drinks_high-ended_bodies-3",
+     "text": "After {n} reports, the glut is closed. The mayor has dropped charges against the barrels, now mostly empty and in no shape to stand trial."
+    },
+    {
+     "id": "lo-drinks_high-ended_bodies-4",
+     "text": "The glut has ended. Elders have stopped asking everyone whether they've had a drink today. Several dwarves report missing the question and have started asking it of each other."
+    },
+    {
+     "id": "lo-drinks_high-ended_bodies-5",
+     "text": "Barrels are back to sensible levels. The hospital has its beds back. Patients who had been recovering beside the ale say they would like to be ill somewhere else next time."
+    },
+    {
+     "id": "lo-drinks_high-ended_bodies-6",
+     "text": "The glut is drunk. The carpenter has had her barrels returned as empty wood and is said to be 'emotionally whole again'."
+    },
+    {
+     "id": "lo-drinks_high-ended_bodies-7",
+     "text": "After {days} days the overflow has receded. The Overseer has noticed the shortfall and queued more brewing at once. The Herald anticipates a further glut in about a season."
+    },
+    {
+     "id": "lo-drinks_high-ended_bodies-8",
+     "text": "The Ale Glut has ended, and the fortress drank it rather than let it go to waste. Veterans of {past_fort} call it 'doing it properly this time' and raise one last mug.",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ]
+  },
+  "stone_glut": {
+   "heads": [
+    {
+     "id": "lo-stone_glut-heads-1",
+     "text": "STONE GLUT: OLD RECORDS IN DANGER"
+    },
+    {
+     "id": "lo-stone_glut-heads-2",
+     "text": "DAY {days}: ROCKS BEAT ARMOR STANDS"
+    },
+    {
+     "id": "lo-stone_glut-heads-3",
+     "text": "STONE NO. {n}: SMOOTHERS OUTNUMBERED"
+    },
+    {
+     "id": "lo-stone_glut-heads-4",
+     "text": "DAY {days}: OVERSEER QUEUES THRONES"
+    },
+    {
+     "id": "lo-stone_glut-heads-5",
+     "text": "STONE GLUT: MASONS SEE AN OPENING"
+    },
+    {
+     "id": "lo-stone_glut-heads-6",
+     "text": "DAY {days}: HAULERS FILE GRIEVANCE"
+    },
+    {
+     "id": "lo-stone_glut-heads-7",
+     "text": "STONE NO. {n}: MAYOR CHARGES ROCKS"
+    },
+    {
+     "id": "lo-stone_glut-heads-8",
+     "text": "DAY {days}: BOULDER ADOPTS A DOG"
+    },
+    {
+     "id": "lo-stone_glut-heads-9",
+     "text": "STONE SITUATION: GARBAGE PIT FULL"
+    },
+    {
+     "id": "lo-stone_glut-heads-10",
+     "text": "DAY {days}: MINERS MAKE MORE, CHEERFUL"
+    },
+    {
+     "id": "lo-stone_glut-heads-11",
+     "text": "STONE NO. {n}: SMOOTHING QUEUE WEEPS"
+    },
+    {
+     "id": "lo-stone_glut-heads-12",
+     "text": "DAY {days}: STONE STATUE OF A STONE"
+    },
+    {
+     "id": "lo-stone_glut-heads-13",
+     "text": "STONE GLUT; MOOD WANTS STONE (WE WIN)"
+    },
+    {
+     "id": "lo-stone_glut-heads-14",
+     "text": "DAY {days}: LIAISON DECLINES ROCKS"
+    },
+    {
+     "id": "lo-stone_glut-heads-w1",
+     "text": "STONE GLUT: SEARABBEYS HAD 800",
+     "world": "The Enchanted Planes"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lo-stone_glut-bodies-1",
+     "text": "Day {days} of the Stone Situation. Veterans of {past_fort} once thought their loose stones were a lot. The Herald has stopped counting ours and started measuring them by the hall.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-stone_glut-bodies-2",
+     "text": "Report {n}. The Overseer has responded to the stone glut by queuing thrones. The masons, who have heard of {record_fort} and its {record}, rolled up their sleeves and asked how high we are aiming.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-stone_glut-bodies-3",
+     "text": "Day {days}. The smoothers, who face a queue of thousands of jobs on a good day, now face a wall of loose rocks that cannot be smoothed until somebody moves them."
+    },
+    {
+     "id": "lo-stone_glut-bodies-4",
+     "text": "Since {since} the floors have been mostly boulders. The haulers have filed a grievance with the mayor's office. The mayor's office has filed a production order violation against the haulers."
+    },
+    {
+     "id": "lo-stone_glut-bodies-5",
+     "text": "Day {days}. A stray boulder in the main hall has been adopted by one of the dogs, which now sleeps against it every night. The dog will not allow it to be hauled away."
+    },
+    {
+     "id": "lo-stone_glut-bodies-6",
+     "text": "Stone report {n}. Haulers were told not to dump stone in the garbage pit. Recent history at this fort suggests that anything sent into the pit has a way of becoming everybody's problem."
+    },
+    {
+     "id": "lo-stone_glut-bodies-7",
+     "text": "Day {days}. Miners continue to produce stone at a cheerful pace. Asked to stop, they pointed out that the Overseer told them to dig, and that 'the rocks are just how digging works'."
+    },
+    {
+     "id": "lo-stone_glut-bodies-8",
+     "text": "Since {since} the stone has piled up. The masons have carved a stone statue of a stone and placed it on a pile of stones. Critics call it 'bold'. The haulers call it 'one more rock'."
+    },
+    {
+     "id": "lo-stone_glut-bodies-9",
+     "text": "Day {days}. A strange mood struck and demanded stone. For once, a mood has asked for the one thing the fortress has in absurd excess. The moody dwarf was handed the nearest boulder in seconds."
+    },
+    {
+     "id": "lo-stone_glut-bodies-10",
+     "text": "Report {n}. The outpost liaison was offered a cartload of loose stone in exchange for anything at all. He replied 'There is much to share,' and pointedly shared none of it back."
+    },
+    {
+     "id": "lo-stone_glut-bodies-11",
+     "text": "Day {days}. {citizen} has started arranging loose stones into a maze. Several dwarves are now lost in it. Rescue is slowed by the fact that the rescuers keep tripping on rocks."
+    },
+    {
+     "id": "lo-stone_glut-bodies-12",
+     "text": "Since {since}, rocks. With {pop} dwarves and countless stones, the Herald calculates that every dwarf could have a personal boulder. A sign-up sheet has been posted. It is, of course, engraved on a rock."
+    },
+    {
+     "id": "lo-stone_glut-bodies-13",
+     "text": "Day {days}. The masons propose building an execution tower, a catacomb and a second cistern purely to use the stone. They have been reminded that we already have all three."
+    },
+    {
+     "id": "lo-stone_glut-bodies-14",
+     "text": "Stone report {n}. The Herald's printing room now has loose stone on the press. This edition may contain small dents. Readers are asked to consider them a gift from the mines."
+    },
+    {
+     "id": "lo-stone_glut-bodies-15",
+     "text": "Day {days}. Haulers walk past level after level of stone on the way down to the old Safety burrow, which nobody uses anymore. Some have proposed filling it in. With rocks, naturally."
+    },
+    {
+     "id": "lo-stone_glut-bodies-16",
+     "text": "Since {since}, the stone glut has grown. Engineers suggest using the stones to build a wall around the fortress. The masons point out the fortress is already mostly wall."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "lo-stone_glut-ended_heads-1",
+     "text": "LAST LOOSE STONE HAULED, OFFICIALLY"
+    },
+    {
+     "id": "lo-stone_glut-ended_heads-2",
+     "text": "STONE GLUT CLOSED AT DAY {days}"
+    },
+    {
+     "id": "lo-stone_glut-ended_heads-3",
+     "text": "HAULERS WITHDRAW GRIEVANCE"
+    },
+    {
+     "id": "lo-stone_glut-ended_heads-4",
+     "text": "DOG KEEPS BOULDER; REST HAULED"
+    },
+    {
+     "id": "lo-stone_glut-ended_heads-5",
+     "text": "ROCK MAZE DISMANTLED; ALL FOUND"
+    },
+    {
+     "id": "lo-stone_glut-ended_heads-6",
+     "text": "FLOORS RETURN; SMOOTHERS DELIGHTED"
+    },
+    {
+     "id": "lo-stone_glut-ended_heads-7",
+     "text": "MASONS REST; THRONE COUNT UNKNOWN"
+    },
+    {
+     "id": "lo-stone_glut-ended_heads-8",
+     "text": "DAY {days}: SEARABBEYS RECORD BEATEN"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "lo-stone_glut-ended_bodies-1",
+     "text": "The Stone Situation, begun on {since}, is over after {days} days. The floors are visible. The smoothers have rushed in with a cry of joy and, within an hour, queued thousands of jobs."
+    },
+    {
+     "id": "lo-stone_glut-ended_bodies-2",
+     "text": "Stone hauled. The haulers have withdrawn their grievance and the mayor has withdrawn the countercharge. Both parties have agreed never to discuss rocks again until the next mining shift."
+    },
+    {
+     "id": "lo-stone_glut-ended_bodies-3",
+     "text": "After {n} reports, the glut is cleared. The dog that adopted a boulder has been allowed to keep it. It is now the only loose stone in the fortress and is legally a pet."
+    },
+    {
+     "id": "lo-stone_glut-ended_bodies-4",
+     "text": "The rock maze built by {citizen} has been dismantled and every lost dwarf accounted for. One had been in there since {since}. He reports it was 'quite peaceful, actually'."
+    },
+    {
+     "id": "lo-stone_glut-ended_bodies-5",
+     "text": "The loose stones have been stockpiled. The masons used many of them on thrones. Nobody has dared to count the thrones. The Herald suspects the number begins with a 1."
+    },
+    {
+     "id": "lo-stone_glut-ended_bodies-6",
+     "text": "The Stone Situation has ended. The statue of a stone on a pile of stones has been moved to the main hall, as the pile is gone and the statue would otherwise be lonely."
+    },
+    {
+     "id": "lo-stone_glut-ended_bodies-7",
+     "text": "After {days} days of rocks, the halls are clear. Veterans of {past_fort}, whose rock piles were once a legend, note that we beat their record and then cleaned it up, which they never did.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lo-stone_glut-ended_bodies-8",
+     "text": "The stone glut is closed. Miners have been asked to go easy for a while. They agreed, then went back to digging, cheerfully, making a fresh pile behind them."
+    }
+   ]
+  }
+ },
+ "briefs": {
+  "flee": [
+   {
+    "id": "lo-flee-b1",
+    "text": "{entity2} fled {site} ahead of {entity}; veterans of {past_fort} say leaving early is the only part they'd change.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lo-flee-b2",
+    "text": "Refugees from {site} report {entity} on the road; the Herald wishes them a dry cellar and a short walk."
+   },
+   {
+    "id": "lo-flee-b3",
+    "text": "{site} has emptied before the {entity_race} army of {hf}; the refugees took the barrels, which shows good sense."
+   },
+   {
+    "id": "lo-flee-b4",
+    "text": "Word from {source}: the folk of {site} fled {ago}, leaving only a note reading 'not again'."
+   }
+  ],
+  "occupation": [
+   {
+    "id": "lo-occupation-b1",
+    "text": "{entity} now holds {site}; the Herald recalls that {past_fort} {past_fort_fate}, and sends its sympathies to the furniture.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lo-occupation-b2",
+    "text": "{entity2} has been turned out of {site}; the Herald knows the feeling, having lost a whole fort that way."
+   },
+   {
+    "id": "lo-occupation-b3",
+    "text": "The {entity_race} occupiers of {site} have reportedly not found the good cellar yet, says {source}."
+   },
+   {
+    "id": "lo-occupation-b4",
+    "text": "{site} has been occupied since {ago}; the new owners are said to be ignoring all the production orders."
+   }
+  ],
+  "invasion": [
+   {
+    "id": "lo-invasion-b1",
+    "text": "{entity} fell upon {site} under {hf}; our own militia of one was informed and remains off duty."
+   },
+   {
+    "id": "lo-invasion-b2",
+    "text": "{hf} attacked {site}, says {source}; the Overseer has responded here by queuing another throne."
+   },
+   {
+    "id": "lo-invasion-b3",
+    "text": "{site} was invaded {ago} by {entity}; locals say the Safety burrow was, once again, not safe."
+   },
+   {
+    "id": "lo-invasion-b4",
+    "text": "{hf} and {hf2} stormed {site}; the outpost liaison calls this 'much to share' and nobody knows why."
+   }
+  ],
+  "harass": [
+   {
+    "id": "lo-harass-b1",
+    "text": "The {entity_race} raiders of {entity} keep pestering {site}; locals have taken to smoothing the walls out of nerves."
+   },
+   {
+    "id": "lo-harass-b2",
+    "text": "{hf} is harassing {site}, says {source}; 'skirmishing' is what armies call it when they cannot be bothered to win."
+   },
+   {
+    "id": "lo-harass-b3",
+    "text": "{entity} is circling {site} without attacking; residents report it is 'like waiting for a mood to finish'."
+   },
+   {
+    "id": "lo-harass-b4",
+    "text": "Troops of {hf} loiter outside {site}; the gate has been charged with a production order violation for being shut."
+   }
+  ],
+  "abduction": [
+   {
+    "id": "lo-abduction-b1",
+    "text": "{hf} was carried off from {site} by {hf2}; the Herald reminds readers to lock the nursery and the gem stockpile."
+   },
+   {
+    "id": "lo-abduction-b2",
+    "text": "Another snatching: {hf2} took {hf} from {site} {ago}; the region's door-makers report brisk business."
+   },
+   {
+    "id": "lo-abduction-b3",
+    "text": "The {hf2_race} {hf2} has abducted {hf} from {site}, says {source}; ransom demands are expected to be rude."
+   },
+   {
+    "id": "lo-abduction-b4",
+    "text": "{hf} vanished from {site}; {hf2} is blamed, and our bedroom doors are being given second locks."
+   },
+   {
+    "id": "lo-abduction-bw1",
+    "text": "Another snatching: {hf2} took {hf} from {site} {ago}, much as at Nobledessert and Keeperglossed.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "beast": [
+   {
+    "id": "lo-beast-b1",
+    "text": "The {hf_race} {hf} prowls near {site}; dwarves are reminded not to take refuge 30 levels down."
+   },
+   {
+    "id": "lo-beast-b2",
+    "text": "{hf} is loose in {region}, says {source}; like most crooked horrors, it is not interested in conversation."
+   },
+   {
+    "id": "lo-beast-b3",
+    "text": "A {hf_race} named {hf} has been sighted at {site}; the caravan route has been 'reconsidered'."
+   },
+   {
+    "id": "lo-beast-b4",
+    "text": "Beast notice: {hf} haunts {region}; please keep to the stairs and do not climb any trees."
+   },
+   {
+    "id": "lo-beast-bw1",
+    "text": "{hf} is loose in {region}, says {source}; like Omo Fewethauyira, it is not interested in conversation.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "group": [
+   {
+    "id": "lo-group-b1",
+    "text": "{entity} has turned up at {site}, says {source}, and is reportedly asking for directions to a better tavern."
+   },
+   {
+    "id": "lo-group-b2",
+    "text": "The {entity_race} band {entity} lingers at {site}; refugees always do, until the ale runs out."
+   },
+   {
+    "id": "lo-group-b3",
+    "text": "{entity} is camped at {site} {ago}; whether guests or trouble, the Herald will report when we find out."
+   },
+   {
+    "id": "lo-group-b4",
+    "text": "{entity} has been spotted at {site}; locals have hidden the cheese and the thrones."
+   }
+  ],
+  "leave": [
+   {
+    "id": "lo-leave-b1",
+    "text": "{entity} has packed up and left {site}; the floor is said to be very well smoothed."
+   },
+   {
+    "id": "lo-leave-b2",
+    "text": "The {entity_race} folk of {entity} quit {site} {ago}, says {source}; the forwarding address is 'elsewhere'."
+   },
+   {
+    "id": "lo-leave-b3",
+    "text": "{entity} has gone from {site}, leaving 1 broken mug and 0 explanations."
+   },
+   {
+    "id": "lo-leave-b4",
+    "text": "{site} is quiet now that {entity} has left; the remaining goats have been put in charge."
+   }
+  ],
+  "abandon": [
+   {
+    "id": "lo-abandon-b1",
+    "text": "{entity} gave up on {site} {ago}; the Herald, which has lost two forts itself, sends a sympathetic mug."
+   },
+   {
+    "id": "lo-abandon-b2",
+    "text": "The {site_kind} of {site} stands empty after {entity} left; any armor stands inside are free to a good home."
+   },
+   {
+    "id": "lo-abandon-b3",
+    "text": "{site} has been abandoned by {entity}, says {source}; the ghosts are said to be redecorating."
+   },
+   {
+    "id": "lo-abandon-b4",
+    "text": "{entity} walked away from {site}; historians suspect runaway work orders, as is so often the case."
+   }
+  ],
+  "founded": [
+   {
+    "id": "lo-founded-b1",
+    "text": "{entity} founded {site} {ago}; the Herald advises them to build the well before the throne room."
+   },
+   {
+    "id": "lo-founded-b2",
+    "text": "A new {site_kind}, {site}, was founded under {hf}; first order of business: a dozen hospitals with no doctor."
+   },
+   {
+    "id": "lo-founded-b3",
+    "text": "{site} was founded by {entity}, says {source}; founders report a handful of plants and high hopes."
+   },
+   {
+    "id": "lo-founded-b4",
+    "text": "The {entity_race} {site_kind} of {site} now stands; our veterans of {past_fort} wish them drink, and good luck.",
+    "when": [
+     "has_past_fort"
+    ]
+   }
+  ],
+  "founding": [
+   {
+    "id": "lo-founding-b1",
+    "text": "{entity} is building {site}; our advice, earned the hard way, is to bring drink and skip the armor stands."
+   },
+   {
+    "id": "lo-founding-b2",
+    "text": "{hf} is raising a {site_kind} at {site}, says {source}; the first famine counter is expected shortly."
+   },
+   {
+    "id": "lo-founding-b3",
+    "text": "The {entity_race} folk of {entity} are digging in at {site}; may their Safety burrows be safer than ours."
+   },
+   {
+    "id": "lo-founding-b4",
+    "text": "Settlement under way at {site}; {entity} reports one wall, one tent and thousands of smoothing jobs planned."
+   }
+  ],
+  "reclaimed": [
+   {
+    "id": "lo-reclaimed-b1",
+    "text": "{entity} has retaken {site} {ago}; the Herald approves of reclamations in general and of cellars in particular."
+   },
+   {
+    "id": "lo-reclaimed-b2",
+    "text": "{site} is back in the hands of {entity}, says {source}; somebody please check {past_fort} next.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lo-reclaimed-b3",
+    "text": "The old {site_kind} of {site} has been reclaimed by {entity}, ghosts and all."
+   },
+   {
+    "id": "lo-reclaimed-b4",
+    "text": "{entity} reclaimed {site}; first finds include a cellar, a skeleton and a very old work order."
+   },
+   {
+    "id": "lo-reclaimed-bw1",
+    "text": "{entity} has retaken {site} {ago}, much as The Chaste Cudgel retook Tametomb; the Herald approves.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "reclaiming": [
+   {
+    "id": "lo-reclaiming-b1",
+    "text": "{entity} is reclaiming {site}; we wish them strong lanterns and an unbroken stair."
+   },
+   {
+    "id": "lo-reclaiming-b2",
+    "text": "An expedition of {entity} is fighting its way back into {site}, says {source}; morale is 'mostly fine'."
+   },
+   {
+    "id": "lo-reclaiming-b3",
+    "text": "{entity} wants {site} back; the Herald notes {past_fort} is also available, occupants included.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lo-reclaiming-b4",
+    "text": "Reclamation at {site}: {entity} reports the doors stuck and the old ale still drinkable."
+   },
+   {
+    "id": "lo-reclaiming-bw1",
+    "text": "{entity} is reclaiming {site}, as The Oily Boots are at Scaldedarch; we wish them strong lanterns.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "insurrection": [
+   {
+    "id": "lo-insurrection-b1",
+    "text": "{site} has rebelled against {entity}; rebels list grievances including 'too many production orders'."
+   },
+   {
+    "id": "lo-insurrection-b2",
+    "text": "Revolt at {site}, says {source}; the rebels demand a mayor who files fewer charges."
+   },
+   {
+    "id": "lo-insurrection-b3",
+    "text": "The folk of {site} have risen against {entity}; the barricade is reportedly made of thrones."
+   },
+   {
+    "id": "lo-insurrection-b4",
+    "text": "{entity} faces uprising at {site}; the rebels' militia is larger than ours, which is not saying much."
+   }
+  ],
+  "insurrection_end": [
+   {
+    "id": "lo-insurrection_end-b1",
+    "text": "The revolt at {site} against {entity} is done; the thrones from the barricade are back in storage."
+   },
+   {
+    "id": "lo-insurrection_end-b2",
+    "text": "Order restored at {site} {ago}, says {source}; the grievances have been filed, then lost."
+   },
+   {
+    "id": "lo-insurrection_end-b3",
+    "text": "The rising at {site} has ended; {entity} has promised reforms and a new work order to prove it."
+   },
+   {
+    "id": "lo-insurrection_end-b4",
+    "text": "{site} is calm again; rebels and {entity} alike have gone to the tavern to argue in comfort."
+   }
+  ],
+  "succession": [
+   {
+    "id": "lo-succession-b1",
+    "text": "{hf} now leads {entity} after {hf2}; successions are like moods, says {source}: sudden, and somebody always wants gems."
+   },
+   {
+    "id": "lo-succession-b2",
+    "text": "{entity} has a new chief in {hf}, says {source}; the old chief's furniture is already being reassigned."
+   },
+   {
+    "id": "lo-succession-b3",
+    "text": "Out goes {hf2}, in comes {hf}; {entity} is expected to issue mandates before lunch."
+   },
+   {
+    "id": "lo-succession-b4",
+    "text": "{hf} succeeds {hf2} at the head of {entity}; the engravers are sharpening chisels."
+   }
+  ],
+  "claim": [
+   {
+    "id": "lo-claim-b1",
+    "text": "{hf} has claimed {site} for {entity}; still, famous things tend to collect dozens of claimants, so this may not last."
+   },
+   {
+    "id": "lo-claim-b2",
+    "text": "{entity} claims {site}, says {source}; the residents have yet to be told."
+   },
+   {
+    "id": "lo-claim-b3",
+    "text": "A claim on {site} from {hf}: the map-makers have been told to pencil it in, lightly."
+   },
+   {
+    "id": "lo-claim-b4",
+    "text": "{site} is now claimed by {entity}; previous claimants have been asked to queue."
+   },
+   {
+    "id": "lo-claim-bw1",
+    "text": "{hf} has claimed {site} for {entity}; still, the Amusing Duties had 48 claimants, so this may not last.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "accept_tribute_offer": [
+   {
+    "id": "lo-accept_tribute_offer-b1",
+    "text": "{entity} accepted tribute from {entity2}; we hope it is not {record}.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lo-accept_tribute_offer-b2",
+    "text": "{hf} and {hf2} sealed a tribute deal, says {source}; carts have begun rolling."
+   },
+   {
+    "id": "lo-accept_tribute_offer-b3",
+    "text": "{entity2} will pay {entity} in goods; the counting room at {entity} has asked for a bigger counting room."
+   },
+   {
+    "id": "lo-accept_tribute_offer-b4",
+    "text": "Tribute agreed between {entity} and {entity2}; the liaison would call this 'much to share'."
+   }
+  ],
+  "refuse_tribute_offer": [
+   {
+    "id": "lo-refuse_tribute_offer-b1",
+    "text": "{entity} turned down free tribute from {entity2}; our bookkeeper fainted on hearing it."
+   },
+   {
+    "id": "lo-refuse_tribute_offer-b2",
+    "text": "Envoy {hf} refused tribute from {entity2}, says {source}; the goods are being carted home, sulkily."
+   },
+   {
+    "id": "lo-refuse_tribute_offer-b3",
+    "text": "{entity2} offered tribute and {entity} said no; scholars blame pride, or a lack of storage space."
+   },
+   {
+    "id": "lo-refuse_tribute_offer-b4",
+    "text": "A tribute offer from {entity2} was declined by {entity}; perhaps it was thrones."
+   }
+  ],
+  "accept_tribute_demand": [
+   {
+    "id": "lo-accept_tribute_demand-b1",
+    "text": "{entity2} will pay tribute to {entity}; the treasury is said to be sobbing into its ledger."
+   },
+   {
+    "id": "lo-accept_tribute_demand-b2",
+    "text": "Envoy {hf2} accepted the tribute demand of {entity}, says {source}, with a very fixed smile."
+   },
+   {
+    "id": "lo-accept_tribute_demand-b3",
+    "text": "{entity} demanded tribute from {entity2} and got it; other neighbours are double-locking their vaults."
+   },
+   {
+    "id": "lo-accept_tribute_demand-b4",
+    "text": "{entity2} has agreed to pay {entity}; first payment reportedly includes a lot of loose stone."
+   }
+  ],
+  "refuse_tribute_demand": [
+   {
+    "id": "lo-refuse_tribute_demand-b1",
+    "text": "{entity2} told {entity} no tribute today; the armourers are rubbing their hands."
+   },
+   {
+    "id": "lo-refuse_tribute_demand-b2",
+    "text": "No tribute for {entity}, says {source}; {entity2} would apparently rather fight, or at least argue."
+   },
+   {
+    "id": "lo-refuse_tribute_demand-b3",
+    "text": "{entity2} rejected the demands of {entity}; the Herald admires the nerve, from a distance."
+   },
+   {
+    "id": "lo-refuse_tribute_demand-b4",
+    "text": "{entity} asked {entity2} for tribute and received a firm no and possibly a rude drawing."
+   }
+  ],
+  "accept_peace_offer": [
+   {
+    "id": "lo-accept_peace_offer-b1",
+    "text": "{entity} and {entity2} have made peace; we remain at war with {enemy}, sadly.",
+    "when": [
+     "at_war"
+    ]
+   },
+   {
+    "id": "lo-accept_peace_offer-b2",
+    "text": "Peace between {entity} and {entity2}, signed by {hf} and {hf2}, says {source}; ink still drying."
+   },
+   {
+    "id": "lo-accept_peace_offer-b3",
+    "text": "{entity} accepted peace with {entity2}; both armies have gone home to complain about the food."
+   },
+   {
+    "id": "lo-accept_peace_offer-b4",
+    "text": "The fighting between {entity} and {entity2} is done; their militias may now be off duty, like ours."
+   }
+  ],
+  "refuse_peace_offer": [
+   {
+    "id": "lo-refuse_peace_offer-b1",
+    "text": "{entity} refused peace with {entity2}; the war continues, as does the paperwork."
+   },
+   {
+    "id": "lo-refuse_peace_offer-b2",
+    "text": "Envoy {hf} said no to peace with {entity2}, says {source}, then complained about the chairs."
+   },
+   {
+    "id": "lo-refuse_peace_offer-b3",
+    "text": "{entity2} offered peace; {entity} declined, preferring the cosy routine of a war nobody is winning."
+   },
+   {
+    "id": "lo-refuse_peace_offer-b4",
+    "text": "No peace between {entity} and {entity2}; the envoys left separately and slammed different doors."
+   }
+  ],
+  "cease_tribute_offer": [
+   {
+    "id": "lo-cease_tribute_offer-b1",
+    "text": "{entity} and {entity2} have ended their tribute; one storeroom is suddenly very roomy."
+   },
+   {
+    "id": "lo-cease_tribute_offer-b2",
+    "text": "The tribute between {entity} and {entity2} is cancelled, says {source}; the carters are delighted."
+   },
+   {
+    "id": "lo-cease_tribute_offer-b3",
+    "text": "{entity} offered to stop tribute with {entity2}; the bookkeepers have closed one very long ledger."
+   },
+   {
+    "id": "lo-cease_tribute_offer-b4",
+    "text": "No more tribute carts between {entity} and {entity2}; the road is quieter and the goats relieved."
+   }
+  ],
+  "artifact_in_site": [
+   {
+    "id": "lo-artifact_in_site-b1",
+    "text": "{artifact} is at {site}, says {source}; like any artifact left behind in an old fort, it is not coming back easily."
+   },
+   {
+    "id": "lo-artifact_in_site-b2",
+    "text": "The {artifact_item} {artifact} rests at {site}; artifacts back home send their regards from their pedestals."
+   },
+   {
+    "id": "lo-artifact_in_site-b3",
+    "text": "{site} keeps {artifact} on display; visitors are asked not to have strange moods near it."
+   },
+   {
+    "id": "lo-artifact_in_site-b4",
+    "text": "{artifact} remains at {site}; claimants are asked to form an orderly line."
+   }
+  ],
+  "artifact_in_subregion": [
+   {
+    "id": "lo-artifact_in_subregion-b1",
+    "text": "{artifact} lies loose in {region}; anyone who finds it will need a very good story."
+   },
+   {
+    "id": "lo-artifact_in_subregion-b2",
+    "text": "The {artifact_item} {artifact} is somewhere in {region}, says {source}; bring a lantern and a lawyer."
+   },
+   {
+    "id": "lo-artifact_in_subregion-b3",
+    "text": "{artifact} is out in {region}; lost artifacts collect claimants the way boots collect mud."
+   },
+   {
+    "id": "lo-artifact_in_subregion-b4",
+    "text": "Lost in {region}: {artifact}; if found, please do not use it to prop up a throne."
+   }
+  ],
+  "artifact_in_inventory": [
+   {
+    "id": "lo-artifact_in_inventory-b1",
+    "text": "{hf} carries {artifact}; the Herald hopes {hf} is not also dying of thirst beside it."
+   },
+   {
+    "id": "lo-artifact_in_inventory-b2",
+    "text": "The {artifact_item} {artifact} belongs to {hf} now, says {source}, and {hf} wants everyone to know."
+   },
+   {
+    "id": "lo-artifact_in_inventory-b3",
+    "text": "{hf} has {artifact} and has reportedly started carrying it to dinner."
+   },
+   {
+    "id": "lo-artifact_in_inventory-b4",
+    "text": "{artifact} rides with {hf}; thieves report it is 'heavily guarded and heavily boasted about'."
+   }
+  ],
+  "artifact_not_in_site": [
+   {
+    "id": "lo-artifact_not_in_site-b1",
+    "text": "{artifact} has gone missing from {site}; artifacts wander, and some wander for decades."
+   },
+   {
+    "id": "lo-artifact_not_in_site-b2",
+    "text": "The {artifact_item} {artifact} is no longer at {site}, says {source}; the plinth is filing a complaint."
+   },
+   {
+    "id": "lo-artifact_not_in_site-b3",
+    "text": "{site} has misplaced {artifact}; staff have checked under every throne and armor stand."
+   },
+   {
+    "id": "lo-artifact_not_in_site-b4",
+    "text": "Nobody at {site} can say where {artifact} went; a mood is suspected."
+   }
+  ],
+  "artifact_destroyed": [
+   {
+    "id": "lo-artifact_destroyed-b1",
+    "text": "{artifact} is destroyed; somewhere, a dwarf who suffered a mood for it is very cross."
+   },
+   {
+    "id": "lo-artifact_destroyed-b2",
+    "text": "The {artifact_item} {artifact} was wrecked {ago}, says {source}; craftsdwarves observe a minute's grumbling."
+   },
+   {
+    "id": "lo-artifact_destroyed-b3",
+    "text": "{artifact} is no more; historians say it should have been kept away from the garbage pit."
+   },
+   {
+    "id": "lo-artifact_destroyed-b4",
+    "text": "Lost forever: {artifact}; the Herald has quietly checked that our own artifacts are still where we left them."
+   }
+  ]
+ },
+ "depot_gossip": [
+  {
+   "id": "lo-gossip-1",
+   "text": "A merchant swears the new occupants of {past_fort} still haven't found any meat there. 'They looked everywhere,' he said. 'So did the dwarves, for years.'",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lo-gossip-2",
+   "text": "Overheard at the depot: a trader asked whether {fort} still makes armor stands. The bookkeeper said nothing and quietly covered the stockpile with a sheet."
+  },
+  {
+   "id": "lo-gossip-3",
+   "text": "One caravan guard claims a throne from {past_fort} turned up for sale at {site}. He offered it to us. We declined, having plenty, and possibly that one.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lo-gossip-4",
+   "text": "The broker says {source} asked if the fortress still has 'the captain who is always off duty'. The captain, when told, took it as a compliment and went back to bed."
+  },
+  {
+   "id": "lo-gossip-5",
+   "text": "Depot gossip: the outpost liaison is said to greet his own family with 'There is much to share' and then recommend an import agreement over breakfast."
+  },
+  {
+   "id": "lo-gossip-6",
+   "text": "A teamster claims {entity} once sent a tribute cart full of rough gems to a fortress that had just cut every gem it owned. The next day, three dwarves had moods."
+  },
+  {
+   "id": "lo-gossip-7",
+   "text": "Word on the wagons is that {enemy} still boasts about its last raid, and that the raided still talk about {enemy}, mostly in words we cannot print.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lo-gossip-8",
+   "text": "A merchant told our cook that the dwarves of {site} keep their Safety burrow right next to the front gate. Our cook laughed so hard the soup boiled over."
+  },
+  {
+   "id": "lo-gossip-9",
+   "text": "Talk at the depot is that a famous lost artifact has a new claimant at {site}, bringing the total to 'about fifty, depending how you count the cousins'."
+  },
+  {
+   "id": "lo-gossip-10",
+   "text": "One trader insists the crooked horror of the hills is 'quite shy, really'. The other traders moved their wagons slightly further from that trader."
+  },
+  {
+   "id": "lo-gossip-11",
+   "text": "Merchants say {hf} has never once been seen drinking water. Our veterans of {past_fort} nodded and said that is how it should be, then fetched a mug.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lo-gossip-12",
+   "text": "Rumour at the depot: someone at {site} built thousands of smooth walls and no beds. Several dwarves of {fort} went very quiet and looked at the floor."
+  },
+  {
+   "id": "lo-gossip-13",
+   "text": "A wagon driver claims {enemy} keeps a list of every fortress it means to visit. He would not say whether {fort} is on it, but winked.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lo-gossip-14",
+   "text": "Gossip from the caravan: some abducted elves complained so much that the kidnappers reportedly considered returning them, with an apology."
+  },
+  {
+   "id": "lo-gossip-15",
+   "text": "The broker overheard {source} admitting that our mist generator was 'the nicest thing on the whole road'. The engineers have asked for this to be engraved somewhere."
+  },
+  {
+   "id": "lo-gossip-16",
+   "text": "A trader says the humans who occupied {site} still haven't learned to pronounce it. They just call it 'the place', and point."
+  },
+  {
+   "id": "lo-gossip-17",
+   "text": "One merchant claims a dwarf at {site} once died of thirst sitting on a barrel. Our elders nodded grimly and said they had heard that one before, with different furniture."
+  },
+  {
+   "id": "lo-gossip-18",
+   "text": "Depot whispers: {enemy} has been 'skirmishing' with us for so long that nobody, on either side, can remember what the first skirmish was about.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lo-gossip-19",
+   "text": "A merchant asked whether it's true our garbage pit 'fights back'. The bookkeeper said that was a private fortress matter and charged him for the question."
+  },
+  {
+   "id": "lo-gossip-20",
+   "text": "Overheard by the wagons: {source} says {entity} keeps eighteen hospitals and one doctor. Our mayor was heard muttering 'amateurs'."
+  },
+  {
+   "id": "lo-gossip-21",
+   "text": "A pack-handler claims the human town of {site} holds a cake festival every {season}. Several dwarves have asked for leave. None has been granted."
+  },
+  {
+   "id": "lo-gossip-22",
+   "text": "The merchants say a fortress near {site} once queued so many thrones that the nobles ran out of bottoms to put on them. The Herald suspects this is about us."
+  },
+  {
+   "id": "lo-gossip-23",
+   "text": "A guard at the depot swore he saw one of our artifacts in a dream. It told him to drink more water. He has ignored the advice, being a dwarf."
+  },
+  {
+   "id": "lo-gossip-24",
+   "text": "One trader asked why every miner at {fort} looks nervously at trees. The fortress has decided not to explain, out of respect for the departed."
+  },
+  {
+   "id": "lo-gossip-25",
+   "text": "Word from the road: reclaimers at {site} have found a cellar full of very old ale. They have sent no samples, and we are taking that personally."
+  },
+  {
+   "id": "lo-gossip-26",
+   "text": "The broker reports {source} said the war with {entity} 'could end any day now'. The broker asked which day. {source} said 'some day', and bought a hat."
+  },
+  {
+   "id": "lo-gossip-27",
+   "text": "A merchant whispered that strange moods at {site} always ask for the thing nobody has. The dwarves listening said that is just how moods work, everywhere."
+  },
+  {
+   "id": "lo-gossip-28",
+   "text": "Gossip at the depot: a band of refugee weavers is said to be looking for a loom room that isn't full. Ours is full. Ours is always full."
+  },
+  {
+   "id": "lo-gossip-29",
+   "text": "One teamster claims there is a fortress somewhere famous for {record} and nobody to use them. He laughed. Our dwarves did not laugh.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lo-gossip-30",
+   "text": "Merchants report that {entity} has outlawed the phrase 'production order violation'. The mayor's office of {fort} has called this a production order violation."
+  },
+  {
+   "id": "lo-gossip-31",
+   "text": "A caravan cook asked our cook for the famous famine recipe of {past_fort}. Our cook explained it was a few plants and patience. The caravan cook wrote it down.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lo-gossip-32",
+   "text": "Rumour among the wagons: the new occupants of {past_fort} have started a garden there. Elders who planted the original plots are reportedly furious.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lo-gossip-33",
+   "text": "A trader says {hf} once climbed a tree to escape a beast. Our dwarves gasped. The trader added that {hf} came down again. Our dwarves gasped louder."
+  },
+  {
+   "id": "lo-gossip-34",
+   "text": "Overheard: {liaison} asked a merchant for rings at twice their value. The merchant countered at three times. They are reportedly still at it behind the depot."
+  },
+  {
+   "id": "lo-gossip-35",
+   "text": "Depot chatter: a crooked horror has been seen near {site} again, 'looking crooked'. The merchants say it always looks crooked, that's the problem."
+  },
+  {
+   "id": "lo-gossip-36",
+   "text": "A merchant claims the world 'blinked' last season and he lost half a day's travel. Our elders called it a Great Rewind and told him to keep his receipts."
+  },
+  {
+   "id": "lo-gossip-37",
+   "text": "One guard swears the goblins of {site} have a militia of one too. 'Professional courtesy,' said our captain, from bed."
+  },
+  {
+   "id": "lo-gossip-38",
+   "text": "Talk at the depot is that a dwarven child at {site} had a strange mood and made a masterpiece. Our parents went home and looked at their children differently."
+  },
+  {
+   "id": "lo-gossip-39",
+   "text": "The broker overheard {source} call {fort} 'the fort where nobody takes an office'. The fortress has agreed to discuss this at a meeting, which nobody will chair."
+  },
+  {
+   "id": "lo-gossip-40",
+   "text": "A teamster says the roads near {site} are so muddy that a whole caravan was once 'gathering plants' by accident for three days."
+  },
+  {
+   "id": "lo-gossip-w1",
+   "text": "A merchant swears the goblins now living in Searabbeys still haven't found the meat. 'They looked everywhere,' he said. 'So did the dwarves, for years.'",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w2",
+   "text": "Talk at the depot is that The Amusing Duties has a new claimant at {site}, bringing the total to 'about 49, depending how you count the cousins'.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w3",
+   "text": "One trader insists the crooked horror Omo Fewethauyira is 'quite shy, really'. The other traders moved their wagons slightly further from that trader.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w4",
+   "text": "Gossip from the caravan: the elves who were abducted at Nobledessert are said to have complained so much that the kidnappers considered returning them.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w5",
+   "text": "A trader says the humans of The Grooved Council still haven't learned to pronounce Jackaldefense. They just call it 'the place', and point.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w6",
+   "text": "A pack-handler claims the folk of Toeembrace host a Fair Cakes festival every {season}, with cake. Several dwarves have asked for leave. None has been granted.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w7",
+   "text": "Word from the road: The Oily Boots at Scaldedarch have found a cellar full of very old ale. They have sent no samples, and we are taking that personally.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w8",
+   "text": "Rumour among the wagons: the Torments of Hating have started a garden at Searabbeys. Elders who planted the original 20 plots are reportedly furious.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w9",
+   "text": "Depot chatter: Thone Nìnoana has been seen near The Sable Nights again, 'looking crooked'. The merchants say it always looks crooked, that's the problem.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lo-gossip-w10",
+   "text": "A teamster says the roads near Crazeboard are so muddy that a whole caravan was once 'gathering plants' by accident for three days.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "pouch": [
+  {
+   "id": "lo-pouch-1",
+   "text": "The Diplomatic Pouch has arrived at {fort}, courtesy of {source}, who said there is much to share and, for once, shared it."
+  },
+  {
+   "id": "lo-pouch-2",
+   "text": "News from the world beyond {fort}, brought by {source}; the goblins are busy, the elves are upset, and the roads are wet."
+  },
+  {
+   "id": "lo-pouch-3",
+   "text": "Fresh from the depot via {source}: the world's latest, minus any request for rings at double price."
+  },
+  {
+   "id": "lo-pouch-4",
+   "text": "The liaison has come and gone; {source} left us these dispatches and one strongly recommended import agreement."
+  },
+  {
+   "id": "lo-pouch-5",
+   "text": "From the trade road, by way of {source}: everything that happened while {fort} was busy smoothing walls."
+  },
+  {
+   "id": "lo-pouch-6",
+   "text": "What the merchants told us, set down by {source} and checked against nothing but our own long memory of this world."
+  },
+  {
+   "id": "lo-pouch-7",
+   "text": "The world keeps turning beyond {fort}. Since {past_fort} {past_fort_fate}, this paper has learned to listen when it does.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lo-pouch-8",
+   "text": "Here is what {source} carried in the pouch this time, unfolded on the depot floor and read aloud to anyone who would stop hauling."
+  },
+  {
+   "id": "lo-pouch-9",
+   "text": "The pouch from {civ} is open; {source} would like it known that the seal was already broken when it arrived."
+  },
+  {
+   "id": "lo-pouch-10",
+   "text": "Dispatches from across {world}, courtesy of {source}, including several items the Overseer has already queued responses to."
+  },
+  {
+   "id": "lo-pouch-11",
+   "text": "Rumours reached {fort} with the caravan; we print them for the dwarves who have never been further than the refuse pit."
+  },
+  {
+   "id": "lo-pouch-12",
+   "text": "News from the outside, as gathered by {source}. Readers on a tree branch are asked to climb down before reading."
+  },
+  {
+   "id": "lo-pouch-13",
+   "text": "The pouch is open and the world is, as ever, at war with someone; here is who, where, and how loudly, by way of {source}."
+  },
+  {
+   "id": "lo-pouch-14",
+   "text": "The latest from the land, courtesy of {source}: armies, artifacts, abductions, and somebody else's production orders."
+  }
+ ],
+ "pouch_heads": [
+  {
+   "id": "lo-pouchhead-1",
+   "text": "MUCH TO SHARE, SAYS LIAISON"
+  },
+  {
+   "id": "lo-pouchhead-2",
+   "text": "THE WORLD, AS TOLD AT THE DEPOT"
+  },
+  {
+   "id": "lo-pouchhead-3",
+   "text": "DISPATCHES FROM THE PLANES"
+  },
+  {
+   "id": "lo-pouchhead-4",
+   "text": "NEWS FROM THE CHAMBERS OF STEEL"
+  },
+  {
+   "id": "lo-pouchhead-5",
+   "text": "FROM BEYOND THE GATE"
+  },
+  {
+   "id": "lo-pouchhead-6",
+   "text": "THE POUCH, OPENED (SEAL BROKEN)"
+  },
+  {
+   "id": "lo-pouchhead-7",
+   "text": "ELSEWHERE IN THE WORLD"
+  },
+  {
+   "id": "lo-pouchhead-8",
+   "text": "WHILE WE WERE SMOOTHING"
+  },
+  {
+   "id": "lo-pouchhead-9",
+   "text": "FOREIGN NEWS, LIGHTLY DAMP"
+  },
+  {
+   "id": "lo-pouchhead-10",
+   "text": "THE CARAVAN TALKS"
+  },
+  {
+   "id": "lo-pouchhead-11",
+   "text": "MEANWHILE, OUT THERE"
+  },
+  {
+   "id": "lo-pouchhead-12",
+   "text": "AROUND THE ENCHANTED PLANES"
+  }
+ ]
+}

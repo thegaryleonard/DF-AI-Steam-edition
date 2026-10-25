@@ -1,0 +1,2250 @@
+{
+ "questions": {
+  "job": [
+   {
+    "id": "la2-q-job-01",
+    "text": "Does your job ever involve building armor stands? Be honest."
+   },
+   {
+    "id": "la2-q-job-02",
+    "text": "How many of the Overseer's work orders are currently in your name?"
+   },
+   {
+    "id": "la2-q-job-03",
+    "text": "Is your trade one the Overseer remembers, or one it forgets?"
+   },
+   {
+    "id": "la2-q-job-04",
+    "text": "Have you ever been asked to smooth a wall that was already smooth?"
+   },
+   {
+    "id": "la2-q-job-05",
+    "text": "Would your work have helped back at Quakefocus, during the throne years?",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-q-job-06",
+    "text": "What does your job look like from the Overseer's side of things?"
+   },
+   {
+    "id": "la2-q-job-07",
+    "text": "Do you ever carry a mug while you work, just in case?"
+   },
+   {
+    "id": "la2-q-job-08",
+    "text": "Has a strange mood ever borrowed your workshop?"
+   },
+   {
+    "id": "la2-q-job-09",
+    "text": "Which part of your work does {fort} take for granted?"
+   },
+   {
+    "id": "la2-q-job-10",
+    "text": "How do you say no to a work order? Asking for a friend."
+   },
+   {
+    "id": "la2-q-job-11",
+    "text": "Do you work near any trees? Our readers are concerned."
+   },
+   {
+    "id": "la2-q-job-12",
+    "text": "If the liaison asked for your work at 210%, could you deliver?"
+   }
+  ],
+  "mood": [
+   {
+    "id": "la2-q-mood-01",
+    "text": "How are you holding up, compared to the dwarves of Searabbeys?",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-q-mood-02",
+    "text": "Has the mist ring by the pumps done anything for your spirits?"
+   },
+   {
+    "id": "la2-q-mood-03",
+    "text": "Are you happier this {season} than last?"
+   },
+   {
+    "id": "la2-q-mood-04",
+    "text": "Do you feel safe in {fort}? We mean safe, not 'Safety'."
+   },
+   {
+    "id": "la2-q-mood-05",
+    "text": "Has the Overseer's latest decision helped or hurt your mood?"
+   },
+   {
+    "id": "la2-q-mood-06",
+    "text": "When did you last have a drink you actually wanted?"
+   },
+   {
+    "id": "la2-q-mood-07",
+    "text": "Is your mood the kind that demands rough gems?"
+   },
+   {
+    "id": "la2-q-mood-08",
+    "text": "How do you feel when the world blinks and starts again?"
+   },
+   {
+    "id": "la2-q-mood-09",
+    "text": "Has any of the furniture started to look like a target?"
+   },
+   {
+    "id": "la2-q-mood-10",
+    "text": "How are your spirits after all this goblin talk?"
+   },
+   {
+    "id": "la2-q-mood-11",
+    "text": "Does the windmill cheer you up, or just make noise?"
+   },
+   {
+    "id": "la2-q-mood-12",
+    "text": "How is your mood, in thrones? We use a scale of one to 148."
+   }
+  ],
+  "complaint": [
+   {
+    "id": "la2-q-complaint-01",
+    "text": "What would you remove from the work order list, if you could?"
+   },
+   {
+    "id": "la2-q-complaint-02",
+    "text": "Should someone take a look at the garbage pit procedure?"
+   },
+   {
+    "id": "la2-q-complaint-03",
+    "text": "How do you feel about the empty seats in the militia?"
+   },
+   {
+    "id": "la2-q-complaint-04",
+    "text": "Who should be mayor, given that nobody wants to be?"
+   },
+   {
+    "id": "la2-q-complaint-05",
+    "text": "Have you ever been charged with a production order violation?"
+   },
+   {
+    "id": "la2-q-complaint-06",
+    "text": "Is there anything you'd like to throw down the garbage pit?"
+   },
+   {
+    "id": "la2-q-complaint-07",
+    "text": "Should the 'Safety' burrow be renamed? To what?"
+   },
+   {
+    "id": "la2-q-complaint-08",
+    "text": "What would you tell the Overseer about drinking water?"
+   },
+   {
+    "id": "la2-q-complaint-09",
+    "text": "Has the liaison promised you anything that never came?"
+   },
+   {
+    "id": "la2-q-complaint-10",
+    "text": "How many hospitals in {fort} have an actual doctor?"
+   },
+   {
+    "id": "la2-q-complaint-11",
+    "text": "Which job has been sitting in the queue longest, in your view?"
+   },
+   {
+    "id": "la2-q-complaint-12",
+    "text": "Are there too many armor stands in your life, or just enough?"
+   }
+  ],
+  "deity": [
+   {
+    "id": "la2-q-deity-01",
+    "text": "Do you pray for drinks, or for the sense to fetch them?"
+   },
+   {
+    "id": "la2-q-deity-02",
+    "text": "Has your god ever helped you out of a tree?"
+   },
+   {
+    "id": "la2-q-deity-03",
+    "text": "Which god watches over the dwarves of the old forts?"
+   },
+   {
+    "id": "la2-q-deity-04",
+    "text": "Do the gods see the Great Rewinds coming?"
+   },
+   {
+    "id": "la2-q-deity-05",
+    "text": "Would your god approve of the Overseer's work orders?"
+   },
+   {
+    "id": "la2-q-deity-06",
+    "text": "Does your god have a favorite throne? There are 148 to pick from."
+   },
+   {
+    "id": "la2-q-deity-07",
+    "text": "Do you pray before going into the 'Safety' burrow?"
+   },
+   {
+    "id": "la2-q-deity-08",
+    "text": "Is there a god of empty militia seats?"
+   },
+   {
+    "id": "la2-q-deity-09",
+    "text": "What do you offer your god in {fort}? Rough gems are taken."
+   },
+   {
+    "id": "la2-q-deity-10",
+    "text": "Do you think the gods were watching at Searabbeys?",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-q-deity-11",
+    "text": "Has your god ever answered in the form of a caravan?"
+   },
+   {
+    "id": "la2-q-deity-12",
+    "text": "Do you pray to be left off the smoothing roster?"
+   }
+  ],
+  "kin": [
+   {
+    "id": "la2-q-kin-01",
+    "text": "Does {kin} have strong views on the Overseer?"
+   },
+   {
+    "id": "la2-q-kin-02",
+    "text": "Has your {rel} ever had a strange mood?"
+   },
+   {
+    "id": "la2-q-kin-03",
+    "text": "Would {kin} make a good mayor? Somebody has to."
+   },
+   {
+    "id": "la2-q-kin-04",
+    "text": "Is your {rel} the type who remembers to drink?"
+   },
+   {
+    "id": "la2-q-kin-05",
+    "text": "How did {kin} take the news about the garbage pit?"
+   },
+   {
+    "id": "la2-q-kin-06",
+    "text": "Does {kin} come from the old forts, or are they new?"
+   },
+   {
+    "id": "la2-q-kin-07",
+    "text": "What would {kin} say about you, if we asked? We may ask."
+   },
+   {
+    "id": "la2-q-kin-08",
+    "text": "Has your {rel} ever joined the militia, even briefly?"
+   },
+   {
+    "id": "la2-q-kin-09",
+    "text": "Do you and {kin} keep away from trees together?"
+   },
+   {
+    "id": "la2-q-kin-10",
+    "text": "Does your {rel} ever write to the Herald? Be honest."
+   },
+   {
+    "id": "la2-q-kin-11",
+    "text": "What has {kin} built that the fort should know about?"
+   },
+   {
+    "id": "la2-q-kin-12",
+    "text": "Is {kin} part of any running order you'd like to report?"
+   }
+  ],
+  "nokin": [
+   {
+    "id": "la2-q-nokin-01",
+    "text": "Are any of your kin back at Searabbeys, or Quakefocus?",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-q-nokin-02",
+    "text": "Do you count the cats as family?"
+   },
+   {
+    "id": "la2-q-nokin-03",
+    "text": "Would you consider adopting an armor stand? We have spares."
+   },
+   {
+    "id": "la2-q-nokin-04",
+    "text": "Who checks that you've had a drink, if you have no family?"
+   },
+   {
+    "id": "la2-q-nokin-05",
+    "text": "Is the militia captain a friend of yours? They need one."
+   },
+   {
+    "id": "la2-q-nokin-06",
+    "text": "Do you keep a seat for anyone at the tavern?"
+   },
+   {
+    "id": "la2-q-nokin-07",
+    "text": "Would you marry if it got you a room above the garbage pit?"
+   },
+   {
+    "id": "la2-q-nokin-08",
+    "text": "Has anyone in {fort} become like family to you?"
+   },
+   {
+    "id": "la2-q-nokin-09",
+    "text": "Did you leave anyone behind when you came here?"
+   },
+   {
+    "id": "la2-q-nokin-10",
+    "text": "Is the liaison your friend, or just someone who visits?"
+   },
+   {
+    "id": "la2-q-nokin-11",
+    "text": "Do you prefer working alone, like our militia?"
+   },
+   {
+    "id": "la2-q-nokin-12",
+    "text": "Who would you name as next of kin? The Herald needs a form."
+   }
+  ],
+  "last": [
+   {
+    "id": "la2-q-last-01",
+    "text": "Anything to say to the goblins at Searabbeys?",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-q-last-02",
+    "text": "Any message for the dwarves who come after {fort}?"
+   },
+   {
+    "id": "la2-q-last-03",
+    "text": "What would you tell a new migrant about this place?"
+   },
+   {
+    "id": "la2-q-last-04",
+    "text": "If the world blinks tomorrow, what should we remember?"
+   },
+   {
+    "id": "la2-q-last-05",
+    "text": "Any word for Iden Loloklolor, should the liaison be reading?",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-q-last-06",
+    "text": "What do you want written on your slab? Briefly."
+   },
+   {
+    "id": "la2-q-last-07",
+    "text": "Should we print your advice on drinking in large type?"
+   },
+   {
+    "id": "la2-q-last-08",
+    "text": "Anything for the militia captain, sitting off duty?"
+   },
+   {
+    "id": "la2-q-last-09",
+    "text": "What would you like this {season} to finally fix?"
+   },
+   {
+    "id": "la2-q-last-10",
+    "text": "Any message for the mayor's office, whoever is in it?"
+   },
+   {
+    "id": "la2-q-last-11",
+    "text": "Last thoughts on thrones? We have to ask everyone."
+   },
+   {
+    "id": "la2-q-last-12",
+    "text": "What should the dwarves of {fort} do differently?"
+   }
+  ]
+ },
+ "answers": {
+  "job_match": [
+   {
+    "id": "la2-a-job-match-01",
+    "text": "{level} {skill}, and the {prof} by title. At Quakefocus I'd have been buried in thrones. Here, only in work orders.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-job-match-02",
+    "text": "I am the {prof}, a {level} {skill}. The Overseer queued my job 400 times. I've done six. Proudly."
+   },
+   {
+    "id": "la2-a-job-match-03",
+    "text": "{level} {skill}. It says {prof} on the door and on the 300 orders pinned to it."
+   },
+   {
+    "id": "la2-a-job-match-04",
+    "text": "The {prof}, yes. {level} {skill}. I drink between every task. I learned that from the old forts."
+   },
+   {
+    "id": "la2-a-job-match-05",
+    "text": "I'm a {level} {skill}, and the {prof}. My trade has never once produced an armor stand. I check daily."
+   },
+   {
+    "id": "la2-a-job-match-06",
+    "text": "{prof}, {level} {skill}. I have never been near a tree, and my record shows it."
+   },
+   {
+    "id": "la2-a-job-match-07",
+    "text": "I am the {prof}. {level} {skill}. The mayor charged me with a production violation for doing it too well."
+   },
+   {
+    "id": "la2-a-job-match-08",
+    "text": "Proud {level} {skill}, sworn {prof}. Not a single throne in my portfolio. Well, two. Small ones."
+   },
+   {
+    "id": "la2-a-job-match-09",
+    "text": "{level} {skill}. The {prof} of this fort, and the only one who reads the order queue for fun."
+   },
+   {
+    "id": "la2-a-job-match-10",
+    "text": "I'm the {prof}. A {level} {skill}. If the world blinks, I start the same job again, without complaint. Mostly."
+   },
+   {
+    "id": "la2-a-job-match-11",
+    "text": "{level} {skill} and the {prof}. My grandfather did the same at Searabbeys, until the goblins moved in.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-job-match-12",
+    "text": "I am a {level} {skill}, the {prof}. Every job I finish, the Overseer adds two. It's a kind of compliment."
+   },
+   {
+    "id": "la2-a-job-match-13",
+    "text": "The {prof}. {level} {skill}. I keep a mug at my station. Nobody here dies of thirst on my watch."
+   },
+   {
+    "id": "la2-a-job-match-14",
+    "text": "{level} {skill}, the {prof}. The liaison once asked for my work at 210%. I gave a polite 100."
+   },
+   {
+    "id": "la2-a-job-match-15",
+    "text": "{prof} and {level} {skill}. I work in a fort with a mist ring. I have never been this damp or this happy."
+   },
+   {
+    "id": "la2-a-job-match-16",
+    "text": "{level} {skill}, sitting {prof}. I've filled more orders than the militia has filled seats, which is one."
+   },
+   {
+    "id": "la2-a-job-match-17",
+    "text": "The fort's {prof}. {level} {skill}. I have a little sign: 'Not Smoothing Today.' It is ignored."
+   },
+   {
+    "id": "la2-a-job-match-18",
+    "text": "{level} {skill}. They made me the {prof}, then gave me twelve hospitals' worth of other work."
+   }
+  ],
+  "job_mismatch": [
+   {
+    "id": "la2-a-job-mismatch-01",
+    "text": "I'm the {prof} on paper. In practice, a {level} {skill}. The Overseer and I disagree, quietly."
+   },
+   {
+    "id": "la2-a-job-mismatch-02",
+    "text": "{prof}, they say. {level} {skill}, I say. The order queue says 'build 1,981 armor stands'.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-job-mismatch-03",
+    "text": "My title is {prof}. My hands are a {level} {skill}. My heart is mostly hauling."
+   },
+   {
+    "id": "la2-a-job-mismatch-04",
+    "text": "The ledger says {prof}. I am a {level} {skill}. The ledger is also convinced we have a sheriff."
+   },
+   {
+    "id": "la2-a-job-mismatch-05",
+    "text": "I was sent here as {prof}. I turned out to be a {level} {skill}. Migrants are like that."
+   },
+   {
+    "id": "la2-a-job-mismatch-06",
+    "text": "{prof} by order of the Overseer. {level} {skill} by order of nobody. I prefer the second."
+   },
+   {
+    "id": "la2-a-job-mismatch-07",
+    "text": "Technically {prof}. Actually a {level} {skill}. Theoretically in the militia. Nobody checks."
+   },
+   {
+    "id": "la2-a-job-mismatch-08",
+    "text": "I hold the {prof} title, like the militia holds nine seats: in name only. I'm a {level} {skill}."
+   },
+   {
+    "id": "la2-a-job-mismatch-09",
+    "text": "They wrote {prof}. I am a {level} {skill}. At Quakefocus, they'd have made me a throne carver.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-job-mismatch-10",
+    "text": "I'm listed as {prof}. I've never done it. I'm a {level} {skill}, and I sleep fine."
+   },
+   {
+    "id": "la2-a-job-mismatch-11",
+    "text": "The {prof}? Me? I'm a {level} {skill}. Someone is building a throne in my name somewhere."
+   },
+   {
+    "id": "la2-a-job-mismatch-12",
+    "text": "Officially {prof}. My real trade: {level} {skill}. The mayor has filed a violation. I've framed it."
+   },
+   {
+    "id": "la2-a-job-mismatch-13",
+    "text": "I'm down as {prof}. I'm a {level} {skill}. After the next Great Rewind I'll be listed as something else."
+   },
+   {
+    "id": "la2-a-job-mismatch-14",
+    "text": "{prof}. That was a clerical error after the gods blinked. I'm really a {level} {skill}."
+   },
+   {
+    "id": "la2-a-job-mismatch-15",
+    "text": "I am a {level} {skill} who has been labelled {prof}. Like the 'Safety' burrow, the label lies."
+   },
+   {
+    "id": "la2-a-job-mismatch-16",
+    "text": "Called {prof}. Built like a {level} {skill}. Treated like a hauler. That's {prof} work for you."
+   },
+   {
+    "id": "la2-a-job-mismatch-17",
+    "text": "The {prof}, apparently. I'm a {level} {skill}. Nobody asked, like nobody asked for 148 thrones."
+   },
+   {
+    "id": "la2-a-job-mismatch-18",
+    "text": "I'm the {prof} the way the garbage pit is a garbage pit: on paper. I'm a {level} {skill}."
+   }
+  ],
+  "skill2_good": [
+   {
+    "id": "la2-a-skill2-good-01",
+    "text": "I'm a fine {skill2} as well. I could have saved Quakefocus a few thrones, but nobody asked.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-skill2-good-02",
+    "text": "I'm a good {skill2} too. I do it near the pumps, for the mist."
+   },
+   {
+    "id": "la2-a-skill2-good-03",
+    "text": "Also an excellent {skill2}. Better than the militia, which is one dwarf asleep."
+   },
+   {
+    "id": "la2-a-skill2-good-04",
+    "text": "Good at {skill2}, too. If the Overseer finds out, I'll get 900 orders for it."
+   },
+   {
+    "id": "la2-a-skill2-good-05",
+    "text": "I keep my {skill2} quiet. The last dwarf who was good at something got a work order the size of a hall."
+   },
+   {
+    "id": "la2-a-skill2-good-06",
+    "text": "My {skill2} is strong. I learned it from a dwarf who escaped Searabbeys.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-skill2-good-07",
+    "text": "I'm a solid {skill2}. The liaison praised it, then recommended an import agreement."
+   },
+   {
+    "id": "la2-a-skill2-good-08",
+    "text": "I'm very good at {skill2}. I'd teach it, but the fort is busy smoothing."
+   },
+   {
+    "id": "la2-a-skill2-good-09",
+    "text": "Expert {skill2} on the side. It's done every one of my strange moods proud."
+   },
+   {
+    "id": "la2-a-skill2-good-10",
+    "text": "Fine {skill2}, if I say so myself. The ghosts of Quakefocus have said nothing against it.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-skill2-good-11",
+    "text": "Talented {skill2}. Never once done it in a tree."
+   },
+   {
+    "id": "la2-a-skill2-good-12",
+    "text": "Strong {skill2}. The mayor tried to charge me for it, but it isn't on any order list."
+   },
+   {
+    "id": "la2-a-skill2-good-13",
+    "text": "Excellent {skill2}. Even the Great Rewinds couldn't take that away. They tried twice."
+   }
+  ],
+  "skill2_bad": [
+   {
+    "id": "la2-a-skill2-bad-01",
+    "text": "I dabble in {skill2}. It went about as well as the 'Safety' burrow."
+   },
+   {
+    "id": "la2-a-skill2-bad-02",
+    "text": "My {skill2} is weak. I'm trying, like the militia captain, alone."
+   },
+   {
+    "id": "la2-a-skill2-bad-03",
+    "text": "I'm a poor {skill2}. The work came out like an armor stand: technically finished."
+   },
+   {
+    "id": "la2-a-skill2-bad-04",
+    "text": "I am bad at {skill2}. The mayor filed a violation. For once I agreed with it."
+   },
+   {
+    "id": "la2-a-skill2-bad-05",
+    "text": "My {skill2} is in progress, like 16,000 smoothing jobs."
+   },
+   {
+    "id": "la2-a-skill2-bad-06",
+    "text": "Terrible at {skill2}. I'd rather haul garbage. Actually, no, I would not. Not anymore."
+   },
+   {
+    "id": "la2-a-skill2-bad-07",
+    "text": "I'm learning {skill2}. Slowly. Like the Overseer learning to put out drinks."
+   },
+   {
+    "id": "la2-a-skill2-bad-08",
+    "text": "Bad {skill2}. I tried it once during a mood and the workshop asked me to leave."
+   },
+   {
+    "id": "la2-a-skill2-bad-09",
+    "text": "My {skill2} is about as good as the fort's sheriff, who doesn't exist."
+   },
+   {
+    "id": "la2-a-skill2-bad-10",
+    "text": "{skill2}? A bit. Mostly I make the sound of it."
+   },
+   {
+    "id": "la2-a-skill2-bad-11",
+    "text": "I have tried {skill2}. The results went into the garbage pit, and I did not follow them. Lesson learned."
+   },
+   {
+    "id": "la2-a-skill2-bad-12",
+    "text": "My {skill2} skills went missing after a Great Rewind, if they were ever there."
+   },
+   {
+    "id": "la2-a-skill2-bad-13",
+    "text": "I'm a poor {skill2}. The liaison saw it and said, 'There is much to share,' then left."
+   }
+  ],
+  "mood_ecstatic": [
+   {
+    "id": "la2-a-mood-ecstatic-01",
+    "text": "Wonderful! I walked through the mist ring three times today. My beard is soaked and my heart is full."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-02",
+    "text": "Ecstatic. I had a drink, then another, and I didn't die of thirst at all. A personal best."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-03",
+    "text": "I'm glowing. I counted the armor stands and the number went DOWN. Someone must have sold one."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-04",
+    "text": "Overjoyed! The Overseer cancelled one of my orders. Just one. I'll remember it forever."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-05",
+    "text": "Never better. I stood at the bottom of a tree and decided not to climb it. Growth."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-06",
+    "text": "Bliss. I saw the militia captain on duty. Briefly. Then off again. Still, I saw it."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-07",
+    "text": "I could sing. I have been singing. The liaison joined in and asked for an import agreement."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-08",
+    "text": "Thrilled! There is a mug in every room I've been in today. The old forts would weep."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-09",
+    "text": "Elated. I sat on one of the 148 thrones. It was very comfy. Now I understand Quakefocus.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-mood-ecstatic-10",
+    "text": "Grand! The world blinked this morning, and I woke up in exactly the same good mood."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-11",
+    "text": "I am delighted, and it is not my fault. I've checked."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-12",
+    "text": "Radiant! I didn't go near the garbage pit once this week. My family is very proud."
+   },
+   {
+    "id": "la2-a-mood-ecstatic-13",
+    "text": "Over the moon, which I have never seen, but the windmill people tell me it's nice."
+   }
+  ],
+  "mood_happy": [
+   {
+    "id": "la2-a-mood-happy-01",
+    "text": "Happy, thanks. I had a drink AND a meal on the same day. {fort} is getting fancy."
+   },
+   {
+    "id": "la2-a-mood-happy-02",
+    "text": "Pretty good. The pumps keep misting me. I've stopped asking why and started smiling."
+   },
+   {
+    "id": "la2-a-mood-happy-03",
+    "text": "Good! I haven't been charged with a production violation in a whole season."
+   },
+   {
+    "id": "la2-a-mood-happy-04",
+    "text": "Cheerful. My workshop is free and nobody in a mood has claimed it. Yet."
+   },
+   {
+    "id": "la2-a-mood-happy-05",
+    "text": "Happy enough. I'm nowhere near the 'Safety' burrow, and it shows in my face."
+   },
+   {
+    "id": "la2-a-mood-happy-06",
+    "text": "Fine and dandy. The Overseer gave me a job I actually know how to do."
+   },
+   {
+    "id": "la2-a-mood-happy-07",
+    "text": "Glad. I passed a goblin rumor in the hallway and it turned out to be just a cat."
+   },
+   {
+    "id": "la2-a-mood-happy-08",
+    "text": "Good, thank you. My bed is not an armor stand. Not everyone at Quakefocus could say that.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-mood-happy-09",
+    "text": "Content-plus. There's ale, there's stone, and nobody has asked me to smooth it."
+   },
+   {
+    "id": "la2-a-mood-happy-10",
+    "text": "Happy. I met the liaison and he only said 'There is much to share' twice."
+   },
+   {
+    "id": "la2-a-mood-happy-11",
+    "text": "Quite good. The windmills turn, the cistern is full, and my socks are mostly dry."
+   },
+   {
+    "id": "la2-a-mood-happy-12",
+    "text": "Happy. Every morning I check I'm not stuck in a tree. So far, so good."
+   }
+  ],
+  "mood_content": [
+   {
+    "id": "la2-a-mood-content-01",
+    "text": "Fine. Like a fort that has drinks AND remembers they exist."
+   },
+   {
+    "id": "la2-a-mood-content-02",
+    "text": "So-so. Not Searabbeys-bad. Not throne-room good.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-mood-content-03",
+    "text": "Steady. Like the militia: always off duty, but at least it's there."
+   },
+   {
+    "id": "la2-a-mood-content-04",
+    "text": "Middling. Like smoothing: one wall at a time, never finished."
+   },
+   {
+    "id": "la2-a-mood-content-05",
+    "text": "All right. I've survived worse. I've read about worse, anyway, in the old Sentinel."
+   },
+   {
+    "id": "la2-a-mood-content-06",
+    "text": "Average. The mist ring got me wet, and the sun dried me off. A wash."
+   },
+   {
+    "id": "la2-a-mood-content-07",
+    "text": "Okay. The Overseer hasn't noticed me lately, which I count as a good sign."
+   },
+   {
+    "id": "la2-a-mood-content-08",
+    "text": "Content. I've decided I don't need a throne. I've decided several times."
+   },
+   {
+    "id": "la2-a-mood-content-09",
+    "text": "Even. No moods, no tantrums, no trees. A quiet sort of life."
+   },
+   {
+    "id": "la2-a-mood-content-10",
+    "text": "Fine, thanks. Like a drink you didn't know you needed until you had it. Have it."
+   },
+   {
+    "id": "la2-a-mood-content-11",
+    "text": "Neutral. The goblins are somewhere else. The gems are somewhere else. So am I, mentally."
+   },
+   {
+    "id": "la2-a-mood-content-12",
+    "text": "Middle of the road, which in {fort} is a smoothed road, so very nice road."
+   }
+  ],
+  "mood_stressed": [
+   {
+    "id": "la2-a-mood-stressed-01",
+    "text": "Stressed. Every time I hear 'work order', I see armor stands."
+   },
+   {
+    "id": "la2-a-mood-stressed-02",
+    "text": "Edgy. I was told to go to the 'Safety' burrow for a drill. I said no."
+   },
+   {
+    "id": "la2-a-mood-stressed-03",
+    "text": "Rattled. The mayor's office slipped a violation under my door. I don't even know what I made."
+   },
+   {
+    "id": "la2-a-mood-stressed-04",
+    "text": "Tense. I was handed a rough gem request and every gem in the fort was cut."
+   },
+   {
+    "id": "la2-a-mood-stressed-05",
+    "text": "Worried. I heard the stairs creak and thought: forgotten beast. It was a cat. Still."
+   },
+   {
+    "id": "la2-a-mood-stressed-06",
+    "text": "Frayed. I've been gathering plants in the rain since breakfast. Breakfast was last week."
+   },
+   {
+    "id": "la2-a-mood-stressed-07",
+    "text": "Not good. The militia captain asked me to join. I said I'd think. I'm still thinking. Hard."
+   },
+   {
+    "id": "la2-a-mood-stressed-08",
+    "text": "On edge. The world blinked and I lost a whole afternoon of work."
+   },
+   {
+    "id": "la2-a-mood-stressed-09",
+    "text": "Itchy and cross. The mist ring sprayed me during my nap. It's meant to cheer me up."
+   },
+   {
+    "id": "la2-a-mood-stressed-10",
+    "text": "Strained. I've been hauling refuse. I keep looking behind me."
+   },
+   {
+    "id": "la2-a-mood-stressed-11",
+    "text": "Twitchy. I saw a tree. Just one. That was enough."
+   },
+   {
+    "id": "la2-a-mood-stressed-12",
+    "text": "Sore. I spent all day smoothing a wall nobody will ever walk past."
+   }
+  ],
+  "mood_very_stressed": [
+   {
+    "id": "la2-a-mood-very-stressed-01",
+    "text": "Awful. I've been queued for 600 thrones and I'm not even a carpenter."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-02",
+    "text": "Rotten. I'm thirsty, and I can see the drinks from here. I know how this story ends."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-03",
+    "text": "Bad. I've been sent to the garbage pit three times. I came back twice. Wait. No, three."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-04",
+    "text": "Dire. The liaison wants rings at 210% and somehow it's my problem."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-05",
+    "text": "Miserable. I'm the only dwarf in my squad, and I'm not even in a squad."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-06",
+    "text": "Very bad. Somebody keeps throwing things into the pit while I'm still in it."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-07",
+    "text": "Grim. I want rough gems and there aren't any. I'm starting to understand the moods."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-08",
+    "text": "Horrible. I dreamed about Quakefocus. All 1,981 of them. They were standing.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-mood-very-stressed-09",
+    "text": "Bleak. I'm not allowed in my workshop because a child is having a mood in it."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-10",
+    "text": "Terrible. The 'Safety' burrow is my assigned place. I've written my will twice."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-11",
+    "text": "Shattered. The Overseer has scheduled me to smooth the smoothed parts."
+   },
+   {
+    "id": "la2-a-mood-very-stressed-12",
+    "text": "Very low. My drink is in a barrel I'm not allowed to touch. Storage policy."
+   }
+  ],
+  "mood_breaking": [
+   {
+    "id": "la2-a-mood-breaking-01",
+    "text": "I am going to smash an armor stand. There are enough. Nobody will notice."
+   },
+   {
+    "id": "la2-a-mood-breaking-02",
+    "text": "One more work order and I'm throwing the queue down the garbage pit. With me on top."
+   },
+   {
+    "id": "la2-a-mood-breaking-03",
+    "text": "Get the militia. Oh wait. Get the militia CAPTAIN. Get them to wake up."
+   },
+   {
+    "id": "la2-a-mood-breaking-04",
+    "text": "I'm about to go up a tree and refuse to come down. You know how that ends."
+   },
+   {
+    "id": "la2-a-mood-breaking-05",
+    "text": "I'm on the edge. Ask me about drinks. Go on. Ask me."
+   },
+   {
+    "id": "la2-a-mood-breaking-06",
+    "text": "I'll topple a throne. Then another. Then 146 more. I have the time."
+   },
+   {
+    "id": "la2-a-mood-breaking-07",
+    "text": "I am breaking, and the mist ring is not helping. Turn it OFF."
+   },
+   {
+    "id": "la2-a-mood-breaking-08",
+    "text": "Someone touch my workshop, I dare you. I have a rough-gem look in my eye."
+   },
+   {
+    "id": "la2-a-mood-breaking-09",
+    "text": "I'm close to going berserk. The 'Safety' burrow would be a fine place for it."
+   },
+   {
+    "id": "la2-a-mood-breaking-10",
+    "text": "I'll start a Great Rewind myself, with my bare hands."
+   },
+   {
+    "id": "la2-a-mood-breaking-11",
+    "text": "Back off. I just found out the hospital has no doctor and I'm the patient."
+   },
+   {
+    "id": "la2-a-mood-breaking-12",
+    "text": "I'm one 'There is much to share' away from biting the liaison."
+   }
+  ],
+  "deity": [
+   {
+    "id": "la2-a-deity-01",
+    "text": "I pray to {deity}. Mostly for drinks to be put where I can reach them."
+   },
+   {
+    "id": "la2-a-deity-02",
+    "text": "{deity}. I asked for fewer armor stands. {deity} is still thinking it over."
+   },
+   {
+    "id": "la2-a-deity-03",
+    "text": "I follow {deity}. {deity} has never sent me to a 'Safety' burrow, which is more than I can say for some."
+   },
+   {
+    "id": "la2-a-deity-04",
+    "text": "{deity}, always. When the world blinks, I'm sure it's {deity} rubbing an eye."
+   },
+   {
+    "id": "la2-a-deity-05",
+    "text": "I trust {deity}. I trust the Overseer less. Please print it in that order."
+   },
+   {
+    "id": "la2-a-deity-06",
+    "text": "{deity} kept me out of trees for three years. That's a miracle round here."
+   },
+   {
+    "id": "la2-a-deity-07",
+    "text": "My god is {deity}. My grandmother prayed to {deity} at Searabbeys, all through the Meat Watch.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-deity-08",
+    "text": "{deity}. I lit a candle when the goblins took Searabbeys. Still burning. Small candle, big grudge.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-deity-09",
+    "text": "I pray to {deity} before every trip to the garbage pit. {deity} has a perfect record so far."
+   },
+   {
+    "id": "la2-a-deity-10",
+    "text": "I follow {deity}. {deity} has nine empty seats in heaven, like our militia, and keeps them clean."
+   },
+   {
+    "id": "la2-a-deity-11",
+    "text": "{deity}, who I like to think would have taken the mayor's job. Nobody else will."
+   },
+   {
+    "id": "la2-a-deity-12",
+    "text": "I keep a shrine to {deity} next to the pumps. It's always a bit damp. {deity} doesn't mind."
+   },
+   {
+    "id": "la2-a-deity-13",
+    "text": "{deity}. I asked {deity} for a rough gem during my mood. I got a cut one. Gods have a sense of humour."
+   },
+   {
+    "id": "la2-a-deity-14",
+    "text": "I pray to {deity}, mostly about thrones. I don't need one. I'd just like to know why there are 148."
+   },
+   {
+    "id": "la2-a-deity-15",
+    "text": "{deity} watched over Quakefocus too. {deity} must have seen a lot of armor stands.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-deity-16",
+    "text": "I worship {deity}, quietly, in the tavern, between drinks. That's where {deity} lives, I'm sure."
+   },
+   {
+    "id": "la2-a-deity-17",
+    "text": "{deity}. The liaison once asked if {deity} had an import agreement. I said no. He wrote it down."
+   },
+   {
+    "id": "la2-a-deity-18",
+    "text": "I follow {deity}, who has never charged me with a production order violation."
+   },
+   {
+    "id": "la2-a-deity-19",
+    "text": "{deity}. I asked for guidance about the Great Rewinds. {deity} said, 'Again?'"
+   }
+  ],
+  "kin_alive": [
+   {
+    "id": "la2-a-kin-alive-01",
+    "text": "My {rel}, {kin}, reminds me to drink. Twice a day. I've never once been thirsty. Bless them."
+   },
+   {
+    "id": "la2-a-kin-alive-02",
+    "text": "{kin} is my {rel}. They keep me away from trees. I keep them away from the garbage pit."
+   },
+   {
+    "id": "la2-a-kin-alive-03",
+    "text": "{kin}? A darling. Won't go near the 'Safety' burrow. Smart, that one."
+   },
+   {
+    "id": "la2-a-kin-alive-04",
+    "text": "My {rel} {kin} has been queued for 200 thrones. I bring them snacks."
+   },
+   {
+    "id": "la2-a-kin-alive-05",
+    "text": "{kin} is doing well. They tried the militia once, and the captain was so glad they cried."
+   },
+   {
+    "id": "la2-a-kin-alive-06",
+    "text": "My {rel}, {kin}, has had two strange moods. Both wanted rough gems. Both got cut ones. Tense times."
+   },
+   {
+    "id": "la2-a-kin-alive-07",
+    "text": "{kin} is my {rel}, and we argue about whether the Overseer means well. I'm winning."
+   },
+   {
+    "id": "la2-a-kin-alive-08",
+    "text": "{kin}? Lovely. They walk through the mist ring on purpose. Odd, but happy."
+   },
+   {
+    "id": "la2-a-kin-alive-09",
+    "text": "My {rel} {kin} has a grudge against the liaison. 'There is much to share' my foot, they say."
+   },
+   {
+    "id": "la2-a-kin-alive-10",
+    "text": "{kin} is thriving. They've never once been charged by the mayor's office. Suspicious, honestly."
+   },
+   {
+    "id": "la2-a-kin-alive-11",
+    "text": "My {rel}, {kin}, keeps a list of every throne built at Quakefocus. All 148. With names.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-kin-alive-12",
+    "text": "{kin} is well. They stay near the drinks, as all our family does since Searabbeys.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-kin-alive-13",
+    "text": "{kin}, my {rel}, can smooth a wall in an hour. Sadly, the Overseer found out."
+   },
+   {
+    "id": "la2-a-kin-alive-14",
+    "text": "My {rel} {kin} survived a Great Rewind and now dates things as 'before' and 'after'."
+   },
+   {
+    "id": "la2-a-kin-alive-15",
+    "text": "{kin} is lovely. They think the windmills are talking to them. Maybe they are."
+   },
+   {
+    "id": "la2-a-kin-alive-16",
+    "text": "My {rel}, {kin}, keeps a mug tied to their belt. Family tradition, after the thirst years."
+   },
+   {
+    "id": "la2-a-kin-alive-17",
+    "text": "{kin} is great. They refuse to sit on armor stands, which is wise, as they aren't chairs."
+   }
+  ],
+  "kin_dead": [
+   {
+    "id": "la2-a-kin-dead-01",
+    "text": "My {rel}, {kin}, went down to the 'Safety' burrow. The Herald knows how that one went."
+   },
+   {
+    "id": "la2-a-kin-dead-02",
+    "text": "{kin} is gone. They had drinks nearby. They had so many drinks nearby."
+   },
+   {
+    "id": "la2-a-kin-dead-03",
+    "text": "{kin}, my {rel}, fell asleep in a tree and never came back down. I don't climb anymore."
+   },
+   {
+    "id": "la2-a-kin-dead-04",
+    "text": "My {rel} {kin} hauled garbage. I don't want to talk about the pit."
+   },
+   {
+    "id": "la2-a-kin-dead-05",
+    "text": "{kin} rests in the catacombs now. Nice spot. Quiet. Not a work order in sight."
+   },
+   {
+    "id": "la2-a-kin-dead-06",
+    "text": "{kin} passed during a mood. They wanted a rough gem. There wasn't one. I'm still cross."
+   },
+   {
+    "id": "la2-a-kin-dead-07",
+    "text": "My {rel}, {kin}, died at Quakefocus, beside a pile of gems. Not one of them would have saved them.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-kin-dead-08",
+    "text": "{kin} is gone, but they built three thrones first. I sit on one every year."
+   },
+   {
+    "id": "la2-a-kin-dead-09",
+    "text": "I lost {kin} to the goblins at Searabbeys. I still don't go north.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-kin-dead-10",
+    "text": "{kin}, my {rel}, rests below. I pour a drink by the slab, since they never got enough."
+   },
+   {
+    "id": "la2-a-kin-dead-11",
+    "text": "{kin} is gone now. They were in the militia. All of it, at the time."
+   },
+   {
+    "id": "la2-a-kin-dead-12",
+    "text": "My {rel} {kin} went in the forgotten beast attack. The stairs have not been forgiven."
+   },
+   {
+    "id": "la2-a-kin-dead-13",
+    "text": "{kin} is gone. They were waiting for the loom room. I still wait for it, for them."
+   },
+   {
+    "id": "la2-a-kin-dead-14",
+    "text": "{kin} passed. Their ghost visited once, asked if the armor stands were finished, then left."
+   },
+   {
+    "id": "la2-a-kin-dead-15",
+    "text": "My {rel}, {kin}, rests in peace. Their slab is smooth. The Overseer made sure. Three times."
+   }
+  ],
+  "nokin": [
+   {
+    "id": "la2-a-nokin-01",
+    "text": "No family. I came over from the Quakefocus diaspora. We don't do family. We do grudges.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-nokin-02",
+    "text": "Nobody. Just me and the mist ring. The mist ring does call me 'dear', or seems to."
+   },
+   {
+    "id": "la2-a-nokin-03",
+    "text": "No kin here. My family stayed at Searabbeys. The goblins live there now. I don't write.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-nokin-04",
+    "text": "Alone. I have 1,981 armor stands, though, in spirit.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-nokin-05",
+    "text": "No one. I've thought of joining the militia just for company. It's one dwarf."
+   },
+   {
+    "id": "la2-a-nokin-06",
+    "text": "No family. I have a barrel I like. I visit it daily, so no thirst for me."
+   },
+   {
+    "id": "la2-a-nokin-07",
+    "text": "Just me. I tell the windmills my secrets. They keep turning, so they must agree."
+   },
+   {
+    "id": "la2-a-nokin-08",
+    "text": "Nobody. I'm the mayor's favourite person to charge, if that counts as a relationship."
+   },
+   {
+    "id": "la2-a-nokin-09",
+    "text": "No kin. The liaison calls me 'friend'. He calls the wagon that, too."
+   },
+   {
+    "id": "la2-a-nokin-10",
+    "text": "No one. The world blinked and when it reopened I was still single."
+   },
+   {
+    "id": "la2-a-nokin-11",
+    "text": "Nobody special. I have a seat by the cistern that nobody takes. That's close."
+   },
+   {
+    "id": "la2-a-nokin-12",
+    "text": "No family. Our fort keeps losing dwarves to trees. I keep my distance from everyone, and trees."
+   },
+   {
+    "id": "la2-a-nokin-13",
+    "text": "Single. I'm saving myself for whoever takes the mayor job. Could be a long wait."
+   },
+   {
+    "id": "la2-a-nokin-14",
+    "text": "No kin. I talk to a ghost from the old fort. It mostly asks for drinks."
+   },
+   {
+    "id": "la2-a-nokin-15",
+    "text": "Nobody. I'm married to my station, which the Overseer has cancelled and requeued twice."
+   },
+   {
+    "id": "la2-a-nokin-16",
+    "text": "Alone. I'm a militia of one, emotionally speaking."
+   },
+   {
+    "id": "la2-a-nokin-17",
+    "text": "No family. I do have a throne. A small one. I won it in a card game at Quakefocus.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "signoff": [
+   {
+    "id": "la2-a-signoff-01",
+    "text": "Drink something. Right now. I'll wait."
+   },
+   {
+    "id": "la2-a-signoff-02",
+    "text": "Remember Searabbeys: 1,994 drinks, and still. Drink yours.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-03",
+    "text": "If the Overseer orders an armor stand, ask how many. Then sit down."
+   },
+   {
+    "id": "la2-a-signoff-04",
+    "text": "Stay out of trees. That's it. That's the whole advice."
+   },
+   {
+    "id": "la2-a-signoff-05",
+    "text": "'Safety' is a word, not a promise."
+   },
+   {
+    "id": "la2-a-signoff-06",
+    "text": "Never haul garbage while somebody is still throwing it."
+   },
+   {
+    "id": "la2-a-signoff-07",
+    "text": "Cut gems are pretty. Rough gems are mood insurance. Keep a few."
+   },
+   {
+    "id": "la2-a-signoff-08",
+    "text": "Somebody please be mayor. Anybody. You, reading this. Yes, you."
+   },
+   {
+    "id": "la2-a-signoff-09",
+    "text": "The militia has nine empty seats and one tired captain. Go say hello."
+   },
+   {
+    "id": "la2-a-signoff-10",
+    "text": "When the world blinks, check your mug is still there."
+   },
+   {
+    "id": "la2-a-signoff-11",
+    "text": "There is much to share, as the liaison says. Mostly paperwork."
+   },
+   {
+    "id": "la2-a-signoff-12",
+    "text": "Two hospitals and no doctor is not a medical plan. Tell your friends."
+   },
+   {
+    "id": "la2-a-signoff-13",
+    "text": "Count your thrones, {fort}. Then stop counting. It's healthier."
+   },
+   {
+    "id": "la2-a-signoff-14",
+    "text": "Walk through the mist ring once a day. Doctor's orders. We have no doctor."
+   },
+   {
+    "id": "la2-a-signoff-15",
+    "text": "Smooth one wall, enjoy it, and leave the other 15,999 for another day."
+   },
+   {
+    "id": "la2-a-signoff-16",
+    "text": "The stairs go both ways. So do forgotten beasts."
+   },
+   {
+    "id": "la2-a-signoff-17",
+    "text": "Look after your children. They have moods now, apparently."
+   },
+   {
+    "id": "la2-a-signoff-18",
+    "text": "Keep a spare loom room. A weaver will thank you."
+   },
+   {
+    "id": "la2-a-signoff-19",
+    "text": "The goblins have Searabbeys. Let them keep the Meat Watch.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-20",
+    "text": "Strike the earth, then drink. Mostly drink."
+   },
+   {
+    "id": "la2-a-signoff-21",
+    "text": "A mug on the belt beats a barrel in the stockpile. Ask Searabbeys.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-22",
+    "text": "Quakefocus had 148 thrones and nowhere to sit. Don't be Quakefocus.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-23",
+    "text": "The Herald loves you, {fort}. Please stay hydrated."
+   },
+   {
+    "id": "la2-a-signoff-24",
+    "text": "Mind the garbage pit, and the garbage pit will mostly mind you."
+   },
+   {
+    "id": "la2-a-signoff-25",
+    "text": "Every work order is a suggestion. Some are 1,981 suggestions.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-26",
+    "text": "Say hello to the windmills. They're doing their best."
+   },
+   {
+    "id": "la2-a-signoff-27",
+    "text": "If the mayor charges you, plead 'Overseer'. It works every time."
+   },
+   {
+    "id": "la2-a-signoff-28",
+    "text": "Watch the stairs this {season}. Something always comes up."
+   },
+   {
+    "id": "la2-a-signoff-29",
+    "text": "Ask the dwarf next to you if they've had a drink. Then ask again."
+   },
+   {
+    "id": "la2-a-signoff-30",
+    "text": "Don't sit on the armor stands. They're not for that. Nothing is."
+   },
+   {
+    "id": "la2-a-signoff-31",
+    "text": "The goblins of The Destined Wickedness can wait. Dinner can't.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-32",
+    "text": "Don't trust a tree. Don't trust a burrow labelled 'Safety'. Do trust the Herald."
+   },
+   {
+    "id": "la2-a-signoff-33",
+    "text": "Seven silk scraps is not a cloth supply. Learn from Quakefocus.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-34",
+    "text": "The Amusing Duties has had 48 owners. Your socks need only one.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-35",
+    "text": "Long live Oddom Oltartilesh, and long live the drinking schedule.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-36",
+    "text": "Fill the cistern, fill the mugs, fill the militia. In that order."
+   },
+   {
+    "id": "la2-a-signoff-37",
+    "text": "The world has blinked before. It will blink again. Keep your boots on."
+   },
+   {
+    "id": "la2-a-signoff-38",
+    "text": "Smooth floors, full barrels, empty trees."
+   },
+   {
+    "id": "la2-a-signoff-39",
+    "text": "If a mood asks for rough gems, ask the jeweler first. Nicely. Quickly."
+   },
+   {
+    "id": "la2-a-signoff-40",
+    "text": "Hello to the dwarves of the old forts, wherever their ghosts are tonight."
+   },
+   {
+    "id": "la2-a-signoff-41",
+    "text": "Gather plants if you must, but not across the whole map in the rain."
+   },
+   {
+    "id": "la2-a-signoff-42",
+    "text": "Champion, hammerer, sheriff: all open. Apply today. Please."
+   },
+   {
+    "id": "la2-a-signoff-43",
+    "text": "Stay above the 'Safety' line. Thirty levels above it, ideally."
+   },
+   {
+    "id": "la2-a-signoff-44",
+    "text": "Don't wait for the loom room. Learn to weave standing up."
+   },
+   {
+    "id": "la2-a-signoff-45",
+    "text": "Hydrate, migrate, don't speculate."
+   },
+   {
+    "id": "la2-a-signoff-46",
+    "text": "{fort} forever, or at least until the next fort."
+   },
+   {
+    "id": "la2-a-signoff-47",
+    "text": "Visit the catacombs, but come back. That's the important part."
+   },
+   {
+    "id": "la2-a-signoff-48",
+    "text": "Never accept rings at 210%. Counter at 105%."
+   },
+   {
+    "id": "la2-a-signoff-49",
+    "text": "Remember Claspedserpent. Not for any reason. It's just a good mace.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-50",
+    "text": "If you see the militia captain on duty, write to the Herald. We'll print it big."
+   },
+   {
+    "id": "la2-a-signoff-51",
+    "text": "Make one throne, if you must. Then stop. Then really stop."
+   },
+   {
+    "id": "la2-a-signoff-52",
+    "text": "Keep the drinks where the miners are, and the miners where the drinks are."
+   },
+   {
+    "id": "la2-a-signoff-53",
+    "text": "Your Overseer is doing their best. We assume. We have not checked."
+   },
+   {
+    "id": "la2-a-signoff-54",
+    "text": "Be kind to elves visiting. Be kinder to the barrels."
+   },
+   {
+    "id": "la2-a-signoff-55",
+    "text": "Happy {season}, and happy hauling, and happy not-being-in-the-pit."
+   },
+   {
+    "id": "la2-a-signoff-56",
+    "text": "Next time the forgotten beast comes up the stairs, go up the other stairs."
+   },
+   {
+    "id": "la2-a-signoff-57",
+    "text": "Pray to whoever you like, but drink to everyone."
+   },
+   {
+    "id": "la2-a-signoff-58",
+    "text": "Watch out for the Crazed Hex. And for carp. Mostly carp.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-a-signoff-59",
+    "text": "Signing off, before the Overseer finds me and gives me a work order."
+   },
+   {
+    "id": "la2-a-signoff-60",
+    "text": "Good night, {fort}. Leave a mug by your bed."
+   }
+  ]
+ },
+ "decks": [
+  {
+   "id": "la2-deck-01",
+   "text": "{dwarf}, {age}, {prof}, was mid-'{job}' when the Herald arrived. We checked: not an armor stand. We relaxed."
+  },
+  {
+   "id": "la2-deck-02",
+   "text": "The Herald interrupted {dwarf} ({age}, {prof}) in the middle of '{job}', one of several thousand queued orders."
+  },
+  {
+   "id": "la2-deck-03",
+   "text": "{dwarf}, {age}, {prof}, agreed to talk during '{job}' on one condition: that we bring a drink. We brought two."
+  },
+  {
+   "id": "la2-deck-04",
+   "text": "Our reporter found {dwarf}, {age}, {prof}, busy with '{job}', at a safe distance from any tree."
+  },
+  {
+   "id": "la2-deck-05",
+   "text": "{dwarf} ({age}, {prof}) took a break from '{job}' to speak, which the mayor's office may log as a violation."
+  },
+  {
+   "id": "la2-deck-06",
+   "text": "While the Overseer added three more jobs to the queue, {dwarf}, {age}, {prof}, finished '{job}' and spoke to us."
+  },
+  {
+   "id": "la2-deck-07",
+   "text": "Mid-'{job}', {dwarf}, {age}, the fort's {prof}, gave the Herald the time between one work order and the next."
+  },
+  {
+   "id": "la2-deck-08",
+   "text": "{dwarf}, {age}, {prof}, was doing '{job}' by the mist ring. Our notebook did not survive. These are from memory."
+  },
+  {
+   "id": "la2-deck-09",
+   "text": "The Herald met {dwarf}, {age}, {prof}, mid-'{job}', and nowhere near the 'Safety' burrow, as is wise."
+  },
+  {
+   "id": "la2-deck-10",
+   "text": "{dwarf}, {age}, {prof}, kept at '{job}' throughout the interview. Our reporter was asked to hold a mug."
+  },
+  {
+   "id": "la2-deck-11",
+   "text": "Sent to do '{job}', {dwarf} ({age}, {prof}) did it, which in {fort} is news on its own."
+  },
+  {
+   "id": "la2-deck-12",
+   "text": "{dwarf}, {age}, {prof}, spoke with the Herald during '{job}', and checked twice that we were not a work order."
+  },
+  {
+   "id": "la2-deck-13",
+   "text": "Busy with '{job}', {dwarf} ({age}, {prof}) still found time to air a grudge or two. We printed both."
+  },
+  {
+   "id": "la2-deck-14",
+   "text": "{dwarf}, {age}, {prof}, did '{job}' under the windmills while our reporter took notes and got dizzy."
+  },
+  {
+   "id": "la2-deck-15",
+   "text": "Found mid-'{job}': {dwarf}, {age}, {prof}, who asked us not to mention thrones. We mention them below."
+  },
+  {
+   "id": "la2-deck-16",
+   "text": "The Herald visited {dwarf}, {age}, {prof}, at work on '{job}'. The militia captain was off duty, as usual."
+  },
+  {
+   "id": "la2-deck-17",
+   "text": "{dwarf} ({age}, {prof}) answered our questions in the middle of '{job}' and made sure to drink between each one."
+  },
+  {
+   "id": "la2-deck-18",
+   "text": "Halfway through '{job}', {dwarf}, {age}, {prof}, told us the Overseer would 'want to read this.' Hi."
+  },
+  {
+   "id": "la2-deck-19",
+   "text": "{dwarf}, {age}, {prof}, was assigned '{job}' this {season}, and the Herald was assigned {dwarf}."
+  },
+  {
+   "id": "la2-deck-20",
+   "text": "Our correspondent waited until {dwarf} ({age}, {prof}) finished '{job}'. Then another '{job}' came up."
+  },
+  {
+   "id": "la2-deck-21",
+   "text": "{dwarf}, {age}, {prof}, took questions during '{job}'. A liaison walked past and said there was much to share."
+  },
+  {
+   "id": "la2-deck-22",
+   "text": "On '{job}' duty, {dwarf}, {age}, {prof}, spoke to the Herald about life, drink, and armor stands."
+  },
+  {
+   "id": "la2-deck-23",
+   "text": "{dwarf}, {age}, {prof}, kept one eye on '{job}' and the other on the stairs. Old habits from the beast days."
+  },
+  {
+   "id": "la2-deck-24",
+   "text": "We spoke to {dwarf} ({age}, {prof}) during '{job}'. The garbage pit was mentioned once. Then never again."
+  },
+  {
+   "id": "la2-deck-25",
+   "text": "{dwarf}, {age}, {prof}, was busy with '{job}' and with a rough gem in the pocket, just in case of a mood."
+  },
+  {
+   "id": "la2-deck-26",
+   "text": "The Herald caught {dwarf}, {age}, {prof}, on '{job}' duty, the fourth job this hour by our count."
+  },
+  {
+   "id": "la2-deck-27",
+   "text": "{dwarf} ({age}, {prof}) stopped '{job}' just long enough to say hello, and to ask if we'd seen the mayor."
+  },
+  {
+   "id": "la2-deck-28",
+   "text": "Interrupting '{job}' in {fort}, the Herald found {dwarf}, {age}, {prof}, calm and well-watered."
+  },
+  {
+   "id": "la2-deck-29",
+   "text": "{dwarf}, {age}, {prof}, was busy with '{job}' when we visited. Not smoothing. We checked twice."
+  },
+  {
+   "id": "la2-deck-30",
+   "text": "Between '{job}' and the next order, {dwarf}, {age}, {prof}, had just enough time for the Herald and a drink."
+  }
+ ],
+ "idle_decks": [
+  {
+   "id": "la2-idle-deck-01",
+   "text": "{dwarf}, {age}, {prof}, had no job at all, a rare event the Overseer has been asked to stop correcting."
+  },
+  {
+   "id": "la2-idle-deck-02",
+   "text": "The Herald found {dwarf}, {age}, {prof}, idle by the pumps, being gently misted, and asked a few questions."
+  },
+  {
+   "id": "la2-idle-deck-03",
+   "text": "With no work order in sight, {dwarf} ({age}, {prof}) spoke freely. The Overseer will fix that soon."
+  },
+  {
+   "id": "la2-idle-deck-04",
+   "text": "{dwarf}, {age}, {prof}, was idle, which in {fort} is either a holiday or a clerical error."
+  },
+  {
+   "id": "la2-idle-deck-05",
+   "text": "We found {dwarf}, {age}, {prof}, doing nothing near the tavern, mug in hand. A dwarf of wisdom."
+  },
+  {
+   "id": "la2-idle-deck-06",
+   "text": "{dwarf} ({age}, {prof}) was between jobs and between thrones. We took the chance to chat."
+  },
+  {
+   "id": "la2-idle-deck-07",
+   "text": "Idle and unashamed, {dwarf}, {age}, {prof}, gave the Herald a full afternoon. The armor stands can wait."
+  },
+  {
+   "id": "la2-idle-deck-08",
+   "text": "{dwarf}, {age}, {prof}, was sitting off duty, much like the militia, and agreed to talk."
+  },
+  {
+   "id": "la2-idle-deck-09",
+   "text": "No job, no mood, no tree: {dwarf}, {age}, {prof}, was found safe and idle in the meeting hall."
+  },
+  {
+   "id": "la2-idle-deck-10",
+   "text": "{dwarf}, {age}, {prof}, had been idle since the world last blinked, and was glad of company."
+  },
+  {
+   "id": "la2-idle-deck-11",
+   "text": "Our reporter found {dwarf} ({age}, {prof}) waiting for a job that was stuck behind 16,000 others."
+  },
+  {
+   "id": "la2-idle-deck-12",
+   "text": "{dwarf}, {age}, {prof}, had nothing to do this {season} and spent it telling the Herald all about it."
+  },
+  {
+   "id": "la2-idle-deck-13",
+   "text": "Taking a well-earned rest, {dwarf}, {age}, {prof}, met the Herald by the cistern, mug full."
+  },
+  {
+   "id": "la2-idle-deck-14",
+   "text": "{dwarf}, {age}, {prof}, was idle and asked us not to tell the Overseer. Sorry. The Overseer reads this."
+  },
+  {
+   "id": "la2-idle-deck-15",
+   "text": "We met {dwarf}, {age}, {prof}, idle beside a stack of armor stands nobody remembers ordering."
+  },
+  {
+   "id": "la2-idle-deck-16",
+   "text": "Found without a task, {dwarf} ({age}, {prof}) offered the Herald a seat on a spare throne."
+  }
+ ],
+ "counters": {
+  "death": [
+   {
+    "id": "la2-counter-death-1",
+    "text": "Days since anyone died of thirst near drinks: {days}"
+   },
+   {
+    "id": "la2-counter-death-2",
+    "text": "Days without a 'Safety' burrow incident: {days}"
+   },
+   {
+    "id": "la2-counter-death-3",
+    "text": "Days since a tree claimed a dwarf: {days}"
+   },
+   {
+    "id": "la2-counter-death-4",
+    "text": "Days since the garbage pit took a hauler: {days}"
+   },
+   {
+    "id": "la2-counter-death-5",
+    "text": "Days since the catacombs needed a new shelf: {days}"
+   },
+   {
+    "id": "la2-counter-death-6",
+    "text": "Days the stairs have behaved themselves: {days}"
+   }
+  ],
+  "pet": [
+   {
+    "id": "la2-counter-pet-1",
+    "text": "Days since a dog went missing (13 at Searabbeys): {days}",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-counter-pet-2",
+    "text": "Days since a cat sat on an armor stand and lived: {days}"
+   },
+   {
+    "id": "la2-counter-pet-3",
+    "text": "Days the animals stayed out of the garbage pit: {days}"
+   },
+   {
+    "id": "la2-counter-pet-4",
+    "text": "Days since a pet followed someone into a tree: {days}"
+   },
+   {
+    "id": "la2-counter-pet-5",
+    "text": "Days the kennel count matched the ledger: {days}"
+   },
+   {
+    "id": "la2-counter-pet-6",
+    "text": "Days since a pet was mourned more than a noble: {days}"
+   }
+  ],
+  "tantrum": [
+   {
+    "id": "la2-counter-tantrum-1",
+    "text": "Days since an armor stand was kicked over: {days}"
+   },
+   {
+    "id": "la2-counter-tantrum-2",
+    "text": "Days without a throne being thrown: {days}"
+   },
+   {
+    "id": "la2-counter-tantrum-3",
+    "text": "Days since a work order was shredded: {days}"
+   },
+   {
+    "id": "la2-counter-tantrum-4",
+    "text": "Days since anyone shouted at the Overseer: {days}"
+   },
+   {
+    "id": "la2-counter-tantrum-5",
+    "text": "Days the mist ring kept tempers cool: {days}"
+   },
+   {
+    "id": "la2-counter-tantrum-6",
+    "text": "Days since the mayor's paperwork was set on fire: {days}"
+   }
+  ],
+  "mood": [
+   {
+    "id": "la2-counter-mood-1",
+    "text": "Days since a mood demanded rough gems: {days}"
+   },
+   {
+    "id": "la2-counter-mood-2",
+    "text": "Days since a child took over a workshop: {days}"
+   },
+   {
+    "id": "la2-counter-mood-3",
+    "text": "Days since a weaver waited for the loom room: {days}"
+   },
+   {
+    "id": "la2-counter-mood-4",
+    "text": "Days since a mood wanted the one thing we lack: {days}"
+   },
+   {
+    "id": "la2-counter-mood-5",
+    "text": "Days since a fey dwarf forgot to drink: {days}"
+   },
+   {
+    "id": "la2-counter-mood-6",
+    "text": "Days since the jeweler hid in shame: {days}"
+   }
+  ],
+  "artifact": [
+   {
+    "id": "la2-counter-artifact-1",
+    "text": "Days since anything joined Claspedserpent's club: {days}",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-counter-artifact-2",
+    "text": "Days since a new artifact got 48 claimants: {days}"
+   },
+   {
+    "id": "la2-counter-artifact-3",
+    "text": "Days since anything outshone The Nuanced Hamlet: {days}",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-counter-artifact-4",
+    "text": "Days since the Overseer ordered a pedestal: {days}"
+   },
+   {
+    "id": "la2-counter-artifact-5",
+    "text": "Days without a legend in the making: {days}"
+   },
+   {
+    "id": "la2-counter-artifact-6",
+    "text": "Days since a mood produced something we can keep: {days}"
+   }
+  ],
+  "masterpiece": [
+   {
+    "id": "la2-counter-masterpiece-1",
+    "text": "Days since a masterpiece that wasn't a throne: {days}"
+   },
+   {
+    "id": "la2-counter-masterpiece-2",
+    "text": "Days since an armor stand impressed anyone: {days}"
+   },
+   {
+    "id": "la2-counter-masterpiece-3",
+    "text": "Days since a smoother made a perfect wall: {days}"
+   },
+   {
+    "id": "la2-counter-masterpiece-4",
+    "text": "Days since a crafter bragged to the liaison: {days}"
+   },
+   {
+    "id": "la2-counter-masterpiece-5",
+    "text": "Days without a 'well, look at that': {days}"
+   },
+   {
+    "id": "la2-counter-masterpiece-6",
+    "text": "Days since quality outran quantity: {days}"
+   }
+  ],
+  "migrants": [
+   {
+    "id": "la2-counter-migrants-1",
+    "text": "Days since a Quakefocus survivor arrived: {days}",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-counter-migrants-2",
+    "text": "Days since a migrant asked about the militia: {days}"
+   },
+   {
+    "id": "la2-counter-migrants-3",
+    "text": "Days since newcomers saw the armor stands: {days}"
+   },
+   {
+    "id": "la2-counter-migrants-4",
+    "text": "Days since a refugee band passed by: {days}"
+   },
+   {
+    "id": "la2-counter-migrants-5",
+    "text": "Days since anyone moved into a throne room: {days}"
+   },
+   {
+    "id": "la2-counter-migrants-6",
+    "text": "Days since a new dwarf asked 'why the mist?': {days}"
+   }
+  ],
+  "caravan": [
+   {
+    "id": "la2-counter-caravan-1",
+    "text": "Days since the liaison said 'much to share': {days}"
+   },
+   {
+    "id": "la2-counter-caravan-2",
+    "text": "Days since rings were requested at 210%: {days}"
+   },
+   {
+    "id": "la2-counter-caravan-3",
+    "text": "Days since an import agreement was recommended: {days}"
+   },
+   {
+    "id": "la2-counter-caravan-4",
+    "text": "Days since we tried to sell an armor stand: {days}"
+   },
+   {
+    "id": "la2-counter-caravan-5",
+    "text": "Days since merchants met the mist ring: {days}"
+   },
+   {
+    "id": "la2-counter-caravan-6",
+    "text": "Days since a trader asked about the thrones: {days}"
+   }
+  ],
+  "strike": [
+   {
+    "id": "la2-counter-strike-1",
+    "text": "Days since we found a gem to keep rough: {days}"
+   },
+   {
+    "id": "la2-counter-strike-2",
+    "text": "Days since a vein made the Overseer reroute: {days}"
+   },
+   {
+    "id": "la2-counter-strike-3",
+    "text": "Days since a miner struck it and didn't fall: {days}"
+   },
+   {
+    "id": "la2-counter-strike-4",
+    "text": "Days since a strike went straight to the cutter: {days}"
+   },
+   {
+    "id": "la2-counter-strike-5",
+    "text": "Days since the mood list got a little shorter: {days}"
+   },
+   {
+    "id": "la2-counter-strike-6",
+    "text": "Days since the earth shared, unlike the liaison: {days}"
+   }
+  ],
+  "birth": [
+   {
+    "id": "la2-counter-birth-1",
+    "text": "Days since a baby was born into the militia: {days}"
+   },
+   {
+    "id": "la2-counter-birth-2",
+    "text": "Days since a new citizen too small for a mood: {days}"
+   },
+   {
+    "id": "la2-counter-birth-3",
+    "text": "Days since a cradle beat a throne in the queue: {days}"
+   },
+   {
+    "id": "la2-counter-birth-4",
+    "text": "Days since a newborn met the mist ring: {days}"
+   },
+   {
+    "id": "la2-counter-birth-5",
+    "text": "Days since the census got a tiny new line: {days}"
+   },
+   {
+    "id": "la2-counter-birth-6",
+    "text": "Days since a baby outranked the mayor's office: {days}"
+   }
+  ],
+  "siege": [
+   {
+    "id": "la2-counter-siege-1",
+    "text": "Days since The Destined Wickedness came calling: {days}",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-counter-siege-2",
+    "text": "Days since The High Cruelties skirmished: {days}",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-counter-siege-3",
+    "text": "Days since the militia captain went on duty: {days}"
+   },
+   {
+    "id": "la2-counter-siege-4",
+    "text": "Days since a goblin eyed our armor stands: {days}"
+   },
+   {
+    "id": "la2-counter-siege-5",
+    "text": "Days since anyone hid in 'Safety': {days}"
+   },
+   {
+    "id": "la2-counter-siege-6",
+    "text": "Days without word from the Crazed Hex: {days}",
+    "world": "The Enchanted Planes"
+   }
+  ]
+ },
+ "followups": {
+  "heads": [
+   {
+    "id": "la2-followup-head-1",
+    "text": "{topic}: THE OVERSEER RESPONDS (NO)"
+   },
+   {
+    "id": "la2-followup-head-2",
+    "text": "{topic} FILE REACHES {n} DRAWERS"
+   },
+   {
+    "id": "la2-followup-head-3",
+    "text": "DAY {days}: {topic}, STILL"
+   },
+   {
+    "id": "la2-followup-head-4",
+    "text": "{topic}: QUEUED BEHIND 16,000 JOBS"
+   },
+   {
+    "id": "la2-followup-head-5",
+    "text": "MAYOR'S OFFICE LOGS {topic}"
+   },
+   {
+    "id": "la2-followup-head-6",
+    "text": "{topic} SURVIVES ANOTHER REWIND"
+   },
+   {
+    "id": "la2-followup-head-7",
+    "text": "{topic}: A SERIES IN {n} PARTS"
+   },
+   {
+    "id": "la2-followup-head-8",
+    "text": "{topic} NOW OLDER THAN SOME FORTS"
+   },
+   {
+    "id": "la2-followup-head-9",
+    "text": "{topic}: MILITIA DECLINES COMMENT"
+   },
+   {
+    "id": "la2-followup-head-10",
+    "text": "{topic} OUTLASTS QUAKEFOCUS"
+   },
+   {
+    "id": "la2-followup-head-11",
+    "text": "{topic}: VOLUME {n}"
+   },
+   {
+    "id": "la2-followup-head-12",
+    "text": "{topic}: LIAISON SEES 'MUCH TO SHARE'"
+   },
+   {
+    "id": "la2-followup-head-13",
+    "text": "STILL NOT OVER {topic}"
+   },
+   {
+    "id": "la2-followup-head-14",
+    "text": "{topic}, DAY {days} OF THE WATCH"
+   },
+   {
+    "id": "la2-followup-head-15",
+    "text": "{topic} ORDER REPEATS ITSELF"
+   },
+   {
+    "id": "la2-followup-head-16",
+    "text": "{topic}: NO DOCTOR AVAILABLE"
+   },
+   {
+    "id": "la2-followup-head-17",
+    "text": "{topic} RETURNS UP THE STAIRS"
+   },
+   {
+    "id": "la2-followup-head-18",
+    "text": "{topic}: GRUDGE CARVED IN STONE"
+   },
+   {
+    "id": "la2-followup-head-19",
+    "text": "{topic} GRUMBLE NO. {n}"
+   },
+   {
+    "id": "la2-followup-head-20",
+    "text": "{topic}: EVEN THE GHOSTS ASK"
+   },
+   {
+    "id": "la2-followup-head-21",
+    "text": "{topic}: THE ARMOR STAND OF ISSUES"
+   },
+   {
+    "id": "la2-followup-head-22",
+    "text": "{topic} NOT SAFE, NOT 'SAFETY'"
+   },
+   {
+    "id": "la2-followup-head-23",
+    "text": "{topic}: FILED, REFILED"
+   },
+   {
+    "id": "la2-followup-head-24",
+    "text": "DAY {days} AND {topic} PERSISTS"
+   },
+   {
+    "id": "la2-followup-head-25",
+    "text": "{topic} BACK IN THE QUEUE"
+   },
+   {
+    "id": "la2-followup-head-26",
+    "text": "{topic}: OFF DUTY, LIKE THE MILITIA"
+   },
+   {
+    "id": "la2-followup-head-27",
+    "text": "{topic}, AS FORETOLD"
+   },
+   {
+    "id": "la2-followup-head-28",
+    "text": "{topic}: CHAPTER {n}"
+   },
+   {
+    "id": "la2-followup-head-29",
+    "text": "{topic}: GODS BLINK, ISSUE STAYS"
+   },
+   {
+    "id": "la2-followup-head-30",
+    "text": "{topic} TALK SPREADS TO TAVERN"
+   },
+   {
+    "id": "la2-followup-head-31",
+    "text": "{topic} SEEN FROM A TREE"
+   },
+   {
+    "id": "la2-followup-head-32",
+    "text": "{topic}: CHARGES PENDING"
+   },
+   {
+    "id": "la2-followup-head-33",
+    "text": "{topic} DEMANDS ROUGH GEMS"
+   },
+   {
+    "id": "la2-followup-head-34",
+    "text": "{topic}: STILL NO MAYOR TO ASK"
+   },
+   {
+    "id": "la2-followup-head-35",
+    "text": "THE {topic} WATCH, DAY {days}"
+   },
+   {
+    "id": "la2-followup-head-36",
+    "text": "{topic}: OVERSEER ADDS ORDER"
+   },
+   {
+    "id": "la2-followup-head-37",
+    "text": "{topic} ROLLS ON ({n})"
+   },
+   {
+    "id": "la2-followup-head-38",
+    "text": "{topic}: MIST RING NO HELP"
+   },
+   {
+    "id": "la2-followup-head-39",
+    "text": "{topic} OUT OF THE PIT AGAIN"
+   },
+   {
+    "id": "la2-followup-head-40",
+    "text": "{topic}: 148 THRONES LATER"
+   }
+  ],
+  "decks": [
+   {
+    "id": "la2-followup-deck-1",
+    "text": "{nick} has now raised {topic} with the Herald {n} times. The Overseer has queued a response. It is behind 1,981 armor stands.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-followup-deck-2",
+    "text": "On day {days} of the {topic} matter, {nick} asked the mayor's office for help. The mayor's office charged {nick} with a violation."
+   },
+   {
+    "id": "la2-followup-deck-3",
+    "text": "{nick} first raised {topic} on {since}. The world has blinked since then. {topic} did not."
+   },
+   {
+    "id": "la2-followup-deck-4",
+    "text": "Interview {n} on {topic}. {nick} reports no progress, but has had a drink, which the Herald considers a win."
+   },
+   {
+    "id": "la2-followup-deck-5",
+    "text": "{nick} would like {topic} added to the Overseer's work orders. We regret to say it already is, several hundred times."
+   },
+   {
+    "id": "la2-followup-deck-6",
+    "text": "{nick} says {topic} is 'like the Safety burrow: sounds fine, isn't.' The Herald has printed this {n} times now."
+   },
+   {
+    "id": "la2-followup-deck-7",
+    "text": "The {topic} saga entered day {days}. {nick} has started a petition. One signature. Like the militia."
+   },
+   {
+    "id": "la2-followup-deck-8",
+    "text": "{nick} raised {topic} with the liaison, who said there was much to share and recommended an import agreement."
+   },
+   {
+    "id": "la2-followup-deck-9",
+    "text": "Since {since}, {nick} has held firm on {topic}. Quakefocus held firm on thrones for a while too. Consider the record.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-followup-deck-10",
+    "text": "{nick} returns on {topic}, visit number {n}. The Herald's archivist has asked for a hospital. One with a doctor."
+   },
+   {
+    "id": "la2-followup-deck-11",
+    "text": "{nick} told us {topic} is now 'the 148 thrones of problems.' We do not know what this means. We print it anyway."
+   },
+   {
+    "id": "la2-followup-deck-12",
+    "text": "Day {days} of {topic}. {nick} has been seen near a tree, thinking. Readers are asked to bring {nick} down gently."
+   },
+   {
+    "id": "la2-followup-deck-13",
+    "text": "{nick} wants it known that {topic} would not have happened at Searabbeys. We checked. It would have.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-followup-deck-14",
+    "text": "{nick} has asked the militia to look into {topic}. The militia, being one dwarf off duty, has not."
+   },
+   {
+    "id": "la2-followup-deck-15",
+    "text": "Readers following {topic} since {since} will know {nick} is not giving up. Nor is the issue. They have become close."
+   },
+   {
+    "id": "la2-followup-deck-16",
+    "text": "{nick}'s grievance over {topic} reached interview number {n} today, and the garbage pit has been asked to stay out of it."
+   },
+   {
+    "id": "la2-followup-deck-17",
+    "text": "Asked about {topic} for time number {n}, {nick} sighed, took a drink, and said, 'Same.' A full transcript follows."
+   },
+   {
+    "id": "la2-followup-deck-18",
+    "text": "Day {days}: {nick} still says {topic}. Our reporter still writes it down. The Overseer still smooths a wall nearby."
+   },
+   {
+    "id": "la2-followup-deck-19",
+    "text": "{nick} has filed {topic} with every vacant office: mayor, sheriff, hammerer and chief medical dwarf. No reply yet."
+   },
+   {
+    "id": "la2-followup-deck-20",
+    "text": "The {topic} matter, opened on {since}, has now outlived three work orders and one strange mood."
+   },
+   {
+    "id": "la2-followup-deck-21",
+    "text": "{nick} says the gods have noticed {topic}. The gods are said to have blinked. Twice. Nothing changed."
+   },
+   {
+    "id": "la2-followup-deck-22",
+    "text": "Talk number {n} with {nick} on {topic}. {nick} asked us to pass the matter to the Overseer. Overseer, consider it passed."
+   },
+   {
+    "id": "la2-followup-deck-23",
+    "text": "{nick} reports that {topic} is still unresolved, and offered to show us. We were taken down 30 levels. We left."
+   },
+   {
+    "id": "la2-followup-deck-24",
+    "text": "{nick} would like the Herald to treat {topic} as front page news. This is page {n}. It's a start."
+   },
+   {
+    "id": "la2-followup-deck-25",
+    "text": "After {days} days of {topic}, {nick} has started calling it 'my armor stand.' The Herald does not ask why."
+   },
+   {
+    "id": "la2-followup-deck-26",
+    "text": "{nick} brought {topic} to the tavern, the depot, and the mist ring. Only the mist ring listened, and it just sprayed."
+   },
+   {
+    "id": "la2-followup-deck-27",
+    "text": "{nick} insists {topic} is a fort issue, not a personal one. The Herald has opened a file under both, just in case."
+   },
+   {
+    "id": "la2-followup-deck-28",
+    "text": "Interview {n}: {nick} on {topic}, again. Even the ghosts of Quakefocus are said to be following along.",
+    "world": "The Enchanted Planes"
+   },
+   {
+    "id": "la2-followup-deck-29",
+    "text": "{nick} kept the {topic} grudge alive through {days} days and one Great Rewind. A record, the Herald believes."
+   },
+   {
+    "id": "la2-followup-deck-30",
+    "text": "The {topic} story continues. {nick} asks that the Herald stop calling it a saga. Day {days} of the saga continues."
+   }
+  ]
+ }
+}

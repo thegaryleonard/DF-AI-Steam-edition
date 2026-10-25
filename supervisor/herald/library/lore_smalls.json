@@ -1,0 +1,6230 @@
+{
+ "ads": [
+  {
+   "id": "ls3-ad-001",
+   "lines": [
+    [
+     "bk",
+     "Armor Stand Liquidators"
+    ],
+    [
+     "eng",
+     "THOUSANDS OF STANDS · ALL MUST GO"
+    ],
+    [
+     "fine",
+     "Runaway-order overstock, never stood on by armor. Buy one, get forty free. Delivery by hauler, who is also free, because he is a stand."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-002",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "THRONE SALE"
+    ],
+    [
+     "eng",
+     "SEATS OF POWER, NO NOBLES"
+    ],
+    [
+     "fine",
+     "Every dwarf a king for one sitting. Surplus from a work order nobody remembers placing. Cushions sold separately. Crowns not included."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-003",
+   "lines": [
+    [
+     "bk",
+     "Meat Watch Provisions"
+    ],
+    [
+     "eng",
+     "WE HAVE SEEN MEAT. WE CAN PROVE IT"
+    ],
+    [
+     "fine",
+     "Each cut certified by three witnesses and one confused butcher. For forts that have gone so long without, they've forgotten the word."
+    ]
+   ],
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "ls3-ad-004",
+   "lines": [
+    [
+     "bk",
+     "Lift-the-Barrel Society"
+    ],
+    [
+     "eng",
+     "DRINK IS NEAR YOU. LOOK DOWN"
+    ],
+    [
+     "fine",
+     "The barrel is beside you. It has been beside you the whole time. Please lift it. A public service for dwarves who die politely of thirst."
+    ]
+   ],
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "ls3-ad-005",
+   "lines": [
+    [
+     "bk",
+     "Gem-Side Hydration"
+    ],
+    [
+     "eng",
+     "FOR DWARVES WHO WORK BESIDE GEMS"
+    ],
+    [
+     "fine",
+     "A mug strapped to your rough gems, for carpenters who would otherwise expire next to a heap of them. Gems not drinkable. We checked."
+    ]
+   ],
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "ls3-ad-006",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "SAFETY™"
+    ],
+    [
+     "eng",
+     "NOW WITH 40% MORE SAFE"
+    ],
+    [
+     "fine",
+     "Our burrows are not thirty levels down. Forgotten beasts are politely asked to use the other stairs. There are no other stairs."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-007",
+   "lines": [
+    [
+     "bk",
+     "Upstairs Burrows Inc."
+    ],
+    [
+     "eng",
+     "SAFETY, BUT CLOSER TO THE EXIT"
+    ],
+    [
+     "fine",
+     "Why hide thirty levels down when you could hide one level down, near a door, with a lever? Ask about our beast-facing reviews."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-008",
+   "lines": [
+    [
+     "bk",
+     "Pit & Pail Refuse Co."
+    ],
+    [
+     "eng",
+     "THE PIT TAKES. THE PIT KEEPS"
+    ],
+    [
+     "fine",
+     "Our haulers carry refuse INTO the pit, never back out of it, and never while it is raining rubbish. We learned. Training was costly."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-009",
+   "lines": [
+    [
+     "bk",
+     "Branchless Ladders"
+    ],
+    [
+     "eng",
+     "COME DOWN FROM THE TREE"
+    ],
+    [
+     "fine",
+     "For miners who climb up and simply stay. Our ladders reach the ground, which is where the drinks are. Trees not endorsed."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-010",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "LOW BRANCHES"
+    ],
+    [
+     "eng",
+     "TREE HOLIDAYS, NO HEIGHTS"
+    ],
+    [
+     "fine",
+     "Bonsai lodging for dwarves who want the outdoors but would like to survive it. All branches at knee level. Ale at ankle level."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-011",
+   "lines": [
+    [
+     "bk",
+     "Smoothers Anonymous"
+    ],
+    [
+     "eng",
+     "THOUSANDS OF JOBS, ONE DAY AT A TIME"
+    ],
+    [
+     "fine",
+     "Weekly meetings in an unsmoothed room, which we are not allowed to smooth. Please stop touching the walls. Please."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-012",
+   "lines": [
+    [
+     "bk",
+     "The Rough Gem Reserve"
+    ],
+    [
+     "eng",
+     "WE KEEP ONE UNCUT. FOR EMERGENCIES"
+    ],
+    [
+     "fine",
+     "When the mood strikes and every gem has been polished, break glass. Glass not cut either. Ask the gem-cutter to look away."
+    ]
+   ],
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-ad-013",
+   "lines": [
+    [
+     "bk",
+     "Uncut Futures Exchange"
+    ],
+    [
+     "eng",
+     "BUY ROUGH. HOLD ROUGH. NEVER CUT"
+    ],
+    [
+     "fine",
+     "Our analysts predict the next mood will ask for exactly what the fort just finished cutting. They are never wrong. Sell your wheel."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-014",
+   "lines": [
+    [
+     "bk",
+     "Little Moods Daycare"
+    ],
+    [
+     "eng",
+     "WHEN YOUR CHILD DEMANDS PLANT CLOTH"
+    ],
+    [
+     "fine",
+     "We keep a bolt on hand for every tiny genius. Crayons, blocks, one loom. Kids leave with an artifact and a nap."
+    ]
+   ],
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-ad-015",
+   "lines": [
+    [
+     "bk",
+     "The Loom Room Express"
+    ],
+    [
+     "eng",
+     "NO WEAVER WAITS AGAIN"
+    ],
+    [
+     "fine",
+     "When the possession comes and the workshop is still a sketch, our loom-on-wheels comes to you. Carts may knock. Weavers may shriek."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-016",
+   "lines": [
+    [
+     "bk",
+     "Silk Scrap Audits"
+    ],
+    [
+     "eng",
+     "SEVEN SCRAPS IS NOT A STOCKPILE"
+    ],
+    [
+     "fine",
+     "We count your cloth properly, so a few rags never again convince the management the fort is drowning in fabric. Rates in thread."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-017",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "DOCTOR INCLUDED"
+    ],
+    [
+     "eng",
+     "HOSPITALS WITH A DWARF IN THEM"
+    ],
+    [
+     "fine",
+     "Unlike certain wards we could name, every bed comes with a doctor, or at least a dwarf holding a splint confidently."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-018",
+   "lines": [
+    [
+     "bk",
+     "Heirloom Replicas"
+    ],
+    [
+     "eng",
+     "THE FAMOUS MACE, IN TIN"
+    ],
+    [
+     "fine",
+     "Wave a lost fort's artifact about like a hero. Weight and glory approximate. Not an artifact; please do not let a noble name it."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-019",
+   "lines": [
+    [
+     "bk",
+     "Ruin Viewing Tours"
+    ],
+    [
+     "eng",
+     "SEE THE OLD FORT. FROM A HILL"
+    ],
+    [
+     "fine",
+     "It is still there. So are the goblins who live in it now. Telescope included, courage not. Tours leave weekly, return occasionally."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-020",
+   "lines": [
+    [
+     "bk",
+     "The {past_fort} Archive"
+    ],
+    [
+     "eng",
+     "BACK ISSUES, EVERY LAST ONE"
+    ],
+    [
+     "fine",
+     "Read how {past_fort} {past_fort_fate} in its original typeface. All {past_fort_years}. Bring a candle and a strong stomach."
+    ]
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ad-021",
+   "lines": [
+    [
+     "bk",
+     "Royal Mug Works"
+    ],
+    [
+     "eng",
+     "BY APPOINTMENT TO {monarch}"
+    ],
+    [
+     "fine",
+     "The monarch has never held one, but has walked near our kiosk. Printed with a crown, which is close enough for the provinces."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-022",
+   "lines": [
+    [
+     "bk",
+     "Much to Share Imports"
+    ],
+    [
+     "eng",
+     "THERE IS MUCH TO SHARE..."
+    ],
+    [
+     "fine",
+     "A trading house in the liaison's own style. We recommend import agreements. We then recommend more. Rings at any markup you like."
+    ]
+   ],
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "ls3-ad-023",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "RINGS, 200%+"
+    ],
+    [
+     "eng",
+     "PRICED BY THE LIAISON"
+    ],
+    [
+     "fine",
+     "We asked {liaison} what rings are worth. The answer was a percentage. Of what, nobody said. Order now while percents last."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-024",
+   "lines": [
+    [
+     "bk",
+     "Peace Phrase Cards"
+    ],
+    [
+     "eng",
+     "SAY 'PEACE' IN SIXTEEN WAYS"
+    ],
+    [
+     "fine",
+     "For every polite table in {world}. Plus two blank cards for the goblins, who do not read cards and eat the blank ones."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-025",
+   "lines": [
+    [
+     "bk",
+     "Total War Insurance"
+    ],
+    [
+     "eng",
+     "COVERS {enemy}"
+    ],
+    [
+     "fine",
+     "Full cover against total war, partial cover against skirmishes, no cover against your beard falling out from the stress of it."
+    ]
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-ad-026",
+   "lines": [
+    [
+     "bk",
+     "Skirmish-Lite Helmets"
+    ],
+    [
+     "eng",
+     "NOT A TOTAL WAR? NOT A TOTAL HELMET"
+    ],
+    [
+     "fine",
+     "Our half-helms protect the half of your head goblins usually aim at. The other half is your problem and your beard's."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-027",
+   "lines": [
+    [
+     "bk",
+     "Siege-Proof Doors"
+    ],
+    [
+     "eng",
+     "{enemy_race} HATE THESE"
+    ],
+    [
+     "fine",
+     "Every town that fell to a goblin army had ordinary doors. You don't have to. Install by midwinter. Fitting crew flees on request."
+    ]
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-ad-028",
+   "lines": [
+    [
+     "bk",
+     "Refugee Welcome Wagon"
+    ],
+    [
+     "eng",
+     "FLEEING? YOU'RE WELCOME HERE"
+    ],
+    [
+     "fine",
+     "Bedrolls, one hot mug and a map that does not include any goblin armies. Serving every band of the displaced since the last army marched."
+    ]
+   ],
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "ls3-ad-029",
+   "lines": [
+    [
+     "bk",
+     "Honest Fishmongers"
+    ],
+    [
+     "eng",
+     "NOT AN ARMY. JUST FISH"
+    ],
+    [
+     "fine",
+     "We sell fish. We have never besieged a town. Please stop sending us angry letters addressed to goblin warlords with similar names."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-030",
+   "lines": [
+    [
+     "bk",
+     "Human Cake Imports"
+    ],
+    [
+     "eng",
+     "FROM A TOWN OF CAKE PEOPLE"
+    ],
+    [
+     "fine",
+     "Light, fluffy, fragile. Most arrive as crumbs. The crumbs are exquisite. Dwarves eat the box too."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-031",
+   "lines": [
+    [
+     "bk",
+     "Reclaimers & Sons"
+    ],
+    [
+     "eng",
+     "IT WAS OURS. IT IS OURS AGAIN"
+    ],
+    [
+     "fine",
+     "We reclaim lost halls, sweep out the bones and leave a small plaque that says 'mine'. {past_fort} is on our list."
+    ]
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ad-032",
+   "lines": [
+    [
+     "bk",
+     "Grippy Reclamation Boots"
+    ],
+    [
+     "eng",
+     "FOR WALKING INTO RUINS"
+    ],
+    [
+     "fine",
+     "Non-slip soles for marching into a fortress the goblins are still using. Grip on blood, ichor, ale and goblin. Smell stays forever."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-033",
+   "lines": [
+    [
+     "bk",
+     "Crooked Horror Watch"
+    ],
+    [
+     "eng",
+     "IS THE BEAST NEAR YOU?"
+    ],
+    [
+     "fine",
+     "Probably not. Subscribe anyway and receive a weekly bell telling you it is still somewhere else. On the bad week, the bell is silent."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-034",
+   "lines": [
+    [
+     "bk",
+     "Thick Stone Blinds"
+    ],
+    [
+     "eng",
+     "KEEP GIANT BEASTS OUT OF SIGHT"
+    ],
+    [
+     "fine",
+     "Heavy curtains for those who live near a crooked horror and would rather not wake to one. Do not peek. It peeks back."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-035",
+   "lines": [
+    [
+     "bk",
+     "Abduction Alarm Co."
+    ],
+    [
+     "eng",
+     "CARRIED OFF AT NIGHT?"
+    ],
+    [
+     "fine",
+     "Our bells ring when anyone is snatched. Elves have used them twice. Both times the bell was also snatched."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-036",
+   "lines": [
+    [
+     "bk",
+     "Artifact Claims Office"
+    ],
+    [
+     "eng",
+     "IS IT YOUR GREAVES? JOIN THE QUEUE"
+    ],
+    [
+     "fine",
+     "Forty-odd figures claim the same lost artifact. You could be next. It sits in a far fort, wanted by all, amused by none."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-037",
+   "lines": [
+    [
+     "bk",
+     "Lost Artifact Finders"
+    ],
+    [
+     "eng",
+     "WE KNOW WHERE IT IS"
+    ],
+    [
+     "fine",
+     "So does everyone. Getting it back is a separate service, with a separate price, and a separate will for you to sign."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-038",
+   "lines": [
+    [
+     "bk",
+     "Blink Insurance"
+    ],
+    [
+     "eng",
+     "WHEN THE GODS BLINK, WE PAY"
+    ],
+    [
+     "fine",
+     "Coverage for anything lost when the world stops and starts: half a tunnel, a fresh mood, the meal you thought you ate. Claims paid twice."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-039",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "REWIND RELIEF"
+    ],
+    [
+     "eng",
+     "DID THAT ALREADY HAPPEN?"
+    ],
+    [
+     "fine",
+     "Feeling you have dug this tunnel before? You have. Our counsellors explain the Great Rewinds gently, then again, then again."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-040",
+   "lines": [
+    [
+     "bk",
+     "Ghosts of Forts Past"
+    ],
+    [
+     "eng",
+     "SÉANCES FOR OLD SETTLERS"
+    ],
+    [
+     "fine",
+     "Speak with the ghosts of {past_fort}. Mostly they ask for a drink. They were sitting next to plenty. They know. Ask anyway."
+    ]
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ad-041",
+   "lines": [
+    [
+     "bk",
+     "One-Dwarf Militia Supply"
+    ],
+    [
+     "eng",
+     "UNIFORMS FOR TEN, WORN BY ONE"
+    ],
+    [
+     "fine",
+     "Our captain bundles: one full kit and nine empty hangers that salute when you walk by. Guaranteed 'Off duty' lustre."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-042",
+   "lines": [
+    [
+     "bk",
+     "Off Duty Outfitters"
+    ],
+    [
+     "eng",
+     "LOUNGEWEAR FOR THE STANDING ARMY"
+    ],
+    [
+     "fine",
+     "Comfortable, padded and permanently relaxed. As worn by militias of one. Matching slippers for nine more feet."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-043",
+   "lines": [
+    [
+     "bk",
+     "Violation Stationery"
+    ],
+    [
+     "eng",
+     "PRODUCTION ORDER VIOLATION FORMS"
+    ],
+    [
+     "fine",
+     "Pre-filled, pre-stamped and pre-filed by the mayor's office. Just add a dwarf's name. Any dwarf. The mayor isn't fussy."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-044",
+   "lines": [
+    [
+     "bk",
+     "Mist Ring Spa"
+    ],
+    [
+     "eng",
+     "STAND IN THE PUMPS. FEEL HAPPY"
+    ],
+    [
+     "fine",
+     "Pumped spray, windmill-powered, guaranteed fine mist and one happy thought. Do not drink the mist. Actually, do drink something."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-045",
+   "lines": [
+    [
+     "bk",
+     "Windmill Wind Ltd."
+    ],
+    [
+     "eng",
+     "WIND, DELIVERED"
+    ],
+    [
+     "fine",
+     "Keeping the fort's windmills spinning with our signature hand-blown breeze. Six dwarves, one bellows, endless lungs."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-046",
+   "lines": [
+    [
+     "bk",
+     "Cistern Supply Co."
+    ],
+    [
+     "eng",
+     "WATER, KEPT, NOT DRUNK"
+    ],
+    [
+     "fine",
+     "We store it beautifully. Whether anyone drinks it is not our department. Thirsty miners are referred to the Bureau of Paradox."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-047",
+   "lines": [
+    [
+     "bk",
+     "Catacomb Comfort"
+    ],
+    [
+     "eng",
+     "SPACIOUS AFTERLIFE LIVING"
+    ],
+    [
+     "fine",
+     "Plenty of room in the catacombs since the last 'Safety' drill. Tasteful slabs, engraved quietly. Ghosts may lodge complaints."
+    ]
+   ],
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "ls3-ad-048",
+   "lines": [
+    [
+     "bk",
+     "Execution Tower Tours"
+    ],
+    [
+     "eng",
+     "VIEWS TO DIE FOR (LITERALLY NOT)"
+    ],
+    [
+     "fine",
+     "A tall tower with an excellent view and a short history of being used. Gift shop at the base. The top floor is for staff."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-049",
+   "lines": [
+    [
+     "bk",
+     "Gaze-Ready Beard Oil"
+    ],
+    [
+     "eng",
+     "THE OVERSEER IS WATCHING. LOOK NICE"
+    ],
+    [
+     "fine",
+     "The Overseer's eye roams the halls and follows guests about. Our oil keeps you shiny when it swoops in. Glare-free."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-050",
+   "lines": [
+    [
+     "bk",
+     "Plant-Gatherers' Raincoats"
+    ],
+    [
+     "eng",
+     "THE WHOLE MAP. IN THE RAIN"
+    ],
+    [
+     "fine",
+     "The Overseer wants every plant from every corner of the map. Today. In the rain. Our coats are waterproof; the plants are not."
+    ]
+   ],
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "ls3-ad-051",
+   "lines": [
+    [
+     "bk",
+     "{record} Museum"
+    ],
+    [
+     "eng",
+     "AS SET AT {record_fort}"
+    ],
+    [
+     "fine",
+     "A whole wing dedicated to the fort's most famous number. Guided tours, souvenir plaques, one curator who still cannot explain it."
+    ]
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ad-052",
+   "lines": [
+    [
+     "bk",
+     "Never Again Consulting"
+    ],
+    [
+     "eng",
+     "WE REMEMBER {record}"
+    ],
+    [
+     "fine",
+     "Our advisors were there. Hire us before your next work order and we'll stand behind the manager whispering the figure, gently."
+    ]
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ad-053",
+   "lines": [
+    [
+     "bk",
+     "Thirst Paradox Hotline"
+    ],
+    [
+     "eng",
+     "SURROUNDED BY {drinks} DRINKS?"
+    ],
+    [
+     "fine",
+     "Still thirsty? Call us. We walk over, hand you a mug and watch you drink it. Our record: a miner found beside two thousand of them. Sadly."
+    ]
+   ],
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "ls3-ad-054",
+   "lines": [
+    [
+     "bk",
+     "{fort} Drink Escort"
+    ],
+    [
+     "eng",
+     "WE WALK YOU TO THE BARREL"
+    ],
+    [
+     "fine",
+     "A trained companion for any dwarf who has forgotten where the {drinks} drinks are. Fee: one sip. Hand-holding optional."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-055",
+   "lines": [
+    [
+     "bk",
+     "Stone Counselling"
+    ],
+    [
+     "eng",
+     "{stone} STONES IS NOT A PERSONALITY"
+    ],
+    [
+     "fine",
+     "The last fort had 800. You have more. We help forts accept that a stone can just be left where it fell. Group hugs, with the stones."
+    ]
+   ],
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "ls3-ad-056",
+   "lines": [
+    [
+     "bk",
+     "Doghouse Deluxe"
+    ],
+    [
+     "eng",
+     "FOR FORTS OF {dogs} DOGS OR MORE"
+    ],
+    [
+     "fine",
+     "The old fort kept thirteen and still felt lonely. Bunk kennels, chew-proof doors, a bone in every bowl. Cats sneer at our prices."
+    ]
+   ],
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "ls3-ad-057",
+   "lines": [
+    [
+     "bk",
+     "Twenty Plots Farming Co."
+    ],
+    [
+     "eng",
+     "{farms} FARMS. STILL NO MEAT?"
+    ],
+    [
+     "fine",
+     "We understand. One old fort tilled twenty and ate plump helmets for half a decade. Try our Pretend Steak, carved from a mushroom."
+    ]
+   ],
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "ls3-ad-058",
+   "lines": [
+    [
+     "bk",
+     "{fort} Gem Lending"
+    ],
+    [
+     "eng",
+     "{gems} GEMS ON FILE. NONE ROUGH?"
+    ],
+    [
+     "fine",
+     "Rent a rough gem for your next mood. Return it carved into an artifact. Late fees apply if the artifact is a cage."
+    ]
+   ],
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "ls3-ad-059",
+   "lines": [
+    [
+     "bk",
+     "Moodsmiths' Supply"
+    ],
+    [
+     "eng",
+     "FOR {moodname}, AND THE NEXT ONE"
+    ],
+    [
+     "fine",
+     "Whatever the mood demands, we have one. We especially have the thing you just used up. That is our whole business model."
+    ]
+   ],
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-ad-060",
+   "lines": [
+    [
+     "bk",
+     "Memorial Mugs of {fort}"
+    ],
+    [
+     "eng",
+     "IN MEMORY OF {deadname}"
+    ],
+    [
+     "fine",
+     "A mug engraved with the departed's name, filled with drink, so this time no one is far from one. Proceeds to the Thirst Fund."
+    ]
+   ],
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "ls3-ad-061",
+   "lines": [
+    [
+     "bk",
+     "Masterwork Insurance"
+    ],
+    [
+     "eng",
+     "COVERING {masterwork}"
+    ],
+    [
+     "fine",
+     "If the Overseer melts it, sells it or forgets it on a stockpile at the map's edge, we pay out. In plump helmets, mostly."
+    ]
+   ],
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "ls3-ad-062",
+   "lines": [
+    [
+     "bk",
+     "Promotion Etiquette Co."
+    ],
+    [
+     "eng",
+     "CONGRATULATIONS, {promoted}"
+    ],
+    [
+     "fine",
+     "On becoming {post}. Our classes teach the newly titled how to sit in an office, sign forms and look busy near the mayor."
+    ]
+   ],
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "ls3-ad-063",
+   "lines": [
+    [
+     "bk",
+     "Strike Seminars"
+    ],
+    [
+     "eng",
+     "SO YOU FOUND {mineral}"
+    ],
+    [
+     "fine",
+     "And the Overseer has ordered two thousand things out of it. We teach restraint. Final exam: carve one thing. Then stop. Then stop again."
+    ]
+   ],
+   "when": [
+    "recent_strike"
+   ]
+  },
+  {
+   "id": "ls3-ad-064",
+   "lines": [
+    [
+     "bk",
+     "Wood Rationing Bureau"
+    ],
+    [
+     "eng",
+     "{wood} LOGS. ONE THRONE EACH?"
+    ],
+    [
+     "fine",
+     "Before anyone queues a hundred and fifty thrones, please speak to our advisors, who will hide the logs somewhere sensible, like a tree."
+    ]
+   ],
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "ls3-ad-065",
+   "lines": [
+    [
+     "bk",
+     "Meals Assurance"
+    ],
+    [
+     "eng",
+     "{meals} MEALS, ALL ACCOUNTED"
+    ],
+    [
+     "fine",
+     "Some forts start with none. We count every roast, every biscuit and every dwarf near one, so the famine stays a story."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-066",
+   "lines": [
+    [
+     "bk",
+     "{fort} Seed Vault"
+    ],
+    [
+     "eng",
+     "{seeds} SEEDS, SAFE FROM SNACKERS"
+    ],
+    [
+     "fine",
+     "Every seed locked away from dwarves who plant one and eat four. A handful of plants once fed ten dwarves. Never again, we hope."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-067",
+   "lines": [
+    [
+     "bk",
+     "Bar & Ingot Brokers"
+    ],
+    [
+     "eng",
+     "{bars} BARS, A THOUSAND STANDS' WORTH"
+    ],
+    [
+     "fine",
+     "Before your bars become armor stands, consider literally anything else. We buy metal, sell metal, and never queue furniture."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-068",
+   "lines": [
+    [
+     "bk",
+     "Herd Census Co."
+    ],
+    [
+     "eng",
+     "{herd} ANIMALS, COUNTED TWICE"
+    ],
+    [
+     "fine",
+     "Our counters number your livestock every season, then again after the Great Rewind, to be safe. Surprisingly often it differs."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-069",
+   "lines": [
+    [
+     "bk",
+     "Cat Sorting Office"
+    ],
+    [
+     "eng",
+     "{cats} CATS, ONE SCHEDULE"
+    ],
+    [
+     "fine",
+     "We give every cat a bed, a stockpile to sit on and an owner it ignores. Expansion planned if the cats approve, which they won't."
+    ]
+   ],
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "ls3-ad-070",
+   "lines": [
+    [
+     "bk",
+     "{topanimal} Fanciers' Club"
+    ],
+    [
+     "eng",
+     "{topanimal_n} STRONG AND GROWING"
+    ],
+    [
+     "fine",
+     "For the fort's most numerous creature. Meetings in the pasture. Members are mostly the animals. Minutes taken by the dogs."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-071",
+   "lines": [
+    [
+     "bk",
+     "Cloth & Thread Counting"
+    ],
+    [
+     "eng",
+     "{cloth} CLOTH · {thread} THREAD"
+    ],
+    [
+     "fine",
+     "Real numbers, not seven scraps. Our weavers will tell you the truth before any mood, possession or loom-room queue does."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-072",
+   "lines": [
+    [
+     "bk",
+     "Block Party Supplies"
+    ],
+    [
+     "eng",
+     "{blocks} BLOCKS, ZERO PLANS"
+    ],
+    [
+     "fine",
+     "The Overseer has blocks. We have ideas for them other than smoothing, stands or thrones. Ask about our walls. Just walls."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-073",
+   "lines": [
+    [
+     "bk",
+     "Population Peace Talks"
+    ],
+    [
+     "eng",
+     "{pop} DWARVES, ONE TAVERN"
+    ],
+    [
+     "fine",
+     "Mediation for crowded halls. Founded by survivors of the great dining-hall queue. Bring a mug and a grievance, in that order."
+    ]
+   ],
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "ls3-ad-074",
+   "lines": [
+    [
+     "bk",
+     "Small Fort Society"
+    ],
+    [
+     "eng",
+     "ONLY {pop} OF US? COSY"
+    ],
+    [
+     "fine",
+     "{past_fort} began with even less. You are doing better. Probably. Join our circle and count each other twice."
+    ]
+   ],
+   "when": [
+    "pop_small",
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ad-075",
+   "lines": [
+    [
+     "bk",
+     "{fort} Season Almanac"
+    ],
+    [
+     "eng",
+     "{season}: WHAT THE OVERSEER WANTS"
+    ],
+    [
+     "fine",
+     "Our almanac predicts the season's runaway order. Last forecast: thrones. Correct. We were also correct about the stands."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-076",
+   "lines": [
+    [
+     "bk",
+     "Weatherwise Ltd."
+    ],
+    [
+     "eng",
+     "TODAY: {weather}"
+    ],
+    [
+     "fine",
+     "Whatever it is, the Overseer will send someone out to gather plants in it. Our capes protect against most weather and some goblins."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-077",
+   "lines": [
+    [
+     "bk",
+     "Year {year} Commemoratives"
+    ],
+    [
+     "eng",
+     "YET ANOTHER FORT, YET ANOTHER YEAR"
+    ],
+    [
+     "fine",
+     "Plates for every fort of the line, past, present and whoever is next. Plates stack. So do forts."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-078",
+   "lines": [
+    [
+     "bk",
+     "The {world} Gazetteer"
+    ],
+    [
+     "eng",
+     "EVERY FORT WE EVER LOST, MAPPED"
+    ],
+    [
+     "fine",
+     "Pinpoint the goblin-run ruins, the thrones and the trees we no longer climb. Fully indexed by cause of thirst."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-079",
+   "lines": [
+    [
+     "bk",
+     "{citizen} Recommends"
+    ],
+    [
+     "eng",
+     "THE DRINK RIGHT BESIDE YOU"
+    ],
+    [
+     "fine",
+     "Our spokesdwarf {citizen} has drunk one every single day and says it is the secret to staying alive near a drink stockpile."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-080",
+   "lines": [
+    [
+     "bk",
+     "{citizen_first}'s Nap Burrow"
+    ],
+    [
+     "eng",
+     "NOT A 'SAFETY' BURROW. A NAP ONE"
+    ],
+    [
+     "fine",
+     "Strictly one level down from the dining hall, near a drink and far from any staircase a beast might enjoy. Book a slot today."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-081",
+   "lines": [
+    [
+     "bk",
+     "{citizen} & {citizen2}"
+    ],
+    [
+     "eng",
+     "DOOR-TO-DOOR DRINK DELIVERY"
+    ],
+    [
+     "fine",
+     "We knock, you drink. If you are up a tree, we wait below with a mug and a ladder. If you are in the garbage pit, please come out."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-082",
+   "lines": [
+    [
+     "bk",
+     "{masterwright}'s Workshop"
+    ],
+    [
+     "eng",
+     "AS SEEN IN {masterwork}"
+    ],
+    [
+     "fine",
+     "Commissions now open, except for armor stands, thrones and anything else that might accidentally be ordered two thousand times."
+    ]
+   ],
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "ls3-ad-083",
+   "lines": [
+    [
+     "bk",
+     "{artifact} Fan Club"
+    ],
+    [
+     "eng",
+     "A REAL {artifact_item}"
+    ],
+    [
+     "fine",
+     "Join others who have walked past the artifact and felt something. Monthly viewing. Do not touch. Do not mood near it."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-084",
+   "lines": [
+    [
+     "bk",
+     "Second-Fort Movers"
+    ],
+    [
+     "eng",
+     "MOVING ON? WE PACK THE GHOSTS"
+    ],
+    [
+     "fine",
+     "Experienced in relocating whole civilizations from one doomed fort to the next. We have done this three times this decade alone."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-085",
+   "lines": [
+    [
+     "bk",
+     "Searabbeys Heritage Trust"
+    ],
+    [
+     "eng",
+     "PRESERVING OUR GOBLIN-HELD PAST"
+    ],
+    [
+     "fine",
+     "Help restore the first fort, currently being restored by The Torments of Hating into something with more spikes."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-086",
+   "lines": [
+    [
+     "bk",
+     "Distant Letter Relocation"
+    ],
+    [
+     "eng",
+     "EVICTED? WE KNOW THE FEELING"
+    ],
+    [
+     "fine",
+     "Counselling for groups recently pushed out of a fort by goblins, humans, or both. Shared waiting room with The Distinct Dungeon."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-087",
+   "lines": [
+    [
+     "bk",
+     "Jackaldefense Lock & Key"
+    ],
+    [
+     "eng",
+     "WE CHANGED THE LOCKS. AGAIN"
+    ],
+    [
+     "fine",
+     "Proud locksmiths to whoever currently occupies Jackaldefense. At present, The Grooved Council. Keys cut while you are evicted."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-088",
+   "lines": [
+    [
+     "bk",
+     "Succession Planning"
+    ],
+    [
+     "eng",
+     "YOUR LEADER, REPLACED"
+    ],
+    [
+     "fine",
+     "The Glowing Cult, The Wayward Doctrine, The Deified Lantern and The Distant Letter all trust us. Each with a different leader."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-089",
+   "lines": [
+    [
+     "bk",
+     "Crazeboard Carriers"
+    ],
+    [
+     "eng",
+     "WE ROLL WHERE THE HEX DOESN'T"
+    ],
+    [
+     "fine",
+     "Overland freight from Crazeboard, Massivebarbs and Toeembrace. Routes avoid Padtufted, goblins and the past."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-090",
+   "lines": [
+    [
+     "bk",
+     "Glimmerpartnered Tea"
+    ],
+    [
+     "eng",
+     "ELVEN TEA, DWARF-PROOFED"
+    ],
+    [
+     "fine",
+     "Imported from the elf retreat. We removed the leaves and added ale. Elves call it an outrage. Dwarves call it tea."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-091",
+   "lines": [
+    [
+     "bk",
+     "Bulbwhisker Bulbs"
+    ],
+    [
+     "eng",
+     "GROW AN ELF GARDEN (DON'T)"
+    ],
+    [
+     "fine",
+     "Flower bulbs from Bulbwhisker. Will grow into a tree. Tree will grow into a problem. Problem will cost you a caravan."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-092",
+   "lines": [
+    [
+     "bk",
+     "Seducedbowl Survival Kits"
+    ],
+    [
+     "eng",
+     "FOR VISITS YOU DIDN'T PLAN"
+    ],
+    [
+     "fine",
+     "Rope, rations, a note reading 'I am very bony.' Tested by snatchers outside Seducedbowl, Menacetested and Quietmenaces."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-093",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "QUIETMENACES"
+    ],
+    [
+     "eng",
+     "MUCH LOUDER THAN ADVERTISED"
+    ],
+    [
+     "fine",
+     "A public warning from the Herald Board of Place Names. Do not trust any dark fortress to be what it says. Menacetested is also menacing."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-094",
+   "lines": [
+    [
+     "bk",
+     "The Overseer's Favourite"
+    ],
+    [
+     "eng",
+     "THRONES · STANDS · SMOOTHING"
+    ],
+    [
+     "fine",
+     "Our three products, made in amounts only the Overseer could love. Bulk discounts begin at one thousand. Nothing smaller sold."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-095",
+   "lines": [
+    [
+     "bk",
+     "Order Brakes Ltd."
+    ],
+    [
+     "eng",
+     "STOPS AT ONE. EVERY TIME"
+    ],
+    [
+     "fine",
+     "A mechanical stop for runaway work orders. Pull the lever and the 1,982nd armor stand never happens. Patent pending since Quakefocus."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-096",
+   "lines": [
+    [
+     "bk",
+     "The Strategy Shop"
+    ],
+    [
+     "eng",
+     "OVERSEER-APPROVED PLANS, USED"
+    ],
+    [
+     "fine",
+     "Second-hand strategies: one cistern-first approach, one 'smooth it all' plan, one bravely starving founding. Some wear."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-097",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "FAMINE DAY 32"
+    ],
+    [
+     "eng",
+     "NOW A FESTIVAL"
+    ],
+    [
+     "fine",
+     "Quakefocus survived it, so we celebrate it, with one plump helmet shared between ten dwarves for authenticity. Bring a spoon."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-098",
+   "lines": [
+    [
+     "bk",
+     "Founder's Famine Diet"
+    ],
+    [
+     "eng",
+     "FEED TEN DWARVES ON A HANDFUL"
+    ],
+    [
+     "fine",
+     "The Starving Founding Plan. Results: dramatic. Testimonials: few. Free consultation, no meals provided, as per the plan."
+    ]
+   ],
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "ls3-ad-099",
+   "lines": [
+    [
+     "bk",
+     "Fey Insurance"
+    ],
+    [
+     "eng",
+     "COVERING THE STRANGELY MOODED"
+    ],
+    [
+     "fine",
+     "Fey, secretive, possessed, fell or macabre, we cover them all, except for dying of thirst. Nobody will insure that around here."
+    ]
+   ],
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-ad-100",
+   "lines": [
+    [
+     "bk",
+     "The Tree Removal Service"
+    ],
+    [
+     "eng",
+     "NO TREE, NO BRANCH, NO PROBLEM"
+    ],
+    [
+     "fine",
+     "After the branch incident we offer a full tree extraction. Elves are not to be informed. Please keep the caravans indoors."
+    ]
+   ],
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "ls3-ad-101",
+   "lines": [
+    [
+     "bk",
+     "Pump Operators Guild"
+    ],
+    [
+     "eng",
+     "PUMPING MIST SINCE THE RING WENT IN"
+    ],
+    [
+     "fine",
+     "Our members pump so you can stand in a gentle spray and feel nice. Ask about the job openings. There are always openings."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-102",
+   "lines": [
+    [
+     "bk",
+     "Four Hospitals, Two Doctors"
+    ],
+    [
+     "eng",
+     "WE ARE THE OTHER TWO"
+    ],
+    [
+     "fine",
+     "Mobile medical service for any hospital left without a healer. We bring splints, thread and a firm handshake."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-103",
+   "lines": [
+    [
+     "bk",
+     "Chief Medical Matchmaking"
+    ],
+    [
+     "eng",
+     "FIND THE FORT A DOCTOR"
+    ],
+    [
+     "fine",
+     "The post sits empty again. We introduce suitable dwarves to the hospital. Most run. The fastest are offered the job."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-104",
+   "lines": [
+    [
+     "bk",
+     "Captain's Company"
+    ],
+    [
+     "eng",
+     "A FRIEND FOR THE MILITIA OF ONE"
+    ],
+    [
+     "fine",
+     "Lonely captain? Nine empty places? We provide cardboard squadmates with excellent posture. They also refuse to train."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-105",
+   "lines": [
+    [
+     "bk",
+     "The Recruitment Barrel"
+    ],
+    [
+     "eng",
+     "DRINK HERE. YOU'RE IN THE MILITIA"
+    ],
+    [
+     "fine",
+     "Our barrel conscripts anyone who touches it. Note: as of press time nobody has touched it. The captain drinks from the well."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-106",
+   "lines": [
+    [
+     "bk",
+     "Mayor's Rubber Stamps"
+    ],
+    [
+     "eng",
+     "'VIOLATION' IN FOUR FONTS"
+    ],
+    [
+     "fine",
+     "The mayor's office has worn through eleven stamps this season. Ours last longer. Ink in red, redder and furious."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-107",
+   "lines": [
+    [
+     "bk",
+     "Office Furnishings Co."
+    ],
+    [
+     "eng",
+     "FOR SIX OFFICES NOBODY WANTS"
+    ],
+    [
+     "fine",
+     "Mayor, sheriff, hammerer, dungeon master, champion and doctor: their chairs are ready. Their occupants are not. Dust included."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-108",
+   "lines": [
+    [
+     "bk",
+     "Hammerer Practice Pillows"
+    ],
+    [
+     "eng",
+     "PRACTISE ON SOMETHING SOFT"
+    ],
+    [
+     "fine",
+     "For the fort's next hammerer, whoever that may be. Not yet appointed. Pillow may be appointed instead."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-109",
+   "lines": [
+    [
+     "bk",
+     "Dungeon Master Gift Sets"
+    ],
+    [
+     "eng",
+     "A WHIP, A KEY, NO APPLICANTS"
+    ],
+    [
+     "fine",
+     "Everything the dungeon master needs, should one ever arrive. Currently displayed in our window, collecting a fine dust."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-110",
+   "lines": [
+    [
+     "bk",
+     "Champion Trophies"
+    ],
+    [
+     "eng",
+     "AWARDED TO NOBODY, BEAUTIFULLY"
+    ],
+    [
+     "fine",
+     "Our trophies honour the champion, a post that has stayed vacant so long the trophy has started to feel like the champion."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-111",
+   "lines": [
+    [
+     "bk",
+     "Refuse Reverse Gear"
+    ],
+    [
+     "eng",
+     "THE PIT IS ONE-WAY. BE ONE-WAY TOO"
+    ],
+    [
+     "fine",
+     "Signs, arrows and a firm dwarf with a whistle to stop haulers fetching rubbish back out while more is tipped onto their heads."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-112",
+   "lines": [
+    [
+     "bk",
+     "Stair Alarm Co."
+    ],
+    [
+     "eng",
+     "KNOW WHEN IT'S COMING UP"
+    ],
+    [
+     "fine",
+     "A bell on every flight between the fort and its deepest burrow. If something big climbs the stairs, you'll hear it in time."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-113",
+   "lines": [
+    [
+     "bk",
+     "Ruins & Relics Auctions"
+    ],
+    [
+     "eng",
+     "FROM THREE GENERATIONS OF FORTS"
+    ],
+    [
+     "fine",
+     "Lot 1: a {past_fort} tankard (full). Lot 2: a throne (one of very many). Lot 3: a branch (do not climb)."
+    ]
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ad-114",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "BEST BEFORE"
+    ],
+    [
+     "eng",
+     "THE NEXT GREAT REWIND"
+    ],
+    [
+     "fine",
+     "Dwarven cheese aged in the gap between the gods blinking. Tastes of yesterday. Possibly literally. Sold in wheels, twice."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-115",
+   "lines": [
+    [
+     "bk",
+     "Iden's Import Agreements"
+    ],
+    [
+     "eng",
+     "RECOMMENDED. RECOMMENDED AGAIN"
+    ],
+    [
+     "fine",
+     "Bring your list. We add rings. We remove your list. A humble liaison's service, handled with much to share and nothing to show."
+    ]
+   ],
+   "when": [
+    "recent_caravan"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-116",
+   "lines": [
+    [
+     "bk",
+     "The Steel Chambers Club"
+    ],
+    [
+     "eng",
+     "MEMBERS OF THE CIVILIZATION ONLY"
+    ],
+    [
+     "fine",
+     "A private hall for citizens of The Chambers of Steel. Steel chairs, steel tables, steel mugs. The ale is, thankfully, ale."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-117",
+   "lines": [
+    [
+     "bk",
+     "Peace With Sixteen"
+    ],
+    [
+     "eng",
+     "OUR DIPLOMATIC GIFT BASKETS"
+    ],
+    [
+     "fine",
+     "Sixteen baskets for sixteen friendly groups. Two smaller baskets, mostly rocks, for the goblins we are fighting."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-118",
+   "lines": [
+    [
+     "bk",
+     "War Room Rentals"
+    ],
+    [
+     "eng",
+     "FOR TOTAL WARS OF ALL SIZES"
+    ],
+    [
+     "fine",
+     "Tables, flags and little goblin figurines labelled 'The Destined Wickedness'. Flags available in 'surrender' at no extra cost."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-119",
+   "lines": [
+    [
+     "bk",
+     "Abducted Elf Locators"
+    ],
+    [
+     "eng",
+     "HAVE YOU SEEN MAME AYATHEMIYI?"
+    ],
+    [
+     "fine",
+     "Or Imara Sidayanithe? Neither has their retreat. We look in towers, cages and the backs of goblin wagons."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-120",
+   "lines": [
+    [
+     "bk",
+     "Refugee Silks"
+    ],
+    [
+     "eng",
+     "WOVEN BY THE SILKS OF CREMATING"
+    ],
+    [
+     "fine",
+     "Genuine cloth from the refugee band of the same name. Strong, warm, unsettling label. Proceeds to rebuilding Ironcrowds."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-121",
+   "lines": [
+    [
+     "bk",
+     "Creeds & Adoration Choir"
+    ],
+    [
+     "eng",
+     "SOCIETY SINGERS, FOR HIRE"
+    ],
+    [
+     "fine",
+     "The Society of Creeds and The Society of Adoration, combined for one night. Songs about fleeing. Very hummable."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-122",
+   "lines": [
+    [
+     "bk",
+     "Pulledrained Pipes"
+    ],
+    [
+     "eng",
+     "WE FIX WHAT THE HEX BROKE"
+    ],
+    [
+     "fine",
+     "Plumbers from the old town of Pulledrained, now at large. We fix wells, cisterns and mist rings. Paid in sympathy and ale."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-123",
+   "lines": [
+    [
+     "bk",
+     "Dig One Level Co."
+    ],
+    [
+     "eng",
+     "WHY GO DOWN 30 LEVELS?"
+    ],
+    [
+     "fine",
+     "Our motto is 'nearby'. We dig modest rooms close to everything you need, including water, doors and the exits. Revolutionary."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-124",
+   "lines": [
+    [
+     "bk",
+     "Cut Gem Regrets"
+    ],
+    [
+     "eng",
+     "YOU POLISHED THEM ALL. NOW WHAT?"
+    ],
+    [
+     "fine",
+     "Counselling for jewellers who cut every last gem, only for three moods in a row to ask for a rough one. It is not your fault."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-125",
+   "lines": [
+    [
+     "bk",
+     "Child Prodigy Insurance"
+    ],
+    [
+     "eng",
+     "IN CASE YOUR CHILD MOODS"
+    ],
+    [
+     "fine",
+     "Policies for parents whose infant may seize a workshop. Covers plant cloth, bone and one crayon artifact per child."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-126",
+   "lines": [
+    [
+     "bk",
+     "Garbage Pit Viewing Deck"
+    ],
+    [
+     "eng",
+     "LOOK, DON'T FETCH"
+    ],
+    [
+     "fine",
+     "Safe railings above the refuse pit for dwarves who just want to see the rubbish without bringing it back up. Tickets: one sock."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-127",
+   "inv": true,
+   "lines": [
+    [
+     "big",
+     "HAPPY THOUGHTS"
+    ],
+    [
+     "eng",
+     "NOW AVAILABLE BY MIST"
+    ],
+    [
+     "fine",
+     "Stroll past the pumps and receive one free happy thought. Second happy thought for a small fee. Third requires a nap."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-128",
+   "lines": [
+    [
+     "bk",
+     "Fort Name Engravers"
+    ],
+    [
+     "eng",
+     "NEW FORT? NEW SIGN"
+    ],
+    [
+     "fine",
+     "We have carved 'Searabbeys', 'Quakefocus' and 'Creaturemirrored'. We keep a blank slab ready, just in case."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-129",
+   "lines": [
+    [
+     "bk",
+     "The Tribune Bindery"
+    ],
+    [
+     "eng",
+     "COLLECTED PICKAXE & TRIBUNES"
+    ],
+    [
+     "fine",
+     "Bound volumes of the Creaturemirrored Pickaxe & Tribune, the Quakefocus Sentinel and whatever Searabbeys wrote on walls."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-130",
+   "lines": [
+    [
+     "bk",
+     "Stand-Up Comedy Night"
+    ],
+    [
+     "eng",
+     "2,000 ARMOR STANDS, ONE JOKE"
+    ],
+    [
+     "fine",
+     "Our resident comic tells the same joke to each armor stand individually. Show runs nineteen years. Reserve now."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-131",
+   "lines": [
+    [
+     "bk",
+     "Thrones-R-Seats"
+    ],
+    [
+     "eng",
+     "WHY STAND WHEN YOU CAN RULE?"
+    ],
+    [
+     "fine",
+     "Every dwarf deserves a throne at the dining table. We have 148 to lend. The nobles have complained. They were on thrones."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-132",
+   "lines": [
+    [
+     "bk",
+     "Bomrek Memorial Fund"
+    ],
+    [
+     "eng",
+     "NO MINER SHALL GO DRY"
+    ],
+    [
+     "fine",
+     "In honour of a Searabbeys miner found dehydrated beside 1,994 drinks. Donations buy mugs that hang around every miner's neck."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-133",
+   "lines": [
+    [
+     "bk",
+     "Rough Gem Rescue"
+    ],
+    [
+     "eng",
+     "SAVE ONE FROM THE CUTTER"
+    ],
+    [
+     "fine",
+     "A sanctuary for the last uncut stones of the fort. Visit, adopt, protect. Moody dwarves may apply under supervision."
+    ]
+   ],
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "ls3-ad-134",
+   "lines": [
+    [
+     "bk",
+     "Visitor Shadowing Ltd."
+    ],
+    [
+     "eng",
+     "WE FOLLOW YOUR GUESTS, POLITELY"
+    ],
+    [
+     "fine",
+     "Like the Overseer's eye, we trail merchants, diplomats and animal people around the halls. Unlike it, we carry snacks."
+    ]
+   ],
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "ls3-ad-135",
+   "lines": [
+    [
+     "bk",
+     "Animal People Hospitality"
+    ],
+    [
+     "eng",
+     "FOR GUESTS WITH TAILS"
+    ],
+    [
+     "fine",
+     "Hats with ear-holes, chairs with tail-holes, mugs for snouts. Our depot lounges welcome all who walk upright, mostly."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-136",
+   "lines": [
+    [
+     "bk",
+     "Calm Before the Siege"
+    ],
+    [
+     "eng",
+     "SEASONAL GOBLIN FORECASTS"
+    ],
+    [
+     "fine",
+     "Is a goblin army coming this {season}? We say yes. We always say yes. One day we will be right, and we will be insufferable."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-137",
+   "lines": [
+    [
+     "bk",
+     "Hex Survivor Supplies"
+    ],
+    [
+     "eng",
+     "AS FLED BY THE PLAIN FELLOWSHIP"
+    ],
+    [
+     "fine",
+     "Lightweight bedrolls, a fast pair of boots and a pocket map showing everywhere The Crazed Hex has not been. Map is small."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ad-138",
+   "lines": [
+    [
+     "bk",
+     "Nine Empty Places Catering"
+    ],
+    [
+     "eng",
+     "LUNCH FOR TEN, EATEN BY ONE"
+    ],
+    [
+     "fine",
+     "Our militia lunch packs are portioned for a full squad. The captain has never complained. He is very full."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-ad-139",
+   "lines": [
+    [
+     "bk",
+     "Thirsty Guest Service"
+    ],
+    [
+     "eng",
+     "{fort} DEPOT HYDRATION DESK"
+    ],
+    [
+     "fine",
+     "We give visiting merchants a drink before they ask, unlike some miners we could mention. Elves receive water, sulkily."
+    ]
+   ],
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "ls3-ad-140",
+   "lines": [
+    [
+     "bk",
+     "Snow Gatherers' Mittens"
+    ],
+    [
+     "eng",
+     "THE MAP IS WHITE. GO ANYWAY"
+    ],
+    [
+     "fine",
+     "The Overseer still wants plants in the snow. We sell mittens and a small shovel. Plants are under there somewhere."
+    ]
+   ],
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "ls3-ad-141",
+   "lines": [
+    [
+     "bk",
+     "Sunny Day Gathering Hats"
+    ],
+    [
+     "eng",
+     "THE WHOLE MAP, BUT DRY"
+    ],
+    [
+     "fine",
+     "Clear skies mean the Overseer will send you to every corner of the map for herbs. Our hats have brims. The map has no shade."
+    ]
+   ],
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "ls3-ad-142",
+   "lines": [
+    [
+     "bk",
+     "Spring Smoothing Sale"
+    ],
+    [
+     "eng",
+     "NEW YEAR, NEW 10,000 JOBS"
+    ],
+    [
+     "fine",
+     "Every spring the queue refreshes. So do our chisels. Buy one, smooth one, discover there are 9,999 left."
+    ]
+   ],
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "ls3-ad-143",
+   "lines": [
+    [
+     "bk",
+     "Summer Thirst Season"
+    ],
+    [
+     "eng",
+     "HEAT IS NO EXCUSE"
+    ],
+    [
+     "fine",
+     "Our summer reminder: drinks are in the stockpile, not up a tree. Free reminder bells for miners. Ring them near barrels."
+    ]
+   ],
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "ls3-ad-144",
+   "lines": [
+    [
+     "bk",
+     "Autumn Harvest Recount"
+    ],
+    [
+     "eng",
+     "EVERY PLANT, COUNTED"
+    ],
+    [
+     "fine",
+     "Our clerks recount the harvest to be sure it beat {past_fort}'s worst year. So far, every autumn, it has been. Barely."
+    ]
+   ],
+   "when": [
+    "autumn",
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ad-145",
+   "lines": [
+    [
+     "bk",
+     "Winter Siege Socks"
+    ],
+    [
+     "eng",
+     "WARM FEET FOR WAR SEASON"
+    ],
+    [
+     "fine",
+     "Goblins love winter. So does cold. Our wool socks hold up to both. Left socks guaranteed; right socks, inquire."
+    ]
+   ],
+   "when": [
+    "winter"
+   ]
+  }
+ ],
+ "world_ads": [
+  {
+   "id": "ls3-wa-001",
+   "lines": [
+    [
+     "bk",
+     "Torments Travel"
+    ],
+    [
+     "big",
+     "VISIT SEARABBEYS"
+    ],
+    [
+     "eng",
+     "UNDER GOBLIN MANAGEMENT"
+    ],
+    [
+     "fine",
+     "Founded by dwarves, renovated by The Torments of Hating. New spikes in every hall. The Nuanced Hamlet viewable through a gap."
+    ]
+   ],
+   "inv": true,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-wa-002",
+   "lines": [
+    [
+     "bk",
+     "Quakefocus Tours"
+    ],
+    [
+     "big",
+     "SEE 1,981 STANDS"
+    ],
+    [
+     "eng",
+     "AND 148 THRONES"
+    ],
+    [
+     "fine",
+     "A full day of furniture. Lunch served on a throne, beside a stand, near more stands. Gift shop sells, guess what, stands."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-wa-003",
+   "lines": [
+    [
+     "bk",
+     "Padtufted Rebuilders"
+    ],
+    [
+     "big",
+     "PADTUFTED: AGAIN"
+    ],
+    [
+     "eng",
+     "TWICE SACKED, THRICE HOPEFUL"
+    ],
+    [
+     "fine",
+     "The Crazed Hex came. The Vice of Fins came. We come next, with bricks. Volunteers welcome, goblins not."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-wa-004",
+   "lines": [
+    [
+     "bk",
+     "Shadyghosts Lodge"
+    ],
+    [
+     "big",
+     "SHADYGHOSTS"
+    ],
+    [
+     "eng",
+     "HOME OF OMO FEWETHAUYIRA"
+    ],
+    [
+     "fine",
+     "Rooms with a view of a crooked horror. Discount if it is home. Large discount if it is hungry. Refund if you are eaten."
+    ]
+   ],
+   "inv": true,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-wa-005",
+   "lines": [
+    [
+     "bk",
+     "Fieryaged Excursions"
+    ],
+    [
+     "big",
+     "SEE THE GREAVES"
+    ],
+    [
+     "eng",
+     "THE AMUSING DUTIES, AT FIERYAGED"
+    ],
+    [
+     "fine",
+     "Join 48 rival claimants on a coach trip. Fistfights at every stop. The greaves remain where they are, amused."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-wa-006",
+   "lines": [
+    [
+     "bk",
+     "Seducedbowl Spa"
+    ],
+    [
+     "big",
+     "SEDUCEDBOWL"
+    ],
+    [
+     "eng",
+     "SOUNDS LOVELY. ISN'T"
+    ],
+    [
+     "fine",
+     "Our travel desk has never sent a single dwarf there and never will. We just think the name is a lesson. Read it twice."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-wa-007",
+   "lines": [
+    [
+     "bk",
+     "Old Fort Pilgrimage"
+    ],
+    [
+     "big",
+     "THREE FORTS, ONE TRIP"
+    ],
+    [
+     "eng",
+     "THE WHOLE LINE, IN ORDER"
+    ],
+    [
+     "fine",
+     "Searabbeys, Quakefocus, Creaturemirrored: one occupied, one abandoned, one ours. Pack a lot of drink. Actually drink it this time."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-wa-008",
+   "lines": [
+    [
+     "bk",
+     "Tametomb Open Days"
+    ],
+    [
+     "big",
+     "TAMETOMB RECLAIMED"
+    ],
+    [
+     "eng",
+     "BY THE CHASTE CUDGEL"
+    ],
+    [
+     "fine",
+     "Tour the halls Bomrek Thimshursåkzul won back. Floors scrubbed, bones stacked, ghosts asked to wait outside."
+    ]
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-wa-009",
+   "lines": [
+    [
+     "bk",
+     "Ruin Tours Ltd."
+    ],
+    [
+     "big",
+     "VISIT {past_fort}"
+    ],
+    [
+     "eng",
+     "UNDER NEW MANAGEMENT"
+    ],
+    [
+     "fine",
+     "It {past_fort_fate}. Now the halls have new tenants, new spikes and a strict no-dwarves policy. Viewings from the ridge only."
+    ]
+   ],
+   "inv": true,
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-wa-010",
+   "lines": [
+    [
+     "bk",
+     "Heritage Coaches"
+    ],
+    [
+     "big",
+     "{past_fort}: THE TOUR"
+    ],
+    [
+     "eng",
+     "{past_fort_years} OF HISTORY"
+    ],
+    [
+     "fine",
+     "See where it all went right, then wrong, then very wrong. Guide points at each spot and says 'here'. Lunch is a single mushroom."
+    ]
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-wa-011",
+   "lines": [
+    [
+     "bk",
+     "Record Hall Trips"
+    ],
+    [
+     "big",
+     "SEE {record}"
+    ],
+    [
+     "eng",
+     "THE PRIDE OF {record_fort}"
+    ],
+    [
+     "fine",
+     "Coach trip to the site of the world's most explainable-in-hindsight number. Gift shop sells one of each. Thankfully only one."
+    ]
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-wa-012",
+   "lines": [
+    [
+     "bk",
+     "{civ} Rail"
+    ],
+    [
+     "big",
+     "{town} TO {town2}"
+    ],
+    [
+     "eng",
+     "SAFELY, FOR A DWARF"
+    ],
+    [
+     "fine",
+     "Weekly carts across the realm. Routes reviewed by the liaison, who recommends an import agreement at every single stop."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-013",
+   "lines": [
+    [
+     "bk",
+     "Army Avoidance Maps"
+    ],
+    [
+     "big",
+     "WHERE IS THE ARMY?"
+    ],
+    [
+     "eng",
+     "NOT AT {town}, PROBABLY"
+    ],
+    [
+     "fine",
+     "Updated each season with the last known position of every goblin host. Three towns found out the hard way. We printed late."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-014",
+   "lines": [
+    [
+     "bk",
+     "{town} Rebuilders"
+    ],
+    [
+     "big",
+     "{town}: AGAIN"
+    ],
+    [
+     "eng",
+     "SACKED ONCE, HOPEFUL TWICE"
+    ],
+    [
+     "fine",
+     "The goblins came, the goblins went, we come next with bricks. Volunteers welcome, goblins not, unless they carry bricks."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-015",
+   "lines": [
+    [
+     "bk",
+     "Refugee Reunion Co."
+    ],
+    [
+     "big",
+     "COME HOME"
+    ],
+    [
+     "eng",
+     "TO WHAT'S LEFT OF {town}"
+    ],
+    [
+     "fine",
+     "A gathering for everyone who fled. Bring your fellowship, your society and whatever you managed to carry out at a run."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-016",
+   "lines": [
+    [
+     "bk",
+     "Cakeway Tours"
+    ],
+    [
+     "big",
+     "THE CAKE TOWN"
+    ],
+    [
+     "eng",
+     "HUMAN BAKERIES OF {town2}"
+    ],
+    [
+     "fine",
+     "Visit the humans. Eat a cake. Eat their cake. Leave with crumbs in your beard and an import agreement in your pocket."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-017",
+   "lines": [
+    [
+     "bk",
+     "Occupied Towns Guides"
+    ],
+    [
+     "big",
+     "{town}: NEW LOCKS"
+    ],
+    [
+     "eng",
+     "UNDER FRESH OCCUPATION"
+    ],
+    [
+     "fine",
+     "Whoever took it this year welcomes you to a town recently home to someone else. Previous tenants are not on the tour."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-018",
+   "lines": [
+    [
+     "bk",
+     "Reclamation Open Days"
+    ],
+    [
+     "big",
+     "HALLS RECLAIMED"
+    ],
+    [
+     "eng",
+     "NEAR {town}, BY DWARVES"
+    ],
+    [
+     "fine",
+     "Tour the halls our cousins won back. Floors scrubbed, bones stacked, ghosts asked politely to wait outside for a bit."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-019",
+   "lines": [
+    [
+     "bk",
+     "Reclaim-in-Progress"
+    ],
+    [
+     "big",
+     "RECLAIMING. PLEASE HOLD"
+    ],
+    [
+     "eng",
+     "VISITS AT OWN RISK"
+    ],
+    [
+     "fine",
+     "Our cousins are in there now. Things are going about as well as expected. Visitors are asked to bring a weapon and a mop."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ls3-wa-020",
+   "lines": [
+    [
+     "bk",
+     "Beast Lodge Holidays"
+    ],
+    [
+     "big",
+     "NEAR THE HORROR"
+    ],
+    [
+     "eng",
+     "ROOMS WITH A CROOKED VIEW"
+    ],
+    [
+     "fine",
+     "Lodgings overlooking a giant beast's lair. Discount if it is home. Large discount if it is hungry. Refund if you are eaten."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ls3-wa-021",
+   "lines": [
+    [
+     "bk",
+     "Dark Retreats"
+    ],
+    [
+     "big",
+     "NIGHTS AT {darkfort}"
+    ],
+    [
+     "eng",
+     "LIGHTS OUT AT DUSK"
+    ],
+    [
+     "fine",
+     "Quiet, dark and lightly haunted by something large. Lights out at dusk. It comes out at dusk too. Shared schedule."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-022",
+   "lines": [
+    [
+     "bk",
+     "Artifact Excursions"
+    ],
+    [
+     "big",
+     "SEE THE GREAVES"
+    ],
+    [
+     "eng",
+     "48 CLAIMANTS PER COACH"
+    ],
+    [
+     "fine",
+     "Join every rival claimant of a famous lost artifact on one coach. Fistfights at every stop. The artifact stays put, amused."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-023",
+   "lines": [
+    [
+     "bk",
+     "Rescue Ventures Ltd."
+    ],
+    [
+     "big",
+     "WE GO WHERE THEY WERE TAKEN"
+    ],
+    [
+     "eng",
+     "{retreat} AND BEYOND"
+    ],
+    [
+     "fine",
+     "Elves abducted from groves all over {world}. We look in towers, cages and the backs of goblin wagons. Success rate: pending."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-024",
+   "lines": [
+    [
+     "bk",
+     "Goblin Fort Nights"
+    ],
+    [
+     "big",
+     "{darkfort} AFTER DARK"
+    ],
+    [
+     "eng",
+     "NO PARKING. NO LEAVING"
+    ],
+    [
+     "fine",
+     "A night at a real dark fortress, run by goblins oddly fond of tourists. Ticket price includes the rescue party."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ls3-wa-025",
+   "lines": [
+    [
+     "bk",
+     "Pitch-Black Postcards"
+    ],
+    [
+     "big",
+     "WISH YOU WERE AT {darkfort}"
+    ],
+    [
+     "eng",
+     "OR {darkfort2}, IF YOU HAD TO"
+    ],
+    [
+     "fine",
+     "Send a card from a goblin tower. Ours come pre-stained so no one can tell whether it was the ink or something worse."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-026",
+   "lines": [
+    [
+     "bk",
+     "Leafline Coaches"
+    ],
+    [
+     "big",
+     "{retreat} TODAY"
+    ],
+    [
+     "eng",
+     "IN A FULLY WOODLESS CART"
+    ],
+    [
+     "fine",
+     "Our carts are carved from stone to avoid offending elves. They weigh nine tonnes and travel very, very slowly."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-027",
+   "lines": [
+    [
+     "bk",
+     "Grove Inn"
+    ],
+    [
+     "big",
+     "STAY AT {retreat}"
+    ],
+    [
+     "eng",
+     "NO AXES PAST THE GATE"
+    ],
+    [
+     "fine",
+     "Elven hospitality: sing, sway, eat a leaf. Do not mention the thrones. The elves heard about the hundreds of wooden thrones."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-028",
+   "lines": [
+    [
+     "bk",
+     "Hillock Holidays"
+    ],
+    [
+     "big",
+     "{hillock} GETAWAY"
+    ],
+    [
+     "eng",
+     "SMALL TOWN, SMALL HATS"
+    ],
+    [
+     "fine",
+     "A quiet hamlet with three houses, two pigs and one tavern that has never heard of armor stands. Book before it does."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-029",
+   "lines": [
+    [
+     "bk",
+     "Hamlet Hops"
+    ],
+    [
+     "big",
+     "{hillock} AND BACK"
+    ],
+    [
+     "eng",
+     "A DAY, A MUG, A WAVE"
+    ],
+    [
+     "fine",
+     "We take you there, you have one drink, you wave at a farmer, we bring you home. Bestselling for three forts running."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-030",
+   "lines": [
+    [
+     "bk",
+     "{town} Fair"
+    ],
+    [
+     "big",
+     "THE {town} FAIR"
+    ],
+    [
+     "eng",
+     "STALLS, GAMES, PLANKS"
+    ],
+    [
+     "fine",
+     "Annual market. A human sells planks to dwarves whose fort has a hundred thrones of planks. Somehow he always sells out."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-031",
+   "lines": [
+    [
+     "bk",
+     "Refugee Road Co-op"
+    ],
+    [
+     "big",
+     "{town} OR BUST"
+    ],
+    [
+     "eng",
+     "FOR BANDS ON THE MOVE"
+    ],
+    [
+     "fine",
+     "Founded by bands with names like 'The Silks' and 'The Society'. Our carts never stop, because whoever is behind us never stops."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-032",
+   "lines": [
+    [
+     "bk",
+     "Successions Weekly"
+    ],
+    [
+     "big",
+     "WHO RUNS {town}?"
+    ],
+    [
+     "eng",
+     "ASKED TWICE, TWO ANSWERS"
+    ],
+    [
+     "fine",
+     "Leaders change fast in {world}. Cults, doctrines, lanterns: all under new management by Thursday. Our weekly keeps track."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-033",
+   "lines": [
+    [
+     "bk",
+     "Monarch's Progress"
+    ],
+    [
+     "big",
+     "SEE {monarch}"
+    ],
+    [
+     "eng",
+     "FROM VERY, VERY AFAR"
+    ],
+    [
+     "fine",
+     "Line the road as the ruler of {civ} passes by, probably, at some point. Bring a chair. Your fort has hundreds."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-034",
+   "lines": [
+    [
+     "bk",
+     "Liaison Lodging"
+    ],
+    [
+     "big",
+     "WHERE {liaison} STAYS"
+    ],
+    [
+     "eng",
+     "THERE IS MUCH TO SHARE"
+    ],
+    [
+     "fine",
+     "The liaison's favourite inn between {town} and {fort}. Breakfast includes a long talk on import agreements and rings."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-035",
+   "lines": [
+    [
+     "bk",
+     "War Zone Maps"
+    ],
+    [
+     "big",
+     "THE FRONT LINE"
+    ],
+    [
+     "eng",
+     "{enemy} AND FRIENDS"
+    ],
+    [
+     "fine",
+     "Where are the enemy armies? Wherever the map is rolled up. Laminated in slate for use under arrows."
+    ]
+   ],
+   "inv": true,
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-wa-036",
+   "lines": [
+    [
+     "bk",
+     "{world} Grand Tour"
+    ],
+    [
+     "big",
+     "SEE ALL OF {world}"
+    ],
+    [
+     "eng",
+     "FROM THE CART'S CEILING HATCH"
+    ],
+    [
+     "fine",
+     "Mountains, goblin towers, elf groves and at least one crooked horror. Hatch opens briefly. Closes quickly. Screams optional."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-037",
+   "lines": [
+    [
+     "bk",
+     "Ruin Open Houses"
+    ],
+    [
+     "big",
+     "{darkfort} OPEN HOUSE"
+    ],
+    [
+     "eng",
+     "GOBLINS HOSTING"
+    ],
+    [
+     "fine",
+     "Like many an old dwarf fort, it was once someone's home. Now it has spikes, pits and a doormat that bites. Viewings by force."
+    ]
+   ],
+   "inv": true
+  },
+  {
+   "id": "ls3-wa-038",
+   "lines": [
+    [
+     "bk",
+     "Rewind Rail"
+    ],
+    [
+     "big",
+     "THE SAME TRIP, AGAIN"
+    ],
+    [
+     "eng",
+     "AFTER THE GODS BLINK"
+    ],
+    [
+     "fine",
+     "If the world stops and restarts mid-journey, we honour your ticket twice. Your luggage may arrive yesterday."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-039",
+   "lines": [
+    [
+     "bk",
+     "{town2} Tourist Board"
+    ],
+    [
+     "big",
+     "{town2} WELCOMES YOU"
+    ],
+    [
+     "eng",
+     "WE HAVE NOT BEEN SACKED"
+    ],
+    [
+     "fine",
+     "Not by goblins, not by humans, not recently. Come before that changes. Bring a cart that turns quickly."
+    ]
+   ]
+  },
+  {
+   "id": "ls3-wa-040",
+   "lines": [
+    [
+     "bk",
+     "Capital Visits"
+    ],
+    [
+     "big",
+     "THE MOUNTAINHOME OF {civ}"
+    ],
+    [
+     "eng",
+     "WHERE THE LIAISON LIVES"
+    ],
+    [
+     "fine",
+     "See the capital. Meet a clerk. Be recommended an import agreement in person. Return with rings at a very specific markup."
+    ]
+   ]
+  }
+ ],
+ "classifieds": [
+  {
+   "id": "ls3-cl-001",
+   "tag": "For Sale",
+   "text": "Armor stand. Lightly unused. One of several thousand. Will also accept offers for the others, which are standing behind it, menacingly."
+  },
+  {
+   "id": "ls3-cl-002",
+   "tag": "For Sale",
+   "text": "Throne, oak, never sat on by a noble. Nobles had their pick of a hundred and chose the floor out of spite."
+  },
+  {
+   "id": "ls3-cl-003",
+   "tag": "For Trade",
+   "text": "Will swap one throne for one meal. Two thrones for two meals. Have a lot of thrones. Am very hungry."
+  },
+  {
+   "id": "ls3-cl-004",
+   "tag": "Free",
+   "text": "Armor stands. Free to good home. Free to bad home. Free to any home. Please. They are blocking the stairs."
+  },
+  {
+   "id": "ls3-cl-005",
+   "tag": "Lost",
+   "text": "My way back up from the 'Safety' burrow. Thirty levels of stairs and something large on them. Reward if found, or if you find the stairs."
+  },
+  {
+   "id": "ls3-cl-006",
+   "tag": "Wanted",
+   "text": "Ladder, tall, sturdy. To fetch a friend off a branch. Urgency high. Tree does not seem bothered either way."
+  },
+  {
+   "id": "ls3-cl-007",
+   "tag": "Personal",
+   "text": "To whoever keeps dumping refuse into the pit while I am down there fetching it back out: we need to talk. Loudly. From down here."
+  },
+  {
+   "id": "ls3-cl-008",
+   "tag": "Apology",
+   "text": "To my fellow haulers: I brought the rubbish back out of the pit because the Overseer said to. I now see why that was wrong."
+  },
+  {
+   "id": "ls3-cl-009",
+   "tag": "Found",
+   "text": "One rough gem. Uncut, glorious, and immediately demanded by a fisherdwarf in a strange mood. Claim it if you are faster than him.",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "ls3-cl-010",
+   "tag": "Wanted",
+   "text": "ROUGH GEM. Any colour. Do not cut it. Do not look at the cutter. Contact the butcher, who is having a mood and is not well.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-cl-011",
+   "tag": "Personal",
+   "text": "To the gem cutter: you have cut every gem in the fort. Every one. We admire your work. Please put the wheel down for one season."
+  },
+  {
+   "id": "ls3-cl-012",
+   "tag": "Seeking",
+   "text": "Plant cloth for a child. Not a costume. A strange mood. The child has taken a workshop and will not discuss bedtime."
+  },
+  {
+   "id": "ls3-cl-013",
+   "tag": "Notice",
+   "text": "The child in the clothier's shop is not playing. Do not tell her it is cute. She is making an artifact and has a schedule."
+  },
+  {
+   "id": "ls3-cl-014",
+   "tag": "Missing",
+   "text": "Our loom room. The weaver is waiting, possessed, and may not wait long. Last seen behind the smoothing queue, which is everything."
+  },
+  {
+   "id": "ls3-cl-015",
+   "tag": "Lost",
+   "text": "Seven silk scraps. They were the cloth stockpile, according to the Overseer, who has stopped ordering cloth because of them."
+  },
+  {
+   "id": "ls3-cl-016",
+   "tag": "For Sale",
+   "text": "Seven silk scraps. Previously believed to be an entire cloth industry. Now merely scraps. Price reflects the drama."
+  },
+  {
+   "id": "ls3-cl-017",
+   "tag": "Reward",
+   "text": "For any dwarf who can explain how a carpenter dies of thirst beside a hundred rough gems. Reward is one rough gem, cut, sadly."
+  },
+  {
+   "id": "ls3-cl-018",
+   "tag": "Services",
+   "text": "Personal drink reminders. I follow you, I point at the barrel, I say 'drink'. Clients include every miner in living memory. Most survived."
+  },
+  {
+   "id": "ls3-cl-019",
+   "tag": "Services",
+   "text": "Will stand beside you holding a mug while you work. Strongly recommended for miners, carpenters and anyone near a pile of gems."
+  },
+  {
+   "id": "ls3-cl-020",
+   "tag": "Notice",
+   "text": "There are {drinks} drinks in the stockpile. We know. Please, please, please drink one. The Society for Not Repeating History.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "ls3-cl-021",
+   "tag": "Wanted",
+   "text": "Meat. Any meat. Veterans can describe it if you have never seen it. It is brown and you eat it. Fish also acceptable.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "ls3-cl-022",
+   "tag": "For Sale",
+   "text": "Commemorative 'Meat Watch' bell. Rang once, false alarm. It was a very brown mushroom.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "ls3-cl-023",
+   "tag": "Personal",
+   "text": "Veteran of the meatless years seeks companion to stare at a roast with. Need not be eaten. Just looked at. Lovingly."
+  },
+  {
+   "id": "ls3-cl-024",
+   "tag": "For Trade",
+   "text": "Eight hundred loose stones, old fort vintage. Swap for anything that is not a stone. Will consider other stones if very different.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "ls3-cl-025",
+   "tag": "Lost",
+   "text": "Our old fortress, {past_fort}. It {past_fort_fate}. If found, please do not return it; it probably has spikes now.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-026",
+   "tag": "Notice",
+   "text": "Whoever lives in {past_fort} now has re-signed the lease. We were not consulted. The landlord was not consulted. The landlord is a goblin.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-027",
+   "tag": "Seeking",
+   "text": "Volunteers to recover an artifact left behind at {past_fort}. Bring shields, nerve and no plans for later in the year.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-028",
+   "tag": "For Sale",
+   "text": "Back issues of the old fort's paper. Includes the famous famine edition. Pages slightly chewed; we were very hungry."
+  },
+  {
+   "id": "ls3-cl-029",
+   "tag": "Wanted",
+   "text": "A handful of plants. Must feed ten dwarves. Hopes high. Contact any surviving founder of {past_fort}. There are some. Mostly.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-030",
+   "tag": "Services",
+   "text": "Smoothing. One dwarf, one chisel, ten thousand jobs. Current wait: forty years. Do not ask about the other two smoothers."
+  },
+  {
+   "id": "ls3-cl-031",
+   "tag": "Rooms",
+   "text": "Unsmoothed room, rough walls, real character. Smoothers keep trying to sneak in at night. Lock provided, chisel-proof."
+  },
+  {
+   "id": "ls3-cl-032",
+   "tag": "Apology",
+   "text": "I smoothed your bedroom while you were asleep in it. It was on the list. Everything is on the list. I am sorry. I am also not stopping."
+  },
+  {
+   "id": "ls3-cl-033",
+   "tag": "Notice",
+   "text": "Doctors are needed in two of the four hospitals. Patients in those hospitals are advised to visit the other two, or heal by thinking."
+  },
+  {
+   "id": "ls3-cl-034",
+   "tag": "Lost",
+   "text": "Chief medical dwarf. Office empty. Whoever had it last left a splint on the desk and a note: 'gone looking for a doctor'."
+  },
+  {
+   "id": "ls3-cl-035",
+   "tag": "Found",
+   "text": "A famous artifact mace. Not found exactly. Still at the old fort. But we know where it is, which counts for something."
+  },
+  {
+   "id": "ls3-cl-036",
+   "tag": "Personal",
+   "text": "Dear liaison: there is much to share, you say. Then share some. Of anything. Just once. Yours, everyone at the trade depot.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "ls3-cl-037",
+   "tag": "For Trade",
+   "text": "Rings, priced at whatever percent {liaison} requested. Selling them back at one percent more. The liaison may recommend this agreement."
+  },
+  {
+   "id": "ls3-cl-038",
+   "tag": "Notice",
+   "text": "The liaison has recommended another import agreement. Our import agreements now recommend their own import agreements."
+  },
+  {
+   "id": "ls3-cl-039",
+   "tag": "Wanted",
+   "text": "Someone to tell {monarch} about the thrones. Gently. The monarch thinks we are building a palace. We are, kind of, a furniture one."
+  },
+  {
+   "id": "ls3-cl-040",
+   "tag": "Services",
+   "text": "Letter-writing to our diplomat. Phrases for peace with sixteen groups and for 'please stop' with the other two."
+  },
+  {
+   "id": "ls3-cl-041",
+   "tag": "Reward",
+   "text": "For news of {enemy} that does not include the word 'coming'. Reward triples if it includes 'gone home'.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-cl-042",
+   "tag": "Notice",
+   "text": "Skirmish only, say some goblins. Total war, say others. Both, says the militia captain, who is one dwarf."
+  },
+  {
+   "id": "ls3-cl-043",
+   "tag": "Personal",
+   "text": "Refugee, recently of a sacked town, seeks fellow refugee for walks, talks and running from goblin armies."
+  },
+  {
+   "id": "ls3-cl-044",
+   "tag": "Found",
+   "text": "A boot belonging to a fleeing refugee society. The rest of the society was moving too quickly to collect it. Claim at gate.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "ls3-cl-045",
+   "tag": "Seeking",
+   "text": "Former neighbours from the town with the well. You know who you are. The goblins live there now. Let's meet for ale."
+  },
+  {
+   "id": "ls3-cl-046",
+   "tag": "Wanted",
+   "text": "Shield, big enough to hide behind when the goblin warlord visits. Also big enough for a friend. And his goat."
+  },
+  {
+   "id": "ls3-cl-047",
+   "tag": "Notice",
+   "text": "The goblin generals are NOT invited to the solstice dinner. Neither knows. Keep it that way."
+  },
+  {
+   "id": "ls3-cl-048",
+   "tag": "For Sale",
+   "text": "Silks woven by a refugee band with an unsettling name chosen by committee. Exquisite. Warm. Sold with a reassuring leaflet."
+  },
+  {
+   "id": "ls3-cl-049",
+   "tag": "Services",
+   "text": "Compliments, one coin each. Discount for groups recently evicted from their fortress by goblins, humans, or both."
+  },
+  {
+   "id": "ls3-cl-050",
+   "tag": "Apology",
+   "text": "To the dwarves evicted from that town: sorry. We did not take it. The humans did. We just watched. Glad we didn't help."
+  },
+  {
+   "id": "ls3-cl-051",
+   "tag": "Personal",
+   "text": "Dwarf group seeks new home. Lost the old one to goblins, lost the leader to succession. Has kept the letterhead."
+  },
+  {
+   "id": "ls3-cl-052",
+   "tag": "Notice",
+   "text": "Old halls reclaimed nearby. All ghosts asked to move out by spring. Several ghosts say they were there first. They were."
+  },
+  {
+   "id": "ls3-cl-053",
+   "tag": "For Sale",
+   "text": "Famous lost greaves, genuine. Seller is claimant #31. Buyer will be claimant #49. Greaves remain in a fort far away."
+  },
+  {
+   "id": "ls3-cl-054",
+   "tag": "Reward",
+   "text": "For return of a lost artifact to its rightful owner. Owners listed overleaf. And on the next leaf. And the next 46 leaves."
+  },
+  {
+   "id": "ls3-cl-055",
+   "tag": "Notice",
+   "text": "Applicants claiming the lost greaves form a queue at the back of the meeting hall. The queue goes out the door and has done for decades."
+  },
+  {
+   "id": "ls3-cl-056",
+   "tag": "Seeking",
+   "text": "Brave dwarf to visit the crooked horror's lair and confirm it is still there. Confirmation from a distance is fine. Very fine."
+  },
+  {
+   "id": "ls3-cl-057",
+   "tag": "For Sale",
+   "text": "Map of {world}, complete with the location of every goblin army. Map is mostly red. Sold at a discount for that reason."
+  },
+  {
+   "id": "ls3-cl-058",
+   "tag": "Services",
+   "text": "Rewind recovery: if the gods blinked and you lost a day, I will tell you what you did. You dug a tunnel. You always dig a tunnel."
+  },
+  {
+   "id": "ls3-cl-059",
+   "tag": "Lost",
+   "text": "Yesterday. Gone in the Great Rewind. If you have it, it was the one where I almost finished my masterwork. Please return."
+  },
+  {
+   "id": "ls3-cl-060",
+   "tag": "Found",
+   "text": "A day, extra. Appeared after the gods blinked. Already used it to dig the same tunnel again. Free to whoever wants the leftover."
+  },
+  {
+   "id": "ls3-cl-061",
+   "tag": "Personal",
+   "text": "Ghost of a thirsty miner seeks a drink. Was beside two thousand of them at the time and took none. Lesson learned, too late."
+  },
+  {
+   "id": "ls3-cl-062",
+   "tag": "Notice",
+   "text": "Ghosts from previous forts are reminded to haunt their OWN forts. {past_fort} is two valleys over. Please go there.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-063",
+   "tag": "Wanted",
+   "text": "Exorcist with experience in ghosts who died of thirst. Must bring a mug. The ghosts mainly want a mug."
+  },
+  {
+   "id": "ls3-cl-064",
+   "tag": "Rooms",
+   "text": "Spare bedroom, newly vacant after the 'Safety' burrow drill. Furniture intact, ghost polite. Do not take the stairs down."
+  },
+  {
+   "id": "ls3-cl-065",
+   "tag": "For Trade",
+   "text": "One deep burrow, slightly haunted, thirty levels down. Will trade for any room on the ground floor, even a closet."
+  },
+  {
+   "id": "ls3-cl-066",
+   "tag": "Free",
+   "text": "One branch. Removed from the tree for safety. Has a history. Do not climb it, even lying on the floor. Especially then."
+  },
+  {
+   "id": "ls3-cl-067",
+   "tag": "Apology",
+   "text": "To the tree: we know it was not your fault. To the miner: we know it was not yours either. We blame the Overseer, quietly."
+  },
+  {
+   "id": "ls3-cl-068",
+   "tag": "Notice",
+   "text": "Dwarves are reminded that a tree is not a workshop, nor a bedroom, nor a place to wait for a drink to arrive."
+  },
+  {
+   "id": "ls3-cl-069",
+   "tag": "Lost",
+   "text": "Searabbeys. Last seen under the management of The Torments of Hating. If found, please do not return it; it has spikes now.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-070",
+   "tag": "Personal",
+   "text": "Ghost of Bomrek, Searabbeys miner, seeks a drink. Was beside 1,994 drinks at the time. Did not take one. Embarrassed.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-071",
+   "tag": "For Sale",
+   "text": "Back issues, Quakefocus Sentinel. Includes the famous 'famine, day 32' edition. Pages slightly chewed; we were very hungry.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-072",
+   "tag": "Personal",
+   "text": "Iden: there is much to share, you say. Then share some. Of anything. Just once. Yours, everyone at the trade depot.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-073",
+   "tag": "Missing",
+   "text": "Mame Ayathemiyi, taken at Nobledessert, and Imara Sidayanithe, at Keeperglossed. The elves wrote to us on bark. Nobody dared reply.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-074",
+   "tag": "Notice",
+   "text": "Claimants of The Amusing Duties: the queue starts at Roughnessslaps and ends at Fieryaged. Bring a snack. Bring forty-seven snacks.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-075",
+   "tag": "Wanted",
+   "text": "Dwarf to count the armor stands. Must be good with numbers, very good with very large numbers, and fine with sleeping among stands."
+  },
+  {
+   "id": "ls3-cl-076",
+   "tag": "For Sale",
+   "text": "Work order, slightly used. Set to 'one'. Somehow produced thousands. Selling before it does it again. Do not look at it directly."
+  },
+  {
+   "id": "ls3-cl-077",
+   "tag": "Notice",
+   "text": "The manager wishes to confirm that nobody ordered the thrones. The thrones wish to confirm that they are here anyway."
+  },
+  {
+   "id": "ls3-cl-078",
+   "tag": "Lost",
+   "text": "One work order, last seen running away. Answers to 'repeat'. If found, do not feed it bars."
+  },
+  {
+   "id": "ls3-cl-079",
+   "tag": "Services",
+   "text": "Furniture removal. We haul surplus thrones and armor stands to the edge of the map, where the Overseer finds them and hauls them back."
+  },
+  {
+   "id": "ls3-cl-080",
+   "tag": "Personal",
+   "text": "Lonely armor stand seeks armor. Any armor. Will stand very still. Has had a lot of practice."
+  },
+  {
+   "id": "ls3-cl-081",
+   "tag": "For Trade",
+   "text": "Will trade 300 armor stands for one suit of armor. Or for a room without armor stands. Either. Please."
+  },
+  {
+   "id": "ls3-cl-082",
+   "tag": "Apology",
+   "text": "To the dwarf I sat on a throne beside: there were no other chairs, only thrones. I am not a noble. I just wanted my soup."
+  },
+  {
+   "id": "ls3-cl-083",
+   "tag": "Wanted",
+   "text": "Smoother's apprentice. You will smooth. You will smooth tomorrow. You will retire smoothing. The queue will remain."
+  },
+  {
+   "id": "ls3-cl-084",
+   "tag": "Notice",
+   "text": "The smoothing queue has achieved a length of its own and will now be referred to as 'the Queue', with a capital Q and a small office."
+  },
+  {
+   "id": "ls3-cl-085",
+   "tag": "Found",
+   "text": "One unsmoothed wall, in a corner of the fort. Do not tell the Overseer. It is ours. We visit it and feel rough and free."
+  },
+  {
+   "id": "ls3-cl-086",
+   "tag": "Missing",
+   "text": "Three smoothers. Last seen entering the queue. Thought to be somewhere around job four thousand. Send biscuits."
+  },
+  {
+   "id": "ls3-cl-087",
+   "tag": "Lost",
+   "text": "A drink. I had it right in my hand and I put it down to finish a job. I died of thirst. This advert is placed by my ghost."
+  },
+  {
+   "id": "ls3-cl-088",
+   "tag": "Services",
+   "text": "Thirst Watch. I follow miners through every tunnel ringing a bell and yelling 'MUG'. Hated by miners. Loved by their families."
+  },
+  {
+   "id": "ls3-cl-089",
+   "tag": "Notice",
+   "text": "If you feel thirsty, there are {drinks} drinks. If you still feel thirsty after that, you are a ghost. Please see the notice board for ghosts.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "ls3-cl-090",
+   "tag": "Wanted",
+   "text": "Anyone who can explain why the barrels are full and the miners are not. Contact the Bureau of Paradox, room unsmoothed, desk dusty."
+  },
+  {
+   "id": "ls3-cl-091",
+   "tag": "Seeking",
+   "text": "Dwarf to escort {citizen} to the drink stockpile and back. {citizen} knows the way. {citizen} just doesn't go."
+  },
+  {
+   "id": "ls3-cl-092",
+   "tag": "Personal",
+   "text": "{citizen_first}: the barrel is right there. It loves you. It has always loved you. Pick it up. Signed, everyone."
+  },
+  {
+   "id": "ls3-cl-093",
+   "tag": "Wanted",
+   "text": "Climbing instructor for trees. Specialising in climbing DOWN. Upward courses already over-subscribed, with tragic results."
+  },
+  {
+   "id": "ls3-cl-094",
+   "tag": "Lost",
+   "text": "My cousin. Last seen up a tree reaching for a branch that 'looked like it had a drink on it'. It did not. Send a ladder."
+  },
+  {
+   "id": "ls3-cl-095",
+   "tag": "Notice",
+   "text": "Trees are not to be climbed, hugged, fallen from, died in or sat in until a drink comes. Elves may hug them; elves are outside."
+  },
+  {
+   "id": "ls3-cl-096",
+   "tag": "For Sale",
+   "text": "Burrow labelled 'Safety'. Very deep. Very private. Stairs come right to the door, which turned out to be the problem."
+  },
+  {
+   "id": "ls3-cl-097",
+   "tag": "Notice",
+   "text": "The 'Safety' burrow is being renamed 'Mostly Safety' after review. Signs are being repainted. The stairs remain stairs."
+  },
+  {
+   "id": "ls3-cl-098",
+   "tag": "Wanted",
+   "text": "Someone to stand at the top of the stairs and look down every few minutes. Must have a loud voice and a good sense of 'big'."
+  },
+  {
+   "id": "ls3-cl-099",
+   "tag": "Apology",
+   "text": "To everyone in the deep burrow: we thought something coming up the stairs would knock first. It did not. We are so sorry."
+  },
+  {
+   "id": "ls3-cl-100",
+   "tag": "Services",
+   "text": "Burrow appraisal. I will tell you, from the doorway, if your 'Safety' burrow is actually safe. Rates waived if it isn't. You'll need them."
+  },
+  {
+   "id": "ls3-cl-101",
+   "tag": "Notice",
+   "text": "Refuse goes DOWN the pit. Nobody goes down the pit to fetch it back UP. This is the entire policy. It is one sentence."
+  },
+  {
+   "id": "ls3-cl-102",
+   "tag": "For Trade",
+   "text": "One bucket of rubbish, retrieved from the pit at great personal cost. Will trade for an apology from whoever kept tipping more in."
+  },
+  {
+   "id": "ls3-cl-103",
+   "tag": "Wanted",
+   "text": "Sign painter for the refuse pit. 'ONE WAY' in large letters. Arrows. Perhaps a drawing of a dwarf saying 'no'."
+  },
+  {
+   "id": "ls3-cl-104",
+   "tag": "Reward",
+   "text": "For the haul job that sent eight dwarves back into the garbage pit. We wish only to talk to it. With hammers.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "ls3-cl-105",
+   "tag": "Wanted",
+   "text": "ROUGH gems. Yes, again. The new mood has asked for exactly what we cut last week. Every week, this is the advert."
+  },
+  {
+   "id": "ls3-cl-106",
+   "tag": "Notice",
+   "text": "From now on, one gem in every hundred will be left rough and hidden in a sock. Do not ask which sock. You know which sock."
+  },
+  {
+   "id": "ls3-cl-107",
+   "tag": "Personal",
+   "text": "To the strange mood that keeps asking for the one thing we just ran out of: we see you. We think you can see our stockpile."
+  },
+  {
+   "id": "ls3-cl-108",
+   "tag": "Found",
+   "text": "One ugly rough gem in the refuse pile. Keep it safe. A mood will want it in about a week. It always does.",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "ls3-cl-109",
+   "tag": "Seeking",
+   "text": "Spare workshop. A {moodname} is wandering the halls, muttering about bones, and has eyed my kitchen twice.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-cl-110",
+   "tag": "Apology",
+   "text": "To {moodname}: we cut the last gem about ten minutes before your mood. Truly. We are as upset as you are. Almost.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-cl-111",
+   "tag": "Notice",
+   "text": "Parents: if your child walks into a workshop with a far-off look, do not call them for dinner. Call the bookkeeper. Then hide the cloth."
+  },
+  {
+   "id": "ls3-cl-112",
+   "tag": "For Sale",
+   "text": "Child's first artifact. A crown made of plant cloth, given a name longer than the child. Does not fit any head. Priceless."
+  },
+  {
+   "id": "ls3-cl-113",
+   "tag": "Wanted",
+   "text": "One captain's worth of friends. The militia is one dwarf and nine empty places. He has been 'Off duty' so long he owns a rocking chair."
+  },
+  {
+   "id": "ls3-cl-114",
+   "tag": "Notice",
+   "text": "Militia drill this evening. The entire squad will attend. He has asked for a bigger room so it feels busier."
+  },
+  {
+   "id": "ls3-cl-115",
+   "tag": "Personal",
+   "text": "Militia captain, solo, seeks nine dwarves to stand behind him looking stern. No training required. No training occurs."
+  },
+  {
+   "id": "ls3-cl-116",
+   "tag": "For Sale",
+   "text": "Nine unused militia uniforms. Folded, labelled, waiting. The captain irons them on Sundays."
+  },
+  {
+   "id": "ls3-cl-117",
+   "tag": "Lost",
+   "text": "The militia's enthusiasm. Last seen before it went 'Off duty'. Has not been back on since. Reward: one training session."
+  },
+  {
+   "id": "ls3-cl-118",
+   "tag": "Notice",
+   "text": "The mayor's office has filed a production order violation against the production order office. The case continues."
+  },
+  {
+   "id": "ls3-cl-119",
+   "tag": "Apology",
+   "text": "To the mayor: I did not make the mandated item because I was asleep. I am still asleep. My spouse filed this advert."
+  },
+  {
+   "id": "ls3-cl-120",
+   "tag": "Wanted",
+   "text": "Lawyer, any species, to defend dwarves against production order violation charges. Paid in the item we were supposed to make."
+  },
+  {
+   "id": "ls3-cl-121",
+   "tag": "Services",
+   "text": "I will make whatever the mayor demanded today, before the mayor demands it. Fee covers foresight, materials and nerves."
+  },
+  {
+   "id": "ls3-cl-122",
+   "tag": "Notice",
+   "text": "Positions still open: mayor, sheriff, hammerer, dungeon master, champion, chief medical dwarf. Applications to an empty desk."
+  },
+  {
+   "id": "ls3-cl-123",
+   "tag": "For Sale",
+   "text": "Sheriff's badge. Never worn. Shiny. Office comes with it. Duties come with the office. Badge does not come with an applicant."
+  },
+  {
+   "id": "ls3-cl-124",
+   "tag": "Free",
+   "text": "One hammerer's hammer, unused. Comes with a stern look and no hammerer. Excellent doorstop."
+  },
+  {
+   "id": "ls3-cl-125",
+   "tag": "Rooms",
+   "text": "Mayor's office, available. Previous occupant took the chair. Next occupant: unknown. Desk drawer full of violation forms."
+  },
+  {
+   "id": "ls3-cl-126",
+   "tag": "Services",
+   "text": "Mist ring maintenance. I keep the pumps spraying so you get a happy thought while walking past. Nobody thanks me, but they are happy."
+  },
+  {
+   "id": "ls3-cl-127",
+   "tag": "Notice",
+   "text": "Please walk through the mist ring slowly. The happy thought takes a moment to arrive. It is a very slow thought."
+  },
+  {
+   "id": "ls3-cl-128",
+   "tag": "Lost",
+   "text": "My hat, blown off by the windmill. Last seen heading north. Windmill has not admitted anything."
+  },
+  {
+   "id": "ls3-cl-129",
+   "tag": "Wanted",
+   "text": "Somebody to drink from the cistern. It is full. It is lovely. Nobody visits. It is starting to feel unwanted."
+  },
+  {
+   "id": "ls3-cl-130",
+   "tag": "Notice",
+   "text": "The catacombs have reached capacity. Additional ghosts are asked to wait in the dining hall, quietly, not moving the cutlery."
+  },
+  {
+   "id": "ls3-cl-131",
+   "tag": "Personal",
+   "text": "Ghost, recently of a deep burrow, seeks other ghosts for a support group. Theme: stairs. We meet at the top of them."
+  },
+  {
+   "id": "ls3-cl-132",
+   "tag": "Wanted",
+   "text": "Tour guide for the execution tower. Must explain it is mostly for the view. Must say it convincingly."
+  },
+  {
+   "id": "ls3-cl-133",
+   "tag": "Notice",
+   "text": "Guests: the Overseer's eye may follow you about the fort. It is only looking. Please wave. Please do not wave an axe."
+  },
+  {
+   "id": "ls3-cl-134",
+   "tag": "Found",
+   "text": "One merchant, wandering the halls, followed by the Overseer's gaze. Claims he was looking for the depot. Claim him at the depot."
+  },
+  {
+   "id": "ls3-cl-135",
+   "tag": "Wanted",
+   "text": "Herb gatherers. The whole map. In the rain. All of it. Today. Volunteers get a cape and a plant. The plant is soggy.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "ls3-cl-136",
+   "tag": "Notice",
+   "text": "The plant gathering expedition has reached the far edge of the map. They found one strawberry. They are coming back for a bag."
+  },
+  {
+   "id": "ls3-cl-137",
+   "tag": "For Sale",
+   "text": "Lovely ruin, two valleys over, previous owner {past_fort_fate}. Now under goblin tenancy. Asking price: an army.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-138",
+   "tag": "Personal",
+   "text": "Survivor of {past_fort} ({past_fort_years}, no regrets, some regrets) seeks a fort that keeps its drinks near its miners.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-139",
+   "tag": "Notice",
+   "text": "Everyone remembers {record} at {record_fort}. The bookkeeper asks you to stop bringing it up while he works the orders.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-140",
+   "tag": "Wanted",
+   "text": "Historian to explain {record}. Several have tried. One wept. One ordered more. We are now hiring a third.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-141",
+   "tag": "For Trade",
+   "text": "Will swap stories of {past_fort} for ale. One story per mug. I have {past_fort_years} of stories. You will need a cart.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-142",
+   "tag": "Reward",
+   "text": "For any info on the goblins who took {past_fort}. Specifically, are they coming here next? Asking for {pop} friends.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-cl-143",
+   "tag": "Notice",
+   "text": "Scouts report {enemy} is still at war with us. They have sent no letter to say so, but we can tell from all the arrows.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-cl-144",
+   "tag": "Personal",
+   "text": "{monarch}: we would love a visit. Please bring something other than demands. Love, the fort. P.S. thrones available."
+  },
+  {
+   "id": "ls3-cl-145",
+   "tag": "Seeking",
+   "text": "{liaison}, regarding the import agreement. Which one? All of them. We have a filing cabinet labelled 'Much to Share'."
+  },
+  {
+   "id": "ls3-cl-146",
+   "tag": "Services",
+   "text": "Great Rewind counselling. You did not dream it. The world really did stop and start. Yes, you have to dig it again."
+  },
+  {
+   "id": "ls3-cl-147",
+   "tag": "For Sale",
+   "text": "Commemorative plate: 1,981 armor stands, Quakefocus. Comes with its own armor stand, from the original set. Of course it does.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-148",
+   "tag": "Notice",
+   "text": "Ngumrash Ensebrab and Laba Cócefevu Iwe of The Crazed Hex are not welcome. Neither is Uslôx Ulutodan. Please check names at the gate.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-149",
+   "tag": "Wanted",
+   "text": "Couriers to The Plain Fellowship, The Society of Creeds, The Silks of Cremating and The Society of Adoration. Same letter, four bands.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-cl-150",
+   "tag": "Apology",
+   "text": "To Oddom Oltartilesh: we know you heard about the 148 thrones. They are not a challenge to the crown. They are an accident.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "notices": [
+  {
+   "id": "ls3-nt-001",
+   "text": "Drinks are kept in the drink stockpile. Dwarves are kept near the drinks. Please keep it that way."
+  },
+  {
+   "id": "ls3-nt-002",
+   "text": "If you are thirsty, drink. This notice was not necessary in any other civilization."
+  },
+  {
+   "id": "ls3-nt-003",
+   "text": "Barrels are for opening. Admiring a barrel does not count as drinking from it."
+  },
+  {
+   "id": "ls3-nt-004",
+   "text": "Miners: a mug weighs less than a pick. Carry both."
+  },
+  {
+   "id": "ls3-nt-005",
+   "text": "Dying of thirst beside a full stockpile is no longer considered a tradition."
+  },
+  {
+   "id": "ls3-nt-006",
+   "text": "Do not climb trees. If already in a tree, do not stay in the tree."
+  },
+  {
+   "id": "ls3-nt-007",
+   "text": "Tree branches are not a waiting room."
+  },
+  {
+   "id": "ls3-nt-008",
+   "text": "Dwarves found up trees will be fetched down and given a stern drink."
+  },
+  {
+   "id": "ls3-nt-009",
+   "text": "The 'Safety' burrow is not to be used for safety until the stairs are reviewed."
+  },
+  {
+   "id": "ls3-nt-010",
+   "text": "If something large is coming up the stairs, the 'Safety' burrow is the wrong direction."
+  },
+  {
+   "id": "ls3-nt-011",
+   "text": "Burrows are named by the Overseer. Names are aspirational."
+  },
+  {
+   "id": "ls3-nt-012",
+   "text": "Refuse goes into the pit. Haulers do not."
+  },
+  {
+   "id": "ls3-nt-013",
+   "text": "Please do not fetch rubbish from the pit while others are throwing rubbish into the pit."
+  },
+  {
+   "id": "ls3-nt-014",
+   "text": "Anything dropped in the garbage pit belongs to the garbage pit."
+  },
+  {
+   "id": "ls3-nt-015",
+   "text": "The pit is not a stockpile. The pit is a decision."
+  },
+  {
+   "id": "ls3-nt-016",
+   "text": "Gem cutters are asked to leave one gem rough. Just one. For the mood."
+  },
+  {
+   "id": "ls3-nt-017",
+   "text": "Moods will request whatever we just ran out of. Plan accordingly."
+  },
+  {
+   "id": "ls3-nt-018",
+   "text": "Children seizing workshops must be accompanied by an adult. The adult may not help."
+  },
+  {
+   "id": "ls3-nt-019",
+   "text": "Please do not tell a moody child to tidy the workshop."
+  },
+  {
+   "id": "ls3-nt-020",
+   "text": "Strange moods must queue for the loom room like everybody else. Possessed weavers first."
+  },
+  {
+   "id": "ls3-nt-021",
+   "text": "Work orders are to be read before they are repeated two thousand times."
+  },
+  {
+   "id": "ls3-nt-022",
+   "text": "The manager reminds you: one means one."
+  },
+  {
+   "id": "ls3-nt-023",
+   "text": "The armor stands are not a maze. Please stop using them as a maze."
+  },
+  {
+   "id": "ls3-nt-024",
+   "text": "Sitting on surplus thrones does not make you a noble. Nobles, please stop checking."
+  },
+  {
+   "id": "ls3-nt-025",
+   "text": "If you see an order repeating, shout 'stop'. It will not stop, but you will feel better."
+  },
+  {
+   "id": "ls3-nt-026",
+   "text": "Smoothing is happening. Smoothing will continue to happen. Please step around it."
+  },
+  {
+   "id": "ls3-nt-027",
+   "text": "Rough walls are under the protection of the Rough Walls Society until they are smoothed."
+  },
+  {
+   "id": "ls3-nt-028",
+   "text": "Smoothers are not to be asked how long the queue is. It makes them sad."
+  },
+  {
+   "id": "ls3-nt-029",
+   "text": "The hospital requires a doctor. Any hospital. Either hospital. All of them."
+  },
+  {
+   "id": "ls3-nt-030",
+   "text": "Patients are asked not to diagnose each other. Still, thank you for trying."
+  },
+  {
+   "id": "ls3-nt-031",
+   "text": "The militia is on duty. The militia is off duty. The militia is one dwarf. Check his face."
+  },
+  {
+   "id": "ls3-nt-032",
+   "text": "Nine militia places remain open. They have been open so long they have their own cobwebs."
+  },
+  {
+   "id": "ls3-nt-033",
+   "text": "The captain asks that you salute him when passing, so he feels like there are more of him."
+  },
+  {
+   "id": "ls3-nt-034",
+   "text": "Do not wake the militia. He's resting from not training."
+  },
+  {
+   "id": "ls3-nt-035",
+   "text": "Production order violation forms are available in triplicate, then again, then again."
+  },
+  {
+   "id": "ls3-nt-036",
+   "text": "The mayor's office is closed. The mayor's office has always been closed. There is no mayor."
+  },
+  {
+   "id": "ls3-nt-037",
+   "text": "The sheriff's office is vacant. Crime is asked to wait."
+  },
+  {
+   "id": "ls3-nt-038",
+   "text": "Applications for the hammerer post can be dropped in the empty hammerer's slot."
+  },
+  {
+   "id": "ls3-nt-039",
+   "text": "The dungeon master post remains open. So does the dungeon. Please do not wander in."
+  },
+  {
+   "id": "ls3-nt-040",
+   "text": "Champion wanted. Must be champion of something. Anything. Stair-sitting counts."
+  },
+  {
+   "id": "ls3-nt-041",
+   "text": "Walk through the mist ring slowly to receive your happy thought."
+  },
+  {
+   "id": "ls3-nt-042",
+   "text": "The pumps are for mist. The mist is for joy. The joy is for productivity. Pump."
+  },
+  {
+   "id": "ls3-nt-043",
+   "text": "The windmill is not a ride."
+  },
+  {
+   "id": "ls3-nt-044",
+   "text": "The cistern is full. You may drink from it. That is what it is for. Hello."
+  },
+  {
+   "id": "ls3-nt-045",
+   "text": "Catacomb visitors are asked to speak softly; the residents are light sleepers."
+  },
+  {
+   "id": "ls3-nt-046",
+   "text": "The execution tower is closed for the season. It has a lot of seasons."
+  },
+  {
+   "id": "ls3-nt-047",
+   "text": "Guests are reminded the Overseer's eye may follow them. Smile. It likes merchants."
+  },
+  {
+   "id": "ls3-nt-048",
+   "text": "Animal people visitors may sit at any table. Please do not ask them which animal."
+  },
+  {
+   "id": "ls3-nt-049",
+   "text": "Plant gathering continues in all weather, across all of the map, at all hours."
+  },
+  {
+   "id": "ls3-nt-050",
+   "text": "The far side of the map is still part of the plant-gathering area. So is the near side."
+  },
+  {
+   "id": "ls3-nt-051",
+   "text": "If the gods blink, finish your sentence. You may have to say it again anyway."
+  },
+  {
+   "id": "ls3-nt-052",
+   "text": "Work lost in the Great Rewind must be redone. Moods lost in the Great Rewind may return."
+  },
+  {
+   "id": "ls3-nt-053",
+   "text": "Do not ask whether something happened before or after the gods blinked. It upsets the clerks."
+  },
+  {
+   "id": "ls3-nt-054",
+   "text": "Ghosts of previous forts are to haunt the old fort, not the dining hall."
+  },
+  {
+   "id": "ls3-nt-055",
+   "text": "The ghost by the barrels is not a decoration. It is a reminder. Drink."
+  },
+  {
+   "id": "ls3-nt-056",
+   "text": "Do not invite goblins inside. Goblins invite themselves."
+  },
+  {
+   "id": "ls3-nt-057",
+   "text": "The liaison's caravan is here. Please do not agree to anything before lunch."
+  },
+  {
+   "id": "ls3-nt-058",
+   "text": "Import agreements are not signed in the tavern. Not anymore."
+  },
+  {
+   "id": "ls3-nt-059",
+   "text": "When the liaison says 'there is much to share', hold your purse."
+  },
+  {
+   "id": "ls3-nt-060",
+   "text": "The diplomat is here. Please put the axes behind your back. No, both of them."
+  },
+  {
+   "id": "ls3-nt-061",
+   "text": "Visiting elves: the furniture is stone. The thrones, however, are wood. Do not look in that room."
+  },
+  {
+   "id": "ls3-nt-062",
+   "text": "The fort is at peace with sixteen groups. Please be nice to all sixteen. The other two, less so."
+  },
+  {
+   "id": "ls3-nt-063",
+   "text": "Refugees are welcome. Please give them a bed, a mug and space to stop running."
+  },
+  {
+   "id": "ls3-nt-064",
+   "text": "If a goblin army arrives, the drawbridge will be raised. Please be inside before that. Ideally."
+  },
+  {
+   "id": "ls3-nt-065",
+   "text": "Do not lose any more artifacts. The last one has forty-eight owners."
+  },
+  {
+   "id": "ls3-nt-066",
+   "text": "There are {drinks} drinks in this fort. There is no excuse.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "ls3-nt-067",
+   "text": "With {drinks} drinks left, please drink slowly and complain quietly.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "ls3-nt-068",
+   "text": "All {pop} citizens are reminded where the barrels are."
+  },
+  {
+   "id": "ls3-nt-069",
+   "text": "{stone} stones lie loose about the fort. Nobody is to build an armor stand out of them.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "ls3-nt-070",
+   "text": "Only {wood} logs remain. No more thrones. We mean it this time.",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "ls3-nt-071",
+   "text": "{dogs} dogs is plenty. Please stop bringing in dogs. The dogs agree.",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "ls3-nt-072",
+   "text": "The {cats} cats are not to be counted as militia, however brave they look.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "ls3-nt-073",
+   "text": "The {farms} farm plots are tilled. Meat is not grown in them. Stop asking.",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "ls3-nt-074",
+   "text": "There is no meat. There is a mushroom shaped like meat. Be grateful.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "ls3-nt-075",
+   "text": "{gems} gems in stock. One of them must remain rough. Gem cutters, look away.",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "ls3-nt-076",
+   "text": "In memory of {deadname}. Please drink a mug for them. A whole one.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "ls3-nt-077",
+   "text": "{moodname} has taken a workshop. Whatever they ask for, we just ran out of it.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-nt-078",
+   "text": "Congratulations to {masterwright} on {masterwork}. Do not let the Overseer order 2,000 more.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "ls3-nt-079",
+   "text": "{promoted} is now {post}. The office remains without a chair.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "ls3-nt-080",
+   "text": "{mineral} has been struck. The Overseer has not yet ordered anything silly from it. Yet.",
+   "when": [
+    "recent_strike"
+   ]
+  },
+  {
+   "id": "ls3-nt-081",
+   "text": "New migrants: welcome. The barrels are that way. Please, actually, go that way.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "ls3-nt-082",
+   "text": "A caravan has arrived. The liaison is about to recommend something.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "ls3-nt-083",
+   "text": "Snow on the map. Plant gathering continues regardless, by order.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "ls3-nt-084",
+   "text": "Rain all day. The Overseer has dispatched thirty dwarves to collect wet plants.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "ls3-nt-085",
+   "text": "Clear skies. Gatherers to the far edge of the map, please. Again.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "ls3-nt-086",
+   "text": "Spring has come. The smoothing queue has been refreshed for the year.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "ls3-nt-087",
+   "text": "Summer heat. Miners are reminded that thirst is a choice. Drink.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "ls3-nt-088",
+   "text": "Autumn. Harvest is in. Count the plants twice; the Overseer counts them once.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "ls3-nt-089",
+   "text": "Winter. Goblin armies prefer this season. So does the cold. Wrap up and lock up.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "ls3-nt-090",
+   "text": "{pop} dwarves, one tavern. Please take turns being merry.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "ls3-nt-091",
+   "text": "Only {pop} of us. Please do not die of anything silly.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "ls3-nt-092",
+   "text": "Year {year}. Another fort, another chance not to repeat {past_fort}.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-nt-093",
+   "text": "Dwarves from {past_fort}: you are not in {past_fort} now. You may relax. Slightly.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-nt-094",
+   "text": "{past_fort} {past_fort_fate}. Let us all try very hard not to do that.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-nt-095",
+   "text": "{past_fort} lasted {past_fort_years}. The betting pool for this fort is in the tavern.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-nt-096",
+   "text": "Do not mention {record}. The bookkeeper is still not over it.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-nt-097",
+   "text": "{record_fort} gave us {record}. This fort will not. This is a promise from management.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-nt-098",
+   "text": "The fort is at war with {enemy}. Please do not leave gifts for them at the gate.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-nt-099",
+   "text": "{enemy_race} are not to be admitted as guests, however polite their letter.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-nt-100",
+   "text": "Long live {monarch}, who has not visited and is not expected to."
+  },
+  {
+   "id": "ls3-nt-101",
+   "text": "{liaison} is in the depot. Hide the rings.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "ls3-nt-102",
+   "text": "All citizens of {civ}: drink, dig, and do not smooth anything without a form."
+  },
+  {
+   "id": "ls3-nt-103",
+   "text": "Welcome to {fort}, in {world}. Previous forts in {world} available on request, with sorrow."
+  },
+  {
+   "id": "ls3-nt-104",
+   "text": "Searabbeys veterans are reminded that meat now exists and is not a rumour.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-nt-105",
+   "text": "No more than 1,981 armor stands per fort. This rule was written after Quakefocus.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-nt-106",
+   "text": "Bomrek Enshalcatten is remembered at every barrel. Please drink one for him.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-nt-107",
+   "text": "The Crazed Hex is NOT welcome. Padtufted, Pulledrained and Ironcrowds send their regards.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-nt-108",
+   "text": "The Nuanced Hamlet is still at Searabbeys. No, nobody is going to fetch it.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-nt-109",
+   "text": "When Iden Loloklolor says 'there is much to share', he means rings. At 210%.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-nt-110",
+   "text": "Claspedserpent remains at Quakefocus. It is a silver mace. It does not want to be visited.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "ears": [
+  {
+   "id": "ls3-er-001",
+   "text": "Drink one now. Really."
+  },
+  {
+   "id": "ls3-er-002",
+   "text": "Printed beside a full barrel"
+  },
+  {
+   "id": "ls3-er-003",
+   "text": "Not printed up a tree"
+  },
+  {
+   "id": "ls3-er-004",
+   "text": "Smoothed on both sides"
+  },
+  {
+   "id": "ls3-er-005",
+   "text": "Order of one (we hope)"
+  },
+  {
+   "id": "ls3-er-006",
+   "text": "Thrones not included"
+  },
+  {
+   "id": "ls3-er-007",
+   "text": "Armor stands: still more"
+  },
+  {
+   "id": "ls3-er-008",
+   "text": "Now 100% 'Safety'-free"
+  },
+  {
+   "id": "ls3-er-009",
+   "text": "Do not read on stairs"
+  },
+  {
+   "id": "ls3-er-010",
+   "text": "Pit-proof edition"
+  },
+  {
+   "id": "ls3-er-011",
+   "text": "Read it. Don't fetch it"
+  },
+  {
+   "id": "ls3-er-012",
+   "text": "Contains one rough gem"
+  },
+  {
+   "id": "ls3-er-013",
+   "text": "Mood-tested, child-approved"
+  },
+  {
+   "id": "ls3-er-014",
+   "text": "Militia edition (1 copy)"
+  },
+  {
+   "id": "ls3-er-015",
+   "text": "Off duty since forever"
+  },
+  {
+   "id": "ls3-er-016",
+   "text": "Violation-free, so far"
+  },
+  {
+   "id": "ls3-er-017",
+   "text": "Office vacant, paper full"
+  },
+  {
+   "id": "ls3-er-018",
+   "text": "Misted for freshness"
+  },
+  {
+   "id": "ls3-er-019",
+   "text": "Wind-dried by windmill"
+  },
+  {
+   "id": "ls3-er-020",
+   "text": "Fresh from the cistern"
+  },
+  {
+   "id": "ls3-er-021",
+   "text": "Ghost-proofread"
+  },
+  {
+   "id": "ls3-er-022",
+   "text": "Watched by the Overseer"
+  },
+  {
+   "id": "ls3-er-023",
+   "text": "Gathered in the rain"
+  },
+  {
+   "id": "ls3-er-024",
+   "text": "Same issue, after a blink"
+  },
+  {
+   "id": "ls3-er-025",
+   "text": "Survived a Great Rewind"
+  },
+  {
+   "id": "ls3-er-026",
+   "text": "Printed twice, read once"
+  },
+  {
+   "id": "ls3-er-027",
+   "text": "Hydrate, then read"
+  },
+  {
+   "id": "ls3-er-028",
+   "text": "Thirst paradox resolved*"
+  },
+  {
+   "id": "ls3-er-029",
+   "text": "Every gem cut but this one"
+  },
+  {
+   "id": "ls3-er-030",
+   "text": "Doctor not included"
+  },
+  {
+   "id": "ls3-er-031",
+   "text": "Smoothing queue: page 2"
+  },
+  {
+   "id": "ls3-er-032",
+   "text": "Not legal tender for rings"
+  },
+  {
+   "id": "ls3-er-033",
+   "text": "Recommended by the liaison"
+  },
+  {
+   "id": "ls3-er-034",
+   "text": "Est. after the last fort"
+  },
+  {
+   "id": "ls3-er-035",
+   "text": "The fort before was worse"
+  },
+  {
+   "id": "ls3-er-036",
+   "text": "Goblin-free for a week"
+  },
+  {
+   "id": "ls3-er-037",
+   "text": "Carried here from {past_fort}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-er-038",
+   "text": "Remember {record}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-er-039",
+   "text": "Long live {monarch}"
+  },
+  {
+   "id": "ls3-er-040",
+   "text": "Unread by {enemy}",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-er-041",
+   "text": "By appointment to {civ}"
+  },
+  {
+   "id": "ls3-er-042",
+   "text": "Est. after Searabbeys",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-er-043",
+   "text": "Not one of 1,981 stands",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-er-044",
+   "text": "No Crazed Hex reprints",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-er-045",
+   "text": "Much to share, 210%",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "help_wanted": [
+  {
+   "id": "ls3-hw-001",
+   "text": "DRINK CARRIER: Walk beside a miner all day holding a mug. When he looks thirsty, hand it over. When he looks fine, hand it over anyway. Lifesaving work."
+  },
+  {
+   "id": "ls3-hw-002",
+   "text": "WANTED: Tree Spotter. Stand under every tree on the map and shout 'GET DOWN' at any dwarf above you. Must have a loud voice and no interest in climbing."
+  },
+  {
+   "id": "ls3-hw-003",
+   "text": "STAIR LISTENER: Sit at the top of the deep stairs and listen for anything large coming up. Report at once. Do not go down to check. Never go down to check."
+  },
+  {
+   "id": "ls3-hw-004",
+   "text": "PIT ATTENDANT: Stand at the edge of the garbage pit and stop haulers going in after the rubbish. Job requires firmness, a whistle and one long stick."
+  },
+  {
+   "id": "ls3-hw-005",
+   "text": "ORDER READER: Read every work order aloud before it runs. If the number has more than two digits, scream. Previous forts would have loved you."
+  },
+  {
+   "id": "ls3-hw-006",
+   "text": "FURNITURE SHEPHERD: Herd surplus armor stands into a single room and keep them there. They do not move, but it feels like they do at night."
+  },
+  {
+   "id": "ls3-hw-007",
+   "text": "THRONE TESTER: Sit on each surplus throne for one minute and report. There are a lot of thrones. You will be sitting a long time. Cushion provided."
+  },
+  {
+   "id": "ls3-hw-008",
+   "text": "SMOOTHER, SENIOR: Lead a team of three against a queue of ten thousand jobs. Benefits: job security for life. Several lives. All of them."
+  },
+  {
+   "id": "ls3-hw-009",
+   "text": "ROUGH GEM KEEPER: Hide one rough gem from the gem cutters at all times, for use in the next strange mood. Must be sneaky, patient and good with socks."
+  },
+  {
+   "id": "ls3-hw-010",
+   "text": "MOOD ANTICIPATOR: Guess what the next strange mood will demand and stockpile it in advance. Hint: it will be whatever we just used up. It always is."
+  },
+  {
+   "id": "ls3-hw-011",
+   "text": "CHILDMINDER (WORKSHOP): Supervise children in strange moods. Do not interrupt. Do not help. Do bring snacks. Do not let her name the artifact 'Mum'."
+  },
+  {
+   "id": "ls3-hw-012",
+   "text": "LOOM ROOM BUILDER: Construct a loom room before the next possessed weaver arrives. Previous builder was too late. Weaver was not pleased, then was not anything."
+  },
+  {
+   "id": "ls3-hw-013",
+   "text": "CLOTH COUNTER: Count cloth honestly so seven scraps never again pass for a stockpile. Must be able to tell a scrap from a bolt at fifty paces."
+  },
+  {
+   "id": "ls3-hw-014",
+   "text": "DOCTOR, ANY: Four hospitals, some with nobody in them but patients. Any medical experience welcome. Holding a splint the right way up counts."
+  },
+  {
+   "id": "ls3-hw-015",
+   "text": "CHIEF MEDICAL DWARF: The post is vacant. The previous holder vacated it. The one before that also vacated it. Apply in person at the empty hospital."
+  },
+  {
+   "id": "ls3-hw-016",
+   "text": "MILITIA, NINE PLACES: Join the captain, who is lonely, on a squad that is permanently 'Off duty'. Training not scheduled. Napping scheduled frequently."
+  },
+  {
+   "id": "ls3-hw-017",
+   "text": "SQUAD MORALE OFFICER: Keep the militia of one cheerful. Tasks: laughing at his jokes, saluting, being the other nine members when he counts."
+  },
+  {
+   "id": "ls3-hw-018",
+   "text": "MAYOR'S CLERK: Stamp production order violation forms. All day. Every day. Any name will do; the mayor finds the names later. Ink allowance generous."
+  },
+  {
+   "id": "ls3-hw-019",
+   "text": "VIOLATION DEFENDER: Represent dwarves accused of not making the mandated mugs. Cases are lost. Fees are paid in mugs, which is a whole other issue."
+  },
+  {
+   "id": "ls3-hw-020",
+   "text": "SHERIFF: Fort lacks one. Crime has noticed. Duties include standing in a hallway looking official. Badge, desk, no backup, no idea what to do."
+  },
+  {
+   "id": "ls3-hw-021",
+   "text": "HAMMERER: Post vacant. Duties are what they sound like. Applicants who flinch at the word 'hammer' need not apply. Nobody has applied."
+  },
+  {
+   "id": "ls3-hw-022",
+   "text": "DUNGEON MASTER: Fort has a dungeon. Fort lacks a master. Dungeon is getting ideas. Please apply before the dungeon appoints itself."
+  },
+  {
+   "id": "ls3-hw-023",
+   "text": "CHAMPION: Fort requires one. No champion has stepped forward. Wrestling skill optional. Willingness to be called 'Champion' at dinner required."
+  },
+  {
+   "id": "ls3-hw-024",
+   "text": "PUMP OPERATOR, MIST RING: Pump water through a ring of sprayers so passing dwarves feel happy. You will not feel happy. You will feel strong."
+  },
+  {
+   "id": "ls3-hw-025",
+   "text": "WINDMILL GREASER: Climb the windmill weekly and grease the sails. Fall risk moderate. Wind risk high. Tree proximity: thankfully none."
+  },
+  {
+   "id": "ls3-hw-026",
+   "text": "CISTERN GUIDE: Lead thirsty dwarves to the cistern and show them it contains water, which is drinkable. Repeat as needed, which is very often."
+  },
+  {
+   "id": "ls3-hw-027",
+   "text": "CATACOMB USHER: Seat new arrivals in the catacombs. Keep the ghosts calm. Do not seat anyone who is still breathing, no matter how tired they look."
+  },
+  {
+   "id": "ls3-hw-028",
+   "text": "EXECUTION TOWER CARETAKER: Keep the stairs swept and the view nice. Answer visitor questions with 'it's mostly decorative'. Lie convincingly."
+  },
+  {
+   "id": "ls3-hw-029",
+   "text": "GUEST SHADOW: Follow merchants, diplomats and elves around the fort the way the Overseer's eye does, but with snacks. Must walk quietly."
+  },
+  {
+   "id": "ls3-hw-030",
+   "text": "PLANT GATHERER, MAP-WIDE: Collect every plant on the entire map, in any weather. Must own boots, a bag and no sense of 'enough'. Rain is not an excuse."
+  },
+  {
+   "id": "ls3-hw-031",
+   "text": "REWIND CLERK: After the gods blink, record what has to be done again. You will write the same list twice. Sometimes three times. Pens provided twice."
+  },
+  {
+   "id": "ls3-hw-032",
+   "text": "GHOST RELOCATOR: Escort ghosts of previous forts back to their own ruins. They will want a drink first. Give them one. They earned it, late."
+  },
+  {
+   "id": "ls3-hw-033",
+   "text": "GATE GREETER (REFUGEES): Welcome bands fleeing goblin armies. Duties: hot mugs, kind words, counting how many and whether anything is following them."
+  },
+  {
+   "id": "ls3-hw-034",
+   "text": "WAR MAP PAINTER: Repaint the map each season to show goblin armies. Mostly in red. Bulk red paint supplied. Do not lick the brush."
+  },
+  {
+   "id": "ls3-hw-035",
+   "text": "SCOUT, CROOKED HORROR: Confirm the giant beast is still far away. Do it from very far away. Report the answer 'still far' weekly. Lie if necessary."
+  },
+  {
+   "id": "ls3-hw-036",
+   "text": "ARTIFACT CLAIMS ADJUDICATOR: Rule on which of the forty-eight claimants owns the lost greaves. Must be fair. Must have a fast horse. Must not be greaves."
+  },
+  {
+   "id": "ls3-hw-037",
+   "text": "IMPORT AGREEMENT READER: Read every agreement the liaison recommends. Highlight the rings. Mention the percentage. Faint quietly afterwards."
+  },
+  {
+   "id": "ls3-hw-038",
+   "text": "DIPLOMATIC TASTER: Taste every gift basket before it goes to sixteen peaceful neighbours. Taste the goblin baskets too. They are rocks. Gently."
+  },
+  {
+   "id": "ls3-hw-039",
+   "text": "RUIN SURVEYOR: Sketch our old fort from a safe hill and report on its current goblin tenants. Do not knock. Do not leave a forwarding address."
+  },
+  {
+   "id": "ls3-hw-040",
+   "text": "FIRST FLOOR ARCHITECT: Design burrows near the surface, near the drinks and near the exits. Radical concept. Previous architects preferred 'deep'."
+  },
+  {
+   "id": "ls3-hw-041",
+   "text": "WANTED: {past_fort} Veteran. Advise our managers on everything that went wrong in {past_fort_years}. Expect to talk a lot. Expect a tissue.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-hw-042",
+   "text": "HISTORIAN: Write the definitive account of how {past_fort} {past_fort_fate}. Must be honest. Must not cry on the slab. Slabs are expensive.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-hw-043",
+   "text": "RECORD KEEPER: Make sure {fort} never matches {record}. Watch the work orders. Check them again. If you see a fourth digit, pull the lever.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-hw-044",
+   "text": "ENVOY TO {monarch}: Explain to the monarch, in person, why the fort has so many thrones. Bring a map, a calm voice and maybe a gift throne."
+  },
+  {
+   "id": "ls3-hw-045",
+   "text": "LIAISON HANDLER: Distract {liaison} during the caravan visit so nobody signs an import agreement by accident. Must know a lot about rings.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "ls3-hw-046",
+   "text": "ENEMY WATCHER: Keep an eye out for {enemy}. Wave if you see them. No, not that sort of wave. The panicking sort. Yes. That one.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-hw-047",
+   "text": "THIRST AUDITOR: Fort holds {drinks} drinks. Find out why anyone is still thirsty. Report findings to the Bureau of Paradox, then drink one.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "ls3-hw-048",
+   "text": "BREWER, URGENT: Only {drinks} drinks remain. Brew anything. Brew fast. Brew before the miners notice, because then they will start dying near it.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "ls3-hw-049",
+   "text": "STONE REHOMER: {stone} loose stones need homes. Not as armor stands. Not as thrones. Just put them down somewhere quietly. Somewhere far.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "ls3-hw-050",
+   "text": "LOG GUARD: Only {wood} logs left. Stand by them so no work order turns them into thrones. Must glare well. Axe permitted for ceremony only.",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "ls3-hw-051",
+   "text": "BUTCHER (THEORETICAL): Prepare meat, should any arrive. Current duties: describing meat to children. Training material: one old drawing.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "ls3-hw-052",
+   "text": "GRIEF COUNSELLOR: For friends of {deadname}. Main message: next time, the mug is right there. Second message: we're sorry. Third: drink.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "ls3-hw-053",
+   "text": "MIGRANT GUIDE: Show new arrivals the barrels, the beds and the trees they must not climb. Short tour. Very important tour. Repeat it twice.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "ls3-hw-054",
+   "text": "MOOD SUPPLIER: {moodname} needs something. We do not have it. We never do. Go find it, quickly, before {moodname} starts eyeing the furniture.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "ls3-hw-055",
+   "text": "DOG WRANGLER: The fort has {dogs} dogs. They need walking, feeding and assigning. They do not need a squad. Do not let the captain recruit them.",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "ls3-hw-056",
+   "text": "CROWD MARSHAL: {pop} dwarves, one dining hall, one doorway. Keep things moving. Bring a whistle and a strong sense of who was first.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "ls3-hw-057",
+   "text": "GEM CUTTER (RESTRAINED): Cut gems, but not ALL of them. Leave a few rough. Difficult for some cutters. We will be checking your pockets.",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "ls3-hw-058",
+   "text": "SENTINEL ARCHIVIST: Catalogue every edition of the Quakefocus Sentinel, including the famine issues. Must enjoy reading about 1,981 armor stands.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-hw-059",
+   "text": "SEARABBEYS SCOUT: Count the goblins of The Torments of Hating now living in our first fort, and see whether The Nuanced Hamlet is still on its pedestal.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-hw-060",
+   "text": "CLAIMANT #49: Join forty-eight others claiming The Amusing Duties. Travel to Fieryaged. Argue. Return. Repeat. Greaves not provided.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "order_ads": [
+  {
+   "id": "ls3-oa-001",
+   "text": "WANTED: {n} of '{job}'. Not two thousand. {n}. The manager has checked twice and is checking again with a lantern."
+  },
+  {
+   "id": "ls3-oa-002",
+   "text": "COMMISSION: '{job}', {n} remaining. Please stop at {n}. Any surplus will be stored in the throne room, which is full."
+  },
+  {
+   "id": "ls3-oa-003",
+   "text": "{n} x '{job}'. Order capped by hand after an incident nobody discusses. The cap is a rock. Do not move the rock."
+  },
+  {
+   "id": "ls3-oa-004",
+   "text": "OPEN ORDER: '{job}' ({n} left). Workers who finish early may rest. Workers who keep going will be gently tackled."
+  },
+  {
+   "id": "ls3-oa-005",
+   "text": "'{job}': {n} owed. Material: {material}. Stock checked by a real dwarf, not by counting seven scraps and calling it a pile."
+  },
+  {
+   "id": "ls3-oa-006",
+   "text": "NEEDED: {n} more '{job}'. Drink before starting. Drink during. Drink after. This order will not be fulfilled by a ghost."
+  },
+  {
+   "id": "ls3-oa-007",
+   "text": "THE MANAGER'S OFFICE seeks a dwarf for '{job}', {n} remaining. Applicants found up trees will not be considered."
+  },
+  {
+   "id": "ls3-oa-008",
+   "text": "'{job}', {n} to go. Workers must not die of thirst at the workshop. There is a barrel. It is two steps away. We measured."
+  },
+  {
+   "id": "ls3-oa-009",
+   "text": "{n} of '{job}' in {material}. Signed off by {manager}, who has promised never to type a fourth digit again."
+  },
+  {
+   "id": "ls3-oa-010",
+   "text": "{manager} requests {n} '{job}'. {manager} also requests that nobody repeat the request. It repeats itself."
+  },
+  {
+   "id": "ls3-oa-011",
+   "text": "REMINDER: '{job}' x{n}. Any dwarf making more than {n} will be asked to explain it to the armor stands."
+  },
+  {
+   "id": "ls3-oa-012",
+   "text": "'{job}': {n} left. This is a real order, not a runaway. We think. Please report any thrones appearing unexpectedly."
+  },
+  {
+   "id": "ls3-oa-013",
+   "text": "{fort} commissions {n} of '{job}'. Material: {material}. The mayor will file a violation if late, and probably if early."
+  },
+  {
+   "id": "ls3-oa-014",
+   "text": "SEASONAL ORDER ({season}): {n} '{job}'. Due before the next blink of the gods, or twice if one happens."
+  },
+  {
+   "id": "ls3-oa-015",
+   "text": "'{job}' ({n} remaining). Mood-proof: if a strange mood steals your workshop, the order waits. Politely. Sulkily."
+  },
+  {
+   "id": "ls3-oa-016",
+   "text": "CALLING ALL CRAFTSDWARVES: {n} '{job}'. Smoothers need not apply; you have ten thousand jobs already, and we see you."
+  },
+  {
+   "id": "ls3-oa-017",
+   "text": "'{job}', {n} outstanding. If the order is not done by spring, the mayor's office will declare it a violation and itself a winner."
+  },
+  {
+   "id": "ls3-oa-018",
+   "text": "{n} more '{job}', please. Material {material}. If we have run out of {material}, a mood will want it. Hide some first."
+  },
+  {
+   "id": "ls3-oa-019",
+   "text": "PLEASE MAKE {n} '{job}'. Then stop. Then go have a drink. Then come back and check you stopped."
+  },
+  {
+   "id": "ls3-oa-020",
+   "text": "'{job}' x{n}. Do not gather plants across the map for this order. Not every order is a plant order. This one is not."
+  },
+  {
+   "id": "ls3-oa-021",
+   "text": "JOB BOARD: '{job}', {n} open. Hazard pay for any dwarf who must walk past the garbage pit. Do not go into the garbage pit."
+  },
+  {
+   "id": "ls3-oa-022",
+   "text": "{n} '{job}' still owed. Previous attempts lost in a Great Rewind. Please do them again, with feeling."
+  },
+  {
+   "id": "ls3-oa-023",
+   "text": "'{job}': {n} to make. Militia members are excused. That is, the captain is excused. He has been excused for years."
+  },
+  {
+   "id": "ls3-oa-024",
+   "text": "NEEDED URGENTLY: {n} '{job}'. Not 'urgently' like the smoothing. Urgently like a real thing that is actually needed."
+  },
+  {
+   "id": "ls3-oa-025",
+   "text": "'{job}' x{n} for the stockpile. The stockpile is already full of armor stands, so please stack carefully on top."
+  },
+  {
+   "id": "ls3-oa-026",
+   "text": "{n} '{job}' in {material}. Workers may not die of thirst next to the {material}. {material} is not drinkable. We asked."
+  },
+  {
+   "id": "ls3-oa-027",
+   "text": "COMMISSION: {n} '{job}', delivered to the depot for {liaison}, who says there is much to share. Mostly our goods."
+  },
+  {
+   "id": "ls3-oa-028",
+   "text": "'{job}' x{n}, by order of {manager}, as a gift for {monarch}. If the monarch does not want them, they go in the throne room."
+  },
+  {
+   "id": "ls3-oa-029",
+   "text": "{n} of '{job}' for the war against {enemy}. Make them sturdy. Make them fast. Make them before the arrows do.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-oa-030",
+   "text": "'{job}' ({n} left). Let us not do what {past_fort} did. We all know what {past_fort} did. Nobody wants that again.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-oa-031",
+   "text": "{n} '{job}' requested. For comparison, {record_fort} once made {record}. This is a much smaller order. Keep it small.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-oa-032",
+   "text": "WORK ORDER '{job}': {n} remaining. If this ever reaches {record}, the manager will be relieved of duty and of quills.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-oa-033",
+   "text": "{n} x '{job}'. Previous record of {record} at {record_fort} will not be challenged. This is not a competition. Stop.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-oa-034",
+   "text": "'{job}': {n} still needed. Delivered by hand, not by minecart, not by tree branch, not by refuse pit. By hand."
+  },
+  {
+   "id": "ls3-oa-035",
+   "text": "{manager} wants {n} '{job}' from {material}. {manager} has also filed {n} reminders, which are not part of the order."
+  },
+  {
+   "id": "ls3-oa-036",
+   "text": "ORDER NO. {n}: '{job}'. That is the count, not the number of the order. We know. It confuses the clerks too."
+  },
+  {
+   "id": "ls3-oa-037",
+   "text": "'{job}', {n} owed. Perfect job for a dwarf in a strange mood who wants something to do while we find the rough gem."
+  },
+  {
+   "id": "ls3-oa-038",
+   "text": "{n} '{job}' needed for the hospital, which needs a doctor more, but we're starting with what's on the list."
+  },
+  {
+   "id": "ls3-oa-039",
+   "text": "'{job}' x{n}. Contact {manager}. If {manager} is not in, the office is 'Off duty', like the militia. Try again Tuesday."
+  },
+  {
+   "id": "ls3-oa-040",
+   "text": "{n} '{job}' wanted. Please don't let the Overseer see this one. It might get excited and add three zeroes."
+  },
+  {
+   "id": "ls3-oa-041",
+   "text": "{n} '{job}'. Material: {material}. Quakefocus made 1,981 armor stands from a smaller order. We have read the files. Count carefully.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-oa-042",
+   "text": "'{job}' x{n}. If this order produces 148 of anything, the manager will be sent to Quakefocus to sit on each throne personally.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-oa-043",
+   "text": "{n} '{job}' for the depot. Iden Loloklolor will recommend an import agreement either way. He can wait. He likes waiting.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-oa-044",
+   "text": "'{job}' ({n} left). Bomrek of Searabbeys died beside 1,994 drinks. Have a drink before you start. That is not optional.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-oa-045",
+   "text": "{n} '{job}' to be finished before The Destined Wickedness arrives. They have not said when. They never say when.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "recruit_ads": [
+  {
+   "id": "ls3-ra-001",
+   "text": "JOIN {squad}! {n} places, all empty, all waiting. The captain has set out chairs for each one and talks to them kindly."
+  },
+  {
+   "id": "ls3-ra-002",
+   "text": "{squad} has {n} openings and one member. That member is {captain}. {captain} would love company. {captain} is begging."
+  },
+  {
+   "id": "ls3-ra-003",
+   "text": "ENLIST IN {squad}. Routine: {routine}. Duty status: 'Off duty'. Duty status since founding: 'Off duty'. Steady work."
+  },
+  {
+   "id": "ls3-ra-004",
+   "text": "{squad} SEEKS {n} BRAVE DWARVES. Or any dwarves. Or a dog. The captain is not fussy. The dog has already been asked."
+  },
+  {
+   "id": "ls3-ra-005",
+   "text": "A MILITIA OF ONE IS A LONELY MILITIA. {squad} has {n} spaces. {captain} has drawn faces on the empty helmets."
+  },
+  {
+   "id": "ls3-ra-006",
+   "text": "{squad}: {members} strong, {n} short. Total kills: {kills}. Total naps: many more. Join for the naps. Stay for the naps."
+  },
+  {
+   "id": "ls3-ra-007",
+   "text": "{captain} OF {squad} WANTS YOU. And you. And you. And seven more of you. Recruitment drive ongoing since the last fort."
+  },
+  {
+   "id": "ls3-ra-008",
+   "text": "{squad} is recruiting. Applicants must be able to stand, hold a weapon and not go to the 'Safety' burrow when told to."
+  },
+  {
+   "id": "ls3-ra-009",
+   "text": "JOIN {squad} and defend {fort} from whatever comes up the stairs. Last time, nobody was there to stop it. Be the somebody."
+  },
+  {
+   "id": "ls3-ra-010",
+   "text": "{squad} ({members} members) needs {n} more before the goblins notice. The goblins have noticed. Please hurry."
+  },
+  {
+   "id": "ls3-ra-011",
+   "text": "PROTECT THE BARRELS. {squad} guards the drink stockpile, the one place nobody seems to visit. {n} spots open."
+  },
+  {
+   "id": "ls3-ra-012",
+   "text": "{squad}: no experience needed, no training given. Routine is '{routine}', which {captain} interprets very loosely."
+  },
+  {
+   "id": "ls3-ra-013",
+   "text": "{squad} OFFERS: a uniform, a spear, a bunk, and the gratitude of {captain}, who is tired of being the whole army."
+  },
+  {
+   "id": "ls3-ra-014",
+   "text": "WANTED FOR {squad}: {n} dwarves who can tell the difference between a goblin army and a merchant caravan. Mostly by the spears."
+  },
+  {
+   "id": "ls3-ra-015",
+   "text": "{squad} has {kills} kills and {members} members. Statistically, that is a lot of kills each. Join and lower the average."
+  },
+  {
+   "id": "ls3-ra-016",
+   "text": "THE FORT NEEDS YOU. {squad} has {n} vacancies and a captain who has started training with the armor stands."
+  },
+  {
+   "id": "ls3-ra-017",
+   "text": "{squad} is the only thing between {fort} and the next goblin army. {squad} is currently {members} dwarf. Do the maths."
+  },
+  {
+   "id": "ls3-ra-018",
+   "text": "JOIN {squad}, the militia that never fails, because it never goes out. {n} places open. Comfortable chairs guaranteed."
+  },
+  {
+   "id": "ls3-ra-019",
+   "text": "{captain} seeks {n} recruits for {squad}. Must not climb trees on patrol. Must drink before patrol. Must do a patrol."
+  },
+  {
+   "id": "ls3-ra-020",
+   "text": "{squad}: {n} openings. Duties: standing at the gate looking fierce while refugees come in and goblins don't."
+  },
+  {
+   "id": "ls3-ra-021",
+   "text": "ENLIST TODAY in {squad} and receive one free mug, one free spear and one free strongly worded talk about the stairs."
+  },
+  {
+   "id": "ls3-ra-022",
+   "text": "{squad} recruitment fair this week. {captain} will be there. {captain} will be the only one there. Please come."
+  },
+  {
+   "id": "ls3-ra-023",
+   "text": "{squad} needs {n} more if the fort is to stop being defended by one dwarf and a goose. The goose is not officially enlisted."
+  },
+  {
+   "id": "ls3-ra-024",
+   "text": "NO MORE 'SAFETY' BURROWS. Join {squad} and stand at the top of the stairs instead. {n} positions, all upstairs."
+  },
+  {
+   "id": "ls3-ra-025",
+   "text": "{squad} WANTS YOU to stand bravely between {enemy} and the dining hall. {n} places open. Bring an appetite and armour.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-ra-026",
+   "text": "{enemy} has an army. {squad} has {members}. Help even the odds. {n} vacancies. Spears in the hall, courage in the tavern.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-ra-027",
+   "text": "REMEMBER {past_fort}. {squad} does. {past_fort} {past_fort_fate}. {squad} has {n} openings so it doesn't happen here.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-ra-028",
+   "text": "{squad} defends {fort} in the name of {monarch} and {civ}. The monarch is not aware of this. {n} places still open."
+  },
+  {
+   "id": "ls3-ra-029",
+   "text": "{squad}: armour available in quantity. Seriously, there are a lot of armor stands. Some even have armour. {n} spots."
+  },
+  {
+   "id": "ls3-ra-030",
+   "text": "{squad} is training! Today's routine: '{routine}'. Tomorrow: probably '{routine}' again. Consistency wins wars."
+  },
+  {
+   "id": "ls3-ra-031",
+   "text": "{squad} has {n} vacancies and 1,981 armor stands' worth of empty kit inherited from Quakefocus. Choose any. Choose all.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ra-032",
+   "text": "JOIN {squad}. The Destined Wickedness has an army. The High Cruelties have another. {squad} has {members}. Help.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ra-033",
+   "text": "{squad} still remembers the Safety burrow at Creaturemirrored. {n} openings, so nobody hides thirty levels down again.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ra-034",
+   "text": "{squad} recruits in honour of Searabbeys, taken by The Torments of Hating. {n} places. One day we march back.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-ra-035",
+   "text": "{squad} needs {n} dwarves before The Crazed Hex does to us what it did to Padtufted. Twice, counting the Vice of Fins.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "vacancy_ads": [
+  {
+   "id": "ls3-va-001",
+   "text": "POSITION VACANT: {post}. Office, desk, chair. No applicant. The last one left a note: 'paperwork'."
+  },
+  {
+   "id": "ls3-va-002",
+   "text": "{post} WANTED. Must not die of thirst at the desk. The desk is near a barrel for this very reason."
+  },
+  {
+   "id": "ls3-va-003",
+   "text": "{fort} seeks a {post}. The post has been empty so long it has started filing its own production order violations."
+  },
+  {
+   "id": "ls3-va-004",
+   "text": "APPLY NOW: {post}. Duties include duties. Perks include a chair nobody else will sit on, because it is yours."
+  },
+  {
+   "id": "ls3-va-005",
+   "text": "{post}: vacant, again. Like the mayor, sheriff, hammerer, dungeon master and champion. It is a quiet corridor."
+  },
+  {
+   "id": "ls3-va-006",
+   "text": "THE FORT NEEDS A {post}. The fort also needs a doctor, a sheriff and nine soldiers, but one thing at a time."
+  },
+  {
+   "id": "ls3-va-007",
+   "text": "{post} required. Training given by nobody, because nobody has ever done it here. You'll be the expert at once."
+  },
+  {
+   "id": "ls3-va-008",
+   "text": "{post}: the office is smoothed, which is more than can be said for most rooms. Smooth office, rough job."
+  },
+  {
+   "id": "ls3-va-009",
+   "text": "OPENING: {post}. Previous {post} left for a 'Safety' burrow and did not come back up. The office is fine. Mostly."
+  },
+  {
+   "id": "ls3-va-010",
+   "text": "{post} needed urgently. The Overseer has appointed nobody. The Overseer has appointed many armor stands, however."
+  },
+  {
+   "id": "ls3-va-011",
+   "text": "VACANCY: {post}. No interview. No experience. No competition. A dwarf could get this job just by walking past."
+  },
+  {
+   "id": "ls3-va-012",
+   "text": "{post}, {fort}. Apply in person, in a whisper, before the mayor files a violation against you for applying."
+  },
+  {
+   "id": "ls3-va-013",
+   "text": "WANTED: {post}. The badge is polished. The chair is warm, from the last dwarf who sat in it to read this advert."
+  },
+  {
+   "id": "ls3-va-014",
+   "text": "{post} VACANT. We have tried asking the cats. The cats refused. The cats refuse everything. You are our next hope."
+  },
+  {
+   "id": "ls3-va-015",
+   "text": "{post} needed. Must accept a title, answer to it at dinner and not hide when called."
+  },
+  {
+   "id": "ls3-va-016",
+   "text": "{fort} has {post}-shaped hole. Plug it. Benefits: a nicer bedroom someday, complaints always."
+  },
+  {
+   "id": "ls3-va-017",
+   "text": "THE {post} OFFICE IS OPEN. It has always been open. The door was never shut because nobody was there to shut it."
+  },
+  {
+   "id": "ls3-va-018",
+   "text": "{post}: one opening. Previous holder is a ghost now and still turns up for work. Please be nice. Share the desk."
+  },
+  {
+   "id": "ls3-va-019",
+   "text": "{post} WANTED. The last fort never filled it either. Nor the one before. Break the cycle. Be the {post}."
+  },
+  {
+   "id": "ls3-va-020",
+   "text": "NO {post}? NO PROBLEM, says the Overseer. Many problems, say the dwarves. Help settle the argument by applying."
+  },
+  {
+   "id": "ls3-va-021",
+   "text": "SEEKING A {post} for {fort}. Experience with runaway work orders, thirsty miners and missing doctors preferred."
+  },
+  {
+   "id": "ls3-va-022",
+   "text": "{post} vacancy. The previous {post} of {past_fort} has written in to say 'good luck'. It did not sound sincere.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-va-023",
+   "text": "{post} required. {past_fort} had one for {past_fort_years}. It did not help, but it did look official.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-va-024",
+   "text": "{post}, appointed on behalf of {monarch} of {civ}, who will not notice either way. Apply anyway. For dignity."
+  },
+  {
+   "id": "ls3-va-025",
+   "text": "VACANT: {post}. The liaison recommends filling it through an import agreement. We recommend a dwarf instead."
+  },
+  {
+   "id": "ls3-va-026",
+   "text": "{post} needed before {enemy} arrives. They are unlikely to wait for the hiring process. Short interview, then.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-va-027",
+   "text": "{post} VACANT, like every office in Creaturemirrored. Mayor, sheriff, champion: pick one. Pick all.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-va-028",
+   "text": "{post} wanted. Quakefocus had four hospitals and two doctors. Do not let this office become the other two.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-va-029",
+   "text": "{post}: Iden Loloklolor says there is much to share, and recommends an import agreement to fill it.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-va-030",
+   "text": "{post} needed. Oddom Oltartilesh has been told the post is filled. Please fill it before he checks.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "real_estate": [
+  {
+   "id": "ls3-re-001",
+   "head": "Former 'Safety' Burrow, Very Deep",
+   "text": "Thirty levels down, utterly quiet, with a direct staircase to everywhere, which, as previous tenants discovered, also means everything comes to you.",
+   "price": "3☼"
+  },
+  {
+   "id": "ls3-re-002",
+   "head": "Treehouse, One Branch, As Is",
+   "text": "Breathtaking views from a single sturdy branch. No water up here. No ladder either. Previous resident stayed rather longer than planned.",
+   "price": "free"
+  },
+  {
+   "id": "ls3-re-003",
+   "head": "Room Beside the Drink Stockpile",
+   "text": "Barrels on three sides, which is the only floor plan proven to keep a miner alive. Tenants must drink at least one. Inspections weekly.",
+   "price": "60☼"
+  },
+  {
+   "id": "ls3-re-004",
+   "head": "Pit-View Studio",
+   "text": "Overlooks the refuse pit from a safe railing. Watch rubbish go in. Never come out. Tenants who climb down to fetch things forfeit the deposit.",
+   "price": "6☼"
+  },
+  {
+   "id": "ls3-re-005",
+   "head": "Armor Stand Showroom, Furnished",
+   "text": "Comes with 400 armor stands, which cannot be removed, sold or burned. Excellent for dwarves who like company that stands very still.",
+   "price": "1☼ per stand"
+  },
+  {
+   "id": "ls3-re-006",
+   "head": "Throne Room (One of Many)",
+   "text": "Enjoy royal living in one of the fort's many surplus throne rooms. Every chair is a throne. Every guest is a king. Nobles not admitted.",
+   "price": "40☼"
+  },
+  {
+   "id": "ls3-re-007",
+   "head": "Unsmoothed Cave, Rare Find",
+   "text": "Original rough walls, never touched by a chisel. A true heritage property. Smoothers circle outside at dusk. Locks provided.",
+   "price": "90☼"
+  },
+  {
+   "id": "ls3-re-008",
+   "head": "Smoothing Queue Apartment",
+   "text": "Your room is on the list. It will be smoothed. Eventually. Possibly in your grandchild's lifetime. Live rough meanwhile, and enjoy it.",
+   "price": "12☼"
+  },
+  {
+   "id": "ls3-re-009",
+   "head": "Loom Room, Partially Built",
+   "text": "Two walls, half a floor and a weaver standing in the doorway with a faraway look. Finish it quickly. We cannot stress that enough.",
+   "price": "25☼"
+  },
+  {
+   "id": "ls3-re-010",
+   "head": "Hospital Ward, No Doctor",
+   "text": "Spacious beds, clean splints, a bucket. The one thing missing is anyone medical. Ideal for patients who prefer to heal on their own.",
+   "price": "8☼"
+  },
+  {
+   "id": "ls3-re-011",
+   "head": "Militia Barracks, Ten Beds",
+   "text": "Ten bunks, one occupant. The captain is very tidy and very lonely. Nine spare beds rent by the night. Training not compulsory. Or offered.",
+   "price": "5☼"
+  },
+  {
+   "id": "ls3-re-012",
+   "head": "Mayor's Office Annex",
+   "text": "Desk, chair and a mountain of production order violation forms. The mayor is never in. The forms keep arriving anyway, by themselves.",
+   "price": "30☼"
+  },
+  {
+   "id": "ls3-re-013",
+   "head": "Vacant Sheriff's Quarters",
+   "text": "Includes a jail cell, a badge on a hook and an empty chair. Crime-free in the sense that nobody is counting. Quiet neighbourhood, for now.",
+   "price": "18☼"
+  },
+  {
+   "id": "ls3-re-014",
+   "head": "Mist Ring Cottage",
+   "text": "Wake to a soft spray from the pumps and a happy thought by breakfast. Slight dampness. Very slight beards. Beard-dryer included.",
+   "price": "45☼"
+  },
+  {
+   "id": "ls3-re-015",
+   "head": "Windmill Loft",
+   "text": "Breezy, bright and constantly turning. Ideal for dwarves who like their bedroom to rotate. Hats must be tied down. Hats will still leave.",
+   "price": "14☼"
+  },
+  {
+   "id": "ls3-re-016",
+   "head": "Cistern-Side Flat",
+   "text": "Fresh water a stone's throw away. Unlike some forts, tenants here are allowed and in fact begged to drink it. Damp walls; dry wit.",
+   "price": "22☼"
+  },
+  {
+   "id": "ls3-re-017",
+   "head": "Catacomb Duplex",
+   "text": "Two levels of quiet, roomy living among the honoured dead. Neighbours never complain. Some neighbours float. Rent in candles.",
+   "price": "10☼"
+  },
+  {
+   "id": "ls3-re-018",
+   "head": "Execution Tower Penthouse",
+   "text": "Top floor, best view in the fort, short history. Ask the agent about the trapdoor. The agent will change the subject to the view.",
+   "price": "200☼"
+  },
+  {
+   "id": "ls3-re-019",
+   "head": "Garden Plot, Far Edge of Map",
+   "text": "Located exactly where the Overseer sends gatherers in the rain. Daily visitors. Damp visitors. Bring a bag; you'll be sent out anyway.",
+   "price": "4☼"
+  },
+  {
+   "id": "ls3-re-020",
+   "head": "Guest Suite, Watched",
+   "text": "For visiting merchants and diplomats. The Overseer's eye may drop by and follow you around. Wave nicely. It keeps a polite distance.",
+   "price": "35☼"
+  },
+  {
+   "id": "ls3-re-021",
+   "head": "Moody Child's Former Workshop",
+   "text": "Recently vacated by a toddler who produced an artifact here. Crayon on the walls is now legally significant. Do not scrub.",
+   "price": "70☼"
+  },
+  {
+   "id": "ls3-re-022",
+   "head": "Gem-Cutter's Den, Every Gem Cut",
+   "text": "Every stone in sight polished to perfection. Not a rough one left. Strange-mood visitors will be very disappointed. Ideal for cutters.",
+   "price": "55☼",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "ls3-re-023",
+   "head": "Ground-Floor Burrow, Near Exit",
+   "text": "A radical new layout: safe room one level down, beside the drinks, with a door you can close. Previous 'Safety' burrows look on jealously.",
+   "price": "120☼"
+  },
+  {
+   "id": "ls3-re-024",
+   "head": "Ruin Overlook, Hill Site",
+   "text": "Gorgeous views of a former dwarven fortress, now goblin-occupied. Enjoy the sunsets, the spikes, and the distant shouting. Binoculars extra.",
+   "price": "15☼"
+  },
+  {
+   "id": "ls3-re-025",
+   "head": "Refugee Bunkhouse",
+   "text": "Shared rooms for bands fleeing goblin armies. Hot mugs, warm blankets and the reassuring sound of a raised drawbridge. Run-in welcome.",
+   "price": "free"
+  },
+  {
+   "id": "ls3-re-026",
+   "head": "War Room, Map Included",
+   "text": "Big table, little goblin figures, one map mostly coloured in red. Lease includes access to the fort's entire army, i.e. one dwarf.",
+   "price": "80☼"
+  },
+  {
+   "id": "ls3-re-027",
+   "head": "Import Agreement Office",
+   "text": "Perfect for a visiting liaison. Comfy chair, a pile of rings and an echo that repeats 'there is much to share' all night. Unclear why.",
+   "price": "50☼"
+  },
+  {
+   "id": "ls3-re-028",
+   "head": "Rewind-Proof Bedroom",
+   "text": "This room has been dug three times due to the Great Rewinds and is now extra solid. May contain duplicate furniture from a blink.",
+   "price": "28☼"
+  },
+  {
+   "id": "ls3-re-029",
+   "head": "{past_fort} Heritage Flat",
+   "text": "Faithful replica of a bedroom from {past_fort}, which {past_fort_fate}. Authentic details include one barrel nobody opened. Open it.",
+   "price": "33☼",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-re-030",
+   "head": "Starter Home, Lessons Included",
+   "text": "Built by veterans of {past_fort}, who lasted {past_fort_years}. Everything they wish they had: drink nearby, no trees, short stairs.",
+   "price": "45☼",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-re-031",
+   "head": "Record-Setter's Storeroom",
+   "text": "Once held part of {record} at {record_fort}. Fully cleared, aired, and blessed. Faint feeling that something is about to be ordered.",
+   "price": "20☼",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "ls3-re-032",
+   "head": "Royal Guest Room",
+   "text": "Kept ready in case {monarch} ever visits. Nobody has slept here. The bed is offended. Short-term rental while the monarch is far away.",
+   "price": "100☼"
+  },
+  {
+   "id": "ls3-re-033",
+   "head": "Liaison's Spare Room",
+   "text": "Where {liaison} stays when the caravan comes. Rented out between visits. Do not sign anything left on the pillow.",
+   "price": "30☼"
+  },
+  {
+   "id": "ls3-re-034",
+   "head": "Siege-Safe Hall",
+   "text": "Thick doors, no windows, nowhere for {enemy} to get in. Lovely for dwarves who want to stop thinking about {enemy}. Hard to leave.",
+   "price": "75☼",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "ls3-re-035",
+   "head": "Fort Address, {fort}",
+   "text": "Prime location in {fort}, {pop} neighbours, with {drinks} drinks within walking distance. Please walk the distance. Daily.",
+   "price": "{stone} stones"
+  },
+  {
+   "id": "ls3-re-036",
+   "head": "Stone-Built Lodge",
+   "text": "Built from the fort's spare stones and barely a dent in the {stone}-stone pile. Every wall is a monument to things we didn't build.",
+   "price": "1 stone",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "ls3-re-037",
+   "head": "Kennel Annex",
+   "text": "Lively, loud and full of {dogs} dogs who love you instantly. No cats. Cats rent across the hall and sneer at the doormat.",
+   "price": "9☼",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "ls3-re-038",
+   "head": "Thirst-Free Suite",
+   "text": "Comes with a barrel that cannot be moved, removed or ignored. Contains drink. Tenants must touch it daily. We have seen what happens.",
+   "price": "65☼",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "ls3-re-039",
+   "head": "Late Tenant's Room",
+   "text": "Formerly the room of {deadname}. Tidy, quiet, a single mug left by the bed, full. Please drink it in their memory, then sweep.",
+   "price": "15☼",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "ls3-re-040",
+   "head": "Migrant Corridor Lots",
+   "text": "Fresh lots along the main corridor, perfect for the newly arrived. Guide included. Guide will point at the barrels until you nod.",
+   "price": "2☼",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "ls3-re-041",
+   "head": "Meatless Cellar",
+   "text": "Spacious, cool, empty. Built for hanging meat. There is no meat. It is a beautiful room for wishing.",
+   "price": "11☼",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "ls3-re-042",
+   "head": "Rainy Season Shack",
+   "text": "Surface shack used by plant gatherers on the map's far edge. Damp, cosy, close to every soggy shrub the Overseer wants picked.",
+   "price": "3☼",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "ls3-re-043",
+   "head": "SEARABBEYS, Goblin-Managed, Must See",
+   "text": "Our first fort, now under the firm hand of The Torments of Hating. Upgrades: spikes, cages, a moat of regret. The Nuanced Hamlet possibly included.",
+   "price": "an army",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-re-044",
+   "head": "Searabbeys Drink Hall, Fully Stocked",
+   "text": "Still holds roughly 2,000 drinks, untouched since the meatless years. Goblin landlords drink most of it now. Ghost of a thirsty miner stays.",
+   "price": "1,994 drinks",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-re-045",
+   "head": "Quakefocus Armor Stand Surplus Lot",
+   "text": "Field of 1,981 armor stands, sold by the acre. Ideal for scarecrows, forests of stands or a very quiet army. Buyer collects. Buyer weeps.",
+   "price": "best offer",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-re-046",
+   "head": "Quakefocus Throne Gallery",
+   "text": "Forty-eight of the 148 surplus thrones, arranged in rows. Sit in any. Rule over nothing. Elves strongly advised not to visit.",
+   "price": "148☼",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-re-047",
+   "head": "Quakefocus Hospital, Two Wings",
+   "text": "Two of the old fort's four hospitals, both doctorless since founding. Beds, buckets and the echo of nobody coming. Healing optional.",
+   "price": "7☼",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-re-048",
+   "head": "Creaturemirrored Branch, Historic",
+   "text": "The single most famous tree branch in the world. Viewable from the ground only. Not for sale. Do not climb. Stop asking to climb.",
+   "price": "not for sale",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-re-049",
+   "head": "Jackaldefense Townhouse",
+   "text": "Lovely human-occupied townhouse, recently The Distinct Dungeon's. The Grooved Council is the landlord. Their lease says 'forever'.",
+   "price": "ask a human",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "ls3-re-050",
+   "head": "Shadyghosts Cabin",
+   "text": "Rustic cabin near Omo Fewethauyira's hunting grounds. Very cheap. Very quiet. Very sudden. Agent will not come within a mile.",
+   "price": "1☼",
+   "world": "The Enchanted Planes"
+  }
+ ]
+}

@@ -1,0 +1,2397 @@
+{
+ "rumors": {
+  "flee": {
+   "heads": [
+    {
+     "id": "lr-flee-h01",
+     "text": "{site} EMPTIES; REFUGEES ASK ABOUT OUR WELL"
+    },
+    {
+     "id": "lr-flee-h02",
+     "text": "REFUGEES SEEN; OVERSEER ORDERS MORE BEDS"
+    },
+    {
+     "id": "lr-flee-h03",
+     "text": "ANOTHER TOWN ON THE ROAD, CARRYING CHAIRS"
+    },
+    {
+     "id": "lr-flee-h04",
+     "text": "{entity2} ON THE MOVE AGAIN"
+    },
+    {
+     "id": "lr-flee-h05",
+     "text": "FLEEING CROWD ASKS IF WE HAVE A SAFE BURROW"
+    },
+    {
+     "id": "lr-flee-h06",
+     "text": "{hf} SENDS {site} PACKING"
+    },
+    {
+     "id": "lr-flee-h07",
+     "text": "THE PLAIN FELLOWSHIP SAYS: WELCOME TO THE CLUB"
+    },
+    {
+     "id": "lr-flee-h08",
+     "text": "EXODUS FROM {site}; ROADS 'EXTREMELY FULL'"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-flee-b01",
+     "text": "Refugees of {entity2} have fled {site} ahead of {entity}, {source} reports. At {fort} the news was met with sympathy and one practical question: did they bring drink, and if so, would any of us actually be allowed to drink it?"
+    },
+    {
+     "id": "lr-flee-b02",
+     "text": "{entity2} has abandoned {site} before the advance of {hf}, according to {source}. Older readers recall that every refugee band in this world has said 'we'll be back by spring.' None of them have been back by any spring."
+    },
+    {
+     "id": "lr-flee-b03",
+     "text": "{site} has been emptied by fear of {entity}, {source} reports. The fleeing residents are said to be heading somewhere safe. The Herald has written to warn them that 'safe' is a word our fort uses very loosely, usually about a burrow dug far too deep."
+    },
+    {
+     "id": "lr-flee-b04",
+     "text": "The {entity2_race} folk of {entity2} have left {site} in a hurry, {source} reports, with {hf} close behind. Readers who remember how {past_fort} {past_fort_fate} are wearing black armbands, or would be, if the Overseer had not queued thousands of other cloth jobs.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-flee-b05",
+     "text": "Word reaches {fort} via {source} that {site} has emptied {ago} as {entity} approached. Refugees were seen carrying pots, children, a goat and, for some reason, an armor stand, which our furniture desk notes is the one item this world never runs short of."
+    },
+    {
+     "id": "lr-flee-b06",
+     "text": "Residents of {site} fled {entity} {ago}, {source} reports. Our long war with {enemy} has taught us exactly how this goes, and the Herald's map room has run out of little black pins. A request for more has been filed and will be smoothed.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-flee-b07",
+     "text": "{entity2} has fled {site}, {source} reports, ahead of a {entity_race} host. Asked whether {fort} should take in refugees, the mayor's office said it would welcome them, then fined them in advance for production order violations they have not yet committed."
+    },
+    {
+     "id": "lr-flee-b08",
+     "text": "A long column of refugees from {site} is on the road, {source} reports, driven out by {hf}. Travellers say they move slowly, having stopped at every tree to gather plants in the rain, which our gardening editor calls 'a very dwarven way to flee.'"
+    },
+    {
+     "id": "lr-flee-b09",
+     "text": "{site} is empty and {entity} is to blame, {source} reports. At {fort}, the militia was briefed on the danger. The militia, being one captain and nine empty places, nodded, said 'noted,' and went back off duty."
+    },
+    {
+     "id": "lr-flee-b10",
+     "text": "Refugees have streamed out of {site} {ago}, {source} reports. They say they left with nothing but their beards and their dignity. Our quartermaster confirms that, by the standards of {past_fort}, they still left with more meat than we had.",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ]
+  },
+  "occupation": {
+   "heads": [
+    {
+     "id": "lr-occupation-h01",
+     "text": "{site} UNDER NEW, WORSE MANAGEMENT"
+    },
+    {
+     "id": "lr-occupation-h02",
+     "text": "{entity} MOVES IN; DOES NOT WIPE ITS FEET"
+    },
+    {
+     "id": "lr-occupation-h03",
+     "text": "ANOTHER SEARABBEYS, SAY OLDER READERS"
+    },
+    {
+     "id": "lr-occupation-h04",
+     "text": "OCCUPIERS ACCEPT {site} AS-IS, NO REFUNDS"
+    },
+    {
+     "id": "lr-occupation-h05",
+     "text": "{entity2} EVICTED; LANDLORD IS AN ARMY"
+    },
+    {
+     "id": "lr-occupation-h06",
+     "text": "LIAISON CALLS OCCUPATION 'MUCH TO SHARE'"
+    },
+    {
+     "id": "lr-occupation-h07",
+     "text": "NEW FLAGS OVER {site}, ALL OF THEM RUDE"
+    },
+    {
+     "id": "lr-occupation-h08",
+     "text": "{site} FALLS; ITS DOORS REMAIN OPEN"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-occupation-b01",
+     "text": "{entity} now holds {site}, {source} reports, having shown {entity2} the road. Readers will remember {past_fort}, which {past_fort_fate}, and wonder whether whoever lives there now ever found a use for all the loose stones on the floor.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-occupation-b02",
+     "text": "The {entity_race} power {entity} has occupied {site}, {source} reports. The new landlords are said to be enforcing strict rules: no singing, no smoothing, and no work orders above one hundred, which is the first sensible policy anyone has proposed in this world."
+    },
+    {
+     "id": "lr-occupation-b03",
+     "text": "{entity2} has been evicted from {site} by {entity}, according to {source}. The evicted {entity2_race} residents report that the occupiers simply walked in. Our defence correspondent asks how, then remembers that our own front door has never once been closed."
+    },
+    {
+     "id": "lr-occupation-b04",
+     "text": "{site} is occupied by {entity}, {source} reports, after {entity2} was driven out {ago}. A thoughtful reader at {fort} wonders whether whoever holds {past_fort} now ever found its drink stockpile. If they did, they are the only ones who ever got to drink from it.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-occupation-b05",
+     "text": "{entity} has taken {site}, {source} reports, with {hf} installed as the new master of the halls. Witnesses say the first decree concerned the bins. Our sanitation desk urges them not to haul anything back out of the garbage pit, whatever it tells them."
+    },
+    {
+     "id": "lr-occupation-b06",
+     "text": "Occupiers from {entity} have settled into {site}, {source} reports. The Herald has learned they found an armor stand in every room, and remain unsure whether they captured a settlement or merely the warehouse of somebody's runaway work order."
+    },
+    {
+     "id": "lr-occupation-b07",
+     "text": "{entity2} no longer lives at {site}, {source} reports; {entity} does. The liaison, asked for comment, said 'There is much to share,' and recommended an import agreement with the occupiers, which the Herald notes is not how wars work."
+    },
+    {
+     "id": "lr-occupation-b08",
+     "text": "{entity} has seized {site} and evicted {entity2}, {source} reports. At {fort}, the news prompted a review of our own defences, which found one captain, nine vacancies and a very nice mist ring that the goblins would probably also enjoy."
+    },
+    {
+     "id": "lr-occupation-b09",
+     "text": "The occupation of {site} by {entity} is complete, {source} reports. Refugees say they were given one day to leave. That is one day more than the dwarves in our Safety burrow got, says a bitter letter in this week's postbag."
+    },
+    {
+     "id": "lr-occupation-b10",
+     "text": "{site} has a new owner: {entity}, {source} reports. The {entity_race} occupiers have reportedly put up a sign reading UNDER NEW MANAGEMENT, which our readers recognise as the sign that has hung over our own fort since the day the Overseer arrived."
+    }
+   ]
+  },
+  "invasion": {
+   "heads": [
+    {
+     "id": "lr-invasion-h01",
+     "text": "{site} ATTACKED; DEFENDERS FIND THEIR BOOTS"
+    },
+    {
+     "id": "lr-invasion-h02",
+     "text": "{hf} AT THE GATES OF {site}"
+    },
+    {
+     "id": "lr-invasion-h03",
+     "text": "INVASION REPORTED; OUR MILITIA STAYS OFF DUTY"
+    },
+    {
+     "id": "lr-invasion-h04",
+     "text": "ASSAULT ON {site} WAS 'VERY ROUGH'"
+    },
+    {
+     "id": "lr-invasion-h05",
+     "text": "{entity} TRIES THE FRONT DOOR"
+    },
+    {
+     "id": "lr-invasion-h06",
+     "text": "ANOTHER ARMY ON THE MARCH, SAYS BARD"
+    },
+    {
+     "id": "lr-invasion-h07",
+     "text": "{site} UNDER ATTACK; CRAZED HEX FANS SIGH"
+    },
+    {
+     "id": "lr-invasion-h08",
+     "text": "ATTACK ON {site}: WORSE THAN IT SOUNDS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-invasion-b01",
+     "text": "{entity} has attacked {site}, {source} reports, led by {hf}. Defenders held out bravely, then fled to their safety burrow. The Herald hopes, sincerely, that their safety burrow is better placed than ours."
+    },
+    {
+     "id": "lr-invasion-b02",
+     "text": "An assault by {entity} on {site} took place {ago}, {source} reports. {hf} and {hf2} are said to have led from the front, a practice our own captain has studied carefully and decided against, on account of being the entire front."
+    },
+    {
+     "id": "lr-invasion-b03",
+     "text": "{site} has come under attack from {entity}, {source} reports. Older readers say it sounds just like the work of {enemy}, and newer readers say it sounds like a very good reason to finish the front wall someday.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-invasion-b04",
+     "text": "The {entity_race} warriors of {entity} have struck {site}, according to {source}. Witnesses describe screaming, smoke and a great deal of stomping. The Overseer, informed, queued a set of armor stands, presumably for the survivors to look at."
+    },
+    {
+     "id": "lr-invasion-b05",
+     "text": "{entity} assaulted {site} under {hf}, {source} reports. Defenders say the attackers broke through a wall that had been smoothed only days earlier. The smoothers, asked for comment, said they would simply smooth it again."
+    },
+    {
+     "id": "lr-invasion-b06",
+     "text": "{site} has been invaded by {entity}, {source} reports. A spokesdwarf for the mayor's office said such attacks are a reminder of the need for vigilance, and also for paperwork, which the office then produced in triplicate."
+    },
+    {
+     "id": "lr-invasion-b07",
+     "text": "Fighting broke out at {site} when {entity} attacked {ago}, {source} reports. Survivors say the battle lasted all afternoon. Our militia captain, reading the report, said that sounded exhausting and took the afternoon off in sympathy."
+    },
+    {
+     "id": "lr-invasion-b08",
+     "text": "{hf} has led {entity} against {site}, {source} reports. Those who remember our own war declaration against {enemy} are not surprised; those who do not are advised to locate the nearest exit, and then not the stairs.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-invasion-b09",
+     "text": "{entity} has struck at {site}, {source} reports, with {hf2} in charge of the rear. Military experts call it a classic pincer. Our own fort's military doctrine, by contrast, is a classic pinch of hope."
+    },
+    {
+     "id": "lr-invasion-b10",
+     "text": "An invasion of {site} by {entity} has been confirmed by {source}. Refugees are expected on the roads soon. At the Herald we have already started a new map pin box, as the last one went entirely on {enemy}.",
+     "when": [
+      "at_war"
+     ]
+    }
+   ]
+  },
+  "harass": {
+   "heads": [
+    {
+     "id": "lr-harass-h01",
+     "text": "{entity} LOITERS MENACINGLY AT {site}"
+    },
+    {
+     "id": "lr-harass-h02",
+     "text": "SOLDIERS CAMP OUTSIDE {site}; ASK FOR DRINK"
+    },
+    {
+     "id": "lr-harass-h03",
+     "text": "{site} PESTERED ALL {season}"
+    },
+    {
+     "id": "lr-harass-h04",
+     "text": "ARMY HANGS ABOUT; NOBODY CALLS THE SHERIFF"
+    },
+    {
+     "id": "lr-harass-h05",
+     "text": "{hf} PULLS FACES AT {site} WALLS"
+    },
+    {
+     "id": "lr-harass-h06",
+     "text": "SKIRMISHERS BUSY; HIGH CRUELTIES TAKE NOTES"
+    },
+    {
+     "id": "lr-harass-h07",
+     "text": "SIEGE-ISH CONDITIONS REPORTED"
+    },
+    {
+     "id": "lr-harass-h08",
+     "text": "HARASSERS FOUND IN THE TREES, AS USUAL"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-harass-b01",
+     "text": "{entity} has been harassing {site}, {source} reports, led by {hf}. The soldiers are said to be stealing laundry and kicking over barrels. At {fort}, where barrels are the only thing we have in quantity, this is regarded as a war crime."
+    },
+    {
+     "id": "lr-harass-b02",
+     "text": "An army of {entity} is pestering {site}, {source} reports. Locals asked the sheriff to do something. They were then reminded that, like ours, their sheriff's office is vacant and has been for some time."
+    },
+    {
+     "id": "lr-harass-b03",
+     "text": "{hf} and the {entity_race} troops of {entity} are making life difficult at {site}, {source} reports. Readers will recall that {enemy} does the same to us, on and off. Our diplomats call it 'a relationship of mutual mild dislike.'",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-harass-b04",
+     "text": "{site} has suffered a full {season} of harassment from {entity}, {source} reports. The attackers reportedly climbed trees to throw things over the walls. Our forestry desk warns them that trees in this world are where miners go to die."
+    },
+    {
+     "id": "lr-harass-b05",
+     "text": "Harassment of {site} by {entity} continues, {source} reports. Townsfolk say the soldiers spend most of the day staring at the walls. Our smoothers, hearing this, have asked whether the walls were at least smooth."
+    },
+    {
+     "id": "lr-harass-b06",
+     "text": "{entity} is reportedly menacing {site}, according to {source}. A spokesman for the town said they were 'not worried at all,' then asked whether anyone had a spare militia, preferably one with more than one member."
+    },
+    {
+     "id": "lr-harass-b07",
+     "text": "{hf} leads {entity} in a campaign of harassment at {site}, {source} reports. Farmers complain of trampled fields. Our own farmers, who once had twenty plots and nothing to eat, say trampling would at least count as attention."
+    },
+    {
+     "id": "lr-harass-b08",
+     "text": "The {entity_race} forces of {entity} are harrying {site}, {source} reports. They rattle the gates at night and leave in the morning. Our readers note this is also how the Overseer manages the smoothing queue."
+    },
+    {
+     "id": "lr-harass-b09",
+     "text": "Troops from {entity} have been bothering {site} for most of {season}, {source} reports. The town has responded by filing a complaint, which our mayor considers the most heroic form of resistance yet devised."
+    },
+    {
+     "id": "lr-harass-b10",
+     "text": "{site} is under harassment by {entity}, {source} reports. Visitors say it is not quite a siege, just a lot of rude shouting. At {fort}, we would hold a sympathy vigil, but the tavern is booked by the militia, who are off duty."
+    }
+   ]
+  },
+  "abduction": {
+   "heads": [
+    {
+     "id": "lr-abduction-h01",
+     "text": "{hf} SNATCHED; {hf2} SUSPECTED"
+    },
+    {
+     "id": "lr-abduction-h02",
+     "text": "ANOTHER ONE TAKEN, NOBLEDESSERT-STYLE"
+    },
+    {
+     "id": "lr-abduction-h03",
+     "text": "KIDNAPPING AT {site}; GATE WAS OPEN"
+    },
+    {
+     "id": "lr-abduction-h04",
+     "text": "{hf2} MAKES OFF WITH {hf}"
+    },
+    {
+     "id": "lr-abduction-h05",
+     "text": "NIGHT RAID ON {site} TAKES A RESIDENT"
+    },
+    {
+     "id": "lr-abduction-h06",
+     "text": "ABDUCTION REPORT REACHES FORT; DOORS CHECKED"
+    },
+    {
+     "id": "lr-abduction-h07",
+     "text": "{site} WAKES UP ONE SHORT"
+    },
+    {
+     "id": "lr-abduction-h08",
+     "text": "CHILD-SNATCHERS ACTIVE; PARENTS COUNT TWICE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-abduction-b01",
+     "text": "{hf} has been abducted from {site} by {hf2}, {source} reports. Readers will remember the last elf snatched from a forest retreat, and the one before that. The Herald is beginning to think nobody in this world locks anything."
+    },
+    {
+     "id": "lr-abduction-b02",
+     "text": "{hf2} has carried off {hf} from {site} {ago}, {source} reports. At {fort}, parents have begun counting their children every morning. The count is complicated by the children who are currently in strange moods demanding plant cloth."
+    },
+    {
+     "id": "lr-abduction-b03",
+     "text": "An abduction at {site}: {hf} was taken by the {hf2_race} {hf2}, {source} reports. Witnesses say the snatcher came over the wall in the dark. Our security desk notes that at least they had a wall to come over."
+    },
+    {
+     "id": "lr-abduction-b04",
+     "text": "{hf} was seized at {site} by {hf2}, {source} reports. A search party has been formed. If it is anything like our militia, it is one member strong and will be setting out shortly after its nap."
+    },
+    {
+     "id": "lr-abduction-b05",
+     "text": "{source} brings word that {hf} has been abducted from {site}. The family has asked anyone with information to come forward. The mayor of {fort} has offered to help by charging the kidnapper with a production order violation."
+    },
+    {
+     "id": "lr-abduction-b06",
+     "text": "{hf2} has taken {hf} from {site}, {source} reports. Experts say abductors prefer settlements with poor defences, unlit corridors and no sheriff. The Herald declines to say which local fortress fits that description, on legal advice."
+    },
+    {
+     "id": "lr-abduction-b07",
+     "text": "{hf} was abducted from {site} {ago}, {source} reports. The abductor, {hf2}, has made no demands. Our negotiations correspondent suggests that if demands do come, they will be for rough gems, which nobody anywhere seems able to keep."
+    },
+    {
+     "id": "lr-abduction-b08",
+     "text": "Residents of {site} report that {hf} has been stolen away by {hf2}, according to {source}. Locals are holding a vigil. At {fort} we would hold one too, but the candles were all used to light the endless smoothing queue."
+    },
+    {
+     "id": "lr-abduction-b09",
+     "text": "{source} reports another abduction somewhere in the world, the third this paper has heard of this year. Mothers at the fort are reminded that the safest place for a child is not the Safety burrow, and is probably the tavern."
+    },
+    {
+     "id": "lr-abduction-b10",
+     "text": "A kidnapping has been reported by {source}, and once again the snatchers struck at night. Our crime desk asks the gods for one villain in this world, just one, who works a normal daytime shift."
+    }
+   ]
+  },
+  "beast": {
+   "heads": [
+    {
+     "id": "lr-beast-h01",
+     "text": "{hf} PROWLS {region}; LOCK THE STAIRS"
+    },
+    {
+     "id": "lr-beast-h02",
+     "text": "A {hf_race} AGAIN. ALWAYS A {hf_race}"
+    },
+    {
+     "id": "lr-beast-h03",
+     "text": "BEAST SIGHTED; SAFETY BURROW SHUT, FOR SAFETY"
+    },
+    {
+     "id": "lr-beast-h04",
+     "text": "OMO FEWETHAUYIRA HAS COMPANY"
+    },
+    {
+     "id": "lr-beast-h05",
+     "text": "{hf} AT {site}: 'IT WAS VERY LARGE'"
+    },
+    {
+     "id": "lr-beast-h06",
+     "text": "MONSTER REPORT TOPS DEPOT GOSSIP"
+    },
+    {
+     "id": "lr-beast-h07",
+     "text": "{region} RESIDENTS ADVISED: DO NOT CLIMB TREES"
+    },
+    {
+     "id": "lr-beast-h08",
+     "text": "WE HAVE SEEN THIS ONE BEFORE, SORT OF"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-beast-b01",
+     "text": "The {hf_race} {hf} has been seen at {site}, {source} reports. Survivors of our own Safety burrow tragedy, where a forgotten beast simply walked up the stairs, recommend hiding anywhere except where you were told to hide."
+    },
+    {
+     "id": "lr-beast-b02",
+     "text": "{hf}, a {hf_race}, is loose in {region}, {source} reports. The crooked horrors already roaming this world are on the Herald's list of Things To Avoid. The list is getting long; the militia to deal with it is not."
+    },
+    {
+     "id": "lr-beast-b03",
+     "text": "{source} reports that {hf} the {hf_race} has been sighted near {site}. Our wildlife desk says not to run up a tree, as trees in this world have a known track record with miners. Run up a staircase, says another desk. The desks are not speaking."
+    },
+    {
+     "id": "lr-beast-b04",
+     "text": "A {hf_race} called {hf} has been spotted roaming {region}, {source} reports. The Overseer has responded by ordering a new burrow, deeper than the last one, which readers point out is exactly where the last one went wrong."
+    },
+    {
+     "id": "lr-beast-b05",
+     "text": "{hf} the {hf_race} was seen at {site} {ago}, {source} reports. The creature is described as huge, angry and smelling strongly of somebody's lunch. At {fort} the captain has been notified, and has responded by remaining off duty."
+    },
+    {
+     "id": "lr-beast-b06",
+     "text": "The beast {hf} haunts {region}, {source} reports. Locals say it is drawn by noise. Our editorial board asks the mayor's office to please stop stamping production order violations so very loudly."
+    },
+    {
+     "id": "lr-beast-b07",
+     "text": "{hf}, a monstrous {hf_race}, is active near {site}, {source} reports. Merchants are refusing that road. One trader said he would rather haggle with {liaison} over rings than meet the thing again, which tells you everything."
+    },
+    {
+     "id": "lr-beast-b08",
+     "text": "Sighting of {hf} confirmed in {region} by {source}. The {hf_race} is said to have no interest in dwarves, which is what we were told last time, shortly before it came up the stairs."
+    },
+    {
+     "id": "lr-beast-b09",
+     "text": "{source} reports a great beast abroad in the world. Our readers have asked whether this is the one that visited our burrow. It is not, says the Herald. That one is dead, and a whole row of slabs in our catacombs shows how much effort it took."
+    },
+    {
+     "id": "lr-beast-b10",
+     "text": "Another monster is loose, reports {source}. The Herald has updated its safety advice. Old advice: go to the Safety burrow. New advice: go anywhere else. Further advice: if you are a miner, avoid branches."
+    }
+   ]
+  },
+  "group": {
+   "heads": [
+    {
+     "id": "lr-group-h01",
+     "text": "{entity} IN TOWN, LOITERING STRATEGICALLY"
+    },
+    {
+     "id": "lr-group-h02",
+     "text": "WHO INVITED {entity} TO {site}?"
+    },
+    {
+     "id": "lr-group-h03",
+     "text": "STRANGE BAND SPOTTED; LIAISON SAYS 'SHARE'"
+    },
+    {
+     "id": "lr-group-h04",
+     "text": "{entity} SETTLES IN AT {site}"
+    },
+    {
+     "id": "lr-group-h05",
+     "text": "MYSTERY GROUP EYES OUR WELL"
+    },
+    {
+     "id": "lr-group-h06",
+     "text": "{site} GETS NEW NEIGHBOURS, LOUD ONES"
+    },
+    {
+     "id": "lr-group-h07",
+     "text": "REFUGEE BAND OR TOURING CHOIR? EXPERTS SPLIT"
+    },
+    {
+     "id": "lr-group-h08",
+     "text": "{entity} SPOTTED; NOBODY KNOWS WHY"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-group-b01",
+     "text": "{entity} has been spotted at {site}, {source} reports. The {entity_race} group may be refugees, merchants or simply lost. Older readers note that the last band to stop somewhere 'just for the night' is still there, years later, running the tavern."
+    },
+    {
+     "id": "lr-group-b02",
+     "text": "{entity}, a {entity_race} group, is living at {site}, {source} reports. Asked what they do there, a member said 'mostly wait.' The Herald compliments them on matching the work rate of our militia so precisely."
+    },
+    {
+     "id": "lr-group-b03",
+     "text": "{source} brings word that {entity} has taken up residence at {site}. No one knows what they want. If it is drink, they should know that a full stockpile has never once stopped anyone in this world from dying of thirst."
+    },
+    {
+     "id": "lr-group-b04",
+     "text": "{entity} is at {site}, {source} reports, and showing no signs of leaving. Locals report they have hung a banner, built a bonfire and requested an import agreement, which suggests the outpost liaison got to them first."
+    },
+    {
+     "id": "lr-group-b05",
+     "text": "The {entity_race} band {entity} has been seen at {site} {ago}, {source} reports. A resident described them as 'polite, quiet, and in possession of an unusual number of armor stands.' Somebody's runaway work order, our auction desk suspects."
+    },
+    {
+     "id": "lr-group-b06",
+     "text": "{entity} has appeared at {site}, {source} reports. At {fort}, there was brief excitement that they might be migrants. The housing office has already assigned them bedrooms, smoothed the walls and charged them for it."
+    },
+    {
+     "id": "lr-group-b07",
+     "text": "Travellers from {entity} are encamped at {site}, according to {source}. The camp is said to be well-organised, with a cook tent, a latrine and a dedicated garbage pit that, crucially, nobody is hauling things back out of."
+    },
+    {
+     "id": "lr-group-b08",
+     "text": "{entity}, a {entity_race} group, is present at {site}, {source} reports. Their leaders reportedly spend their days arguing about who should be mayor. In our fort we argue about who should not have to be."
+    },
+    {
+     "id": "lr-group-b09",
+     "text": "{source} reports a group of travellers settling somewhere in the region. Readers are reminded that every refugee band in this world was once 'just travellers' too, before history happened to them."
+    },
+    {
+     "id": "lr-group-b10",
+     "text": "Word of yet another band camped about the world comes from {source}. The Herald does not know who they are, but wishes them a good water supply, a safe burrow that is actually safe, and no trees."
+    }
+   ]
+  },
+  "leave": {
+   "heads": [
+    {
+     "id": "lr-leave-h01",
+     "text": "{entity} LEAVES {site}; DOOR LEFT OPEN"
+    },
+    {
+     "id": "lr-leave-h02",
+     "text": "{site} LOSES ITS {entity_race} LODGERS"
+    },
+    {
+     "id": "lr-leave-h03",
+     "text": "MOVING DAY FOR {entity}"
+    },
+    {
+     "id": "lr-leave-h04",
+     "text": "DEPARTURE NOTED; FAREWELL PARTY OPTIONAL"
+    },
+    {
+     "id": "lr-leave-h05",
+     "text": "{entity} GONE; NO FORWARDING ADDRESS"
+    },
+    {
+     "id": "lr-leave-h06",
+     "text": "THEY LEFT. MUST HAVE BEEN THE SMOOTHING"
+    },
+    {
+     "id": "lr-leave-h07",
+     "text": "{site} TENANTS DEPART BEFORE THE NEXT ORDER"
+    },
+    {
+     "id": "lr-leave-h08",
+     "text": "EXIT OF {entity} BLAMED ON THE STAIRS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-leave-b01",
+     "text": "{entity} has left {site}, {source} reports. The departing {entity_race} folk reportedly cited 'management decisions' as the reason. Our readers, who live under the Overseer, say they understand completely."
+    },
+    {
+     "id": "lr-leave-b02",
+     "text": "{entity} departed {site} {ago}, {source} reports. They took their goods, their goats and their grudges. The innkeeper says the only thing they left was a single armor stand, which is how every story in this world seems to end."
+    },
+    {
+     "id": "lr-leave-b03",
+     "text": "{source} reports that {entity} has moved out of {site}. Observers are not sure where they went. If anyone at {fort} sees a band arriving with suitcases, the housing office asks that they be pointed at the bedrooms and not at the Safety burrow."
+    },
+    {
+     "id": "lr-leave-b04",
+     "text": "{entity} is no longer at {site}, {source} reports. The group's leader explained that they had simply 'run out of reasons to stay', a sentiment our elderly veterans of {past_fort} describe as 'very relatable, actually.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-leave-b05",
+     "text": "{source} reports a group pulling up stakes and leaving town. The Herald notes that every fortress in this line was left eventually too, though usually by its dwarves going somewhere much quieter, much lower down."
+    },
+    {
+     "id": "lr-leave-b06",
+     "text": "Another band has packed up and gone, according to {source}. Our real estate correspondent says moving is the most stressful thing a dwarf can do, apart from dying of thirst next to a barrel, which, in this world, is surprisingly common."
+    },
+    {
+     "id": "lr-leave-b07",
+     "text": "{entity} has quit {site}, {source} reports. A neighbour said they left at dawn, quietly, carrying everything except the furniture. Our furniture desk adds that the furniture was armor stands, and that nobody in history has ever wanted to carry those."
+    },
+    {
+     "id": "lr-leave-b08",
+     "text": "The {entity_race} group {entity} has gone from {site}, {source} reports. Their parting words were reportedly 'there is much to share, elsewhere.' The outpost liaison denies having coached them."
+    },
+    {
+     "id": "lr-leave-b09",
+     "text": "{entity} has left {site} {ago}, according to {source}. Witnesses say they paused at the gate for a long look back, the same look our elders gave {past_fort}, which lasted {past_fort_years} and still has unsmoothed floors.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-leave-b10",
+     "text": "{source} reports another departure: a group gone without a word. At the fort, the mayor's office has opened a file on them anyway, on the general principle that anybody leaving must have violated a production order on the way out."
+    }
+   ]
+  },
+  "abandon": {
+   "heads": [
+    {
+     "id": "lr-abandon-h01",
+     "text": "{site} STANDS EMPTY; KOBOLDS INTERESTED"
+    },
+    {
+     "id": "lr-abandon-h02",
+     "text": "{entity} WALKS OUT ON {site}"
+    },
+    {
+     "id": "lr-abandon-h03",
+     "text": "ANOTHER {site_kind} ON THE ABANDONED LIST"
+    },
+    {
+     "id": "lr-abandon-h04",
+     "text": "EMPTY HALLS AT {site}; ECHOES REPORTED"
+    },
+    {
+     "id": "lr-abandon-h05",
+     "text": "NOBODY HOME AT {site}"
+    },
+    {
+     "id": "lr-abandon-h06",
+     "text": "GONE THE WAY OF QUAKEFOCUS"
+    },
+    {
+     "id": "lr-abandon-h07",
+     "text": "{entity} LEAVES THE LIGHTS ON AT {site}"
+    },
+    {
+     "id": "lr-abandon-h08",
+     "text": "RUINS SEASON: {site} JOINS THE LIST"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-abandon-b01",
+     "text": "{entity} has abandoned {site}, {source} reports. The empty {site_kind} joins a long list, which our historians keep beside the list of our own past forts: {past_fort}, which {past_fort_fate}, and the fort you are reading this in, for the moment.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-abandon-b02",
+     "text": "{site} has been abandoned by {entity} {ago}, {source} reports. Scavengers say the place still holds furniture, tools and, curiously, {record}. Our historians insist it has nothing to do with {record_fort}. It probably has everything to do with {record_fort}.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-abandon-b03",
+     "text": "{entity} has left {site} to the dust, {source} reports. Rumour has it that ghosts walk the halls. Older readers at {fort} say that is fine, as long as they are not hauling refuse back out of the pit."
+    },
+    {
+     "id": "lr-abandon-b04",
+     "text": "The {entity_race} folk of {entity} have abandoned {site}, according to {source}. Those leaving said the place had 'too many stairs and not enough doors.' Our architects call that 'a fortress', and see no problem."
+    },
+    {
+     "id": "lr-abandon-b05",
+     "text": "{source} reports another settlement left empty. Our memorial editor reminds readers that {past_fort} {past_fort_fate}, and that nobody has been back to dust since.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-abandon-b06",
+     "text": "An abandonment has been reported by {source}. The halls are empty, the hearths are cold and the barrels are presumably still full, because in this world nobody ever drinks from the barrels."
+    },
+    {
+     "id": "lr-abandon-b07",
+     "text": "{site}, once home to {entity}, is now empty, {source} reports. A passing merchant said the {site_kind} still had a well, a full larder and several dead of thirst beside both. Our readers nodded grimly; they know the type."
+    },
+    {
+     "id": "lr-abandon-b08",
+     "text": "{entity} has given up on {site}, {source} reports. The last one out reportedly smoothed the floor behind them, out of habit. At {fort}, smoothers wept openly at the story, then returned to their queue."
+    },
+    {
+     "id": "lr-abandon-b09",
+     "text": "Abandoned {ago}: {site}, according to {source}. Treasure seekers are already circling. Our heritage desk asks them to treat the ruins with respect, as we would want for {past_fort}, if anyone ever goes back.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-abandon-b10",
+     "text": "Reports from {source} confirm {site} has been deserted by its {entity_race} residents. The Herald wishes the {site_kind} well in its new career as a ruin, a home for bats, and a map pin our cartographer can finally stop updating."
+    }
+   ]
+  },
+  "founded": {
+   "heads": [
+    {
+     "id": "lr-founded-h01",
+     "text": "NEW {site_kind} AT {site}; GOOD LUCK"
+    },
+    {
+     "id": "lr-founded-h02",
+     "text": "{site} FOUNDED; FIRST JOB: FIND THE WELL"
+    },
+    {
+     "id": "lr-founded-h03",
+     "text": "{hf} PLANTS A FLAG AT {site}"
+    },
+    {
+     "id": "lr-founded-h04",
+     "text": "SETTLERS DIG IN; ELDERS SAY 'CHECK THE DRINK'"
+    },
+    {
+     "id": "lr-founded-h05",
+     "text": "{entity} HAS A NEW HOME. FOR NOW"
+    },
+    {
+     "id": "lr-founded-h06",
+     "text": "BIRTH OF {site} ANNOUNCED"
+    },
+    {
+     "id": "lr-founded-h07",
+     "text": "FOUNDERS OPTIMISTIC, AS FOUNDERS ARE"
+    },
+    {
+     "id": "lr-founded-h08",
+     "text": "ANOTHER FORT IN THE LINE? NO, THEIRS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-founded-b01",
+     "text": "{entity} has founded {site}, a new {site_kind}, {source} reports. Our founding veterans at the fort offer three tips: bring drink, bring food, and do not dig the Safety burrow miles below everything else."
+    },
+    {
+     "id": "lr-founded-b02",
+     "text": "{site} was founded by {entity} {ago}, {source} reports, under {hf}. The settlers are reported to have arrived with plenty of drink, which is already a better start than {past_fort}, which lasted {past_fort_years} and is not spoken of at dinner.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-founded-b03",
+     "text": "A new {site_kind} called {site} has been raised by {entity}, according to {source}. Locals say the place has everything a young settlement needs: walls, a well and nobody yet who has ordered {record}.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-founded-b04",
+     "text": "{hf} has led {entity} to found {site}, {source} reports. The founders are said to be full of hope. Older readers at the fort remember feeling like that at {past_fort}, right up until it {past_fort_fate}.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-founded-b05",
+     "text": "{entity} has a new {site_kind}: {site}, {source} reports. The first building, sources say, is a tavern. The second is a tavern for the people waiting to get into the first tavern. This is called planning."
+    },
+    {
+     "id": "lr-founded-b06",
+     "text": "{site} has been founded by the {entity_race} settlers of {entity}, {source} reports. Their leader, {hf}, promised to build something lasting. Our archivists, who have filed three fortresses so far, have opened a folder anyway."
+    },
+    {
+     "id": "lr-founded-b07",
+     "text": "Founded {ago} by {entity}: {site}, {source} reports. Early reports describe it as small but promising. Our real estate desk advises the founders to cut fewer gems than they think they need, as a mood will want one rough."
+    },
+    {
+     "id": "lr-founded-b08",
+     "text": "{entity} has established {site}, {source} reports. The founders have reportedly sworn never to dig too deep, never to climb trees and never to throw anything in the pit they might later need to haul back out."
+    },
+    {
+     "id": "lr-founded-b09",
+     "text": "{source} reports that a new settlement has been founded somewhere in the world. The Herald welcomes it to the map, and to the long and proud tradition of places our management will eventually trade armor stands with."
+    },
+    {
+     "id": "lr-founded-b10",
+     "text": "Another settlement is founded, according to {source}. Our historians say every great fort begins with seven dwarves, a wagon and a bad idea. Ours began with a good idea, which the Overseer then improved."
+    }
+   ]
+  },
+  "founding": {
+   "heads": [
+    {
+     "id": "lr-founding-h01",
+     "text": "{site} UNDER CONSTRUCTION; HARD HATS ADVISED"
+    },
+    {
+     "id": "lr-founding-h02",
+     "text": "{entity} BREAKS GROUND AT {site}"
+    },
+    {
+     "id": "lr-founding-h03",
+     "text": "FOUNDERS ASK: HOW MANY THRONES IS TOO MANY?"
+    },
+    {
+     "id": "lr-founding-h04",
+     "text": "{hf} SURVEYS {site}, POINTS AT THINGS"
+    },
+    {
+     "id": "lr-founding-h05",
+     "text": "WAGON UNLOADED; EVERYTHING ELSE LOADED"
+    },
+    {
+     "id": "lr-founding-h06",
+     "text": "NEW {site_kind} RISES SLOWLY AT {site}"
+    },
+    {
+     "id": "lr-founding-h07",
+     "text": "SETTLERS STILL DECIDING WHERE TAVERN GOES"
+    },
+    {
+     "id": "lr-founding-h08",
+     "text": "EMBARK SEASON: {entity} TRIES ITS LUCK"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-founding-b01",
+     "text": "{entity} is founding {site}, {source} reports, led by {hf}. The founders are said to have a plan. Older readers at {fort} remember when we had a plan too. It was a short list of plants for a long list of dwarves, and it was not enough."
+    },
+    {
+     "id": "lr-founding-b02",
+     "text": "Work continues on {site}, {source} reports, as {entity} lays out its first halls. Our planning editor urges them to queue only a few smoothing jobs at a time, as one fort we could name once queued thousands for three smoothers, who have not finished yet."
+    },
+    {
+     "id": "lr-founding-b03",
+     "text": "{entity} is busy founding {site}, according to {source}. The first stockpile is reportedly for drink. The Herald approves heartily, but adds a warning: having the drink is only half the battle; getting a dwarf to it is the other, harder half."
+    },
+    {
+     "id": "lr-founding-b04",
+     "text": "{hf} is overseeing the founding of {site} for {entity}, {source} reports. The settlers are said to defer to their leader on everything. Our readers, who defer to the Overseer on everything, wish them the best of luck."
+    },
+    {
+     "id": "lr-founding-b05",
+     "text": "{entity} is laying the foundations of {site}, a new {site_kind}, {source} reports. Masons are cutting blocks, carpenters are cutting beds, and someone has already cut every gem, which a mood will regret by autumn."
+    },
+    {
+     "id": "lr-founding-b06",
+     "text": "Settlers of {entity} are founding {site}, {source} reports. A pioneer said the hardest part is choosing a good spot. Our pioneers say the hardest part is choosing a good spot for the burrow, and the second hardest is not dying in it."
+    },
+    {
+     "id": "lr-founding-b07",
+     "text": "The founding of {site} by the {entity_race} folk of {entity} is under way, {source} reports. Hammers ring out day and night, and the founders say they hope to have a proper militia by spring. Our captain wishes them more members than he has."
+    },
+    {
+     "id": "lr-founding-b08",
+     "text": "{source} reports that {entity} is building a new home at {site}. The founders reportedly asked travellers for advice. A veteran of {fort} told them: never trust a tree, never trust a burrow, and always check the drink is reachable."
+    },
+    {
+     "id": "lr-founding-b09",
+     "text": "{source} says a new settlement is being founded out in the wilds. Our columnist hopes they find water, food and good stone, and says that if they find too much stone, the trick is not to leave hundreds of pieces of it lying on the floor."
+    },
+    {
+     "id": "lr-founding-b10",
+     "text": "Another founding is under way, {source} reports. In honour of the occasion, the Herald has reprinted the founding motto of {past_fort}: 'Plenty of drink, plenty of stone, some meat eventually, probably.'",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ]
+  },
+  "reclaimed": {
+   "heads": [
+    {
+     "id": "lr-reclaimed-h01",
+     "text": "{site} BACK IN DWARVEN HANDS? CHECK RACE"
+    },
+    {
+     "id": "lr-reclaimed-h02",
+     "text": "{entity} RETAKES {site}; ASKS ABOUT GHOSTS"
+    },
+    {
+     "id": "lr-reclaimed-h03",
+     "text": "TAMETOMB DID IT. NOW {site} TOO"
+    },
+    {
+     "id": "lr-reclaimed-h04",
+     "text": "RECLAIMERS FIND THE OLD BARRELS FULL"
+    },
+    {
+     "id": "lr-reclaimed-h05",
+     "text": "{site} RECLAIMED; THE PIT IS STILL A PIT"
+    },
+    {
+     "id": "lr-reclaimed-h06",
+     "text": "HOMECOMING AT {site}"
+    },
+    {
+     "id": "lr-reclaimed-h07",
+     "text": "OLD HALLS, NEW TENANTS, SAME STAIRS"
+    },
+    {
+     "id": "lr-reclaimed-h08",
+     "text": "WHEN IS IT OUR TURN? ASKS SEARABBEYS LOBBY"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-reclaimed-b01",
+     "text": "{entity} has reclaimed {site}, {source} reports. The news has revived an old question at {fort}: if they can take back their old home, why has nobody taken back {past_fort}? The answer, says our militia, is 'one captain.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-reclaimed-b02",
+     "text": "{site} has been reclaimed by {entity} {ago}, {source} reports. The returning {entity_race} settlers say the old fort was in surprisingly good shape, with full barrels, untouched gems and one very surprised skeleton next to them, dead of thirst."
+    },
+    {
+     "id": "lr-reclaimed-b03",
+     "text": "{entity} has taken back {site}, according to {source}. Reclaimers report the first job was to clear the garbage pit. They wisely chose to clear it by throwing more garbage at it, and nobody was killed hauling anything back out."
+    },
+    {
+     "id": "lr-reclaimed-b04",
+     "text": "{entity} now holds {site} again, {source} reports. Older readers are reminded of Bomrek Thimshursåkzul and The Chaste Cudgel at Tametomb, and are asking the Herald to stop reminding them, as it only makes them want to go and reclaim things.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-reclaimed-b05",
+     "text": "The reclaiming of {site} by {entity} is complete, {source} reports. Explorers found the halls smoothed, engraved and, according to one report, still queued for more smoothing. The Herald suspects a former resident of {past_fort}.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-reclaimed-b06",
+     "text": "{site} is back in the hands of {entity}, {source} reports. Dwarves at {fort} have been asking whether Quakefocus could be reclaimed next. Historians warn that if it is, the reclaimers will need to deal with 1,981 armor stands first.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-reclaimed-b07",
+     "text": "{entity} has reclaimed {site} {ago}, {source} reports. The new residents say the place felt familiar, as if they had lived there before. In this world, our philosophy desk says, it is very possible that they did."
+    },
+    {
+     "id": "lr-reclaimed-b08",
+     "text": "{entity} has returned to {site} and declared it home again, {source} reports. The ghosts were reportedly consulted first. Most agreed to stay quiet, provided nobody builds another safety burrow under their feet."
+    },
+    {
+     "id": "lr-reclaimed-b09",
+     "text": "{source} reports that an old ruin has been reclaimed by its former people. The news has inspired our readers, who briefly drew up plans for a {past_fort} expedition before realising the plan required a militia larger than one.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-reclaimed-b10",
+     "text": "A reclamation has succeeded somewhere out there, according to {source}. Our memorial desk raises a mug, from the drink stockpile, which we would like to stress was then actually drunk by someone, as a historic first."
+    }
+   ]
+  },
+  "reclaiming": {
+   "heads": [
+    {
+     "id": "lr-reclaiming-h01",
+     "text": "{entity} MARCHES ON {site}; WANTS IT BACK"
+    },
+    {
+     "id": "lr-reclaiming-h02",
+     "text": "RECLAIM BID FOR {site}; SCALDEDARCH WATCHES"
+    },
+    {
+     "id": "lr-reclaiming-h03",
+     "text": "OILY BOOTS STILL AT IT; NOW {entity} TOO"
+    },
+    {
+     "id": "lr-reclaiming-h04",
+     "text": "EXPEDITION TO {site} PACKS EXTRA DRINK"
+    },
+    {
+     "id": "lr-reclaiming-h05",
+     "text": "{site} RECLAIMERS ASK: WHERE WERE THE STAIRS?"
+    },
+    {
+     "id": "lr-reclaiming-h06",
+     "text": "{entity} TRIES TO GO HOME AGAIN"
+    },
+    {
+     "id": "lr-reclaiming-h07",
+     "text": "SEARABBEYS LOBBY SAYS: TAKE NOTES"
+    },
+    {
+     "id": "lr-reclaiming-h08",
+     "text": "RECLAMATION UNDER WAY; GHOSTS UNIMPRESSED"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-reclaiming-b01",
+     "text": "{entity} is trying to reclaim {site}, {source} reports. The Oily Boots have been reclaiming Scaldedarch for what feels like an age. Our readers urge {entity} to move faster, or at least to send a postcard.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-reclaiming-b02",
+     "text": "An expedition from {entity} is reclaiming {site}, {source} reports. The reclaimers are said to be well armed. They are also said to be carrying their own drink, having heard what happens in this world to dwarves who expect drink to be within reach."
+    },
+    {
+     "id": "lr-reclaiming-b03",
+     "text": "{entity} has begun the reclamation of {site}, according to {source}. At {fort}, the news prompted renewed calls for an expedition to {past_fort}. The militia captain said he would go, if somebody else also went, and then nobody else did.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-reclaiming-b04",
+     "text": "The {entity_race} folk of {entity} are moving to retake {site}, {source} reports. They hope to find their old treasures untouched. Our artifact desk reminds them that The Nuanced Hamlet is still at Searabbeys, and goblins are not careful with things.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-reclaiming-b05",
+     "text": "{entity} is reclaiming {site}, {source} reports. Early reports describe a slow advance, a room at a time, each one carefully smoothed before anyone moves on. The Herald suspects the Overseer has been offering consultancy."
+    },
+    {
+     "id": "lr-reclaiming-b06",
+     "text": "Reclaimers from {entity} are fighting their way into {site}, {source} reports. Their plan reportedly involves a safety burrow at the bottom of the old fort. The Herald has sent them a strongly worded letter about stairs."
+    },
+    {
+     "id": "lr-reclaiming-b07",
+     "text": "{entity} is working to win back {site}, {source} reports. The effort is described as brave, costly and, according to the bard, 'the sort of thing they'll sing about if anyone survives to remember the tune.'"
+    },
+    {
+     "id": "lr-reclaiming-b08",
+     "text": "{source} reports that {entity} is returning to {site} with shovels and grudges. At {fort}, the mayor has offered moral support and a list of production order violations the old residents left unpaid."
+    },
+    {
+     "id": "lr-reclaiming-b09",
+     "text": "{source} says another band is trying to take back a lost fortress. Our readers, many of whom have lost several, wish them well, and advise them to check the trees, the burrows and the garbage pit before they unpack."
+    },
+    {
+     "id": "lr-reclaiming-b10",
+     "text": "A reclamation attempt is reported by {source}. Experts give it fair odds. Our own experts, who have watched three forts in this world come and go, give it 'better odds than us, frankly, and we live here.'"
+    }
+   ]
+  },
+  "insurrection": {
+   "heads": [
+    {
+     "id": "lr-insurrection-h01",
+     "text": "REVOLT AT {site}; DEMANDS POSTED ON DOORS"
+    },
+    {
+     "id": "lr-insurrection-h02",
+     "text": "{site} RISES AGAINST {entity}"
+    },
+    {
+     "id": "lr-insurrection-h03",
+     "text": "REBELS WANT FEWER ORDERS, MORE ALE"
+    },
+    {
+     "id": "lr-insurrection-h04",
+     "text": "UPRISING! MAYOR'S OFFICE TAKES NOTES"
+    },
+    {
+     "id": "lr-insurrection-h05",
+     "text": "INSURGENTS OCCUPY THE TAVERN, AS IS TRADITION"
+    },
+    {
+     "id": "lr-insurrection-h06",
+     "text": "{entity} RULE CHALLENGED AT {site}"
+    },
+    {
+     "id": "lr-insurrection-h07",
+     "text": "REBELS DEMAND A SAFE BURROW THAT IS SAFE"
+    },
+    {
+     "id": "lr-insurrection-h08",
+     "text": "OVERSEER URGED NOT TO READ THIS ARTICLE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-insurrection-b01",
+     "text": "{site} has risen against {entity}, {source} reports. The rebels' first demand, nailed to the gate, is an end to production quotas. Our mayor's office has read it with professional horror and filed it as a violation."
+    },
+    {
+     "id": "lr-insurrection-b02",
+     "text": "An insurrection is under way at {site}, {source} reports. The rebels want food, drink and the right never to be ordered to make {record}. The Herald takes no side, but notes that at least two of those are reasonable.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-insurrection-b03",
+     "text": "The people of {site} have rebelled against {entity}, according to {source}. They are said to be well organised, with a council, a flag and, unlike our militia, more than one member who is on duty."
+    },
+    {
+     "id": "lr-insurrection-b04",
+     "text": "{source} reports open revolt at {site} against the {entity_race} rulers of {entity}. Witnesses say it began with a complaint about the smoothing queue and grew from there. Our smoothers have expressed quiet solidarity."
+    },
+    {
+     "id": "lr-insurrection-b05",
+     "text": "{entity} faces rebellion at {site}, {source} reports. Rebels have seized the stockpiles, including a large store of drink. The Herald hopes they actually drink it, as nobody in this world ever seems to manage that."
+    },
+    {
+     "id": "lr-insurrection-b06",
+     "text": "{site} is in uproar against {entity}, {source} reports. At {fort} the news was received calmly, as the fort has no rebels, only dwarves who have quietly given up and moved into the tavern."
+    },
+    {
+     "id": "lr-insurrection-b07",
+     "text": "Insurrection at {site}: the people are up in arms against {entity}, {source} reports. The rebels have elected a leader. We have asked them to send their spare candidates our way, as the mayor's office has been vacant for a while."
+    },
+    {
+     "id": "lr-insurrection-b08",
+     "text": "{source} reports that {site} has rebelled against {entity}. Insurgents are said to be shouting slogans in the streets. The most popular, according to our correspondent, is 'WHO ORDERED ALL THESE THRONES?'"
+    },
+    {
+     "id": "lr-insurrection-b09",
+     "text": "{source} reports a revolt somewhere in the world. Our editor reminds readers that dwarves do not revolt; they file grievances, sulk and then accept a nice mist ring as compensation, as is proper."
+    },
+    {
+     "id": "lr-insurrection-b10",
+     "text": "An uprising has been reported by {source}. The Herald's political desk notes that every revolt starts with a single unhappy citizen, and asks the Overseer, very respectfully, to keep the mist ring running."
+    }
+   ]
+  },
+  "insurrection_end": {
+   "heads": [
+    {
+     "id": "lr-insurrection_end-h01",
+     "text": "{site} QUIET AGAIN; REBELS GO HOME TO EAT"
+    },
+    {
+     "id": "lr-insurrection_end-h02",
+     "text": "UPRISING OVER; DEMANDS FILED, STAMPED"
+    },
+    {
+     "id": "lr-insurrection_end-h03",
+     "text": "{entity} STILL IN CHARGE AT {site}, MOSTLY"
+    },
+    {
+     "id": "lr-insurrection_end-h04",
+     "text": "BARRICADES SMOOTHED OVER"
+    },
+    {
+     "id": "lr-insurrection_end-h05",
+     "text": "REVOLT ENDS; NOBODY SURE WHO WON"
+    },
+    {
+     "id": "lr-insurrection_end-h06",
+     "text": "PEACE RETURNS TO {site}, LOOKING TIRED"
+    },
+    {
+     "id": "lr-insurrection_end-h07",
+     "text": "REBELLION CONCLUDES IN TAVERN"
+    },
+    {
+     "id": "lr-insurrection_end-h08",
+     "text": "LAST INSURGENT GOES OFF DUTY"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-insurrection_end-b01",
+     "text": "The uprising at {site} is over, {source} reports. Whether the rebels won or lost, nobody can say, but the barricades have been taken down and, in good dwarven tradition, smoothed."
+    },
+    {
+     "id": "lr-insurrection_end-b02",
+     "text": "The insurrection against {entity} at {site} has ended, {source} reports. Both sides have declared victory. Our analyst points out that this is also how our militia reports every week in which nothing attacked us."
+    },
+    {
+     "id": "lr-insurrection_end-b03",
+     "text": "{site} is calm again after the revolt against {entity}, according to {source}. The rebels' list of demands has been accepted for review, which our mayor's office assures us is where all lists of demands go to live forever."
+    },
+    {
+     "id": "lr-insurrection_end-b04",
+     "text": "Order has returned to {site}, {source} reports. The rebels reportedly gave up after their drink ran out. The Herald notes with amazement that, unlike every dwarf in our fort's history, they at least got to drink some of it first."
+    },
+    {
+     "id": "lr-insurrection_end-b05",
+     "text": "The revolt at {site} has fizzled out, {source} reports. Officials of {entity} say life will now return to normal, and normal, they add, includes a few new work orders, which is how revolts usually start."
+    },
+    {
+     "id": "lr-insurrection_end-b06",
+     "text": "{source} reports that the uprising at {site} has ended. The leaders have been pardoned, punished or promoted, depending on who you ask. Our sources say all three, which sounds like our noble appointments."
+    },
+    {
+     "id": "lr-insurrection_end-b07",
+     "text": "Peace has been restored at {site}, {source} reports, ending the rising against {entity}. The townsfolk have returned to their work, their homes and their long-running argument about who left the gate open."
+    },
+    {
+     "id": "lr-insurrection_end-b08",
+     "text": "{site} has settled down after its rebellion, {source} reports. A rebel leader said the experience taught them much. Asked what, she said 'mainly that revolution needs a lot more meals than anyone packs.' Veterans of {past_fort} agree.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-insurrection_end-b09",
+     "text": "{source} says a revolt somewhere in the world has ended quietly. The Herald's political desk calls it a relief, and adds that nothing in our fort would ever end so tidily, since we have no hammerer and no sheriff to end it."
+    },
+    {
+     "id": "lr-insurrection_end-b10",
+     "text": "An uprising has ended, {source} reports. It is not known what the rebels achieved. It is known that they all went home, had supper and slept in beds, which, after the Safety burrow, our readers consider a happy ending."
+    }
+   ]
+  },
+  "succession": {
+   "heads": [
+    {
+     "id": "lr-succession-h01",
+     "text": "{hf2} OUT, {hf} IN; NOTHING ELSE CHANGES"
+    },
+    {
+     "id": "lr-succession-h02",
+     "text": "NEW BOSS AT {entity}; SAME OLD STAIRS"
+    },
+    {
+     "id": "lr-succession-h03",
+     "text": "{hf} TAKES THE CHAIR. ONE OF HUNDREDS"
+    },
+    {
+     "id": "lr-succession-h04",
+     "text": "SUCCESSION! SOMEBODY ACTUALLY WANTED A JOB"
+    },
+    {
+     "id": "lr-succession-h05",
+     "text": "{entity} NAMES {hf}; OUR MAYOR'S DESK ENVIOUS"
+    },
+    {
+     "id": "lr-succession-h06",
+     "text": "LEADERSHIP CHANGE; SOMEBODY TOOK A JOB"
+    },
+    {
+     "id": "lr-succession-h07",
+     "text": "{hf} INHERITS {hf2}'S DESK AND PAPERWORK"
+    },
+    {
+     "id": "lr-succession-h08",
+     "text": "HANDOVER COMPLETE; KEYS MISPLACED"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-succession-b01",
+     "text": "{hf} has succeeded {hf2} at {entity}, {source} reports. At our fort, where the posts of mayor, sheriff, hammerer, dungeon master, champion and chief medical dwarf all sit vacant, readers are amazed anyone accepted a position anywhere."
+    },
+    {
+     "id": "lr-succession-b02",
+     "text": "{entity} has a new leader: {hf}, who replaces {hf2}, {source} reports. The Herald adds this to its list of successions this season, after The Glowing Cult, The Wayward Doctrine, The Deified Lantern and The Distant Letter. Somebody, somewhere, is always getting promoted.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-succession-b03",
+     "text": "{hf} now holds the office once held by {hf2}, {source} reports. The new leader's first act was to sit in the chair. Our furniture desk notes that spares will not be a problem, as somebody in this world always over-orders thrones."
+    },
+    {
+     "id": "lr-succession-b04",
+     "text": "{source} reports that {hf2} has handed over to {hf} at {entity}. Asked about policy, {hf} said they would make no sudden changes. The Overseer, reading this, queued 400 sudden changes in solidarity."
+    },
+    {
+     "id": "lr-succession-b05",
+     "text": "{hf} has taken over from {hf2} {ago}, {source} reports. The {entity_race} court is said to be delighted. Our mayor's office, which has been trying to fill its own chair for years, has sent a note asking how they did it."
+    },
+    {
+     "id": "lr-succession-b06",
+     "text": "{entity} has passed leadership from {hf2} to {hf}, {source} reports. The handover ceremony included speeches, a feast and a parade. The Herald would describe our own last ceremony, but it was a production order violation hearing."
+    },
+    {
+     "id": "lr-succession-b07",
+     "text": "Change at the top of {entity}: {hf} replaces {hf2}, {source} reports. The new leader has promised to meet the people, listen to them and, crucially, not to put the people's safety burrow beneath a cavern full of beasts."
+    },
+    {
+     "id": "lr-succession-b08",
+     "text": "{hf} has succeeded {hf2}, {source} reports. Readers at the fort have asked whether {hf} might be persuaded to come here and be mayor. The office is available, comes with a desk and only very occasionally a strange mood demanding rough gems."
+    },
+    {
+     "id": "lr-succession-b09",
+     "text": "{source} reports another change of leadership out in the world. Our political editor is thrilled, as it means somebody somewhere will take a job, which our own fort has been unable to arrange for the post of sheriff in living memory."
+    },
+    {
+     "id": "lr-succession-b10",
+     "text": "News of a succession comes via {source}. The Herald congratulates the new holder of the office, and offers one piece of advice from our long experience of nobles: never demand rings at double the price. It does not go over well."
+    }
+   ]
+  },
+  "claim": {
+   "heads": [
+    {
+     "id": "lr-claim-h01",
+     "text": "{hf} SAYS {site} BELONGS TO {entity}. LOUDLY"
+    },
+    {
+     "id": "lr-claim-h02",
+     "text": "DIBS! {entity} CLAIMS {site}"
+    },
+    {
+     "id": "lr-claim-h03",
+     "text": "CLAIM ON {site} FILED; NOBODY READ IT"
+    },
+    {
+     "id": "lr-claim-h04",
+     "text": "{hf} POINTS AT {site}, SAYS 'MINE'"
+    },
+    {
+     "id": "lr-claim-h05",
+     "text": "LAND GRAB AT {site}; LANDLORDS UPSET"
+    },
+    {
+     "id": "lr-claim-h06",
+     "text": "{entity} STAKES A CLAIM, AND A FLAG"
+    },
+    {
+     "id": "lr-claim-h07",
+     "text": "WHO OWNS {site}? DEPENDS WHO YOU ASK"
+    },
+    {
+     "id": "lr-claim-h08",
+     "text": "CLAIMANT ARRIVES WITH PAPERS, NO ARMY"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-claim-b01",
+     "text": "{hf} has claimed {site} for {entity}, {source} reports. Our legal desk notes that the claim is strong, the paperwork is in order, and the actual residents of {site} have not yet been told, which is how claims usually go."
+    },
+    {
+     "id": "lr-claim-b02",
+     "text": "{entity} has claimed {site} through {hf}, {source} reports. At {fort}, the news has prompted calls to formally claim back {past_fort}, though so far only on paper, as the paper is better armed than our militia.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-claim-b03",
+     "text": "{source} reports that {hf} has claimed {site} in the name of {entity}. The claim was announced by shouting from a hill. Our mayor's office was impressed, and has begun shouting its own production order charges from a hill."
+    },
+    {
+     "id": "lr-claim-b04",
+     "text": "{hf} has declared {site} the rightful property of {entity}, {source} reports. The {site} town council has replied politely that they had not noticed, and asked whether this would affect their bin day."
+    },
+    {
+     "id": "lr-claim-b05",
+     "text": "A claim on {site} has been made by {hf} for {entity}, according to {source}. Historians point out that The Amusing Duties has been claimed by about 48 people and still sits in Fieryaged. Claiming things, in this world, is not the same as having them.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-claim-b06",
+     "text": "{entity} now claims {site}, {source} reports, on the word of {hf}. The claim is said to rest on old maps, old grudges and an old aunt. Our legal desk considers that a very strong case by dwarven standards."
+    },
+    {
+     "id": "lr-claim-b07",
+     "text": "{hf} has asserted the claim of {entity} over {site}, {source} reports. The residents are said to be confused but unbothered. At {fort}, we know the feeling: the Overseer claims us every morning and we carry on regardless."
+    },
+    {
+     "id": "lr-claim-b08",
+     "text": "{source} reports that {hf} has laid claim to {site}. The claimant is said to have brought a banner, a speech and a stamp. Our mayor's office has asked to borrow the stamp, theirs having worn out on production order violations."
+    },
+    {
+     "id": "lr-claim-b09",
+     "text": "{source} reports a new territorial claim in the region. Our map room has added a dotted line to the map, then a second dotted line, then given up and drawn a small frowning face over the whole area."
+    },
+    {
+     "id": "lr-claim-b10",
+     "text": "Word reaches us via {source} of yet another claim on yet another place. The Herald reminds claimants that a claim is only as good as the army behind it, and that ours, being one captain, is currently claiming the afternoon off."
+    }
+   ]
+  },
+  "accept_tribute_offer": {
+   "heads": [
+    {
+     "id": "lr-accept_tribute_offer-h01",
+     "text": "{entity} TAKES THE TRIBUTE, SAYS THANK YOU"
+    },
+    {
+     "id": "lr-accept_tribute_offer-h02",
+     "text": "FREE GOODS ACCEPTED; DWARVES APPROVE"
+    },
+    {
+     "id": "lr-accept_tribute_offer-h03",
+     "text": "{entity2} PAYS UP, VOLUNTARILY, SOMEHOW"
+    },
+    {
+     "id": "lr-accept_tribute_offer-h04",
+     "text": "TRIBUTE DEAL: 'MUCH TO SHARE,' LIAISON BEAMS"
+    },
+    {
+     "id": "lr-accept_tribute_offer-h05",
+     "text": "PEACE THROUGH PRESENTS"
+    },
+    {
+     "id": "lr-accept_tribute_offer-h06",
+     "text": "{entity} SAYS YES TO GIFTS"
+    },
+    {
+     "id": "lr-accept_tribute_offer-h07",
+     "text": "TRIBUTE ACCEPTED; ACCOUNTANTS EMOTIONAL"
+    },
+    {
+     "id": "lr-accept_tribute_offer-h08",
+     "text": "OFFER TAKEN; SOMEONE WILL REGRET IT"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-accept_tribute_offer-b01",
+     "text": "{entity} has accepted tribute offered by {entity2}, {source} reports. Our own outpost liaison, {liaison}, called the arrangement 'much to share' and recommended an import agreement on top of it, as he recommends one on top of everything."
+    },
+    {
+     "id": "lr-accept_tribute_offer-b02",
+     "text": "{entity2} has offered tribute to {entity}, and it has been accepted, {source} reports. The first payment is said to include ale, cloth and, according to rumour, a large number of armor stands nobody else would take."
+    },
+    {
+     "id": "lr-accept_tribute_offer-b03",
+     "text": "{source} reports that {entity} has taken tribute from {entity2}. Envoys {hf} and {hf2} toasted the deal. Our economics desk notes that if any of the tribute is drink, someone should make sure it is drunk, as we have learned the hard way."
+    },
+    {
+     "id": "lr-accept_tribute_offer-b04",
+     "text": "Tribute from {entity2} has been welcomed by {entity}, {source} reports. The deal was agreed over a long feast. At our fort, the mayor's office would like it known that it is open to tribute too, preferably in the form of a mayor."
+    },
+    {
+     "id": "lr-accept_tribute_offer-b05",
+     "text": "{entity} will receive regular gifts from {entity2}, {source} reports. The agreement was reportedly sealed by {hf} with a handshake. A second handshake was required after somebody counted the fingers and got a different number."
+    },
+    {
+     "id": "lr-accept_tribute_offer-b06",
+     "text": "{entity2} offered and {entity} accepted, {source} reports, and so tribute will flow. Our trade desk hopes the goods are useful, unlike the loose stones {past_fort} once tried to offer anyone who walked past.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-accept_tribute_offer-b07",
+     "text": "{source} confirms a tribute deal between {entity} and {entity2}. Observers say {entity} accepted almost before the offer was finished, which our cultural desk calls 'the most dwarven thing a non-dwarf has ever done.'"
+    },
+    {
+     "id": "lr-accept_tribute_offer-b08",
+     "text": "{entity} has agreed to accept tribute from {entity2}, {source} reports. Asked what they would do with the goods, a spokesman said 'put them in a stockpile and never touch them again,' so they clearly understand how storage works."
+    },
+    {
+     "id": "lr-accept_tribute_offer-b09",
+     "text": "{source} reports a tribute offer accepted somewhere in the world. The Herald's business section calls it a rare example of free goods going to somebody who actually wanted them, as opposed to rings at a ruinous markup."
+    },
+    {
+     "id": "lr-accept_tribute_offer-b10",
+     "text": "A tribute arrangement has been agreed, reports {source}. Our readers are delighted for both parties, and would like to suggest, gently, that next time somebody might offer tribute to us. We take meat, which we remember fondly."
+    }
+   ]
+  },
+  "refuse_tribute_offer": {
+   "heads": [
+    {
+     "id": "lr-refuse_tribute_offer-h01",
+     "text": "{entity} SAYS NO TO FREE STUFF"
+    },
+    {
+     "id": "lr-refuse_tribute_offer-h02",
+     "text": "TRIBUTE REJECTED; DWARVES BAFFLED"
+    },
+    {
+     "id": "lr-refuse_tribute_offer-h03",
+     "text": "{entity2}'S GIFT RETURNED UNOPENED"
+    },
+    {
+     "id": "lr-refuse_tribute_offer-h04",
+     "text": "'WE HAVE ENOUGH,' CLAIMS {entity}. NOBODY DOES"
+    },
+    {
+     "id": "lr-refuse_tribute_offer-h05",
+     "text": "OFFER SPURNED; ENVOY KEEPS THE ALE"
+    },
+    {
+     "id": "lr-refuse_tribute_offer-h06",
+     "text": "TRIBUTE TURNED DOWN; LIAISON SHOCKED"
+    },
+    {
+     "id": "lr-refuse_tribute_offer-h07",
+     "text": "REFUSAL STUNS DEPOT"
+    },
+    {
+     "id": "lr-refuse_tribute_offer-h08",
+     "text": "{entity} TOO PROUD FOR PRESENTS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-refuse_tribute_offer-b01",
+     "text": "{entity} has refused tribute from {entity2}, {source} reports. At our fort, where whole fields of farm plots once produced no meat for a year, readers have asked whether the tribute could be sent here instead."
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b02",
+     "text": "{entity2} offered tribute and {entity} turned it down, {source} reports. The outpost liaison, on hearing the news, had to sit down. He has never in his career seen anyone refuse anything, least of all an agreement."
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b03",
+     "text": "{source} reports that {entity} has declined gifts offered by {entity2}. The envoy {hf} reportedly said 'no thank you' so politely that {hf2}, on the other side, thanked him for the refusal. Diplomacy is a strange art."
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b04",
+     "text": "The tribute offered by {entity2} was refused by {entity}, {source} reports. The goods are being sent home. Our trade desk suggests they stop by {fort} on the way, as we are always short of whatever a strange mood wants next."
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b05",
+     "text": "{entity} has said no to tribute from {entity2}, {source} reports. Observers suspect a trick. Others suspect the tribute was armor stands. Our historians, who remember {record} at {record_fort}, say that would explain everything.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b06",
+     "text": "{entity} rejected an offer of tribute from {entity2}, {source} reports. A spokesman explained that accepting would mean owing a favour. Our readers point out that the Overseer accepts everything and owes nobody, apart from the dead."
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b07",
+     "text": "{source} reports that {entity2}'s generous offer of tribute was turned down by {entity}. The rejected goods are said to include drink. Every dwarf reading this has gone quiet and pale."
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b08",
+     "text": "{entity} will not be accepting tribute from {entity2}, {source} reports. The reasons given were pride, honour and a lack of storage space, which our stockpile manager calls 'the only real reason, frankly.'"
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b09",
+     "text": "{source} reports a tribute offer refused somewhere in the world. Our economics desk is in mourning. Our ethics desk says that refusing free goods is noble. Our economics desk has stopped speaking to our ethics desk."
+    },
+    {
+     "id": "lr-refuse_tribute_offer-b10",
+     "text": "An offer of tribute was turned down, reports {source}. The Herald calls on readers to remember that somebody, somewhere, refused free stuff today, and to treasure that strange fact, as we will not see its like again."
+    }
+   ]
+  },
+  "accept_tribute_demand": {
+   "heads": [
+    {
+     "id": "lr-accept_tribute_demand-h01",
+     "text": "{entity2} PAYS UP; COFFERS SOB"
+    },
+    {
+     "id": "lr-accept_tribute_demand-h02",
+     "text": "TRIBUTE DEMANDED, TRIBUTE DELIVERED"
+    },
+    {
+     "id": "lr-accept_tribute_demand-h03",
+     "text": "{entity} GETS ITS WAY AGAIN"
+    },
+    {
+     "id": "lr-accept_tribute_demand-h04",
+     "text": "'FINE, TAKE IT,' SAYS {entity2}"
+    },
+    {
+     "id": "lr-accept_tribute_demand-h05",
+     "text": "PAYMENT AGREED; NOBODY HAPPY"
+    },
+    {
+     "id": "lr-accept_tribute_demand-h06",
+     "text": "ARMY ASKS NICELY, WITH SPEARS"
+    },
+    {
+     "id": "lr-accept_tribute_demand-h07",
+     "text": "PROTECTION MONEY BY ANOTHER NAME"
+    },
+    {
+     "id": "lr-accept_tribute_demand-h08",
+     "text": "{entity2} BUYS PEACE, ON INSTALMENTS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-accept_tribute_demand-b01",
+     "text": "{entity2} has agreed to pay tribute demanded by {entity}, {source} reports. Our diplomats point out that we have never had to do this, mostly because nobody wants anything we have, except perhaps {record}, and nobody wants those.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-accept_tribute_demand-b02",
+     "text": "{entity} demanded tribute and {entity2} paid, {source} reports. The first delivery is said to include grain, cloth and a strongly worded note. Our mayor's office admired the note and has filed it as an example."
+    },
+    {
+     "id": "lr-accept_tribute_demand-b03",
+     "text": "{source} reports that {entity2} has bowed to the demands of {entity}. Envoy {hf} delivered the terms, and {hf2} accepted them with a sigh heard three valleys away. Our reporter at the depot claims to have heard it too."
+    },
+    {
+     "id": "lr-accept_tribute_demand-b04",
+     "text": "{entity2} has accepted that it must pay tribute to {entity}, {source} reports. The treasury is said to be emptying fast. Our fort's treasury, by comparison, is full of loose stones, and no one has ever demanded them."
+    },
+    {
+     "id": "lr-accept_tribute_demand-b05",
+     "text": "The demand for tribute from {entity} has been met by {entity2}, {source} reports. Analysts say {entity2} had little choice, as its militia, like ours, is said to consist mainly of empty places."
+    },
+    {
+     "id": "lr-accept_tribute_demand-b06",
+     "text": "{entity2} will pay {entity} a regular sum, {source} reports. Asked how they felt, a resident said 'poorer.' Asked what they would do now, they said 'drink,' which is more than most of our dead ever managed."
+    },
+    {
+     "id": "lr-accept_tribute_demand-b07",
+     "text": "{entity} has its tribute, {source} reports; {entity2} has a lighter purse. Our economic analyst calls it a transfer of wealth from people who had some to people who wanted more, and adds that this is basically trade."
+    },
+    {
+     "id": "lr-accept_tribute_demand-b08",
+     "text": "{source} reports that {entity2} has yielded to tribute demands from {entity}. The deal was struck quickly. Readers are reminded that {civ}, faced with {enemy}, chose war instead, and has the empty militia barracks to prove it.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-accept_tribute_demand-b09",
+     "text": "{source} reports a tribute demand met somewhere in the world. Our editorial board would like to assure readers that if anyone demands tribute from us, the militia captain will personally go off duty in protest."
+    },
+    {
+     "id": "lr-accept_tribute_demand-b10",
+     "text": "Somebody has paid tribute to somebody else, reports {source}. The Herald's finance desk says such deals are common, and advises any settlement facing a demand to offer smoothed walls, which are what we have most of."
+    }
+   ]
+  },
+  "refuse_tribute_demand": {
+   "heads": [
+    {
+     "id": "lr-refuse_tribute_demand-h01",
+     "text": "{entity2} TELLS {entity}: NOT A COPPER"
+    },
+    {
+     "id": "lr-refuse_tribute_demand-h02",
+     "text": "NO TRIBUTE! CHEERS ECHO IN THE TAVERN"
+    },
+    {
+     "id": "lr-refuse_tribute_demand-h03",
+     "text": "DEMAND REJECTED; SPEARS SHARPENED"
+    },
+    {
+     "id": "lr-refuse_tribute_demand-h04",
+     "text": "{entity2} STANDS FIRM, THEN HIDES"
+    },
+    {
+     "id": "lr-refuse_tribute_demand-h05",
+     "text": "'COME AND GET IT,' SAYS {entity2}. UH-OH"
+    },
+    {
+     "id": "lr-refuse_tribute_demand-h06",
+     "text": "TRIBUTE? ABSOLUTELY NOT, SAYS BEARD"
+    },
+    {
+     "id": "lr-refuse_tribute_demand-h07",
+     "text": "ENVOY SENT HOME WITH A TURNIP AND A NOTE"
+    },
+    {
+     "id": "lr-refuse_tribute_demand-h08",
+     "text": "DEFIANCE! ALSO, PROBABLY, A WAR"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-refuse_tribute_demand-b01",
+     "text": "{entity2} has refused to pay {entity} the tribute demanded, {source} reports. The Herald salutes the courage, and notes that {civ} chose war with {enemy} rather than pay anyone anything, and did so with a militia of one.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b02",
+     "text": "{entity} demanded tribute; {entity2} said no, {source} reports. The refusal was delivered by {hf} in person, along with a bowl of soup, which our diplomatic correspondent calls 'a mixed message.'"
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b03",
+     "text": "{source} reports that {entity2} has rejected demands from {entity}. Townsfolk cheered in the streets. Then they went quiet and began building walls, which our engineering desk notes is the correct order of events."
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b04",
+     "text": "{entity2} has turned down {entity}'s demand for tribute, {source} reports. Asked why, a councillor said 'because we're broke,' which our readers recognise as the most honest statement in diplomatic history."
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b05",
+     "text": "{entity2} has refused tribute to {entity}, {source} reports. Observers expect consequences. At our fort the news inspired a stirring speech by the militia captain, delivered to nine empty places, which applauded silently."
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b06",
+     "text": "{entity}'s envoy has been sent away empty-handed by {entity2}, {source} reports. Experts say {entity} may now attack. Our safety desk advises {entity2} to build a burrow, and then, having seen ours, to build it somewhere else."
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b07",
+     "text": "{source} reports that {entity2} said no to {entity}, and did so loudly. The refusal is now being sung in taverns. Our music critic says the song has a good chorus but a worrying final verse about armies."
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b08",
+     "text": "{entity2} will pay {entity} nothing, {source} reports. The council reportedly voted unanimously, then went to check the gates. Our readers would like to know how many members a council has, and whether any are spare for our offices."
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b09",
+     "text": "{source} reports a refusal to pay tribute somewhere in the world. The Herald admires defiance, but advises everyone involved to make sure the drink is reachable before the siege, not merely present."
+    },
+    {
+     "id": "lr-refuse_tribute_demand-b10",
+     "text": "A tribute demand has been rejected, according to {source}. Our political editor calls it brave. Our military editor calls it bold. Our militia, asked for comment, did not answer, as it was off duty."
+    }
+   ]
+  },
+  "accept_peace_offer": {
+   "heads": [
+    {
+     "id": "lr-accept_peace_offer-h01",
+     "text": "{entity} AND {entity2} SHAKE HANDS"
+    },
+    {
+     "id": "lr-accept_peace_offer-h02",
+     "text": "PEACE! ARMOURERS FILE FOR UNEMPLOYMENT"
+    },
+    {
+     "id": "lr-accept_peace_offer-h03",
+     "text": "WAR OVER; LEFTOVER ARMOR STANDS AVAILABLE"
+    },
+    {
+     "id": "lr-accept_peace_offer-h04",
+     "text": "TREATY SIGNED; INK STILL WET"
+    },
+    {
+     "id": "lr-accept_peace_offer-h05",
+     "text": "{entity2}'S OLIVE BRANCH ACCEPTED"
+    },
+    {
+     "id": "lr-accept_peace_offer-h06",
+     "text": "AT PEACE WITH EVERYONE? LIAISON RECOUNTS"
+    },
+    {
+     "id": "lr-accept_peace_offer-h07",
+     "text": "PEACE DEAL: NOBODY TO BE STABBED UNTIL SPRING"
+    },
+    {
+     "id": "lr-accept_peace_offer-h08",
+     "text": "HOSTILITIES CEASE; SULKING CONTINUES"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-accept_peace_offer-b01",
+     "text": "{entity} has accepted peace from {entity2}, {source} reports. Our diplomatic desk notes that {civ} is still at war with {enemy}, and wonders, wistfully, when somebody will slide a treaty under our door.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-accept_peace_offer-b02",
+     "text": "{entity2} offered peace and {entity} accepted, {source} reports. Envoys {hf} and {hf2} signed the treaty at once. Our own diplomat, reading the news, sighed and asked why nobody ever offers peace to us."
+    },
+    {
+     "id": "lr-accept_peace_offer-b03",
+     "text": "{source} reports a peace deal between {entity} and {entity2}. Soldiers on both sides are going home. Our militia captain, hearing this, also went home, though nobody has been able to tell the difference."
+    },
+    {
+     "id": "lr-accept_peace_offer-b04",
+     "text": "{entity} and {entity2} are at peace, {source} reports. The treaty is said to be long and detailed, with sections on borders, trade and who gets the good chairs. Most forts in this world could supply good chairs by the hundred, our historians add."
+    },
+    {
+     "id": "lr-accept_peace_offer-b05",
+     "text": "Peace has been agreed between {entity} and {entity2}, {source} reports. A celebration is planned. The Herald hopes the drink is placed somewhere reachable, unlike every drink in every fortress we have ever had."
+    },
+    {
+     "id": "lr-accept_peace_offer-b06",
+     "text": "{entity} has made peace with {entity2}, {source} reports. The {hf} delegation said 'there is much to share.' The outpost liaison is reported to be furious that someone else used his line, and is considering an import agreement about it."
+    },
+    {
+     "id": "lr-accept_peace_offer-b07",
+     "text": "{source} reports that {entity} has said yes to peace from {entity2}. Generals are said to be lost for words. Our fort's own general, a vacancy, has expressed no opinion."
+    },
+    {
+     "id": "lr-accept_peace_offer-b08",
+     "text": "{entity2}'s offer of peace was taken up by {entity}, {source} reports. Merchants are celebrating, as roads will now be safer. Our depot would celebrate too, if it were not still full of armor stands nobody will buy."
+    },
+    {
+     "id": "lr-accept_peace_offer-b09",
+     "text": "{source} reports a peace treaty signed somewhere in the world. Our editor asks readers to imagine a world in which {enemy} offered us one, then to stop imagining it, as it is upsetting the children.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-accept_peace_offer-b10",
+     "text": "Peace has broken out somewhere, says {source}. The Herald welcomes it heartily, and notes that, of the many things this world produces in great quantity, peace has never yet been one of them."
+    }
+   ]
+  },
+  "refuse_peace_offer": {
+   "heads": [
+    {
+     "id": "lr-refuse_peace_offer-h01",
+     "text": "PEACE? {entity} SAYS 'LATER'"
+    },
+    {
+     "id": "lr-refuse_peace_offer-h02",
+     "text": "{entity2}'S OFFER RETURNED TO SENDER"
+    },
+    {
+     "id": "lr-refuse_peace_offer-h03",
+     "text": "WAR GOES ON; MORE ARMOR STANDS ORDERED"
+    },
+    {
+     "id": "lr-refuse_peace_offer-h04",
+     "text": "TALKS FAIL; BOTH SIDES BLAME THE CATERING"
+    },
+    {
+     "id": "lr-refuse_peace_offer-h05",
+     "text": "{entity} PREFERS THE FIGHTING, APPARENTLY"
+    },
+    {
+     "id": "lr-refuse_peace_offer-h06",
+     "text": "NO PEACE, NO PROBLEM, SAYS NOBODY"
+    },
+    {
+     "id": "lr-refuse_peace_offer-h07",
+     "text": "OLIVE BRANCH SNAPPED, STEPPED ON"
+    },
+    {
+     "id": "lr-refuse_peace_offer-h08",
+     "text": "TREATY TORN UP BEFORE SIGNING"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-refuse_peace_offer-b01",
+     "text": "{entity} has rejected peace from {entity2}, {source} reports. Our readers, whose {civ} remains at war with {enemy}, say they know exactly how the losing side of this conversation feels.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-refuse_peace_offer-b02",
+     "text": "{entity2} offered peace; {entity} declined, {source} reports. The envoy {hf} reportedly laughed. The envoy {hf2} reportedly did not. Our diplomatic correspondent says that is all you really need to know about this war."
+    },
+    {
+     "id": "lr-refuse_peace_offer-b03",
+     "text": "{source} reports that {entity} has refused peace with {entity2}. The fighting will continue. At {fort}, the Overseer responded by ordering armor stands, which have so far won no wars but have been very well-stocked."
+    },
+    {
+     "id": "lr-refuse_peace_offer-b04",
+     "text": "{entity} will not make peace with {entity2}, {source} reports. A spokesman called the offer 'insulting.' Asked what would not be insulting, he said 'unconditional surrender, plus snacks.' Talks are not expected to resume."
+    },
+    {
+     "id": "lr-refuse_peace_offer-b05",
+     "text": "The peace offer from {entity2} has been turned down by {entity}, {source} reports. Observers say {entity} believes it is winning. Our military desk says everyone believes that, until something comes up the stairs."
+    },
+    {
+     "id": "lr-refuse_peace_offer-b06",
+     "text": "{entity} has spurned peace with {entity2}, {source} reports. The war goes on, and so does the Herald's map-pin shortage, which has persisted since the {enemy_race} armies of {enemy} began reorganising the region.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lr-refuse_peace_offer-b07",
+     "text": "{source} reports that {entity2} asked {entity} for peace and was refused. Merchants groan, as roads will stay dangerous. Our depot staff groan too, though mostly because the last caravan only wanted to sell us rings."
+    },
+    {
+     "id": "lr-refuse_peace_offer-b08",
+     "text": "{entity} has said no to peace with {entity2}, {source} reports. The refusal was polite, signed and stamped, and our mayor's office has called it the finest piece of paperwork it has ever seen, and requested a copy."
+    },
+    {
+     "id": "lr-refuse_peace_offer-b09",
+     "text": "{source} reports a peace offer refused somewhere in the world. The Herald is saddened, but not surprised. In this world, as our readers know, the only thing more common than war is a dwarf dying of thirst next to a barrel."
+    },
+    {
+     "id": "lr-refuse_peace_offer-b10",
+     "text": "Peace talks have failed somewhere, according to {source}. Our militia, which has never attended a peace talk or a battle, has asked to be kept informed. It is off duty, but it likes to know."
+    }
+   ]
+  },
+  "cease_tribute_offer": {
+   "heads": [
+    {
+     "id": "lr-cease_tribute_offer-h01",
+     "text": "TRIBUTE DRIES UP; GROWN DWARVES WEEP"
+    },
+    {
+     "id": "lr-cease_tribute_offer-h02",
+     "text": "{entity2} STOPS PAYING; {entity} STOPS SMILING"
+    },
+    {
+     "id": "lr-cease_tribute_offer-h03",
+     "text": "LAST TRIBUTE CART ROLLS IN, LOOKING SAD"
+    },
+    {
+     "id": "lr-cease_tribute_offer-h04",
+     "text": "FREE GOODS ERA ENDS"
+    },
+    {
+     "id": "lr-cease_tribute_offer-h05",
+     "text": "PAYMENTS HALTED; ACCOUNTANTS IN SHOCK"
+    },
+    {
+     "id": "lr-cease_tribute_offer-h06",
+     "text": "TRIBUTE OVER. WAS IT EVER FUN?"
+    },
+    {
+     "id": "lr-cease_tribute_offer-h07",
+     "text": "{entity} MUST NOW BUY ITS OWN SOCKS"
+    },
+    {
+     "id": "lr-cease_tribute_offer-h08",
+     "text": "LIAISON SUGGESTS IMPORT AGREEMENT INSTEAD"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-cease_tribute_offer-b01",
+     "text": "Tribute between {entity} and {entity2} has come to an end, {source} reports. The outpost liaison, consulted, said 'there is much to share,' then recommended an import agreement, which is what he would recommend at a funeral."
+    },
+    {
+     "id": "lr-cease_tribute_offer-b02",
+     "text": "{entity2} will no longer send tribute to {entity}, {source} reports. Analysts say the arrangement simply ran its course. Our readers at {fort} say that is what they were told about the meat at {past_fort}, too.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-cease_tribute_offer-b03",
+     "text": "{source} reports that tribute from {entity2} to {entity} has ceased. Envoys {hf} and {hf2} met to wind it up. The final delivery, by tradition, was the cart itself, and then the envoys walked home."
+    },
+    {
+     "id": "lr-cease_tribute_offer-b04",
+     "text": "The tribute arrangement between {entity} and {entity2} is over, {source} reports. The {entity} treasury, used to regular gifts, is said to be pacing its vaults. Our own treasury, full of loose stones, cannot relate."
+    },
+    {
+     "id": "lr-cease_tribute_offer-b05",
+     "text": "{entity} is no longer receiving tribute from {entity2}, {source} reports. A spokesman said they would manage. Our economics desk says that is exactly what {past_fort} said, shortly before it {past_fort_fate}.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-cease_tribute_offer-b06",
+     "text": "Payments from {entity2} to {entity} have stopped, {source} reports. Both parties describe the ending as amicable. Our sources describe it as 'two groups pretending not to count.' Dwarves, of course, always count."
+    },
+    {
+     "id": "lr-cease_tribute_offer-b07",
+     "text": "{source} reports the end of tribute between {entity} and {entity2}. At {fort}, readers are asking whether any spare tribute could come our way. The mayor's office has prepared the forms, and a fine for not using them."
+    },
+    {
+     "id": "lr-cease_tribute_offer-b08",
+     "text": "Tribute flowing to {entity} from {entity2} has been halted, {source} reports. Merchants say the roads will be quieter. Our depot, which last saw a busy day when the liaison wanted rings at twice the price, did not notice any difference."
+    },
+    {
+     "id": "lr-cease_tribute_offer-b09",
+     "text": "{source} reports that a tribute deal somewhere has quietly ended. The Herald's business desk calls it 'the end of an era', and then admits that it has no idea how long the era lasted, as nobody ever wrote it down."
+    },
+    {
+     "id": "lr-cease_tribute_offer-b10",
+     "text": "A tribute arrangement has ceased, according to {source}. Our economist explains that tribute, like drink in this world, is wonderful while it lasts and quite useless if nobody walks over to collect it."
+    }
+   ]
+  },
+  "artifact_in_site": {
+   "heads": [
+    {
+     "id": "lr-artifact_in_site-h01",
+     "text": "{artifact} SITS AT {site}; HANDS OFF"
+    },
+    {
+     "id": "lr-artifact_in_site-h02",
+     "text": "WHERE IS {artifact}? {site}, APPARENTLY"
+    },
+    {
+     "id": "lr-artifact_in_site-h03",
+     "text": "THE NUANCED HAMLET HAS COMPANY"
+    },
+    {
+     "id": "lr-artifact_in_site-h04",
+     "text": "{artifact_item} OF LEGEND STORED AT {site}"
+    },
+    {
+     "id": "lr-artifact_in_site-h05",
+     "text": "MOODY MASTERPIECE ON SHELF AT {site}"
+    },
+    {
+     "id": "lr-artifact_in_site-h06",
+     "text": "ARTIFACT WATCH: {artifact} STILL THERE"
+    },
+    {
+     "id": "lr-artifact_in_site-h07",
+     "text": "{site} HAS ONE {artifact_item}, VERY NICE"
+    },
+    {
+     "id": "lr-artifact_in_site-h08",
+     "text": "CRAFTSDWARF'S MASTERWORK SEEN, ADMIRED, KEPT"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-artifact_in_site-b01",
+     "text": "{artifact}, a {artifact_item}, is held at {site}, {source} reports. Our artifact desk adds it to the list, beside The Nuanced Hamlet at goblin-held Searabbeys and Claspedserpent, the silver mace of Quakefocus, which nobody has visited since the thrones.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-artifact_in_site-b02",
+     "text": "{artifact} rests at {site}, {source} reports. Those who have seen the {artifact_item} say it is breathtaking. The dwarf who made it is said to have demanded rough gems for it, which in this world puts it among the rarest objects ever made."
+    },
+    {
+     "id": "lr-artifact_in_site-b03",
+     "text": "{source} reports that the {artifact_item} {artifact} is kept at {site}. The {site_kind} is said to guard it closely. Our readers would like to see it, but the militia cannot escort them, being one captain and permanently off duty."
+    },
+    {
+     "id": "lr-artifact_in_site-b04",
+     "text": "The legendary {artifact} is located at {site}, {source} reports. At {fort}, our craftsdwarves were deeply moved. One of them immediately fell into a strange mood and demanded plant cloth, which we had, for once, just used up."
+    },
+    {
+     "id": "lr-artifact_in_site-b05",
+     "text": "{artifact}, a {artifact_item} of great fame, is at {site}, {source} reports. Merchants say it is displayed on a pedestal. Our furniture desk asks whether the pedestal is an armor stand, because in some forts every surface eventually was."
+    },
+    {
+     "id": "lr-artifact_in_site-b06",
+     "text": "{site} is home to {artifact}, {source} reports. Thieves are said to be interested. Collectors are said to be interested. Our mayor's office is said to be interested in whether a production order violation was involved in its making."
+    },
+    {
+     "id": "lr-artifact_in_site-b07",
+     "text": "{artifact} has been traced to {site}, according to {source}. The Herald notes that, unlike The Amusing Duties, which has been claimed by about 48 people and still sits at Fieryaged, this {artifact_item} appears to have only one owner, which is restful.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-artifact_in_site-b08",
+     "text": "{source} reports that {artifact} lies at {site}. Older readers at {fort} say every artifact in this world ends up somewhere it cannot be visited, and remind us of everything we left behind when {past_fort} {past_fort_fate}.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lr-artifact_in_site-b09",
+     "text": "{source} reports that a famous artifact has been found sitting quietly in a settlement somewhere. Our gems correspondent wishes to know whether the dwarf who made it had any rough gems left over, and if so, could they send one."
+    },
+    {
+     "id": "lr-artifact_in_site-b10",
+     "text": "News reaches us via {source} of yet another masterwork tucked away somewhere. The Herald keeps a ledger of these. It is a long ledger. The section headed 'Artifacts We Still Have' is short and, frankly, a little sad."
+    }
+   ]
+  },
+  "artifact_in_subregion": {
+   "heads": [
+    {
+     "id": "lr-artifact_in_subregion-h01",
+     "text": "{artifact} LOST IN {region}; FINDERS WANTED"
+    },
+    {
+     "id": "lr-artifact_in_subregion-h02",
+     "text": "SOMEWHERE IN {region}: ONE {artifact_item}"
+    },
+    {
+     "id": "lr-artifact_in_subregion-h03",
+     "text": "ARTIFACT HUNT FAILS TO FIND TREE-SAFE PATH"
+    },
+    {
+     "id": "lr-artifact_in_subregion-h04",
+     "text": "{region} HIDES {artifact}"
+    },
+    {
+     "id": "lr-artifact_in_subregion-h05",
+     "text": "MASTERWORK IN THE WILDS, UNDER A BUSH"
+    },
+    {
+     "id": "lr-artifact_in_subregion-h06",
+     "text": "TREASURE SEEKERS ASKED NOT TO CLIMB TREES"
+    },
+    {
+     "id": "lr-artifact_in_subregion-h07",
+     "text": "{artifact} LIES IN THE OPEN, HUMBLY"
+    },
+    {
+     "id": "lr-artifact_in_subregion-h08",
+     "text": "LOST {artifact_item} SEEKS LOVING HOME"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-artifact_in_subregion-b01",
+     "text": "{artifact}, a {artifact_item}, lies somewhere in {region}, {source} reports. Hunters are already searching. Our safety desk reminds them that in this world, the treasure is rarely the danger; the danger is the tree they climb to look for it."
+    },
+    {
+     "id": "lr-artifact_in_subregion-b02",
+     "text": "{source} reports that {artifact} has been lost in {region}. The {artifact_item} is believed to be lying in the grass. If the Overseer hears of it, he is expected to send a dwarf to gather it, plus every plant on the way, in the rain."
+    },
+    {
+     "id": "lr-artifact_in_subregion-b03",
+     "text": "Somewhere in {region} lies {artifact}, {source} reports. Explorers say they have searched every valley. Our readers point out that The Amusing Duties was lost at Roughnessslaps in year 68, and it took the world only 48 claims to lose it again.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-artifact_in_subregion-b04",
+     "text": "{artifact} is out in {region}, {source} reports, unguarded and unloved. The Herald urges anyone who finds it not to cut it, smooth it or put it on an armor stand, as all three have been tried with other things and none ended well."
+    },
+    {
+     "id": "lr-artifact_in_subregion-b05",
+     "text": "{region} is said to hide {artifact}, a {artifact_item}, {source} reports. Locals are hunting for it by torchlight. Our militia captain would help, but the search would count as being on duty, and that is not something he does."
+    },
+    {
+     "id": "lr-artifact_in_subregion-b06",
+     "text": "The {artifact_item} {artifact} is somewhere in {region}, {source} reports. Experts warn it could be anywhere, from a ditch to a cave to a goblin's sock. Our goblin correspondent adds that goblins do not wear socks, which narrows it down."
+    },
+    {
+     "id": "lr-artifact_in_subregion-b07",
+     "text": "{artifact} has been reported lost in {region} by {source}. A search party is being formed. Applicants must be able to walk, carry and, crucially, drink when thirsty, which in this world disqualifies a surprising number of dwarves."
+    },
+    {
+     "id": "lr-artifact_in_subregion-b08",
+     "text": "{source} says {artifact} is lying in {region}. Scavengers are circling. Our editorial board would like to remind the world that the thing was made by somebody's mood, likely demanding something none of us had."
+    },
+    {
+     "id": "lr-artifact_in_subregion-b09",
+     "text": "{source} reports a lost treasure lying somewhere out in the wilds. Our explorers' club has drawn up a search plan, which begins at the tavern, continues at the tavern and, in the final phase, concludes at the tavern."
+    },
+    {
+     "id": "lr-artifact_in_subregion-b10",
+     "text": "A famous object lies lost in the wilderness, reports {source}. The Herald asks readers not to go looking, as the last time a dwarf went off-site to fetch something, he gathered plants for a season and came back with a sock."
+    }
+   ]
+  },
+  "artifact_in_inventory": {
+   "heads": [
+    {
+     "id": "lr-artifact_in_inventory-h01",
+     "text": "{hf} CARRIES {artifact} EVERYWHERE"
+    },
+    {
+     "id": "lr-artifact_in_inventory-h02",
+     "text": "{artifact} IN A POCKET, REPORTEDLY"
+    },
+    {
+     "id": "lr-artifact_in_inventory-h03",
+     "text": "{hf}'S BAG CONTAINS ONE LEGEND"
+    },
+    {
+     "id": "lr-artifact_in_inventory-h04",
+     "text": "HOLDER OF {artifact} 'VERY SMUG'"
+    },
+    {
+     "id": "lr-artifact_in_inventory-h05",
+     "text": "{hf} WON'T PUT {artifact} DOWN"
+    },
+    {
+     "id": "lr-artifact_in_inventory-h06",
+     "text": "PORTABLE MASTERWORK ON THE MOVE"
+    },
+    {
+     "id": "lr-artifact_in_inventory-h07",
+     "text": "{hf_race} OWNER SEEN POLISHING {artifact}"
+    },
+    {
+     "id": "lr-artifact_in_inventory-h08",
+     "text": "IT'S IN THE BAG, SAY RUMOURS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-artifact_in_inventory-b01",
+     "text": "{artifact}, a {artifact_item}, is held by {hf}, {source} reports. Our readers note that this is how The Amusing Duties began its career of being claimed by 48 different people. The Herald gives {hf} about a season.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-artifact_in_inventory-b02",
+     "text": "{hf} has {artifact} and will not let go, {source} reports. The {hf_race} is said to sleep with it. Our medical desk, which has no chief medical dwarf, advises against sleeping with a {artifact_item}, but admits it has no authority."
+    },
+    {
+     "id": "lr-artifact_in_inventory-b03",
+     "text": "{source} reports that {artifact} is in the hands of {hf}. The {artifact_item} is reportedly carried in a sack. At {fort}, the craftsdwarf whose mood produced our last masterpiece is said to be furious on the artifact's behalf."
+    },
+    {
+     "id": "lr-artifact_in_inventory-b04",
+     "text": "{hf} carries {artifact}, {source} reports, and shows it to anyone who asks. Also to anyone who does not ask. Our critic calls this 'the correct way to treat a masterwork', and has begun carrying his own lunch the same way."
+    },
+    {
+     "id": "lr-artifact_in_inventory-b05",
+     "text": "{artifact} is being held by {hf}, according to {source}. Thieves are said to be watching. {hf} is said to be watching the thieves. Our militia captain is said to be watching the ceiling, as is his custom."
+    },
+    {
+     "id": "lr-artifact_in_inventory-b06",
+     "text": "{source} reports that {hf} has {artifact}. The {artifact_item} is reportedly kept in a pouch with a few rough gems, which is the first time in years anybody in this world has had rough gems, and our moods are jealous."
+    },
+    {
+     "id": "lr-artifact_in_inventory-b07",
+     "text": "{hf} is the current holder of {artifact}, {source} reports. The {hf_race} is said to be very proud of it. Our readers note that holding a famous artifact is a good way to get famous, robbed or both, in any order."
+    },
+    {
+     "id": "lr-artifact_in_inventory-b08",
+     "text": "{artifact} travels with {hf}, {source} reports. The holder is believed to be wandering the world. If {hf} wanders past {fort}, the mayor's office has asked to inspect the {artifact_item} for production order violations."
+    },
+    {
+     "id": "lr-artifact_in_inventory-b09",
+     "text": "{source} reports that some famous treasure is being carried about the world in somebody's luggage. Our artifact desk weeps. Our travel desk asks only that the holder avoid trees, because those always end badly."
+    },
+    {
+     "id": "lr-artifact_in_inventory-b10",
+     "text": "A legendary object is said to be in private hands, reports {source}. The Herald notes that private hands are still better than goblin hands, which is where we fear the treasures of {past_fort} ended up.",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ]
+  },
+  "artifact_not_in_site": {
+   "heads": [
+    {
+     "id": "lr-artifact_not_in_site-h01",
+     "text": "{artifact} GONE FROM {site}; PLINTH LONELY"
+    },
+    {
+     "id": "lr-artifact_not_in_site-h02",
+     "text": "WHO TOOK {artifact}? NOT US, PROBABLY"
+    },
+    {
+     "id": "lr-artifact_not_in_site-h03",
+     "text": "EMPTY SHELF AT {site}"
+    },
+    {
+     "id": "lr-artifact_not_in_site-h04",
+     "text": "{site} MISPLACES ITS {artifact_item}"
+    },
+    {
+     "id": "lr-artifact_not_in_site-h05",
+     "text": "{artifact} WANDERS OFF"
+    },
+    {
+     "id": "lr-artifact_not_in_site-h06",
+     "text": "LEGEND LEAVES {site} WITHOUT A NOTE"
+    },
+    {
+     "id": "lr-artifact_not_in_site-h07",
+     "text": "IT WAS HERE A MOMENT AGO, SAYS {site}"
+    },
+    {
+     "id": "lr-artifact_not_in_site-h08",
+     "text": "MISSING ARTIFACT; NO SHERIFF TO INVESTIGATE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-artifact_not_in_site-b01",
+     "text": "{artifact} is no longer at {site}, {source} reports. Nobody knows where the {artifact_item} has gone. At {fort}, the sheriff's office would investigate, but it has been vacant for some time, and its desk has been smoothed."
+    },
+    {
+     "id": "lr-artifact_not_in_site-b02",
+     "text": "{source} reports that {artifact} has vanished from {site}. Older readers are reminded of The Amusing Duties, lost at Roughnessslaps in year 68, which has since spent more time being claimed than being anywhere.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-artifact_not_in_site-b03",
+     "text": "The {artifact_item} {artifact} has left {site}, {source} reports. Rumours say it was taken by thieves, elves or a dwarf in a strange mood who needed it for something else. Our readers, who know moods, find the third most likely."
+    },
+    {
+     "id": "lr-artifact_not_in_site-b04",
+     "text": "{artifact} is missing from {site}, {source} reports. Searchers have checked every room, every chest and every armor stand. Our historians say that last part alone could take a lifetime, if there are as many as some forts we could name."
+    },
+    {
+     "id": "lr-artifact_not_in_site-b05",
+     "text": "{source} confirms that {artifact} is gone from {site}. Townsfolk say it was there for years. Our readers say the same about the drink in our fort, which was there for years too, right next to the dwarves dying of thirst."
+    },
+    {
+     "id": "lr-artifact_not_in_site-b06",
+     "text": "{artifact} is missing from {site}, {source} reports. The {artifact_item}'s former keepers are holding an inquiry. Our mayor's office has offered to run it, provided it can include production order violation charges."
+    },
+    {
+     "id": "lr-artifact_not_in_site-b07",
+     "text": "{site} has lost {artifact}, {source} reports. The empty space has drawn visitors. Our arts desk notes that at Searabbeys, The Nuanced Hamlet is still said to be in place, so at least the goblins are not losing things.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-artifact_not_in_site-b08",
+     "text": "{artifact} has disappeared from {site}, according to {source}. Locals are said to be heartbroken. At {fort}, a craftsdwarf has offered to make a replacement, provided someone can find one rough gem, anywhere, ever."
+    },
+    {
+     "id": "lr-artifact_not_in_site-b09",
+     "text": "{source} reports a famous object has gone missing from where it used to be. The Herald's lost property office has checked its own shelves and found only a sock, a handful of silk scraps and a note that reads 'more thrones?'"
+    },
+    {
+     "id": "lr-artifact_not_in_site-b10",
+     "text": "A treasure has gone astray, reports {source}. Our crime desk would like to stress that the fort was nowhere near it, had no part in it and, frankly, cannot find its own things, let alone anyone else's."
+    }
+   ]
+  },
+  "artifact_destroyed": {
+   "heads": [
+    {
+     "id": "lr-artifact_destroyed-h01",
+     "text": "{artifact} DESTROYED; MOOD WASTED"
+    },
+    {
+     "id": "lr-artifact_destroyed-h02",
+     "text": "{artifact_item} OF LEGEND, NOW GRAVEL"
+    },
+    {
+     "id": "lr-artifact_destroyed-h03",
+     "text": "MASTERPIECE LOST; CRAFTSDWARVES WAIL"
+    },
+    {
+     "id": "lr-artifact_destroyed-h04",
+     "text": "{artifact} BREAKS; HERALD BREAKS DOWN"
+    },
+    {
+     "id": "lr-artifact_destroyed-h05",
+     "text": "ALL THAT ROUGH GEM, FOR NOTHING"
+    },
+    {
+     "id": "lr-artifact_destroyed-h06",
+     "text": "RIP {artifact}, {ago}"
+    },
+    {
+     "id": "lr-artifact_destroyed-h07",
+     "text": "SMASHED: ONE IRREPLACEABLE THING"
+    },
+    {
+     "id": "lr-artifact_destroyed-h08",
+     "text": "ARTIFACT LOST FOREVER; CLAIMANTS DISAPPOINTED"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "lr-artifact_destroyed-b01",
+     "text": "{artifact}, a {artifact_item}, has been destroyed, {source} reports. Readers who remember how hard it is to get a mood its rough gems in this world are taking the news personally. One has written in to say she will never cut a gem again."
+    },
+    {
+     "id": "lr-artifact_destroyed-b02",
+     "text": "{source} reports that {artifact} was destroyed {ago}. The {artifact_item} was once famous. Now it is a pile of bits. Our arts desk is grieving, and has asked the Overseer not to queue any jobs that involve the pile."
+    },
+    {
+     "id": "lr-artifact_destroyed-b03",
+     "text": "{artifact} is no more, {source} reports. At {fort}, the craftsdwarves held a moment of silence, which the mayor's office immediately interrupted to file a production order violation against the silence."
+    },
+    {
+     "id": "lr-artifact_destroyed-b04",
+     "text": "{artifact} has been destroyed, {source} reports. Experts believe it was simply worn out from being claimed so often. The Amusing Duties, claimed about 48 times, is said to be nervous.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-artifact_destroyed-b05",
+     "text": "The {artifact_item} {artifact} has been lost forever, {source} reports. Our heritage desk lists it among the world's tragedies, alongside the dwarves of the Safety burrow and the fey carpenter who died of thirst beside a heap of rough gems."
+    },
+    {
+     "id": "lr-artifact_destroyed-b06",
+     "text": "{artifact} was destroyed {ago}, {source} reports. The maker's spirit is said to be furious. Our ghost correspondent says that spirits in this world are generally furious, and recommends a slab and some patience."
+    },
+    {
+     "id": "lr-artifact_destroyed-b07",
+     "text": "{source} reports the destruction of {artifact}, a {artifact_item}. Our readers have asked that Claspedserpent be checked at once to make sure it is all right. It is said to be at Quakefocus, under a great deal of furniture.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lr-artifact_destroyed-b08",
+     "text": "{artifact}, a famous {artifact_item}, has been destroyed, {source} reports. The Herald is printing this page with a black border, as is traditional, and with a small drawing of an armor stand, as is customary for sad news."
+    },
+    {
+     "id": "lr-artifact_destroyed-b09",
+     "text": "{source} reports that a great artifact has been destroyed somewhere in the world. Our craftsdwarves are in mourning. Our moods, sensing an opportunity, have begun demanding things nobody has, as a tribute."
+    },
+    {
+     "id": "lr-artifact_destroyed-b10",
+     "text": "A masterpiece is gone forever, says {source}. Our editorial board reminds readers that every artifact costs a dwarf a strange mood, a workshop and usually a rough gem from somewhere, so please, world, be gentle with them."
+    }
+   ]
+  }
+ }
+}

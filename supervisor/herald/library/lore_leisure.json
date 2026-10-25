@@ -1,0 +1,4117 @@
+{
+ "horoscopes": {
+  "Granite": [
+   {
+    "id": "lz-hs-granite-one-thing",
+    "text": "Granite, you are a builder's sign. Build one thing this month. One. Not two thousand of it. The Overseer was born under a different sign and it shows."
+   },
+   {
+    "id": "lz-hs-granite-record",
+    "text": "{record_fort} produced {record}. Granite approves of commitment, but not of that. Build a bed this month. Stop at one bed.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-granite-past-fort",
+    "text": "Old foundations remember you. Somewhere a wall you raised at {past_fort} still stands, even though the fort {past_fort_fate}. Hold your grudge.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-granite-smoothed",
+    "text": "The Overseer queues you for smoothing. Granite does not get smoothed. Granite gets smoothed eventually, in its own time, which is roughly never."
+   },
+   {
+    "id": "lz-hs-granite-first-again",
+    "text": "First month, first in line for the well. Granite, lead by example and drink something before you become a cautionary headline."
+   },
+   {
+    "id": "lz-hs-granite-throne",
+    "text": "A throne will be carved for you. Then 147 more. Sit in each one briefly, so none of them feel left out. Lucky furniture: the one you are on."
+   },
+   {
+    "id": "lz-hs-granite-liaison",
+    "text": "{liaison} says there is much to share. Share nothing, Granite. You were here before the import agreements and you will be here after."
+   },
+   {
+    "id": "lz-hs-granite-rewind",
+    "text": "If the gods blink this month, you will not notice. You were already standing perfectly still. Others will envy your continuity."
+   },
+   {
+    "id": "lz-hs-granite-militia",
+    "text": "The militia needs nine more dwarves. You are one dwarf, Granite, but a very heavy one. Stand in the doorway and count as three.",
+    "when": [
+     "recent_migrants"
+    ]
+   },
+   {
+    "id": "lz-hs-granite-paperwork",
+    "text": "The mayor files a charge against you for violating a production order. Remain unmoved. Paperwork erodes. Granite does not."
+   },
+   {
+    "id": "lz-hs-granite-stairs",
+    "text": "Something is coming up the stairs. Granite does not go down to meet it. Granite waits at the top, where the floor is solid and the ale is."
+   },
+   {
+    "id": "lz-hs-granite-winter-stand",
+    "text": "Winter settles in. Granite settles in harder. Find a warm corner and refuse every hauling job, politely, by being very large.",
+    "when": [
+     "winter"
+    ]
+   }
+  ],
+  "Slate": [
+   {
+    "id": "lz-hs-slate-ledger",
+    "text": "You keep a ledger of every armor stand in the fortress, Slate. It is long. You do not complain. You simply write 'more' and underline it once."
+   },
+   {
+    "id": "lz-hs-slate-headline",
+    "text": "A newspaper asks for your opinion. Give it one word. The editor will print it as a headline anyway. Lucky word: 'noted.'"
+   },
+   {
+    "id": "lz-hs-slate-off-duty",
+    "text": "Like the militia, you are listed as Off duty this month. Unlike the militia, you will enjoy it. Lie flat. Be still. Be slate."
+   },
+   {
+    "id": "lz-hs-slate-paperwork",
+    "text": "The mayor's office needs a surface to file charges on. Offer yourself. Being useful is the only excitement you allow."
+   },
+   {
+    "id": "lz-hs-slate-rumor",
+    "text": "A rumor about the Great Rewinds passes through the tavern. You heard it the first time. You will hear it again. You are fine with that."
+   },
+   {
+    "id": "lz-hs-slate-refuse",
+    "text": "Someone suggests hauling garbage back out of the pit. Say 'no' in a flat voice. It is the most important flat thing you will ever say."
+   },
+   {
+    "id": "lz-hs-slate-past-fort",
+    "text": "You remind an elder of the old paper at {past_fort}. Quiet, grey, full of bad news. Take it as a compliment, because it was meant as one.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-slate-lists",
+    "text": "Make a list of every vacant office in {fort}. Run out of slate halfway down. Use the wall. The wall was getting smoothed anyway."
+   },
+   {
+    "id": "lz-hs-slate-boring",
+    "text": "Nothing happens to you this month, Slate. A goblin army happens to someone two towns over. You read about it. You nod once."
+   },
+   {
+    "id": "lz-hs-slate-chalk",
+    "text": "A dwarven child in a mood demands plant cloth. You cannot help. You can be a chalkboard that says 'plant cloth' in big letters. Do that."
+   },
+   {
+    "id": "lz-hs-slate-rain",
+    "text": "It rains. Others gather plants across the whole map. You stay in, Slate, and remain correctly dry and correctly unbothered.",
+    "when": [
+     "rain"
+    ]
+   },
+   {
+    "id": "lz-hs-slate-pinned-sentinel",
+    "text": "You remind someone of the old Quakefocus Sentinel: grey, quiet, and off about the armor stands by only 1,981.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Felsite": [
+   {
+    "id": "lz-hs-felsite-loose-stones",
+    "text": "Every old fort had eight hundred loose stones and most of them were you. You were history, Felsite. Uncomfortable, underfoot history."
+   },
+   {
+    "id": "lz-hs-felsite-armor-stand",
+    "text": "You become an armor stand. Then you become the neighbor of an armor stand. Felsite, this is a community now. Introduce yourself."
+   },
+   {
+    "id": "lz-hs-felsite-throne-ordinary",
+    "text": "You will be a throne, but the ordinary one at the end of the row that nobody wants. Somebody must be last. You were made for last."
+   },
+   {
+    "id": "lz-hs-felsite-stone-glut",
+    "text": "There is so much of you in the stockpile that the haulers have started a petition. Ignore it. Petitions are also made of felsite here.",
+    "when": [
+     "stone_glut"
+    ]
+   },
+   {
+    "id": "lz-hs-felsite-goblin-floor",
+    "text": "Strangers now walk on felsite at {past_fort}. They walk on you, but they also have to look at you. That is a kind of revenge.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-felsite-cistern",
+    "text": "You will line a cistern this month. Every drink in {fort} will pass you by. Story of your life. At least the water is in the right place."
+   },
+   {
+    "id": "lz-hs-felsite-burrow",
+    "text": "You are carved into a sign reading 'Safety.' This is the most important lie you will ever tell. Stand tall."
+   },
+   {
+    "id": "lz-hs-felsite-mood-ignored",
+    "text": "A dwarf in a strange mood examines you and asks for rough gems instead. Again. Everyone gets the gems. You get to be the workshop floor."
+   },
+   {
+    "id": "lz-hs-felsite-ruin",
+    "text": "When this fort is a ruin, Felsite, you will be the last thing standing. Nobody will loot you. That is called dignity."
+   },
+   {
+    "id": "lz-hs-felsite-smoothing",
+    "text": "Sixteen thousand smoothing jobs, and half of them are you. Enjoy the attention, Felsite. It is not personal, but it is polishing."
+   },
+   {
+    "id": "lz-hs-felsite-liaison-sniff",
+    "text": "The outpost liaison looks at you and does not ask for you in any trade agreement. Wonderful. You remain a citizen, not an export."
+   },
+   {
+    "id": "lz-hs-felsite-pinned-searabbeys",
+    "text": "Searabbeys kept 800 of you loose on the floor for five years. The goblins who hold it now trip on you daily. Felsite remembers.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Hematite": [
+   {
+    "id": "lz-hs-hematite-militia-of-one",
+    "text": "The militia is one captain and nine empty places. Hematite, you are iron-willed. Fill a place. Any place. Stand in it and look stern."
+   },
+   {
+    "id": "lz-hs-hematite-enemy",
+    "text": "We are at war with {enemy}. You find this energizing. Polish an axe and pretend not to be thrilled.",
+    "when": [
+     "at_war"
+    ]
+   },
+   {
+    "id": "lz-hs-hematite-enemy-race",
+    "text": "The {enemy_race} of {enemy} are coming, eventually. Hematite has been ready since breakfast. Sit down. Have a second breakfast, armed.",
+    "when": [
+     "at_war"
+    ]
+   },
+   {
+    "id": "lz-hs-hematite-skirmish",
+    "text": "The enemy is only skirmishing. Hematite takes that as an insult. Prepare to be skirmished at, properly and in full armor."
+   },
+   {
+    "id": "lz-hs-hematite-armor-stands",
+    "text": "Hundreds of armor stands, and no armor on any of them. Hematite, you have the iron. Go outfit at least one stand, for morale."
+   },
+   {
+    "id": "lz-hs-hematite-off-duty",
+    "text": "Your squad's schedule says Off duty. Your heart says on duty. Your heart is not on the schedule. Train alone in the barracks anyway."
+   },
+   {
+    "id": "lz-hs-hematite-blood",
+    "text": "Bloody ambition this month. Translate it into something useful, such as a forge order the mayor cannot charge you for."
+   },
+   {
+    "id": "lz-hs-hematite-refugees",
+    "text": "A goblin army marches on someone else's town. Feel relieved. Then feel ashamed of feeling relieved. Then sharpen something."
+   },
+   {
+    "id": "lz-hs-hematite-champion",
+    "text": "The office of champion is vacant. You are not the champion. But nobody else is either, so technically you are tied for first."
+   },
+   {
+    "id": "lz-hs-hematite-forgotten-beast",
+    "text": "Something huge comes up the stairs. Hematite does not hide in the Safety burrow. Hematite has read the history of Safety burrows."
+   },
+   {
+    "id": "lz-hs-hematite-caravan",
+    "text": "The caravan has iron. You will want all of it. Trade a throne. We have plenty of thrones.",
+    "when": [
+     "recent_caravan"
+    ]
+   },
+   {
+    "id": "lz-hs-hematite-pinned-wickedness",
+    "text": "Total war with The Destined Wickedness suits you, Hematite. Do not tell the mayor; he will file it as a production order violation.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Malachite": [
+   {
+    "id": "lz-hs-malachite-thrones",
+    "text": "There are a great many thrones and you deserve all of them. Sit in a different one each day. Have your portrait engraved in at least three."
+   },
+   {
+    "id": "lz-hs-malachite-liaison-rings",
+    "text": "The liaison once asked for rings at double their worth. You understand completely. Malachite never accepts anything at face value."
+   },
+   {
+    "id": "lz-hs-malachite-artifact-abroad",
+    "text": "Somewhere at {past_fort} a treasure of ours still sits in the wrong hands. Like you, it is a gem in a bad neighborhood. Dream of a rescue.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-malachite-mist-ring",
+    "text": "Stand under the mist ring this month. The spray catches the light and makes you sparkle. That is what it is for, whatever the plans say."
+   },
+   {
+    "id": "lz-hs-malachite-gems-cut",
+    "text": "Every gem in {fort} has been cut. You find this glorious. A dwarf in a mood finds it tragic. Avoid eye contact with the workshops."
+   },
+   {
+    "id": "lz-hs-malachite-vacant-mayor",
+    "text": "The mayor's office is vacant. Malachite, imagine yourself there. Imagine the sash. Do not actually take the job; there is paperwork."
+   },
+   {
+    "id": "lz-hs-malachite-diplomat",
+    "text": "A diplomat visits. Wear your green. Ask about {monarch}'s shoes. Mention every peace treaty of {civ} as if you signed each one."
+   },
+   {
+    "id": "lz-hs-malachite-tour",
+    "text": "The spectator camera follows guests around the fortress. Stand where it will find you. Pose by a fountain. Pose by anything."
+   },
+   {
+    "id": "lz-hs-malachite-garbage",
+    "text": "Never go near the garbage pit, Malachite. Nothing good comes out of it, and you, especially, should not be found down there."
+   },
+   {
+    "id": "lz-hs-malachite-claimants",
+    "text": "An artifact out there has been claimed by forty-eight different figures. You would claim it too, if it came in green. It does not."
+   },
+   {
+    "id": "lz-hs-malachite-merchant",
+    "text": "A merchant compliments your taste. Buy something to prove him right. Buy something else to prove him very right.",
+    "when": [
+     "recent_caravan"
+    ]
+   },
+   {
+    "id": "lz-hs-malachite-pinned-rings",
+    "text": "Iden Loloklolor once asked for rings at 210%. Malachite would have asked 300% and a sash. Know your worth, then add a bit.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Galena": [
+   {
+    "id": "lz-hs-galena-safety-burrow",
+    "text": "Your instincts say: do not hide in the Safety burrow. Galena, your instincts have read the history books. Listen to them."
+   },
+   {
+    "id": "lz-hs-galena-tree-branch",
+    "text": "Avoid trees this month. Avoid branches. Avoid looking at branches. A miner once died of thirst on one, and you are not taking chances."
+   },
+   {
+    "id": "lz-hs-galena-garbage",
+    "text": "Someone asks you to help haul refuse out of the pit. Count the dwarves who did that last time. It was eight. Say you have a headache."
+   },
+   {
+    "id": "lz-hs-galena-thirst",
+    "text": "Drink before you are thirsty. Drink again after. Galena knows the thirst paradox personally, and she is not becoming a statistic."
+   },
+   {
+    "id": "lz-hs-galena-stairs",
+    "text": "You hear something on the stairs thirty levels down. It is probably nothing. Go up anyway. Galena has never regretted going up."
+   },
+   {
+    "id": "lz-hs-galena-rewind",
+    "text": "The gods blink and the world restarts. Did your stuff come back? Count it. Count it twice. Galena counts everything twice since the Great Rewinds."
+   },
+   {
+    "id": "lz-hs-galena-silver-hidden",
+    "text": "Inside you there is silver. Do not tell anyone. Someone will want it smelted, and the liaison will want it as a ring at twice the price."
+   },
+   {
+    "id": "lz-hs-galena-enemy",
+    "text": "We are at war with {enemy}. You have already planned escape routes from all of them. Some of the routes are good.",
+    "when": [
+     "at_war"
+    ]
+   },
+   {
+    "id": "lz-hs-galena-doctors",
+    "text": "Half the hospitals in an old fort had no doctor. Before you fall off anything this month, check which hospital you would land in."
+   },
+   {
+    "id": "lz-hs-galena-caravan-calm",
+    "text": "A calm caravan visit. No ambush, no thieves. Galena finds this so suspicious she inspects every wagon personally.",
+    "when": [
+     "recent_caravan"
+    ]
+   },
+   {
+    "id": "lz-hs-galena-mood-warning",
+    "text": "Someone near you is in a strange mood and demanding rough gems. Back away gently. Galena does not get involved in gem politics.",
+    "when": [
+     "recent_mood"
+    ]
+   },
+   {
+    "id": "lz-hs-galena-past-fate",
+    "text": "{past_fort} {past_fort_fate}. Galena saw it coming, and is now seeing it coming here. Keep a packed bag and a full waterskin.",
+    "when": [
+     "has_past_fort"
+    ]
+   }
+  ],
+  "Limestone": [
+   {
+    "id": "lz-hs-limestone-flux",
+    "text": "You will be turned into steel again this month, Limestone. Somebody will make a weapon. Nobody will thank the flux. Thank yourself."
+   },
+   {
+    "id": "lz-hs-limestone-helpful-orders",
+    "text": "You volunteer for a work order. The Overseer queues it two thousand times. Limestone, helpfulness has limits, and this is where they are."
+   },
+   {
+    "id": "lz-hs-limestone-hospital",
+    "text": "Be the doctor nobody had. Bring bandages. Bring a chair. Bring at least one actual doctor, if you can find one."
+   },
+   {
+    "id": "lz-hs-limestone-smoothers",
+    "text": "Three smoothers, sixteen thousand jobs. You will offer to help. You will be number four. The queue will not notice."
+   },
+   {
+    "id": "lz-hs-limestone-liaison",
+    "text": "{liaison} suggests an import agreement. You agree before he finishes. Try, this once, to hear the whole sentence."
+   },
+   {
+    "id": "lz-hs-limestone-refugees",
+    "text": "Refugees from a sacked town pass through the region. You want to adopt all of them. Start with soup. Soup is a good adoption."
+   },
+   {
+    "id": "lz-hs-limestone-cistern",
+    "text": "Help fill the cistern this month. Help fill the mugs. Help fill the dwarf standing next to the mugs, who looks thirsty.",
+    "when": [
+     "drinks_low"
+    ]
+   },
+   {
+    "id": "lz-hs-limestone-child-mood",
+    "text": "A child is in a mood and needs plant cloth. Limestone will search every bin in {fort}. You will find string. It is a start."
+   },
+   {
+    "id": "lz-hs-limestone-mayor-charge",
+    "text": "The mayor charges you with a production order violation. You apologize, even though you did nothing. Stop apologizing to paperwork."
+   },
+   {
+    "id": "lz-hs-limestone-windmill",
+    "text": "The windmills turn without asking anything in return. You admire this. Limestone, you are a windmill with feelings."
+   },
+   {
+    "id": "lz-hs-limestone-burial",
+    "text": "Someone needs a coffin hauled to the catacombs. You go. You always go. Take a friend this time, and a snack.",
+    "when": [
+     "recent_death"
+    ]
+   },
+   {
+    "id": "lz-hs-limestone-pinned-hospitals",
+    "text": "Quakefocus had four hospitals and two doctors. You, Limestone, would have been the third doctor and the fifth hospital.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Sandstone": [
+   {
+    "id": "lz-hs-sandstone-gather-rain",
+    "text": "The Overseer sends you to gather plants across the whole map in the rain. You will wander happily. You will forget the plants.",
+    "when": [
+     "rain"
+    ]
+   },
+   {
+    "id": "lz-hs-sandstone-drift",
+    "text": "You drift into the meeting hall, out of the meeting hall, and back into it. This is called 'socializing' if anyone asks."
+   },
+   {
+    "id": "lz-hs-sandstone-rewind",
+    "text": "The world restarts and you do not notice, because you were also restarting. Sandstone has always been a fresh start waiting to happen."
+   },
+   {
+    "id": "lz-hs-sandstone-tree",
+    "text": "Do not nap in a tree, Sandstone. You know why. Everybody knows why. Nap in a bed, which is a tree that has learned its place."
+   },
+   {
+    "id": "lz-hs-sandstone-armor-stand",
+    "text": "You will lean on an armor stand. Then on another one. There are enough of them to lean on for the rest of your life."
+   },
+   {
+    "id": "lz-hs-sandstone-safety",
+    "text": "Someone tells you to go to the Safety burrow. You get lost on the way and survive. Sometimes wandering off is the plan."
+   },
+   {
+    "id": "lz-hs-sandstone-office",
+    "text": "You are nominated for an office nobody wants. You wander off before the vote. Lucky escape. Lucky stone: you, again."
+   },
+   {
+    "id": "lz-hs-sandstone-erosion",
+    "text": "Your patience erodes. Your plans erode. Your bedroom wall erodes a little. Nobody is surprised. Bring a broom."
+   },
+   {
+    "id": "lz-hs-sandstone-mist",
+    "text": "You stand in the mist ring for an hour and come out happy and soggy. This is the most productive thing anyone will do all month."
+   },
+   {
+    "id": "lz-hs-sandstone-old-forts",
+    "text": "You dream of {past_fort} and wake hungry. That is normal. It lasted {past_fort_years}, mostly hungry. Go and find breakfast.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-sandstone-summer",
+    "text": "Summer sun, shallow plans, warm sand. Go outside briefly, Sandstone. Come back before you become a plant gatherer.",
+    "when": [
+     "summer"
+    ]
+   },
+   {
+    "id": "lz-hs-sandstone-pinned-quakefocus",
+    "text": "You dream of Quakefocus, founded with no drink and seventeen plants. You wake hungry. Breakfast exists now. Go and find it.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Timber": [
+   {
+    "id": "lz-hs-timber-tree-branch",
+    "text": "Timber, you know trees better than anyone. A miner died on one. Please, this month, keep the dwarves off the branches."
+   },
+   {
+    "id": "lz-hs-timber-thrones",
+    "text": "The carpenter will want you for a throne. Remind them there are already plenty. Ask to be a bed. Beds are where the love is."
+   },
+   {
+    "id": "lz-hs-timber-elves",
+    "text": "Elves at the depot weep over you. Accept their grief. Then go back into the furniture stockpile with your head held high."
+   },
+   {
+    "id": "lz-hs-timber-windmill",
+    "text": "You become a windmill blade this month. Spin. Help. You are finally a tree that works for the dwarves, and you like it."
+   },
+   {
+    "id": "lz-hs-timber-wood-low",
+    "text": "There is not much wood left. You feel very valuable. Act it. Insist on a polite request before being turned into a bin.",
+    "when": [
+     "wood_low"
+    ]
+   },
+   {
+    "id": "lz-hs-timber-carpenter",
+    "text": "A fey carpenter once died of thirst beside a pile of rough gems. Timber, you remember carpenters. Bring them a drink this month."
+   },
+   {
+    "id": "lz-hs-timber-coffin",
+    "text": "You will be made into a coffin. Do not take this as an ending. Take it as a promotion to the catacombs, where things are quiet."
+   },
+   {
+    "id": "lz-hs-timber-bin",
+    "text": "You will hold the fortress's last seven silk scraps. Guard them. They are the only cloth anybody can find and they are hiding."
+   },
+   {
+    "id": "lz-hs-timber-goblin-camp",
+    "text": "Strangers camp in the woods around {past_fort}. Rustle at them. It will not hurt them, but it will make you feel better.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-timber-gather",
+    "text": "Plant gatherers are crossing the map in the rain. Drop a leaf on each of them. It is the closest thing you have to a hello."
+   },
+   {
+    "id": "lz-hs-timber-spring",
+    "text": "Spring. Your branches bud. Every dwarf in {fort} keeps a nervous eye on you. Bud anyway, Timber. Bud boldly.",
+    "when": [
+     "spring"
+    ]
+   },
+   {
+    "id": "lz-hs-timber-pinned-carpenter",
+    "text": "Quakefocus's fey carpenter died of thirst beside 150 rough gems. Timber asks only this: next time, a barrel beside the gems.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Moonstone": [
+   {
+    "id": "lz-hs-moonstone-rewinds",
+    "text": "You saw the Great Rewind coming. You always do. When the gods blink this month, nod knowingly, then pretend you saw it coming."
+   },
+   {
+    "id": "lz-hs-moonstone-rough-gems",
+    "text": "A vision: a dwarf demanding rough gems in a fort where every gem is cut. Moonstone, this is not a vision. This is every month."
+   },
+   {
+    "id": "lz-hs-moonstone-child",
+    "text": "A child will go into a strange mood near you. Do not panic. Tell them the stars recommend plant cloth. Tell them it is coming."
+   },
+   {
+    "id": "lz-hs-moonstone-past-fort",
+    "text": "You dream of {past_fort}, which {past_fort_fate}. In the dream someone is still counting the stockpile. Wave. They wave back.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-moonstone-ghosts",
+    "text": "The ghosts of an old fort whisper about armor stands. Answer kindly. They have been counting for years and they are almost done."
+   },
+   {
+    "id": "lz-hs-moonstone-horror",
+    "text": "A crooked horror stalks the hills. Your crystal ball says 'stay home.' Your crystal ball is always right. Stay home."
+   },
+   {
+    "id": "lz-hs-moonstone-liaison",
+    "text": "Your prophecy: {liaison} will say 'There is much to share.' It will come true. You are the most accurate dwarf in the fort."
+   },
+   {
+    "id": "lz-hs-moonstone-possessed",
+    "text": "Possession is in the air. If you feel a sudden need for a loom, go straight to the loom room. Do not wait. History says do not wait.",
+    "when": [
+     "recent_mood"
+    ]
+   },
+   {
+    "id": "lz-hs-moonstone-record",
+    "text": "Your vision shows {record}. You assume it is the future. It is the past, at {record_fort}. The future may still be worse.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-moonstone-burrow",
+    "text": "Your tea leaves spell 'SAFETY,' but upside down. Interpret this as you will. Moonstone interprets it as 'stay on the surface.'"
+   },
+   {
+    "id": "lz-hs-moonstone-moon",
+    "text": "The moon is full. You have not seen it for nine years. You can feel it, though, the way a cat feels a closed door."
+   },
+   {
+    "id": "lz-hs-moonstone-pinned-amusing",
+    "text": "The Amusing Duties sits at Fieryaged with 48 claimants. You are the 49th. You had a dream. Dreams count as a legal claim.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Opal": [
+   {
+    "id": "lz-hs-opal-throne-drama",
+    "text": "The Overseer made a hundred thrones and none of them were for you. Be devastated. Then sit on one anyway and be devastated in comfort."
+   },
+   {
+    "id": "lz-hs-opal-off-duty",
+    "text": "Your militia captain is Off duty forever. You find this romantic. Write a ballad about it. It will be sung once, badly."
+   },
+   {
+    "id": "lz-hs-opal-mist-ring",
+    "text": "The mist ring sprays you and you feel briefly joyful. Then someone else gets sprayed and you feel briefly upstaged."
+   },
+   {
+    "id": "lz-hs-opal-liaison",
+    "text": "{liaison} says there is much to share. You say: 'Then share it!' He does not. It is the most dramatic thing to happen all month."
+   },
+   {
+    "id": "lz-hs-opal-charges",
+    "text": "The mayor charges you with a production order violation. Opal, this is the best thing that has ever happened to you. Fight it in public."
+   },
+   {
+    "id": "lz-hs-opal-refugees",
+    "text": "A refugee band called The Society of Something passes by, and you consider joining. You like societies. You like being in one."
+   },
+   {
+    "id": "lz-hs-opal-rewind",
+    "text": "The gods blink and you lose a whole afternoon. Act as if you have lost a decade. Tell everyone. Tell them twice."
+   },
+   {
+    "id": "lz-hs-opal-gems",
+    "text": "Every gem is cut and sparkling. You are pleased, until a moody dwarf asks for something rough and suddenly the gems are the villains."
+   },
+   {
+    "id": "lz-hs-opal-tour",
+    "text": "The spectator camera tours your bedroom. Make sure the bed is made. Make sure you are on it, posing. Make sure it sees your good side."
+   },
+   {
+    "id": "lz-hs-opal-goblins",
+    "text": "{past_fort} {past_fort_fate}. Opal, you would never let anybody take your fort. You would let them borrow it, with a speech.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-opal-masterpiece",
+    "text": "Someone made a masterpiece and it was not you. Shimmer harder this month. Make sure the bard mentions you in the second verse.",
+    "when": [
+     "recent_masterpiece"
+    ]
+   },
+   {
+    "id": "lz-hs-opal-pinned-thrones",
+    "text": "Quakefocus made 148 thrones. Opal sat in all of them, in a dream, dramatically. Wake up. Sit in a chair. Be brave.",
+    "world": "The Enchanted Planes"
+   }
+  ],
+  "Obsidian": [
+   {
+    "id": "lz-hs-obsidian-thirst-paradox",
+    "text": "Obsidian, you are what happens when water meets fire. Remind the fortress that water also meets dwarves, ideally in mugs."
+   },
+   {
+    "id": "lz-hs-obsidian-goblin-occupation",
+    "text": "Goblins hold an old fort of ours somewhere. You would like a word with them. One sharp word. Several sharp edges."
+   },
+   {
+    "id": "lz-hs-obsidian-end-of-year",
+    "text": "The year closes. Count what {fort} survived. Count what it didn't. Do not count the armor stands. Nobody has the time."
+   },
+   {
+    "id": "lz-hs-obsidian-execution-tower",
+    "text": "You enjoy a visit to the execution tower. Just to look. Just to admire the architecture. You are dark, not dangerous."
+   },
+   {
+    "id": "lz-hs-obsidian-catacombs",
+    "text": "The catacombs are calm and dark. You approve. Leave a note for the ghosts: 'Sorry about the paperwork.'"
+   },
+   {
+    "id": "lz-hs-obsidian-sharp",
+    "text": "Someone asks how you are. Answer honestly. They will retreat to the meeting hall. Lucky outcome: peace and quiet."
+   },
+   {
+    "id": "lz-hs-obsidian-forgotten-beast",
+    "text": "A forgotten beast is coming up the stairs. You will not hide in the Safety burrow. You will stand behind a fortification and glare."
+   },
+   {
+    "id": "lz-hs-obsidian-enemy",
+    "text": "{enemy} sounds like your kind of name. Do not join them. You have standards and they have terrible penmanship.",
+    "when": [
+     "at_war"
+    ]
+   },
+   {
+    "id": "lz-hs-obsidian-ruins",
+    "text": "You love a good ruin, and {world} has many. Pick a favorite this month. Recommended: {past_fort}, which {past_fort_fate}.",
+    "when": [
+     "has_past_fort"
+    ]
+   },
+   {
+    "id": "lz-hs-obsidian-magma",
+    "text": "Stand near the magma forge, warmly. Not too near. You came from magma; you know it does not take returns.",
+    "when": [
+     "winter"
+    ]
+   },
+   {
+    "id": "lz-hs-obsidian-closing-blink",
+    "text": "The world may blink before the year turns. If it does, start again from the top: Granite. You'll see it all again. Wear black."
+   },
+   {
+    "id": "lz-hs-obsidian-pinned-searabbeys",
+    "text": "The goblins of The Torments of Hating hold Searabbeys. You would like one sharp word with them. Several sharp edges.",
+    "world": "The Enchanted Planes"
+   }
+  ]
+ },
+ "jumble": [
+  {
+   "id": "lz-jb-thirst",
+   "word": "THIRST",
+   "clue": "Kills dwarves standing beside full barrels"
+  },
+  {
+   "id": "lz-jb-liaison",
+   "word": "LIAISON",
+   "clue": "There is much to share, says he"
+  },
+  {
+   "id": "lz-jb-burrow",
+   "word": "BURROW",
+   "clue": "Labeled 'Safety', ironically"
+  },
+  {
+   "id": "lz-jb-safety",
+   "word": "SAFETY",
+   "clue": "A burrow name, not a promise"
+  },
+  {
+   "id": "lz-jb-garbage",
+   "word": "GARBAGE",
+   "clue": "Pit you should not haul back out of"
+  },
+  {
+   "id": "lz-jb-refuse",
+   "word": "REFUSE",
+   "clue": "Thrown in, dragged out, eight funerals"
+  },
+  {
+   "id": "lz-jb-branch",
+   "word": "BRANCH",
+   "clue": "A miner's last, driest perch"
+  },
+  {
+   "id": "lz-jb-smoother",
+   "word": "SMOOTHER",
+   "clue": "Three of them, sixteen thousand jobs"
+  },
+  {
+   "id": "lz-jb-smoothing",
+   "word": "SMOOTHING",
+   "clue": "The Overseer's favorite hobby"
+  },
+  {
+   "id": "lz-jb-windmill",
+   "word": "WINDMILL",
+   "clue": "Spins for free, asks for nothing"
+  },
+  {
+   "id": "lz-jb-catacomb",
+   "word": "CATACOMB",
+   "clue": "Where the fort files its dead"
+  },
+  {
+   "id": "lz-jb-tower",
+   "word": "TOWER",
+   "clue": "Execution, observation, or just tall"
+  },
+  {
+   "id": "lz-jb-diplomat",
+   "word": "DIPLOMAT",
+   "clue": "Arrives with words, leaves with complaints"
+  },
+  {
+   "id": "lz-jb-monarch",
+   "word": "MONARCH",
+   "clue": "Rules the civilization from far away"
+  },
+  {
+   "id": "lz-jb-refugee",
+   "word": "REFUGEE",
+   "clue": "Fled a sacked town ahead of the goblins"
+  },
+  {
+   "id": "lz-jb-horror",
+   "word": "HORROR",
+   "clue": "Crooked, giant, best avoided"
+  },
+  {
+   "id": "lz-jb-crooked",
+   "word": "CROOKED",
+   "clue": "Kind of horror you do not visit"
+  },
+  {
+   "id": "lz-jb-herald",
+   "word": "HERALD",
+   "clue": "You are reading one"
+  },
+  {
+   "id": "lz-jb-famine",
+   "word": "FAMINE",
+   "clue": "How a hungry fort spends its first month"
+  },
+  {
+   "id": "lz-jb-workorder",
+   "word": "WORKORDER",
+   "clue": "Queue it once; get two thousand"
+  },
+  {
+   "id": "lz-jb-rewind",
+   "word": "REWIND",
+   "clue": "Great event when the gods blink"
+  },
+  {
+   "id": "lz-jb-blink",
+   "word": "BLINK",
+   "clue": "What the gods do before a restart"
+  },
+  {
+   "id": "lz-jb-import",
+   "word": "IMPORT",
+   "clue": "Agreement the liaison always suggests"
+  },
+  {
+   "id": "lz-jb-agreement",
+   "word": "AGREEMENT",
+   "clue": "Import paper the liaison adores"
+  },
+  {
+   "id": "lz-jb-mister",
+   "word": "MISTER",
+   "clue": "Pump ring that sprays happiness"
+  },
+  {
+   "id": "lz-jb-spray",
+   "word": "SPRAY",
+   "clue": "What the mist ring does all day"
+  },
+  {
+   "id": "lz-jb-possessed",
+   "word": "POSSESSED",
+   "clue": "Weaver who waited for the loom room"
+  },
+  {
+   "id": "lz-jb-secretive",
+   "word": "SECRETIVE",
+   "clue": "Mood that hides its workshop"
+  },
+  {
+   "id": "lz-jb-macabre",
+   "word": "MACABRE",
+   "clue": "Mood with bones on the shopping list"
+  },
+  {
+   "id": "lz-jb-catatonic",
+   "word": "CATATONIC",
+   "clue": "Mood outcome nobody wants"
+  },
+  {
+   "id": "lz-jb-legendary",
+   "word": "LEGENDARY",
+   "clue": "Skill level past grand master"
+  },
+  {
+   "id": "lz-jb-mayoral",
+   "word": "MAYORAL",
+   "clue": "Of the office nobody will hold"
+  },
+  {
+   "id": "lz-jb-violation",
+   "word": "VIOLATION",
+   "clue": "Production order, according to the mayor"
+  },
+  {
+   "id": "lz-jb-paperwork",
+   "word": "PAPERWORK",
+   "clue": "The mayor's true profession"
+  },
+  {
+   "id": "lz-jb-champion",
+   "word": "CHAMPION",
+   "clue": "Vacant office; apply within"
+  },
+  {
+   "id": "lz-jb-captain",
+   "word": "CAPTAIN",
+   "clue": "The militia, in its entirety"
+  },
+  {
+   "id": "lz-jb-squad",
+   "word": "SQUAD",
+   "clue": "One captain plus nine absences"
+  },
+  {
+   "id": "lz-jb-recruit",
+   "word": "RECRUIT",
+   "clue": "Something the militia never gets"
+  },
+  {
+   "id": "lz-jb-barracks",
+   "word": "BARRACKS",
+   "clue": "Where the captain trains alone"
+  },
+  {
+   "id": "lz-jb-soldier",
+   "word": "SOLDIER",
+   "clue": "What the captain wishes for at night"
+  },
+  {
+   "id": "lz-jb-axedwarf",
+   "word": "AXEDWARF",
+   "clue": "Swings at goblins, and trees"
+  },
+  {
+   "id": "lz-jb-chainmail",
+   "word": "CHAINMAIL",
+   "clue": "Woven metal, rarely on a stand"
+  },
+  {
+   "id": "lz-jb-scimitar",
+   "word": "SCIMITAR",
+   "clue": "Curved goblin-favored blade"
+  },
+  {
+   "id": "lz-jb-dagger",
+   "word": "DAGGER",
+   "clue": "Small, pointy, kobold-approved"
+  },
+  {
+   "id": "lz-jb-flail",
+   "word": "FLAIL",
+   "clue": "Ball, chain, regret"
+  },
+  {
+   "id": "lz-jb-maul",
+   "word": "MAUL",
+   "clue": "Big hammer for big problems"
+  },
+  {
+   "id": "lz-jb-helm",
+   "word": "HELM",
+   "clue": "Hat that stops arrows"
+  },
+  {
+   "id": "lz-jb-arrow",
+   "word": "ARROW",
+   "clue": "Goblin postal service"
+  },
+  {
+   "id": "lz-jb-target",
+   "word": "TARGET",
+   "clue": "Archery practice, or the mayor"
+  },
+  {
+   "id": "lz-jb-invader",
+   "word": "INVADER",
+   "clue": "Goblin on a schedule"
+  },
+  {
+   "id": "lz-jb-raider",
+   "word": "RAIDER",
+   "clue": "Snatcher's louder cousin"
+  },
+  {
+   "id": "lz-jb-bandit",
+   "word": "BANDIT",
+   "clue": "Highway goblin, wagon-curious"
+  },
+  {
+   "id": "lz-jb-demon",
+   "word": "DEMON",
+   "clue": "Lives at the bottom. Leave it there"
+  },
+  {
+   "id": "lz-jb-ettin",
+   "word": "ETTIN",
+   "clue": "Two heads, both angry"
+  },
+  {
+   "id": "lz-jb-cyclops",
+   "word": "CYCLOPS",
+   "clue": "One eye, zero manners"
+  },
+  {
+   "id": "lz-jb-giant",
+   "word": "GIANT",
+   "clue": "Tall visitor, short temper"
+  },
+  {
+   "id": "lz-jb-nightmare",
+   "word": "NIGHTMARE",
+   "clue": "Bad dream, or a cavern visitor"
+  },
+  {
+   "id": "lz-jb-forgotten",
+   "word": "FORGOTTEN",
+   "clue": "Beast that remembers the stairs"
+  },
+  {
+   "id": "lz-jb-ruby",
+   "word": "RUBY",
+   "clue": "Red, cut, and useless to a mood"
+  },
+  {
+   "id": "lz-jb-sapphire",
+   "word": "SAPPHIRE",
+   "clue": "Blue gem, already cut, sorry"
+  },
+  {
+   "id": "lz-jb-emerald",
+   "word": "EMERALD",
+   "clue": "Green gem the moody can't have"
+  },
+  {
+   "id": "lz-jb-diamond",
+   "word": "DIAMOND",
+   "clue": "Hardest gem, hardest to stop cutting"
+  },
+  {
+   "id": "lz-jb-topaz",
+   "word": "TOPAZ",
+   "clue": "Gem, golden, cut too soon"
+  },
+  {
+   "id": "lz-jb-garnet",
+   "word": "GARNET",
+   "clue": "Red gem, plentiful, cut"
+  },
+  {
+   "id": "lz-jb-amethyst",
+   "word": "AMETHYST",
+   "clue": "Purple gem, now in a ring"
+  },
+  {
+   "id": "lz-jb-onyx",
+   "word": "ONYX",
+   "clue": "Black gem with banded stripes"
+  },
+  {
+   "id": "lz-jb-jasper",
+   "word": "JASPER",
+   "clue": "Opaque gem, red as a grudge"
+  },
+  {
+   "id": "lz-jb-agate",
+   "word": "AGATE",
+   "clue": "Banded gem, banded together"
+  },
+  {
+   "id": "lz-jb-jade",
+   "word": "JADE",
+   "clue": "Green stone, elves pretend to like it"
+  },
+  {
+   "id": "lz-jb-pearl",
+   "word": "PEARL",
+   "clue": "Gem from a shell, not a mine"
+  },
+  {
+   "id": "lz-jb-amber",
+   "word": "AMBER",
+   "clue": "Golden resin, trapped bug inside"
+  },
+  {
+   "id": "lz-jb-coral",
+   "word": "CORAL",
+   "clue": "Sea rock. We are not near the sea"
+  },
+  {
+   "id": "lz-jb-rough",
+   "word": "ROUGH",
+   "clue": "What every mood demands, too late"
+  },
+  {
+   "id": "lz-jb-nickel",
+   "word": "NICKEL",
+   "clue": "Silvery metal, smelts from garnierite"
+  },
+  {
+   "id": "lz-jb-bismuth",
+   "word": "BISMUTH",
+   "clue": "Rainbow metal, makes bronze too"
+  },
+  {
+   "id": "lz-jb-electrum",
+   "word": "ELECTRUM",
+   "clue": "Gold and silver, holding hands"
+  },
+  {
+   "id": "lz-jb-billon",
+   "word": "BILLON",
+   "clue": "Silver and copper, getting along"
+  },
+  {
+   "id": "lz-jb-pewter",
+   "word": "PEWTER",
+   "clue": "Mug metal, tin and friends"
+  },
+  {
+   "id": "lz-jb-brass",
+   "word": "BRASS",
+   "clue": "Copper plus zinc, plus confidence"
+  },
+  {
+   "id": "lz-jb-lead",
+   "word": "LEAD",
+   "clue": "Heavy metal, heavy mugs"
+  },
+  {
+   "id": "lz-jb-zinc",
+   "word": "ZINC",
+   "clue": "Metal for brass, pale and quiet"
+  },
+  {
+   "id": "lz-jb-iron",
+   "word": "IRON",
+   "clue": "Hematite's ambition, smelted"
+  },
+  {
+   "id": "lz-jb-gabbro",
+   "word": "GABBRO",
+   "clue": "Dark igneous stone, very flat"
+  },
+  {
+   "id": "lz-jb-diorite",
+   "word": "DIORITE",
+   "clue": "Speckled stone, rather plain"
+  },
+  {
+   "id": "lz-jb-andesite",
+   "word": "ANDESITE",
+   "clue": "Grey volcanic stone, quite common"
+  },
+  {
+   "id": "lz-jb-rhyolite",
+   "word": "RHYOLITE",
+   "clue": "Pale volcanic stone"
+  },
+  {
+   "id": "lz-jb-dacite",
+   "word": "DACITE",
+   "clue": "Volcanic stone, sounds like a tooth"
+  },
+  {
+   "id": "lz-jb-chert",
+   "word": "CHERT",
+   "clue": "Sedimentary stone, sharp when broken"
+  },
+  {
+   "id": "lz-jb-gneiss",
+   "word": "GNEISS",
+   "clue": "Stone that sounds very polite"
+  },
+  {
+   "id": "lz-jb-schist",
+   "word": "SCHIST",
+   "clue": "Shiny layered stone, rude-sounding"
+  },
+  {
+   "id": "lz-jb-phyllite",
+   "word": "PHYLLITE",
+   "clue": "Stone between slate and schist"
+  },
+  {
+   "id": "lz-jb-quartzite",
+   "word": "QUARTZITE",
+   "clue": "Very hard stone, very smug"
+  },
+  {
+   "id": "lz-jb-dolomite",
+   "word": "DOLOMITE",
+   "clue": "Flux stone, limestone's cousin"
+  },
+  {
+   "id": "lz-jb-calcite",
+   "word": "CALCITE",
+   "clue": "Flux crystal, helpful to smiths"
+  },
+  {
+   "id": "lz-jb-gypsum",
+   "word": "GYPSUM",
+   "clue": "Plaster stone for the hospital"
+  },
+  {
+   "id": "lz-jb-magnetite",
+   "word": "MAGNETITE",
+   "clue": "Iron ore that sticks to things"
+  },
+  {
+   "id": "lz-jb-limonite",
+   "word": "LIMONITE",
+   "clue": "Yellow-brown iron ore"
+  },
+  {
+   "id": "lz-jb-cinnabar",
+   "word": "CINNABAR",
+   "clue": "Red ore, never lick it"
+  },
+  {
+   "id": "lz-jb-orpiment",
+   "word": "ORPIMENT",
+   "clue": "Gold-yellow ore, dangerous friend"
+  },
+  {
+   "id": "lz-jb-realgar",
+   "word": "REALGAR",
+   "clue": "Red ore, sounds like a real gar"
+  },
+  {
+   "id": "lz-jb-sylvite",
+   "word": "SYLVITE",
+   "clue": "Salty mineral, a fertilizer"
+  },
+  {
+   "id": "lz-jb-alabaster",
+   "word": "ALABASTER",
+   "clue": "Soft pale stone for fine statues"
+  },
+  {
+   "id": "lz-jb-kaolinite",
+   "word": "KAOLINITE",
+   "clue": "Clay for porcelain, very fancy"
+  },
+  {
+   "id": "lz-jb-claystone",
+   "word": "CLAYSTONE",
+   "clue": "Clay that remembered to harden"
+  },
+  {
+   "id": "lz-jb-mudstone",
+   "word": "MUDSTONE",
+   "clue": "Mud that hardened its resolve"
+  },
+  {
+   "id": "lz-jb-siltstone",
+   "word": "SILTSTONE",
+   "clue": "Silt with a sense of purpose"
+  },
+  {
+   "id": "lz-jb-shale",
+   "word": "SHALE",
+   "clue": "Stone that flakes like pastry"
+  },
+  {
+   "id": "lz-jb-lignite",
+   "word": "LIGNITE",
+   "clue": "Brown coal, cheap fuel"
+  },
+  {
+   "id": "lz-jb-coke",
+   "word": "COKE",
+   "clue": "Fuel from coal, for the forges"
+  },
+  {
+   "id": "lz-jb-elephant",
+   "word": "ELEPHANT",
+   "clue": "Surface stomper, old-fort legend"
+  },
+  {
+   "id": "lz-jb-camel",
+   "word": "CAMEL",
+   "clue": "Humped desert hauler"
+  },
+  {
+   "id": "lz-jb-peacock",
+   "word": "PEACOCK",
+   "clue": "Fancy bird, fancier tail"
+  },
+  {
+   "id": "lz-jb-magpie",
+   "word": "MAGPIE",
+   "clue": "Shiny-object enthusiast"
+  },
+  {
+   "id": "lz-jb-raven",
+   "word": "RAVEN",
+   "clue": "Black bird, ominous weatherman"
+  },
+  {
+   "id": "lz-jb-capybara",
+   "word": "CAPYBARA",
+   "clue": "Giant rodent, calm about everything"
+  },
+  {
+   "id": "lz-jb-badger",
+   "word": "BADGER",
+   "clue": "Digs better than the new miner"
+  },
+  {
+   "id": "lz-jb-beaver",
+   "word": "BEAVER",
+   "clue": "Wood-chewing elf sympathizer"
+  },
+  {
+   "id": "lz-jb-otter",
+   "word": "OTTER",
+   "clue": "Swims, steals fish, unpunished"
+  },
+  {
+   "id": "lz-jb-toad",
+   "word": "TOAD",
+   "clue": "Lumpy pond philosopher"
+  },
+  {
+   "id": "lz-jb-newt",
+   "word": "NEWT",
+   "clue": "Small, damp, cavern-adjacent"
+  },
+  {
+   "id": "lz-jb-axolotl",
+   "word": "AXOLOTL",
+   "clue": "Smiling underwater salamander"
+  },
+  {
+   "id": "lz-jb-crundle",
+   "word": "CRUNDLE",
+   "clue": "Cavern creature, crunchy name"
+  },
+  {
+   "id": "lz-jb-gorlak",
+   "word": "GORLAK",
+   "clue": "Cavern dweller, wears no hat"
+  },
+  {
+   "id": "lz-jb-draltha",
+   "word": "DRALTHA",
+   "clue": "Cavern grazer, many eyes"
+  },
+  {
+   "id": "lz-jb-blendec",
+   "word": "BLENDEC",
+   "clue": "Cavern creature, blends in"
+  },
+  {
+   "id": "lz-jb-cook",
+   "word": "COOK",
+   "clue": "Turns plump helmets into fancier plump helmets"
+  },
+  {
+   "id": "lz-jb-mechanic",
+   "word": "MECHANIC",
+   "clue": "Builds levers; nobody pulls them"
+  },
+  {
+   "id": "lz-jb-planter",
+   "word": "PLANTER",
+   "clue": "Fills twenty plots, harvests seventeen plants"
+  },
+  {
+   "id": "lz-jb-gatherer",
+   "word": "GATHERER",
+   "clue": "Sent across the map in the rain"
+  },
+  {
+   "id": "lz-jb-fisher",
+   "word": "FISHER",
+   "clue": "Carp's natural enemy, and dinner"
+  },
+  {
+   "id": "lz-jb-trapper",
+   "word": "TRAPPER",
+   "clue": "Catches small vermin, big pride"
+  },
+  {
+   "id": "lz-jb-trainer",
+   "word": "TRAINER",
+   "clue": "Teaches war dogs to be dogs of war"
+  },
+  {
+   "id": "lz-jb-dyer",
+   "word": "DYER",
+   "clue": "Turns cloth colors, if there's cloth"
+  },
+  {
+   "id": "lz-jb-spinner",
+   "word": "SPINNER",
+   "clue": "Makes thread when the loom room opens"
+  },
+  {
+   "id": "lz-jb-potter",
+   "word": "POTTER",
+   "clue": "Shapes clay into barrels of beer"
+  },
+  {
+   "id": "lz-jb-glazer",
+   "word": "GLAZER",
+   "clue": "Makes the pot shiny afterward"
+  },
+  {
+   "id": "lz-jb-bowyer",
+   "word": "BOWYER",
+   "clue": "Makes crossbows; militia ignores them"
+  },
+  {
+   "id": "lz-jb-armorer",
+   "word": "ARMORER",
+   "clue": "Supplies the stands, eventually"
+  },
+  {
+   "id": "lz-jb-smith",
+   "word": "SMITH",
+   "clue": "Hammer, anvil, sweat"
+  },
+  {
+   "id": "lz-jb-engraver",
+   "word": "ENGRAVER",
+   "clue": "Carves history onto smoothed walls"
+  },
+  {
+   "id": "lz-jb-architect",
+   "word": "ARCHITECT",
+   "clue": "Designs it; the Overseer queues it"
+  },
+  {
+   "id": "lz-jb-scribe",
+   "word": "SCRIBE",
+   "clue": "Copies books for the library"
+  },
+  {
+   "id": "lz-jb-poet",
+   "word": "POET",
+   "clue": "Writes verse about thirst"
+  },
+  {
+   "id": "lz-jb-dancer",
+   "word": "DANCER",
+   "clue": "Moves in the tavern, joyfully"
+  },
+  {
+   "id": "lz-jb-scholar",
+   "word": "SCHOLAR",
+   "clue": "Ponders, mostly in the library"
+  },
+  {
+   "id": "lz-jb-librarian",
+   "word": "LIBRARIAN",
+   "clue": "Shushes the bard"
+  },
+  {
+   "id": "lz-jb-teacher",
+   "word": "TEACHER",
+   "clue": "Explains thirst to the children"
+  },
+  {
+   "id": "lz-jb-milker",
+   "word": "MILKER",
+   "clue": "Persuades a goat to cooperate"
+  },
+  {
+   "id": "lz-jb-shearer",
+   "word": "SHEARER",
+   "clue": "Gives the sheep a haircut"
+  },
+  {
+   "id": "lz-jb-presser",
+   "word": "PRESSER",
+   "clue": "Squeezes oil from seeds"
+  },
+  {
+   "id": "lz-jb-lyemaker",
+   "word": "LYEMAKER",
+   "clue": "Pours water through ash, carefully"
+  },
+  {
+   "id": "lz-jb-soapmaker",
+   "word": "SOAPMAKER",
+   "clue": "Hospital's quiet hero"
+  },
+  {
+   "id": "lz-jb-waxworker",
+   "word": "WAXWORKER",
+   "clue": "Turns beeswax into crafts"
+  },
+  {
+   "id": "lz-jb-diagnoser",
+   "word": "DIAGNOSER",
+   "clue": "Hospital job nobody took"
+  },
+  {
+   "id": "lz-jb-suturer",
+   "word": "SUTURER",
+   "clue": "Stitches the brave and the clumsy"
+  },
+  {
+   "id": "lz-jb-setter",
+   "word": "SETTER",
+   "clue": "Bone job, doctor-flavored"
+  },
+  {
+   "id": "lz-jb-dresser",
+   "word": "DRESSER",
+   "clue": "Wound job, not a wardrobe"
+  },
+  {
+   "id": "lz-jb-broker",
+   "word": "BROKER",
+   "clue": "Haggles at the depot, loudly"
+  },
+  {
+   "id": "lz-jb-manager",
+   "word": "MANAGER",
+   "clue": "Approves the two-thousandth work order"
+  },
+  {
+   "id": "lz-jb-baroness",
+   "word": "BARONESS",
+   "clue": "Noble who wants a bigger bedroom"
+  },
+  {
+   "id": "lz-jb-duchess",
+   "word": "DUCHESS",
+   "clue": "Noble whose mandates have mandates"
+  },
+  {
+   "id": "lz-jb-duke",
+   "word": "DUKE",
+   "clue": "Count's boss, baron's nightmare"
+  },
+  {
+   "id": "lz-jb-count",
+   "word": "COUNT",
+   "clue": "A noble, or the bookkeeper's job"
+  },
+  {
+   "id": "lz-jb-king",
+   "word": "KING",
+   "clue": "Monarch, the beardier kind"
+  },
+  {
+   "id": "lz-jb-queen",
+   "word": "QUEEN",
+   "clue": "Monarch, the regal kind"
+  },
+  {
+   "id": "lz-jb-justice",
+   "word": "JUSTICE",
+   "clue": "Served late, by the hammerer"
+  },
+  {
+   "id": "lz-jb-convict",
+   "word": "CONVICT",
+   "clue": "One the mayor charges, at last"
+  },
+  {
+   "id": "lz-jb-prison",
+   "word": "PRISON",
+   "clue": "Chains and a long sigh"
+  },
+  {
+   "id": "lz-jb-chains",
+   "word": "CHAINS",
+   "clue": "Where the convicted sit and wait"
+  },
+  {
+   "id": "lz-jb-bucket",
+   "word": "BUCKET",
+   "clue": "Hospital's water carrier"
+  },
+  {
+   "id": "lz-jb-chest",
+   "word": "CHEST",
+   "clue": "Box for the possessions of the possessed"
+  },
+  {
+   "id": "lz-jb-rack",
+   "word": "RACK",
+   "clue": "Weapon storage, mostly empty"
+  },
+  {
+   "id": "lz-jb-cage",
+   "word": "CAGE",
+   "clue": "Holds a kobold or a regret"
+  },
+  {
+   "id": "lz-jb-chain",
+   "word": "CHAIN",
+   "clue": "Holds a dog or a criminal"
+  },
+  {
+   "id": "lz-jb-rope",
+   "word": "ROPE",
+   "clue": "Holds a bucket over the well"
+  },
+  {
+   "id": "lz-jb-hive",
+   "word": "HIVE",
+   "clue": "Bees' apartment, honey's factory"
+  },
+  {
+   "id": "lz-jb-millstone",
+   "word": "MILLSTONE",
+   "clue": "Grinds plants, grinds slowly"
+  },
+  {
+   "id": "lz-jb-gear",
+   "word": "GEAR",
+   "clue": "Machine part that turns"
+  },
+  {
+   "id": "lz-jb-axle",
+   "word": "AXLE",
+   "clue": "Long rod for spinning power"
+  },
+  {
+   "id": "lz-jb-screwpump",
+   "word": "SCREWPUMP",
+   "clue": "Lifts water, one crank at a time"
+  },
+  {
+   "id": "lz-jb-roller",
+   "word": "ROLLER",
+   "clue": "Moves minecarts, ignores dwarves"
+  },
+  {
+   "id": "lz-jb-drum",
+   "word": "DRUM",
+   "clue": "The neighbor plays it at night"
+  },
+  {
+   "id": "lz-jb-flute",
+   "word": "FLUTE",
+   "clue": "Instrument for a sad bard"
+  },
+  {
+   "id": "lz-jb-pasture",
+   "word": "PASTURE",
+   "clue": "Grazing zone, bring the yaks"
+  },
+  {
+   "id": "lz-jb-kennel",
+   "word": "KENNEL",
+   "clue": "Where war dogs learn their job"
+  },
+  {
+   "id": "lz-jb-nestbox",
+   "word": "NESTBOX",
+   "clue": "Where turkeys lay breakfast"
+  },
+  {
+   "id": "lz-jb-ashery",
+   "word": "ASHERY",
+   "clue": "Workshop where lye is born"
+  },
+  {
+   "id": "lz-jb-workshop",
+   "word": "WORKSHOP",
+   "clue": "Where moods happen to things"
+  },
+  {
+   "id": "lz-jb-staircase",
+   "word": "STAIRCASE",
+   "clue": "Something came up it once"
+  },
+  {
+   "id": "lz-jb-corridor",
+   "word": "CORRIDOR",
+   "clue": "Long hall, often smoothed"
+  },
+  {
+   "id": "lz-jb-hallway",
+   "word": "HALLWAY",
+   "clue": "Corridor with fewer pretensions"
+  },
+  {
+   "id": "lz-jb-engraving",
+   "word": "ENGRAVING",
+   "clue": "Picture carved into stone"
+  },
+  {
+   "id": "lz-jb-gate",
+   "word": "GATE",
+   "clue": "Should be closed during sieges"
+  },
+  {
+   "id": "lz-jb-guildhall",
+   "word": "GUILDHALL",
+   "clue": "Where crafters complain together"
+  },
+  {
+   "id": "lz-jb-temple",
+   "word": "TEMPLE",
+   "clue": "Pray for drinks to reach their drinkers"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "lz-qz-pin-armor-stands",
+   "q": "How many armor stands did the work orders at Quakefocus produce?",
+   "options": [
+    "1,981",
+    "Seven",
+    "Just the one, but very big"
+   ],
+   "answer": 0,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-thrones",
+   "q": "How many thrones did Quakefocus end up with?",
+   "options": [
+    "One per noble",
+    "148",
+    "None; they sat on armor stands"
+   ],
+   "answer": 1,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-first-fort",
+   "q": "What was the name of the first fortress in our line?",
+   "options": [
+    "Creaturemirrored",
+    "Quakefocus",
+    "Searabbeys"
+   ],
+   "answer": 2,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-bomrek",
+   "q": "About how many drinks did Searabbeys hold when a miner died of dehydration?",
+   "options": [
+    "1,994",
+    "Twelve",
+    "None at all"
+   ],
+   "answer": 0,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-occupiers",
+   "q": "Who occupies Searabbeys today?",
+   "options": [
+    "The Oily Boots",
+    "Goblins of The Torments of Hating",
+    "Nobody; it is very tidy"
+   ],
+   "answer": 1,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-claspedserpent",
+   "q": "What is Claspedserpent, the artifact of Quakefocus?",
+   "options": [
+    "A gold throne",
+    "A very polite snake",
+    "A silver mace"
+   ],
+   "answer": 2,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-amusing",
+   "q": "Where does the much-claimed steel greaves The Amusing Duties sit now?",
+   "options": [
+    "Fieryaged",
+    "Searabbeys",
+    "Toeembrace"
+   ],
+   "answer": 0,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-liaison-rings",
+   "q": "Iden Loloklolor once asked for rings at what markup?",
+   "options": [
+    "10%",
+    "210%",
+    "100%"
+   ],
+   "answer": 1,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-monarch",
+   "q": "Who is the monarch of The Chambers of Steel?",
+   "options": [
+    "Iden Loloklolor",
+    "Ngumrash Ensebrab",
+    "Oddom Oltartilesh"
+   ],
+   "answer": 2,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-total-war",
+   "q": "With which goblin group is The Chambers of Steel at total war?",
+   "options": [
+    "The Destined Wickedness",
+    "The High Cruelties",
+    "The Fair Cakes"
+   ],
+   "answer": 0,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-crazed-hex",
+   "q": "Which goblin army drove refugees out of Padtufted?",
+   "options": [
+    "The Oily Boots",
+    "The Crazed Hex",
+    "The Chaste Cudgel"
+   ],
+   "answer": 1,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-tametomb",
+   "q": "Which dwarven group reclaimed Tametomb?",
+   "options": [
+    "The Oily Boots",
+    "The Glowing Cult",
+    "The Chaste Cudgel"
+   ],
+   "answer": 2,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-safety",
+   "q": "How many dwarves died in Creaturemirrored's 'Safety' burrow?",
+   "options": [
+    "Fifteen",
+    "None; it was safe",
+    "Three"
+   ],
+   "answer": 0,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-refuse",
+   "q": "How many Creaturemirrored dwarves died hauling refuse out of the pit?",
+   "options": [
+    "One, very slowly",
+    "Eight",
+    "Eighty"
+   ],
+   "answer": 1,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-sentinel",
+   "q": "What was the newspaper of Quakefocus called?",
+   "options": [
+    "The Searabbeys Gazette",
+    "The Armor Stand Weekly",
+    "The Quakefocus Sentinel"
+   ],
+   "answer": 2,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-meat-watch",
+   "q": "What was 'the Meat Watch' at Searabbeys?",
+   "options": [
+    "A long wait for any meat or fish",
+    "A guard for the larder",
+    "A steak-shaped clock"
+   ],
+   "answer": 0,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-hospitals",
+   "q": "Quakefocus had four hospitals. How many had no doctor?",
+   "options": [
+    "None",
+    "Two",
+    "All four, but nice beds"
+   ],
+   "answer": 1,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-pin-omo",
+   "q": "Where does the crooked horror Omo Fewethauyira lurk?",
+   "options": [
+    "In our cistern",
+    "At Toeembrace",
+    "Near Shadyghosts"
+   ],
+   "answer": 2,
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-qz-record",
+   "q": "{record_fort} is best remembered for producing what?",
+   "options": [
+    "{record}",
+    "A sensible stockpile",
+    "Exactly enough beds"
+   ],
+   "answer": 0,
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-qz-record-fort",
+   "q": "Which fort ended up with {record}?",
+   "options": [
+    "None; that would be absurd",
+    "{record_fort}",
+    "Every fort, eventually"
+   ],
+   "answer": 1,
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-qz-past-fate",
+   "q": "What became of {past_fort}?",
+   "options": [
+    "It won a tidiness award",
+    "It is still fine, honestly",
+    "It {past_fort_fate}"
+   ],
+   "answer": 2,
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-qz-past-years",
+   "q": "How long did {past_fort} last?",
+   "options": [
+    "{past_fort_years}",
+    "One very long lunch",
+    "It is lasting right now"
+   ],
+   "answer": 0,
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-qz-past-lesson",
+   "q": "What is the main lesson {past_fort} teaches us?",
+   "options": [
+    "Nothing, ever",
+    "Learn from the past fort",
+    "Repeat it with more thrones"
+   ],
+   "answer": 1,
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-qz-civ",
+   "q": "To which civilization does {fort} belong?",
+   "options": [
+    "The Carp Republic",
+    "Whoever is winning",
+    "{civ}"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-monarch",
+   "q": "Who rules {civ}?",
+   "options": [
+    "{monarch}",
+    "The bard",
+    "The oldest cat"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-liaison",
+   "q": "Who visits as our outpost liaison?",
+   "options": [
+    "A very lost elf",
+    "{liaison}",
+    "The bookkeeper in a hat"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-liaison-line",
+   "q": "{liaison} arrives. What is said first?",
+   "options": [
+    "'Strike the earth!'",
+    "'I bring no paperwork'",
+    "'There is much to share...'"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-enemy",
+   "q": "With whom is {civ} at war?",
+   "options": [
+    "{enemy}",
+    "The carp, informally",
+    "Its own mayor"
+   ],
+   "answer": 0,
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lz-qz-enemy-race",
+   "q": "{enemy} is a group of which people?",
+   "options": [
+    "Sentient socks",
+    "{enemy_race}",
+    "Retired bards"
+   ],
+   "answer": 1,
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lz-qz-enemy-plan",
+   "q": "{enemy} approaches the gate. Where should dwarves NOT go?",
+   "options": [
+    "Inside the walls",
+    "Behind the drawbridge",
+    "The 'Safety' burrow"
+   ],
+   "answer": 2,
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lz-qz-world",
+   "q": "What is our world called?",
+   "options": [
+    "{world}",
+    "The Big Rock",
+    "Below, mostly"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-past-fort-ghosts",
+   "q": "Who still remembers {past_fort}?",
+   "options": [
+    "Nobody, by law",
+    "Its ghosts and the archive",
+    "The carp"
+   ],
+   "answer": 1,
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-qz-thirst-paradox",
+   "q": "A dwarf dies of thirst. Where is the nearest drink, most likely?",
+   "options": [
+    "Leagues away",
+    "Inside the dwarf",
+    "In the barrel beside him"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-thirst-why",
+   "q": "Why might a dwarf die of thirst in a fortress full of booze?",
+   "options": [
+    "His job seemed more urgent",
+    "He disliked the vintage",
+    "Drinks are decorative"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-runaway-order",
+   "q": "The Overseer queues 'make armor stand' once. What can happen?",
+   "options": [
+    "One armor stand",
+    "Thousands of armor stands",
+    "A polite refusal"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-smoothers",
+   "q": "Three smoothers face sixteen thousand smoothing jobs. When will they finish?",
+   "options": [
+    "Next week",
+    "Already done",
+    "By the next fort, maybe"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-safety-burrow",
+   "q": "In Herald history, a burrow labeled 'Safety' is usually:",
+   "options": [
+    "Under the stairs a beast uses",
+    "Very safe",
+    "A bakery"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-garbage-pit",
+   "q": "Dwarves begin hauling refuse back OUT of the garbage pit. What is happening above?",
+   "options": [
+    "A festival",
+    "More refuse is being thrown in",
+    "Nothing at all"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-tree-branch",
+   "q": "Which is the deadliest perch for a careless miner?",
+   "options": [
+    "A bedroll",
+    "A well-built chair",
+    "A tree branch"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-mood-wants",
+   "q": "A strange mood demands rough gems. How many rough gems does the fort have?",
+   "options": [
+    "None; all were just cut",
+    "Plenty",
+    "One, in the liaison's pocket"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-mood-child",
+   "q": "Which of these is most likely to have a strange mood and demand plant cloth?",
+   "options": [
+    "The cat",
+    "A dwarven child",
+    "The garbage pit"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-possessed-loom",
+   "q": "A possessed weaver needs the loom room. The loom room is:",
+   "options": [
+    "Free and waiting",
+    "A myth",
+    "Occupied, as usual"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-silk-scraps",
+   "q": "Seven silk scraps sit in a bin. What do they hide?",
+   "options": [
+    "A cloth shortage",
+    "A secret tunnel",
+    "A kobold"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-militia-one",
+   "q": "A militia of one captain and nine empty places is best described as:",
+   "options": [
+    "A squad",
+    "A captain",
+    "A crowd"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-off-duty",
+   "q": "The militia schedule reads 'Off duty'. How long has it read that?",
+   "options": [
+    "Since yesterday",
+    "It just changed",
+    "Since founding"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-vacant-office",
+   "q": "Which office is hardest to fill in a fortress?",
+   "options": [
+    "Any office with paperwork",
+    "Tavern keeper",
+    "Napper"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-mayor-charge",
+   "q": "What does the mayor's office file most often?",
+   "options": [
+    "Birthday cards",
+    "Production order violations",
+    "Grievances against carp"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-gather-rain",
+   "q": "Where does the Overseer most like to send plant gatherers?",
+   "options": [
+    "The farm next door",
+    "Nowhere; it hates plants",
+    "Across the whole map, in the rain"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-mist-ring",
+   "q": "A ring of pumps sprays mist over the meeting area. Why?",
+   "options": [
+    "Happy thoughts",
+    "To extinguish the bard",
+    "Cleaning the floor"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-great-rewinds",
+   "q": "What do dwarves call it when the world stops and starts again?",
+   "options": [
+    "The Long Nap",
+    "The Great Rewinds",
+    "A strike"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-gods-blinked",
+   "q": "When the whole world briefly freezes, dwarves say:",
+   "options": [
+    "'The well ran dry'",
+    "'The bard paused'",
+    "'The gods blinked'"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-overseer",
+   "q": "Who runs the fortress, famously, oddly?",
+   "options": [
+    "The Overseer",
+    "The mayor",
+    "The cat"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-camera",
+   "q": "What does the spectator camera do when a threat appears?",
+   "options": [
+    "Turns away politely",
+    "Jumps to the threat",
+    "Follows the bard"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-camera-guests",
+   "q": "Which kind of visitor does the spectator camera like to follow?",
+   "options": [
+    "Armor stands",
+    "Unborn dwarves",
+    "Merchants and diplomats"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-hospital-doctor",
+   "q": "What do half the hospitals in a big fort often lack?",
+   "options": [
+    "A doctor",
+    "Beds",
+    "Walls"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-hungry-founding",
+   "q": "Seventeen plants for ten dwarves on day thirty-two is called:",
+   "options": [
+    "A feast",
+    "A famine",
+    "A garden party"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-old-fort-goblins",
+   "q": "Who often moves into an old fort after the dwarves leave?",
+   "options": [
+    "Tax collectors",
+    "Nobody, out of respect",
+    "Goblins"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-liaison-advice",
+   "q": "What does the outpost liaison always recommend?",
+   "options": [
+    "Import agreements",
+    "Fewer thrones",
+    "Drinking water"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-liaison-greed",
+   "q": "The liaison asks for rings at double their worth. You should:",
+   "options": [
+    "Make the rings",
+    "Haggle, then make the rings",
+    "Weep"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-artifact-claims",
+   "q": "A lost artifact has been claimed by forty-eight figures. How many hold it?",
+   "options": [
+    "Forty-eight",
+    "None of them",
+    "One, somewhere else"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-refugees",
+   "q": "Refugee bands in the wider world are usually fleeing:",
+   "options": [
+    "Goblin armies",
+    "The bard",
+    "Good weather"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-throne-glut",
+   "q": "A fortress has 150 thrones. How many nobles does it have?",
+   "options": [
+    "150",
+    "Far fewer",
+    "They are all nobles now"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-stone-glut",
+   "q": "An old fort had 800 loose stones lying around. What did the haulers call this?",
+   "options": [
+    "A stockpile",
+    "A floor",
+    "A career"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-drink-glut",
+   "q": "A fort has 2,000 drinks. What is the main risk?",
+   "options": [
+    "Someone still dies of thirst",
+    "Running out",
+    "The barrels revolt"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-meat-watch",
+   "q": "A fort without meat or fish for years begins:",
+   "options": [
+    "A fish fry",
+    "A meat watch",
+    "Vegetarian poetry"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-cistern",
+   "q": "What does a cistern store for the fortress?",
+   "options": [
+    "Cheese",
+    "Grudges",
+    "Water"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-windmill-need",
+   "q": "What does a windmill need to work?",
+   "options": [
+    "Wind, and being outdoors",
+    "Magma",
+    "A legendary miller"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-catacomb",
+   "q": "In a fortress, catacombs are for:",
+   "options": [
+    "Storing armor stands",
+    "Burying the dead",
+    "Bard rehearsals"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-execution-tower",
+   "q": "Which structure is the least popular sightseeing stop in a fort?",
+   "options": [
+    "The tavern",
+    "The fountain",
+    "The execution tower"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-burrow-def",
+   "q": "What is a burrow, in fortress terms?",
+   "options": [
+    "A zone dwarves are kept within",
+    "A rabbit's opinion",
+    "A kind of stew"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-refuse-def",
+   "q": "What should happen to refuse once it is in the garbage pit?",
+   "options": [
+    "Haul it back out",
+    "Nothing; leave it there",
+    "Engrave it"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-rough-gem",
+   "q": "A rough gem becomes a cut gem at which workshop?",
+   "options": [
+    "The kitchen",
+    "The garbage pit",
+    "The jeweler's"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-plant-cloth",
+   "q": "Plant cloth is woven from thread made of which crop?",
+   "options": [
+    "Pig tails",
+    "Plump helmets",
+    "Rock nuts"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-chief-medical",
+   "q": "A hospital with no chief medical dwarf has nobody to:",
+   "options": [
+    "Mop it",
+    "Manage its supplies",
+    "Name it"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-production-order",
+   "q": "Who issues the production mandates that the mayor enforces?",
+   "options": [
+    "The cats",
+    "The liaison",
+    "The nobles"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-import",
+   "q": "What is an import agreement?",
+   "options": [
+    "A deal for goods to arrive by caravan",
+    "A wedding contract",
+    "A treaty with the carp"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-animal-people",
+   "q": "Which of these guests might walk into a fortress tavern?",
+   "options": [
+    "An armor stand",
+    "Animal people",
+    "A forgotten beast, politely"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-forgotten-stairs",
+   "q": "A forgotten beast arrives. What should not connect it to the dwarves?",
+   "options": [
+    "A drawbridge",
+    "A locked door",
+    "Stairs"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-tower-cap",
+   "q": "What do dwarves fell for wood in the caverns?",
+   "options": [
+    "Tower-caps",
+    "Stalactites",
+    "Armor stands"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-pump-op",
+   "q": "Which labor keeps a hand-powered pump running?",
+   "options": [
+    "Pump admiring",
+    "Pump operating",
+    "Pump hauling"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-occupied-fort",
+   "q": "What usually remains in an old fort taken by goblins?",
+   "options": [
+    "A thank-you note",
+    "Fresh bread",
+    "Its artifact, said to still be there"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-new-fort",
+   "q": "After a fort falls, what does the Overseer usually do?",
+   "options": [
+    "Found another in the same world",
+    "Retire to the hills",
+    "Write a strongly worded letter"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-succession",
+   "q": "When a world group 'changes leaders', the newspapers call it:",
+   "options": [
+    "A sneeze",
+    "A succession",
+    "A shuffle"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-peace-war",
+   "q": "A civilization at peace with sixteen groups and at war with two is mostly:",
+   "options": [
+    "At war",
+    "Confused",
+    "At peace"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-total-vs-skirmish",
+   "q": "Which is worse: total war or skirmishing?",
+   "options": [
+    "Total war",
+    "Skirmishing",
+    "They're the same, just louder"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-crooked-horror",
+   "q": "What is a crooked horror, according to traveling merchants?",
+   "options": [
+    "A bent spoon",
+    "A giant beast best avoided",
+    "A bad haircut"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-artifact-hold",
+   "q": "Why is an artifact left behind in a fallen fort still famous?",
+   "options": [
+    "It is cursed to be boring",
+    "It was a sock",
+    "It can still be reclaimed"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-dark-fortress",
+   "q": "Who lives in a dark fortress?",
+   "options": [
+    "Goblins",
+    "Elves on holiday",
+    "Retired miners"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-elf-retreat",
+   "q": "Who lives in a forest retreat?",
+   "options": [
+    "Goblins in disguise",
+    "Elves",
+    "The mayor's cousin"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-abducted",
+   "q": "What sometimes happens to elves near goblin lands?",
+   "options": [
+    "They are promoted",
+    "They grow beards",
+    "They are abducted"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-drink-first",
+   "q": "Which should a new fort make before 200 of anything?",
+   "options": [
+    "Drinks",
+    "Thrones",
+    "Armor stands"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-ledger-count",
+   "q": "The bookkeeper counts two thousand of one item. What should he do next?",
+   "options": [
+    "Count again, slowly",
+    "Tell the Overseer to stop",
+    "Both, while weeping"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-well-first",
+   "q": "Which should a new fortress dig before it smooths a single wall?",
+   "options": [
+    "A throne room",
+    "A second throne room",
+    "A well"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-barrel-near",
+   "q": "Where is the best place to put a barrel of ale?",
+   "options": [
+    "Near the workshops",
+    "Far away, for exercise",
+    "In the garbage pit"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-mood-timing",
+   "q": "When does a strange mood usually ask for a material?",
+   "options": [
+    "Never",
+    "The day after it runs out",
+    "Only on feast days"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-captain-loneliness",
+   "q": "What does a militia captain with no squad do in a siege?",
+   "options": [
+    "Leads a heroic charge alone",
+    "Files a complaint",
+    "Stays Off duty"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-refuse-climb",
+   "q": "An item falls into the garbage pit. What should a dwarf do?",
+   "options": [
+    "Let it go",
+    "Climb in after it",
+    "Throw more in to keep it company"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "lz-qz-rain-plants",
+   "q": "The rain is pouring. What does the Overseer order?",
+   "options": [
+    "Everyone indoors",
+    "Gather plants across the map",
+    "A festival"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "lz-qz-tree-rescue",
+   "q": "A miner is stuck on a branch. Which labor rescues him?",
+   "options": [
+    "Tree climbing",
+    "Mining the tree",
+    "None; there isn't one"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "lz-qz-new-paper",
+   "q": "When a new fort is founded in the same world, what does its newspaper do?",
+   "options": [
+    "Starts with a new name",
+    "Shuts down forever",
+    "Prints only the weather"
+   ],
+   "answer": 0
+  }
+ ],
+ "riddles": [
+  {
+   "id": "lz-rd-thirst-barrel",
+   "q": "What do you call a dwarf who dies of thirst next to a full barrel?",
+   "a": "A dwarf with a very important job to finish first."
+  },
+  {
+   "id": "lz-rd-thirst-gems",
+   "q": "Why did the carpenter die of thirst beside a pile of rough gems?",
+   "a": "Nobody told him you can't drink them. Nobody told the gems either."
+  },
+  {
+   "id": "lz-rd-armor-stands",
+   "q": "How many armor stands does a fortress need?",
+   "a": "One. How many does it get? Ask the Overseer, and bring a chair."
+  },
+  {
+   "id": "lz-rd-armor-empty",
+   "q": "What has a hundred arms, a thousand shoulders, and no armor?",
+   "a": "The armor stand stockpile."
+  },
+  {
+   "id": "lz-rd-throne-count",
+   "q": "Why did the fortress build a hundred and fifty thrones?",
+   "a": "Nobody told the work order to sit down."
+  },
+  {
+   "id": "lz-rd-throne-seat",
+   "q": "Where does a noble sit when the fort has two hundred thrones?",
+   "a": "On the floor. He can't decide."
+  },
+  {
+   "id": "lz-rd-safety-burrow",
+   "q": "What is the most dangerous word in dwarven?",
+   "a": "'Safety,' when painted on a burrow."
+  },
+  {
+   "id": "lz-rd-safety-sign",
+   "q": "Why don't dwarves trust a burrow called Safety?",
+   "a": "Because the last one was thirty levels down, and so was the beast."
+  },
+  {
+   "id": "lz-rd-safety-stairs",
+   "q": "What do a 'Safety' burrow and a forgotten beast have in common?",
+   "a": "The same staircase."
+  },
+  {
+   "id": "lz-rd-garbage-pit",
+   "q": "What goes into the garbage pit and comes back out?",
+   "a": "Eight haulers, briefly. Then they stop coming back."
+  },
+  {
+   "id": "lz-rd-garbage-twoway",
+   "q": "Why is the garbage pit the busiest road in the fortress?",
+   "a": "Half the haulers are throwing refuse in, half are hauling it out."
+  },
+  {
+   "id": "lz-rd-tree-miner",
+   "q": "Why did the miner climb the tree?",
+   "a": "To get to the other side of thirsty."
+  },
+  {
+   "id": "lz-rd-tree-trap",
+   "q": "What has branches, bark, and a better kill record than the militia?",
+   "a": "A tree."
+  },
+  {
+   "id": "lz-rd-tree-elf",
+   "q": "What do elves and trees have in common?",
+   "a": "Both are lovely, and both will leave a dwarf stranded."
+  },
+  {
+   "id": "lz-rd-militia-one",
+   "q": "What do you call a militia of one?",
+   "a": "A captain with a lot of empty chairs."
+  },
+  {
+   "id": "lz-rd-militia-roll",
+   "q": "How does the militia take attendance?",
+   "a": "The captain says 'here' nine times in different voices."
+  },
+  {
+   "id": "lz-rd-off-duty",
+   "q": "When is the militia on duty?",
+   "a": "Nobody knows. The schedule only has one setting."
+  },
+  {
+   "id": "lz-rd-off-duty-2",
+   "q": "Why did the goblins wait to attack until the militia was off duty?",
+   "a": "They didn't have to wait."
+  },
+  {
+   "id": "lz-rd-mood-rough",
+   "q": "What does a strange mood want?",
+   "a": "Whatever the jeweler cut yesterday."
+  },
+  {
+   "id": "lz-rd-mood-child",
+   "q": "Why did the dwarven child go into a strange mood?",
+   "a": "Somebody said there was no plant cloth, and children hear everything."
+  },
+  {
+   "id": "lz-rd-mood-loom",
+   "q": "Why did the possessed weaver sit in the corridor all season?",
+   "a": "The loom room was busy. It is always busy."
+  },
+  {
+   "id": "lz-rd-silk-scraps",
+   "q": "What is seven scraps long and hides an entire shortage?",
+   "a": "The silk in the cloth bin."
+  },
+  {
+   "id": "lz-rd-smoothing",
+   "q": "How long does it take three smoothers to smooth sixteen thousand walls?",
+   "a": "Ask the next fort. Or the one after that."
+  },
+  {
+   "id": "lz-rd-smoothing-2",
+   "q": "Why is every wall in the fortress shiny but nobody has a bed?",
+   "a": "The Overseer has priorities, and they are reflective."
+  },
+  {
+   "id": "lz-rd-gather-rain",
+   "q": "What crosses the whole map in the pouring rain to bring back one berry?",
+   "a": "A plant gatherer. Then he goes back for the other berry."
+  },
+  {
+   "id": "lz-rd-mist-ring",
+   "q": "What makes a dwarf happy, wet, and slightly suspicious?",
+   "a": "The mist ring by the meeting hall."
+  },
+  {
+   "id": "lz-rd-mayor-charge",
+   "q": "What does the mayor file more of than anyone files ore?",
+   "a": "Production order violation charges."
+  },
+  {
+   "id": "lz-rd-vacant-office",
+   "q": "What is the quietest room in the fortress?",
+   "a": "Any noble's office. Nobody will take the job."
+  },
+  {
+   "id": "lz-rd-vacant-mayor",
+   "q": "Why won't anyone run for mayor?",
+   "a": "They've seen the paperwork. It has been filed in triplicate, against them."
+  },
+  {
+   "id": "lz-rd-hospital-doctor",
+   "q": "What do you call a hospital with no doctor?",
+   "a": "A very expensive bedroom."
+  },
+  {
+   "id": "lz-rd-hospital-four",
+   "q": "Why did the fortress build four hospitals?",
+   "a": "Because the first one had no doctor, and nobody checked the other three."
+  },
+  {
+   "id": "lz-rd-liaison-share",
+   "q": "What does the outpost liaison always have much of, but never quite share?",
+   "a": "Much to share."
+  },
+  {
+   "id": "lz-rd-liaison-rings",
+   "q": "Why did the liaison order rings at twice their worth?",
+   "a": "He heard dwarves hate haggling. He heard wrong."
+  },
+  {
+   "id": "lz-rd-liaison-import",
+   "q": "What does the liaison say when the fort is on fire?",
+   "a": "'Have you considered an import agreement?'"
+  },
+  {
+   "id": "lz-rd-rewinds",
+   "q": "What happens when the gods blink?",
+   "a": "Everyone loses an afternoon, and the bard has to sing it again."
+  },
+  {
+   "id": "lz-rd-rewinds-2",
+   "q": "Why do dwarves keep their best work in the archive?",
+   "a": "In case of a Great Rewind. Also in case of the bard."
+  },
+  {
+   "id": "lz-rd-old-fort",
+   "q": "Where do old forts go when they die?",
+   "a": "To the goblins, mostly. The goblins never return them."
+  },
+  {
+   "id": "lz-rd-old-fort-2",
+   "q": "What do you call a fort that goblins have moved into?",
+   "a": "A rental with very bad tenants."
+  },
+  {
+   "id": "lz-rd-artifact-claims",
+   "q": "How many figures does it take to own an artifact?",
+   "a": "Forty-eight, apparently, and none of them have it."
+  },
+  {
+   "id": "lz-rd-artifact-left",
+   "q": "Why did the dwarves leave their artifact in the fallen fort?",
+   "a": "They meant to come back for it. That was two forts ago."
+  },
+  {
+   "id": "lz-rd-refugees",
+   "q": "Why do refugees always pass through the dwarven hills?",
+   "a": "It is the only road the goblins haven't marched down yet."
+  },
+  {
+   "id": "lz-rd-diplomat",
+   "q": "What does a diplomat bring to a fortress?",
+   "a": "Opinions, and one very small gift that needs a whole room."
+  },
+  {
+   "id": "lz-rd-peace-groups",
+   "q": "How does a civilization stay at peace with sixteen groups?",
+   "a": "By being at war with the other two, loudly, so nobody else asks."
+  },
+  {
+   "id": "lz-rd-camera",
+   "q": "What follows every merchant around the fortress and never buys anything?",
+   "a": "The spectator camera."
+  },
+  {
+   "id": "lz-rd-camera-threat",
+   "q": "Why does the spectator camera love sieges?",
+   "a": "Finally, something worth looking at besides armor stands."
+  },
+  {
+   "id": "lz-rd-work-order",
+   "q": "How do you get a single armor stand in this fortress?",
+   "a": "You order one and pray."
+  },
+  {
+   "id": "lz-rd-work-order-2",
+   "q": "What is the Overseer's favorite number?",
+   "a": "However many of something there already are, plus one more."
+  },
+  {
+   "id": "lz-rd-thirst-well",
+   "q": "Why did the dwarf stand beside the well and die of thirst?",
+   "a": "Drinking was not one of his assigned labors."
+  },
+  {
+   "id": "lz-rd-drinks-2000",
+   "q": "A fort has two thousand drinks and one dwarf dies of thirst. Who is to blame?",
+   "a": "The two thousand drinks. They knew where he was."
+  },
+  {
+   "id": "lz-rd-loose-stones",
+   "q": "What is underfoot, everywhere, and refuses to be hauled?",
+   "a": "The eight hundred loose stones of an old fort."
+  },
+  {
+   "id": "lz-rd-famine-day",
+   "q": "Why was the new fort's paper so thin?",
+   "a": "There was nothing in the larder to report."
+  },
+  {
+   "id": "lz-rd-meat-watch",
+   "q": "Why did the dwarves stare at the empty larder all year?",
+   "a": "They were on Meat Watch. The meat never showed."
+  },
+  {
+   "id": "lz-rd-forgotten-beast",
+   "q": "What does a forgotten beast use to find the dwarves?",
+   "a": "The stairs. Dwarves always leave the stairs."
+  },
+  {
+   "id": "lz-rd-forgotten-beast-2",
+   "q": "Why did the forgotten beast bring a map?",
+   "a": "The Safety burrow was clearly marked."
+  },
+  {
+   "id": "lz-rd-execution-tower",
+   "q": "What is tall, grim, and the fortress's least popular wedding venue?",
+   "a": "The execution tower."
+  },
+  {
+   "id": "lz-rd-catacombs",
+   "q": "Why are the catacombs so peaceful?",
+   "a": "Nobody there has been charged with a production order violation, yet."
+  },
+  {
+   "id": "lz-rd-windmill",
+   "q": "What works all day, asks for nothing, and still gets more respect than the mayor?",
+   "a": "The windmill."
+  },
+  {
+   "id": "lz-rd-cistern",
+   "q": "What holds all the water in the fortress and still can't stop a dwarf dying of thirst?",
+   "a": "The cistern. It tried."
+  },
+  {
+   "id": "lz-rd-refuse-grave",
+   "q": "Why was the garbage pit so crowded?",
+   "a": "Everyone kept dropping in."
+  },
+  {
+   "id": "lz-rd-mood-shells",
+   "q": "What does a miner in a mood demand the day after the last shell is used?",
+   "a": "Shells. Two of them."
+  },
+  {
+   "id": "lz-rd-goblin-occupy",
+   "q": "Why did the goblins take the old fortress?",
+   "a": "It came furnished. Very furnished. With armor stands."
+  },
+  {
+   "id": "lz-rd-past-fort-slot",
+   "q": "Why do old dwarves sigh whenever someone says '{past_fort}'?",
+   "a": "Because it {past_fort_fate}, and they were there for the last part.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-rd-record-slot",
+   "q": "What did {record_fort} have more of than anyone needed?",
+   "a": "{record}. And not one drink to spare.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-rd-record-slot-2",
+   "q": "How do you explain {record} to a visiting merchant?",
+   "a": "You don't. You sell him some, and then you sell him the rest.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-rd-enemy-slot",
+   "q": "Why won't {enemy} ever win a war against the dwarves?",
+   "a": "They keep attacking the armor stands. There are too many.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lz-rd-monarch-slot",
+   "q": "Why does {monarch} never visit the fortress?",
+   "a": "There isn't a throne left that isn't already somebody's favorite."
+  },
+  {
+   "id": "lz-rd-liaison-slot",
+   "q": "What has {liaison} never once said?",
+   "a": "'There is nothing to share.'"
+  },
+  {
+   "id": "lz-rd-civ-slot",
+   "q": "Why is {civ} so proud of its forts?",
+   "a": "Each one lasts a little longer than the last. Mostly."
+  },
+  {
+   "id": "lz-rd-world-slot",
+   "q": "What is the oldest joke in {world}?",
+   "a": "A dwarf dying of thirst. It still kills."
+  },
+  {
+   "id": "lz-rd-stone-slot",
+   "q": "Why did the smoother refuse to touch the {stone} wall?",
+   "a": "It was the sixteen-thousandth one, and it looked at him first."
+  },
+  {
+   "id": "lz-rd-off-duty-3",
+   "q": "Why is the captain the best-rested dwarf in the fort?",
+   "a": "His whole squad is off duty, and so is he."
+  },
+  {
+   "id": "lz-rd-champion",
+   "q": "Who is the fortress champion?",
+   "a": "Nobody. Nobody has ever been beaten at it."
+  },
+  {
+   "id": "lz-rd-hammerer",
+   "q": "What does the hammerer do when the office is vacant?",
+   "a": "Exactly what he did when it was filled."
+  },
+  {
+   "id": "lz-rd-chief-medical",
+   "q": "What does a chief medical dwarf prescribe?",
+   "a": "We'll let you know once we have one."
+  },
+  {
+   "id": "lz-rd-dungeon-master",
+   "q": "Why doesn't the fortress have a dungeon master?",
+   "a": "The animals keep training themselves."
+  },
+  {
+   "id": "lz-rd-pin-armor",
+   "q": "What did Quakefocus have 1,981 of and no use for?",
+   "a": "Armor stands. And, briefly, opinions about them.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-thrones",
+   "q": "How many nobles did Quakefocus have to fill its 148 thrones?",
+   "a": "Not 148.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-bomrek",
+   "q": "How many drinks does it take to keep a miner alive?",
+   "a": "At Searabbeys, 1,994 was one short.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-searabbeys",
+   "q": "Who has the nicest house at Searabbeys these days?",
+   "a": "The goblins of The Torments of Hating. We left it furnished.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-hamlet",
+   "q": "Where is The Nuanced Hamlet?",
+   "a": "Still at Searabbeys, being nuanced at goblins.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-claspedserpent",
+   "q": "Why is Claspedserpent the best-kept mace in history?",
+   "a": "There was nobody in the Quakefocus militia to swing it.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-amusing",
+   "q": "What's so amusing about The Amusing Duties?",
+   "a": "Forty-eight figures have claimed it, and it's still at Fieryaged.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-liaison",
+   "q": "What does Iden Loloklolor keep in his pocket?",
+   "a": "Much to share.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-rings",
+   "q": "Why did Iden ask for rings at 210%?",
+   "a": "Because 200% sounded greedy.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-hex",
+   "q": "Why is The Crazed Hex always on the move?",
+   "a": "Every town they visit has just emptied out. Funny, that.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-creaturemirrored",
+   "q": "What is thirty levels deep at Creaturemirrored and named for the opposite?",
+   "a": "The Safety burrow.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-pin-fortline",
+   "q": "What comes after Searabbeys and Quakefocus?",
+   "a": "Creaturemirrored, and a strongly worded note about wells.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rd-work-order-3",
+   "q": "What is the difference between a work order and a curse?",
+   "a": "A curse eventually ends."
+  },
+  {
+   "id": "lz-rd-liaison-4",
+   "q": "What is heavier than a cartload of iron?",
+   "a": "A liaison's import agreement, in triplicate."
+  },
+  {
+   "id": "lz-rd-rough-3",
+   "q": "What is always rough, never cut, and only wanted the moment it's gone?",
+   "a": "The last gem in the fortress."
+  }
+ ],
+ "advice": [
+  {
+   "id": "lz-adv-thirst-job",
+   "q": "Dear Urist, I am so busy hauling that I have not had a drink in eleven days. The barrels are right there. I just never have a moment. — Parched by the Pallets",
+   "a": "Drink first. Haul second. A dwarf beside a full barrel dying of thirst is not dedication, it is a headline, and the Herald has printed enough of those."
+  },
+  {
+   "id": "lz-adv-armor-stands",
+   "q": "Dear Urist, I am a carpenter. I have made armor stands every day for three years. I asked why. The work order just said 'more.' — Standing By in the Shop",
+   "a": "Make one table, in secret, and eat a meal at it. The work order will never notice. It does not know what a table is."
+  },
+  {
+   "id": "lz-adv-throne-glut",
+   "q": "Dear Urist, our fort has more thrones than dwarves. I am a hauler. Where do I put them? — Overthroned in the Stockpile",
+   "a": "Sit on one at each break. Rotate. In a year you will have sat in every throne in the fortress, and that is more than any noble can say."
+  },
+  {
+   "id": "lz-adv-safety-burrow",
+   "q": "Dear Urist, the Overseer has assigned me to the Safety burrow during the next emergency. It is thirty levels down, beside the stairs. — Unconvinced Below",
+   "a": "Read the sign again, then read the history books. Pack a waterskin and stand somewhere with two exits and no stairs. Call it Safety Two."
+  },
+  {
+   "id": "lz-adv-garbage-pit",
+   "q": "Dear Urist, I have been told to haul refuse out of the garbage pit. Somebody else has been told to throw refuse in. We wave at each other. — Going in Circles",
+   "a": "Stop waving and both of you sit down. The pit will not miss you. The pit, historically, has never once missed anybody."
+  },
+  {
+   "id": "lz-adv-tree-branch",
+   "q": "Dear Urist, I was gathering fruit and now I am up a tree and cannot get down. I am writing this from the branch. — Treed and Thirsty",
+   "a": "Do not wait for rescue; rescues are not a labor. Climb down the way you went up, slowly. Drink immediately. Never speak of the tree again."
+  },
+  {
+   "id": "lz-adv-mood-gems",
+   "q": "Dear Urist, I am in a strange mood and require rough gems. The jeweler cut every gem in the fort last week. He says 'too late.' — Possessed and Polished Out",
+   "a": "Ask the next caravan very loudly. Ask the liaison louder. Failing that, glare at the jeweler until he regrets every facet."
+  },
+  {
+   "id": "lz-adv-mood-child",
+   "q": "Dear Urist, my daughter is six and in a strange mood. She has taken over the loom and demands plant cloth. We have none. — Worried Mother",
+   "a": "Find the farmer. Find the thresher. Find the weaver. Stand behind your daughter and look fierce. Children's artifacts are the best artifacts."
+  },
+  {
+   "id": "lz-adv-loom-room",
+   "q": "Dear Urist, I am possessed and need the loom room, but it has been occupied by a sleeping weaver for a season. — Waiting in the Hall",
+   "a": "Wake the weaver. Kindly. Then less kindly. Do not wait politely in the corridor. History is full of dwarves who waited politely in corridors."
+  },
+  {
+   "id": "lz-adv-silk-scraps",
+   "q": "Dear Urist, the bookkeeper says we have cloth. I opened the bin. It is seven scraps of silk. — Underdressed in the Clothier's",
+   "a": "Seven scraps is a scarf, a hat, and five very small socks. Tell the bookkeeper the number is 'seven', not 'enough'. He loves numbers."
+  },
+  {
+   "id": "lz-adv-militia-one",
+   "q": "Dear Urist, I am the militia captain. My squad has nine empty places and I am always Off duty. Do I still count as an army? — Captain of One",
+   "a": "You count as a captain, which is better than an army in some ways: no arguments. Train in the doorway where the goblins can see you."
+  },
+  {
+   "id": "lz-adv-militia-volunteer",
+   "q": "Dear Urist, I want to join the militia, but nobody can tell me how. The squad has had nine openings for years. — Eager in the Dining Hall",
+   "a": "Stand beside the captain and salute. He has been waiting a very long time for company. Bring him a drink; it has been a long time for that too."
+  },
+  {
+   "id": "lz-adv-mayor-charges",
+   "q": "Dear Urist, the mayor charged me with a production order violation. I am a farmer. I did not know farmers produced anything orderly. — Charged in the Fields",
+   "a": "Pay the fine in plump helmets. If he objects, point out that plump helmets were the only thing produced on time all year."
+  },
+  {
+   "id": "lz-adv-vacant-office",
+   "q": "Dear Urist, everyone wants me to become sheriff. Nobody else will. I don't want to either. — Reluctant Deputy",
+   "a": "Say yes on the condition that the office comes with a comfy chair. Nobody will provide one, and you will be released from duty on a technicality."
+  },
+  {
+   "id": "lz-adv-smoothing",
+   "q": "Dear Urist, I am one of three smoothers. There are sixteen thousand jobs in the queue. Today I smoothed one wall. Tomorrow? — Polishing Forever",
+   "a": "Smooth one wall a day and admire each one. At that pace you will finish in forty-four years, by which time the queue will have doubled. Keep smiling."
+  },
+  {
+   "id": "lz-adv-gather-rain",
+   "q": "Dear Urist, the Overseer sends me across the whole map in the rain to pick berries. I return with three berries and a cold. — Soggy Gatherer",
+   "a": "Pick the berries nearest the gate, sit under a tree that is not dangerous, and come back in an hour. The Overseer has never once counted."
+  },
+  {
+   "id": "lz-adv-mist-ring",
+   "q": "Dear Urist, I stood under the mist ring for happy thoughts and now I am both happy and soaked. My beard will not dry. — Damp and Delighted",
+   "a": "This is exactly what the mist ring is for. Accept the beard. Wring it into a mug. Do not drink the mug."
+  },
+  {
+   "id": "lz-adv-liaison",
+   "q": "Dear Urist, the outpost liaison keeps telling me there is much to share. I asked him to share some. He recommended an import agreement. — Unshared in the Depot",
+   "a": "He is not lying. There really is much to share. He has simply never said with whom. Ask for a snack instead; liaisons always carry snacks."
+  },
+  {
+   "id": "lz-adv-liaison-rings",
+   "q": "Dear Urist, the liaison asked us to make rings and offered double what they are worth. Is this a trap? — Suspicious Jeweler",
+   "a": "It is not a trap; it is a liaison. Make the rings, take the price, and do not ask what the homeland does with all those rings."
+  },
+  {
+   "id": "lz-adv-old-fort",
+   "q": "Dear Urist, my grandmother lived at {past_fort}. She says it {past_fort_fate}. She tells this story every dinner. — Heard It Before",
+   "a": "Listen anyway. Nod at the sad parts. Old forts are the only reason this one remembers to dig a well.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-adv-old-fort-years",
+   "q": "Dear Urist, {past_fort} lasted {past_fort_years}. I am worried ours will not last as long. — Counting the Years",
+   "a": "Then drink your water, avoid trees, and stay out of anything labeled Safety. Every fort that lasted longer did at least two of those.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-adv-record",
+   "q": "Dear Urist, I was a hauler at {record_fort}. I carried {record}, personally, one at a time. My back has not recovered. — Overworked Veteran",
+   "a": "You are a hero of the old fort. Sit down. Let a younger dwarf carry your mug. You have carried enough for two lifetimes.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-adv-record-2",
+   "q": "Dear Urist, my wife wants to recreate the famous {record} of {record_fort} as a festival tribute. I think it is a bad idea. — Concerned Spouse",
+   "a": "It is a terrible idea. It took the last fort years to get rid of them. Suggest one small commemorative example and a very big cake.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-adv-enemy",
+   "q": "Dear Urist, we are at war with {enemy}. My neighbor says not to worry. My neighbor is the militia captain, and he is always Off duty. — Nervous at the Gate",
+   "a": "Worry a sensible amount. Learn where the drawbridge lever is. Learn who is allowed to pull it. Learn to be nicer to that dwarf.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lz-adv-enemy-letter",
+   "q": "Dear Urist, I found a letter from a member of {enemy} slipped under the gate. It is very polite. It asks if we have any thrones. — Puzzled Gatekeeper",
+   "a": "Do not reply. Goblins who ask about thrones are planning to sit on ours. That said, we can spare a few hundred.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lz-adv-monarch",
+   "q": "Dear Urist, I wrote a letter to {monarch} about the state of the wells. I have heard nothing. Is that a no? — Waiting for the Post",
+   "a": "Monarchs read every letter, eventually, in the order they arrive. You are somewhere behind complaints from three forts ago. Patience."
+  },
+  {
+   "id": "lz-adv-rewind",
+   "q": "Dear Urist, the gods blinked and I lost half a day of masonry. I rebuilt it. Then they blinked again. — Rebuilding in the Hall",
+   "a": "Masonry built twice is masonry built well. Carve a small note in the second wall reading 'Again.' Future dwarves will understand."
+  },
+  {
+   "id": "lz-adv-rewind-2",
+   "q": "Dear Urist, after the last Great Rewind my roommate insists we already had this conversation. — Repeating Myself",
+   "a": "You probably did. Have it again, but kinder. If it goes better the second time, the gods were right to blink."
+  },
+  {
+   "id": "lz-adv-camera",
+   "q": "Dear Urist, I am convinced something is watching me when merchants visit. It follows them around and jumps away when goblins arrive. — Paranoid Trader",
+   "a": "That is the spectator camera. It is harmless. It only wants to see interesting things, so stay boring and it will leave you alone."
+  },
+  {
+   "id": "lz-adv-hospital",
+   "q": "Dear Urist, I broke my arm. I went to the hospital. Nobody was there. I went to the second hospital. Also nobody. — Splinted by Myself",
+   "a": "Try the third hospital; it has a bed. Bring your own splint, your own thread, and if you can, your own doctor."
+  },
+  {
+   "id": "lz-adv-doctor-wanted",
+   "q": "Dear Urist, I am the only dwarf in the fort who knows how to set a bone. Everyone keeps falling off things near me on purpose. — Overbooked Bonesetter",
+   "a": "Put up a sign: 'Doctor In, Patience Out.' Charge one drink per bone. You will be the best-hydrated dwarf in the fortress."
+  },
+  {
+   "id": "lz-adv-stairs",
+   "q": "Dear Urist, something large is coming up the stairs from the caverns. Should I go down to see what it is? — Curious on the Landing",
+   "a": "No. Go up. Pull a lever on the way. Tell nobody it was your idea, and nobody will charge you with anything."
+  },
+  {
+   "id": "lz-adv-drinks-many",
+   "q": "Dear Urist, the fort has two thousand drinks and my friend still died of thirst. How is that possible? — Grieving at the Still",
+   "a": "Nobody knows. Scholars call it the thirst paradox. Honor him with a drink, then another, then put a barrel beside every workshop in the fort."
+  },
+  {
+   "id": "lz-adv-stones",
+   "q": "Dear Urist, our floors are covered in hundreds of loose stones. The haulers say it is not their job. Whose job is it? — Tripping in the Tunnels",
+   "a": "It is everyone's job, which is why it is nobody's. Build a stockpile on top of them and call them stored."
+  },
+  {
+   "id": "lz-adv-famine",
+   "q": "Dear Urist, our new fort has seventeen plants and ten dwarves. I am the cook. I am frightened. — Kitchen Panic",
+   "a": "Make soup. Soup stretches. Seventeen plants is a very thin soup, but it is soup, and a dwarf with soup has hope."
+  },
+  {
+   "id": "lz-adv-meat",
+   "q": "Dear Urist, I have not eaten meat in years. I dream of roasts. The hunters never come back with anything. — Herbivorous Against My Will",
+   "a": "Befriend the butcher. When meat finally arrives, he will save you the first slice. Until then, the plump helmet has a very meaty texture if you squint."
+  },
+  {
+   "id": "lz-adv-refugees",
+   "q": "Dear Urist, a band of refugees passed our gate, fleeing a goblin army. I wanted to invite them in. The Overseer didn't. — Torn at the Gate",
+   "a": "Leave a barrel of ale outside. It costs us little and it is good manners. Refugees remember the forts that left the ale out."
+  },
+  {
+   "id": "lz-adv-goblin-fort",
+   "q": "Dear Urist, I visited our old fort, which the goblins hold now. They have rearranged the furniture. I am furious. — Offended Pilgrim",
+   "a": "Of course you are. Goblins never put a chair back. Take comfort that they are still tripping over the stones we left on the floor."
+  },
+  {
+   "id": "lz-adv-artifact-claim",
+   "q": "Dear Urist, I want to claim a famous lost artifact. Forty-seven others already have. Is there room for one more? — Ambitious Claimant",
+   "a": "There is always room for one more claimant. There is never room for the artifact. Write your claim in large letters and frame it."
+  },
+  {
+   "id": "lz-adv-children-mood",
+   "q": "Dear Urist, my son is seven and keeps announcing he is 'about to have a mood.' He has not. He just wants the workshop. — Patient Father",
+   "a": "Give him a small workshop of his own: a stool and a pebble. If he makes a legendary pebble, frame it. If not, he learns patience."
+  },
+  {
+   "id": "lz-adv-execution-tower",
+   "q": "Dear Urist, our new house overlooks the execution tower. Is it rude to put up curtains? — Neighbor of Justice",
+   "a": "Put up curtains, a plant, and a cheerful sign. Make it the best-decorated view in the fort. Justice can use some cheer."
+  },
+  {
+   "id": "lz-adv-catacombs",
+   "q": "Dear Urist, my job is to carry coffins to the catacombs. I am getting a reputation. Children run from me. — Gloomy Hauler",
+   "a": "Wear a bright hat. Whistle. Hand out sweet pods at the catacomb door. Make it the friendliest dead-end in the fortress."
+  },
+  {
+   "id": "lz-adv-windmill",
+   "q": "Dear Urist, I have fallen in love with the windmill. It is steady, honest, and works hard. Is this wrong? — Spun Around",
+   "a": "Not wrong, but one-sided. The windmill loves only the wind. Find a dwarf with similar qualities. Look near the pumps."
+  },
+  {
+   "id": "lz-adv-cistern",
+   "q": "Dear Urist, I am in charge of the cistern. It is full. Everyone is thirsty. Nobody comes to drink. — Lonely Reservoir Keeper",
+   "a": "Put a well on top, a sign beside it, and a mug on a chain. Dwarves will walk past a cistern but never past a free mug."
+  },
+  {
+   "id": "lz-adv-off-duty-captain",
+   "q": "Dear Urist, I am the captain and my squad's schedule has said 'Off duty' for so long that I have forgotten what my sword looks like. — Rusting Captain",
+   "a": "Take it out once a week and introduce yourselves again. Practice on an armor stand. Goodness knows there are enough of them."
+  },
+  {
+   "id": "lz-adv-throne-noble",
+   "q": "Dear Urist, I am a new noble and was offered my choice of over a hundred thrones. I cannot choose. I have been standing for a month. — Seatless Baron",
+   "a": "Choose the third one from the left. It is the one I would choose. That was easy, and now you can sit down."
+  },
+  {
+   "id": "lz-adv-order-again",
+   "q": "Dear Urist, the Overseer ordered one barrel. I have made four hundred. When do I stop? — Cooper Without End",
+   "a": "When you run out of wood, or the next fort, whichever comes first. Meanwhile, make the four hundred and first one beautiful."
+  },
+  {
+   "id": "lz-adv-plant-gatherer-rain",
+   "q": "Dear Urist, I have caught a cold in every season this year from gathering in the rain. My nose is a waterfall. — Sniffling Outside",
+   "a": "Ask the doctor, if you can find one. Failing that, stand under the mist ring. If you are going to be wet, be wet and happy."
+  },
+  {
+   "id": "lz-adv-paperwork-mayor",
+   "q": "Dear Urist, I am the mayor's clerk. He files three charges a day and makes me carry them. My arms ache. — Clerk of Crimes",
+   "a": "Carry them slowly, through the tavern. Some of them will get lost. The mayor will file a charge about that, and you can lose that one too."
+  },
+  {
+   "id": "lz-adv-diplomat-visit",
+   "q": "Dear Urist, a diplomat came to visit and asked our nobles questions. We had no nobles. I answered. Was that treason? — Accidental Ambassador",
+   "a": "It was the bravest diplomacy this fort has seen. Ask for a sash. Every fort that has no nobles needs at least one dwarf with a sash."
+  },
+  {
+   "id": "lz-adv-goblin-war",
+   "q": "Dear Urist, our civilization is at war with two goblin groups. Which one should I be more worried about? — Worried, Generally",
+   "a": "Whichever is closer. If you cannot tell, worry evenly. Worrying evenly is very good for posture."
+  },
+  {
+   "id": "lz-adv-past-fort-ghost",
+   "q": "Dear Urist, the ghost of a dwarf from {past_fort} has started haunting our tavern. She says it's the only good tavern left. — Haunted Barkeep",
+   "a": "Then she has excellent taste. Pour her a mug she cannot drink, put up a slab with her name, and charge the other ghosts admission.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-adv-civ-pride",
+   "q": "Dear Urist, I am a proud citizen of {civ}. Is it all right to be proud when our forts keep falling? — Patriotic, Mostly",
+   "a": "Pride is not about winning; it is about trying again in the same world with a slightly better well. Be proud of the well."
+  },
+  {
+   "id": "lz-adv-world-sky",
+   "q": "Dear Urist, I have heard {world} is enormous. I have only seen the inside of three rooms. Am I missing out? — Homebody",
+   "a": "You are missing rain, goblins, and elves. Stay in your three rooms. They are excellent rooms."
+  },
+  {
+   "id": "lz-adv-rough-gems-hoard",
+   "q": "Dear Urist, I secretly kept two rough gems in my cabinet. Now a dwarf in a mood desperately needs them. Do I confess? — Hoarder with a Heart",
+   "a": "Confess, hand them over, and accept a seat of honor at the artifact's unveiling. Nobody will ask why you had them. Probably."
+  },
+  {
+   "id": "lz-adv-tree-cut",
+   "q": "Dear Urist, a miner died on a tree branch, so I want to cut down every tree near the fort. An elf caravan is due next week. — Axe at the Ready",
+   "a": "Cut the trees, keep the wood out of sight, and offer the elves a lovely stone chair. Elves cannot complain about a tree they never saw."
+  },
+  {
+   "id": "lz-adv-forgotten-beast-crush",
+   "q": "Dear Urist, everyone else ran from the forgotten beast. I stayed and looked into its eyes. I think we had a moment. — Smitten in the Caverns",
+   "a": "You did not have a moment. It had a snack, and it was nearly you. Stay above level thirty and send flowers from there."
+  },
+  {
+   "id": "lz-adv-rename-safety",
+   "q": "Dear Urist, I was asked to paint a new sign for the emergency burrow. What should I call it? — Signwriter",
+   "a": "Anything but Safety. 'The Room Near the Top.' 'Somewhere Sensible.' 'Not The Stairs.' Truth in signage saves lives."
+  },
+  {
+   "id": "lz-adv-caravan-throne",
+   "q": "Dear Urist, I tried to sell a throne to the caravan. The merchant laughed and said he had heard about us. — Embarrassed Broker",
+   "a": "Our reputation precedes us. Sell him an armor stand instead; the joke is the same, but the stand is lighter."
+  },
+  {
+   "id": "lz-adv-smoother-rest",
+   "q": "Dear Urist, I want to take a holiday, but there are still sixteen thousand walls left to smooth. I feel guilty. — Rough Around the Edges",
+   "a": "The walls will be there when you get back. They will be there when everyone gets back. Take the holiday."
+  },
+  {
+   "id": "lz-adv-pump-ring",
+   "q": "Dear Urist, I operate a pump in the mist ring. I make others happy but I never get to stand under the mist myself. — Pumping Alone",
+   "a": "Swap shifts with a friend for one hour a week. Every pump operator deserves to be on the wet end of their work."
+  },
+  {
+   "id": "lz-adv-liaison-crush",
+   "q": "Dear Urist, I think I am in love with {liaison}. Every visit, he says there is much to share. I hope he means feelings. — Hopeful at the Depot",
+   "a": "He means import agreements. He always means import agreements. But a dwarf can dream, and he does visit every year."
+  },
+  {
+   "id": "lz-adv-bookkeeper-count",
+   "q": "Dear Urist, I am the bookkeeper. I counted the armor stands and fainted. When I woke, there were more. — Lost Count",
+   "a": "Stop counting armor stands. Write 'plenty' in the ledger and move on to drinks, which are more important and somehow always fewer."
+  },
+  {
+   "id": "lz-adv-fort-again",
+   "q": "Dear Urist, I have moved to a new fort for the third time. I keep the same bedroom furniture. Is that strange? — Moving Again",
+   "a": "Not strange. Sensible. A bed that has survived three forts has more stories than most nobles. Treat it with respect."
+  },
+  {
+   "id": "lz-adv-pin-armor",
+   "q": "Dear Urist, I was a carpenter at Quakefocus and built most of the 1,981 armor stands. I still hear the hammering in my sleep. — Haunted by Stands",
+   "a": "Every dwarf at Creaturemirrored thanks you, since none of those stands followed us here. Sleep easy. Build a bed instead, finally.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-adv-pin-searabbeys",
+   "q": "Dear Urist, my uncle insists The Nuanced Hamlet is still in Searabbeys and that we should go get it. The goblins live there now. — Nephew of a Schemer",
+   "a": "The Torments of Hating will want it back the moment you leave. Tell your uncle it is safer where it is, being nuanced at goblins.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-adv-pin-iden",
+   "q": "Dear Urist, Iden Loloklolor asked our jeweler for rings at 210%. The jeweler wants to ask for 300%. Is that greedy? — Concerned Customer",
+   "a": "Yes, but Iden started it. Settle on 250% and a promise that he never says 'much to share' in the jeweler's presence again.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-adv-pin-wickedness",
+   "q": "Dear Urist, we are at total war with The Destined Wickedness. Our militia is one captain. Should I be worried? — Concerned Citizen",
+   "a": "Yes. Learn where the levers are, keep your waterskin full, and make friends with the captain. He is lonely and very important.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-adv-pin-creature",
+   "q": "Dear Urist, I live at Creaturemirrored and work near the garbage pit. Eight dwarves died hauling refuse out of it. Am I next? — Nervous Hauler",
+   "a": "Only if you climb in. Stay out of the pit, whatever the orders say. Refuse belongs in the pit. Dwarves belong at dinner.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-adv-barrel-placement",
+   "q": "Dear Urist, I am the brewer. I make plenty of booze, but dwarves still collapse thirsty on the far side of the fort. — Brewing in Vain",
+   "a": "Put a barrel beside every workshop, every forge, and every dwarf who says 'just one more job.' Ale nobody can reach is decoration."
+  }
+ ],
+ "recipes": [
+  {
+   "id": "lz-rc-thirst-punch",
+   "title": "Barrel-Beside-You Punch",
+   "ingredients": [
+    "1 barrel of anything",
+    "1 dwarf, busy",
+    "a gentle reminder"
+   ],
+   "method": "Place the barrel beside the dwarf. Point at it. Point again. Say 'drink' slowly. If he says he is busy, pour it directly into his mug and stand there until he finishes."
+  },
+  {
+   "id": "lz-rc-armor-stand-stew",
+   "title": "Armor Stand Kindling Stew",
+   "ingredients": [
+    "3 surplus armor stands",
+    "water",
+    "plump helmets",
+    "one tired carpenter"
+   ],
+   "method": "Break the armor stands for firewood. You will not miss them; there are always more. Boil the helmets over the blaze. Feed the carpenter first, as an apology."
+  },
+  {
+   "id": "lz-rc-throne-roast",
+   "title": "Hundred-Throne Roast",
+   "ingredients": [
+    "1 roast",
+    "100 thrones",
+    "1 noble, undecided"
+   ],
+   "method": "Serve the roast on the first throne. The noble will want it on another throne. Carry it to each throne in turn. By the last throne the roast is cold and everybody is hungry."
+  },
+  {
+   "id": "lz-rc-safety-snacks",
+   "title": "Safety Burrow Survival Snacks",
+   "ingredients": [
+    "dried rock nuts",
+    "a waterskin",
+    "a map of the stairs",
+    "a second exit"
+   ],
+   "method": "Pack the snacks. Read the map. Notice the stairs lead straight to the burrow. Eat the snacks somewhere else entirely, ideally upstairs and with a door."
+  },
+  {
+   "id": "lz-rc-garbage-pit-gravy",
+   "title": "Never-Retrieve Gravy",
+   "ingredients": [
+    "drippings",
+    "flour",
+    "salt",
+    "the firm decision not to go into the pit"
+   ],
+   "method": "Whisk the drippings and flour. Season. If something falls into the refuse pit while cooking, let it go. Nothing that falls in the pit is ever worth climbing in after."
+  },
+  {
+   "id": "lz-rc-branch-salad",
+   "title": "Ground-Level Fruit Salad",
+   "ingredients": [
+    "fruit, already fallen",
+    "a bowl",
+    "no ladder"
+   ],
+   "method": "Gather only fruit that has already fallen. Never climb. Trees keep what climbs them. Toss in a bowl and eat on solid ground, near a barrel."
+  },
+  {
+   "id": "lz-rc-rough-gem-candy",
+   "title": "Uncut Gem Hard Candy",
+   "ingredients": [
+    "sugar",
+    "dye",
+    "a jeweler who has been told to wait"
+   ],
+   "method": "Boil the sugar into rough, glassy lumps and do not polish them. Hide one in every workshop. When a mood strikes, the dwarf has a rough gem, sort of. It may buy you a week."
+  },
+  {
+   "id": "lz-rc-mood-soup",
+   "title": "Whatever-We-Just-Ran-Out-Of Soup",
+   "ingredients": [
+    "the last of everything",
+    "a pot",
+    "a dwarf in a mood, standing by"
+   ],
+   "method": "Put the last of everything in the pot. Before it boils, the moody dwarf will demand exactly that ingredient. Hand it over. Eat the water. You are a hero."
+  },
+  {
+   "id": "lz-rc-child-mood-porridge",
+   "title": "Little Artisan Porridge",
+   "ingredients": [
+    "oats",
+    "honey",
+    "plant cloth, if you have it",
+    "patience"
+   ],
+   "method": "Make porridge for the child in a strange mood. Set it beside the loom. Do not touch the loom. Do not ask what it is going to be. Clap at the end."
+  },
+  {
+   "id": "lz-rc-silk-scrap-pastry",
+   "title": "Seven-Scrap Pastry Parcels",
+   "ingredients": [
+    "dough",
+    "filling",
+    "7 silk scraps for tying"
+   ],
+   "method": "Fill the dough. Tie each parcel with a silk scrap. You now have seven parcels and no cloth anywhere in the fortress, but the parcels look magnificent."
+  },
+  {
+   "id": "lz-rc-smoothing-souffle",
+   "title": "Sixteen-Thousand-Wall Soufflé",
+   "ingredients": [
+    "eggs",
+    "cheese",
+    "a perfectly smooth bowl"
+   ],
+   "method": "Whip the eggs until smooth. Then smoother. The Overseer will queue fifteen thousand nine hundred and ninety-nine more soufflés. Make the first one beautiful."
+  },
+  {
+   "id": "lz-rc-off-duty-flapjacks",
+   "title": "Off-Duty Flapjacks",
+   "ingredients": [
+    "flour",
+    "milk",
+    "syrup",
+    "one militia captain, rested"
+   ],
+   "method": "Fry the flapjacks. Serve to the militia captain, who is off duty and therefore available. Serve nine more to his empty squad places. Eat those yourself."
+  },
+  {
+   "id": "lz-rc-militia-rations",
+   "title": "Militia-of-One Rations",
+   "ingredients": [
+    "one biscuit",
+    "one mug",
+    "nine plates, for show"
+   ],
+   "method": "Set ten places. Put the biscuit on the captain's plate. Leave the other nine as a gentle hint to anybody who walks past and might enlist."
+  },
+  {
+   "id": "lz-rc-mayor-loaf",
+   "title": "Production-Order Violation Loaf",
+   "ingredients": [
+    "flour",
+    "water",
+    "a mandated shape the baker ignored"
+   ],
+   "method": "Bake the loaf in any shape except the one the mayor ordered. Wait for the charge to be filed. Serve warm at the hearing as evidence of your talent."
+  },
+  {
+   "id": "lz-rc-mist-ring-sorbet",
+   "title": "Mist Ring Sorbet",
+   "ingredients": [
+    "crushed ice",
+    "fruit syrup",
+    "a pump operator",
+    "a happy thought"
+   ],
+   "method": "Have the pump operator spray mist over the sorbet. It gets wetter but also happier. Serve under the mist ring for maximum mood."
+  },
+  {
+   "id": "lz-rc-rain-gather-pie",
+   "title": "Whole-Map Berry Pie",
+   "ingredients": [
+    "berries from every corner of the map",
+    "pastry",
+    "one damp gatherer"
+   ],
+   "method": "Send the gatherer across the whole map in the rain. Wait a season. Bake the three berries he returns with into a very small, very expensive pie."
+  },
+  {
+   "id": "lz-rc-liaison-tart",
+   "title": "Much-To-Share Tart",
+   "ingredients": [
+    "one tart",
+    "one liaison",
+    "an import agreement"
+   ],
+   "method": "Bake one tart. Present it to the liaison. He will say there is much to share. He will not share it. Bake a second tart for yourself in advance."
+  },
+  {
+   "id": "lz-rc-liaison-rings",
+   "title": "Double-Price Onion Rings",
+   "ingredients": [
+    "onions",
+    "batter",
+    "a markup"
+   ],
+   "method": "Fry the onion rings. Sell them to the liaison at twice their worth, since that is how he likes his rings. He will order more next year."
+  },
+  {
+   "id": "lz-rc-rewind-hash",
+   "title": "Great Rewind Hash",
+   "ingredients": [
+    "yesterday's meal",
+    "yesterday's meal again",
+    "a pinch of deja vu"
+   ],
+   "method": "Cook yesterday's meal. The gods blink. Cook it again. It tastes familiar because it is. Serve with a knowing nod."
+  },
+  {
+   "id": "lz-rc-hospital-broth",
+   "title": "Empty-Hospital Broth",
+   "ingredients": [
+    "bone stock",
+    "salt",
+    "a bed",
+    "a doctor (optional, apparently)"
+   ],
+   "method": "Simmer the stock. Bring it to the hospital. There will be a patient, a bed, and no doctor. Feed the patient. Congratulations: you are the doctor now."
+  },
+  {
+   "id": "lz-rc-forgotten-beast-bites",
+   "title": "Bottom-of-the-Stairs Bites",
+   "ingredients": [
+    "cave fish",
+    "breadcrumbs",
+    "a quick exit"
+   ],
+   "method": "Bread the fish and fry it near the top of the stairs, not the bottom. Food cooked near the bottom of the stairs attracts guests you did not invite."
+  },
+  {
+   "id": "lz-rc-refugee-soup",
+   "title": "Passing Refugee Soup",
+   "ingredients": [
+    "a very big pot",
+    "whatever the larder can spare",
+    "a ladle left at the gate"
+   ],
+   "method": "Make far too much soup. Leave the pot at the gate with the ladle. Refugees fleeing goblin armies will remember which forts left the soup out."
+  },
+  {
+   "id": "lz-rc-old-fort-pie",
+   "title": "Old Fort Memorial Pie",
+   "ingredients": [
+    "a recipe from {past_fort}",
+    "flour",
+    "a moment of silence"
+   ],
+   "method": "Bake the pie from the old recipe. Remember that {past_fort} {past_fort_fate}. Eat it anyway; the old cooks would have wanted the pie eaten.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-rc-record-cake",
+   "title": "Record-Breaking Cake",
+   "ingredients": [
+    "flour",
+    "sugar",
+    "a list of {record}",
+    "one restrained baker"
+   ],
+   "method": "Bake one cake. Only one. {record_fort} made {record}, and look how that went. Ice it with the word 'enough' and serve to the Overseer.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-rc-past-years-loaf",
+   "title": "One-Loaf-Per-Year Memorial",
+   "ingredients": [
+    "cave wheat",
+    "salt",
+    "a long memory"
+   ],
+   "method": "Bake a loaf for each year {past_fort} stood. Line them up on the table. Eat the last one first; it was the hardest year.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lz-rc-enemy-skewers",
+   "title": "Gate-Defense Skewers",
+   "ingredients": [
+    "meat",
+    "sharp sticks",
+    "a sturdy drawbridge"
+   ],
+   "method": "Skewer the meat. Grill on the battlements. If {enemy} attacks, the sticks are already sharp. Keep them away from the militia captain's beard.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lz-rc-monarch-mousse",
+   "title": "Royal Mousse for {monarch}",
+   "ingredients": [
+    "cream",
+    "honey",
+    "a golden spoon",
+    "a very long walk"
+   ],
+   "method": "Whip the cream with honey. Carry it all the way to the capital. It will have melted by then. Present the spoon, polished, with deep regret."
+  },
+  {
+   "id": "lz-rc-civ-stew",
+   "title": "{civ} Hearth Stew",
+   "ingredients": [
+    "everything the caravan brought",
+    "an anvil-sized pot",
+    "patriotism"
+   ],
+   "method": "Stew the caravan's goods together. It tastes of home, of iron, and of every fort we ever lost. Eat with pride and a large spoon."
+  },
+  {
+   "id": "lz-rc-world-crumble",
+   "title": "{world} Crumble",
+   "ingredients": [
+    "fruit from the surface",
+    "oats",
+    "a cautious forager"
+   ],
+   "method": "Gather fruit from near the gate. Never from a tree you must climb. Top with oats and bake until the world blinks."
+  },
+  {
+   "id": "lz-rc-stone-slab-steak",
+   "title": "{stone} Slab Steak",
+   "ingredients": [
+    "a steak",
+    "a hot slab of {stone}",
+    "a long fork"
+   ],
+   "method": "Heat the slab in the forge. Sear the steak on it. The slab will then be queued for smoothing, so eat quickly before the smoother arrives."
+  },
+  {
+   "id": "lz-rc-execution-tower-toast",
+   "title": "Tower-View Toast",
+   "ingredients": [
+    "bread",
+    "butter",
+    "a cheerful outlook"
+   ],
+   "method": "Toast the bread. Butter it. Eat it in the only window that looks away from the execution tower. Breakfast should be a cheerful affair."
+  },
+  {
+   "id": "lz-rc-catacomb-cookies",
+   "title": "Catacomb Shortbread",
+   "ingredients": [
+    "butter",
+    "flour",
+    "sugar",
+    "one coffin-shaped cutter"
+   ],
+   "method": "Cut the shortbread into little coffins. Serve at funerals. The mourners will laugh, then cry, then ask for the recipe."
+  },
+  {
+   "id": "lz-rc-windmill-crepes",
+   "title": "Windmill Pinwheel Crepes",
+   "ingredients": [
+    "batter",
+    "jam",
+    "a breeze"
+   ],
+   "method": "Roll the crepes with jam and slice into pinwheels. Arrange on a plate near a windmill. They will not spin, but they will feel appreciated."
+  },
+  {
+   "id": "lz-rc-cistern-cider",
+   "title": "Cistern-Cooled Cider",
+   "ingredients": [
+    "cider",
+    "a rope",
+    "a full cistern"
+   ],
+   "method": "Lower the cider into the cistern on a rope to chill it. Retrieve it. Drink it. You now have a cold cider and nobody has died of thirst. Well done."
+  },
+  {
+   "id": "lz-rc-throne-sandwich",
+   "title": "Throne Room Club Sandwich",
+   "ingredients": [
+    "three slices of bread",
+    "fillings",
+    "a noble seat"
+   ],
+   "method": "Layer the bread and fillings tall, like a throne. Eat while seated on a throne. It does not matter which one; there are plenty."
+  },
+  {
+   "id": "lz-rc-hauler-hotpot",
+   "title": "Long-Haul Hotpot",
+   "ingredients": [
+    "potatoes, or helmets",
+    "stock",
+    "a hauler with nowhere to put a throne"
+   ],
+   "method": "Simmer slowly while the hauler wanders the fort looking for a free spot. By the time he finds one, dinner is ready. He will not find one."
+  },
+  {
+   "id": "lz-rc-famine-day-gruel",
+   "title": "Day Thirty-Two Gruel",
+   "ingredients": [
+    "seventeen plants",
+    "ten bowls",
+    "hope"
+   ],
+   "method": "Divide seventeen plants between ten bowls. The math will not work. Add hot water and hope until it does. Serve with a story about tomorrow."
+  },
+  {
+   "id": "lz-rc-meatless-surprise",
+   "title": "Meatless Year Meatloaf",
+   "ingredients": [
+    "mushrooms",
+    "breadcrumbs",
+    "an imagination"
+   ],
+   "method": "Shape the mushrooms into a loaf and call it meatloaf. Serve with enthusiasm. Do not let anyone near the butcher, who will be very upset to see it."
+  },
+  {
+   "id": "lz-rc-loose-stone-buns",
+   "title": "Loose-Stone Sticky Buns",
+   "ingredients": [
+    "dough",
+    "honey",
+    "a floor covered in stones"
+   ],
+   "method": "Roll the buns into stone-shaped lumps. Scatter them on a platter among real stones, as a game. Count your teeth afterward."
+  },
+  {
+   "id": "lz-rc-drinks-2000",
+   "title": "Two-Thousand-Barrel Bread Pudding",
+   "ingredients": [
+    "stale bread",
+    "milk",
+    "a splash from every barrel"
+   ],
+   "method": "Soak the bread in milk and a splash from each barrel. It will take some time; there are two thousand. Make sure somebody has a drink while waiting."
+  },
+  {
+   "id": "lz-rc-pumps-pudding",
+   "title": "Pump-Operator's Pudding",
+   "ingredients": [
+    "custard",
+    "a very tired arm"
+   ],
+   "method": "Stir the custard with the same arm you pump with. You will be tired, but the pudding will be smooth. Smoother than the walls, even."
+  },
+  {
+   "id": "lz-rc-goblin-occupied-gruel",
+   "title": "Occupation-Era Goblin Gruel",
+   "ingredients": [
+    "gruel",
+    "our old fort's furniture, for fuel"
+   ],
+   "method": "We do not make this. The goblins in our old fort make it, badly, with our good chairs as firewood. Pity them. Then cook something better."
+  },
+  {
+   "id": "lz-rc-possessed-pasta",
+   "title": "Possessed Weaver's Pasta",
+   "ingredients": [
+    "noodles",
+    "a loom",
+    "a free loom room"
+   ],
+   "method": "Weave the noodles on the loom. Make sure the loom room is free before starting, or you will wait in the corridor forever and the water will boil away."
+  },
+  {
+   "id": "lz-rc-vacancy-vol-au-vent",
+   "title": "Vacant Office Vol-au-Vent",
+   "ingredients": [
+    "puff pastry",
+    "nothing inside"
+   ],
+   "method": "Bake the pastry cases. Leave them empty, like the sheriff's office, the hammerer's office, and the champion's chair. Serve with a sign: 'Applications Welcome.'"
+  },
+  {
+   "id": "lz-rc-pin-armor-stand",
+   "title": "Quakefocus Armor Stand Sticks",
+   "ingredients": [
+    "dough",
+    "salt",
+    "1,981 of them"
+   ],
+   "method": "Roll the dough into armor-stand shapes and bake. Do not stop. The original Quakefocus recipe never said when to stop, and that was the whole problem.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rc-pin-searabbeys",
+   "title": "Searabbeys Thirst Quencher",
+   "ingredients": [
+    "1,994 drinks",
+    "1 miner",
+    "a short walk"
+   ],
+   "method": "Walk the miner to the drinks. All 1,994 of them. Searabbeys taught us it is the walk that matters. Serve cold, with a sincere apology to Bomrek.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rc-pin-iden",
+   "title": "Iden's Much-To-Share Platter",
+   "ingredients": [
+    "cheese",
+    "nuts",
+    "an import agreement"
+   ],
+   "method": "Arrange the platter. Iden Loloklolor will say there is much to share and recommend an import agreement. Sign it. He takes the platter. Start over.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rc-pin-hex",
+   "title": "Crazed Hex Refugee Bread",
+   "ingredients": [
+    "flour",
+    "water",
+    "a fast oven"
+   ],
+   "method": "Bake quickly. The Crazed Hex has driven folk out of Padtufted, Pulledrained and Ironcrowds; refugees cannot wait for slow bread.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rc-pin-creature",
+   "title": "Creaturemirrored Mist-Ring Meringue",
+   "ingredients": [
+    "egg whites",
+    "sugar",
+    "a light spray from the mist ring"
+   ],
+   "method": "Whip to peaks under Creaturemirrored's mist ring. Soggy but happy, like everyone else at Creaturemirrored. Do not take it near the garbage pit.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lz-rc-pin-claspedserpent",
+   "title": "Claspedserpent Silver Spoon Soup",
+   "ingredients": [
+    "stock",
+    "a silver mace for stirring"
+   ],
+   "method": "Stir the pot with Claspedserpent, the silver mace of Quakefocus. Nobody in the militia was using it anyway. Polish it after, respectfully.",
+   "world": "The Enchanted Planes"
+  }
+ ]
+}

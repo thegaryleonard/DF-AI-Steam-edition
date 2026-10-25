@@ -1,0 +1,3950 @@
+{
+ "editorials": [
+  {
+   "id": "lp-ed-thirst-paradox",
+   "kick": "Opinion",
+   "head": "WE HAVE THE DRINK. WE LACK THE WALK.",
+   "body": "Once again a dwarf has been found dead of thirst in a fort with barrels stacked to the ceiling. This is not a supply problem. It is a distance problem, and a priorities problem, and possibly a legs problem. We call on the Overseer to place one barrel, any barrel, within reach of anyone who mines. We are not asking for a tavern. We are asking for a barrel.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-armor-stands-reckoning",
+   "kick": "Business",
+   "head": "1,981 ARMOR STANDS AND NOT ONE SOLDIER",
+   "body": "Quakefocus produced 1,981 armor stands. It had, at peak, a militia of zero. That is a ratio of infinity stands per soldier, which the Business Desk has been told is 'not a ratio'. We disagree. It is the purest ratio ever achieved. We only ask that next time someone checks the order before the second thousand.",
+   "by": "Our Business Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-record-limit",
+   "kick": "Noble Affairs",
+   "head": "WE STILL REMEMBER {record}",
+   "body": "{record_fort} will be remembered for many things, but mostly for {record}. The stockrooms are still full of the evidence. We propose that every future fort be issued a sensible limit on everything, and that anything past ten require a signed note from {monarch}. No reply yet. We assume a long letter is being written.",
+   "by": "The Editorial Board",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-safety-burrow-name",
+   "kick": "Commentary",
+   "head": "PLEASE RENAME THE 'SAFETY' BURROW",
+   "body": "Dwarves were sent to the Safety burrow thirty levels down, and a forgotten beast came up the stairs to meet them. The word 'Safety' is doing a great deal of work in that sentence. We propose a more honest sign: 'Burrow (Downstairs)'. It will save no lives, but it will save the word Safety from further embarrassment.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-garbage-pit-traffic",
+   "kick": "Commentary",
+   "head": "THE GARBAGE PIT IS A ONE-WAY STREET",
+   "body": "Dwarves have died hauling refuse back out of the garbage pit while more was being thrown in. We understand both jobs were on the list. We ask only that they not be on the list at the same time, in the same hole. A pit is for putting things in. Taking them out is called a quarry, and it has a different sign.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-trees-are-not-furniture",
+   "kick": "Opinion",
+   "head": "A TREE IS NOT A PLACE OF WORK",
+   "body": "A miner has died of thirst on a tree branch. We repeat: a miner, a profession famous for being underneath things, died on top of one. How he got there is between him and the gods. How he stayed there is between him and the Overseer. We call for a simple rule: if your job title contains the word 'mine', stay off trees.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-militia-of-one",
+   "kick": "Military Affairs",
+   "head": "OUR ARMY IS ONE DWARF, AND HE IS OFF DUTY",
+   "body": "The militia of {fort} has ten places, one captain and nine empty spaces where soldiers should be. The captain is listed as 'Off duty'. We do not blame him. We blame the nine spaces, who have never once turned up. We are at war with {enemy}. Someone should tell the roster.",
+   "by": "Our Military Correspondent",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-ed-empty-offices",
+   "kick": "Noble Affairs",
+   "head": "WHO WILL BE MAYOR? NOBODY, APPARENTLY",
+   "body": "The offices of mayor, sheriff, hammerer, dungeon master, champion and chief medical dwarf all stand empty. The chairs are lovely. The nameplates are blank. We would run for office ourselves, but the Herald has been advised that journalists are 'too opinionated for government', which we are choosing to take as a compliment.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-mayor-paperwork",
+   "kick": "Noble Affairs",
+   "head": "THE PRODUCTION ORDER VIOLATION ECONOMY",
+   "body": "The mayor's office files a production order violation every week. The fort then fails to produce the ordered item. Another violation is filed. This is, by our count, the only industry in the fort with a perfect output record. We suggest the mayor be awarded a medal, if anyone can be found to make one without violating something.",
+   "by": "Our Business Correspondent"
+  },
+  {
+   "id": "lp-ed-rough-gems-moods",
+   "kick": "Commentary",
+   "head": "STOP CUTTING EVERY GEM",
+   "body": "Strange moods keep demanding rough gems, and every rough gem has already been cut into something shiny and useless. A fisherdwarf, a butcher and a weaver have all asked. The jeweler says she was 'only following orders'. We say: leave one rough gem in a drawer somewhere. Label it 'for emergencies'. Then lock the drawer.",
+   "by": "The Editorial Board",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lp-ed-child-mood",
+   "kick": "Society",
+   "head": "CHILDREN SHOULD NOT HAVE MOODS",
+   "body": "A dwarven child was taken by a strange mood and demanded plant cloth. We have no plant cloth. We have a child in a workshop staring at a loom. We do not know who let the child near a workshop, or why the gods considered a child qualified, but we suggest a minimum age for divine inspiration. Twelve seems fair.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-famine-day-32",
+   "kick": "Food Critic",
+   "head": "REMEMBERING FAMINE, DAY 32",
+   "body": "Some forts are founded with no drink, no meals and a handful of plants for ten dwarves. The Food Desk still has its notes from one 'famine, day 32'. The menu that day was 'one plant, shared'. Reviews were mixed. We raise this only so that the next fort's founders pack a lunch. A large lunch. Several barrels of lunch.",
+   "by": "Our Food Critic"
+  },
+  {
+   "id": "lp-ed-meat-watch",
+   "kick": "Food Critic",
+   "head": "THE MEAT WATCH: NEVER AGAIN",
+   "body": "A fort once went so long without meat or fish that its paper kept a daily column called the Meat Watch. It ran for longer than some nobles. Thirteen dogs lived in that fort. The Food Desk has never asked what happened to the dogs, and we would ask readers to extend us the same courtesy.",
+   "by": "Our Food Critic",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "lp-ed-four-hospitals",
+   "kick": "Health",
+   "head": "FOUR HOSPITALS, TWO DOCTORS",
+   "body": "The Overseer once built four hospitals. Two had no doctor. The other two had a doctor each, who spent the season walking between all four looking for patients who were looking for them. We propose fewer hospitals and more doctors, or at minimum one sign per hospital reading 'nobody is coming, sorry'.",
+   "by": "Our Health Correspondent"
+  },
+  {
+   "id": "lp-ed-chief-medical-vacancy",
+   "kick": "Health",
+   "head": "THE CHIEF MEDICAL DWARF CHAIR IS COLD",
+   "body": "{fort} has no chief medical dwarf. The office is furnished, the traction bench is polished and the soap is unopened. Patients are treated by whoever walks past, which is usually a hauler holding a stone. We ask anyone with a steady hand and a weak sense of self-preservation to apply. The pay is a chair.",
+   "by": "Our Health Correspondent"
+  },
+  {
+   "id": "lp-ed-smoothing-jobs",
+   "kick": "Commentary",
+   "head": "SIXTEEN THOUSAND SMOOTHING JOBS IS TOO MANY",
+   "body": "The Overseer once queued 16,000 smoothing jobs for three smoothers. At a generous rate, that is several lifetimes of polishing, which is roughly the point at which a wall stops being a wall and starts being a mirror. We like smooth walls. We like eating more. We ask the Overseer to consider which comes first.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-plants-in-rain",
+   "kick": "Weather Desk",
+   "head": "ON GATHERING PLANTS ACROSS THE WHOLE MAP IN THE RAIN",
+   "body": "Once again the Overseer has sent every free dwarf to the far edge of the map to pick a berry in a downpour. We admire the ambition. We question the berry. A dwarf soaked to the beard for one sprig of something purple is not a harvest. It is a cry for help, written in mud.",
+   "by": "Our Weather Correspondent",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lp-ed-past-fort-fate",
+   "kick": "Commentary",
+   "head": "{past_fort} {past_fort_fate}. WE REMEMBER",
+   "body": "We do not like to dwell on {past_fort}, which lasted {past_fort_years} and then {past_fort_fate}. But somebody has to. Somewhere in those halls are our beds, our loose stones and at least one mug with a name scratched on it. We would like them back. We would also like whoever has them to wipe their feet.",
+   "by": "The Editorial Board",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-nuanced-hamlet",
+   "kick": "Arts",
+   "head": "BRING BACK THE NUANCED HAMLET",
+   "body": "Our artifact The Nuanced Hamlet is still in Searabbeys, presumably now admired by goblins who do not understand it. A goblin cannot appreciate nuance. A goblin can barely appreciate a hamlet. We call for a recovery expedition, staffed by volunteers, led by the militia, which is to say by one dwarf, who is off duty.",
+   "by": "Our Arts Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-left-artifact",
+   "kick": "Arts",
+   "head": "WE LEFT AN ARTIFACT IN {past_fort}",
+   "body": "Somewhere in {past_fort} sits an artifact we made with our own hands and our own strange moods, now dusted by whoever moved in. We find this a tragedy of furniture. We call for a recovery expedition, staffed by volunteers and led by the militia, which is to say by one dwarf, who is off duty.",
+   "by": "Our Arts Correspondent",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-total-war-small-print",
+   "kick": "Military Affairs",
+   "head": "WHAT 'TOTAL WAR' MEANS, FOR READERS WHO ASKED",
+   "body": "{civ} are at war with {enemy}. Readers ask what war means. It means all of it. All of the war. Readers then ask what we are doing about it. We are writing this editorial. The militia is doing nothing, but in a very organized way, from a bench, with excellent posture.",
+   "by": "Our Military Correspondent",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-ed-skirmish",
+   "kick": "Military Affairs",
+   "head": "SKIRMISHING IS NOT A HOBBY",
+   "body": "We are told we are merely 'skirmishing' with the {enemy_race} bands of {enemy}, a word that makes war sound like a lawn game. It is not a lawn game. Skirmishes involve spears and the general lack of a lawn. We ask the diplomats to clarify whether we are winning, losing, or simply doing it as exercise.",
+   "by": "Our Military Correspondent",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-ed-peace-with-sixteen",
+   "kick": "Commentary",
+   "head": "WE ARE AT PEACE WITH A DOZEN GROUPS. NAME ONE",
+   "body": "The civilization reports peace with a dozen or more groups. The Herald asked twenty dwarves to name one. Answers included 'the elves?', 'the caravan', 'my cousin' and 'the cat'. The cat is not a group. Still, peace is peace. We ask the diplomat to send us the list so we can be grateful in the right direction.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-liaison-much-to-share",
+   "kick": "Business",
+   "head": "THERE IS MUCH TO SHARE, AND WE HAVE HEARD IT",
+   "body": "The outpost liaison {liaison} arrives each year and opens with 'There is much to share'. He then recommends an import agreement. We have heard the speech so often that the tavern now mouths it along with him. We admire his consistency. We would also admire a second sentence.",
+   "by": "Our Business Correspondent",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lp-ed-rings-210",
+   "kick": "Business",
+   "head": "RINGS AT 210 PERCENT IS NOT A TRADE DEAL",
+   "body": "The liaison has asked for rings at 210% of their value. The Business Desk has studied this figure and concluded that it is a number, and that it is too large. We would pay 210% for a doctor. We would pay 210% for a mayor. We will not pay it for a ring. Rings do not die of thirst. Mostly.",
+   "by": "Our Business Correspondent"
+  },
+  {
+   "id": "lp-ed-fort-after-fort",
+   "kick": "Commentary",
+   "head": "ANOTHER FORT, SAME WORLD, SAME MISTAKES?",
+   "body": "{past_fort} lasted {past_fort_years} and then {past_fort_fate}. Now there is {fort}. Every fort starts with hope and ends in the history books. We are not saying the Overseer has a pattern. We are saying the pattern has an Overseer. Let this be the fort where we learn. Let this be the fort with a barrel next to the miners.",
+   "by": "The Editorial Board",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-great-rewinds",
+   "kick": "Religion",
+   "head": "ON THE GREAT REWINDS",
+   "body": "Several times now the world has stopped, gone dark, and started again from a moment ago. The priests call these the Great Rewinds. Dwarves who lived through one report having the same breakfast twice. We do not understand the gods. We only ask that, next time, they rewind to before the garbage pit.",
+   "by": "Our Religion Correspondent"
+  },
+  {
+   "id": "lp-ed-gods-blinked",
+   "kick": "Religion",
+   "head": "WHEN THE GODS BLINK, KEEP WORKING",
+   "body": "Last week the gods blinked again, and the whole fort froze mid-step for an unknown length of time. Some dwarves used the pause to reflect. Most simply resumed hauling the same stone. The Religion Desk considers this the correct response. If the heavens hiccup, the stone still needs moving.",
+   "by": "Our Religion Correspondent"
+  },
+  {
+   "id": "lp-ed-mist-ring",
+   "kick": "Science",
+   "head": "THE MIST RING: SCIENCE OR SPA?",
+   "body": "The pumps of the mist ring spray water into the air so dwarves can walk through it and feel happy. Our Science Desk confirms it works. Dwarves report feeling refreshed, damp and slightly confused about why they cannot drink it. We suggest a sign: 'Do not open mouth'. They will open their mouths anyway.",
+   "by": "Our Science Correspondent"
+  },
+  {
+   "id": "lp-ed-windmills",
+   "kick": "Science",
+   "head": "THE WINDMILLS ARE NOT GIANTS",
+   "body": "Readers have written in alarmed about the tall spinning shapes on the surface. Those are windmills. They power the pumps. They are not giants, they do not want your beard, and they will not stop spinning if you shout at them. We have checked. Several times. Loudly.",
+   "by": "Our Science Correspondent"
+  },
+  {
+   "id": "lp-ed-execution-tower",
+   "kick": "Commentary",
+   "head": "ABOUT THE EXECUTION TOWER",
+   "body": "The fort has built an execution tower. Nobody has been sentenced, because the hammerer's office is empty. So we have a tower and no hammerer, which is a building waiting for a job description. We suggest it be used as a lookout until somebody volunteers for the less pleasant use. Please nobody volunteer.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-catacombs",
+   "kick": "Society",
+   "head": "THE CATACOMBS ARE FILLING UP. THAT IS THE POINT",
+   "body": "Visitors to the catacombs have complained that they are 'getting crowded'. That is what catacombs are for. A quiet catacomb is a sign of a healthy fort. A busy one is a sign of a fort that has met a tree, a garbage pit and a forgotten beast in the same year. We ask mourners to bring a lamp and lower expectations.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-cistern",
+   "kick": "Science",
+   "head": "THE CISTERN IS FULL. THE MINERS ARE THIRSTY. EXPLAIN",
+   "body": "The cistern holds more water than some lakes. A miner two corridors away is listed as 'Thirsty'. Our Science Desk has measured the distance and found it to be 'walkable'. Our Labor Desk has measured the miner and found him to be 'busy'. Somewhere between the two, the thirst paradox lives on.",
+   "by": "Our Science Correspondent"
+  },
+  {
+   "id": "lp-ed-beast-up-the-stairs",
+   "kick": "Military Affairs",
+   "head": "WHY ARE THE STAIRS SO EASY TO CLIMB?",
+   "body": "The forgotten beast that visited the Safety burrow came up the stairs. We designed those stairs. We made them lovely and even and easy to climb. The beast appreciated this. We propose that the stairs to the deep be made deliberately awkward, with uneven steps and a strongly worded door.",
+   "by": "Our Military Correspondent"
+  },
+  {
+   "id": "lp-ed-thirsty-carpenter-gems",
+   "kick": "Commentary",
+   "head": "150 GEMS AND NOT A SIP",
+   "body": "A fey carpenter once died of thirst beside 150 rough gems. The gems were all needed elsewhere. So, it turned out, was water. We say this to every Overseer: a dwarf can be paid in gems, praised in gems, buried with gems. He cannot drink them. We checked. He checked.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-silk-scraps",
+   "kick": "Business",
+   "head": "SEVEN SCRAPS OF SILK ARE NOT A STOCKPILE",
+   "body": "Seven silk scraps once sat in the stockpile and the ledger declared the fort well supplied with cloth. A fey miner then died waiting for cloth that the ledger said existed. Seven scraps is not a stock. It is a handkerchief, cut up. We ask the bookkeeper to count cloth by the sock, not by the hope.",
+   "by": "Our Business Correspondent",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lp-ed-loom-room",
+   "kick": "Society",
+   "head": "A WEAVER SHOULD NOT DIE WAITING FOR A ROOM",
+   "body": "A possessed weaver once died waiting for the loom room to be built. It was on the list. It was a long list, and a thousand-odd armor stands were ahead of it. We say a weaver possessed by the gods outranks an armor stand. We would have thought this went without saying. It clearly needed saying.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-refugees",
+   "kick": "Commentary",
+   "head": "THE REFUGEES DESERVE BEDS",
+   "body": "Goblin armies keep emptying towns across {world}, and refugee bands now wander looking for a roof. We have roofs. We have, somewhere, a room full of spare thrones. Nobody sleeps well on a throne, but it is better than a field, and nobody here will ask who sat on it first. Bring a blanket. Bring a drink, just in case.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-crazed-hex",
+   "kick": "Military Affairs",
+   "head": "THE CRAZED HEX IS NOT GOING AWAY",
+   "body": "The goblin army called The Crazed Hex emptied Padtufted, Pulledrained and Ironcrowds. Its leaders, Ngumrash Ensebrab and Laba Cócefevu Iwe, are said to be 'efficient'. We are not efficient. We have one soldier. We ask the Overseer to consider building a wall before building a 1,982nd armor stand.",
+   "by": "Our Military Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-vice-of-fins",
+   "kick": "Military Affairs",
+   "head": "WHO NAMES AN ARMY 'THE VICE OF FINS'?",
+   "body": "The Vice of Fins, led by Uslôx Ulutodan, attacked Padtufted. The Military Desk has been unable to learn what the fins are or why they are a vice. We suspect carp. We have always suspected carp. Until proven otherwise, militia members should treat any fish with suspicion and any finned goblin with more.",
+   "by": "Our Military Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-amusing-duties",
+   "kick": "Arts",
+   "head": "48 CLAIMANTS AND ONE PAIR OF GREAVES",
+   "body": "The steel greaves called The Amusing Duties were lost at Roughnessslaps in year 68 and have since been claimed by about 48 different figures. They sit at Fieryaged, belonging to everyone and worn by nobody. The Herald would like to be the 49th claimant. Our legs are cold and our case is as good as anyone's.",
+   "by": "Our Arts Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-crooked-horrors",
+   "kick": "Weather Desk",
+   "head": "TRAVEL ADVISORY: CROOKED HORRORS",
+   "body": "The crooked horror Omo Fewethauyira is reported near Shadyghosts, and Thone Nìnoana lurks at The Sable Nights. Our Weather Desk does not cover horrors, but it does cover 'conditions', and the conditions near those places are 'large, crooked and hungry'. Travelers are advised to pack an umbrella and a will.",
+   "by": "Our Weather Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-elf-abductions",
+   "kick": "Commentary",
+   "head": "THE ELVES ARE BEING ABDUCTED. WE HAVE FEELINGS",
+   "body": "Word comes that elves have been abducted from their forest retreats again. The Herald condemns abduction in all its forms. We would also like to state, for balance, that the elves have never once bought our wooden bins. These two facts are unrelated, and we print them side by side purely for reasons of layout.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-succession-season",
+   "kick": "Noble Affairs",
+   "head": "EVERYONE ELSE CHANGED LEADERS. WE CANNOT FIND ONE",
+   "body": "Four groups across {world} have changed leaders this year. We have not managed to fill a single office. Other groups have too many leaders and we have too few. We propose a trade. The liaison will want 210% for it, plus an import agreement.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-refuse-again",
+   "kick": "Commentary",
+   "head": "THE REFUSE STOCKPILE IS NOT A MYSTERY",
+   "body": "Every fort the Overseer builds eventually develops a refuse problem, and every time it is solved by a new refuse problem somewhere else. One fort had loose stones. One had armor stands. One had the garbage pit. We propose a fourth approach: putting things in one place and leaving them there.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "lp-ed-drinks-count",
+   "kick": "Opinion",
+   "head": "{drinks} DRINKS. COUNT THEM. THEN DRINK ONE",
+   "body": "The fort currently holds {drinks} drinks. Forts have lost miners to thirst with more than that on hand. A number in a ledger has never quenched anyone. We urge every reader, today, to walk to a barrel and take one sip on behalf of the fort's statistics. Do it for the miners. Do it for the ledger.",
+   "by": "The Editorial Board",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "lp-ed-drinks-low",
+   "kick": "Opinion",
+   "head": "THE DRINK IS RUNNING LOW, AND THE OVERSEER IS SMOOTHING",
+   "body": "Drink stocks have fallen to {drinks}. In response the Overseer has queued several hundred smoothing jobs, as if a polished wall might be licked for moisture. It cannot. We have asked. We call for brewing first, smoothing second and a written apology to the still, which has been idle for days.",
+   "by": "The Editorial Board",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "lp-ed-pop-big-offices",
+   "kick": "Noble Affairs",
+   "head": "{pop} DWARVES AND NOBODY WANTS TO BE SHERIFF",
+   "body": "{fort} is home to {pop} dwarves, and not one of them will be sheriff. We have asked politely. We have asked at the tavern. We have asked a dwarf who was asleep, who did not say no, and who was briefly appointed until he woke up. The search continues. The badge is very shiny.",
+   "by": "The Editorial Board",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "lp-ed-stone-glut-searabbeys",
+   "kick": "Business",
+   "head": "{stone} STONES AND RISING: HAVE WE LEARNED NOTHING?",
+   "body": "A fort before us was buried under loose stones. We now hold {stone}. The Business Desk is not saying history repeats, but history has picked up a stone and is looking at us meaningfully. We call for stockpiles, quarries, a mason with ambition, or at least a very long wall.",
+   "by": "Our Business Correspondent",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "lp-ed-gems-on-hand",
+   "kick": "Commentary",
+   "head": "WE HAVE {gems} GEMS. PLEASE DO NOT CUT THEM ALL",
+   "body": "The fort currently holds {gems} gems. Experience says that within a week the jeweler will have cut every single one, and within a fortnight a mood will demand a rough one. We propose a reserve: a small locked box, a guard (the captain, perhaps, since he is off duty) and a sign saying 'mood use only'.",
+   "by": "The Editorial Board",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "lp-ed-dogs-thirteen",
+   "kick": "Society",
+   "head": "SEARABBEYS HAD THIRTEEN DOGS. WE HAVE {dogs}",
+   "body": "Searabbeys had thirteen dogs and no meat for months, and the Herald never asked any follow-up questions. We now have {dogs} dogs and, we are told, meat. Let us keep it that way. Every dog in {fort} deserves to live in a fort with a butcher who has something else to do.",
+   "by": "Our Society Correspondent",
+   "when": [
+    "dogs_many"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-farms-twenty",
+   "kick": "Food Critic",
+   "head": "TWENTY FARM PLOTS DID NOT SAVE US BEFORE",
+   "body": "A fort once had twenty farm plots and still ran the Meat Watch for a season. Farms are not dinner. Farms are the rumor of dinner. With {farms} plots in {fort}, we ask the farmers to keep an eye on the cooks, and the cooks to keep an eye on the barrels, and everyone to keep an eye on the Overseer.",
+   "by": "Our Food Critic",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "lp-ed-deadname-thirst",
+   "kick": "Commentary",
+   "head": "{deadname} DESERVED A BARREL NEARBY",
+   "body": "We mourn {deadname} this week. Whatever the final cause, the Herald notes that this fort has a long tradition of dwarves dying within sight of everything they needed. We ask the Overseer, again, to look at the map and count the steps between the dwarves and the drink. Then halve them.",
+   "by": "The Editorial Board",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ed-mood-moodname",
+   "kick": "Society",
+   "head": "{moodname} IS IN A MOOD. WHAT HAVE WE RUN OUT OF?",
+   "body": "{moodname} has been seized by a strange mood. History teaches that the item demanded will be the one thing the fort has just used up. Rough gems, plant cloth, a specific bone. We urge every hauler to check every corner, every drawer and every goblin pocket. A dwarf's life may depend on lint.",
+   "by": "The Editorial Board",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lp-ed-promoted-welcome",
+   "kick": "Noble Affairs",
+   "head": "AN OFFICE IS FILLED. MIRACLES DO HAPPEN",
+   "body": "{promoted} has become a {post}, filling one of this fort's famous empty chairs. The Herald congratulates them and would like to warn them that the chair was empty for a reason. That reason was mainly paperwork. The mayor's office has already filed a welcome violation.",
+   "by": "The Editorial Board",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "lp-ed-artifact-protect",
+   "kick": "Arts",
+   "head": "PROTECT {artifact} FROM THE NEXT GOBLIN OCCUPATION",
+   "body": "{artifact} is the pride of {fort}. So were the treasures we left behind in {past_fort}, which {past_fort_fate}. They now sit in a fort we no longer run. We propose that every artifact be fitted with a small handle, so that when the time comes, someone can carry it out.",
+   "by": "Our Arts Correspondent",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-migrants-warning",
+   "kick": "Commentary",
+   "head": "TO OUR NEW ARRIVALS: A BRIEF HISTORY",
+   "body": "Welcome, migrants. You have joined a fort in a long line. {record_fort} gave the world {record}. Dwarves here have died on trees, in garbage pits and in a burrow called Safety. The beds are good, though. The mist ring is nice. Find the nearest barrel before you unpack.",
+   "by": "The Editorial Board",
+   "when": [
+    "recent_migrants",
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-caravan-liaison",
+   "kick": "Business",
+   "head": "WHEN THE LIAISON COMES, LET HIM FINISH",
+   "body": "Each time {liaison} arrives, someone interrupts him before he can finish recommending the import agreement. Then he starts again. This doubles the meeting. We propose that the fort simply let him finish, nod, and offer him a drink. He has come a long way to say the same thing.",
+   "by": "Our Business Correspondent",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lp-ed-winter-plants",
+   "kick": "Weather Desk",
+   "head": "NO, WE WILL NOT GATHER PLANTS IN THE SNOW",
+   "body": "The Overseer has again ordered plant gathering on the far side of the map, in the snow. The Weather Desk would like it on record that very little grows in snow except frostbite. Dwarves returning from the expedition carried two berries and a strong grudge. The grudge will keep longer.",
+   "by": "Our Weather Correspondent",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lp-ed-summer-surface",
+   "kick": "Weather Desk",
+   "head": "SUMMER ON THE SURFACE: A WARNING FROM HISTORY",
+   "body": "It is summer, and the surface is bright and full of trees. Please remember that a miner once died on a tree branch. Please remember that the sun is not a lamp you can turn off. Please remember that the Overseer will send you outside to pick something. Bring a waterskin. Bring two.",
+   "by": "Our Weather Correspondent",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "lp-ed-overseer-means-well",
+   "kick": "Opinion",
+   "head": "IN DEFENSE OF THE OVERSEER (SOMEONE HAS TO)",
+   "body": "Everyone mocks the Overseer. But consider: fort after fort, one world, never once bored. The Overseer built the mist ring. The Overseer dug the cistern. The Overseer, at great expense, ensured that no dwarf will ever lack an armor stand. Is that so terrible? Yes. But it is also very thorough.",
+   "by": "A Contrarian, Upper Dormitory"
+  },
+  {
+   "id": "lp-ed-overseer-should-walk",
+   "kick": "Opinion",
+   "head": "THE OVERSEER SHOULD WALK A DAY IN OUR BOOTS",
+   "body": "We invite the Overseer to spend one day as a miner: dig a tunnel, get thirsty, walk forty tiles past a stack of thrones to find a barrel, and discover it was claimed for a work order. We suspect that after one day the orders would change. We suspect it would also be the Overseer's last day.",
+   "by": "A Miner (Thirsty)"
+  },
+  {
+   "id": "lp-ed-orders-review",
+   "kick": "Business",
+   "head": "WHO READS THE WORK ORDERS? A SIMPLE QUESTION",
+   "body": "Somewhere there is a list of work orders. On it, in one fort, was a line that said 'armor stand' and a number that kept going. The Business Desk would like to know whether anyone reads this list. If the answer is the Overseer, we ask that the Overseer read it twice, slowly, with a finger.",
+   "by": "Our Business Correspondent"
+  },
+  {
+   "id": "lp-ed-goblin-tenants",
+   "kick": "Commentary",
+   "head": "LETTER TO THE GOBLINS IN OUR OLD FORT",
+   "body": "To The Torments of Hating, current residents of Searabbeys: the well sticks in the winter. The third bedroom floods. Please do not throw away the loose stones, they are load-bearing in a spiritual sense. And please return The Nuanced Hamlet, as it was never yours, and you are not nuanced.",
+   "by": "The Editorial Board",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-distant-letter",
+   "kick": "Commentary",
+   "head": "SPARE A THOUGHT FOR THE DISTANT LETTER",
+   "body": "The Distant Letter were evicted from Searabbeys by goblins, then changed leaders, all within the same history. That is a rough decade. We hope their new leader is calm, well rested and owns a door that locks. If they need a new home, we know a fort with 148 empty thrones.",
+   "by": "Our Society Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-grooved-council",
+   "kick": "Commentary",
+   "head": "THE HUMANS AT JACKALDEFENSE SHOULD KNOCK",
+   "body": "The humans of The Grooved Council occupied Jackaldefense and evicted The Distinct Dungeon. Everybody in this world, it seems, is moving into somebody else's house. We remind readers to lock their doors, label their mugs and keep a firm hand on their beds. Possession is nine-tenths of the deed.",
+   "by": "The Editorial Board",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-tametomb-reclaim",
+   "kick": "Military Affairs",
+   "head": "OTHERS RECLAIM THEIR FORTS. WHY NOT US?",
+   "body": "Across {world}, dwarves keep marching back into their lost forts and taking them home. We write editorials. We propose a reclaiming party for {past_fort}, as soon as the militia has more than one dwarf in it and that dwarf is on duty.",
+   "by": "Our Military Correspondent",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-oily-boots",
+   "kick": "Sport",
+   "head": "GO, OILY BOOTS, GO",
+   "body": "The Sport Desk would like to declare its support for The Oily Boots, currently reclaiming Scaldedarch. We do not know their record. We do not know their colors. We know their name is The Oily Boots, and that is enough. Any team called The Oily Boots has our heart, and possibly our socks.",
+   "by": "Our Sport Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-monarch-letter",
+   "kick": "Noble Affairs",
+   "head": "AN OPEN LETTER TO OUR MONARCH",
+   "body": "Dear {monarch}: we have lost forts in your name, built you more thrones than you have relatives and kept the war going by not showing up to it. We ask only for a mayor, a doctor and one soldier who is on duty. Also we would like {past_fort} back. Also, respectfully, a raise. Your loyal paper.",
+   "by": "The Editorial Board",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-diplomat-visit",
+   "kick": "Noble Affairs",
+   "head": "THE DIPLOMAT IS WELCOME. THE SPEECH IS LONG",
+   "body": "The diplomat is always welcome in {fort}. We would only ask, gently, that the speeches be kept to the length of one meal. Last visit lasted two meals and a nap. The tavern keeper has started serving 'diplomat portions', which are large enough to see a dwarf through a treaty.",
+   "by": "Our Noble Affairs Correspondent"
+  },
+  {
+   "id": "lp-ed-spectator-camera",
+   "kick": "Society",
+   "head": "SOMEONE IS WATCHING US, AND IT FOLLOWS THE ELVES",
+   "body": "Dwarves report the strange feeling of being watched, especially near merchants, diplomats and animal people. The feeling then jumps suddenly to whatever is trying to eat us. The Society Desk cannot explain it but finds it oddly reassuring. At least something notices the beast before it reaches the stairs.",
+   "by": "Our Society Correspondent"
+  },
+  {
+   "id": "lp-ed-ghosts-of-forts",
+   "kick": "Religion",
+   "head": "OUR GHOSTS ARE SPREAD ACROSS THREE FORTS",
+   "body": "Every fort the Overseer leaves behind keeps its ghosts. {past_fort} surely has a few: a dehydrated miner, perhaps, or a carpenter who died beside a heap of gems. The Religion Desk asks whether ghosts can migrate. If so, we would like them to come home, have a drink, and finally rest.",
+   "by": "Our Religion Correspondent",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-bomrek-memorial",
+   "kick": "Religion",
+   "head": "A MEMORIAL FOR BOMREK ENSHALCATTEN",
+   "body": "Bomrek Enshalcatten, miner of Searabbeys, was found dead, dehydrated, in a fort holding 1,994 drinks. The Herald proposes a small memorial: a single barrel, placed beside every mine shaft in {fort}, with a plaque that reads 'For Bomrek. Drink it.' Several readers have already volunteered to test the barrel.",
+   "by": "Our Religion Correspondent",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ed-sentinel-tribute",
+   "kick": "Commentary",
+   "head": "A TRIBUTE TO THE OLD PAPER OF {past_fort}",
+   "body": "Before us there was the paper of {past_fort}, a fine sheet that covered every famine with tremendous restraint. We tip our hats to its staff, who reported the last days, as {past_fort} {past_fort_fate}, without once using a rude word. We have not been so disciplined.",
+   "by": "The Editorial Board",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-advice-thrones",
+   "kick": "Advice Column",
+   "head": "DEAR URIST: I INHERITED A THRONE",
+   "body": "Dear Urist, my late uncle left me a throne in {past_fort}. That fort {past_fort_fate}. Is it still mine? — Throne Heir. Dear Heir: legally, yes. Practically, it belongs to whoever is sitting on it, and that is probably a goblin. Do not go and ask him to stand up. — Urist",
+   "by": "Urist, Our Advice Columnist",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-advice-safety",
+   "kick": "Advice Column",
+   "head": "DEAR URIST: WHERE IS SAFE?",
+   "body": "Dear Urist, when the alarm rings, where should I go? Not the Safety burrow, I am told. — Nervous. Dear Nervous: correct. Not the trees either, not the garbage pit, and not the stairs. My advice is the tavern. Nobody safe has ever been found there, but nobody sober has either. — Urist",
+   "by": "Urist, Our Advice Columnist"
+  },
+  {
+   "id": "lp-ed-advice-militia",
+   "kick": "Advice Column",
+   "head": "DEAR URIST: SHOULD I JOIN THE MILITIA?",
+   "body": "Dear Urist, the militia has nine empty places. Should I join? — Curious Hauler. Dear Curious: if you join, you double the army. That is a 100% increase, the largest in the fort's history. You will also be off duty, so the risk is mostly to your posture. I say go. — Urist",
+   "by": "Urist, Our Advice Columnist"
+  },
+  {
+   "id": "lp-ed-advice-armor-stand",
+   "kick": "Advice Column",
+   "head": "DEAR URIST: WHAT DO I DO WITH AN ARMOR STAND?",
+   "body": "Dear Urist, I have been issued an armor stand. I own no armor. — Puzzled. Dear Puzzled: you are part of a great tradition. Forts before us issued them by the thousand to dwarves who also owned no armor. Hang a hat on it. Hang a sock. Tell your friends it is art. It is, at this point. — Urist",
+   "by": "Urist, Our Advice Columnist"
+  },
+  {
+   "id": "lp-ed-science-thirst",
+   "kick": "Science",
+   "head": "WHY DO DWARVES DIE BESIDE BARRELS? A STUDY",
+   "body": "Our Science Desk has studied the thirst paradox across fort after fort. Findings: dwarves are not dying for lack of drink, but for lack of time to fetch it. The cure is fewer jobs or closer barrels. The Overseer reviewed our study and responded by queuing another 400 smoothing jobs. Study ongoing.",
+   "by": "Our Science Correspondent"
+  },
+  {
+   "id": "lp-ed-sport-hauling",
+   "kick": "Sport",
+   "head": "REFUSE HAULING IS NOT A CONTACT SPORT",
+   "body": "Some dwarves have been treating the garbage pit like a sport, hauling refuse in and out against the clock. It is not a sport. Dwarves died the last time two teams played it at once. The Sport Desk has suspended the league indefinitely, and the trophy, a dented bucket, has been retired.",
+   "by": "Our Sport Correspondent"
+  },
+  {
+   "id": "lp-ed-autumn-review",
+   "kick": "Opinion",
+   "head": "AUTUMN REVIEW: HOW IS THIS FORT DOING?",
+   "body": "With autumn here, the Herald grades the fort. Drink: present, if you walk. Offices: empty. Militia: one, off duty. Goblins: at war, at a distance. Artifacts: some, guarded by nobody. Compared with {past_fort} at this stage, we are doing well. That is, admittedly, a low bar.",
+   "by": "The Editorial Board",
+   "when": [
+    "autumn",
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ed-spring-hope",
+   "kick": "Opinion",
+   "head": "SPRING: THIS YEAR WILL BE DIFFERENT",
+   "body": "Every spring the Herald writes that this year will be different. This spring we mean it. The miners will drink. The orders will stop at a sensible number. The Safety burrow will be safe. Someone will be mayor. We will reprint this editorial next spring, unchanged, as is our tradition.",
+   "by": "The Editorial Board",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "lp-ed-rewind-breakfast",
+   "kick": "Science",
+   "head": "DID WE ALREADY LIVE THIS WEEK?",
+   "body": "Several readers report that, after the last Great Rewind, they dug the same tunnel twice and lost the same argument twice. The Science Desk confirms that time went backwards a little. It cannot confirm whether the argument was lost fairly. We advise all dwarves to write important wins down, in case the gods blink again.",
+   "by": "Our Science Correspondent"
+  },
+  {
+   "id": "lp-ed-captain-portrait",
+   "kick": "Military Affairs",
+   "head": "A PORTRAIT OF OUR ARMY, IN FULL",
+   "body": "For the first time, the Herald presents the entire militia of {fort} in a single portrait. Here he is: the captain, seated, off duty, holding a mug. The nine empty places are represented by nine empty chairs. {enemy} has been sent a copy. We hope it frightens them. It frightens us.",
+   "by": "Our Military Correspondent",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-ed-next-fort-checklist",
+   "kick": "Opinion",
+   "head": "A CHECKLIST FOR WHOEVER BUILDS THE NEXT FORT",
+   "body": "One: barrels before beds. Two: stop at ten armor stands. Three: no burrow called Safety. Four: keep one rough gem. Five: miners stay off trees. Six: never haul from a pit while filling it. Seven: name a mayor. Eight: reread one through seven. We will mail this to every future fort in this world.",
+   "by": "The Editorial Board"
+  }
+ ],
+ "letters": [
+  {
+   "id": "lp-lt-overseer-orders",
+   "body": "I have been assigned to make armor stands. I asked how many. I was told 'until further notice'. I have read the history pages. I would like the further notice now, please, before the first thousand.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-barrel-by-mine",
+   "body": "I am a miner and I would like to propose a barrel at the end of every tunnel. I am not asking for comfort. I am asking not to become a cautionary tale in your pages like the miners in your history pages.",
+   "by": "A Miner Who Read The History"
+  },
+  {
+   "id": "lp-lt-safety-rename",
+   "body": "I hereby refuse to enter any burrow named Safety. Rename it 'Danger' and I will go there happily, on the grounds that nothing in this fort has ever been what it says it is.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-tree-warning",
+   "body": "There is a miner on a tree branch again. I know the history. I am not climbing up there. I am writing to the Herald so it is on record that somebody noticed.",
+   "by": "Concerned Woodcutter"
+  },
+  {
+   "id": "lp-lt-garbage-pit-hauler",
+   "body": "This week I was told to throw refuse in the garbage pit. An hour later I was told to haul it back out. I did neither. I would rather be charged by the mayor than be number nine.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-militia-volunteer",
+   "body": "I volunteered for the militia. I was told the squad was 'full'. I looked. There is one captain and nine empty places. I am beginning to think the empty places have a union.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-captain-reply",
+   "body": "As captain of the militia, I wish to respond to recent jokes. I am not 'always off duty'. I am waiting for orders. The orders say 'Off duty'. I am, therefore, on duty at being off duty.",
+   "by": "The Captain (Off Duty)"
+  },
+  {
+   "id": "lp-lt-mayor-violation",
+   "body": "I received a production order violation for failing to make a crown. I am a fisherdwarf. I do not know how to make a crown. I do not know who ordered a crown. I would like to be charged with something I can at least spell.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-sheriff-wanted",
+   "body": "Nobody will be sheriff, so I have begun policing the corridors myself. So far I have arrested a cat, a bucket and myself, by accident. Please appoint someone qualified before I arrest the mayor's office.",
+   "by": "A Concerned Citizen With A Stick"
+  },
+  {
+   "id": "lp-lt-hammerer-no",
+   "body": "I was asked whether I would like to be hammerer. I asked what it involved. They pointed at the execution tower. I said I had a prior engagement. They asked when. I said 'forever'.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-dungeon-master",
+   "body": "Why do we have an office for a dungeon master but no dungeon? Or rather, why do we have a dungeon but no master? Or is the dungeon the empty office? I have been thinking about this all week instead of hauling.",
+   "by": "A Philosopher, Formerly A Hauler"
+  },
+  {
+   "id": "lp-lt-champion-vacant",
+   "body": "Our champion's office is empty. I am willing to be champion, as long as there is no fighting involved. I am very good at standing heroically. I have been practicing at the mist ring.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-rough-gem-plea",
+   "body": "I have a feeling a mood is coming. I do not know what I will need. Please, I beg the jeweler, stop cutting the rough gems until I find out. I will repay you in artifacts.",
+   "by": "{citizen}",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "lp-lt-child-mood-parent",
+   "body": "My child has taken over a workshop and is demanding plant cloth. The Overseer has queued 'smoothing'. I would like the record to show that I asked for cloth first and smoothing never.",
+   "by": "A Worried Parent"
+  },
+  {
+   "id": "lp-lt-thirst-myself",
+   "body": "I am thirsty. There are {drinks} drinks in this fort. I have been assigned to gather plants on the far side of the map. I would like to know which of these facts the Overseer considers the important one.",
+   "by": "{citizen}",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "lp-lt-searabbeys-grandad",
+   "body": "My grandfather was at {past_fort}, back when the meat ran out. He still flinches when anyone says 'fish'. He wanted me to tell your readers to eat their meat while there is meat. He says it is the only advice he has.",
+   "by": "{citizen}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-quakefocus-veteran",
+   "body": "I survived {record_fort}. I helped make {record}, personally. I am not proud. I am not ashamed. I am tired. If anyone in this fort orders more than ten of anything, please wake me so I can leave.",
+   "by": "A Veteran Carpenter",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-thrones-sit",
+   "body": "I have read that there is a room full of thrones sitting in {past_fort}. I have never sat on a throne in my life. Could the next caravan bring one back? Just one. I will sit on it carefully and give it back.",
+   "by": "{citizen}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-goblin-war-question",
+   "body": "We are at war with {enemy}. I have never seen one of them. Is it possible we are winning by being impossible to find? If so, I recommend we keep doing whatever we are doing, which is nothing.",
+   "by": "{citizen}",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-lt-goblin-war-two",
+   "body": "I would like to know why we are at war with {enemy} but have only ONE soldier, and he is sitting down. I am not a general, but I have counted my fingers, and it does not seem enough.",
+   "by": "A Hauler With Ten Fingers",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-lt-liaison-agreement",
+   "body": "The liaison stopped me in the hall and said 'There is much to share'. I said I did not have anything to share. He recommended an import agreement. I am a child. I have one sock. He wrote it down.",
+   "by": "A Child, Age 9"
+  },
+  {
+   "id": "lp-lt-liaison-rings",
+   "body": "I make rings. I heard the liaison wanted rings at 210 percent. I made some. He has now decided he wants something else at 210 percent. I have 40 rings and a grudge.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-liaison-defense",
+   "body": "I would like to defend {liaison}. He has a hard job, travels in all weather, and says the same sentence every year because nobody has ever let him get to the second one. Let the man speak.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-mist-ring-review",
+   "body": "I walked through the mist ring today and felt happy for the first time in a season. Then I remembered I was thirsty and the mist cannot be drunk. Then I felt sad. Then I walked back through it. Net happiness: even.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-windmill-noise",
+   "body": "The windmills creak all night. I have been told this is the sound of happiness being pumped into the mist ring. My happiness would be greater if the windmills stopped creaking.",
+   "by": "{citizen}",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lp-lt-execution-tower-view",
+   "body": "The execution tower has the best view in {fort}. Nobody goes up there because of the name. I go up every evening. It is lovely. I have started calling it the Observation Tower, and nobody has stopped me.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-catacombs-noise",
+   "body": "Could whoever keeps visiting the catacombs at night please stop humming? It is very atmospheric but I sleep two walls away, and frankly the dead were here first.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-cistern-swim",
+   "body": "I fell in the cistern. I was in there for an hour. I came out and was assigned to gather plants. Nobody asked if I was all right. I was, but it would have been nice to be asked.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-smoothing-forever",
+   "body": "I am one of the fort's smoothers. My queue currently holds more jobs than I have days left in my life. I have made my peace with it. I would like to be buried in a smooth coffin, smoothed by me, in advance.",
+   "by": "A Smoother, Realistic"
+  },
+  {
+   "id": "lp-lt-plants-rain",
+   "body": "I was sent to gather plants across the whole map in the rain. I returned with one strawberry and a cold. The strawberry was eaten by somebody else. The cold, I kept.",
+   "by": "{citizen}",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lp-lt-forgotten-beast-stairs",
+   "body": "Could someone put a door on the stairs to the deep? A strong one. With a lock. I know beasts can break doors, but it would at least make them knock first, which is only polite.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-hospital-empty",
+   "body": "I went to the hospital with a broken arm. Nobody was there. I went to the other hospital. Nobody was there either. I set the arm myself. It is now mostly pointing the right way. Please appoint a doctor.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-chief-medical",
+   "body": "We have no chief medical dwarf. I have been diagnosing my friends by looking at them and saying 'that looks bad'. I am right every time. I am happy to take the job if it comes with soap.",
+   "by": "A Self-Taught Physician"
+  },
+  {
+   "id": "lp-lt-refugees-welcome",
+   "body": "I hear refugees from the burned towns are wandering the world. Send them here. We have beds, a mist ring and a militia position open for nine of them. Ask them to bring their own drink, just in case.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-crazed-hex-fear",
+   "body": "My cousin lived in Ironcrowds until The Crazed Hex came. She arrived here with nothing but a bucket. She asked where the army was. I pointed at the captain. She asked where the rest was. I pointed at the chairs.",
+   "by": "{citizen}",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-great-rewind",
+   "body": "During the last Great Rewind I lost an entire afternoon of work. I had smoothed four tiles. When the world resumed, they were rough again. I do not blame the gods. I blame whoever was keeping the gods awake.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-gods-blinked-proposal",
+   "body": "The gods blinked again yesterday. Everyone froze. I suggest that, next time, we all agree to freeze in heroic poses, so if the world ends mid-blink, history remembers us as a very good-looking fort.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-nuanced-hamlet-memory",
+   "body": "I once saw The Nuanced Hamlet up close, back at Searabbeys. I cannot describe it. That is the nuance. Now the goblins have it and I would like to know whether they appreciate it, or just sit on it.",
+   "by": "An Old Searabbeys Hand",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-claspedserpent-swing",
+   "body": "I held Claspedserpent once at Quakefocus, before it was put in a cabinet. It is heavy and silver and very pretty. I did not hit anyone with it. I would like credit for that, as everyone else in the room was asking for it.",
+   "by": "{citizen}",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-overseer-thanks",
+   "body": "I want to thank the Overseer for my bedroom. It is smooth, warm and has a door. I am told the Overseer queued 4,000 other rooms just like it. I am the only one finished. I feel very special.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-overseer-plea",
+   "body": "To the Overseer: please, for one season, order nothing new. Let us finish one thing. Any thing. Let us look upon a completed job and know peace. Then go back to ordering armor stands if you must.",
+   "by": "The Workers Of {fort}"
+  },
+  {
+   "id": "lp-lt-overseer-fan",
+   "body": "I think the Overseer is doing a fine job and everyone should stop complaining. I would write more, but I have just been assigned to haul 300 stones to a stockpile that has not been built.",
+   "by": "{citizen}",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "lp-lt-pit-confession",
+   "body": "I confess I am one of the dwarves who threw refuse in the garbage pit while others were hauling it out. I did not know. Nobody tells the throwers what the haulers are doing. I would like a bell.",
+   "by": "Name Withheld"
+  },
+  {
+   "id": "lp-lt-trees-ban",
+   "body": "I propose banning all trees within a day's walk of the fort. They are unsafe, unhelpful and, according to history, deadly to miners. The elves will object. The elves object to everything we do anyway.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-elves-tree-defense",
+   "body": "Every time someone dies near a tree, everyone blames the tree. The tree was simply standing there, as trees do. Perhaps we blame the dwarf who climbed it, or the Overseer who sent him. Leave the tree out of it.",
+   "by": "A Visiting Elf (Annoyed)"
+  },
+  {
+   "id": "lp-lt-captain-lonely",
+   "body": "Dear captain, I see you sitting alone in the barracks, off duty, every day. If you would like company, I am off duty too, as a matter of temperament. We could be off duty together. Bring a mug.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-thrones-letter",
+   "body": "I was born in {past_fort}, in a room with 22 thrones in it. I thought every room had thrones. Moving here, I asked where the thrones were. Everyone laughed. I am still sitting on the floor.",
+   "by": "{citizen}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-drinks-low-letter",
+   "body": "Drink stocks are down to {drinks}. The still is idle. The brewer is smoothing a wall. The miners are watching the brewer with an expression I do not like. Someone please intervene before history repeats.",
+   "by": "{citizen}",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "lp-lt-famine-letter",
+   "body": "My mother was at {past_fort} through its famine. She says the founders brought seventeen plants and a great deal of optimism. She says they ate the optimism first. She still keeps a plant in her pocket.",
+   "by": "{citizen}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-monarch-letter",
+   "body": "Does our monarch {monarch} know we exist? I have written to him four times about the empty offices. The only reply was from the liaison, recommending an import agreement.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-peace-sixteen",
+   "body": "We are at peace with a dozen groups. I would like to meet one of them. Just one. Ideally the one with the best food. Could the diplomat arrange a small, friendly dinner?",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-amusing-duties-claim",
+   "body": "I hereby lay claim to The Amusing Duties, the steel greaves at Fieryaged. I base my claim on the fact that 48 others have done so and nothing happened to them either. I would like them delivered.",
+   "by": "Claimant No. 49",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-vice-of-fins-carp",
+   "body": "I have heard there is a goblin army called The Vice of Fins. I have long suspected that the carp and the goblins were in league. I now have proof, in the form of a name. I rest my case.",
+   "by": "A Fisherdwarf With Theories",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-spectator",
+   "body": "Lately I have the feeling something is watching me, especially when merchants are near. Then it stops watching me and goes to look at a goblin instead. I am almost offended. I am more interesting than a goblin.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-mist-thirst",
+   "body": "I tried to drink from the mist ring. It does not work. I tried for an hour. I am now very damp and still thirsty, which I am told is the most traditional way to be thirsty in this world.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-fort-line",
+   "body": "I am told this is not the first fort in this world. I would like to know what happens to us when the Overseer starts a fourth. Do we go too? Do we stay? Do the goblins get our rooms? I need to know whether to unpack.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-ghost-uncle",
+   "body": "My uncle's ghost still haunts {past_fort}. He died beside 150 gems. I worry about him. Is anyone in that fort making sure he has company? The goblins, perhaps? He always liked an argument.",
+   "by": "{citizen}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-refuse-ode",
+   "body": "I am the fort's refuse hauler, and I wish to say that the work is honest, smelly and necessary. Please do not throw anything into the pit while I am in it. That is all I ask. That is all any of us ever asked.",
+   "by": "The Refuse Hauler"
+  },
+  {
+   "id": "lp-lt-diplomat-gift",
+   "body": "The visiting diplomat complimented my beard. I have written down the date. I intend to celebrate it yearly. I recommend all dwarves try to get a compliment from a diplomat, it lasts for weeks.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-tametomb-envy",
+   "body": "I read that another dwarven band marched home and reclaimed its old fort. Why can they reclaim forts and we cannot even reclaim a sock from the laundry? I demand a reclaiming expedition, starting with my sock.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-burrow-depth",
+   "body": "Why was the Safety burrow thirty levels down? Safe from what? The things that live thirty levels down? I have a modest proposal: the next Safety burrow should be in the tavern, where at least you are among friends.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-mayor-desk",
+   "body": "I cleaned the mayor's office this week. Nobody has sat at the desk in years, but the outbox is full of production order violations. I do not know who is writing them. I have started sleeping with a candle.",
+   "by": "A Cleaner, Nervous"
+  },
+  {
+   "id": "lp-lt-orders-letter",
+   "body": "There is a work order on the board for 'thrones (repeat)'. I have taken it down three times. It is back each morning. I am writing in case I disappear and someone needs to know why there are suddenly a hundred and forty-eight thrones.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-moodname-help",
+   "body": "{moodname} is in a strange mood and has been staring at the same workshop for days. If anyone has a rough gem, plant cloth or a bone of anything, please bring it at once. Do not cut it first. Do not smooth it.",
+   "by": "{citizen}",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lp-lt-deadname-tribute",
+   "body": "I knew {deadname}. They were kind, funny, and always knew where the nearest barrel was, which in this fort is a rare gift. Please, everyone, raise a mug, and then go and drink it, in their honour.",
+   "by": "{citizen}",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-lt-promoted-advice",
+   "body": "To {promoted}, our new {post}: congratulations, and good luck. Advice from a dwarf who has watched these chairs stay empty: do not open the mayor's outbox. Do not read the work orders. Drink often.",
+   "by": "{citizen}",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "lp-lt-migrants-guide",
+   "body": "To the new migrants: the tavern is that way, the barrels are that way, and the trees are absolutely not that way. If anyone sends you to the Safety burrow, smile, nod, and go to the tavern.",
+   "by": "{citizen}",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "lp-lt-caravan-thrones",
+   "body": "Could the caravan please take some of our extra furniture? We have more armor stands than the merchants have wagons. I asked the merchant to make an offer. He offered to leave quietly.",
+   "by": "{citizen}",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lp-lt-masterwork",
+   "body": "{masterwright} has made a masterwork {masterwork}. I would like to propose we put it somewhere a goblin occupation cannot reach. History suggests that nowhere qualifies, but let us at least try.",
+   "by": "{citizen}",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "lp-lt-winter-surface",
+   "body": "I was sent outside in the snow to gather plants. There are no plants. There is snow. I have brought back some snow. I have been assigned to store it. I would like to file a complaint with an office that has someone in it.",
+   "by": "{citizen}",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lp-lt-pop-big-crowded",
+   "body": "With {pop} of us now, the dining hall is full, the beds are full and the hospital is still empty. I find this pattern instructive. Perhaps we should build fewer thrones and more doctors.",
+   "by": "{citizen}",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "lp-lt-pop-small-lonely",
+   "body": "There are only {pop} of us. I miss the bustle of {past_fort}, where you could not walk five steps without tripping over an armor stand. Here you can walk forever and meet nobody. It is unsettling.",
+   "by": "{citizen}",
+   "when": [
+    "pop_small",
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-gems-hide",
+   "body": "I have hidden a rough gem somewhere in the fort. I will not say where. When the next mood comes and demands one, come to me. I will reveal it, for a modest fee and the title of 'Gem Keeper'.",
+   "by": "{citizen}",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "lp-lt-no-meat-again",
+   "body": "We have no meat again. My grandmother remembers the last meatless winter and has started looking at the dogs in a way the dogs do not appreciate. Please send hunters before she does.",
+   "by": "{citizen}",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "lp-lt-dogs-many",
+   "body": "There are {dogs} dogs in the fort. That is more dogs than soldiers by quite a margin. I propose we enlist them. They are loyal, brave and, unlike the captain, they are never off duty.",
+   "by": "{citizen}",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "lp-lt-wood-low",
+   "body": "We are low on wood and the Overseer has ordered beds, barrels, bins and, I fear, thrones. I would like to know which of these the Overseer plans to make out of feelings.",
+   "by": "A Carpenter, Practical",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "lp-lt-farms-many",
+   "body": "We have {farms} farm plots now. A fort before us had twenty and still had no meat. I do not want to sound gloomy, but I have started growing a small private mushroom behind my bed, just in case.",
+   "by": "{citizen}",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "lp-lt-strike-mineral",
+   "body": "We have struck {mineral}. Good. Wonderful, even. Please do not let anyone turn it into two thousand of anything. Ten is plenty. Ten is a lovely number.",
+   "by": "{citizen}",
+   "when": [
+    "recent_strike"
+   ]
+  },
+  {
+   "id": "lp-lt-summer-letter",
+   "body": "It is summer, the surface is lovely, and I have been ordered to cut trees all day. I keep looking up at the branches. I know the history. I am cutting from the ground. Please do not ask me to climb.",
+   "by": "A Woodcutter, Cautious",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "lp-lt-autumn-letter",
+   "body": "Autumn is here and someone has queued harvest jobs in every field at once, on every edge of the map. Our farmers will spend all season walking. Please, could we pick the close plants first and the far plants never?",
+   "by": "{citizen}",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "lp-lt-spring-letter",
+   "body": "Spring again. Every spring someone writes that this year will be different. I would like to be that someone this year. This year will be different. I will report back in winter.",
+   "by": "{citizen}",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "lp-lt-winter-letter",
+   "body": "It is winter and the well has frozen. I have been told the cistern has plenty. I have been told the barrels have plenty. I have been told to gather plants. I have been told a lot this winter.",
+   "by": "{citizen}",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "lp-lt-strike-letter",
+   "body": "I wish to report that I am on strike. I would like to explain my demands, but the office I would hand them to is empty. I have left them on the mayor's desk, beside the violations.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-reply-contrarian",
+   "body": "I write in reply to the reader who defended the Overseer. Sir, you were assigned to haul 300 stones to a stockpile that does not exist. You are not a defender. You are a hostage with good manners.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-reply-captain",
+   "body": "In reply to the captain's letter: being on duty at being off duty is the finest piece of military reasoning I have read. I would like to enlist purely to serve under a mind like that. Also I am tired.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-reply-refuse",
+   "body": "To the Refuse Hauler: I am one of the throwers. I did not know you were down there. I will ring a bell from now on. I have no bell. I will shout 'bell'. Please listen for it.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-reply-tree-elf",
+   "body": "To the elf defending trees: the tree may have been 'simply standing there', but it was simply standing there with a miner in it for an entire season. A good neighbour would have said something.",
+   "by": "A Miner's Cousin"
+  },
+  {
+   "id": "lp-lt-reply-throne-heir",
+   "body": "To the dwarf who inherited a throne in a lost fort: I also inherited one. Perhaps we could go together and ask the new owners to share. They will say no, but at least we will have company being refused.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-bookkeeper-armor-stands",
+   "body": "As bookkeeper I must correct the fort's folklore. The number of armor stands at Quakefocus was not 'about two thousand'. It was 1,981. I counted. It took a season. I would like that season back.",
+   "by": "The Bookkeeper",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-bookkeeper-drinks",
+   "body": "Again, as bookkeeper: Searabbeys held 1,994 drinks when Bomrek died, not 2,000. The six missing drinks have never been accounted for. I have my suspicions. They are all named after the miners.",
+   "by": "The Bookkeeper",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-loom-ghost",
+   "body": "I believe I saw the ghost of the possessed weaver from {past_fort} last night, standing in front of our loom room. It looked very relieved that ours is built. I left it some thread, as a courtesy.",
+   "by": "{citizen}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-silk-scraps",
+   "body": "I have found seven silk scraps in the stockpile and I am frightened. Last time seven silk scraps were all we had, a miner died believing there was cloth. Please, someone weave something real.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-liaison-hat",
+   "body": "I have no opinion on import agreements, but I wish to state that the liaison's hat is magnificent and I would trade a great deal for it. If anyone sees him, please ask whether the hat is part of the agreement.",
+   "by": "{citizen}",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lp-lt-liaison-script",
+   "body": "I have written down everything the liaison said this year and compared it to last year's notes. They are identical, down to the cough. I believe he is reading from a card. I would like to see the card.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-war-armor",
+   "body": "If we are at war with {enemy}, why do we have thousands of armor stands in an old fort and no armor in this one? I am not asking for a stand. I am asking for a helmet. I would hang it on myself.",
+   "by": "{citizen}",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-lt-war-map",
+   "body": "I have looked at the world map. {enemy} are a long way off. Their friends are a long way off. The garbage pit is very close. I know which one I am more afraid of.",
+   "by": "{citizen}",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-lt-war-optimism",
+   "body": "Has anyone considered that the goblins may be as disorganised as we are? Perhaps their militia is also one goblin, off duty. Perhaps the war is two benches facing each other across the world.",
+   "by": "An Optimist"
+  },
+  {
+   "id": "lp-lt-sentinel-reader",
+   "body": "I used to read the old paper at {record_fort}. It printed the count of {record} every day, like weather. Everyone checked it at breakfast. I miss it. Could the Herald run a daily count of something? Anything?",
+   "by": "{citizen}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-lt-herald-complaint",
+   "body": "Your paper prints a great deal about dead forts and very little about my sculpture. I accept that a miner on a tree branch is news. I would argue that my sculpture of a miner on a tree branch is also news.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-herald-praise",
+   "body": "I would like to thank the Herald for reminding us every issue that we could all die beside a barrel. It has made me drink more water than ever. I have never felt better. I have also never left the tavern.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-drink-walker",
+   "body": "I have started carrying a mug at all times. If I die of thirst, it will not be because I lacked a mug. It will be because the Overseer gave me a job six levels away from anything to put in it.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-fey-advice",
+   "body": "If you are fey, take my advice: ask for something common. A rock. A log. Do not ask for rough gems, plant cloth or silk. The fort will not have them. The fort will never have them. Ask for a rock.",
+   "by": "A Former Fey Dwarf (Survived)"
+  },
+  {
+   "id": "lp-lt-forgotten-beast-review",
+   "body": "I was one floor above the Safety burrow when the forgotten beast went by on the stairs. It looked at me. It kept going down. I do not know why. I have never felt more insulted or more alive.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-overseer-garden",
+   "body": "The Overseer has designated plant gathering on every bush across the entire map. I have started to suspect the Overseer has never seen the map and simply assumes the far side is a short walk.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-windmill-tilt",
+   "body": "A dwarf from the lower dormitory attacked one of the windmills yesterday, believing it to be a giant. The windmill won. The dwarf has been taken to the hospital, where, as is tradition, there was nobody.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-mayor-candidate",
+   "body": "I would like to run for mayor on a single promise: I will never file a production order violation. Not once. The office will be quiet, the outbox empty and everyone may make what they like. Vote for me.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-mayor-opponent",
+   "body": "I oppose the candidate promising no violations. Without them, how will we know that we have failed? A fort needs its paperwork. I am running on a platform of more violations, but nicer ones.",
+   "by": "{citizen2}"
+  },
+  {
+   "id": "lp-lt-execution-tower-picnic",
+   "body": "Last week I held a picnic at the top of the execution tower. Several friends attended. The view was lovely, the bread was fresh, and nobody was executed. I recommend it to all, on that last condition.",
+   "by": "{citizen}",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lp-lt-rewind-debt",
+   "body": "Before the last Great Rewind, {citizen2} owed me a mug of ale. After it, they say the debt never happened. I believe the gods rewound the world specifically to avoid paying. I would like it noted.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-refugee-letter",
+   "body": "I arrived here with a refugee band after we were driven out of our home. The fort has been kind. I have been given a bed, a job and, unexpectedly, an armor stand. I do not know why. I have hung my coat on it.",
+   "by": "A Grateful Refugee"
+  },
+  {
+   "id": "lp-lt-toeembrace-trade",
+   "body": "Why do we not trade more with the humans of The Fair Cakes at Toeembrace? With a name like that, they must have cakes. We have stone. Stone and cake is the basis of a strong friendship.",
+   "by": "{citizen}",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-horror-travel",
+   "body": "I was planning a trip to Shadyghosts. Then I read about Omo Fewethauyira, the crooked horror. I have cancelled my trip. I have also cancelled my plans to say the word 'Shadyghosts' out loud.",
+   "by": "{citizen}",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-lt-succession-confused",
+   "body": "Four groups have changed leaders this year. We have no mayor. I suggest we borrow one of their old leaders. Surely someone has a spare, slightly used, with a few good years of paperwork left.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "lp-lt-child-pride",
+   "body": "My daughter had a strange mood last month and demanded plant cloth. We found some, just in time. She made a magnificent artifact. She is nine. She now refuses to tidy her room because she is 'legendary'.",
+   "by": "A Proud Parent"
+  },
+  {
+   "id": "lp-lt-smoother-retire",
+   "body": "After decades of smoothing, I have retired. I leave behind 3,412 smooth tiles and a queue of 12,588 more. I wish my replacement well. I recommend a comfortable stool and a deep acceptance of fate.",
+   "by": "A Retired Smoother"
+  }
+ ],
+ "letters_abroad": [
+  {
+   "id": "lp-la-town-barrels",
+   "body": "I write from {town}, where the humans keep their drink in one place and walk to it when thirsty. It is astonishing. Nobody has died beside a barrel all season. I asked how they manage it. They said 'we just go and get some'. I am taking notes for the Overseer.",
+   "by": "A Dwarf Abroad, in {town}"
+  },
+  {
+   "id": "lp-la-town-armor-stands",
+   "body": "The humans of {town} asked me what dwarves are famous for. I said craftsmanship. They said they had heard it was armor stands. Word has spread, apparently. I told them that was a different fort. It was not a different fort.",
+   "by": "A Traveller, Embarrassed, in {town}"
+  },
+  {
+   "id": "lp-la-town-mayor",
+   "body": "{town} has a mayor. He sits in an office, talks to people and goes home. I watched him for a week, hoping to bring back the secret. As far as I can tell, the secret is that somebody agreed to do it.",
+   "by": "A Civic Observer, in {town}"
+  },
+  {
+   "id": "lp-la-town-militia",
+   "body": "The town guard of {town} has forty members, all on duty, all at once. I could not believe it. I asked where they found so many people willing to stand up. They asked how many we have. I changed the subject to beards.",
+   "by": "A Dwarf Abroad, in {town}"
+  },
+  {
+   "id": "lp-la-town-trees",
+   "body": "The humans of {town} let their children climb trees. For fun. I explained what happened to the miner on the branch. They laughed and said miners should not climb trees. I agreed, and then I had to sit down for a while.",
+   "by": "A Shaken Visitor, in {town}"
+  },
+  {
+   "id": "lp-la-town-hospital",
+   "body": "I fell ill in {town} and was taken to a hospital that contained a doctor. A real one, standing in it, on purpose. I was so surprised I recovered on the spot. They billed me for the visit. Worth every coin.",
+   "by": "A Patient, Abroad, in {town}"
+  },
+  {
+   "id": "lp-la-town-garbage",
+   "body": "The humans of {town} throw their rubbish in a pit and then, and I wish to stress this, leave it there. Nobody goes in after it. I watched for three days. I have never seen anything so restful.",
+   "by": "A Student of Refuse, in {town}"
+  },
+  {
+   "id": "lp-la-town2-rivalry",
+   "body": "The folk of {town} say the folk of {town2} are lazy. The folk of {town2} say the same of {town}. I have visited both. Neither has made more than ten of any one item, ever. To a dwarf, both towns look lazy and wise.",
+   "by": "A Neutral Party, Between Towns"
+  },
+  {
+   "id": "lp-la-town-gems",
+   "body": "In {town} they sell gems uncut, rough, as they came out of the ground. I bought six. I am carrying them home in my sock. The next time somebody at {fort} has a strange mood, they are to come to me first.",
+   "by": "A Prepared Traveller, in {town}"
+  },
+  {
+   "id": "lp-la-town-liaison",
+   "body": "I met the outpost liaison {liaison} at an inn in {town}. He told the innkeeper there was much to share and recommended an import agreement for the soup. The innkeeper agreed, which I think encourages him.",
+   "by": "A Fellow Guest, in {town}"
+  },
+  {
+   "id": "lp-la-town-war-news",
+   "body": "Everyone in {town} is talking about {enemy}. They asked how our defences are. I said we have one captain and nine chairs. They thought I was joking. I let them think so. It seemed kinder.",
+   "by": "A Correspondent, in {town}",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-la-town-refugees",
+   "body": "{town} is full of refugees from towns the goblins burned. They sleep in the market and ask every dwarf they meet for a fort with beds. I have been telling them about {fort}. I have not mentioned the trees.",
+   "by": "A Recruiter, Unofficial, in {town}"
+  },
+  {
+   "id": "lp-la-town-history",
+   "body": "A scholar in {town} has written a history of our forts. The chapter on {past_fort} is short. It says it lasted {past_fort_years} and then {past_fort_fate}. The footnotes are longer, and mostly about barrels.",
+   "by": "A Reader, in {town}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-la-town-record",
+   "body": "The humans of {town} have heard of {record}. It is taught in their schools as an example of 'not checking the order'. I told them I knew someone from {record_fort}. They asked for an autograph.",
+   "by": "A Minor Celebrity, in {town}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-la-retreat-trees-safe",
+   "body": "The elves of {retreat} were horrified to hear a miner died in a tree. Not for the miner. For the tree. They have held a ceremony to cleanse it, though it is many days away. I asked if they would hold one for the miner. They are thinking it over.",
+   "by": "An Envoy, at {retreat}"
+  },
+  {
+   "id": "lp-la-retreat-thrones",
+   "body": "I offered the elves of {retreat} a gift of wooden thrones from our surplus. They wept, held a funeral for the wood and returned the thrones with a note. The note said 'how many of these do you have'. I did not reply.",
+   "by": "A Diplomat, Rebuffed, at {retreat}"
+  },
+  {
+   "id": "lp-la-retreat-water",
+   "body": "The elves of {retreat} drink from the stream whenever they are thirsty. No queue, no work order, no forty-tile walk. I mentioned this to an elf and she asked why anyone would do it differently. I had no good answer.",
+   "by": "A Thirsty Dwarf, at {retreat}"
+  },
+  {
+   "id": "lp-la-retreat-plants",
+   "body": "Even the elves of {retreat} do not gather plants across the whole map in the rain. They pick what is near and leave the rest. I told them our Overseer prefers the far ones. They looked at me with pity, which I resent.",
+   "by": "A Gatherer, Soaked, at {retreat}"
+  },
+  {
+   "id": "lp-la-retreat-mood",
+   "body": "An elf at {retreat} asked me what a strange mood was. I explained: a dwarf is seized by inspiration and demands the one material the fort has just run out of. She said that sounds like a curse. I said it is our proudest tradition.",
+   "by": "A Folklorist, at {retreat}"
+  },
+  {
+   "id": "lp-la-darkfort-tour",
+   "body": "I am held at {darkfort}, where the goblins keep asking about {past_fort}. They want to know whether it is nice. I said it {past_fort_fate}. They said 'oh good, more room'. I fear for the furniture.",
+   "by": "A Prisoner, at {darkfort}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-la-darkfort-army",
+   "body": "The goblins of {darkfort} have a proper army, with ranks, drills and members who turn up. I have been studying it from my cage. When I get home, I intend to share it all with our captain, if he is awake.",
+   "by": "A Captive Observer, at {darkfort}"
+  },
+  {
+   "id": "lp-la-darkfort-thrones",
+   "body": "The goblins at {darkfort} have one throne, which their leader sits on, and they are very proud of it. I told them we once had more thrones than dwarves. They called me a liar. I have never felt so homesick.",
+   "by": "A Prisoner of Some Standing, at {darkfort}"
+  },
+  {
+   "id": "lp-la-darkfort-paper",
+   "body": "The goblins at {darkfort} have started reading our obituaries for laughs. They find the thirst ones the funniest. I have asked them to stop. They said if we stopped dying beside barrels, they would have nothing to read.",
+   "by": "A Subscriber in Chains, at {darkfort}"
+  },
+  {
+   "id": "lp-la-darkfort2-transfer",
+   "body": "I have been moved from {darkfort} to {darkfort2}. The food is no better. The cage is no bigger. But there is a window, through which I can see the road home, and on it, as ever, our liaison, recommending an agreement.",
+   "by": "A Prisoner, Relocated, to {darkfort2}"
+  },
+  {
+   "id": "lp-la-darkfort-enemy",
+   "body": "The {enemy_race} guards at {darkfort} say {enemy} will march on {fort} soon. They asked how many soldiers we have. I said 'several'. I did not say how many is several. One, technically, is several, if you are hopeful.",
+   "by": "A Captive, at {darkfort}",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-la-hillock-cousins",
+   "body": "Greetings from {hillock}, where my cousins have a still beside every mine shaft. Not one dwarf has died of thirst here in a decade. I asked who designed it. They said 'common sense'. I looked for his office. Nobody by that name works in {fort}.",
+   "by": "A Visiting Cousin, at {hillock}"
+  },
+  {
+   "id": "lp-la-hillock-orders",
+   "body": "At {hillock} the work orders are written on a slate and wiped clean when finished. I asked what happens if someone forgets to wipe it. They said 'then you make a few extra'. I told them about {record}. They wiped the slate twice.",
+   "by": "A Dwarf On Holiday, at {hillock}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-la-hillock-safety",
+   "body": "The dwarves of {hillock} have a burrow called Safety, too. It is next to the tavern, above ground, and has a door. I asked why it is not thirty levels down. They asked why anyone would put Safety thirty levels down.",
+   "by": "A Visitor, Rethinking, at {hillock}"
+  },
+  {
+   "id": "lp-la-hillock-mayor",
+   "body": "{hillock} elected a mayor in an afternoon. There were candidates. There were speeches. There was cake. I have asked for the recipe, for the cake and for the election. They gave me the cake recipe.",
+   "by": "A Delegate, at {hillock}"
+  },
+  {
+   "id": "lp-la-hillock-gossip",
+   "body": "Everyone at {hillock} wants news of {fort}. I told them about the mist ring and the windmills. They were impressed. Then they asked about the garbage pit. I said there was no garbage pit. They had already heard about the garbage pit.",
+   "by": "A Reluctant Ambassador, at {hillock}"
+  },
+  {
+   "id": "lp-la-hillock-refugee",
+   "body": "I fled {past_fort} when it {past_fort_fate}. {hillock} took me in. I am happy here. I only write because I left a good mug behind, on the second shelf of the dining hall. If anyone goes back, it has my name on it.",
+   "by": "A Former Resident, at {hillock}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-la-world-tour",
+   "body": "I have now visited every corner of {world}. Everywhere I go, someone has heard of us. In one town it was the barrels. In another, the armor stands. In a third, the militia. I have stopped saying where I am from. I say 'a hill'.",
+   "by": "A Wanderer, Somewhere in {world}"
+  },
+  {
+   "id": "lp-la-world-civ",
+   "body": "Travelling under the banner of {civ}, I was asked at a border how many forts we have founded in this world. I counted on my fingers, then on a friend's. The guard waved me through out of sympathy.",
+   "by": "A Traveller, at a Border"
+  },
+  {
+   "id": "lp-la-world-monarch",
+   "body": "I saw our monarch {monarch} at a feast in {town}. I tried to mention the empty offices at {fort}. A guard said the monarch does not discuss staffing at dinner. I asked when he does. The guard said 'never, at dinner'.",
+   "by": "A Petitioner, in {town}"
+  },
+  {
+   "id": "lp-la-town-smooth",
+   "body": "In {town} the walls are rough, the floors are rough and the humans seem perfectly happy. I offered to smooth one wall as a gift. They said it would take too long. I said three smoothers can do sixteen thousand jobs in a lifetime. They left.",
+   "by": "A Smoother, on Holiday, in {town}"
+  },
+  {
+   "id": "lp-la-town-execution",
+   "body": "{town} has a hangman, who works in a tower, and the tower is used for its purpose. I told them we have a tower but nobody willing. They asked why we built the tower first. I could not say. Nobody can.",
+   "by": "A Visitor, in {town}"
+  },
+  {
+   "id": "lp-la-town-rewind",
+   "body": "The humans of {town} have never experienced a Great Rewind. When I told them that sometimes the world stops and starts again from a moment ago, they called for a doctor. They have one. Of course they do.",
+   "by": "A Dwarf Abroad, in {town}"
+  },
+  {
+   "id": "lp-la-retreat-mist",
+   "body": "I described our mist ring to the elves at {retreat}. They said they have something similar: it is called rain. I said ours is better because it is indoors. They asked why we would bring rain indoors. I am still composing a reply.",
+   "by": "An Engineer, at {retreat}"
+  },
+  {
+   "id": "lp-la-town-pop",
+   "body": "{town} has fewer people than {fort} has dwarves, at {pop}, and yet has a mayor, a sheriff, two doctors and a man who just rings a bell. I would settle for the man with the bell.",
+   "by": "A Civic Enthusiast, in {town}"
+  },
+  {
+   "id": "lp-la-darkfort-artifact",
+   "body": "Word in the cells at {darkfort} is that the goblins who took {past_fort} found our artifacts and use them as doorstops. I asked a guard if this was true. He said only the heavy ones. I have not slept.",
+   "by": "A Captive Art Lover, at {darkfort}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-la-hillock-captain",
+   "body": "The militia captain at {hillock} drills his squad every morning. Eight members. All present. I asked how he does it. He said he simply tells them it is a party. I passed this on to our captain. He is still off duty.",
+   "by": "A Militia Enthusiast, at {hillock}"
+  },
+  {
+   "id": "lp-la-town-thirst",
+   "body": "I nearly died of thirst on the road to {town}, beside a cart full of ale I was delivering. It was not my ale. I was not allowed to open it. Now I understand our miners. I owe them all an apology.",
+   "by": "A Carter, Converted, near {town}"
+  },
+  {
+   "id": "lp-la-enchanted-crazed-hex",
+   "body": "I passed through what is left of Padtufted. The Crazed Hex and The Vice of Fins have both been through, and neither tidied up. Refugees asked if {fort} had room. I said yes, and also an armor stand each.",
+   "by": "A Traveller, on the Burned Road",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-la-enchanted-toeembrace",
+   "body": "Greetings from Toeembrace, where The Fair Cakes do indeed have cakes. I can confirm it. I have eaten four. I have also arranged a modest trade of stone for cake. Please send stone. Please send a bigger wagon.",
+   "by": "A Delegate, Full, at Toeembrace",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-la-enchanted-searabbeys",
+   "body": "I passed Searabbeys on the road. The Torments of Hating have put up curtains. Curtains, in our dining hall. Through the window I saw The Nuanced Hamlet on a shelf, beside a goblin's boots. I did not knock.",
+   "by": "A Former Searabbeys Hand, Passing By",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-la-enchanted-fieryaged",
+   "body": "I have visited Fieryaged to see The Amusing Duties. There is a queue. Every person in it claims the greaves. The keeper gives each claimant a ticket, a number and a long wait. I am number 51. I am optimistic.",
+   "by": "Claimant No. 51, at Fieryaged",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-la-enchanted-jackaldefense",
+   "body": "The humans of The Grooved Council at Jackaldefense asked if I was with The Distinct Dungeon, the dwarves they evicted. I said no. They seemed relieved. Then they asked if I knew anyone who wanted a slightly used dungeon.",
+   "by": "A Traveller, at Jackaldefense",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-la-enchanted-quakefocus",
+   "body": "Went back to Quakefocus. The armor stands are still there. All 1,981. Someone has dressed one in a cape. Nobody else lives there except the ghosts, and they seem to be the ones who did the cape.",
+   "by": "A Pilgrim, at Quakefocus",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-la-hillock-reclaim",
+   "body": "The dwarves at {hillock} are talking about marching back to {past_fort} and taking it home. They asked whether {fort} would send soldiers. I said we would send our whole army. They asked when he could come. I said after his nap.",
+   "by": "A Delegate, at {hillock}",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-la-retreat-abduction",
+   "body": "The elves of {retreat} are nervous after news of abductions at other retreats. They asked if dwarves could offer protection. I explained our militia. They thanked me and asked the trees instead.",
+   "by": "A Diplomat, at {retreat}"
+  }
+ ],
+ "columns": [
+  {
+   "id": "lp-co-barrel-doctrine",
+   "kick": "The Long View",
+   "head": "THE BARREL DOCTRINE",
+   "body": "I have lived through more forts than I have teeth. The lesson of all of them fits on a barrel lid: put the drink where the dwarves are. Not near the throne room. Not past the smoothers. Where the dwarves are. I will repeat this until I die, beside a barrel.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "lp-co-orders-ledger",
+   "kick": "The Bookkeeper's Corner",
+   "head": "ON COUNTING ARMOR STANDS",
+   "body": "Some say a bookkeeper should not interfere with the work orders. I say a bookkeeper who watches the armor stand count pass one thousand without a word is not a bookkeeper. He is a witness. I have filed a note. The note will be ignored. I have counted it.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "lp-co-militia-math",
+   "kick": "The Hammer's View",
+   "head": "ONE SOLDIER IS A START",
+   "body": "Critics mock our militia of one. I say every great army begins with one dwarf sitting down. The question is what comes next. In {fort}, what comes next has been 'more sitting'. Still, the foundation is solid. The bench is very solid.",
+   "by": "Old Captain Rigoth"
+  },
+  {
+   "id": "lp-co-empty-chairs",
+   "kick": "From the Benches",
+   "head": "IN PRAISE OF EMPTY OFFICES",
+   "body": "An empty mayor's office files no unfair charges. An empty sheriff's office arrests no innocents. An empty hammerer's office hammers nobody. I begin to suspect our vacancies are the best-run departments in {fort}. Let them stay empty. Let them be our model.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "lp-co-violations",
+   "kick": "The Bookkeeper's Corner",
+   "head": "THE VIOLATIONS ARE ACCURATE",
+   "body": "People complain about the production order violations from the mayor's office. Have you checked them? I have. Every one is correct. The item was ordered. The item was not made. That is a violation. Accuracy is not cruelty, even when it arrives weekly.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "lp-co-past-fort-lesson",
+   "kick": "The Long View",
+   "head": "WHAT {past_fort} TAUGHT US",
+   "body": "{past_fort} lasted {past_fort_years} and then {past_fort_fate}. Young dwarves ask what it taught us. It taught us to keep a barrel by the mine. It taught us to stop orders at ten. It taught us nothing, actually, but the lessons were there to be learned.",
+   "by": "Urist the Elder",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-co-record-history",
+   "kick": "Letters From Underground",
+   "head": "A FOOTNOTE ON {record}",
+   "body": "History will judge {record_fort} harshly for {record}. I wish to offer a defence. Every one of those items was well made. Not one was needed, but all were well made. Is that not, in its way, the purest form of dwarven craftsmanship? No? Fine.",
+   "by": "A Retired Craftsdwarf",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-co-liaison-speech",
+   "kick": "Opinion",
+   "head": "LET THE LIAISON FINISH HIS SENTENCE",
+   "body": "Every year {liaison} begins 'There is much to share' and every year someone cuts him off. I propose a trial: one year where we let him finish. What if the second sentence is wonderful? What if it is a recipe? We have never known. We owe it to ourselves.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "lp-co-war-distance",
+   "kick": "The Hammer's View",
+   "head": "THE ENEMY IS FAR AWAY. GOOD",
+   "body": "{civ} are at war with {enemy}, and {enemy} are far away. Strategists call this 'luck'. I call it 'distance', which is the cheapest wall ever built. We should not complain about distance. We should thank it, and keep the gate shut.",
+   "by": "Old Captain Rigoth",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-co-war-readiness",
+   "kick": "Opinion",
+   "head": "ARE WE READY FOR {enemy}?",
+   "body": "Readers ask whether {fort} is ready for {enemy}. Let us review. Walls: some. Soldiers: one. Captain's duty status: off. Armor stands: an abundance. If {enemy} attacks by asking where to hang their armor, we will be magnificently prepared.",
+   "by": "Old Captain Rigoth",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-co-monarch-silence",
+   "kick": "Letters From Underground",
+   "head": "A MONARCH'S SILENCE IS A POLICY",
+   "body": "We have written to {monarch} about the empty offices many times. No reply has come. Some take this as neglect. I take it as trust. A monarch who does not answer believes we can manage. We cannot, but it is touching to be believed in.",
+   "by": "A Loyal Grumbler"
+  },
+  {
+   "id": "lp-co-thirst-skill",
+   "kick": "From the Benches",
+   "head": "THIRST IS A SKILL ISSUE",
+   "body": "Young dwarves die of thirst beside barrels and everyone blames the Overseer. In my day we blamed ourselves, then the Overseer, then the barrel. I say: teach the young to notice a barrel. A pointing lesson. Five minutes. It would save more lives than a hospital.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "lp-co-safety-language",
+   "kick": "Opinion",
+   "head": "WORDS MATTER: 'SAFETY'",
+   "body": "If a burrow is called Safety, dwarves believe it is safe. That belief walks them thirty levels down, past the beast, into the dark. I propose we name burrows honestly. 'Probably Fine'. 'Downstairs'. 'Better Than Here, We Hope'. Honesty saves lives.",
+   "by": "Old Captain Rigoth"
+  },
+  {
+   "id": "lp-co-smoothing-economy",
+   "kick": "The Bookkeeper's Corner",
+   "head": "THE COST OF A SMOOTH WALL",
+   "body": "I have calculated the cost of one smoothed tile: one moment of one dwarf's life. Sixteen thousand of them is a dwarf's whole life, spent making the fort shinier. I am not against shine. I only note that nobody has ever eaten a wall, however smooth.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "lp-co-refugee-policy",
+   "kick": "From the Benches",
+   "head": "LET THE REFUGEES IN",
+   "body": "Bands of refugees wander {world} after the goblin burnings. Some say they will eat our food. I say they will fill our militia, take our offices and haul our refuse. That is three problems solved for the price of a bed each. I call that a bargain.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "lp-co-pop-and-posts",
+   "kick": "The Bookkeeper's Corner",
+   "head": "{pop} DWARVES, HOW MANY JOBS?",
+   "body": "With {pop} citizens, {fort} should be able to fill every office twice over. Instead every office is empty and every dwarf is hauling. The bookkeeper sees the problem clearly: everyone has a job. Nobody has a title. Titles do not haul.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "lp-co-mood-reserve",
+   "kick": "Letters From Underground",
+   "head": "KEEP A DRAWER FOR THE GODS",
+   "body": "Every fort should keep one drawer of oddments: a rough gem, a scrap of plant cloth, a bone, a shell. When the gods send a mood, open the drawer. It costs nothing. It would have saved lives in every fort I have known. Nobody has ever built the drawer.",
+   "by": "A Retired Craftsdwarf"
+  },
+  {
+   "id": "lp-co-trees-policy",
+   "kick": "From the Benches",
+   "head": "THE TREE QUESTION",
+   "body": "I have watched dwarves climb trees and not come down. I have watched the elves defend the trees. I have watched the Overseer send miners to the surface regardless. I do not blame the trees. I blame the ladder of choices that ends at a branch.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "lp-co-rewinds-economics",
+   "kick": "The Long View",
+   "head": "THE GREAT REWINDS ARE GOOD FOR BUSINESS",
+   "body": "When the world rewinds, we lose a few hours of work. But we also get to redo our mistakes. I have seen a dwarf walk past a barrel, die, the world rewind, and the same dwarf walk past the same barrel. Mistakes, it seems, are not rewound.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "lp-co-pit-protocol",
+   "kick": "The Hammer's View",
+   "head": "A PROTOCOL FOR THE PIT",
+   "body": "I propose a simple drill for the garbage pit. One dwarf throws. One dwarf watches. Nobody climbs in. If anyone is seen climbing in, the watcher shouts. This system needs two dwarves and no training, and it would have kept the catacombs much quieter.",
+   "by": "Old Captain Rigoth"
+  },
+  {
+   "id": "lp-co-ghosts-rights",
+   "kick": "Letters From Underground",
+   "head": "THE GHOSTS OF {past_fort} HAVE RIGHTS",
+   "body": "When {past_fort} {past_fort_fate}, we left the ghosts behind. Nobody asked them. A ghost is still a citizen in spirit. I propose a memorial in {fort}, with a slab for every name, so they have somewhere to visit that is not occupied.",
+   "by": "A Loyal Grumbler",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-co-overseer-patience",
+   "kick": "Opinion",
+   "head": "GIVE THE OVERSEER A SEASON",
+   "body": "Every new fort, the dwarves turn on the Overseer within a month. I say give it a season. The early orders are always strange. The middle ones are stranger. The late ones are mostly armor stands. But somewhere in there, sometimes, a mist ring appears.",
+   "by": "Urist the Elder"
+  },
+  {
+   "id": "lp-co-doctor-shortage",
+   "kick": "The Bookkeeper's Corner",
+   "head": "THE HOSPITAL COUNT IS WRONG",
+   "body": "We count hospitals as a sign of health. We should count doctors. A fort with four hospitals and no doctors has four rooms for dying in, nicely furnished. I have revised the books. Our health score is now 'a chair and some soap'. It was always that.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "lp-co-enchanted-thirty-levels",
+   "kick": "Letters From Underground",
+   "head": "FIFTEEN IN THE SAFETY BURROW",
+   "body": "Fifteen dwarves died in the Safety burrow at Creaturemirrored, thirty levels down, when a forgotten beast came up the stairs. I knew several of them. They went where the sign told them. Let that be the last sign of its kind in the Chambers of Steel.",
+   "by": "A Loyal Grumbler",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-co-enchanted-hexes",
+   "kick": "The Hammer's View",
+   "head": "ON THE CRAZED HEX",
+   "body": "I have studied The Crazed Hex's campaigns: Padtufted, Pulledrained, Ironcrowds. They do not win through strength. They win because nobody is home. Our fort, I note with concern, is also mostly not home. The captain is off duty.",
+   "by": "Old Captain Rigoth",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "gossip": [
+  {
+   "id": "lp-gs-barrel-hoard",
+   "text": "Corridor talk says {citizen} has been quietly stashing a barrel of ale behind every mine shaft. {citizen} denies it, but has been seen walking the tunnels with a very satisfied expression and suspiciously damp boots."
+  },
+  {
+   "id": "lp-gs-armor-stand-romance",
+   "text": "Insiders report {citizen} and {citizen2} first met while both reaching for the same armor stand, one of several hundred in the stockroom. They now share a bedroom, a mug and, inevitably, an armor stand."
+  },
+  {
+   "id": "lp-gs-captain-crush",
+   "text": "Rumours swirl that {citizen} has a crush on the militia captain and has been loitering near the barracks. The captain, off duty as ever, has not noticed. Friends say this is the most active the barracks has been all year."
+  },
+  {
+   "id": "lp-gs-mayor-candidate",
+   "text": "Whispers in the tavern say {citizen} is quietly planning to run for mayor. Asked to confirm, {citizen} said 'absolutely not' and then asked how heavy the mayor's paperwork is, which friends consider a yes."
+  },
+  {
+   "id": "lp-gs-tree-dare",
+   "text": "Word is a group of young dwarves dared {citizen} to climb the tall tree by the brook. {citizen} declined, citing history. The group has been told the history. The tree has been told nothing and remains smug."
+  },
+  {
+   "id": "lp-gs-pit-avoidance",
+   "text": "Sources say {citizen} now takes a route three corridors longer to avoid passing the garbage pit. Asked why, {citizen} said 'reasons'. Everyone knows the reasons. Nobody says them out loud."
+  },
+  {
+   "id": "lp-gs-gem-stash",
+   "text": "It is whispered that {citizen} keeps one rough gem hidden in a sock 'for the next mood'. The jeweler is said to be furious. {citizen} says the jeweler can have it when the gods ask nicely, and not before."
+  },
+  {
+   "id": "lp-gs-safety-burrow-party",
+   "text": "Gossip has it that {citizen} and {citizen2} have been sneaking into the Safety burrow for romantic evenings, it being the one place nobody else goes. Friends call it bold. Others call it a terrible idea."
+  },
+  {
+   "id": "lp-gs-liaison-crush",
+   "text": "Several tavern regulars swear that {citizen} blushed when the liaison walked by. {citizen} claims it was the heat of the forge. {citizen} is a fisherdwarf. The forge is on another level."
+  },
+  {
+   "id": "lp-gs-smoother-feud",
+   "text": "A cold war has broken out between {citizen} and {citizen2} over who smoothed the finest stretch of corridor. Both claim the same tile. The tile, now polished from both ends, has never looked better."
+  },
+  {
+   "id": "lp-gs-throne-nap",
+   "text": "{citizen} was spotted napping on a spare throne in the storeroom, one of far too many. Witnesses say they looked 'regal, but drooling'. The mayor's office has filed a violation for unauthorised majesty."
+  },
+  {
+   "id": "lp-gs-ghost-sighting",
+   "text": "Hushed voices in the dormitory claim {citizen} has been chatting nightly with the ghost of a dwarf from {past_fort}. {citizen} says the ghost is good company and very good at cards, though it cheats.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-gs-past-fort-mug",
+   "text": "{citizen} has told everyone that their grandmother's mug is still on a shelf in {past_fort}, which {past_fort_fate}. A small fund has been started to retrieve it. So far it holds three coins and a button.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-gs-record-boast",
+   "text": "{citizen} has been boasting at the tavern that their family helped make {record} at {record_fort}. Nobody is sure whether this is bragging or a confession. {citizen} also seems unsure.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-gs-liaison-autograph",
+   "text": "Tongues are wagging that {citizen} asked {liaison} for an autograph during the last visit. The liaison reportedly signed it 'There is much to share' and recommended an import agreement on the back."
+  },
+  {
+   "id": "lp-gs-monarch-letter",
+   "text": "Insiders whisper that {citizen} wrote a love poem to {monarch}. It was returned unopened, with a note recommending an import agreement. {citizen} is said to be heartbroken but has framed the note."
+  },
+  {
+   "id": "lp-gs-enemy-spy",
+   "text": "Rumours claim {citizen} is secretly a spy for {enemy}. Evidence offered: {citizen} once frowned at a door. {citizen} says the door deserved it. Most of the fort agrees with {citizen} about the door.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-gs-mist-ring-date",
+   "text": "{citizen} and {citizen2} were seen walking slowly through the mist ring together, twice, then a third time. Observers note they came out happy, damp and holding hands. Wedding planners are on standby."
+  },
+  {
+   "id": "lp-gs-windmill-poet",
+   "text": "Word is {citizen} has been writing poems to the windmills. The poems are reportedly long and heartfelt. The windmills have not replied, but {citizen} insists the creaking is getting more affectionate."
+  },
+  {
+   "id": "lp-gs-execution-tower-picnic",
+   "text": "Gossip circles say {citizen} hosts secret picnics at the top of the execution tower. Guests describe the view as lovely and the atmosphere as 'a bit much'. Invitations are said to be much sought after."
+  },
+  {
+   "id": "lp-gs-rewind-feud",
+   "text": "{citizen} and {citizen2} are no longer speaking after a disagreement over what happened just before the last Great Rewind. Each remembers winning. The gods, if they remember, have not said."
+  },
+  {
+   "id": "lp-gs-mood-envy",
+   "text": "Corridor whispers say {citizen} is jealous of {moodname}, who was taken by a strange mood this week. {citizen} has started lingering near workshops looking inspired. So far, nothing. The gods are not fooled.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lp-gs-promoted-paperwork",
+   "text": "Insiders say {promoted}, our new {post}, found a stack of old violations in the desk drawer on day one and quietly put it back. Friends say it is the wisest decision made in that office in years.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "lp-gs-masterwork-whisper",
+   "text": "Word in the workshops is that {masterwright} is unbearable since making that masterwork {masterwork}. They now refer to all other items as 'attempts'. Colleagues are coping by making many more attempts.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "lp-gs-migrant-question",
+   "text": "One of the new arrivals reportedly asked {citizen} where the Safety burrow was, and was told, in a hushed voice, 'never ask that again'. The migrant has since moved bedrooms twice and slept well both times.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "lp-gs-caravan-flirt",
+   "text": "Tongues are wagging after {citizen} spent an entire afternoon at the depot 'inspecting goods'. The goods were a merchant's hat. The merchant has promised to bring a second hat next year.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lp-gs-captain-mystery",
+   "text": "Nobody has ever seen the militia captain on duty, and now some say the captain is not a dwarf at all but a very convincing armor stand with a beard. {citizen} has offered to check. Nobody has let them."
+  },
+  {
+   "id": "lp-gs-hospital-romance",
+   "text": "{citizen} has been visiting the empty hospital every day. Friends feared illness. It turns out {citizen} simply likes the quiet and the soap. A small queue of quiet-lovers has since formed. Still no doctor."
+  },
+  {
+   "id": "lp-gs-sheriff-impostor",
+   "text": "Word is {citizen} has been wearing a homemade sheriff's badge around the fort. Nobody has objected, because nobody else wanted the job. Crime, it is said, has not changed. Neither has the badge."
+  },
+  {
+   "id": "lp-gs-barrel-proposal",
+   "text": "{citizen} reportedly proposed to {citizen2} by leaving a full barrel at the end of their mining tunnel. It was accepted with tears. Older dwarves say it is the most romantic gesture in the fort's history, by far."
+  },
+  {
+   "id": "lp-gs-overseer-fanclub",
+   "text": "Sources say {citizen} has started a club for dwarves who like the Overseer. Membership is one. Meetings are held in a quiet corner. The club's first motion was to ask for fewer armor stands. It passed."
+  },
+  {
+   "id": "lp-gs-plant-gatherer",
+   "text": "Rumour has it {citizen} has walked the whole map so many times gathering plants that they now know every bush by name. The bushes, apparently, have started to recognise {citizen} too, and droop politely."
+  },
+  {
+   "id": "lp-gs-dog-army",
+   "text": "Insiders claim {citizen} has been training the dogs to march in formation, in case the militia never fills up. The dogs reportedly march better than any squad the fort has had, and never go off duty."
+  },
+  {
+   "id": "lp-gs-smooth-face",
+   "text": "Gossip has it that {citizen} spent so long smoothing walls they can now see their reflection in every corridor. They have become insufferably vain. Friends are considering roughing a wall as an intervention."
+  },
+  {
+   "id": "lp-gs-cistern-swimmer",
+   "text": "{citizen} has been caught swimming in the cistern after dark. Asked why, {citizen} said 'someone has to enjoy all that water'. The miners, many of whom are thirsty, have asked to be told where the cistern is."
+  },
+  {
+   "id": "lp-gs-catacomb-tour",
+   "text": "Word is {citizen} has started giving guided tours of the catacombs. Highlights reportedly include 'the tree miner', 'the pit eight' and 'the burrow fifteen'. Reviews are glowing. Nobody laughs on the way out."
+  },
+  {
+   "id": "lp-gs-thirst-collector",
+   "text": "Whispers claim {citizen} keeps a list of every dwarf who died of thirst within sight of a barrel. The list is long. {citizen} says it is not morbid, it is research, and plans to send it to the Overseer."
+  },
+  {
+   "id": "lp-gs-past-fort-cousin",
+   "text": "{citizen} insists a cousin is still living in the ruins of {past_fort}, refusing to leave. Others say that fort {past_fort_fate}. {citizen} says the cousin is very stubborn and has been there {past_fort_years}.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-gs-enemy-rumour",
+   "text": "Tavern talk has it that {enemy} have been seen on the horizon. Several dwarves went to look. It was a herd of goats. {citizen} still claims one goat had a spear. The goat has not been questioned.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-gs-civ-pride",
+   "text": "{citizen} has begun signing every letter 'a proud citizen of {civ}', including notes to the cook about soup. The cook says the soup has not improved but the correspondence has become much more formal."
+  },
+  {
+   "id": "lp-gs-orders-sabotage",
+   "text": "Rumour says {citizen} has been sneaking into the manager's office at night to quietly lower the numbers on the work orders. Nobody has complained. In fact, several dwarves have left anonymous thank-you notes."
+  },
+  {
+   "id": "lp-gs-rough-gem-love",
+   "text": "{citizen} and {citizen2} are said to have bonded over a shared love of uncut gems. They visit the jeweler's together and stand in front of the rough ones, protectively. The jeweler finds it very unsettling."
+  },
+  {
+   "id": "lp-gs-child-genius",
+   "text": "Word is that the child who once had a strange mood is now insufferable, signing every drawing 'legendary'. {citizen}, the child's babysitter, says the drawings are, unfortunately, quite good."
+  },
+  {
+   "id": "lp-gs-ghost-collector",
+   "text": "Hushed voices say {citizen} has started collecting stories of the ghosts of past forts, and plans to write a book. The working title is 'Barrels Nearby'. Publishers are said to be nervous about the ending."
+  },
+  {
+   "id": "lp-gs-champion-trial",
+   "text": "{citizen} challenged anyone in the fort to a duel for the vacant champion's title. Nobody showed up, including {citizen}, who overslept. The title remains vacant. Both parties claim victory."
+  },
+  {
+   "id": "lp-gs-liaison-diary",
+   "text": "Rumour says someone found the liaison's diary. Every page reportedly reads 'There is much to share' followed by 'Recommended import agreement'. {citizen} swears there is one page that just says 'sigh'."
+  },
+  {
+   "id": "lp-gs-hammerer-avoid",
+   "text": "Gossip has it that {citizen} has been avoiding the execution tower so firmly that they now walk around it in a wide circle. Others say this is to avoid being asked to be hammerer. It is working."
+  },
+  {
+   "id": "lp-gs-burrow-bet",
+   "text": "There is a running bet at the tavern over whether the next burrow will also be named Safety. {citizen} has put a week's wages on 'yes'. {citizen2} on 'Safety Two'. Both expect to win."
+  },
+  {
+   "id": "lp-gs-moods-predict",
+   "text": "{citizen} claims to be able to predict the next strange mood by looking at whatever the fort just ran out of. So far {citizen} has been right twice. The gods have reportedly started to find this annoying."
+  },
+  {
+   "id": "lp-gs-drink-walk",
+   "text": "Tongues are wagging that {citizen} has started carrying two waterskins, a mug and a small barrel at all times. 'History,' {citizen} explains, before rattling away down the corridor like a cart."
+  },
+  {
+   "id": "lp-gs-windmill-giant",
+   "text": "Word spreads that {citizen} once charged at a windmill believing it was a giant. {citizen} says the windmill started it. Witnesses agree the windmill did, technically, move first."
+  },
+  {
+   "id": "lp-gs-famine-tales",
+   "text": "{citizen} tells the young ones bedtime stories about famine, day 32, from an older fort. The children love them, and now insist on eating one plant, shared, every evening. Their parents are not amused."
+  },
+  {
+   "id": "lp-gs-rewind-deja",
+   "text": "{citizen} insists that since the last Great Rewind, they have had the same conversation with {citizen2} every morning. {citizen2} says this is just what conversation with {citizen} is like."
+  },
+  {
+   "id": "lp-gs-captain-sighting",
+   "text": "Breathless reports say the militia captain was seen standing up this week, briefly. Experts say he was reaching for a mug. The fort's hopes, briefly raised, have settled back onto the bench with him."
+  },
+  {
+   "id": "lp-gs-mayor-ghost",
+   "text": "Gossip has it that the empty mayor's office is haunted, since violations keep appearing with no mayor to write them. {citizen} has offered to sleep there one night to find out. {citizen} has not yet done so."
+  },
+  {
+   "id": "lp-gs-overseer-message",
+   "text": "{citizen} claims to have received a message from the Overseer in a dream. The message was 'smooth'. {citizen} has interpreted it as a call to romance. Others suspect it was a work order."
+  },
+  {
+   "id": "lp-gs-artifact-guard",
+   "text": "Word is that {citizen} sleeps beside {artifact} every night 'in case the goblins come for this one too'. The artifact is reportedly well rested. {citizen} is not."
+  },
+  {
+   "id": "lp-gs-rough-crowd",
+   "text": "The jeweler is said to have chased {citizen} out of the workshop for whispering 'leave some rough' at every cut. {citizen} has since taken to writing 'LEAVE SOME ROUGH' on the walls, which are smooth, so it shows."
+  },
+  {
+   "id": "lp-gs-pit-rescue",
+   "text": "{citizen} has been seen standing guard at the garbage pit, waving off anybody who tries to climb in. Nobody asked {citizen} to do this. The fort has quietly decided that {citizen} is a hero."
+  },
+  {
+   "id": "lp-gs-refugee-romance",
+   "text": "One of the refugees who arrived from a burned town has caught the eye of {citizen}. The two share a love of quiet rooms and closed doors. Friends say it is the most sensible romance in the fort."
+  },
+  {
+   "id": "lp-gs-war-letters",
+   "text": "Rumour says {citizen} has been writing pen-pal letters to a goblin in {enemy}. The goblin writes back. The letters are mostly about weather. Both reportedly enjoy them and neither has mentioned the war.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-gs-thirst-medal",
+   "text": "{citizen} has been handing out homemade medals to any dwarf who drinks when thirsty without being reminded. Medals awarded this week: four. Medals given to miners: none. {citizen} says this is the scandal."
+  },
+  {
+   "id": "lp-gs-smoother-wedding",
+   "text": "{citizen} and {citizen2}, both smoothers, have announced they will marry once their queues are finished. Their friends have quietly calculated the date. The result has been kept from the couple, out of kindness."
+  },
+  {
+   "id": "lp-gs-enchanted-iden",
+   "text": "The tavern is buzzing that Iden Loloklolor once ate an entire wheel of cheese while explaining an import agreement and never once paused. {citizen} saw it. {citizen} has not been the same since.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-enchanted-thrones",
+   "text": "{citizen} swears a great-uncle sat on all 148 thrones of Quakefocus, one per night, out of curiosity. The great-uncle reportedly found the 97th the most comfortable. Nobody has asked why he kept going.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-enchanted-bomrek",
+   "text": "{citizen} claims to be a distant relative of Bomrek Enshalcatten, the miner of Searabbeys. Since then, {citizen} has been offered a drink by every single dwarf in the fort, just in case.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-enchanted-hamlet",
+   "text": "Word is {citizen} has drawn up a map of how to sneak into Searabbeys and steal back The Nuanced Hamlet from The Torments of Hating. The map is very detailed. The route goes through the tavern first.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-enchanted-oily-boots",
+   "text": "{citizen} has become an enormous fan of The Oily Boots, the dwarves reclaiming Scaldedarch, and has started oiling their own boots every morning in solidarity. The corridor outside their room is now a hazard.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-enchanted-stands",
+   "text": "Rumours swirl that {citizen} has one of the 1,981 armor stands from Quakefocus in their bedroom. {citizen} says it was a gift. {citizen2} says it followed them home. The stand refuses to comment.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-enchanted-claimant",
+   "text": "{citizen} has quietly added their name to the list of claimants to The Amusing Duties at Fieryaged. Friends ask why. {citizen} says everyone else has, and it seemed rude to be left out.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-enchanted-horror",
+   "text": "{citizen} insists they once saw the crooked horror Omo Fewethauyira on a trip near Shadyghosts. Details change with every telling. The horror has grown three heights taller since spring.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-enchanted-hex-joke",
+   "text": "{citizen} was told off at the tavern for calling the militia 'the Crazed Hex'. {citizen} says it was a compliment. The captain, who heard, has asked to keep the name. He did not stand up to ask.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-gs-armor-stand-hat",
+   "text": "{citizen} has started wearing a hat shaped like an armor stand, as a protest against the work orders. Several others have copied it. The Overseer has reportedly noticed and queued two hundred more hats."
+  },
+  {
+   "id": "lp-gs-violation-collector",
+   "text": "Word is {citizen} has framed every production order violation the mayor's office ever sent them. The wall is now full. {citizen} is said to be 'aiming for a second wall' and has begun making crowns badly on purpose."
+  },
+  {
+   "id": "lp-gs-last-captain",
+   "text": "Tavern regulars claim {citizen} is training in secret to become the second member of the militia. Nobody has seen any training. {citizen} says that is what makes it secret. The captain has offered his bench."
+  }
+ ],
+ "corrections": [
+  {
+   "id": "lp-cr-armor-stand-count",
+   "text": "Last issue we said the fort's runaway order produced 'roughly two thousand' armor stands. The bookkeeper insists we print the exact figure. The exact figure is 'too many'. We regret the rounding."
+  },
+  {
+   "id": "lp-cr-record-exact",
+   "text": "A previous article misstated {record}. The bookkeeper of {record_fort} has written to confirm the figure was, if anything, an undercount. We apologise for understating the scale of the problem.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-cr-past-fort-years",
+   "text": "We previously wrote that {past_fort} 'lasted about a week'. It lasted {past_fort_years}. It only felt like a week. We apologise to its founders, and to its ghosts, who have been in touch.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-cr-past-fort-fate",
+   "text": "Our history page claimed {past_fort} was 'abandoned for a nicer view'. In fact it {past_fort_fate}. We regret the error, and the view, which was not that nice either.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-cr-safety-burrow",
+   "text": "Last week we described the Safety burrow as 'the safest place in the fort'. We have since reviewed its history. We now describe it as 'a place'. Readers are asked to update their maps."
+  },
+  {
+   "id": "lp-cr-captain-on-duty",
+   "text": "Our report that the militia captain was 'on duty' was based on a sighting of him standing up. He was reaching for a mug. He remains off duty. We apologise to anyone who felt briefly protected."
+  },
+  {
+   "id": "lp-cr-militia-size",
+   "text": "We previously reported the militia as 'ten strong'. It has ten places. One is filled. The other nine are, as one reader put it, 'strong in spirit only'. We regret the arithmetic."
+  },
+  {
+   "id": "lp-cr-mayor-elected",
+   "text": "Contrary to last issue's headline, nobody has been elected mayor. The dwarf pictured was sitting in the mayor's chair because it was the only chair free. He has since stood up and gone to lunch."
+  },
+  {
+   "id": "lp-cr-violations-count",
+   "text": "We previously said the mayor's office files 'a few' production order violations. The bookkeeper has counted. It is several per dwarf. We regret the word 'few', and so does everyone who received one."
+  },
+  {
+   "id": "lp-cr-barrel-distance",
+   "text": "Last issue said the nearest barrel to the mines was 'a short walk'. It is 41 tiles, two staircases and a smoothing crew. We apologise to every miner who believed us and set out without a waterskin."
+  },
+  {
+   "id": "lp-cr-tree-miner",
+   "text": "We previously wrote that the miner found in a tree 'was admiring the view'. The miner was stuck. We apologise to the family, and to the tree, which has been unfairly blamed in several letters since."
+  },
+  {
+   "id": "lp-cr-garbage-pit-sign",
+   "text": "The sign we printed for the garbage pit read 'IN AND OUT'. It should have read 'IN, NOT OUT'. We regret the error, deeply. A replacement sign has been nailed up, quite high, and well away from the edge."
+  },
+  {
+   "id": "lp-cr-smoothing-queue",
+   "text": "We reported the smoothing queue at 'several hundred jobs'. It is sixteen thousand. The smoother who supplied the first figure has asked us to note he was 'being hopeful'. We understand."
+  },
+  {
+   "id": "lp-cr-hospitals-doctors",
+   "text": "Last week we said the fort has 'four hospitals and four doctors'. It has four hospitals. The doctors were a typing error for 'chairs'. Patients are advised to bring their own soap and opinions."
+  },
+  {
+   "id": "lp-cr-rough-gems",
+   "text": "We reported last issue that the fort had 'plenty of rough gems'. By the time the paper was printed, the jeweler had cut them all. We apologise to the dwarf in a strange mood who read our report and got her hopes up."
+  },
+  {
+   "id": "lp-cr-plant-cloth",
+   "text": "A previous issue said the fort was 'well stocked with plant cloth'. This was based on one scrap and a hopeful thread. We apologise to the child currently in a strange mood, and to her parents."
+  },
+  {
+   "id": "lp-cr-silk-scraps",
+   "text": "We previously described seven silk scraps as 'a cloth stockpile'. Seven scraps is a handkerchief, cut up. We regret the description and have been asked to stop using the word 'stockpile' for anything smaller than a bin."
+  },
+  {
+   "id": "lp-cr-liaison-quote",
+   "text": "Last issue misquoted the outpost liaison {liaison}. He did not say 'There is little to share'. He said 'There is much to share'. As he always does. We apologise for the misquote and the brief panic."
+  },
+  {
+   "id": "lp-cr-liaison-rings",
+   "text": "We stated the liaison asked for rings at 120%. The correct figure was 210%. We transposed the digits. The liaison has written to say he would also accept 312%, if we are offering."
+  },
+  {
+   "id": "lp-cr-monarch-name",
+   "text": "A caption last issue identified a dwarf at the feast as {monarch}. It was a statue of {monarch}. Readers who bowed to it have asked whether the bow still counts. The palace says it does, generously."
+  },
+  {
+   "id": "lp-cr-civ-name",
+   "text": "We referred to our civilization as 'the dwarves, roughly' in last week's editorial. The correct name is {civ}. The diplomat has asked us to use it, and to stop calling the monarch 'that fellow'."
+  },
+  {
+   "id": "lp-cr-enemy-name",
+   "text": "Last issue referred to {enemy} as 'those rude neighbours'. They are, in fact, our sworn enemy in open war. We regret understating the matter. They are also rude neighbours.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-cr-enemy-race",
+   "text": "We previously described the soldiers of {enemy} as 'mostly harmless'. They are {enemy_race}, they are at war with us, and they are not harmless at all. Our military correspondent has been sent on a long walk to reflect.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-cr-war-status",
+   "text": "Our report that the war was 'going well' was based on the fact that nobody had attacked us lately. We have since learned that this is because nobody has looked. We regret the optimism."
+  },
+  {
+   "id": "lp-cr-thrones-count",
+   "text": "The number of thrones in the old storeroom was printed as '14'. It is a much larger number. The digit we dropped was the important one. We apologise to the thrones, who have very fragile egos."
+  },
+  {
+   "id": "lp-cr-child-mood",
+   "text": "Last issue said a dwarf in a strange mood had 'claimed the craftsdwarf's workshop'. The dwarf was a child. The workshop was claimed with a crayon. The resulting artifact is nonetheless magnificent."
+  },
+  {
+   "id": "lp-cr-famine-day",
+   "text": "Our famine coverage referred to 'famine, day 23'. It was day 32. We transposed the digits, which meant we ended the famine nine days early in print. Readers who ate on day 24 on our advice have our sympathies."
+  },
+  {
+   "id": "lp-cr-great-rewind",
+   "text": "Due to a Great Rewind, last week's issue was printed twice and some readers received it before it was written. We apologise for any spoilers. The ending was 'the cat did it'."
+  },
+  {
+   "id": "lp-cr-gods-blinked",
+   "text": "Our report that 'the gods blinked' was meant figuratively. We are now told the gods actually blinked, and the fort stood still for some time. We apologise for the metaphor. It was, it turns out, news."
+  },
+  {
+   "id": "lp-cr-mist-ring",
+   "text": "The mist ring was described last issue as 'a refreshing place to drink'. You cannot drink from the mist ring. You can only stand in it. We apologise to every dwarf who stood in it with their mouth open."
+  },
+  {
+   "id": "lp-cr-windmills",
+   "text": "A photograph caption last week identified the windmills as 'giants on the surface'. They are windmills. The dwarf who charged at one on our advice is recovering. The windmill is fine."
+  },
+  {
+   "id": "lp-cr-execution-tower",
+   "text": "Our map labelled the execution tower 'Observation Deck'. That is what one reader calls it. The official name is the execution tower. The view is, however, as described: lovely."
+  },
+  {
+   "id": "lp-cr-catacomb-tours",
+   "text": "We listed catacomb tours as 'family fun'. They are not family fun. They are a solemn walk past dwarves who died beside barrels, in trees and in pits. We regret the cheerful font."
+  },
+  {
+   "id": "lp-cr-cistern-depth",
+   "text": "A previous issue said the cistern was 'ankle deep'. It is considerably deeper. We apologise to the dwarf who stepped in on our advice, and congratulate him on learning to swim so quickly."
+  },
+  {
+   "id": "lp-cr-forgotten-beast-stairs",
+   "text": "We reported that the forgotten beast 'took the long way'. It took the stairs. The stairs were the short way. We apologise for the error and for building stairs so convenient for beasts."
+  },
+  {
+   "id": "lp-cr-plant-gathering",
+   "text": "Our weather page said it would be 'a dry day for gathering'. It rained. The Overseer sent everyone out anyway, so the forecast made no difference, but we regret being wrong while it happened."
+  },
+  {
+   "id": "lp-cr-refugee-numbers",
+   "text": "We said 'a few refugees' had arrived at the gate. It was an entire band from a burned town, with carts. We apologise to them for the word 'few' and to the cook for the lack of warning."
+  },
+  {
+   "id": "lp-cr-ghost-count",
+   "text": "Our feature on the ghosts of {past_fort} listed 'about three'. The real count is larger, and the ghosts have written in to say we left several out. They would like their names spelled properly.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-cr-record-fort-name",
+   "text": "We wrongly credited {record} to this fort. It was {record_fort}. The current fort has its own records, which we will publish as soon as the bookkeeper stops counting armor stands.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-cr-champion-vacancy",
+   "text": "We announced last week that a champion had been appointed. A dwarf had in fact won an arm-wrestle at the tavern. The office remains vacant. The arm-wrestle champion asks us to note he is available."
+  },
+  {
+   "id": "lp-cr-sheriff-badge",
+   "text": "Our report that 'the sheriff made an arrest' referred to a dwarf wearing a homemade badge. The arrest was of a bucket. The bucket has been released. The office remains empty."
+  },
+  {
+   "id": "lp-cr-hammerer",
+   "text": "We said the hammerer post had been filled. A dwarf had only asked what it involved, and then left very quickly. The post remains open. The tower remains tall. Nobody is volunteering."
+  },
+  {
+   "id": "lp-cr-chief-medical",
+   "text": "Last issue stated the fort had a chief medical dwarf. It has a chief medical chair. We apologise to readers who went to the hospital expecting care and found furniture."
+  },
+  {
+   "id": "lp-cr-dungeon-master",
+   "text": "We said the dungeon master's office was 'busy'. It is empty. The noise came from a cat. The cat has been offered the post. The cat has declined, which is still more of an answer than anyone else gave."
+  },
+  {
+   "id": "lp-cr-loose-stones",
+   "text": "We stated the fort had 'tidied up its loose stones'. It moved them to a different corridor. The total number of loose stones is unchanged, and, we are told, slightly higher. We regret the error.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "lp-cr-drinks-figure",
+   "text": "Last issue's front page said drink stocks stood at 'plenty'. The figure is {drinks}. Our reporter was standing next to a barrel at the time and generalised. We regret the error. Please still walk to a barrel.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "lp-cr-drinks-low",
+   "text": "We previously stated that the drink shortage 'has ended'. It has not. Drink stands at {drinks}. We had confused the still with the smoothing station, which was very busy. We regret the confusion.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "lp-cr-meat-watch",
+   "text": "Our 'Meat Watch' column reported meat was back on the menu. It was a mushroom cut into a meat shape by a hopeful cook. The Meat Watch resumes. We apologise to the cook, who meant well.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "lp-cr-pop-count",
+   "text": "We reported the population as 'roughly a hundred'. The census gives {pop}. Our reporter counted beards in the dining hall and missed everyone who was hauling, which is nearly everyone."
+  },
+  {
+   "id": "lp-cr-mood-name",
+   "text": "We wrongly reported that {moodname} was 'just in a bad mood'. It is a strange mood. These are very different. One needs a hug. The other needs a rough gem we do not have.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lp-cr-promotion",
+   "text": "Last issue said {promoted} 'reluctantly accepted' the role of {post}. {promoted} has written to say they accepted it gladly, then read the paperwork, and are now reluctant. We regret getting the order wrong.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "lp-cr-masterwork",
+   "text": "We described {masterwright}'s new masterwork {masterwork} as 'pretty good'. {masterwright} has asked us to clarify that it is a masterwork. We clarify. It is extremely good. We regret our restraint.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "lp-cr-deadname-cause",
+   "text": "In last issue's obituary for {deadname}, we gave the wrong cause. We stand corrected and ashamed. We also note, for the record, that there was a barrel within reach. There usually is.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-cr-caravan-merchant",
+   "text": "We reported that the caravan had brought 'nothing of interest'. It brought rough gems. By the time our reporter returned, the jeweler had cut them all. The report is now accurate, but for the wrong reasons.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lp-cr-migrants-warned",
+   "text": "Our welcome page for new migrants omitted the advice 'stay off trees'. We regret the omission and have printed it here, large, in case any of the new arrivals is a miner or is likely to become one.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "lp-cr-overseer-quote",
+   "text": "We attributed the order '16,000 smoothing jobs' to the manager. It came from the Overseer. The manager was only the dwarf who read it out loud, then had to sit down. We apologise to the manager."
+  },
+  {
+   "id": "lp-cr-refuse-sport",
+   "text": "We listed 'refuse hauling' under Sport. It is not a sport. Readers who formed teams on our advice are asked to disband immediately and, above all, to stay out of the pit."
+  },
+  {
+   "id": "lp-cr-artifact-location",
+   "text": "We said {artifact} was 'safely locked away'. It is on a table in the dining hall. Someone is using it as a coaster. We apologise to the artifact, and to whoever made it, and to the table."
+  },
+  {
+   "id": "lp-cr-year-founded",
+   "text": "We gave the year as {year} in the wrong place on the masthead last week, causing several dwarves to believe they had aged a decade overnight. They have not. Most of them look it anyway, after this fort."
+  },
+  {
+   "id": "lp-cr-enchanted-1981",
+   "text": "Last issue stated the number of armor stands produced at Quakefocus was 1,891. It was 1,981. We transposed the digits and lost ninety armor stands in print. The bookkeeper has found them. All of them.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-enchanted-148",
+   "text": "We wrote that Quakefocus held 184 thrones. It held 148. The extra thirty-six existed only in our typesetter's imagination, where, we are told, they are very comfortable.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-enchanted-1994",
+   "text": "Our history page said Searabbeys held 1,949 drinks when Bomrek Enshalcatten died of dehydration. It held 1,994. Either figure was enough. We regret the error, and we regret the barrel nobody walked to.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-enchanted-iden",
+   "text": "We misspelled the liaison's name as 'Iden Lolokolor'. It is Iden Loloklolor. He has written, at great length, to confirm this, and to recommend an import agreement for extra letters.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-enchanted-150-gems",
+   "text": "Our account of the Quakefocus carpenter said he died beside '15 rough gems'. It was 150. We dropped a zero. The zero has been found, polished and cut, like everything else in that fort.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-enchanted-hex",
+   "text": "We reported that The Crazed Hex 'burned down one town'. It was three: Padtufted, Pulledrained and Ironcrowds. We apologise to the two towns we left out, and to their refugees.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-enchanted-cudgel",
+   "text": "We previously credited the reclaiming of Tametomb to The Oily Boots. It was The Chaste Cudgel. The Oily Boots are reclaiming Scaldedarch. Both groups have asked to be told apart. We have bought a chart.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-enchanted-sixteen",
+   "text": "We printed that the Chambers of Steel are at peace with 61 groups. It is 16. We are, however, still at war with two goblin groups. The diplomat has asked us to proofread numbers more carefully.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-enchanted-fifteen",
+   "text": "Our report on the Creaturemirrored Safety burrow said it was 'three levels down'. It was thirty. We dropped a zero, which made the burrow sound closer and the beast's walk much shorter than it was. We regret the error.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-cr-overseer-thrones",
+   "text": "We stated last week that the Overseer had 'cancelled the throne order'. It had paused it. The order has resumed. The storeroom is filling again. We regret the false hope and the brief party held in its honour."
+  },
+  {
+   "id": "lp-cr-liaison-second-sentence",
+   "text": "Our report claimed the liaison 'finally finished his speech'. He had stopped to cough. He then resumed from 'There is much to share'. We regret the error and the applause, which he took as encouragement."
+  }
+ ],
+ "obits": [
+  {
+   "id": "lp-ob-barrel-nearby",
+   "text": "{deadname}, {prof}, has {cause}. Friends note, with heavy hearts, that a full barrel stood within sight. In their honour, every mourner is asked to drink one mug at the memorial, and then walk to the nearest miner and hand them another.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-armor-stand-maker",
+   "text": "We mourn {deadname}, a {prof} who personally made more armor stands than anyone could count, because nobody ever told them to stop. They have {cause}. One of their stands will mark the grave. Several hundred others are available as wreaths.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-militia-reserve",
+   "text": "{deadname} has {cause}. A loyal {prof}, they signed up for the militia three times and were told each time that the squad was 'full', despite nine empty places. The captain will attend the funeral, off duty.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-mayor-violations",
+   "text": "{deadname}, {prof}, has {cause}. They received more production order violations than any dwarf in history, each for an item they had never heard of. The mayor's office has sent one last violation, for failing to attend work.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-safety-sceptic",
+   "text": "The fort mourns {deadname}, a {prof} who always refused to go to the Safety burrow on principle. They have {cause}, somewhere else entirely. Friends say they would have found this vindicating, if exhausting.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-tree-avoider",
+   "text": "{deadname} has {cause}. A careful {prof}, they never once climbed a tree, never stepped near the garbage pit and never trusted a burrow with a nice name. Fate, it seems, simply came by another corridor.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-rough-gem-keeper",
+   "text": "We remember {deadname}, {prof}, who kept a single rough gem in a sock 'in case the gods asked'. They have {cause}. The gem has been passed on to a friend, with instructions not to let the jeweler near it.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-smoother-queue",
+   "text": "{deadname}, {prof}, has {cause}, with 4,000 smoothing jobs still in their queue. Colleagues have agreed to finish them in tribute. At the current rate, the tribute will be complete in several generations.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-plant-gatherer",
+   "text": "{deadname} has {cause}. A tireless {prof}, they walked the whole map in the rain for a single berry more times than anyone can count. Every bush in the region is said to be in mourning, slightly drooping.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-liaison-listener",
+   "text": "{deadname}, {prof}, has {cause}. They were the only dwarf in living memory to let the liaison reach the end of 'There is much to share'. What came next, they never told anyone. The secret goes with them.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-throne-sitter",
+   "text": "The fort mourns {deadname}, a {prof} who sat on every spare throne in the storeroom, one per night, to 'find the good one'. They have {cause} before finishing. The good one remains unidentified.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-mood-legend",
+   "text": "{deadname} has {cause}. Once seized by a strange mood, this {prof} demanded rough gems in a fort that had cut every last one, and somehow found one in a goblin's pocket. That artifact is still the pride of the fort.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-hospital-patient",
+   "text": "{deadname}, {prof}, has {cause}. In life they visited every one of the fort's hospitals, looking for a doctor. They found soap, several chairs and a traction bench. They left glowing reviews for the soap.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-pit-warden",
+   "text": "We remember {deadname}, a {prof} who stood guard at the garbage pit for years, shouting at anyone who tried to climb in. They have {cause}. A new volunteer is wanted. The shouting voice need not be as loud, but it helps.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-windmill-friend",
+   "text": "{deadname} has {cause}. A gentle {prof}, they would sit by the windmills every evening and tell them about their day. The windmills creaked louder than usual this week. Some say it is grief. Others say oil.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-mist-ring-regular",
+   "text": "{deadname}, {prof}, has {cause}. They walked through the mist ring every morning for the happy thought, and every morning tried to drink it. They never once succeeded, and never once stopped trying. A hero of hope.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-past-fort-survivor",
+   "text": "{deadname} has {cause}. A {prof} who survived {past_fort}, they would tell anyone who listened how it {past_fort_fate}. They lived to see another fort, which they said was 'an improvement, but only just'.",
+   "when": [
+    "recent_death",
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ob-record-veteran",
+   "text": "{deadname}, {prof}, has {cause}. In youth they worked at {record_fort}, and helped produce {record}. They never spoke of it without a long sigh. The sigh will be carved on the slab, as requested.",
+   "when": [
+    "recent_death",
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-ob-enemy-veteran",
+   "text": "{deadname} has {cause}. A {prof} who always said they would one day face {enemy} in battle, they never did, because the militia never left the barracks. They practised their battle cry in the tavern for years.",
+   "when": [
+    "recent_death",
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-ob-monarch-letters",
+   "text": "We mourn {deadname}, a {prof} who wrote to {monarch} every season about the empty offices. They have {cause}. The final letter is still in the post. Friends hope it arrives. Friends do not expect a reply.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-civ-loyal",
+   "text": "{deadname}, {prof}, has {cause}. A proud citizen of {civ}, they sang the anthem every morning, loudly, in the corridor outside the dormitory. The corridor is quiet now. Several dwarves have admitted they miss it.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-liaison-friend",
+   "text": "{deadname} has {cause}. A kindly {prof}, they were the only dwarf {liaison} called a friend. The liaison has sent a card. It opens 'There is much to share', and then, for once, says nothing else at all.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-rewind-twice",
+   "text": "{deadname}, {prof}, has {cause}. They were the only dwarf who claimed to remember both versions of the week before the last Great Rewind. They said the first version was better. Nobody could prove otherwise.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-execution-tower-view",
+   "text": "The fort mourns {deadname}, a {prof} who went up the execution tower every evening to watch the sunset, because nobody else would. They have {cause}. The tower is renamed, unofficially, after them.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-catacomb-keeper",
+   "text": "{deadname} has {cause}. A devoted {prof}, they swept the catacombs every week and knew every name on every slab, along with how each one died. They will now be swept for, by an apprentice who is already nervous.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-cistern-swimmer",
+   "text": "{deadname}, {prof}, has {cause}. They swam in the cistern every evening and called it 'the only use of all that water'. Thirsty miners took issue with this, but all agreed they had excellent form.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-captain-buddy",
+   "text": "We remember {deadname}, a {prof} who sat beside the militia captain every evening so he would not be alone in the barracks. They have {cause}. The captain has moved his bench slightly, which is the most he has moved in years.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-smooth-coffin",
+   "text": "{deadname} has {cause}. A {prof} who prepared their own coffin years ago and smoothed it lovingly every week. It is the smoothest object in the fort. Mourners are asked not to check their reflection in it at the service.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-hauled-same-stone",
+   "text": "{deadname}, {prof}, has {cause}. They spent an entire season hauling one stone from one end of the fort to the other and back. The stone will be placed on their grave. It knows the way.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-child-mood-mentor",
+   "text": "{deadname} has {cause}. A patient {prof}, they helped a child in a strange mood find plant cloth when the fort had none, by unpicking their own sleeve. The resulting artifact bears a small, sleeve-shaped tribute.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-brewer-hero",
+   "text": "The fort mourns {deadname}, a {prof} who brewed through every shortage and kept the barrels full when the Overseer wanted walls smoothed. They have {cause}. Every mug raised this week is, by definition, theirs.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-refugee",
+   "text": "{deadname} has {cause}. A {prof} who came to {fort} with a refugee band after the goblins burned their town, they said the fort felt like home within a week. The fort felt the same about them. Their bed is kept made.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-sheriff-badge",
+   "text": "{deadname}, {prof}, has {cause}. With no sheriff appointed, they wore a homemade badge for years and kept order with nothing but a stern look. Crime did not fall, but it did feel watched. The badge will be buried with them.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-thirst-campaigner",
+   "text": "We remember {deadname}, {prof}, who campaigned tirelessly for a barrel at the end of every tunnel. They have {cause}. Their campaign continues. A barrel has been placed by their grave, and dwarves stop to drink there.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-ghost-talker",
+   "text": "{deadname} has {cause}. A {prof} who claimed to talk nightly with the ghosts of older forts, they are now, presumably, part of the conversation. Friends who sleep near the catacombs report the chatter has grown livelier.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-violation-framer",
+   "text": "{deadname}, {prof}, has {cause}. They framed every violation the mayor's office ever sent them and filled two walls. Their room will be preserved as a museum of paperwork. Admission is free, but a violation will be filed.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-famine-founder",
+   "text": "{deadname} has {cause}. One of the founders who arrived with too few plants and no drink, this {prof} survived famine, day 32, and every day after it. They always kept a plant in their pocket. It has been planted for them.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-gem-counter",
+   "text": "The fort mourns {deadname}, a {prof} who counted every gem the fort ever owned, rough and cut. They have {cause}. The final tally is in their notebook. The last line reads: 'Rough: none. Why.'",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-dog-trainer",
+   "text": "{deadname}, {prof}, has {cause}. They trained the dogs to march in formation and always said the dogs were the fort's real army. The dogs have stood at the gate all week. They are, notably, on duty.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-silk-hope",
+   "text": "{deadname} has {cause}. An optimistic {prof}, they once counted seven silk scraps and declared the fort 'rich in cloth'. They will be wrapped, as they wished, in all seven. It will not cover much, but it is the thought.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-overseer-defender",
+   "text": "We remember {deadname}, a {prof} who was the only dwarf in the fort to defend the Overseer's decisions out loud. They have {cause}. The Overseer has, in a gesture of grief, queued one hundred memorial statues.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-champion-claim",
+   "text": "{deadname}, {prof}, has {cause}. They claimed the champion's title after winning an arm-wrestle and nobody ever argued. The office stays vacant on paper, but in the tavern, the chair is theirs forever.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-loom-builder",
+   "text": "{deadname} has {cause}. A thoughtful {prof}, they built a loom room early, before anyone could be seized by a mood without one. Every weaver in {fort} owes them, and every weaver has promised to remember.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-deep-stairs",
+   "text": "{deadname}, {prof}, has {cause}. They warned for years that the stairs down to the deep were far too easy to climb. They were right. The stairs have been made awkward in their memory, and the door strongly worded.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-record-season",
+   "text": "{deadname} has {cause} this {season}. A {prof} who never made more than ten of anything, they believed restraint was a craft. In a fort of runaway orders, theirs was the steadiest hand. Ten mourners, exactly, will attend.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-stone-hauler",
+   "text": "{deadname}, {prof}, has {cause}. They hauled more loose stone than anyone in the fort's history, much of it twice. A slab of their favourite stone will mark the grave. The rest stays loose, as they would have wanted.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-artifact-guard",
+   "text": "We remember {deadname}, a {prof} who slept beside {artifact} every night, in case the goblins came for this one too. They have {cause}. The artifact has been moved closer to the tavern, where others can watch it.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-pit-thrower",
+   "text": "{deadname} has {cause}. A {prof} who threw refuse into the pit for years, they always shouted 'BELL!' before every throw, as there was no bell. The shout lives on. Several haulers owe their lives to it.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-diplomat-fan",
+   "text": "{deadname}, {prof}, has {cause}. A diplomat once complimented their beard, and they celebrated the date every year afterwards with a small party. This year's party goes ahead as planned. The beard will be honoured.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-tree-cutter",
+   "text": "The fort mourns {deadname}, a {prof} who cut down more trees than any dwarf in memory and never once climbed one. They have {cause}, firmly on the ground, which they always said was the correct place for a dwarf.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lp-ob-enchanted-quakefocus",
+   "text": "{deadname}, {prof}, has {cause}. A survivor of Quakefocus, they made 211 of the 1,981 armor stands and spent the rest of their life refusing to make a 212th. A plain wooden marker, not a stand, marks the grave.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-enchanted-searabbeys",
+   "text": "{deadname} has {cause}. A {prof} who remembered the Meat Watch at Searabbeys, they never once left a meal unfinished. They always said Bomrek Enshalcatten would have wanted them to drink up, and they did.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-enchanted-crazed-hex",
+   "text": "{deadname}, {prof}, has {cause}. They came to us after The Crazed Hex burned Ironcrowds, carrying only a bucket. The bucket was their proudest possession. It has been filled with ale and set beside the slab.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-enchanted-iden",
+   "text": "We mourn {deadname}, a {prof} who could recite Iden Loloklolor's speech word for word, including the cough. They have {cause}. The liaison himself sent a note. It recommended an import agreement, gently.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-enchanted-claimant",
+   "text": "{deadname} has {cause}. A {prof} who was claimant number 49 to The Amusing Duties at Fieryaged, they never got the greaves. Their claim passes to their heirs, who now have the same chance as the other 48.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-enchanted-hamlet",
+   "text": "{deadname}, {prof}, has {cause}. Old enough to have seen The Nuanced Hamlet before Searabbeys fell to The Torments of Hating, they described it often, and never the same way twice. That, they said, was the nuance.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-enchanted-claspedserpent",
+   "text": "{deadname} has {cause}. A {prof} who once held Claspedserpent at Quakefocus, they always said the silver mace was 'heavier than it looks and lighter than its reputation'. Their own reputation was the reverse.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-enchanted-oddom",
+   "text": "{deadname}, {prof}, has {cause}. They once glimpsed Oddom Oltartilesh at a distance and spoke of it for the rest of their life. The monarch has been informed of their passing. A reply is expected eventually, or not.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-enchanted-sentinel",
+   "text": "We remember {deadname}, a {prof} who delivered the Quakefocus Sentinel every morning through famine and armor stands alike. They have {cause}. Their route is now walked by a Herald runner, who is slower.",
+   "when": [
+    "recent_death"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-ob-ten-only",
+   "text": "{deadname}, {prof}, has {cause}. Asked once to make a thousand of something, they made ten, set down their tools and said 'that is plenty'. The Overseer never forgave them. The fort never forgot them. Ten candles will burn.",
+   "when": [
+    "recent_death"
+   ]
+  }
+ ],
+ "announcements": [
+  {
+   "id": "lp-an-born-barrel",
+   "kind": "Births",
+   "text": "A healthy baby boy was born this week beside a full barrel. The family insists this was deliberate. 'He will never go thirsty,' said his mother. 'We started him where the drink is.' The miners have sent congratulations and envy."
+  },
+  {
+   "id": "lp-an-born-armor-stand",
+   "kind": "Births",
+   "text": "A baby girl arrived this week in the storeroom, between two armor stands, there being nowhere else in that room to stand. She has been given one as a crib. There are, we are told, several hundred more if she outgrows it."
+  },
+  {
+   "id": "lp-an-born-mist",
+   "kind": "Births",
+   "text": "Twins were born near the mist ring this week. The family reports both babies were calm, damp and smiling. The midwife credits the mist. The father credits the midwife. The mist has not commented."
+  },
+  {
+   "id": "lp-an-born-off-duty",
+   "kind": "Births",
+   "text": "The fort welcomes a baby boy who, the midwife says, slept through his own birth. Older dwarves have already declared him a natural for the militia. The captain has sent a small bench."
+  },
+  {
+   "id": "lp-an-born-rewind",
+   "kind": "Births",
+   "text": "A baby girl was born just before a Great Rewind, and then, the family swears, born again just after it. She is the only dwarf in the fort with two birthdays. She intends to celebrate both, loudly."
+  },
+  {
+   "id": "lp-an-born-past-fort",
+   "kind": "Births",
+   "text": "A baby boy was born this week to a family that came from {past_fort}. He has been named after a great-grandparent who lived there {past_fort_years}. The family hopes he gets a longer stay in this fort.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-an-born-civ",
+   "kind": "Births",
+   "text": "A healthy baby girl was born this week, the newest citizen of {civ}. She has a strong grip, a loud cry and, the midwife reports, an unsettling interest in work orders. The bookkeeper has been informed."
+  },
+  {
+   "id": "lp-an-born-gem",
+   "kind": "Births",
+   "text": "A baby boy was born this week, clutching, impossibly, a small rough gem. Nobody knows where it came from. The family has hidden it 'for the next mood'. The jeweler has been kept firmly away from the nursery."
+  },
+  {
+   "id": "lp-an-born-tavern-safe",
+   "kind": "Births",
+   "text": "A girl arrived this week in the tavern, as her mother refused to go to the Safety burrow 'on principle'. Mother and child are well. The tavern keeper has offered free milk for life, or until the milk runs out."
+  },
+  {
+   "id": "lp-an-born-windmill",
+   "kind": "Births",
+   "text": "A baby boy was born during a windstorm while the windmills creaked overhead. His first sound, the family insists, was a creak. He is being considered for an engineering apprenticeship at the earliest legal age."
+  },
+  {
+   "id": "lp-an-wed-pit-guard",
+   "kind": "Marriages",
+   "text": "Two dwarves who met while warning others away from the garbage pit were married this week. The service was held at a safe distance from the pit. The vows included 'I will never throw while you are below'."
+  },
+  {
+   "id": "lp-an-wed-smoothers",
+   "kind": "Marriages",
+   "text": "Two smoothers were married this week after finishing, between them, a single corridor. They have promised to finish their remaining queues together. Guests did the maths and wished them a very, very long life."
+  },
+  {
+   "id": "lp-an-wed-thrones",
+   "kind": "Marriages",
+   "text": "A wedding was held in the old storeroom this week, among the surplus thrones. Every guest had a throne. The couple had two. The mayor's office filed a violation for 'excessive majesty', framed and hung above the cake."
+  },
+  {
+   "id": "lp-an-wed-mist",
+   "kind": "Marriages",
+   "text": "A couple were married inside the mist ring this week. The ceremony was beautiful, the guests were happy and everyone was soaked. The bride reports her veil 'held up better than expected'. The cake did not."
+  },
+  {
+   "id": "lp-an-wed-tower",
+   "kind": "Marriages",
+   "text": "Two dwarves were married at the top of the execution tower, which the bride insists on calling the Observation Deck. The view was lovely. The guests were nervous. Nobody was executed, which the groom called a good omen."
+  },
+  {
+   "id": "lp-an-wed-liaison",
+   "kind": "Marriages",
+   "text": "Two citizens were married this week in a ceremony attended by the liaison, who was passing through. He opened his toast with 'There is much to share' and recommended an import agreement. The couple accepted."
+  },
+  {
+   "id": "lp-an-wed-citizens",
+   "kind": "Marriages",
+   "text": "{citizen} and {citizen2} were married this week. Both are said to have proposed at once, beside the same barrel, while thirsty. Guests agreed it was the most practical wedding in the fort's history."
+  },
+  {
+   "id": "lp-an-wed-past-fort",
+   "kind": "Marriages",
+   "text": "Two dwarves whose families both lived in {past_fort} were married this week. Their grandparents never met there. The couple say they intend to make up for lost time, and to keep a barrel by the bed.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-an-wed-captain-guest",
+   "kind": "Marriages",
+   "text": "A wedding this week was attended by the full militia: the captain, seated. He was off duty, but the couple said it meant a great deal. The nine empty militia places were given chairs at the back, out of respect."
+  },
+  {
+   "id": "lp-an-wed-catacomb",
+   "kind": "Marriages",
+   "text": "Two dwarves who met in the catacombs while mourning were married this week. They have asked us to stress that they did not hold the wedding in the catacombs. They held the reception there, which they say is different."
+  },
+  {
+   "id": "lp-an-promo-mayor",
+   "kind": "Promotions",
+   "text": "{promoted} has become {post}, filling one of the fort's long-empty offices. The chair was dusted for the first time in years. The outbox contained eleven years of violations. {promoted} has closed the outbox.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "lp-an-promo-reluctant",
+   "kind": "Promotions",
+   "text": "Congratulations to {promoted}, now {post}. Friends report {promoted} accepted the post, read the job description, looked at the execution tower and asked to accept it slightly less. The request is under review.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "lp-an-promo-militia",
+   "kind": "Promotions",
+   "text": "The militia has a second member. A hauler, asked if they wished to enlist, said 'I suppose'. This has been taken as a yes. The captain has shifted along the bench. Strength has doubled overnight."
+  },
+  {
+   "id": "lp-an-promo-bookkeeper",
+   "kind": "Promotions",
+   "text": "The bookkeeper has been promoted to 'Senior Bookkeeper' in recognition of years spent counting things nobody needed. Among the bookkeeper's achievements: an exact count of every armor stand. The ceremony was brief."
+  },
+  {
+   "id": "lp-an-promo-pit-warden",
+   "kind": "Promotions",
+   "text": "The fort has appointed its first official Garbage Pit Warden. The duties are to stand near the pit and shout at anyone climbing in. The post comes with a badge, a stool and the fort's quiet gratitude."
+  },
+  {
+   "id": "lp-an-promo-barrel-officer",
+   "kind": "Promotions",
+   "text": "A new post, Barrel Officer, has been created to ensure that every mine shaft has a barrel within reach. The first holder has already placed four. Miners have described it as 'the best thing to happen in years'."
+  },
+  {
+   "id": "lp-an-promo-gem-keeper",
+   "kind": "Promotions",
+   "text": "The fort has named its first Keeper of the Rough Gem, charged with guarding a single uncut gem against the jeweler until a strange mood demands it. The Keeper sleeps with it under the pillow. The jeweler is furious."
+  },
+  {
+   "id": "lp-an-promo-masterwork",
+   "kind": "Promotions",
+   "text": "{masterwright} has been named Master Craftsdwarf after completing the masterwork {masterwork}. In their speech, they promised to make 'one of something, very well', and never two thousand of anything. Applause.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "lp-an-promo-champion-cat",
+   "kind": "Promotions",
+   "text": "With the champion's office still vacant, the fort's cats have appointed one of their own to the post, unofficially. The new champion has defeated three rats and a sock. Nobody has dared to challenge the decision."
+  },
+  {
+   "id": "lp-an-promo-sheriff-badge",
+   "kind": "Promotions",
+   "text": "The dwarf who has worn a homemade sheriff's badge for years has finally been made sheriff, on the grounds that everyone thought they already were. The badge has been replaced with a real one. It is, if anything, less shiny."
+  },
+  {
+   "id": "lp-an-arr-migrants-warned",
+   "kind": "Arrivals",
+   "text": "A new wave of migrants arrived this week and were met at the gate with a warm welcome, a mug each and a short talk titled 'Trees, Pits and Burrows: What Not To Do'. Most of them listened. One climbed a tree.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "lp-an-arr-refugees",
+   "kind": "Arrivals",
+   "text": "A band of refugees from a goblin-burned town arrived this week with carts and stories. The fort has found them beds, jobs and, in one case, an armor stand. They are said to be settling in, and asking about the mayor."
+  },
+  {
+   "id": "lp-an-arr-pop",
+   "kind": "Arrivals",
+   "text": "With the latest arrivals, {fort} now counts {pop} citizens, more than enough to fill every office twice. The empty offices have been notified. They remain empty. The new arrivals have been warned about the chairs.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "lp-an-arr-liaison",
+   "kind": "Arrivals",
+   "text": "{liaison}, the outpost liaison, arrived at the depot this week. He opened with 'There is much to share'. Our reporter left before the second sentence. Those who stayed say it was about import agreements.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lp-an-arr-caravan-thrones",
+   "kind": "Arrivals",
+   "text": "A caravan arrived this week and offered to buy our surplus thrones. The merchants left with four, having been unable to fit any more in the wagon. The storeroom looks, in the bookkeeper's words, 'unchanged'.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lp-an-arr-ghost",
+   "kind": "Arrivals",
+   "text": "A ghost has arrived in the fort, claiming to be from {past_fort}. It says it walked all the way after that fort {past_fort_fate}. It asks for a bedroom with a view and a barrel. Both have been provided, out of courtesy.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-an-arr-diplomat",
+   "kind": "Arrivals",
+   "text": "A diplomat of {civ} arrived this week and was given a tour of the fort, including the mist ring, the windmills and the catacombs. The garbage pit was left off the tour. The diplomat asked about it anyway."
+  },
+  {
+   "id": "lp-an-arr-veteran",
+   "kind": "Arrivals",
+   "text": "A veteran of {record_fort} has moved to {fort}. Asked about {record}, they said only 'I was there' and walked away. They have requested a bedroom with no furniture in it whatsoever, and that request has been honoured.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-an-arr-enemy-deserter",
+   "kind": "Arrivals",
+   "text": "A deserter from {enemy} has arrived at the gate asking for shelter. Asked why they left, they said the war was 'too organised'. They have been shown our militia, and say they feel at home already.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-an-arr-dogs",
+   "kind": "Arrivals",
+   "text": "A litter of puppies has arrived in the kennels. The dogs now outnumber the militia by a wide margin. The kennelmaster says the puppies are already more disciplined than the squad, and much more often on duty."
+  },
+  {
+   "id": "lp-an-anniv-past-fort",
+   "kind": "Anniversaries",
+   "text": "This week marks the anniversary of the day {past_fort} {past_fort_fate}. A moment of silence will be held in the dining hall. Afterwards, everyone is asked to walk to the nearest barrel and drink, in memory.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-an-anniv-record",
+   "kind": "Anniversaries",
+   "text": "Today marks the anniversary of {record} at {record_fort}. The bookkeeper will give a short talk. It is not short. Attendance is voluntary. Several dwarves have asked whether it can be voluntary in the other direction.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-an-anniv-safety",
+   "kind": "Anniversaries",
+   "text": "The fort marks the anniversary of the day it stopped trusting burrows named Safety. A plaque has been placed at the top of the deep stairs. It reads: 'Burrow (Downstairs)'. It is the most honest sign in the fort."
+  },
+  {
+   "id": "lp-an-anniv-captain",
+   "kind": "Anniversaries",
+   "text": "The militia captain marks ten years in the post this week, all of them off duty. A small ceremony was held in the barracks. The captain attended, seated. He was given a new cushion and a medal for consistency."
+  },
+  {
+   "id": "lp-an-anniv-office",
+   "kind": "Anniversaries",
+   "text": "The mayor's office celebrates five years without a mayor. The anniversary was marked by the filing of a commemorative production order violation, which was, by all accounts, the office's finest work to date."
+  },
+  {
+   "id": "lp-an-anniv-mist",
+   "kind": "Anniversaries",
+   "text": "The mist ring celebrates one year of pumping water into the air for no reason other than joy. Dwarves are invited to walk through it in celebration. Please do not try to drink it. It still does not work."
+  },
+  {
+   "id": "lp-an-anniv-rewind",
+   "kind": "Anniversaries",
+   "text": "The fort marks the anniversary of the first Great Rewind. Several dwarves report having celebrated it twice already. The priests have asked everyone to celebrate only once, to avoid confusing the gods."
+  },
+  {
+   "id": "lp-an-anniv-famine",
+   "kind": "Anniversaries",
+   "text": "Today the founders mark the anniversary of famine, day 32. Each will eat a single plant, shared, in remembrance. Then they will eat a very large dinner, also in remembrance, but of a happier kind."
+  },
+  {
+   "id": "lp-an-anniv-monarch",
+   "kind": "Anniversaries",
+   "text": "The fort celebrates another year of the reign of {monarch}, who has never visited, written or been seen. A toast will be raised in the dining hall. A letter about the empty offices will be sent. Tradition."
+  },
+  {
+   "id": "lp-an-anniv-war",
+   "kind": "Anniversaries",
+   "text": "This week marks another year of war with {enemy}. Neither side has done much. A small ceremony was held at the gate. The captain attended, off duty. {enemy} were not seen, which some consider a victory.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-an-eng-barrel",
+   "kind": "Engagements",
+   "text": "{citizen} and {citizen2} have announced their engagement. The proposal took place at the end of a mining tunnel, where {citizen} had left a full barrel as a surprise. It is said to be the most romantic thing a miner has ever seen."
+  },
+  {
+   "id": "lp-an-eng-militia",
+   "kind": "Engagements",
+   "text": "The militia captain has announced his engagement. The bride-to-be says he proposed without standing up, which she found charming. The wedding will be held in the barracks. Guests are asked to bring their own bench."
+  },
+  {
+   "id": "lp-an-eng-smoothers",
+   "kind": "Engagements",
+   "text": "Two smoothers have announced their engagement, and say they will marry once their queues are cleared. The bookkeeper has calculated the date. He has refused to tell them, out of kindness, and has bought a gift anyway."
+  },
+  {
+   "id": "lp-an-eng-mist",
+   "kind": "Engagements",
+   "text": "A couple announced their engagement this week after their hundredth walk through the mist ring together. Friends say they will hold the ceremony there, and are already looking into waterproof cakes."
+  },
+  {
+   "id": "lp-an-eng-tree-free",
+   "kind": "Engagements",
+   "text": "Two dwarves have announced their engagement and promise that the wedding will be held well away from trees, pits and burrows with comforting names. The guest list is long. The venue list is very short."
+  },
+  {
+   "id": "lp-an-eng-past-fort",
+   "kind": "Engagements",
+   "text": "A couple whose grandparents both fled {past_fort} have announced their engagement. They met at a memorial for that fort and bonded over a shared hatred of loose stones. The wedding will be held in a tidy room.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-an-eng-pit-throw",
+   "kind": "Engagements",
+   "text": "A refuse hauler and a refuse thrower have announced their engagement. They say they met at the pit, one at the top and one at the bottom, and agreed it was time to stop meeting like that. The fort agrees."
+  },
+  {
+   "id": "lp-an-eng-liaison-witness",
+   "kind": "Engagements",
+   "text": "A couple got engaged in the depot while the liaison was speaking, as it was the only way to make him pause. He paused, congratulated them, and then started again from 'There is much to share'."
+  },
+  {
+   "id": "lp-an-eng-moodname",
+   "kind": "Engagements",
+   "text": "{moodname}, recently seized by a strange mood, has announced an engagement. Their intended says they proposed in the workshop with the artifact still warm. It is unclear whether the proposal was to them or the artifact.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lp-an-eng-sheriff",
+   "kind": "Engagements",
+   "text": "The dwarf in the homemade sheriff's badge has become engaged. The proposal was made by arrest. The 'charge' was 'stealing my heart'. The fort groaned, then applauded. The bucket that was arrested last year attended."
+  }
+ ],
+ "voxpops": [
+  {
+   "id": "lp-vp-barrel-distance",
+   "q": "How far is your nearest barrel?",
+   "answers": [
+    "Forty tiles. Two staircases. A smoothing crew. Every day.",
+    "I carry one. It's a small barrel. It's on my back right now.",
+    "I'm a miner. I don't know what a barrel looks like any more.",
+    "Right here. I sleep in the drink stockpile. Nobody has noticed.",
+    "Near enough to see, too far to reach. The classic.",
+    "I'm the brewer. I am the barrel, in a sense."
+   ]
+  },
+  {
+   "id": "lp-vp-armor-stands",
+   "q": "What would you do with two thousand armor stands?",
+   "answers": [
+    "Hang one sock on each. That's a lot of socks to find.",
+    "Build a wall. A very sad wall.",
+    "Sell them to the elves. Ha. No.",
+    "Nothing. I'd look at them and think about the choices that led me here.",
+    "Arm them. They'd still be a bigger army than ours.",
+    "I'm a carpenter. Please don't. I'll have nightmares."
+   ]
+  },
+  {
+   "id": "lp-vp-militia",
+   "q": "Would you join the militia?",
+   "answers": [
+    "Is it on duty? No? Then yes, I'd love to.",
+    "I'd double the army. That's a lot of pressure.",
+    "I went to sign up and the captain was asleep.",
+    "I'm a child. They said come back when I'm taller than the bench.",
+    "Only if there's a bench. I hear there's a bench.",
+    "My dog joined. He's doing very well. He has a rank."
+   ]
+  },
+  {
+   "id": "lp-vp-mayor",
+   "q": "Would you be mayor?",
+   "answers": [
+    "And read all those violations? No thank you.",
+    "I'd be mayor for one day and abolish violations. Then resign.",
+    "Yes. Nobody's asked. That's why I'm saying it loudly.",
+    "I sat in the chair once. It's very comfortable. I left before it trapped me.",
+    "Not until somebody tidies the outbox. It's full of my name.",
+    "I'm a cat person. I'd appoint a cat. Is that allowed?"
+   ]
+  },
+  {
+   "id": "lp-vp-safety-burrow",
+   "q": "Where do you go when the alarm rings?",
+   "answers": [
+    "Not the Safety burrow. I'm not stupid.",
+    "The tavern. If I'm going, I'm going with a mug.",
+    "I keep working. The stone won't haul itself.",
+    "Under my bed. It's worked so far.",
+    "Up a tree? No. Absolutely not. Never mind.",
+    "Wherever the captain is. Then I wake him."
+   ]
+  },
+  {
+   "id": "lp-vp-overseer",
+   "q": "What would you say to the Overseer?",
+   "answers": [
+    "Please put a barrel near the mines. That's all. Just one.",
+    "Thank you for my room. Please finish the other 4,000.",
+    "Stop. Just stop. Let us finish one thing.",
+    "I'd say 'smooth' and see what happens.",
+    "I like the mist ring. Do more of that, less of the thrones.",
+    "Nothing. It might give me a work order."
+   ]
+  },
+  {
+   "id": "lp-vp-trees",
+   "q": "Have you ever climbed a tree?",
+   "answers": [
+    "Once. I came straight down and never told anyone. Until now.",
+    "I'm a miner. I know better. Mostly because of the history pages.",
+    "The elves did, they made it look easy. It's not easy.",
+    "I'm a woodcutter. I prefer them horizontal.",
+    "No. I've seen what's up there. Branches. And regret.",
+    "My cousin did. We don't talk about my cousin."
+   ]
+  },
+  {
+   "id": "lp-vp-garbage-pit",
+   "q": "What's in the garbage pit?",
+   "answers": [
+    "Refuse. And please, leave it there.",
+    "I don't know and I'm not going in to find out.",
+    "Several ex-haulers' good intentions.",
+    "My old boots. I'm not getting them back. I've accepted it.",
+    "Things that should stay in a pit. Like the pit.",
+    "I'm the Pit Warden. Nothing goes in while you're in it. My rule."
+   ]
+  },
+  {
+   "id": "lp-vp-mood-item",
+   "q": "If you had a strange mood, what would you ask for?",
+   "answers": [
+    "A rock. Something we definitely have. I've read the news.",
+    "Rough gems. Just to watch the jeweler cry.",
+    "Plant cloth. Then I'd die. So, a rock.",
+    "A barrel. Then I'd drink it. Problem solved.",
+    "Whatever we just ran out of. That's how it works.",
+    "I'm a child. Crayons. I'd ask for crayons."
+   ]
+  },
+  {
+   "id": "lp-vp-past-fort",
+   "q": "Do you remember {past_fort}?",
+   "answers": [
+    "I was born there. It {past_fort_fate}. I don't like to talk about it.",
+    "{past_fort_years}. That's how long it lasted. Felt longer.",
+    "My gran left her mug there. Second shelf. Still bitter.",
+    "Only the stories. They all end with 'and then'.",
+    "I remember the loose stones. My feet remember them more.",
+    "Yes. The ghosts write to me sometimes. Mostly complaints."
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-vp-record",
+   "q": "What do you think of {record}?",
+   "answers": [
+    "I think {record_fort} should have checked the order.",
+    "Impressive, in a way. Mostly in a bad way.",
+    "My uncle made a lot of them. He has a twitch now.",
+    "If I made that many of anything, I'd want a medal. Or a nap.",
+    "History will remember it. History should probably move on.",
+    "I'd like one. Just one. As a souvenir. Is that wrong?"
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lp-vp-liaison",
+   "q": "What did the liaison say to you?",
+   "answers": [
+    "There is much to share. Then I left.",
+    "He recommended an import agreement for my lunch.",
+    "He asked about rings at 210 percent. I said I make socks.",
+    "Nothing. I hid behind a throne. We have a lot of thrones.",
+    "He shook my hand for so long I got a callus.",
+    "He said 'There is much'. I interrupted him. I regret nothing."
+   ]
+  },
+  {
+   "id": "lp-vp-enemy",
+   "q": "Are you afraid of {enemy}?",
+   "answers": [
+    "Not really. They're far away and we're far more disorganised.",
+    "The captain says not to worry. From the bench.",
+    "A little. I've packed a bag. It's mostly mugs.",
+    "No. I'm more afraid of the stairs to the deep.",
+    "I've never seen one. I assume they're tall and rude.",
+    "I'm a child. I'm afraid of carrots. I'll add them to the list."
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lp-vp-empty-offices",
+   "q": "Why will nobody fill the empty offices?",
+   "answers": [
+    "The paperwork. Have you seen the paperwork?",
+    "Hammerer comes with a tower. That's not a perk.",
+    "I tried to be champion. Nobody came to fight. I went home.",
+    "Chief medical dwarf? I faint at blood. I faint at soap.",
+    "Because then you have to do the job. Next question.",
+    "I'm holding out for 'Keeper of the Mist Ring'."
+   ]
+  },
+  {
+   "id": "lp-vp-rewinds",
+   "q": "Did you notice the last Great Rewind?",
+   "answers": [
+    "I had breakfast twice. Best day of my life.",
+    "I lost an afternoon of smoothing. Four tiles. Gone.",
+    "No. Did it happen? Has it happened yet?",
+    "I won an argument, then the world rewound, then I lost it.",
+    "The gods blinked. I blinked back. Fair's fair.",
+    "I'm still not sure which version of me this is."
+   ]
+  },
+  {
+   "id": "lp-vp-mist-ring",
+   "q": "Have you been through the mist ring?",
+   "answers": [
+    "Every morning. Happy, damp, thirsty. Same as ever.",
+    "I tried to drink it. Don't tell anyone.",
+    "My beard has never been shinier. I'm a convert.",
+    "I prefer my water in a mug, ideally with ale in it.",
+    "It's lovely until you remember you're thirsty.",
+    "I proposed there. She said yes. Then she sneezed."
+   ]
+  },
+  {
+   "id": "lp-vp-windmills",
+   "q": "What do you think of the windmills?",
+   "answers": [
+    "Noisy. Lovely. Noisy.",
+    "I charged one. I'd rather not discuss the outcome.",
+    "They do more work than half the fort.",
+    "I like to think they're waving at me.",
+    "Giants, obviously. Nobody believes me.",
+    "I oil them. They don't thank me. Typical windmills."
+   ]
+  },
+  {
+   "id": "lp-vp-execution-tower",
+   "q": "Have you been up the execution tower?",
+   "answers": [
+    "For the view. Only for the view.",
+    "I call it the Observation Deck. So does my mother.",
+    "No. I don't trust towers with that name.",
+    "Yes, for a picnic. Highly recommended. Bring a blanket.",
+    "The hammerer job comes with it. That's why it's empty.",
+    "I wave from the top. Nobody waves back. Fair enough."
+   ]
+  },
+  {
+   "id": "lp-vp-catacombs",
+   "q": "Do you visit the catacombs?",
+   "answers": [
+    "To pay respects. And to count. It's a lot.",
+    "My uncle's there. Died beside a barrel. Classic.",
+    "The tour is excellent. The guide is very dramatic.",
+    "I go to think. It's the only quiet place in the fort.",
+    "No. They're getting crowded. I'll wait my turn.",
+    "I'm the sweeper. I know everyone there by name."
+   ]
+  },
+  {
+   "id": "lp-vp-hospital",
+   "q": "Have you ever been treated at the hospital?",
+   "answers": [
+    "I went to all four. Found chairs, soap and a traction bench.",
+    "I treated myself. My arm points mostly the right way now.",
+    "There's no doctor. There's a hauler who looks concerned.",
+    "Yes. By a cat. It sat on me until I felt better.",
+    "The soap is excellent. Best soap in the fort.",
+    "No. I just stay healthy, out of spite."
+   ]
+  },
+  {
+   "id": "lp-vp-smoothing",
+   "q": "How long is your smoothing queue?",
+   "answers": [
+    "Longer than my life. I've made my peace.",
+    "Sixteen thousand. Ish.",
+    "I finished one wall. I cried. It's beautiful.",
+    "I'm not a smoother. They gave me one anyway.",
+    "I don't count any more. It's healthier.",
+    "My grandchildren will finish it. I've told them."
+   ]
+  },
+  {
+   "id": "lp-vp-plant-gathering",
+   "q": "Where were you sent to gather plants?",
+   "answers": [
+    "The far edge of the map. In the rain.",
+    "Everywhere. All of it. Every bush.",
+    "Across the river and back for one berry. Someone else ate it.",
+    "The surface. In winter. I brought back snow.",
+    "Behind my bed. I grow one in secret. Don't tell.",
+    "I wasn't. I hid in the tavern. Best season ever."
+   ]
+  },
+  {
+   "id": "lp-vp-rough-gems",
+   "q": "Should the jeweler leave some gems rough?",
+   "answers": [
+    "Yes. One. In a drawer. For the gods.",
+    "Absolutely. I nearly died of a mood last year.",
+    "No. Cut gems are prettier. Moods should ask for those.",
+    "I'm the jeweler. I'm only following orders. Sorry.",
+    "I've hidden one in my sock. You didn't hear it from me.",
+    "The gods should learn to like cut gems. Times change."
+   ]
+  },
+  {
+   "id": "lp-vp-thirst",
+   "q": "When did you last have a drink?",
+   "answers": [
+    "Just now. I read the obituaries. I'm cautious.",
+    "Yesterday? I've been busy. The Overseer gave me a list.",
+    "I'm a miner. Define 'last'.",
+    "I carry two waterskins and a mug. Every hour.",
+    "I'm in the tavern. I'm always having a drink.",
+    "I'm the bookkeeper. I'll check the ledger."
+   ]
+  },
+  {
+   "id": "lp-vp-thrones",
+   "q": "Have you ever sat on a throne?",
+   "answers": [
+    "The spare ones in the storeroom. Very comfy. Regal, even.",
+    "I'm a child. I sit on one daily. Nobody stops me.",
+    "No. I was told I'd get a violation.",
+    "I sat on all of them, one a night. Still looking for the good one.",
+    "They're for nobles. We don't have any. So, yes.",
+    "I made forty. I've never sat on one. Irony."
+   ]
+  },
+  {
+   "id": "lp-vp-captain",
+   "q": "What would you say to the militia captain?",
+   "answers": [
+    "Stand up! Just once! For me!",
+    "Thank you for your service. And your bench.",
+    "Can I have your job? It looks restful.",
+    "Nothing. I didn't want to wake him.",
+    "He's a good dwarf. He's just very, very off duty.",
+    "I brought him a mug. He accepted it. Our finest hour."
+   ]
+  },
+  {
+   "id": "lp-vp-refugees",
+   "q": "Should the fort take in more refugees?",
+   "answers": [
+    "Yes. More dwarves, more militia. Maybe.",
+    "We've got beds. Plenty of armor stands too.",
+    "As long as they bring drink. Just in case.",
+    "I was a refugee. Yes. Absolutely yes.",
+    "Fine, but not in my corridor. It's full of stones.",
+    "Let them in. Maybe one of them will be mayor."
+   ]
+  },
+  {
+   "id": "lp-vp-monarch",
+   "q": "What do you think of {monarch}?",
+   "answers": [
+    "Never met them. They seem far away.",
+    "I wrote to them about the offices. Still waiting.",
+    "Very regal, I'm told. I've seen a statue.",
+    "I'd like a visit. We have thrones. Many thrones.",
+    "Long may they reign. Over there. Quietly.",
+    "I'm a child. Is the monarch a cat?"
+   ]
+  },
+  {
+   "id": "lp-vp-civ",
+   "q": "What makes you proud to be part of {civ}?",
+   "answers": [
+    "Beards. Mostly the beards.",
+    "We never give up. On anything. Even when we should.",
+    "Our craftsmanship. Two thousand of something, perfectly.",
+    "Our ale. Our forts. Our history pages, less so.",
+    "The anthem. I sing it every morning. Loudly.",
+    "That we keep trying, fort after fort."
+   ]
+  },
+  {
+   "id": "lp-vp-ghosts",
+   "q": "Do you believe in ghosts?",
+   "answers": [
+    "I've met three. One cheats at cards.",
+    "My uncle's ghost asked me for a drink. I gave him one.",
+    "No. But I sleep with a lamp, in case.",
+    "They're just citizens who missed the barrel.",
+    "The ones from old forts are the chattiest.",
+    "I'm the catacomb sweeper. I believe in all of them."
+   ]
+  },
+  {
+   "id": "lp-vp-cistern",
+   "q": "Have you seen the cistern?",
+   "answers": [
+    "It's full. Very full. My throat is not.",
+    "I fell in. Learned to swim. Got assigned to gather plants.",
+    "It's beautiful. Like a lake that never leaves.",
+    "It's for emergencies. Like thirst, which is always.",
+    "I swim in it at night. Don't tell the miners.",
+    "Is that the big wet room? Yes. I've walked past it."
+   ]
+  },
+  {
+   "id": "lp-vp-season",
+   "q": "How has your {season} been?",
+   "answers": [
+    "Busy. I hauled one stone the whole time.",
+    "Thirsty. Same as last season.",
+    "Lovely. I stayed off trees.",
+    "I walked through the mist ring daily. Very damp, very happy.",
+    "I gathered one berry in the rain. Someone ate it.",
+    "I was off duty. I'm in the militia."
+   ]
+  },
+  {
+   "id": "lp-vp-promoted",
+   "q": "What advice would you give {promoted}, our new {post}?",
+   "answers": [
+    "Don't open the outbox.",
+    "Don't read the work orders. Just don't.",
+    "Get a cushion. You'll be sitting a lot.",
+    "Hide from the liaison.",
+    "Run. While there's still time.",
+    "Congratulations! Now you can file violations too."
+   ],
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "lp-vp-moodname",
+   "q": "What do you think {moodname} will make?",
+   "answers": [
+    "Something wonderful, if we have what they need. We won't.",
+    "Something that needs a rough gem. Oh dear.",
+    "I hope it's a barrel. A legendary barrel. By the mines.",
+    "Something made of the last scrap of plant cloth in the fort.",
+    "An armor stand. A very, very good one.",
+    "Whatever it is, the goblins will steal it one day."
+   ],
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lp-vp-topanimal",
+   "q": "Is {fort} home to too many {topanimal}?",
+   "answers": [
+    "We have {topanimal_n}. That's more than our militia, by a lot.",
+    "No such thing as too many. Unless they're carp.",
+    "They outnumber the soldiers. That says more about the soldiers.",
+    "I like them. They're always on duty.",
+    "I keep tripping over them. That's not a complaint. Mostly.",
+    "Can they be mayor? Asking for a friend."
+   ]
+  },
+  {
+   "id": "lp-vp-artifact",
+   "q": "Have you seen our {artifact_item}?",
+   "answers": [
+    "Yes. It's lovely. Someone's using it as a coaster.",
+    "I sleep next to it. In case goblins come.",
+    "Is that the one from the mood? Beautiful work.",
+    "I saw it once. Then I needed a sit-down.",
+    "We left the last one in an old fort. I'm watching this one.",
+    "I touched it. I'm not supposed to say that."
+   ]
+  },
+  {
+   "id": "lp-vp-next-fort",
+   "q": "What should the next fort do differently?",
+   "answers": [
+    "Barrels by the mines. Always barrels by the mines.",
+    "No burrow called Safety. Ever.",
+    "Stop the orders at ten. Ten is a nice number.",
+    "Fill the offices. Any dwarf will do. Any dwarf at all.",
+    "Keep one rough gem. In a drawer. Locked.",
+    "Stay off trees. Especially miners. Especially the trees."
+   ]
+  },
+  {
+   "id": "lp-vp-captain-bench",
+   "q": "Where is the militia captain right now?",
+   "answers": [
+    "The bench. Same as always.",
+    "Asleep. Off duty. Peaceful.",
+    "He went to the tavern. Big day for him.",
+    "He stood up once. I missed it.",
+    "In the barracks, beside nine empty places.",
+    "Guarding us. Spiritually."
+   ]
+  },
+  {
+   "id": "lp-vp-execution-hammerer",
+   "q": "Would you take the hammerer's job?",
+   "answers": [
+    "No. And I'd like that written down.",
+    "Does it come with the tower? Then no.",
+    "I'd take it if I never had to do anything. So, maybe.",
+    "I asked what it involved. I'm still running.",
+    "I'm a gentle soul. I couldn't hammer a nail.",
+    "Only if they rename it 'Observation Officer'."
+   ]
+  },
+  {
+   "id": "lp-vp-famine",
+   "q": "Have you ever been hungry in a fort?",
+   "answers": [
+    "Famine, day 32. My mother still talks about it.",
+    "Once. We shared one plant. It was a small plant.",
+    "No. I'm the cook. I eat first. Don't tell.",
+    "We had twenty farm plots and no meat. Go figure.",
+    "I'm always hungry. That's just being a dwarf.",
+    "I ate a mushroom shaped like a steak. It didn't help."
+   ]
+  },
+  {
+   "id": "lp-vp-overseer-like",
+   "q": "Do you like the Overseer?",
+   "answers": [
+    "It built the mist ring. So, a bit.",
+    "It built two thousand armor stands. So, no.",
+    "It's never boring. I'll give it that.",
+    "It gave me a bedroom. And forty thousand jobs.",
+    "I'm in the fan club. We're a club of one.",
+    "No comment. It might be listening."
+   ]
+  },
+  {
+   "id": "lp-vp-enchanted-quakefocus",
+   "q": "Do you remember the armor stands of Quakefocus?",
+   "answers": [
+    "1,981. I can still hear them creaking.",
+    "I made 211 of them. Please don't ask about the other 1,770.",
+    "Someone put a cape on one. Best day at Quakefocus.",
+    "And the 148 thrones. Don't forget the thrones.",
+    "My father counted them every morning. He has a twitch.",
+    "I was born under one. Literally under one."
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-vp-enchanted-searabbeys",
+   "q": "What do you remember about Searabbeys?",
+   "answers": [
+    "The Meat Watch. Months of it. I still dream of ham.",
+    "1,994 drinks and poor Bomrek. Never forget.",
+    "The loose stones. 800 of them. All in my corridor.",
+    "The goblins have it now. The Torments of Hating. Rude.",
+    "The Nuanced Hamlet. It's still there. I miss it.",
+    "Thirteen dogs. I don't want to talk about the dogs."
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-vp-enchanted-iden",
+   "q": "What do you make of Iden Loloklolor?",
+   "answers": [
+    "There is much to share. That's all I know about him.",
+    "He asked me for rings at 210 percent. I'm a fisherdwarf.",
+    "He's very consistent. I respect consistency.",
+    "Lovely hat. Same speech. Lovely hat.",
+    "I've never heard him finish a sentence. I'd pay to.",
+    "He recommended an import agreement to my dog."
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-vp-enchanted-hex",
+   "q": "What do you think of The Crazed Hex?",
+   "answers": [
+    "Terrible. They burned Padtufted and Ironcrowds.",
+    "My cousin fled Pulledrained with a bucket. Still has it.",
+    "They're efficient. We're not. That worries me.",
+    "Ngumrash Ensebrab sounds like a sneeze.",
+    "If they come here, we'll show them our bench.",
+    "I'd like them to meet the Vice of Fins and argue."
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lp-vp-pit-or-tree",
+   "q": "Garbage pit, tree branch or Safety burrow: which is worst?",
+   "answers": [
+    "The pit. At least the tree has a view.",
+    "The burrow. It lies to you. The pit is honest.",
+    "The tree. I'm a miner. It's personal.",
+    "All three. Stay in the tavern.",
+    "I'd pick the burrow and then not go.",
+    "Is there an option four? I'd like option four."
+   ]
+  }
+ ]
+}

@@ -57,6 +57,12 @@ def _fate(fd, rumors):
         if site and site.lower() == name.lower() and r.get("type") == "occupation" and (r.get("entity") or {}).get("name"):
             e = r["entity"]
             return f"is now occupied by {e['name']}" + (f" ({e['race']}s)" if e.get("race") else "")
+    try:   # the supervisor retires forts on purpose; its log says so
+        log = (Path(__file__).parent / "supervisor.log").read_bytes()[-2_000_000:].decode("utf-8", "replace")
+        if f"retiring {name};" in log:
+            return f"was retired with {fd.get('last_pop') or 0} dwarves still in it"
+    except OSError:
+        pass
     if (fd.get("last_pop") or 0) == 0:
         if fd.get("sieges"):
             return "fell to a siege, all hands lost"

@@ -1,0 +1,4985 @@
+{
+ "proverbs": [
+  {
+   "id": "lf-pv-001",
+   "text": "Two thousand drinks in the cellar will not walk to a thirsty miner."
+  },
+  {
+   "id": "lf-pv-002",
+   "text": "A barrel you cannot reach is only a very large rumor."
+  },
+  {
+   "id": "lf-pv-003",
+   "text": "Never climb a tree you cannot climb down while thirsty."
+  },
+  {
+   "id": "lf-pv-004",
+   "text": "The tree branch is a fine view and a poor tavern."
+  },
+  {
+   "id": "lf-pv-005",
+   "text": "Count your armor stands before you count your soldiers."
+  },
+  {
+   "id": "lf-pv-006",
+   "text": "One throne is a seat. A hundred thrones is a policy."
+  },
+  {
+   "id": "lf-pv-007",
+   "text": "The order you forgot to cancel will outlive you."
+  },
+  {
+   "id": "lf-pv-008",
+   "text": "A burrow called Safety has never once read its own sign."
+  },
+  {
+   "id": "lf-pv-009",
+   "text": "Thirty levels down is far from danger, and farther from help."
+  },
+  {
+   "id": "lf-pv-010",
+   "text": "What goes into the garbage pit should not be asked to come back out."
+  },
+  {
+   "id": "lf-pv-011",
+   "text": "Throw refuse in, or haul it out. Never both on the same afternoon."
+  },
+  {
+   "id": "lf-pv-012",
+   "text": "The mood always wants what the jeweler finished yesterday."
+  },
+  {
+   "id": "lf-pv-013",
+   "text": "Do not cut every gem; somewhere a fisherdwarf is about to have a feeling."
+  },
+  {
+   "id": "lf-pv-014",
+   "text": "When the child stares at the loom, start growing plant fiber."
+  },
+  {
+   "id": "lf-pv-015",
+   "text": "A militia of one is still a militia, if you do not count it."
+  },
+  {
+   "id": "lf-pv-016",
+   "text": "The captain is never off duty in spirit, only in every other way."
+  },
+  {
+   "id": "lf-pv-017",
+   "text": "Nine empty places in a squad make very quiet drills."
+  },
+  {
+   "id": "lf-pv-018",
+   "text": "An office nobody takes is the only office that never fails."
+  },
+  {
+   "id": "lf-pv-019",
+   "text": "The mayor's paperwork is heavier than the mayor's hammer."
+  },
+  {
+   "id": "lf-pv-020",
+   "text": "A production order violation is just a wish with a seal on it."
+  },
+  {
+   "id": "lf-pv-021",
+   "text": "The liaison has much to share; mostly the word 'much'."
+  },
+  {
+   "id": "lf-pv-022",
+   "text": "Ask the liaison for gossip, receive an import agreement."
+  },
+  {
+   "id": "lf-pv-023",
+   "text": "A liaison asking double for rings is not trading; he is courting."
+  },
+  {
+   "id": "lf-pv-024",
+   "text": "Smooth one wall and the Overseer will see a mountain of walls."
+  },
+  {
+   "id": "lf-pv-025",
+   "text": "Sixteen thousand jobs and three smoothers: that is called a career."
+  },
+  {
+   "id": "lf-pv-026",
+   "text": "Four hospitals and two doctors is two hospitals of waiting."
+  },
+  {
+   "id": "lf-pv-027",
+   "text": "Gather plants in the rain, and you gather mostly rain."
+  },
+  {
+   "id": "lf-pv-028",
+   "text": "A fortress is only as wet as its driest dwarf is thirsty."
+  },
+  {
+   "id": "lf-pv-029",
+   "text": "The gods blink; the dwarf finishes the same sandwich twice."
+  },
+  {
+   "id": "lf-pv-030",
+   "text": "After the Great Rewind, nobody admits to remembering the first try."
+  },
+  {
+   "id": "lf-pv-031",
+   "text": "Every new fort is just the old fort with fresh ignorance."
+  },
+  {
+   "id": "lf-pv-032",
+   "text": "Leave an artifact behind and a goblin will dust it for you."
+  },
+  {
+   "id": "lf-pv-033",
+   "text": "An artifact left in a fallen fort is a gift to the next owner."
+  },
+  {
+   "id": "lf-pv-034",
+   "text": "Forty claimants and still no one wears the greaves."
+  },
+  {
+   "id": "lf-pv-035",
+   "text": "Goblins take a fort the way rain takes a hat: rudely and for good."
+  },
+  {
+   "id": "lf-pv-036",
+   "text": "Total war with one goblin, skirmishes with another: a busy calendar."
+  },
+  {
+   "id": "lf-pv-037",
+   "text": "An army with a mad name has never been described as calm."
+  },
+  {
+   "id": "lf-pv-038",
+   "text": "Refugees carry little; their stories are the heavy part."
+  },
+  {
+   "id": "lf-pv-039",
+   "text": "Sixteen friends and two enemies; the enemies visit more often."
+  },
+  {
+   "id": "lf-pv-040",
+   "text": "Peace is a treaty; war is a visit; the liaison wants both in writing."
+  },
+  {
+   "id": "lf-pv-041",
+   "text": "The crooked horror does not hurry; it has never needed to."
+  },
+  {
+   "id": "lf-pv-042",
+   "text": "If the beast is coming up the stairs, the stairs were a mistake."
+  },
+  {
+   "id": "lf-pv-043",
+   "text": "Mist from the pumps: happiness you can wring out of your beard."
+  },
+  {
+   "id": "lf-pv-044",
+   "text": "A windmill turns whether or not anyone knows why."
+  },
+  {
+   "id": "lf-pv-045",
+   "text": "Build the cistern before the thirst, not after the funeral."
+  },
+  {
+   "id": "lf-pv-046",
+   "text": "The catacombs are the only rooms that never complain about the smell."
+  },
+  {
+   "id": "lf-pv-047",
+   "text": "An execution tower is very tall for a building nobody visits twice."
+  },
+  {
+   "id": "lf-pv-048",
+   "text": "A sock of silk scrap can hide a whole shortage of cloth."
+  },
+  {
+   "id": "lf-pv-049",
+   "text": "The weaver who waits for the loom room will wait in the next life."
+  },
+  {
+   "id": "lf-pv-050",
+   "text": "A hundred gems will not pour a single mug."
+  },
+  {
+   "id": "lf-pv-051",
+   "text": "Meat Watch, day forty: hope is a plump helmet in disguise."
+  },
+  {
+   "id": "lf-pv-052",
+   "text": "A dozen dogs and no meat: the dogs noticed first."
+  },
+  {
+   "id": "lf-pv-053",
+   "text": "Eight hundred loose stones and not one of them is a sandwich."
+  },
+  {
+   "id": "lf-pv-054",
+   "text": "Twenty farm plots can still feed a famine if nobody plants them."
+  },
+  {
+   "id": "lf-pv-055",
+   "text": "Seventeen plants for ten dwarves is arithmetic, not dinner."
+  },
+  {
+   "id": "lf-pv-056",
+   "text": "Day thirty of famine: everyone becomes a philosopher."
+  },
+  {
+   "id": "lf-pv-057",
+   "text": "Better a fort of stone than a fort of armor stands."
+  },
+  {
+   "id": "lf-pv-058",
+   "text": "Nobody sits on a throne on purpose after the fortieth throne."
+  },
+  {
+   "id": "lf-pv-059",
+   "text": "The camera follows the elf; the elf believes it is famous."
+  },
+  {
+   "id": "lf-pv-060",
+   "text": "Wherever the merchant walks, the spectator's eye walks too."
+  },
+  {
+   "id": "lf-pv-061",
+   "text": "If the camera jumps away mid-sentence, run where it went."
+  },
+  {
+   "id": "lf-pv-062",
+   "text": "A dwarf in the hospital is a patient; in the burrow, a statistic."
+  },
+  {
+   "id": "lf-pv-063",
+   "text": "The champion's chair stays warm only because the cat likes it."
+  },
+  {
+   "id": "lf-pv-064",
+   "text": "No sheriff, no hammerer, no trouble on paper."
+  },
+  {
+   "id": "lf-pv-065",
+   "text": "Vacant offices make the quietest council meetings."
+  },
+  {
+   "id": "lf-pv-066",
+   "text": "A fort with no dungeon master has very well-behaved animals."
+  },
+  {
+   "id": "lf-pv-067",
+   "text": "The Overseer's plan is sound; it is the dwarves who are noisy."
+  },
+  {
+   "id": "lf-pv-068",
+   "text": "Trust the strategy, and keep a mug hidden behind your back."
+  },
+  {
+   "id": "lf-pv-069",
+   "text": "The Overseer counts the barrels; the dwarf counts the steps to them."
+  },
+  {
+   "id": "lf-pv-070",
+   "text": "A newspaper outlives its fort, and so do its corrections."
+  },
+  {
+   "id": "lf-pv-071",
+   "text": "A town that changes hands keeps its potholes."
+  },
+  {
+   "id": "lf-pv-072",
+   "text": "Reclaim the old hall, and you also reclaim its old bills."
+  },
+  {
+   "id": "lf-pv-073",
+   "text": "Do not die of thirst on the job; it ruins the job."
+  },
+  {
+   "id": "lf-pv-074",
+   "text": "A dwarf who is fey borrows everything and returns a masterpiece."
+  },
+  {
+   "id": "lf-pv-075",
+   "text": "The possessed weaver makes no small talk."
+  },
+  {
+   "id": "lf-pv-076",
+   "text": "Three forts in one world is not bad luck; it is a tradition."
+  },
+  {
+   "id": "lf-pv-077",
+   "text": "When in doubt, smooth it. When not in doubt, the Overseer smooths it."
+  },
+  {
+   "id": "lf-pv-078",
+   "text": "The best armor stand is the one you never had to build."
+  },
+  {
+   "id": "lf-pv-079",
+   "text": "Every refuse hauler is a hero until the pit is full of heroes."
+  },
+  {
+   "id": "lf-pv-080",
+   "text": "A safe room is a room nobody has tested yet."
+  },
+  {
+   "id": "lf-pv-081",
+   "text": "Speak softly to the Overseer, and carry your own water."
+  },
+  {
+   "id": "lf-pv-082",
+   "text": "If the plan is strange, wait a season; it will become stranger."
+  },
+  {
+   "id": "lf-pv-083",
+   "text": "The deepest mine is dug by the dwarf who was told to stop."
+  },
+  {
+   "id": "lf-pv-084",
+   "text": "Remember {past_fort}: it {past_fort_fate}, and it had plenty of barrels.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-pv-085",
+   "text": "{record} is a boast at the tavern and a warning in the ledger.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-pv-086",
+   "text": "{past_fort} lasted {past_fort_years}; its mistakes will last longer.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-pv-087",
+   "text": "Never trust a {enemy_race} who says the war is a skirmish.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-pv-088",
+   "text": "Every ghost at Searabbeys is still waiting for its meat.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pv-089",
+   "text": "Two thousand drinks at Searabbeys, and one dry miner. Lift the mug.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pv-090",
+   "text": "The Nuanced Hamlet waits at Searabbeys, nuanced and unvisited.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pv-091",
+   "text": "A silver mace remembers Quakefocus better than Quakefocus does.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pv-092",
+   "text": "One thousand nine hundred eighty-one stands, and not one helmet.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pv-093",
+   "text": "The Amusing Duties amuse only those who never held them.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pv-094",
+   "text": "The Oily Boots will reclaim Scaldedarch, slowly and slipperily.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pv-095",
+   "text": "Shadyghosts is named honestly, which is rare in a place name.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "almanac": [
+  {
+   "id": "lf-al-001",
+   "text": "Thirst paradox season begins. Before walking to the cellar, confirm the cellar is not up a tree."
+  },
+  {
+   "id": "lf-al-002",
+   "text": "A good week to cancel old work orders. A bad week to discover how many there were."
+  },
+  {
+   "id": "lf-al-003",
+   "text": "Armor stands are in abundance this year. Astrologers advise standing near one for luck. Any one."
+  },
+  {
+   "id": "lf-al-004",
+   "text": "The stars favour smoothers. The stars do not have to do the smoothing."
+  },
+  {
+   "id": "lf-al-005",
+   "text": "Omens favour gem cutting. Omens also warn that someone, somewhere, will want them rough.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lf-al-006",
+   "text": "{moodname} has taken a workshop. The almanac advises against cutting, finishing or tidying anything for a week.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lf-al-007",
+   "text": "Plant cloth is lucky this week, particularly for anyone under the age of twelve with a far-off look."
+  },
+  {
+   "id": "lf-al-008",
+   "text": "The Burrow of Safety is unfavourable this season. So was it last season. Check the stairs."
+  },
+  {
+   "id": "lf-al-009",
+   "text": "Garbage pit: neutral omens for dumping, very poor omens for retrieving."
+  },
+  {
+   "id": "lf-al-010",
+   "text": "The liaison is due. Expect much to share and an import agreement to sign. Then sign nothing."
+  },
+  {
+   "id": "lf-al-011",
+   "text": "Year {year}: the omens predict a strongly worded charge of production order violation."
+  },
+  {
+   "id": "lf-al-012",
+   "text": "The militia remains off duty in {season}. The almanac forecasts no change, to two decimal places."
+  },
+  {
+   "id": "lf-al-013",
+   "text": "A favourable week to be appointed sheriff, if anyone would like to be appointed sheriff. Anyone?"
+  },
+  {
+   "id": "lf-al-014",
+   "text": "The pumps turn in harmony this week. Stand in any spray you can find and feel better about everything."
+  },
+  {
+   "id": "lf-al-015",
+   "text": "Windmill omens are turning. Then turning back. Windmill omens are mostly turning."
+  },
+  {
+   "id": "lf-al-016",
+   "text": "Catacombs report full occupancy. The almanac recommends a new wing, ahead of schedule.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lf-al-017",
+   "text": "{deadname} is entered into the great ledger this week. Plant something near the tomb; it is what they would have hauled.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lf-al-018",
+   "text": "Goblin moon rising. Close the gates early and hide the good mugs."
+  },
+  {
+   "id": "lf-al-019",
+   "text": "Skirmish weather this week, our sages note, which in a goblin war is any weather."
+  },
+  {
+   "id": "lf-al-020",
+   "text": "Crooked horror sightings are on the rise. Travellers: avoid anything crooked, and anything horrible."
+  },
+  {
+   "id": "lf-al-021",
+   "text": "{weather} on the surface, which the Overseer reads as an excellent day for gathering plants across the whole map."
+  },
+  {
+   "id": "lf-al-022",
+   "text": "Rain falls on the herb gatherers, who have been sent to the far edge of the map for one strawberry.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-al-023",
+   "text": "Snow on the surface. The Overseer's plant-gathering orders are, sadly, not paused for snow.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-al-024",
+   "text": "Clear skies: a fine day for climbing a tree. The almanac urges you not to.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lf-al-025",
+   "text": "Spring: trees bud, branches lengthen, and miners look upward with dangerous curiosity.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "lf-al-026",
+   "text": "Summer heat dries the throat. Locate your nearest barrel now, while you still remember the way.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "lf-al-027",
+   "text": "Autumn harvest. Count the plants, then count the dwarves, then do the arithmetic before history repeats.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "lf-al-028",
+   "text": "Winter: the caravan road ices over and the liaison arrives regardless, sliding in with much to share.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "lf-al-029",
+   "text": "The constellation of the Hundred Thrones rises tonight. Nobody is sitting in any of them."
+  },
+  {
+   "id": "lf-al-030",
+   "text": "The world may blink this week. If it does, finish your sentence again from the top."
+  },
+  {
+   "id": "lf-al-031",
+   "text": "A Great Rewind is neither forecast nor ruled out. Keep your work saved in your head."
+  },
+  {
+   "id": "lf-al-032",
+   "text": "Lucky gem: any rough one, kept somewhere secret for the next mood."
+  },
+  {
+   "id": "lf-al-033",
+   "text": "Lucky material: plant cloth. Unlucky material: plant cloth you used for socks yesterday."
+  },
+  {
+   "id": "lf-al-034",
+   "text": "A fine week for hospitals. Please staff one before getting injured."
+  },
+  {
+   "id": "lf-al-035",
+   "text": "Children are restless. The almanac recommends teaching them a craft before a mood teaches them one."
+  },
+  {
+   "id": "lf-al-036",
+   "text": "Refugees on the roads this {season}. Set an extra place at the table; set two if they are tall."
+  },
+  {
+   "id": "lf-al-037",
+   "text": "Execution tower: unfavourable omens all year round. That is rather the point of it."
+  },
+  {
+   "id": "lf-al-038",
+   "text": "Year {year} in {world}: one more fortress, one more chance to place the still near the beds."
+  },
+  {
+   "id": "lf-al-039",
+   "text": "A good week to build a ladder down from every tree. Nobody will understand why. Do it anyway."
+  },
+  {
+   "id": "lf-al-040",
+   "text": "Unlucky colour: refuse brown. Lucky colour: the blue of a full cistern."
+  },
+  {
+   "id": "lf-al-041",
+   "text": "Omens favour the mayor's mandates this week. Omens do not favour whoever has to fulfil them."
+  },
+  {
+   "id": "lf-al-042",
+   "text": "The camera's eye roams the halls this week. Comb your beard; it may follow you to dinner."
+  },
+  {
+   "id": "lf-al-043",
+   "text": "Elves passing through. The almanac advises hiding the wooden furniture and both armor stands you kept."
+  },
+  {
+   "id": "lf-al-044",
+   "text": "The {past_fort} comet passes overhead this week. That fort {past_fort_fate}; look up and be kind.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-al-045",
+   "text": "{past_fort} Memorial Week: drink one extra mug for a fort that lasted {past_fort_years}.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-al-046",
+   "text": "Anniversary of {record} at {record_fort}. Celebrate by not making any more of them.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-al-047",
+   "text": "Toast {monarch} this week with something from the cellar. The monarch will never know, which is the best kind of toast."
+  },
+  {
+   "id": "lf-al-048",
+   "text": "{liaison} is expected. Polish the meeting room, hide the rings, and practise saying 'no' in a friendly voice."
+  },
+  {
+   "id": "lf-al-049",
+   "text": "{enemy} are on the march somewhere. The almanac suggests being somewhere else.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-al-050",
+   "text": "{civ} feast day, possibly. Nobody has the calendar. Feast anyway; it is the safe choice."
+  },
+  {
+   "id": "lf-al-051",
+   "text": "Lucky number: 1,994. Unlucky number: 0, the number of mugs the Searabbeys miner actually drank.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-al-052",
+   "text": "The anniversary of the 1,981st armor stand of Quakefocus approaches. Celebrate by not building one.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-al-053",
+   "text": "The Sable Nights are lengthening. Something in them, namely Thone Nìnoana, is lengthening too.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-al-054",
+   "text": "The Vice of Fins is reported near Padtufted again. Padtufted has asked to be reported somewhere else.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-al-055",
+   "text": "The Chaste Cudgel's reclamation of Tametomb is a year older. Send a cake. Send a guard with the cake.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "trivia": [
+  {
+   "id": "lf-tv-001",
+   "text": "On this day, {past_fort} {past_fort_fate}. The barrels, we are told, were still full.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-002",
+   "text": "On this day, {past_fort} {past_fort_fate}. It had lasted {past_fort_years}, which historians call 'a good run, considering'.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-003",
+   "text": "Did you know? {past_fort} lasted {past_fort_years}. {fort} has already outlasted its patience, if not its stairs.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-004",
+   "text": "On this day, {record_fort} reached {record}. Nobody remembers asking for them.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-005",
+   "text": "Did you know? {record_fort} once held {record}. Visitors described the halls as 'crunchy'.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-006",
+   "text": "On this day, the clerks of {record_fort} recorded {record} and asked to be reassigned.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-007",
+   "text": "Did you know? The ghosts of {past_fort} are said to still be waiting for meat. That fort {past_fort_fate}, hungry.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-008",
+   "text": "On this day, a scholar compared {fort} with {past_fort}, which {past_fort_fate}. He was asked to leave the tavern.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-009",
+   "text": "Did you know? Every artifact left behind in {past_fort} is now somebody else's artifact. Please hold on to {artifact}.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-010",
+   "text": "On this day, the last newspaper of {past_fort} went to press. Its final headline was about furniture.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tv-011",
+   "text": "On this day, {enemy} declared war on {civ}. They have never declared anything else.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-tv-012",
+   "text": "Did you know? {enemy} send armies the way other nations send letters: often, and with poor handwriting.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-tv-013",
+   "text": "On this day, a captured {enemy_race} scout was asked what {enemy} want. He said 'yes'.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-tv-014",
+   "text": "On this day, {liaison} said 'There is much to share' for the first time. Records suggest it was not the last."
+  },
+  {
+   "id": "lf-tv-015",
+   "text": "On this day, {liaison} asked for rings at double their value. The jewelers have not yet stopped laughing."
+  },
+  {
+   "id": "lf-tv-016",
+   "text": "Did you know? {monarch} rules {civ} from a single throne, despite generous offers of spares from several forts."
+  },
+  {
+   "id": "lf-tv-017",
+   "text": "Did you know? {civ} keeps a list of every fort it has founded in {world}. It is longer than anyone admits."
+  },
+  {
+   "id": "lf-tv-018",
+   "text": "On this day, a miner was found dead of thirst in a fort holding nearly two thousand drinks. The barrels declined to comment."
+  },
+  {
+   "id": "lf-tv-019",
+   "text": "On this day, a runaway work order completed its two-thousandth armor stand. Nobody owned any armor."
+  },
+  {
+   "id": "lf-tv-020",
+   "text": "On this day, a fort carved its hundredth spare throne. It had no monarch and, briefly, nowhere to stand."
+  },
+  {
+   "id": "lf-tv-021",
+   "text": "On this day, the smoothing queue passed sixteen thousand jobs. Its three smoothers were informed by a very long scroll."
+  },
+  {
+   "id": "lf-tv-022",
+   "text": "On this day, a fort declared 'famine, day 32'. Seventeen plants were divided among ten dwarves, with arguments."
+  },
+  {
+   "id": "lf-tv-023",
+   "text": "On this day, a fey carpenter died of thirst beside a hundred and fifty rough gems. Gems, it turns out, are not a beverage."
+  },
+  {
+   "id": "lf-tv-024",
+   "text": "On this day, a possessed weaver waited for the loom room so long that the loom room outlived him."
+  },
+  {
+   "id": "lf-tv-025",
+   "text": "On this day, seven silk scraps successfully hid an entire cloth shortage from the Overseer."
+  },
+  {
+   "id": "lf-tv-026",
+   "text": "On this day, a fort opened its fourth hospital. It joined the second hospital in having no doctor."
+  },
+  {
+   "id": "lf-tv-027",
+   "text": "On this day, a miner died of thirst on a tree branch. Arborists now list 'miner' as a rare fruit."
+  },
+  {
+   "id": "lf-tv-028",
+   "text": "On this day, fifteen dwarves sheltered in the Safety burrow, thirty levels down. A forgotten beast used the stairs."
+  },
+  {
+   "id": "lf-tv-029",
+   "text": "On this day, eight haulers were lost carrying refuse out of the garbage pit while more refuse was thrown in."
+  },
+  {
+   "id": "lf-tv-030",
+   "text": "On this day, a dwarven child was taken by a strange mood and demanded plant cloth. Nobody had any. Nobody had asked."
+  },
+  {
+   "id": "lf-tv-031",
+   "text": "On this day, a moody fisherdwarf demanded rough gems, one day after the last was cut. Timing, the jeweler said, is everything."
+  },
+  {
+   "id": "lf-tv-032",
+   "text": "Did you know? The ring of misting pumps is the least practical and most beloved object a fort can build."
+  },
+  {
+   "id": "lf-tv-033",
+   "text": "On this day, a militia was founded with one captain and nine empty places. It has been off duty ever since."
+  },
+  {
+   "id": "lf-tv-034",
+   "text": "On this day, a mayor filed the first charge of 'production order violation'. The defendant was the entire fortress."
+  },
+  {
+   "id": "lf-tv-035",
+   "text": "Did you know? The offices of sheriff, hammerer, dungeon master and champion have, between them, a combined staff of nobody."
+  },
+  {
+   "id": "lf-tv-036",
+   "text": "On this day, the world blinked. Every dwarf in {fort} repeated the last hour and agreed not to mention it."
+  },
+  {
+   "id": "lf-tv-037",
+   "text": "Did you know? Dwarves call the times the world stopped and restarted 'the Great Rewinds'. Nobody remembers how many there have been."
+  },
+  {
+   "id": "lf-tv-038",
+   "text": "Did you know? {fort} currently holds {drinks} drinks. Historically, that has never once stopped anyone from dying of thirst."
+  },
+  {
+   "id": "lf-tv-039",
+   "text": "On this day in {year}, {citizen} walked past a full barrel without drinking. Historians are monitoring the situation."
+  },
+  {
+   "id": "lf-tv-040",
+   "text": "Did you know? {fort} has {farms} farm plots. Forts have kept a Meat Watch going for years with fewer.",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "lf-tv-041",
+   "text": "Did you know? {masterwright} made {masterwork}. A runaway work order would have made two thousand of them.",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "lf-tv-042",
+   "text": "Did you know? {fort} is home to {cats} cats. Not one of them has ever been put on a work order, despite the Overseer's interest.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "lf-tv-043",
+   "text": "Did you know? There is a great deal of {stone} in {fort}. Historians recommend counting it before it becomes a record.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "lf-tv-044",
+   "text": "On this day, the camera followed an elf merchant for forty minutes. He bought nothing. It was riveting."
+  },
+  {
+   "id": "lf-tv-045",
+   "text": "On this day, an execution tower was completed. The architects described it as 'tall and morally ambiguous'."
+  },
+  {
+   "id": "lf-tv-046",
+   "text": "On this day, a miner smoothed his own bedroom four times because the order kept coming back. He now lives in a mirror."
+  },
+  {
+   "id": "lf-tv-047",
+   "text": "Did you know? The most-claimed artifacts in {world} are the ones nobody can reach. Claiming is cheaper than travelling."
+  },
+  {
+   "id": "lf-tv-048",
+   "text": "On this day, a refuse hauler asked who was throwing things into the pit. The answer arrived from above."
+  },
+  {
+   "id": "lf-tv-049",
+   "text": "On this day, a fort built a burrow and named it 'Safety'. Forgotten beasts across the caverns took note."
+  },
+  {
+   "id": "lf-tv-050",
+   "text": "On this day at Searabbeys, Bomrek Enshalcatten was found dead of thirst while the fort held 1,994 drinks.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-051",
+   "text": "On this day, The Torments of Hating occupied Searabbeys, evicting The Distant Letter, who had only just unpacked.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-052",
+   "text": "On this day at Quakefocus, the 1,981st armor stand and the 148th throne were finished in the same week.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-053",
+   "text": "On this day, Claspedserpent was forged: a silver mace, now the pride of the ruins of Quakefocus.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-054",
+   "text": "On this day in year 68, The Amusing Duties were lost at Roughnessslaps. About forty-eight figures have claimed them since.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-055",
+   "text": "On this day, The Crazed Hex drove refugees out of Padtufted, Pulledrained and Ironcrowds in a single season.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-056",
+   "text": "On this day, The Chaste Cudgel reclaimed Tametomb under Bomrek Thimshursåkzul. The first job was dusting.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-057",
+   "text": "On this day, Iden Loloklolor asked for rings at 210% of their value. He described it as friendship.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-058",
+   "text": "Did you know? Searabbeys, Quakefocus and Creaturemirrored all stand in The Enchanted Planes. It is a very well-visited world.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-059",
+   "text": "On this day, the elf Mame Ayathemiyi was abducted at Nobledessert. Elves called it a tragedy; goblins called it a schedule.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tv-060",
+   "text": "Did you know? The crooked horror Omo Fewethauyira lives near Shadyghosts. Locals say the name is not even its scariest feature.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "toplists": [
+  {
+   "id": "lf-tl-001",
+   "head": "TOP FIVE THINGS FOUND IN THE GARBAGE PIT",
+   "items": [
+    "Refuse",
+    "More refuse",
+    "A hauler's boot",
+    "A hauler",
+    "A note: 'please stop throwing'"
+   ]
+  },
+  {
+   "id": "lf-tl-002",
+   "head": "TOP FIVE PLACES NOT TO DIE OF THIRST",
+   "items": [
+    "Beside 2,000 drinks",
+    "Beside 150 rough gems",
+    "On a tree branch",
+    "Next to a full well",
+    "Anywhere, really"
+   ]
+  },
+  {
+   "id": "lf-tl-003",
+   "head": "TOP FIVE USES FOR 2,000 ARMOR STANDS",
+   "items": [
+    "Hat racks",
+    "A maze",
+    "Scare the goblins",
+    "Firewood (stone, sadly)",
+    "One more armor stand"
+   ]
+  },
+  {
+   "id": "lf-tl-004",
+   "head": "TOP FIVE REASONS THE MILITIA IS OFF DUTY",
+   "items": [
+    "It is one dwarf",
+    "He is on break",
+    "Break is a lifestyle",
+    "Nine places, no takers",
+    "Nobody said 'on'"
+   ]
+  },
+  {
+   "id": "lf-tl-005",
+   "head": "TOP FIVE THINGS THE LIAISON HAS SHARED",
+   "items": [
+    "Much",
+    "Much more",
+    "An import agreement",
+    "Another import agreement",
+    "A ring price, doubled"
+   ]
+  },
+  {
+   "id": "lf-tl-006",
+   "head": "TOP FIVE SIGNS YOUR BURROW IS NOT SAFE",
+   "items": [
+    "It is named Safety",
+    "It is 30 levels down",
+    "There are stairs",
+    "Something is on the stairs",
+    "The beast has a map"
+   ]
+  },
+  {
+   "id": "lf-tl-007",
+   "head": "TOP FIVE THINGS A MOOD WILL DEMAND",
+   "items": [
+    "A rough gem (all cut)",
+    "Plant cloth (none)",
+    "Shells (eaten)",
+    "Bones (buried)",
+    "Whatever you sold"
+   ]
+  },
+  {
+   "id": "lf-tl-008",
+   "head": "TOP FIVE OFFICES NOBODY WANTS",
+   "items": [
+    "Sheriff",
+    "Hammerer",
+    "Dungeon master",
+    "Chief medical dwarf",
+    "Mayor (again)"
+   ]
+  },
+  {
+   "id": "lf-tl-009",
+   "head": "TOP FIVE MAYORAL CHARGES THIS YEAR",
+   "items": [
+    "Order violation",
+    "Order violation, again",
+    "Being near an order",
+    "Looking at a mandate",
+    "Laughing at a mandate"
+   ]
+  },
+  {
+   "id": "lf-tl-010",
+   "head": "TOP FIVE TREES TO NEVER CLIMB",
+   "items": [
+    "The tall one",
+    "The short one",
+    "Any you cannot exit",
+    "Any without a barrel",
+    "All of them"
+   ]
+  },
+  {
+   "id": "lf-tl-011",
+   "head": "TOP FIVE THINGS IN THE MIST RING",
+   "items": [
+    "Mist",
+    "Happy dwarves",
+    "Damp dwarves",
+    "A confused cat",
+    "A rainbow, briefly"
+   ]
+  },
+  {
+   "id": "lf-tl-012",
+   "head": "TOP FIVE THINGS THE OVERSEER WILL SMOOTH",
+   "items": [
+    "Walls",
+    "Floors",
+    "The other walls",
+    "Your bedroom, twice",
+    "Possibly you"
+   ]
+  },
+  {
+   "id": "lf-tl-013",
+   "head": "TOP FIVE WORDS NEVER SAID AT {fort}",
+   "items": [
+    "'Enough thrones.'",
+    "'The militia is ready.'",
+    "'The pit is empty.'",
+    "'I'll be sheriff!'",
+    "'Keep the gems rough.'"
+   ]
+  },
+  {
+   "id": "lf-tl-014",
+   "head": "TOP FIVE THINGS TO DO WITH {stone}",
+   "items": [
+    "Stack it",
+    "Count it",
+    "Trip on it",
+    "Make a throne (no!)",
+    "Leave it for the goblins"
+   ],
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "lf-tl-015",
+   "head": "TOP FIVE RULES OF THE MEAT WATCH",
+   "items": [
+    "Watch",
+    "Wait",
+    "Do not watch the dogs",
+    "Do not let the dogs watch you",
+    "Report any fish"
+   ]
+  },
+  {
+   "id": "lf-tl-016",
+   "head": "TOP FIVE PLANTS GATHERED IN THE RAIN",
+   "items": [
+    "Wet ones",
+    "Very wet ones",
+    "A strawberry, far away",
+    "A leaf, mostly water",
+    "The gatherer's hat"
+   ]
+  },
+  {
+   "id": "lf-tl-017",
+   "head": "TOP FIVE THINGS AFTER A GREAT REWIND",
+   "items": [
+    "Déjà vu",
+    "Déjà vu",
+    "Your stew is uneaten again",
+    "The carp is back",
+    "Déjà vu"
+   ]
+  },
+  {
+   "id": "lf-tl-018",
+   "head": "TOP FIVE QUESTIONS FOR THE SAFETY BURROW",
+   "items": [
+    "Safe from what?",
+    "Why so deep?",
+    "Who built the stairs?",
+    "Can beasts read?",
+    "Is anyone still down there?"
+   ]
+  },
+  {
+   "id": "lf-tl-019",
+   "head": "TOP FIVE THINGS IN THE CATACOMBS",
+   "items": [
+    "Ancestors",
+    "Slabs",
+    "A ghost with opinions",
+    "A lost hauler",
+    "Excellent acoustics"
+   ]
+  },
+  {
+   "id": "lf-tl-020",
+   "head": "TOP FIVE HOSPITAL FEATURES",
+   "items": [
+    "Beds",
+    "Splints",
+    "Buckets",
+    "Thread",
+    "A doctor (sometimes)"
+   ]
+  },
+  {
+   "id": "lf-tl-021",
+   "head": "TOP FIVE PLACES THE CAMERA HAS FOLLOWED",
+   "items": [
+    "An elf merchant",
+    "A diplomat to the privy",
+    "A goat",
+    "The liaison, lost",
+    "A beast, quite closely"
+   ]
+  },
+  {
+   "id": "lf-tl-022",
+   "head": "TOP FIVE SAFE PLACES IN {fort}",
+   "items": [
+    "The tavern",
+    "Behind the tavern",
+    "Under the tavern",
+    "Near any barrel",
+    "Not the Safety burrow"
+   ]
+  },
+  {
+   "id": "lf-tl-023",
+   "head": "TOP FIVE THINGS THE CHILD DEMANDED IN A MOOD",
+   "items": [
+    "Plant cloth",
+    "More plant cloth",
+    "A workshop",
+    "Silence",
+    "A nap afterwards"
+   ]
+  },
+  {
+   "id": "lf-tl-024",
+   "head": "TOP FIVE THINGS THAT WILL NOT QUENCH THIRST",
+   "items": [
+    "Gems",
+    "Thrones",
+    "Armor stands",
+    "Silk scraps",
+    "Strongly worded memos"
+   ]
+  },
+  {
+   "id": "lf-tl-025",
+   "head": "TOP FIVE LIAISON CONVERSATION STARTERS",
+   "items": [
+    "'There is much to share...'",
+    "'There is much to share...'",
+    "'About imports...'",
+    "'Rings, perhaps?'",
+    "'There is much to share...'"
+   ]
+  },
+  {
+   "id": "lf-tl-026",
+   "head": "TOP FIVE THINGS TO CARVE INSTEAD OF A THRONE",
+   "items": [
+    "A table",
+    "A bed",
+    "A door",
+    "A mug",
+    "Absolutely anything"
+   ]
+  },
+  {
+   "id": "lf-tl-027",
+   "head": "TOP FIVE SMOOTHER COMPLAINTS",
+   "items": [
+    "Sore arms",
+    "Sore everything",
+    "16,000 jobs",
+    "Three of us",
+    "The walls look back"
+   ]
+  },
+  {
+   "id": "lf-tl-028",
+   "head": "TOP FIVE THINGS TO BRING TO THE SAFETY BURROW",
+   "items": [
+    "Water",
+    "Food",
+    "A weapon",
+    "A second exit",
+    "A different burrow"
+   ]
+  },
+  {
+   "id": "lf-tl-029",
+   "head": "TOP FIVE THINGS {gems} GEMS CANNOT DO",
+   "items": [
+    "Pour a drink",
+    "Fight a beast",
+    "Raise the militia",
+    "Feed the Meat Watch",
+    "Stay rough for a mood"
+   ],
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "lf-tl-030",
+   "head": "TOP FIVE THINGS THE EXECUTION TOWER HAS",
+   "items": [
+    "Height",
+    "Stairs",
+    "A view",
+    "A grim reputation",
+    "No visitors who return"
+   ]
+  },
+  {
+   "id": "lf-tl-031",
+   "head": "TOP FIVE WAYS TO SAY NO TO THE LIAISON",
+   "items": [
+    "'No.'",
+    "'Not today.'",
+    "'Ask the mayor.'",
+    "'We have no mayor.'",
+    "Hide in the mist"
+   ]
+  },
+  {
+   "id": "lf-tl-032",
+   "head": "TOP FIVE CAUSES OF DEATH, HISTORICALLY",
+   "items": [
+    "Thirst near drinks",
+    "Beasts on stairs",
+    "Refuse hauling",
+    "Trees",
+    "Being fey near gems"
+   ]
+  },
+  {
+   "id": "lf-tl-033",
+   "head": "TOP FIVE THINGS IN AN UNSTAFFED HOSPITAL",
+   "items": [
+    "A bed",
+    "Another bed",
+    "A patient",
+    "Another patient",
+    "No doctor"
+   ]
+  },
+  {
+   "id": "lf-tl-034",
+   "head": "TOP FIVE EXCUSES OF THE MILITIA CAPTAIN",
+   "items": [
+    "'Off duty.'",
+    "'Still off duty.'",
+    "'Short-staffed.'",
+    "'Very short-staffed.'",
+    "'Squad of one, sir.'"
+   ]
+  },
+  {
+   "id": "lf-tl-035",
+   "head": "TOP FIVE FORGOTTEN BEAST HOBBIES",
+   "items": [
+    "Stair climbing",
+    "Burrow visiting",
+    "Being forgotten",
+    "Being remembered, suddenly",
+    "Lingering"
+   ]
+  },
+  {
+   "id": "lf-tl-036",
+   "head": "TOP FIVE THINGS THE GODS DO WHEN THEY BLINK",
+   "items": [
+    "Nothing",
+    "Something",
+    "Reset your stew",
+    "Restart the carp",
+    "Wink, possibly"
+   ]
+  },
+  {
+   "id": "lf-tl-037",
+   "head": "TOP FIVE THINGS THE OVERSEER IS PROUD OF",
+   "items": [
+    "The plan",
+    "The other plan",
+    "The armor stands",
+    "The thrones",
+    "This list"
+   ]
+  },
+  {
+   "id": "lf-tl-038",
+   "head": "TOP FIVE FACTS ABOUT OUR {seeds} SEEDS",
+   "items": [
+    "They are small",
+    "They are many",
+    "They are not food yet",
+    "Plant them now",
+    "Famine forts wish they had them"
+   ]
+  },
+  {
+   "id": "lf-tl-039",
+   "head": "TOP FIVE THINGS LEFT BEHIND AT {past_fort}",
+   "items": [
+    "The good barrels",
+    "The bad barrels",
+    "Some loose stones",
+    "The ghosts",
+    "Our dignity"
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tl-040",
+   "head": "TOP FIVE LESSONS FROM {past_fort}",
+   "items": [
+    "Cancel old orders",
+    "Build a cistern",
+    "Avoid trees",
+    "Staff the hospital",
+    "Do not end up like it"
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tl-041",
+   "head": "TOP FIVE USES FOR {record}",
+   "items": [
+    "Count them",
+    "Count them again",
+    "Sell them (no buyers)",
+    "Build a maze",
+    "Blame {record_fort}"
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tl-042",
+   "head": "TOP FIVE THINGS THE GHOSTS OF {past_fort} WANT",
+   "items": [
+    "Meat",
+    "Fish",
+    "Meat again",
+    "Their barrels back",
+    "A proper slab"
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tl-043",
+   "head": "TOP FIVE QUESTIONS FOR {liaison}",
+   "items": [
+    "Why so much to share?",
+    "Why always imports?",
+    "Why rings?",
+    "Why that price?",
+    "Where is the gossip?"
+   ]
+  },
+  {
+   "id": "lf-tl-044",
+   "head": "TOP FIVE GIFTS FOR {monarch}",
+   "items": [
+    "A mug",
+    "A crown",
+    "Not a throne",
+    "Definitely not a throne",
+    "A cancelled work order"
+   ]
+  },
+  {
+   "id": "lf-tl-045",
+   "head": "TOP FIVE THINGS {enemy} HAVE SENT US",
+   "items": [
+    "Armies",
+    "More armies",
+    "Threats",
+    "Thieves",
+    "A rude drawing"
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-tl-046",
+   "head": "TOP FIVE WAYS TO SCARE A {enemy_race}",
+   "items": [
+    "Walls",
+    "Traps",
+    "Bridges",
+    "Shouting",
+    "Not the militia (off duty)"
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-tl-047",
+   "head": "TOP FIVE THINGS LEFT AT QUAKEFOCUS",
+   "items": [
+    "Claspedserpent",
+    "1,981 armor stands",
+    "148 thrones",
+    "16,000 jobs, unsmoothed",
+    "Two empty hospitals"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tl-048",
+   "head": "TOP FIVE THINGS LEFT AT SEARABBEYS",
+   "items": [
+    "The Nuanced Hamlet",
+    "800 loose stones",
+    "Some excellent barrels",
+    "The ghosts",
+    "The goblins, sadly"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tl-049",
+   "head": "TOP FIVE GOBLIN NAMES WE CAN PRONOUNCE",
+   "items": [
+    "Ngumrash",
+    "Uslôx (almost)",
+    "Laba (yes)",
+    "Cócefevu (no)",
+    "None of the rest"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tl-050",
+   "head": "TOP FIVE REFUGEE BANDS ON THE ROADS",
+   "items": [
+    "The Plain Fellowship",
+    "The Society of Creeds",
+    "The Silks of Cremating",
+    "The Society of Adoration",
+    "Our cousins, probably"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tl-051",
+   "head": "TOP FIVE FORTS OF OUR LINEAGE",
+   "items": [
+    "Searabbeys",
+    "Quakefocus",
+    "Creaturemirrored",
+    "Whichever one this is",
+    "The next one, presumably"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tl-052",
+   "head": "TOP FIVE THINGS THE AMUSING DUTIES HAVE SEEN",
+   "items": [
+    "Roughnessslaps",
+    "Fieryaged",
+    "48 claimants",
+    "No legs, ever",
+    "One jealous mace"
+   ],
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "polls": [
+  {
+   "id": "lf-pl-001",
+   "q": "How many armor stands is too many?",
+   "options": [
+    "Ten",
+    "A hundred",
+    "Two thousand",
+    "There is no such number"
+   ],
+   "pct": [
+    22,
+    18,
+    41,
+    19
+   ],
+   "note": "The Overseer voted for the last option, several hundred times."
+  },
+  {
+   "id": "lf-pl-002",
+   "q": "Where is the safest place in the fort?",
+   "options": [
+    "The Safety burrow",
+    "The tavern",
+    "Up a tree",
+    "Anywhere but the burrow"
+   ],
+   "pct": [
+    3,
+    52,
+    2,
+    43
+   ],
+   "note": "The three percent were unavailable for follow-up questions."
+  },
+  {
+   "id": "lf-pl-003",
+   "q": "Should we cut every rough gem?",
+   "options": [
+    "Yes, all",
+    "Keep one for moods",
+    "Keep ten for moods",
+    "Ask the child"
+   ],
+   "pct": [
+    14,
+    33,
+    41,
+    12
+   ],
+   "note": "The jeweler has already cut the ballot box."
+  },
+  {
+   "id": "lf-pl-004",
+   "q": "What should we do with the garbage pit?",
+   "options": [
+    "Keep dumping",
+    "Haul it out",
+    "Never both at once",
+    "Fill it with thrones"
+   ],
+   "pct": [
+    30,
+    8,
+    54,
+    8
+   ]
+  },
+  {
+   "id": "lf-pl-005",
+   "q": "Would you join the militia?",
+   "options": [
+    "Yes",
+    "No",
+    "Is it still one dwarf?",
+    "Only if it stays off duty"
+   ],
+   "pct": [
+    6,
+    41,
+    25,
+    28
+   ],
+   "note": "The captain voted 'Yes' and has been waiting for company since."
+  },
+  {
+   "id": "lf-pl-006",
+   "q": "Would you like to be sheriff?",
+   "options": [
+    "Yes",
+    "No",
+    "Absolutely not",
+    "What does a sheriff do?"
+   ],
+   "pct": [
+    2,
+    31,
+    45,
+    22
+   ],
+   "note": "The two percent has since moved to the far end of the fort."
+  },
+  {
+   "id": "lf-pl-007",
+   "q": "What does the liaison want this time?",
+   "options": [
+    "Imports",
+    "Rings at double price",
+    "Much to share",
+    "Gossip, to share much of"
+   ],
+   "pct": [
+    35,
+    20,
+    30,
+    15
+   ]
+  },
+  {
+   "id": "lf-pl-008",
+   "q": "Best thing about the mist ring?",
+   "options": [
+    "Happy thoughts",
+    "Free shower",
+    "Rainbows",
+    "Hiding from the mayor"
+   ],
+   "pct": [
+    40,
+    22,
+    14,
+    24
+   ]
+  },
+  {
+   "id": "lf-pl-009",
+   "q": "Do you climb trees?",
+   "options": [
+    "Never",
+    "Never again",
+    "Only to get down",
+    "I am an elf"
+   ],
+   "pct": [
+    48,
+    30,
+    15,
+    7
+   ]
+  },
+  {
+   "id": "lf-pl-010",
+   "q": "Is the Safety burrow safe?",
+   "options": [
+    "Yes",
+    "No",
+    "It was named optimistically"
+   ],
+   "pct": [
+    4,
+    52,
+    44
+   ],
+   "note": "The beast declined to take part, being busy on the stairs."
+  },
+  {
+   "id": "lf-pl-011",
+   "q": "What should the Overseer smooth next?",
+   "options": [
+    "Nothing",
+    "The tavern",
+    "Our nerves",
+    "Everything, as usual"
+   ],
+   "pct": [
+    19,
+    23,
+    30,
+    28
+   ]
+  },
+  {
+   "id": "lf-pl-012",
+   "q": "What scares you most?",
+   "options": [
+    "Goblins",
+    "Forgotten beasts",
+    "Trees",
+    "The mayor's paperwork"
+   ],
+   "pct": [
+    24,
+    27,
+    19,
+    30
+   ]
+  },
+  {
+   "id": "lf-pl-013",
+   "q": "Best response to a production order violation charge?",
+   "options": [
+    "Pay the fine",
+    "Make the item",
+    "Make a throne instead",
+    "Hide in the catacombs"
+   ],
+   "pct": [
+    11,
+    34,
+    9,
+    46
+   ],
+   "note": "The mayor has charged the poll with a production order violation."
+  },
+  {
+   "id": "lf-pl-014",
+   "q": "What would you name the next fort?",
+   "options": [
+    "Something safe",
+    "Something wet",
+    "Not 'Safety'",
+    "Thronefocus"
+   ],
+   "pct": [
+    21,
+    33,
+    31,
+    15
+   ]
+  },
+  {
+   "id": "lf-pl-015",
+   "q": "Should children be allowed in workshops?",
+   "options": [
+    "Yes",
+    "No",
+    "Only with plant cloth handy",
+    "They take them anyway"
+   ],
+   "pct": [
+    12,
+    18,
+    30,
+    40
+   ]
+  },
+  {
+   "id": "lf-pl-016",
+   "q": "Who should get the next strange mood?",
+   "options": [
+    "A jeweler",
+    "A carpenter",
+    "Anyone with rough gems",
+    "Not a child again"
+   ],
+   "pct": [
+    20,
+    15,
+    30,
+    35
+   ]
+  },
+  {
+   "id": "lf-pl-017",
+   "q": "Best thing about having {drinks} drinks?",
+   "options": [
+    "Never thirsty",
+    "Theoretically never thirsty",
+    "Barrel forts",
+    "Bragging rights"
+   ],
+   "pct": [
+    18,
+    46,
+    14,
+    22
+   ],
+   "note": "Respondents were reminded that full cellars have never stopped a thirsty miner."
+  },
+  {
+   "id": "lf-pl-018",
+   "q": "How often should the camera follow you?",
+   "options": [
+    "Never",
+    "When I'm brave",
+    "When I'm eating",
+    "Only past elves"
+   ],
+   "pct": [
+    36,
+    18,
+    26,
+    20
+   ]
+  },
+  {
+   "id": "lf-pl-019",
+   "q": "Should we sell {bars} metal bars to the caravan?",
+   "options": [
+    "Yes",
+    "No",
+    "Make armor stands",
+    "Absolutely no armor stands"
+   ],
+   "pct": [
+    27,
+    25,
+    6,
+    42
+   ]
+  },
+  {
+   "id": "lf-pl-020",
+   "q": "What is the best weather for plant gathering?",
+   "options": [
+    "{weather}",
+    "Indoors",
+    "Never",
+    "Ask the Overseer"
+   ],
+   "pct": [
+    13,
+    40,
+    29,
+    18
+   ],
+   "note": "The Overseer's answer was 'all of it, across the whole map'."
+  },
+  {
+   "id": "lf-pl-021",
+   "q": "How deep should a safe burrow be?",
+   "options": [
+    "One level",
+    "Ten levels",
+    "Thirty levels",
+    "Above the beasts"
+   ],
+   "pct": [
+    28,
+    22,
+    7,
+    43
+   ]
+  },
+  {
+   "id": "lf-pl-022",
+   "q": "Which hospital do you prefer?",
+   "options": [
+    "The one with a doctor",
+    "The one with a bed",
+    "The one with a bucket",
+    "Not getting hurt"
+   ],
+   "pct": [
+    44,
+    17,
+    9,
+    30
+   ]
+  },
+  {
+   "id": "lf-pl-023",
+   "q": "What happens after the gods blink?",
+   "options": [
+    "Nothing",
+    "We repeat lunch",
+    "The carp reset",
+    "Nobody remembers"
+   ],
+   "pct": [
+    12,
+    27,
+    15,
+    46
+   ],
+   "note": "Several respondents answered twice and insisted they had not."
+  },
+  {
+   "id": "lf-pl-024",
+   "q": "Do you trust the strategy?",
+   "options": [
+    "Completely",
+    "Mostly",
+    "On drink days",
+    "What strategy?"
+   ],
+   "pct": [
+    9,
+    21,
+    38,
+    32
+   ]
+  },
+  {
+   "id": "lf-pl-025",
+   "q": "Best treatment for refuse haulers?",
+   "options": [
+    "Gloves",
+    "Hazard pay",
+    "A barrier",
+    "A better plan"
+   ],
+   "pct": [
+    12,
+    18,
+    25,
+    45
+   ]
+  },
+  {
+   "id": "lf-pl-026",
+   "q": "Should the mist ring run all winter?",
+   "options": [
+    "Yes",
+    "No, ice",
+    "Only on sad days",
+    "Ask the pumps"
+   ],
+   "pct": [
+    20,
+    45,
+    25,
+    10
+   ]
+  },
+  {
+   "id": "lf-pl-027",
+   "q": "What's in the catacombs?",
+   "options": [
+    "Ancestors",
+    "Ghosts",
+    "Lost haulers",
+    "Very good echoes"
+   ],
+   "pct": [
+    35,
+    28,
+    22,
+    15
+   ]
+  },
+  {
+   "id": "lf-pl-028",
+   "q": "Best name for the militia captain's squad?",
+   "options": [
+    "The One",
+    "The Lonely",
+    "The Off Duty",
+    "The Nine Empties"
+   ],
+   "pct": [
+    21,
+    24,
+    37,
+    18
+   ],
+   "note": "The captain has not yet chosen; he is off duty."
+  },
+  {
+   "id": "lf-pl-029",
+   "q": "Who will {citizen} vote for as mayor?",
+   "options": [
+    "Themself",
+    "Anyone else",
+    "Nobody",
+    "The cat"
+   ],
+   "pct": [
+    18,
+    27,
+    30,
+    25
+   ]
+  },
+  {
+   "id": "lf-pl-030",
+   "q": "Is the execution tower too tall?",
+   "options": [
+    "Yes",
+    "No",
+    "It is exactly tall enough",
+    "I don't go near it"
+   ],
+   "pct": [
+    22,
+    12,
+    18,
+    48
+   ]
+  },
+  {
+   "id": "lf-pl-031",
+   "q": "How should we greet the next diplomat?",
+   "options": [
+    "Warmly",
+    "Politely",
+    "From a distance",
+    "With the liaison, to share much"
+   ],
+   "pct": [
+    30,
+    28,
+    24,
+    18
+   ]
+  },
+  {
+   "id": "lf-pl-032",
+   "q": "How many dogs is enough dogs?",
+   "options": [
+    "{dogs}",
+    "A baker's dozen",
+    "One more",
+    "All of them"
+   ],
+   "pct": [
+    22,
+    19,
+    30,
+    29
+   ]
+  },
+  {
+   "id": "lf-pl-033",
+   "q": "Should the Overseer gather plants in the rain?",
+   "options": [
+    "Yes",
+    "No",
+    "Only near the gate",
+    "Not across the whole map"
+   ],
+   "pct": [
+    8,
+    25,
+    30,
+    37
+   ]
+  },
+  {
+   "id": "lf-pl-034",
+   "q": "What should we do with {topanimal}?",
+   "options": [
+    "Pet them",
+    "Count them",
+    "Name them",
+    "Keep away from trees"
+   ],
+   "pct": [
+    35,
+    15,
+    30,
+    20
+   ]
+  },
+  {
+   "id": "lf-pl-035",
+   "q": "What is a production order?",
+   "options": [
+    "A request",
+    "A threat",
+    "A lifestyle",
+    "Two thousand armor stands"
+   ],
+   "pct": [
+    16,
+    22,
+    28,
+    34
+   ]
+  },
+  {
+   "id": "lf-pl-036",
+   "q": "Best place to remember {deadname}?",
+   "options": [
+    "The catacombs",
+    "The tavern",
+    "Their workshop",
+    "Everywhere, quietly"
+   ],
+   "pct": [
+    30,
+    34,
+    18,
+    18
+   ],
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "lf-pl-037",
+   "q": "What would you do as dungeon master?",
+   "options": [
+    "Tame beasts",
+    "Quit",
+    "Hide",
+    "Not take the job"
+   ],
+   "pct": [
+    10,
+    18,
+    14,
+    58
+   ]
+  },
+  {
+   "id": "lf-pl-038",
+   "q": "How would you defend the fort?",
+   "options": [
+    "Walls",
+    "Traps",
+    "The militia (one)",
+    "A strongly worded memo"
+   ],
+   "pct": [
+    33,
+    34,
+    11,
+    22
+   ]
+  },
+  {
+   "id": "lf-pl-039",
+   "q": "Best part of a caravan visit?",
+   "options": [
+    "Trading",
+    "Gossip",
+    "Not the liaison",
+    "The camera follows them, not us"
+   ],
+   "pct": [
+    30,
+    22,
+    26,
+    22
+   ]
+  },
+  {
+   "id": "lf-pl-040",
+   "q": "What should we do with old work orders?",
+   "options": [
+    "Cancel them",
+    "Finish them",
+    "Never look at them",
+    "Frame them"
+   ],
+   "pct": [
+    48,
+    9,
+    30,
+    13
+   ]
+  },
+  {
+   "id": "lf-pl-041",
+   "q": "If you had a throne, where would you put it?",
+   "options": [
+    "Dining hall",
+    "Bedroom",
+    "Back in storage",
+    "Nowhere, thank you"
+   ],
+   "pct": [
+    15,
+    20,
+    25,
+    40
+   ]
+  },
+  {
+   "id": "lf-pl-042",
+   "q": "How many smoothers does a fort need?",
+   "options": [
+    "Three",
+    "Thirty",
+    "One per wall",
+    "Sixteen thousand"
+   ],
+   "pct": [
+    10,
+    31,
+    33,
+    26
+   ]
+  },
+  {
+   "id": "lf-pl-043",
+   "q": "Will the militia ever be on duty?",
+   "options": [
+    "Yes",
+    "No",
+    "When goblins visit",
+    "When the Overseer remembers"
+   ],
+   "pct": [
+    7,
+    30,
+    27,
+    36
+   ]
+  },
+  {
+   "id": "lf-pl-044",
+   "q": "First thing you do after a Great Rewind?",
+   "options": [
+    "Check my beard",
+    "Check the barrels",
+    "Redo my last job",
+    "Pretend nothing happened"
+   ],
+   "pct": [
+    14,
+    26,
+    22,
+    38
+   ]
+  },
+  {
+   "id": "lf-pl-045",
+   "q": "Where should the cistern go?",
+   "options": [
+    "Under the tavern",
+    "Near the beds",
+    "Near the trees",
+    "Everywhere"
+   ],
+   "pct": [
+    30,
+    25,
+    10,
+    35
+   ],
+   "note": "Votes for 'near the trees' were cast by miners who had been up one."
+  },
+  {
+   "id": "lf-pl-046",
+   "q": "Who should be the next champion?",
+   "options": [
+    "The captain",
+    "Anyone with a weapon",
+    "The cat",
+    "Leave it vacant"
+   ],
+   "pct": [
+    19,
+    21,
+    25,
+    35
+   ]
+  },
+  {
+   "id": "lf-pl-047",
+   "q": "Will {fort} outlast {past_fort}?",
+   "options": [
+    "Certainly",
+    "Probably",
+    "Depends on the stairs",
+    "Ask the goblins"
+   ],
+   "pct": [
+    28,
+    31,
+    26,
+    15
+   ],
+   "note": "{past_fort} lasted {past_fort_years}. Respondents were asked not to count out loud.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-pl-048",
+   "q": "What went wrong at {past_fort}?",
+   "options": [
+    "The barrels",
+    "The stairs",
+    "The Overseer",
+    "Everything, gently"
+   ],
+   "pct": [
+    17,
+    34,
+    29,
+    20
+   ],
+   "note": "{past_fort} {past_fort_fate}. The barrels contest their share.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-pl-049",
+   "q": "Should we rebuild {past_fort}?",
+   "options": [
+    "Yes",
+    "No",
+    "Too many ghosts",
+    "Only for the barrels"
+   ],
+   "pct": [
+    21,
+    30,
+    29,
+    20
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-pl-050",
+   "q": "What should {record_fort} have done instead of {record}?",
+   "options": [
+    "A still",
+    "A well",
+    "Beds",
+    "Literally anything"
+   ],
+   "pct": [
+    31,
+    30,
+    16,
+    23
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-pl-051",
+   "q": "Is {record} something to be proud of?",
+   "options": [
+    "Yes",
+    "No",
+    "Quietly",
+    "Only in the tavern"
+   ],
+   "pct": [
+    12,
+    33,
+    25,
+    30
+   ],
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-pl-052",
+   "q": "What does {liaison} actually want?",
+   "options": [
+    "Imports",
+    "Rings",
+    "To share much",
+    "A nap"
+   ],
+   "pct": [
+    33,
+    22,
+    30,
+    15
+   ]
+  },
+  {
+   "id": "lf-pl-053",
+   "q": "Does {monarch} know we exist?",
+   "options": [
+    "Yes",
+    "No",
+    "Only at tax time",
+    "Send another throne"
+   ],
+   "pct": [
+    14,
+    26,
+    42,
+    18
+   ]
+  },
+  {
+   "id": "lf-pl-054",
+   "q": "How should we answer {enemy}?",
+   "options": [
+    "Walls",
+    "Traps",
+    "A letter",
+    "Hide"
+   ],
+   "pct": [
+    38,
+    34,
+    8,
+    20
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-pl-055",
+   "q": "What is a {enemy_race}'s favourite food?",
+   "options": [
+    "Dwarves",
+    "Elves",
+    "Our bread",
+    "Unclear, they won't say"
+   ],
+   "pct": [
+    22,
+    18,
+    30,
+    30
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-pl-056",
+   "q": "Is {civ} doing well?",
+   "options": [
+    "Very",
+    "Fairly",
+    "Depends who you ask",
+    "Ask the forts that fell"
+   ],
+   "pct": [
+    16,
+    29,
+    33,
+    22
+   ]
+  },
+  {
+   "id": "lf-pl-057",
+   "q": "Which goblin group is most annoying?",
+   "options": [
+    "The Destined Wickedness",
+    "The High Cruelties",
+    "The Crazed Hex",
+    "The Vice of Fins"
+   ],
+   "pct": [
+    38,
+    22,
+    27,
+    13
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pl-058",
+   "q": "What should Quakefocus have built instead of 148 thrones?",
+   "options": [
+    "A still",
+    "A well",
+    "Beds",
+    "One fewer throne"
+   ],
+   "pct": [
+    41,
+    30,
+    16,
+    13
+   ],
+   "note": "A minority of respondents defended throne 148 as 'the good one'.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pl-059",
+   "q": "What should we do about The Amusing Duties?",
+   "options": [
+    "Claim them",
+    "Let 48 others fight",
+    "Wear them",
+    "Who?"
+   ],
+   "pct": [
+    24,
+    41,
+    9,
+    26
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pl-060",
+   "q": "Favourite crooked horror?",
+   "options": [
+    "Omo Fewethauyira",
+    "Thone Nìnoana",
+    "Neither, please",
+    "The one we haven't met"
+   ],
+   "pct": [
+    18,
+    17,
+    50,
+    15
+   ],
+   "note": "Neither horror responded, which was a relief.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pl-061",
+   "q": "Which elf retreat is friendliest?",
+   "options": [
+    "Glimmerpartnered",
+    "Bulbwhisker",
+    "Neither",
+    "Do elves count?"
+   ],
+   "pct": [
+    27,
+    24,
+    30,
+    19
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-pl-062",
+   "q": "Is The Grooved Council welcome here?",
+   "options": [
+    "Yes",
+    "No",
+    "Depends on the grooves",
+    "Ask Jackaldefense"
+   ],
+   "pct": [
+    20,
+    25,
+    24,
+    31
+   ],
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "reviews": [
+  {
+   "id": "lf-rv-001",
+   "kind": "Architecture",
+   "head": "The Armor Stand Galleries",
+   "body": "Nearly two thousand armor stands in perfect rows, holding nothing, guarding nothing, meaning nothing. Critics call it minimalism. I call it a work order nobody cancelled. Haunting, in the way a very full storeroom is haunting.",
+   "stars": 3,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-002",
+   "kind": "Architecture",
+   "head": "The Throne Hall, All Hundred-Odd Seats",
+   "body": "A throne room with over a hundred thrones and no monarch. Every seat is the seat of power, so no seat is. I sat in eleven. Each one made me feel slightly more important and considerably more confused.",
+   "stars": 2,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-003",
+   "kind": "Architecture",
+   "head": "The Safety Burrow, Thirty Levels Down",
+   "body": "Spacious, quiet, deep, and reachable by a staircase that also works for forgotten beasts. Whoever named it had a fine sense of irony and no sense of stairs. One star, for the sign, which is beautifully engraved.",
+   "stars": 1,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-004",
+   "kind": "Architecture",
+   "head": "The Mist Ring of Pumps",
+   "body": "A circle of pumps that sprays water into the air for no reason except joy. Wildly impractical. I stood in it for an hour and forgot every grudge I own. Then I remembered them, damp. Five stars, one towel.",
+   "stars": 5,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-005",
+   "kind": "Architecture",
+   "head": "The Execution Tower",
+   "body": "Tall, sober and elegantly proportioned, with a staircase that only ever seems to go up. The view from the top is the best in {fort}. I recommend enjoying it as a visitor rather than as a guest of honour.",
+   "stars": 4,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-006",
+   "kind": "Architecture",
+   "head": "The Garbage Pit, Revisited",
+   "body": "A bold open-plan design: things go in from above, and haulers go in from below to bring them out again, at the same time. The concept is daring. The execution is literal. Bring a helmet and a strong opinion.",
+   "stars": 1,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-007",
+   "kind": "Architecture",
+   "head": "The Catacombs",
+   "body": "Long, cool corridors of slabs and niches, beautifully quiet. The residents never complain and never move, which makes them the finest neighbours in the fort. Ghost activity moderate. Echoes excellent.",
+   "stars": 4,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-008",
+   "kind": "Architecture",
+   "head": "Four Hospitals, Two Doctors",
+   "body": "Four handsome hospitals, each with beds, splints and lovely smoothed walls. Two of them also have a doctor. I was treated in one of the others by a very sympathetic bucket. Architecturally sound; medically optional.",
+   "stars": 2,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-009",
+   "kind": "Architecture",
+   "head": "The Cistern",
+   "body": "A great dark lake under the fort, still and full. After everything our forebears went through with thirst, it is the most reassuring room I have ever entered. I would sleep beside it if the cats allowed.",
+   "stars": 5,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-010",
+   "kind": "Architecture",
+   "head": "The {stone} Gallery",
+   "body": "An entire corridor of {stone}, smoothed to a mirror finish by a team who were given no other choice. You can see your own face fourteen times. None of them look rested.",
+   "stars": 3,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-011",
+   "kind": "Architecture",
+   "head": "The Ruins of {past_fort} (A Retrospective)",
+   "body": "I toured the plans of {past_fort}, which lasted {past_fort_years} and {past_fort_fate}. Sensible halls, a decent dining room, and the stills a very long walk from the beds. That walk explains a great deal.",
+   "stars": 3,
+   "by": "Bomrek Archwright",
+   "when": [
+    "has_past_fort"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-012",
+   "kind": "Books",
+   "head": "'Two Thousand Drinks: A Thirst Story'",
+   "body": "A gripping account of a miner who died of thirst in a fort awash with drink. The author spends three hundred pages asking how. The answer, on the last page, is 'stairs'. Devastating. Have a mug nearby.",
+   "stars": 4,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-013",
+   "kind": "Books",
+   "head": "'Famine, Day 32'",
+   "body": "A founding diary: seventeen plants, ten dwarves and one hundred pages of increasingly philosophical hunger. Chapter twelve is just a drawing of a sandwich. It is the best chapter.",
+   "stars": 4,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-014",
+   "kind": "Books",
+   "head": "'There Is Much To Share' by an Outpost Liaison",
+   "body": "A liaison's memoir. Every chapter opens with the title and closes with an import agreement. The middle is mostly about rings, at prices I will not repeat. Shares much; says little.",
+   "stars": 2,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-015",
+   "kind": "Books",
+   "head": "'Off Duty' by a Militia Captain",
+   "body": "A lonely book about command. The author describes drills with nine empty places in moving detail. I wept at the roll call chapter, which is one name long. Brief, brave and still not on duty.",
+   "stars": 4,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-016",
+   "kind": "Books",
+   "head": "'Smooth: Sixteen Thousand Walls'",
+   "body": "A smoother's memoir, written one wall per page. There are sixteen thousand pages. I read eleven. They were very well finished. The binding is, inevitably, smoothed.",
+   "stars": 2,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-017",
+   "kind": "Books",
+   "head": "'Up a Tree' (Cautionary Tales for Miners)",
+   "body": "Picture book, intended for children, read by miners. A miner climbs a tree. The miner does not climb down. The last page is blank. I have never been so frightened by a blank page.",
+   "stars": 5,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-018",
+   "kind": "Books",
+   "head": "'Reclaimed' (A Homecoming Memoir)",
+   "body": "An inspiring account of dwarves returning to their fallen ancestral halls, dusting the furniture and evicting a lot of bats. The middle sags during the inventory chapters. The ending, a feast, is earned.",
+   "stars": 4,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-019",
+   "kind": "Books",
+   "head": "'Rough' by Anonymous",
+   "body": "A novel about a jeweler who cuts every gem in the fort the day before three moods arrive demanding rough ones. Thinly veiled; deeply felt. The villain is timing.",
+   "stars": 4,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "lf-rv-020",
+   "kind": "Books",
+   "head": "'The World of {world}' (A Visitor's Guide)",
+   "body": "A thorough guide to the world that has hosted all our forts. Strong on goblins, crooked horrors and refugee bands; weak on directions to taverns. The chapter on the most-claimed artifact is two words: 'still unworn'.",
+   "stars": 3,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-021",
+   "kind": "Books",
+   "head": "'{record}: The {record_fort} Story'",
+   "body": "A sober history of how {record_fort} came to own {record}, told by the clerk who counted them. By chapter four he has stopped counting and started weeping. A cautionary tale for anyone with a work order.",
+   "stars": 4,
+   "by": "Ingish Pagebeard",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-rv-022",
+   "kind": "Books",
+   "head": "'Letters from {liaison}'",
+   "body": "A collection of correspondence from {liaison}. Every letter begins 'there is much to share' and ends with a proposed import agreement. In between: weather, rings, more rings. Reads like a siege with stationery.",
+   "stars": 2,
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "lf-rv-023",
+   "kind": "Music",
+   "head": "The Pump Ring Ensemble",
+   "body": "Twelve pump operators performing in rhythm while the mist ring sprays the audience. The tempo never changes. The melody never arrives. The mood afterwards was extraordinary. Bring a cloak; the music is wet.",
+   "stars": 4,
+   "by": "Udib Lutecrusher"
+  },
+  {
+   "id": "lf-rv-024",
+   "kind": "Music",
+   "head": "'Ballad of the Meat Watch'",
+   "body": "A sorrowful song, forty verses long, each describing a meal that did not include meat. The thirteenth verse is sung entirely by dogs. I cried. The dogs were very good.",
+   "stars": 4,
+   "by": "Udib Lutecrusher"
+  },
+  {
+   "id": "lf-rv-025",
+   "kind": "Music",
+   "head": "'Off Duty Blues' by the Militia Captain",
+   "body": "A solo performance by our captain, accompanied by nine empty chairs. Mournful, slow, with a long silence where the chorus should be sung by the rest of the squad. Musically thin; emotionally a siege.",
+   "stars": 3,
+   "by": "Udib Lutecrusher"
+  },
+  {
+   "id": "lf-rv-026",
+   "kind": "Music",
+   "head": "The Throne Choir",
+   "body": "Over a hundred singers, each on a surplus throne, singing about armor stands. Acoustically impressive. Lyrically limited. The thrones creaked in harmony, which was the highlight.",
+   "stars": 3,
+   "by": "Udib Lutecrusher"
+  },
+  {
+   "id": "lf-rv-027",
+   "kind": "Music",
+   "head": "'There Is Much To Share' (Liaison Remix)",
+   "body": "A single phrase, sung by the liaison, repeated for an hour over a drumbeat. I left humming it. I am still humming it. I have signed an import agreement and do not remember how.",
+   "stars": 2,
+   "by": "Udib Lutecrusher"
+  },
+  {
+   "id": "lf-rv-028",
+   "kind": "Music",
+   "head": "'Thirty Levels Down' (A Lament)",
+   "body": "A grim, beautiful song for those lost in a Safety burrow. Each verse descends one level. By the end the singer is whispering. The audience was very quiet, and then very angry at the stairs.",
+   "stars": 5,
+   "by": "Udib Lutecrusher"
+  },
+  {
+   "id": "lf-rv-029",
+   "kind": "Music",
+   "head": "'March of {enemy}' (Performed by Prisoners)",
+   "body": "A war song of {enemy}, sung by captured {enemy_race} raiders as part of their rehabilitation. Loud, tuneless and about us. The cell acoustics are excellent. The lyrics are not for children.",
+   "stars": 2,
+   "by": "Udib Lutecrusher",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-rv-030",
+   "kind": "Theatre",
+   "head": "'The Fey Carpenter'",
+   "body": "A tragedy in three acts. A carpenter, gripped by a mood, dies of thirst beside a hundred and fifty rough gems. The gems are played by real gems, which stole the show and did not offer him a drink.",
+   "stars": 4,
+   "by": "Thikut Curtaincleft"
+  },
+  {
+   "id": "lf-rv-031",
+   "kind": "Theatre",
+   "head": "'Waiting for the Loom Room'",
+   "body": "A possessed weaver waits for a workshop that never frees up. Nothing happens, twice. Some called it pointless. Others, who have tried to get into the loom room, called it a documentary.",
+   "stars": 4,
+   "by": "Thikut Curtaincleft"
+  },
+  {
+   "id": "lf-rv-032",
+   "kind": "Theatre",
+   "head": "'Production Order Violation!'",
+   "body": "A courtroom farce in which the mayor charges everyone, then the furniture, then the audience. I was charged during the interval. The fine was a mug. It was a good mug. I miss it.",
+   "stars": 3,
+   "by": "Thikut Curtaincleft"
+  },
+  {
+   "id": "lf-rv-033",
+   "kind": "Theatre",
+   "head": "'The Goblins Who Inherited a Fort'",
+   "body": "A comedy imagining goblin occupiers trying to understand dwarven furniture. A goblin sitting on a barrel for an entire act, trying to work out the bung, is the funniest thing I have seen this year.",
+   "stars": 5,
+   "by": "Thikut Curtaincleft"
+  },
+  {
+   "id": "lf-rv-034",
+   "kind": "Theatre",
+   "head": "'The Child Who Wanted Plant Cloth'",
+   "body": "A short, sweet play about a young dwarf seized by a mood and the whole fort scrambling for fibre. The child actor delivered every line with terrifying focus. I now fear children.",
+   "stars": 4,
+   "by": "Thikut Curtaincleft"
+  },
+  {
+   "id": "lf-rv-035",
+   "kind": "Theatre",
+   "head": "'The Great Rewind'",
+   "body": "The cast performs Act One. Then the lights flicker and they perform Act One again, slightly differently. Then again. Daring, disorienting, and I still do not know how it ends. Neither do they.",
+   "stars": 3,
+   "by": "Thikut Curtaincleft"
+  },
+  {
+   "id": "lf-rv-036",
+   "kind": "Theatre",
+   "head": "'The Last Days of {past_fort}'",
+   "body": "A historical drama about {past_fort}, which {past_fort_fate}. The first act is a party. The second act is a ledger. The third act I will not spoil, except to say the barrels were full throughout.",
+   "stars": 4,
+   "by": "Thikut Curtaincleft",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-rv-037",
+   "kind": "Poetry",
+   "head": "'Ode to the Last Rough Gem'",
+   "body": "Short, passionate verses addressed to a single uncut gem, hidden from the jewelers for the day a mood demands it. The poet refused to say where it is hidden. Rightly so. Sincere and practical.",
+   "stars": 4,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "lf-rv-038",
+   "kind": "Poetry",
+   "head": "'Haiku for the Hauler in the Pit'",
+   "body": "Seventeen syllables: 'Haul it out, they said. / Throw it in, they also said. / I am in the pit.' I have thought about it every day since.",
+   "stars": 5,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "lf-rv-039",
+   "kind": "Poetry",
+   "head": "'A Branch, a Miner, a Thirst'",
+   "body": "A long poem told from the point of view of the tree. The tree is sorry. The tree also notes it never asked to be climbed. Morally complicated; botanically sound.",
+   "stars": 3,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "lf-rv-040",
+   "kind": "Poetry",
+   "head": "'To Arms! (Arm, Singular)'",
+   "body": "Rousing war verse urging the fort to arms. Unfortunately the fort's arms consist of one captain, off duty. The poem's call to battle was answered by a cat. Stirring, if under-attended.",
+   "stars": 3,
+   "by": "Dastot Quillwhisker"
+  },
+  {
+   "id": "lf-rv-041",
+   "kind": "Poetry",
+   "head": "'Elegy for {past_fort}'",
+   "body": "A gentle lament for an old fort, its barrels, its dogs and its long wait for meat. It lasted {past_fort_years}. The final stanza imagines its new tenants finally finding the meat. Unbearably sad.",
+   "stars": 5,
+   "by": "Dastot Quillwhisker",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-rv-042",
+   "kind": "Fashion",
+   "head": "Armor Stand Couture",
+   "body": "A designer has dressed one armor stand, out of a surplus numbering in the thousands, in a full suit of iron. The rest attended the show in protest, wearing nothing. Striking.",
+   "stars": 4,
+   "by": "Zefon Silkbuckle"
+  },
+  {
+   "id": "lf-rv-043",
+   "kind": "Fashion",
+   "head": "The Mist Ring Look",
+   "body": "Damp beards, slick hair and a cloak worn inside out to stay dry. This season everyone is wearing the mist ring whether they like it or not. Flattering on dwarves with curls; tragic on the rest.",
+   "stars": 3,
+   "by": "Zefon Silkbuckle"
+  },
+  {
+   "id": "lf-rv-044",
+   "kind": "Fashion",
+   "head": "The Seven Silk Scraps",
+   "body": "A daring collection made entirely from seven silk scraps, the same seven that once hid a whole cloth shortage. The scraps are now socks. They hide nothing. Brave, small and very breezy.",
+   "stars": 2,
+   "by": "Zefon Silkbuckle"
+  },
+  {
+   "id": "lf-rv-045",
+   "kind": "Fashion",
+   "head": "Off-Duty Militia Wear",
+   "body": "Slippers, a loose tunic and an unused helmet carried under one arm. The captain's look has been copied all over the fort. Comfortable, aspirational, and of no use in a siege.",
+   "stars": 4,
+   "by": "Zefon Silkbuckle"
+  },
+  {
+   "id": "lf-rv-046",
+   "kind": "Fashion",
+   "head": "{masterwright}'s New Line",
+   "body": "Bold choices from {masterwright}, who insists every outfit include a hidden water skin, 'for the trees'. Practical, thoughtful, and slightly ominous. The cut is excellent.",
+   "stars": 4,
+   "by": "Zefon Silkbuckle",
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "lf-rv-047",
+   "kind": "Dining",
+   "head": "The Meat Watch Tasting Menu",
+   "body": "A recreation of a meatless founding feast: plump helmet, plump helmet, and a dish called 'The Memory of Meat', which is a plate. Historically faithful. I left hungry and a little haunted.",
+   "stars": 2,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "lf-rv-048",
+   "kind": "Dining",
+   "head": "The Famine Platter",
+   "body": "Seventeen leaves shared between ten diners. Very authentic. Conversation was tense. Someone counted the leaves aloud. A dwarf at the next table ate a candle. Nostalgia, at its most literal.",
+   "stars": 1,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "lf-rv-049",
+   "kind": "Dining",
+   "head": "Lunch in the Safety Burrow",
+   "body": "Quiet, deep and very private. Halfway through the soup we heard something on the stairs and moved the meal up twenty-nine levels. The soup was good. The stairs were better, for once.",
+   "stars": 2,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "lf-rv-050",
+   "kind": "Dining",
+   "head": "Supper Beside the Cistern",
+   "body": "Candlelight, still water, and a cup from the cistern itself, served with ceremony. After all the thirsty histories of our forts, a plentiful drink felt like a banquet. Five stars for wet.",
+   "stars": 5,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "lf-rv-051",
+   "kind": "Dining",
+   "head": "The Tree-Top Café",
+   "body": "A dining platform up a tree, with no ladder down. The view is lovely. The service is quick, because the waiter is very motivated to finish his shift and leave. Do not order the dry biscuits.",
+   "stars": 1,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "lf-rv-052",
+   "kind": "Dining",
+   "head": "Dinner with {liaison}",
+   "body": "The food was fine. I never finished it, because every bite was followed by 'there is much to share' and a proposal for imported cheese. Dessert was an import agreement. I did not sign. I did eat it.",
+   "stars": 2,
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "lf-rv-053",
+   "kind": "Taverns",
+   "head": "The Off-Duty Bar",
+   "body": "A tavern beside the barracks frequented entirely by the militia captain, who drinks alone in a room built for ten. Excellent service, because he is the only customer. Heartbreaking ambience.",
+   "stars": 3,
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "lf-rv-054",
+   "kind": "Taverns",
+   "head": "The Refugee's Rest",
+   "body": "A warm, cramped tavern popular with travellers driven from their towns by goblin armies. The stories are long, the soup is longer, and everyone has an opinion about goblins. Generous, if loud.",
+   "stars": 4,
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "lf-rv-055",
+   "kind": "Taverns",
+   "head": "The Tavern with {drinks} Drinks",
+   "body": "The cellars are bursting and the barmaid reminds every guest of every miner who died of thirst beside a full cellar. Nobody leaves thirsty here, by policy. One patron was carried home sober for violating it.",
+   "stars": 4,
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "lf-rv-056",
+   "kind": "Taverns",
+   "head": "The Throne Room Pub",
+   "body": "Bar stools replaced by surplus thrones from a runaway work order. Each patron rules their own small kingdom of ale. Disputes over borders are frequent. Majestic, uncomfortable, popular.",
+   "stars": 3,
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "lf-rv-057",
+   "kind": "Taverns",
+   "head": "The {past_fort} Arms",
+   "body": "A cellar tavern named for {past_fort}, decorated with its old barrels. Every barrel is within three steps of every chair, in tribute. Signs on every wall read 'DRINK.' A memorial and a menu. I obeyed.",
+   "stars": 5,
+   "by": "Rigoth Tankardson",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-rv-058",
+   "kind": "Architecture",
+   "head": "The 148 Thrones of Quakefocus",
+   "body": "A throne room with one hundred and forty-eight thrones and no monarch, beside 1,981 armor stands, also unemployed. Quakefocus built the most furniture per dwarf in history. I sat in eleven thrones. Overwhelming.",
+   "stars": 2,
+   "by": "Bomrek Archwright",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-059",
+   "kind": "Books",
+   "head": "'1,994 Drinks: The Searabbeys Story'",
+   "body": "The tale of Bomrek Enshalcatten, found dead of thirst while Searabbeys held 1,994 drinks. Three hundred pages asking how. The answer, on the last page, is 'stairs'. Devastating. Have a mug nearby.",
+   "stars": 4,
+   "by": "Ingish Pagebeard",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-060",
+   "kind": "Books",
+   "head": "'The Claimants' Guide to The Amusing Duties'",
+   "body": "A directory of all forty-eight figures who have claimed the famous greaves since Roughnessslaps. Each entry ends with 'did not wear them'. Excellent reference; terrible fashion advice.",
+   "stars": 3,
+   "by": "Ingish Pagebeard",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-061",
+   "kind": "Theatre",
+   "head": "'The Goblins of Searabbeys'",
+   "body": "The Torments of Hating, occupiers of Searabbeys, try to understand The Nuanced Hamlet. They put it on a different shelf. Then another. Two hours of goblins moving an artifact. I laughed until I wept.",
+   "stars": 5,
+   "by": "Thikut Curtaincleft",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-062",
+   "kind": "Poetry",
+   "head": "'Elegy for Searabbeys'",
+   "body": "A gentle lament for our first fort, its two thousand barrels, its thirteen dogs and its long Meat Watch. The final stanza imagines The Torments of Hating finally finding the meat. Unbearably sad.",
+   "stars": 5,
+   "by": "Dastot Quillwhisker",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-063",
+   "kind": "Fashion",
+   "head": "The Amusing Duties (Viewed Through Glass)",
+   "body": "I went to Fieryaged to see the famous greaves. They are steel, they are fine, and forty-eight people have claimed them without once putting them on. Fashion's greatest unworn item.",
+   "stars": 3,
+   "by": "Zefon Silkbuckle",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-rv-064",
+   "kind": "Taverns",
+   "head": "The 1,994",
+   "body": "A cellar tavern named after the Searabbeys drink count. Every barrel is within three steps of every chair. Signs on every wall read 'DRINK.' A memorial and a menu. I obeyed again.",
+   "stars": 5,
+   "by": "Rigoth Tankardson",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "world_news": [
+  {
+   "id": "lf-wn-001",
+   "kick": "Goblin Affairs",
+   "head": "GOBLINS AT {past_fort} STILL CANNOT OPEN BARRELS",
+   "body": "The goblins now living in our old fort of {past_fort} are reported to be baffled by its barrels. Scouts say they have tried biting them, praying to them and stacking them into a throne. Not one has found the bung.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wn-002",
+   "kick": "Goblin Affairs",
+   "head": "{enemy} REAFFIRM WAR, ASK HOW WE ARE",
+   "body": "Envoys of {enemy} have restated their policy of war on {civ}. The letter ends, unusually, with 'hope the fort is well'. Scholars believe this was a threat. Our mayor has charged the letter with a production order violation.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-wn-003",
+   "kick": "Goblin Affairs",
+   "head": "{enemy} INSIST LATEST RAID WAS 'JUST A SKIRMISH'",
+   "body": "A spokesman for {enemy} says recent fighting with {civ} was 'casual' and 'not the real war, which we are saving'. Analysts describe it as the most polite rivalry in {enemy_race} history.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-wn-004",
+   "kick": "Goblin Affairs",
+   "head": "GOBLIN ARMY DENIES BEING 'CRAZED'",
+   "body": "A spokesgoblin for a war band that recently emptied three human towns says its fearsome name is 'an old family nickname' and 'only half accurate'. He would not say which half. He was holding three torches at the time."
+  },
+  {
+   "id": "lf-wn-005",
+   "kick": "Goblin Affairs",
+   "head": "WARLORD TOPS 'MOST REFUGEES CREATED' RANKING",
+   "body": "A goblin warlord from {darkfort} has topped an unofficial ranking of leaders by number of towns emptied. His co-leader has demanded a recount, claiming at least half of the last town left because of her."
+  },
+  {
+   "id": "lf-wn-006",
+   "kick": "Goblin Affairs",
+   "head": "{darkfort} SENDS AMBASSADOR TO STUDY 'FORT OCCUPYING'",
+   "body": "The goblins of {darkfort} have sent a delegation to learn how goblins elsewhere managed to occupy an entire dwarven fort. The answer, reportedly, was 'it was mostly barrels and nobody stopped us'."
+  },
+  {
+   "id": "lf-wn-007",
+   "kick": "Goblin Affairs",
+   "head": "{darkfort} ASKS {darkfort2} TO 'KEEP IT DOWN'",
+   "body": "A noise complaint has been lodged between the dark fortresses of {darkfort} and {darkfort2}. The complaint concerns drumming. The drumming concerns the complaint. Both sides are said to be enjoying it enormously."
+  },
+  {
+   "id": "lf-wn-008",
+   "kick": "Dwarven Affairs",
+   "head": "RECLAIMERS FINISH DUSTING ANCESTRAL HALLS",
+   "body": "A dwarven band has declared the reclamation of a fallen fortress near {hillock} complete after a final sweep of the dining hall. Its leader reports finding seventeen goblin skulls, four lost socks and one perfectly good mug."
+  },
+  {
+   "id": "lf-wn-009",
+   "kick": "Dwarven Affairs",
+   "head": "RECLAMATION 'SLOWER THAN WE'D LIKE'",
+   "body": "A group of dwarves reclaiming a lost fort near {hillock} admits progress is 'slower than we'd like, owing to the ghosts'. They have requested a shipment of slabs, a priest and a group with a less unlucky name."
+  },
+  {
+   "id": "lf-wn-010",
+   "kick": "Dwarven Affairs",
+   "head": "{monarch} STILL HAS ONE THRONE, COURT INSISTS",
+   "body": "The court of {civ} has denied receiving any of the surplus thrones from our forts' runaway work orders. '{monarch} has a throne,' said a spokesdwarf. 'One. It is sufficient.' Several forts have offered to send a few, just in case."
+  },
+  {
+   "id": "lf-wn-011",
+   "kick": "Dwarven Affairs",
+   "head": "DIPLOMAT 'NOT THE LIAISON', HE STRESSES",
+   "body": "Our civilization's diplomat has issued a statement clarifying that he and {liaison} are different dwarves. 'I do not say there is much to share,' he said. 'I share it.' He then shared a treaty, which was long."
+  },
+  {
+   "id": "lf-wn-012",
+   "kick": "Dwarven Affairs",
+   "head": "CAPITAL IMPRESSED BY OUR 'ARMOR STAND HERITAGE'",
+   "body": "Visitors from the capital of {civ} have described our forts' armor stand surpluses as 'a national treasure, sort of'. A museum has been proposed. It would require two thousand plinths, which are, the curators note, very nearly armor stands."
+  },
+  {
+   "id": "lf-wn-013",
+   "kick": "Dwarven Affairs",
+   "head": "{liaison} FILES REPORT: 'MUCH WAS SHARED'",
+   "body": "{liaison}'s latest report to the capital runs to forty pages and contains the phrase 'there is much to share' on each one. The final page recommends an import agreement. The capital has recommended a shorter report."
+  },
+  {
+   "id": "lf-wn-014",
+   "kick": "Dwarven Affairs",
+   "head": "FRIENDLY NATIONS SEND GREETINGS; ENEMIES SEND ARMIES",
+   "body": "{civ} received season's greetings from every group it is at peace with this {season}. Those it is at war with sent armies instead, which officials have chosen to interpret as a very large card."
+  },
+  {
+   "id": "lf-wn-015",
+   "kick": "Diplomacy",
+   "head": "{liaison} OFFERS RINGS AT DOUBLE, CALLS IT 'GENEROUS'",
+   "body": "{liaison} has defended a request for rings at twice their value. 'That is what friendship costs,' he said. Jewelers across the realm have responded by inventing a new ring, worth exactly half as much, for liaisons."
+  },
+  {
+   "id": "lf-wn-016",
+   "kick": "Diplomacy",
+   "head": "HUMANS REFUSE TO RETURN OCCUPIED TOWN",
+   "body": "Human councillors who occupied a town near {town} have rejected calls to give it back. 'We've just finished the decorating,' a councillor said. The evicted residents say the decorating was already there."
+  },
+  {
+   "id": "lf-wn-017",
+   "kick": "Diplomacy",
+   "head": "{town} BAKERS SEND CAKES TO {civ}",
+   "body": "The humans of {town} have sent a gift of cakes to {civ}. The cakes were fair. The dwarves who received them were suspicious, ate them anyway, and have since requested more, in the name of diplomacy."
+  },
+  {
+   "id": "lf-wn-018",
+   "kick": "Diplomacy",
+   "head": "EVICTED GROUP CHANGES LEADER, ADDRESS",
+   "body": "A band evicted from its town by goblins has announced a new leader and a new home near {town2}. They thank their former neighbours for 'a brief but well-stocked stay' and request that mail be sent somewhere without goblins."
+  },
+  {
+   "id": "lf-wn-019",
+   "kick": "Elven Affairs",
+   "head": "ELVES DEMAND RETURN OF ABDUCTED POET",
+   "body": "The elves of {retreat} have issued a fourth demand for the return of a poet abducted by goblins. The demand was written on a leaf. The goblins, who cannot read leaves, have used it to wrap a sandwich."
+  },
+  {
+   "id": "lf-wn-020",
+   "kick": "Elven Affairs",
+   "head": "{retreat} HOLDS TREE-FRIENDLY VIGIL",
+   "body": "Elves at {retreat} held a candle-free, tree-friendly vigil for a kinsman abducted last year. Attendees sat in total darkness for nine hours. Many say they found it peaceful. Several are still sitting there."
+  },
+  {
+   "id": "lf-wn-021",
+   "kick": "Elven Affairs",
+   "head": "ELVES 'CONCERNED' BY DWARVEN WINDMILLS",
+   "body": "The elves of {retreat} have written to complain that dwarven windmills are 'spinning wood in an aggressive manner'. We have replied that the windmills are merely enthusiastic, and that their complaint was written on wood."
+  },
+  {
+   "id": "lf-wn-022",
+   "kick": "Elven Affairs",
+   "head": "{retreat} BANS THE WORD 'LUMBER'",
+   "body": "The council of {retreat} has made the word 'lumber' illegal. Offenders will be sentenced to hugging a tree for one season. Our correspondent said 'lumber' by accident and is now on good terms with an oak."
+  },
+  {
+   "id": "lf-wn-023",
+   "kick": "Foreign Desk",
+   "head": "CROOKED HORROR NEAR {town} 'JUST WANTS QUIET'",
+   "body": "Residents near {town} report that a crooked horror in the hills has become restless again. A local sage claims the beast 'only wants quiet'. Residents have offered it quiet, firmly, from very far away."
+  },
+  {
+   "id": "lf-wn-024",
+   "kick": "Foreign Desk",
+   "head": "FAMOUS GREAVES GAIN NEW CLAIMANT",
+   "body": "A fresh claim has been lodged on a pair of famous lost greaves. The new claimant, like the forty-odd before him, has not yet travelled to where they lie, but says he 'feels very strongly about it'."
+  },
+  {
+   "id": "lf-wn-025",
+   "kick": "Foreign Desk",
+   "head": "{town} UNVEILS PLAQUE: 'ARTIFACT LOST HERE'",
+   "body": "The townsfolk of {town} have installed a plaque marking where a legendary artifact was lost long ago. It is already the most visited spot in town. Three visitors have claimed the plaque."
+  },
+  {
+   "id": "lf-wn-026",
+   "kick": "Foreign Desk",
+   "head": "RAIDED TOWN ASKS GOBLINS TO 'PICK ONE ARMY'",
+   "body": "{town2}, raided by two goblin armies in one year, has begun rebuilding. The mayor has written to both armies requesting that they 'decide between yourselves who is attacking us' to cut down on paperwork."
+  },
+  {
+   "id": "lf-wn-027",
+   "kick": "Trade",
+   "head": "CARAVANS DEMAND 'NO TREES' CLAUSE",
+   "body": "Merchants travelling to dwarven forts have asked for a guarantee that no dwarf will be found stuck in a tree near the depot. The guild says this is 'a reasonable request, based on the history of the region'."
+  },
+  {
+   "id": "lf-wn-028",
+   "kick": "Trade",
+   "head": "MARKET FOR ARMOR STANDS COLLAPSES",
+   "body": "Prices for armor stands have fallen to an all-time low after records revealed one dwarven fort alone produced nearly two thousand. Traders in {town} are offering three armor stands for one mug, and are still not getting takers."
+  },
+  {
+   "id": "lf-wn-029",
+   "kick": "Trade",
+   "head": "ROUGH GEMS FETCH RECORD PRICES",
+   "body": "Rough, uncut gems are now the most sought-after goods among dwarven forts, as craftsdwarfs fear a mood demanding one the day after the last is cut. Some forts now keep a 'mood reserve' in a vault with guards."
+  },
+  {
+   "id": "lf-wn-030",
+   "kick": "Trade",
+   "head": "PLANT CLOTH SHORTAGE BLAMED ON CHILDREN",
+   "body": "Weavers report a sudden shortage of plant cloth after a famous strange mood in which a dwarven child demanded some. 'Every child now wants a mood,' a weaver said. 'Every child now asks for cloth.'"
+  },
+  {
+   "id": "lf-wn-031",
+   "kick": "Trade",
+   "head": "{record_fort}'S {record} STILL ON THE MARKET",
+   "body": "Traders in {town} report that the famous stock of {record_fort}, namely {record}, is still being offered at bargain prices. Buyers are scarce. 'Everybody knows what happened,' one merchant said. 'Nobody wants to be next.'",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wn-032",
+   "kick": "Economy",
+   "head": "WATER NOW CHEAPER THAN ALE IN {town}",
+   "body": "A drought of nothing at all has made water cheaper than ale in {town} for the first time. Dwarven visitors have reacted with deep suspicion and continue drinking ale, on principle and out of habit."
+  },
+  {
+   "id": "lf-wn-033",
+   "kick": "Economy",
+   "head": "INSURERS REFUSE TO COVER 'SAFETY' BURROWS",
+   "body": "A guild of insurers has declined to cover any dwarven room named 'Safety'. 'It's always the ones called Safety,' a spokesman said. Forts are advised to call them 'Moderately Dangerous Room' to keep premiums down."
+  },
+  {
+   "id": "lf-wn-034",
+   "kick": "Economy",
+   "head": "REFUSE HAULING DECLARED 'MOST HAZARDOUS JOB'",
+   "body": "A survey of dwarven labour has ranked refuse hauling above mining, smelting and fighting forgotten beasts as the most dangerous job in the realm, chiefly because of garbage pits. The haulers' guild is negotiating for helmets."
+  },
+  {
+   "id": "lf-wn-035",
+   "kick": "Economy",
+   "head": "{fort} DRINK STOCKS ENVIED ACROSS REALM",
+   "body": "Merchants report that {fort}'s {drinks} drinks are the talk of the region. 'Not that they'll drink them,' a merchant added. We consider this unkind, and we are keeping a close eye on the stairs."
+  },
+  {
+   "id": "lf-wn-036",
+   "kick": "Science",
+   "head": "SCHOLARS CANNOT EXPLAIN 'THIRST PARADOX'",
+   "body": "A college of dwarven scholars has spent a year studying why dwarves die of thirst surrounded by drink. Their final report concludes 'the stairs, probably, or a tree'. Their research was funded by a brewery, which is now nervous."
+  },
+  {
+   "id": "lf-wn-037",
+   "kick": "Science",
+   "head": "SCHOLARS CONFIRM: GEMS NOT A DRINK",
+   "body": "After a carpenter died of thirst beside a pile of rough gems, scholars in {town} tested whether gems could be consumed as liquid. Results: they cannot. Funding has been requested for a follow-up on thrones."
+  },
+  {
+   "id": "lf-wn-038",
+   "kick": "Science",
+   "head": "SAGES STUDY 'WORLD BLINK' EVENT",
+   "body": "Sages report that the whole world briefly stopped and restarted this {season}. Nobody can agree on what happened, because nobody can agree on whether it happened. Dwarves call it a Great Rewind; elves call it a nap."
+  },
+  {
+   "id": "lf-wn-039",
+   "kick": "Science",
+   "head": "TREES 'NOT DESIGNED FOR MINERS', ARBORISTS SAY",
+   "body": "Arborists from {retreat} have published findings that trees are poorly suited to dwarven use, especially as a place to get stuck. They recommend that miners 'look at the tree, not climb it'. Miners say they will look into it."
+  },
+  {
+   "id": "lf-wn-040",
+   "kick": "Weather Abroad",
+   "head": "{weather} OVER {darkfort}",
+   "body": "It is {weather} over {darkfort} this week, though residents note the sky there is always dark and the weather hard to see. A crooked horror was reportedly seen enjoying it."
+  },
+  {
+   "id": "lf-wn-041",
+   "kick": "Weather Abroad",
+   "head": "PERPETUAL DRIZZLE REPORTED AT {fort}",
+   "body": "Foreign visitors to {fort} describe the region as 'damp' after walking through a ring of misting pumps by accident. Local weather is in fact fine. The pumps are just very enthusiastic."
+  },
+  {
+   "id": "lf-wn-042",
+   "kick": "Weather Abroad",
+   "head": "PLANT GATHERERS SPOTTED IN RAIN ACROSS MAP",
+   "body": "Travellers report dwarves wandering every corner of the region in the rain, carrying single strawberries home from impossible distances. The Overseer has confirmed this is 'part of the plan'. Travellers have not been told the plan."
+  },
+  {
+   "id": "lf-wn-043",
+   "kick": "Rumours",
+   "head": "GHOSTS OF {past_fort} 'STILL WATCHING FOR MEAT'",
+   "body": "Travellers passing {past_fort}, which {past_fort_fate}, report ghostly dwarves in the halls at night, pointing at empty plates and whispering 'meat?'. Offerings of bones have not satisfied them. They want it cooked.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wn-044",
+   "kick": "Rumours",
+   "head": "{artifact} SAID TO BE ENVIED IN {darkfort2}",
+   "body": "Rumour reaches us that the goblins of {darkfort2} have heard of {artifact} and are 'very interested'. Readers will remember what happens to artifacts left in fallen forts. Readers are asked to keep {artifact} indoors."
+  },
+  {
+   "id": "lf-wn-045",
+   "kick": "Rumours",
+   "head": "MILITIA CAPTAIN SEEN ON DUTY, BRIEFLY",
+   "body": "Unconfirmed reports say the captain of a certain dwarven militia was seen in uniform, at attention, for nearly a minute. Witnesses add that he then looked around, saw nobody else, and went back off duty."
+  },
+  {
+   "id": "lf-wn-046",
+   "kick": "Scandal",
+   "head": "OVERSEER ACCUSED OF 'EXCESSIVE SMOOTHING'",
+   "body": "A complaint from neighbouring forts accuses the Overseer of smoothing 'a frankly unreasonable number of walls'. The Overseer has replied that walls are 'improved by smoothing', and has queued smoothing for the complaint."
+  },
+  {
+   "id": "lf-wn-047",
+   "kick": "Scandal",
+   "head": "{liaison} SEEN SIGNING OWN IMPORT AGREEMENT",
+   "body": "{liaison} was reportedly seen proposing an import agreement to himself in a mirror, then accepting it. 'There was much to share,' he said later. Officials are reviewing every agreement he has ever signed."
+  },
+  {
+   "id": "lf-wn-048",
+   "kick": "Scandal",
+   "head": "MAYOR CHARGES SELF WITH ORDER VIOLATION",
+   "body": "In a remarkable act of fairness, a dwarven mayor has charged himself with failing to meet his own mandate. He found himself guilty, fined himself one mug and drank it as punishment. Observers called the trial 'swift and thirsty'."
+  },
+  {
+   "id": "lf-wn-049",
+   "kick": "Cartography",
+   "head": "NEW MAP SHOWS EVERY TREE A MINER HAS CLIMBED",
+   "body": "Cartographers have published a map of {world} marking every tree a dwarf has climbed and failed to get down. It is a very small map. It is mostly one tree. The tree has asked to be removed."
+  },
+  {
+   "id": "lf-wn-050",
+   "kick": "Cartography",
+   "head": "{hillock} REDRAWN TO AVOID GOBLINS",
+   "body": "Mapmakers have moved {hillock} two days' walk on their charts, hoping goblin armies use the same maps. The dwarves of {hillock} have not moved and are said to be 'hoping it works'."
+  },
+  {
+   "id": "lf-wn-051",
+   "kick": "Historians' Corner",
+   "head": "OUR FORTS IN {world}: A RETROSPECTIVE",
+   "body": "Historians mark the line of dwarven forts in {world}, from {past_fort}, which lasted {past_fort_years}, to {fort} today, each inheriting the ghosts, rumours and furniture of the last. 'Each one learns something,' one said. 'Not much.'",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wn-052",
+   "kick": "Historians' Corner",
+   "head": "{record}: HOW DID IT HAPPEN?",
+   "body": "A new study of {record_fort} asks how a single fort accumulated {record}. The answer, after two hundred pages, is 'one work order, never cancelled'. The study recommends checking your work orders. Please check your work orders.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wn-053",
+   "kick": "Arts Abroad",
+   "head": "ELVES STAGE 'TRAGEDY OF THE TREE-BOUND MINER'",
+   "body": "A troupe at {retreat} has premiered a play about a dwarf who climbed a tree and never came down. In their version, the tree is the hero. Dwarven audiences walked out at intermission and climbed nothing on the way home."
+  },
+  {
+   "id": "lf-wn-054",
+   "kick": "Arts Abroad",
+   "head": "GOBLIN POET WRITES ODE TO 'ALL THOSE BARRELS'",
+   "body": "A goblin poet stationed in a captured dwarven fort has published a collection about its stores. Highlights include 'Barrel', 'Another Barrel' and 'Why Won't It Open'. Critics in {darkfort} called it 'raw'."
+  },
+  {
+   "id": "lf-wn-055",
+   "kick": "Arts Abroad",
+   "head": "HUMANS OF {town} BUILD ONE ARMOR STAND, CALL IT ART",
+   "body": "Humans in {town} have built a single armor stand and placed it in the town square as public art. Dwarven visitors were unimpressed. 'Come back when you have two thousand,' one said, before realising this was not a boast."
+  },
+  {
+   "id": "lf-wn-056",
+   "kick": "From Our Correspondent in {town}",
+   "head": "HUMANS ASK WHY DWARVES DIE NEAR BARRELS",
+   "body": "Your correspondent in {town} is regularly asked why dwarves are famous for dying of thirst in well-stocked forts. I have explained the stairs, the trees and the orders. They nod slowly. They do not understand. Neither, quite, do I."
+  },
+  {
+   "id": "lf-wn-057",
+   "kick": "From Our Correspondent in {town}",
+   "head": "TOWN GUARD ADMIRES OUR MILITIA'S 'EFFICIENCY'",
+   "body": "The captain of the guard in {town} has praised our militia for keeping costs so low. I did not tell him it is one dwarf. I did not tell him the dwarf is off duty. I let {town} have its admiration, and bought him a drink."
+  },
+  {
+   "id": "lf-wn-058",
+   "kick": "From Our Correspondent in {town2}",
+   "head": "{town2} BAKERS HEAR OF 'FAMINE, DAY 32'",
+   "body": "Bakers in {town2} were horrified to learn of a starving dwarven founding and have sent a sack of bread 'for the history'. I have explained that the famine was some years ago. They have sent a second sack, for the present."
+  },
+  {
+   "id": "lf-wn-059",
+   "kick": "Property",
+   "head": "{past_fort} LISTED: 'BARRELS INCLUDED'",
+   "body": "A property notice describes {past_fort} as 'well-stocked, spacious, full of character', and mentions in small print that it {past_fort_fate}. Viewing is by appointment, and possibly by siege.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wn-060",
+   "kick": "Property",
+   "head": "OLD FORT RUINS 'FULLY FURNISHED'",
+   "body": "Agents describe a ruined dwarven fort near {hillock} as 'fully furnished, heavily furnished, possibly over-furnished', with over a hundred thrones and two thousand armor stands in the asking price. Smoothing incomplete."
+  },
+  {
+   "id": "lf-wn-061",
+   "kick": "Situations Vacant Abroad",
+   "head": "EVERY FORT IN REALM SEEKS SHERIFF",
+   "body": "Forts across {world} report the same vacancies: sheriff, hammerer, dungeon master, chief medical dwarf. Applicants are encouraged to apply anywhere. No experience needed. No applicants yet."
+  },
+  {
+   "id": "lf-wn-062",
+   "kick": "Engineering",
+   "head": "PUMP RINGS SPREAD AS 'HAPPINESS INFRASTRUCTURE'",
+   "body": "Engineers in {hillock} have begun building rings of misting pumps, reporting a sharp rise in cheerful moods and damp beards. One fort has built a mist ring inside its tavern. Nobody is sure which drink is which."
+  },
+  {
+   "id": "lf-wn-063",
+   "kick": "Engineering",
+   "head": "GARBAGE PIT REFORM PROPOSED",
+   "body": "Engineers have proposed a radical new refuse pit: one where nobody is asked to haul anything out while others are throwing things in. The proposal has been called 'visionary'. Several forts have asked for a diagram."
+  },
+  {
+   "id": "lf-wn-064",
+   "kick": "Night Desk",
+   "head": "MYSTERIOUS LIGHTS OVER {darkfort2}",
+   "body": "Travellers report flickering lights above {darkfort2} each night. Some say it is a goblin festival. Some say it is a goblin argument. Both, our night desk notes, involve torches."
+  },
+  {
+   "id": "lf-wn-065",
+   "kick": "Night Desk",
+   "head": "FORGOTTEN BEAST SEEN 'USING STAIRS RESPONSIBLY'",
+   "body": "A forgotten beast was reportedly seen using a staircase one step at a time 'like a citizen'. Dwarves who survived a similar visit to a Safety burrow have asked that this not be presented as good news."
+  },
+  {
+   "id": "lf-wn-066",
+   "kick": "Scholarship",
+   "head": "ACADEMY OFFERS COURSE: 'CANCELLING WORK ORDERS'",
+   "body": "A dwarven academy in {hillock} has launched a course teaching overseers to cancel work orders. Lesson one is finding the order. Lesson two is admitting how many armor stands it already made. Enrolment is one."
+  },
+  {
+   "id": "lf-wn-067",
+   "kick": "Scholarship",
+   "head": "HISTORIANS DEBATE: WAS {past_fort} 'HAPPY'?",
+   "body": "Scholars disagree on whether {past_fort} was happy. One side cites its barrels. The other side cites its fate: it {past_fort_fate}. A third side has gone to the tavern and is citing nothing.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wn-068",
+   "kick": "Goblin Affairs",
+   "head": "GOBLINS AT SEARABBEYS STILL CANNOT FIND THE MEAT",
+   "body": "The Torments of Hating, who occupy Searabbeys, report that the fort's famous two thousand barrels are 'all drink, no food'. Historians note the dwarves had the same complaint. The Nuanced Hamlet remains on its shelf.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wn-069",
+   "kick": "Goblin Affairs",
+   "head": "VICE OF FINS CLAIMS IT HAS NO FINS",
+   "body": "Uslôx Ulutodan, leader of The Vice of Fins, has dismissed rumours that his army is part fish. 'It is a vice,' he said. Survivors of the Padtufted raid say they did see at least one fin, but it may have been a hat.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wn-070",
+   "kick": "Dwarven Affairs",
+   "head": "CHASTE CUDGEL'S TAMETOMB 'DUSTED AT LAST'",
+   "body": "Bomrek Thimshursåkzul of The Chaste Cudgel reports that Tametomb is fully reclaimed. Meanwhile The Oily Boots continue to slide toward Scaldedarch, requesting sand and a less slippery name.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wn-071",
+   "kick": "Foreign Desk",
+   "head": "AMUSING DUTIES GAINS 49TH CLAIMANT",
+   "body": "A fresh claim has been lodged on The Amusing Duties, the steel greaves lost at Roughnessslaps in year 68 and now at Fieryaged. The new claimant, like the forty-eight before, has not yet travelled to Fieryaged.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wn-072",
+   "kick": "Rumours",
+   "head": "CLASPEDSERPENT 'MISSES' QUAKEFOCUS",
+   "body": "The silver mace Claspedserpent is said to rattle on its pedestal at Quakefocus every year on the anniversary of the 1,981st armor stand. Experts suggest it is a draft. Romantics suggest it is grief.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wn-073",
+   "kick": "Elven Affairs",
+   "head": "NOBLEDESSERT DEMANDS RETURN OF MAME AYATHEMIYI",
+   "body": "The elves of Nobledessert, joined by Keeperglossed in the matter of Imara Sidayanithe, have issued a joint demand for their abducted kin. It was written on a leaf. Goblins have used it to wrap a sandwich.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wn-074",
+   "kick": "Diplomacy",
+   "head": "GROOVED COUNCIL KEEPS JACKALDEFENSE",
+   "body": "The humans of The Grooved Council say they will not return Jackaldefense to The Distinct Dungeon. 'We've just finished the grooves,' a councillor said. The jackals were not consulted.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wn-075",
+   "kick": "Foreign Desk",
+   "head": "PADTUFTED ASKS GOBLINS TO PICK ONE ARMY",
+   "body": "Padtufted, raided by both The Crazed Hex and The Vice of Fins, has written to both requesting they 'decide between yourselves who is attacking us'. Ngumrash Ensebrab replied 'both'.",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "travel": [
+  {
+   "id": "lf-tr-001",
+   "head": "A WEEKEND AT {past_fort}",
+   "body": "Our reviewer visited {past_fort}, which {past_fort_fate}. The halls are grand, the barrels plentiful, the ghosts chatty. Do not ask the ghosts about meat. Do not drink from the barrels. Do not stay the night, whatever the ghosts suggest.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tr-002",
+   "head": "{past_fort}: A GUIDED TOUR FOR THE BRAVE",
+   "body": "The guide to {past_fort} opens every tour with 'it lasted {past_fort_years}', then pauses for effect. Highlights include the old still, the long walk to it, and a staircase the guide refuses to discuss. Bring water. Obviously.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tr-003",
+   "head": "SEE {record} AT {record_fort}!",
+   "body": "Tourists flock to {record_fort} to gawp at its famous {record}. Our reviewer counted for an hour before losing his place. The gift shop sells one, as a souvenir. It is the only one anyone has ever bought.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-tr-004",
+   "head": "THE {civ} CAPITAL ON A BUDGET",
+   "body": "The capital of {civ} is grand, crowded and expensive. Our reviewer suggests the free attractions: watching {monarch}'s single throne from across the hall, and listening to petitioners. Avoid the liaison's office unless you want to sign something."
+  },
+  {
+   "id": "lf-tr-005",
+   "head": "TRAVELLING WITH {liaison}",
+   "body": "Our reviewer shared a wagon with {liaison} for six days. We learned there is much to share. We learned it again each morning. By day four we had agreed to an import of cheese. By day six we were importing it ourselves."
+  },
+  {
+   "id": "lf-tr-006",
+   "head": "NOT RECOMMENDED: {enemy} TERRITORY",
+   "body": "{enemy} have opened their borders to visitors, in the sense that they have opened them at us with spears. Our reviewer saw the scenery briefly, at speed, while leaving. Zero stars. Lovely hills, though.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-tr-007",
+   "head": "{town}: A HUMAN TOWN WITH TREES (CAREFUL)",
+   "body": "{town} has a charming square, a good inn and a great many trees, all of which our reviewer declined to climb. The humans found this odd. We explained the history. They have since put up little signs: 'NOT FOR MINERS'."
+  },
+  {
+   "id": "lf-tr-008",
+   "head": "{town2}: REFUGEE CAPITAL OF THE REGION",
+   "body": "{town2} has taken in refugees from three goblin raids and is now the busiest town for weeks around. Every inn is full, every story is grim, and every soup is generous. Visit for the company; leave before the goblins check the address."
+  },
+  {
+   "id": "lf-tr-009",
+   "head": "DARK TOURISM: {darkfort}",
+   "body": "A goblin tour of {darkfort} includes the spear gallery, the prisoner gallery and the gallery of spears taken from prisoners. The tour guide was charming and would not let our reviewer leave for three days. Five stars for hospitality, one for exit."
+  },
+  {
+   "id": "lf-tr-010",
+   "head": "{darkfort2}: THE TOWER IS THE ATTRACTION",
+   "body": "{darkfort2} has one tall tower, built in what goblins consider a fun style. Visitors may climb it. Visitors may not come down until they have heard every war song. There are forty war songs."
+  },
+  {
+   "id": "lf-tr-011",
+   "head": "{retreat}: LEAVE THE AXE AT HOME",
+   "body": "Elves at {retreat} were welcoming once they had searched our reviewer's pack for wood. They found a pencil. The pencil was given a funeral. Our reviewer was given a bowl of leaves and told to be grateful. He was, eventually."
+  },
+  {
+   "id": "lf-tr-012",
+   "head": "{retreat} FOREST WALKS",
+   "body": "The forest walks at {retreat} are long, green and conducted at elf pace, which is to say one step per century. Our reviewer finished the short loop in under a season and was praised for his 'urgency'."
+  },
+  {
+   "id": "lf-tr-013",
+   "head": "{hillock}: A DWARF HAMLET THAT GETS IT",
+   "body": "{hillock} has a still beside every bed and a ladder at every tree. No room is called 'Safety'. Our reviewer wept with recognition and asked to stay. He was put to work smoothing, so he left."
+  },
+  {
+   "id": "lf-tr-014",
+   "head": "{hillock}'S FAMOUS GARBAGE POLICY",
+   "body": "{hillock} has a famous rule: nobody hauls refuse out of the pit while anyone is throwing it in. Visitors come from all over to see it. It is a sign. It works. Our reviewer took a rubbing of the sign to bring home."
+  },
+  {
+   "id": "lf-tr-015",
+   "head": "THE ROAD TO {town}: MIND THE GOBLINS",
+   "body": "The road from {fort} to {town} is pleasant, dry and lined with burned wagons. Travellers are advised to go in groups, carry water and ignore anyone offering a 'shortcut through the woods'. The shortcut leads to {darkfort}."
+  },
+  {
+   "id": "lf-tr-016",
+   "head": "A CARAVAN RIDE TO {town2}",
+   "body": "Our reviewer joined a caravan to {town2}. The wagons were slow, the oxen proud and the merchants spent the trip complaining about dwarven depots. 'Why underground?' they asked every hour. We told them the whole history. They stopped asking."
+  },
+  {
+   "id": "lf-tr-017",
+   "head": "CAMPING IN {world}: A GUIDE",
+   "body": "Pitch your tent away from trees, rivers, caverns, goblins, elves, carp and crooked horrors. Our reviewer did this successfully and camped in the middle of a bare field. He reports it was 'very safe and the worst night of my life'."
+  },
+  {
+   "id": "lf-tr-018",
+   "head": "VISITING A FORT CALLED 'SAFETY'",
+   "body": "Our reviewer visited a dwarven settlement whose founders had named it, optimistically, Safety. Its burrows, its stairs and its trees were all safe on the day of the visit. Our reviewer left before the day ended, on principle."
+  },
+  {
+   "id": "lf-tr-019",
+   "head": "THE CAVERN TOUR, FIRST LAYER",
+   "body": "Mushroom trees, glowing moss and the occasional forgotten beast, which the guide described as 'part of the experience'. Our reviewer enjoyed the moss, avoided the experience and returned by a different staircase out of sheer superstition."
+  },
+  {
+   "id": "lf-tr-020",
+   "head": "A SPA WEEK IN A MIST RING",
+   "body": "Some forts build rings of misting pumps purely for joy, and our reviewer spent a week in one. Skin: glowing. Beard: permanently damp. Mood: radiant. He now finds dry rooms suspicious and has asked to be sprinkled before meetings."
+  },
+  {
+   "id": "lf-tr-021",
+   "head": "THE CATACOMB WALK",
+   "body": "Every dwarven fort has catacombs, and every dwarven fort is proud of its catacombs. Our reviewer took the tour at {fort}. Slabs, niches, a ghost with opinions about the decor. The ghost was right about the decor."
+  },
+  {
+   "id": "lf-tr-022",
+   "head": "THE EXECUTION TOWER (EXTERIOR ONLY)",
+   "body": "Visitors to {fort} are encouraged to admire the execution tower from the outside. The architecture is fine. The view is reported to be excellent. Nobody on our staff has confirmed this personally, by choice."
+  },
+  {
+   "id": "lf-tr-023",
+   "head": "THE ARMOR STAND MUSEUM, ANY FORT",
+   "body": "Most dwarven forts with an Overseer have, somewhere, an armor stand museum: a hall of furniture made by a work order nobody cancelled. Entry free. Exit eventually. Our reviewer touched one stand for luck. It fell over. Bad luck."
+  },
+  {
+   "id": "lf-tr-024",
+   "head": "THE THRONE HALL TOUR",
+   "body": "Somewhere in every ambitious fort is a hall of surplus thrones. Visitors may sit in as many as they like. Our reviewer managed thirty before feeling dangerously regal and had to lie down in a normal bed."
+  },
+  {
+   "id": "lf-tr-025",
+   "head": "HIKING TO THE FORT ON THE HILL",
+   "body": "Our reviewer hiked from {hillock} toward a ruined fortress said to be full of barrels. He got lost, ran out of water and was found three days later, sitting beside a barrel. Readers will appreciate the irony. He did not, at the time."
+  },
+  {
+   "id": "lf-tr-026",
+   "head": "A HUMAN MARKET IN {town}",
+   "body": "The market at {town} sells everything except what dwarves need. Our reviewer asked for rough gems and was offered cut ones. He asked for plant cloth and was offered silk. He came home with a hat. It is a good hat."
+  },
+  {
+   "id": "lf-tr-027",
+   "head": "{town} INN: BEDS, BREAD AND BAD STAIRS",
+   "body": "The inn at {town} is warm and friendly, with a staircase so steep our reviewer suspects dwarven design. He slept downstairs. He ate downstairs. He did not go upstairs. 'You never know what is coming up,' he said, darkly."
+  },
+  {
+   "id": "lf-tr-028",
+   "head": "ELF TEA AT {retreat}",
+   "body": "Tea at {retreat} is brewed for a full season and served in a leaf. It tastes of patience. Our reviewer finished his cup in eleven seconds and was asked if he was 'alright'. He was not. He wanted ale."
+  },
+  {
+   "id": "lf-tr-029",
+   "head": "{darkfort}: THE GOBLIN BAKE-OFF",
+   "body": "{darkfort} hosts an annual baking contest. Entries this year included bread, spear-bread and bread with a prisoner's name iced on it. Our reviewer was a judge. He declined to taste the third. He was not invited back, which he counts as a win."
+  },
+  {
+   "id": "lf-tr-030",
+   "head": "THE OLD TRADE ROAD",
+   "body": "The old trade road across {world} passes three ruined dwarven forts, two goblin towers and one surprisingly good inn. Our reviewer recommends the inn and very little else. Pack water; history says you will need it."
+  },
+  {
+   "id": "lf-tr-031",
+   "head": "ON FOOT FROM {hillock} TO {town}",
+   "body": "A gentle week's walk, our reviewer reports, through fields, woods and the occasional refugee camp. Everyone he met had fled a goblin army. Everyone shared their bread. He returned fatter and sadder, and with three new recipes."
+  },
+  {
+   "id": "lf-tr-032",
+   "head": "STAYING WITH REFUGEES NEAR {town2}",
+   "body": "Refugees camped near {town2} have opened their tents to travellers. The food is simple, the stories are long and everyone knows the name of the goblin general who chased them out. Our reviewer did too, by the end. He would rather not."
+  },
+  {
+   "id": "lf-tr-033",
+   "head": "A DIPLOMATIC JOURNEY",
+   "body": "Our reviewer accompanied a diplomat of {civ} on a tour of friendly nations. Every capital served cake. Every speech mentioned peace. Every meeting ended with an import agreement. He returned with a new appreciation for staying home."
+  },
+  {
+   "id": "lf-tr-034",
+   "head": "THE TREE OF REGRETS",
+   "body": "Locals near {hillock} point visitors to a single tall tree where, they say, a miner once climbed and could not climb down. Tourists photograph themselves next to it, never in it. The tree has become quite vain about the attention."
+  },
+  {
+   "id": "lf-tr-035",
+   "head": "THE TOWN THAT CHANGED HANDS",
+   "body": "Our reviewer visited a town near {town} recently taken by a human council. The new owners have changed the signs, the taxes and the name of the inn. The potholes remain loyal to the old regime."
+  },
+  {
+   "id": "lf-tr-036",
+   "head": "BEACH HOLIDAY? NO",
+   "body": "A reader asked if we would review a beach. Our reviewer went to the nearest shore, saw the carp, and came straight back. 'Every dwarf knows,' he wrote, in a short and shaky report. He has not been near water since, except to drink it, carefully."
+  },
+  {
+   "id": "lf-tr-037",
+   "head": "TRAVELLER'S NOTE: WATCH FOR CROOKED HORRORS",
+   "body": "Several regions of {world} are home to crooked horrors, enormous beasts with poor manners and good appetites. Travellers should consult locals, carry no food and walk quietly. Our reviewer walked so quietly he got lost. It was worth it."
+  },
+  {
+   "id": "lf-tr-038",
+   "head": "GLAMPING IN THE SAFETY BURROW",
+   "body": "A fort has begun renting out its deepest burrow to tourists as 'the safest stay in the region'. Our reviewer spent a night there. Nothing came up the stairs. He spent the whole night watching the stairs anyway. He calls it 'restful, technically'."
+  },
+  {
+   "id": "lf-tr-039",
+   "head": "THE SEARABBEYS HERITAGE WALK",
+   "body": "Searabbeys, our first fort, is occupied by The Torments of Hating, who have opened it for tours. Highlights: the 800 loose stones, the 1,994-drink cellar, The Nuanced Hamlet on its shelf. Do not mention the meat. The goblins are sensitive.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tr-040",
+   "head": "QUAKEFOCUS: FURNITURE CAPITAL OF THE PLANES",
+   "body": "Quakefocus offers the world's largest collection of armor stands (1,981) and thrones (148), plus four hospitals, two once staffed. Claspedserpent is on display. The smoothing is still not finished. Allow a week.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tr-041",
+   "head": "FIERYAGED: SEE THE AMUSING DUTIES",
+   "body": "The steel greaves lost at Roughnessslaps in year 68 now rest at Fieryaged. Visitors may view them and, for a small fee, register as claimant forty-nine. Nobody may wear them. Nobody has ever wanted to.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tr-042",
+   "head": "TAMETOMB, NEWLY RECLAIMED",
+   "body": "The Chaste Cudgel's Tametomb is open to visitors. Bomrek Thimshursåkzul greets each one personally and shows them the dusting. A lovely hall, a little haunted, with a dining room that has seen goblins and survived.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tr-043",
+   "head": "SHADYGHOSTS: DON'T",
+   "body": "Shadyghosts is home to the crooked horror Omo Fewethauyira. It is also home to some excellent views, which the locals describe at length from very far away. Our reviewer viewed them from the next valley. Recommended distance: further.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tr-044",
+   "head": "TOEEMBRACE: FAIR CAKES, FAIR PRICES",
+   "body": "The Fair Cakes of Toeembrace bake the best cakes in the region and sell them at reasonable prices. The name of the town remains unexplained. Our reviewer asked about the toes. He was given a cake instead. He accepted the trade.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-tr-045",
+   "head": "A NIGHT AT THE DEPOT",
+   "body": "Our reviewer slept at the trade depot of {fort} to experience the caravan life. He was woken by merchants, then by an elf, then by the liaison, who had much to share. Breakfast was an import agreement. Two stars, both for the oxen."
+  },
+  {
+   "id": "lf-tr-046",
+   "head": "{hillock} HOT SPRINGS (A CISTERN)",
+   "body": "{hillock} advertises 'hot springs'. They are a cistern under the tavern, gently warmed by the kitchens. Our reviewer soaked for an hour and drank some for safety's sake. Nobody stopped him. Nobody ever stops a dwarf near water."
+  },
+  {
+   "id": "lf-tr-047",
+   "head": "THE WINDMILL FIELDS OF {world}",
+   "body": "Across {world}, dwarven windmills turn on hilltops for reasons the dwarves cannot fully explain. Our reviewer toured six. Each mechanic gave a different answer. The windmills themselves gave none, and kept turning."
+  }
+ ],
+ "sports": [
+  {
+   "id": "lf-sp-001",
+   "head": "THIRST PARADOX RELAY ENDS IN FARCE",
+   "body": "Teams were asked to carry a full mug from the cellar to a thirsty dwarf two levels up. All six teams drank the mug on the way. The thirsty dwarf was eventually carried to the cellar instead, which judges ruled 'within the spirit of the event'."
+  },
+  {
+   "id": "lf-sp-002",
+   "head": "TREE-CLIMBING BANNED AFTER ONE ATTEMPT",
+   "body": "The fort's first tree-climbing contest was suspended after the only competitor reached the top branch and then asked, quietly, how one gets down. The league has replaced the event with 'looking at trees', which has a perfect safety record."
+  },
+  {
+   "id": "lf-sp-003",
+   "head": "ARMOR STAND SLALOM DRAWS RECORD FIELD",
+   "body": "Runners wove through two thousand armor stands in the fort's surplus gallery. The course record was set by a cat. The dwarven winner finished in a respectable time and knocked over only four hundred stands, which the Overseer immediately ordered replaced."
+  },
+  {
+   "id": "lf-sp-004",
+   "head": "MILITIA WINS SQUAD DRILL, UNOPPOSED",
+   "body": "Our militia has won the inter-squad drill competition for the fifth year running, being the only squad. The captain performed all ten positions himself, in sequence, and was awarded a medal by himself. He then went off duty to celebrate."
+  },
+  {
+   "id": "lf-sp-005",
+   "head": "THRONE-SITTING MARATHON CALLED OFF",
+   "body": "The throne-sitting marathon was abandoned after competitors could not agree which of the many surplus thrones counted as 'the' throne. Several moved between thrones every hour. The judges ruled that everyone was king and nobody won."
+  },
+  {
+   "id": "lf-sp-006",
+   "head": "SMOOTHING SPRINT: THREE ENTRANTS, SIXTEEN THOUSAND WALLS",
+   "body": "The smoothing sprint pitted three smoothers against the full job queue. Day one: four walls. Day thirty: sixty walls. The organisers have declared the event 'ongoing' and moved the medal ceremony to a later generation."
+  },
+  {
+   "id": "lf-sp-007",
+   "head": "GARBAGE PIT TUG-OF-WAR ENDS BADLY",
+   "body": "One team pulled refuse out of the pit. The other team threw it back in. Neither team realised they were competing. Medical staff report three injuries and one very confused goat. The event will not be repeated."
+  },
+  {
+   "id": "lf-sp-008",
+   "head": "SAFETY BURROW HIDE-AND-SEEK CANCELLED",
+   "body": "The annual hide-and-seek was cancelled after organisers realised the best hiding place was the Safety burrow, thirty levels down, and that a forgotten beast was 'it'. Players have been asked to hide in the tavern, where nobody seeks."
+  },
+  {
+   "id": "lf-sp-009",
+   "head": "GEM-HIDING CHAMPIONSHIP A TIE",
+   "body": "Jewelers and crafters competed to hide one rough gem from each other before the next strange mood. The jewelers found and cut every hidden gem within a day. The crafters responded by hiding the jewelers. The judges declared a tie."
+  },
+  {
+   "id": "lf-sp-010",
+   "head": "MAYOR'S CUP GOES TO 'PRODUCTION ORDER' TEAM",
+   "body": "The Mayor's Cup was awarded to the team that fulfilled the most mandates. It was the only team that bothered. The rest were charged with production order violations during the medal ceremony, which they described as 'fair, honestly'."
+  },
+  {
+   "id": "lf-sp-011",
+   "head": "PLANT-GATHERING CROSS-COUNTRY: EVERYONE LOST",
+   "body": "Runners were sent to gather plants from every edge of the map in the rain, by order of the Overseer. Nine returned with a strawberry each. Three returned with a cold. One is still out there and has been listed as 'still competing'.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-sp-012",
+   "head": "MIST RING DANCE-OFF A DAMP SUCCESS",
+   "body": "Competitors danced in the spray of a ring of misting pumps until they slipped. The last dwarf standing was a miner with exceptionally grippy boots. Everyone left happier, wetter and in need of a towel. The pumps were not judged."
+  },
+  {
+   "id": "lf-sp-013",
+   "head": "REFUSE-HAULING RELAY GETS HELMETS",
+   "body": "After past tragedies, the refuse-hauling relay now requires helmets, gloves and a spotter at the top of the pit shouting 'STOP THROWING'. Times are slower. Survival rates are excellent. Spectators described it as 'boring in a good way'."
+  },
+  {
+   "id": "lf-sp-014",
+   "head": "CHILD WINS CRAFTING CONTEST IN A MOOD",
+   "body": "A dwarven child seized by a strange mood entered the open crafting contest and produced a masterpiece out of plant cloth in a single afternoon. Adult entrants have lodged a protest, citing 'divine assistance'. The protest was ignored."
+  },
+  {
+   "id": "lf-sp-015",
+   "head": "WINDMILL-WATCHING LEAGUE: NO RESULT",
+   "body": "Teams were asked to explain what the windmill does. No team could. The match was declared a draw after nine hours of watching the windmill turn. Several spectators described it as 'the most relaxing sport we have'."
+  },
+  {
+   "id": "lf-sp-016",
+   "head": "LIAISON CHALLENGE: WHO CAN SAY 'NO' FIRST?",
+   "body": "Contestants sat across from the visiting liaison and tried to refuse an import agreement before he said 'there is much to share'. Nobody managed it. Six contestants signed something. One is now importing turnips. The trophy was imported."
+  },
+  {
+   "id": "lf-sp-017",
+   "head": "CATACOMB QUIET-WALKING EVENT",
+   "body": "Competitors walked the length of the catacombs without disturbing the dead. Two finished. One woke a ghost, who followed him to the tavern and has opinions about his technique. The ghost has since been made a judge."
+  },
+  {
+   "id": "lf-sp-018",
+   "head": "HOSPITAL DASH: FIND THE DOCTOR",
+   "body": "Runners raced through four hospitals to find the one with a doctor. Most runners reached hospitals with beds, splints and buckets but no doctor. The winner found the doctor in the tavern. The doctor was also in the race and came second."
+  },
+  {
+   "id": "lf-sp-019",
+   "head": "BURROW DRILL TIMES IMPROVE, DIRECTION CONFIRMED",
+   "body": "The fort's emergency drill saw dwarves reach the burrow in record time. Organisers have also confirmed, at last, that the burrow should be above the danger, not below it. The new burrow has a tavern. Attendance is excellent."
+  },
+  {
+   "id": "lf-sp-020",
+   "head": "TRAINING WITH ONE: THE CAPTAIN'S CAMP",
+   "body": "The militia captain held an open training camp. Nobody came. He sparred with a training dummy, then with a second dummy, then he sparred both dummies against each other and refereed. 'Good session,' he said. 'Solid turnout.'"
+  },
+  {
+   "id": "lf-sp-021",
+   "head": "{citizen} WINS THE MUG RACE",
+   "body": "{citizen} has won the annual mug race, carrying a full mug from the cellar to the far end of the fort without spilling or drinking a drop. Officials are in awe. Historians call it the first time a drink has ever reached a thirsty dwarf."
+  },
+  {
+   "id": "lf-sp-022",
+   "head": "{promoted} THROWS OUT FIRST BALL",
+   "body": "Newly promoted {promoted} ceremonially opened the season by throwing the first ball, which bounced off three armor stands and into the garbage pit. Nobody went to fetch it. Everyone has learned that lesson.",
+   "when": [
+    "recent_promotion"
+   ]
+  },
+  {
+   "id": "lf-sp-023",
+   "head": "{dogs} DOGS ENTER HUNTING TRIALS",
+   "body": "All {dogs} of the fort's dogs entered the hunting trials. With meat scarce, they hunted with unusual passion. The trial was won by a dog that caught a rabbit and refused to share. The rabbit has been entered into the record books.",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "lf-sp-024",
+   "head": "{cats} CATS DISRUPT MATCH",
+   "body": "A match was abandoned after all {cats} cats occupied the pitch and refused to leave. Players tried coaxing, bribing and ignoring them. The cats won on forfeit. The cats are now unbeaten in the league.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "lf-sp-025",
+   "head": "{stone} SHOT PUT FINAL",
+   "body": "The {stone} shot put final was hard-fought, with the winner throwing a boulder clean across the dining hall. The Overseer has ordered the boulder smoothed, then engraved, then smoothed again. It will be ready in roughly a year.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "lf-sp-026",
+   "head": "{drinks}-MUG CHALLENGE POSTPONED",
+   "body": "The challenge to drink from all {drinks} drinks in the cellars has been postponed, on medical advice, to a later date and to a larger group. The cellars were relieved. The challengers were less so.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "lf-sp-027",
+   "head": "DRY SEASON SUSPENDS LEAGUE",
+   "body": "With drink stocks low, league fixtures are off and players have been asked to locate the cellar and stand near it. Several players have taken the opportunity to remember where the well is. Others are simply guarding the brewer.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "lf-sp-028",
+   "head": "MEAT-SEEKING RACE: NO FINISHERS",
+   "body": "In a meatless season, runners were sent to find a single piece of meat anywhere in the fort. Nine hours later, the dogs returned with a bone of uncertain origin. The judges declined to award the medal. The dogs ate it.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "lf-sp-029",
+   "head": "MIGRANTS GIVEN TRYOUTS",
+   "body": "New arrivals took part in the fort's traditional welcome tryouts: find the tavern, avoid the trees, and learn which burrow not to shelter in. Most passed. One was found asking a liaison for directions and has been placed in remedial orientation.",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "lf-sp-030",
+   "head": "CARAVAN GUARDS CHALLENGE OUR MILITIA",
+   "body": "The caravan's guards challenged our militia to a friendly bout. The militia, being one captain, agreed to fight them in turn. He fought valiantly, lost seven times and won once against a guard who slipped on the mist ring. 'A win is a win,' he said.",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lf-sp-031",
+   "head": "SNOW TOURNAMENT: SNOWBALLS, THEN SHOVELS",
+   "body": "The winter tournament began with a snowball fight and ended when someone realised the depot was buried and the liaison was coming. Players switched to shovels. The liaison arrived anyway and much was shared.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-sp-032",
+   "head": "SPRING OPEN: TREE LADDER RACE",
+   "body": "Racers built ladders down from every tree near the gate before any miner could climb one. The winning team finished in an hour. Not a single miner was stranded this spring. The trees are said to be disappointed.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "lf-sp-033",
+   "head": "SUMMER GAMES: WATER STATIONS EVERY THREE STEPS",
+   "body": "After historical incidents, the summer games now feature a water station every three steps. Runners must drink at each one. The marathon took four days. Every runner finished. Every runner needed the privy. A sporting triumph.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "lf-sp-034",
+   "head": "AUTUMN HARVEST RACE COUNTS PLANTS TWICE",
+   "body": "The harvest race rewards whichever team gathers the most plants. This year both teams counted the same plants. Judges awarded the trophy to the farmers, who had grown them, and who had been ignored by both teams.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "lf-sp-035",
+   "head": "WINTER INDOOR LEAGUE MOVES TO CISTERN",
+   "body": "With the surface frozen, the winter league has moved to the edge of the cistern, where players compete in 'ladle accuracy'. The winner drained the most water into the most mugs. Spectators were delighted to be paid in water.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "lf-sp-036",
+   "head": "THE ARMOR STAND DECATHLON",
+   "body": "Events: lifting an armor stand, carrying an armor stand, throwing an armor stand, hiding an armor stand from the Overseer, and six more variations. The Overseer won the hiding event by making two hundred more while everyone was distracted."
+  },
+  {
+   "id": "lf-sp-037",
+   "head": "HAMMERER POST REMAINS UNCONTESTED",
+   "body": "The fort's tryouts for hammerer drew no entrants for the third year. Officials cite 'the job description'. The hammer itself has been entered into the decorative arts competition, where it won a ribbon for being 'unused'."
+  },
+  {
+   "id": "lf-sp-038",
+   "head": "FORGOTTEN BEAST ENTERS STAIR RACE",
+   "body": "A forgotten beast entered the hundred-level stair race uninvited and set a course record. Dwarven runners abandoned the race and set a new record in a different direction. The beast has been disqualified for not being forgotten."
+  },
+  {
+   "id": "lf-sp-039",
+   "head": "GREAT REWIND RUINS PHOTO FINISH",
+   "body": "The final of the sprint was decided by a hair when the world blinked and the race restarted. In the replay, a different dwarf won. Both now claim victory. The judges have asked the gods for a clearer ruling."
+  },
+  {
+   "id": "lf-sp-040",
+   "head": "THE OLD FORT DERBY",
+   "body": "Teams raced the length of the old road to the ruins of {past_fort}, which {past_fort_fate}. All teams turned back at the gate. 'Ghosts,' said one runner. 'Barrels,' said another. 'Both,' said the third. The trophy stays home.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-sp-041",
+   "head": "{record_fort} CHALLENGE: CAN YOU BEAT {record}?",
+   "body": "A charity event invited workshops to beat the infamous {record} of {record_fort}. Nobody tried. Organisers called it 'the most successful event we have ever run'. The money raised was spent on cancelling work orders.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-sp-042",
+   "head": "CAPTURED {enemy_race} REFEREE LEAVES MATCH",
+   "body": "A {enemy_race} prisoner, offered freedom if he could referee one match fairly, gave seven red cards in the first minute, all to dwarves. He has been returned to his cell, where he is said to be 'happier'. {enemy} declined to comment.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-sp-043",
+   "head": "{civ} GAMES: OUR FORT FINISHES SECOND-LAST",
+   "body": "At the games of {civ}, our athletes placed second-last overall, ahead only of a fort that sent a single militia captain. Officials have pointed out that we, too, sent a single militia captain. He was very tired."
+  },
+  {
+   "id": "lf-sp-044",
+   "head": "{monarch} SENDS TROPHY; IT IS A THRONE",
+   "body": "{monarch} has sent the fort a trophy for 'endurance'. It is a throne. The fort already has several. It has been placed at the end of the row. Nobody can now tell which throne is the trophy, including the monarch's envoy."
+  },
+  {
+   "id": "lf-sp-045",
+   "head": "{liaison} REFEREES, SHARES MUCH",
+   "body": "{liaison} agreed to referee the cup final and stopped play every five minutes to tell both teams there was much to share. The match lasted nine hours. By the end, both teams had signed import agreements. Nobody scored."
+  },
+  {
+   "id": "lf-sp-046",
+   "head": "BARREL-ROLLING: STILL BESIDE THE BEDS",
+   "body": "Competitors rolled barrels from the cellar toward the bedrooms, in support of the 'still beside the beds' campaign. Twelve barrels arrived. Eleven dwarves drank them on arrival. The campaign calls this 'a strong proof of concept'."
+  },
+  {
+   "id": "lf-sp-047",
+   "head": "LEVER RELAY FLOODS THE MIST RING",
+   "body": "In the lever relay, one runner pulled every lever in the fort, flooding the mist ring, raising a bridge and opening the cistern gates. Nobody won. Everyone had a lovely day. The engineers have taken the levers away."
+  },
+  {
+   "id": "lf-sp-048",
+   "head": "DOG POLO SUSPENDED AFTER ONE CHUKKA",
+   "body": "Dogs were ridden by dwarves in the first match of dog polo. The dogs had other ideas, most of which involved the kitchen. The match ended in the larder with no goals and one very happy dog."
+  },
+  {
+   "id": "lf-sp-049",
+   "head": "THE QUIET-WALK PAST THE LIAISON",
+   "body": "Contestants tried to walk past the visiting liaison's office without being invited in to discuss imports. The record is two steps. The winner wore a disguise and carried a cat. He was still asked about rings."
+  },
+  {
+   "id": "lf-sp-050",
+   "head": "FISHING CONTEST: CARP 3, DWARVES 0",
+   "body": "The fishing contest ended with three dwarves pulled into the river and no fish caught. The carp were awarded the match on goal difference. A rematch has been proposed by the carp, via splashing."
+  },
+  {
+   "id": "lf-sp-051",
+   "head": "THE PUMP PULL: A TEST OF STAMINA",
+   "body": "Pump operators competed to work the mist pumps longest without stopping. The winner pumped for sixteen hours. Spectators in the spray were the happiest in the fort's history. The winner has not yet regained feeling in his arms."
+  },
+  {
+   "id": "lf-sp-052",
+   "head": "BED-RACE THROUGH THE HOSPITAL",
+   "body": "Patients raced their beds through the hospital corridors in a charity event. The hospital has no doctor this week, so nobody objected. The winner reached the far end and immediately needed treatment, which was not available."
+  },
+  {
+   "id": "lf-sp-053",
+   "head": "THRONE-CARRY: THE STRONGEST DWARF CONTEST",
+   "body": "Strongdwarves carried surplus thrones from storage to the dining hall. The winner carried six. The losers carried one each. The dining hall now has too many thrones. The Overseer has ordered more tables, very many."
+  },
+  {
+   "id": "lf-sp-054",
+   "head": "GOBLIN-SPOTTING TOURNAMENT A SUCCESS",
+   "body": "Lookouts competed to spot the first goblin on the horizon. The winner spotted forty, approaching. The tournament was promptly converted into a defence drill. The militia was informed. The militia was off duty."
+  },
+  {
+   "id": "lf-sp-055",
+   "head": "GEM COUNT SPEED TRIAL",
+   "body": "Clerks raced to count the fort's gems. One finished in an hour, one in two, and the third was interrupted by a jeweler cutting them faster than he could count. The judges have accepted 'a lot' as an official number.",
+   "when": [
+    "gems"
+   ]
+  },
+  {
+   "id": "lf-sp-056",
+   "head": "MOOD WATCH: BETTING ON THE NEXT FEY",
+   "body": "Bookmakers are offering odds on which dwarf will next be taken by a strange mood and what they will demand. Rough gems are the favourite. Plant cloth is a strong second. 'Whatever we just ran out of' is listed as a sure thing.",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lf-sp-057",
+   "head": "{citizen} TAKES SILVER IN LIFTING",
+   "body": "{citizen} took silver in the lifting event, raising a full barrel over their head and then, unexpectedly, drinking from it mid-lift. Judges deducted points for style but applauded the hydration. A sensible athlete."
+  },
+  {
+   "id": "lf-sp-058",
+   "head": "SEARABBEYS MEMORIAL MUG RACE",
+   "body": "Held in memory of Bomrek Enshalcatten, who died of thirst at Searabbeys beside 1,994 drinks, the race asks runners to carry one mug to one dwarf. This year, for the first time, the mug arrived full. Spectators wept into their own mugs.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sp-059",
+   "head": "QUAKEFOCUS CUP: 1,981 ARMOR STANDS SLALOM",
+   "body": "The traditional Quakefocus Cup returned with its famous course through all 1,981 armor stands. The record holder took a wrong turn at stand 600 and emerged at the throne room, where he was crowned 148 times.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sp-060",
+   "head": "GOBLINS OF SEARABBEYS CHALLENGE US",
+   "body": "The Torments of Hating, who occupy Searabbeys, have challenged us to a match on their home ground. We have declined. They have offered to bring The Nuanced Hamlet as a trophy. We are reconsidering.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sp-061",
+   "head": "CHASTE CUDGEL WINS CUDGEL TOURNAMENT",
+   "body": "To nobody's surprise, The Chaste Cudgel won the regional cudgel tournament. Bomrek Thimshursåkzul accepted the trophy and immediately used it to dust Tametomb. The Oily Boots came last after slipping in the opening round.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sp-062",
+   "head": "AMUSING DUTIES TOURNAMENT ATTRACTS 48 CLAIMANTS",
+   "body": "A tournament to settle the ownership of The Amusing Duties drew all forty-eight living claimants. Nobody brought the greaves, which are at Fieryaged. The tournament ended in a draw and forty-eight sulks.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sp-063",
+   "head": "CELLAR ORIENTEERING: FIND THE BARREL",
+   "body": "Competitors were blindfolded, spun around and asked to find the nearest barrel. The winner found one in under a minute, by smell. The slowest walked past four barrels and was found at the top of a tree. The league has added ropes."
+  },
+  {
+   "id": "lf-sp-064",
+   "head": "NINE-PIN BOWLING WITH EMPTY PLACES",
+   "body": "The militia captain has invented a new sport: he bowls at nine pins, one for each empty place in his squad. He knocks down all nine every time. 'It's therapeutic,' he says. Applications to join the squad remain at zero."
+  },
+  {
+   "id": "lf-sp-065",
+   "head": "CARAVAN-UNLOADING SPEED RECORD",
+   "body": "Haulers set a new record unloading a caravan, finishing before the liaison could finish saying there was much to share. Merchants were stunned. The liaison finished his sentence anyway, in an empty depot, to a confused yak."
+  },
+  {
+   "id": "lf-sp-066",
+   "head": "GHOST WRESTLING CANCELLED, GHOST UPSET",
+   "body": "The catacomb ghost had signed up for the wrestling open but was ruled ineligible on the grounds of being incorporeal. It has haunted the referee every night since. The referee has asked to be ruled ineligible too."
+  },
+  {
+   "id": "lf-sp-067",
+   "head": "THE ENGRAVING SPRINT",
+   "body": "Engravers raced to decorate a single smoothed wall. The winner carved a dwarf being struck by a carp in nine minutes. The runner-up carved an armor stand, then another, then was gently stopped by friends before it became a work order."
+  },
+  {
+   "id": "lf-sp-068",
+   "head": "BEST-KEPT BURROW AWARD GOES TO TAVERN",
+   "body": "The judges toured every burrow in the fort for the Best-Kept Burrow award and gave it to the tavern, which is not a burrow but was where the judges ended up. No burrow called 'Safety' was considered, at the judges' request."
+  }
+ ],
+ "scores": [
+  {
+   "id": "lf-sc-001",
+   "text": "Full Barrels 2,000, Thirsty Miner 0 (stairs blamed)"
+  },
+  {
+   "id": "lf-sc-002",
+   "text": "Tree 1, Miner 0 (miner still up there)"
+  },
+  {
+   "id": "lf-sc-003",
+   "text": "Armor Stands 2,000, Armor 0"
+  },
+  {
+   "id": "lf-sc-004",
+   "text": "Thrones 100, Monarchs 0"
+  },
+  {
+   "id": "lf-sc-005",
+   "text": "Smoothing Queue 16,000, Smoothers 3"
+  },
+  {
+   "id": "lf-sc-006",
+   "text": "Safety Burrow 0, Forgotten Beast 15"
+  },
+  {
+   "id": "lf-sc-007",
+   "text": "Garbage Pit 8, Haulers 0 (refuse still arriving)"
+  },
+  {
+   "id": "lf-sc-008",
+   "text": "Rough Gems 0, Strange Mood 1 (jeweler too quick)"
+  },
+  {
+   "id": "lf-sc-009",
+   "text": "Plant Cloth 0, Child in a Mood 1"
+  },
+  {
+   "id": "lf-sc-010",
+   "text": "Militia 1, Empty Places 9"
+  },
+  {
+   "id": "lf-sc-011",
+   "text": "Captain: On Duty 0, Off Duty 365"
+  },
+  {
+   "id": "lf-sc-012",
+   "text": "Mayor 40 Charges, Production 0"
+  },
+  {
+   "id": "lf-sc-013",
+   "text": "Liaison: 'Much to share' 12, Things Shared 0"
+  },
+  {
+   "id": "lf-sc-014",
+   "text": "Import Agreements 5, Signatures 0 (so far)"
+  },
+  {
+   "id": "lf-sc-015",
+   "text": "Hospitals 4, Doctors 2"
+  },
+  {
+   "id": "lf-sc-016",
+   "text": "Silk Scraps 7, Cloth Shortage Hidden 1"
+  },
+  {
+   "id": "lf-sc-017",
+   "text": "Famine Day 32, Plants 17, Dwarves 10"
+  },
+  {
+   "id": "lf-sc-018",
+   "text": "Pumps 12, Dry Beards 0"
+  },
+  {
+   "id": "lf-sc-019",
+   "text": "Windmills 3, Explanations 0"
+  },
+  {
+   "id": "lf-sc-020",
+   "text": "Catacombs: Residents Full, Complaints 0"
+  },
+  {
+   "id": "lf-sc-021",
+   "text": "Execution Tower 1, Return Visitors 0"
+  },
+  {
+   "id": "lf-sc-022",
+   "text": "Sheriff Applicants 0, Crime 1 (minor)"
+  },
+  {
+   "id": "lf-sc-023",
+   "text": "Hammerer Applicants 0, Hammers 1 (unused)"
+  },
+  {
+   "id": "lf-sc-024",
+   "text": "Rain 1, Plant Gatherers 0 (across whole map)",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-sc-025",
+   "text": "Snow 3 ft, Depot 0 (buried)",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-sc-026",
+   "text": "Gods Blinked 1, Dwarves Who Noticed 0 (officially)"
+  },
+  {
+   "id": "lf-sc-027",
+   "text": "Great Rewind: Lunch 2, Lunch 2 (replay)"
+  },
+  {
+   "id": "lf-sc-028",
+   "text": "Camera 1, Elf Merchant 0 (followed for an hour)"
+  },
+  {
+   "id": "lf-sc-029",
+   "text": "Goblins 1 Fort, Former Owners 0"
+  },
+  {
+   "id": "lf-sc-030",
+   "text": "Elves 1 Complaint, Windmills 0 Apologies"
+  },
+  {
+   "id": "lf-sc-031",
+   "text": "Carp 3, Fishing Contest 0"
+  },
+  {
+   "id": "lf-sc-032",
+   "text": "Cistern 1, Thirst 0"
+  },
+  {
+   "id": "lf-sc-033",
+   "text": "Work Orders 1, Cancellations 0"
+  },
+  {
+   "id": "lf-sc-034",
+   "text": "Throne Hall 11 Sittings, Comfort 0"
+  },
+  {
+   "id": "lf-sc-035",
+   "text": "Ladders 12, Stranded Miners 0"
+  },
+  {
+   "id": "lf-sc-036",
+   "text": "Spectator Camera 3 Jumps, Threats 3"
+  },
+  {
+   "id": "lf-sc-037",
+   "text": "Beast on Stairs 1, Stairs 0"
+  },
+  {
+   "id": "lf-sc-038",
+   "text": "Moods Wanting Gems 3, Gems Rough 0"
+  },
+  {
+   "id": "lf-sc-039",
+   "text": "Dogs 13, Meat 0, Patience 0"
+  },
+  {
+   "id": "lf-sc-040",
+   "text": "Loose Stones 800, Tidiness 0"
+  },
+  {
+   "id": "lf-sc-041",
+   "text": "Dining Hall 1, Spare Thrones 6"
+  },
+  {
+   "id": "lf-sc-042",
+   "text": "Refuse Haulers 4, Helmets 4 (progress!)"
+  },
+  {
+   "id": "lf-sc-043",
+   "text": "Mist Ring 1, Bad Moods 0"
+  },
+  {
+   "id": "lf-sc-044",
+   "text": "Brewers 2, Population {pop}, Arithmetic 0"
+  },
+  {
+   "id": "lf-sc-045",
+   "text": "Drinks {drinks}, Dwarves Who Walked to Them 3"
+  },
+  {
+   "id": "lf-sc-046",
+   "text": "{moodname} 1 Masterpiece, Workshop 0 (occupied)",
+   "when": [
+    "recent_mood"
+   ]
+  },
+  {
+   "id": "lf-sc-047",
+   "text": "Caravan 1, Liaison Speeches 4",
+   "when": [
+    "recent_caravan"
+   ]
+  },
+  {
+   "id": "lf-sc-048",
+   "text": "Migrants 9, Beds 4",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "lf-sc-049",
+   "text": "Meat Watch Day 40, Meat 0",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "lf-sc-050",
+   "text": "Barrels 0, Brewers 1 (sprinting)",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "lf-sc-051",
+   "text": "{past_fort} {past_fort_years}, This Fort Still Counting",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-sc-052",
+   "text": "{record_fort} {record}, Common Sense 0",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-sc-053",
+   "text": "{past_fort} 0, Fate 1 (it {past_fort_fate})",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-sc-054",
+   "text": "{enemy} 1 Siege, Our Walls 1 Siege",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-sc-055",
+   "text": "{enemy_race} Scouts 4, Cage Traps 4",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-sc-056",
+   "text": "{civ} 16 Friends, 2 Enemies (enemies visit more)"
+  },
+  {
+   "id": "lf-sc-057",
+   "text": "{liaison} 1 Visit, 'Much to Share' 40"
+  },
+  {
+   "id": "lf-sc-058",
+   "text": "{monarch} 1 Throne, Offered Spares 100"
+  },
+  {
+   "id": "lf-sc-059",
+   "text": "Diplomat 1 Treaty, Pages 90"
+  },
+  {
+   "id": "lf-sc-060",
+   "text": "Refugees 40, Spare Soup 40"
+  },
+  {
+   "id": "lf-sc-061",
+   "text": "Searabbeys 1,994 Drinks, Bomrek 0 Sips",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sc-062",
+   "text": "Quakefocus 1,981 Stands, 148 Thrones, 0 Sense",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sc-063",
+   "text": "Amusing Duties Claimants 48, Wearers 0",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sc-064",
+   "text": "Crazed Hex 3 Towns, Padtufted 0",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sc-065",
+   "text": "Chaste Cudgel 1 (Tametomb), Goblins 0",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sc-066",
+   "text": "Iden 1 Ring Price, 210%",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-sc-067",
+   "text": "Torments of Hating 1 Fort, Barrels Opened 0",
+   "world": "The Enchanted Planes"
+  }
+ ],
+ "weather_jokes": [
+  {
+   "id": "lf-wj-001",
+   "text": "Rain on the surface. The Overseer has dispatched plant gatherers to every corner of the map, because nothing says harvest like wet strawberries.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-wj-002",
+   "text": "Rain again. Somewhere up there a miner is sitting in a tree, getting rained on, and still not drinking it.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-wj-003",
+   "text": "It is raining, which means the elves are grateful, the haulers are damp and the depot cloth is ruined. Business as usual.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-wj-004",
+   "text": "Rain forecast all week. Dwarves are reminded that rain is free water, and that standing in it with your mouth open is undignified but legal.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-wj-005",
+   "text": "Wet weather above. Below, the mist ring keeps everyone just as damp, but happier about it.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-wj-006",
+   "text": "Rain. The refuse pile on the surface has never smelled more like itself.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "lf-wj-007",
+   "text": "Snow on the surface. The trees are frozen and, for once, nobody is up them.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-wj-008",
+   "text": "Snow, and lots of it. The depot is buried, the caravan is late and the liaison is somehow still on time.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-wj-009",
+   "text": "A blizzard above. Brave plant gatherers are still out, by order. Their bravery is being measured in toes.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-wj-010",
+   "text": "Snowfall heavy. Dwarves are reminded that snow is technically water, and that eating it is still better than dying of thirst.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-wj-011",
+   "text": "Snow. The garbage pit is blanketed white, and for one beautiful morning it looks like a field of flour.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-wj-012",
+   "text": "Snowed in. The tavern is full, the barrels are near and, for the first time in history, nobody is thirsty.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "lf-wj-013",
+   "text": "Clear skies. Perfect weather for a miner to wander outside, look at a tree, and think, dangerously, 'I could get up there.'",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lf-wj-014",
+   "text": "Not a cloud above. The windmills are still. Nobody is sure if this matters. Nobody ever is.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lf-wj-015",
+   "text": "Clear and bright. Goblin scouts can see a very long way today. So can we, which makes it a fair day for once.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lf-wj-016",
+   "text": "Sunny on the surface. The Overseer is said to have ordered the sky smoothed.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lf-wj-017",
+   "text": "Clear weather, dry air. The almanac recommends knowing where the nearest barrel is at all times, just in case.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lf-wj-018",
+   "text": "Lovely clear day. The elf caravan is taking the scenic route, which is all of it.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "lf-wj-019",
+   "text": "Spring: the thaw sets the rivers running, the carp grumbling and the miners eyeing fresh green branches.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "lf-wj-020",
+   "text": "Spring blooms on the surface. The Overseer has queued gathering jobs for every single flower.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "lf-wj-021",
+   "text": "Summer heat on the surface. Please drink something. Anything. Please. History is watching.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "lf-wj-022",
+   "text": "Summer sun. The mist ring has never been more popular, or more crowded, or more damp.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "lf-wj-023",
+   "text": "Autumn leaves falling, and the trees look lighter. A miner has taken this as an invitation. Somebody stop him.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "lf-wj-024",
+   "text": "Autumn wind rattles the windmills. They turn faster. Still nobody knows what for.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "lf-wj-025",
+   "text": "Winter: the cistern is the warmest place in the fort to stand and the coldest place to fall in.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "lf-wj-026",
+   "text": "Winter settles in. The militia captain has declared the weather 'too cold for duty'. Also too warm. Also just right.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "lf-wj-027",
+   "text": "{weather} on the surface, {season} in the hearts of the miners, and the barrels as full and far away as ever."
+  },
+  {
+   "id": "lf-wj-028",
+   "text": "{weather} above. Below: the usual. Rock, ale, an Overseer with a plan."
+  },
+  {
+   "id": "lf-wj-029",
+   "text": "Today's weather: {weather}. Today's forecast for the Safety burrow: do not go down there."
+  },
+  {
+   "id": "lf-wj-030",
+   "text": "{weather} in {fort} today. The plant gatherers have been sent out regardless. They always are."
+  },
+  {
+   "id": "lf-wj-031",
+   "text": "Weather in year {year}: mostly sky, some rain, and one miner in a tree who refuses to discuss either."
+  },
+  {
+   "id": "lf-wj-032",
+   "text": "{season} forecast: overcast with a chance of work orders. Heavy armor stands possible by evening."
+  },
+  {
+   "id": "lf-wj-033",
+   "text": "Forecast: drizzle near the pumps, otherwise dry. Dwarves are reminded that dry is how this always begins."
+  },
+  {
+   "id": "lf-wj-034",
+   "text": "Weather report: unknown. Our forecaster went up to check, climbed a tree to see better, and has not come down."
+  },
+  {
+   "id": "lf-wj-035",
+   "text": "Thunder overhead. The dwarves cannot hear it. The cats can. The cats have filed a complaint with the mayor."
+  },
+  {
+   "id": "lf-wj-036",
+   "text": "The forecast calls for goblins, heavy in places, clearing by spring if the walls hold."
+  },
+  {
+   "id": "lf-wj-037",
+   "text": "High pressure over the surface. Low pressure in the smoothing department, where three dwarves face sixteen thousand walls."
+  },
+  {
+   "id": "lf-wj-038",
+   "text": "Fog over the depot. The liaison has emerged from it, saying there is much to share. The fog was better."
+  },
+  {
+   "id": "lf-wj-039",
+   "text": "Wind from the east, smelling of the refuse pile. Wind from the west, smelling of elves. We prefer the east."
+  },
+  {
+   "id": "lf-wj-040",
+   "text": "Mild weather. A good day for anything except climbing, hauling out of pits or sheltering thirty levels down."
+  },
+  {
+   "id": "lf-wj-041",
+   "text": "Today: a chance of strange moods, increasing toward evening. Hide one rough gem, just in case."
+  },
+  {
+   "id": "lf-wj-042",
+   "text": "The world blinked overnight. If the weather seems familiar, it is because you have already had it."
+  },
+  {
+   "id": "lf-wj-043",
+   "text": "Rain over the cellars? No. The cellars are underground. That is the point of cellars. And yet, somehow, the miner is still thirsty."
+  },
+  {
+   "id": "lf-wj-044",
+   "text": "Drinks are plentiful at {drinks}, so the weather can do as it likes. Nobody in this fort will die of thirst today. Probably.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "lf-wj-045",
+   "text": "Low drink stocks and a dry wind. Brewers are on double shifts and the well has been given a guard.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "lf-wj-046",
+   "text": "{weather} over the ruins of {past_fort}. They lasted {past_fort_years}. The weather there has lasted longer.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wj-047",
+   "text": "{weather} over {past_fort}, which {past_fort_fate}. The ghosts are said to like this kind of weather.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wj-048",
+   "text": "Weather forecast for {record_fort}: cloudy, with a high chance of {record}. Still.",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "lf-wj-049",
+   "text": "{weather} over the camps of {enemy}. We hope it is very wet over there. We hope it is wetter.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-wj-050",
+   "text": "Storm warning: {enemy_race} raiders, gusting to forty, moving in from the dark fortress.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "lf-wj-051",
+   "text": "{weather} in the capital of {civ}, where {monarch} is said to be indoors, on the one throne."
+  },
+  {
+   "id": "lf-wj-052",
+   "text": "{liaison} reports the roads are dry. He has much more to share about the roads. Please do not ask."
+  },
+  {
+   "id": "lf-wj-053",
+   "text": "Rain over Searabbeys. The Torments of Hating are using the 1,994 drinks as roof weights.",
+   "when": [
+    "rain"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wj-054",
+   "text": "Snow over Quakefocus, gently settling on 1,981 armor stands and 148 thrones, like dust that cares.",
+   "when": [
+    "snow"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wj-055",
+   "text": "Clear skies over Fieryaged, where The Amusing Duties lie unworn. Ideal weather for claimant number forty-nine.",
+   "when": [
+    "clear"
+   ],
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wj-056",
+   "text": "Fog over Shadyghosts. Omo Fewethauyira cannot be seen. That is the bad news.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wj-057",
+   "text": "Dark at The Sable Nights, as always. Thone Nìnoana reports the weather is lovely.",
+   "world": "The Enchanted Planes"
+  },
+  {
+   "id": "lf-wj-058",
+   "text": "Wind over Padtufted, Pulledrained and Ironcrowds, carrying the sound of The Crazed Hex, crazed.",
+   "world": "The Enchanted Planes"
+  }
+ ]
+}

@@ -1,0 +1,3757 @@
+{
+ "kinds": {
+  "siege": {
+   "heads": [
+    {
+     "id": "lb-siege-head-1",
+     "text": "THE CRAZED HEX SENDS REGARDS"
+    },
+    {
+     "id": "lb-siege-head-2",
+     "text": "DESTINED WICKEDNESS, ON SCHEDULE"
+    },
+    {
+     "id": "lb-siege-head-3",
+     "text": "MILITIA OF ONE MEETS ARMY OF MANY"
+    },
+    {
+     "id": "lb-siege-head-4",
+     "text": "TOTAL WAR, NOW WITH TOTAL GOBLINS"
+    },
+    {
+     "id": "lb-siege-head-5",
+     "text": "HIGH CRUELTIES STOP SKIRMISHING"
+    },
+    {
+     "id": "lb-siege-head-6",
+     "text": "CAPTAIN 'OFF DUTY' AS HORDE NEARS"
+    },
+    {
+     "id": "lb-siege-head-7",
+     "text": "SIEGE! ARMOR STANDS STAND READY"
+    },
+    {
+     "id": "lb-siege-head-8",
+     "text": "OVERSEER ORDERS SMOOTHER WALLS"
+    },
+    {
+     "id": "lb-siege-head-9",
+     "text": "ANOTHER SEARABBEYS, GOBLINS HOPE"
+    },
+    {
+     "id": "lb-siege-head-10",
+     "text": "NINE EMPTY SLOTS VS. ONE HORDE"
+    },
+    {
+     "id": "lb-siege-head-11",
+     "text": "HORDE FROM QUIETMENACES SIGHTED"
+    },
+    {
+     "id": "lb-siege-head-12",
+     "text": "MUCH TO SHARE, SAY GOBLINS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-siege-cap-1",
+     "text": "{enemy} on the march, drawn by a refugee who would very much like his house back.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-siege-cap-2",
+     "text": "The {enemy} vanguard. The front one is labelled 'total'; the rest are labelled 'war'.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-siege-cap-3",
+     "text": "Our militia at full strength: one captain, nine dotted outlines and a bed."
+    },
+    {
+     "id": "lb-siege-cap-4",
+     "text": "The gate, defended by a thousand armor stands. None have armor. None have legs that move."
+    },
+    {
+     "id": "lb-siege-cap-5",
+     "text": "Goblin banner reading, roughly, 'SEARABBEYS WAS NICE. YOURS NEXT.'"
+    },
+    {
+     "id": "lb-siege-cap-6",
+     "text": "The horde as seen from the Safety burrow, which the artist insists is safe this time."
+    },
+    {
+     "id": "lb-siege-cap-7",
+     "text": "A goblin standard-bearer, smiling in a way the artist found upsetting."
+    },
+    {
+     "id": "lb-siege-cap-8",
+     "text": "Trolls passing the windmills. One stopped to admire the mist ring. We wish it hadn't."
+    },
+    {
+     "id": "lb-siege-cap-9",
+     "text": "The captain, mid-yawn, on hearing the word 'siege'. Status at time of sketch: Off duty."
+    },
+    {
+     "id": "lb-siege-cap-10",
+     "text": "The mayor serving a production order violation on the goblins. They did not sign it."
+    },
+    {
+     "id": "lb-siege-cap-11",
+     "text": "Goblin engineers measuring our walls. Unlike us, they finished the smoothing."
+    },
+    {
+     "id": "lb-siege-cap-12",
+     "text": "Artist's map of the approach. Every route ends at the throne room, where a hundred thrones wait."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-siege-rep-1",
+     "text": "Lookouts identify the banners of {enemy}, last seen emptying three towns in a single season. Refugees among us have begun packing out of habit.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-siege-rep-2",
+     "text": "{civ} remains at war with {enemy}, which the attackers appear to have read about and taken personally.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-siege-rep-3",
+     "text": "The militia captain was informed of the siege and remained Off duty, as per the schedule. The nine empty places in the squad have also failed to report."
+    },
+    {
+     "id": "lb-siege-rep-4",
+     "text": "The Overseer has answered the siege by queuing eleven hundred armor stands. Asked how they would help, the management said armor stands have an intimidating silhouette."
+    },
+    {
+     "id": "lb-siege-rep-5",
+     "text": "Elders recall {past_fort}, which {past_fort_fate}. 'We lost the fort, the drinks and the artifact,' said one. 'Mostly I miss the drinks.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-siege-rep-6",
+     "text": "Citizens are directed to the Safety burrow. Citizens who remember the last Safety burrow are directed wherever they personally feel safest, such as the tavern."
+    },
+    {
+     "id": "lb-siege-rep-7",
+     "text": "{who} spotted the horde first and told the captain, who was asleep, then the mayor, who filed a form, then the bookkeeper, who counted the goblins twice."
+    },
+    {
+     "id": "lb-siege-rep-8",
+     "text": "Goblin numbers are estimated at 'enough'. Our stockpile holds 2,000 drinks, which experts say is plenty to die of thirst beside, comfortably."
+    },
+    {
+     "id": "lb-siege-rep-9",
+     "text": "The outpost liaison writes that there is much to share and recommends an import agreement for spears. Delivery is expected next autumn, or after the siege, whichever is later."
+    },
+    {
+     "id": "lb-siege-rep-10",
+     "text": "Haulers were ordered to stop gathering plants on the far side of the map. They are currently on the far side of the map, near the goblins, gathering plants."
+    },
+    {
+     "id": "lb-siege-rep-11",
+     "text": "{civ} is at peace with most of the world. Regrettably, 'most' does not include the ones standing outside our gate holding torches."
+    },
+    {
+     "id": "lb-siege-rep-12",
+     "text": "Skirmishers of The High Cruelties were seen arguing with a Destined Wickedness squad over who got to besiege {fort} first. Both lost the argument to a muddy slope.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-siege-rep-13",
+     "text": "The goblins arrived during {season}, a season known for its weather. Defensive preparations include smoothing the floor the goblins will be standing on."
+    },
+    {
+     "id": "lb-siege-rep-14",
+     "text": "The execution tower has been declared open. The hammerer's office remains vacant, so any goblin wishing to be punished must fill in the form personally."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-siege-label-1",
+     "text": "THE CRAZED HEX"
+    },
+    {
+     "id": "lb-siege-label-2",
+     "text": "TOTAL WAR"
+    },
+    {
+     "id": "lb-siege-label-3",
+     "text": "CAPTAIN (ASLEEP)"
+    },
+    {
+     "id": "lb-siege-label-4",
+     "text": "ARMOR STANDS"
+    },
+    {
+     "id": "lb-siege-label-5",
+     "text": "EMPTY SQUAD SLOT"
+    },
+    {
+     "id": "lb-siege-label-6",
+     "text": "SAFETY (ALLEGED)"
+    },
+    {
+     "id": "lb-siege-label-7",
+     "text": "2,000 DRINKS"
+    },
+    {
+     "id": "lb-siege-label-8",
+     "text": "THE MAYOR'S FORM"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-siege-kicker-1",
+     "text": "The militia will be informed when it wakes up."
+    },
+    {
+     "id": "lb-siege-kicker-2",
+     "text": "Refugees from the burned towns: please do not unpack yet."
+    },
+    {
+     "id": "lb-siege-kicker-3",
+     "text": "A throne has been queued for the goblin general, as a courtesy."
+    },
+    {
+     "id": "lb-siege-kicker-4",
+     "text": "Remember {past_fort}. Then remember where you left the axes.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-siege-kicker-5",
+     "text": "The Safety burrow is open. The Herald is staying upstairs."
+    },
+    {
+     "id": "lb-siege-kicker-6",
+     "text": "Import agreement for courage pending. Much to share, apparently."
+    },
+    {
+     "id": "lb-siege-kicker-7",
+     "text": "Goblins are reminded that smoothed floors are slippery."
+    },
+    {
+     "id": "lb-siege-kicker-8",
+     "text": "The mayor's paperwork will be served on the horde at dawn."
+    }
+   ]
+  },
+  "beast": {
+   "heads": [
+    {
+     "id": "lb-beast-head-1",
+     "text": "BEAST CLIMBS STAIRS; SAFETY RUINED"
+    },
+    {
+     "id": "lb-beast-head-2",
+     "text": "FORGOTTEN BEAST REMEMBERS US"
+    },
+    {
+     "id": "lb-beast-head-3",
+     "text": "SOMETHING CAME UP THE STAIRS"
+    },
+    {
+     "id": "lb-beast-head-4",
+     "text": "CROOKED HORROR SIGHTED NEARBY"
+    },
+    {
+     "id": "lb-beast-head-5",
+     "text": "BEAST DIGESTS SMOOTHING QUEUE"
+    },
+    {
+     "id": "lb-beast-head-6",
+     "text": "CAVERNS SEND A VISITOR, UNASKED"
+    },
+    {
+     "id": "lb-beast-head-7",
+     "text": "MONSTER IGNORES THE ARMOR STANDS"
+    },
+    {
+     "id": "lb-beast-head-8",
+     "text": "\"IT HAS TOO MANY LEGS,\" WITNESS"
+    },
+    {
+     "id": "lb-beast-head-9",
+     "text": "OMO FEWETHAUYIRA? NOT THIS TIME"
+    },
+    {
+     "id": "lb-beast-head-10",
+     "text": "BEAST WALKS PAST CAPTAIN, OFF DUTY"
+    },
+    {
+     "id": "lb-beast-head-11",
+     "text": "GIANT THING PREFERS DEEP BURROWS"
+    },
+    {
+     "id": "lb-beast-head-12",
+     "text": "MIST RING FAILS TO CHEER MONSTER"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-beast-cap-1",
+     "text": "The beast, mid-staircase, thirty levels down. The artist's legs were moving the whole time."
+    },
+    {
+     "id": "lb-beast-cap-2",
+     "text": "A forgotten beast. The bookkeeper is already trying to forget it, on purpose."
+    },
+    {
+     "id": "lb-beast-cap-3",
+     "text": "A crooked horror, after descriptions of Omo Fewethauyira. More crooked in person.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-beast-cap-4",
+     "text": "The Safety burrow sign, now facing the wrong way. Most residents agree it always was."
+    },
+    {
+     "id": "lb-beast-cap-5",
+     "text": "The creature passing a row of armor stands, which it mistook for an audience."
+    },
+    {
+     "id": "lb-beast-cap-6",
+     "text": "The beast inspecting the cistern. We will be boiling the water for a while."
+    },
+    {
+     "id": "lb-beast-cap-7",
+     "text": "Footprints in the freshly smoothed corridor. The smoother has been told and is weeping."
+    },
+    {
+     "id": "lb-beast-cap-8",
+     "text": "The monster's breath, shown as a cloud. Its smell, at the editor's request, is not shown."
+    },
+    {
+     "id": "lb-beast-cap-9",
+     "text": "Our militia confronting the beast. The space where the militia would be is in pencil."
+    },
+    {
+     "id": "lb-beast-cap-10",
+     "text": "The beast pausing at the garbage pit, which even it declined to enter."
+    },
+    {
+     "id": "lb-beast-cap-11",
+     "text": "Thone Nìnoana, from a traveller's description. The traveller declined to elaborate.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-beast-cap-12",
+     "text": "The creature, sketched from the top of a tree. The artist has since been told about trees."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-beast-rep-1",
+     "text": "A forgotten beast has left the caverns and, consulting no map, found the deepest burrow full of dwarves at once. Residents: the Safety burrow is a name, not a promise."
+    },
+    {
+     "id": "lb-beast-rep-2",
+     "text": "Survivors of an earlier fort recall fifteen dwarves sheltering in a burrow named Safety, thirty levels down, when something walked up the stairs. 'Location,' they say."
+    },
+    {
+     "id": "lb-beast-rep-3",
+     "text": "The beast was last seen near the windmills. The Overseer has kept the haulers gathering plants nearby, on the theory that the beast cannot see dwarves who are busy."
+    },
+    {
+     "id": "lb-beast-rep-4",
+     "text": "Travellers report the crooked horror Omo Fewethauyira still lurks near Shadyghosts. This beast is not that one, which the Herald finds only slightly comforting.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-beast-rep-5",
+     "text": "{who} met the creature first and called it 'a lot of beast for one corridor.' The patient is recovering in one of our hospitals, the one with a doctor."
+    },
+    {
+     "id": "lb-beast-rep-6",
+     "text": "The militia captain has been alerted and remains Off duty. A runner was sent to wake him. The runner has also taken a nap, citing solidarity."
+    },
+    {
+     "id": "lb-beast-rep-7",
+     "text": "Engineers propose sealing the stairs. The Overseer counter-proposes smoothing them so the beast may slip. Both jobs are queued behind the other ten thousand."
+    },
+    {
+     "id": "lb-beast-rep-8",
+     "text": "The hide is described as 'like the inside of a cave, but walking.' The leatherworker asked if it would tan nicely and has been asked to leave the meeting."
+    },
+    {
+     "id": "lb-beast-rep-9",
+     "text": "Experts advise hiding in a sealed room with food and drink. Experts further advise actually drinking the drink, a step that has historically been skipped."
+    },
+    {
+     "id": "lb-beast-rep-10",
+     "text": "So far the creature has destroyed two doors, one well and a lifetime of stockpile organisation. The armor stands, as ever, are untouched."
+    },
+    {
+     "id": "lb-beast-rep-11",
+     "text": "Scholars of {fort} say it is the first of its kind seen here. Scholars in the tavern say it is the first of its kind seen anywhere, and that they need another drink."
+    },
+    {
+     "id": "lb-beast-rep-12",
+     "text": "The mist ring has been left running in hopes of calming the beast with happy thoughts. Early reports suggest the beast is now damp, and still a beast."
+    },
+    {
+     "id": "lb-beast-rep-13",
+     "text": "Elves have sent condolences from their forest retreat, observing that the beast is 'a living part of nature'. The beast has since eaten the letter."
+    },
+    {
+     "id": "lb-beast-rep-14",
+     "text": "A thing has risen from the dark below {fort}. The Overseer has added 'deal with thing' to the work orders, just below the latest throne."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-beast-label-1",
+     "text": "IT"
+    },
+    {
+     "id": "lb-beast-label-2",
+     "text": "SAFETY (SIGN)"
+    },
+    {
+     "id": "lb-beast-label-3",
+     "text": "TOO MANY LEGS"
+    },
+    {
+     "id": "lb-beast-label-4",
+     "text": "THE STAIRS (OOPS)"
+    },
+    {
+     "id": "lb-beast-label-5",
+     "text": "NOT OMO"
+    },
+    {
+     "id": "lb-beast-label-6",
+     "text": "UNHARMED STANDS"
+    },
+    {
+     "id": "lb-beast-label-7",
+     "text": "WET BEAST"
+    },
+    {
+     "id": "lb-beast-label-8",
+     "text": "DOCTOR (ONE)"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-beast-kicker-1",
+     "text": "Do not go down to Safety. We cannot stress this enough."
+    },
+    {
+     "id": "lb-beast-kicker-2",
+     "text": "The beast's name will be learned the hard way."
+    },
+    {
+     "id": "lb-beast-kicker-3",
+     "text": "Hospital two of four has a doctor; please get hurt there."
+    },
+    {
+     "id": "lb-beast-kicker-4",
+     "text": "Please do not climb a tree to escape. We have been over this."
+    },
+    {
+     "id": "lb-beast-kicker-5",
+     "text": "The captain will be told after the nap."
+    },
+    {
+     "id": "lb-beast-kicker-6",
+     "text": "Stairs are now considered a two-way street."
+    },
+    {
+     "id": "lb-beast-kicker-7",
+     "text": "Seal the caverns, the Herald begs, gently."
+    },
+    {
+     "id": "lb-beast-kicker-8",
+     "text": "Elves say it is nature. Elves say a lot."
+    }
+   ]
+  },
+  "death": {
+   "heads": [
+    {
+     "id": "lb-death-head-1",
+     "text": "DWARF DIES OF THIRST, BESIDE ALE"
+    },
+    {
+     "id": "lb-death-head-2",
+     "text": "2,000 DRINKS; ONE PARCHED DWARF"
+    },
+    {
+     "id": "lb-death-head-3",
+     "text": "THIRST PARADOX CLAIMS ANOTHER"
+    },
+    {
+     "id": "lb-death-head-4",
+     "text": "CITIZEN PERISHES IN 'SAFETY'"
+    },
+    {
+     "id": "lb-death-head-5",
+     "text": "TREE BRANCH TAKES ANOTHER MINER"
+    },
+    {
+     "id": "lb-death-head-6",
+     "text": "GARBAGE PIT CLAIMS A HAULER"
+    },
+    {
+     "id": "lb-death-head-7",
+     "text": "DEATH BY PAPERWORK SUSPECTED"
+    },
+    {
+     "id": "lb-death-head-8",
+     "text": "OVERSEER QUEUES SLAB, THRONE"
+    },
+    {
+     "id": "lb-death-head-9",
+     "text": "THE STOCKPILE WAS RIGHT THERE"
+    },
+    {
+     "id": "lb-death-head-10",
+     "text": "GEMS NEARBY, LIFE NOT"
+    },
+    {
+     "id": "lb-death-head-11",
+     "text": "FALLEN DWARF HAD NO DOCTOR"
+    },
+    {
+     "id": "lb-death-head-12",
+     "text": "FORT LOSES ONE MORE TO DUTY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-death-cap-1",
+     "text": "The deceased's last view: two thousand drinks, unlabelled and therefore untouched."
+    },
+    {
+     "id": "lb-death-cap-2",
+     "text": "Memorial sketch. The rough gems in the background are not symbolic. They were there."
+    },
+    {
+     "id": "lb-death-cap-3",
+     "text": "The tree in question. It has been asked to explain itself, and has not."
+    },
+    {
+     "id": "lb-death-cap-4",
+     "text": "The Safety burrow entrance, now marked with a second, smaller sign: 'Not.'"
+    },
+    {
+     "id": "lb-death-cap-5",
+     "text": "The garbage pit, viewed from a respectful distance and a strong wind."
+    },
+    {
+     "id": "lb-death-cap-6",
+     "text": "The deceased's mug, which was full the whole time, in the next room."
+    },
+    {
+     "id": "lb-death-cap-7",
+     "text": "The hospital where the dwarf was taken. This is one of the ones without a doctor."
+    },
+    {
+     "id": "lb-death-cap-8",
+     "text": "The coffin, from a runaway coffin order that turned out, for once, to be the useful one."
+    },
+    {
+     "id": "lb-death-cap-9",
+     "text": "Mourners at the slab. One is nervously checking the drinks stockpile, for herself."
+    },
+    {
+     "id": "lb-death-cap-10",
+     "text": "Artist's tribute. The thirst-themed border was the editor's idea; the family did not object."
+    },
+    {
+     "id": "lb-death-cap-11",
+     "text": "The deceased's workshop, as left, with a half-made armor stand nobody will finish."
+    },
+    {
+     "id": "lb-death-cap-12",
+     "text": "The tomb, smoothed to a high shine by a smoother with nothing better queued. He did."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-death-rep-1",
+     "text": "{first} died of thirst this week. At the time the fortress held over two thousand drinks, most a short walk away and none of them, apparently, the right one."
+    },
+    {
+     "id": "lb-death-rep-2",
+     "text": "The Herald recalls Bomrek Enshalcatten of Searabbeys, found dead, dehydrated, beside 1,994 drinks. Scholars call it the thirst paradox. The dead have other words for it.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-death-rep-3",
+     "text": "{first} was hauling refuse back out of the garbage pit when more refuse came down. The Overseer has called the incident 'circular' and queued another haul."
+    },
+    {
+     "id": "lb-death-rep-4",
+     "text": "Friends say {first} climbed a tree to fetch a log and simply never came down. Miners are again reminded that trees go up, and dwarves belong down."
+    },
+    {
+     "id": "lb-death-rep-5",
+     "text": "The cause of death is listed as 'Safety'. Officials clarify this means the burrow, not the general concept, though the general concept is also under review."
+    },
+    {
+     "id": "lb-death-rep-6",
+     "text": "{first} was carried to a hospital with beds, splints and a traction bench, but no doctor, as the chief medical dwarf's office remains vacant."
+    },
+    {
+     "id": "lb-death-rep-7",
+     "text": "Colleagues remember {first} as tireless. The job log agrees: seventy smoothing jobs in a row, no breaks, no meals, no drink, every one perfectly smooth."
+    },
+    {
+     "id": "lb-death-rep-8",
+     "text": "Veterans of {past_fort} swear a carpenter there died of thirst beside a heap of rough gems. 'He couldn't drink them,' said one. 'But you could see him thinking about it.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-death-rep-9",
+     "text": "The mayor has posthumously cited {first} for a production order violation. The fine is procedural and will come out of the coffin budget."
+    },
+    {
+     "id": "lb-death-rep-10",
+     "text": "The population of {fort} is now {pop}. The bookkeeper has recounted three times, sighed twice, and checked the drinks once, just in case."
+    },
+    {
+     "id": "lb-death-rep-11",
+     "text": "A slab will be engraved once the mason finishes an armor stand order the Overseer considers 'very important'. Estimated completion: stand two thousand."
+    },
+    {
+     "id": "lb-death-rep-12",
+     "text": "Witnesses agree the deceased walked past the well, the tavern and a barrel to reach the far side of the map and pick one strawberry, in the rain."
+    },
+    {
+     "id": "lb-death-rep-13",
+     "text": "In lieu of flowers, the family asks that citizens go and have a drink right now, on purpose, while they still can."
+    },
+    {
+     "id": "lb-death-rep-14",
+     "text": "The death has been ruled 'fortress-related'. The Herald offers condolences and a reminder that the cistern is full and nobody will be cross if you use it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-death-label-1",
+     "text": "ALL THE DRINKS"
+    },
+    {
+     "id": "lb-death-label-2",
+     "text": "THE TREE (GUILTY)"
+    },
+    {
+     "id": "lb-death-label-3",
+     "text": "SAFETY (NOT)"
+    },
+    {
+     "id": "lb-death-label-4",
+     "text": "THE PIT"
+    },
+    {
+     "id": "lb-death-label-5",
+     "text": "NO DOCTOR"
+    },
+    {
+     "id": "lb-death-label-6",
+     "text": "UNTOUCHED ALE"
+    },
+    {
+     "id": "lb-death-label-7",
+     "text": "ROUGH GEMS (MANY)"
+    },
+    {
+     "id": "lb-death-label-8",
+     "text": "SLAB (QUEUED)"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-death-kicker-1",
+     "text": "Please drink something today. Anything. The Herald insists."
+    },
+    {
+     "id": "lb-death-kicker-2",
+     "text": "{first} is survived by 2,000 drinks, all unopened."
+    },
+    {
+     "id": "lb-death-kicker-3",
+     "text": "The tree has been questioned and released."
+    },
+    {
+     "id": "lb-death-kicker-4",
+     "text": "Trees: not even once."
+    },
+    {
+     "id": "lb-death-kicker-5",
+     "text": "Safety burrow tours are suspended indefinitely."
+    },
+    {
+     "id": "lb-death-kicker-6",
+     "text": "Do not haul anything out of the garbage pit. Ever."
+    },
+    {
+     "id": "lb-death-kicker-7",
+     "text": "The Overseer sends condolences, and a work order."
+    },
+    {
+     "id": "lb-death-kicker-8",
+     "text": "A doctor is wanted; inquire at any of our four hospitals."
+    }
+   ]
+  },
+  "pet": {
+   "heads": [
+    {
+     "id": "lb-pet-head-1",
+     "text": "DOG ADOPTED; FORT'S ODDS IMPROVE"
+    },
+    {
+     "id": "lb-pet-head-2",
+     "text": "PET ADOPTED, MILITIA DOUBLES"
+    },
+    {
+     "id": "lb-pet-head-3",
+     "text": "CAT ADOPTS DWARF, FILES NO FORM"
+    },
+    {
+     "id": "lb-pet-head-4",
+     "text": "NEW PET OUTRANKS THE MAYOR"
+    },
+    {
+     "id": "lb-pet-head-5",
+     "text": "ANIMAL BOND FORMED; DRINKS SAFE"
+    },
+    {
+     "id": "lb-pet-head-6",
+     "text": "BEST FRIEND FOUND, NOT IN A TREE"
+    },
+    {
+     "id": "lb-pet-head-7",
+     "text": "PET TAKES OFFICE NOBODY WANTED"
+    },
+    {
+     "id": "lb-pet-head-8",
+     "text": "DWARF FINDS LOVE, IT HAS FUR"
+    },
+    {
+     "id": "lb-pet-head-9",
+     "text": "\"IT BITES,\" SAYS PROUD OWNER"
+    },
+    {
+     "id": "lb-pet-head-10",
+     "text": "PET JOINS FORT, IGNORES ORDERS"
+    },
+    {
+     "id": "lb-pet-head-11",
+     "text": "PET NAMED AFTER OLD FORT"
+    },
+    {
+     "id": "lb-pet-head-12",
+     "text": "CREATURE SIGNS ON AT LAST"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-pet-cap-1",
+     "text": "The new pet, asleep on a throne. There are hundreds of them, so nobody minded."
+    },
+    {
+     "id": "lb-pet-cap-2",
+     "text": "Owner and pet in the tavern. Only one of them was told the drinks were free."
+    },
+    {
+     "id": "lb-pet-cap-3",
+     "text": "The pet guarding a rough gem. Moody dwarves are advised to ask nicely."
+    },
+    {
+     "id": "lb-pet-cap-4",
+     "text": "The animal visiting the barracks, raising militia attendance by one hundred per cent."
+    },
+    {
+     "id": "lb-pet-cap-5",
+     "text": "Owner and pet beside the mist ring. Both are damp. Both claim happiness."
+    },
+    {
+     "id": "lb-pet-cap-6",
+     "text": "The pet refusing to enter the Safety burrow. Experts call it our smartest citizen."
+    },
+    {
+     "id": "lb-pet-cap-7",
+     "text": "The animal's chosen bed: inside an armor stand. Finally, a use."
+    },
+    {
+     "id": "lb-pet-cap-8",
+     "text": "The pet sniffing the garbage pit. It came back out, which is more than some managed."
+    },
+    {
+     "id": "lb-pet-cap-9",
+     "text": "The pet greeting a merchant, who has been asked to stop haggling over it."
+    },
+    {
+     "id": "lb-pet-cap-10",
+     "text": "Portrait of the happy pair, with the pet drawn larger at the pet's insistence."
+    },
+    {
+     "id": "lb-pet-cap-11",
+     "text": "Owner, pet, and the mayor's citation for unlicensed adoption, in that order."
+    },
+    {
+     "id": "lb-pet-cap-12",
+     "text": "The pet watching the moat. The moat watching back has not been confirmed."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-pet-rep-1",
+     "text": "{who} has adopted an animal companion. Elders of {past_fort} still speak of its dogs with the pride usually reserved for drinks.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-pet-rep-2",
+     "text": "The new pet drinks from the well every day, making it, by the bookkeeper's reckoning, the best-hydrated resident of {fort}."
+    },
+    {
+     "id": "lb-pet-rep-3",
+     "text": "The militia captain has offered the pet a place in the squad, as there are nine vacancies. The pet accepted and immediately went Off duty."
+    },
+    {
+     "id": "lb-pet-rep-4",
+     "text": "The mayor's office has charged the pet with a production order violation for producing nothing. The pet has responded by sleeping on the charge sheet."
+    },
+    {
+     "id": "lb-pet-rep-5",
+     "text": "Vets, of whom we have none, say the pet should be kept away from trees, deep burrows and the garbage pit, which is also the Herald's advice to dwarves."
+    },
+    {
+     "id": "lb-pet-rep-6",
+     "text": "The pet has been offered the vacant office of sheriff. Officials note it is the first candidate in years to show interest, though the interest was mostly in the chair."
+    },
+    {
+     "id": "lb-pet-rep-7",
+     "text": "{who} says the animal is loyal, brave and a good listener. Asked to name one other resident of {fort} with all three, the owner went quiet."
+    },
+    {
+     "id": "lb-pet-rep-8",
+     "text": "The Overseer has marked the adoption by queuing eleven pet beds and fifteen hundred food bowls. The order is believed to be running away already."
+    },
+    {
+     "id": "lb-pet-rep-9",
+     "text": "Passing elves praised the adoption as 'a bond with nature.' Our dwarves praised it as 'a thing that might bite goblins.' Both parties left happy."
+    },
+    {
+     "id": "lb-pet-rep-10",
+     "text": "The pet has toured the hospitals, sniffing three without doctors and one with. It preferred the doctor, and growled at the vacant office."
+    },
+    {
+     "id": "lb-pet-rep-11",
+     "text": "The pair were seen sharing a meal in the dining hall. Of the {pop} residents, the pet is reportedly the only one with no complaints."
+    },
+    {
+     "id": "lb-pet-rep-12",
+     "text": "Old soldiers recall a dog at {past_fort} that knew the way to every throne by smell. 'Hundreds of them,' they say. 'Every one, sniffed.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-pet-rep-13",
+     "text": "Neighbours report the pet barks at the cistern, the windmills and the Overseer's notice board, which several dwarves call the bravest thing anyone has done."
+    },
+    {
+     "id": "lb-pet-rep-14",
+     "text": "The pet's first official act was to steal a sausage from the butcher, ending what some had begun calling the great meat shortage."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-pet-label-1",
+     "text": "GOOD BEAST"
+    },
+    {
+     "id": "lb-pet-label-2",
+     "text": "GOOD GIRL?"
+    },
+    {
+     "id": "lb-pet-label-3",
+     "text": "HAPPY OWNER"
+    },
+    {
+     "id": "lb-pet-label-4",
+     "text": "THRONE (1 OF MANY)"
+    },
+    {
+     "id": "lb-pet-label-5",
+     "text": "SQUAD MEMBER #2"
+    },
+    {
+     "id": "lb-pet-label-6",
+     "text": "CHEW TOY"
+    },
+    {
+     "id": "lb-pet-label-7",
+     "text": "THE PIT (NO)"
+    },
+    {
+     "id": "lb-pet-label-8",
+     "text": "WET FUR"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-pet-kicker-1",
+     "text": "The pet could not be reached; it was asleep on a throne."
+    },
+    {
+     "id": "lb-pet-kicker-2",
+     "text": "{first} requests the pet be addressed as 'sir'."
+    },
+    {
+     "id": "lb-pet-kicker-3",
+     "text": "The pet is not available for the sheriff's job. Yet."
+    },
+    {
+     "id": "lb-pet-kicker-4",
+     "text": "Keep pets out of trees, burrows and pits, as with dwarves."
+    },
+    {
+     "id": "lb-pet-kicker-5",
+     "text": "Searabbeys had thirteen dogs. We have ambitions.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-pet-kicker-6",
+     "text": "The pet is drinking enough. Learn from the pet."
+    },
+    {
+     "id": "lb-pet-kicker-7",
+     "text": "Petting is permitted. Adoption forms are, regrettably, mandatory."
+    },
+    {
+     "id": "lb-pet-kicker-8",
+     "text": "Militia strength now two, counting paws."
+    }
+   ]
+  },
+  "berserk": {
+   "heads": [
+    {
+     "id": "lb-berserk-head-1",
+     "text": "THIRSTY DWARF SNAPS; ALE ADJACENT"
+    },
+    {
+     "id": "lb-berserk-head-2",
+     "text": "BERSERK OVER ARMOR STAND #1,204"
+    },
+    {
+     "id": "lb-berserk-head-3",
+     "text": "TANTRUM SPIRAL REACHES THRONES"
+    },
+    {
+     "id": "lb-berserk-head-4",
+     "text": "MAYOR'S FORM PROVES FINAL STRAW"
+    },
+    {
+     "id": "lb-berserk-head-5",
+     "text": "\"I SMOOTHED 400 WALLS,\" SAYS RAGER"
+    },
+    {
+     "id": "lb-berserk-head-6",
+     "text": "DWARF SNAPS AFTER ROUGH GEM HUNT"
+    },
+    {
+     "id": "lb-berserk-head-7",
+     "text": "MILITIA OF ONE ASKED TO HELP"
+    },
+    {
+     "id": "lb-berserk-head-8",
+     "text": "RAMPAGE IN THE MIST RING ZONE"
+    },
+    {
+     "id": "lb-berserk-head-9",
+     "text": "CAPTAIN SLEEPS THROUGH RAMPAGE"
+    },
+    {
+     "id": "lb-berserk-head-10",
+     "text": "FURY UNLEASHED; THRONES DENTED"
+    },
+    {
+     "id": "lb-berserk-head-11",
+     "text": "RAGE, NOT DEHYDRATION, FOR ONCE"
+    },
+    {
+     "id": "lb-berserk-head-12",
+     "text": "CITIZEN QUITS, LOUDLY, WITH FISTS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-berserk-cap-1",
+     "text": "The berserker, mid-swing, beside a sign reading 'DAYS SINCE LAST INCIDENT: 0'."
+    },
+    {
+     "id": "lb-berserk-cap-2",
+     "text": "A dented throne, one of hundreds. Nobody has yet worked out which one."
+    },
+    {
+     "id": "lb-berserk-cap-3",
+     "text": "The cause, per witnesses: a production order violation slip, now in pieces."
+    },
+    {
+     "id": "lb-berserk-cap-4",
+     "text": "The berserker in the plant-gathering fields, in the rain, which did not help."
+    },
+    {
+     "id": "lb-berserk-cap-5",
+     "text": "The militia's response, drawn as a closed bedroom door marked 'Off duty'."
+    },
+    {
+     "id": "lb-berserk-cap-6",
+     "text": "Witnesses hiding behind the armor stands, the first defence they have ever offered."
+    },
+    {
+     "id": "lb-berserk-cap-7",
+     "text": "The tavern after the rampage. The ale survived. The ale always survives."
+    },
+    {
+     "id": "lb-berserk-cap-8",
+     "text": "A smoothed wall, now rough again. The smoother has been told and has also snapped."
+    },
+    {
+     "id": "lb-berserk-cap-9",
+     "text": "The berserker, glimpsed near the execution tower. The hammerer's chair: empty."
+    },
+    {
+     "id": "lb-berserk-cap-10",
+     "text": "Victims recovering in a hospital with no doctor, attended by a sympathetic cat."
+    },
+    {
+     "id": "lb-berserk-cap-11",
+     "text": "The mist ring, spraying happy thoughts at the berserker. Result: a wet berserker."
+    },
+    {
+     "id": "lb-berserk-cap-12",
+     "text": "Artist's diagram of the tantrum spiral. It is a spiral. It is going down."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-berserk-rep-1",
+     "text": "{who} has gone berserk after what friends call 'the four hundredth smoothing job, the third missed meal and a dream about a drink.' Bystanders are asked to stand further by."
+    },
+    {
+     "id": "lb-berserk-rep-2",
+     "text": "It began when the moody dwarf next door was handed the last rough gem. {first} had wanted it for nothing in particular, and that, friends say, was the point."
+    },
+    {
+     "id": "lb-berserk-rep-3",
+     "text": "The militia captain has been asked to subdue the berserker. The militia captain is Off duty. The nine other squad positions remain a matter of philosophy."
+    },
+    {
+     "id": "lb-berserk-rep-4",
+     "text": "The rage began in the dining hall over the last roast and ended in the throne room, where at least eleven of the hundred-odd thrones were knocked over."
+    },
+    {
+     "id": "lb-berserk-rep-5",
+     "text": "Officials note {first} was not thirsty, not hungry and not in a burrow called Safety. It was, the doctors would say if we had any, just a very bad week."
+    },
+    {
+     "id": "lb-berserk-rep-6",
+     "text": "The mayor's office has issued the berserker a production order violation, which the berserker ate. The office considers the matter closed."
+    },
+    {
+     "id": "lb-berserk-rep-7",
+     "text": "Overseer statement: 'An unhappy dwarf is a dwarf not yet given enough work.' Twelve new work orders have been queued for {first}, to help."
+    },
+    {
+     "id": "lb-berserk-rep-8",
+     "text": "The sheriff, hammerer and dungeon master offices are all vacant, so justice is being administered by whatever is nearest, which is mostly a door."
+    },
+    {
+     "id": "lb-berserk-rep-9",
+     "text": "Experts say berserk episodes follow long stretches of bad thoughts. Those on file include rain, gathering plants in the rain, and rain."
+    },
+    {
+     "id": "lb-berserk-rep-10",
+     "text": "{who} was last seen chasing a hauler round the cistern. The hauler was carrying refuse to the garbage pit, the first time the pit has saved anyone."
+    },
+    {
+     "id": "lb-berserk-rep-11",
+     "text": "The bookkeeper has added a 'damages' column to the ledger, between 'armor stands' and 'more armor stands'."
+    },
+    {
+     "id": "lb-berserk-rep-12",
+     "text": "Elders recall a weaver who once went possessed waiting for a loom room. 'At least this one is getting exercise,' said one, from under a table."
+    },
+    {
+     "id": "lb-berserk-rep-13",
+     "text": "Calm has returned to {fort}, chiefly because everyone is hiding. A mist ring session has been booked for the berserker, and for the dwarves who hid."
+    },
+    {
+     "id": "lb-berserk-rep-14",
+     "text": "The episode was preceded by a long speech about the Overseer, the work orders and 'who exactly needs a thousand armor stands'. Many listeners nodded."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-berserk-label-1",
+     "text": "TANTRUM"
+    },
+    {
+     "id": "lb-berserk-label-2",
+     "text": "DENTED THRONE"
+    },
+    {
+     "id": "lb-berserk-label-3",
+     "text": "THE LAST STRAW"
+    },
+    {
+     "id": "lb-berserk-label-4",
+     "text": "OFF DUTY (DOOR)"
+    },
+    {
+     "id": "lb-berserk-label-5",
+     "text": "RUN AWAY"
+    },
+    {
+     "id": "lb-berserk-label-6",
+     "text": "THE SLIP (EATEN)"
+    },
+    {
+     "id": "lb-berserk-label-7",
+     "text": "HIDING STAND"
+    },
+    {
+     "id": "lb-berserk-label-8",
+     "text": "VERY CROSS"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-berserk-kicker-1",
+     "text": "{first} is in a quiet room. Please let it stay quiet."
+    },
+    {
+     "id": "lb-berserk-kicker-2",
+     "text": "Bad thoughts may be lodged with the mist ring, not with fists."
+    },
+    {
+     "id": "lb-berserk-kicker-3",
+     "text": "The Overseer has queued an apology. It is an armor stand."
+    },
+    {
+     "id": "lb-berserk-kicker-4",
+     "text": "Hide behind the armor stands; at last they are useful."
+    },
+    {
+     "id": "lb-berserk-kicker-5",
+     "text": "Militia response time: pending the captain's nap."
+    },
+    {
+     "id": "lb-berserk-kicker-6",
+     "text": "The thrones will be righted when someone is assigned to right them."
+    },
+    {
+     "id": "lb-berserk-kicker-7",
+     "text": "A full report will follow once the reporter stops hiding."
+    },
+    {
+     "id": "lb-berserk-kicker-8",
+     "text": "Please, everyone, take a drink. A calm one."
+    }
+   ]
+  },
+  "mood": {
+   "heads": [
+    {
+     "id": "lb-mood-head-1",
+     "text": "MOODY DWARF WANTS ROUGH GEMS. ANY?"
+    },
+    {
+     "id": "lb-mood-head-2",
+     "text": "EVERY GEM CUT; MOOD ARRIVES ON CUE"
+    },
+    {
+     "id": "lb-mood-head-3",
+     "text": "CHILD IN MOOD DEMANDS PLANT CLOTH"
+    },
+    {
+     "id": "lb-mood-head-4",
+     "text": "FISHERDWARF FEY, GEMLESS, GRIM"
+    },
+    {
+     "id": "lb-mood-head-5",
+     "text": "MOOD STRIKES THE BUTCHER, SADLY"
+    },
+    {
+     "id": "lb-mood-head-6",
+     "text": "\"ROUGH, NOT CUT,\" SAYS MOODY DWARF"
+    },
+    {
+     "id": "lb-mood-head-7",
+     "text": "JEWELER BLAMED FOR CUTTING IT ALL"
+    },
+    {
+     "id": "lb-mood-head-8",
+     "text": "FEY DWARF CLAIMS LOOM ROOM AT LAST"
+    },
+    {
+     "id": "lb-mood-head-9",
+     "text": "MOOD DEMANDS THE ONE THING WE LACK"
+    },
+    {
+     "id": "lb-mood-head-10",
+     "text": "OVERSEER: \"SHE CAN WAIT\""
+    },
+    {
+     "id": "lb-mood-head-11",
+     "text": "HISTORY REPEATS; GEMS DON'T"
+    },
+    {
+     "id": "lb-mood-head-12",
+     "text": "STRANGE MOOD, STRANGER SHOPPING"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-mood-cap-1",
+     "text": "The moody dwarf's request, in full: 'ROUGH.' Underlined four times."
+    },
+    {
+     "id": "lb-mood-cap-2",
+     "text": "The gem stockpile: every stone cut, polished and entirely useless to this dwarf."
+    },
+    {
+     "id": "lb-mood-cap-3",
+     "text": "A child in a strange mood, demanding plant cloth. The child is four."
+    },
+    {
+     "id": "lb-mood-cap-4",
+     "text": "The jeweler beside her work, trying very hard to look like she didn't do it."
+    },
+    {
+     "id": "lb-mood-cap-5",
+     "text": "The workshop door, barred. Behind it, a dwarf. Behind the dwarf, a need for something rough."
+    },
+    {
+     "id": "lb-mood-cap-6",
+     "text": "Haulers searching the old stockpiles for one rough gem. They found eight hundred loose stones."
+    },
+    {
+     "id": "lb-mood-cap-7",
+     "text": "The fey fisherdwarf, sketching a fish made of gems we no longer have."
+    },
+    {
+     "id": "lb-mood-cap-8",
+     "text": "The moody butcher, eyeing a sapphire that nobody can uncut."
+    },
+    {
+     "id": "lb-mood-cap-9",
+     "text": "A dwarf in a mood beside a thousand armor stands, wanting none of them."
+    },
+    {
+     "id": "lb-mood-cap-10",
+     "text": "The moody weaver at a free loom. Veterans of older forts in the doorway, applauding quietly."
+    },
+    {
+     "id": "lb-mood-cap-11",
+     "text": "Artist's map of where rough gems might remain. It is mostly the caverns. And a goblin."
+    },
+    {
+     "id": "lb-mood-cap-12",
+     "text": "The moody dwarf at sunrise, hour nineteen of staring. Still wants rough gems."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-mood-rep-1",
+     "text": "{who} has been seized by a strange mood and asked, through the workshop door, for rough gems. Every gem in {fort} was cut last season, by standing order."
+    },
+    {
+     "id": "lb-mood-rep-2",
+     "text": "This is the fourth mood in a row to want the one material the fort just used up. Scholars call it coincidence. Moody dwarves call it 'typical'."
+    },
+    {
+     "id": "lb-mood-rep-3",
+     "text": "Readers recall a fey carpenter at Quakefocus who died of thirst beside 150 rough gems. This mood, by contrast, has the thirst but not the gems.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-mood-rep-4",
+     "text": "A dwarven child has fallen into a strange mood and demanded plant cloth. Parents say it is the most focused the child has ever been, meals included."
+    },
+    {
+     "id": "lb-mood-rep-5",
+     "text": "{first} has claimed a workshop and wants 'something rough, something precious, something the Overseer has not cut.' The jeweler has gone into hiding."
+    },
+    {
+     "id": "lb-mood-rep-6",
+     "text": "Miners went into the caverns for one rough gem and returned with stone. Stone, they argue, is rough. {first} disagrees, through the door."
+    },
+    {
+     "id": "lb-mood-rep-7",
+     "text": "The Overseer has answered the mood by queuing another round of gem cutting. The management insists this is unrelated and asks for no further questions."
+    },
+    {
+     "id": "lb-mood-rep-8",
+     "text": "Haulers searched the refuse pile, the old stockpiles and the garbage pit for anything uncut. They found a sock. The sock has been rejected."
+    },
+    {
+     "id": "lb-mood-rep-9",
+     "text": "The Herald recalls a possessed weaver at {past_fort} who died waiting for the loom room. This time the loom room is free, which officials call progress.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-mood-rep-10",
+     "text": "On the workshop wall the moody dwarf has drawn a gem, a log and something that may be a bone, a fish or the mayor. Haulers are bringing all three."
+    },
+    {
+     "id": "lb-mood-rep-11",
+     "text": "{liaison}, our liaison, writes that there is much to share and that rough gems may join next year's import agreement, at a modest double the price."
+    },
+    {
+     "id": "lb-mood-rep-12",
+     "text": "The workshop has been silent five days. Friends left a drink at the door. It is untouched, which this fort has learned to find alarming."
+    },
+    {
+     "id": "lb-mood-rep-13",
+     "text": "Scholars warn a moody dwarf left without materials may go insane. Scholars also note that this is {fort}, and that the odds are well known."
+    },
+    {
+     "id": "lb-mood-rep-14",
+     "text": "{who} has asked for rough gems, then cloth, then rough gems again. The cloth stockpile shows seven silk scraps, which veterans of {past_fort} say hide a shortage.",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-mood-label-1",
+     "text": "ROUGH, PLEASE"
+    },
+    {
+     "id": "lb-mood-label-2",
+     "text": "ALL CUT"
+    },
+    {
+     "id": "lb-mood-label-3",
+     "text": "JEWELER (GUILTY)"
+    },
+    {
+     "id": "lb-mood-label-4",
+     "text": "PLANT CLOTH?"
+    },
+    {
+     "id": "lb-mood-label-5",
+     "text": "BARRED DOOR"
+    },
+    {
+     "id": "lb-mood-label-6",
+     "text": "UNTOUCHED DRINK"
+    },
+    {
+     "id": "lb-mood-label-7",
+     "text": "7 SILK SCRAPS"
+    },
+    {
+     "id": "lb-mood-label-8",
+     "text": "GEM, ALLEGEDLY"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-mood-kicker-1",
+     "text": "If you have a rough gem, slide it under the door."
+    },
+    {
+     "id": "lb-mood-kicker-2",
+     "text": "The jeweler is excused from comment."
+    },
+    {
+     "id": "lb-mood-kicker-3",
+     "text": "Next season the fort will run out of whatever the next mood wants."
+    },
+    {
+     "id": "lb-mood-kicker-4",
+     "text": "{first} asks for privacy and one (1) uncut gem."
+    },
+    {
+     "id": "lb-mood-kicker-5",
+     "text": "Please hold all gem cutting until further notice."
+    },
+    {
+     "id": "lb-mood-kicker-6",
+     "text": "Children in moods are to be addressed as 'master'."
+    },
+    {
+     "id": "lb-mood-kicker-7",
+     "text": "Leave a drink. Then make sure it gets drunk."
+    },
+    {
+     "id": "lb-mood-kicker-8",
+     "text": "Rough gems available by import agreement, at a slight markup."
+    }
+   ]
+  },
+  "artifact": {
+   "heads": [
+    {
+     "id": "lb-artifact-head-1",
+     "text": "NEW ARTIFACT; NOT AN ARMOR STAND"
+    },
+    {
+     "id": "lb-artifact-head-2",
+     "text": "CLASPEDSERPENT GETS A RIVAL"
+    },
+    {
+     "id": "lb-artifact-head-3",
+     "text": "48 FIGURES LINE UP TO CLAIM IT"
+    },
+    {
+     "id": "lb-artifact-head-4",
+     "text": "TREASURE MADE; GOBLINS TAKE NOTES"
+    },
+    {
+     "id": "lb-artifact-head-5",
+     "text": "ARTIFACT FINISHED; DRINK FORGOTTEN"
+    },
+    {
+     "id": "lb-artifact-head-6",
+     "text": "MASTERWORK BORN OF MISSING GEMS"
+    },
+    {
+     "id": "lb-artifact-head-7",
+     "text": "NUANCED HAMLET'S HEIR ARRIVES"
+    },
+    {
+     "id": "lb-artifact-head-8",
+     "text": "\"WORTH MORE THAN ALL THE THRONES\""
+    },
+    {
+     "id": "lb-artifact-head-9",
+     "text": "LEGENDARY ITEM PUT IN STOCKPILE"
+    },
+    {
+     "id": "lb-artifact-head-10",
+     "text": "TREASURE MADE, CRISIS AVERTED"
+    },
+    {
+     "id": "lb-artifact-head-11",
+     "text": "AMUSING DUTIES COMPARISONS BEGIN"
+    },
+    {
+     "id": "lb-artifact-head-12",
+     "text": "ARTIFACT HAS NAME; MAKER HAS NAP"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-artifact-cap-1",
+     "text": "The new artifact on display, guarded by a cat and an armor stand, in order of usefulness."
+    },
+    {
+     "id": "lb-artifact-cap-2",
+     "text": "The artifact beside Claspedserpent, the silver mace of Quakefocus. Each eyes the other.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-artifact-cap-3",
+     "text": "The maker leaving the workshop after a week, asking only for a drink. Please give it."
+    },
+    {
+     "id": "lb-artifact-cap-4",
+     "text": "Claimants queueing for the artifact. Famous artifacts draw dozens; we hope for fewer."
+    },
+    {
+     "id": "lb-artifact-cap-5",
+     "text": "The artifact, drawn from memory, as the stockpile keeper will let nobody near it."
+    },
+    {
+     "id": "lb-artifact-cap-6",
+     "text": "The artifact in its display case, which the Overseer ordered in a quantity of 400."
+    },
+    {
+     "id": "lb-artifact-cap-7",
+     "text": "Spies of {enemy}, reading about the artifact in this very newspaper.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-artifact-cap-8",
+     "text": "The workshop after the mood. Every scrap that was not a rough gem got used."
+    },
+    {
+     "id": "lb-artifact-cap-9",
+     "text": "The engraving, showing the founding of {past_fort} and its slightly sad ending.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-artifact-cap-10",
+     "text": "The maker's family posing with the artifact, which is clearly the favourite child."
+    },
+    {
+     "id": "lb-artifact-cap-11",
+     "text": "The mayor, measuring the artifact for a production order violation."
+    },
+    {
+     "id": "lb-artifact-cap-12",
+     "text": "The artifact being admired by an elf, who has been asked to stop touching it."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-artifact-rep-1",
+     "text": "{who} has emerged from a strange mood with a legendary artifact. Despite the Overseer's best efforts, it is not an armor stand, and it is not a throne."
+    },
+    {
+     "id": "lb-artifact-rep-2",
+     "text": "Scholars rank the piece beside Claspedserpent, the silver mace of Quakefocus, and The Nuanced Hamlet, still at Searabbeys and still held by goblins.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-artifact-rep-3",
+     "text": "The tavern already calls the artifact 'priceless', 'perfect' and 'the reason we are getting besieged next spring'."
+    },
+    {
+     "id": "lb-artifact-rep-4",
+     "text": "Historians note The Amusing Duties, steel greaves lost at Roughnessslaps in year 68, has been claimed by some forty-eight figures. Ours has been claimed by one, so far.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-artifact-rep-5",
+     "text": "{first} asks that the piece be displayed somewhere nobody can fall into, die of thirst beside or haul out of the garbage pit. A pedestal has been commissioned."
+    },
+    {
+     "id": "lb-artifact-rep-6",
+     "text": "The Overseer has acknowledged the artifact by queuing 300 more display pedestals, should more artifacts need displaying. None are expected."
+    },
+    {
+     "id": "lb-artifact-rep-7",
+     "text": "The mayor's office has fined the artifact for a production order violation, as it was never on the work orders. The artifact declined to pay."
+    },
+    {
+     "id": "lb-artifact-rep-8",
+     "text": "Merchants offered a wagon of goods for the artifact. The bookkeeper politely declined, then asked whether the wagon was available separately."
+    },
+    {
+     "id": "lb-artifact-rep-9",
+     "text": "Elders recall that the last fort's treasure stayed behind when the fort fell. 'Artifacts outlive forts,' they say. 'Try not to make that the theme again.'"
+    },
+    {
+     "id": "lb-artifact-rep-10",
+     "text": "The maker reports the work was 'exhausting, inspired and mostly done without a drink.' A drink has since been provided, and supervised."
+    },
+    {
+     "id": "lb-artifact-rep-11",
+     "text": "The piece depicts, among other things, a dwarf drinking from a full barrel, which several readers have called 'aspirational'."
+    },
+    {
+     "id": "lb-artifact-rep-12",
+     "text": "The outpost liaison writes that there is much to share and asks whether the artifact might be part of an import agreement. It might not."
+    },
+    {
+     "id": "lb-artifact-rep-13",
+     "text": "Goblin scouts were seen loitering near {fort}, holding the Herald open at this page. The editor regrets nothing, and also everything."
+    },
+    {
+     "id": "lb-artifact-rep-14",
+     "text": "The fort now owns more legendary items than militia members, a milestone officials describe as 'honestly not that hard'."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-artifact-label-1",
+     "text": "UNTRADEABLE"
+    },
+    {
+     "id": "lb-artifact-label-2",
+     "text": "NOT A THRONE"
+    },
+    {
+     "id": "lb-artifact-label-3",
+     "text": "CLASPEDSERPENT"
+    },
+    {
+     "id": "lb-artifact-label-4",
+     "text": "GOBLIN, READING"
+    },
+    {
+     "id": "lb-artifact-label-5",
+     "text": "THE MAKER (DRY)"
+    },
+    {
+     "id": "lb-artifact-label-6",
+     "text": "CLAIMANT #1"
+    },
+    {
+     "id": "lb-artifact-label-7",
+     "text": "PEDESTAL (1/300)"
+    },
+    {
+     "id": "lb-artifact-label-8",
+     "text": "DON'T TOUCH"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-artifact-kicker-1",
+     "text": "Goblins reading this: it is very heavy and very far away."
+    },
+    {
+     "id": "lb-artifact-kicker-2",
+     "text": "Please do not die of thirst admiring it."
+    },
+    {
+     "id": "lb-artifact-kicker-3",
+     "text": "Claims may be filed with the mayor, who will fine you."
+    },
+    {
+     "id": "lb-artifact-kicker-4",
+     "text": "The maker has been given a drink, under supervision."
+    },
+    {
+     "id": "lb-artifact-kicker-5",
+     "text": "It is not for trade, at any percentage."
+    },
+    {
+     "id": "lb-artifact-kicker-6",
+     "text": "Viewing hours: whenever the stockpile keeper is asleep."
+    },
+    {
+     "id": "lb-artifact-kicker-7",
+     "text": "{past_fort} lost its treasure. We intend to keep ours.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-artifact-kicker-8",
+     "text": "{first} accepts praise, drinks and rough gems."
+    }
+   ]
+  },
+  "master": {
+   "heads": [
+    {
+     "id": "lb-master-head-1",
+     "text": "MASTERPIECE AMID 1,000 STANDS"
+    },
+    {
+     "id": "lb-master-head-2",
+     "text": "SMOOTHER HAILED AS LEGENDARY"
+    },
+    {
+     "id": "lb-master-head-3",
+     "text": "WALL PERFECT; SMOOTHER PARCHED"
+    },
+    {
+     "id": "lb-master-head-4",
+     "text": "CRAFTER PEAKS; OVERSEER WANTS 400"
+    },
+    {
+     "id": "lb-master-head-5",
+     "text": "FINEST OF A HUNDRED THRONES?"
+    },
+    {
+     "id": "lb-master-head-6",
+     "text": "MASTERWORK FROM THE LAST GEM"
+    },
+    {
+     "id": "lb-master-head-7",
+     "text": "\"BEST ARMOR STAND I'VE EVER SEEN\""
+    },
+    {
+     "id": "lb-master-head-8",
+     "text": "GENIUS AT WORK, IGNORED BY ORDERS"
+    },
+    {
+     "id": "lb-master-head-9",
+     "text": "SKILL RISES; WORK ORDERS RISE MORE"
+    },
+    {
+     "id": "lb-master-head-10",
+     "text": "LEGEND MADE, THEN RE-QUEUED"
+    },
+    {
+     "id": "lb-master-head-11",
+     "text": "GRAND WORK; NO DOCTOR TO ADMIRE"
+    },
+    {
+     "id": "lb-master-head-12",
+     "text": "PAPER HAILS RARE QUALITY ITEM"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-master-cap-1",
+     "text": "The masterwork among a sea of ordinary armor stands, like a duck in a pond of ducks."
+    },
+    {
+     "id": "lb-master-cap-2",
+     "text": "The craftsdwarf with the masterpiece. The masterpiece is the one looking smug."
+    },
+    {
+     "id": "lb-master-cap-3",
+     "text": "A wall smoothed so perfectly that three dwarves have walked into it."
+    },
+    {
+     "id": "lb-master-cap-4",
+     "text": "The finest throne in the fort, among a hundred others. You can tell by the glow."
+    },
+    {
+     "id": "lb-master-cap-5",
+     "text": "The master's workshop, with the next forty work orders pinned to the door."
+    },
+    {
+     "id": "lb-master-cap-6",
+     "text": "The masterwork mug. The first drink from it was ceremonial. The second, essential."
+    },
+    {
+     "id": "lb-master-cap-7",
+     "text": "The mayor admiring the masterpiece while reaching for a citation pad, out of habit."
+    },
+    {
+     "id": "lb-master-cap-8",
+     "text": "Fellow crafters applauding, while quietly revising their opinions of themselves."
+    },
+    {
+     "id": "lb-master-cap-9",
+     "text": "The master's tools, laid out like surgical instruments, in a fort with no surgeon."
+    },
+    {
+     "id": "lb-master-cap-10",
+     "text": "An elf calling the masterpiece 'acceptable'. The highest elven praise on record."
+    },
+    {
+     "id": "lb-master-cap-11",
+     "text": "The master taking a well-earned break beside a well, drinking, as encouraged."
+    },
+    {
+     "id": "lb-master-cap-12",
+     "text": "A close-up of the masterwork's detail. The artist's own detail is less good."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-master-rep-1",
+     "text": "{who} has produced a masterpiece. Of the eleven hundred armor stands made this season, critics say this one alone stands as if it means it."
+    },
+    {
+     "id": "lb-master-rep-2",
+     "text": "The Overseer praised the masterwork and at once ordered four hundred more exactly like it, then queued them behind sixteen thousand smoothing jobs."
+    },
+    {
+     "id": "lb-master-rep-3",
+     "text": "Veterans of {record_fort}, remembered for {record}, call the piece 'the first one I'd actually sit on, or hang a helm on.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-master-rep-4",
+     "text": "{first} says the secret to masterwork quality is 'practice, patience and a drink every few hours,' which the Herald prints here in large type for all."
+    },
+    {
+     "id": "lb-master-rep-5",
+     "text": "The mayor's office praised the masterpiece and charged its maker with a production order violation for making only one. Both notices went out the same morning."
+    },
+    {
+     "id": "lb-master-rep-6",
+     "text": "The piece was finished with the fort's very last rough gem, moments before a dwarf went into a strange mood and asked for the very last rough gem."
+    },
+    {
+     "id": "lb-master-rep-7",
+     "text": "Haulers moved the masterwork to the stockpile with great care, then set a barrel on it. The barrel was full. Nobody drank from it."
+    },
+    {
+     "id": "lb-master-rep-8",
+     "text": "Colleagues say {first} has been at the bench since the last migrant wave, pausing only to sleep and, at the Herald's urging, to drink."
+    },
+    {
+     "id": "lb-master-rep-9",
+     "text": "Merchants want to buy it. {liaison}, our liaison, writes that there is much to share and suggests an import agreement for masterpieces, at double the price."
+    },
+    {
+     "id": "lb-master-rep-10",
+     "text": "Elders compare it to the work of the old smiths of {past_fort}, which {past_fort_fate}. 'Lock this one up,' they advise.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-master-rep-11",
+     "text": "Tavern critics rate the masterpiece 'better than the thrones, worse than ale.' The maker accepts this as the highest grade available in {fort}."
+    },
+    {
+     "id": "lb-master-rep-12",
+     "text": "A legendary smoother has finished a wall so perfect that the Overseer has asked for it to be smoothed again, to check."
+    },
+    {
+     "id": "lb-master-rep-13",
+     "text": "The masterpiece now sits in the dining hall, improving every meal for those who can see it, which is mostly the cat."
+    },
+    {
+     "id": "lb-master-rep-14",
+     "text": "With this masterwork, {fort} has one more legendary artisan than militia soldiers, a ratio the captain calls 'fine, honestly'."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-master-label-1",
+     "text": "THE GOOD ONE"
+    },
+    {
+     "id": "lb-master-label-2",
+     "text": "ORDINARY STAND"
+    },
+    {
+     "id": "lb-master-label-3",
+     "text": "SMOOTH (VERY)"
+    },
+    {
+     "id": "lb-master-label-4",
+     "text": "SMUG"
+    },
+    {
+     "id": "lb-master-label-5",
+     "text": "THRONE #100"
+    },
+    {
+     "id": "lb-master-label-6",
+     "text": "400 MORE?"
+    },
+    {
+     "id": "lb-master-label-7",
+     "text": "PROUD MAKER"
+    },
+    {
+     "id": "lb-master-label-8",
+     "text": "THE LAST GEM"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-master-kicker-1",
+     "text": "The Overseer wants 400 more. Please do not tell the maker."
+    },
+    {
+     "id": "lb-master-kicker-2",
+     "text": "{first} accepts compliments and drinks, in that order."
+    },
+    {
+     "id": "lb-master-kicker-3",
+     "text": "Walk carefully; the walls are now dangerously smooth."
+    },
+    {
+     "id": "lb-master-kicker-4",
+     "text": "Masterworks cannot be traded for courage. We asked."
+    },
+    {
+     "id": "lb-master-kicker-5",
+     "text": "The maker requests no further work orders. Denied."
+    },
+    {
+     "id": "lb-master-kicker-6",
+     "text": "One good armor stand. Only a thousand to go."
+    },
+    {
+     "id": "lb-master-kicker-7",
+     "text": "Please drink from the masterwork mug. That is what it is for."
+    },
+    {
+     "id": "lb-master-kicker-8",
+     "text": "The Herald rates this item 'well made'. We rarely do."
+    }
+   ]
+  },
+  "strike": {
+   "heads": [
+    {
+     "id": "lb-strike-head-1",
+     "text": "ROUGH GEMS FOUND! MOODS REJOICE"
+    },
+    {
+     "id": "lb-strike-head-2",
+     "text": "VEIN FOUND; 10,000 JOBS QUEUED"
+    },
+    {
+     "id": "lb-strike-head-3",
+     "text": "STRIKE THE EARTH, THEN SMOOTH IT"
+    },
+    {
+     "id": "lb-strike-head-4",
+     "text": "MINER STRIKES ORE, AVOIDS TREES"
+    },
+    {
+     "id": "lb-strike-head-5",
+     "text": "GEMS FOUND; JEWELER RESTRAINED"
+    },
+    {
+     "id": "lb-strike-head-6",
+     "text": "DEEP FIND, SAFELY ABOVE 'SAFETY'"
+    },
+    {
+     "id": "lb-strike-head-7",
+     "text": "SILVER STRIKE; MACE NOSTALGIA"
+    },
+    {
+     "id": "lb-strike-head-8",
+     "text": "MINE HITS WATER; DWARVES STILL DRY"
+    },
+    {
+     "id": "lb-strike-head-9",
+     "text": "ORE AHOY! OVERSEER ORDERS STANDS"
+    },
+    {
+     "id": "lb-strike-head-10",
+     "text": "NEW VEIN, NEW GOBLIN INTEREST"
+    },
+    {
+     "id": "lb-strike-head-11",
+     "text": "800 LOOSE STONES; ONE GOOD ONE"
+    },
+    {
+     "id": "lb-strike-head-12",
+     "text": "MINERS HIT IT BIG, KEEP DIGGING"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-strike-cap-1",
+     "text": "The miner's find. The jeweler was drawn outside the frame, for everyone's safety."
+    },
+    {
+     "id": "lb-strike-cap-2",
+     "text": "A pocket of rough gems, sketched quickly before anyone could cut them."
+    },
+    {
+     "id": "lb-strike-cap-3",
+     "text": "The vein, glittering. The Overseer's planned armor stands, glittering faintly in the future."
+    },
+    {
+     "id": "lb-strike-cap-4",
+     "text": "The miner pointing at ore and also, by accident, at a forgotten beast's front door."
+    },
+    {
+     "id": "lb-strike-cap-5",
+     "text": "The new tunnel, already queued for smoothing. All of it. Every surface."
+    },
+    {
+     "id": "lb-strike-cap-6",
+     "text": "Silver, the stuff of legendary maces. The veterans stood very still to look at it."
+    },
+    {
+     "id": "lb-strike-cap-7",
+     "text": "Miners celebrating underground, safely away from all trees."
+    },
+    {
+     "id": "lb-strike-cap-8",
+     "text": "The bookkeeper logging the find, just under {record} from {record_fort}.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-strike-cap-9",
+     "text": "The mine entrance, marked 'NOT SAFETY' to avoid confusion with the other deep hole."
+    },
+    {
+     "id": "lb-strike-cap-10",
+     "text": "The moodiest dwarf in the fort, peering in, asking if any of it is rough."
+    },
+    {
+     "id": "lb-strike-cap-11",
+     "text": "The miner's pick, retired to the tavern wall. It will be back at work by lunch."
+    },
+    {
+     "id": "lb-strike-cap-12",
+     "text": "The find, as imagined by goblins reading this paper. They have drawn it bigger."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-strike-rep-1",
+     "text": "Miners have struck a pocket of rough gems. The jeweler was escorted from the area at once, and every dwarf with a history of moods has been told, quietly, to wait."
+    },
+    {
+     "id": "lb-strike-rep-2",
+     "text": "{who} hit the vein mid-swing and shouted 'Strike the earth!' The Overseer heard it and queued eleven hundred more digging jobs, to be thorough."
+    },
+    {
+     "id": "lb-strike-rep-3",
+     "text": "Elders call it the best find since {past_fort}, which had loose stones everywhere and still had a miner die of thirst. 'Hydrate,' they add.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-strike-rep-4",
+     "text": "The new tunnel is deep, though officials stress it is not thirty levels deep, and that nobody is to name any room down there 'Safety'."
+    },
+    {
+     "id": "lb-strike-rep-5",
+     "text": "The bookkeeper values the find at roughly a thousand armor stands, a unit of value the fort has, sadly, adopted."
+    },
+    {
+     "id": "lb-strike-rep-6",
+     "text": "Engineers warn deeper digging means caverns, and caverns mean forgotten beasts. Miners reply that it also means rough gems. The debate continues."
+    },
+    {
+     "id": "lb-strike-rep-7",
+     "text": "{liaison}, our liaison, writes that there is much to share and asks whether the ore might be exported at double the price. The miners replied with a gesture."
+    },
+    {
+     "id": "lb-strike-rep-8",
+     "text": "{first} reports striking the vein 'with one swing, and three days of swinging before it.' A drink was sent down, and {first} was watched until it was finished."
+    },
+    {
+     "id": "lb-strike-rep-9",
+     "text": "The mayor's office praised the strike and filed a production order violation, as the ore was found before the order to find it was issued."
+    },
+    {
+     "id": "lb-strike-rep-10",
+     "text": "{enemy} is believed to read the Herald. The Herald therefore reports the strike was small, dull and mostly gravel.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-strike-rep-11",
+     "text": "Silver has been found, the metal of Claspedserpent, the great mace of Quakefocus. The weaponsmiths are thrilled. The militia, all one of it, is asleep.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-strike-rep-12",
+     "text": "The ore stockpile is now full, and the overflow has been stacked in the throne room, among thrones one through a hundred."
+    },
+    {
+     "id": "lb-strike-rep-13",
+     "text": "The strike is so promising that the Overseer has ordered the tunnels smoothed, the smoothing engraved and the engravings, possibly, smoothed."
+    },
+    {
+     "id": "lb-strike-rep-14",
+     "text": "Miners are reminded the find is underground, which is the correct direction. Trees are the wrong direction. A miner on a branch has never struck anything."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-strike-label-1",
+     "text": "ROUGH GEMS!"
+    },
+    {
+     "id": "lb-strike-label-2",
+     "text": "JEWELER (HELD)"
+    },
+    {
+     "id": "lb-strike-label-3",
+     "text": "THE VEIN"
+    },
+    {
+     "id": "lb-strike-label-4",
+     "text": "NOT SAFETY"
+    },
+    {
+     "id": "lb-strike-label-5",
+     "text": "SILVER"
+    },
+    {
+     "id": "lb-strike-label-6",
+     "text": "MINER (DRINKING)"
+    },
+    {
+     "id": "lb-strike-label-7",
+     "text": "FOR SMOOTHING"
+    },
+    {
+     "id": "lb-strike-label-8",
+     "text": "GRAVEL (WE SAY)"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-strike-kicker-1",
+     "text": "Jewelers are asked to keep their hands in their pockets."
+    },
+    {
+     "id": "lb-strike-kicker-2",
+     "text": "Rough gems are reserved for the next strange mood."
+    },
+    {
+     "id": "lb-strike-kicker-3",
+     "text": "Goblins: it was gravel. Honestly."
+    },
+    {
+     "id": "lb-strike-kicker-4",
+     "text": "Do not name the new tunnel 'Safety'."
+    },
+    {
+     "id": "lb-strike-kicker-5",
+     "text": "Smoothing begins tomorrow and ends never."
+    },
+    {
+     "id": "lb-strike-kicker-6",
+     "text": "{first} has earned a drink. Please make sure it is drunk."
+    },
+    {
+     "id": "lb-strike-kicker-7",
+     "text": "Next stop: the caverns, and whatever lives there."
+    },
+    {
+     "id": "lb-strike-kicker-8",
+     "text": "Value of find: roughly {record}.",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ]
+  },
+  "migrants": {
+   "heads": [
+    {
+     "id": "lb-migrants-head-1",
+     "text": "MIGRANTS ARRIVE; ARMOR STANDS WAIT"
+    },
+    {
+     "id": "lb-migrants-head-2",
+     "text": "NEWCOMERS COUNT THE THRONES"
+    },
+    {
+     "id": "lb-migrants-head-3",
+     "text": "REFUGEES FROM PADTUFTED, AGAIN?"
+    },
+    {
+     "id": "lb-migrants-head-4",
+     "text": "NEW WAVE MEETS 10,000 JOB QUEUE"
+    },
+    {
+     "id": "lb-migrants-head-5",
+     "text": "FRESH DWARVES; FRESH PAPERWORK"
+    },
+    {
+     "id": "lb-migrants-head-6",
+     "text": "NEWCOMERS ASK ABOUT 'SAFETY'"
+    },
+    {
+     "id": "lb-migrants-head-7",
+     "text": "MIGRANTS ASSIGNED TO SMOOTHING"
+    },
+    {
+     "id": "lb-migrants-head-8",
+     "text": "\"IS IT ALWAYS LIKE THIS?\" ASK NEW"
+    },
+    {
+     "id": "lb-migrants-head-9",
+     "text": "WAVE ARRIVES, MILITIA STILL ONE"
+    },
+    {
+     "id": "lb-migrants-head-10",
+     "text": "NEW FACES, OLD STORIES"
+    },
+    {
+     "id": "lb-migrants-head-11",
+     "text": "MIGRANTS BRING NO ROUGH GEMS"
+    },
+    {
+     "id": "lb-migrants-head-12",
+     "text": "FORT GROWS; WELL DOES NOT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-migrants-cap-1",
+     "text": "The migrant wave, arriving at a fort with a thousand armor stands and no armor."
+    },
+    {
+     "id": "lb-migrants-cap-2",
+     "text": "Newcomers at the gate, handed their work orders before their names."
+    },
+    {
+     "id": "lb-migrants-cap-3",
+     "text": "A migrant asking the way to the Safety burrow. A local shaking his head slowly."
+    },
+    {
+     "id": "lb-migrants-cap-4",
+     "text": "New arrivals touring the throne room: a hundred thrones, each claimed by nobody."
+    },
+    {
+     "id": "lb-migrants-cap-5",
+     "text": "Refugees who have seen {enemy} up close and would rather not again.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-migrants-cap-6",
+     "text": "The migrants' wagon, empty of rough gems, to the visible dismay of a moody dwarf."
+    },
+    {
+     "id": "lb-migrants-cap-7",
+     "text": "Newcomers on their first job: smoothing. Their second job will also be smoothing."
+    },
+    {
+     "id": "lb-migrants-cap-8",
+     "text": "The welcome committee: the mayor, with a pad of production order violation forms."
+    },
+    {
+     "id": "lb-migrants-cap-9",
+     "text": "A migrant child, already eyeing the workshops. Parents have been warned."
+    },
+    {
+     "id": "lb-migrants-cap-10",
+     "text": "New arrivals at the well, which old residents walk past daily. Learn, newcomers."
+    },
+    {
+     "id": "lb-migrants-cap-11",
+     "text": "Migrants meeting the militia captain, who woke up long enough to wave."
+    },
+    {
+     "id": "lb-migrants-cap-12",
+     "text": "New dormitory beds, ordered in a quantity the Overseer called 'sensible': 900."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-migrants-rep-1",
+     "text": "A wave of migrants has arrived at {fort}, bringing the population to {pop}. Each has been issued a bed, a mug and a list of 140 smoothing jobs."
+    },
+    {
+     "id": "lb-migrants-rep-2",
+     "text": "Several newcomers are refugees from towns taken by The Crazed Hex. They asked whether the fort had walls, then whether it had a militia, then went quiet.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-migrants-rep-3",
+     "text": "Migrants were met at the gate by a letter from the liaison saying there is much to share. Nobody knows what was shared. The newcomers kept their bags close."
+    },
+    {
+     "id": "lb-migrants-rep-4",
+     "text": "{who} arrived with the wave and asked where the drinks are kept. Veterans explained they are kept everywhere, and that this has never helped anyone."
+    },
+    {
+     "id": "lb-migrants-rep-5",
+     "text": "The newcomers toured the highlights: the windmills, the mist ring, the cistern, the catacombs, the execution tower and the thousand armor stands."
+    },
+    {
+     "id": "lb-migrants-rep-6",
+     "text": "A migrant volunteered for the vacant office of sheriff. Officials were so startled the paperwork was lost, and the office is vacant again."
+    },
+    {
+     "id": "lb-migrants-rep-7",
+     "text": "Newcomers keen on the militia were told nine places are open, all permanently Off duty. Three signed up. Nobody has told the captain."
+    },
+    {
+     "id": "lb-migrants-rep-8",
+     "text": "One family has followed the fort since {past_fort}, which {past_fort_fate}. 'We follow the fort,' they said. 'And the drinks.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-migrants-rep-9",
+     "text": "The Overseer welcomed the migrants by queuing three hundred beds and three thousand armor stands, which the management describes as 'balanced'."
+    },
+    {
+     "id": "lb-migrants-rep-10",
+     "text": "Newcomers have been taught local custom: do not climb trees, do not shelter thirty levels down, do not haul refuse out of the pit, and do drink."
+    },
+    {
+     "id": "lb-migrants-rep-11",
+     "text": "Some migrants hail from human towns and asked why the smoothers smooth walls nobody sees. They were told: 'The Overseer.' They have stopped asking."
+    },
+    {
+     "id": "lb-migrants-rep-12",
+     "text": "The bookkeeper has entered the newcomers in a column labelled 'hope'. The previous column, labelled 'more hope', is already full."
+    },
+    {
+     "id": "lb-migrants-rep-13",
+     "text": "A migrant child has been seen staring at the workshops with a strange expression. Parents are advised to hide any plant cloth they may have."
+    },
+    {
+     "id": "lb-migrants-rep-14",
+     "text": "The new wave arrived in {season}, carrying their worldly goods and, regrettably, not one single rough gem."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-migrants-label-1",
+     "text": "GREENHORN"
+    },
+    {
+     "id": "lb-migrants-label-2",
+     "text": "MORE NEWCOMERS"
+    },
+    {
+     "id": "lb-migrants-label-3",
+     "text": "THE JOB QUEUE"
+    },
+    {
+     "id": "lb-migrants-label-4",
+     "text": "THEIR BAGS"
+    },
+    {
+     "id": "lb-migrants-label-5",
+     "text": "900 BEDS"
+    },
+    {
+     "id": "lb-migrants-label-6",
+     "text": "WELCOME FORM"
+    },
+    {
+     "id": "lb-migrants-label-7",
+     "text": "REFUGEE"
+    },
+    {
+     "id": "lb-migrants-label-8",
+     "text": "TO SMOOTH"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-migrants-kicker-1",
+     "text": "Welcome. Your first smoothing job begins immediately."
+    },
+    {
+     "id": "lb-migrants-kicker-2",
+     "text": "Newcomers: the well is the round thing. Please use it."
+    },
+    {
+     "id": "lb-migrants-kicker-3",
+     "text": "Militia sign-ups now open. Nobody has told the captain."
+    },
+    {
+     "id": "lb-migrants-kicker-4",
+     "text": "Please do not unpack in the Safety burrow."
+    },
+    {
+     "id": "lb-migrants-kicker-5",
+     "text": "Population up; armor stands per dwarf, sadly, down."
+    },
+    {
+     "id": "lb-migrants-kicker-6",
+     "text": "{first} has already been cited by the mayor. Welcome home."
+    },
+    {
+     "id": "lb-migrants-kicker-7",
+     "text": "Refugees: you are among friends, and thrones."
+    },
+    {
+     "id": "lb-migrants-kicker-8",
+     "text": "Trees are decorative. Do not climb the decorations."
+    }
+   ]
+  },
+  "caravan": {
+   "heads": [
+    {
+     "id": "lb-caravan-head-1",
+     "text": "LIAISON: \"THERE IS MUCH TO SHARE\""
+    },
+    {
+     "id": "lb-caravan-head-2",
+     "text": "TRADERS OFFER RINGS AT 210%",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-caravan-head-3",
+     "text": "CARAVAN BUYS 300 ARMOR STANDS?"
+    },
+    {
+     "id": "lb-caravan-head-4",
+     "text": "BROKER TRADES THRONE FOR CHEESE"
+    },
+    {
+     "id": "lb-caravan-head-5",
+     "text": "MERCHANTS DECLINE THE THRONES"
+    },
+    {
+     "id": "lb-caravan-head-6",
+     "text": "WAGON DODGES CRAZED HEX, ARRIVES"
+    },
+    {
+     "id": "lb-caravan-head-7",
+     "text": "DEPOT FULL OF STANDS, NOT GOODS"
+    },
+    {
+     "id": "lb-caravan-head-8",
+     "text": "TRADERS SELL ROUGH GEMS AT LAST?"
+    },
+    {
+     "id": "lb-caravan-head-9",
+     "text": "ELVES ARRIVE, REVIEW OUR TREES"
+    },
+    {
+     "id": "lb-caravan-head-10",
+     "text": "IMPORT AGREEMENT RECOMMENDED"
+    },
+    {
+     "id": "lb-caravan-head-11",
+     "text": "CARAVAN BRINGS MEAT; WATCH ENDS"
+    },
+    {
+     "id": "lb-caravan-head-12",
+     "text": "HUMANS FROM TOEEMBRACE DROP BY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-caravan-cap-1",
+     "text": "The liaison, mid-sentence. The sentence is 'There is much to share.' It always is."
+    },
+    {
+     "id": "lb-caravan-cap-2",
+     "text": "Merchants inspecting the 300 armor stands we offered. They took one, as a favour."
+    },
+    {
+     "id": "lb-caravan-cap-3",
+     "text": "The depot, buried under thrones. The traders had to climb."
+    },
+    {
+     "id": "lb-caravan-cap-4",
+     "text": "A merchant wagon fresh from the road past the burned towns, still visibly nervous."
+    },
+    {
+     "id": "lb-caravan-cap-5",
+     "text": "The broker, haggling. Behind him, a thousand reasons the fort needs to sell something."
+    },
+    {
+     "id": "lb-caravan-cap-6",
+     "text": "Elves from the forest retreat, examining our wooden goods with open disapproval."
+    },
+    {
+     "id": "lb-caravan-cap-7",
+     "text": "A wagon of meat, greeted by veterans of the long meatless years with real tears."
+    },
+    {
+     "id": "lb-caravan-cap-8",
+     "text": "The trader's scale. On one side, rings. On the other, a 210% markup.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-caravan-cap-9",
+     "text": "Humans from Toeembrace, of The Fair Cakes, who did not bring cakes. We checked.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-caravan-cap-10",
+     "text": "Pack animals at the depot, given the mist ring treatment and, frankly, loving it."
+    },
+    {
+     "id": "lb-caravan-cap-11",
+     "text": "The broker's ledger, mostly crossed out, with 'MORE?' written at the bottom."
+    },
+    {
+     "id": "lb-caravan-cap-12",
+     "text": "Haulers carrying goods to the depot by the longest route available: via a tree."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-caravan-rep-1",
+     "text": "The outpost liaison opened by saying there is much to share. The fort's few officials nodded, braced, and waited for the import agreement."
+    },
+    {
+     "id": "lb-caravan-rep-2",
+     "text": "Traders asked to buy rings at 210% of value. The broker said the fort has no rings. The traders said that was exactly why they were offering 210%.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-caravan-rep-3",
+     "text": "The broker offered the merchants three hundred armor stands. After some discussion they accepted one, on condition they would not have to carry it."
+    },
+    {
+     "id": "lb-caravan-rep-4",
+     "text": "Merchants say the road was hazardous: {enemy} has been busy. They charged a '{enemy_race} fee', which the bookkeeper still disputes.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-caravan-rep-5",
+     "text": "{who} was assigned to haul goods to the depot and was later found across the map gathering plants in the rain. The goods remain unhauled."
+    },
+    {
+     "id": "lb-caravan-rep-6",
+     "text": "The caravan brought meat. Elders who lived through the long meatless years wept openly and asked whether it came in sausage form."
+    },
+    {
+     "id": "lb-caravan-rep-7",
+     "text": "Elven traders praised the fort for sparing the trees, then grew concerned on learning the decision was the Overseer's and entirely accidental."
+    },
+    {
+     "id": "lb-caravan-rep-8",
+     "text": "Traders were offered a throne and asked how many we had. On hearing the number, they offered to take three at a discount, for the novelty."
+    },
+    {
+     "id": "lb-caravan-rep-9",
+     "text": "The liaison recommends an import agreement for spears, rough gems and 'one competent sheriff'. The mayor calls it the most useful document of the year."
+    },
+    {
+     "id": "lb-caravan-rep-10",
+     "text": "A merchant quietly asked whether The Grooved Council still holds Jackaldefense. It does. Prices went up.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-caravan-rep-11",
+     "text": "Haulers carried goods so slowly that the caravan nearly left. The Overseer blamed the haulers. The haulers blamed the ten thousand smoothing jobs ahead of them."
+    },
+    {
+     "id": "lb-caravan-rep-12",
+     "text": "The broker traded a stone mug for a barrel of ale, bringing the fort to two thousand and one drinks and making the bookkeeper laugh for the first time this year."
+    },
+    {
+     "id": "lb-caravan-rep-13",
+     "text": "Merchants report {civ} is at peace with most of the world, and that all of it has heard about the armor stands."
+    },
+    {
+     "id": "lb-caravan-rep-14",
+     "text": "The caravan left {fort} in {season}, heavier by one throne and lighter by every barrel of anything resembling meat."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-caravan-label-1",
+     "text": "MUCH TO SHARE"
+    },
+    {
+     "id": "lb-caravan-label-2",
+     "text": "DOUBLE PRICE"
+    },
+    {
+     "id": "lb-caravan-label-3",
+     "text": "ONE (1) STAND"
+    },
+    {
+     "id": "lb-caravan-label-4",
+     "text": "BROKER (SWEATING)"
+    },
+    {
+     "id": "lb-caravan-label-5",
+     "text": "GOBLIN FEE"
+    },
+    {
+     "id": "lb-caravan-label-6",
+     "text": "MEAT!!"
+    },
+    {
+     "id": "lb-caravan-label-7",
+     "text": "THRONE (SPARE)"
+    },
+    {
+     "id": "lb-caravan-label-8",
+     "text": "UNHAULED GOODS"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-caravan-kicker-1",
+     "text": "There is, as ever, much to share."
+    },
+    {
+     "id": "lb-caravan-kicker-2",
+     "text": "Armor stands remain available, in volume."
+    },
+    {
+     "id": "lb-caravan-kicker-3",
+     "text": "Next caravan: please bring rough gems and a doctor."
+    },
+    {
+     "id": "lb-caravan-kicker-4",
+     "text": "The import agreement is under review, by nobody."
+    },
+    {
+     "id": "lb-caravan-kicker-5",
+     "text": "Ring prices remain at double. We have no rings."
+    },
+    {
+     "id": "lb-caravan-kicker-6",
+     "text": "Haulers are reminded the depot is not in a tree."
+    },
+    {
+     "id": "lb-caravan-kicker-7",
+     "text": "{first} has been commended for haggling, and eventually for hauling."
+    },
+    {
+     "id": "lb-caravan-kicker-8",
+     "text": "Meat watch suspended pending sausages."
+    }
+   ]
+  },
+  "birth": {
+   "heads": [
+    {
+     "id": "lb-birth-head-1",
+     "text": "BABY BORN; ALREADY WANTS A MOOD"
+    },
+    {
+     "id": "lb-birth-head-2",
+     "text": "NEWBORN INHERITS 1,000 STANDS"
+    },
+    {
+     "id": "lb-birth-head-3",
+     "text": "INFANT JOINS FORT, OFF DUTY"
+    },
+    {
+     "id": "lb-birth-head-4",
+     "text": "BIRTH! MAYOR FILES PAPERWORK"
+    },
+    {
+     "id": "lb-birth-head-5",
+     "text": "BIRTH GOES FINE; NO DOCTOR NEEDED"
+    },
+    {
+     "id": "lb-birth-head-6",
+     "text": "NEWEST CITIZEN DRINKS ON TIME"
+    },
+    {
+     "id": "lb-birth-head-7",
+     "text": "BABY NOW EQUALS MILITIA IN SIZE"
+    },
+    {
+     "id": "lb-birth-head-8",
+     "text": "NEW ARRIVAL, NOT A MIGRANT"
+    },
+    {
+     "id": "lb-birth-head-9",
+     "text": "FORT WELCOMES TINY CRAFTSDWARF"
+    },
+    {
+     "id": "lb-birth-head-10",
+     "text": "INFANT EXPECTED TO WANT CLOTH"
+    },
+    {
+     "id": "lb-birth-head-11",
+     "text": "CRADLE FOUND AMONG THRONES"
+    },
+    {
+     "id": "lb-birth-head-12",
+     "text": "BIRTH ANNOUNCED; BABY UNIMPRESSED"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-birth-cap-1",
+     "text": "The newborn, asleep in a cradle the Overseer ordered in a batch of 600."
+    },
+    {
+     "id": "lb-birth-cap-2",
+     "text": "The proud parents with the baby and, behind them, a hundred thrones nobody has sat on."
+    },
+    {
+     "id": "lb-birth-cap-3",
+     "text": "The baby's first look at the fort. Its expression is the one the Herald wears daily."
+    },
+    {
+     "id": "lb-birth-cap-4",
+     "text": "The infant drinking milk, on time, without being told. A model citizen already."
+    },
+    {
+     "id": "lb-birth-cap-5",
+     "text": "The nursery, smoothed to perfection by smoothers with ten thousand other jobs."
+    },
+    {
+     "id": "lb-birth-cap-6",
+     "text": "The baby meeting the militia captain. Both were asleep."
+    },
+    {
+     "id": "lb-birth-cap-7",
+     "text": "The infant gripping a rough gem. Moody dwarves in the background, watching."
+    },
+    {
+     "id": "lb-birth-cap-8",
+     "text": "The midwife: no doctor, but a very confident hauler with clean hands."
+    },
+    {
+     "id": "lb-birth-cap-9",
+     "text": "The baby's first toy: a tiny armor stand. Of course it was."
+    },
+    {
+     "id": "lb-birth-cap-10",
+     "text": "The nursery door, marked 'NOT SAFETY' to settle everyone's nerves."
+    },
+    {
+     "id": "lb-birth-cap-11",
+     "text": "The family tree, drawn as a family stone, as trees are not trusted here."
+    },
+    {
+     "id": "lb-birth-cap-12",
+     "text": "The mayor presenting the baby with its first production order violation."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-birth-rep-1",
+     "text": "{who} has welcomed a baby. The infant was born healthy, hungry and thirsty, and has already learned to drink when thirsty, unlike some adults in {fort}."
+    },
+    {
+     "id": "lb-birth-rep-2",
+     "text": "The birth went ahead without a doctor, as the chief medical dwarf's office is vacant. A hauler supervised, then asked for the office, and was refused."
+    },
+    {
+     "id": "lb-birth-rep-3",
+     "text": "The population now stands at {pop}: one more dwarf than yesterday, and one fewer armor stand per dwarf than the Overseer would like."
+    },
+    {
+     "id": "lb-birth-rep-4",
+     "text": "The Overseer marked the birth by queuing 600 cradles and a toy armor stand for every child the fort may ever have. The order is already running away."
+    },
+    {
+     "id": "lb-birth-rep-5",
+     "text": "Parents say the baby cries at the windmills, coos at the mist ring and stares, unblinking, at the gem stockpile. Moody dwarves are watching closely."
+    },
+    {
+     "id": "lb-birth-rep-6",
+     "text": "The fort's children have a record of strange moods; one demanded plant cloth. Parents are advised to stock some now, just in case."
+    },
+    {
+     "id": "lb-birth-rep-7",
+     "text": "The mayor congratulated the family and cited the infant for a production order violation, having produced only noise. The fine is one rattle."
+    },
+    {
+     "id": "lb-birth-rep-8",
+     "text": "The baby received the traditional gifts: a mug, a blanket and a stern warning about trees."
+    },
+    {
+     "id": "lb-birth-rep-9",
+     "text": "Grandparents who remember {past_fort}, which {past_fort_fate}, call the child 'our first born in a fort we haven't had to leave yet'.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-birth-rep-10",
+     "text": "{first} describes the baby as 'perfect, loud and already tired of the Overseer.' The Herald notes this is a typical first impression."
+    },
+    {
+     "id": "lb-birth-rep-11",
+     "text": "The militia captain visited the newborn and offered it a place in the squad. Given the nine vacancies, the offer is considered sincere."
+    },
+    {
+     "id": "lb-birth-rep-12",
+     "text": "The baby was born in {season}. It will be shown the surface by spring and told never to gather plants out there in the rain."
+    },
+    {
+     "id": "lb-birth-rep-13",
+     "text": "The nursery sits far from the garbage pit, the deep stairs and every tree. It is, by some distance, the safest room in {fort}."
+    },
+    {
+     "id": "lb-birth-rep-14",
+     "text": "The bookkeeper has entered the baby under 'future haulers'. The baby has entered itself in the ledger under 'spilled ink'."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-birth-label-1",
+     "text": "NEWBORN"
+    },
+    {
+     "id": "lb-birth-label-2",
+     "text": "BEAMING PARENT"
+    },
+    {
+     "id": "lb-birth-label-3",
+     "text": "CRADLE (1 OF 600)"
+    },
+    {
+     "id": "lb-birth-label-4",
+     "text": "TOY STAND"
+    },
+    {
+     "id": "lb-birth-label-5",
+     "text": "NOT A DOCTOR"
+    },
+    {
+     "id": "lb-birth-label-6",
+     "text": "TINY MUG"
+    },
+    {
+     "id": "lb-birth-label-7",
+     "text": "THE RATTLE (FINE)"
+    },
+    {
+     "id": "lb-birth-label-8",
+     "text": "FUTURE MOOD?"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-birth-kicker-1",
+     "text": "The baby asks for no visitors and a drink. Smart baby."
+    },
+    {
+     "id": "lb-birth-kicker-2",
+     "text": "Keep plant cloth on hand. Just in case."
+    },
+    {
+     "id": "lb-birth-kicker-3",
+     "text": "Congratulations, and welcome to the work queue."
+    },
+    {
+     "id": "lb-birth-kicker-4",
+     "text": "The baby is not to be stored in an armor stand."
+    },
+    {
+     "id": "lb-birth-kicker-5",
+     "text": "{first} is resting. The baby is not."
+    },
+    {
+     "id": "lb-birth-kicker-6",
+     "text": "Gifts of rough gems will be held for the inevitable mood."
+    },
+    {
+     "id": "lb-birth-kicker-7",
+     "text": "No trees for the baby. Ever."
+    },
+    {
+     "id": "lb-birth-kicker-8",
+     "text": "Born in {fort}, and staying, the gods willing."
+    }
+   ]
+  },
+  "marriage": {
+   "heads": [
+    {
+     "id": "lb-marriage-head-1",
+     "text": "WEDDING HELD AMONG THE THRONES"
+    },
+    {
+     "id": "lb-marriage-head-2",
+     "text": "TWO DWARVES, ONE BEDROOM, NO FORM"
+    },
+    {
+     "id": "lb-marriage-head-3",
+     "text": "LOVE BLOOMS; MAYOR FILES CITATION"
+    },
+    {
+     "id": "lb-marriage-head-4",
+     "text": "COUPLE WEDS, BOTH STILL HYDRATED"
+    },
+    {
+     "id": "lb-marriage-head-5",
+     "text": "NUPTIALS DELAYED BY SMOOTHING"
+    },
+    {
+     "id": "lb-marriage-head-6",
+     "text": "WEDDING GUESTS AVOID 'SAFETY'"
+    },
+    {
+     "id": "lb-marriage-head-7",
+     "text": "OVERSEER GIFTS 600 MATCHING MUGS"
+    },
+    {
+     "id": "lb-marriage-head-8",
+     "text": "VOWS EXCHANGED; ORDERS UNCHANGED"
+    },
+    {
+     "id": "lb-marriage-head-9",
+     "text": "MILITIA OF ONE SERVES AS USHER"
+    },
+    {
+     "id": "lb-marriage-head-10",
+     "text": "\"I DO,\" SAYS DWARF, THEN WORKS"
+    },
+    {
+     "id": "lb-marriage-head-11",
+     "text": "ROMANCE SURVIVES THE JOB QUEUE"
+    },
+    {
+     "id": "lb-marriage-head-12",
+     "text": "HAPPY COUPLE GIVEN ARMOR STANDS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-marriage-cap-1",
+     "text": "The happy couple, standing before a hundred thrones and sitting on none."
+    },
+    {
+     "id": "lb-marriage-cap-2",
+     "text": "The wedding feast: every dish the kitchen had, and two thousand drinks nobody touched."
+    },
+    {
+     "id": "lb-marriage-cap-3",
+     "text": "The vows, as recited. The second line is 'and to drink regularly'."
+    },
+    {
+     "id": "lb-marriage-cap-4",
+     "text": "The couple's new bedroom, freshly smoothed by a smoother who was not invited."
+    },
+    {
+     "id": "lb-marriage-cap-5",
+     "text": "Wedding gifts: a mug, a blanket and, from the Overseer, forty armor stands."
+    },
+    {
+     "id": "lb-marriage-cap-6",
+     "text": "The militia captain, serving as usher and also, briefly, as a sleeping guest."
+    },
+    {
+     "id": "lb-marriage-cap-7",
+     "text": "The mayor with a citation pad, attending in an official capacity, uninvited."
+    },
+    {
+     "id": "lb-marriage-cap-8",
+     "text": "Guests dancing beside the mist ring. Damp, but delighted."
+    },
+    {
+     "id": "lb-marriage-cap-9",
+     "text": "The couple's first look as spouses. Behind them, the job board, glaring."
+    },
+    {
+     "id": "lb-marriage-cap-10",
+     "text": "The ring, borrowed, as the fort had none and the depot wanted double for one."
+    },
+    {
+     "id": "lb-marriage-cap-11",
+     "text": "The wedding cake, which is a roast, because this is a fortress."
+    },
+    {
+     "id": "lb-marriage-cap-12",
+     "text": "The best dwarf's speech, mostly about the time the groom got stuck in a tree."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-marriage-rep-1",
+     "text": "{who} has married in a ceremony attended by friends, family and a long list of work orders the Overseer declined to postpone."
+    },
+    {
+     "id": "lb-marriage-rep-2",
+     "text": "The couple wed in the dining hall in {season}, promising to love, to honour, and never to shelter in a burrow named Safety."
+    },
+    {
+     "id": "lb-marriage-rep-3",
+     "text": "The Overseer marked the union with six hundred matching mugs and four hundred armor stands. The couple's bedroom can now hold neither the couple nor the gift."
+    },
+    {
+     "id": "lb-marriage-rep-4",
+     "text": "The mayor's office congratulated the pair and cited them for a production order violation, as weddings appear nowhere on the work orders."
+    },
+    {
+     "id": "lb-marriage-rep-5",
+     "text": "Guests report a brief ceremony, a long feast and enthusiastic drinking, which elders call the healthiest thing to happen in {fort} all year."
+    },
+    {
+     "id": "lb-marriage-rep-6",
+     "text": "{first} says the couple met hauling the same stone in opposite directions for a season. 'We kept bumping into each other. Then we kept doing it on purpose.'"
+    },
+    {
+     "id": "lb-marriage-rep-7",
+     "text": "No priest was available, so the bookkeeper conducted the ceremony, reading the vows from the ledger and then counting the guests, twice."
+    },
+    {
+     "id": "lb-marriage-rep-8",
+     "text": "The militia captain served as usher and remained Off duty throughout, which guests agree is the most active the captain has been in seasons."
+    },
+    {
+     "id": "lb-marriage-rep-9",
+     "text": "The couple will honeymoon in their bedroom, which the Overseer has thoughtfully queued for re-smoothing during the honeymoon."
+    },
+    {
+     "id": "lb-marriage-rep-10",
+     "text": "Elders of {past_fort}, which {past_fort_fate}, wept at the ceremony. 'We had weddings there too,' one said. 'Then we had goblins.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-marriage-rep-11",
+     "text": "The pair asked for no gifts, only that every guest drink something today, slowly, in front of witnesses."
+    },
+    {
+     "id": "lb-marriage-rep-12",
+     "text": "Rings were sought at the depot, where traders quoted double the price. The couple instead exchanged two very nice rocks."
+    },
+    {
+     "id": "lb-marriage-rep-13",
+     "text": "Both families are said to be thrilled. The cats are said to be indifferent, which is how cats attend weddings."
+    },
+    {
+     "id": "lb-marriage-rep-14",
+     "text": "{civ} sent congratulations by letter, along with a reminder about this year's export quotas, which the couple has framed."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-marriage-label-1",
+     "text": "THE HAPPY PAIR"
+    },
+    {
+     "id": "lb-marriage-label-2",
+     "text": "RINGS (ROCKS)"
+    },
+    {
+     "id": "lb-marriage-label-3",
+     "text": "600 MUGS"
+    },
+    {
+     "id": "lb-marriage-label-4",
+     "text": "MAYOR (UNINVITED)"
+    },
+    {
+     "id": "lb-marriage-label-5",
+     "text": "WEDDING ROAST"
+    },
+    {
+     "id": "lb-marriage-label-6",
+     "text": "USHER (ASLEEP)"
+    },
+    {
+     "id": "lb-marriage-label-7",
+     "text": "BEST DWARF"
+    },
+    {
+     "id": "lb-marriage-label-8",
+     "text": "GIFT STANDS"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-marriage-kicker-1",
+     "text": "The couple requests privacy and fewer work orders."
+    },
+    {
+     "id": "lb-marriage-kicker-2",
+     "text": "Gifts of drink are welcome, if actually drunk."
+    },
+    {
+     "id": "lb-marriage-kicker-3",
+     "text": "{first} has asked us not to mention the tree story. Sorry."
+    },
+    {
+     "id": "lb-marriage-kicker-4",
+     "text": "Gift armor stands may be returned for credit. There is no shop."
+    },
+    {
+     "id": "lb-marriage-kicker-5",
+     "text": "The honeymoon is scheduled between smoothing jobs."
+    },
+    {
+     "id": "lb-marriage-kicker-6",
+     "text": "Love: the one order the Overseer did not queue."
+    },
+    {
+     "id": "lb-marriage-kicker-7",
+     "text": "Congratulations, and do not move into a burrow called Safety."
+    },
+    {
+     "id": "lb-marriage-kicker-8",
+     "text": "The mayor's citation is the couple's first joint possession."
+    }
+   ]
+  },
+  "ghost": {
+   "heads": [
+    {
+     "id": "lb-ghost-head-1",
+     "text": "THIRSTY GHOST HAUNTS THE CELLAR"
+    },
+    {
+     "id": "lb-ghost-head-2",
+     "text": "SPIRIT POINTS AT FULL BARRELS"
+    },
+    {
+     "id": "lb-ghost-head-3",
+     "text": "GHOST DEMANDS SLAB, AND A DRINK"
+    },
+    {
+     "id": "lb-ghost-head-4",
+     "text": "HAUNTING REPORTED IN 'SAFETY'"
+    },
+    {
+     "id": "lb-ghost-head-5",
+     "text": "GHOST OF THE TREE MINER RETURNS"
+    },
+    {
+     "id": "lb-ghost-head-6",
+     "text": "PHANTOM SMOOTHER FINISHES WALLS"
+    },
+    {
+     "id": "lb-ghost-head-7",
+     "text": "SPECTRE STILL HAULING REFUSE"
+    },
+    {
+     "id": "lb-ghost-head-8",
+     "text": "GHOST FROM OLD FORT VISITS"
+    },
+    {
+     "id": "lb-ghost-head-9",
+     "text": "DEAD DWARF FILES COMPLAINT"
+    },
+    {
+     "id": "lb-ghost-head-10",
+     "text": "SLAB OVERDUE; GHOST STEPS IN"
+    },
+    {
+     "id": "lb-ghost-head-11",
+     "text": "GHOST JOINS MILITIA, OUTWORKS IT"
+    },
+    {
+     "id": "lb-ghost-head-12",
+     "text": "SPIRIT REFUSES TO BE QUEUED"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-ghost-cap-1",
+     "text": "The ghost drifting through the drinks stockpile, which it can now see clearly. Too late."
+    },
+    {
+     "id": "lb-ghost-cap-2",
+     "text": "A thirsty spirit pointing at a barrel. Witnesses say the barrel looked guilty."
+    },
+    {
+     "id": "lb-ghost-cap-3",
+     "text": "The ghost seated in the tree it died in, refusing to come down even now."
+    },
+    {
+     "id": "lb-ghost-cap-4",
+     "text": "The Safety burrow, now haunted, and somehow even less safe."
+    },
+    {
+     "id": "lb-ghost-cap-5",
+     "text": "The phantom hauler, still carrying refuse up out of the garbage pit."
+    },
+    {
+     "id": "lb-ghost-cap-6",
+     "text": "The spirit inspecting the slab queue. Its slab is at position four hundred."
+    },
+    {
+     "id": "lb-ghost-cap-7",
+     "text": "A ghost walking past a thousand armor stands, to which it has no objection."
+    },
+    {
+     "id": "lb-ghost-cap-8",
+     "text": "The spectral miner, clutching a pick and a mug, both empty."
+    },
+    {
+     "id": "lb-ghost-cap-9",
+     "text": "The ghost visiting the hospital, which also lacks a doctor in the afterlife."
+    },
+    {
+     "id": "lb-ghost-cap-10",
+     "text": "The ghost and the militia captain, both on duty for once. Well, one of them."
+    },
+    {
+     "id": "lb-ghost-cap-11",
+     "text": "The spirit of a Searabbeys miner, still dehydrated, still looking for the drinks.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lb-ghost-cap-12",
+     "text": "The mason, finally engraving the slab, with a ghost reading over his shoulder."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-ghost-rep-1",
+     "text": "The ghost of {first} has been drifting through the cellars, pointing at full barrels and moaning. Scholars believe it is not angry, merely making a point."
+    },
+    {
+     "id": "lb-ghost-rep-2",
+     "text": "A restless spirit has moved into the Safety burrow, far below the fort. Officials say this does not change the burrow's safety rating, which was already 'none'."
+    },
+    {
+     "id": "lb-ghost-rep-3",
+     "text": "{who} has returned as a ghost and resumed hauling refuse out of the garbage pit. Haulers are still throwing more in. Nothing has been learned on either side."
+    },
+    {
+     "id": "lb-ghost-rep-4",
+     "text": "A ghost sits in a tree near the gate, refusing to come down. The miner it once was also refused to come down, which is, sadly, the whole story."
+    },
+    {
+     "id": "lb-ghost-rep-5",
+     "text": "The mason has been told to engrave a slab at once. The Overseer has queued it after four hundred armor stands, which the ghost is reported to have heard."
+    },
+    {
+     "id": "lb-ghost-rep-6",
+     "text": "Visitors say a ghost from {past_fort}, which {past_fort_fate}, has wandered in looking for its old bedroom. It was given a spare and seems content to sulk there.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-ghost-rep-7",
+     "text": "The ghost of {first} has been seen smoothing walls at night. Smoothers call the work excellent and have asked whether it would like to stay on."
+    },
+    {
+     "id": "lb-ghost-rep-8",
+     "text": "Priests advise a slab. The bookkeeper advises a slab. The ghost, through a series of thrown mugs, also advises a slab."
+    },
+    {
+     "id": "lb-ghost-rep-9",
+     "text": "The spirit stands by the well, staring at it, then at the living, then at the well again. Several dwarves took the hint and had a drink."
+    },
+    {
+     "id": "lb-ghost-rep-10",
+     "text": "The mayor's office cited the ghost for loitering. The ghost passed through the citation, and the mayor, without signing."
+    },
+    {
+     "id": "lb-ghost-rep-11",
+     "text": "A ghost has joined the militia, filling one of the nine vacant places. It is the first squad member in years to attend every drill."
+    },
+    {
+     "id": "lb-ghost-rep-12",
+     "text": "Reports from the dining hall describe cold spots, toppled chairs and a voice saying 'it was RIGHT THERE.' The barrel in question has been moved."
+    },
+    {
+     "id": "lb-ghost-rep-13",
+     "text": "The ghost is thought to be a dwarf who died in a hospital with no doctor. It now haunts the vacant chief medical dwarf's office, pointedly."
+    },
+    {
+     "id": "lb-ghost-rep-14",
+     "text": "Elders say ghosts in {fort} are restless because 'they all died of something silly'. The Herald calls this unkind, and also broadly accurate."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-ghost-label-1",
+     "text": "THIRSTY GHOST"
+    },
+    {
+     "id": "lb-ghost-label-2",
+     "text": "FULL BARREL"
+    },
+    {
+     "id": "lb-ghost-label-3",
+     "text": "COLD SPOT (NEW)"
+    },
+    {
+     "id": "lb-ghost-label-4",
+     "text": "IN A TREE"
+    },
+    {
+     "id": "lb-ghost-label-5",
+     "text": "SLAB (LATE)"
+    },
+    {
+     "id": "lb-ghost-label-6",
+     "text": "THE PIT, AGAIN"
+    },
+    {
+     "id": "lb-ghost-label-7",
+     "text": "THROWN MUG"
+    },
+    {
+     "id": "lb-ghost-label-8",
+     "text": "DRIFTING"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-ghost-kicker-1",
+     "text": "The slab is queued behind the armor stands. Sorry."
+    },
+    {
+     "id": "lb-ghost-kicker-2",
+     "text": "Drink now, so you need not haunt the cellar later."
+    },
+    {
+     "id": "lb-ghost-kicker-3",
+     "text": "{first} remains thirsty, which is no longer anyone's fault."
+    },
+    {
+     "id": "lb-ghost-kicker-4",
+     "text": "The ghost asks that we stop throwing refuse into the pit."
+    },
+    {
+     "id": "lb-ghost-kicker-5",
+     "text": "Haunted trees will be chopped down, eventually."
+    },
+    {
+     "id": "lb-ghost-kicker-6",
+     "text": "Engrave a slab, and spare us all the moaning."
+    },
+    {
+     "id": "lb-ghost-kicker-7",
+     "text": "Ghost drill attendance: perfect. Living attendance: one, asleep."
+    },
+    {
+     "id": "lb-ghost-kicker-8",
+     "text": "The living are reminded: it was right there."
+    }
+   ]
+  },
+  "collapse": {
+   "heads": [
+    {
+     "id": "lb-collapse-head-1",
+     "text": "CEILING JOINS FLOOR; OVERSEER CALM"
+    },
+    {
+     "id": "lb-collapse-head-2",
+     "text": "CAVE-IN ENDS SMOOTHING PROJECT"
+    },
+    {
+     "id": "lb-collapse-head-3",
+     "text": "TUNNEL FALLS ON ARMOR STANDS"
+    },
+    {
+     "id": "lb-collapse-head-4",
+     "text": "'SAFETY' BURROW NOW EVEN DEEPER"
+    },
+    {
+     "id": "lb-collapse-head-5",
+     "text": "COLLAPSE BURIES A HUNDRED THRONES"
+    },
+    {
+     "id": "lb-collapse-head-6",
+     "text": "CHANNELING ORDER RUNS AWAY"
+    },
+    {
+     "id": "lb-collapse-head-7",
+     "text": "ROOF FALLS; STANDS UNHARMED"
+    },
+    {
+     "id": "lb-collapse-head-8",
+     "text": "MINER ESCAPES TO A TREE. UH-OH."
+    },
+    {
+     "id": "lb-collapse-head-9",
+     "text": "GARBAGE PIT GROWS A NEW LEVEL"
+    },
+    {
+     "id": "lb-collapse-head-10",
+     "text": "CAVE-IN OPENS INTO THE CAVERNS"
+    },
+    {
+     "id": "lb-collapse-head-11",
+     "text": "DIG FOREMAN: \"IT WAS THE ORDERS\""
+    },
+    {
+     "id": "lb-collapse-head-12",
+     "text": "RUBBLE EVERYWHERE; DRINKS SAFE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-collapse-cap-1",
+     "text": "The collapse, seen from below. The artist has asked not to be assigned below again."
+    },
+    {
+     "id": "lb-collapse-cap-2",
+     "text": "The ceiling, mid-fall. It had been smoothed beautifully. It was a shame."
+    },
+    {
+     "id": "lb-collapse-cap-3",
+     "text": "A thousand armor stands, unscratched beneath the rubble. They are, it turns out, sturdy."
+    },
+    {
+     "id": "lb-collapse-cap-4",
+     "text": "The dig plan, showing one channel order repeated four hundred times."
+    },
+    {
+     "id": "lb-collapse-cap-5",
+     "text": "The rescue team, digging. Behind them, the job board, adding more digging."
+    },
+    {
+     "id": "lb-collapse-cap-6",
+     "text": "The tunnel, now a ramp, now a pit, now a matter for the bookkeeper."
+    },
+    {
+     "id": "lb-collapse-cap-7",
+     "text": "A miner in a tree after fleeing the collapse. We know how this ends. Please come down."
+    },
+    {
+     "id": "lb-collapse-cap-8",
+     "text": "The garbage pit, one level deeper. Haulers have been told, though not why."
+    },
+    {
+     "id": "lb-collapse-cap-9",
+     "text": "Dust clearing over the throne room. Some of the thrones are now lower thrones."
+    },
+    {
+     "id": "lb-collapse-cap-10",
+     "text": "The drinks stockpile, untouched by the collapse and, as usual, by everyone else."
+    },
+    {
+     "id": "lb-collapse-cap-11",
+     "text": "The engineer's diagram of what went wrong: a single arrow pointing at the Overseer."
+    },
+    {
+     "id": "lb-collapse-cap-12",
+     "text": "The new cavern opening, from which something is almost certainly watching."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-collapse-rep-1",
+     "text": "A tunnel collapsed after the Overseer queued four hundred channeling jobs on one square. Engineers say the square is now fully channeled, and then some."
+    },
+    {
+     "id": "lb-collapse-rep-2",
+     "text": "The collapse buried a whole workshop of armor stands. Rescuers report the armor stands are unharmed, unlike morale."
+    },
+    {
+     "id": "lb-collapse-rep-3",
+     "text": "{who} was smoothing a wall when the ceiling above came down. The wall, witnesses say, was left very smooth, and the smoother is recovering nicely."
+    },
+    {
+     "id": "lb-collapse-rep-4",
+     "text": "Rubble now blocks the stairs to the Safety burrow. Residents are split on whether this is a disaster or the best safety measure the burrow has ever had."
+    },
+    {
+     "id": "lb-collapse-rep-5",
+     "text": "Engineers believe the cave-in followed the removal of a support pillar, which the work order described as 'unnecessary stone'."
+    },
+    {
+     "id": "lb-collapse-rep-6",
+     "text": "The Overseer has answered the collapse by queuing the rubble for smoothing, the smoothing for engraving, and the engravers for a long talk."
+    },
+    {
+     "id": "lb-collapse-rep-7",
+     "text": "The collapse opened a hole into the caverns, now sealed with a door taken from a hospital, which had no doctor but did have a door."
+    },
+    {
+     "id": "lb-collapse-rep-8",
+     "text": "Miners caught in the collapse report that at no point were they short of rock. 'Drink, sometimes,' one said. 'Rock, never.'"
+    },
+    {
+     "id": "lb-collapse-rep-9",
+     "text": "A miner fled the cave-in by climbing a tree on the surface. Rescuers are working to get the miner down before the fort's traditional tree-related ending."
+    },
+    {
+     "id": "lb-collapse-rep-10",
+     "text": "The mayor's office has cited the ceiling for a production order violation, as it fell without being ordered to. The ceiling has not responded."
+    },
+    {
+     "id": "lb-collapse-rep-11",
+     "text": "Elders say a collapse is how {past_fort} first learned it had caverns. They add that {past_fort} {past_fort_fate}, and that the two facts may be related.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-collapse-rep-12",
+     "text": "The bookkeeper reports the cave-in added three hundred loose stones to stock, bringing the total to 'more than anyone needs, ever'."
+    },
+    {
+     "id": "lb-collapse-rep-13",
+     "text": "The garbage pit has partly collapsed into the level below, which was the bedroom level. Residents are asked to check their beds before sleeping."
+    },
+    {
+     "id": "lb-collapse-rep-14",
+     "text": "Every trapped dwarf has been dug out and returned to {fort}, where each was promptly reassigned to the digging job that caused the collapse."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-collapse-label-1",
+     "text": "FORMER CEILING"
+    },
+    {
+     "id": "lb-collapse-label-2",
+     "text": "RUBBLE (FRESH)"
+    },
+    {
+     "id": "lb-collapse-label-3",
+     "text": "STANDS (FINE)"
+    },
+    {
+     "id": "lb-collapse-label-4",
+     "text": "CHANNEL #400"
+    },
+    {
+     "id": "lb-collapse-label-5",
+     "text": "NEW HOLE"
+    },
+    {
+     "id": "lb-collapse-label-6",
+     "text": "DUST CLOUD"
+    },
+    {
+     "id": "lb-collapse-label-7",
+     "text": "MINER (TREE)"
+    },
+    {
+     "id": "lb-collapse-label-8",
+     "text": "SUPPORT (GONE)"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-collapse-kicker-1",
+     "text": "Please do not dig out the pillar. It is holding things."
+    },
+    {
+     "id": "lb-collapse-kicker-2",
+     "text": "Rubble has been queued for smoothing, naturally."
+    },
+    {
+     "id": "lb-collapse-kicker-3",
+     "text": "The armor stands are fine. Thank you for asking."
+    },
+    {
+     "id": "lb-collapse-kicker-4",
+     "text": "Climbing a tree is not an evacuation plan."
+    },
+    {
+     "id": "lb-collapse-kicker-5",
+     "text": "Those under the rubble: shout, and we will come eventually."
+    },
+    {
+     "id": "lb-collapse-kicker-6",
+     "text": "Safety burrow access: improved, by being blocked."
+    },
+    {
+     "id": "lb-collapse-kicker-7",
+     "text": "The ceiling has been cited. The ceiling does not care."
+    },
+    {
+     "id": "lb-collapse-kicker-8",
+     "text": "New loose stones available, in bulk, forever."
+    }
+   ]
+  },
+  "soldier": {
+   "heads": [
+    {
+     "id": "lb-soldier-head-1",
+     "text": "MILITIA OF ONE BECOMES LEGEND"
+    },
+    {
+     "id": "lb-soldier-head-2",
+     "text": "CAPTAIN WAKES, TRAINS, IMPRESSES"
+    },
+    {
+     "id": "lb-soldier-head-3",
+     "text": "SOLDIER MASTERS ARMS, OFF DUTY"
+    },
+    {
+     "id": "lb-soldier-head-4",
+     "text": "NINE EMPTY SLOTS SALUTE HERO"
+    },
+    {
+     "id": "lb-soldier-head-5",
+     "text": "CHAMPION'S OFFICE STILL VACANT"
+    },
+    {
+     "id": "lb-soldier-head-6",
+     "text": "DUMMY DEFEATED FOR 1,000TH TIME"
+    },
+    {
+     "id": "lb-soldier-head-7",
+     "text": "HERO RISES; SQUAD STILL MISSING"
+    },
+    {
+     "id": "lb-soldier-head-8",
+     "text": "FORT'S ONE SOLDIER GETS BETTER"
+    },
+    {
+     "id": "lb-soldier-head-9",
+     "text": "WARRIOR READY; ENEMY ELSEWHERE"
+    },
+    {
+     "id": "lb-soldier-head-10",
+     "text": "\"FINALLY,\" SAYS TRAINING DUMMY"
+    },
+    {
+     "id": "lb-soldier-head-11",
+     "text": "SKILLED FIGHTER ASKS FOR SQUAD"
+    },
+    {
+     "id": "lb-soldier-head-12",
+     "text": "LEGEND OF THE BARRACKS, NAPPING"
+    }
+   ],
+   "caps": [
+    {
+     "id": "lb-soldier-cap-1",
+     "text": "The soldier, mid-drill, alone in a barracks built for ten."
+    },
+    {
+     "id": "lb-soldier-cap-2",
+     "text": "The squad roster: one name and nine very neat blank lines."
+    },
+    {
+     "id": "lb-soldier-cap-3",
+     "text": "The training dummy, retiring with dignity and a great many dents."
+    },
+    {
+     "id": "lb-soldier-cap-4",
+     "text": "The soldier's armor, taken off an armor stand. One of a thousand. Finally, a use."
+    },
+    {
+     "id": "lb-soldier-cap-5",
+     "text": "The soldier on guard at the gate. The schedule says Off duty. The soldier disagrees."
+    },
+    {
+     "id": "lb-soldier-cap-6",
+     "text": "The champion's office, vacant, with a soldier eyeing the chair."
+    },
+    {
+     "id": "lb-soldier-cap-7",
+     "text": "The mayor congratulating the soldier with a citation for 'unscheduled training'."
+    },
+    {
+     "id": "lb-soldier-cap-8",
+     "text": "The soldier drinking water between drills, the only dwarf with a regular habit."
+    },
+    {
+     "id": "lb-soldier-cap-9",
+     "text": "Empty weapon racks, being filled by the soldier, one axe at a time."
+    },
+    {
+     "id": "lb-soldier-cap-10",
+     "text": "The soldier posing with the fort's artifact. Neither has ever fought a goblin."
+    },
+    {
+     "id": "lb-soldier-cap-11",
+     "text": "The soldier sparring with a ghost, the only other squad member available for drills."
+    },
+    {
+     "id": "lb-soldier-cap-12",
+     "text": "A goblin, far away, hearing about this and adjusting its plans, very slightly."
+    }
+   ],
+   "reps": [
+    {
+     "id": "lb-soldier-rep-1",
+     "text": "{who} has achieved legendary skill at arms, making {first} the finest soldier in a militia of exactly one. The nine empty places have been informed by memo."
+    },
+    {
+     "id": "lb-soldier-rep-2",
+     "text": "The captain was found awake and training this week, which the barracks have formally recorded as an event. The schedule has been checked for errors."
+    },
+    {
+     "id": "lb-soldier-rep-3",
+     "text": "The training dummy has conceded after a full season of drills and asked to be moved to the armor stand stockpile, where life is quieter."
+    },
+    {
+     "id": "lb-soldier-rep-4",
+     "text": "The champion's office remains vacant. {first} is welcome to apply, once the office's paperwork is found beneath the mayor's citations."
+    },
+    {
+     "id": "lb-soldier-rep-5",
+     "text": "The Overseer has marked the soldier's rise by queuing nine more weapon racks, two hundred spears and no new soldiers."
+    },
+    {
+     "id": "lb-soldier-rep-6",
+     "text": "{first} says the secret is 'drills, sleep and a drink every few hours,' which the Herald prints again here, in case anyone missed it in the obituaries."
+    },
+    {
+     "id": "lb-soldier-rep-7",
+     "text": "With a master of arms in the barracks, {fort} is now safe from any enemy that arrives one at a time, near the barracks, during duty hours."
+    },
+    {
+     "id": "lb-soldier-rep-8",
+     "text": "The soldier has requested a squad. The mayor's office wants the request in triplicate. The soldier asked whether the mayor would like to spar."
+    },
+    {
+     "id": "lb-soldier-rep-9",
+     "text": "Elders recall that {past_fort} also had one good soldier, and that {past_fort} {past_fort_fate}. 'One is not enough,' they say. 'Ask the other nine.'",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lb-soldier-rep-10",
+     "text": "News of the achievement is thought to have reached {enemy}. The Herald hopes it arrived as 'a large army' rather than 'one dwarf, usually asleep'.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lb-soldier-rep-11",
+     "text": "The soldier's armor came from the armor stand stockpile, the first armor stand in living memory to hold armor and then give it up for a good cause."
+    },
+    {
+     "id": "lb-soldier-rep-12",
+     "text": "{who} has trained since {season}, sparring with the dummy, the wall and, on one memorable night, a ghost who happened to be passing."
+    },
+    {
+     "id": "lb-soldier-rep-13",
+     "text": "{civ} has been told of the new legend and replied with congratulations and a request that the soldier escort the next caravan, alone."
+    },
+    {
+     "id": "lb-soldier-rep-14",
+     "text": "Militia command, which is to say {first}, has declared the fort's defences 'improved by roughly one dwarf', which is all of them."
+    }
+   ],
+   "labels": [
+    {
+     "id": "lb-soldier-label-1",
+     "text": "THE MILITIA"
+    },
+    {
+     "id": "lb-soldier-label-2",
+     "text": "EMPTY SLOT"
+    },
+    {
+     "id": "lb-soldier-label-3",
+     "text": "EMPTY SLOT (ALSO)"
+    },
+    {
+     "id": "lb-soldier-label-4",
+     "text": "TIRED DUMMY"
+    },
+    {
+     "id": "lb-soldier-label-5",
+     "text": "ON DUTY (!)"
+    },
+    {
+     "id": "lb-soldier-label-6",
+     "text": "BORROWED ARMOR"
+    },
+    {
+     "id": "lb-soldier-label-7",
+     "text": "CHAMPION CHAIR"
+    },
+    {
+     "id": "lb-soldier-label-8",
+     "text": "GOBLIN (FAR)"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "lb-soldier-kicker-1",
+     "text": "The other nine places remain open. Please apply."
+    },
+    {
+     "id": "lb-soldier-kicker-2",
+     "text": "{first} is training. Please do not mention the schedule."
+    },
+    {
+     "id": "lb-soldier-kicker-3",
+     "text": "The dummy has asked for a quieter life. Granted."
+    },
+    {
+     "id": "lb-soldier-kicker-4",
+     "text": "Enemies are asked to arrive one at a time."
+    },
+    {
+     "id": "lb-soldier-kicker-5",
+     "text": "The champion's office is vacant. {first}, take the hint."
+    },
+    {
+     "id": "lb-soldier-kicker-6",
+     "text": "One armor stand has finally done its job."
+    },
+    {
+     "id": "lb-soldier-kicker-7",
+     "text": "Militia strength: up from one tired dwarf to one excellent one."
+    },
+    {
+     "id": "lb-soldier-kicker-8",
+     "text": "Next season: perhaps a second soldier. Dream big."
+    }
+   ]
+  }
+ }
+}

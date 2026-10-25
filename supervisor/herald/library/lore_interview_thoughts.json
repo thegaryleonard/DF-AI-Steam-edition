@@ -1,0 +1,4400 @@
+{
+ "thoughts": {
+  "bedroom": {
+   "good": [
+    {
+     "id": "lt-th-bedroom-g-01",
+     "text": "My bedroom has a bed, a door and zero armor stands. After {past_fort}, that is luxury.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-bedroom-g-02",
+     "text": "They smoothed my walls. Took three years and a queue of twelve thousand jobs, but they did it."
+    },
+    {
+     "id": "lt-th-bedroom-g-03",
+     "text": "My room is thirty levels above the Safety burrow. I sleep like a baby who reads the paper."
+    },
+    {
+     "id": "lt-th-bedroom-g-04",
+     "text": "I have a cabinet now. I keep nothing in it. I just like opening it."
+    },
+    {
+     "id": "lt-th-bedroom-g-05",
+     "text": "The Overseer gave me a room next to the still. For that, I forgive every throne."
+    },
+    {
+     "id": "lt-th-bedroom-g-06",
+     "text": "My new bed is so soft I forgot to complain for a whole night."
+    },
+    {
+     "id": "lt-th-bedroom-g-07",
+     "text": "My bedroom engraving shows a dwarf drinking. Simple. Hopeful. Rare in this world."
+    },
+    {
+     "id": "lt-th-bedroom-g-08",
+     "text": "I can hear the mist ring from my pillow. It sounds like dampness and joy."
+    },
+    {
+     "id": "lt-th-bedroom-g-09",
+     "text": "A bed, a chest and a door that shuts. I am basically a baron."
+    },
+    {
+     "id": "lt-th-bedroom-g-10",
+     "text": "My room backs onto the catacombs. Quiet neighbours. Very respectful."
+    },
+    {
+     "id": "lt-th-bedroom-g-11",
+     "text": "I got the room the last {prof} had. It still smells faintly of ambition."
+    },
+    {
+     "id": "lt-th-bedroom-g-12",
+     "text": "Nobody has stored anything in my bedroom all week. I checked under the bed twice."
+    },
+    {
+     "id": "lt-th-bedroom-g-13",
+     "text": "The bedroom door locks. I lock it. I unlock it. I lock it again. Freedom."
+    },
+    {
+     "id": "lt-th-bedroom-g-14",
+     "text": "My room is so far from the trees that not a single branch can reach me."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-bedroom-b-01",
+     "text": "Woke up to seven armor stands in my room. The Overseer says they are 'in transit'."
+    },
+    {
+     "id": "lt-th-bedroom-b-02",
+     "text": "My bed was moved into the Safety burrow 'for convenience'. Thirty levels down. By the stairs."
+    },
+    {
+     "id": "lt-th-bedroom-b-03",
+     "text": "My room is rough stone. It is on the smoothing list at position fourteen thousand and something."
+    },
+    {
+     "id": "lt-th-bedroom-b-04",
+     "text": "There is a throne in my bedroom. I did not ask for it. Nobody sits on it. It watches me."
+    },
+    {
+     "id": "lt-th-bedroom-b-05",
+     "text": "My bedroom shares a wall with the garbage pit. The wall is losing."
+    },
+    {
+     "id": "lt-th-bedroom-b-06",
+     "text": "The engraving in my room shows Quakefocus starving. Lovely thing to wake up to.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-bedroom-b-07",
+     "text": "I was given a bedroom with no bed. The carpenter is making doors. Again."
+    },
+    {
+     "id": "lt-th-bedroom-b-08",
+     "text": "Somebody dug a hallway through my room. I now sleep in a corridor with opinions."
+    },
+    {
+     "id": "lt-th-bedroom-b-09",
+     "text": "A ghost from {past_fort} sits at the end of my bed asking if there is meat yet.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-bedroom-b-10",
+     "text": "My bed is made from the tree that took a miner. I do not sleep well."
+    },
+    {
+     "id": "lt-th-bedroom-b-11",
+     "text": "The mist ring sprays straight under my door. My pillow is a pond."
+    },
+    {
+     "id": "lt-th-bedroom-b-12",
+     "text": "My room is so small I have to step outside to change my mind."
+    },
+    {
+     "id": "lt-th-bedroom-b-13",
+     "text": "The last owner of my room died of thirst. There was a full mug on the shelf."
+    },
+    {
+     "id": "lt-th-bedroom-b-14",
+     "text": "They put my bed in the execution tower. 'Temporary', says the Overseer. Everything is."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-bedroom-hg-01",
+     "text": "BED, NOT AN ARMOR STAND"
+    },
+    {
+     "id": "lt-th-bedroom-hg-02",
+     "text": "ROOM SMOOTHED, AT LAST"
+    },
+    {
+     "id": "lt-th-bedroom-hg-03",
+     "text": "SLEEPS FAR FROM 'SAFETY'"
+    },
+    {
+     "id": "lt-th-bedroom-hg-04",
+     "text": "NO THRONE IN THE WAY"
+    },
+    {
+     "id": "lt-th-bedroom-hg-05",
+     "text": "DOOR CLOSES, A MIRACLE"
+    },
+    {
+     "id": "lt-th-bedroom-hg-06",
+     "text": "ROOM HAS NO TREE IN IT"
+    },
+    {
+     "id": "lt-th-bedroom-hg-07",
+     "text": "OWNS ONE CHEST, IS PROUD"
+    },
+    {
+     "id": "lt-th-bedroom-hg-08",
+     "text": "MIST REACHES PILLOW"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-bedroom-hb-01",
+     "text": "BEDROOM HOLDS 40 THRONES"
+    },
+    {
+     "id": "lt-th-bedroom-hb-02",
+     "text": "ROOM ENGRAVED WITH FAMINE"
+    },
+    {
+     "id": "lt-th-bedroom-hb-03",
+     "text": "SMOOTHERS 'STILL COMING'"
+    },
+    {
+     "id": "lt-th-bedroom-hb-04",
+     "text": "BED BESIDE GARBAGE PIT"
+    },
+    {
+     "id": "lt-th-bedroom-hb-05",
+     "text": "ROOM REASSIGNED TO 'SAFETY'"
+    },
+    {
+     "id": "lt-th-bedroom-hb-06",
+     "text": "ARMOR STANDS IN WARDROBE"
+    },
+    {
+     "id": "lt-th-bedroom-hb-07",
+     "text": "ROOM IS ALSO A HALLWAY"
+    },
+    {
+     "id": "lt-th-bedroom-hb-08",
+     "text": "OLD FORT GHOST SNORES"
+    }
+   ]
+  },
+  "work": {
+   "good": [
+    {
+     "id": "lt-th-work-g-01",
+     "text": "The Overseer ordered exactly one armor stand. I made one. The order stopped. I wept."
+    },
+    {
+     "id": "lt-th-work-g-02",
+     "text": "Smoothed a whole wall today. The queue went from 12,000 to 11,999. Progress!"
+    },
+    {
+     "id": "lt-th-work-g-03",
+     "text": "I made a throne and nobody ordered another hundred. Historic."
+    },
+    {
+     "id": "lt-th-work-g-04",
+     "text": "The mayor filed no production violations against me this week. I may frame the silence."
+    },
+    {
+     "id": "lt-th-work-g-05",
+     "text": "Finished my job and nobody stood in the way. A {prof} can dream, and today I did."
+    },
+    {
+     "id": "lt-th-work-g-06",
+     "text": "I hid one rough gem from the jeweler. Some future mood will thank me."
+    },
+    {
+     "id": "lt-th-work-g-07",
+     "text": "My workshop has a stockpile, a door and a mug within reach. Peak fortress planning."
+    },
+    {
+     "id": "lt-th-work-g-08",
+     "text": "I threw refuse INTO the pit today and nobody asked me to haul it back out. Bliss."
+    },
+    {
+     "id": "lt-th-work-g-09",
+     "text": "I cut a gem so fine the liaison would ask for it at double the price."
+    },
+    {
+     "id": "lt-th-work-g-10",
+     "text": "I made a barrel and it went straight to the brewer. The thirst paradox weakens."
+    },
+    {
+     "id": "lt-th-work-g-11",
+     "text": "Built a windmill today. It turns, the mist sprays, everyone cheers up a little. Me too."
+    },
+    {
+     "id": "lt-th-work-g-12",
+     "text": "I am getting good at this. Not Quakefocus-armor-stand good, but good.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-work-g-13",
+     "text": "Today's work order was sensible and achievable. I checked it twice for traps."
+    },
+    {
+     "id": "lt-th-work-g-14",
+     "text": "I engraved a wall showing a dwarf drinking beside a full barrel. Instant classic."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-work-b-01",
+     "text": "I made 400 armor stands this year. We have nine soldier slots. One is filled."
+    },
+    {
+     "id": "lt-th-work-b-02",
+     "text": "Twelve thousand smoothing jobs and three smoothers. I smooth in my dreams now."
+    },
+    {
+     "id": "lt-th-work-b-03",
+     "text": "The mayor charged me with a production order violation. Nobody told me the order."
+    },
+    {
+     "id": "lt-th-work-b-04",
+     "text": "Sent to gather plants across the whole map. In the rain. Then the rain gathered me."
+    },
+    {
+     "id": "lt-th-work-b-05",
+     "text": "Spent all day hauling garbage out of the pit while someone threw more in behind me."
+    },
+    {
+     "id": "lt-th-work-b-06",
+     "text": "I cut every rough gem in the fort. Now three moods want rough gems. I am the villain."
+    },
+    {
+     "id": "lt-th-work-b-07",
+     "text": "I am a carpenter. I was asked for barrels. I was made to make doors."
+    },
+    {
+     "id": "lt-th-work-b-08",
+     "text": "My workshop was built on the far edge of the map. I commute more than the caravan."
+    },
+    {
+     "id": "lt-th-work-b-09",
+     "text": "I have made so many thrones my hands are throne-shaped now."
+    },
+    {
+     "id": "lt-th-work-b-10",
+     "text": "My job was suspended because a tree was in the way. The tree won."
+    },
+    {
+     "id": "lt-th-work-b-11",
+     "text": "I was given a work order with a number I cannot pronounce. It is mostly zeros."
+    },
+    {
+     "id": "lt-th-work-b-12",
+     "text": "The Overseer moved my workshop but kept my job. I am now working in a field."
+    },
+    {
+     "id": "lt-th-work-b-13",
+     "text": "I am the only {prof} in {fort}. So all the {prof} work in {fort} is mine."
+    },
+    {
+     "id": "lt-th-work-b-14",
+     "text": "I made a masterwork and it went straight into a bin of armor stand parts."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-work-hg-01",
+     "text": "ORDER COUNT: SANE"
+    },
+    {
+     "id": "lt-th-work-hg-02",
+     "text": "MADE ONE (1) ARMOR STAND"
+    },
+    {
+     "id": "lt-th-work-hg-03",
+     "text": "SMOOTHING QUEUE SHRINKS"
+    },
+    {
+     "id": "lt-th-work-hg-04",
+     "text": "ROUGH GEM FOUND, KEPT"
+    },
+    {
+     "id": "lt-th-work-hg-05",
+     "text": "WORKSHOP NOT IN A TREE"
+    },
+    {
+     "id": "lt-th-work-hg-06",
+     "text": "NO VIOLATION FILED TODAY"
+    },
+    {
+     "id": "lt-th-work-hg-07",
+     "text": "JOB DONE, NOT 'SUSPENDED'"
+    },
+    {
+     "id": "lt-th-work-hg-08",
+     "text": "BARREL GOES TO BREWER"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-work-hb-01",
+     "text": "ORDERED 300 MORE THRONES"
+    },
+    {
+     "id": "lt-th-work-hb-02",
+     "text": "SMOOTHING, FOREVER"
+    },
+    {
+     "id": "lt-th-work-hb-03",
+     "text": "CHARGED WITH ORDER VIOLATION"
+    },
+    {
+     "id": "lt-th-work-hb-04",
+     "text": "HAULS TRASH OUT OF PIT"
+    },
+    {
+     "id": "lt-th-work-hb-05",
+     "text": "PLANT-GATHERING IN RAIN"
+    },
+    {
+     "id": "lt-th-work-hb-06",
+     "text": "WORKSHOP ON FAR MAP EDGE"
+    },
+    {
+     "id": "lt-th-work-hb-07",
+     "text": "GEMS CUT, MOOD WAITING"
+    },
+    {
+     "id": "lt-th-work-hb-08",
+     "text": "CARPENTER: DOORS, AGAIN"
+    }
+   ]
+  },
+  "bored": {
+   "good": [
+    {
+     "id": "lt-th-bored-g-01",
+     "text": "Nothing to do all day and nobody died. In this world, that is a festival."
+    },
+    {
+     "id": "lt-th-bored-g-02",
+     "text": "I spent an afternoon watching the windmills turn. They never ask for rough gems."
+    },
+    {
+     "id": "lt-th-bored-g-03",
+     "text": "I reread the old papers from {past_fort}. Good times, in hindsight. Mostly hindsight.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-bored-g-04",
+     "text": "Sat in the mist ring for an hour. Damp, happy, unbothered."
+    },
+    {
+     "id": "lt-th-bored-g-05",
+     "text": "Idle! Me! No smoothing, no hauling, no thrones. I did not know what to do with my hands."
+    },
+    {
+     "id": "lt-th-bored-g-06",
+     "text": "Counted every drink in the stockpile for fun. All there. Nobody thirsty. Delicious maths."
+    },
+    {
+     "id": "lt-th-bored-g-07",
+     "text": "A slow day in {fort}. I named some of the armor stands. Gerald is my favourite."
+    },
+    {
+     "id": "lt-th-bored-g-08",
+     "text": "Played 'spot the elf' at the depot. Found none. Won."
+    },
+    {
+     "id": "lt-th-bored-g-09",
+     "text": "So little to do, I volunteered for the militia. They said the captain is plenty."
+    },
+    {
+     "id": "lt-th-bored-g-10",
+     "text": "Watched a merchant wander about for an hour. He looked at a door. Riveting."
+    },
+    {
+     "id": "lt-th-bored-g-11",
+     "text": "Nothing happened in the tavern today. I toasted the nothing. Twice."
+    },
+    {
+     "id": "lt-th-bored-g-12",
+     "text": "Spent the afternoon guessing who the mayor will charge next. I was right twice."
+    },
+    {
+     "id": "lt-th-bored-g-13",
+     "text": "I am pleasantly bored. Last time I was this bored, {past_fort} still had dwarves in it.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-bored-g-14",
+     "text": "I sat on one of the thrones. Just to see. It was fine. A fine, quiet day."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-bored-b-01",
+     "text": "So bored I joined the militia. It is me and the captain, being off duty together."
+    },
+    {
+     "id": "lt-th-bored-b-02",
+     "text": "Nothing to do but count the loose stones. Eight hundred. Counted twice. Still 800."
+    },
+    {
+     "id": "lt-th-bored-b-03",
+     "text": "I stared at the empty sheriff's office for an hour. Nobody came. Nobody ever comes."
+    },
+    {
+     "id": "lt-th-bored-b-04",
+     "text": "I asked for work and was told to wait. I have been waiting since the last Great Rewind."
+    },
+    {
+     "id": "lt-th-bored-b-05",
+     "text": "So bored I read the mayor's violation reports. Most of them are about me, apparently."
+    },
+    {
+     "id": "lt-th-bored-b-06",
+     "text": "No job, no idle area, no friends. I leaned on an armor stand. It leaned back."
+    },
+    {
+     "id": "lt-th-bored-b-07",
+     "text": "Nothing to do in {fort}. Even the forgotten beasts seem to have other plans."
+    },
+    {
+     "id": "lt-th-bored-b-08",
+     "text": "I wanted to sit on a throne. The Overseer says they are 'stock'. All of them."
+    },
+    {
+     "id": "lt-th-bored-b-09",
+     "text": "Bored enough to visit the Safety burrow. I did not go. Barely."
+    },
+    {
+     "id": "lt-th-bored-b-10",
+     "text": "Watched the garbage pit all afternoon. Things went in. Things came back out. Why."
+    },
+    {
+     "id": "lt-th-bored-b-11",
+     "text": "Bored, and the tavern is full of armor stands again. Nowhere to even sit and sulk."
+    },
+    {
+     "id": "lt-th-bored-b-12",
+     "text": "All my labors were switched off. I am now a decorative dwarf."
+    },
+    {
+     "id": "lt-th-bored-b-13",
+     "text": "Went for a wander and ended up on a tree branch. Came down fast. I read the papers."
+    },
+    {
+     "id": "lt-th-bored-b-14",
+     "text": "Even the liaison has more to do than me, and he only ever says there is much to share."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-bored-hg-01",
+     "text": "FINALLY, A DULL DAY"
+    },
+    {
+     "id": "lt-th-bored-hg-02",
+     "text": "NO BEAST ON THE STAIRS"
+    },
+    {
+     "id": "lt-th-bored-hg-03",
+     "text": "IDLE, NOT 'OFF DUTY'"
+    },
+    {
+     "id": "lt-th-bored-hg-04",
+     "text": "COUNTS DRINKS FOR FUN"
+    },
+    {
+     "id": "lt-th-bored-hg-05",
+     "text": "WATCHES WINDMILL TURN"
+    },
+    {
+     "id": "lt-th-bored-hg-06",
+     "text": "NAPS IN MIST, APPROVES"
+    },
+    {
+     "id": "lt-th-bored-hg-07",
+     "text": "READS OLD SENTINELS"
+    },
+    {
+     "id": "lt-th-bored-hg-08",
+     "text": "QUIET; NOTHING ON FIRE"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-bored-hb-01",
+     "text": "BORED AS THE MILITIA"
+    },
+    {
+     "id": "lt-th-bored-hb-02",
+     "text": "NO JOB, JUST BINS"
+    },
+    {
+     "id": "lt-th-bored-hb-03",
+     "text": "COUNTED STONES: 800"
+    },
+    {
+     "id": "lt-th-bored-hb-04",
+     "text": "STARES AT EMPTY OFFICE"
+    },
+    {
+     "id": "lt-th-bored-hb-05",
+     "text": "WAITING ON A LOOM ROOM"
+    },
+    {
+     "id": "lt-th-bored-hb-06",
+     "text": "THRONE SITTING BANNED"
+    },
+    {
+     "id": "lt-th-bored-hb-07",
+     "text": "'OFF DUTY' AS A LIFESTYLE"
+    },
+    {
+     "id": "lt-th-bored-hb-08",
+     "text": "LEANS ON ARMOR STAND"
+    }
+   ]
+  },
+  "lonely": {
+   "good": [
+    {
+     "id": "lt-th-lonely-g-01",
+     "text": "Met a migrant who also remembers {past_fort}. We swapped stories over plump helmets.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-lonely-g-02",
+     "text": "Had a chat with the militia captain. First conversation either of us had all season."
+    },
+    {
+     "id": "lt-th-lonely-g-03",
+     "text": "Made a friend in the tavern. We bonded over hating the smoothing queue."
+    },
+    {
+     "id": "lt-th-lonely-g-04",
+     "text": "A cat adopted me. I did not ask. I am not complaining."
+    },
+    {
+     "id": "lt-th-lonely-g-05",
+     "text": "A cousin wrote from a fort our kin reclaimed. They say hello, and also 'send ale'."
+    },
+    {
+     "id": "lt-th-lonely-g-06",
+     "text": "The liaison told me there is much to share. I chose to believe he meant with me."
+    },
+    {
+     "id": "lt-th-lonely-g-07",
+     "text": "I joined the windmill club. Membership: me and one mechanic. We are inseparable."
+    },
+    {
+     "id": "lt-th-lonely-g-08",
+     "text": "Had dinner with three dwarves and none of them mentioned the Safety burrow. Bonded."
+    },
+    {
+     "id": "lt-th-lonely-g-09",
+     "text": "Found someone else who likes the mist ring. We sit there and drip together."
+    },
+    {
+     "id": "lt-th-lonely-g-10",
+     "text": "All the {prof}s of {fort} had a get-together. There were two of us. Lovely."
+    },
+    {
+     "id": "lt-th-lonely-g-11",
+     "text": "Somebody remembered my name today. Twice. I am tearing up a bit."
+    },
+    {
+     "id": "lt-th-lonely-g-12",
+     "text": "I sat beside a stranger at dinner. Now we argue about thrones every meal. A friendship!"
+    },
+    {
+     "id": "lt-th-lonely-g-13",
+     "text": "A child told me all about her strange mood. Plant cloth. I listened. We are friends now."
+    },
+    {
+     "id": "lt-th-lonely-g-14",
+     "text": "I bought the captain a mug. The militia now has a fan club. It is me."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-lonely-b-01",
+     "text": "All my friends were sent down to the Safety burrow. Fifteen did not come back up."
+    },
+    {
+     "id": "lt-th-lonely-b-02",
+     "text": "No real conversation since {past_fort}. I talk to the loose stones. All 800 of them.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-lonely-b-03",
+     "text": "The militia captain is the loneliest dwarf here, and I am second. We have never spoken."
+    },
+    {
+     "id": "lt-th-lonely-b-04",
+     "text": "My only friend was a fisherdwarf whose mood wanted rough gems. I cannot talk about it."
+    },
+    {
+     "id": "lt-th-lonely-b-05",
+     "text": "Nobody in {fort} knows my name. The mayor does, but only for paperwork."
+    },
+    {
+     "id": "lt-th-lonely-b-06",
+     "text": "I tried to make friends at the depot. The elves talked about trees. I left."
+    },
+    {
+     "id": "lt-th-lonely-b-07",
+     "text": "I miss the old {past_fort} crew. Most of them are ghosts now, or worse, nobles.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-lonely-b-08",
+     "text": "I waved at someone across the hall. It was an armor stand. There are many. I wave a lot."
+    },
+    {
+     "id": "lt-th-lonely-b-09",
+     "text": "I sat with the liaison. He said there is much to share. Then he shared nothing."
+    },
+    {
+     "id": "lt-th-lonely-b-10",
+     "text": "Nobody sat with me at dinner. Not even the ghost."
+    },
+    {
+     "id": "lt-th-lonely-b-11",
+     "text": "My best friend moved into the tree district. You know how that goes."
+    },
+    {
+     "id": "lt-th-lonely-b-12",
+     "text": "I joined the militia to meet people. Nine empty places. Poor conversationalists."
+    },
+    {
+     "id": "lt-th-lonely-b-13",
+     "text": "I am lonely in a fort of over a hundred dwarves. That takes real talent."
+    },
+    {
+     "id": "lt-th-lonely-b-14",
+     "text": "I talk to the windmill. It turns away from me, which feels personal."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-lonely-hg-01",
+     "text": "MAKES FRIEND AT TAVERN"
+    },
+    {
+     "id": "lt-th-lonely-hg-02",
+     "text": "LIAISON SAYS HELLO"
+    },
+    {
+     "id": "lt-th-lonely-hg-03",
+     "text": "CAT CHOOSES THEM"
+    },
+    {
+     "id": "lt-th-lonely-hg-04",
+     "text": "MEETS QUAKEFOCUS VETERAN"
+    },
+    {
+     "id": "lt-th-lonely-hg-05",
+     "text": "MILITIA OF TWO, BRIEFLY"
+    },
+    {
+     "id": "lt-th-lonely-hg-06",
+     "text": "LETTER FROM TAMETOMB"
+    },
+    {
+     "id": "lt-th-lonely-hg-07",
+     "text": "TALKED FOR AN HOUR"
+    },
+    {
+     "id": "lt-th-lonely-hg-08",
+     "text": "DRIPS WITH A NEW PAL"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-lonely-hb-01",
+     "text": "NO FRIENDS SINCE SEARABBEYS"
+    },
+    {
+     "id": "lt-th-lonely-hb-02",
+     "text": "ONLY TALKS TO STONES"
+    },
+    {
+     "id": "lt-th-lonely-hb-03",
+     "text": "FRIENDS SENT TO 'SAFETY'"
+    },
+    {
+     "id": "lt-th-lonely-hb-04",
+     "text": "CAPTAIN ALSO ALONE"
+    },
+    {
+     "id": "lt-th-lonely-hb-05",
+     "text": "MISSES QUAKEFOCUS CREW"
+    },
+    {
+     "id": "lt-th-lonely-hb-06",
+     "text": "WAVES AT ARMOR STANDS"
+    },
+    {
+     "id": "lt-th-lonely-hb-07",
+     "text": "PRIVATE IN EMPTY SQUAD"
+    },
+    {
+     "id": "lt-th-lonely-hb-08",
+     "text": "WINDMILL TURNS AWAY"
+    }
+   ]
+  },
+  "unmet_need": {
+   "good": [
+    {
+     "id": "lt-th-unmet_need-g-01",
+     "text": "Finally got to make something I wanted, not something the Overseer counted."
+    },
+    {
+     "id": "lt-th-unmet_need-g-02",
+     "text": "I had a drink. In a mug. In a tavern. Every need I have just sighed with relief."
+    },
+    {
+     "id": "lt-th-unmet_need-g-03",
+     "text": "I needed to see something new. I saw the garbage pit empty. Truly new."
+    },
+    {
+     "id": "lt-th-unmet_need-g-04",
+     "text": "Needed a good argument. Found one: is the Safety burrow safe? I won. It is not."
+    },
+    {
+     "id": "lt-th-unmet_need-g-05",
+     "text": "Spent time with family and nobody had to be fetched down out of a tree."
+    },
+    {
+     "id": "lt-th-unmet_need-g-06",
+     "text": "I needed nature. I looked at a tree from a respectful distance. Fulfilling."
+    },
+    {
+     "id": "lt-th-unmet_need-g-07",
+     "text": "I needed to pray and the temple was not a stockpile today. Spirit topped up."
+    },
+    {
+     "id": "lt-th-unmet_need-g-08",
+     "text": "I needed a fight. A crate looked at me funny. I won."
+    },
+    {
+     "id": "lt-th-unmet_need-g-09",
+     "text": "I needed to learn something. Learned you can die of thirst beside 1,994 drinks. Wisdom!",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-unmet_need-g-10",
+     "text": "I needed to be extravagant. I wore two socks of different metals."
+    },
+    {
+     "id": "lt-th-unmet_need-g-11",
+     "text": "I needed to help someone, so I found a moody weaver some plant cloth. Crisis averted."
+    },
+    {
+     "id": "lt-th-unmet_need-g-12",
+     "text": "Needed a party. The fort threw one. It was for the windmill. Still counts."
+    },
+    {
+     "id": "lt-th-unmet_need-g-13",
+     "text": "Needed to craft. Made a mug. Gave it to myself. Very satisfying loop."
+    },
+    {
+     "id": "lt-th-unmet_need-g-14",
+     "text": "All my needs are met. I suspect a trick, but I will enjoy it first."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-unmet_need-b-01",
+     "text": "I need to make art. The Overseer needs armor stands. Guess who wins."
+    },
+    {
+     "id": "lt-th-unmet_need-b-02",
+     "text": "I need a drink and I am standing next to a barrel of it. I cannot explain this either."
+    },
+    {
+     "id": "lt-th-unmet_need-b-03",
+     "text": "I need to pray, and the temple is now holding three hundred thrones."
+    },
+    {
+     "id": "lt-th-unmet_need-b-04",
+     "text": "I need to be in nature. The last dwarf who got close to nature died on a branch."
+    },
+    {
+     "id": "lt-th-unmet_need-b-05",
+     "text": "I need excitement. All we have is smoothing. Twelve thousand jobs of it."
+    },
+    {
+     "id": "lt-th-unmet_need-b-06",
+     "text": "I need to fight. The captain says it is an 'Off duty' season. Every season is."
+    },
+    {
+     "id": "lt-th-unmet_need-b-07",
+     "text": "I need my family. They stayed at {past_fort}. Mostly as ghosts.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-unmet_need-b-08",
+     "text": "I need my friends. All of them are in the Safety burrow 'just in case'."
+    },
+    {
+     "id": "lt-th-unmet_need-b-09",
+     "text": "I need to do something creative. My last idea was cut into a gem and sold."
+    },
+    {
+     "id": "lt-th-unmet_need-b-10",
+     "text": "I need to wander. I wandered into a tree. Now I need first aid as well."
+    },
+    {
+     "id": "lt-th-unmet_need-b-11",
+     "text": "I need to learn. The library has no books, only bins of loose stones."
+    },
+    {
+     "id": "lt-th-unmet_need-b-12",
+     "text": "I need an argument. Nobody will argue with me because they are all smoothing."
+    },
+    {
+     "id": "lt-th-unmet_need-b-13",
+     "text": "I need something fancy. I asked for a gem. Every gem has been cut. Story of the fort."
+    },
+    {
+     "id": "lt-th-unmet_need-b-14",
+     "text": "I need to help. I helped haul trash out of the pit. Then I was told to haul it back."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-unmet_need-hg-01",
+     "text": "FINALLY GOT A DRINK"
+    },
+    {
+     "id": "lt-th-unmet_need-hg-02",
+     "text": "PRAYED, FEELS BETTER"
+    },
+    {
+     "id": "lt-th-unmet_need-hg-03",
+     "text": "SAW SOMETHING NEW"
+    },
+    {
+     "id": "lt-th-unmet_need-hg-04",
+     "text": "MADE SOMETHING, AT LAST"
+    },
+    {
+     "id": "lt-th-unmet_need-hg-05",
+     "text": "FAMILY TIME, NO BEAST"
+    },
+    {
+     "id": "lt-th-unmet_need-hg-06",
+     "text": "WON AN ARGUMENT"
+    },
+    {
+     "id": "lt-th-unmet_need-hg-07",
+     "text": "LEARNED A THING TODAY"
+    },
+    {
+     "id": "lt-th-unmet_need-hg-08",
+     "text": "EVERY NEED MET, WARY"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-unmet_need-hb-01",
+     "text": "NEEDS A ROUGH GEM TOO"
+    },
+    {
+     "id": "lt-th-unmet_need-hb-02",
+     "text": "UNMET NEED: ONE MUG"
+    },
+    {
+     "id": "lt-th-unmet_need-hb-03",
+     "text": "NEEDS ARGUMENT, GETS NONE"
+    },
+    {
+     "id": "lt-th-unmet_need-hb-04",
+     "text": "WANTS ART, GETS ORDERS"
+    },
+    {
+     "id": "lt-th-unmet_need-hb-05",
+     "text": "NO TEMPLE, NO PEACE"
+    },
+    {
+     "id": "lt-th-unmet_need-hb-06",
+     "text": "NEEDS NATURE, NOT BRANCH"
+    },
+    {
+     "id": "lt-th-unmet_need-hb-07",
+     "text": "NEEDS FIGHT; MILITIA OFF"
+    },
+    {
+     "id": "lt-th-unmet_need-hb-08",
+     "text": "NEEDS FRIENDS IN 'SAFETY'"
+    }
+   ]
+  },
+  "syndrome": {
+   "good": [
+    {
+     "id": "lt-th-syndrome-g-01",
+     "text": "My fever broke. This hospital actually had a doctor. Half the old ones did not."
+    },
+    {
+     "id": "lt-th-syndrome-g-02",
+     "text": "The beast dust wore off. I can feel my beard again. It feels great."
+    },
+    {
+     "id": "lt-th-syndrome-g-03",
+     "text": "I am not dizzy anymore. The room has stopped spinning. The windmills have not, thankfully."
+    },
+    {
+     "id": "lt-th-syndrome-g-04",
+     "text": "Got better with no chief medical dwarf at all. Medicine is mostly confidence."
+    },
+    {
+     "id": "lt-th-syndrome-g-05",
+     "text": "The swelling went down and my helmet fits again. The militia may yet claim me."
+    },
+    {
+     "id": "lt-th-syndrome-g-06",
+     "text": "I was sick from the garbage pit, but I am better. I forgive the garbage. Not the pit."
+    },
+    {
+     "id": "lt-th-syndrome-g-07",
+     "text": "Whatever the forgotten beast breathed on me has faded. I only glow a little now."
+    },
+    {
+     "id": "lt-th-syndrome-g-08",
+     "text": "My cough is gone. I celebrated by breathing loudly in the dining hall."
+    },
+    {
+     "id": "lt-th-syndrome-g-09",
+     "text": "Feeling healthy! I have taken this as permission to drink twice."
+    },
+    {
+     "id": "lt-th-syndrome-g-10",
+     "text": "A week in the hospital: beds, buckets and soap. {past_fort} could never.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-syndrome-g-11",
+     "text": "I was numb for days. Now I can feel my toes. They are cold. Hooray."
+    },
+    {
+     "id": "lt-th-syndrome-g-12",
+     "text": "The doctor set my arm and nobody had to be found in a tree. Good week."
+    },
+    {
+     "id": "lt-th-syndrome-g-13",
+     "text": "I am cured. The {prof}s of {fort} are thrilled, mostly because I owe them a mug."
+    },
+    {
+     "id": "lt-th-syndrome-g-14",
+     "text": "My blisters healed. I have named the scars after the old forts."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-syndrome-b-01",
+     "text": "I am sick and the hospital has no doctor. Just like {past_fort}. Tradition.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-syndrome-b-02",
+     "text": "The forgotten beast came up the stairs and coughed on me. I am now a color."
+    },
+    {
+     "id": "lt-th-syndrome-b-03",
+     "text": "Caught something nasty hauling trash out of the pit. Then I was told to haul more."
+    },
+    {
+     "id": "lt-th-syndrome-b-04",
+     "text": "My arm is swollen, my head spins and the chief medical dwarf post is still vacant."
+    },
+    {
+     "id": "lt-th-syndrome-b-05",
+     "text": "I have blisters where I did not know I had places."
+    },
+    {
+     "id": "lt-th-syndrome-b-06",
+     "text": "I feel dizzy. The Overseer says it is just the mist ring. The Overseer is not a doctor."
+    },
+    {
+     "id": "lt-th-syndrome-b-07",
+     "text": "Fever dreams again. Thrones, armor stands, then a throne wearing an armor stand."
+    },
+    {
+     "id": "lt-th-syndrome-b-08",
+     "text": "I am sick and thirsty. The drink is right there. I cannot reach it. I know the stories."
+    },
+    {
+     "id": "lt-th-syndrome-b-09",
+     "text": "The beast's breath made me numb. Could not even feel my disappointment. Still disappointed."
+    },
+    {
+     "id": "lt-th-syndrome-b-10",
+     "text": "My nose went strange after the cavern trip. It smells colors now. Mostly gray."
+    },
+    {
+     "id": "lt-th-syndrome-b-11",
+     "text": "Our healer was drafted. Into hauling."
+    },
+    {
+     "id": "lt-th-syndrome-b-12",
+     "text": "I went to the hospital. It was a stockpile. They handed me a rock and told me to rest."
+    },
+    {
+     "id": "lt-th-syndrome-b-13",
+     "text": "My skin is peeling and the only advice I got was 'drink more'. I would love to."
+    },
+    {
+     "id": "lt-th-syndrome-b-14",
+     "text": "Coughing since the Safety burrow. I was one of the lucky ones. Still coughing."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-syndrome-hg-01",
+     "text": "FEVER BREAKS, BEARD FINE"
+    },
+    {
+     "id": "lt-th-syndrome-hg-02",
+     "text": "BLISTERS GONE, ALE BACK"
+    },
+    {
+     "id": "lt-th-syndrome-hg-03",
+     "text": "SICKNESS 'MOSTLY' OVER"
+    },
+    {
+     "id": "lt-th-syndrome-hg-04",
+     "text": "CURED BY SHEER SPITE"
+    },
+    {
+     "id": "lt-th-syndrome-hg-05",
+     "text": "COUGH ENDS, MUG LIFTED"
+    },
+    {
+     "id": "lt-th-syndrome-hg-06",
+     "text": "FEELS NORMAL, SUSPICIOUS"
+    },
+    {
+     "id": "lt-th-syndrome-hg-07",
+     "text": "BEAST DUST WEARS OFF"
+    },
+    {
+     "id": "lt-th-syndrome-hg-08",
+     "text": "DOCTOR FOUND, ONE"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-syndrome-hb-01",
+     "text": "SICK; HOSPITAL HAS NO DOCTOR"
+    },
+    {
+     "id": "lt-th-syndrome-hb-02",
+     "text": "BEAST BREATH 'TINGLY'"
+    },
+    {
+     "id": "lt-th-syndrome-hb-03",
+     "text": "SWOLLEN, ALSO THIRSTY"
+    },
+    {
+     "id": "lt-th-syndrome-hb-04",
+     "text": "FEVER DREAMS OF THRONES"
+    },
+    {
+     "id": "lt-th-syndrome-hb-05",
+     "text": "CHIEF MEDIC POST VACANT"
+    },
+    {
+     "id": "lt-th-syndrome-hb-06",
+     "text": "SICK FROM GARBAGE PIT"
+    },
+    {
+     "id": "lt-th-syndrome-hb-07",
+     "text": "SMELLS COLORS NOW"
+    },
+    {
+     "id": "lt-th-syndrome-hb-08",
+     "text": "PRESCRIBED: ONE ROCK"
+    }
+   ]
+  },
+  "skill": {
+   "good": [
+    {
+     "id": "lt-th-skill-g-01",
+     "text": "I got noticeably better at my craft today. Making a thousand of anything will do that."
+    },
+    {
+     "id": "lt-th-skill-g-02",
+     "text": "Smoothed so many walls I can now smooth a wall by glaring at it. Nearly."
+    },
+    {
+     "id": "lt-th-skill-g-03",
+     "text": "My teacher was a dwarf from {past_fort}. He taught me to work fast and drink first.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-skill-g-04",
+     "text": "I am the best {prof} in {fort}. I am also the only one. Both statements stand."
+    },
+    {
+     "id": "lt-th-skill-g-05",
+     "text": "Learned a new trick at the anvil. The anvil was not impressed. I was."
+    },
+    {
+     "id": "lt-th-skill-g-06",
+     "text": "I practised all season. Now I can do my job and hum at the same time."
+    },
+    {
+     "id": "lt-th-skill-g-07",
+     "text": "Leveled up! I celebrated with a drink, which I fetched before getting thirsty. Growth."
+    },
+    {
+     "id": "lt-th-skill-g-08",
+     "text": "Spent a month cutting gems. I am excellent now. Sorry, future moods."
+    },
+    {
+     "id": "lt-th-skill-g-09",
+     "text": "My hands finally know what they are doing. My feet are still working on it."
+    },
+    {
+     "id": "lt-th-skill-g-10",
+     "text": "Got so good at hauling I carried two things at once. Do not tell the Overseer."
+    },
+    {
+     "id": "lt-th-skill-g-11",
+     "text": "I watched a master {prof} at work and absorbed it all. Mostly the swearing."
+    },
+    {
+     "id": "lt-th-skill-g-12",
+     "text": "My work is now 'well-crafted'. I put it on my door so people know."
+    },
+    {
+     "id": "lt-th-skill-g-13",
+     "text": "I finally understand the mist ring pumps. They pump. Water comes out. Mastery."
+    },
+    {
+     "id": "lt-th-skill-g-14",
+     "text": "Got a little better at fighting. The captain nodded at me. Off duty, but he nodded."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-skill-b-01",
+     "text": "I trained for years as a miner. The Overseer made me a hauler. My pick has dust on it."
+    },
+    {
+     "id": "lt-th-skill-b-02",
+     "text": "I joined the squad to train. The squad is 'Off duty'. My sword is now a coat hook."
+    },
+    {
+     "id": "lt-th-skill-b-03",
+     "text": "Spent a whole season smoothing. My actual skill has forgotten my name."
+    },
+    {
+     "id": "lt-th-skill-b-04",
+     "text": "A child out-crafted me during her mood. Plant cloth, and better than mine."
+    },
+    {
+     "id": "lt-th-skill-b-05",
+     "text": "I was getting good, then the gods blinked and the Great Rewind took my progress."
+    },
+    {
+     "id": "lt-th-skill-b-06",
+     "text": "I am a legendary {prof}. Today I hauled rocks. Eight hundred of them."
+    },
+    {
+     "id": "lt-th-skill-b-07",
+     "text": "I asked to learn medicine. They said there are no doctors to learn from. Fair."
+    },
+    {
+     "id": "lt-th-skill-b-08",
+     "text": "My skill is rusting. I can hear it. It sounds like an armor stand creaking."
+    },
+    {
+     "id": "lt-th-skill-b-09",
+     "text": "Practised all day and made the same armor stand two hundred times. I learned resentment."
+    },
+    {
+     "id": "lt-th-skill-b-10",
+     "text": "I was the best fisherdwarf in the fort. Then my mood wanted rough gems. You know the rest."
+    },
+    {
+     "id": "lt-th-skill-b-11",
+     "text": "They put me on the wrong labor again. I am a mason doing plants in the rain."
+    },
+    {
+     "id": "lt-th-skill-b-12",
+     "text": "The Overseer gave my job to a dwarf with no skill. Then charged me with a violation."
+    },
+    {
+     "id": "lt-th-skill-b-13",
+     "text": "I tried to learn engraving. My first piece was a tree. It frightened people."
+    },
+    {
+     "id": "lt-th-skill-b-14",
+     "text": "Nobody teaches anything here. The library is a bin and the bin knows nothing."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-skill-hg-01",
+     "text": "SKILL UP, EGO UP"
+    },
+    {
+     "id": "lt-th-skill-hg-02",
+     "text": "NOW 'ACCOMPLISHED', ALLEGEDLY"
+    },
+    {
+     "id": "lt-th-skill-hg-03",
+     "text": "LEARNED ON THRONE #92"
+    },
+    {
+     "id": "lt-th-skill-hg-04",
+     "text": "SMOOTHS LIKE A LEGEND"
+    },
+    {
+     "id": "lt-th-skill-hg-05",
+     "text": "PRACTICE MAKES PERFECT"
+    },
+    {
+     "id": "lt-th-skill-hg-06",
+     "text": "TEACHER WAS A GHOST"
+    },
+    {
+     "id": "lt-th-skill-hg-07",
+     "text": "GETS BETTER, NOT THIRSTY"
+    },
+    {
+     "id": "lt-th-skill-hg-08",
+     "text": "MASTERY BEFORE DINNER"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-skill-hb-01",
+     "text": "SKILL RUSTS IN HAULING"
+    },
+    {
+     "id": "lt-th-skill-hb-02",
+     "text": "MASTER MINER, NO PICK"
+    },
+    {
+     "id": "lt-th-skill-hb-03",
+     "text": "LEARNED NOTHING, AGAIN"
+    },
+    {
+     "id": "lt-th-skill-hb-04",
+     "text": "TRAINED, THEN 'OFF DUTY'"
+    },
+    {
+     "id": "lt-th-skill-hb-05",
+     "text": "REASSIGNED TO SMOOTHING"
+    },
+    {
+     "id": "lt-th-skill-hb-06",
+     "text": "OUT-SKILLED BY A CHILD"
+    },
+    {
+     "id": "lt-th-skill-hb-07",
+     "text": "SKILL LOST IN REWIND"
+    },
+    {
+     "id": "lt-th-skill-hb-08",
+     "text": "WRONG LABOR, RIGHT DWARF"
+    }
+   ]
+  },
+  "miasma": {
+   "good": [
+    {
+     "id": "lt-th-miasma-g-01",
+     "text": "The air in the hall was clean today. I breathed in three times to make up for last week."
+    },
+    {
+     "id": "lt-th-miasma-g-02",
+     "text": "Somebody threw the refuse into the pit and it stayed there. Air and dignity restored."
+    },
+    {
+     "id": "lt-th-miasma-g-03",
+     "text": "The mist ring sprays right through the stink. Smells of wet rock, which I love."
+    },
+    {
+     "id": "lt-th-miasma-g-04",
+     "text": "The garbage pit is downwind today. I praised the wind out loud."
+    },
+    {
+     "id": "lt-th-miasma-g-05",
+     "text": "Walked past the catacombs and smelled nothing. They are well run, give them that."
+    },
+    {
+     "id": "lt-th-miasma-g-06",
+     "text": "I have smelled so much rot that I no longer notice. A gift, really."
+    },
+    {
+     "id": "lt-th-miasma-g-07",
+     "text": "The butcher cleaned up. I could smell the tavern again. It smells of ale and arguing."
+    },
+    {
+     "id": "lt-th-miasma-g-08",
+     "text": "No rotting things in the hallway this morning. I checked every corner. Twice."
+    },
+    {
+     "id": "lt-th-miasma-g-09",
+     "text": "The windmills are blowing the bad air somewhere else. I do not ask where."
+    },
+    {
+     "id": "lt-th-miasma-g-10",
+     "text": "Fresh air after a week in the depths. I nearly kissed the surface. Not the trees."
+    },
+    {
+     "id": "lt-th-miasma-g-11",
+     "text": "The fish cleaner has a proper room now, far from mine. Life is sweet and odorless."
+    },
+    {
+     "id": "lt-th-miasma-g-12",
+     "text": "I held my breath past the refuse stockpile and made it. New personal best."
+    },
+    {
+     "id": "lt-th-miasma-g-13",
+     "text": "The dead have been buried properly. The catacombs smell like nothing. Peace."
+    },
+    {
+     "id": "lt-th-miasma-g-14",
+     "text": "Clean air in {fort} today. Somebody print that in big letters."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-miasma-b-01",
+     "text": "They hauled garbage out of the pit so it could be thrown back in. The smell did a lap."
+    },
+    {
+     "id": "lt-th-miasma-b-02",
+     "text": "The refuse stockpile is next to the dining hall. Somebody planned that. I want a word."
+    },
+    {
+     "id": "lt-th-miasma-b-03",
+     "text": "Miasma in the hallway again. The Overseer has queued smoothing to fix it. Somehow."
+    },
+    {
+     "id": "lt-th-miasma-b-04",
+     "text": "Rotting fish by the still. The ale tastes like the river now."
+    },
+    {
+     "id": "lt-th-miasma-b-05",
+     "text": "Something died in the Safety burrow and the smell came up thirty levels. Fitting."
+    },
+    {
+     "id": "lt-th-miasma-b-06",
+     "text": "The whole hall smells like {past_fort} near the end. You know the end I mean.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-miasma-b-07",
+     "text": "My beard has absorbed the garbage pit. I will be smelling it till spring."
+    },
+    {
+     "id": "lt-th-miasma-b-08",
+     "text": "Somebody left a goblin corpse on the stairs. It has been 'in a hauling queue' since summer."
+    },
+    {
+     "id": "lt-th-miasma-b-09",
+     "text": "The butcher worked in the hallway because the shop was full of armor stands."
+    },
+    {
+     "id": "lt-th-miasma-b-10",
+     "text": "I smelled rot in the temple. It was offerings, apparently. Fish offerings."
+    },
+    {
+     "id": "lt-th-miasma-b-11",
+     "text": "Pit stink again. The wind is coming from the dump, and the dump is coming with it."
+    },
+    {
+     "id": "lt-th-miasma-b-12",
+     "text": "There is miasma at the food stockpile. Dinner was eaten very quickly and quietly."
+    },
+    {
+     "id": "lt-th-miasma-b-13",
+     "text": "I breathed some bad air near the refuse and now everything tastes of old boots."
+    },
+    {
+     "id": "lt-th-miasma-b-14",
+     "text": "The stink in {fort} is so strong today, the elves at the depot left early. Silver lining."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-miasma-hg-01",
+     "text": "AIR CLEARS, BRIEFLY"
+    },
+    {
+     "id": "lt-th-miasma-hg-02",
+     "text": "PIT SMELL DOWNWIND"
+    },
+    {
+     "id": "lt-th-miasma-hg-03",
+     "text": "MIST BEATS THE STINK"
+    },
+    {
+     "id": "lt-th-miasma-hg-04",
+     "text": "REFUSE HAULED, STAYS OUT"
+    },
+    {
+     "id": "lt-th-miasma-hg-05",
+     "text": "CATACOMBS 'FRESH' TODAY"
+    },
+    {
+     "id": "lt-th-miasma-hg-06",
+     "text": "NOSE FINALLY RETIRES"
+    },
+    {
+     "id": "lt-th-miasma-hg-07",
+     "text": "WINDMILLS PUSH SMELL"
+    },
+    {
+     "id": "lt-th-miasma-hg-08",
+     "text": "NO ROT ON THE STAIRS"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-miasma-hb-01",
+     "text": "PIT SMELL REACHES DINNER"
+    },
+    {
+     "id": "lt-th-miasma-hb-02",
+     "text": "ROTTING BY THE STILL"
+    },
+    {
+     "id": "lt-th-miasma-hb-03",
+     "text": "MIASMA IN HALLWAY, AGAIN"
+    },
+    {
+     "id": "lt-th-miasma-hb-04",
+     "text": "TRASH OUT, TRASH IN"
+    },
+    {
+     "id": "lt-th-miasma-hb-05",
+     "text": "FISH GUTS IN SHRINE"
+    },
+    {
+     "id": "lt-th-miasma-hb-06",
+     "text": "STINK FROM 'SAFETY'"
+    },
+    {
+     "id": "lt-th-miasma-hb-07",
+     "text": "SMELLS LIKE SEARABBEYS"
+    },
+    {
+     "id": "lt-th-miasma-hb-08",
+     "text": "BEARD ABSORBS ODOR"
+    }
+   ]
+  },
+  "death": {
+   "good": [
+    {
+     "id": "lt-th-death-g-01",
+     "text": "Nobody died this week. The coffin maker is making barrels. Good sign all round."
+    },
+    {
+     "id": "lt-th-death-g-02",
+     "text": "My friend got a proper burial in the catacombs. Engraved slab, nice spot, quiet company."
+    },
+    {
+     "id": "lt-th-death-g-03",
+     "text": "The beast came up the stairs and I was not on the stairs. Simple, really."
+    },
+    {
+     "id": "lt-th-death-g-04",
+     "text": "I climbed down out of a tree before it could happen. I read the papers."
+    },
+    {
+     "id": "lt-th-death-g-05",
+     "text": "I was in the Safety burrow when the forgotten beast came. I left early. Best decision ever."
+    },
+    {
+     "id": "lt-th-death-g-06",
+     "text": "I survived the garbage pit hauling run. Eight did not. I lit a candle for each."
+    },
+    {
+     "id": "lt-th-death-g-07",
+     "text": "The memorial slab came out lovely. Even the deceased would have approved, briefly."
+    },
+    {
+     "id": "lt-th-death-g-08",
+     "text": "Felt thirsty, walked to the barrel, drank. Lived. In this world that is a story."
+    },
+    {
+     "id": "lt-th-death-g-09",
+     "text": "Grandfather died peacefully of old age. The first natural death in three forts. We cheered."
+    },
+    {
+     "id": "lt-th-death-g-10",
+     "text": "We buried the fallen and the mayor did not file a single production violation."
+    },
+    {
+     "id": "lt-th-death-g-11",
+     "text": "My mood demanded rough gems and I found one, hidden in a sock. I am alive to tell it."
+    },
+    {
+     "id": "lt-th-death-g-12",
+     "text": "The captain avenged a friend of mine. Militia of one, but a very good one."
+    },
+    {
+     "id": "lt-th-death-g-13",
+     "text": "I got a coffin of my own, ready for later. Pre-planning. Very calming."
+    },
+    {
+     "id": "lt-th-death-g-14",
+     "text": "The ghosts have been put to rest. The halls are quiet. I slept a full night."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-death-b-01",
+     "text": "My friend died of thirst beside 1,994 drinks. I still cannot talk about the numbers.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-death-b-02",
+     "text": "A miner I knew died of thirst stuck on a tree branch. Never trust a tree."
+    },
+    {
+     "id": "lt-th-death-b-03",
+     "text": "Fifteen of us went to the Safety burrow. The beast came up the stairs. Safety, they called it."
+    },
+    {
+     "id": "lt-th-death-b-04",
+     "text": "Eight dwarves died hauling refuse out of the pit while more was thrown in. Nobody stopped."
+    },
+    {
+     "id": "lt-th-death-b-05",
+     "text": "My cousin's mood demanded rough gems. Every gem was cut. She did not finish."
+    },
+    {
+     "id": "lt-th-death-b-06",
+     "text": "A carpenter died of thirst next to 150 rough gems. Gems were not the problem.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-death-b-07",
+     "text": "We needed a coffin. The carpenter's queue had forty thrones ahead of it."
+    },
+    {
+     "id": "lt-th-death-b-08",
+     "text": "Lost a friend in Quakefocus waiting for the loom room. It was 'nearly ready'.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-death-b-09",
+     "text": "I saw a body today. Then an order came in for armor stands. Nobody even paused."
+    },
+    {
+     "id": "lt-th-death-b-10",
+     "text": "The memorial slab misspelled her name. The engraver was on smoothing duty and rushed."
+    },
+    {
+     "id": "lt-th-death-b-11",
+     "text": "My mentor died, and his job was reassigned before he was cold. To me. Thanks."
+    },
+    {
+     "id": "lt-th-death-b-12",
+     "text": "A fey miner died of thirst while the clerks counted seven silk scraps. I cannot forgive maths.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-death-b-13",
+     "text": "Somebody died near the execution tower and nobody is sure it was an execution."
+    },
+    {
+     "id": "lt-th-death-b-14",
+     "text": "Another funeral. The tavern ran out of drink for the wake. Somehow. Again."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-death-hg-01",
+     "text": "NOBODY DIED; FORT AMAZED"
+    },
+    {
+     "id": "lt-th-death-hg-02",
+     "text": "SPARED BY THE BEAST"
+    },
+    {
+     "id": "lt-th-death-hg-03",
+     "text": "MEMORIAL SLAB 'TASTEFUL'"
+    },
+    {
+     "id": "lt-th-death-hg-04",
+     "text": "ESCAPED THE BRANCH"
+    },
+    {
+     "id": "lt-th-death-hg-05",
+     "text": "LIVED THROUGH 'SAFETY'"
+    },
+    {
+     "id": "lt-th-death-hg-06",
+     "text": "SURVIVES THE PIT RUN"
+    },
+    {
+     "id": "lt-th-death-hg-07",
+     "text": "BURIED WITH HONOR"
+    },
+    {
+     "id": "lt-th-death-hg-08",
+     "text": "DRANK IN TIME, LIVED"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-death-hb-01",
+     "text": "THIRSTY, BESIDE 1,994 DRINKS",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-death-hb-02",
+     "text": "FRIEND LOST ON A BRANCH"
+    },
+    {
+     "id": "lt-th-death-hb-03",
+     "text": "15 GONE IN 'SAFETY'"
+    },
+    {
+     "id": "lt-th-death-hb-04",
+     "text": "PIT CLAIMS A HAULER"
+    },
+    {
+     "id": "lt-th-death-hb-05",
+     "text": "MOOD ENDS BADLY"
+    },
+    {
+     "id": "lt-th-death-hb-06",
+     "text": "NO COFFIN, ONLY THRONES"
+    },
+    {
+     "id": "lt-th-death-hb-07",
+     "text": "MOURNS A MIRACLE MINER"
+    },
+    {
+     "id": "lt-th-death-hb-08",
+     "text": "GRIEF, THEN A WORK ORDER"
+    }
+   ]
+  },
+  "rain": {
+   "good": [
+    {
+     "id": "lt-th-rain-g-01",
+     "text": "It rained all day and I was underground for all of it. Perfect planning, for once."
+    },
+    {
+     "id": "lt-th-rain-g-02",
+     "text": "The rain filled the cistern. Water for the mist ring, and no dwarf had to carry it."
+    },
+    {
+     "id": "lt-th-rain-g-03",
+     "text": "Rain on the windmill roof sounds lovely from inside, near the ale."
+    },
+    {
+     "id": "lt-th-rain-g-04",
+     "text": "I liked the rain today. It washed the garbage pit smell somewhere else."
+    },
+    {
+     "id": "lt-th-rain-g-05",
+     "text": "Nobody was sent out to gather plants in the rain. Somebody upstairs is learning."
+    },
+    {
+     "id": "lt-th-rain-g-06",
+     "text": "Rain this {season}, and I stayed dry. I even had a drink while watching it."
+    },
+    {
+     "id": "lt-th-rain-g-07",
+     "text": "Got caught in a light drizzle. Felt like the mist ring, but free."
+    },
+    {
+     "id": "lt-th-rain-g-08",
+     "text": "Stood in the doorway and watched the rain fall on the trees. Good. Stay out there, trees."
+    },
+    {
+     "id": "lt-th-rain-g-09",
+     "text": "The rain chased the elves from the depot early. Kindest weather we have had."
+    },
+    {
+     "id": "lt-th-rain-g-10",
+     "text": "A dwarf learns to love rain when the alternative is gathering plants in it."
+    },
+    {
+     "id": "lt-th-rain-g-11",
+     "text": "Rain fell, and I was not on a tree branch. Low bar, cleared."
+    },
+    {
+     "id": "lt-th-rain-g-12",
+     "text": "The storm came and I was in the tavern. The thunder sounded like approval."
+    },
+    {
+     "id": "lt-th-rain-g-13",
+     "text": "A warm rain. I let it hit my face for a moment. Then I went in. Balance."
+    },
+    {
+     "id": "lt-th-rain-g-14",
+     "text": "Rain on the surface means fewer goblins on the surface. That is my weather report."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-rain-b-01",
+     "text": "I was sent to gather plants across the whole map in the rain. The map is very big."
+    },
+    {
+     "id": "lt-th-rain-b-02",
+     "text": "Soaked to the bone at the far map edge, carrying one strawberry. One."
+    },
+    {
+     "id": "lt-th-rain-b-03",
+     "text": "Got rained on, then walked through the mist ring to dry off. Mistakes were made."
+    },
+    {
+     "id": "lt-th-rain-b-04",
+     "text": "Rained on in the {season}. My beard has its own weather now."
+    },
+    {
+     "id": "lt-th-rain-b-05",
+     "text": "I sheltered under a tree from the rain. Then I remembered the stories and ran."
+    },
+    {
+     "id": "lt-th-rain-b-06",
+     "text": "The rain came in while I was hauling to the depot. Elves laughed. The rain laughed."
+    },
+    {
+     "id": "lt-th-rain-b-07",
+     "text": "Wet clothes, wet socks, wet everything. Except the barrels. Still dry. Still empty."
+    },
+    {
+     "id": "lt-th-rain-b-08",
+     "text": "It rained on the funeral. Even the weather ignores our safety procedures."
+    },
+    {
+     "id": "lt-th-rain-b-09",
+     "text": "I hate rain. It is just water falling, and I have opinions about water."
+    },
+    {
+     "id": "lt-th-rain-b-10",
+     "text": "Rain all week. The Overseer kept the plant run going anyway. Strategy, it says."
+    },
+    {
+     "id": "lt-th-rain-b-11",
+     "text": "Drenched digging out the surface windmill base. The windmill stayed dry. Lucky windmill."
+    },
+    {
+     "id": "lt-th-rain-b-12",
+     "text": "Rain soaked the cloth on the drying rack. The child's mood will have to wait."
+    },
+    {
+     "id": "lt-th-rain-b-13",
+     "text": "Got so wet my helmet filled up. Drank some. It was not ale. Disappointing."
+    },
+    {
+     "id": "lt-th-rain-b-14",
+     "text": "I got rained on, and then I got charged with tracking mud. The mayor misses nothing."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-rain-hg-01",
+     "text": "RAIN SKIPS THE FORT"
+    },
+    {
+     "id": "lt-th-rain-hg-02",
+     "text": "INSIDE WHEN IT POURED"
+    },
+    {
+     "id": "lt-th-rain-hg-03",
+     "text": "LIKES THE DRIZZLE, ODDLY"
+    },
+    {
+     "id": "lt-th-rain-hg-04",
+     "text": "NO PLANT RUN IN RAIN"
+    },
+    {
+     "id": "lt-th-rain-hg-05",
+     "text": "RAIN FILLS THE CISTERN"
+    },
+    {
+     "id": "lt-th-rain-hg-06",
+     "text": "PUDDLE AVOIDED, BARELY"
+    },
+    {
+     "id": "lt-th-rain-hg-07",
+     "text": "DRY BEARD, HAPPY DWARF"
+    },
+    {
+     "id": "lt-th-rain-hg-08",
+     "text": "STORM ENJOYED, INDOORS"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-rain-hb-01",
+     "text": "PLANT DUTY IN DOWNPOUR"
+    },
+    {
+     "id": "lt-th-rain-hb-02",
+     "text": "SOAKED ON THE MAP EDGE"
+    },
+    {
+     "id": "lt-th-rain-hb-03",
+     "text": "RAINED ON, THEN MISTED"
+    },
+    {
+     "id": "lt-th-rain-hb-04",
+     "text": "WET BEARD, DRY STILL"
+    },
+    {
+     "id": "lt-th-rain-hb-05",
+     "text": "CAUGHT UNDER A TREE"
+    },
+    {
+     "id": "lt-th-rain-hb-06",
+     "text": "RAIN, AGAIN, ALL SEASON"
+    },
+    {
+     "id": "lt-th-rain-hb-07",
+     "text": "SOGGY HAUL TO DEPOT"
+    },
+    {
+     "id": "lt-th-rain-hb-08",
+     "text": "DRENCHED BY SPITE"
+    }
+   ]
+  },
+  "sky": {
+   "good": [
+    {
+     "id": "lt-th-sky-g-01",
+     "text": "Went up to the windmill roof and saw the sky. It stayed up there. Very professional."
+    },
+    {
+     "id": "lt-th-sky-g-02",
+     "text": "The sky was big today but I was bigger. Emotionally."
+    },
+    {
+     "id": "lt-th-sky-g-03",
+     "text": "Stood on the walled roof and looked out over the hills. Not a goblin in sight. Lovely."
+    },
+    {
+     "id": "lt-th-sky-g-04",
+     "text": "I saw a cloud shaped like a mug. Took it as a sign. Had a drink."
+    },
+    {
+     "id": "lt-th-sky-g-05",
+     "text": "The sun came out. I came out. We both went back in. A good partnership."
+    },
+    {
+     "id": "lt-th-sky-g-06",
+     "text": "From the execution tower you can see the whole valley. Lovely view, odd building."
+    },
+    {
+     "id": "lt-th-sky-g-07",
+     "text": "Looked at the stars and counted three hundred. Then I lost count at a throne-shaped one."
+    },
+    {
+     "id": "lt-th-sky-g-08",
+     "text": "The sky over {fort} is very blue. I will allow it."
+    },
+    {
+     "id": "lt-th-sky-g-09",
+     "text": "I went outside and came back without being rained on or treed. Perfect day."
+    },
+    {
+     "id": "lt-th-sky-g-10",
+     "text": "Watched the sunset from the parapet. Windmills turning, mist drifting. Almost elvish. Almost."
+    },
+    {
+     "id": "lt-th-sky-g-11",
+     "text": "The open sky does not scare me anymore. Trees, yes. Sky, no."
+    },
+    {
+     "id": "lt-th-sky-g-12",
+     "text": "Clear sky means no rain plant run. I love a clear sky for selfish reasons."
+    },
+    {
+     "id": "lt-th-sky-g-13",
+     "text": "Saw a hawk. It saw me. We agreed to leave each other alone."
+    },
+    {
+     "id": "lt-th-sky-g-14",
+     "text": "The moon came up over the hills like a big cut gem. Somebody tell the jeweler."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-sky-b-01",
+     "text": "They sent me outside and there was sky all over the place. No ceiling at all."
+    },
+    {
+     "id": "lt-th-sky-b-02",
+     "text": "The sky is too big. Somewhere under it are goblins. Several armies' worth."
+    },
+    {
+     "id": "lt-th-sky-b-03",
+     "text": "I went up the windmill stairs and the sky was just there. Waiting. I came down."
+    },
+    {
+     "id": "lt-th-sky-b-04",
+     "text": "The sun looked at me. I looked back. I lost."
+    },
+    {
+     "id": "lt-th-sky-b-05",
+     "text": "Out on the surface I could see a dark fortress on the horizon. I would rather not."
+    },
+    {
+     "id": "lt-th-sky-b-06",
+     "text": "Got dizzy on the roof. Sky above, nothing in between. Who builds like this?"
+    },
+    {
+     "id": "lt-th-sky-b-07",
+     "text": "A bird landed on my helmet. It acted like it owned the place. The sky breeds arrogance."
+    },
+    {
+     "id": "lt-th-sky-b-08",
+     "text": "I looked up and stepped into the mist ring. Lesson learned: never look up."
+    },
+    {
+     "id": "lt-th-sky-b-09",
+     "text": "The plant run took me so far out I lost sight of the fort. Only sky and trees. Terrifying."
+    },
+    {
+     "id": "lt-th-sky-b-10",
+     "text": "There was nothing between me and the sky except a tree, and I do not trust trees."
+    },
+    {
+     "id": "lt-th-sky-b-11",
+     "text": "The sky turned dark at noon. The Overseer said keep gathering. The sky agreed with me."
+    },
+    {
+     "id": "lt-th-sky-b-12",
+     "text": "I miss having a roof. I am under a roof. I miss it anyway, from the trip."
+    },
+    {
+     "id": "lt-th-sky-b-13",
+     "text": "Too much sky this {season}. Somebody should build a ceiling over it."
+    },
+    {
+     "id": "lt-th-sky-b-14",
+     "text": "I saw a cloud shaped like an armor stand. Even the weather has a work order."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-sky-hg-01",
+     "text": "SEES SKY, REMAINS CALM"
+    },
+    {
+     "id": "lt-th-sky-hg-02",
+     "text": "SUN 'TOLERABLE' TODAY"
+    },
+    {
+     "id": "lt-th-sky-hg-03",
+     "text": "ADMIRES ROOF, NOT SKY"
+    },
+    {
+     "id": "lt-th-sky-hg-04",
+     "text": "CLOUDS DO NOTHING; GOOD"
+    },
+    {
+     "id": "lt-th-sky-hg-05",
+     "text": "STARS COUNTED: SOME"
+    },
+    {
+     "id": "lt-th-sky-hg-06",
+     "text": "WINDMILL VIEW SUPERB"
+    },
+    {
+     "id": "lt-th-sky-hg-07",
+     "text": "SKY STAYS UP THERE"
+    },
+    {
+     "id": "lt-th-sky-hg-08",
+     "text": "SURFACE TRIP SURVIVED"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-sky-hb-01",
+     "text": "SKY TOO BIG, AGAIN"
+    },
+    {
+     "id": "lt-th-sky-hb-02",
+     "text": "SENT OUTSIDE BY MISTAKE"
+    },
+    {
+     "id": "lt-th-sky-hb-03",
+     "text": "THE SUN LOOKED AT THEM"
+    },
+    {
+     "id": "lt-th-sky-hb-04",
+     "text": "NO CEILING, NO PEACE"
+    },
+    {
+     "id": "lt-th-sky-hb-05",
+     "text": "VERTIGO ON THE ROOF"
+    },
+    {
+     "id": "lt-th-sky-hb-06",
+     "text": "BIRDS 'TOO CONFIDENT'"
+    },
+    {
+     "id": "lt-th-sky-hb-07",
+     "text": "SKY NEAR A TREE"
+    },
+    {
+     "id": "lt-th-sky-hb-08",
+     "text": "LOST ON THE SURFACE"
+    }
+   ]
+  },
+  "drink": {
+   "good": [
+    {
+     "id": "lt-th-drink-g-01",
+     "text": "Got thirsty, walked to the barrel and drank. I did not die beside it. Very modern of me."
+    },
+    {
+     "id": "lt-th-drink-g-02",
+     "text": "There are thousands of drinks in the stockpile and I personally had one of them."
+    },
+    {
+     "id": "lt-th-drink-g-03",
+     "text": "The carpenter made barrels instead of doors this week. The ale is flowing. I am flowing."
+    },
+    {
+     "id": "lt-th-drink-g-04",
+     "text": "I got a drink before the thirst got me. Remember the miner and his 1,994 drinks.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-drink-g-05",
+     "text": "The tavern keeper poured me a mug without being asked. I may marry the tavern."
+    },
+    {
+     "id": "lt-th-drink-g-06",
+     "text": "Fresh brew from the second still. Two stills! We are an empire."
+    },
+    {
+     "id": "lt-th-drink-g-07",
+     "text": "Drank so well this week I forgot the Quakefocus famine for an hour.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-drink-g-08",
+     "text": "My mug was full, my bench was free and nobody mentioned smoothing. Paradise."
+    },
+    {
+     "id": "lt-th-drink-g-09",
+     "text": "Had a drink with the captain. The militia's whole membership, toasting itself."
+    },
+    {
+     "id": "lt-th-drink-g-10",
+     "text": "Ale in the morning, ale at noon. The Overseer queued brewing and nobody cancelled it."
+    },
+    {
+     "id": "lt-th-drink-g-11",
+     "text": "The drink stockpile is next to my workshop now. Whoever planned that, I salute you."
+    },
+    {
+     "id": "lt-th-drink-g-12",
+     "text": "Tasted a dwarven wine so good I briefly wished the liaison would ask for it at 210 percent.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-drink-g-13",
+     "text": "I drank by the mist ring. Wet on the outside, happy on the inside."
+    },
+    {
+     "id": "lt-th-drink-g-14",
+     "text": "I have never been thirsty in {fort}. Do not jinx it by printing this."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-drink-b-01",
+     "text": "I died of thirst twice in my dreams last night, each time beside a full barrel."
+    },
+    {
+     "id": "lt-th-drink-b-02",
+     "text": "The drinks are all 'in use'. Nobody can tell me what they are being used for."
+    },
+    {
+     "id": "lt-th-drink-b-03",
+     "text": "There is ale. There is a mug. There is me. And yet somehow I am thirsty."
+    },
+    {
+     "id": "lt-th-drink-b-04",
+     "text": "No barrels, so no brewing. The carpenter is on doors. The doors are not thirsty."
+    },
+    {
+     "id": "lt-th-drink-b-05",
+     "text": "The brewer has been hauling stone all week. Eight hundred stones. Zero ale."
+    },
+    {
+     "id": "lt-th-drink-b-06",
+     "text": "Drank water from the cistern. Tasted of windmill. I am ashamed."
+    },
+    {
+     "id": "lt-th-drink-b-07",
+     "text": "The drink stockpile is behind forty bins of armor stand parts. I can see it. I cannot reach it."
+    },
+    {
+     "id": "lt-th-drink-b-08",
+     "text": "Nearly went the way of the miner on the branch. Climbing down came before ale, barely."
+    },
+    {
+     "id": "lt-th-drink-b-09",
+     "text": "I asked for a drink and was handed a work order. They are not the same."
+    },
+    {
+     "id": "lt-th-drink-b-10",
+     "text": "We have 2,000 drinks and one tavern keeper, and the tavern keeper is on smoothing."
+    },
+    {
+     "id": "lt-th-drink-b-11",
+     "text": "Sober for three days. My beard has started making decisions without me."
+    },
+    {
+     "id": "lt-th-drink-b-12",
+     "text": "Somebody brewed everything into one flavor. It is the flavor of desperation."
+    },
+    {
+     "id": "lt-th-drink-b-13",
+     "text": "Ran out of ale during the {season}. Ran into the mist ring for comfort. Not the same."
+    },
+    {
+     "id": "lt-th-drink-b-14",
+     "text": "They counted the drinks and said there were plenty. They did not say where."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-drink-hg-01",
+     "text": "DRINKS, ACTUALLY DRINKS"
+    },
+    {
+     "id": "lt-th-drink-hg-02",
+     "text": "THIRST PARADOX AVOIDED"
+    },
+    {
+     "id": "lt-th-drink-hg-03",
+     "text": "MUG FILLED BEFORE PANIC"
+    },
+    {
+     "id": "lt-th-drink-hg-04",
+     "text": "BARREL WITHIN REACH"
+    },
+    {
+     "id": "lt-th-drink-hg-05",
+     "text": "STILL WORKS, PRAISE IT"
+    },
+    {
+     "id": "lt-th-drink-hg-06",
+     "text": "OUTLIVES THE PARADOX"
+    },
+    {
+     "id": "lt-th-drink-hg-07",
+     "text": "ALE COUNT: HEALTHY"
+    },
+    {
+     "id": "lt-th-drink-hg-08",
+     "text": "TOASTS 2,000 DRINKS"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-drink-hb-01",
+     "text": "THIRSTY BESIDE A BARREL"
+    },
+    {
+     "id": "lt-th-drink-hb-02",
+     "text": "DRINKS: ALL 'IN USE'"
+    },
+    {
+     "id": "lt-th-drink-hb-03",
+     "text": "BREWER STILL HAULING"
+    },
+    {
+     "id": "lt-th-drink-hb-04",
+     "text": "NO BARRELS; NO BREW"
+    },
+    {
+     "id": "lt-th-drink-hb-05",
+     "text": "WATER, FROM THE MIST"
+    },
+    {
+     "id": "lt-th-drink-hb-06",
+     "text": "SOBER SINCE QUAKEFOCUS"
+    },
+    {
+     "id": "lt-th-drink-hb-07",
+     "text": "ALE STUCK BEHIND BINS"
+    },
+    {
+     "id": "lt-th-drink-hb-08",
+     "text": "THIRSTY UP A TREE"
+    }
+   ]
+  },
+  "food": {
+   "good": [
+    {
+     "id": "lt-th-food-g-01",
+     "text": "Meat! Actual meat! Searabbeys waited years for this. I ate it slowly, for them.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-food-g-02",
+     "text": "I had a real roast today. It tasted like the end of the Meat Watch.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-food-g-03",
+     "text": "Ate a lavish meal and nobody asked me to make a throne after. Simple joys."
+    },
+    {
+     "id": "lt-th-food-g-04",
+     "text": "The fishers caught something and the cook cooked it. Teamwork, at last."
+    },
+    {
+     "id": "lt-th-food-g-05",
+     "text": "A perfect plump helmet. Crisp, earthy, not on fire. Ten out of ten."
+    },
+    {
+     "id": "lt-th-food-g-06",
+     "text": "Food in the stockpile, food in the kitchen, food on my plate. {past_fort} could never.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-food-g-07",
+     "text": "I had second helpings. Nobody said 'famine, day 32'. Bliss.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-food-g-08",
+     "text": "Tried a stew with goblin-free vegetables. Delicious and patriotic."
+    },
+    {
+     "id": "lt-th-food-g-09",
+     "text": "The cook made a masterwork meal. I ate the masterwork. No regrets."
+    },
+    {
+     "id": "lt-th-food-g-10",
+     "text": "Ate dinner without worrying that it was the last one. Personal growth."
+    },
+    {
+     "id": "lt-th-food-g-11",
+     "text": "Somebody smoked fish beside the windmills. Smells like wind and victory."
+    },
+    {
+     "id": "lt-th-food-g-12",
+     "text": "The kitchen was busy all day. I heard sizzling. Best sound in {fort}."
+    },
+    {
+     "id": "lt-th-food-g-13",
+     "text": "Biscuits with a mug of ale. Nobody died. That is a full menu."
+    },
+    {
+     "id": "lt-th-food-g-14",
+     "text": "There were seventeen plants for ten dwarves once. Today I ate seventeen plants alone.",
+     "world": "The Enchanted Planes"
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-food-b-01",
+     "text": "Plump helmets again. Raw. Unwashed. Glaring at me."
+    },
+    {
+     "id": "lt-th-food-b-02",
+     "text": "Day 32 of the famine, said the old Quakefocus paper. Some days I still count.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-food-b-03",
+     "text": "No meat for ages. The ghost of the Meat Watch has taken a seat at my table.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-food-b-04",
+     "text": "Seventeen plants for ten dwarves. I remember it. My stomach remembers it louder.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-food-b-05",
+     "text": "The fisherdwarf had a strange mood and wanted rough gems. No fish. No gems. No luck."
+    },
+    {
+     "id": "lt-th-food-b-06",
+     "text": "My meal was left beside the garbage pit. Then it was hauled back out. Then in."
+    },
+    {
+     "id": "lt-th-food-b-07",
+     "text": "The cook is on smoothing duty. Dinner is a raw turnip and a smoothed wall."
+    },
+    {
+     "id": "lt-th-food-b-08",
+     "text": "The food stockpile is buried behind thrones. I can smell dinner, but cannot reach it."
+    },
+    {
+     "id": "lt-th-food-b-09",
+     "text": "I ate something that might have been a cave spider. I am not asking."
+    },
+    {
+     "id": "lt-th-food-b-10",
+     "text": "All the meals went to the depot. The liaison said there is much to share. With him."
+    },
+    {
+     "id": "lt-th-food-b-11",
+     "text": "I ate the same quarry bush leaves for a month. My beard has gone slightly green."
+    },
+    {
+     "id": "lt-th-food-b-12",
+     "text": "The Overseer sent the hunters to gather plants. In the rain. Again."
+    },
+    {
+     "id": "lt-th-food-b-13",
+     "text": "My dinner was confiscated as evidence in a production order violation."
+    },
+    {
+     "id": "lt-th-food-b-14",
+     "text": "Ate cold food in the hall because the kitchen was full of armor stands."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-food-hg-01",
+     "text": "MEAT WATCH ENDS: MEAT!"
+    },
+    {
+     "id": "lt-th-food-hg-02",
+     "text": "ATE, DID NOT FAMINE"
+    },
+    {
+     "id": "lt-th-food-hg-03",
+     "text": "ROAST 'BETTER THAN GEMS'"
+    },
+    {
+     "id": "lt-th-food-hg-04",
+     "text": "FISH CAUGHT, FISH EATEN"
+    },
+    {
+     "id": "lt-th-food-hg-05",
+     "text": "PLUMP HELMET, PERFECT"
+    },
+    {
+     "id": "lt-th-food-hg-06",
+     "text": "LAVISH MEAL, NO THRONE"
+    },
+    {
+     "id": "lt-th-food-hg-07",
+     "text": "FOOD STOCK: SENSIBLE"
+    },
+    {
+     "id": "lt-th-food-hg-08",
+     "text": "SECOND HELPINGS ALLOWED"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-food-hb-01",
+     "text": "DAY 32 OF THE FAMINE"
+    },
+    {
+     "id": "lt-th-food-hb-02",
+     "text": "NO MEAT SINCE SEARABBEYS"
+    },
+    {
+     "id": "lt-th-food-hb-03",
+     "text": "17 PLANTS, 10 DWARVES"
+    },
+    {
+     "id": "lt-th-food-hb-04",
+     "text": "RAW HELMET, AGAIN"
+    },
+    {
+     "id": "lt-th-food-hb-05",
+     "text": "FISHER HAS A MOOD"
+    },
+    {
+     "id": "lt-th-food-hb-06",
+     "text": "MEAL ROTS BY THE PIT"
+    },
+    {
+     "id": "lt-th-food-hb-07",
+     "text": "COOK ON SMOOTHING DUTY"
+    },
+    {
+     "id": "lt-th-food-hb-08",
+     "text": "FOOD BEHIND THRONES"
+    }
+   ]
+  },
+  "dining": {
+   "good": [
+    {
+     "id": "lt-th-dining-g-01",
+     "text": "Ate in the dining hall at a real table. Nobody stored an armor stand on it."
+    },
+    {
+     "id": "lt-th-dining-g-02",
+     "text": "The dining room has been smoothed and engraved. My soup tasted twice as good."
+    },
+    {
+     "id": "lt-th-dining-g-03",
+     "text": "I ate on a throne. One of the hundred in stock found its way to the hall. Quite comfy."
+    },
+    {
+     "id": "lt-th-dining-g-04",
+     "text": "Sat by the window over the mist ring. Watched the spray while eating. Fine dining."
+    },
+    {
+     "id": "lt-th-dining-g-05",
+     "text": "The tavern and the dining hall are next door. Whoever planned this deserves a medal."
+    },
+    {
+     "id": "lt-th-dining-g-06",
+     "text": "Shared a table with the captain. He told stories of being off duty. Many stories."
+    },
+    {
+     "id": "lt-th-dining-g-07",
+     "text": "Got the good chair, the one that does not wobble. A rare honor."
+    },
+    {
+     "id": "lt-th-dining-g-08",
+     "text": "A whole dinner without a single dwarf mentioning thirst. We dined like nobles."
+    },
+    {
+     "id": "lt-th-dining-g-09",
+     "text": "The dining hall is so fine now, the elves at the depot asked for a tour. We said no."
+    },
+    {
+     "id": "lt-th-dining-g-10",
+     "text": "I ate dinner in a room with walls, a floor and a ceiling. Luxury, by {past_fort} standards.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-dining-g-11",
+     "text": "Long tables, hot food, loud dwarves. That is the {fort} I signed up for."
+    },
+    {
+     "id": "lt-th-dining-g-12",
+     "text": "Clean table, clean mug, clean conscience. Dinner was a triumph."
+    },
+    {
+     "id": "lt-th-dining-g-13",
+     "text": "The engraving above my seat shows a feast. Art imitating my plate. Lovely."
+    },
+    {
+     "id": "lt-th-dining-g-14",
+     "text": "Sat next to a stranger who loved the windmills too. Best dinner of the year."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-dining-b-01",
+     "text": "Ate standing up again. The chairs were all assigned to the throne stockpile."
+    },
+    {
+     "id": "lt-th-dining-b-02",
+     "text": "There were armor stands at every table. I ate with my elbows touching steel."
+    },
+    {
+     "id": "lt-th-dining-b-03",
+     "text": "The dining hall is full of bins of loose stones. I ate on a bin. It was rude to me."
+    },
+    {
+     "id": "lt-th-dining-b-04",
+     "text": "A hundred and forty dwarves and one dining hall. My elbow is in someone's stew."
+    },
+    {
+     "id": "lt-th-dining-b-05",
+     "text": "The dining room is on the smoothing list. We dine among rough stone, like animals."
+    },
+    {
+     "id": "lt-th-dining-b-06",
+     "text": "My table wobbles. I have reported it. The report went to the mayor and was filed as a crime."
+    },
+    {
+     "id": "lt-th-dining-b-07",
+     "text": "The dining hall shares a wall with the garbage pit. Atmosphere: notable."
+    },
+    {
+     "id": "lt-th-dining-b-08",
+     "text": "I ate on the floor. The floor was rough. The meal was rougher."
+    },
+    {
+     "id": "lt-th-dining-b-09",
+     "text": "Sat in the only empty chair. Turned out it was the ghost's chair. It made that clear."
+    },
+    {
+     "id": "lt-th-dining-b-10",
+     "text": "No tables at all this week. Somebody used the wood for thrones."
+    },
+    {
+     "id": "lt-th-dining-b-11",
+     "text": "The dining hall is thirty levels away from the kitchen. My meal arrived cold and tired."
+    },
+    {
+     "id": "lt-th-dining-b-12",
+     "text": "Somebody built the dining room under the execution tower. Dinner conversation is grim."
+    },
+    {
+     "id": "lt-th-dining-b-13",
+     "text": "No room in the hall, so I ate on the stairs. The stairs to 'Safety'. Lost my appetite."
+    },
+    {
+     "id": "lt-th-dining-b-14",
+     "text": "The mist ring blows into the dining hall. Wet bread is not a dish."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-dining-hg-01",
+     "text": "DINING HALL SMOOTHED!"
+    },
+    {
+     "id": "lt-th-dining-hg-02",
+     "text": "TABLE FREE OF THRONES"
+    },
+    {
+     "id": "lt-th-dining-hg-03",
+     "text": "SAT, ATE, LEFT HAPPY"
+    },
+    {
+     "id": "lt-th-dining-hg-04",
+     "text": "LEGENDARY DINING ROOM"
+    },
+    {
+     "id": "lt-th-dining-hg-05",
+     "text": "NICE CHAIR, FOR ONCE"
+    },
+    {
+     "id": "lt-th-dining-hg-06",
+     "text": "NO SPIDER IN THE SOUP"
+    },
+    {
+     "id": "lt-th-dining-hg-07",
+     "text": "VIEW OF THE MIST RING"
+    },
+    {
+     "id": "lt-th-dining-hg-08",
+     "text": "DINED WITH THE CAPTAIN"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-dining-hb-01",
+     "text": "ATE STANDING UP, AGAIN"
+    },
+    {
+     "id": "lt-th-dining-hb-02",
+     "text": "TABLE IS AN ARMOR STAND"
+    },
+    {
+     "id": "lt-th-dining-hb-03",
+     "text": "HALL FULL OF BINS"
+    },
+    {
+     "id": "lt-th-dining-hb-04",
+     "text": "CHAIR, NOT ASSIGNED"
+    },
+    {
+     "id": "lt-th-dining-hb-05",
+     "text": "DINING BY THE GARBAGE"
+    },
+    {
+     "id": "lt-th-dining-hb-06",
+     "text": "TOO CROWDED; 147 DWARVES"
+    },
+    {
+     "id": "lt-th-dining-hb-07",
+     "text": "NO TABLE, ONLY THRONE"
+    },
+    {
+     "id": "lt-th-dining-hb-08",
+     "text": "HALL STILL ROUGH STONE"
+    }
+   ]
+  },
+  "sleep": {
+   "good": [
+    {
+     "id": "lt-th-sleep-g-01",
+     "text": "Slept a full night in my own bed. No armor stands moved in while I was out."
+    },
+    {
+     "id": "lt-th-sleep-g-02",
+     "text": "I dreamed of full barrels, and when I woke up, they were still full."
+    },
+    {
+     "id": "lt-th-sleep-g-03",
+     "text": "A whole night's sleep and no sudden call to the Safety burrow. Glorious."
+    },
+    {
+     "id": "lt-th-sleep-g-04",
+     "text": "Woke up rested for the first time since {past_fort}. Felt like a new dwarf. Slightly confused.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-sleep-g-05",
+     "text": "The windmills hum all night. Best lullaby in the fort."
+    },
+    {
+     "id": "lt-th-sleep-g-06",
+     "text": "I napped in the mist ring garden. Woke up damp and serene."
+    },
+    {
+     "id": "lt-th-sleep-g-07",
+     "text": "I slept so well I missed the morning work order. The orders survived without me."
+    },
+    {
+     "id": "lt-th-sleep-g-08",
+     "text": "I dreamed I was the mayor and filed no violations. A sweet, impossible dream."
+    },
+    {
+     "id": "lt-th-sleep-g-09",
+     "text": "My bed is soft, my door is shut and the beasts are far below. Sleep came easily."
+    },
+    {
+     "id": "lt-th-sleep-g-10",
+     "text": "Slept through a goblin rumor. Woke up and it was still a rumor. Perfect."
+    },
+    {
+     "id": "lt-th-sleep-g-11",
+     "text": "I took a nap on a throne in the stockpile. The Overseer did not notice. Bliss."
+    },
+    {
+     "id": "lt-th-sleep-g-12",
+     "text": "Woke up in my own bed instead of on a tree branch. Small victories."
+    },
+    {
+     "id": "lt-th-sleep-g-13",
+     "text": "A quiet night. Even the ghost was off duty, like the militia."
+    },
+    {
+     "id": "lt-th-sleep-g-14",
+     "text": "Slept in on a rainy morning while the others went plant-gathering. Sorry. Not sorry."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-sleep-b-01",
+     "text": "Slept on the floor again. All the beds are 'reserved' by the Overseer."
+    },
+    {
+     "id": "lt-th-sleep-b-02",
+     "text": "Woken up at dawn by the sound of somebody smoothing my wall. Smoothing is loud."
+    },
+    {
+     "id": "lt-th-sleep-b-03",
+     "text": "I dreamed of armor stands. Thousands. All saluting me. I woke up screaming."
+    },
+    {
+     "id": "lt-th-sleep-b-04",
+     "text": "Dozed off by the garbage pit and woke up being hauled to the pit. Narrow escape."
+    },
+    {
+     "id": "lt-th-sleep-b-05",
+     "text": "My bed has been replaced with a throne. You cannot sleep on a throne. I tried."
+    },
+    {
+     "id": "lt-th-sleep-b-06",
+     "text": "Fell asleep in the hall and woke up in the Safety burrow. I do not know how. I ran."
+    },
+    {
+     "id": "lt-th-sleep-b-07",
+     "text": "The mist ring blew in through the door all night. I slept in a cloud."
+    },
+    {
+     "id": "lt-th-sleep-b-08",
+     "text": "Could not sleep. Kept thinking of the miner with 1,994 drinks. I got up and drank.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-sleep-b-09",
+     "text": "I was so tired I slept in the hallway. Three dwarves hauled stones over me."
+    },
+    {
+     "id": "lt-th-sleep-b-10",
+     "text": "I had a nightmare that the gods blinked and I lost a whole season. Then it happened."
+    },
+    {
+     "id": "lt-th-sleep-b-11",
+     "text": "Up all night listening for the forgotten beast on the stairs. It never came. This time."
+    },
+    {
+     "id": "lt-th-sleep-b-12",
+     "text": "Too many snoring dwarves in the dormitory. A hundred and forty, all in tune."
+    },
+    {
+     "id": "lt-th-sleep-b-13",
+     "text": "Slept badly. The engraving on my ceiling is of a famine. It watches me."
+    },
+    {
+     "id": "lt-th-sleep-b-14",
+     "text": "I dozed off on duty and the mayor charged me with an order violation. In my sleep."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-sleep-hg-01",
+     "text": "SLEPT THE WHOLE NIGHT"
+    },
+    {
+     "id": "lt-th-sleep-hg-02",
+     "text": "NO FEVER DREAM OF THRONES"
+    },
+    {
+     "id": "lt-th-sleep-hg-03",
+     "text": "WOKE UP NOT IN A TREE"
+    },
+    {
+     "id": "lt-th-sleep-hg-04",
+     "text": "BED SOFT, NIGHT QUIET"
+    },
+    {
+     "id": "lt-th-sleep-hg-05",
+     "text": "SNOOZED THROUGH SIEGE NEWS"
+    },
+    {
+     "id": "lt-th-sleep-hg-06",
+     "text": "NAPPED, NO REWIND"
+    },
+    {
+     "id": "lt-th-sleep-hg-07",
+     "text": "DREAMED OF FULL BARRELS"
+    },
+    {
+     "id": "lt-th-sleep-hg-08",
+     "text": "WOKE BEFORE THE ORDERS"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-sleep-hb-01",
+     "text": "SLEPT ON THE FLOOR, AGAIN"
+    },
+    {
+     "id": "lt-th-sleep-hb-02",
+     "text": "WOKEN BY SMOOTHING"
+    },
+    {
+     "id": "lt-th-sleep-hb-03",
+     "text": "DREAMS OF ARMOR STANDS"
+    },
+    {
+     "id": "lt-th-sleep-hb-04",
+     "text": "NAPPED BY THE PIT"
+    },
+    {
+     "id": "lt-th-sleep-hb-05",
+     "text": "BED TAKEN BY A THRONE"
+    },
+    {
+     "id": "lt-th-sleep-hb-06",
+     "text": "WOKE UP THIRTY LEVELS DOWN"
+    },
+    {
+     "id": "lt-th-sleep-hb-07",
+     "text": "MIST ON THE PILLOW"
+    },
+    {
+     "id": "lt-th-sleep-hb-08",
+     "text": "INSOMNIA OVER 'SAFETY'"
+    }
+   ]
+  },
+  "prayer": {
+   "good": [
+    {
+     "id": "lt-th-prayer-g-01",
+     "text": "I prayed to {deity} for no more thrones. The order ended. I am now very devout."
+    },
+    {
+     "id": "lt-th-prayer-g-02",
+     "text": "The temple was a temple today, not a stockpile. {deity} and I had the place to ourselves."
+    },
+    {
+     "id": "lt-th-prayer-g-03",
+     "text": "Prayed to {deity} for a drink and someone handed me one. Faith confirmed."
+    },
+    {
+     "id": "lt-th-prayer-g-04",
+     "text": "I lit a candle for the fallen of the Safety burrow. {deity} listened. I am sure."
+    },
+    {
+     "id": "lt-th-prayer-g-05",
+     "text": "Knelt by the altar and felt peace. Then the windmills creaked. Peace with sound effects."
+    },
+    {
+     "id": "lt-th-prayer-g-06",
+     "text": "I asked {deity} to watch over the trees. Not the trees, the dwarves near them."
+    },
+    {
+     "id": "lt-th-prayer-g-07",
+     "text": "Prayed for the miners of {past_fort}. Felt lighter, like a dwarf without a work order.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-prayer-g-08",
+     "text": "{deity} sent a sign: a full barrel nobody had claimed. I claimed it, devoutly."
+    },
+    {
+     "id": "lt-th-prayer-g-09",
+     "text": "Spent a calm hour at the shrine. Nobody hauled bins through it. A holy day."
+    },
+    {
+     "id": "lt-th-prayer-g-10",
+     "text": "I thanked {deity} for the mist ring. It may have been a mechanic's work, but I hedged."
+    },
+    {
+     "id": "lt-th-prayer-g-11",
+     "text": "My prayers got better since the temple got smoothed. Acoustics matter."
+    },
+    {
+     "id": "lt-th-prayer-g-12",
+     "text": "Prayed before the goblins came. They did not come. {deity} is clearly on the job."
+    },
+    {
+     "id": "lt-th-prayer-g-13",
+     "text": "I asked {deity} for one rough gem for the next mood. I found one in a sock. A miracle."
+    },
+    {
+     "id": "lt-th-prayer-g-14",
+     "text": "Long prayer, short sermon, good ale after. That is religion in {fort}."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-prayer-b-01",
+     "text": "I went to pray and the temple was full of armor stands. {deity} is behind them somewhere."
+    },
+    {
+     "id": "lt-th-prayer-b-02",
+     "text": "Prayed for an end to smoothing. Got two more smoothing jobs. {deity} has a sense of humor."
+    },
+    {
+     "id": "lt-th-prayer-b-03",
+     "text": "I prayed to {deity} for a doctor. The chief medical dwarf post is still vacant."
+    },
+    {
+     "id": "lt-th-prayer-b-04",
+     "text": "No priest, no altar, no candle. I prayed into a bin. The bin did not answer."
+    },
+    {
+     "id": "lt-th-prayer-b-05",
+     "text": "The shrine is next to the garbage pit. Prayers rise. So does the smell."
+    },
+    {
+     "id": "lt-th-prayer-b-06",
+     "text": "Prayed for rough gems for my friend's mood. Every gem had been cut that morning."
+    },
+    {
+     "id": "lt-th-prayer-b-07",
+     "text": "I knelt to pray and knelt on a rock. One of the hundreds. {deity} must have placed it."
+    },
+    {
+     "id": "lt-th-prayer-b-08",
+     "text": "I prayed to {deity} during the Safety burrow evacuation. I am alive. Many are not. Mixed."
+    },
+    {
+     "id": "lt-th-prayer-b-09",
+     "text": "I have not been to temple in months. The Overseer keeps scheduling smoothing over it."
+    },
+    {
+     "id": "lt-th-prayer-b-10",
+     "text": "Prayed for drink beside a full barrel. Realised what I was doing. Drank. Felt foolish."
+    },
+    {
+     "id": "lt-th-prayer-b-11",
+     "text": "The altar is rough stone and on the smoothing list. Even the gods must wait."
+    },
+    {
+     "id": "lt-th-prayer-b-12",
+     "text": "I prayed for rain to stop. It did. Then I was sent to gather plants anyway."
+    },
+    {
+     "id": "lt-th-prayer-b-13",
+     "text": "{deity} has been quiet since the Great Rewind. Perhaps they lost a season too."
+    },
+    {
+     "id": "lt-th-prayer-b-14",
+     "text": "My prayer was interrupted by a hauler carrying refuse out of the pit. Through the temple."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-prayer-hg-01",
+     "text": "PRAYER ANSWERED: ALE"
+    },
+    {
+     "id": "lt-th-prayer-hg-02",
+     "text": "TEMPLE NOT A STOCKPILE"
+    },
+    {
+     "id": "lt-th-prayer-hg-03",
+     "text": "{deity} 'QUITE PLEASED'"
+    },
+    {
+     "id": "lt-th-prayer-hg-04",
+     "text": "KNEELS, FEELS GREAT"
+    },
+    {
+     "id": "lt-th-prayer-hg-05",
+     "text": "PRAYED FOR RAIN TO STOP"
+    },
+    {
+     "id": "lt-th-prayer-hg-06",
+     "text": "SHRINE FREE OF THRONES"
+    },
+    {
+     "id": "lt-th-prayer-hg-07",
+     "text": "BLESSED BEFORE THE SIEGE"
+    },
+    {
+     "id": "lt-th-prayer-hg-08",
+     "text": "SOUL SMOOTHED AT LAST"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-prayer-hb-01",
+     "text": "TEMPLE HOLDS ARMOR STANDS"
+    },
+    {
+     "id": "lt-th-prayer-hb-02",
+     "text": "PRAYED; GOT WORK ORDER"
+    },
+    {
+     "id": "lt-th-prayer-hb-03",
+     "text": "{deity} SEEMS 'BUSY'"
+    },
+    {
+     "id": "lt-th-prayer-hb-04",
+     "text": "NO PRIEST, NO PEACE"
+    },
+    {
+     "id": "lt-th-prayer-hb-05",
+     "text": "SHRINE BESIDE THE PIT"
+    },
+    {
+     "id": "lt-th-prayer-hb-06",
+     "text": "PRAYED FOR ROUGH GEMS"
+    },
+    {
+     "id": "lt-th-prayer-hb-07",
+     "text": "KNEELED ON A ROCK"
+    },
+    {
+     "id": "lt-th-prayer-hb-08",
+     "text": "ALTAR UNDER SMOOTHING"
+    }
+   ]
+  },
+  "talk": {
+   "good": [
+    {
+     "id": "lt-th-talk-g-01",
+     "text": "Had a lovely chat about the old forts. We agreed Quakefocus had the best thrones. All of them.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-talk-g-02",
+     "text": "Heard a rumor the Overseer cancelled the armor stand order. Even if false, it was nice to hear."
+    },
+    {
+     "id": "lt-th-talk-g-03",
+     "text": "Talked with a dwarf from {past_fort}. She told me how it {past_fort_fate}. We laughed. Then sighed.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-talk-g-04",
+     "text": "Somebody told me a joke about the Safety burrow. Too soon, but I laughed anyway."
+    },
+    {
+     "id": "lt-th-talk-g-05",
+     "text": "I argued about whether trees are evil and I won. They are."
+    },
+    {
+     "id": "lt-th-talk-g-06",
+     "text": "Long talk with the captain about the militia. He has big plans for the nine empty places."
+    },
+    {
+     "id": "lt-th-talk-g-07",
+     "text": "The liaison spoke for an hour and I understood one sentence. There is much to share."
+    },
+    {
+     "id": "lt-th-talk-g-08",
+     "text": "Heard news that our kin reclaimed an old fort from the goblins. Good for them."
+    },
+    {
+     "id": "lt-th-talk-g-09",
+     "text": "A {prof} told me their whole life story. It was mostly hauling. Strangely moving."
+    },
+    {
+     "id": "lt-th-talk-g-10",
+     "text": "We talked about the goblin armies until the ale ran low. Good times, bad goblins."
+    },
+    {
+     "id": "lt-th-talk-g-11",
+     "text": "Swapped tips on how not to die of thirst. Tip one: drink. Very well received."
+    },
+    {
+     "id": "lt-th-talk-g-12",
+     "text": "Had a long talk in the mist ring. Both of us got soaked. Worth it."
+    },
+    {
+     "id": "lt-th-talk-g-13",
+     "text": "Gossiped about who will become mayor next. Everyone said 'not me'. A lovely chorus."
+    },
+    {
+     "id": "lt-th-talk-g-14",
+     "text": "Caught up with an old friend. We did not mention the garbage pit once. Mature of us."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-talk-b-01",
+     "text": "The liaison cornered me. 'There is much to share', he said. For three hours."
+    },
+    {
+     "id": "lt-th-talk-b-02",
+     "text": "Someone talked about thrones all through dinner. I have made hundreds. I do not want to talk."
+    },
+    {
+     "id": "lt-th-talk-b-03",
+     "text": "Got a lecture on smoothing technique from a dwarf with a sixteen-thousand-job queue."
+    },
+    {
+     "id": "lt-th-talk-b-04",
+     "text": "Argued with a ghost from {past_fort}. It wanted the loom room. I had no answers.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-talk-b-05",
+     "text": "Overheard dwarves planning a trip to the Safety burrow. I said nothing. I should have."
+    },
+    {
+     "id": "lt-th-talk-b-06",
+     "text": "The mayor talked to me for an hour about production order violations. Mine, mostly."
+    },
+    {
+     "id": "lt-th-talk-b-07",
+     "text": "An elf at the depot talked about trees. The trees here kill people. I said so. Awkward."
+    },
+    {
+     "id": "lt-th-talk-b-08",
+     "text": "Heard gossip in the tavern. It was about me. It was accurate. That is worse."
+    },
+    {
+     "id": "lt-th-talk-b-09",
+     "text": "Somebody told me the Torments of Hating still live in Searabbeys. I did not need that.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-talk-b-10",
+     "text": "Tried to chat with the captain. He was off duty from conversations too."
+    },
+    {
+     "id": "lt-th-talk-b-11",
+     "text": "A dwarf would not stop talking about rough gems. Her mood is coming. I could tell."
+    },
+    {
+     "id": "lt-th-talk-b-12",
+     "text": "Talked about the thirst paradox at lunch and suddenly everyone got thirsty."
+    },
+    {
+     "id": "lt-th-talk-b-13",
+     "text": "A goblin rumor ruined my afternoon. {enemy} is busy, apparently.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lt-th-talk-b-14",
+     "text": "I tried to talk about my feelings. Somebody handed me a work order instead."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-talk-hg-01",
+     "text": "GOOD CHAT, NO THRONES"
+    },
+    {
+     "id": "lt-th-talk-hg-02",
+     "text": "SWAPPED OLD FORT TALES"
+    },
+    {
+     "id": "lt-th-talk-hg-03",
+     "text": "HEARD A FUNNY RUMOR"
+    },
+    {
+     "id": "lt-th-talk-hg-04",
+     "text": "LIAISON LET THEM SPEAK"
+    },
+    {
+     "id": "lt-th-talk-hg-05",
+     "text": "ARGUED AND WON"
+    },
+    {
+     "id": "lt-th-talk-hg-06",
+     "text": "GOSSIP 'TOP NOTCH'"
+    },
+    {
+     "id": "lt-th-talk-hg-07",
+     "text": "TALKED THE CAPTAIN AROUND"
+    },
+    {
+     "id": "lt-th-talk-hg-08",
+     "text": "LAUGHED UNTIL THIRSTY"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-talk-hb-01",
+     "text": "CORNERED BY THE LIAISON"
+    },
+    {
+     "id": "lt-th-talk-hb-02",
+     "text": "TALKED ABOUT THRONES"
+    },
+    {
+     "id": "lt-th-talk-hb-03",
+     "text": "LECTURED ON SMOOTHING"
+    },
+    {
+     "id": "lt-th-talk-hb-04",
+     "text": "ARGUED WITH A GHOST"
+    },
+    {
+     "id": "lt-th-talk-hb-05",
+     "text": "OVERHEARD 'SAFETY' TALK"
+    },
+    {
+     "id": "lt-th-talk-hb-06",
+     "text": "MAYOR TALKED PAPERWORK"
+    },
+    {
+     "id": "lt-th-talk-hb-07",
+     "text": "ELF CHAT ABOUT TREES"
+    },
+    {
+     "id": "lt-th-talk-hb-08",
+     "text": "GOSSIP WAS ABOUT THEM"
+    }
+   ]
+  },
+  "art": {
+   "good": [
+    {
+     "id": "lt-th-art-g-01",
+     "text": "Saw an engraving of a dwarf drinking beside a barrel. Finally, art with a happy ending."
+    },
+    {
+     "id": "lt-th-art-g-02",
+     "text": "The new statue is of a dwarf, not a throne. After all those thrones, that felt bold."
+    },
+    {
+     "id": "lt-th-art-g-03",
+     "text": "Admired the mace Claspedserpent in my dreams. Fine silver. Quakefocus got one thing right.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-art-g-04",
+     "text": "A masterwork engraving of the windmills went up in the hall. I stared at it for an hour."
+    },
+    {
+     "id": "lt-th-art-g-05",
+     "text": "The mural in the tavern shows the founding of {fort}. Nobody is thirsty in it. Lovely."
+    },
+    {
+     "id": "lt-th-art-g-06",
+     "text": "I saw a figurine of the militia captain. Off duty, of course. Very lifelike."
+    },
+    {
+     "id": "lt-th-art-g-07",
+     "text": "The engraving of the mist ring is so good I got wet looking at it."
+    },
+    {
+     "id": "lt-th-art-g-08",
+     "text": "Someone carved a perfect little mug. I tried to drink from it. No regrets."
+    },
+    {
+     "id": "lt-th-art-g-09",
+     "text": "There is an engraving of the 1,981 armor stands. It is huge. And somehow moving.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-art-g-10",
+     "text": "Our engraver made a picture of a happy goblin-free sky. Fantasy, but nice fantasy."
+    },
+    {
+     "id": "lt-th-art-g-11",
+     "text": "I saw a portrait of the liaison. It even looks like it has much to share."
+    },
+    {
+     "id": "lt-th-art-g-12",
+     "text": "A child made a cloth doll during her mood. The plant cloth was worth it."
+    },
+    {
+     "id": "lt-th-art-g-13",
+     "text": "The statue garden has a statue of a dwarf drinking water. Bold. Moving. Confusing."
+    },
+    {
+     "id": "lt-th-art-g-14",
+     "text": "Saw the art of a {prof}. Better than mine. I will not mention this to anyone."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-art-b-01",
+     "text": "The engraving in the hall shows the Quakefocus famine. Seventeen plants. Very detailed.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-art-b-02",
+     "text": "The only art in the fort is armor stands. I have stopped calling it art."
+    },
+    {
+     "id": "lt-th-art-b-03",
+     "text": "Someone engraved a tree on my wall. It has a miner in it. I asked for a refund."
+    },
+    {
+     "id": "lt-th-art-b-04",
+     "text": "The sculptor was sent to smoothing. My statue is now a half-done lump called 'Untitled'."
+    },
+    {
+     "id": "lt-th-art-b-05",
+     "text": "A dwarf in a mood demanded rough gems. All gems were cut. No artifact. Only silence."
+    },
+    {
+     "id": "lt-th-art-b-06",
+     "text": "My finest figurine was sold to the elves. They said there is much to share. They took it."
+    },
+    {
+     "id": "lt-th-art-b-07",
+     "text": "There is an engraving of the Safety burrow. It shows fifteen dwarves. Too soon."
+    },
+    {
+     "id": "lt-th-art-b-08",
+     "text": "The new statue blocks the path to the still. Beautiful art. Thirsty art."
+    },
+    {
+     "id": "lt-th-art-b-09",
+     "text": "Somebody engraved the garbage pit. The pit is now in two places. Too many pits."
+    },
+    {
+     "id": "lt-th-art-b-10",
+     "text": "I wanted to make art, but the Overseer wanted another throne. The throne won."
+    },
+    {
+     "id": "lt-th-art-b-11",
+     "text": "Our finest artifact is still in {past_fort}, which {past_fort_fate}. Art, held hostage.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-art-b-12",
+     "text": "The engraving of the forgotten beast is too accurate. People take the long way now."
+    },
+    {
+     "id": "lt-th-art-b-13",
+     "text": "Saw an ugly mug. I made it. I am my own harshest critic, and also correct."
+    },
+    {
+     "id": "lt-th-art-b-14",
+     "text": "A masterwork bracelet went into a bin with loose stones. Art, buried alive."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-art-hg-01",
+     "text": "ENGRAVING OF A FULL MUG"
+    },
+    {
+     "id": "lt-th-art-hg-02",
+     "text": "STATUE NOT A THRONE"
+    },
+    {
+     "id": "lt-th-art-hg-03",
+     "text": "MASTERWORK ON THE WALL"
+    },
+    {
+     "id": "lt-th-art-hg-04",
+     "text": "MOVED BY A NICE FIGURINE"
+    },
+    {
+     "id": "lt-th-art-hg-05",
+     "text": "ART ABOUT WINDMILLS"
+    },
+    {
+     "id": "lt-th-art-hg-06",
+     "text": "ADMIRES CLASPEDSERPENT"
+    },
+    {
+     "id": "lt-th-art-hg-07",
+     "text": "MURAL HIDES ROUGH STONE"
+    },
+    {
+     "id": "lt-th-art-hg-08",
+     "text": "SAW ART, NOT ARMOR"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-art-hb-01",
+     "text": "ENGRAVING OF THE FAMINE"
+    },
+    {
+     "id": "lt-th-art-hb-02",
+     "text": "ART IS ALL ARMOR STANDS"
+    },
+    {
+     "id": "lt-th-art-hb-03",
+     "text": "STATUE OF A TREE: CHILLS"
+    },
+    {
+     "id": "lt-th-art-hb-04",
+     "text": "SCULPTOR ON SMOOTHING"
+    },
+    {
+     "id": "lt-th-art-hb-05",
+     "text": "MUG ENGRAVED 'TOO SAD'"
+    },
+    {
+     "id": "lt-th-art-hb-06",
+     "text": "MOOD WANTS ROUGH GEMS"
+    },
+    {
+     "id": "lt-th-art-hb-07",
+     "text": "ARTWORK SOLD TO ELVES"
+    },
+    {
+     "id": "lt-th-art-hb-08",
+     "text": "STATUE BLOCKS STILL"
+    }
+   ]
+  },
+  "combat": {
+   "good": [
+    {
+     "id": "lt-th-combat-g-01",
+     "text": "The captain fought off a goblin all by himself. A militia of one, and that one is enough."
+    },
+    {
+     "id": "lt-th-combat-g-02",
+     "text": "I hit a goblin with a mug. The mug survived. So did I. The goblin less so."
+    },
+    {
+     "id": "lt-th-combat-g-03",
+     "text": "Sparred with the captain and kept all my teeth. He says I have promise. Also, he is lonely."
+    },
+    {
+     "id": "lt-th-combat-g-04",
+     "text": "We used one of the armor stands for actual armor. A historic day for the stockpile."
+    },
+    {
+     "id": "lt-th-combat-g-05",
+     "text": "The forgotten beast was killed before it found the stairs. Safest the burrow has ever been."
+    },
+    {
+     "id": "lt-th-combat-g-06",
+     "text": "I joined the squad. The squad is now two. Our enemies should be worried. Slightly."
+    },
+    {
+     "id": "lt-th-combat-g-07",
+     "text": "Dodged a spear, then went for a drink. Combat is mostly knowing when to leave."
+    },
+    {
+     "id": "lt-th-combat-g-08",
+     "text": "The siege ended and nobody I know got hurt. I cheered from the tavern."
+    },
+    {
+     "id": "lt-th-combat-g-09",
+     "text": "Trained all morning. I now know which end of the axe is the friendly end."
+    },
+    {
+     "id": "lt-th-combat-g-10",
+     "text": "Watched the captain fight from the parapet. Windmills turning behind him. Like a painting."
+    },
+    {
+     "id": "lt-th-combat-g-11",
+     "text": "A goblin scout ran off when he saw us. Probably the mist ring. It is very intimidating."
+    },
+    {
+     "id": "lt-th-combat-g-12",
+     "text": "I won a wrestling match against a kobold thief. He took nothing. I took his dignity."
+    },
+    {
+     "id": "lt-th-combat-g-13",
+     "text": "Took the war of {civ} against {enemy} very personally today and hit a practice dummy hard.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lt-th-combat-g-14",
+     "text": "The {enemy_race}s of {enemy} came, saw the walls, and went home. Walls are underrated.",
+     "when": [
+      "at_war"
+     ]
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-combat-b-01",
+     "text": "The goblins attacked and the squad was 'Off duty'. The squad is always off duty."
+    },
+    {
+     "id": "lt-th-combat-b-02",
+     "text": "Our militia is one captain and nine empty spots. I counted the spots. They did not fight."
+    },
+    {
+     "id": "lt-th-combat-b-03",
+     "text": "We have two thousand armor stands and no armor. Somebody explain the plan."
+    },
+    {
+     "id": "lt-th-combat-b-04",
+     "text": "I fought a goblin with a mug because the weapons were all in a bin at the far map edge."
+    },
+    {
+     "id": "lt-th-combat-b-05",
+     "text": "Was drafted in the middle of my sandwich. The sandwich did not survive the war."
+    },
+    {
+     "id": "lt-th-combat-b-06",
+     "text": "The forgotten beast came up the stairs. The stairs were the plan. That was the whole plan."
+    },
+    {
+     "id": "lt-th-combat-b-07",
+     "text": "Ambushed while gathering plants among the trees. The trees helped the ambush. I know it."
+    },
+    {
+     "id": "lt-th-combat-b-08",
+     "text": "Sparred with a training partner who turned out to be a door. I lost."
+    },
+    {
+     "id": "lt-th-combat-b-09",
+     "text": "The captain stood alone at the gate. I watched from behind him. Very far behind him."
+    },
+    {
+     "id": "lt-th-combat-b-10",
+     "text": "Told to hide in the Safety burrow during the siege. I hid in the tavern. I am alive."
+    },
+    {
+     "id": "lt-th-combat-b-11",
+     "text": "The {enemy_race}s of {enemy} burned our surface windmill. The mist ring has stopped. War is cruel.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lt-th-combat-b-12",
+     "text": "{enemy} is at war with {civ} and nobody told the militia. Or the militia knew and napped.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lt-th-combat-b-13",
+     "text": "I lost a fight to a turkey. It was a large turkey. Please do not print the size."
+    },
+    {
+     "id": "lt-th-combat-b-14",
+     "text": "I trained for a whole season and then the Overseer made me a hauler. My axe hauls now."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-combat-hg-01",
+     "text": "CAPTAIN FIGHTS; WINS"
+    },
+    {
+     "id": "lt-th-combat-hg-02",
+     "text": "GOBLIN BONKED, MUG SAVED"
+    },
+    {
+     "id": "lt-th-combat-hg-03",
+     "text": "SPARRED, KEPT ALL TEETH"
+    },
+    {
+     "id": "lt-th-combat-hg-04",
+     "text": "BEAST SLAIN UPSTAIRS"
+    },
+    {
+     "id": "lt-th-combat-hg-05",
+     "text": "MILITIA DOUBLES TO TWO"
+    },
+    {
+     "id": "lt-th-combat-hg-06",
+     "text": "DODGED, THEN DRANK"
+    },
+    {
+     "id": "lt-th-combat-hg-07",
+     "text": "ARMOR STAND FINALLY USED"
+    },
+    {
+     "id": "lt-th-combat-hg-08",
+     "text": "SIEGE 'MOSTLY POLITE'"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-combat-hb-01",
+     "text": "MILITIA OF ONE, AGAIN"
+    },
+    {
+     "id": "lt-th-combat-hb-02",
+     "text": "SQUAD 'OFF DUTY' IN SIEGE"
+    },
+    {
+     "id": "lt-th-combat-hb-03",
+     "text": "FOUGHT A GOBLIN WITH A MUG"
+    },
+    {
+     "id": "lt-th-combat-hb-04",
+     "text": "BEAST TAKES THE STAIRS"
+    },
+    {
+     "id": "lt-th-combat-hb-05",
+     "text": "NO ARMOR; 2,000 STANDS"
+    },
+    {
+     "id": "lt-th-combat-hb-06",
+     "text": "DRAFTED MID-SANDWICH"
+    },
+    {
+     "id": "lt-th-combat-hb-07",
+     "text": "AMBUSH AT THE TREES"
+    },
+    {
+     "id": "lt-th-combat-hb-08",
+     "text": "SPARRED WITH A DOOR"
+    }
+   ]
+  },
+  "ghost": {
+   "good": [
+    {
+     "id": "lt-th-ghost-g-01",
+     "text": "The thirsty ghost finally got a memorial slab. It went quiet. I think it found a drink."
+    },
+    {
+     "id": "lt-th-ghost-g-02",
+     "text": "A ghost walked past me and said nothing. Polite ghost. Better than some neighbours."
+    },
+    {
+     "id": "lt-th-ghost-g-03",
+     "text": "We engraved a slab for the miner who died in the tree. He has stopped knocking on branches."
+    },
+    {
+     "id": "lt-th-ghost-g-04",
+     "text": "The ghost in the dining hall waved at me. I waved back. We are on waving terms."
+    },
+    {
+     "id": "lt-th-ghost-g-05",
+     "text": "No haunting this week. Even the ghosts seem to have gone off duty."
+    },
+    {
+     "id": "lt-th-ghost-g-06",
+     "text": "The ghost helped me find a barrel. It knows where all the barrels are. It learned too late."
+    },
+    {
+     "id": "lt-th-ghost-g-07",
+     "text": "A ghost from {past_fort} came by and said it is proud of us. Then it rattled a chain.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-ghost-g-08",
+     "text": "The ghost of a hauler kept hauling. Honestly, he got more done than the living."
+    },
+    {
+     "id": "lt-th-ghost-g-09",
+     "text": "I put a mug on the grave. In the morning it was empty. I am choosing to be happy about this."
+    },
+    {
+     "id": "lt-th-ghost-g-10",
+     "text": "A ghost told me the Safety burrow is a trap. Most useful ghost so far."
+    },
+    {
+     "id": "lt-th-ghost-g-11",
+     "text": "The catacombs are calm. The dead are at rest. The slabs are lovely. Good management."
+    },
+    {
+     "id": "lt-th-ghost-g-12",
+     "text": "Saw a ghost with a full beard and a fine helmet. Very stylish. Afterlife goals."
+    },
+    {
+     "id": "lt-th-ghost-g-13",
+     "text": "The ghost said to tell everyone: drink BEFORE you get thirsty. I am passing it on."
+    },
+    {
+     "id": "lt-th-ghost-g-14",
+     "text": "Our new memorial hall has room for everyone. Grim, but well planned. I approve."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-ghost-b-01",
+     "text": "A ghost stood by the barrel all night asking why it died of thirst. Nobody had an answer."
+    },
+    {
+     "id": "lt-th-ghost-b-02",
+     "text": "The ghost of a hauler keeps throwing refuse back into the pit. Or out of it. Hard to say."
+    },
+    {
+     "id": "lt-th-ghost-b-03",
+     "text": "A ghost asked me for a rough gem. All the gems are cut. Even the dead are stuck in moods."
+    },
+    {
+     "id": "lt-th-ghost-b-04",
+     "text": "There is a ghost in the Safety burrow. It wants to warn us. Nobody goes down there to listen."
+    },
+    {
+     "id": "lt-th-ghost-b-05",
+     "text": "The ghost of the tree miner is still in the tree. The tree seems smug about it."
+    },
+    {
+     "id": "lt-th-ghost-b-06",
+     "text": "A ghost knocked over a stack of armor stands. There were a thousand. It took all night."
+    },
+    {
+     "id": "lt-th-ghost-b-07",
+     "text": "The ghost of the old mayor still files violation charges. They still go through."
+    },
+    {
+     "id": "lt-th-ghost-b-08",
+     "text": "Saw a ghost from {past_fort}. It said the place {past_fort_fate}. Then it looked at me. Long look.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-ghost-b-09",
+     "text": "A ghost woke me to complain about the smoothing. Even the dead are in the queue."
+    },
+    {
+     "id": "lt-th-ghost-b-10",
+     "text": "Our dead have no slabs because the mason is on throne duty. They have noticed."
+    },
+    {
+     "id": "lt-th-ghost-b-11",
+     "text": "The ghost in the tavern drinks nothing and stares at the mugs. It spoils the mood."
+    },
+    {
+     "id": "lt-th-ghost-b-12",
+     "text": "A ghost followed me to the well. Then to the barrel. It does not trust me with water."
+    },
+    {
+     "id": "lt-th-ghost-b-13",
+     "text": "The ghost of a weaver keeps asking if the loom room is ready. It is not."
+    },
+    {
+     "id": "lt-th-ghost-b-14",
+     "text": "I was haunted all week by somebody I never met. Very rude of them."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-ghost-hg-01",
+     "text": "GHOST FINALLY RESTS"
+    },
+    {
+     "id": "lt-th-ghost-hg-02",
+     "text": "SLAB ENGRAVED; HAUNTING ENDS"
+    },
+    {
+     "id": "lt-th-ghost-hg-03",
+     "text": "GHOST WAS 'QUITE POLITE'"
+    },
+    {
+     "id": "lt-th-ghost-hg-04",
+     "text": "GHOST HAD A DRINK"
+    },
+    {
+     "id": "lt-th-ghost-hg-05",
+     "text": "UNHAUNTED, AT LAST"
+    },
+    {
+     "id": "lt-th-ghost-hg-06",
+     "text": "OLD FORT GHOST SAYS HI"
+    },
+    {
+     "id": "lt-th-ghost-hg-07",
+     "text": "GHOST JOINS MILITIA"
+    },
+    {
+     "id": "lt-th-ghost-hg-08",
+     "text": "SPOOKED, BUT IN A FUN WAY"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-ghost-hb-01",
+     "text": "GHOST WANTS A DRINK"
+    },
+    {
+     "id": "lt-th-ghost-hb-02",
+     "text": "HAUNTED BY ARMOR STANDS"
+    },
+    {
+     "id": "lt-th-ghost-hb-03",
+     "text": "GHOST ASKS FOR ROUGH GEMS"
+    },
+    {
+     "id": "lt-th-ghost-hb-04",
+     "text": "THIRSTY GHOST AT BARREL"
+    },
+    {
+     "id": "lt-th-ghost-hb-05",
+     "text": "GHOST STILL IN 'SAFETY'"
+    },
+    {
+     "id": "lt-th-ghost-hb-06",
+     "text": "GHOST FROM THE TREE"
+    },
+    {
+     "id": "lt-th-ghost-hb-07",
+     "text": "GHOST FILES COMPLAINT"
+    },
+    {
+     "id": "lt-th-ghost-hb-08",
+     "text": "SPECTER OF {past_fort}",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ]
+  },
+  "animals": {
+   "good": [
+    {
+     "id": "lt-th-animals-g-01",
+     "text": "A cat sat on my lap all evening. I did not move. I would not have moved for a siege."
+    },
+    {
+     "id": "lt-th-animals-g-02",
+     "text": "Our dog brought me a mug. Empty, but it is the thought that counts."
+    },
+    {
+     "id": "lt-th-animals-g-03",
+     "text": "The herd is in the big indoor pasture now. Nobody is wandering into trees. Including me."
+    },
+    {
+     "id": "lt-th-animals-g-04",
+     "text": "I petted a yak today. It looked at me like I was worth something."
+    },
+    {
+     "id": "lt-th-animals-g-05",
+     "text": "A goat ignored me. Not rudely. Kindly. As if to say: 'You have enough going on'."
+    },
+    {
+     "id": "lt-th-animals-g-06",
+     "text": "The new pasture has walls. The animals stay put. I wish the plant gatherers did."
+    },
+    {
+     "id": "lt-th-animals-g-07",
+     "text": "Our fisherdwarf caught three fish and no mood. A lucky day for everyone."
+    },
+    {
+     "id": "lt-th-animals-g-08",
+     "text": "A bird landed on the windmill and just sat there. Nice view. Smart bird."
+    },
+    {
+     "id": "lt-th-animals-g-09",
+     "text": "The dogs met the elves at the depot and barked. Good dogs. Very good dogs."
+    },
+    {
+     "id": "lt-th-animals-g-10",
+     "text": "A kitten followed me to work. I worked twice as slowly and three times as happily."
+    },
+    {
+     "id": "lt-th-animals-g-11",
+     "text": "The war dog wears a little helmet now. He is the second-best soldier we have."
+    },
+    {
+     "id": "lt-th-animals-g-12",
+     "text": "Watched the sheep get sheared. Wool for the cloth shortage! The child's mood is saved."
+    },
+    {
+     "id": "lt-th-animals-g-13",
+     "text": "There are so many dogs here we could make a second militia. A better one."
+    },
+    {
+     "id": "lt-th-animals-g-14",
+     "text": "I named the new calf after the captain. Both are brave and mostly stand around."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-animals-b-01",
+     "text": "A dog ate my meal. Then my second meal. Then looked at me as if I owed him a third."
+    },
+    {
+     "id": "lt-th-animals-b-02",
+     "text": "Found a cat asleep in the ale barrel. I drank from another one. Mostly."
+    },
+    {
+     "id": "lt-th-animals-b-03",
+     "text": "A llama spat at me while I was being virtuous. Unprovoked."
+    },
+    {
+     "id": "lt-th-animals-b-04",
+     "text": "A goat got into the tavern and drank better than I did this week."
+    },
+    {
+     "id": "lt-th-animals-b-05",
+     "text": "The herd wandered into the trees and we had to fetch them. Through the trees. In the rain."
+    },
+    {
+     "id": "lt-th-animals-b-06",
+     "text": "We have more dogs than beds. Some of the beds are dogs now."
+    },
+    {
+     "id": "lt-th-animals-b-07",
+     "text": "Ducks ate the plump helmet crop. The ducks look very pleased. We have seventeen plants left.",
+     "world": "The Enchanted Planes"
+    },
+    {
+     "id": "lt-th-animals-b-08",
+     "text": "A carp bit the fisher. The fisher bit back. Neither will talk about it."
+    },
+    {
+     "id": "lt-th-animals-b-09",
+     "text": "The cats have claimed the dining hall. I eat in the hallway now, under orders from a cat."
+    },
+    {
+     "id": "lt-th-animals-b-10",
+     "text": "The animals are kept by the garbage pit. The animals have complained. So have I."
+    },
+    {
+     "id": "lt-th-animals-b-11",
+     "text": "Somebody tamed a cave crocodile and put it next to the well. Nobody gets water now."
+    },
+    {
+     "id": "lt-th-animals-b-12",
+     "text": "The mules carried my bin to the depot and I had to carry the mules back. Long story."
+    },
+    {
+     "id": "lt-th-animals-b-13",
+     "text": "An elf at the depot told me my pig looks sad. My pig was fine until the elf."
+    },
+    {
+     "id": "lt-th-animals-b-14",
+     "text": "A turkey chased me across the pasture. I have told nobody. Do not print this."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-animals-hg-01",
+     "text": "CAT SITS ON LAP, STAYS"
+    },
+    {
+     "id": "lt-th-animals-hg-02",
+     "text": "DOG FETCHES A MUG"
+    },
+    {
+     "id": "lt-th-animals-hg-03",
+     "text": "PASTURE INDOORS, NICE"
+    },
+    {
+     "id": "lt-th-animals-hg-04",
+     "text": "PETTED A YAK; WHOLESOME"
+    },
+    {
+     "id": "lt-th-animals-hg-05",
+     "text": "GOAT IGNORES THEM, KINDLY"
+    },
+    {
+     "id": "lt-th-animals-hg-06",
+     "text": "HERD SAFE BEHIND WALLS"
+    },
+    {
+     "id": "lt-th-animals-hg-07",
+     "text": "FISH CAUGHT; FISHER CALM"
+    },
+    {
+     "id": "lt-th-animals-hg-08",
+     "text": "BIRD DOES NOT GLOAT"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-animals-hb-01",
+     "text": "DOG ATE THE MEAL"
+    },
+    {
+     "id": "lt-th-animals-hb-02",
+     "text": "CAT IN THE BARREL"
+    },
+    {
+     "id": "lt-th-animals-hb-03",
+     "text": "LLAMA SPITS AT VIRTUE"
+    },
+    {
+     "id": "lt-th-animals-hb-04",
+     "text": "GOAT IN THE TAVERN"
+    },
+    {
+     "id": "lt-th-animals-hb-05",
+     "text": "HERD WANDERS INTO TREES"
+    },
+    {
+     "id": "lt-th-animals-hb-06",
+     "text": "THIRTEEN DOGS, NO BEDS"
+    },
+    {
+     "id": "lt-th-animals-hb-07",
+     "text": "DUCKS RAID THE FARM"
+    },
+    {
+     "id": "lt-th-animals-hb-08",
+     "text": "CARP BITES FISHER"
+    }
+   ]
+  },
+  "trade": {
+   "good": [
+    {
+     "id": "lt-th-trade-g-01",
+     "text": "The caravan brought empty barrels. Empty barrels! The brewer cried. I cried."
+    },
+    {
+     "id": "lt-th-trade-g-02",
+     "text": "I sold an armor stand to a trader. One down. Several thousand to go."
+    },
+    {
+     "id": "lt-th-trade-g-03",
+     "text": "The liaison said something other than 'There is much to share'. I missed what it was."
+    },
+    {
+     "id": "lt-th-trade-g-04",
+     "text": "Got a bargain at the depot: two cloth bolts for one throne. We have plenty of thrones."
+    },
+    {
+     "id": "lt-th-trade-g-05",
+     "text": "The merchants loved our mugs. Our mugs are very good. I make our mugs."
+    },
+    {
+     "id": "lt-th-trade-g-06",
+     "text": "The depot was clear of junk today. The wagon got in. Trade happened. Wonderful."
+    },
+    {
+     "id": "lt-th-trade-g-07",
+     "text": "We sold a stack of thrones at a profit. The Overseer was right all along, maybe."
+    },
+    {
+     "id": "lt-th-trade-g-08",
+     "text": "The elves finally left. Trade went fine. Mostly the leaving part."
+    },
+    {
+     "id": "lt-th-trade-g-09",
+     "text": "The caravan brought meat. Real meat. I bought some and hugged the yak driver."
+    },
+    {
+     "id": "lt-th-trade-g-10",
+     "text": "Traded smoothed stone blocks for ale. We trade stone for ale. Perfect economy."
+    },
+    {
+     "id": "lt-th-trade-g-11",
+     "text": "A merchant asked for a cut gem and I said no. Some mood will need it. I am learning."
+    },
+    {
+     "id": "lt-th-trade-g-12",
+     "text": "The broker called my work 'remarkable'. He then bought it for very little. Still remarkable."
+    },
+    {
+     "id": "lt-th-trade-g-13",
+     "text": "News from the caravan: {civ} is doing well. Good. Somebody should be."
+    },
+    {
+     "id": "lt-th-trade-g-14",
+     "text": "The liaison from {civ} came, sat, drank and left. Smoothest visit yet."
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-trade-b-01",
+     "text": "The liaison wants rings. Lots of rings. At a big markup. We have armor stands."
+    },
+    {
+     "id": "lt-th-trade-b-02",
+     "text": "We sold the last rough gem to the merchants. A mood started the next morning. Of course."
+    },
+    {
+     "id": "lt-th-trade-b-03",
+     "text": "The caravan came with no meat and no barrels. Just cloth and opinions."
+    },
+    {
+     "id": "lt-th-trade-b-04",
+     "text": "An elf refused my wooden mug because a tree died for it. Several of ours died because of trees."
+    },
+    {
+     "id": "lt-th-trade-b-05",
+     "text": "The wagon could not reach the depot. The road is lined with thrones."
+    },
+    {
+     "id": "lt-th-trade-b-06",
+     "text": "We traded away our barrels for beads. Now we are thirsty and glittering."
+    },
+    {
+     "id": "lt-th-trade-b-07",
+     "text": "I was paid in armor stands. I already have armor stands. Everyone does."
+    },
+    {
+     "id": "lt-th-trade-b-08",
+     "text": "The merchant was charged with a production order violation by the mayor. Trade ended early."
+    },
+    {
+     "id": "lt-th-trade-b-09",
+     "text": "{liaison} came and said there is much to share. Then asked what we could give."
+    },
+    {
+     "id": "lt-th-trade-b-10",
+     "text": "The trader had heard about the thirst paradox. He sold us water at a premium."
+    },
+    {
+     "id": "lt-th-trade-b-11",
+     "text": "We offered the merchants thrones. They said they heard we had a lot. They were laughing."
+    },
+    {
+     "id": "lt-th-trade-b-12",
+     "text": "Spent all day hauling goods to the depot. Spent all evening hauling them back."
+    },
+    {
+     "id": "lt-th-trade-b-13",
+     "text": "The caravan brought news that {enemy} is on the march. I would have preferred cheese.",
+     "when": [
+      "at_war"
+     ]
+    },
+    {
+     "id": "lt-th-trade-b-14",
+     "text": "Nobody told me the caravan came. I missed the only cheese seller of the year."
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-trade-hg-01",
+     "text": "CARAVAN BRINGS BARRELS!"
+    },
+    {
+     "id": "lt-th-trade-hg-02",
+     "text": "SOLD AN ARMOR STAND"
+    },
+    {
+     "id": "lt-th-trade-hg-03",
+     "text": "LIAISON SAYS SOMETHING NEW"
+    },
+    {
+     "id": "lt-th-trade-hg-04",
+     "text": "GOT A BARGAIN, BRAGS"
+    },
+    {
+     "id": "lt-th-trade-hg-05",
+     "text": "DEPOT NOT A STOCKPILE"
+    },
+    {
+     "id": "lt-th-trade-hg-06",
+     "text": "TRADER LIKES OUR MUGS"
+    },
+    {
+     "id": "lt-th-trade-hg-07",
+     "text": "THRONES SOLD AT A PROFIT"
+    },
+    {
+     "id": "lt-th-trade-hg-08",
+     "text": "ELVES LEAVE, CHEERS"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-trade-hb-01",
+     "text": "LIAISON WANTS RINGS, AGAIN"
+    },
+    {
+     "id": "lt-th-trade-hb-02",
+     "text": "SOLD THE LAST ROUGH GEM"
+    },
+    {
+     "id": "lt-th-trade-hb-03",
+     "text": "CARAVAN HAS NO MEAT"
+    },
+    {
+     "id": "lt-th-trade-hb-04",
+     "text": "ELF REFUSES WOODEN MUG"
+    },
+    {
+     "id": "lt-th-trade-hb-05",
+     "text": "DEPOT BLOCKED BY THRONES"
+    },
+    {
+     "id": "lt-th-trade-hb-06",
+     "text": "TRADED BARRELS, NOW THIRSTY"
+    },
+    {
+     "id": "lt-th-trade-hb-07",
+     "text": "PAID IN ARMOR STANDS"
+    },
+    {
+     "id": "lt-th-trade-hb-08",
+     "text": "MERCHANT CHARGED A FINE"
+    }
+   ]
+  },
+  "other": {
+   "good": [
+    {
+     "id": "lt-th-other-g-01",
+     "text": "{about} has me feeling {adj}. Write it down before the Overseer queues something."
+    },
+    {
+     "id": "lt-th-other-g-02",
+     "text": "I am {adj} about {about}. In this fort, you grab a good feeling and hold it tight."
+    },
+    {
+     "id": "lt-th-other-g-03",
+     "text": "Honestly? {about} left me {adj}. Better than the last fort, I will say that."
+    },
+    {
+     "id": "lt-th-other-g-04",
+     "text": "If you had told me {about} would make me {adj}, I would have laughed. And I did, today."
+    },
+    {
+     "id": "lt-th-other-g-05",
+     "text": "Life is good. Nobody is thirsty, no trees are near me and the windmills are turning."
+    },
+    {
+     "id": "lt-th-other-g-06",
+     "text": "I am feeling fine. Not great, not thirsty, fine. That is high praise here."
+    },
+    {
+     "id": "lt-th-other-g-07",
+     "text": "Today went well. I suspect a mistake somewhere, but I will not look for it."
+    },
+    {
+     "id": "lt-th-other-g-08",
+     "text": "I woke up, I worked, I drank, I ate. Nothing fell on me. Excellent."
+    },
+    {
+     "id": "lt-th-other-g-09",
+     "text": "Whatever it was, it was good. I do not need details. I need a mug to celebrate."
+    },
+    {
+     "id": "lt-th-other-g-10",
+     "text": "I am happy. The Overseer does not know yet. Do not tell it, it may queue something."
+    },
+    {
+     "id": "lt-th-other-g-11",
+     "text": "I have decided this is a good day, and I will hear no arguments."
+    },
+    {
+     "id": "lt-th-other-g-12",
+     "text": "I am feeling {adj}, and {about} is to blame. Thank you, {about}."
+    },
+    {
+     "id": "lt-th-other-g-13",
+     "text": "Things in {fort} are going well. Do not print that too loudly."
+    },
+    {
+     "id": "lt-th-other-g-14",
+     "text": "We are doing better than {past_fort}, which {past_fort_fate}. Low bar, cleared nicely.",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ],
+   "bad": [
+    {
+     "id": "lt-th-other-b-01",
+     "text": "{about}. Just thinking about it makes me {adj}. Put that in the paper."
+    },
+    {
+     "id": "lt-th-other-b-02",
+     "text": "I am {adj} about {about}, and also about everything else, to be fair."
+    },
+    {
+     "id": "lt-th-other-b-03",
+     "text": "{about} left me {adj}. Last time I felt like this, we were making thrones."
+    },
+    {
+     "id": "lt-th-other-b-04",
+     "text": "It is complicated. It involves {about}. I am {adj}. Do not ask follow-ups."
+    },
+    {
+     "id": "lt-th-other-b-05",
+     "text": "I blame the Overseer. I do not know for what. The Overseer will know."
+    },
+    {
+     "id": "lt-th-other-b-06",
+     "text": "I sat in the mist ring and sulked. Wet sulking is still sulking."
+    },
+    {
+     "id": "lt-th-other-b-07",
+     "text": "I feel like a throne in a stockpile. Built for greatness. Stored forever."
+    },
+    {
+     "id": "lt-th-other-b-08",
+     "text": "This is {fort}. Things happen. Usually to me."
+    },
+    {
+     "id": "lt-th-other-b-09",
+     "text": "It has been one of those days. You know. Thirst, trees, orders, rain."
+    },
+    {
+     "id": "lt-th-other-b-10",
+     "text": "All the gems are cut, all the barrels are full, and I am still unhappy. Explain that."
+    },
+    {
+     "id": "lt-th-other-b-11",
+     "text": "I am sad and I do not know why. My guess is the armor stands. It is usually the armor stands."
+    },
+    {
+     "id": "lt-th-other-b-12",
+     "text": "I would complain to the mayor, but the mayor's office is vacant. So is my patience."
+    },
+    {
+     "id": "lt-th-other-b-13",
+     "text": "I hoped {fort} would be better than {past_fort}. That one {past_fort_fate}. We are trying.",
+     "when": [
+      "has_past_fort"
+     ]
+    },
+    {
+     "id": "lt-th-other-b-14",
+     "text": "I keep thinking about the {record} at {record_fort}. We must not repeat it. We will.",
+     "when": [
+      "has_past_fort"
+     ]
+    }
+   ],
+   "heads_good": [
+    {
+     "id": "lt-th-other-hg-01",
+     "text": "FEELINGS: 'PRINTABLE'"
+    },
+    {
+     "id": "lt-th-other-hg-02",
+     "text": "HAS FEELINGS, SHARES THEM"
+    },
+    {
+     "id": "lt-th-other-hg-03",
+     "text": "OVERALL 'FINE', THANKS"
+    },
+    {
+     "id": "lt-th-other-hg-04",
+     "text": "MOOD: SURPRISINGLY GOOD"
+    },
+    {
+     "id": "lt-th-other-hg-05",
+     "text": "NOT IN A TREE; HAPPY"
+    },
+    {
+     "id": "lt-th-other-hg-06",
+     "text": "LIFE GOING 'WELL ENOUGH'"
+    },
+    {
+     "id": "lt-th-other-hg-07",
+     "text": "DECLARES IT A GOOD DAY"
+    },
+    {
+     "id": "lt-th-other-hg-08",
+     "text": "REFUSES TO COMPLAIN"
+    }
+   ],
+   "heads_bad": [
+    {
+     "id": "lt-th-other-hb-01",
+     "text": "FEELINGS: 'UNPRINTABLE'"
+    },
+    {
+     "id": "lt-th-other-hb-02",
+     "text": "IT IS COMPLICATED"
+    },
+    {
+     "id": "lt-th-other-hb-03",
+     "text": "BLAMES THE OVERSEER"
+    },
+    {
+     "id": "lt-th-other-hb-04",
+     "text": "SULKS IN THE MIST RING"
+    },
+    {
+     "id": "lt-th-other-hb-05",
+     "text": "FEELS LIKE A THRONE"
+    },
+    {
+     "id": "lt-th-other-hb-06",
+     "text": "THIS IS {fort}, SIGHS"
+    },
+    {
+     "id": "lt-th-other-hb-07",
+     "text": "ONE OF THOSE DAYS"
+    },
+    {
+     "id": "lt-th-other-hb-08",
+     "text": "ALL THE GEMS ARE CUT"
+    }
+   ]
+  }
+ }
+}
