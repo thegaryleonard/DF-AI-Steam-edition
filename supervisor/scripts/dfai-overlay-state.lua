@@ -134,7 +134,7 @@ if out.ok then
   -- the room tour (dfai-room-tour) has the camera: show the room on the card
   local tour = rawget(_G, 'dfai_tour')
   if tour and tour.current then
-    out.tour = { name = tour.current.name, kind = tour.current.kind }
+    out.tour = { name = tour.current.name, kind = tour.current.kind, detail = tour.current.detail }
   end
   -- the unit the spectator camera is actually following (any creature), for the on-camera card
   local cam = df.unit.find(df.global.plotinfo.follow_unit)

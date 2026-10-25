@@ -40,14 +40,64 @@ local LOC_KIND = {
     [df.abstract_building_type.HOSPITAL] = 'Hospital',
 }
 
+local function tr(name, eng) return dfhack.df2utf(dfhack.translation.translateName(name, eng)) end
+
+local function deity_line(hf)
+    local sp = {}
+    if hf.info and hf.info.metaphysical then
+        for _, s in ipairs(hf.info.metaphysical.spheres) do sp[#sp + 1] = df.sphere_type[s]:lower():gsub('_', ' ') end
+    end
+    local god = tr(hf.name, false)
+    if #sp > 0 then local n = math.min(#sp, 3)
+        local list = n == 1 and sp[1] or (table.concat(sp, ', ', 1, n - 1) .. ' and ' .. sp[n])
+        return god, 'god of ' .. list end
+    return god, 'a god'
+end
+
+-- who a temple or guildhall belongs to: (long text for the broadsheet, short for the banner)
+function loc_detail(loc)
+    local t = loc:getType()
+    if t == df.abstract_building_type.TEMPLE then
+        if loc.deity_type == 0 then
+            local hf = df.historical_figure.find(loc.deity_data.Deity)
+            if hf then
+                local god, what = deity_line(hf)
+                return ('Dedicated to %s, %s.'):format(god, what), 'Temple of ' .. god
+            end
+        elseif loc.deity_type == 1 then
+            local e = df.historical_entity.find(loc.deity_data.Religion)
+            if e then
+                local rel = tr(e.name, true)
+                local line = ('Home of %s.'):format(rel)
+                if #e.relations.deities > 0 then
+                    local hf = df.historical_figure.find(e.relations.deities[0])
+                    if hf then
+                        local god, what = deity_line(hf)
+                        line = ('Home of %s, who worship %s, %s.'):format(rel, god, what)
+                    end
+                end
+                return line, 'Temple: ' .. rel
+            end
+        end
+        return 'Open to every god the fort prays to.', 'Temple to all gods'
+    elseif t == df.abstract_building_type.GUILDHALL then
+        local prof = loc.contents.profession
+        if prof and prof >= 0 then
+            local cap = df.profession.attrs[prof].caption or df.profession[prof]
+            local plural = cap:match('dwarf$') and (cap:sub(1, -6) .. 'dwarves') or cap:match('man$') and (cap:sub(1, -4) .. 'men') or (cap .. 's')
+            return ('The guild of the %s.'):format(plural:lower()), 'Guildhall of the ' .. plural
+        end
+    end
+end
+
 local function center(b) return xyz2pos((b.x1 + b.x2) // 2, (b.y1 + b.y2) // 2, b.z) end
 
 local function find_rooms()
     local rooms, seen_loc = {}, {}
     local counts = {}
-    local function add(name, kind, pos)
+    local function add(name, kind, pos, detail, short)
         counts[kind] = (counts[kind] or 0) + 1
-        rooms[#rooms + 1] = {name = name, kind = kind, pos = pos}
+        rooms[#rooms + 1] = {name = name, kind = kind, pos = pos, detail = detail, short = short}
     end
     for _, z in ipairs(df.global.world.buildings.other.ACTIVITY_ZONE) do
         if z.spec_sub_flag.active ~= false then
@@ -55,7 +105,9 @@ local function find_rooms()
             if loc and not seen_loc[loc.id] then
                 seen_loc[loc.id] = true
                 local kind = LOC_KIND[loc:getType()] or 'Hall'
-                add(dfhack.df2utf(dfhack.translation.translateName(loc.name, true)), kind, center(z))
+                local ok, detail, short = pcall(loc_detail, loc)
+                if not ok then detail, short = nil, nil end
+                add(dfhack.df2utf(dfhack.translation.translateName(loc.name, true)), kind, center(z), detail, short)
             elseif not loc then
                 local t = z.type
                 if t == df.civzone_type.DiningHall and (counts['Dining Hall'] or 0) < 2 then
@@ -145,6 +197,7 @@ local GUEST_SECS = 25
 local GUEST_GAP = 120 -- the same guest isn't shown again for this long
 
 local function revealed(u)
+    if tour.test_reveal_all then return true end -- testing only
     local f = dfhack.maps.getTileFlags(xyz2pos(dfhack.units.getPosition(u)))
     return f and not f.hidden
 end
@@ -165,10 +218,11 @@ local function is_guest(u)
     if dfhack.units.isVisitor(u) or dfhack.units.isMerchant(u) or dfhack.units.isDiplomat(u) or dfhack.units.isForest(u) then
         return true
     end
-    -- animal people and other people (elves, goblins, humans, kobolds...)
+    -- wild creatures (cave critters, wandering animal people) just run around: skip
+    if dfhack.units.isWildlife(u) then return false end
+    -- other people (elves, goblins, humans, kobolds...) on the map
     if raw.flags.HAS_ANY_INTELLIGENT_SPEAKS or raw.flags.HAS_ANY_INTELLIGENT_LEARNS then return u.race ~= df.global.plotinfo.race_id end
-    -- odd peaceful wildlife: fanciful/good/evil creatures, not vermin swarms
-    return (raw.flags.FANCIFUL or raw.flags.GOOD or raw.flags.EVIL) and not dfhack.units.isForgottenBeast(u) and not dfhack.units.isDemon(u)
+    return false
 end
 
 is_guest_check = is_guest
@@ -198,16 +252,67 @@ local function show_guest()
     return true
 end
 
+-- threats: forgotten beasts, megabeasts, titans, demons, invaders. When one is
+-- first seen (uncovered map) the camera jumps to it for THREAT_SECS, and again
+-- every THREAT_GAP while it's around. Fights themselves: spectate's prefer-conflict.
+local THREAT_SECS = 30
+local THREAT_GAP = 180
+
+local function is_threat(u)
+    if not dfhack.units.isActive(u) or dfhack.units.isDead(u) or dfhack.units.isCitizen(u) then return false end
+    if u.flags1.caged or u.flags1.chained then return false end
+    local big = dfhack.units.isForgottenBeast(u) or dfhack.units.isMegabeast(u) or dfhack.units.isSemiMegabeast(u)
+        or dfhack.units.isTitan(u) or dfhack.units.isDemon(u) or dfhack.units.isGreatDanger(u)
+    if not big and not (dfhack.units.isInvader(u) and dfhack.units.isDanger(u)) then return false end
+    return revealed(u)
+end
+is_threat_check = is_threat
+
+local function pick_threat()
+    tour.threat_seen = tour.threat_seen or {}
+    local now, best, best_t = os.time(), nil, nil
+    for _, u in ipairs(df.global.world.units.active) do
+        local ok, th = pcall(is_threat, u)
+        if ok and th then
+            local t = tour.threat_seen[u.id] or 0
+            -- invaders come in crowds: one look per squad-ish, by race
+            local key = dfhack.units.isInvader(u) and ('race' .. u.race) or u.id
+            t = math.max(t, tour.threat_seen[key] or 0)
+            if now - t >= THREAT_GAP and (not best or t < best_t) then best, best_t = u, t end
+        end
+    end
+    return best
+end
+
+local function show_threat()
+    local u = pick_threat()
+    if not u then return false end
+    local now = os.time()
+    tour.threat_seen[u.id] = now
+    if dfhack.units.isInvader(u) then tour.threat_seen['race' .. u.race] = now end
+    dfhack.run_command_silent('disable', 'spectate')
+    df.global.plotinfo.follow_unit = u.id
+    tour.guest, tour.current, tour.threat = u.id, nil, true
+    tour.last_switch = now
+    return true
+end
+
 local function back_to_dwarves()
     if tour.guest and df.global.plotinfo.follow_unit == tour.guest then
         df.global.plotinfo.follow_unit = -1 -- let spectate pick a dwarf right away
     end
-    tour.current, tour.guest = nil, nil
+    tour.current, tour.guest, tour.threat = nil, nil, nil
     dfhack.run_command_silent('enable', 'spectate')
     tour.last_switch = os.time()
 end
 
 local function step()
+    -- threats first: break into anything (room, guest, dwarf) except another threat,
+    -- and only while the stream camera is in charge
+    if not tour.threat and (tour.current or tour.guest or spectate_on()) and pick_threat() then
+        show_threat()
+        return
+    end
     if not dfhack.isMapLoaded() or not dfhack.gui.matchFocusString('dwarfmode/Default') then
         return
     end
@@ -226,7 +331,8 @@ local function step()
         local u = df.unit.find(tour.guest)
         if df.global.plotinfo.follow_unit ~= tour.guest then
             back_to_dwarves() -- the camera lost the guest (or someone took it)
-        elseif not u or not dfhack.units.isActive(u) or now - tour.last_switch >= GUEST_SECS then
+        elseif not u or not dfhack.units.isActive(u) or dfhack.units.isDead(u)
+            or now - tour.last_switch >= (tour.threat and THREAT_SECS or GUEST_SECS) then
             back_to_dwarves()
         end
     elseif spectate_on() and now - tour.last_switch >= DWARF_SECS then
@@ -234,9 +340,10 @@ local function step()
     end
 end
 
-local function tick()
-    if not tour.running then return end
-    dfhack.timeout(TICK_FRAMES, 'frames', tick)
+local function tick(gen)
+    -- one loop per start: a reloaded script's 'start' replaces the old loop
+    if not tour.running or gen ~= tour.gen then return end
+    dfhack.timeout(TICK_FRAMES, 'frames', function() tick(gen) end)
     tour.ticks = (tour.ticks or 0) + 1
     local ok, err = pcall(step)
     if not ok then tour.last_error = tostring(err) end
@@ -263,7 +370,7 @@ end
 -- what the banner shows: the room being toured, else the followed creature
 local function banner_lines()
     local r = tour.current
-    if r then return dfhack.utf2df(r.name):upper(), r.kind end
+    if r then return dfhack.utf2df(r.name):upper(), dfhack.utf2df(r.short or r.kind) end
     local u = df.unit.find(df.global.plotinfo.follow_unit)
     if not u then return nil end
     local name = dfhack.units.getReadableName(u):gsub(',.*$', '')
@@ -302,7 +409,7 @@ if dfhack_flags.module then return end
 
 local cmd = ({...})[1] or 'status'
 if cmd == 'start' then
-    if not tour.running then tour.running = true; tour.last_switch = os.time(); tick() end
+    tour.running = true; tour.last_switch = os.time(); tour.gen = (tour.gen or 0) + 1; tick(tour.gen)
     print('dfai-room-tour: running')
 elseif cmd == 'stop' then
     tour.running = false
@@ -314,6 +421,11 @@ elseif cmd == 'guests' then
     for _, u in ipairs(df.global.world.units.active) do
         local ok, g = pcall(is_guest, u)
         if ok and g then print(u.id, df.creature_raw.find(u.race).creature_id, dfhack.units.getReadableName(u)) end
+    end
+elseif cmd == 'threats' then
+    for _, u in ipairs(df.global.world.units.active) do
+        local ok, th = pcall(is_threat, u)
+        if ok and th then print(u.id, df.creature_raw.find(u.race).creature_id, dfhack.units.getReadableName(u)) end
     end
 elseif cmd == 'guest' then
     print(show_guest() and ('following ' .. dfhack.units.getReadableName(df.unit.find(tour.guest))) or 'no guests')

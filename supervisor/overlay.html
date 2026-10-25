@@ -1632,7 +1632,7 @@ function renderFollow() {
   if (S.tour && S.tour.name) {
     html = `<div class="kicker"><span><span class="live">On Camera</span></span><span>Room Tour</span></div>
       <h3>${esc(clean(S.tour.name))}</h3><div class="sub">${esc(S.tour.kind)}</div>
-      <div class="doing">${esc(ROOMBLURB[S.tour.kind] || '')}</div>`;
+      ${S.tour.detail ? `<div class="doing">${esc(clean(S.tour.detail))}</div>` : ''}<div class="doing">${esc(ROOMBLURB[S.tour.kind] || '')}</div>`;
     if (html !== followHtml) { followHtml = html; document.getElementById('follow').innerHTML = html; }
     return;
   }
