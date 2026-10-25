@@ -1,0 +1,30 @@
+#dig label(dig)
+
+
+
+
+,,,,,d,d,d,d
+,,,,,d,i,i,d
+,,,,,d,i,i,d
+,,,,,d,i,i,d
+,,,,,d,i,i,d
+,,,,,h,d,d,h
+,,,,,d,d,d,d
+,,,,,d,d,d,d,u,d
+,,,,,h,d,d,h,d,d
+,,,,,d,d,d,d,d,d
+#build label(build)
+
+
+
+
+
+
+
+
+
+,,,,,,,Msk
+,,,,,,Mg
+,,,,,Msu,Mg,Mg,Msm,,Mg
+,,,,,,,Msh,,,Mhs(1x1)
+,,,,,,,Mg,Mh(2x1),,Mg
