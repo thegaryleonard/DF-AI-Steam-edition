@@ -148,7 +148,9 @@ if out.ok then
   end
   out.events = {}
   local reps = df.global.world.status.reports
-  for i = #reps - 1, math.max(0, #reps - 40), -1 do
+  -- scan well past combat spam (one fight can log hundreds of non-announcement reports)
+  for i = #reps - 1, math.max(0, #reps - 2000), -1 do
+    if #out.events >= 8 then break end
     local r = reps[i]
     local text = dfhack.df2utf(r.text)
     if r.flags.announcement and #out.events < 8 and not text:find(' cancels ') then
