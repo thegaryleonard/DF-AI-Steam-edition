@@ -1,7 +1,7 @@
 """Points of interest for the stream's room tour, taken from df-ai's plan.
 
 df-ai's plan (df-ai-plan.dat in the loaded save) knows places that have no DF
-zone or location: the fort entrance, the execution (pitting) tower, the
+zone or location: the fort entrance, the execution pit (or an old fort's pitting tower), the
 cistern, catacombs, jail, farms, workshops and furnaces. This writes them to
 <DF>/dfhack-config/dfai-poi.json, which dfai-room-tour.lua reads.
 
@@ -61,14 +61,19 @@ def build(plan):
         t, c = r.get("type"), r.get("comment", "")
         if t == "corridor" and c == "fort entrance":
             add("The Fort Entrance", "Entrance", centre(r))
-        elif t == "pitcage":
+        elif t == "pitcage" and r.get("outdoor"):
             add("The Execution Tower", "Prisoners are dropped from here", centre(r))
+        elif t == "pitcage":
+            # underground pit: caged hostiles drop 11 levels down a sealed shaft
+            add("The Execution Pit", "Prisoners are dropped down the shaft", centre(r))
         elif t == "cistern":
             add("The Cistern", "Water reserve", centre(r))
         elif t == "cemetery":
             add("The Catacombs", "Where the fort's dead rest", centre(r))
         elif t == "jail":
             add("The Jail", "Cells for the lawless", centre(r))
+        elif t == "garbagedump" and not r.get("outdoor"):
+            add("The Refuse Chute", "Refuse goes down the hole", centre(r))
         elif t == "garbagedump":
             add("The Garbage Dump", "Refuse", centre(r))
         elif t == "farmplot" and not r.get("outdoor"):
