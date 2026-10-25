@@ -119,6 +119,20 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = (SEEN_FILE.read_bytes() if SEEN_FILE.exists() else b"{}"), "application/json"
         elif self.path.startswith("/memory.json"):
             body, ctype = (MEMORY_FILE.read_bytes() if MEMORY_FILE.exists() else b"{}"), "application/json"
+        elif self.path.startswith("/portrait.png"):
+            # the followed dwarf's sprite, for the On Camera card (portraits.py)
+            from urllib.parse import urlparse, parse_qs
+            q = parse_qs(urlparse(self.path).query)
+            try:
+                import portraits
+                body = portraits.portrait_png(int((q.get("u") or ["-1"])[0]))
+            except (ValueError, OSError) as e:
+                print(f"portrait: {e!r}", flush=True)
+                body = None
+            if not body:
+                self.send_error(404)
+                return
+            ctype = "image/png"
         elif self.path.split("?")[0] in ("/", "/index.html"):
             body, ctype = (HERE / "overlay.html").read_bytes(), "text/html; charset=utf-8"
         else:
