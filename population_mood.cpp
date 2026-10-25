@@ -469,6 +469,61 @@ void Population::update_moods(color_ostream & out)
                 ai.debug(out, "[MOOD] queued gem cutting for " + who + (why.str().empty() ? std::string() : " (" + why.str() + ")"));
                 usable++;
             }
+            if (!usable && ji->item_type == item_type::SKIN_TANNED && mood_warned.insert(who + "|leather|" + std::to_string(idx)).second)
+            {
+                // No leather: nothing in df-ai ever tanned hides, so a moody
+                // scholar starved waiting for SKIN_TANNED next to 5 yaks.
+                // Slaughter one animal (most numerous species, keep at least
+                // one of each, never pets), make sure a Tanner's exists, and
+                // order the hide tanned.
+                bool pending = false;
+                std::map<int32_t, std::vector<df::unit *>> herd;
+                for (auto a : world->units.active)
+                {
+                    if (!Units::isAlive(a) || !Units::isTame(a) || !Units::isOwnCiv(a) || Units::isCitizen(a))
+                        continue;
+                    if (a->flags2.bits.slaughter)
+                        pending = true;
+                    if (Units::isPet(a) || !Units::isAdult(a) || Units::isMarkedForWarTraining(a) || Units::isMarkedForHuntTraining(a))
+                        continue;
+                    herd[a->race].push_back(a);
+                }
+                df::unit *pick = nullptr;
+                size_t best = 1; // never the last of a species
+                for (auto & h : herd)
+                {
+                    if (h.second.size() > best)
+                    {
+                        best = h.second.size();
+                        pick = h.second.front();
+                    }
+                }
+                if (!pending && pick)
+                {
+                    pick->flags2.bits.slaughter = 1;
+                    ai.debug(out, "[MOOD] no leather for " + who + ": marked " + AI::describe_unit(pick) + " for slaughter");
+                }
+                bool have_tanner = false;
+                for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_ANY])
+                {
+                    auto ws = virtual_cast<df::building_workshopst>(bld);
+                    if (ws && ws->type == workshop_type::Tanners)
+                        have_tanner = true;
+                }
+                if (!have_tanner)
+                {
+                    if (df::building *bld = place_workshop_near(u->pos, workshop_type::Tanners))
+                        ai.debug(out, stl_sprintf("[MOOD] no Tanner's workshop for %s's leather: placed one (building %d)", who.c_str(), bld->id));
+                }
+                std::ostringstream why;
+                df::manager_order_template tmpl;
+                tmpl.job_type = job_type::CustomReaction;
+                tmpl.reaction_name = "TAN_A_HIDE";
+                ai.stocks.add_manager_order(out, tmpl, 1, why);
+                ai.debug(out, "[MOOD] ordered a hide tanned for " + who + " " + why.str());
+                if (pending || pick)
+                    usable++;
+            }
             if (!usable)
             {
                 std::string key = who + "|" + std::to_string(idx);
