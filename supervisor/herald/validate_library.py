@@ -14,7 +14,10 @@ POL = {"fort", "pop", "season", "civ", "government", "n", "job", "material", "ma
        "post", "holder", "crime", "criminal", "victim", "noble", "item", "monarch", "general", "diplomat", "liaison", "enemy", "enemy_race",
        "n_war", "n_peace", "friend", "friend_race"}
 OG = {"days", "since", "n", "fort", "season", "weather", "pop", "drinks", "wood", "meals", "citizen", "nick", "topic"}
-CONDS = set("no_meat drinks_high drinks_low rain snow clear pop_big pop_small dogs_many cats farms_many stone_glut wood_low gems recent_death "
+# world-history slots, allowed in every section; filled from herald/lore/<world>.json (built from real events)
+LORE = {"past_fort", "past_fort_fate", "past_fort_years", "record", "record_fort", "civ", "monarch", "liaison", "enemy", "enemy_race", "world"}
+BASE |= LORE; IV |= LORE; BK |= LORE; RUMOR |= LORE; POL |= LORE; OG |= LORE
+CONDS = set("has_past_fort at_war no_meat drinks_high drinks_low rain snow clear pop_big pop_small dogs_many cats farms_many stone_glut wood_low gems recent_death "
             "recent_mood recent_masterpiece recent_strike recent_promotion recent_migrants recent_caravan spring summer autumn winter".split())
 BG = set("hall mine outside farm tavern depot bedroom workshop cavern none".split())
 PROPS = set("barrel mug coffin gem tree well door bed table anvil workshop wagon rocks sun cloud rain sock crown sign".split())

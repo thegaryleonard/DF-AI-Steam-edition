@@ -16,6 +16,7 @@ from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 
 import dfai_supervisor as sup
+import herald_lore   # world history learned from play: past forts, their fates, absurd records
 
 PORT = 8765
 STATE_EVERY_S = 4
@@ -71,6 +72,10 @@ def poller():
         st = run_json("dfai-overlay-state", timeout=20)
         if st is not None:
             cache["state"] = st
+            try:
+                herald_lore.observe(st, cache["stocks"], cache["politics"], cache["rumors"])
+            except Exception as e:   # the paper's memory must never stop the feed
+                print(f"lore: {e}", flush=True)
             world = (st.get("fort") or {}).get("world")
             fort = (st.get("fort") or {}).get("name")
             if st.get("ok") and world and world != cache["history_world"]:
@@ -95,6 +100,9 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = json.dumps(cache["stocks"]).encode(), "application/json"
         elif self.path.startswith("/politics.json"):
             body, ctype = json.dumps(cache["politics"]).encode(), "application/json"
+        elif self.path.startswith("/lore.json"):
+            world = ((cache["state"].get("fort") or {}).get("world")) or ""
+            body, ctype = json.dumps(herald_lore.for_world(world), ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/rumors.json"):
             body, ctype = json.dumps(cache["rumors"]).encode(), "application/json"
         elif self.path.startswith("/world.json"):

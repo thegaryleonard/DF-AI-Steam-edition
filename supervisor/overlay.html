@@ -247,6 +247,18 @@ function newsSlots() {
   }
   return o;
 }
+// ---------- world lore: learned from play by herald_lore.py (past forts, their fates, absurd records) ----------
+let LORE = {past: [], records: []};
+async function pollLore() { try { const l = await get('/lore.json'); if (l && l.forts) LORE = l; } catch (e) {} }
+function loreSlots(r) {
+  const past = (LORE.past || []).filter(f => f.name !== (S.fort || {}).name), recs = LORE.records || [];
+  const pf = past.length ? pick(r, past) : null, rec = recs.length ? pick(r, recs) : null;
+  let pol = {};
+  try { pol = PO && PO.ok ? polSlots(r) : {}; } catch (e) {}
+  return {past_fort: pf ? cap(clean(pf.name)) : null, past_fort_fate: pf ? pf.fate : null, past_fort_years: pf ? pf.years : null,
+    record: rec ? rec.text : null, record_fort: rec ? cap(clean(rec.fort)) : null,
+    civ: pol.civ || null, monarch: pol.monarch || null, liaison: pol.liaison || null, enemy: pol.enemy || null, enemy_race: pol.enemy_race || null};
+}
 function context(r) {
   const c = (K && K.stocks) || {}, an_ = (K && K.animals) || {}, f = S.fort || {}, wx = S.weather || {};
   const names = [...new Set([...(S.names || []), ...citizens()])].map(n => cap(clean(n))).filter(n => n.trim());
@@ -263,7 +275,7 @@ function context(r) {
     topanimal: top && top[1] > 1 ? top[0] : null, topanimal_n: top && top[1] > 1 ? top[1] : null, farms: n(K && K.farms),
     citizen: ppl[0], citizen2: ppl[1], citizen_first: ppl[2] ? ppl[2].split(' ')[0] : null, _people: ppl,
     artifact: art ? clean(art.name) : null, artifact_item: art ? clean(art.item).replace(/^[-\s«]+|[-\s»]+$/g, '').replace(/[«»]/g, '') : null,
-    ...news, ...worldSlots(r),
+    ...news, ...worldSlots(r), ...loreSlots(r),
   };
   const se = (wx.season || '').toLowerCase(), g = k => c[k] || 0;
   const conds = new Set(Object.entries({
@@ -273,6 +285,7 @@ function context(r) {
     wood_low: K && K.stocks && g('wood') < 20, gems: g('gems') > 0, recent_death: !!news.deadname, recent_mood: !!news.moodname,
     recent_masterpiece: !!news.masterwork, recent_strike: !!news.mineral, recent_promotion: !!news.promoted,
     recent_migrants: !!news._migrants, recent_caravan: !!news._caravan,
+    has_past_fort: !!sl.past_fort, at_war: !!sl.enemy,
     spring: se.includes('spring'), summer: se.includes('summer'), autumn: se.includes('autumn'), winter: se.includes('winter'),
   }).filter(([, v]) => v).map(([k]) => k));
   return {sl, conds};
@@ -298,6 +311,7 @@ function choose(list, ctx, r, n = 1, extra = {}) {
   for (const e of list || []) {
     if (!e || !e.id || issueUsed.has(e.id)) continue;
     if ((e.when || []).some(c => !ctx.conds.has(c))) continue;
+    if (e.world && e.world !== ctx.sl.world) continue;   // world-pinned lore only prints in its own world
     let esl = sl;
     if (sl._people && sl._people.length > 2 && !extra.citizen) {   // a different correspondent for every piece, not one dwarf writing every letter
       const pp = sl._people, i = Math.floor(r() * pp.length), j = (i + 1 + Math.floor(r() * (pp.length - 1))) % pp.length;
@@ -1689,11 +1703,11 @@ async function pollSlow() {
   } catch (e) {}
 }
 (async () => {
-  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics()]);
+  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics(), pollLore()]);
   if (document.fonts && document.fonts.ready) await document.fonts.ready;
   trackStories(); checkRumors(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
   nextCard();
-  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollSlow, 120000);
+  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
 })();
 </script>
 </body>
