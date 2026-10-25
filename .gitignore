@@ -3,3 +3,5 @@ df-ai-git-describe.tmp.h
 supervisor/herald/seen.json
 supervisor/herald/memory.json
 supervisor/herald/lore.json
+supervisor/logs/
+supervisor/last_site.json

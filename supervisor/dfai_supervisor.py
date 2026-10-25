@@ -36,6 +36,8 @@ CFG = {
     "max_restarts_per_hour": 3,
     "launch_timeout_s": 300,
     "load_timeout_s": 600,
+    "auto_new_fort": True,      # a fallen fort is abandoned and a new one embarked nearby (new_fort.py)
+    "world_folder": "region58", # the world new forts embark in
     "obs_keeper": False,        # true = restart OBS and start streaming if it closes/crashes (obs_keeper.py)
 }
 CFG_FILE = Path(__file__).with_name("supervisor.json")
@@ -348,6 +350,21 @@ class Supervisor:
             # title screen / menus: a human (or df-ai's embark) is doing something
             self.last_progress = now
             return
+
+        # a fallen fort (no citizens left): abandon it and embark a new one nearby
+        if st.get("citizens") == 0 and CFG.get("auto_new_fort", True):
+            self.no_citizens_since = getattr(self, "no_citizens_since", None) or now
+            if now - self.no_citizens_since > 180:
+                notify("the fort has fallen (no citizens left). Abandoning it and embarking a new fort nearby.", ping=True)
+                import new_fort
+                name = new_fort.run("abandon")
+                self.no_citizens_since = None
+                self.last_progress = time.time()
+                if name:
+                    notify(f"new fort {name.split(chr(9))[0]} embarked; df-ai is running it.", ping=True)
+                return
+        else:
+            self.no_citizens_since = None
 
         cur = (st.get("year"), st.get("tick"))
         if cur != self.last_tick:
