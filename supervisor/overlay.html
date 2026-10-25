@@ -1621,6 +1621,19 @@ function renderFollow() {
   const el = document.getElementById('follow'); if (!el) return;
   const d = S.followed || S.dwarf, live = !!S.followed;
   let html = '';
+  const ROOMBLURB = {Tavern: 'Where the fort drinks, dances and argues about it afterwards.', Temple: 'Prayers, offerings and the occasional suspicious incense.',
+    Library: 'Scholars, scribes and books nobody has returned.', Guildhall: 'Craftsdwarves gather here to agree they are underpaid.',
+    Hospital: 'Beds, splints and a doctor who learned on the job.', 'Dining Hall': 'Meals are taken here, mostly with cutlery.',
+    'Meeting Hall': 'Idle dwarves gather here to share rumours.', Barracks: 'The fort's soldiers train, sleep and polish things here.',
+    Pasture: 'The fort's herds graze underground, out of the rain.', 'Trade Depot': 'Caravans unload here; the broker haggles.',
+    'Mist Generator': 'Pumps on the roof spray water into mist. Dwarves walking through feel refreshed.'};
+  if (S.tour && S.tour.name) {
+    html = `<div class="kicker"><span><span class="live">On Camera</span></span><span>Room Tour</span></div>
+      <h3>${esc(clean(S.tour.name))}</h3><div class="sub">${esc(S.tour.kind)}</div>
+      <div class="doing">${esc(ROOMBLURB[S.tour.kind] || '')}</div>`;
+    if (html !== followHtml) { followHtml = html; document.getElementById('follow').innerHTML = html; }
+    return;
+  }
   if (d && d.name) {
     const nm = String(d.name).split(',')[0], nick = (nm.match(/"([^"]+)"/) || [])[1];
     const given = cap(clean(nm.replace(/\s*"[^"]*"\s*/, ' ').trim()));

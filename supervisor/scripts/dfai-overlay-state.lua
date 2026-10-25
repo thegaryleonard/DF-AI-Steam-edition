@@ -131,6 +131,11 @@ if out.ok then
     follow = #citizens > 0 and citizens[(os.time() // 120) % #citizens + 1] or nil
   end
   out.dwarf = unit_card(follow)
+  -- the room tour (dfai-room-tour) has the camera: show the room on the card
+  local tour = rawget(_G, 'dfai_tour')
+  if tour and tour.current then
+    out.tour = { name = tour.current.name, kind = tour.current.kind }
+  end
   -- the unit the spectator camera is actually following (any creature), for the on-camera card
   local cam = df.unit.find(df.global.plotinfo.follow_unit)
   if cam then
