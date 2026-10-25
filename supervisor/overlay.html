@@ -1726,6 +1726,12 @@ async function pollSlow() {
   nextCard();
   setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
 })();
+
+// reload by itself when overlay.html changes on disk, so OBS never needs a manual refresh
+(() => { let base = null;
+  const sig = async () => { const t = await (await fetch('/index.html', {cache: 'no-store'})).text(); let h = 0; for (let i = 0; i < t.length; i++) h = (h * 31 + t.charCodeAt(i)) | 0; return t.length + ':' + h; };
+  setInterval(async () => { try { const s = await sig(); if (base === null) base = s; else if (s !== base) location.reload(); } catch (e) {} }, 60000);
+  sig().then(s => { base = s; }).catch(() => {}); })();
 </script>
 </body>
 </html>
