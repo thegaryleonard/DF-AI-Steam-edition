@@ -44,6 +44,9 @@
 #include "df/mood_type.h"
 #include "df/unit.h"
 #include "df/world.h"
+#include "df/building_actual.h"
+#include "df/building_item_role_type.h"
+#include "df/job_role_type.h"
 
 REQUIRE_GLOBAL(standing_orders_auto_collect_webs);
 REQUIRE_GLOBAL(world);
@@ -192,6 +195,10 @@ df::building *place_workshop_near(df::coord origin, df::workshop_type type)
     return bld;
 }
 
+// thirst_timer at which a stalled mood gets its items carried in (dwarves
+// die of thirst somewhere past ~75000 for a moody dwarf who won't drink)
+static const int32_t MOOD_RESCUE_THIRST = 40000;
+
 void Population::update_moods(color_ostream & out)
 {
     for (auto u : world->units.active)
@@ -239,6 +246,30 @@ void Population::update_moods(color_ostream & out)
                 {
                     ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " needs a " + enum_item_key(need_ws) + " workshop, and there is no free floor or building material for one");
                 }
+            }
+        }
+
+        // Every item is in but the dwarf still hasn't started (seen after we
+        // carried items in): start the work.
+        if (Job::getHolder(job) && !job->flags.bits.working && u->counters2.thirst_timer > MOOD_RESCUE_THIRST)
+        {
+            bool complete = true;
+            for (size_t idx = 0; idx < job->job_items.elements.size() && complete; idx++)
+            {
+                auto ji = job->job_items.elements.at(idx);
+                int32_t have = 0;
+                for (auto ref : job->items)
+                {
+                    if (ref && ref->job_item_idx == int32_t(idx) && ref->item)
+                        have += ref->item->getStackSize();
+                }
+                if (ji && have < ji->quantity)
+                    complete = false;
+            }
+            if (complete)
+            {
+                job->flags.bits.working = true;
+                ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " has every item but had not started; starting the work");
             }
         }
 
@@ -337,6 +368,43 @@ void Population::update_moods(color_ostream & out)
                 if (got)
                 {
                     ai.debug(out, stl_sprintf("[MOOD] took %s from a location chest for %s", describe_job_item(ji).c_str(), who.c_str()));
+                }
+            }
+            // Stalled: the items are free and reachable but the dwarf never
+            // fetches them (a fey weaponsmith sat thirsty beside free plant
+            // cloth and leather). Once thirst is high, carry one to the
+            // workshop and attach it to the job ourselves.
+            auto holder = virtual_cast<df::building_actual>(Job::getHolder(job));
+            if (usable && holder && u->counters2.thirst_timer > MOOD_RESCUE_THIRST)
+            {
+                df::coord wpos(holder->centerx, holder->centery, holder->z);
+                for (auto item : world->items.other[items_other_id::IN_PLAY])
+                {
+                    df::item_type itype = item->getType();
+                    if ((ji->item_type != item_type::NONE && itype != ji->item_type) ||
+                        (ji->item_subtype != -1 && item->getSubtype() != ji->item_subtype) ||
+                        !mood_item_matches(ji, item))
+                    {
+                        continue;
+                    }
+                    auto & f = item->flags.bits;
+                    if (f.in_job || f.owned || f.trader || f.foreign || f.artifact || f.removed || f.forbid || f.dump ||
+                        f.garbage_collect || f.on_fire || f.rotten || f.construction || f.spider_web || f.hidden || f.in_inventory)
+                    {
+                        continue;
+                    }
+                    df::coord ipos = Items::getPosition(item);
+                    if (!ipos.isValid() || !Maps::canWalkBetween(wpos, ipos))
+                    {
+                        continue;
+                    }
+                    if (Items::moveToBuilding(item, holder, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, item, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] %s was not fetching %s (thirst %d): carried %s to the workshop", who.c_str(), describe_job_item(ji).c_str(), u->counters2.thirst_timer, AI::describe_item(item).c_str()));
+                        have = ji->quantity;
+                    }
+                    break;
                 }
             }
             if (released)
