@@ -28,7 +28,10 @@ local function tick()
   end
   if spectate_on() then keeper.still, keeper.last = 0, nil return end
   local v = view()
-  keeper.still = (v == keeper.last) and keeper.still + 1 or 0
+  -- a camera that follows a unit moves by itself: that's not a person scrolling
+  -- (after a crash reload spectate stayed off, locked on one unit, for good)
+  local following = df.global.plotinfo.follow_unit ~= -1
+  keeper.still = (v == keeper.last or following) and keeper.still + 1 or 0
   keeper.last = v
   if keeper.still >= IDLE_CHECKS then
     dfhack.run_command('enable', 'spectate')
