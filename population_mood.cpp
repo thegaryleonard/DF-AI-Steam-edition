@@ -215,7 +215,10 @@ void Population::update_moods(color_ostream & out)
             for (auto b : world->buildings.other[buildings_other_id::WORKSHOP_ANY])
             {
                 auto ws = virtual_cast<df::building_workshopst>(b);
-                if (ws && ws->type == need_ws && ws->getBuildStage() == ws->getMaxBuildStage())
+                // count unfinished ones too: a workshop placed for this mood
+                // stays unbuilt until someone brings the material, and treating
+                // it as missing placed a new one every tick (12 jewelers' at once)
+                if (ws && ws->type == need_ws)
                 {
                     have = true;
                     break;
