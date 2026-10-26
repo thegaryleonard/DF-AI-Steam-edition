@@ -17,6 +17,8 @@
 #include "df/item_toolst.h"
 #include "modules/Maps.h"
 #include "df/caste_raw.h"
+#include "df/caste_raw_flags.h"
+#include "df/general_ref_type.h"
 #include "df/creature_raw.h"
 #include "df/general_ref_building_civzone_assignedst.h"
 #include "df/item_eggst.h"
@@ -100,7 +102,7 @@ static void place_indoor_nest_boxes(AI & ai, color_ostream & out)
                 auto tt = Maps::getTileType(t);
                 auto occ = Maps::getTileOccupancy(t);
                 auto des = Maps::getTileDesignation(t);
-                if (!tt || !occ || !des || des->bits.flow_size || occ->bits.building != tile_building_occ::None)
+                if (!tt || !occ || !des || des->bits.flow_size || occ->bits.building != tile_building_occ::None || !Buildings::containsTile(zone, df::coord2d(x, y)))
                     continue;
                 if (ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Floor)
                     continue;
@@ -127,8 +129,68 @@ static void place_indoor_nest_boxes(AI & ai, color_ostream & out)
     }
 }
 
+// Indoor pasture: move tame animals from df-ai's surface pastures into the
+// indoor pen, a few per call, while its grass can feed them (grazers up to
+// one per 8 grass tiles, at least 4; non-grazers always). Owned pets stay.
+static void fill_indoor_pasture(AI & ai, Population & pop, color_ostream & out)
+{
+    auto zone = ai.plan.indoor_pasture_zone();
+    if (!zone)
+        return;
+    int grass = 0;
+    for (int16_t x = zone->x1; x <= zone->x2; x++)
+        for (int16_t y = zone->y1; y <= zone->y2; y++)
+            if (!Buildings::containsTile(zone, df::coord2d(x, y)))
+                continue;
+            else if (auto tt = Maps::getTileType(df::coord(x, y, zone->z)))
+            {
+                auto tm = ENUM_ATTR(tiletype, material, *tt);
+                if (tm == tiletype_material::GRASS_LIGHT || tm == tiletype_material::GRASS_DARK || tm == tiletype_material::GRASS_DRY)
+                    grass++;
+            }
+    int grazers = 0;
+    for (auto id : zone->assigned_units)
+        if (auto u = df::unit::find(id))
+            if (auto c = Units::getCasteRaw(u))
+                if (c->flags.is_set(caste_raw_flags::GRAZER))
+                    grazers++;
+    int cap = std::max(4, grass / 8);
+    int moved = 0;
+    for (auto u : world->units.active)
+    {
+        if (moved >= 5)
+            break;
+        if (!Units::isActive(u) || !Units::isTame(u) || Units::isCitizen(u) || Units::isMerchant(u) || u->flags1.bits.caged || u->civ_id != plotinfo->civ_id)
+            continue;
+        if (u->relationship_ids[unit_relationship_type::PetOwner] != -1)
+            continue;
+        auto ref = Units::getGeneralRef(u, general_ref_type::BUILDING_CIVZONE_ASSIGNED);
+        if (!ref)
+            continue; // only animals df-ai has already put out to pasture
+        auto bld = ref->getBuilding();
+        if (bld == zone)
+            continue;
+        auto r = ai.find_room(room_type::pasture, [bld](room *r_) -> bool { return r_->dfbuilding() == bld; });
+        if (!r)
+            continue; // a pit, pond or someone's own zone
+        auto c = Units::getCasteRaw(u);
+        bool grazer = c && c->flags.is_set(caste_raw_flags::GRAZER);
+        if (grazer && grazers >= cap)
+            continue;
+        r->users.erase(u->id);
+        pop.assign_unit_to_zone(u, zone);
+        if (grazer)
+            grazers++;
+        moved++;
+    }
+    if (moved)
+        ai.debug(out, stl_sprintf("[PASTURE] moved %d animals into the indoor pasture (%d grass tiles, %d grazers)", moved, grass, grazers));
+}
+
 void Population::update_pets(color_ostream & out)
 {
+    ai.plan.update_indoor_pasture(out);
+    fill_indoor_pasture(ai, *this, out);
     place_indoor_nest_boxes(ai, out);
 
     if (!ai.plan.pastures_ready(out))

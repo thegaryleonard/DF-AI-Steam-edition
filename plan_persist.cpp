@@ -299,6 +299,14 @@ void Plan::save(std::ostream & out)
     all["p"] = priorities_to_json(priorities);
     all["s"] = Watch.to_json();
     all["military_min"] = ai.pop.military_min;
+    if (!indoor_pasture.empty())
+    {
+        Json::Value ip(Json::arrayValue);
+        for (auto v : indoor_pasture)
+            ip.append(Json::Int(v));
+        all["indoor_pasture"] = ip;
+        all["indoor_pasture_mask"] = indoor_pasture_mask;
+    }
     all["military_max"] = ai.pop.military_max;
     // the plan file lives in the world's save folder, which a later fort in
     // the same world shares: remember which fort it belongs to
@@ -780,6 +788,15 @@ void Plan::load(std::istream & in)
     {
         std::string error;
         Watch.from_json(all["s"], error);
+    }
+
+    indoor_pasture.clear();
+    indoor_pasture_mask.clear();
+    if (all.isMember("indoor_pasture") && all["indoor_pasture"].isArray() && (all["indoor_pasture"].size() == 6 || all["indoor_pasture"].size() == 10))
+    {
+        for (auto & v : all["indoor_pasture"])
+            indoor_pasture.push_back(v.asInt());
+        indoor_pasture_mask = all.isMember("indoor_pasture_mask") && all["indoor_pasture_mask"].isString() ? all["indoor_pasture_mask"].asString() : std::string();
     }
 
     if (all.isMember("military_min") && all.isMember("military_max") && all["military_min"].isIntegral() && all["military_max"].isIntegral() &&

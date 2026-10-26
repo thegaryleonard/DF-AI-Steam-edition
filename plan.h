@@ -136,6 +136,12 @@ public:
 
     // plan_zones.cpp: direct creation of zones, locations and stockpiles (DF v50+)
     df::building_civzonest *create_zone(color_ostream & out, df::civzone_type type, df::coord min, df::coord max, const std::function<bool(df::coord)> & include = nullptr);
+    // indoor pasture (user request): dug in underground soil once the caverns
+    // are open; {x1, y1, x2, y2, z, zone id or -1[, tunnel x1, y1, x2, y2]}, empty until a site is chosen
+    std::vector<int32_t> indoor_pasture;
+    std::string indoor_pasture_mask; // row-major over the box, '1' = pasture tile
+    void update_indoor_pasture(color_ostream & out);
+    df::building_civzonest *indoor_pasture_zone();
     int32_t create_location(color_ostream & out, df::building_civzonest *zone, location_type::type type, int32_t data1, int32_t data2);
     int32_t create_hospital(color_ostream & out, df::building_civzonest *zone);
     df::building_stockpilest *create_stockpile(color_ostream & out, room *r);

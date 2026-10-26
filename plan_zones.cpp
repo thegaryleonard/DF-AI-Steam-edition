@@ -5,6 +5,9 @@
 // builds the game objects directly, the same way DFHack's quickfort does.
 
 #include "ai.h"
+
+#include <algorithm>
+#include <set>
 #include "debug.h"
 #include "plan.h"
 
@@ -18,6 +21,9 @@
 #include "df/abstract_building_libraryst.h"
 #include "df/abstract_building_templest.h"
 #include "df/building_civzonest.h"
+#include "df/world.h"
+#include "df/buildings_other_id.h"
+#include "df/tiletype.h"
 #include "df/building_stockpilest.h"
 #include "df/entity_site_link.h"
 #include "df/historical_entity.h"
@@ -28,6 +34,7 @@
 #include "df/world_site.h"
 
 REQUIRE_GLOBAL(world);
+REQUIRE_GLOBAL(cur_year_tick);
 
 df::building_civzonest *Plan::create_zone(color_ostream & out, df::civzone_type type, df::coord min, df::coord max, const std::function<bool(df::coord)> & include)
 {
@@ -531,4 +538,385 @@ void Plan::remove_room_zone(color_ostream & out, room *r)
         Buildings::deconstruct(zone);
     }
     r->zone_id = -1;
+}
+
+// ---------------------------------------------------------------------------
+// Indoor pasture (user request): as soon as the caverns are open, dig a big
+// pasture into underground SOIL near the entrance. Cave grass grows on fresh
+// subterranean soil within days, and the herd lives indoors, safe from
+// ambushes and weather. Population::update_pets moves the animals in and
+// keeps nest boxes there.
+
+df::building_civzonest *Plan::indoor_pasture_zone()
+{
+    if (indoor_pasture.size() != 6 || indoor_pasture[5] == -1)
+        return nullptr;
+    auto zone = virtual_cast<df::building_civzonest>(df::building::find(indoor_pasture[5]));
+    if (!zone || zone->type != civzone_type::Pen)
+    {
+        indoor_pasture[5] = -1;
+        return nullptr;
+    }
+    return zone;
+}
+
+static bool ip_wall(df::coord t, bool soil_only)
+{
+    auto tt = Maps::getTileType(t);
+    auto des = Maps::getTileDesignation(t);
+    if (!tt || !des || des->bits.outside || des->bits.water_table || des->bits.flow_size)
+        return false;
+    auto m = ENUM_ATTR(tiletype, material, *tt);
+    if (ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Wall)
+        return false;
+    return soil_only ? m == tiletype_material::SOIL : (m == tiletype_material::SOIL || m == tiletype_material::STONE || m == tiletype_material::MINERAL);
+}
+
+static std::set<df::coord> ip_bad_tunnels;
+
+static bool ip_mask_at(const std::vector<int32_t> & ip, const std::string & mask, int16_t x, int16_t y)
+{
+    int32_t w = ip[2] - ip[0] + 1;
+    size_t i = size_t((y - ip[1]) * w + (x - ip[0]));
+    return x >= ip[0] && x <= ip[2] && y >= ip[1] && y <= ip[3] && i < mask.size() && mask[i] == '1';
+}
+
+void Plan::update_indoor_pasture(color_ostream & out)
+{
+    // a pen the player (or an earlier hand fix) already dug indoors counts
+    if (indoor_pasture.empty())
+    {
+        for (auto bld : world->buildings.other[buildings_other_id::ACTIVITY_ZONE])
+        {
+            auto zone = virtual_cast<df::building_civzonest>(bld);
+            if (!zone || zone->type != civzone_type::Pen)
+                continue;
+            auto des = Maps::getTileDesignation(df::coord((zone->x1 + zone->x2) / 2, (zone->y1 + zone->y2) / 2, zone->z));
+            if (des && !des->bits.outside)
+            {
+                indoor_pasture = {zone->x1, zone->y1, zone->x2, zone->y2, zone->z, zone->id};
+                indoor_pasture_mask.clear();
+                ai.debug(out, stl_sprintf("[PASTURE] adopted the existing indoor pasture zone %d", zone->id));
+                return;
+            }
+        }
+    }
+
+    if (indoor_pasture.empty())
+    {
+        if (!fort_entrance)
+            return;
+        // only once the caverns are open
+        if (!ai.find_room(room_type::outpost, [](room *r) -> bool { return r->outpost_type == outpost_type::cavern && r->status != room_status::plan; }))
+            return;
+
+        static int32_t last_try = -1;
+        if (last_try != -1 && *cur_year_tick >= last_try && *cur_year_tick - last_try < 12000)
+            return; // about every ten days
+        last_try = *cur_year_tick;
+
+        // Cave grass only grows on soil, and soil underground is often a thin,
+        // ragged layer, so the pasture is whatever connected patch of soil is
+        // there (up to 225 tiles, at least 60), not a rectangle. Every tile must
+        // be soil with solid wall all round, so digging opens nothing to the
+        // sky, water or df-ai's planned rooms (kept 2 tiles away).
+        const int16_t R = 45;
+        const int16_t W = 2 * R + 1;
+        df::coord ent = fort_entrance->min;
+        df::coord ref = fort_entrance->max;
+        df::coord org(ent.x - R, ent.y - R, 0);
+        for (int16_t z = ent.z - 1; z >= ent.z - 10 && z >= 0; z--)
+        {
+            std::vector<uint8_t> good(size_t(W) * W, 0);
+            std::vector<uint8_t> reserved(size_t(W) * W, 0);
+            // df-ai keeps its rooms' walls standing (it cancels digging there),
+            // so the tunnel may only break into a corridor, never a room
+            std::vector<uint8_t> roomring(size_t(W) * W, 0);
+            for (auto r : rooms_and_corridors)
+            {
+                if (r->min.z > z || r->max.z < z)
+                    continue;
+                if (r->type != room_type::corridor)
+                    for (int16_t x = std::max<int16_t>(r->min.x - 1, org.x); x <= std::min<int16_t>(r->max.x + 1, org.x + W - 1); x++)
+                        for (int16_t y = std::max<int16_t>(r->min.y - 1, org.y); y <= std::min<int16_t>(r->max.y + 1, org.y + W - 1); y++)
+                            roomring[size_t(y - org.y) * W + (x - org.x)] = 1;
+                for (int16_t x = std::max<int16_t>(r->min.x - 2, org.x); x <= std::min<int16_t>(r->max.x + 2, org.x + W - 1); x++)
+                    for (int16_t y = std::max<int16_t>(r->min.y - 2, org.y); y <= std::min<int16_t>(r->max.y + 2, org.y + W - 1); y++)
+                        reserved[size_t(y - org.y) * W + (x - org.x)] = 1;
+            }
+            for (int16_t y = 1; y < W - 1; y++)
+                for (int16_t x = 1; x < W - 1; x++)
+                {
+                    if (reserved[size_t(y) * W + x])
+                        continue;
+                    df::coord t(org.x + x, org.y + y, z);
+                    if (!ip_wall(t, true))
+                        continue;
+                    bool shell = true;
+                    for (int16_t dx = -1; dx <= 1 && shell; dx++)
+                        for (int16_t dy = -1; dy <= 1 && shell; dy++)
+                            shell = ip_wall(t + df::coord(dx, dy, 0), false);
+                    if (shell)
+                        good[size_t(y) * W + x] = 1;
+                }
+
+            // keep it blocky: only tiles within one step of a full 3x3 of good
+            // soil (no one-tile ribbons along the hillside)
+            {
+                std::vector<uint8_t> core(good.size(), 0), keep(good.size(), 0);
+                for (int16_t y = 1; y < W - 1; y++)
+                    for (int16_t x = 1; x < W - 1; x++)
+                    {
+                        bool all = true;
+                        for (int16_t dx = -1; dx <= 1 && all; dx++)
+                            for (int16_t dy = -1; dy <= 1 && all; dy++)
+                                all = good[size_t(y + dy) * W + (x + dx)] != 0;
+                        core[size_t(y) * W + x] = all;
+                    }
+                for (int16_t y = 1; y < W - 1; y++)
+                    for (int16_t x = 1; x < W - 1; x++)
+                        if (core[size_t(y) * W + x])
+                            for (int16_t dx = -1; dx <= 1; dx++)
+                                for (int16_t dy = -1; dy <= 1; dy++)
+                                    keep[size_t(y + dy) * W + (x + dx)] = 1;
+                good.swap(keep);
+            }
+
+            // components; prefer big ones near the fort
+            std::vector<uint8_t> seen(size_t(W) * W, 0);
+            struct cand { int32_t dist; df::coord seed, tun_a, tun_b; };
+            std::vector<cand> cands;
+            for (int16_t y = 1; y < W - 1; y++)
+                for (int16_t x = 1; x < W - 1; x++)
+                {
+                    if (!good[size_t(y) * W + x] || seen[size_t(y) * W + x])
+                        continue;
+                    std::vector<std::pair<int16_t, int16_t>> comp{{x, y}}, stack{{x, y}};
+                    seen[size_t(y) * W + x] = 1;
+                    while (!stack.empty())
+                    {
+                        auto c = stack.back();
+                        stack.pop_back();
+                        static const int16_t D4[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+                        for (auto & d : D4)
+                        {
+                            int16_t nx = c.first + d[0], ny = c.second + d[1];
+                            if (nx < 1 || ny < 1 || nx >= W - 1 || ny >= W - 1)
+                                continue;
+                            size_t ni = size_t(ny) * W + nx;
+                            if (good[ni] && !seen[ni])
+                            {
+                                seen[ni] = 1;
+                                comp.push_back({nx, ny});
+                                stack.push_back({nx, ny});
+                            }
+                        }
+                    }
+                    if (comp.size() < 60)
+                        continue;
+                    // a straight tunnel (up to 12 tiles of solid rock or soil) from an
+                    // edge tile of the patch to a fort floor tile walkable from the entrance
+                    bool found = false;
+                    cand best{-1, df::coord(), df::coord(), df::coord()};
+                    for (auto & c : comp)
+                    {
+                        static const int16_t D4[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+                        for (auto & d : D4)
+                        {
+                            int16_t nx = c.first + d[0], ny = c.second + d[1];
+                            if (good[size_t(ny) * W + nx])
+                                continue; // not an edge in this direction
+                            df::coord start(org.x + nx, org.y + ny, z), t = start;
+                            for (int step = 0; step < 12; step++)
+                            {
+                                if (t.x < org.x || t.y < org.y || t.x >= org.x + W || t.y >= org.y + W ||
+                                    roomring[size_t(t.y - org.y) * W + (t.x - org.x)] || ip_bad_tunnels.count(t))
+                                    break;
+                                if (ip_wall(t, false))
+                                {
+                                    // the tunnel must not run alongside open sky
+                                    bool exposed = false;
+                                    for (auto & e : D4)
+                                    {
+                                        auto nd = Maps::getTileDesignation(t + df::coord(e[0], e[1], 0));
+                                        exposed = exposed || !nd || nd->bits.outside;
+                                    }
+                                    if (exposed)
+                                        break;
+                                    t = t + df::coord(d[0], d[1], 0);
+                                    continue;
+                                }
+                                auto tt = Maps::getTileType(t);
+                                auto des = Maps::getTileDesignation(t);
+                                if (step > 0 && tt && des && !des->bits.outside && !des->bits.water_table)
+                                {
+                                    auto bs = ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt));
+                                    if ((bs == tiletype_shape_basic::Floor || bs == tiletype_shape_basic::Stair) && Maps::canWalkBetween(t, ref))
+                                    {
+                                        int32_t dist = std::abs(t.x - ent.x) + std::abs(t.y - ent.y) + 3 * (ent.z - z) + step * 2;
+                                        if (!found || dist < best.dist)
+                                        {
+                                            best = cand{dist, df::coord(org.x + c.first, org.y + c.second, z), start, t - df::coord(d[0], d[1], 0)};
+                                            found = true;
+                                        }
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    if (found)
+                    {
+                        best.dist -= int32_t(std::min<size_t>(comp.size(), 225) / 2);
+                        cands.push_back(best);
+                    }
+                }
+            if (cands.empty())
+                continue;
+            std::sort(cands.begin(), cands.end(), [](const cand & a, const cand & b) { return a.dist < b.dist; });
+            auto & c = cands.front();
+
+            // grow the pasture from the tunnel mouth, up to 225 tiles (nearest first)
+            std::vector<std::pair<int16_t, int16_t>> tiles;
+            std::vector<uint8_t> take(size_t(W) * W, 0);
+            std::vector<std::pair<int16_t, int16_t>> queue{{int16_t(c.seed.x - org.x), int16_t(c.seed.y - org.y)}};
+            take[size_t(queue[0].second) * W + queue[0].first] = 1;
+            for (size_t qi = 0; qi < queue.size() && tiles.size() < 225; qi++)
+            {
+                auto q = queue[qi];
+                tiles.push_back(q);
+                static const int16_t D4[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+                for (auto & d : D4)
+                {
+                    int16_t nx = q.first + d[0], ny = q.second + d[1];
+                    size_t ni = size_t(ny) * W + nx;
+                    if (nx >= 1 && ny >= 1 && nx < W - 1 && ny < W - 1 && good[ni] && !take[ni])
+                    {
+                        take[ni] = 1;
+                        queue.push_back({nx, ny});
+                    }
+                }
+            }
+            int16_t x1 = W, y1 = W, x2 = -1, y2 = -1;
+            for (auto & t : tiles)
+            {
+                x1 = std::min(x1, t.first); x2 = std::max(x2, t.first);
+                y1 = std::min(y1, t.second); y2 = std::max(y2, t.second);
+            }
+            indoor_pasture = {org.x + x1, org.y + y1, org.x + x2, org.y + y2, z, -1, c.tun_a.x, c.tun_a.y, c.tun_b.x, c.tun_b.y};
+            indoor_pasture_mask.assign(size_t(x2 - x1 + 1) * (y2 - y1 + 1), '0');
+            for (auto & t : tiles)
+            {
+                indoor_pasture_mask[size_t(t.second - y1) * (x2 - x1 + 1) + (t.first - x1)] = '1';
+                AI::dig_tile(df::coord(org.x + t.first, org.y + t.second, z), tile_dig_designation::Default);
+            }
+            for (df::coord t = c.tun_a;; )
+            {
+                AI::dig_tile(t, tile_dig_designation::Default);
+                if (t == c.tun_b)
+                    break;
+                t.x += (c.tun_b.x > t.x) - (c.tun_b.x < t.x);
+                t.y += (c.tun_b.y > t.y) - (c.tun_b.y < t.y);
+            }
+            ai.debug(out, stl_sprintf("[PASTURE] caverns are open: digging a %d-tile indoor pasture in the soil at (%d, %d, %d)-(%d, %d), tunnel from (%d, %d)",
+                int(tiles.size()), indoor_pasture[0], indoor_pasture[1], z, indoor_pasture[2], indoor_pasture[3], c.tun_b.x, c.tun_b.y));
+            return;
+        }
+        ai.debug(out, "[PASTURE] no underground soil patch for an indoor pasture near the entrance yet");
+        return;
+    }
+
+    if (indoor_pasture[5] != -1)
+    {
+        indoor_pasture_zone();
+        return;
+    }
+
+    // dug yet? re-designate anything still solid (a reload can drop designations)
+    auto ip = indoor_pasture;
+    auto & mask = indoor_pasture_mask;
+    bool any_mask = mask.find('1') != std::string::npos;
+    int solid = 0;
+    for (int16_t x = ip[0]; x <= ip[2]; x++)
+        for (int16_t y = ip[1]; y <= ip[3]; y++)
+        {
+            if (any_mask && !ip_mask_at(ip, mask, x, y))
+                continue;
+            df::coord t(x, y, ip[4]);
+            auto tt = Maps::getTileType(t);
+            if (tt && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Wall)
+            {
+                solid++;
+                auto des = Maps::getTileDesignation(t);
+                if (des && des->bits.dig == tile_dig_designation::No)
+                    AI::dig_tile(t, tile_dig_designation::Default);
+            }
+        }
+    // and the access tunnel
+    if (ip.size() == 10)
+    {
+        df::coord a(ip[6], ip[7], ip[4]), b(ip[8], ip[9], ip[4]);
+        for (df::coord t = a;; )
+        {
+            auto tt = Maps::getTileType(t);
+            if (tt && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Wall)
+            {
+                solid++;
+                auto des = Maps::getTileDesignation(t);
+                if (des && des->bits.dig == tile_dig_designation::No)
+                    AI::dig_tile(t, tile_dig_designation::Default);
+            }
+            if (t == b)
+                break;
+            t.x += (b.x > t.x) - (b.x < t.x);
+            t.y += (b.y > t.y) - (b.y < t.y);
+        }
+    }
+    // stalled (nobody can reach it, or df-ai keeps cancelling the tunnel)?
+    // after ~3 days with no progress, undo it and pick another spot
+    static int32_t last_solid = -1, stall_since = -1;
+    if (solid && solid != last_solid)
+    {
+        last_solid = solid;
+        stall_since = *cur_year_tick;
+    }
+    else if (solid && stall_since != -1 && (*cur_year_tick - stall_since > 3600 || *cur_year_tick < stall_since))
+    {
+        for (int16_t x = ip[0]; x <= ip[2]; x++)
+            for (int16_t y = ip[1]; y <= ip[3]; y++)
+                if (!any_mask || ip_mask_at(ip, mask, x, y))
+                    if (auto des = Maps::getTileDesignation(df::coord(x, y, ip[4])))
+                        des->bits.dig = tile_dig_designation::No;
+        if (ip.size() == 10)
+        {
+            df::coord a(ip[6], ip[7], ip[4]), b(ip[8], ip[9], ip[4]);
+            for (df::coord t = a;; )
+            {
+                if (auto des = Maps::getTileDesignation(t))
+                    des->bits.dig = tile_dig_designation::No;
+                ip_bad_tunnels.insert(t);
+                if (t == b)
+                    break;
+                t.x += (b.x > t.x) - (b.x < t.x);
+                t.y += (b.y > t.y) - (b.y < t.y);
+            }
+        }
+        ai.debug(out, stl_sprintf("[PASTURE] the indoor pasture dig at (%d, %d, %d) made no progress for 3 days; choosing another spot", ip[0], ip[1], ip[4]));
+        indoor_pasture.clear();
+        indoor_pasture_mask.clear();
+        last_solid = stall_since = -1;
+        return;
+    }
+    if (solid)
+        return;
+
+    df::coord mn(ip[0], ip[1], ip[4]), mx(ip[2], ip[3], ip[4]);
+    std::function<bool(df::coord)> include = nullptr;
+    if (any_mask)
+        include = [ip, mask](df::coord t) -> bool { return ip_mask_at(ip, mask, t.x, t.y); };
+    if (auto zone = create_zone(out, civzone_type::Pen, mn, mx, include))
+    {
+        indoor_pasture[5] = zone->id;
+        ai.debug(out, stl_sprintf("[PASTURE] indoor pasture dug; pen zone %d is open for the herd", zone->id));
+    }
 }
