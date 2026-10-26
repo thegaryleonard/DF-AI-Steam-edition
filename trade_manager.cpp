@@ -419,6 +419,20 @@ static bool contains_unit(df::item *item)
 }
 
 // Mirrors scripts/internal/caravan/common.lua get_perceived_value.
+// Weight of an item and everything inside it (bins, barrels, bags).
+static int64_t item_weight(df::item *item)
+{
+    // same rough measure on both sides of the deal, so only the ratio matters
+    int64_t w = (int64_t(item->getBaseWeight()) * std::max(1, item->getStackSize())) >> std::max(0, item->getWeightShiftBits());
+    std::vector<df::item *> contents;
+    Items::getContainedItems(item, &contents);
+    for (auto c : contents)
+    {
+        w += item_weight(c);
+    }
+    return w;
+}
+
 static int32_t perceived_value(df::item *item, df::caravan_state *caravan)
 {
     int32_t value = Items::getValue(item, caravan);
@@ -695,6 +709,21 @@ void PerformTradeExclusive::Run(color_ostream & out)
         dfhack_request += perceived_value(g.item, caravan);
     }
     int64_t pv_target = (int64_t(dfhack_request) * TRADE_MARGIN_NUM + TRADE_MARGIN_DEN - 1) / TRADE_MARGIN_DEN;
+    // Be generous when we can afford it (user: value barely matters to the
+    // fort, but merchant profit sets next year's trade sentiment, and caravans
+    // that keep losing out stop coming). With plenty to spare, give them
+    // double what they hand over; with some to spare, 60% more.
+    int64_t pv_minimum = pv_target;
+    if (max_offer_value >= int64_t(dfhack_request) * 3)
+        pv_target = int64_t(dfhack_request) * 2;
+    else if (max_offer_value >= int64_t(dfhack_request) * 2)
+        pv_target = int64_t(dfhack_request) * 8 / 5;
+    // ...but only what they can carry: what we give may weigh no more than
+    // what they hand over plus a little (their animals were carrying it in).
+    int64_t carry_cap = 0;
+    for (auto & g : request)
+        carry_cap += item_weight(g.item);
+    carry_cap = carry_cap * 5 / 4 + 50;
     std::vector<std::pair<int32_t, good_t>> offer_sorted;
     for (auto & g : fort_goods)
     {
@@ -707,14 +736,26 @@ void PerformTradeExclusive::Run(color_ostream & out)
     std::stable_sort(offer_sorted.begin(), offer_sorted.end(), [](const std::pair<int32_t, good_t> & x, const std::pair<int32_t, good_t> & y) -> bool { return x.first > y.first; });
     std::vector<std::pair<int32_t, good_t>> chosen;
     int64_t dfhack_offer = 0;
+    int64_t offer_weight = 0;
     for (auto & pg : offer_sorted)
     {
         if (dfhack_offer >= pv_target)
         {
             break;
         }
+        int64_t w = item_weight(pg.second.item);
+        // past the minimum, extra gifts must fit in their packs
+        if (dfhack_offer >= pv_minimum && offer_weight + w > carry_cap)
+        {
+            continue;
+        }
         chosen.push_back(pg);
         dfhack_offer += pg.first;
+        offer_weight += w;
+    }
+    if (dfhack_offer < pv_target && dfhack_offer >= pv_minimum)
+    {
+        pv_target = dfhack_offer; // as generous as their packs allow
     }
     // then drop items that are not needed to stay over the target
     for (auto it = chosen.end(); it != chosen.begin(); )
