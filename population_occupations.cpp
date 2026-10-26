@@ -3,6 +3,12 @@
 #include "room.h"
 
 #include "modules/Units.h"
+#include "plan.h"
+#include "stocks.h"
+#include "df/workshop_type.h"
+#include "df/inorganic_raw.h"
+#include "df/material_flags.h"
+#include "modules/Materials.h"
 #include "df/item.h"
 #include "df/tiletype.h"
 #include "df/general_ref_type.h"
@@ -583,7 +589,7 @@ static void barrel_overflow(AI & ai, color_ostream & out)
         return;
 
     // free space in existing barrel stockpiles?
-    int room = 0;
+    int space = 0;
     for (auto bld : world->buildings.other[buildings_other_id::STOCKPILE])
     {
         auto sp = virtual_cast<df::building_stockpilest>(bld);
@@ -594,75 +600,105 @@ static void barrel_overflow(AI & ai, color_ostream & out)
             {
                 auto occ = Maps::getTileOccupancy(df::coord(x, y, sp->z));
                 if (occ && !occ->bits.item && Buildings::containsTile(sp, df::coord2d(x, y)))
-                    room++;
+                    space++;
             }
     }
-    if (room >= loose)
+    if (space >= loose)
         return;
 
-    df::building *still = nullptr;
-    for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_STILL])
+    // the fort's own plan has more furniture stockpile levels waiting: dig the
+    // next one (tidy rooms next to the first, not loose piles by the still)
+    room *next = nullptr;
+    bool busy = false; // one furniture stockpile at a time
+    ai.find_room(room_type::stockpile, [&busy](room *r) -> bool
     {
-        still = bld;
-        break;
+        if (r->stockpile_type == stockpile_type::furniture && (r->queue_dig || r->status == room_status::dig || r->status == room_status::dug))
+            busy = true;
+        return busy;
+    });
+    if (busy)
+        return;
+    ai.find_room(room_type::stockpile, [&next](room *r) -> bool
+    {
+        if (r->stockpile_type == stockpile_type::furniture && r->status == room_status::plan && !r->queue_dig
+                && (!next || r->level < next->level))
+            next = r;
+        return false;
+    });
+    if (!next)
+    {
+        ai.debug(out, stl_sprintf("[LOCATIONS] %d empty barrels lying loose and no furniture stockpile left to dig", loose));
+        return;
     }
-    if (!still)
-        return;
-    df::coord origin(still->centerx, still->centery, still->z);
+    ai.debug(out, stl_sprintf("[LOCATIONS] %d empty barrels had nowhere to go: digging the next furniture stockpile", loose));
+    ai.plan.wantdig(out, next);
+}
 
-    // the biggest pile that fits nearby, no bigger than needed
-    static const int16_t sizes[][2] = {{8, 6}, {6, 5}, {5, 4}, {4, 3}, {3, 3}};
-    int16_t W = 0, H = 0;
-    df::coord c;
-    const int need = loose - room, n = int(sizeof(sizes) / sizeof(sizes[0]));
-    for (int i = 0; i < n; i++)
+
+// Fish and meat rot in a fishery or butcher's shop unless the tile above the
+// workshop's center is open to the sky (user tip). For any such workshop
+// whose center-above tile is the natural surface: channel it open, then cover
+// the hole with floor bars so nothing climbs in.
+static void vent_workshops(AI & ai, color_ostream & out)
+{
+    static int32_t last = -1;
+    if (last != -1 && *cur_year_tick >= last && *cur_year_tick - last < 1200)
+        return; // daily
+    last = *cur_year_tick;
+
+    ai.find_room(room_type::workshop, [&ai, &out](room *r) -> bool
     {
-        int16_t w = sizes[i][0], h = sizes[i][1];
-        if (i + 1 < n && sizes[i + 1][0] * sizes[i + 1][1] >= need)
-            continue; // a smaller one still holds them all
-        c = AI::spiral_search(origin, 25, 3, [origin, w, h](df::coord t) -> bool
+        if (r->status != room_status::finished || (r->workshop_type != workshop_type::Fishery && r->workshop_type != workshop_type::Butchers))
+            return false;
+        df::coord c((r->min.x + r->max.x) / 2, (r->min.y + r->max.y) / 2, r->max.z + 1);
+        auto tt = Maps::getTileType(c);
+        auto des = Maps::getTileDesignation(c);
+        auto occ = Maps::getTileOccupancy(c);
+        if (!tt || !des || !occ || !des->bits.outside)
+            return false; // not under the sky: needs a move, not a vent
+        auto shape = ENUM_ATTR(tiletype, shape, *tt);
+        if (occ->bits.building != tile_building_occ::None)
+            return false; // bars (or something) already there
+        if (shape == tiletype_shape::FLOOR || shape == tiletype_shape::RAMP)
         {
-            for (int16_t dx = 0; dx < w; dx++)
-                for (int16_t dy = 0; dy < h; dy++)
-                    if (!barrel_ok_tile(t + df::coord(dx, dy, 0)))
-                        return false;
-            return Maps::canWalkBetween(origin, t);
-        });
-        if (c.isValid())
-        {
-            W = w;
-            H = h;
-            break;
+            if (des->bits.dig != tile_dig_designation::Channel)
+            {
+                AI::dig_tile(c, tile_dig_designation::Channel);
+                ai.debug(out, "[VENT] channel the roof over " + AI::describe_room(r));
+            }
+            return false;
         }
-    }
-    if (!c.isValid())
-    {
-        ai.debug(out, stl_sprintf("[LOCATIONS] %d empty barrels lying loose and no free floor near the still for a barrel stockpile", loose));
-        return;
-    }
-    auto bld = virtual_cast<df::building_stockpilest>(Buildings::allocInstance(c, building_type::Stockpile));
-    if (!bld)
-        return;
-    Buildings::setSize(bld, df::coord2d(W, H));
-    if (!Buildings::constructAbstract(bld))
-        return;
-    Core::getInstance().runCommand(out, stl_sprintf("stockpiles import barrels --stockpile %d --mode set", bld->id));
-    // the barrels preset only names the item type; a fresh pile accepts no
-    // material and no quality level, so nothing would ever be hauled there
-    for (size_t i = 0; i < bld->settings.furniture.mats.size(); i++)
-        bld->settings.furniture.mats[i] = true;
-    for (size_t i = 0; i < bld->settings.furniture.other_mats.size(); i++)
-        bld->settings.furniture.other_mats[i] = true;
-    for (int i = 0; i < 7; i++)
-    {
-        bld->settings.furniture.quality_core[i] = true;
-        bld->settings.furniture.quality_total[i] = true;
-    }
-    ai.debug(out, stl_sprintf("[LOCATIONS] %d empty barrels had nowhere to go: barrel stockpile %d made by the still at (%d, %d, %d)", loose, bld->id, c.x, c.y, c.z));
+        if (shape != tiletype_shape::EMPTY && shape != tiletype_shape::RAMP_TOP)
+            return false;
+        df::item *bar = nullptr;
+        for (auto it : world->items.other[items_other_id::BAR])
+        {
+            MaterialInfo mi(it);
+            if (mi.isInorganic() && mi.inorganic->material.flags.is_set(material_flags::IS_METAL) && Stocks::is_item_free(it))
+            {
+                bar = it;
+                break;
+            }
+        }
+        if (!bar)
+        {
+            ai.debug(out, "[VENT] no free metal bar for the floor bars over " + AI::describe_room(r));
+            return false;
+        }
+        auto bld = Buildings::allocInstance(c, building_type::BarsFloor);
+        if (!bld)
+            return false;
+        Buildings::setSize(bld, df::coord(1, 1, 1));
+        std::vector<df::item *> items{bar};
+        Buildings::constructWithItems(bld, items);
+        ai.debug(out, "[VENT] floor bars over the vent of " + AI::describe_room(r));
+        return false;
+    });
 }
 
 void Population::update_locations(color_ostream & out)
 {
+    vent_workshops(ai, out);
     barrel_overflow(ai, out);
 
     // Tavern booze stockpiles hold drinks only (user request). The template
