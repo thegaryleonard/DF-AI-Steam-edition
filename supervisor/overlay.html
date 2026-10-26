@@ -1518,6 +1518,53 @@ function officialItems(ctx, r) {
   if (col) out.push({ids: [col.id], html: `<div class="item"><div class="kick">${esc(col.kick || 'Politics')}</div><h3>${esc(col.head)}</h3><p class="just dropcap">${esc(col.body)}</p><div class="by">— ${esc(col.by)}</div></div>`});
   return out;
 }
+// ---------- trade & diplomacy desk ----------
+let TR = {};
+async function pollTrade() { try { const r = await get('/trade.json'); if (r && r.ok) TR = r; } catch (e) {} }
+const TRADEQUIP = {
+  win: ["Our broker drove a hard bargain, and the caravan's accountant has been seen weeping into his ledger.",
+        "The broker reports the deal \"went well\", which in broker means \"I would like a bigger bedroom\".",
+        "Haggling was brisk. Nobody was stabbed. A success by any measure."],
+  loss: ["The fort paid over the odds. The broker blames the exchange rate, the weather and the elves, in that order.",
+         "Not our finest hour at the depot. An inquiry has been promised, and will be held at the tavern."],
+  none: ["The traders turned the offer down flat, then stood around the depot looking expectant.",
+         "No deal was struck. The goods remain at the depot, where they are admired by passing dwarves."]};
+const SENTWORD = {terrible: 'in a foul temper', poor: 'grumbling', lukewarm: 'lukewarm', good: 'in good spirits', excellent: 'delighted'};
+function tradeItems(ctx, r) {
+  const out = [];
+  const trs = (TR.trades || []), last = trs[trs.length - 1];
+  const cars = TR.caravans || [], here = cars.filter(c => c.present).slice(-1)[0];
+  if (here) out.push({ids: ['trade-here-' + here.civ], html: `<div class="item"><div class="kick">Caravan Watch</div><h3>Merchants of ${esc(clean(here.civ))} at the Depot</h3>
+    <p class="just">A caravan from ${esc(clean(here.civ))} is unloading at the trade depot. The merchants are said to be ${esc(SENTWORD[here.sentiment] || here.sentiment)}. Our broker has been located and pointed in the right direction.</p></div>`});
+  if (last && last.result) {
+    const res = last.result, when = `${last.season ? cap(last.season) + ' ' : ''}${last.year || ''}`;
+    let head, body;
+    if (res.ok) {
+      const gain = res.got - res.gave, won = gain >= 0;
+      head = won ? `Broker Comes Out ${gain} Ahead` : `Fort Overpays by ${-gain}`;
+      const top = (last.bought || []).slice(0, 2).map(([n]) => clean(n));
+      body = `${esc(when)}: ${res.gave}☼ of our goods for ${res.got}☼ of ${esc(clean(last.civ || 'Mountainhome'))}'s.`
+        + (top.length ? ` Bought: ${esc(top.slice(0, 2).join(', '))} and more.` : '')
+        + ' ' + esc(pick(r, TRADEQUIP[won ? 'win' : 'loss']));
+    } else {
+      head = 'Talks Collapse at the Depot';
+      body = `In ${esc(when)} the merchants of ${esc(clean(last.civ || 'the Mountainhomes'))} would not take the fort's offer${res.offer ? ` of ${res.offer}☼ for goods they valued at ${res.asked}☼` : ''}. ` + esc(pick(r, TRADEQUIP.none));
+    }
+    const warn = (last.warnings || []).some(w => /wagon/.test(w)) ? " <i>Wagons cannot reach our depot; caravans come light.</i>" : '';
+    out.push({ids: ['trade-' + last.year], html: `<div class="item"><div class="kick">Commerce · The Trade Depot</div><h3>${esc(head)}</h3><p class="just dropcap">${body}${warn}</p></div>`});
+  }
+  if (trs.length > 1) {
+    const rows = trs.slice(-3).map(t => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>Yr ${t.year} · ${esc(clean(t.civ || ''))}</span><span>${t.result ? (t.result.ok ? `${t.result.gave}☼ → ${t.result.got}☼` : 'no deal') : '—'}</span></div>`).join('');
+    out.push({ids: ['trade-ledger'], html: `<div class="item cls"><div class="kick">The Broker's Ledger</div>${rows}</div>`});
+  }
+  const li = (TR.liaison || []).slice(-1)[0];
+  if (li && li.wants) {
+    const who = li.who ? clean(li.who.replace(/^outpost liaison /, '')) : 'The outpost liaison';
+    out.push({ids: ['liaison-' + li.when], html: `<div class="item"><div class="kick">Diplomatic Pouch</div><h3>Mountainhomes Want ${esc(cap(li.wants))}</h3>
+      <p class="just">Liaison ${esc(who)} says ${esc(li.wants)} will fetch a premium from the next caravan.${li.agreement ? ' A trade agreement was also proposed. The fort is said to be thinking about it.' : ''}</p></div>`});
+  }
+  return out;
+}
 async function pollPolitics() { try { const r = await get('/politics.json'); if (r && r.ok) PO = r; } catch (e) {} }
 
 // ---------- below the fold: ads, editorials, letters, classifieds ----------
@@ -1528,7 +1575,9 @@ function citizens() {
   return [...names];
 }
 function fillers(r) {
-  const ctx = context(r), out = [...storyItems(ctx, r), ...officialItems(ctx, r), ...pageItems(ctx, r), ...featureItems(ctx, r)];
+  // the trade desk leads every other issue (stories would otherwise always fill the fold)
+  const ctx = context(r), trade = tradeItems(ctx, r), lead = r() < 0.5;
+  const out = [...(lead ? shuffle(r, trade).slice(0, 2) : []), ...storyItems(ctx, r), ...(lead ? [] : trade), ...officialItems(ctx, r), ...pageItems(ctx, r), ...featureItems(ctx, r)];
   const put = (ids, html) => out.push({ids: [].concat(ids), html});
   // display ads
   for (const a of choose(LIB.ads, ctx, r, 7))
@@ -1723,11 +1772,11 @@ async function pollSlow() {
   } catch (e) {}
 }
 (async () => {
-  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics(), pollLore()]);
+  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics(), pollLore(), pollTrade()]);
   if (document.fonts && document.fonts.ready) await document.fonts.ready;
   trackStories(); checkRumors(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
   nextCard();
-  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
+  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollTrade, 60000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
 })();
 
 // reload by itself when overlay.html changes on disk, so OBS never needs a manual refresh

@@ -25,6 +25,7 @@ LIB_DIR = HERE / "herald" / "library"
 SEEN_FILE = HERE / "herald" / "seen.json"   # library entry id -> unix time last printed, so issues don't repeat
 seen_lock = threading.Lock()
 MEMORY_FILE = HERE / "herald" / "memory.json"   # running stories: shortages, streaks, days-since counters, dwarf grievances
+trade_cache = {"at": 0, "data": {"ok": False}}
 cache = {"state": {"ok": False}, "history": {"artifacts": []}, "world": {}, "stocks": {}, "rumors": {}, "politics": {}, "history_world": None}
 STOCKS_EVERY_S = 30
 RUMORS_EVERY_S = 60   # news the fort has heard from diplomats, the liaison and caravans
@@ -119,6 +120,13 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = (SEEN_FILE.read_bytes() if SEEN_FILE.exists() else b"{}"), "application/json"
         elif self.path.startswith("/memory.json"):
             body, ctype = (MEMORY_FILE.read_bytes() if MEMORY_FILE.exists() else b"{}"), "application/json"
+        elif self.path.startswith("/trade.json"):
+            # caravans, deals and the liaison's wishes, from the logs (herald_trade.py)
+            import herald_trade
+            now = time.time()
+            if now - trade_cache["at"] > 60:
+                trade_cache["at"], trade_cache["data"] = now, herald_trade.feed()
+            body, ctype = json.dumps(trade_cache["data"], ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/portrait.png"):
             # the followed dwarf's sprite, for the On Camera card (portraits.py)
             from urllib.parse import urlparse, parse_qs
