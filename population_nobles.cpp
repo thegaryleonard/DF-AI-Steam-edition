@@ -1,10 +1,15 @@
 #include "ai.h"
+
+#include <set>
 #include "population.h"
 #include "plan.h"
 
 #include "modules/Units.h"
 
 #include "df/entity_position_assignment.h"
+#include "df/entity_position_flags.h"
+#include "df/job_skill.h"
+#include "df/entity_position.h"
 #include "df/historical_entity.h"
 #include "df/historical_figure.h"
 #include "df/histfig_entity_link_positionst.h"
@@ -267,6 +272,208 @@ public:
     }
 };
 
+
+// ---------------------------------------------------------------------------
+// Appointments (user request): besides the core jobs above, fill every empty
+// seat the fort's own leader can appoint (dungeon master, messengers, a
+// sheriff when there is no captain of the guard...), each with the citizen
+// best suited by skill. Messengers have no seats until someone adds one, so
+// we keep MESSENGERS_WANTED of them.
+static const int MESSENGERS_WANTED = 2;
+
+static int32_t skill_score(df::unit *u, std::initializer_list<df::job_skill> skills)
+{
+    int32_t t = 0;
+    for (auto sk : skills)
+        t += Units::getEffectiveSkill(u, sk) * 100 + 1;
+    return t;
+}
+
+static int32_t position_fit(df::unit *u, const std::string & code)
+{
+    if (code == "MESSENGER")
+        return skill_score(u, {job_skill::NEGOTIATION, job_skill::PERSUASION, job_skill::JUDGING_INTENT, job_skill::CONVERSATION, job_skill::FLATTERY, job_skill::LYING});
+    if (code == "DUNGEON_MASTER")
+        return skill_score(u, {job_skill::ANIMALTRAIN, job_skill::ANIMALCARE, job_skill::TRAPPING});
+    if (code == "SHERIFF")
+        return skill_score(u, {job_skill::DISCIPLINE, job_skill::JUDGING_INTENT, job_skill::WRESTLING, job_skill::SITUATIONAL_AWARENESS});
+    return 1;
+}
+
+static df::entity_position_assignment *add_position_slot(df::historical_entity *entity, df::entity_position *position)
+{
+    df::entity_position_assignment *like = nullptr;
+    for (auto a : entity->positions.assignments)
+    {
+        auto p = binsearch_in_vector(entity->positions.own, a->position_id);
+        if (p && p->squad_size == 0 && !p->flags.is_set(entity_position_flags::ELECTED))
+        {
+            like = a;
+            break;
+        }
+    }
+    auto asn = df::allocate<df::entity_position_assignment>();
+    asn->id = entity->positions.next_assignment_id++;
+    asn->histfig = -1;
+    asn->histfig2 = -1;
+    asn->position_id = position->id;
+    asn->position_vector_idx = -1;
+    for (size_t i = 0; i < entity->positions.own.size(); i++)
+        if (entity->positions.own[i] == position)
+            asn->position_vector_idx = int32_t(i);
+    if (like)
+        asn->flags = like->flags;
+    asn->squad_id = -1;
+    asn->st_id = -1;
+    asn->ab_id = -1;
+    asn->vassal_of_entity_id = -1;
+    asn->vassal_of_position_profile_id = -1;
+    asn->assigned_army_controller_id = -1;
+    asn->temp = 0;
+    entity->positions.assignments.push_back(asn);
+    return asn;
+}
+
+static void appoint(AI & ai, color_ostream & out, df::historical_entity *entity, df::entity_position *position, df::entity_position_assignment *assignment, df::unit *chosen)
+{
+    auto hf = df::historical_figure::find(chosen->hist_figure_id);
+    int32_t idx = -1;
+    for (size_t i = 0; i < entity->positions.assignments.size(); i++)
+        if (entity->positions.assignments[i] == assignment)
+            idx = int32_t(i);
+    assignment->histfig = hf->id;
+    auto link = df::allocate<df::histfig_entity_link_positionst>();
+    link->entity_id = entity->id;
+    link->link_strength = 100;
+    link->assignment_id = assignment->id;
+    link->assignment_vector_idx = idx;
+    link->start_year = *cur_year;
+    hf->entity_links.push_back(link);
+
+    auto event = df::allocate<df::history_event_add_hf_entity_linkst>();
+    event->year = *cur_year;
+    event->seconds = *cur_year_tick;
+    event->id = (*hist_event_next_id)++;
+    event->civ = entity->id;
+    event->histfig = hf->id;
+    event->link_type = histfig_entity_link_type::POSITION;
+    event->position_id = position->id;
+    event->appointer_hfid = -1;
+    event->promise_to_hfid = -1;
+    world->history.events.push_back(event);
+
+    FOR_ENUM_ITEMS(entity_position_responsibility, r)
+    {
+        if (r < 0)
+            continue;
+        if (position->responsibilities[r])
+        {
+            auto & vec = entity->assignments_by_type[r];
+            if (std::find(vec.begin(), vec.end(), assignment) == vec.end())
+                vec.push_back(assignment);
+        }
+    }
+    ai.debug(out, "[APPOINT] " + AI::describe_unit(chosen) + " appointed " + position->name[0]);
+}
+
+class FillSeatsExclusive : public ExclusiveCallback
+{
+    AI & ai;
+public:
+    FillSeatsExclusive(AI & ai) : ExclusiveCallback("fill empty appointed seats"), ai(ai) {}
+    void Run(color_ostream & out)
+    {
+        auto entity = plotinfo->main.fortress_entity;
+        if (!entity)
+            return;
+
+        auto pos_by_code = [entity](const char *code) -> df::entity_position *
+        {
+            for (auto p : entity->positions.own)
+                if (p->code == code)
+                    return p;
+            return nullptr;
+        };
+        auto filled = [entity](df::entity_position *p) -> int
+        {
+            int n = 0;
+            for (auto a : entity->positions.assignments)
+                if (a->position_id == p->id && df::historical_figure::find(a->histfig) && df::historical_figure::find(a->histfig)->died_year == -1)
+                    n++;
+            return n;
+        };
+
+        // who can appoint: positions currently held by a living dwarf
+        std::set<int32_t> appointers;
+        for (auto a : entity->positions.assignments)
+        {
+            auto hf = df::historical_figure::find(a->histfig);
+            if (hf && hf->died_year == -1)
+                appointers.insert(a->position_id);
+        }
+
+        auto captain = pos_by_code("CAPTAIN_OF_THE_GUARD");
+        for (auto position : entity->positions.own)
+        {
+            if (position->flags.is_set(entity_position_flags::ELECTED) || position->squad_size > 0 || position->code == "EXPEDITION_LEADER")
+                continue;
+            if (position->code == "SHERIFF" && captain && filled(captain))
+                continue; // the captain of the guard already does the sheriff's job
+            bool can_appoint = false;
+            for (auto by : position->appointed_by)
+                if (appointers.count(by))
+                    can_appoint = true;
+            if (!can_appoint)
+                continue;
+
+            // a free seat (dead or empty holder), or a new messenger seat
+            df::entity_position_assignment *seat = nullptr;
+            for (auto a : entity->positions.assignments)
+            {
+                if (a->position_id != position->id)
+                    continue;
+                auto hf = df::historical_figure::find(a->histfig);
+                if (!hf || hf->died_year != -1)
+                {
+                    seat = a;
+                    break;
+                }
+            }
+            if (!seat && position->code == "MESSENGER" && filled(position) < MESSENGERS_WANTED)
+                seat = add_position_slot(entity, position);
+            if (!seat)
+                continue;
+
+            df::unit *best = nullptr;
+            int32_t best_fit = -1;
+            for (auto u : world->units.active)
+            {
+                if (!Units::isCitizen(u) || Units::isChild(u) || Units::isBaby(u) || !Units::isAlive(u) || !Units::isSane(u))
+                    continue;
+                if (!df::historical_figure::find(u->hist_figure_id) || u->mood != mood_type::None)
+                    continue;
+                std::vector<Units::NoblePosition> held;
+                if (Units::getNoblePositions(&held, u))
+                    continue;
+                if (!position_allows_unit(position, u))
+                    continue;
+                // most adults serve in a squad (everyone fights): prefer
+                // civilians, but a soldier can carry a message too
+                int32_t fit = position_fit(u, position->code) + (u->military.squad_id == -1 ? 1000000 : 0);
+                if (fit > best_fit)
+                {
+                    best_fit = fit;
+                    best = u;
+                }
+            }
+            if (!best)
+                continue;
+            appoint(ai, out, entity, position, seat, best);
+            return; // one per run; the rest next time
+        }
+    }
+};
+
 void Population::update_nobles(color_ostream & out)
 {
     check_noble_apartments(out);
@@ -311,6 +518,8 @@ void Population::update_nobles(color_ostream & out)
         WANT_POS(LAW_ENFORCEMENT);
         WANT_POS(EXECUTIONS);
     }
+
+    events.queue_exclusive(std::make_unique<FillSeatsExclusive>(ai));
 }
 
 void Population::check_noble_apartments(color_ostream & out)
