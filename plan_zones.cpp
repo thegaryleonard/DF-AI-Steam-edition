@@ -549,7 +549,7 @@ void Plan::remove_room_zone(color_ostream & out, room *r)
 
 df::building_civzonest *Plan::indoor_pasture_zone()
 {
-    if (indoor_pasture.size() != 6 || indoor_pasture[5] == -1)
+    if (indoor_pasture.size() < 6 || indoor_pasture[5] == -1)
         return nullptr;
     auto zone = virtual_cast<df::building_civzonest>(df::building::find(indoor_pasture[5]));
     if (!zone || zone->type != civzone_type::Pen)
