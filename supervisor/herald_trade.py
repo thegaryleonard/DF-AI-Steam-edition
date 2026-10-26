@@ -126,9 +126,21 @@ def liaison():
     return meets[-3:]
 
 
+def game_year():
+    for l in reversed(_tail(DF / "df-ai.log", 20000)):
+        m = DATE.match(l)
+        if m:
+            return int(m.group(1)), int(m.group(2))
+    return None, None
+
+
 def feed():
     try:
-        return {"ok": True, "trades": trades(), "caravans": caravans(), "liaison": liaison()}
+        tr = trades()
+        year, month = game_year()
+        last = max((t["year"] for t in tr if t.get("year")), default=None)
+        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(),
+                "year": year, "month": month, "last_trade_year": last}
     except Exception as e:      # never break the paper over a log quirk
         return {"ok": False, "error": repr(e)}
 

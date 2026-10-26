@@ -1,8 +1,13 @@
 [
  {
   "title": "The Indoor Pasture",
-  "state": "under way",
-  "note": "With the caverns open, miners are digging a pasture into the soil under the hills. Cave grass will grow there, and the herd moves indoors, out of the rain and away from ambushes."
+  "state": "complete",
+  "note": "The herd now lives indoors under the hills, grazing on cave moss, out of the rain and away from ambushes."
+ },
+ {
+  "title": "Booze at the Bar",
+  "state": "complete",
+  "note": "The tavern's own stockpile now holds barrels of drink instead of leftover meals, so the keeper pours without a trip to the cellar."
  },
  {
   "title": "Nest Boxes for the Indoor Pasture",
@@ -20,9 +25,9 @@
   "note": "The Herald now prints a proper portrait of whoever is on camera."
  },
  {
-  "title": "Wagon Road to the Depot",
+  "title": "Where Is the Caravan?",
   "state": "under way",
-  "note": "Caravans can't bring wagons to our depot, so they arrive light. The engineers are studying the problem."
+  "note": "No Mountainhome caravan has come since year 126. The engineers are checking the roads, the depot and the diplomatic mail."
  },
  {
   "title": "Goods the Mountainhomes Want",

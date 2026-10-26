@@ -2087,12 +2087,18 @@ function tradeItems(ctx, r) {
       head = 'Talks Collapse at the Depot';
       body = `In ${esc(when)} the merchants of ${esc(clean(last.civ || 'the Mountainhomes'))} would not take the fort's offer${res.offer ? ` of ${res.offer}☼ for goods they valued at ${res.asked}☼` : ''}. ` + esc(pick(r, TRADEQUIP.none));
     }
-    const warn = (last.warnings || []).some(w => /wagon/.test(w)) ? " <i>Wagons cannot reach our depot; caravans come light.</i>" : '';
+    const warn = '';
     out.push({ids: ['trade-' + last.year], html: `<div class="item"><div class="kick">Commerce · The Trade Depot</div><h3>${esc(head)}</h3><p class="just dropcap">${body}${warn}</p></div>`});
   }
   if (trs.length > 1) {
     const rows = trs.slice(-3).map(t => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>Yr ${t.year} · ${esc(clean(t.civ || ''))}</span><span>${t.result ? (t.result.ok ? `${t.result.gave}☼ → ${t.result.got}☼` : 'no deal') : '—'}</span></div>`).join('');
     out.push({ids: ['trade-ledger'], html: `<div class="item cls"><div class="kick">The Broker's Ledger</div>${rows}</div>`});
+  }
+  // no caravan for a whole autumn or more (dwarven caravans come every autumn)
+  if (TR.year && TR.last_trade_year && (TR.year - TR.last_trade_year >= 2 || (TR.year - TR.last_trade_year === 1 && TR.month >= 10)) && !here) {
+    const gap = TR.year - TR.last_trade_year - (TR.month >= 10 ? 0 : 1);
+    out.push({ids: ['trade-overdue-' + TR.year], html: `<div class="item"><div class="kick">Caravan Watch</div><h3>Mountainhome Caravan Overdue</h3>
+      <p class="just">No caravan has reached the depot since the autumn of ${TR.last_trade_year}${gap > 1 ? `, ${gap} autumns in a row` : ''}. The broker has taken to standing at the depot anyway, staring at the horizon. Theories at the tavern range from bandits to bad roads to a very long lunch.</p></div>`});
   }
   const li = (TR.liaison || []).slice(-1)[0];
   if (li && li.wants) {
