@@ -1,0 +1,1369 @@
+{
+ "world_news": [
+  {
+   "id": "wk-wn-001",
+   "kick": "Elven Affairs",
+   "head": "ELVES REAFFIRM: TREES ARE PEOPLE TOO",
+   "body": "The elves of {retreat} have restated their position that no tree may be felled and that any wooden goods brought to their caravans will be taken as a personal insult. Elven caravans arrive in spring. Our carpenters are advised to keep their work indoors that season."
+  },
+  {
+   "id": "wk-wn-002",
+   "kick": "Elven Affairs",
+   "head": "STILL AT WAR, OFFICIALLY",
+   "body": "{civ} remains at war with {enemy}. The {enemy_race} side is said to be sharpening spears and composing songs about us. The songs are reportedly very long.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-wn-003",
+   "kick": "Human Affairs",
+   "head": "HUMAN TOWN BUILDS ANOTHER TAVERN",
+   "body": "Word from {town} is that the humans have opened another tavern, their buildings being mostly wood and their towns being mostly taverns. They also work bronze, which our smiths describe as 'adorable'."
+  },
+  {
+   "id": "wk-wn-004",
+   "kick": "Human Affairs",
+   "head": "HUMAN MERCHANTS PLAN SUMMER ROUTE",
+   "body": "Human caravans travel in summer, and the merchants of {town} are said to be loading wagons now. Our broker has been informed and has gone to lie down.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "wk-wn-005",
+   "kick": "Goblin Affairs",
+   "head": "DARK FORTRESS EXPANDS ITS PITS",
+   "body": "Travellers report that the goblins of {darkfort} have dug another ring of pits. Goblins live in dark fortresses in evil lands, keep trolls and beak dogs, and are the main reason dwarves build walls. The Herald has no further comment and a new lock."
+  },
+  {
+   "id": "wk-wn-006",
+   "kick": "Goblin Affairs",
+   "head": "SNATCHERS SEEN ON THE ROADS",
+   "body": "Goblin snatchers, who steal children from careless settlements, have been reported near {town}. Parents in {fort} are reminded that our children are very well supervised, by cats.",
+   "when": [
+    "birth_week"
+   ]
+  },
+  {
+   "id": "wk-wn-007",
+   "kick": "Kobold Affairs",
+   "head": "KOBOLDS STEAL THE SAME CUP TWICE",
+   "body": "A kobold band near {hillock} stole a silver goblet, was spotted, fled, and came back for it the next night. Kobolds steal and run; they do not fight. Their persistence, however, is to be admired."
+  },
+  {
+   "id": "wk-wn-008",
+   "kick": "Dwarven Affairs",
+   "head": "THE MOUNTAINHOMES SEND AN AUTUMN CARAVAN",
+   "body": "As every year, the dwarven caravan sets out in autumn. Our liaison has sent ahead a list of what the capital wants. The capital, as always, wants everything, cheaply.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "wk-wn-009",
+   "kick": "Dwarven Affairs",
+   "head": "NEIGHBOURING FORT ELECTS A MAYOR",
+   "body": "The fortress of {hillock} has passed fifty citizens and elected its most sociable dwarf as mayor. Sources say the new mayor has already heard eleven complaints and resolved none of them, which is considered a strong start."
+  },
+  {
+   "id": "wk-wn-010",
+   "kick": "Dwarven Affairs",
+   "head": "A MOOD AT {hillock}",
+   "body": "A craftsdwarf at {hillock} has entered a strange mood and claimed a workshop. Our correspondents in that fort report the usual: muttering, sketching, and a frantic search for bones."
+  },
+  {
+   "id": "wk-wn-011",
+   "kick": "Beasts Abroad",
+   "head": "TITAN SIGHTED NEAR {town}",
+   "body": "A titan, one of the vast unique beasts that walk the surface, has been seen near {town}. Titans are drawn to wealth and great numbers. {town} has asked us to stop mentioning how rich we are."
+  },
+  {
+   "id": "wk-wn-012",
+   "kick": "Beasts Abroad",
+   "head": "DRAGON'S LAIR REMAINS OCCUPIED",
+   "body": "The dragon of the eastern hills is said to be at home, asleep, and in no mood for visitors. Megabeasts are figures of history with names of their own. This one's name means something like 'please leave'."
+  },
+  {
+   "id": "wk-wn-013",
+   "kick": "Night Creatures",
+   "head": "NECROMANCER'S TOWER RISES",
+   "body": "A tower has gone up in the wilds of {world}, and with it the dead. Necromancers are immortal and raise legions of the undead from their towers. Travellers are advised to take the long way, and to count their companions."
+  },
+  {
+   "id": "wk-wn-014",
+   "kick": "Night Creatures",
+   "head": "WEREBEAST HUNT CALLED OFF AT FULL MOON",
+   "body": "Hunters from {town} have postponed a werebeast hunt until after the full moon, which our scientific correspondent describes as 'the first sensible thing anyone in {town} has done this year'."
+  },
+  {
+   "id": "wk-wn-015",
+   "kick": "Trade",
+   "head": "CARAVANS STAY HOME FOR WINTER",
+   "body": "No race trades in winter. The roads of {world} are quiet, the depots empty, and every broker from here to {town} is catching up on sleep.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "wk-wn-016",
+   "kick": "Trade",
+   "head": "SPRING: THE ELVES ARE ON THE ROAD",
+   "body": "Elven caravans travel in spring. They bring wood, which they did not cut, and cloth, which they did not admit to weaving from anything that was once alive.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "wk-wn-017",
+   "kick": "Weather Abroad",
+   "head": "EVIL BIOME REPORTS BLOOD RAIN AGAIN",
+   "body": "Settlers in a cursed valley beyond {darkfort} report rain of blood and clouds that cause strange illness. The Herald's weather desk confirms that here it merely rains water, and that we should be grateful."
+  },
+  {
+   "id": "wk-wn-018",
+   "kick": "From Our Correspondent in {town}",
+   "head": "{town} ASKS: WHAT IS A FORT WITH {soldiers} SOLDIERS AFRAID OF?",
+   "body": "Visitors from {town} have asked why a fort of {pop} needs an army of {soldiers}. Our answer: forgotten beasts, titans, sieges, vampires, and the cook when the meat runs out.",
+   "when": [
+    "army_big"
+   ]
+  }
+ ],
+ "travel": [
+  {
+   "id": "wk-tr-001",
+   "head": "A WEEKEND IN THE FIRST CAVERN",
+   "body": "Our travel writer descended {cavern_depth} levels to the first cavern, where the moss is soft, the mushroom trees are tall and the crundles come in packs of twenty. The writer recommends the view and the moss, and advises taking a militia.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-tr-002",
+   "head": "THE MAGMA SEA, FROM A SAFE DISTANCE",
+   "body": "Beneath the caverns lies the magma sea, home of fire imps who throw fireballs and enjoy it. Our writer saw it from a long way off, which is the only correct distance.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-tr-003",
+   "head": "THE HUMAN TOWNS OF {world}",
+   "body": "Human towns are built of wood, full of shops and always have a tavern. Our writer enjoyed the bread, disliked the beds and was asked three times to stop knocking on walls to test them."
+  },
+  {
+   "id": "wk-tr-004",
+   "head": "A FOREST RETREAT, WITHOUT TOUCHING ANYTHING",
+   "body": "Our writer visited {retreat}, where the elves live among the trees and the trees are, they insist, their friends. Our writer kept his hands in his pockets the whole time and still got a lecture about his chair."
+  },
+  {
+   "id": "wk-tr-005",
+   "head": "STAYING HOME: A REVIEW OF {fort}",
+   "body": "Our travel desk, unable to leave because of {weather}, has reviewed {fort} instead: {pop} residents, {drinks} drinks and a pasture full of moss-fed animals. Four mugs out of five. Would stay again, having no choice.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-tr-006",
+   "head": "THE ROAD TO THE MOUNTAINHOMES",
+   "body": "The dwarven caravan makes the trip each autumn, and our writer went back with it. The capital is grand, crowded and expensive, and the monarch was not available for comment, being the monarch."
+  }
+ ],
+ "letters_abroad": [
+  {
+   "id": "wk-la-001",
+   "body": "The humans here eat their mushrooms roasted and their bread hot, and drink something thin they call ale. I miss proper dwarven ale, from pig tails, the way it should be.",
+   "by": "A Dwarf Abroad, in {town}"
+  },
+  {
+   "id": "wk-la-002",
+   "body": "The elves here asked me what my mug was made of. I said stone. They were relieved. I did not mention the table.",
+   "by": "A Dwarf Abroad, near {retreat}"
+  },
+  {
+   "id": "wk-la-003",
+   "body": "Tell the brewers at {fort} that nobody out here understands variety. I have had the same drink for a month. I am, as the old phrase goes, tired of drinking the same old booze.",
+   "by": "A Homesick Brewer, in {town}"
+  },
+  {
+   "id": "wk-la-004",
+   "body": "I passed a necromancer's tower on the road. It was very tall, very quiet and, I'm told, very occupied. I walked faster.",
+   "by": "A Traveller, Somewhere in {world}"
+  },
+  {
+   "id": "wk-la-005",
+   "body": "Is it true that {fort} has {cats} cats? Word travels. The cats of {town} are said to be jealous.",
+   "by": "A Correspondent in {town}",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-la-006",
+   "body": "I have heard of the new artifact at {fort}, {artifact_new}. Even here they are talking of it. Please tell {artifact_maker} that a merchant has offered me a fortune for a drawing of it. I have not sold. Yet.",
+   "by": "A Dwarf Abroad, in {town}",
+   "when": [
+    "artifact_week"
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "id": "wk-rv-001",
+   "kind": "Taverns",
+   "head": "The Fort Tavern, an Evening",
+   "stars": 4,
+   "body": "A keeper who knows when to pour and when to stop, performers who know three songs well and a fourth badly, and a crowd of visitors trading rumours from all over {world}. One brawl, briefly. Four mugs.",
+   "by": "Rigoth Tankardson",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-rv-002",
+   "kind": "Dining",
+   "head": "The Plump Helmet Roast",
+   "stars": 4,
+   "body": "Purple, earthy and plentiful. A roast counts as every ingredient in it, so the cook can please the whole table at once. The spawn, sadly, did not survive the cooking.",
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "wk-rv-003",
+   "kind": "Dining",
+   "head": "Quarry Bush Leaf Stew",
+   "stars": 3,
+   "body": "Must be cooked, and was. The texture is that of a hopeful hedge. Nourishing, honest, and very green.",
+   "by": "Morul Ladlebeard"
+  },
+  {
+   "id": "wk-rv-004",
+   "kind": "Dining",
+   "head": "Cheese, Farmer's Workshop Style",
+   "stars": 5,
+   "body": "One barrel of milk becomes several stacks of cheese, and every stack is a small miracle. A dwarf invented cheese, they say. That dwarf deserves a statue.",
+   "by": "Morul Ladlebeard",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-rv-005",
+   "kind": "Drink",
+   "head": "Dwarven Wine, This Season's Barrel",
+   "stars": 4,
+   "body": "Plump helmet wine with a purple finish and a mushroom nose. Five mugs to the helmet, and every one of them honest.",
+   "by": "Rigoth Tankardson",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-rv-006",
+   "kind": "Drink",
+   "head": "Dwarven Rum",
+   "stars": 5,
+   "body": "Sweet pods, distilled with patience. This is a drink for good news. We had some. Then we had more good news.",
+   "by": "Rigoth Tankardson",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "wk-rv-007",
+   "kind": "Architecture",
+   "head": "The Execution Pit",
+   "stars": 4,
+   "body": "A hatch, a sealed shaft, no stairs and no way back. Austere, functional and, from the point of view of the caged invader, final. Marked down a star for the lack of a view.",
+   "by": "Bomrek Archwright"
+  },
+  {
+   "id": "wk-rv-008",
+   "kind": "Architecture",
+   "head": "The Catacombs",
+   "stars": 5,
+   "body": "Row upon row of coffins and engraved slabs, so that nobody in {fort} need come back as a ghost. A building that keeps its residents exactly where they belong.",
+   "by": "Bomrek Archwright",
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "wk-rv-009",
+   "kind": "Books",
+   "head": "'On the Forgotten Beasts', a Quire",
+   "stars": 4,
+   "body": "A scholar's account of the beasts born of the world's first chaos. Thorough, frightening, and best read in daylight, which, underground, means never.",
+   "by": "Ingish Pagebeard",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "wk-rv-010",
+   "kind": "Books",
+   "head": "'A Calendar of Twelve Months', a Scroll",
+   "stars": 3,
+   "body": "Twelve months of twenty-eight days and a year of 336. The author repeats this on every page, which is either rigorous or a cry for help.",
+   "by": "Ingish Pagebeard"
+  },
+  {
+   "id": "wk-rv-011",
+   "kind": "Art",
+   "head": "{artifact_new}",
+   "stars": 5,
+   "body": "A {artifact_new_item} made by {artifact_maker} in the grip of a strange mood. It cannot be improved, valued or properly described. This reviewer tried for an hour and gave up. Five stars, and the stars are embarrassed.",
+   "by": "Our Arts Critic",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-rv-012",
+   "kind": "Music",
+   "head": "Tavern Performers, Late Show",
+   "stars": 3,
+   "body": "A poet, a dancer and a dwarf with a drum. The poem was long, the dance was short, and the drum outlasted both.",
+   "by": "Udib Lutecrusher",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-rv-013",
+   "kind": "Theatre",
+   "head": "A Story Recited in the Temple",
+   "stars": 4,
+   "body": "A performer recited the tale of a god nobody in the room worships. Everyone listened anyway. That is the power of a good story, or of a locked door.",
+   "by": "Thikut Curtaincleft",
+   "when": [
+    "has_temple"
+   ]
+  }
+ ],
+ "polls": [
+  {
+   "id": "wk-pl-001",
+   "q": "What should the fort do with {thread} units of thread?",
+   "options": [
+    "Weave it",
+    "Sell it",
+    "Sleep on it",
+    "Stop spinning"
+   ],
+   "pct": [
+    22,
+    18,
+    31,
+    29
+   ],
+   "note": "The farmer's workshop has a new order queued. Nobody knows who queued it.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-pl-002",
+   "q": "How many cats is too many?",
+   "options": [
+    "Fewer than we have",
+    "Exactly what we have",
+    "Cats cannot be counted"
+   ],
+   "pct": [
+    23,
+    12,
+    65
+   ],
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-pl-003",
+   "q": "What is {moody} making?",
+   "options": [
+    "A crown",
+    "A cage",
+    "Something with bones",
+    "Don't ask"
+   ],
+   "pct": [
+    19,
+    14,
+    27,
+    40
+   ],
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-pl-004",
+   "q": "Your verdict on {artifact_new}?",
+   "options": [
+    "Magnificent",
+    "Very magnificent",
+    "I wept"
+   ],
+   "pct": [
+    31,
+    28,
+    41
+   ],
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-pl-005",
+   "q": "Favourite drink?",
+   "options": [
+    "Dwarven wine",
+    "Dwarven beer",
+    "Dwarven ale",
+    "Dwarven rum"
+   ],
+   "pct": [
+    34,
+    22,
+    17,
+    27
+   ],
+   "note": "Every respondent added: 'whatever is closest'.",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-pl-006",
+   "q": "Should the fort dig deeper than {depth} levels?",
+   "options": [
+    "Yes",
+    "No",
+    "Ask the fire imps"
+   ],
+   "pct": [
+    21,
+    33,
+    46
+   ],
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-pl-007",
+   "q": "Best way to deal with a forgotten beast?",
+   "options": [
+    "Militia",
+    "Traps",
+    "Move"
+   ],
+   "pct": [
+    41,
+    34,
+    25
+   ]
+  },
+  {
+   "id": "wk-pl-008",
+   "q": "Who are we at war with again?",
+   "options": [
+    "{enemy}",
+    "Everyone",
+    "Not sure, but I'm against them"
+   ],
+   "pct": [
+    38,
+    21,
+    41
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-pl-009",
+   "q": "The pasture animals eat cave moss. Your view?",
+   "options": [
+    "Lucky them",
+    "Can I have some?",
+    "It explains the goats"
+   ],
+   "pct": [
+    45,
+    18,
+    37
+   ],
+   "when": [
+    "caverns",
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-pl-010",
+   "q": "Should newcomers be checked for vampires?",
+   "options": [
+    "Yes",
+    "No",
+    "I already did, quietly"
+   ],
+   "pct": [
+    36,
+    22,
+    42
+   ],
+   "when": [
+    "migrants_week"
+   ]
+  }
+ ],
+ "toplists": [
+  {
+   "id": "wk-tl-001",
+   "head": "THE SIX CROPS OF THE DEEP, RANKED",
+   "items": [
+    "Plump helmets (any season, wine)",
+    "Cave wheat (beer, flour)",
+    "Sweet pods (rum, sugar, syrup)",
+    "Pig tails (ale, thread, paper)",
+    "Dimple cups (blue dye)",
+    "Quarry bushes (cook them!)"
+   ]
+  },
+  {
+   "id": "wk-tl-002",
+   "head": "FIVE KINDS OF STRANGE MOOD",
+   "items": [
+    "Fey: happy, faraway",
+    "Secretive: hides the work",
+    "Possessed: not quite themselves",
+    "Fell: someone will not survive it",
+    "Macabre: wants bones"
+   ]
+  },
+  {
+   "id": "wk-tl-003",
+   "head": "WHO COMES TO THE DEPOT, AND WHEN",
+   "items": [
+    "Elves: spring",
+    "Humans: summer",
+    "Our kin: autumn",
+    "Nobody: winter",
+    "Kobolds: whenever, uninvited"
+   ]
+  },
+  {
+   "id": "wk-tl-004",
+   "head": "THINGS THE HOSPITAL WANTS",
+   "items": [
+    "Thread",
+    "Cloth",
+    "Splints and crutches",
+    "Plaster",
+    "Soap (please)"
+   ],
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "wk-tl-005",
+   "head": "THE CAVERN WILDLIFE, BY NUISANCE",
+   "items": [
+    "Crundles (packs of twenty)",
+    "Troglodytes (bands of eight)",
+    "Giant cave spiders (bears with legs)",
+    "Fire imps (deeper, hotter)",
+    "Forgotten beasts (unique, unwelcome)"
+   ],
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-tl-006",
+   "head": "QUALITY, FROM WORST TO BEST",
+   "items": [
+    "Plain",
+    "Fine",
+    "Superior",
+    "Exceptional",
+    "Masterwork",
+    "Artifact (moods only)"
+   ]
+  },
+  {
+   "id": "wk-tl-007",
+   "head": "FIVE THINGS THAT KEEP A DWARF FOCUSED",
+   "items": [
+    "A drink when wanted",
+    "A god to pray to",
+    "Friends to talk to",
+    "Something to make",
+    "A good meal at a table"
+   ]
+  },
+  {
+   "id": "wk-tl-008",
+   "head": "TOP REASONS TO BURY THE DEAD",
+   "items": [
+    "Respect",
+    "Tradition",
+    "Miasma",
+    "Ghosts",
+    "Ghosts (again)"
+   ]
+  }
+ ],
+ "voxpops": [
+  {
+   "id": "wk-vp-001",
+   "q": "What do you think {moody} is making?",
+   "answers": [
+    "Something wonderful.",
+    "Something with my bones in it, I fear.",
+    "I brought them a shell. They looked at me like I was the shell.",
+    "Don't know. Don't ask. Don't knock.",
+    "A crown, for the cat."
+   ],
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-vp-002",
+   "q": "Have you seen {artifact_new} yet?",
+   "answers": [
+    "Twice. I'm going back.",
+    "I wept a little.",
+    "It's a {artifact_new_item}. I didn't know those could be beautiful.",
+    "I'm saving it for a special occasion.",
+    "I touched it. Please don't print that."
+   ],
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-vp-003",
+   "q": "How do you remember {lastdead}?",
+   "answers": [
+    "Kind, mostly.",
+    "Loud, in a good way.",
+    "They owed me a mug.",
+    "They always held the door.",
+    "Like everyone does: at dinner, by the empty chair."
+   ],
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-vp-004",
+   "q": "What's your favourite cavern creature?",
+   "answers": [
+    "The moss. It doesn't bite.",
+    "Crundles, from a distance.",
+    "None. Close the doors.",
+    "The giant cave spider. Kidding. Close the doors.",
+    "Troglodytes, because they make me feel clever."
+   ],
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-vp-005",
+   "q": "What would you ask the merchants for?",
+   "answers": [
+    "Rum.",
+    "Soap, for the hospital.",
+    "Anything that isn't thread.",
+    "Bees, for mead.",
+    "A map with the sky on it."
+   ]
+  },
+  {
+   "id": "wk-vp-006",
+   "q": "Which season do you prefer?",
+   "answers": [
+    "Spring: elves and sweet pods.",
+    "Summer: pig tails and humans.",
+    "Autumn: our own caravan.",
+    "Winter: nobody visits.",
+    "Underground, there are no seasons."
+   ]
+  },
+  {
+   "id": "wk-vp-007",
+   "q": "How many squads is enough?",
+   "answers": [
+    "We have {squads}. More.",
+    "One that's awake.",
+    "As many as the dining hall can feed.",
+    "Ask the goblins.",
+    "Whatever the rota says."
+   ],
+   "when": [
+    "has_military"
+   ]
+  }
+ ],
+ "real_estate": [
+  {
+   "id": "wk-re-001",
+   "head": "Cosy Cell, Cavern View",
+   "text": "One room, {cavern_depth} levels down, overlooking a moss meadow. Crundle traffic light at night. Door included, and recommended.",
+   "price": "40☼",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-re-002",
+   "head": "Bedroom Beside the Still",
+   "text": "Sleep to the gentle bubbling of plump helmets becoming wine. The smell is free. So, unofficially, is the wine.",
+   "price": "90☼",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-re-003",
+   "head": "Quiet Room Near the Library",
+   "text": "Shelves, a chair and the soft scratching of scribes. Miners not admitted after the last incident.",
+   "price": "60☼",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "wk-re-004",
+   "head": "The {moody_shop}, Briefly Available",
+   "text": "Recently vacated by {artifact_maker}, whose genius may linger. So may the bones.",
+   "price": "Priceless",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-re-005",
+   "head": "Room With a Pasture View",
+   "text": "Watch the herd graze cave moss in comfort. Smell included. Goats included, if you leave the door open.",
+   "price": "35☼",
+   "when": [
+    "caverns",
+    "herd_big"
+   ]
+  }
+ ],
+ "quiz": [
+  {
+   "id": "wk-qz-001",
+   "q": "How many units of drink does one brewed plant make?",
+   "options": [
+    "One",
+    "Five",
+    "Twelve"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "wk-qz-002",
+   "q": "How many days are there in a dwarven year?",
+   "options": [
+    "336",
+    "365",
+    "400"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-003",
+   "q": "On which day does spring begin?",
+   "options": [
+    "1st of Granite",
+    "1st of Moonstone",
+    "28th of Obsidian"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-004",
+   "q": "Which crop cannot be brewed?",
+   "options": [
+    "Plump helmet",
+    "Quarry bush",
+    "Cave wheat"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "wk-qz-005",
+   "q": "What does a cooked plant lose?",
+   "options": [
+    "Its seed",
+    "Its colour",
+    "Its name"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-006",
+   "q": "Which drink is not made from a plant?",
+   "options": [
+    "Rum",
+    "Mead",
+    "Ale"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "wk-qz-007",
+   "q": "In which season do elven caravans arrive?",
+   "options": [
+    "Spring",
+    "Autumn",
+    "Winter"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-008",
+   "q": "In which season does nobody trade?",
+   "options": [
+    "Summer",
+    "Winter",
+    "Spring"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "wk-qz-009",
+   "q": "What do fortress cats eat?",
+   "options": [
+    "Nothing they're given",
+    "Plump helmets",
+    "Rum"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-010",
+   "q": "How many artifacts can one dwarf make in a lifetime?",
+   "options": [
+    "One",
+    "Three",
+    "As many as they like"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-011",
+   "q": "What does a macabre mood demand?",
+   "options": [
+    "Bones",
+    "Flowers",
+    "A holiday"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-012",
+   "q": "What draws a forgotten beast to a fort?",
+   "options": [
+    "Wealth and noise",
+    "Cheese",
+    "Polite invitations"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-013",
+   "q": "Where do titans come from?",
+   "options": [
+    "The surface",
+    "The magma sea",
+    "The library"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-014",
+   "q": "What happens to a werebeast at the full moon?",
+   "options": [
+    "It transforms",
+    "It sleeps",
+    "It writes poetry"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-015",
+   "q": "What gives away a hidden vampire?",
+   "options": [
+    "Never eating or sleeping",
+    "A love of cheese",
+    "Bad handwriting"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-016",
+   "q": "How many cavern layers does a usual world have?",
+   "options": [
+    "One",
+    "Three",
+    "Ten"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "wk-qz-017",
+   "q": "What is pig tail thread woven into?",
+   "options": [
+    "Cloth",
+    "Rope bridges",
+    "Beer"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-018",
+   "q": "What do sweet pods become at a quern?",
+   "options": [
+    "Sugar",
+    "Rope",
+    "Ink"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-019",
+   "q": "Which dye comes from dimple cups?",
+   "options": [
+    "Blue",
+    "Red",
+    "Gold"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-020",
+   "q": "At what population does a fort elect a mayor?",
+   "options": [
+    "Twenty",
+    "Fifty",
+    "Two hundred"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "wk-qz-021",
+   "q": "What can bring an unburied dwarf back?",
+   "options": [
+    "A ghost's grudge",
+    "A good meal",
+    "The liaison"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-022",
+   "q": "Where does miasma form?",
+   "options": [
+    "Underground",
+    "On mountaintops",
+    "Only in taverns"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-023",
+   "q": "What fuel does a magma forge need?",
+   "options": [
+    "None",
+    "Charcoal",
+    "Rum"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-024",
+   "q": "How do crundles usually arrive?",
+   "options": [
+    "In packs of fifteen to twenty",
+    "Alone, politely",
+    "By caravan"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "wk-qz-025",
+   "q": "Why are modern carp less feared?",
+   "options": [
+    "They're now harmless",
+    "They learned manners",
+    "They moved to the sea"
+   ],
+   "answer": 0
+  }
+ ],
+ "riddles": [
+  {
+   "id": "wk-rd-001",
+   "q": "One goes in, five come out, and the seed comes home. What am I?",
+   "a": "The still."
+  },
+  {
+   "id": "wk-rd-002",
+   "q": "I grow in every season, purple and round, and I'd rather be wine. What am I?",
+   "a": "A plump helmet."
+  },
+  {
+   "id": "wk-rd-003",
+   "q": "I eat nothing, climb everything and choose my own dwarf. What am I?",
+   "a": "A fortress cat."
+  },
+  {
+   "id": "wk-rd-004",
+   "q": "I was born before the world, I wait in the dark, and your digging woke me. What am I?",
+   "a": "A forgotten beast."
+  },
+  {
+   "id": "wk-rd-005",
+   "q": "I come once in a lifetime, take everything, and leave a legend. What am I?",
+   "a": "A strange mood."
+  },
+  {
+   "id": "wk-rd-006",
+   "q": "I am twelve, and each of me is twenty-eight. What am I?",
+   "a": "The months of the dwarven year."
+  },
+  {
+   "id": "wk-rd-007",
+   "q": "I never eat, I never sleep, I came with the migrants and I'm very thirsty. What am I?",
+   "a": "A vampire. Check the dining hall."
+  },
+  {
+   "id": "wk-rd-008",
+   "q": "I must be cooked, I cannot be brewed, and I'm sorry about your stomach. What am I?",
+   "a": "A quarry bush leaf."
+  },
+  {
+   "id": "wk-rd-009",
+   "q": "I am purple, I smell bad, and I come from what you forgot to bury. What am I?",
+   "a": "Miasma."
+  },
+  {
+   "id": "wk-rd-010",
+   "q": "I am the only drink no farmer grows. What am I?",
+   "a": "Mead, from honey."
+  }
+ ],
+ "jumble": [
+  {
+   "id": "wk-jb-001",
+   "word": "SPAWN",
+   "clue": "What a plump helmet leaves behind"
+  },
+  {
+   "id": "wk-jb-002",
+   "word": "MEAD",
+   "clue": "Brewed from honey"
+  },
+  {
+   "id": "wk-jb-003",
+   "word": "BARONY",
+   "clue": "A fort's first noble title"
+  },
+  {
+   "id": "wk-jb-004",
+   "word": "DIMPLE",
+   "clue": "___ cup, source of blue dye"
+  },
+  {
+   "id": "wk-jb-005",
+   "word": "SLURRY",
+   "clue": "Pig tail mash for paper"
+  },
+  {
+   "id": "wk-jb-006",
+   "word": "FOCUS",
+   "clue": "What unmet needs steal"
+  },
+  {
+   "id": "wk-jb-007",
+   "word": "HAGGARD",
+   "clue": "How long stress leaves a dwarf looking"
+  },
+  {
+   "id": "wk-jb-008",
+   "word": "PLASTER",
+   "clue": "For casts, from the hospital chest"
+  },
+  {
+   "id": "wk-jb-009",
+   "word": "IMPS",
+   "clue": "Fire-throwers from the magma sea"
+  },
+  {
+   "id": "wk-jb-010",
+   "word": "BEEHIVE",
+   "clue": "Where mead begins"
+  }
+ ],
+ "advice": [
+  {
+   "id": "wk-adv-001",
+   "q": "Dear Urist, a dwarf in a strange mood keeps staring at me and saying 'bones'. What do I do? — Nervous in the Hall",
+   "a": "Bring them bones. Quickly. From the refuse pile, not from you. A mood that cannot start in time ends very badly, and usually for the moody dwarf.",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-adv-002",
+   "q": "Dear Urist, my friend died and I can't stop thinking about it. — Grieving",
+   "a": "Grief is real and it takes time. Go to the funeral, talk at the tavern, pray if you pray. And make sure the slab is carved: the dead rest better when they are remembered.",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-adv-003",
+   "q": "Dear Urist, I'm tired of drinking the same thing every day. Is something wrong with me? — Same Old Booze",
+   "a": "Nothing wrong at all: every dwarf wants variety. Ask the brewers for beer, ale or rum, and drink the wine only on Thursdays."
+  },
+  {
+   "id": "wk-adv-004",
+   "q": "Dear Urist, my cat sits on everything I make. — Crafty",
+   "a": "The cat has chosen you, and is checking the quality. Make better things, or make a cat bed.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-adv-005",
+   "q": "Dear Urist, I have been asked to guard the cavern door. Is it dangerous? — On Duty",
+   "a": "Crundles come in packs and are cowards. Troglodytes come in bands and are not. Keep the door shut and you will be bored, which is the best outcome a guard can hope for.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-adv-006",
+   "q": "Dear Urist, I keep losing focus at work. — Distracted",
+   "a": "Unmet needs cost a dwarf focus. When did you last pray, talk to a friend, drink something you liked or make something for yourself? Do one of those today."
+  },
+  {
+   "id": "wk-adv-007",
+   "q": "Dear Urist, is it true that the newcomers might include a vampire? — Sleeping With One Eye Open",
+   "a": "It has happened in other forts. Watch who never eats, drinks or sleeps, and tell the captain of the guard, not the whole dining hall.",
+   "when": [
+    "migrants_week"
+   ]
+  },
+  {
+   "id": "wk-adv-008",
+   "q": "Dear Urist, the merchants are here and I have nothing to trade. — Empty-Handed",
+   "a": "Everyone has something. Crafts, cloth, a well-made mug. A good broker can sell a stone to a dwarf, though not easily.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "wk-adv-009",
+   "q": "Dear Urist, our pasture is underground. Will the animals starve? — Worried Herder",
+   "a": "Not at all. Once the caverns are open, cave moss and the cavern grasses spread over underground soil, and grazers crop it as it grows. Your animals will eat better than you.",
+   "when": [
+    "caverns"
+   ]
+  }
+ ],
+ "recipes": [
+  {
+   "id": "wk-rc-001",
+   "title": "Plump Helmet Roast, Spawn Sacrificed",
+   "ingredients": [
+    "plump helmets",
+    "a pinch of cave wheat flour",
+    "patience"
+   ],
+   "method": "Roast the helmets whole. Note that cooking destroys the spawn: if the farmer asks, the brewer took them."
+  },
+  {
+   "id": "wk-rc-002",
+   "title": "Quarry Bush Leaf Biscuits",
+   "ingredients": [
+    "bagged quarry bush leaves",
+    "dwarven sugar",
+    "flour"
+   ],
+   "method": "Process the bushes into bags of leaves at the farmer's workshop. Never eat them raw. Bake with sugar until the leaves stop looking at you."
+  },
+  {
+   "id": "wk-rc-003",
+   "title": "Sweet Pod Syrup Cakes",
+   "ingredients": [
+    "dwarven syrup",
+    "cave wheat flour",
+    "an egg, if the turkeys allow"
+   ],
+   "method": "Press syrup from sweet pods at the farmer's workshop. Fold into flour. Bake. Eat before anyone counts the syrup.",
+   "when": [
+    "has_eggs"
+   ]
+  },
+  {
+   "id": "wk-rc-004",
+   "title": "Rum-Glazed Anything",
+   "ingredients": [
+    "dwarven rum",
+    "whatever is in the larder"
+   ],
+   "method": "Glaze generously. Remember that a meal cooked with drink no longer quenches thirst, so serve with a second rum.",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-rc-005",
+   "title": "Mood Vigil Soup",
+   "ingredients": [
+    "whatever the moody dwarf doesn't need",
+    "water",
+    "worry"
+   ],
+   "method": "Simmer outside the workshop door all day. The moody dwarf will not eat it. Everyone else waiting will.",
+   "when": [
+    "mood_open"
+   ]
+  }
+ ],
+ "horoscopes": {
+  "Granite": [
+   {
+    "id": "wk-hs-001",
+    "text": "The year begins with you, Granite, on the first day of spring. Begin something. Not a war."
+   },
+   {
+    "id": "wk-hs-002",
+    "text": "Elven merchants may visit this season. Hide your carpentry and smile."
+   }
+  ],
+  "Slate": [
+   {
+    "id": "wk-hs-003",
+    "text": "Sweet pods are in season, Slate. So is optimism. Plant both."
+   },
+   {
+    "id": "wk-hs-004",
+    "text": "A stranger brings news from far away. Half of it is true. You will guess the wrong half."
+   }
+  ],
+  "Felsite": [
+   {
+    "id": "wk-hs-005",
+    "text": "The last month of spring. Plant your sweet pods now or forever hold your syrup."
+   },
+   {
+    "id": "wk-hs-006",
+    "text": "A cat will choose you this month. You will not be consulted."
+   }
+  ],
+  "Hematite": [
+   {
+    "id": "wk-hs-007",
+    "text": "Summer, and pig tails. Thread in your future, Hematite, and a great deal of it."
+   },
+   {
+    "id": "wk-hs-008",
+    "text": "Human traders may knock. Speak slowly and keep your bronze jokes to yourself."
+   }
+  ],
+  "Malachite": [
+   {
+    "id": "wk-hs-009",
+    "text": "A mood stirs somewhere near you. Bring bones if asked. Do not ask why."
+   },
+   {
+    "id": "wk-hs-010",
+    "text": "Your focus wavers. Pray, talk, drink, make something. In that order."
+   }
+  ],
+  "Galena": [
+   {
+    "id": "wk-hs-011",
+    "text": "Late summer, Galena. The brewers are busy and so are you. Five mugs to the plant; one to you."
+   },
+   {
+    "id": "wk-hs-012",
+    "text": "Something heavy in the caverns turns over in its sleep. Keep the doors shut."
+   }
+  ],
+  "Limestone": [
+   {
+    "id": "wk-hs-013",
+    "text": "Autumn: our own caravan approaches. Polish your best mug and your best excuse."
+   },
+   {
+    "id": "wk-hs-014",
+    "text": "The last pig tails go in this season. What you weave next year depends on it."
+   }
+  ],
+  "Sandstone": [
+   {
+    "id": "wk-hs-015",
+    "text": "A masterwork is within your reach, Sandstone. Do not drop it."
+   },
+   {
+    "id": "wk-hs-016",
+    "text": "The broker needs you. Hide."
+   }
+  ],
+  "Timber": [
+   {
+    "id": "wk-hs-017",
+    "text": "The autumn caravan prepares to leave in four days. You have three to decide."
+   },
+   {
+    "id": "wk-hs-018",
+    "text": "A carpenter's month. Make barrels. There is never enough of anything, especially barrels."
+   }
+  ],
+  "Moonstone": [
+   {
+    "id": "wk-hs-019",
+    "text": "Winter, Moonstone, and no caravans. Talk to the dwarves you have."
+   },
+   {
+    "id": "wk-hs-020",
+    "text": "The full moon is a werebeast's friend. Not yours. Stay in."
+   }
+  ],
+  "Opal": [
+   {
+    "id": "wk-hs-021",
+    "text": "A quiet month. Read a codex in the library. Pretend to understand it."
+   },
+   {
+    "id": "wk-hs-022",
+    "text": "The plump helmets grow on, even in winter. Be more like the plump helmet."
+   }
+  ],
+  "Obsidian": [
+   {
+    "id": "wk-hs-023",
+    "text": "The year ends with you. Tidy your bedroom, bury your grudges and count your barrels."
+   },
+   {
+    "id": "wk-hs-024",
+    "text": "Tomorrow is the first of Granite. Make a resolution. Break it by Slate."
+   }
+  ]
+ }
+}

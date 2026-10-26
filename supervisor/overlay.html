@@ -221,8 +221,11 @@ function masthead() {
 // reported to /seen, and picks always prefer the least-recently printed entry, with topical ones first.
 let LIB = {}, SEEN = {}, issueUsed = new Set();
 const NEWSY = /\{(mineral|masterwork|masterwright|promoted|post|deadname|moodname)\}/;
+// test URLs (?hold, ?card=N, ?breaking=..., ?test) never write seen.json or memory.json: a fake event must not become fort history
+const TESTPAGE = /[?&](hold|card|breaking|test)\b/.test(location.search);
 function markSeen(ids) {
   ids = [...new Set(ids)].filter(Boolean); if (!ids.length) return;
+  if (TESTPAGE) return;
   const now = Date.now() / 1000 | 0; ids.forEach(i => SEEN[i] = now);
   fetch('/seen', {method: 'POST', body: JSON.stringify({ids})}).catch(() => {});
 }
@@ -293,10 +296,10 @@ function arcConds() {
   if (!memLoaded) return {};
   const A = mem().arcs || {}, today = dayOf(S.fort), within = (k, n) => !!A[k] && today != null && today - A[k].day <= n;
   const moodOpen = within('mood', 60) && !(A.artifact && A.artifact.day >= A.mood.day) && !(A.death && A.death.day >= A.mood.day && A.death.name === A.mood.name);
-  return {death_week: within('death', 7) && !!A.death.name, mood_open: moodOpen && !!A.mood.name, mood_long: moodOpen && today - A.mood.day >= 10,
-    artifact_week: within('artifact', 10) && !!A.artifact.name, mood_done: within('artifact', 10) && !!A.mood && A.artifact.day >= A.mood.day && A.artifact.name === A.mood.name,
-    migrants_week: within('migrants', 7), birth_week: within('birth', 7), masterpiece_week: within('masterpiece', 5) && !!A.masterpiece.name,
-    marriage_week: within('marriage', 7), beast_week: within('beast', 10), caravan_week: within('caravan', 12)};
+  return {death_week: within('death', 14) && !!A.death.name, mood_open: moodOpen && !!A.mood.name, mood_long: moodOpen && today - A.mood.day >= 10,
+    artifact_week: within('artifact', 20) && !!A.artifact.name, mood_done: within('artifact', 20) && !!A.mood && A.artifact.day >= A.mood.day && A.artifact.name === A.mood.name,
+    migrants_week: within('migrants', 10), birth_week: within('birth', 14), masterpiece_week: within('masterpiece', 7) && !!A.masterpiece.name,
+    marriage_week: within('marriage', 14), beast_week: within('beast', 14), caravan_week: within('caravan', 20)};
 }
 function extraConds(c, an_, sl) {
   const g = k => c[k] || 0, st = !!(K && K.stocks), food = g('meals') + g('plants') + g('meat') + g('fish');
@@ -402,7 +405,7 @@ function mem() {
   return MEMALL[k] = MEMALL[k] || {streaks: {}, ended: {}, counters: {}, lastIds: {}, dwarves: {}, started: dayOf(S.fort), v: 2};
 }
 function saveMem() {
-  if (!memLoaded) return;   // never overwrite the stored history before we've read it
+  if (!memLoaded || TESTPAGE) return;   // never overwrite the stored history before we've read it
   clearTimeout(memTimer);
   memTimer = setTimeout(() => { memDirty = false; fetch('/memory', {method: 'POST', body: JSON.stringify(MEMALL)}).catch(() => {}); }, 1500);
 }
@@ -502,7 +505,7 @@ function storyItems(ctx, r) {
   const arcs = ['mood_done', 'death_week', 'mood_open', 'artifact_week', 'beast_week', 'birth_week', 'marriage_week', 'migrants_week', 'masterpiece_week', 'caravan_week'].filter(k => cc[k] && FO[k]);
   for (const k of arcs.slice(0, 1)) {
     const h = choose1(FO[k].heads, ctx, r), b = choose1(FO[k].bodies, ctx, r); if (!h || !b) continue;
-    items.push({ids: [h.id, b.id], html: `<div class="item run"><div class="kick">Continuing Coverage</div><h3>${esc(T(h))}</h3><p class="just">${esc(T(b))}</p></div>`});
+    items.push({lead: true, ids: [h.id, b.id], html: `<div class="item run"><div class="kick">Continuing Coverage</div><h3>${esc(T(h))}</h3><p class="just">${esc(T(b))}</p></div>`});
   }
   // the "days since" board
   const C = LIB.counters || {}, lines = [];
@@ -1736,7 +1739,8 @@ function fillers(r) {
   if (S.dwarf) put([], `<div class="item"><div class="kick">Courtroom Sketch</div>${portrait(S.dwarf)}<p style="font-style:italic;font-size:10px;text-align:center">${esc(firstName(S.dwarf.name))}, as seen by our artist. Likeness not guaranteed.</p></div>`);
   // small notices go last: they plug the leftover gaps at the bottom of the columns
   const tiny = choose(LIB.notices, ctx, r, 8).map(nt => ({ids: [nt.id], html: `<div class="item ad tiny"><div class="eng">Notice</div>${esc(T(nt))}</div>`}));
-  return [...shuffle(r, out), ...tiny];
+  // a storyline follow-up leads the fold; everything else is shuffled
+  return [...out.filter(x => x.lead), ...shuffle(r, out.filter(x => !x.lead)), ...tiny];
 }
 function fillFold() {
   // pack items into the two columns, shortest column first; anything that would be cut off is skipped

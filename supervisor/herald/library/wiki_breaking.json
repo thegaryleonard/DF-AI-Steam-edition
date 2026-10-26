@@ -1,0 +1,940 @@
+{
+ "kinds": {
+  "mood": {
+   "heads": [
+    {
+     "id": "wk-bk-mood-h-001",
+     "text": "{first} STRUCK BY A STRANGE MOOD"
+    },
+    {
+     "id": "wk-bk-mood-h-002",
+     "text": "A MOOD DESCENDS ON {fort}"
+    },
+    {
+     "id": "wk-bk-mood-h-003",
+     "text": "WORKSHOP SEIZED BY INSPIRED CITIZEN"
+    },
+    {
+     "id": "wk-bk-mood-h-004",
+     "text": "{first} HEARS THE CALL"
+    }
+   ],
+   "caps": [
+    {
+     "id": "wk-bk-mood-c-001",
+     "text": "The moment of inspiration, as reconstructed by a witness who backed away."
+    },
+    {
+     "id": "wk-bk-mood-c-002",
+     "text": "Our artist's impression of a dwarf seeing something nobody else can."
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-mood-r-001",
+     "text": "A strange mood will not let a dwarf rest, eat or drink until the work begins. Citizens are asked to supply whatever is requested, without argument."
+    },
+    {
+     "id": "wk-bk-mood-r-002",
+     "text": "Every artifact in the world began exactly like this. The Herald will follow the story until the door opens again."
+    }
+   ],
+   "labels": [
+    {
+     "id": "wk-bk-mood-l-001",
+     "text": "INSPIRED"
+    },
+    {
+     "id": "wk-bk-mood-l-002",
+     "text": "DO NOT DISTURB"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "wk-bk-mood-k-001",
+     "text": "Continuing coverage in our next editions."
+    },
+    {
+     "id": "wk-bk-mood-k-002",
+     "text": "Bring bones, shells and patience."
+    }
+   ]
+  },
+  "artifact": {
+   "heads": [
+    {
+     "id": "wk-bk-artifact-h-001",
+     "text": "A LEGEND IS FORGED IN {fort}"
+    },
+    {
+     "id": "wk-bk-artifact-h-002",
+     "text": "ARTIFACT! {first} DELIVERS"
+    },
+    {
+     "id": "wk-bk-artifact-h-003",
+     "text": "THE MOOD IS OVER; THE MASTERPIECE BEGINS ITS LIFE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "wk-bk-artifact-c-001",
+     "text": "The artifact, glimpsed over many shoulders."
+    },
+    {
+     "id": "wk-bk-artifact-c-002",
+     "text": "The maker, finally sitting down."
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-artifact-r-001",
+     "text": "No dwarf makes more than one artifact in a lifetime. This was the one."
+    },
+    {
+     "id": "wk-bk-artifact-r-002",
+     "text": "The maker leaps in skill, as artifact-makers always do. The fort leaps in pride."
+    }
+   ],
+   "labels": [
+    {
+     "id": "wk-bk-artifact-l-001",
+     "text": "ONE OF A KIND"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "wk-bk-artifact-k-001",
+     "text": "Full unveiling coverage inside."
+    }
+   ]
+  },
+  "death": {
+   "heads": [
+    {
+     "id": "wk-bk-death-h-001",
+     "text": "{fort} LOSES {first}"
+    },
+    {
+     "id": "wk-bk-death-h-002",
+     "text": "A CITIZEN FALLS"
+    },
+    {
+     "id": "wk-bk-death-h-003",
+     "text": "SORROW IN THE HALLS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "wk-bk-death-c-001",
+     "text": "The fort gathers. The artist kept his distance and his hat off."
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-death-r-001",
+     "text": "The Herald asks that the body be recovered, buried and remembered: the unburied do not always stay at rest."
+    },
+    {
+     "id": "wk-bk-death-r-002",
+     "text": "Friends are asked to look after one another this week. Grief is heavy, and it does not haul itself."
+    }
+   ],
+   "kickers": [
+    {
+     "id": "wk-bk-death-k-001",
+     "text": "A full obituary will follow."
+    },
+    {
+     "id": "wk-bk-death-k-002",
+     "text": "Funeral details to be announced."
+    }
+   ]
+  },
+  "beast": {
+   "heads": [
+    {
+     "id": "wk-bk-beast-h-001",
+     "text": "SOMETHING HAS COME UP FROM THE DEEP"
+    },
+    {
+     "id": "wk-bk-beast-h-002",
+     "text": "BEAST ALERT: {fort} ON GUARD"
+    },
+    {
+     "id": "wk-bk-beast-h-003",
+     "text": "A NAMED HORROR APPROACHES"
+    }
+   ],
+   "caps": [
+    {
+     "id": "wk-bk-beast-c-001",
+     "text": "Drawn from a description shouted down a corridor."
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-beast-r-001",
+     "text": "Forgotten beasts rise from the caverns, titans walk in from the surface, and both are drawn by wealth and noise. The militia has been told. Everyone else has been told to be elsewhere."
+    }
+   ],
+   "labels": [
+    {
+     "id": "wk-bk-beast-l-001",
+     "text": "NOPE"
+    }
+   ],
+   "kickers": [
+    {
+     "id": "wk-bk-beast-k-001",
+     "text": "Stay off the lower levels until further notice."
+    }
+   ]
+  },
+  "siege": {
+   "heads": [
+    {
+     "id": "wk-bk-siege-h-001",
+     "text": "THE ENEMY IS AT THE GATE"
+    },
+    {
+     "id": "wk-bk-siege-h-002",
+     "text": "SIEGE! {fort} CLOSES ITS DOORS"
+    },
+    {
+     "id": "wk-bk-siege-h-003",
+     "text": "ARMY SIGHTED; DRAWBRIDGE CONSIDERED"
+    }
+   ],
+   "caps": [
+    {
+     "id": "wk-bk-siege-c-001",
+     "text": "The enemy, as seen from behind a very thick wall."
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-siege-r-001",
+     "text": "A siege is an army, not a raid: banners, numbers and a long stay. Civilians indoors; soldiers to their posts; brewers keep brewing."
+    }
+   ],
+   "kickers": [
+    {
+     "id": "wk-bk-siege-k-001",
+     "text": "Updates as the fighting allows."
+    }
+   ]
+  },
+  "migrants": {
+   "heads": [
+    {
+     "id": "wk-bk-migrants-h-001",
+     "text": "NEW FACES AT THE GATE"
+    },
+    {
+     "id": "wk-bk-migrants-h-002",
+     "text": "A WAVE OF SETTLERS ARRIVES"
+    },
+    {
+     "id": "wk-bk-migrants-h-003",
+     "text": "{fort} GROWS AGAIN: POPULATION {pop}"
+    }
+   ],
+   "caps": [
+    {
+     "id": "wk-bk-migrants-c-001",
+     "text": "The new arrivals, still holding everything they own."
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-migrants-r-001",
+     "text": "Every migrant is a citizen the moment they arrive. Beds, jobs and directions to the drink stockpile are being handed out in that order."
+    }
+   ],
+   "kickers": [
+    {
+     "id": "wk-bk-migrants-k-001",
+     "text": "A welcome feature follows next week."
+    }
+   ]
+  },
+  "caravan": {
+   "heads": [
+    {
+     "id": "wk-bk-caravan-h-001",
+     "text": "MERCHANTS AT THE DEPOT"
+    },
+    {
+     "id": "wk-bk-caravan-h-002",
+     "text": "CARAVAN IN! BROKER SUMMONED"
+    },
+    {
+     "id": "wk-bk-caravan-h-003",
+     "text": "TRADERS ARRIVE WITH WAGONS AND OPINIONS"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-caravan-r-001",
+     "text": "Caravans stay a few weeks at most and give about four days' warning before leaving. Bring your goods now."
+    }
+   ],
+   "kickers": [
+    {
+     "id": "wk-bk-caravan-k-001",
+     "text": "Prices, gossip and haggling inside."
+    }
+   ]
+  },
+  "birth": {
+   "heads": [
+    {
+     "id": "wk-bk-birth-h-001",
+     "text": "A NEW CITIZEN FOR {fort}"
+    },
+    {
+     "id": "wk-bk-birth-h-002",
+     "text": "BORN BENEATH THE MOUNTAIN"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-birth-r-001",
+     "text": "The child will be carried everywhere by its mother for the first year, including to work. The forge has been asked to keep it down."
+    }
+   ]
+  },
+  "marriage": {
+   "heads": [
+    {
+     "id": "wk-bk-marriage-h-001",
+     "text": "TWO HEARTS, ONE BEDROOM"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-marriage-r-001",
+     "text": "The couple will share a room and, we are told, a strong opinion about the other one's snoring."
+    }
+   ]
+  },
+  "ghost": {
+   "heads": [
+    {
+     "id": "wk-bk-ghost-h-001",
+     "text": "THE DEAD WALK THE HALLS OF {fort}"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-ghost-r-001",
+     "text": "A ghost haunts the place where it died until it is put to rest with a coffin or an engraved slab. The masons have been called."
+    }
+   ]
+  },
+  "master": {
+   "heads": [
+    {
+     "id": "wk-bk-master-h-001",
+     "text": "MASTERWORK FROM {first}'S BENCH"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-master-r-001",
+     "text": "A masterwork is the highest quality a dwarf can reach by skill alone. Its maker will take its loss very badly. Handle it with care."
+    }
+   ]
+  },
+  "strike": {
+   "heads": [
+    {
+     "id": "wk-bk-strike-h-001",
+     "text": "THE ROCK GIVES UP A PRIZE"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-strike-r-001",
+     "text": "Rough gems are only half the story: cut at the jeweler's and set into good work, they double its value."
+    }
+   ]
+  },
+  "berserk": {
+   "heads": [
+    {
+     "id": "wk-bk-berserk-h-001",
+     "text": "A DWARF BREAKS UNDER THE STRAIN"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-berserk-r-001",
+     "text": "Breakdowns pass; insanity does not. Whatever drove this dwarf to it is still in the fort, and the Herald would like to know what it is."
+    }
+   ]
+  },
+  "collapse": {
+   "heads": [
+    {
+     "id": "wk-bk-collapse-h-001",
+     "text": "THE CEILING HAS OPINIONS"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-collapse-r-001",
+     "text": "Engineers remind citizens that a cave-in dust cloud can knock a dwarf flat. Stay out of the area until it settles."
+    }
+   ]
+  },
+  "soldier": {
+   "heads": [
+    {
+     "id": "wk-bk-soldier-h-001",
+     "text": "{first}: A MASTER OF ARMS"
+    }
+   ],
+   "reps": [
+    {
+     "id": "wk-bk-soldier-r-001",
+     "text": "With {soldiers} soldiers in {squads} squads, the rotation gives everyone a turn at the barracks. Some, like {first}, take it more seriously than others."
+    }
+   ]
+  }
+ },
+ "local": {
+  "crime": {
+   "heads": [
+    {
+     "id": "wk-po-local-crime-h-001",
+     "text": "{criminal} CHARGED: {crime}"
+    },
+    {
+     "id": "wk-po-local-crime-h-002",
+     "text": "COURT HEARS CASE OF {crime}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-local-crime-b-001",
+     "text": "The captain of the guard has taken up the matter of {criminal} and {crime}. Sentences in this fort run from a stern word to a beating to a stretch in the cells, depending on the crime, the evidence and the mood of the court."
+    },
+    {
+     "id": "wk-po-local-crime-b-002",
+     "text": "Justice in {fort} is handled by the sheriff or captain of the guard, who interviews witnesses, names a suspect and hands out the sentence. The case of {criminal} ({crime}) is on the books."
+    }
+   ]
+  },
+  "mandate": {
+   "heads": [
+    {
+     "id": "wk-po-local-mandate-h-001",
+     "text": "{noble} ISSUES A MANDATE"
+    },
+    {
+     "id": "wk-po-local-mandate-h-002",
+     "text": "NOBLE DEMAND: {item}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-local-mandate-b-001",
+     "text": "{noble} has issued a mandate concerning {item}. Nobles make demands, citizens make the goods, and anyone who fails to comply may find themselves on the wrong side of the court."
+    },
+    {
+     "id": "wk-po-local-mandate-b-002",
+     "text": "A new mandate from {noble}: {item}. The manager has queued it, the craftsdwarves have sighed, and the fort will carry on."
+    }
+   ]
+  },
+  "vacancies": {
+   "heads": [
+    {
+     "id": "wk-po-local-vacancies-h-001",
+     "text": "{n} SEATS EMPTY AT TOWN HALL"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-local-vacancies-b-001",
+     "text": "The fort has {n} offices without a holder, among them {post}. A mayor or expedition leader must make appointments; until then, the work falls to whoever is nearest."
+    }
+   ]
+  },
+  "quiet": {
+   "heads": [
+    {
+     "id": "wk-po-local-quiet-h-001",
+     "text": "TOWN HALL QUIET; MAYOR LISTENS TO COMPLAINTS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-local-quiet-b-001",
+     "text": "Nothing much to report from the town hall this week. The mayor has spoken with several unhappy citizens, which is the mayor's real job, and the citizens left a little happier, which is the mayor's real skill."
+    }
+   ]
+  }
+ },
+ "military": {
+  "training": {
+   "heads": [
+    {
+     "id": "wk-po-military-training-h-001",
+     "text": "{squad} ON THE ROTA"
+    },
+    {
+     "id": "wk-po-military-training-h-002",
+     "text": "DRILL DAY FOR {squad}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-military-training-b-001",
+     "text": "{squad} is on its training month under {captain}: {members} soldiers at the barracks, sparring and drilling while the other squads work. The rotation means somebody is always sharp."
+    },
+    {
+     "id": "wk-po-military-training-b-002",
+     "text": "Training is under way for {squad}. Soldiers in training are excused from hauling, which explains the enthusiasm."
+    }
+   ]
+  },
+  "off_duty": {
+   "heads": [
+    {
+     "id": "wk-po-military-off_duty-h-001",
+     "text": "{squad} BACK TO CIVILIAN WORK"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-military-off_duty-b-001",
+     "text": "{squad} is off the rota this month and back at its ordinary jobs. {captain} reminds the squad that off duty is not off guard."
+    }
+   ]
+  }
+ },
+ "world": {
+  "war": {
+   "heads": [
+    {
+     "id": "wk-po-world-war-h-001",
+     "text": "{civ} AT WAR WITH {enemy}"
+    },
+    {
+     "id": "wk-po-world-war-h-002",
+     "text": "WAR NEWS: {enemy} STILL HOSTILE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-world-war-b-001",
+     "text": "{civ} remains at war with {enemy}, a {enemy_race} power. Armies march slowly across {world}, and a siege, when it comes, will come with banners. {fort} keeps its doors shut and its soldiers fed."
+    },
+    {
+     "id": "wk-po-world-war-b-002",
+     "text": "The war with {enemy} drags on. {monarch} has sent no orders to {fort}, which our military correspondent takes to mean 'carry on'."
+    }
+   ]
+  },
+  "peace": {
+   "heads": [
+    {
+     "id": "wk-po-world-peace-h-001",
+     "text": "PEACE HOLDS WITH {n_peace} NEIGHBOURS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-world-peace-b-001",
+     "text": "{civ} is at peace with {n_peace} groups across {world}. Peace means caravans, and caravans mean trade: elves in spring, humans in summer, our own kin in autumn."
+    }
+   ]
+  },
+  "monarch": {
+   "heads": [
+    {
+     "id": "wk-po-world-monarch-h-001",
+     "text": "{monarch} RULES ON"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-po-world-monarch-b-001",
+     "text": "{monarch}, sovereign of {civ}, continues to rule from the capital. The monarch has never visited {fort}, but if the fort ever becomes the capital, the monarch will move in, along with the liaison and a great many demands."
+    }
+   ]
+  }
+ },
+ "columns": [
+  {
+   "id": "wk-col-001",
+   "kick": "The Bookkeeper's Corner",
+   "head": "ON MANDATES AND MOODS",
+   "body": "A noble's mandate and a strange mood have one thing in common: both demand a specific thing, made now, by someone else. The difference is that the mood produces an artifact and the mandate produces a shoe.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "wk-col-002",
+   "kick": "The Hammer's View",
+   "head": "A ROTATION, NOT A HOLIDAY",
+   "body": "{squads} squads take the barracks in turn, month by month, so the fort always has fresh soldiers and the farms always have hands. I have heard grumbling that the rota is unfair. It is perfectly fair. It is unfair to everyone equally.",
+   "by": "Old Captain Rigoth",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-col-003",
+   "kick": "From the Benches",
+   "head": "WHY WE NEED A MAYOR",
+   "body": "A mayor, elected from the most sociable dwarf once a fort passes fifty, listens to the stressed and the sad. It is the most useful office in the fort and the least respected. I propose a statue. A small one.",
+   "by": "Urist the Elder",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "wk-col-004",
+   "kick": "The Long View",
+   "head": "THE LIAISON'S VISIT",
+   "body": "Every year the outpost liaison {liaison} comes from the capital to talk trade. Every year the fort promises everything and delivers some of it. This is called diplomacy.",
+   "by": "Momuz the Historian"
+  }
+ ],
+ "stories": {
+  "no_fish": {
+   "heads": [
+    {
+     "id": "wk-st-no_fish-hh-001",
+     "text": "FISH WATCH, DAY {days}: STILL NO FISH"
+    },
+    {
+     "id": "wk-st-no_fish-hh-002",
+     "text": "THE EMPTY NET, REPORT {n}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-st-no_fish-bo-001",
+     "text": "Day {days} without a fish in the stores, a run that began on {since}. The carp are harmless now, the scholars say, which makes it all the more embarrassing that we cannot catch one. A fishing zone, a fisherdwarf and a little patience are all it takes."
+    },
+    {
+     "id": "wk-st-no_fish-bo-002",
+     "text": "Still no fish, {days} days on. Fisherdwarves will fish any water by default; ours appear to be fishing for compliments instead."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "wk-st-no_fish-eh-001",
+     "text": "A FISH! A FISH AT LAST"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "wk-st-no_fish-eo-001",
+     "text": "After {days} days the stores have a fish in them again. The fisherdwarf has been carried round the dining hall. The fish has been cleaned and eaten, which is what fish are for."
+    }
+   ]
+  },
+  "drinks_high": {
+   "heads": [
+    {
+     "id": "wk-st-drinks_high-hh-001",
+     "text": "THE CELLARS OVERFLOW, DAY {days}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-st-drinks_high-bo-001",
+     "text": "{drinks} drinks in store and the brewers still at it, a happy streak since {since}. At five mugs to the plant, the still is the best investment in {fort}."
+    }
+   ]
+  },
+  "stone_glut": {
+   "heads": [
+    {
+     "id": "wk-st-stone_glut-hh-001",
+     "text": "STONE PILES UP, DAY {days}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-st-stone_glut-bo-001",
+     "text": "The halls have been littered with loose stone since {since}. Every one of them could be a block, a door or a coffin. The masons are asked, once again, to make something."
+    }
+   ]
+  },
+  "rain": {
+   "heads": [
+    {
+     "id": "wk-st-rain-hh-001",
+     "text": "THE RAIN, DAY {days}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-st-rain-bo-001",
+     "text": "It has rained on and off over {fort} since {since}. Down here we have not noticed, which is the great advantage of living inside a mountain."
+    }
+   ]
+  },
+  "no_meat": {
+   "heads": [
+    {
+     "id": "wk-st-no_meat-hh-001",
+     "text": "THE MEAT WATCH, DAY {days}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-st-no_meat-bo-001",
+     "text": "No meat and no fish in the stores since {since}. The herd grazes cave moss happily below ground; the butcher waits for orders; the cook is improvising with mushrooms. It can be done. It has been done before."
+    }
+   ]
+  },
+  "drinks_low": {
+   "heads": [
+    {
+     "id": "wk-st-drinks_low-hh-001",
+     "text": "DRINK WATCH, DAY {days}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-st-drinks_low-bo-001",
+     "text": "The barrels have been running low since {since}. Without booze dwarves work slower and slower. Empty barrels to the still, plants to the brewer, and no more cooking with wine."
+    }
+   ]
+  }
+ },
+ "counters": {
+  "mood": [
+   {
+    "id": "wk-ct-mood-001",
+    "text": "Days since a dwarf last went quiet and claimed a workshop: {days}"
+   }
+  ],
+  "artifact": [
+   {
+    "id": "wk-ct-art-001",
+    "text": "Days since the fort's newest legend was made: {days}"
+   },
+   {
+    "id": "wk-ct-art-002",
+    "text": "Days since anyone was allowed to touch the artifact: {days} (and counting)"
+   }
+  ],
+  "death": [
+   {
+    "id": "wk-ct-death-001",
+    "text": "Days since the fort last buried one of its own: {days}"
+   }
+  ],
+  "migrants": [
+   {
+    "id": "wk-ct-migr-001",
+    "text": "Days since new beards came through the gate: {days}"
+   }
+  ],
+  "caravan": [
+   {
+    "id": "wk-ct-car-001",
+    "text": "Days since the depot last smelled of pack animal: {days}"
+   }
+  ],
+  "masterpiece": [
+   {
+    "id": "wk-ct-mast-001",
+    "text": "Days since a masterwork left a bench: {days}"
+   }
+  ]
+ },
+ "gags": [
+  {
+   "id": "wk-gag-001",
+   "panel": {
+    "bg": "workshop",
+    "props": [
+     "workshop"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "sad"
+     }
+    ]
+   },
+   "caption": "\"I brought the bones you asked for.\" \"Not those bones.\"",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-gag-002",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "gem"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "happy"
+     },
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "armsUp"
+     },
+     {
+      "who": "cat",
+      "pos": "right"
+     }
+    ]
+   },
+   "caption": "The unveiling of {artifact_new}. The cat was unimpressed.",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-gag-003",
+   "panel": {
+    "bg": "cavern",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "armsUp"
+     },
+     {
+      "who": "kobold",
+      "pos": "right"
+     }
+    ]
+   },
+   "caption": "\"That's not a crundle.\" \"No. Crundles come in twenties.\"",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-gag-004",
+   "panel": {
+    "bg": "farm",
+    "props": [],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "center",
+      "pose": "happy"
+     }
+    ]
+   },
+   "caption": "One plump helmet. Five mugs of wine. The farmer has done the arithmetic and is very pleased."
+  },
+  {
+   "id": "wk-gag-005",
+   "panel": {
+    "bg": "tavern",
+    "props": [
+     "barrel",
+     "mug"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "mug"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "angry"
+     }
+    ]
+   },
+   "caption": "\"Wine again?\" — a dwarf who has been tired of drinking the same old booze for some time."
+  },
+  {
+   "id": "wk-gag-006",
+   "panel": {
+    "bg": "depot",
+    "props": [
+     "wagon"
+    ],
+    "cast": [
+     {
+      "who": "elf",
+      "pos": "left",
+      "pose": "stand"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "stand"
+     }
+    ]
+   },
+   "caption": "\"And what is this table made of?\" \"...Stone. Definitely stone.\""
+  },
+  {
+   "id": "wk-gag-007",
+   "panel": {
+    "bg": "bedroom",
+    "props": [
+     "bed"
+    ],
+    "cast": [
+     {
+      "who": "dwarf",
+      "pos": "left",
+      "pose": "sleep"
+     },
+     {
+      "who": "cat",
+      "pos": "right"
+     }
+    ]
+   },
+   "caption": "Cats need no feeding in a fortress. This one has not been told.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-gag-008",
+   "panel": {
+    "bg": "hall",
+    "props": [
+     "coffin"
+    ],
+    "cast": [
+     {
+      "who": "ghost",
+      "pos": "left"
+     },
+     {
+      "who": "dwarf",
+      "pos": "right",
+      "pose": "armsUp"
+     }
+    ]
+   },
+   "caption": "\"Is the slab ready yet?\"",
+   "when": [
+    "death_week"
+   ]
+  }
+ ]
+}
