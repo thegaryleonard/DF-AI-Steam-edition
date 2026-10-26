@@ -5,6 +5,8 @@
 #include "modules/Units.h"
 
 #include "df/abstract_building_inn_tavernst.h"
+#include "df/building_stockpilest.h"
+#include "df/stockpile_settings.h"
 #include "df/abstract_building_flags.h"
 #include "df/abstract_building_type.h"
 #include "df/abstract_building.h"
@@ -500,6 +502,26 @@ private:
 
 void Population::update_locations(color_ostream & out)
 {
+    // Tavern booze stockpiles hold drinks only (user request). The template
+    // left prepared meals on, and 5 tiles of meals kept every barrel out, so
+    // the tavern keeper walked to the main stores for each mug.
+    ai.find_room(room_type::stockpile, [&](room *r) -> bool
+    {
+        if (r->comment.find("booze stockpile") == std::string::npos)
+            return false;
+        if (auto sp = virtual_cast<df::building_stockpilest>(r->dfbuilding()))
+        {
+            if (sp->settings.food.prepared_meals || sp->storage.max_barrels < 5)
+            {
+                sp->settings.food.prepared_meals = false;
+                if (sp->storage.max_barrels < 5)
+                    sp->storage.max_barrels = 5;
+                ai.debug(out, stl_sprintf("[LOCATIONS] tavern stockpile %d set to drinks only", sp->id));
+            }
+        }
+        return false;
+    });
+
     // One public tavern: the site's first tavern lets visitors in (bards,
     // mercenaries, monster hunters and the odd animal person make the fort
     // livelier, and some ask to stay), every other location stays closed so

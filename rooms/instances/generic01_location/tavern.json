@@ -4,8 +4,7 @@
 		{
 			"location_type": "tavern"
 		},
-		{
-		},
+		{},
 		{
 			"type": "stockpile",
 			"stockpile_type": "food",
@@ -28,7 +27,8 @@
 				"FoodExtractPlant",
 				"FoodExtractAnimal",
 				"FoodMiscLiquid"
-			]
+			],
+			"stock_specific1": true
 		},
 		{
 			"skip": true
