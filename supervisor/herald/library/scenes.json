@@ -1,0 +1,5632 @@
+{
+ "scenes": {
+  "weaver": {
+   "heads": [
+    {
+     "id": "sc-weaver-h1",
+     "text": "MASTERWORK {item} COMES OFF THE LOOM"
+    },
+    {
+     "id": "sc-weaver-h2",
+     "text": "LOOM PRODUCES LEGEND, WEAVER PRODUCES SPEECH"
+    },
+    {
+     "id": "sc-weaver-h3",
+     "text": "{first} WEAVES THE FINEST {item} YET"
+    },
+    {
+     "id": "sc-weaver-h4",
+     "text": "THREAD, PATIENCE, GLORY"
+    },
+    {
+     "id": "sc-weaver-h5",
+     "text": "WEAVING ROOM IN UPROAR OVER ONE BOLT"
+    },
+    {
+     "id": "sc-weaver-h6",
+     "text": "THE CLOTH THAT STOPPED THE HAULERS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-weaver-c1",
+     "text": "{who} holds up the {item}, fresh off the loom. The artist has drawn the weave as stripes; it is much finer than stripes."
+    },
+    {
+     "id": "sc-weaver-c2",
+     "text": "The loom, the weaver and the cloth. Only one of the three is still humming."
+    },
+    {
+     "id": "sc-weaver-c3",
+     "text": "Our artist could not draw the pattern, so he drew {first} pointing at it, which is how {first} spent the afternoon anyway."
+    },
+    {
+     "id": "sc-weaver-c4",
+     "text": "The bolt of {item}, held aloft so nobody can miss it, and nobody has."
+    },
+    {
+     "id": "sc-weaver-c5",
+     "text": "The masterwork cloth on the day it was cut from the loom. The loom looks tired. It has earned it."
+    },
+    {
+     "id": "sc-weaver-c6",
+     "text": "A weaver and her best work. The artist was told twice not to wipe his hands on it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-weaver-l1",
+     "text": "THE CLOTH"
+    },
+    {
+     "id": "sc-weaver-l2",
+     "text": "THE LOOM (TIRED)"
+    },
+    {
+     "id": "sc-weaver-l3",
+     "text": "WARP AND WEFT"
+    },
+    {
+     "id": "sc-weaver-l4",
+     "text": "ONE BOLT, PERFECT"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-weaver-s1",
+     "text": "Feel it. No, gently!"
+    },
+    {
+     "id": "sc-weaver-s2",
+     "text": "Not a single dropped thread."
+    },
+    {
+     "id": "sc-weaver-s3",
+     "text": "This one is not for socks."
+    },
+    {
+     "id": "sc-weaver-s4",
+     "text": "Weave it once, weave it right."
+    }
+   ]
+  },
+  "clothier": {
+   "heads": [
+    {
+     "id": "sc-clothier-h1",
+     "text": "{first} STITCHES A MASTERWORK {item}"
+    },
+    {
+     "id": "sc-clothier-h2",
+     "text": "FINEST {item} IN {fort}, SAYS EVERYONE WHO SAW IT"
+    },
+    {
+     "id": "sc-clothier-h3",
+     "text": "CLOTHIER'S TRIUMPH ON THE DUMMY"
+    },
+    {
+     "id": "sc-clothier-h4",
+     "text": "A MASTERWORK YOU CAN WEAR"
+    },
+    {
+     "id": "sc-clothier-h5",
+     "text": "FASHION ARRIVES BENEATH THE MOUNTAIN"
+    },
+    {
+     "id": "sc-clothier-h6",
+     "text": "NEEDLE AND THREAD WIN THE DAY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-clothier-c1",
+     "text": "The {item} on the dressmaker's dummy, with {first} beside it, refusing to let anyone try it on yet."
+    },
+    {
+     "id": "sc-clothier-c2",
+     "text": "Our artist's sketch of the masterwork {item}. The stitches are too small to draw, which is rather the point."
+    },
+    {
+     "id": "sc-clothier-c3",
+     "text": "{who} and the dummy wearing the {item}. The dummy has never looked better and knows it."
+    },
+    {
+     "id": "sc-clothier-c4",
+     "text": "A masterwork garment on display. Several dwarves have asked whether it comes in their size. It does not; it comes in one."
+    },
+    {
+     "id": "sc-clothier-c5",
+     "text": "The finished {item}, sparkling the way only a masterwork does in a newspaper drawing."
+    },
+    {
+     "id": "sc-clothier-c6",
+     "text": "Clothier and creation. The artist got the sleeves right on the fourth attempt."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-clothier-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-clothier-l2",
+     "text": "THE DUMMY (SMUG)"
+    },
+    {
+     "id": "sc-clothier-l3",
+     "text": "SEAMS: PERFECT"
+    },
+    {
+     "id": "sc-clothier-l4",
+     "text": "DO NOT TOUCH"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-clothier-s1",
+     "text": "Every seam by hand!"
+    },
+    {
+     "id": "sc-clothier-s2",
+     "text": "Try it on? Absolutely not."
+    },
+    {
+     "id": "sc-clothier-s3",
+     "text": "It fits like a promise."
+    },
+    {
+     "id": "sc-clothier-s4",
+     "text": "Wear it to a funeral. Or a feast."
+    }
+   ]
+  },
+  "weaponsmith": {
+   "heads": [
+    {
+     "id": "sc-weaponsmith-h1",
+     "text": "A MASTERWORK {item} LEAVES THE FORGE"
+    },
+    {
+     "id": "sc-weaponsmith-h2",
+     "text": "{first} FORGES A BLADE FOR THE AGES"
+    },
+    {
+     "id": "sc-weaponsmith-h3",
+     "text": "GOBLINS ADVISED: NEW {item} IN TOWN"
+    },
+    {
+     "id": "sc-weaponsmith-h4",
+     "text": "ANVIL SINGS, SMITH GRINS"
+    },
+    {
+     "id": "sc-weaponsmith-h5",
+     "text": "THE FORGE'S FINEST HOUR"
+    },
+    {
+     "id": "sc-weaponsmith-h6",
+     "text": "SHARP NEWS FROM THE SMITHY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-weaponsmith-c1",
+     "text": "{who} raises the masterwork {item} beside the forge. The artist stood well back."
+    },
+    {
+     "id": "sc-weaponsmith-c2",
+     "text": "The {item}, still warm, held up for the militia to admire. The militia admired it from a respectful distance."
+    },
+    {
+     "id": "sc-weaponsmith-c3",
+     "text": "Forge, anvil and the masterwork {item}. The sparks were added by the artist for honesty's sake."
+    },
+    {
+     "id": "sc-weaponsmith-c4",
+     "text": "Our sketch of the finest {item} the forge has produced. The real one is shinier and much less wobbly."
+    },
+    {
+     "id": "sc-weaponsmith-c5",
+     "text": "A smith and a weapon, both glowing. Only the smith will cool down by supper."
+    },
+    {
+     "id": "sc-weaponsmith-c6",
+     "text": "The masterwork weapon, drawn from life. The artist did not test the edge and asks that nobody else does either."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-weaponsmith-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-weaponsmith-l2",
+     "text": "THE ANVIL"
+    },
+    {
+     "id": "sc-weaponsmith-l3",
+     "text": "THE FORGE (HOT)"
+    },
+    {
+     "id": "sc-weaponsmith-l4",
+     "text": "MIND THE EDGE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-weaponsmith-s1",
+     "text": "Balanced to a hair!"
+    },
+    {
+     "id": "sc-weaponsmith-s2",
+     "text": "Who wants to hold it? Carefully."
+    },
+    {
+     "id": "sc-weaponsmith-s3",
+     "text": "The militia will love this."
+    },
+    {
+     "id": "sc-weaponsmith-s4",
+     "text": "Hammered true, every blow."
+    }
+   ]
+  },
+  "armorer": {
+   "heads": [
+    {
+     "id": "sc-armorer-h1",
+     "text": "MASTERWORK {item} STANDS READY"
+    },
+    {
+     "id": "sc-armorer-h2",
+     "text": "{first} MAKES ARMOR WORTH WEARING"
+    },
+    {
+     "id": "sc-armorer-h3",
+     "text": "THE NEW {item} TURNS ANY BLOW"
+    },
+    {
+     "id": "sc-armorer-h4",
+     "text": "ARMORER'S BEST WORK ON DISPLAY"
+    },
+    {
+     "id": "sc-armorer-h5",
+     "text": "PROTECTION, PERFECTED"
+    },
+    {
+     "id": "sc-armorer-h6",
+     "text": "THE FORGE TURNS OUT A SHELL OF STEEL NERVES"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-armorer-c1",
+     "text": "The masterwork {item} on its stand, with {first} pointing out every rivet to anyone who stops."
+    },
+    {
+     "id": "sc-armorer-c2",
+     "text": "Our artist sketched the {item} and then knocked on it to check. It went 'tonk', which is good."
+    },
+    {
+     "id": "sc-armorer-c3",
+     "text": "{who} beside the {item}. The stand has never held anything this fine and is standing up straighter."
+    },
+    {
+     "id": "sc-armorer-c4",
+     "text": "Armor on a stand, an anvil, and a very proud maker. Readers can work out which is which."
+    },
+    {
+     "id": "sc-armorer-c5",
+     "text": "The masterwork {item}. Goblins are invited to view it from the front, at speed."
+    },
+    {
+     "id": "sc-armorer-c6",
+     "text": "The armorer's finest, displayed where the militia can see what they are missing."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-armorer-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-armorer-l2",
+     "text": "PROUD ARMORER"
+    },
+    {
+     "id": "sc-armorer-l3",
+     "text": "NO DENTS"
+    },
+    {
+     "id": "sc-armorer-l4",
+     "text": "THE STAND"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-armorer-s1",
+     "text": "Hit it. Go on. Not too hard."
+    },
+    {
+     "id": "sc-armorer-s2",
+     "text": "Not a rivet out of place."
+    },
+    {
+     "id": "sc-armorer-s3",
+     "text": "This one could stop a beast."
+    },
+    {
+     "id": "sc-armorer-s4",
+     "text": "Wear it with pride. And a helm."
+    }
+   ]
+  },
+  "furniture": {
+   "heads": [
+    {
+     "id": "sc-furniture-h1",
+     "text": "MASTERWORK {item} UNVEILED"
+    },
+    {
+     "id": "sc-furniture-h2",
+     "text": "{first} BUILDS THE FINEST {item} IN {fort}"
+    },
+    {
+     "id": "sc-furniture-h3",
+     "text": "THIS {item} IS FIT FOR A NOBLE (DO NOT TELL THE NOBLES)"
+    },
+    {
+     "id": "sc-furniture-h4",
+     "text": "FURNITURE OF LEGEND, SAWDUST OF NOTE"
+    },
+    {
+     "id": "sc-furniture-h5",
+     "text": "THE {item} EVERYONE WANTS IN THEIR ROOM"
+    },
+    {
+     "id": "sc-furniture-h6",
+     "text": "CRAFTSMANSHIP YOU CAN USE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-furniture-c1",
+     "text": "The masterwork {item}, with {first} waving at it in case anyone missed it. Sawdust shown for authenticity."
+    },
+    {
+     "id": "sc-furniture-c2",
+     "text": "Our artist's study of the {item}. Every joint is tight. The artist's lines are not."
+    },
+    {
+     "id": "sc-furniture-c3",
+     "text": "{who} and the {item}. The nobles have already asked who it is for. It is for the stockpile, as the Overseer decreed."
+    },
+    {
+     "id": "sc-furniture-c4",
+     "text": "A masterwork piece of furniture, sparkling, as all masterworks do in this paper."
+    },
+    {
+     "id": "sc-furniture-c5",
+     "text": "The {item}, drawn in the workshop it came from. The workshop has never been so clean, or so proud."
+    },
+    {
+     "id": "sc-furniture-c6",
+     "text": "The finest {item} we have seen. Our artist measured it twice and drew it once."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-furniture-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-furniture-l2",
+     "text": "SAWDUST"
+    },
+    {
+     "id": "sc-furniture-l3",
+     "text": "PERFECT JOINTS"
+    },
+    {
+     "id": "sc-furniture-l4",
+     "text": "THE MAKER (CHUFFED)"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-furniture-s1",
+     "text": "Not one wobble!"
+    },
+    {
+     "id": "sc-furniture-s2",
+     "text": "Who gets this one? Nobody, yet."
+    },
+    {
+     "id": "sc-furniture-s3",
+     "text": "Built to outlast us all."
+    },
+    {
+     "id": "sc-furniture-s4",
+     "text": "Mind the finish, it's still drying."
+    }
+   ]
+  },
+  "container": {
+   "heads": [
+    {
+     "id": "sc-container-h1",
+     "text": "MASTERWORK {item} HOLDS ITS OWN"
+    },
+    {
+     "id": "sc-container-h2",
+     "text": "{first}'S NEW {item}: ONE TO BE PROUD OF"
+    },
+    {
+     "id": "sc-container-h3",
+     "text": "THE FINEST {item} IN THE STORES"
+    },
+    {
+     "id": "sc-container-h4",
+     "text": "A VESSEL OF LEGEND (CONTENTS TBC)"
+    },
+    {
+     "id": "sc-container-h5",
+     "text": "HAULERS GASP AT THE NEW {item}"
+    },
+    {
+     "id": "sc-container-h6",
+     "text": "THE STOCKPILE HAS A NEW FAVOURITE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-container-c1",
+     "text": "{who} admiring the masterwork {item}. The heart was not in the original; the artist felt it was implied."
+    },
+    {
+     "id": "sc-container-c2",
+     "text": "The {item}, drawn lovingly. It holds things beautifully, which in a fort is the highest praise."
+    },
+    {
+     "id": "sc-container-c3",
+     "text": "A masterwork {item} and its maker. The haulers are already arguing about what goes in it first."
+    },
+    {
+     "id": "sc-container-c4",
+     "text": "Our sketch of the {item}. The artist was not allowed to put anything inside it."
+    },
+    {
+     "id": "sc-container-c5",
+     "text": "Maker and vessel. One of them is watertight; the other has had three ales."
+    },
+    {
+     "id": "sc-container-c6",
+     "text": "The {item} on its way to the stockpile, where it will outshine everything around it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-container-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-container-l2",
+     "text": "MAKER (IN LOVE)"
+    },
+    {
+     "id": "sc-container-l3",
+     "text": "EMPTY (FOR NOW)"
+    },
+    {
+     "id": "sc-container-l4",
+     "text": "SEALED TIGHT"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-container-s1",
+     "text": "Not a single leak."
+    },
+    {
+     "id": "sc-container-s2",
+     "text": "Fill it with something good."
+    },
+    {
+     "id": "sc-container-s3",
+     "text": "Look at those joins!"
+    },
+    {
+     "id": "sc-container-s4",
+     "text": "Don't put rocks in it."
+    }
+   ]
+  },
+  "drinkware": {
+   "heads": [
+    {
+     "id": "sc-drinkware-h1",
+     "text": "MASTERWORK {item} RAISED IN A TOAST"
+    },
+    {
+     "id": "sc-drinkware-h2",
+     "text": "{first}'S NEW {item} IS WORTHY OF ALE"
+    },
+    {
+     "id": "sc-drinkware-h3",
+     "text": "TAVERN DEMANDS THE NEW {item}"
+    },
+    {
+     "id": "sc-drinkware-h4",
+     "text": "DRINKING VESSEL OF LEGEND"
+    },
+    {
+     "id": "sc-drinkware-h5",
+     "text": "THIS {item} IS TOO GOOD TO DRINK FROM (WE DRANK FROM IT)"
+    },
+    {
+     "id": "sc-drinkware-h6",
+     "text": "CHEERS ECHO OVER ONE CUP"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-drinkware-c1",
+     "text": "{who} toasting with the masterwork {item}. It was empty; the artist was told it was full."
+    },
+    {
+     "id": "sc-drinkware-c2",
+     "text": "The {item}, held high over the tavern table. A friend looks on and is already thirsty."
+    },
+    {
+     "id": "sc-drinkware-c3",
+     "text": "A maker and a masterwork {item}. The sparkles are artistic; the ale stains are real."
+    },
+    {
+     "id": "sc-drinkware-c4",
+     "text": "Our sketch of the {item}. It holds exactly one drink, which is one more than our artist was offered."
+    },
+    {
+     "id": "sc-drinkware-c5",
+     "text": "The masterwork {item} in its natural home, held aloft over a table."
+    },
+    {
+     "id": "sc-drinkware-c6",
+     "text": "The finest {item} in {fort}. Every dwarf who saw it went to look for a drink."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-drinkware-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-drinkware-l2",
+     "text": "THIRSTY FRIEND"
+    },
+    {
+     "id": "sc-drinkware-l3",
+     "text": "THE TABLE"
+    },
+    {
+     "id": "sc-drinkware-l4",
+     "text": "FULL (PROBABLY)"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-drinkware-s1",
+     "text": "To the finest cup in the fort!"
+    },
+    {
+     "id": "sc-drinkware-s2",
+     "text": "Fill it up!"
+    },
+    {
+     "id": "sc-drinkware-s3",
+     "text": "First drink is mine."
+    },
+    {
+     "id": "sc-drinkware-s4",
+     "text": "It even holds the foam right."
+    }
+   ]
+  },
+  "jeweler": {
+   "heads": [
+    {
+     "id": "sc-jeweler-h1",
+     "text": "A MASTERWORK {item} SPARKLES"
+    },
+    {
+     "id": "sc-jeweler-h2",
+     "text": "{first}'S {item} COULD DAZZLE A KING"
+    },
+    {
+     "id": "sc-jeweler-h3",
+     "text": "JEWELLERY OF LEGEND LEAVES THE BENCH"
+    },
+    {
+     "id": "sc-jeweler-h4",
+     "text": "THE {item} THAT OUTSHINES THE LAMPS"
+    },
+    {
+     "id": "sc-jeweler-h5",
+     "text": "FINE WORK, FINER SPARKLE"
+    },
+    {
+     "id": "sc-jeweler-h6",
+     "text": "NOBLES ALREADY JEALOUS OF ONE {item}"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-jeweler-c1",
+     "text": "{who} holds up the masterwork {item}. The sparkles are real, the artist insists, and so is the squinting."
+    },
+    {
+     "id": "sc-jeweler-c2",
+     "text": "The {item}, raised so the light catches it. The light has never been so flattered."
+    },
+    {
+     "id": "sc-jeweler-c3",
+     "text": "Our artist's sketch of the masterwork {item}. Real jewels are smaller and much harder to draw."
+    },
+    {
+     "id": "sc-jeweler-c4",
+     "text": "Jeweler and jewel. The workbench behind them has seen a great deal of swearing over small stones."
+    },
+    {
+     "id": "sc-jeweler-c5",
+     "text": "The {item} in all its glory, drawn twice the real size so readers can see it at all."
+    },
+    {
+     "id": "sc-jeweler-c6",
+     "text": "A masterwork piece of jewellery and a very satisfied maker."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-jeweler-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-jeweler-l2",
+     "text": "SPARKLE (REAL)"
+    },
+    {
+     "id": "sc-jeweler-l3",
+     "text": "THE BENCH"
+    },
+    {
+     "id": "sc-jeweler-l4",
+     "text": "ALL HANDMADE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-jeweler-s1",
+     "text": "Look how it catches the light!"
+    },
+    {
+     "id": "sc-jeweler-s2",
+     "text": "Not for any noble. Yet."
+    },
+    {
+     "id": "sc-jeweler-s3",
+     "text": "Fits like it was born there."
+    },
+    {
+     "id": "sc-jeweler-s4",
+     "text": "Every facet, by hand."
+    }
+   ]
+  },
+  "trinket": {
+   "heads": [
+    {
+     "id": "sc-trinket-h1",
+     "text": "A MASTERWORK {item}, TINY AND PERFECT"
+    },
+    {
+     "id": "sc-trinket-h2",
+     "text": "{first} MAKES A SMALL THING VERY WELL"
+    },
+    {
+     "id": "sc-trinket-h3",
+     "text": "THE LITTLE {item} EVERYONE IS TALKING ABOUT"
+    },
+    {
+     "id": "sc-trinket-h4",
+     "text": "SMALL CRAFT, BIG PRIDE"
+    },
+    {
+     "id": "sc-trinket-h5",
+     "text": "CRAFTSDWARF PERFECTS THE {item}"
+    },
+    {
+     "id": "sc-trinket-h6",
+     "text": "A MASTERPIECE YOU CAN HOLD IN ONE HAND"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-trinket-c1",
+     "text": "{who} peering at the masterwork {item} through a glass. A friend peers at {first} peering."
+    },
+    {
+     "id": "sc-trinket-c2",
+     "text": "The {item} on the bench, drawn much bigger than life so readers can see why it matters."
+    },
+    {
+     "id": "sc-trinket-c3",
+     "text": "Our sketch of the little {item}. Every tiny line is there in the real thing; only some are here."
+    },
+    {
+     "id": "sc-trinket-c4",
+     "text": "Craftsdwarf, lens and {item}. The lens is borrowed; the skill is not."
+    },
+    {
+     "id": "sc-trinket-c5",
+     "text": "The masterwork {item}, admired from both ends of the bench."
+    },
+    {
+     "id": "sc-trinket-c6",
+     "text": "A small thing done perfectly, with two dwarves leaning in to prove it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-trinket-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-trinket-l2",
+     "text": "MAGNIFYING GLASS"
+    },
+    {
+     "id": "sc-trinket-l3",
+     "text": "THE BENCH"
+    },
+    {
+     "id": "sc-trinket-l4",
+     "text": "VERY SMALL, VERY GOOD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-trinket-s1",
+     "text": "Look closer. Closer."
+    },
+    {
+     "id": "sc-trinket-s2",
+     "text": "Every tiny detail!"
+    },
+    {
+     "id": "sc-trinket-s3",
+     "text": "Small, but it's a masterwork."
+    },
+    {
+     "id": "sc-trinket-s4",
+     "text": "Don't sneeze near it."
+    }
+   ]
+  },
+  "sculptor": {
+   "heads": [
+    {
+     "id": "sc-sculptor-h1",
+     "text": "A MASTERWORK {item} RISES IN THE HALL"
+    },
+    {
+     "id": "sc-sculptor-h2",
+     "text": "{first} CARVES A LIKENESS FOR THE AGES"
+    },
+    {
+     "id": "sc-sculptor-h3",
+     "text": "STONE COMES ALIVE UNDER ONE CHISEL"
+    },
+    {
+     "id": "sc-sculptor-h4",
+     "text": "THE {item} THAT MADE THE FORT STOP AND STARE"
+    },
+    {
+     "id": "sc-sculptor-h5",
+     "text": "SCULPTOR'S TRIUMPH"
+    },
+    {
+     "id": "sc-sculptor-h6",
+     "text": "CHIPS FLY, LEGEND STANDS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-sculptor-c1",
+     "text": "The masterwork {item} on its plinth, with {who} and the chisel that did it. The chips are still on the floor."
+    },
+    {
+     "id": "sc-sculptor-c2",
+     "text": "Our artist drew the {item}; the {item} is better. That is the nature of statues."
+    },
+    {
+     "id": "sc-sculptor-c3",
+     "text": "Sculptor and sculpture. Only one of them has been standing still all day."
+    },
+    {
+     "id": "sc-sculptor-c4",
+     "text": "The {item}, arms raised in triumph, which is also how the sculptor stood when it was done."
+    },
+    {
+     "id": "sc-sculptor-c5",
+     "text": "A masterwork statue, drawn from the front. The back is just as good, we are told."
+    },
+    {
+     "id": "sc-sculptor-c6",
+     "text": "The finished {item}, with the stone dust still settling around {first}."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-sculptor-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-sculptor-l2",
+     "text": "STONE CHIPS"
+    },
+    {
+     "id": "sc-sculptor-l3",
+     "text": "THE CHISEL"
+    },
+    {
+     "id": "sc-sculptor-l4",
+     "text": "THE PLINTH"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-sculptor-s1",
+     "text": "It was in the stone all along."
+    },
+    {
+     "id": "sc-sculptor-s2",
+     "text": "Don't climb on it."
+    },
+    {
+     "id": "sc-sculptor-s3",
+     "text": "One more chip... no. Done."
+    },
+    {
+     "id": "sc-sculptor-s4",
+     "text": "It looks better than the original."
+    }
+   ]
+  },
+  "musician": {
+   "heads": [
+    {
+     "id": "sc-musician-h1",
+     "text": "A MASTERWORK {item} SINGS"
+    },
+    {
+     "id": "sc-musician-h2",
+     "text": "{first} MAKES AN INSTRUMENT THAT PLAYS ITSELF (NEARLY)"
+    },
+    {
+     "id": "sc-musician-h3",
+     "text": "THE TAVERN HAS A NEW SOUND"
+    },
+    {
+     "id": "sc-musician-h4",
+     "text": "MUSIC FROM A MASTER'S HANDS"
+    },
+    {
+     "id": "sc-musician-h5",
+     "text": "ONE {item}, ONE STANDING OVATION"
+    },
+    {
+     "id": "sc-musician-h6",
+     "text": "DANCING BREAKS OUT OVER NEW INSTRUMENT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-musician-c1",
+     "text": "{who} tries out the masterwork {item} while two listeners decide whether to dance. One decided yes."
+    },
+    {
+     "id": "sc-musician-c2",
+     "text": "The {item}, being played. The notes are drawn as notes; the real ones were better."
+    },
+    {
+     "id": "sc-musician-c3",
+     "text": "Our sketch of the masterwork {item} in use. The artist hummed along and was asked to stop."
+    },
+    {
+     "id": "sc-musician-c4",
+     "text": "A maker, the {item} and an audience, which in {fort} counts as a concert."
+    },
+    {
+     "id": "sc-musician-c5",
+     "text": "The masterwork {item}, with music coming out of it in the traditional newspaper manner."
+    },
+    {
+     "id": "sc-musician-c6",
+     "text": "Player and instrument, in perfect tune for once."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-musician-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-musician-l2",
+     "text": "MUSIC (LOUD)"
+    },
+    {
+     "id": "sc-musician-l3",
+     "text": "DANCER"
+    },
+    {
+     "id": "sc-musician-l4",
+     "text": "AUDIENCE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-musician-s1",
+     "text": "Listen to that!"
+    },
+    {
+     "id": "sc-musician-s2",
+     "text": "One more tune!"
+    },
+    {
+     "id": "sc-musician-s3",
+     "text": "It's never out of tune."
+    },
+    {
+     "id": "sc-musician-s4",
+     "text": "Dance, you lot!"
+    }
+   ]
+  },
+  "gemcutter": {
+   "heads": [
+    {
+     "id": "sc-gemcutter-h1",
+     "text": "A MASTERWORK GEM CUT AT LAST"
+    },
+    {
+     "id": "sc-gemcutter-h2",
+     "text": "{first} CUTS A STONE THAT CUTS THE DARK"
+    },
+    {
+     "id": "sc-gemcutter-h3",
+     "text": "{item}: FLAWLESS, SAYS THE LENS"
+    },
+    {
+     "id": "sc-gemcutter-h4",
+     "text": "THE BENCH, THE LENS, THE PERFECT GEM"
+    },
+    {
+     "id": "sc-gemcutter-h5",
+     "text": "A JEWEL FOR THE AGES"
+    },
+    {
+     "id": "sc-gemcutter-h6",
+     "text": "GEM CUTTER'S HAND NEVER WAVERED"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-gemcutter-c1",
+     "text": "{who} studies the masterwork {item} through a lens. The gem is drawn at five times its real size."
+    },
+    {
+     "id": "sc-gemcutter-c2",
+     "text": "The {item} on the jeweler's bench, every facet perfect. The artist drew six of them; there are more."
+    },
+    {
+     "id": "sc-gemcutter-c3",
+     "text": "Gem and gem cutter. The cutter has not blinked since breakfast."
+    },
+    {
+     "id": "sc-gemcutter-c4",
+     "text": "Our sketch of the {item}. It sparkles in the drawing because it sparkled in life."
+    },
+    {
+     "id": "sc-gemcutter-c5",
+     "text": "The masterwork cut gem, sitting on the bench like it owns the workshop. It may."
+    },
+    {
+     "id": "sc-gemcutter-c6",
+     "text": "A lens, a bench and a gem worth a whole caravan."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-gemcutter-l1",
+     "text": "THE GEM"
+    },
+    {
+     "id": "sc-gemcutter-l2",
+     "text": "THE LENS"
+    },
+    {
+     "id": "sc-gemcutter-l3",
+     "text": "FACETS (MANY)"
+    },
+    {
+     "id": "sc-gemcutter-l4",
+     "text": "THE BENCH"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-gemcutter-s1",
+     "text": "Not one flaw."
+    },
+    {
+     "id": "sc-gemcutter-s2",
+     "text": "Look at it catch the light!"
+    },
+    {
+     "id": "sc-gemcutter-s3",
+     "text": "Cut true, every face."
+    },
+    {
+     "id": "sc-gemcutter-s4",
+     "text": "Careful. That's worth a wagon."
+    }
+   ]
+  },
+  "cook": {
+   "heads": [
+    {
+     "id": "sc-cook-h1",
+     "text": "MASTERWORK {item} SERVED"
+    },
+    {
+     "id": "sc-cook-h2",
+     "text": "{first} COOKS A MEAL FOR THE AGES"
+    },
+    {
+     "id": "sc-cook-h3",
+     "text": "THE KITCHEN'S FINEST HOUR"
+    },
+    {
+     "id": "sc-cook-h4",
+     "text": "DINING HALL STUNNED BY ONE DISH"
+    },
+    {
+     "id": "sc-cook-h5",
+     "text": "A MASTERPIECE YOU CAN EAT (QUICKLY)"
+    },
+    {
+     "id": "sc-cook-h6",
+     "text": "CHEF'S TRIUMPH, STILL STEAMING"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-cook-c1",
+     "text": "{who} presents the masterwork {item}, still steaming. A diner at the table has already picked up a spoon."
+    },
+    {
+     "id": "sc-cook-c2",
+     "text": "Our sketch of the {item}. It smelled better than this drawing looks, and this drawing looks good."
+    },
+    {
+     "id": "sc-cook-c3",
+     "text": "The chef, the dish and the first hungry customer. The dish will not last the afternoon."
+    },
+    {
+     "id": "sc-cook-c4",
+     "text": "A masterwork meal held high. The artist ate the model afterwards and has no regrets."
+    },
+    {
+     "id": "sc-cook-c5",
+     "text": "The {item}, steaming, carried in triumph from the kitchen. Masterwork food is rare; eating it is rarer."
+    },
+    {
+     "id": "sc-cook-c6",
+     "text": "Cook and creation. Only one of them will be eaten tonight."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-cook-l1",
+     "text": "THE DISH"
+    },
+    {
+     "id": "sc-cook-l2",
+     "text": "STEAM (DELICIOUS)"
+    },
+    {
+     "id": "sc-cook-l3",
+     "text": "HUNGRY DINER"
+    },
+    {
+     "id": "sc-cook-l4",
+     "text": "CHEF'S HAT"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-cook-s1",
+     "text": "Eat it while it's hot!"
+    },
+    {
+     "id": "sc-cook-s2",
+     "text": "Seasoned to perfection."
+    },
+    {
+     "id": "sc-cook-s3",
+     "text": "Don't let the cat near it."
+    },
+    {
+     "id": "sc-cook-s4",
+     "text": "Seconds? There are no seconds."
+    }
+   ]
+  },
+  "brewer": {
+   "heads": [
+    {
+     "id": "sc-brewer-h1",
+     "text": "THE STILL PRODUCES A MASTERWORK BREW"
+    },
+    {
+     "id": "sc-brewer-h2",
+     "text": "{first} BREWS A LEGEND"
+    },
+    {
+     "id": "sc-brewer-h3",
+     "text": "A BARREL WORTH GUARDING"
+    },
+    {
+     "id": "sc-brewer-h4",
+     "text": "THE TAVERN'S NEW PRIDE"
+    },
+    {
+     "id": "sc-brewer-h5",
+     "text": "ONE SIP AND THE FORT FELL SILENT"
+    },
+    {
+     "id": "sc-brewer-h6",
+     "text": "BREWER'S TRIUMPH"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-brewer-c1",
+     "text": "The barrel of masterwork brew, with {first} holding the first mug drawn from it."
+    },
+    {
+     "id": "sc-brewer-c2",
+     "text": "Our artist drew the barrel. The brew itself could not be drawn; it could only be enjoyed."
+    },
+    {
+     "id": "sc-brewer-c3",
+     "text": "Brewer, barrel and mug. The mug is already half empty."
+    },
+    {
+     "id": "sc-brewer-c4",
+     "text": "The finest barrel in {fort}, with the brewer standing guard."
+    },
+    {
+     "id": "sc-brewer-c5",
+     "text": "A masterwork brew, sealed in its barrel. The haulers have been told to walk, not run."
+    },
+    {
+     "id": "sc-brewer-c6",
+     "text": "The tap, the barrel and the brewer who will never be thirsty again."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-brewer-l1",
+     "text": "THE BREW"
+    },
+    {
+     "id": "sc-brewer-l2",
+     "text": "THE MUG"
+    },
+    {
+     "id": "sc-brewer-l3",
+     "text": "THE TAP"
+    },
+    {
+     "id": "sc-brewer-l4",
+     "text": "DO NOT SHAKE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-brewer-s1",
+     "text": "Smell that!"
+    },
+    {
+     "id": "sc-brewer-s2",
+     "text": "First mug's mine."
+    },
+    {
+     "id": "sc-brewer-s3",
+     "text": "Aged to perfection."
+    },
+    {
+     "id": "sc-brewer-s4",
+     "text": "Hands off till dinner."
+    }
+   ]
+  },
+  "scribe": {
+   "heads": [
+    {
+     "id": "sc-scribe-h1",
+     "text": "A MASTERWORK {item} IS WRITTEN"
+    },
+    {
+     "id": "sc-scribe-h2",
+     "text": "{first} PENS A BOOK FOR THE AGES"
+    },
+    {
+     "id": "sc-scribe-h3",
+     "text": "LIBRARY ACQUIRES A LEGEND"
+    },
+    {
+     "id": "sc-scribe-h4",
+     "text": "THE {item} EVERYONE WANTS TO BORROW"
+    },
+    {
+     "id": "sc-scribe-h5",
+     "text": "INK, PATIENCE AND GENIUS"
+    },
+    {
+     "id": "sc-scribe-h6",
+     "text": "SCRIBE'S TRIUMPH HELD ALOFT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-scribe-c1",
+     "text": "{who} holds up the masterwork {item}. The pages are drawn as lines; the real ones are full of very small words."
+    },
+    {
+     "id": "sc-scribe-c2",
+     "text": "The {item}, raised high above the writing desk where it was made."
+    },
+    {
+     "id": "sc-scribe-c3",
+     "text": "Our sketch of the masterwork {item}. Nobody would let the artist read it first."
+    },
+    {
+     "id": "sc-scribe-c4",
+     "text": "Scribe and book. Both are a little smudged with ink."
+    },
+    {
+     "id": "sc-scribe-c5",
+     "text": "The finished {item}, the desk and a very pleased author."
+    },
+    {
+     "id": "sc-scribe-c6",
+     "text": "A masterwork book. The library has already made room for it, which meant moving a cat."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-scribe-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-scribe-l2",
+     "text": "THE DESK"
+    },
+    {
+     "id": "sc-scribe-l3",
+     "text": "INK (EVERYWHERE)"
+    },
+    {
+     "id": "sc-scribe-l4",
+     "text": "THE PAGES"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-scribe-s1",
+     "text": "Every word in its place."
+    },
+    {
+     "id": "sc-scribe-s2",
+     "text": "Read it! Carefully."
+    },
+    {
+     "id": "sc-scribe-s3",
+     "text": "Bound and finished."
+    },
+    {
+     "id": "sc-scribe-s4",
+     "text": "The library gets it first."
+    }
+   ]
+  },
+  "mechanic": {
+   "heads": [
+    {
+     "id": "sc-mechanic-h1",
+     "text": "MASTERWORK {item} CLICKS INTO PLACE"
+    },
+    {
+     "id": "sc-mechanic-h2",
+     "text": "{first} BUILDS A CONTRAPTION OF GENIUS"
+    },
+    {
+     "id": "sc-mechanic-h3",
+     "text": "THE FINEST {item} IN THE WORKS"
+    },
+    {
+     "id": "sc-mechanic-h4",
+     "text": "GEARS, GENIUS, GLORY"
+    },
+    {
+     "id": "sc-mechanic-h5",
+     "text": "A MASTERWORK THAT ACTUALLY WORKS"
+    },
+    {
+     "id": "sc-mechanic-h6",
+     "text": "ENGINEERS APPLAUD ONE {item}"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-mechanic-c1",
+     "text": "The masterwork {item}, with {who} holding the tool that finished it. The artist drew the gears turning; they were."
+    },
+    {
+     "id": "sc-mechanic-c2",
+     "text": "Our sketch of the {item}. It is more complicated than this; the artist ran out of lines."
+    },
+    {
+     "id": "sc-mechanic-c3",
+     "text": "Maker and contraption. Only the contraption knows exactly how it works."
+    },
+    {
+     "id": "sc-mechanic-c4",
+     "text": "The masterwork {item} on the floor of the workshop, ready for duty."
+    },
+    {
+     "id": "sc-mechanic-c5",
+     "text": "A {item} made perfectly. The engineers have asked to borrow it; the maker said no."
+    },
+    {
+     "id": "sc-mechanic-c6",
+     "text": "The finished piece, all its teeth and joints in perfect order."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-mechanic-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-mechanic-l2",
+     "text": "THE TOOL"
+    },
+    {
+     "id": "sc-mechanic-l3",
+     "text": "MOVING PARTS"
+    },
+    {
+     "id": "sc-mechanic-l4",
+     "text": "DO NOT POKE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-mechanic-s1",
+     "text": "Listen to it click!"
+    },
+    {
+     "id": "sc-mechanic-s2",
+     "text": "Not a loose part."
+    },
+    {
+     "id": "sc-mechanic-s3",
+     "text": "It works first time!"
+    },
+    {
+     "id": "sc-mechanic-s4",
+     "text": "Built to last a century."
+    }
+   ]
+  },
+  "fletcher": {
+   "heads": [
+    {
+     "id": "sc-fletcher-h1",
+     "text": "MASTERWORK {item} FLY TRUE"
+    },
+    {
+     "id": "sc-fletcher-h2",
+     "text": "{first} MAKES AMMUNITION OF LEGEND"
+    },
+    {
+     "id": "sc-fletcher-h3",
+     "text": "THE TARGET NEVER STOOD A CHANCE"
+    },
+    {
+     "id": "sc-fletcher-h4",
+     "text": "STRAIGHT, SHARP AND MASTERWORK"
+    },
+    {
+     "id": "sc-fletcher-h5",
+     "text": "MARKSDWARVES QUEUE FOR THE NEW {item}"
+    },
+    {
+     "id": "sc-fletcher-h6",
+     "text": "A VOLLEY WORTH WAITING FOR"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-fletcher-c1",
+     "text": "A bundle of masterwork {item}, and the target that met the first one. Dead centre."
+    },
+    {
+     "id": "sc-fletcher-c2",
+     "text": "Our sketch of the {item}. Each one is straighter than the artist's lines."
+    },
+    {
+     "id": "sc-fletcher-c3",
+     "text": "The bundle and the bullseye. The marksdwarves have asked to keep the target as a souvenir."
+    },
+    {
+     "id": "sc-fletcher-c4",
+     "text": "Masterwork {item}, ready for the next goblin who wants to test them."
+    },
+    {
+     "id": "sc-fletcher-c5",
+     "text": "The {item} in their bundle, one already in the target to prove the point."
+    },
+    {
+     "id": "sc-fletcher-c6",
+     "text": "A quiverful of perfect shots, waiting for the militia."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-fletcher-l1",
+     "text": "THE {item}"
+    },
+    {
+     "id": "sc-fletcher-l2",
+     "text": "THE TARGET"
+    },
+    {
+     "id": "sc-fletcher-l3",
+     "text": "DEAD CENTRE"
+    },
+    {
+     "id": "sc-fletcher-l4",
+     "text": "THE BUNDLE"
+    }
+   ]
+  },
+  "engraver": {
+   "heads": [
+    {
+     "id": "sc-engraver-h1",
+     "text": "A MASTERWORK ENGRAVING ON THE WALL"
+    },
+    {
+     "id": "sc-engraver-h2",
+     "text": "{first} CARVES A PICTURE INTO THE ROCK"
+    },
+    {
+     "id": "sc-engraver-h3",
+     "text": "THE WALL THAT TELLS A STORY"
+    },
+    {
+     "id": "sc-engraver-h4",
+     "text": "ENGRAVER'S TRIUMPH, SET IN STONE"
+    },
+    {
+     "id": "sc-engraver-h5",
+     "text": "FORT GATHERS TO READ ONE WALL"
+    },
+    {
+     "id": "sc-engraver-h6",
+     "text": "ART YOU CANNOT STEAL"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-engraver-c1",
+     "text": "{who} stands back from the masterwork engraving. The wall now shows a dwarf, raising their arms, which is how {first} stood when it was done."
+    },
+    {
+     "id": "sc-engraver-c2",
+     "text": "The engraved wall, with the chisel still in hand. The stone has never looked so interesting."
+    },
+    {
+     "id": "sc-engraver-c3",
+     "text": "Our artist drew the engraving; the engraving is better. It was carved into the rock itself."
+    },
+    {
+     "id": "sc-engraver-c4",
+     "text": "A wall, a picture in the wall, and the dwarf who put it there."
+    },
+    {
+     "id": "sc-engraver-c5",
+     "text": "The masterwork engraving. Passers-by stop, look, and walk into each other."
+    },
+    {
+     "id": "sc-engraver-c6",
+     "text": "The finished engraving, with a little dwarf on the wall looking very pleased about it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-engraver-l1",
+     "text": "THE ENGRAVING"
+    },
+    {
+     "id": "sc-engraver-l2",
+     "text": "THE WALL"
+    },
+    {
+     "id": "sc-engraver-l3",
+     "text": "THE CHISEL"
+    },
+    {
+     "id": "sc-engraver-l4",
+     "text": "SET IN STONE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-engraver-s1",
+     "text": "Read the wall!"
+    },
+    {
+     "id": "sc-engraver-s2",
+     "text": "It'll be here in a thousand years."
+    },
+    {
+     "id": "sc-engraver-s3",
+     "text": "Every line carved by hand."
+    },
+    {
+     "id": "sc-engraver-s4",
+     "text": "Don't lean on it."
+    }
+   ]
+  },
+  "tanner": {
+   "heads": [
+    {
+     "id": "sc-tanner-h1",
+     "text": "MASTERWORK LEATHER STRETCHED AND READY"
+    },
+    {
+     "id": "sc-tanner-h2",
+     "text": "{first} TANS A HIDE TO REMEMBER"
+    },
+    {
+     "id": "sc-tanner-h3",
+     "text": "THE FINEST {item} ON THE FRAME"
+    },
+    {
+     "id": "sc-tanner-h4",
+     "text": "LEATHERWORK OF LEGEND"
+    },
+    {
+     "id": "sc-tanner-h5",
+     "text": "TANNERY TRIUMPH"
+    },
+    {
+     "id": "sc-tanner-h6",
+     "text": "A HIDE WITHOUT A FLAW"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-tanner-c1",
+     "text": "The {item} on its frame, with {who} celebrating. The smell, mercifully, could not be drawn."
+    },
+    {
+     "id": "sc-tanner-c2",
+     "text": "Our sketch of the masterwork {item}. Soft, even and ready for a leatherworker."
+    },
+    {
+     "id": "sc-tanner-c3",
+     "text": "Frame, hide and tanner. The tanner is the one with arms up."
+    },
+    {
+     "id": "sc-tanner-c4",
+     "text": "The {item}, stretched tight and perfect. Bags, belts and boots await."
+    },
+    {
+     "id": "sc-tanner-c5",
+     "text": "A masterwork hide. The artist kept his distance for reasons of smell."
+    },
+    {
+     "id": "sc-tanner-c6",
+     "text": "The finished leather, on display where the leatherworkers can admire it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-tanner-l1",
+     "text": "THE HIDE"
+    },
+    {
+     "id": "sc-tanner-l2",
+     "text": "THE FRAME"
+    },
+    {
+     "id": "sc-tanner-l3",
+     "text": "SMELL (NOT SHOWN)"
+    },
+    {
+     "id": "sc-tanner-l4",
+     "text": "PERFECTLY EVEN"
+    }
+   ]
+  },
+  "smelter": {
+   "heads": [
+    {
+     "id": "sc-smelter-h1",
+     "text": "MASTERWORK METAL FROM THE FURNACE"
+    },
+    {
+     "id": "sc-smelter-h2",
+     "text": "{first} POURS A PERFECT BAR"
+    },
+    {
+     "id": "sc-smelter-h3",
+     "text": "FURNACE TURNS OUT GOLDEN WORK"
+    },
+    {
+     "id": "sc-smelter-h4",
+     "text": "THE SMELTER'S PROUDEST DAY"
+    },
+    {
+     "id": "sc-smelter-h5",
+     "text": "BARS OF LEGEND STACKED"
+    },
+    {
+     "id": "sc-smelter-h6",
+     "text": "PURE METAL, PURE PRIDE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-smelter-c1",
+     "text": "The {item}, stacked by the furnace, with {who} celebrating. The smiths are already eyeing them."
+    },
+    {
+     "id": "sc-smelter-c2",
+     "text": "Our sketch of the bars. They are heavier than they look and look very heavy."
+    },
+    {
+     "id": "sc-smelter-c3",
+     "text": "Furnace, bars and smelter. The furnace is still hot; so is the smelter's temper about being drawn."
+    },
+    {
+     "id": "sc-smelter-c4",
+     "text": "A stack of masterwork metal, the start of something great."
+    },
+    {
+     "id": "sc-smelter-c5",
+     "text": "The bars beside the furnace that made them."
+    },
+    {
+     "id": "sc-smelter-c6",
+     "text": "The finished bars, gleaming, waiting for a smith worthy of them."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-smelter-l1",
+     "text": "THE BARS"
+    },
+    {
+     "id": "sc-smelter-l2",
+     "text": "THE FURNACE"
+    },
+    {
+     "id": "sc-smelter-l3",
+     "text": "STILL HOT"
+    },
+    {
+     "id": "sc-smelter-l4",
+     "text": "THE STACK"
+    }
+   ]
+  },
+  "unveiling": {
+   "heads": [
+    {
+     "id": "sc-unveiling-h1",
+     "text": "A MASTERPIECE, UNDER WRAPS FOR NOW"
+    },
+    {
+     "id": "sc-unveiling-h2",
+     "text": "{first} MAKES SOMETHING WONDERFUL"
+    },
+    {
+     "id": "sc-unveiling-h3",
+     "text": "THE FORT WAITS FOR THE GREAT REVEAL"
+    },
+    {
+     "id": "sc-unveiling-h4",
+     "text": "MASTERWORK ANNOUNCED, DETAILS TO FOLLOW"
+    },
+    {
+     "id": "sc-unveiling-h5",
+     "text": "WHAT IS UNDER THE SHEET?"
+    },
+    {
+     "id": "sc-unveiling-h6",
+     "text": "SKILL MEETS ITS PEAK"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-unveiling-c1",
+     "text": "The masterpiece under a sheet, with {who} refusing to lift it until a crowd gathers."
+    },
+    {
+     "id": "sc-unveiling-c2",
+     "text": "Our artist was not allowed a look, so he drew the sheet. It is a very good sheet."
+    },
+    {
+     "id": "sc-unveiling-c3",
+     "text": "A masterwork, wrapped for the unveiling. The question mark is the artist's."
+    },
+    {
+     "id": "sc-unveiling-c4",
+     "text": "{first} and a mystery masterpiece. Guesses at the tavern range from 'something small' to 'something big'."
+    },
+    {
+     "id": "sc-unveiling-c5",
+     "text": "The covered masterwork. Whatever it is, it is the finest of its kind in {fort}."
+    },
+    {
+     "id": "sc-unveiling-c6",
+     "text": "The great reveal, about to happen. Our artist had to leave for deadline."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-unveiling-l1",
+     "text": "UNDER WRAPS"
+    },
+    {
+     "id": "sc-unveiling-l2",
+     "text": "THE MAKER"
+    },
+    {
+     "id": "sc-unveiling-l3",
+     "text": "?"
+    },
+    {
+     "id": "sc-unveiling-l4",
+     "text": "DO NOT PEEK"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-unveiling-s1",
+     "text": "No peeking!"
+    },
+    {
+     "id": "sc-unveiling-s2",
+     "text": "Gather round, everyone!"
+    },
+    {
+     "id": "sc-unveiling-s3",
+     "text": "Wait for it..."
+    },
+    {
+     "id": "sc-unveiling-s4",
+     "text": "You'll love it. Probably."
+    }
+   ]
+  },
+  "art-weaver": {
+   "heads": [
+    {
+     "id": "sc-art-weaver-h1",
+     "text": "LEGENDARY CLOTH: {art}"
+    },
+    {
+     "id": "sc-art-weaver-h2",
+     "text": "A WEAVER'S MOOD ENDS IN LEGEND"
+    },
+    {
+     "id": "sc-art-weaver-h3",
+     "text": "{art}, A CLOTH WITHOUT EQUAL"
+    },
+    {
+     "id": "sc-art-weaver-h4",
+     "text": "THE LOOM GIVES BIRTH TO AN ARTIFACT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-weaver-c1",
+     "text": "{art}, the legendary {item}, held up beside the loom while the fort crowds in to look."
+    },
+    {
+     "id": "sc-art-weaver-c2",
+     "text": "The loom where {art} was woven. The crowd at the edges have been there since dawn."
+    },
+    {
+     "id": "sc-art-weaver-c3",
+     "text": "{who} with {art}, the {item} that will be spoken of after we are all gone."
+    },
+    {
+     "id": "sc-art-weaver-c4",
+     "text": "The artifact cloth and its maker, with the name engraved on the plaque below by a very nervous engraver."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-weaver-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-weaver-l2",
+     "text": "THE LOOM"
+    },
+    {
+     "id": "sc-art-weaver-l3",
+     "text": "THE CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-weaver-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-weaver-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-weaver-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-weaver-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-clothier": {
+   "heads": [
+    {
+     "id": "sc-art-clothier-h1",
+     "text": "A GARMENT OF LEGEND: {art}"
+    },
+    {
+     "id": "sc-art-clothier-h2",
+     "text": "{art}: THE {item} NOBODY MAY WEAR"
+    },
+    {
+     "id": "sc-art-clothier-h3",
+     "text": "MOOD ENDS IN A LEGENDARY {item}"
+    },
+    {
+     "id": "sc-art-clothier-h4",
+     "text": "FASHION'S GREATEST DAY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-clothier-c1",
+     "text": "{art}, the legendary {item}, on the dummy where everyone can see it and nobody can borrow it."
+    },
+    {
+     "id": "sc-art-clothier-c2",
+     "text": "The crowd admiring {art}. One dwarf asked if it came in blue and was escorted out."
+    },
+    {
+     "id": "sc-art-clothier-c3",
+     "text": "{who} beside {art}. The stitches are said to be too fine for any eye."
+    },
+    {
+     "id": "sc-art-clothier-c4",
+     "text": "The artifact garment on display, its name on a plaque because nobody can pronounce it twice."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-clothier-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-clothier-l2",
+     "text": "THE DUMMY"
+    },
+    {
+     "id": "sc-art-clothier-l3",
+     "text": "ADMIRERS"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-clothier-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-clothier-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-clothier-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-clothier-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-weaponsmith": {
+   "heads": [
+    {
+     "id": "sc-art-weaponsmith-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-weaponsmith-h2",
+     "text": "{art} IS FORGED"
+    },
+    {
+     "id": "sc-art-weaponsmith-h3",
+     "text": "THE FORGE GIVES THE FORT A LEGEND"
+    },
+    {
+     "id": "sc-art-weaponsmith-h4",
+     "text": "GOBLINS, TAKE NOTE: {art}"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-weaponsmith-c1",
+     "text": "{art}, the legendary {item}, raised by {who} beside the forge while the fort looks on."
+    },
+    {
+     "id": "sc-art-weaponsmith-c2",
+     "text": "The forge, the anvil and {art}. The crowd keeps a very respectful distance from the sharp end."
+    },
+    {
+     "id": "sc-art-weaponsmith-c3",
+     "text": "The legendary weapon {art}. The militia captain has already asked for it. The answer was no."
+    },
+    {
+     "id": "sc-art-weaponsmith-c4",
+     "text": "Our sketch of {art}. Weapons with names tend to make history; this one is just getting started."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-weaponsmith-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-weaponsmith-l2",
+     "text": "THE FORGE"
+    },
+    {
+     "id": "sc-art-weaponsmith-l3",
+     "text": "THE CROWD (AWED)"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-weaponsmith-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-weaponsmith-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-weaponsmith-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-weaponsmith-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-armorer": {
+   "heads": [
+    {
+     "id": "sc-art-armorer-h1",
+     "text": "LEGENDARY ARMOR: {art}"
+    },
+    {
+     "id": "sc-art-armorer-h2",
+     "text": "{art}, THE {item} OF LEGEND"
+    },
+    {
+     "id": "sc-art-armorer-h3",
+     "text": "MOOD PRODUCES IMPENETRABLE MASTERPIECE"
+    },
+    {
+     "id": "sc-art-armorer-h4",
+     "text": "A LEGEND STANDS ON ITS STAND"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-armorer-c1",
+     "text": "{art}, the legendary {item}, on its stand while the fort gathers."
+    },
+    {
+     "id": "sc-art-armorer-c2",
+     "text": "The artifact armor {art}. The crowd knocks on it, quietly, for luck."
+    },
+    {
+     "id": "sc-art-armorer-c3",
+     "text": "{who} beside {art}, the finest {item} ever made in {fort}."
+    },
+    {
+     "id": "sc-art-armorer-c4",
+     "text": "Our artist drew {art} with great care and still could not get the shine right."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-armorer-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-armorer-l2",
+     "text": "THE STAND"
+    },
+    {
+     "id": "sc-art-armorer-l3",
+     "text": "ONLOOKERS"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-armorer-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-armorer-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-armorer-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-armorer-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-furniture": {
+   "heads": [
+    {
+     "id": "sc-art-furniture-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-furniture-h2",
+     "text": "{art} JOINS THE FORT"
+    },
+    {
+     "id": "sc-art-furniture-h3",
+     "text": "THE LAST WORD IN FURNITURE: {art}"
+    },
+    {
+     "id": "sc-art-furniture-h4",
+     "text": "MOOD ENDS, FURNITURE BECOMES LEGEND"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-furniture-c1",
+     "text": "{art}, the legendary {item}, with its maker and a crowd who all want to sit on it. Nobody may."
+    },
+    {
+     "id": "sc-art-furniture-c2",
+     "text": "The crowd around {art}. It has a name, a plaque and a guard."
+    },
+    {
+     "id": "sc-art-furniture-c3",
+     "text": "{who} beside {art}, the {item} that will outlast the fort."
+    },
+    {
+     "id": "sc-art-furniture-c4",
+     "text": "The artifact furniture {art}, sketched while the crowd held its breath."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-furniture-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-furniture-l2",
+     "text": "THE CROWD"
+    },
+    {
+     "id": "sc-art-furniture-l3",
+     "text": "DO NOT SIT"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-furniture-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-furniture-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-furniture-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-furniture-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-container": {
+   "heads": [
+    {
+     "id": "sc-art-container-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-container-h2",
+     "text": "{art}, THE VESSEL OF LEGEND"
+    },
+    {
+     "id": "sc-art-container-h3",
+     "text": "MOOD PRODUCES AN ARTIFACT {item}"
+    },
+    {
+     "id": "sc-art-container-h4",
+     "text": "THE STORES HAVE A TREASURE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-container-c1",
+     "text": "{art}, the legendary {item}, with its maker and the crowd that followed it out of the workshop."
+    },
+    {
+     "id": "sc-art-container-c2",
+     "text": "The artifact {item} {art}. Whatever goes in it will feel very honoured."
+    },
+    {
+     "id": "sc-art-container-c3",
+     "text": "{who} with {art}. The haulers have been told to carry it with both hands, always."
+    },
+    {
+     "id": "sc-art-container-c4",
+     "text": "Our sketch of {art}, with a crowd for scale."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-container-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-container-l2",
+     "text": "ADMIRERS"
+    },
+    {
+     "id": "sc-art-container-l3",
+     "text": "HANDLE WITH CARE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-container-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-container-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-container-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-container-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-drinkware": {
+   "heads": [
+    {
+     "id": "sc-art-drinkware-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-drinkware-h2",
+     "text": "{art}, THE CUP OF LEGEND"
+    },
+    {
+     "id": "sc-art-drinkware-h3",
+     "text": "A TOAST TO {art}"
+    },
+    {
+     "id": "sc-art-drinkware-h4",
+     "text": "MOOD ENDS IN THE FINEST {item} EVER MADE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-drinkware-c1",
+     "text": "{art}, the legendary {item}, raised in a toast while the crowd raises theirs."
+    },
+    {
+     "id": "sc-art-drinkware-c2",
+     "text": "The artifact {item} {art}. Drinking from it is forbidden; looking at it is encouraged."
+    },
+    {
+     "id": "sc-art-drinkware-c3",
+     "text": "{who} with {art}. Every mug in the tavern looks a little worse today."
+    },
+    {
+     "id": "sc-art-drinkware-c4",
+     "text": "Our sketch of {art}, held high over the table."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-drinkware-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-drinkware-l2",
+     "text": "THE TABLE"
+    },
+    {
+     "id": "sc-art-drinkware-l3",
+     "text": "THIRSTY CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-drinkware-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-drinkware-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-drinkware-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-drinkware-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-jeweler": {
+   "heads": [
+    {
+     "id": "sc-art-jeweler-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-jeweler-h2",
+     "text": "{art} DAZZLES {fort}"
+    },
+    {
+     "id": "sc-art-jeweler-h3",
+     "text": "JEWEL OF LEGEND LEAVES THE BENCH"
+    },
+    {
+     "id": "sc-art-jeweler-h4",
+     "text": "THE NOBLES WILL WANT {art}. THEY CANNOT HAVE IT."
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-jeweler-c1",
+     "text": "{art}, the legendary {item}, held up to the light while the crowd shields its eyes."
+    },
+    {
+     "id": "sc-art-jeweler-c2",
+     "text": "The artifact {item} {art}. The sparkles are underdrawn, if anything."
+    },
+    {
+     "id": "sc-art-jeweler-c3",
+     "text": "{who} with {art}. Its name is on the plaque; its shine is everywhere."
+    },
+    {
+     "id": "sc-art-jeweler-c4",
+     "text": "Our sketch of {art}. The real one made the artist sit down for a while."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-jeweler-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-jeweler-l2",
+     "text": "SPARKLE"
+    },
+    {
+     "id": "sc-art-jeweler-l3",
+     "text": "THE CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-jeweler-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-jeweler-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-jeweler-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-jeweler-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-trinket": {
+   "heads": [
+    {
+     "id": "sc-art-trinket-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-trinket-h2",
+     "text": "{art}: SMALL, PERFECT, LEGENDARY"
+    },
+    {
+     "id": "sc-art-trinket-h3",
+     "text": "TINY ARTIFACT, HUGE CROWD"
+    },
+    {
+     "id": "sc-art-trinket-h4",
+     "text": "MOOD ENDS IN A LITTLE MIRACLE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-trinket-c1",
+     "text": "{art}, the legendary {item}, on the bench, with half the fort leaning in to see it."
+    },
+    {
+     "id": "sc-art-trinket-c2",
+     "text": "The artifact {item} {art}, drawn bigger than life so readers can see it at all."
+    },
+    {
+     "id": "sc-art-trinket-c3",
+     "text": "{who} beside {art}. The lens has been passed around eleven times."
+    },
+    {
+     "id": "sc-art-trinket-c4",
+     "text": "Our sketch of {art}. Its name is longer than it is."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-trinket-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-trinket-l2",
+     "text": "THE LENS"
+    },
+    {
+     "id": "sc-art-trinket-l3",
+     "text": "LEANING CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-trinket-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-trinket-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-trinket-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-trinket-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-sculptor": {
+   "heads": [
+    {
+     "id": "sc-art-sculptor-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-sculptor-h2",
+     "text": "{art} STANDS IN {fort}"
+    },
+    {
+     "id": "sc-art-sculptor-h3",
+     "text": "STONE BECOMES LEGEND"
+    },
+    {
+     "id": "sc-art-sculptor-h4",
+     "text": "THE STATUE THAT WILL OUTLIVE US"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-sculptor-c1",
+     "text": "{art}, the legendary {item}, on its plinth while the crowd stares up at it."
+    },
+    {
+     "id": "sc-art-sculptor-c2",
+     "text": "The artifact statue {art}, with stone dust still on its maker's beard."
+    },
+    {
+     "id": "sc-art-sculptor-c3",
+     "text": "{who} beside {art}. The likeness is said to be uncanny."
+    },
+    {
+     "id": "sc-art-sculptor-c4",
+     "text": "Our sketch of {art}. The real one looks back at you."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-sculptor-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-sculptor-l2",
+     "text": "THE PLINTH"
+    },
+    {
+     "id": "sc-art-sculptor-l3",
+     "text": "THE CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-sculptor-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-sculptor-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-sculptor-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-sculptor-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-musician": {
+   "heads": [
+    {
+     "id": "sc-art-musician-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-musician-h2",
+     "text": "{art} PLAYS FOR {fort}"
+    },
+    {
+     "id": "sc-art-musician-h3",
+     "text": "THE INSTRUMENT OF LEGEND"
+    },
+    {
+     "id": "sc-art-musician-h4",
+     "text": "MOOD ENDS IN MUSIC"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-musician-c1",
+     "text": "{art}, the legendary {item}, played for the first time while the crowd dances."
+    },
+    {
+     "id": "sc-art-musician-c2",
+     "text": "The artifact {item} {art}. Its first tune brought the whole hall in."
+    },
+    {
+     "id": "sc-art-musician-c3",
+     "text": "{who} plays {art}. The notes are drawn; the tears are not."
+    },
+    {
+     "id": "sc-art-musician-c4",
+     "text": "Our sketch of {art} in use, the crowd swaying at the edges."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-musician-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-musician-l2",
+     "text": "THE MUSIC"
+    },
+    {
+     "id": "sc-art-musician-l3",
+     "text": "DANCERS"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-musician-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-musician-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-musician-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-musician-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-gemcutter": {
+   "heads": [
+    {
+     "id": "sc-art-gemcutter-h1",
+     "text": "A LEGENDARY GEM: {art}"
+    },
+    {
+     "id": "sc-art-gemcutter-h2",
+     "text": "{art}, THE STONE OF LEGEND"
+    },
+    {
+     "id": "sc-art-gemcutter-h3",
+     "text": "THE GEM THAT LIGHTS THE HALL"
+    },
+    {
+     "id": "sc-art-gemcutter-h4",
+     "text": "MOOD ENDS IN PERFECTION"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-gemcutter-c1",
+     "text": "{art}, the legendary {item}, on the bench while the crowd queues for a look through the lens."
+    },
+    {
+     "id": "sc-art-gemcutter-c2",
+     "text": "The artifact gem {art}. Merchants have already started making offers. All refused."
+    },
+    {
+     "id": "sc-art-gemcutter-c3",
+     "text": "{who} studies {art} one last time before the crowd gets it."
+    },
+    {
+     "id": "sc-art-gemcutter-c4",
+     "text": "Our sketch of {art}, glowing on the bench."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-gemcutter-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-gemcutter-l2",
+     "text": "THE LENS"
+    },
+    {
+     "id": "sc-art-gemcutter-l3",
+     "text": "QUEUE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-gemcutter-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-gemcutter-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-gemcutter-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-gemcutter-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-cook": {
+   "heads": [
+    {
+     "id": "sc-art-cook-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-cook-h2",
+     "text": "{art} SERVED (NOT EATEN)"
+    },
+    {
+     "id": "sc-art-cook-h3",
+     "text": "THE MEAL OF LEGEND"
+    },
+    {
+     "id": "sc-art-cook-h4",
+     "text": "A DISH WITH A NAME"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-cook-c1",
+     "text": "{art}, the legendary {item}, carried out of the kitchen to gasps."
+    },
+    {
+     "id": "sc-art-cook-c2",
+     "text": "The artifact dish {art}. Nobody dares eat it; everybody wants to."
+    },
+    {
+     "id": "sc-art-cook-c3",
+     "text": "{who} presents {art} to a crowd that has forgotten its own dinner."
+    },
+    {
+     "id": "sc-art-cook-c4",
+     "text": "Our sketch of {art}, still steaming."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-cook-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-cook-l2",
+     "text": "STEAM"
+    },
+    {
+     "id": "sc-art-cook-l3",
+     "text": "HUNGRY CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-cook-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-cook-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-cook-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-cook-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-brewer": {
+   "heads": [
+    {
+     "id": "sc-art-brewer-h1",
+     "text": "A LEGENDARY BREW: {art}"
+    },
+    {
+     "id": "sc-art-brewer-h2",
+     "text": "{art} IS BREWED"
+    },
+    {
+     "id": "sc-art-brewer-h3",
+     "text": "THE BARREL OF LEGEND"
+    },
+    {
+     "id": "sc-art-brewer-h4",
+     "text": "MOOD ENDS IN THE TAVERN"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-brewer-c1",
+     "text": "{art}, the legendary brew, in its barrel, with a crowd that has brought its own mugs."
+    },
+    {
+     "id": "sc-art-brewer-c2",
+     "text": "The artifact barrel {art}. It is not to be tapped. Several dwarves are weeping."
+    },
+    {
+     "id": "sc-art-brewer-c3",
+     "text": "{who} beside {art}."
+    },
+    {
+     "id": "sc-art-brewer-c4",
+     "text": "Our sketch of {art} and an extremely interested crowd."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-brewer-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-brewer-l2",
+     "text": "THE BARREL"
+    },
+    {
+     "id": "sc-art-brewer-l3",
+     "text": "MUGS AT READY"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-brewer-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-brewer-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-brewer-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-brewer-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-scribe": {
+   "heads": [
+    {
+     "id": "sc-art-scribe-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-scribe-h2",
+     "text": "{art} IS WRITTEN"
+    },
+    {
+     "id": "sc-art-scribe-h3",
+     "text": "THE BOOK OF LEGEND"
+    },
+    {
+     "id": "sc-art-scribe-h4",
+     "text": "MOOD ENDS IN A MASTERPIECE OF WORDS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-scribe-c1",
+     "text": "{art}, the legendary {item}, held aloft while the crowd tries to read it from below."
+    },
+    {
+     "id": "sc-art-scribe-c2",
+     "text": "The artifact book {art}. The library has cleared a whole shelf."
+    },
+    {
+     "id": "sc-art-scribe-c3",
+     "text": "{who} with {art}. Every page is said to be perfect."
+    },
+    {
+     "id": "sc-art-scribe-c4",
+     "text": "Our sketch of {art}. Reading it is by appointment only."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-scribe-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-scribe-l2",
+     "text": "THE DESK"
+    },
+    {
+     "id": "sc-art-scribe-l3",
+     "text": "READERS"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-scribe-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-scribe-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-scribe-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-scribe-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-mechanic": {
+   "heads": [
+    {
+     "id": "sc-art-mechanic-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-mechanic-h2",
+     "text": "{art} TURNS AND CLICKS"
+    },
+    {
+     "id": "sc-art-mechanic-h3",
+     "text": "THE MACHINE OF LEGEND"
+    },
+    {
+     "id": "sc-art-mechanic-h4",
+     "text": "MOOD ENDS IN A MARVEL"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-mechanic-c1",
+     "text": "{art}, the legendary {item}, ticking quietly while the crowd watches it work."
+    },
+    {
+     "id": "sc-art-mechanic-c2",
+     "text": "The artifact {item} {art}. The engineers want to take it apart; they may not."
+    },
+    {
+     "id": "sc-art-mechanic-c3",
+     "text": "{who} beside {art}."
+    },
+    {
+     "id": "sc-art-mechanic-c4",
+     "text": "Our sketch of {art}. The gears move in real life; please imagine it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-mechanic-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-mechanic-l2",
+     "text": "GEARS"
+    },
+    {
+     "id": "sc-art-mechanic-l3",
+     "text": "THE CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-mechanic-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-mechanic-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-mechanic-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-mechanic-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-fletcher": {
+   "heads": [
+    {
+     "id": "sc-art-fletcher-h1",
+     "text": "LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-fletcher-h2",
+     "text": "{art}: AMMUNITION OF LEGEND"
+    },
+    {
+     "id": "sc-art-fletcher-h3",
+     "text": "THE TARGET NEVER RECOVERED"
+    },
+    {
+     "id": "sc-art-fletcher-h4",
+     "text": "MOOD ENDS IN A PERFECT VOLLEY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-fletcher-c1",
+     "text": "{art}, the legendary {item}, beside the target it ruined."
+    },
+    {
+     "id": "sc-art-fletcher-c2",
+     "text": "The artifact {item} {art}, with a crowd of marksdwarves taking notes."
+    },
+    {
+     "id": "sc-art-fletcher-c3",
+     "text": "Our sketch of {art}. Do not stand downrange."
+    },
+    {
+     "id": "sc-art-fletcher-c4",
+     "text": "The bundle and the bullseye, with the name on a plaque."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-fletcher-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-fletcher-l2",
+     "text": "THE TARGET"
+    },
+    {
+     "id": "sc-art-fletcher-l3",
+     "text": "MARKSDWARVES"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-fletcher-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-fletcher-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-fletcher-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-fletcher-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-engraver": {
+   "heads": [
+    {
+     "id": "sc-art-engraver-h1",
+     "text": "A LEGENDARY ENGRAVING"
+    },
+    {
+     "id": "sc-art-engraver-h2",
+     "text": "THE WALL OF LEGEND"
+    },
+    {
+     "id": "sc-art-engraver-h3",
+     "text": "MOOD ENDS ON THE WALL"
+    },
+    {
+     "id": "sc-art-engraver-h4",
+     "text": "ART SET IN STONE FOREVER"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-engraver-c1",
+     "text": "The legendary engraving, with its maker and a crowd reading the wall."
+    },
+    {
+     "id": "sc-art-engraver-c2",
+     "text": "Our sketch of the artifact engraving. The original cannot be moved, which is a comfort."
+    },
+    {
+     "id": "sc-art-engraver-c3",
+     "text": "{who} stands back from the finished wall while the crowd looks on."
+    },
+    {
+     "id": "sc-art-engraver-c4",
+     "text": "The wall that became a legend, with the name on a plaque beneath."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-engraver-l1",
+     "text": "THE WALL"
+    },
+    {
+     "id": "sc-art-engraver-l2",
+     "text": "THE CROWD"
+    },
+    {
+     "id": "sc-art-engraver-l3",
+     "text": "THE PICTURE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-engraver-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-engraver-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-engraver-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-engraver-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-tanner": {
+   "heads": [
+    {
+     "id": "sc-art-tanner-h1",
+     "text": "A LEGENDARY {item}: {art}"
+    },
+    {
+     "id": "sc-art-tanner-h2",
+     "text": "{art}, THE HIDE OF LEGEND"
+    },
+    {
+     "id": "sc-art-tanner-h3",
+     "text": "MOOD ENDS AT THE TANNERY"
+    },
+    {
+     "id": "sc-art-tanner-h4",
+     "text": "LEATHER BECOMES LEGEND"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-tanner-c1",
+     "text": "{art}, the legendary {item}, stretched on its frame while the crowd holds its nose and its breath."
+    },
+    {
+     "id": "sc-art-tanner-c2",
+     "text": "The artifact hide {art}."
+    },
+    {
+     "id": "sc-art-tanner-c3",
+     "text": "{who} with {art}."
+    },
+    {
+     "id": "sc-art-tanner-c4",
+     "text": "Our sketch of {art}. The smell is not included."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-tanner-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-tanner-l2",
+     "text": "THE FRAME"
+    },
+    {
+     "id": "sc-art-tanner-l3",
+     "text": "THE CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-tanner-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-tanner-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-tanner-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-tanner-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-smelter": {
+   "heads": [
+    {
+     "id": "sc-art-smelter-h1",
+     "text": "LEGENDARY METAL: {art}"
+    },
+    {
+     "id": "sc-art-smelter-h2",
+     "text": "{art} POURED"
+    },
+    {
+     "id": "sc-art-smelter-h3",
+     "text": "THE FURNACE'S LEGEND"
+    },
+    {
+     "id": "sc-art-smelter-h4",
+     "text": "MOOD ENDS IN METAL"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-smelter-c1",
+     "text": "{art}, the legendary {item}, beside the furnace while the crowd keeps back from the heat."
+    },
+    {
+     "id": "sc-art-smelter-c2",
+     "text": "The artifact metal {art}."
+    },
+    {
+     "id": "sc-art-smelter-c3",
+     "text": "{who} with {art}."
+    },
+    {
+     "id": "sc-art-smelter-c4",
+     "text": "Our sketch of {art}, still warm."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-smelter-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-smelter-l2",
+     "text": "THE FURNACE"
+    },
+    {
+     "id": "sc-art-smelter-l3",
+     "text": "THE CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-smelter-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-smelter-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-smelter-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-smelter-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "art-unveiling": {
+   "heads": [
+    {
+     "id": "sc-art-unveiling-h1",
+     "text": "A LEGEND IS BORN: {art}"
+    },
+    {
+     "id": "sc-art-unveiling-h2",
+     "text": "{art}: THE {item} OF LEGEND"
+    },
+    {
+     "id": "sc-art-unveiling-h3",
+     "text": "THE MOOD IS OVER; THE LEGEND BEGINS"
+    },
+    {
+     "id": "sc-art-unveiling-h4",
+     "text": "{fort} HAS AN ARTIFACT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-art-unveiling-c1",
+     "text": "{art}, still under its sheet, with a crowd that has been waiting all day for the reveal."
+    },
+    {
+     "id": "sc-art-unveiling-c2",
+     "text": "The artifact {art} before its unveiling. Its maker would not let our artist peek."
+    },
+    {
+     "id": "sc-art-unveiling-c3",
+     "text": "{who} beside {art}. The crowd is on tiptoe."
+    },
+    {
+     "id": "sc-art-unveiling-c4",
+     "text": "Our sketch of {art}, under wraps. The plaque is already engraved."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-art-unveiling-l1",
+     "text": "{art}"
+    },
+    {
+     "id": "sc-art-unveiling-l2",
+     "text": "UNDER WRAPS"
+    },
+    {
+     "id": "sc-art-unveiling-l3",
+     "text": "THE CROWD"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-art-unveiling-s1",
+     "text": "Behold!"
+    },
+    {
+     "id": "sc-art-unveiling-s2",
+     "text": "It has a name now!"
+    },
+    {
+     "id": "sc-art-unveiling-s3",
+     "text": "Make way!"
+    },
+    {
+     "id": "sc-art-unveiling-s4",
+     "text": "Look what {first} made!"
+    }
+   ]
+  },
+  "mood-fey": {
+   "heads": [
+    {
+     "id": "sc-mood-fey-h1",
+     "text": "{first} TAKEN BY A FEY MOOD"
+    },
+    {
+     "id": "sc-mood-fey-h2",
+     "text": "FEY DWARF SEIZES A WORKSHOP"
+    },
+    {
+     "id": "sc-mood-fey-h3",
+     "text": "INSPIRATION STRIKES {fort}"
+    },
+    {
+     "id": "sc-mood-fey-h4",
+     "text": "A FEY LOOK AND A CLAIMED WORKSHOP"
+    },
+    {
+     "id": "sc-mood-fey-h5",
+     "text": "THE MUSE HAS COME FOR {first}"
+    },
+    {
+     "id": "sc-mood-fey-h6",
+     "text": "{prof} STRUCK BY A STRANGE INSPIRATION"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-mood-fey-c1",
+     "text": "{who}, taken by a fey mood, points at the workshop as if it were the only one in the world."
+    },
+    {
+     "id": "sc-mood-fey-c2",
+     "text": "A fey dwarf and the workshop they have chosen. The sparkles are around {first}'s eyes; the artist saw them."
+    },
+    {
+     "id": "sc-mood-fey-c3",
+     "text": "The fey look, as sketched from a safe distance. The workshop was claimed within the hour."
+    },
+    {
+     "id": "sc-mood-fey-c4",
+     "text": "Our artist's study of a fey mood: arms up, eyes wide, mind elsewhere."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-mood-fey-l1",
+     "text": "THE WORKSHOP"
+    },
+    {
+     "id": "sc-mood-fey-l2",
+     "text": "FEY LOOK"
+    },
+    {
+     "id": "sc-mood-fey-l3",
+     "text": "MINE NOW"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-mood-fey-s1",
+     "text": "I know exactly what to make!"
+    },
+    {
+     "id": "sc-mood-fey-s2",
+     "text": "Bring me materials!"
+    },
+    {
+     "id": "sc-mood-fey-s3",
+     "text": "It's all so clear!"
+    },
+    {
+     "id": "sc-mood-fey-s4",
+     "text": "Nobody touch my workshop!"
+    }
+   ]
+  },
+  "mood-secretive": {
+   "heads": [
+    {
+     "id": "sc-mood-secretive-h1",
+     "text": "{first} WITHDRAWS FROM SOCIETY"
+    },
+    {
+     "id": "sc-mood-secretive-h2",
+     "text": "SECRETIVE MOOD: DWARF DRAWS PICTURES"
+    },
+    {
+     "id": "sc-mood-secretive-h3",
+     "text": "WHAT IS {first} SKETCHING?"
+    },
+    {
+     "id": "sc-mood-secretive-h4",
+     "text": "A MOOD DRAWN ON THE WALL"
+    },
+    {
+     "id": "sc-mood-secretive-h5",
+     "text": "{prof} VANISHES INTO A SECRET PROJECT"
+    },
+    {
+     "id": "sc-mood-secretive-h6",
+     "text": "SKETCHES ON THE WALL, NOBODY KNOWS WHY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-mood-secretive-c1",
+     "text": "{who}, withdrawn and secretive, has drawn what they need on the wall instead of saying it. Our artist copied the copies."
+    },
+    {
+     "id": "sc-mood-secretive-c2",
+     "text": "The wall of sketches: a bone, a skull, a gem and a question mark. Haulers are trying to work it out."
+    },
+    {
+     "id": "sc-mood-secretive-c3",
+     "text": "A secretive mood, explained through pictures. The pictures are not very helpful."
+    },
+    {
+     "id": "sc-mood-secretive-c4",
+     "text": "{first} at the wall, adding another sketch. The bookkeeper is taking notes."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-mood-secretive-l1",
+     "text": "THE SKETCHES"
+    },
+    {
+     "id": "sc-mood-secretive-l2",
+     "text": "?"
+    },
+    {
+     "id": "sc-mood-secretive-l3",
+     "text": "A HINT, MAYBE"
+    }
+   ]
+  },
+  "mood-possessed": {
+   "heads": [
+    {
+     "id": "sc-mood-possessed-h1",
+     "text": "{first} POSSESSED!"
+    },
+    {
+     "id": "sc-mood-possessed-h2",
+     "text": "UNKNOWN FORCES SEIZE A DWARF"
+    },
+    {
+     "id": "sc-mood-possessed-h3",
+     "text": "POSSESSION IN {fort}: KEEP CALM"
+    },
+    {
+     "id": "sc-mood-possessed-h4",
+     "text": "{prof} TAKEN BY SOMETHING ELSE"
+    },
+    {
+     "id": "sc-mood-possessed-h5",
+     "text": "A STRANGE VOICE IN THE HALLS"
+    },
+    {
+     "id": "sc-mood-possessed-h6",
+     "text": "THE SPIRIT MOVES {first}"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-mood-possessed-c1",
+     "text": "{who}, possessed, hovering just above the floor. The artist swears it was real; the artist was also sober."
+    },
+    {
+     "id": "sc-mood-possessed-c2",
+     "text": "A swirl of unknown forces over a possessed dwarf. The workshop in the corner is next."
+    },
+    {
+     "id": "sc-mood-possessed-c3",
+     "text": "Our artist's impression of possession: arms up, feet barely touching, eyes elsewhere."
+    },
+    {
+     "id": "sc-mood-possessed-c4",
+     "text": "{first}, possessed, drifting towards a workshop. Everyone else drifted the other way."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-mood-possessed-l1",
+     "text": "UNKNOWN FORCES"
+    },
+    {
+     "id": "sc-mood-possessed-l2",
+     "text": "FEET (BARELY TOUCHING)"
+    },
+    {
+     "id": "sc-mood-possessed-l3",
+     "text": "THE WORKSHOP"
+    }
+   ]
+  },
+  "mood-macabre": {
+   "heads": [
+    {
+     "id": "sc-mood-macabre-h1",
+     "text": "{first} BEGINS TO STALK AND BROOD"
+    },
+    {
+     "id": "sc-mood-macabre-h2",
+     "text": "MACABRE MOOD GRIPS {fort}"
+    },
+    {
+     "id": "sc-mood-macabre-h3",
+     "text": "A BROODING DWARF AND A PILE OF BONES"
+    },
+    {
+     "id": "sc-mood-macabre-h4",
+     "text": "{prof} SEEKS DARK MATERIALS"
+    },
+    {
+     "id": "sc-mood-macabre-h5",
+     "text": "BONES WANTED. NO QUESTIONS."
+    },
+    {
+     "id": "sc-mood-macabre-h6",
+     "text": "A DARK INSPIRATION"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-mood-macabre-c1",
+     "text": "{who}, brooding among bones and a skull. Nobody has asked what for, and nobody will."
+    },
+    {
+     "id": "sc-mood-macabre-c2",
+     "text": "The macabre mood, drawn gently. The bones are animal bones, we are told, and we are choosing to believe it."
+    },
+    {
+     "id": "sc-mood-macabre-c3",
+     "text": "A brooding dwarf, a dark sky and the materials of a very particular project."
+    },
+    {
+     "id": "sc-mood-macabre-c4",
+     "text": "Our artist kept the drawing small and left early."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-mood-macabre-l1",
+     "text": "MATERIALS"
+    },
+    {
+     "id": "sc-mood-macabre-l2",
+     "text": "THE SKULL"
+    },
+    {
+     "id": "sc-mood-macabre-l3",
+     "text": "BROODING"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-mood-macabre-s1",
+     "text": "Bring me bones."
+    },
+    {
+     "id": "sc-mood-macabre-s2",
+     "text": "It must be... darker."
+    },
+    {
+     "id": "sc-mood-macabre-s3",
+     "text": "Leave me."
+    },
+    {
+     "id": "sc-mood-macabre-s4",
+     "text": "Not those bones. Better bones."
+    }
+   ]
+  },
+  "mood-fell": {
+   "heads": [
+    {
+     "id": "sc-mood-fell-h1",
+     "text": "{first} LOOSES A FELL AND TERRIBLE LAUGH"
+    },
+    {
+     "id": "sc-mood-fell-h2",
+     "text": "FELL MOOD! LOCK YOUR DOORS"
+    },
+    {
+     "id": "sc-mood-fell-h3",
+     "text": "A TERRIBLE LAUGHTER IN THE HALLS"
+    },
+    {
+     "id": "sc-mood-fell-h4",
+     "text": "{prof} IN THE GRIP OF A FELL MOOD"
+    },
+    {
+     "id": "sc-mood-fell-h5",
+     "text": "THUNDER, LAUGHTER, TROUBLE"
+    },
+    {
+     "id": "sc-mood-fell-h6",
+     "text": "THE FORT HOLDS ITS BREATH"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-mood-fell-c1",
+     "text": "{who}, laughing a fell and terrible laugh while lightning does something it should not do underground."
+    },
+    {
+     "id": "sc-mood-fell-c2",
+     "text": "A fell mood, sketched from behind a door. The artist recommends everyone else stay behind one too."
+    },
+    {
+     "id": "sc-mood-fell-c3",
+     "text": "The laughter echoed through the halls; our artist wrote it down as HA, which does not do it justice."
+    },
+    {
+     "id": "sc-mood-fell-c4",
+     "text": "A dwarf in a fell mood. The fort is advised to keep its distance and its wits."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-mood-fell-l1",
+     "text": "FELL MOOD"
+    },
+    {
+     "id": "sc-mood-fell-l2",
+     "text": "HA"
+    },
+    {
+     "id": "sc-mood-fell-l3",
+     "text": "THE DOOR (SHUT)"
+    }
+   ]
+  },
+  "mood-claim": {
+   "heads": [
+    {
+     "id": "sc-mood-claim-h1",
+     "text": "WORKSHOP CLAIMED BY A MOODY DWARF"
+    },
+    {
+     "id": "sc-mood-claim-h2",
+     "text": "{first} CLAIMS A WORKSHOP"
+    },
+    {
+     "id": "sc-mood-claim-h3",
+     "text": "KEEP OUT, SAYS THE NEW SIGN"
+    },
+    {
+     "id": "sc-mood-claim-h4",
+     "text": "A MOOD MOVES INTO THE {shop}"
+    },
+    {
+     "id": "sc-mood-claim-h5",
+     "text": "THE {shop} IS SPOKEN FOR"
+    },
+    {
+     "id": "sc-mood-claim-h6",
+     "text": "SOMETHING IS BEING MADE IN THERE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-mood-claim-c1",
+     "text": "{who} outside the claimed workshop. The sign went up first; the explanation never did."
+    },
+    {
+     "id": "sc-mood-claim-c2",
+     "text": "The {shop}, claimed for a strange mood. Its regular workers are drinking elsewhere, looking wistful."
+    },
+    {
+     "id": "sc-mood-claim-c3",
+     "text": "A moody dwarf and a workshop with a KEEP OUT sign. The artist kept out."
+    },
+    {
+     "id": "sc-mood-claim-c4",
+     "text": "The claimed workshop. Haulers are told to leave materials at the door and walk away quickly."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-mood-claim-l1",
+     "text": "THE WORKSHOP"
+    },
+    {
+     "id": "sc-mood-claim-l2",
+     "text": "KEEP OUT"
+    },
+    {
+     "id": "sc-mood-claim-l3",
+     "text": "THE {shop}"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-mood-claim-s1",
+     "text": "Mine. All mine."
+    },
+    {
+     "id": "sc-mood-claim-s2",
+     "text": "Nobody comes in."
+    },
+    {
+     "id": "sc-mood-claim-s3",
+     "text": "Bring what I ask for!"
+    },
+    {
+     "id": "sc-mood-claim-s4",
+     "text": "I'll know it when I see it."
+    }
+   ]
+  },
+  "death-funeral": {
+   "heads": [
+    {
+     "id": "sc-death-funeral-h1",
+     "text": "{fort} MOURNS {first}"
+    },
+    {
+     "id": "sc-death-funeral-h2",
+     "text": "FAREWELL TO A {prof}"
+    },
+    {
+     "id": "sc-death-funeral-h3",
+     "text": "THE HALLS FALL QUIET"
+    },
+    {
+     "id": "sc-death-funeral-h4",
+     "text": "A COFFIN FOR {first}"
+    },
+    {
+     "id": "sc-death-funeral-h5",
+     "text": "REST WELL, {first}"
+    },
+    {
+     "id": "sc-death-funeral-h6",
+     "text": "ONE FEWER AT THE TABLE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-funeral-c1",
+     "text": "Mourners at the coffin of {who}. The artist drew the tears as lines; there were more of them."
+    },
+    {
+     "id": "sc-death-funeral-c2",
+     "text": "A coffin and two friends. Our artist kept this one simple, out of respect."
+    },
+    {
+     "id": "sc-death-funeral-c3",
+     "text": "The fort says goodbye to {first}. A slab will follow."
+    },
+    {
+     "id": "sc-death-funeral-c4",
+     "text": "Friends of the late {prof} gather. The tavern will be quiet tonight."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-funeral-l1",
+     "text": "R.I.P."
+    },
+    {
+     "id": "sc-death-funeral-l2",
+     "text": "MOURNER"
+    },
+    {
+     "id": "sc-death-funeral-l3",
+     "text": "THE COFFIN"
+    }
+   ]
+  },
+  "death-thirst": {
+   "heads": [
+    {
+     "id": "sc-death-thirst-h1",
+     "text": "{first} DIES OF THIRST"
+    },
+    {
+     "id": "sc-death-thirst-h2",
+     "text": "A DRY DEATH IN {fort}"
+    },
+    {
+     "id": "sc-death-thirst-h3",
+     "text": "THIRST CLAIMS A {prof}"
+    },
+    {
+     "id": "sc-death-thirst-h4",
+     "text": "TOO FAR FROM THE DRINK"
+    },
+    {
+     "id": "sc-death-thirst-h5",
+     "text": "THE BARRELS WERE RIGHT THERE"
+    },
+    {
+     "id": "sc-death-thirst-h6",
+     "text": "DEHYDRATED, AND MISSED"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-thirst-c1",
+     "text": "Barrels, a well and a slab. The artist leaves readers to draw the sad conclusion."
+    },
+    {
+     "id": "sc-death-thirst-c2",
+     "text": "The drinks and the well, a short walk from where {first} was found. Please drink something today."
+    },
+    {
+     "id": "sc-death-thirst-c3",
+     "text": "A memorial beside the barrels. Nobody in {fort} should die thirsty."
+    },
+    {
+     "id": "sc-death-thirst-c4",
+     "text": "Our sketch of what was close by. It was never far enough to excuse."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-thirst-l1",
+     "text": "DRINKS (UNDRUNK)"
+    },
+    {
+     "id": "sc-death-thirst-l2",
+     "text": "THE WELL"
+    },
+    {
+     "id": "sc-death-thirst-l3",
+     "text": "SO CLOSE"
+    }
+   ]
+  },
+  "death-hunger": {
+   "heads": [
+    {
+     "id": "sc-death-hunger-h1",
+     "text": "{first} STARVES"
+    },
+    {
+     "id": "sc-death-hunger-h2",
+     "text": "HUNGER CLAIMS A {prof}"
+    },
+    {
+     "id": "sc-death-hunger-h3",
+     "text": "AN EMPTY PLATE AND A SLAB"
+    },
+    {
+     "id": "sc-death-hunger-h4",
+     "text": "{fort} LOSES ONE TO HUNGER"
+    },
+    {
+     "id": "sc-death-hunger-h5",
+     "text": "NOBODY SHOULD STARVE BELOW THE MOUNTAIN"
+    },
+    {
+     "id": "sc-death-hunger-h6",
+     "text": "THE KITCHEN GOES QUIET"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-hunger-c1",
+     "text": "An empty plate on the table and a slab beside it. The artist drew it plainly."
+    },
+    {
+     "id": "sc-death-hunger-c2",
+     "text": "The dining table where {first} should have eaten. The kitchen has been asked to cook more."
+    },
+    {
+     "id": "sc-death-hunger-c3",
+     "text": "A memorial for a hungry dwarf. Every stockpile in {fort} has been checked twice since."
+    },
+    {
+     "id": "sc-death-hunger-c4",
+     "text": "An empty plate. That is the whole drawing, and it is enough."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-hunger-l1",
+     "text": "EMPTY PLATE"
+    },
+    {
+     "id": "sc-death-hunger-l2",
+     "text": "THE TABLE"
+    },
+    {
+     "id": "sc-death-hunger-l3",
+     "text": "MEMORIAL"
+    }
+   ]
+  },
+  "death-battle": {
+   "heads": [
+    {
+     "id": "sc-death-battle-h1",
+     "text": "{first} STRUCK DOWN"
+    },
+    {
+     "id": "sc-death-battle-h2",
+     "text": "A {prof} FALLS IN BATTLE"
+    },
+    {
+     "id": "sc-death-battle-h3",
+     "text": "{fort} LOSES A FIGHTER"
+    },
+    {
+     "id": "sc-death-battle-h4",
+     "text": "HONOUR TO THE FALLEN"
+    },
+    {
+     "id": "sc-death-battle-h5",
+     "text": "THE SHIELD LIES STILL"
+    },
+    {
+     "id": "sc-death-battle-h6",
+     "text": "FELL WITH THEIR BOOTS ON"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-battle-c1",
+     "text": "A slab, a shield and an axe. {first} went down fighting, and the fort will remember it."
+    },
+    {
+     "id": "sc-death-battle-c2",
+     "text": "The fallen dwarf's gear, laid by the memorial. A friend stands watch."
+    },
+    {
+     "id": "sc-death-battle-c3",
+     "text": "Our artist's tribute to {who}, struck down. The axe was theirs."
+    },
+    {
+     "id": "sc-death-battle-c4",
+     "text": "Shield, axe and slab. The militia saluted as they passed."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-battle-l1",
+     "text": "FELL WITH HONOUR"
+    },
+    {
+     "id": "sc-death-battle-l2",
+     "text": "THE SHIELD"
+    },
+    {
+     "id": "sc-death-battle-l3",
+     "text": "THE AXE"
+    }
+   ]
+  },
+  "death-drowning": {
+   "heads": [
+    {
+     "id": "sc-death-drowning-h1",
+     "text": "{first} DROWNS"
+    },
+    {
+     "id": "sc-death-drowning-h2",
+     "text": "THE WATER TAKES A {prof}"
+    },
+    {
+     "id": "sc-death-drowning-h3",
+     "text": "A DROWNING IN {fort}"
+    },
+    {
+     "id": "sc-death-drowning-h4",
+     "text": "DEEP WATER, SAD DAY"
+    },
+    {
+     "id": "sc-death-drowning-h5",
+     "text": "{fort} MOURNS A DROWNED DWARF"
+    },
+    {
+     "id": "sc-death-drowning-h6",
+     "text": "WATER, WATER, NOWHERE SAFE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-drowning-c1",
+     "text": "The water where {first} went under. A few bubbles, then nothing. The slab stands on dry ground."
+    },
+    {
+     "id": "sc-death-drowning-c2",
+     "text": "Our sketch of the water. Dwarves are not swimmers, and this one was no exception."
+    },
+    {
+     "id": "sc-death-drowning-c3",
+     "text": "The waves, drawn as the artist remembers them, and a slab on the bank."
+    },
+    {
+     "id": "sc-death-drowning-c4",
+     "text": "Where the water took {who}. Engineers have been asked to look at the channel."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-drowning-l1",
+     "text": "THE WATER"
+    },
+    {
+     "id": "sc-death-drowning-l2",
+     "text": "BUBBLES"
+    },
+    {
+     "id": "sc-death-drowning-l3",
+     "text": "THE BANK"
+    }
+   ]
+  },
+  "death-vampire": {
+   "heads": [
+    {
+     "id": "sc-death-vampire-h1",
+     "text": "{first} FOUND DRAINED OF BLOOD"
+    },
+    {
+     "id": "sc-death-vampire-h2",
+     "text": "VAMPIRE IN {fort}?"
+    },
+    {
+     "id": "sc-death-vampire-h3",
+     "text": "A BLOODLESS DEATH, A WORRIED FORT"
+    },
+    {
+     "id": "sc-death-vampire-h4",
+     "text": "SOMETHING BITES IN THE NIGHT"
+    },
+    {
+     "id": "sc-death-vampire-h5",
+     "text": "WHO DRAINED {first}?"
+    },
+    {
+     "id": "sc-death-vampire-h6",
+     "text": "LOCK YOUR DOORS AT NIGHT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-vampire-c1",
+     "text": "A coffin, a moon and bats. Our artist got carried away, but the sheriff is not laughing."
+    },
+    {
+     "id": "sc-death-vampire-c2",
+     "text": "{who} was found drained of blood. Somebody in {fort} does not sleep at night."
+    },
+    {
+     "id": "sc-death-vampire-c3",
+     "text": "The coffin of {first}. The question of who is still open."
+    },
+    {
+     "id": "sc-death-vampire-c4",
+     "text": "Our artist's impression of the culprit. The artist has started sleeping with a candle lit."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-vampire-l1",
+     "text": "NOT GARLIC"
+    },
+    {
+     "id": "sc-death-vampire-l2",
+     "text": "THE COFFIN"
+    },
+    {
+     "id": "sc-death-vampire-l3",
+     "text": "BATS"
+    }
+   ]
+  },
+  "death-collapse": {
+   "heads": [
+    {
+     "id": "sc-death-collapse-h1",
+     "text": "{first} CRUSHED"
+    },
+    {
+     "id": "sc-death-collapse-h2",
+     "text": "THE CEILING COMES DOWN"
+    },
+    {
+     "id": "sc-death-collapse-h3",
+     "text": "A {prof} BURIED BY STONE"
+    },
+    {
+     "id": "sc-death-collapse-h4",
+     "text": "ROCKFALL CLAIMS A LIFE"
+    },
+    {
+     "id": "sc-death-collapse-h5",
+     "text": "MIND THE CEILING"
+    },
+    {
+     "id": "sc-death-collapse-h6",
+     "text": "{fort} COUNTS THE COST OF A CAVE-IN"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-collapse-c1",
+     "text": "Falling rock and a slab. Our artist drew the rocks loosely, out of respect for the engineers."
+    },
+    {
+     "id": "sc-death-collapse-c2",
+     "text": "Where the ceiling came down on {who}. The miners have been asked to check their supports."
+    },
+    {
+     "id": "sc-death-collapse-c3",
+     "text": "A rockfall, drawn from memory, and a memorial beside it."
+    },
+    {
+     "id": "sc-death-collapse-c4",
+     "text": "The stones that fell. The fort mourns, and looks up nervously."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-collapse-l1",
+     "text": "THE CEILING"
+    },
+    {
+     "id": "sc-death-collapse-l2",
+     "text": "ROCKS"
+    },
+    {
+     "id": "sc-death-collapse-l3",
+     "text": "THE SLAB"
+    }
+   ]
+  },
+  "death-fire": {
+   "heads": [
+    {
+     "id": "sc-death-fire-h1",
+     "text": "{first} LOST TO THE FLAMES"
+    },
+    {
+     "id": "sc-death-fire-h2",
+     "text": "FIRE CLAIMS A {prof}"
+    },
+    {
+     "id": "sc-death-fire-h3",
+     "text": "A BURNING DAY IN {fort}"
+    },
+    {
+     "id": "sc-death-fire-h4",
+     "text": "TOO CLOSE TO THE HEAT"
+    },
+    {
+     "id": "sc-death-fire-h5",
+     "text": "SMOKE AND SORROW"
+    },
+    {
+     "id": "sc-death-fire-h6",
+     "text": "THE FIRE TAKES ONE OF US"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-fire-c1",
+     "text": "Flames, a slab and a mourner. Our artist used orange sparingly."
+    },
+    {
+     "id": "sc-death-fire-c2",
+     "text": "Where the fire took {who}. The fort has been reminded where the water is kept."
+    },
+    {
+     "id": "sc-death-fire-c3",
+     "text": "A fire, drawn small, and a memorial drawn large."
+    },
+    {
+     "id": "sc-death-fire-c4",
+     "text": "The flames that took {first}, and the friend who saw it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-fire-l1",
+     "text": "TOO HOT"
+    },
+    {
+     "id": "sc-death-fire-l2",
+     "text": "THE FLAMES"
+    },
+    {
+     "id": "sc-death-fire-l3",
+     "text": "MOURNER"
+    }
+   ]
+  },
+  "death-fall": {
+   "heads": [
+    {
+     "id": "sc-death-fall-h1",
+     "text": "{first} FALLS"
+    },
+    {
+     "id": "sc-death-fall-h2",
+     "text": "A LONG DROP CLAIMS A {prof}"
+    },
+    {
+     "id": "sc-death-fall-h3",
+     "text": "DEATH BY HEIGHT"
+    },
+    {
+     "id": "sc-death-fall-h4",
+     "text": "MIND THE EDGE"
+    },
+    {
+     "id": "sc-death-fall-h5",
+     "text": "{fort} MOURNS A FALL"
+    },
+    {
+     "id": "sc-death-fall-h6",
+     "text": "THE GROUND CAME UP TOO FAST"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-fall-c1",
+     "text": "A long way down, and a slab at the bottom. Our artist drew the drop with three quick lines."
+    },
+    {
+     "id": "sc-death-fall-c2",
+     "text": "Where {who} fell. Railings have been requested."
+    },
+    {
+     "id": "sc-death-fall-c3",
+     "text": "The height, the fall and the memorial, from top to bottom."
+    },
+    {
+     "id": "sc-death-fall-c4",
+     "text": "A sad sketch of a short trip. Watch your step, {fort}."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-fall-l1",
+     "text": "A LONG WAY DOWN"
+    },
+    {
+     "id": "sc-death-fall-l2",
+     "text": "THE EDGE"
+    },
+    {
+     "id": "sc-death-fall-l3",
+     "text": "THE SLAB"
+    }
+   ]
+  },
+  "death-age": {
+   "heads": [
+    {
+     "id": "sc-death-age-h1",
+     "text": "{first} DIES OF OLD AGE"
+    },
+    {
+     "id": "sc-death-age-h2",
+     "text": "A LONG LIFE ENDS"
+    },
+    {
+     "id": "sc-death-age-h3",
+     "text": "THE OLDEST BEARD RESTS"
+    },
+    {
+     "id": "sc-death-age-h4",
+     "text": "{fort} SAYS GOODBYE TO AN ELDER"
+    },
+    {
+     "id": "sc-death-age-h5",
+     "text": "A GOOD LONG RUN"
+    },
+    {
+     "id": "sc-death-age-h6",
+     "text": "AN EMPTY CHAIR BY THE FIRE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-age-c1",
+     "text": "The old chair, empty now, and a slab with a star. {first} had a long life, and earned every year of it."
+    },
+    {
+     "id": "sc-death-age-c2",
+     "text": "The elder's favourite seat. Nobody will sit in it for a while."
+    },
+    {
+     "id": "sc-death-age-c3",
+     "text": "A long life, a quiet end, and a fort that remembers."
+    },
+    {
+     "id": "sc-death-age-c4",
+     "text": "Our artist's tribute to {who}: a chair, a star and a stone."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-age-l1",
+     "text": "THE OLD CHAIR"
+    },
+    {
+     "id": "sc-death-age-l2",
+     "text": "A STAR"
+    },
+    {
+     "id": "sc-death-age-l3",
+     "text": "THE SLAB"
+    }
+   ]
+  },
+  "death-sick": {
+   "heads": [
+    {
+     "id": "sc-death-sick-h1",
+     "text": "{first} SUCCUMBS"
+    },
+    {
+     "id": "sc-death-sick-h2",
+     "text": "SICKNESS CLAIMS A {prof}"
+    },
+    {
+     "id": "sc-death-sick-h3",
+     "text": "A HARD DEATH IN THE HOSPITAL"
+    },
+    {
+     "id": "sc-death-sick-h4",
+     "text": "THE SICKBED STANDS EMPTY"
+    },
+    {
+     "id": "sc-death-sick-h5",
+     "text": "{fort} LOSES A PATIENT"
+    },
+    {
+     "id": "sc-death-sick-h6",
+     "text": "THE DOCTORS COULD NOT SAVE {first}"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-death-sick-c1",
+     "text": "The sickbed, a crutch and a slab. The doctors tried."
+    },
+    {
+     "id": "sc-death-sick-c2",
+     "text": "Where {who} spent their last days. The hospital has gone quiet."
+    },
+    {
+     "id": "sc-death-sick-c3",
+     "text": "An empty bed and a memorial. Our artist drew it gently."
+    },
+    {
+     "id": "sc-death-sick-c4",
+     "text": "The sickbed of {first}. Wash your hands, {fort}."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-death-sick-l1",
+     "text": "THE SICKBED"
+    },
+    {
+     "id": "sc-death-sick-l2",
+     "text": "THE CRUTCH"
+    },
+    {
+     "id": "sc-death-sick-l3",
+     "text": "THE SLAB"
+    }
+   ]
+  },
+  "pet-grave": {
+   "heads": [
+    {
+     "id": "sc-pet-grave-h1",
+     "text": "A BELOVED ANIMAL IS GONE"
+    },
+    {
+     "id": "sc-pet-grave-h2",
+     "text": "{fort} MOURNS A PET"
+    },
+    {
+     "id": "sc-pet-grave-h3",
+     "text": "A SMALL GRAVE IN THE HALLS"
+    },
+    {
+     "id": "sc-pet-grave-h4",
+     "text": "GOODBYE, OLD FRIEND"
+    },
+    {
+     "id": "sc-pet-grave-h5",
+     "text": "THE BOWL SITS EMPTY"
+    },
+    {
+     "id": "sc-pet-grave-h6",
+     "text": "ONE FEWER PAW IN THE FORT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-pet-grave-c1",
+     "text": "A small grave, an empty bowl and a sad owner. Our artist drew the animal as it was: happy."
+    },
+    {
+     "id": "sc-pet-grave-c2",
+     "text": "The animal, as remembered, beside its little memorial."
+    },
+    {
+     "id": "sc-pet-grave-c3",
+     "text": "An empty bowl. The owner keeps filling it anyway."
+    },
+    {
+     "id": "sc-pet-grave-c4",
+     "text": "Our sketch of a good animal and the stone that marks it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-pet-grave-l1",
+     "text": "GOOD ANIMAL"
+    },
+    {
+     "id": "sc-pet-grave-l2",
+     "text": "EMPTY BOWL"
+    },
+    {
+     "id": "sc-pet-grave-l3",
+     "text": "THE OWNER (SAD)"
+    }
+   ]
+  },
+  "pet-butcher": {
+   "heads": [
+    {
+     "id": "sc-pet-butcher-h1",
+     "text": "THE BUTCHER'S SHOP REPORTS"
+    },
+    {
+     "id": "sc-pet-butcher-h2",
+     "text": "STRAY BECOMES SUPPER"
+    },
+    {
+     "id": "sc-pet-butcher-h3",
+     "text": "THE KITCHEN THANKS THE BUTCHER"
+    },
+    {
+     "id": "sc-pet-butcher-h4",
+     "text": "MEAT ON THE MENU"
+    },
+    {
+     "id": "sc-pet-butcher-h5",
+     "text": "A STRAY'S LAST JOB"
+    },
+    {
+     "id": "sc-pet-butcher-h6",
+     "text": "BUTCHER BUSY, LARDER FULL"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-pet-butcher-c1",
+     "text": "The butcher's table, freshly stocked. The artist chose not to draw the details."
+    },
+    {
+     "id": "sc-pet-butcher-c2",
+     "text": "The butcher and the evening's sausages. Dinner is served, and nobody is asking which stray."
+    },
+    {
+     "id": "sc-pet-butcher-c3",
+     "text": "A cleaver, a table and a fuller larder. That is the fort for you."
+    },
+    {
+     "id": "sc-pet-butcher-c4",
+     "text": "Our sketch of the butcher's shop. Vegetarians are advised to turn the page."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-pet-butcher-l1",
+     "text": "SUPPER"
+    },
+    {
+     "id": "sc-pet-butcher-l2",
+     "text": "THE CLEAVER"
+    },
+    {
+     "id": "sc-pet-butcher-l3",
+     "text": "SAUSAGES"
+    }
+   ]
+  },
+  "strike-gem": {
+   "heads": [
+    {
+     "id": "sc-strike-gem-h1",
+     "text": "MINERS STRIKE {mineral}!"
+    },
+    {
+     "id": "sc-strike-gem-h2",
+     "text": "GEMS IN THE WALL"
+    },
+    {
+     "id": "sc-strike-gem-h3",
+     "text": "{fort} HITS A POCKET OF {mineral}"
+    },
+    {
+     "id": "sc-strike-gem-h4",
+     "text": "SPARKLE IN THE DARK"
+    },
+    {
+     "id": "sc-strike-gem-h5",
+     "text": "A GEM STRIKE!"
+    },
+    {
+     "id": "sc-strike-gem-h6",
+     "text": "THE ROCK WAS HIDING JEWELS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-strike-gem-c1",
+     "text": "A miner, a pick and {mineral} glittering in the rock. The jeweler has been told and is already sharpening tools."
+    },
+    {
+     "id": "sc-strike-gem-c2",
+     "text": "The gem in the wall, drawn bigger than it is. Gems in this paper always are."
+    },
+    {
+     "id": "sc-strike-gem-c3",
+     "text": "Our sketch of the find: one swing, one sparkle, one very happy miner."
+    },
+    {
+     "id": "sc-strike-gem-c4",
+     "text": "{mineral}, as it looked in the lamplight. The jewelers want first look."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-strike-gem-l1",
+     "text": "GEM"
+    },
+    {
+     "id": "sc-strike-gem-l2",
+     "text": "THE PICK"
+    },
+    {
+     "id": "sc-strike-gem-l3",
+     "text": "SPARKLE"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-strike-gem-s1",
+     "text": "Gems!"
+    },
+    {
+     "id": "sc-strike-gem-s2",
+     "text": "Look at that shine!"
+    },
+    {
+     "id": "sc-strike-gem-s3",
+     "text": "Fetch the jeweler!"
+    },
+    {
+     "id": "sc-strike-gem-s4",
+     "text": "Strike the earth!"
+    }
+   ]
+  },
+  "strike-ore": {
+   "heads": [
+    {
+     "id": "sc-strike-ore-h1",
+     "text": "MINERS STRIKE {mineral}!"
+    },
+    {
+     "id": "sc-strike-ore-h2",
+     "text": "A VEIN OF {mineral} FOUND"
+    },
+    {
+     "id": "sc-strike-ore-h3",
+     "text": "ORE FOR THE FORGES"
+    },
+    {
+     "id": "sc-strike-ore-h4",
+     "text": "{fort} STRIKES METAL"
+    },
+    {
+     "id": "sc-strike-ore-h5",
+     "text": "THE SMELTERS WILL BE BUSY"
+    },
+    {
+     "id": "sc-strike-ore-h6",
+     "text": "A RICH VEIN BELOW"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-strike-ore-c1",
+     "text": "The vein of {mineral} running through the rock, and the first cart waiting to carry it off."
+    },
+    {
+     "id": "sc-strike-ore-c2",
+     "text": "A miner, a vein and an ore cart. The smelters have been warned."
+    },
+    {
+     "id": "sc-strike-ore-c3",
+     "text": "Our sketch of the {mineral} vein. It runs further than the artist could draw."
+    },
+    {
+     "id": "sc-strike-ore-c4",
+     "text": "The find, in streaks across the wall. The forges are already warming up."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-strike-ore-l1",
+     "text": "ORE"
+    },
+    {
+     "id": "sc-strike-ore-l2",
+     "text": "THE VEIN"
+    },
+    {
+     "id": "sc-strike-ore-l3",
+     "text": "THE CART"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-strike-ore-s1",
+     "text": "Ore! Fetch the cart!"
+    },
+    {
+     "id": "sc-strike-ore-s2",
+     "text": "Look at that vein!"
+    },
+    {
+     "id": "sc-strike-ore-s3",
+     "text": "The smiths will love this."
+    },
+    {
+     "id": "sc-strike-ore-s4",
+     "text": "Strike the earth!"
+    }
+   ]
+  },
+  "strike-coal": {
+   "heads": [
+    {
+     "id": "sc-strike-coal-h1",
+     "text": "MINERS STRIKE {mineral}!"
+    },
+    {
+     "id": "sc-strike-coal-h2",
+     "text": "FUEL FOUND BELOW"
+    },
+    {
+     "id": "sc-strike-coal-h3",
+     "text": "COAL FOR THE FURNACES"
+    },
+    {
+     "id": "sc-strike-coal-h4",
+     "text": "{fort} WILL BE WARM"
+    },
+    {
+     "id": "sc-strike-coal-h5",
+     "text": "BLACK GOLD IN THE WALL"
+    },
+    {
+     "id": "sc-strike-coal-h6",
+     "text": "THE FORGES CHEER"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-strike-coal-c1",
+     "text": "Lumps of {mineral} in the rock, and a little flame to show what it is for."
+    },
+    {
+     "id": "sc-strike-coal-c2",
+     "text": "A miner and a seam of {mineral}. The smelters have stopped worrying about wood."
+    },
+    {
+     "id": "sc-strike-coal-c3",
+     "text": "Our sketch of the find: black, lumpy and very useful."
+    },
+    {
+     "id": "sc-strike-coal-c4",
+     "text": "The {mineral} seam, drawn in the darkest ink we had."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-strike-coal-l1",
+     "text": "FUEL"
+    },
+    {
+     "id": "sc-strike-coal-l2",
+     "text": "THE SEAM"
+    },
+    {
+     "id": "sc-strike-coal-l3",
+     "text": "WARMTH"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-strike-coal-s1",
+     "text": "Fuel for years!"
+    },
+    {
+     "id": "sc-strike-coal-s2",
+     "text": "Burn, baby, burn."
+    },
+    {
+     "id": "sc-strike-coal-s3",
+     "text": "The furnaces are saved!"
+    },
+    {
+     "id": "sc-strike-coal-s4",
+     "text": "Strike the earth!"
+    }
+   ]
+  },
+  "strike-stone": {
+   "heads": [
+    {
+     "id": "sc-strike-stone-h1",
+     "text": "MINERS STRIKE {mineral}"
+    },
+    {
+     "id": "sc-strike-stone-h2",
+     "text": "A USEFUL ROCK IS FOUND"
+    },
+    {
+     "id": "sc-strike-stone-h3",
+     "text": "{mineral} IN THE WALLS"
+    },
+    {
+     "id": "sc-strike-stone-h4",
+     "text": "STONE OF NOTE"
+    },
+    {
+     "id": "sc-strike-stone-h5",
+     "text": "THE MASONS NOD APPROVINGLY"
+    },
+    {
+     "id": "sc-strike-stone-h6",
+     "text": "ROCK, BUT A GOOD ONE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-strike-stone-c1",
+     "text": "A miner and a great round lump of {mineral}. Useful rock, the experts say, which is a dwarf's highest praise for a rock."
+    },
+    {
+     "id": "sc-strike-stone-c2",
+     "text": "Our sketch of the {mineral}. It is a rock. It is a good rock."
+    },
+    {
+     "id": "sc-strike-stone-c3",
+     "text": "The find, sketched honestly: big, round and grey."
+    },
+    {
+     "id": "sc-strike-stone-c4",
+     "text": "A miner beside a fine boulder of {mineral}. The masons have already put in an order."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-strike-stone-l1",
+     "text": "ROCK (GOOD)"
+    },
+    {
+     "id": "sc-strike-stone-l2",
+     "text": "THE BOULDER"
+    },
+    {
+     "id": "sc-strike-stone-l3",
+     "text": "THE MINER"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-strike-stone-s1",
+     "text": "Good rock!"
+    },
+    {
+     "id": "sc-strike-stone-s2",
+     "text": "That'll do nicely."
+    },
+    {
+     "id": "sc-strike-stone-s3",
+     "text": "Fetch the masons."
+    },
+    {
+     "id": "sc-strike-stone-s4",
+     "text": "Strike the earth!"
+    }
+   ]
+  },
+  "strike-cavern": {
+   "heads": [
+    {
+     "id": "sc-strike-cavern-h1",
+     "text": "A CAVERN OPENS BELOW {fort}"
+    },
+    {
+     "id": "sc-strike-cavern-h2",
+     "text": "THE DEEP IS FOUND"
+    },
+    {
+     "id": "sc-strike-cavern-h3",
+     "text": "MUSHROOM FORESTS IN THE DARK"
+    },
+    {
+     "id": "sc-strike-cavern-h4",
+     "text": "MINERS BREAK INTO A CAVERN"
+    },
+    {
+     "id": "sc-strike-cavern-h5",
+     "text": "A WHOLE NEW WORLD, VERY DAMP"
+    },
+    {
+     "id": "sc-strike-cavern-h6",
+     "text": "WHAT LIVES DOWN THERE?"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-strike-cavern-c1",
+     "text": "A miner looking into the dark of a new cavern, where mushrooms grow taller than trees."
+    },
+    {
+     "id": "sc-strike-cavern-c2",
+     "text": "The cavern, drawn as a dark square with mushrooms. It is bigger than that."
+    },
+    {
+     "id": "sc-strike-cavern-c3",
+     "text": "Our sketch of the opening. The question mark belongs to the miner."
+    },
+    {
+     "id": "sc-strike-cavern-c4",
+     "text": "The edge of the deep, and a dwarf deciding whether to step in."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-strike-cavern-l1",
+     "text": "THE DEEP"
+    },
+    {
+     "id": "sc-strike-cavern-l2",
+     "text": "MUSHROOMS"
+    },
+    {
+     "id": "sc-strike-cavern-l3",
+     "text": "?"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-strike-cavern-s1",
+     "text": "Is that a tree?"
+    },
+    {
+     "id": "sc-strike-cavern-s2",
+     "text": "Hello? ...hello?"
+    },
+    {
+     "id": "sc-strike-cavern-s3",
+     "text": "It goes on forever."
+    },
+    {
+     "id": "sc-strike-cavern-s4",
+     "text": "We should wall this up."
+    }
+   ]
+  },
+  "strike-magma": {
+   "heads": [
+    {
+     "id": "sc-strike-magma-h1",
+     "text": "MAGMA FOUND BELOW"
+    },
+    {
+     "id": "sc-strike-magma-h2",
+     "text": "THE HOT ROCK IS HERE"
+    },
+    {
+     "id": "sc-strike-magma-h3",
+     "text": "{fort} DIGS INTO FIRE"
+    },
+    {
+     "id": "sc-strike-magma-h4",
+     "text": "MAGMA! EVERYONE STEP BACK"
+    },
+    {
+     "id": "sc-strike-magma-h5",
+     "text": "A GLOWING DISCOVERY"
+    },
+    {
+     "id": "sc-strike-magma-h6",
+     "text": "THE FORGES DREAM OF MAGMA"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-strike-magma-c1",
+     "text": "A pool of magma glowing at the bottom of the dig, and a miner stepping smartly back."
+    },
+    {
+     "id": "sc-strike-magma-c2",
+     "text": "Our sketch of the magma. The artist used all the orange and borrowed a red."
+    },
+    {
+     "id": "sc-strike-magma-c3",
+     "text": "The heat, the glow and a very quick retreat."
+    },
+    {
+     "id": "sc-strike-magma-c4",
+     "text": "Where the rock turns to fire. Engineers are already drawing plans."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-strike-magma-l1",
+     "text": "MAGMA (HOT)"
+    },
+    {
+     "id": "sc-strike-magma-l2",
+     "text": "THE GLOW"
+    },
+    {
+     "id": "sc-strike-magma-l3",
+     "text": "RETREAT"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-strike-magma-s1",
+     "text": "Hot! Hot!"
+    },
+    {
+     "id": "sc-strike-magma-s2",
+     "text": "Back! Back!"
+    },
+    {
+     "id": "sc-strike-magma-s3",
+     "text": "Magma forges, here we come!"
+    },
+    {
+     "id": "sc-strike-magma-s4",
+     "text": "Nobody fall in."
+    }
+   ]
+  },
+  "strike-other": {
+   "heads": [
+    {
+     "id": "sc-strike-other-h1",
+     "text": "MINERS FIND SOMETHING"
+    },
+    {
+     "id": "sc-strike-other-h2",
+     "text": "A DISCOVERY BELOW"
+    },
+    {
+     "id": "sc-strike-other-h3",
+     "text": "THE ROCK GIVES UP A PRIZE"
+    },
+    {
+     "id": "sc-strike-other-h4",
+     "text": "STRIKE THE EARTH!"
+    },
+    {
+     "id": "sc-strike-other-h5",
+     "text": "NEWS FROM THE MINES"
+    },
+    {
+     "id": "sc-strike-other-h6",
+     "text": "A LUCKY SWING"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-strike-other-c1",
+     "text": "A miner and the find. The artist was not told what it was and drew a gem, to be safe."
+    },
+    {
+     "id": "sc-strike-other-c2",
+     "text": "Our sketch of the discovery, as described by an excited miner."
+    },
+    {
+     "id": "sc-strike-other-c3",
+     "text": "One swing, one discovery."
+    },
+    {
+     "id": "sc-strike-other-c4",
+     "text": "The miner, the pick and the mystery."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-strike-other-l1",
+     "text": "THE FIND"
+    },
+    {
+     "id": "sc-strike-other-l2",
+     "text": "THE PICK"
+    },
+    {
+     "id": "sc-strike-other-l3",
+     "text": "THE MINER"
+    }
+   ]
+  },
+  "k-siege": {
+   "heads": [
+    {
+     "id": "sc-k-siege-h1",
+     "text": "ENEMIES AT THE GATES"
+    },
+    {
+     "id": "sc-k-siege-h2",
+     "text": "SIEGE! TO THE WALLS"
+    },
+    {
+     "id": "sc-k-siege-h3",
+     "text": "{fort} UNDER ATTACK"
+    },
+    {
+     "id": "sc-k-siege-h4",
+     "text": "SPEARS AT THE DOOR"
+    },
+    {
+     "id": "sc-k-siege-h5",
+     "text": "THE MILITIA IS CALLED"
+    },
+    {
+     "id": "sc-k-siege-h6",
+     "text": "WAR COMES TO {fort}"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-siege-c1",
+     "text": "The enemy at the walls, spears up, and one defender on the battlements with an axe."
+    },
+    {
+     "id": "sc-k-siege-c2",
+     "text": "Our artist's view of the siege, from a safe spot behind the wall."
+    },
+    {
+     "id": "sc-k-siege-c3",
+     "text": "Three attackers and one wall. The wall is winning, so far."
+    },
+    {
+     "id": "sc-k-siege-c4",
+     "text": "The siege, drawn quickly and from a distance."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-siege-l1",
+     "text": "THE ENEMY"
+    },
+    {
+     "id": "sc-k-siege-l2",
+     "text": "THE WALL"
+    },
+    {
+     "id": "sc-k-siege-l3",
+     "text": "ONE DEFENDER"
+    }
+   ]
+  },
+  "k-beast": {
+   "heads": [
+    {
+     "id": "sc-k-beast-h1",
+     "text": "A MONSTER COMES TO {fort}"
+    },
+    {
+     "id": "sc-k-beast-h2",
+     "text": "BEAST SIGHTED!"
+    },
+    {
+     "id": "sc-k-beast-h3",
+     "text": "TEETH, CLAWS, TROUBLE"
+    },
+    {
+     "id": "sc-k-beast-h4",
+     "text": "THE BIG ONE HAS ARRIVED"
+    },
+    {
+     "id": "sc-k-beast-h5",
+     "text": "RUN, SAYS EVERYONE"
+    },
+    {
+     "id": "sc-k-beast-h6",
+     "text": "A CREATURE OF TERRIBLE SIZE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-beast-c1",
+     "text": "The beast, all teeth, and one dwarf making the sensible choice."
+    },
+    {
+     "id": "sc-k-beast-c2",
+     "text": "Our artist's impression of the creature, drawn while running."
+    },
+    {
+     "id": "sc-k-beast-c3",
+     "text": "A very large monster and a very small dwarf. The scale is accurate."
+    },
+    {
+     "id": "sc-k-beast-c4",
+     "text": "The beast, from the artist's hiding place."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-beast-l1",
+     "text": "VERY BIG"
+    },
+    {
+     "id": "sc-k-beast-l2",
+     "text": "TEETH"
+    },
+    {
+     "id": "sc-k-beast-l3",
+     "text": "RUNNING DWARF"
+    }
+   ]
+  },
+  "k-berserk": {
+   "heads": [
+    {
+     "id": "sc-k-berserk-h1",
+     "text": "TANTRUM IN THE HALLS"
+    },
+    {
+     "id": "sc-k-berserk-h2",
+     "text": "A DWARF LOSES THEIR TEMPER"
+    },
+    {
+     "id": "sc-k-berserk-h3",
+     "text": "FURNITURE IN DANGER"
+    },
+    {
+     "id": "sc-k-berserk-h4",
+     "text": "BAD DAY GETS WORSE"
+    },
+    {
+     "id": "sc-k-berserk-h5",
+     "text": "{fort} BRACES FOR A TANTRUM"
+    },
+    {
+     "id": "sc-k-berserk-h6",
+     "text": "MUGS FLY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-berserk-c1",
+     "text": "A furious dwarf, a flying mug and a barrel that has seen better days."
+    },
+    {
+     "id": "sc-k-berserk-c2",
+     "text": "Our artist's sketch of the outburst. Language has been replaced with symbols."
+    },
+    {
+     "id": "sc-k-berserk-c3",
+     "text": "The incident, from a safe distance."
+    },
+    {
+     "id": "sc-k-berserk-c4",
+     "text": "Steam, shouting and one unlucky barrel."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-berserk-l1",
+     "text": "!!!"
+    },
+    {
+     "id": "sc-k-berserk-l2",
+     "text": "THE MUG"
+    },
+    {
+     "id": "sc-k-berserk-l3",
+     "text": "THE BARREL"
+    }
+   ]
+  },
+  "k-migrants": {
+   "heads": [
+    {
+     "id": "sc-k-migrants-h1",
+     "text": "MIGRANTS ARRIVE IN {fort}"
+    },
+    {
+     "id": "sc-k-migrants-h2",
+     "text": "NEW FACES AT THE GATE"
+    },
+    {
+     "id": "sc-k-migrants-h3",
+     "text": "THE WAGON IS FULL OF BEARDS"
+    },
+    {
+     "id": "sc-k-migrants-h4",
+     "text": "{fort} GROWS"
+    },
+    {
+     "id": "sc-k-migrants-h5",
+     "text": "MORE DWARVES, MORE BEDS NEEDED"
+    },
+    {
+     "id": "sc-k-migrants-h6",
+     "text": "WELCOME, NEWCOMERS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-migrants-c1",
+     "text": "The new arrivals, beards first, on a wagon that has seen a long road."
+    },
+    {
+     "id": "sc-k-migrants-c2",
+     "text": "Our sketch of the migrants. All beards, no luggage."
+    },
+    {
+     "id": "sc-k-migrants-c3",
+     "text": "A wagon full of hope and a dwarf waving them in."
+    },
+    {
+     "id": "sc-k-migrants-c4",
+     "text": "The newcomers, as they rolled through the gate."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-migrants-l1",
+     "text": "MORE OF THEM"
+    },
+    {
+     "id": "sc-k-migrants-l2",
+     "text": "THE WAGON"
+    },
+    {
+     "id": "sc-k-migrants-l3",
+     "text": "WELCOME"
+    }
+   ]
+  },
+  "k-caravan": {
+   "heads": [
+    {
+     "id": "sc-k-caravan-h1",
+     "text": "CARAVAN ARRIVES"
+    },
+    {
+     "id": "sc-k-caravan-h2",
+     "text": "TRADERS AT THE DEPOT"
+    },
+    {
+     "id": "sc-k-caravan-h3",
+     "text": "WARES AND HAGGLING"
+    },
+    {
+     "id": "sc-k-caravan-h4",
+     "text": "THE MERCHANTS ARE HERE"
+    },
+    {
+     "id": "sc-k-caravan-h5",
+     "text": "TRADE WINDS BLOW INTO {fort}"
+    },
+    {
+     "id": "sc-k-caravan-h6",
+     "text": "HIDE THE GOOD MUGS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-caravan-c1",
+     "text": "The merchants' wagon and a stack of barrels for trade."
+    },
+    {
+     "id": "sc-k-caravan-c2",
+     "text": "Our sketch of the caravan. Prices could not be drawn."
+    },
+    {
+     "id": "sc-k-caravan-c3",
+     "text": "Wares, wagons and the start of a very long haggle."
+    },
+    {
+     "id": "sc-k-caravan-c4",
+     "text": "The traders' wagon, parked at the depot."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-caravan-l1",
+     "text": "WARES"
+    },
+    {
+     "id": "sc-k-caravan-l2",
+     "text": "THE WAGON"
+    },
+    {
+     "id": "sc-k-caravan-l3",
+     "text": "BARRELS"
+    }
+   ]
+  },
+  "k-birth": {
+   "heads": [
+    {
+     "id": "sc-k-birth-h1",
+     "text": "A CHILD IS BORN IN {fort}"
+    },
+    {
+     "id": "sc-k-birth-h2",
+     "text": "WELCOME, LITTLE ONE"
+    },
+    {
+     "id": "sc-k-birth-h3",
+     "text": "A NEW BEARD (EVENTUALLY)"
+    },
+    {
+     "id": "sc-k-birth-h4",
+     "text": "{fort} GROWS BY ONE"
+    },
+    {
+     "id": "sc-k-birth-h5",
+     "text": "THE CRADLE IS FULL"
+    },
+    {
+     "id": "sc-k-birth-h6",
+     "text": "BIRTH ANNOUNCEMENT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-birth-c1",
+     "text": "A proud parent and a brand new baby. The beard, we are told, will come."
+    },
+    {
+     "id": "sc-k-birth-c2",
+     "text": "Our sketch of the newest citizen. Very small, very loud."
+    },
+    {
+     "id": "sc-k-birth-c3",
+     "text": "Parent and child, on the first day."
+    },
+    {
+     "id": "sc-k-birth-c4",
+     "text": "The baby, drawn at slightly larger than actual size."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-birth-l1",
+     "text": "ALREADY BEARDED"
+    },
+    {
+     "id": "sc-k-birth-l2",
+     "text": "THE BABY"
+    },
+    {
+     "id": "sc-k-birth-l3",
+     "text": "PROUD PARENT"
+    }
+   ]
+  },
+  "k-marriage": {
+   "heads": [
+    {
+     "id": "sc-k-marriage-h1",
+     "text": "WEDDING BELLS BENEATH THE MOUNTAIN"
+    },
+    {
+     "id": "sc-k-marriage-h2",
+     "text": "TWO HEARTS, ONE FORT"
+    },
+    {
+     "id": "sc-k-marriage-h3",
+     "text": "{fort} CELEBRATES A MARRIAGE"
+    },
+    {
+     "id": "sc-k-marriage-h4",
+     "text": "LOVE IN THE HALLS"
+    },
+    {
+     "id": "sc-k-marriage-h5",
+     "text": "A WEDDING!"
+    },
+    {
+     "id": "sc-k-marriage-h6",
+     "text": "MARRIED AT LAST"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-marriage-c1",
+     "text": "The happy couple, with a heart over them, as is traditional in newspaper drawings."
+    },
+    {
+     "id": "sc-k-marriage-c2",
+     "text": "Two dwarves, one heart. Our artist was not invited and drew this from the doorway."
+    },
+    {
+     "id": "sc-k-marriage-c3",
+     "text": "The couple on the big day."
+    },
+    {
+     "id": "sc-k-marriage-c4",
+     "text": "A marriage in {fort}, sketched with great affection."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-marriage-l1",
+     "text": "THE COUPLE"
+    },
+    {
+     "id": "sc-k-marriage-l2",
+     "text": "LOVE"
+    },
+    {
+     "id": "sc-k-marriage-l3",
+     "text": "THE BIG DAY"
+    }
+   ]
+  },
+  "k-ghost": {
+   "heads": [
+    {
+     "id": "sc-k-ghost-h1",
+     "text": "GHOST IN THE HALLS"
+    },
+    {
+     "id": "sc-k-ghost-h2",
+     "text": "THE DEAD WALK IN {fort}"
+    },
+    {
+     "id": "sc-k-ghost-h3",
+     "text": "BOO, SAYS THE GHOST"
+    },
+    {
+     "id": "sc-k-ghost-h4",
+     "text": "A RESTLESS SPIRIT"
+    },
+    {
+     "id": "sc-k-ghost-h5",
+     "text": "HAUNTING REPORTED"
+    },
+    {
+     "id": "sc-k-ghost-h6",
+     "text": "BURY YOUR DEAD"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-ghost-c1",
+     "text": "The ghost, drawn by a witness with their eyes mostly closed."
+    },
+    {
+     "id": "sc-k-ghost-c2",
+     "text": "A spirit and a fleeing dwarf. A slab would settle it."
+    },
+    {
+     "id": "sc-k-ghost-c3",
+     "text": "Our artist's impression of the haunting."
+    },
+    {
+     "id": "sc-k-ghost-c4",
+     "text": "The apparition, as it drifted through the hall."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-ghost-l1",
+     "text": "BOO"
+    },
+    {
+     "id": "sc-k-ghost-l2",
+     "text": "THE GHOST"
+    },
+    {
+     "id": "sc-k-ghost-l3",
+     "text": "FLEEING DWARF"
+    }
+   ]
+  },
+  "k-collapse": {
+   "heads": [
+    {
+     "id": "sc-k-collapse-h1",
+     "text": "CAVE-IN!"
+    },
+    {
+     "id": "sc-k-collapse-h2",
+     "text": "THE CEILING FALLS"
+    },
+    {
+     "id": "sc-k-collapse-h3",
+     "text": "ROCKS RAIN IN {fort}"
+    },
+    {
+     "id": "sc-k-collapse-h4",
+     "text": "MIND YOUR HEADS"
+    },
+    {
+     "id": "sc-k-collapse-h5",
+     "text": "A COLLAPSE BELOW"
+    },
+    {
+     "id": "sc-k-collapse-h6",
+     "text": "STONES FALL, DWARVES SCATTER"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-collapse-c1",
+     "text": "Falling rocks and a dwarf with arms up, which does not help."
+    },
+    {
+     "id": "sc-k-collapse-c2",
+     "text": "Our sketch of the collapse, reconstructed using rocks."
+    },
+    {
+     "id": "sc-k-collapse-c3",
+     "text": "The ceiling, now on the floor."
+    },
+    {
+     "id": "sc-k-collapse-c4",
+     "text": "A cave-in, seen from underneath."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-collapse-l1",
+     "text": "OOF"
+    },
+    {
+     "id": "sc-k-collapse-l2",
+     "text": "ROCKS"
+    },
+    {
+     "id": "sc-k-collapse-l3",
+     "text": "THE CEILING"
+    }
+   ]
+  },
+  "k-soldier": {
+   "heads": [
+    {
+     "id": "sc-k-soldier-h1",
+     "text": "A SOLDIER ACHIEVES MASTERY"
+    },
+    {
+     "id": "sc-k-soldier-h2",
+     "text": "{fort} HAS A NEW CHAMPION"
+    },
+    {
+     "id": "sc-k-soldier-h3",
+     "text": "MASTER OF ARMS"
+    },
+    {
+     "id": "sc-k-soldier-h4",
+     "text": "THE MILITIA GAINS A LEGEND"
+    },
+    {
+     "id": "sc-k-soldier-h5",
+     "text": "TRAINING PAYS OFF"
+    },
+    {
+     "id": "sc-k-soldier-h6",
+     "text": "GOBLINS, BEWARE"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-k-soldier-c1",
+     "text": "A master of arms, axe raised, sparkling with skill."
+    },
+    {
+     "id": "sc-k-soldier-c2",
+     "text": "Our sketch of the champion. The sparkles are earned."
+    },
+    {
+     "id": "sc-k-soldier-c3",
+     "text": "Years of training, one proud pose."
+    },
+    {
+     "id": "sc-k-soldier-c4",
+     "text": "The new master, ready for anything."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-k-soldier-l1",
+     "text": "CHAMPION"
+    },
+    {
+     "id": "sc-k-soldier-l2",
+     "text": "THE AXE"
+    },
+    {
+     "id": "sc-k-soldier-l3",
+     "text": "SKILL"
+    }
+   ]
+  }
+ }
+}

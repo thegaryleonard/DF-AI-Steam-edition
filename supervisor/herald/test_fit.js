@@ -16,20 +16,21 @@ const line = re => { const m = html.match(re); if (!m) throw new Error('line ' +
 const src = [
   line(/^const esc = .*$/m), line(/^const clean = .*$/m), line(/^const cap = .*$/m), line(/^function rng\(seed\).*$/m),
   line(/^const pick = .*$/m), line(/^function shuffle\(r, a\).*$/m),
-  'let LIB = {}, SEEN = {}, issueUsed = new Set();', line(/^const NEWSY = .*$/m), 'const TESTPAGE = true; function markSeen() {}',
+  'let LIB = {}, SEEN = {}, issueUsed = new Set();', line(/^const NEWSY = .*$/m), 'const TESTPAGE = true; const __seen = []; function markSeen(ids) { __seen.push(...ids); }',
+  'let memLoaded = false; function mem() { return {arcs: {}}; } function context(r) { return __baseCtx(); }',
   'const ownName = s => s;',
   cut('// ==FIT-BEGIN==', 'const T = x =>'), line(/^const T = x =>.*$/m),
   cut('const KINDS = [', 'function drawEvent('),
-  html.includes('// ==SCENES-BEGIN==') ? cut('// ==SCENES-BEGIN==', '// ==SCENES-END==') : '',
 ].join('\n');
 // library, merged the way overlay.py does
 const LIBD = path.join(SUP, 'herald', 'library'), lib = {};
 const merge = (a, b) => { for (const [k, v] of Object.entries(b)) { if (Array.isArray(a[k]) && Array.isArray(v)) a[k] = a[k].concat(v); else if (a[k] && typeof a[k] === 'object' && !Array.isArray(a[k]) && v && typeof v === 'object' && !Array.isArray(v)) merge(a[k], v); else a[k] = v; } };
 for (const f of fs.readdirSync(LIBD).filter(f => f.endsWith('.json')).sort()) merge(lib, JSON.parse(fs.readFileSync(path.join(LIBD, f), 'utf8')));
+const baseCtx = () => ({sl: {fort: 'Testfort', pop: 40, season: 'Spring', weather: 'clear', citizen: 'Urist Testson', citizen2: 'Kel Probe', citizen_first: 'Dodok', _people: ['Urist Testson', 'Kel Probe', 'Dodok Mock']}, conds: new Set(['spring', 'clear', 'peace'])});
 const ctxv = {console, Math, JSON, Date, Set, Map, Object, Array, String, Number, RegExp, Boolean, Error};
 vm.createContext(ctxv);
-vm.runInContext(src + '\nLIB = __lib; var __api = {evFacts, itemCat, itemMat, mineralClass, fits, choose, choose1, eventText, kindOf, T, evWho, evWho, setOff: v => { FIT_OFF = v; }, reset: () => { issueUsed = new Set(); }, evText, slotFacts, KINDS, ' +
-  (html.includes('// ==SCENES-BEGIN==') ? 'pickScene, sceneText, SCENES' : 'pickScene: null, sceneText: null, SCENES: []') + '};', Object.assign(ctxv, {__lib: lib}));
+vm.runInContext(src + '\nLIB = __lib; var __api = {seen: __seen, evFacts, itemCat, itemMat, mineralClass, fits, choose, choose1, eventText, kindOf, T, evWho, evWho, setOff: v => { FIT_OFF = v; }, reset: () => { issueUsed = new Set(); }, evText, slotFacts, KINDS, ' +
+  (html.includes('// ==SCENES-BEGIN==') ? 'pickScene, sceneText, SCENES' : 'pickScene: null, sceneText: null, SCENES: []') + '};', Object.assign(ctxv, {__lib: lib, __baseCtx: () => baseCtx()}));
 const A = ctxv.__api;
 A.setOff(BEFORE);
 // ---- the independent checker: cue words in the TEMPLATE text vs the event's facts ----
@@ -82,7 +83,6 @@ const SCOPE = {master: 'item', artifact: 'item', mood: 'mood', death: 'death', s
 // ---- run ----
 const corpus = JSON.parse(fs.readFileSync(corpusPath, 'utf8'));
 const stats = {events: 0, outputs: 0, bad: 0, unparsed: 0, sceneBad: 0, fold: 0, foldBad: 0}, badList = [], unparsed = {}, byKind = {};
-const baseCtx = () => ({sl: {fort: 'Testfort', pop: 40, season: 'Spring', weather: 'clear', citizen: 'Urist Testson', citizen2: 'Kel Probe', citizen_first: 'Dodok', _people: ['Urist Testson', 'Kel Probe', 'Dodok Mock']}, conds: new Set(['spring', 'clear', 'peace'])});
 let n = 0;
 for (const ev0 of corpus) {
   const ev = {id: 1000 + n++, type: ev0.type, text: ev0.text};
@@ -96,15 +96,20 @@ for (const ev0 of corpus) {
     const L = (lib.kinds || {})[k.k] || {}, r = (() => { let a = ev.id * 7 + s; return () => { a = (a * 1103515245 + 12345) % 2147483648; return a / 2147483648; }; })();
     const ctx = baseCtx(), who = A.evWho(ev);
     const extra = {who, first: who ? who.split(' ')[0] : null, event: ev.text, item: fx.item, _facts: fx.facts};
-    const got = [];
-    const texts = [];
-    for (const part of ['heads', 'caps', 'reps', 'labels', 'kickers']) { const e = A.choose1(L[part], ctx, r, extra); if (e) { got.push(e.id); texts.push(part + ': ' + A.T(e)); } }
+    let got = [], texts = [], scene = null;
+    if (BEFORE) {   // the old page: one fixed drawing per kind, every kind text eligible
+      for (const part of ['heads', 'caps', 'reps', 'labels', 'kickers']) { const e = A.choose1(L[part], ctx, r, extra); if (e) { got.push(e.id); texts.push(part + ': ' + A.T(e)); } }
+    } else {        // the live page's own eventText (drawing first, then its words)
+      A.seen.length = 0;
+      const t = A.eventText(ev, k); got = [...A.seen]; scene = t.scene;
+      texts = ['scene: ' + (scene ? scene.id : '-'), 'head: ' + t.head, 'cap: ' + t.cap, 'label: ' + t.label, 'say: ' + t.say, 'rep: ' + t.rep, 'kicker: ' + t.kicker];
+      if (scene && scene.fit && !A.fits({fit: scene.fit}, fx.facts)) { stats.sceneBad++; badList.push([ev.text, 'scene ' + scene.id, 'drawing fit ' + scene.fit]); }
+    }
     if (SAMPLE && s === 0 && SAMPLE.test(ev.text)) console.log(['', '# ' + ev.text, '  facts: ' + [...fx.facts].join(','), ...texts.map(x => '  ' + x)].join('\n'));
-    let scene = null;
-    if (A.pickScene) { scene = A.pickScene(ev, k, fx, r); if (scene) { const st = A.sceneText(scene, ev, k, fx, ctx, r, extra); for (const id of st.ids) got.push(id);
-      if (scene.fit && !A.fits({fit: scene.fit}, fx.facts) && !BEFORE) { stats.sceneBad++; badList.push([ev.text, 'scene ' + scene.id, 'drawing fit ' + scene.fit]); } } }
     stats.outputs++;
-    const reasons = got.map(id => [id, contradiction(id, id.startsWith('sc-') ? 'scene' : SCOPE[k.k], fx.facts)]).filter(x => x[1]);
+    // scene words describe their own drawing (props included); the scene itself must fit the facts (checked above)
+    const reasons = got.filter(id => !id.startsWith('sc-')).map(id => [id, contradiction(id, SCOPE[k.k], fx.facts)]).filter(x => x[1]);
+    if (scene && !scene.id.startsWith('k-')) { const own = new Set(((lib.scenes || {})[scene.id] ? Object.values(lib.scenes[scene.id]).flat().map(e => e.id) : [])); for (const id of got.filter(i => i.startsWith('sc-'))) if (!own.has(id)) reasons.push([id, 'scene text from another drawing']); }
     byKind[k.k] = byKind[k.k] || {out: 0, bad: 0}; byKind[k.k].out++;
     if (reasons.length) { stats.bad++; byKind[k.k].bad++; badList.push([ev.text, reasons.map(x => x[0]).join(','), reasons.map(x => x[1]).join(' | ') + '  facts=' + [...fx.facts].join(',')]); }
   }
@@ -116,7 +121,7 @@ for (const ev0 of corpus) {
   if (k.k === 'strike') { const m = ev.text.match(/struck (.+?)!/); if (m) sl.mineral = m[1]; }
   if (Object.keys(sl).length) {
     const lists = [];
-    (function walk(o, p) { if (Array.isArray(o)) { if (o.some(e => e && e.id && /\{(masterwork|masterwork_last|artifact_item|artifact_new_item|cause|lastdead_cause|mineral)\}/.test(JSON.stringify(e)))) lists.push([p, o]); else o.forEach(x => walk(x, p)); } else if (o && typeof o === 'object' && !o.id) for (const [kk, v] of Object.entries(o)) if (kk !== 'kinds' && kk !== 'itemcats') walk(v, p + '.' + kk); })(lib, '');
+    (function walk(o, p) { if (Array.isArray(o)) { if (o.some(e => e && e.id && /\{(masterwork|masterwork_last|artifact_item|artifact_new_item|cause|lastdead_cause|mineral)\}/.test(JSON.stringify(e)))) lists.push([p, o]); else o.forEach(x => walk(x, p)); } else if (o && typeof o === 'object' && !o.id) for (const [kk, v] of Object.entries(o)) if (kk !== 'kinds' && kk !== 'itemcats' && kk !== 'scenes') walk(v, p + '.' + kk); })(lib, '');
     for (const [p, list] of lists) {
       A.reset();
       const ctx = baseCtx(); Object.assign(ctx.sl, sl, {lore: 1, past_fort: 'Oldfort', past_fort_fate: 'fell', record: 'x', record_fort: 'Oldfort', liaison: 'Liaison', civ: 'Civ', enemy: 'Gobs', enemy_race: 'goblin', site: 'Site', source: 'a traveller', hf: 'Someone', region: 'Region', ago: 'last year', site_kind: 'town', entity: 'Ent', fort_days: 100});

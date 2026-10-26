@@ -7,7 +7,7 @@ BASE = set("fort pop year month season weather world drinks meals plants seeds s
            "topanimal topanimal_n farms citizen citizen2 citizen_first artifact artifact_item mineral masterwork masterwright promoted post "
            "deadname moodname cause prof town town2 darkfort darkfort2 retreat hillock".split())
 IV = set("dwarf first nick prof age skill level skill2 deity kin rel adj about job fort season weather".split())
-BK = {"who", "first", "fort", "pop", "season", "weather", "event"}
+BK = {"who", "first", "fort", "pop", "season", "weather", "event", "item", "art", "prof", "shop", "mineral"}
 RUMOR = {"site", "site_kind", "entity", "entity_race", "entity2", "entity2_race", "hf", "hf_race", "hf2", "hf2_race", "region", "artifact",
          "artifact_item", "ago", "source", "fort", "season"}
 POL = {"fort", "pop", "season", "civ", "government", "n", "job", "material", "manager", "squad", "captain", "members", "kills", "routine", "order",
@@ -90,7 +90,7 @@ def check_panel(p, sid):
 
 
 for k, v in lib.items():
-    allowed = IV if k in ("thoughts", "questions", "answers", "decks", "idle_decks") else BK if k == "kinds" else RUMOR if k in ("rumors", "briefs", "depot_gossip", "pouch", "pouch_heads") else POL if k in ("order_ads", "recruit_ads", "vacancy_ads", "local", "military", "world", "columns") else OG if k in ("stories", "counters", "followups") else BASE
+    allowed = IV if k in ("thoughts", "questions", "answers", "decks", "idle_decks") else BK if k in ("kinds", "scenes") else RUMOR if k in ("rumors", "briefs", "depot_gossip", "pouch", "pouch_heads") else POL if k in ("order_ads", "recruit_ads", "vacancy_ads", "local", "military", "world", "columns") else OG if k in ("stories", "counters", "followups") else BASE
     walk(v, k, allowed)
 for k in lib.get("followon", {}):
     if k not in ARCKEYS: problems.append(f"followon: unknown storyline {k}")

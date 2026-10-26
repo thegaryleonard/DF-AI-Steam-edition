@@ -1151,22 +1151,264 @@ const KINDS = [
    rep: 'A member of the militia has reached legendary skill. Goblins are advised to take the long way round.',
    draw: S => { S.ground(128); S.dwarf(120, 128, 1.3, {axe: true}); S.sparkles(120, 50, 35, 6); }},
 ];
-const kindOf = ev => KINDS.find(k => k.re.test(ev.type || '') || (k.k === 'siege' && k.re.test(ev.text || '')));
+// a tame animal's death is a pet story even when DF files it as a citizen death
+const kindOf = ev => /CITIZEN_DEATH/.test(ev.type || '') && /\(Tame\)/.test(ev.text || '') ? KINDS.find(k => k.k === 'pet') : KINDS.find(k => k.re.test(ev.type || '') || (k.k === 'siege' && k.re.test(ev.text || '')));
 const evWho = ev => { const m = clean(ev.text).match(/^([A-Z][^\s,]+ [A-Z][^\s,]+)/); return m ? cap(m[1]) : null; };
+// ==SCENES-BEGIN== pre-drawn panels for the sketch artist: one drawing per situation, text tailored per event
+// Each scene is drawn once here (hand-drawn line art, same Sketch strokes as everything else) and picked by the event's
+// kind plus its facts (item category/noun, death cause, mood kind, mineral), so the picture, headline and caption agree.
+// Its words come from LIB.scenes[id] {heads, caps, labels, says}, filled with the real names, item and fort.
+const ITEMART = {
+  // held or standing items, drawn centred at (x, y) with size s; h = rough height at s=1
+  bolt: (S, x, y, s) => { S.poly([[x - 16 * s, y - 6 * s], [x + 16 * s, y - 10 * s], [x + 18 * s, y + 4 * s], [x - 14 * s, y + 8 * s]], true); S.circle(x - 15 * s, y + 1 * s, 4 * s, false, 7 * s); for (let i = -1; i <= 1; i++) S.line(x - 8 * s + i * 8 * s, y - 7 * s, x - 6 * s + i * 8 * s, y + 6 * s); },
+  shirt: (S, x, y, s) => { S.poly([[x - 8 * s, y - 12 * s], [x - 18 * s, y - 6 * s], [x - 14 * s, y], [x - 8 * s, y - 3 * s], [x - 8 * s, y + 14 * s], [x + 8 * s, y + 14 * s], [x + 8 * s, y - 3 * s], [x + 14 * s, y], [x + 18 * s, y - 6 * s], [x + 8 * s, y - 12 * s], [x + 3 * s, y - 9 * s], [x - 3 * s, y - 9 * s]], 'rgba(143,42,28,.18)'); },
+  cloak: (S, x, y, s) => { S.poly([[x - 5 * s, y - 14 * s], [x + 5 * s, y - 14 * s], [x + 16 * s, y + 14 * s], [x - 16 * s, y + 14 * s]], 'rgba(63,107,46,.22)'); S.circle(x, y - 13 * s, 2 * s); },
+  trousers: (S, x, y, s) => { S.poly([[x - 10 * s, y - 12 * s], [x + 10 * s, y - 12 * s], [x + 12 * s, y + 14 * s], [x + 3 * s, y + 14 * s], [x, y - 2 * s], [x - 3 * s, y + 14 * s], [x - 12 * s, y + 14 * s]], 'rgba(122,75,22,.2)'); },
+  sock: (S, x, y, s) => S.sock(x, y + 8 * s, 1.2 * s),
+  hood: (S, x, y, s) => { S.poly([[x - 12 * s, y + 8 * s], [x - 10 * s, y - 6 * s], [x, y - 14 * s], [x + 10 * s, y - 6 * s], [x + 12 * s, y + 8 * s]], 'rgba(122,75,22,.2)'); S.arc(x, y + 2 * s, 7 * s, 7 * s, Math.PI, Math.PI * 2); },
+  sword: (S, x, y, s) => { S.poly([[x - 2 * s, y + 6 * s], [x - 2 * s, y - 24 * s], [x, y - 29 * s], [x + 2 * s, y - 24 * s], [x + 2 * s, y + 6 * s]]); S.line(x - 8 * s, y + 6 * s, x + 8 * s, y + 6 * s); S.line(x, y + 6 * s, x, y + 14 * s); S.circle(x, y + 16 * s, 2 * s); },
+  axe: (S, x, y, s) => { S.line(x, y + 16 * s, x, y - 18 * s); S.poly([[x, y - 16 * s], [x + 13 * s, y - 22 * s], [x + 15 * s, y - 8 * s], [x, y - 8 * s]], true); },
+  spear: (S, x, y, s) => { S.line(x, y + 20 * s, x, y - 20 * s); S.poly([[x - 4 * s, y - 20 * s], [x, y - 32 * s], [x + 4 * s, y - 20 * s]], true); },
+  mace: (S, x, y, s) => { S.line(x, y + 16 * s, x, y - 12 * s); S.circle(x, y - 17 * s, 6 * s, true); [0, 1, 2, 3, 4, 5].forEach(i => { const a = i * Math.PI / 3; S.line(x + Math.cos(a) * 6 * s, y - 17 * s + Math.sin(a) * 6 * s, x + Math.cos(a) * 10 * s, y - 17 * s + Math.sin(a) * 10 * s); }); },
+  hammer: (S, x, y, s) => { S.line(x, y + 16 * s, x, y - 12 * s); S.poly([[x - 9 * s, y - 20 * s], [x + 9 * s, y - 20 * s], [x + 9 * s, y - 11 * s], [x - 9 * s, y - 11 * s]], true); },
+  crossbow: (S, x, y, s) => { S.line(x - 14 * s, y, x + 14 * s, y); S.arc(x + 8 * s, y, 5 * s, 16 * s, -Math.PI / 2, Math.PI / 2); S.line(x + 8 * s, y - 16 * s, x - 6 * s, y); S.line(x + 8 * s, y + 16 * s, x - 6 * s, y); },
+  bow: (S, x, y, s) => { S.arc(x - 4 * s, y, 8 * s, 20 * s, -Math.PI / 2, Math.PI / 2); S.line(x - 4 * s, y - 20 * s, x - 4 * s, y + 20 * s); },
+  dagger: (S, x, y, s) => { S.poly([[x - 2 * s, y + 2 * s], [x, y - 14 * s], [x + 2 * s, y + 2 * s]]); S.line(x - 5 * s, y + 2 * s, x + 5 * s, y + 2 * s); S.line(x, y + 2 * s, x, y + 9 * s); },
+  whip: (S, x, y, s) => { S.line(x, y + 12 * s, x, y); S.arc(x + 10 * s, y, 10 * s, 12 * s, Math.PI, Math.PI * 2.2); },
+  helm: (S, x, y, s) => { S.arc(x, y + 4 * s, 13 * s, 14 * s, Math.PI, Math.PI * 2); S.line(x - 14 * s, y + 4 * s, x + 14 * s, y + 4 * s); S.line(x, y - 10 * s, x, y + 4 * s); S.poly([[x - 4 * s, y + 4 * s], [x + 4 * s, y + 4 * s], [x + 2 * s, y + 12 * s], [x - 2 * s, y + 12 * s]], true); },
+  breastplate: (S, x, y, s) => { S.poly([[x - 12 * s, y - 12 * s], [x - 5 * s, y - 8 * s], [x + 5 * s, y - 8 * s], [x + 12 * s, y - 12 * s], [x + 11 * s, y + 12 * s], [x, y + 16 * s], [x - 11 * s, y + 12 * s]], true); S.line(x, y - 8 * s, x, y + 16 * s); },
+  shield: (S, x, y, s) => { S.circle(x, y, 14 * s, true); S.circle(x, y, 4 * s, '#fff8e8'); },
+  gauntlet: (S, x, y, s) => { S.poly([[x - 6 * s, y + 12 * s], [x - 7 * s, y - 4 * s], [x - 9 * s, y - 12 * s], [x - 3 * s, y - 14 * s], [x + 3 * s, y - 14 * s], [x + 8 * s, y - 6 * s], [x + 6 * s, y + 12 * s]], true); },
+  boot: (S, x, y, s) => { S.poly([[x - 6 * s, y - 14 * s], [x + 4 * s, y - 14 * s], [x + 4 * s, y + 4 * s], [x + 14 * s, y + 6 * s], [x + 14 * s, y + 12 * s], [x - 6 * s, y + 12 * s]], 'rgba(122,75,22,.25)'); },
+  greaves: (S, x, y, s) => { [-6, 6].forEach(d => S.poly([[x + d * s - 4 * s, y - 14 * s], [x + d * s + 4 * s, y - 14 * s], [x + d * s + 3 * s, y + 14 * s], [x + d * s - 3 * s, y + 14 * s]], true)); },
+  leggings: (S, x, y, s) => ITEMART.greaves(S, x, y, s),
+  'mail shirt': (S, x, y, s) => { ITEMART.shirt(S, x, y, s); for (let i = 0; i < 4; i++) S.line(x - 7 * s, y - 4 * s + i * 5 * s, x + 7 * s, y - 4 * s + i * 5 * s); },
+  table: (S, x, y, s) => S.table(x, y + 14 * s, 1.1 * s),
+  chair: (S, x, y, s) => { S.line(x - 8 * s, y + 14 * s, x - 8 * s, y - 14 * s); S.line(x - 8 * s, y, x + 8 * s, y); S.line(x + 8 * s, y, x + 8 * s, y + 14 * s); S.line(x - 8 * s, y + 3 * s, x - 8 * s, y + 14 * s); },
+  throne: (S, x, y, s) => { S.poly([[x - 10 * s, y + 14 * s], [x - 10 * s, y - 20 * s], [x - 4 * s, y - 26 * s], [x, y - 20 * s], [x + 4 * s, y - 26 * s], [x + 10 * s, y - 20 * s], [x + 10 * s, y + 14 * s]], 'rgba(230,199,90,.35)'); S.line(x - 14 * s, y, x + 14 * s, y); S.line(x - 14 * s, y, x - 14 * s, y + 14 * s); S.line(x + 14 * s, y, x + 14 * s, y + 14 * s); },
+  bed: (S, x, y, s) => S.bed(x, y + 14 * s, 1.1 * s),
+  door: (S, x, y, s) => S.door(x, y + 18 * s, 1 * s),
+  'hatch cover': (S, x, y, s) => { S.poly([[x - 16 * s, y + 4 * s], [x + 16 * s, y + 4 * s], [x + 12 * s, y - 4 * s], [x - 12 * s, y - 4 * s]], true); S.circle(x, y, 2 * s); },
+  cabinet: (S, x, y, s) => { S.poly([[x - 11 * s, y + 16 * s], [x - 11 * s, y - 16 * s], [x + 11 * s, y - 16 * s], [x + 11 * s, y + 16 * s]]); S.line(x, y - 16 * s, x, y + 16 * s); S.circle(x - 3 * s, y, 1.5 * s); S.circle(x + 3 * s, y, 1.5 * s); },
+  'armor stand': (S, x, y, s) => { S.line(x, y + 16 * s, x, y - 16 * s); S.line(x - 10 * s, y + 16 * s, x + 10 * s, y + 16 * s); S.line(x - 12 * s, y - 10 * s, x + 12 * s, y - 10 * s); S.circle(x, y - 19 * s, 4 * s); },
+  'weapon rack': (S, x, y, s) => { S.line(x - 14 * s, y - 10 * s, x + 14 * s, y - 10 * s); S.line(x - 14 * s, y + 6 * s, x + 14 * s, y + 6 * s); S.line(x - 12 * s, y - 10 * s, x - 12 * s, y + 16 * s); S.line(x + 12 * s, y - 10 * s, x + 12 * s, y + 16 * s); [-5, 1, 7].forEach(d => S.line(x + d * s, y - 16 * s, x + d * s, y + 8 * s)); },
+  coffin: (S, x, y, s) => S.coffin(x, y + 18 * s, .9 * s),
+  slab: (S, x, y, s) => { S.poly([[x - 10 * s, y + 16 * s], [x - 10 * s, y - 10 * s], [x, y - 16 * s], [x + 10 * s, y - 10 * s], [x + 10 * s, y + 16 * s]], true); S.text(x, y + 2 * s, 'RIP', 7 * s); },
+  barrel: (S, x, y, s) => S.barrel(x, y + 14 * s, 1.2 * s),
+  bin: (S, x, y, s) => { S.poly([[x - 14 * s, y + 12 * s], [x - 16 * s, y - 8 * s], [x + 16 * s, y - 8 * s], [x + 14 * s, y + 12 * s]], true); S.line(x - 16 * s, y - 2 * s, x + 16 * s, y - 2 * s); },
+  bag: (S, x, y, s) => { S.circle(x, y + 4 * s, 12 * s, 'rgba(122,75,22,.2)', 10 * s); S.line(x - 4 * s, y - 6 * s, x + 4 * s, y - 6 * s); S.poly([[x - 4 * s, y - 6 * s], [x - 6 * s, y - 12 * s], [x + 6 * s, y - 12 * s], [x + 4 * s, y - 6 * s]]); },
+  pot: (S, x, y, s) => { S.circle(x, y + 2 * s, 13 * s, true, 12 * s); S.line(x - 7 * s, y - 10 * s, x + 7 * s, y - 10 * s); },
+  chest: (S, x, y, s) => { S.poly([[x - 15 * s, y + 10 * s], [x - 15 * s, y - 6 * s], [x + 15 * s, y - 6 * s], [x + 15 * s, y + 10 * s]], true); S.arc(x, y - 6 * s, 15 * s, 6 * s, Math.PI, Math.PI * 2); S.circle(x, y, 2 * s); },
+  mug: (S, x, y, s) => S.mugP(x, y + 8 * s, 1.8 * s),
+  goblet: (S, x, y, s) => { S.poly([[x - 8 * s, y - 12 * s], [x + 8 * s, y - 12 * s], [x + 2 * s, y], [x - 2 * s, y]]); S.line(x, y, x, y + 8 * s); S.line(x - 6 * s, y + 9 * s, x + 6 * s, y + 9 * s); },
+  cup: (S, x, y, s) => ITEMART.goblet(S, x, y, s),
+  crown: (S, x, y, s) => S.crown(x, y, 2 * s),
+  ring: (S, x, y, s) => { S.circle(x, y + 3 * s, 7 * s); ITEMART.gem(S, x, y - 7 * s, .35 * s); },
+  bracelet: (S, x, y, s) => { S.circle(x, y, 11 * s, false, 6 * s); S.circle(x, y, 8 * s, false, 4 * s); },
+  earring: (S, x, y, s) => { S.arc(x, y - 6 * s, 4 * s, 4 * s, 0, Math.PI * 2); S.line(x, y - 2 * s, x, y + 4 * s); ITEMART.gem(S, x, y + 7 * s, .3 * s); },
+  amulet: (S, x, y, s) => { S.arc(x, y - 10 * s, 12 * s, 10 * s, 0, Math.PI); ITEMART.gem(S, x, y + 4 * s, .45 * s); },
+  scepter: (S, x, y, s) => { S.line(x, y + 18 * s, x, y - 10 * s); S.circle(x, y - 15 * s, 5 * s, 'rgba(230,199,90,.5)'); S.crown(x, y - 20 * s, .7 * s); },
+  figurine: (S, x, y, s) => { S.poly([[x - 9 * s, y + 14 * s], [x + 9 * s, y + 14 * s], [x + 9 * s, y + 10 * s], [x - 9 * s, y + 10 * s]], true); S.circle(x, y - 6 * s, 4 * s); S.poly([[x - 5 * s, y + 10 * s], [x - 3 * s, y - 2 * s], [x + 3 * s, y - 2 * s], [x + 5 * s, y + 10 * s]]); },
+  totem: (S, x, y, s) => { S.line(x, y + 16 * s, x, y - 4 * s); S.circle(x, y - 10 * s, 7 * s, '#fff8e8', 8 * s); S.raw(`<circle cx="${x - 2.5 * s}" cy="${y - 11 * s}" r="${1.6 * s}" fill="#241c13"/><circle cx="${x + 2.5 * s}" cy="${y - 11 * s}" r="${1.6 * s}" fill="#241c13"/>`); },
+  toy: (S, x, y, s) => { S.poly([[x - 14 * s, y], [x + 14 * s, y], [x + 9 * s, y + 8 * s], [x - 9 * s, y + 8 * s]], true); S.line(x, y, x, y - 18 * s); S.poly([[x, y - 18 * s], [x + 11 * s, y - 4 * s], [x, y - 4 * s]]); },
+  'toy boat': (S, x, y, s) => ITEMART.toy(S, x, y, s),
+  statue: (S, x, y, s) => { S.poly([[x - 12 * s, y + 18 * s], [x + 12 * s, y + 18 * s], [x + 12 * s, y + 10 * s], [x - 12 * s, y + 10 * s]], true); S.dwarf(x, y + 10 * s, .6 * s, {armsUp: true}); },
+  lyre: (S, x, y, s) => { S.arc(x - 6 * s, y, 6 * s, 14 * s, Math.PI * .5, Math.PI * 1.5); S.arc(x + 6 * s, y, 6 * s, 14 * s, -Math.PI * .5, Math.PI * .5); S.line(x - 8 * s, y - 12 * s, x + 8 * s, y - 12 * s); [-3, 0, 3].forEach(d => S.line(x + d * s, y - 12 * s, x + d * s, y + 12 * s)); },
+  flute: (S, x, y, s) => { S.poly([[x - 18 * s, y - 2 * s], [x + 18 * s, y - 6 * s], [x + 18 * s, y - 2 * s], [x - 18 * s, y + 2 * s]]); [-8, -2, 4, 10].forEach(d => S.circle(x + d * s, y - 2 * s, 1.2 * s)); },
+  drum: (S, x, y, s) => { S.circle(x, y - 8 * s, 13 * s, false, 4 * s); S.line(x - 13 * s, y - 8 * s, x - 13 * s, y + 10 * s); S.line(x + 13 * s, y - 8 * s, x + 13 * s, y + 10 * s); S.arc(x, y + 10 * s, 13 * s, 4 * s, 0, Math.PI); S.line(x - 10 * s, y - 6 * s, x + 6 * s, y + 8 * s); },
+  instrument: (S, x, y, s) => ITEMART.lyre(S, x, y, s),
+  gem: (S, x, y, s) => S.gem(x, y - 2 * s, .9 * s),
+  roast: (S, x, y, s) => { S.circle(x, y + 8 * s, 18 * s, false, 5 * s); S.circle(x, y + 1 * s, 11 * s, 'rgba(122,75,22,.35)', 7 * s); S.steam(x - 6 * s, y - 12 * s); S.steam(x + 6 * s, y - 14 * s); },
+  biscuits: (S, x, y, s) => { S.circle(x, y + 8 * s, 18 * s, false, 5 * s); [-8, 0, 8].forEach(d => S.circle(x + d * s, y + 3 * s, 4 * s, true, 3 * s)); },
+  stew: (S, x, y, s) => { S.arc(x, y, 14 * s, 12 * s, 0, Math.PI); S.line(x - 14 * s, y, x + 14 * s, y); S.steam(x, y - 10 * s); },
+  meal: (S, x, y, s) => ITEMART.roast(S, x, y, s),
+  book: (S, x, y, s) => { S.poly([[x, y - 8 * s], [x - 16 * s, y - 12 * s], [x - 16 * s, y + 10 * s], [x, y + 14 * s]], '#fff8e8'); S.poly([[x, y - 8 * s], [x + 16 * s, y - 12 * s], [x + 16 * s, y + 10 * s], [x, y + 14 * s]], '#fff8e8'); for (let i = 0; i < 3; i++) { S.line(x - 13 * s, y - 6 * s + i * 6 * s, x - 3 * s, y - 4 * s + i * 6 * s); S.line(x + 3 * s, y - 4 * s + i * 6 * s, x + 13 * s, y - 6 * s + i * 6 * s); } },
+  scroll: (S, x, y, s) => { S.poly([[x - 12 * s, y - 12 * s], [x + 12 * s, y - 12 * s], [x + 12 * s, y + 12 * s], [x - 12 * s, y + 12 * s]], '#fff8e8'); S.circle(x - 12 * s, y, 3 * s, false, 13 * s); S.circle(x + 12 * s, y, 3 * s, false, 13 * s); },
+  mechanism: (S, x, y, s) => { for (const [dx, dy, rr] of [[-6, 2, 9], [9, -7, 6]]) { S.circle(x + dx * s, y + dy * s, rr * s); for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; S.line(x + dx * s + Math.cos(a) * rr * s, y + dy * s + Math.sin(a) * rr * s, x + dx * s + Math.cos(a) * (rr + 3) * s, y + dy * s + Math.sin(a) * (rr + 3) * s); } } },
+  splint: (S, x, y, s) => { [-4, 4].forEach(d => S.poly([[x + d * s - 2 * s, y - 16 * s], [x + d * s + 2 * s, y - 16 * s], [x + d * s + 2 * s, y + 16 * s], [x + d * s - 2 * s, y + 16 * s]])); [-8, 6].forEach(d => S.line(x - 7 * s, y + d * s, x + 7 * s, y + d * s)); },
+  crutch: (S, x, y, s) => { S.line(x - 3 * s, y + 18 * s, x - 3 * s, y - 10 * s); S.line(x + 3 * s, y + 18 * s, x + 3 * s, y - 10 * s); S.line(x - 7 * s, y - 14 * s, x + 7 * s, y - 14 * s); S.line(x - 3 * s, y - 10 * s, x - 7 * s, y - 14 * s); S.line(x + 3 * s, y - 10 * s, x + 7 * s, y - 14 * s); },
+  bucket: (S, x, y, s) => { S.poly([[x - 11 * s, y - 8 * s], [x + 11 * s, y - 8 * s], [x + 8 * s, y + 12 * s], [x - 8 * s, y + 12 * s]]); S.arc(x, y - 8 * s, 11 * s, 10 * s, Math.PI, Math.PI * 2); },
+  cage: (S, x, y, s) => { S.poly([[x - 13 * s, y + 14 * s], [x - 13 * s, y - 12 * s], [x + 13 * s, y - 12 * s], [x + 13 * s, y + 14 * s]]); [-6, 0, 6].forEach(d => S.line(x + d * s, y - 12 * s, x + d * s, y + 14 * s)); },
+  quern: (S, x, y, s) => { S.circle(x, y + 6 * s, 15 * s, true, 5 * s); S.circle(x, y - 2 * s, 15 * s, false, 5 * s); S.line(x + 8 * s, y - 4 * s, x + 10 * s, y - 14 * s); },
+  millstone: (S, x, y, s) => ITEMART.quern(S, x, y, s),
+  chain: (S, x, y, s) => { for (let i = 0; i < 5; i++) S.circle(x - 16 * s + i * 8 * s, y + (i % 2 ? 2 : -2) * s, 4 * s, false, 3 * s); },
+  anvil: (S, x, y, s) => S.anvil(x, y + 12 * s, 1.2 * s),
+  bolt_: (S, x, y, s) => { for (let i = 0; i < 4; i++) { const bx = x - 9 * s + i * 6 * s; S.line(bx, y + 14 * s, bx + 2 * s, y - 12 * s); S.poly([[bx, y - 12 * s], [bx + 2 * s, y - 17 * s], [bx + 4 * s, y - 12 * s]], true); } S.poly([[x - 12 * s, y + 16 * s], [x - 12 * s, y], [x + 12 * s, y], [x + 12 * s, y + 16 * s]], 'rgba(122,75,22,.25)'); },
+  hide: (S, x, y, s) => { S.poly([[x - 14 * s, y - 12 * s], [x - 6 * s, y - 16 * s], [x + 6 * s, y - 15 * s], [x + 15 * s, y - 10 * s], [x + 12 * s, y + 4 * s], [x + 16 * s, y + 14 * s], [x - 14 * s, y + 14 * s], [x - 11 * s, y + 2 * s]], 'rgba(122,75,22,.3)'); },
+  bars: (S, x, y, s) => { for (const [dx, dy] of [[-10, 8], [10, 8], [0, 0]]) S.poly([[x + dx * s - 9 * s, y + dy * s + 5 * s], [x + dx * s - 6 * s, y + dy * s - 3 * s], [x + dx * s + 6 * s, y + dy * s - 3 * s], [x + dx * s + 9 * s, y + dy * s + 5 * s]], 'rgba(230,199,90,.4)'); },
+  wrapped: (S, x, y, s) => { S.poly([[x - 14 * s, y + 16 * s], [x - 12 * s, y - 6 * s], [x - 4 * s, y - 16 * s], [x + 6 * s, y - 15 * s], [x + 13 * s, y - 4 * s], [x + 15 * s, y + 16 * s]], 'rgba(143,42,28,.15)'); S.text(x, y + 6 * s, '?', 14 * s); },
+};
+// the event's own item as a drawing: by its noun first, then by its category; anything unknown is drawn under a sheet
+const CATART = {cloth: 'bolt', clothing: 'shirt', weapon: 'sword', armor: 'helm', furniture: 'chair', container: 'barrel', drinkware: 'mug', jewelry: 'ring',
+  figurine: 'figurine', toy: 'toy', crafts: 'figurine', statue: 'statue', instrument: 'instrument', gem: 'gem', food: 'roast', book: 'book', tool: 'mechanism',
+  ammo: 'bolt_', leather: 'hide', metal: 'bars', drink: 'barrel'};
+const NOUNART = {'short sword': 'sword', 'long sword': 'sword', scimitar: 'sword', 'two-handed sword': 'sword', 'battle axe': 'axe', 'great axe': 'axe', pick: 'axe',
+  'war hammer': 'hammer', maul: 'hammer', morningstar: 'mace', flail: 'mace', pike: 'spear', halberd: 'spear', knife: 'dagger', scourge: 'whip', blowgun: 'flute',
+  helmet: 'helm', 'cap helm': 'helm', 'mail shirt': 'mail shirt', buckler: 'shield', 'high boot': 'boot', 'low boot': 'boot', shoe: 'boot', sandal: 'boot', mitten: 'gauntlet', glove: 'gauntlet',
+  robe: 'cloak', cape: 'cloak', coat: 'cloak', dress: 'cloak', toga: 'cloak', tunic: 'shirt', vest: 'shirt', skirt: 'trousers', loincloth: 'trousers', thong: 'trousers', braies: 'trousers', chausse: 'trousers',
+  cap: 'hood', hat: 'hood', headscarf: 'hood', turban: 'hood', veil: 'hood', mask: 'hood',
+  coffer: 'chest', box: 'chest', 'large pot': 'pot', jug: 'pot', flask: 'bag', waterskin: 'bag', vial: 'goblet', quiver: 'bag', backpack: 'bag', casket: 'coffin', sarcophagus: 'coffin',
+  'statue stand': 'figurine', pedestal: 'figurine', 'display case': 'cabinet', bookcase: 'cabinet', altar: 'table', 'traction bench': 'bed', floodgate: 'door', grate: 'hatch cover', window: 'door',
+  tankard: 'mug', chalice: 'goblet', idol: 'figurine', 'skull totem': 'totem', puzzlebox: 'chest', 'mini-forge': 'anvil', die: 'chest',
+  harp: 'lyre', zither: 'lyre', lute: 'lyre', fiddle: 'lyre', guitar: 'lyre', trumpet: 'flute', horn: 'flute', piccolo: 'flute', whistle: 'flute', ocarina: 'flute', panpipes: 'flute', bagpipe: 'flute',
+  bell: 'drum', gong: 'drum', cymbal: 'drum', tambourine: 'drum', rattle: 'drum', xylophone: 'drum',
+  biscuit: 'biscuits', soup: 'stew', pie: 'roast', cake: 'roast', bread: 'biscuits', sausage: 'roast', tart: 'roast', cheese: 'biscuits',
+  codex: 'book', quire: 'book', tome: 'book', manuscript: 'scroll', parchment: 'scroll', sheet: 'scroll',
+  mechanisms: 'mechanism', millstone: 'quern', wheelbarrow: 'bucket', 'animal trap': 'cage', 'nest box': 'bin', hive: 'bin', ladder: 'splint', stepladder: 'splint',
+  bolts: 'bolt_', bolt: 'bolt_', arrows: 'bolt_', arrow: 'bolt_', blowdart: 'bolt_', darts: 'bolt_', bar: 'bars', ingot: 'bars', nugget: 'bars', skin: 'hide', leather: 'hide'};
+function itemArtKey(fx) {
+  const f = fx.facts || new Set(), n = [...f].find(x => x.startsWith('n_')), base = n ? n.slice(2) : null;
+  const ph = fx.item ? itemPhrase(fx.item) : '', last = ph.split(' ').pop();
+  for (const k of [base, NOUNART[base], ph && NOUNART[ph.split(' ').slice(-2).join(' ')], NOUNART[last], last]) if (k && ITEMART[k]) return k;
+  const cat = [...f].find(x => CATART[x] && !x.startsWith('n_'));
+  return cat ? CATART[cat] : 'wrapped';
+}
+const drawItem = (S, x, y, s, fx) => ITEMART[itemArtKey(fx)](S, x, y, s);
+// a speech bubble at the top of the frame with a tail to the speaker's head
+function sayBubble(S, t, fromX, headY, x0 = 8) {
+  if (!t) return;
+  const lines = wrapText(t, 26).slice(0, 3), fs = 10, bw = Math.min(150, Math.max(...lines.map(l => l.length)) * fs * .52 + 14), bh = lines.length * (fs + 2) + 7;
+  const bx = Math.max(4, Math.min(236 - bw, x0)), by = 4;
+  S.raw(`<path d="M${Math.max(bx + 8, Math.min(bx + bw - 8, fromX)) - 5} ${by + bh - 1} L${Math.max(bx + 8, Math.min(bx + bw - 8, fromX)) + 5} ${by + bh - 1} L${fromX} ${Math.max(by + bh + 6, headY)} Z" fill="#fffaf0" stroke="#241c13" stroke-width="1"/>`);
+  S.raw(`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="6" fill="#fffaf0" stroke="#241c13" stroke-width="1.1"/>`);
+  S.raw(`<text font-family="Comic Sans MS, Segoe Print, cursive" font-size="${fs}" text-anchor="middle" fill="#241c13">${lines.map((l, n) => `<tspan x="${bx + bw / 2}" y="${by + fs + 2 + n * (fs + 2)}">${esc(l)}</tspan>`).join('')}</text>`);
+}
+// shared bits of scenery
+const SC = {
+  bench: (S, x, w = 50) => { S.line(x - w / 2, 104, x + w / 2, 104); S.line(x - w / 2 + 4, 104, x - w / 2 + 4, 128); S.line(x + w / 2 - 4, 104, x + w / 2 - 4, 128); },
+  loom: (S, x) => { S.poly([[x - 26, 128], [x - 26, 66], [x + 26, 66], [x + 26, 128]]); S.line(x - 26, 84, x + 26, 84); for (let i = -20; i <= 20; i += 5) S.line(x + i, 66, x + i, 112); S.poly([[x - 22, 96], [x + 22, 96], [x + 22, 112], [x - 22, 112]], true); },
+  forge: (S, x) => { S.poly([[x - 22, 128], [x - 22, 90], [x + 22, 90], [x + 22, 128]], true); S.poly([[x - 12, 128], [x - 12, 110], [x + 12, 110], [x + 12, 128]], '#241c13'); S.line(x + 8, 90, x + 8, 50); S.line(x + 18, 90, x + 18, 50); for (let i = 0; i < 3; i++) S.circle(x + 13 + i * 4, 44 - i * 8, 4 + i * 2, '#fff8e8'); },
+  flames: (S, x, y, n = 3, s = 1) => { for (let i = 0; i < n; i++) { const fx = x + (i - (n - 1) / 2) * 12 * s; S.poly([[fx - 6 * s, y], [fx - 4 * s, y - 12 * s], [fx, y - 22 * s], [fx + 3 * s, y - 11 * s], [fx + 6 * s, y]], 'rgba(230,140,40,.45)'); } },
+  waves: (S, y, x0 = 6, x1 = 234) => { for (let x = x0; x < x1; x += 18) S.arc(x + 9, y, 9, 4, Math.PI, Math.PI * 2); },
+  notes: (S, x, y) => { [[0, 0], [14, -10], [26, 2]].forEach(([dx, dy]) => { S.circle(x + dx, y + dy, 3, '#241c13', 2.2); S.line(x + dx + 3, y + dy, x + dx + 3, y + dy - 12); }); },
+  swirl: (S, x, y) => { S.arc(x, y, 14, 6, 0, Math.PI * 1.8); S.arc(x + 2, y - 2, 8, 3.5, Math.PI, Math.PI * 2.7); },
+  bolt: (S, x, y) => S.poly([[x, y], [x + 8, y + 14], [x + 2, y + 14], [x + 10, y + 30], [x - 4, y + 12], [x + 2, y + 12], [x - 6, y]], 'rgba(230,199,90,.6)'),
+  skull: (S, x, y, s = 1) => { S.circle(x, y, 8 * s, '#fff8e8', 7 * s); S.raw(`<circle cx="${x - 3 * s}" cy="${y}" r="${2 * s}" fill="#241c13"/><circle cx="${x + 3 * s}" cy="${y}" r="${2 * s}" fill="#241c13"/>`); S.line(x - 4 * s, y + 8 * s, x + 4 * s, y + 8 * s); },
+  bone: (S, x, y, s = 1, rot = 0) => { const c = Math.cos(rot), d = Math.sin(rot), p = (u, v) => [x + u * c - v * d, y + u * d + v * c]; S.line(...p(-10 * s, 0), ...p(10 * s, 0)); [[-10, -2], [-10, 2], [10, -2], [10, 2]].forEach(([u, v]) => S.circle(...p(u * s, v * s), 2.2 * s)); },
+  mushroom: (S, x, y, s = 1) => { S.line(x - 2 * s, y, x - 2 * s, y - 30 * s); S.line(x + 2 * s, y, x + 2 * s, y - 30 * s); S.arc(x, y - 30 * s, 16 * s, 10 * s, Math.PI, Math.PI * 2); S.line(x - 16 * s, y - 30 * s, x + 16 * s, y - 30 * s); },
+  wallStones: (S, x, w, h) => { S.poly([[x, 128], [x, 128 - h], [x + w, 128 - h], [x + w, 128]]); for (let yy = 128 - h + 14; yy < 128; yy += 14) S.line(x, yy, x + w, yy); },
+  sign: (S, x, y, t) => { const tw = Math.max(30, t.length * 6.4 + 10); S.poly([[x - tw / 2, y - 12], [x + tw / 2, y - 12], [x + tw / 2, y + 4], [x - tw / 2, y + 4]], '#f3e7c8'); S.text(x, y, t, 9); },
+  plate: (S, x, y) => S.circle(x, y, 16, false, 4),
+  cart: (S, x, y) => { S.poly([[x - 20, y - 8], [x + 20, y - 8], [x + 16, y - 26], [x - 16, y - 26]].map(([a, b]) => [a, b]), true); S.circle(x - 11, y - 4, 4); S.circle(x + 11, y - 4, 4); },
+  rays: (S, x, y, r1 = 26, r2 = 40) => { for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6; S.line(x + Math.cos(a) * r1, y + Math.sin(a) * r1, x + Math.cos(a) * r2, y + Math.sin(a) * r2); } },
+  crowd: (S, xs, s = .6) => xs.forEach(x => S.dwarf(x, 128, s, {})),
+};
+// the scenes: kinds = which events, fit = which facts (same rules as library entries), draw(S, t, fx, ev)
+// t.label is the arrow label, t.say the speech bubble; `hold` draws the event's own item in the maker's hand
+const MADE = [
+  {id: 'weaver', fit: ['cloth'], draw: (S, t, fx) => { SC.loom(S, 60); S.dwarf(140, 128, 1.1, {armsUp: true}); drawItem(S, 168, 66, 1.1, fx); S.label(205, 30, 175, 60, t.label || 'THE CLOTH'); sayBubble(S, t.say, 140, 70, 60); }},
+  {id: 'clothier', fit: ['clothing'], draw: (S, t, fx) => { S.line(60, 128, 60, 70); S.line(48, 128, 72, 128); S.circle(60, 64, 6); drawItem(S, 60, 86, 1.05, fx); S.dwarf(140, 128, 1.1, {armsUp: true}); S.label(26, 26, 54, 70, t.label || 'THE GARMENT'); sayBubble(S, t.say, 140, 70, 110); S.sparkles(60, 86, 26, 4); }},
+  {id: 'weaponsmith', fit: ['weapon'], draw: (S, t, fx) => { SC.forge(S, 40); S.anvil(110, 128, 1); S.dwarf(170, 128, 1.15, {armsUp: true}); drawItem(S, 192, 62, 1.1, fx); S.sparkles(192, 58, 22, 4); S.label(120, 30, 182, 50, t.label || 'THE BLADE'); sayBubble(S, t.say, 170, 68, 4); }},
+  {id: 'armorer', fit: ['armor'], draw: (S, t, fx) => { S.line(70, 128, 70, 64); S.line(58, 128, 82, 128); S.line(56, 76, 84, 76); drawItem(S, 70, 66, 1, fx); S.anvil(130, 128, .9); S.dwarf(185, 128, 1.1, {}); S.line(200, 100, 220, 90); S.label(30, 24, 62, 56, t.label || 'THE ARMOR'); sayBubble(S, t.say, 185, 70, 110); }},
+  {id: 'furniture', fit: ['furniture'], draw: (S, t, fx) => { drawItem(S, 80, 106, 1.5, fx); S.sparkles(80, 96, 34, 5); S.dwarf(170, 128, 1.1, {armsUp: true}); for (let i = 0; i < 5; i++) S.circle(110 + i * 9, 126, 1.6); S.label(30, 22, 66, 70, t.label || 'THE PIECE'); sayBubble(S, t.say, 170, 70, 110); }},
+  {id: 'container', fit: ['container'], draw: (S, t, fx) => { drawItem(S, 90, 108, 1.4, fx); S.dwarf(150, 128, 1.1, {}); S.line(135, 100, 108, 104); S.heart(108, 62, .7); S.label(40, 24, 82, 82, t.label || 'THE VESSEL'); sayBubble(S, t.say, 150, 70, 120); }},
+  {id: 'drinkware', fit: ['drinkware'], draw: (S, t, fx) => { S.table(120, 128, 1.6); S.dwarf(70, 128, 1.1, {armsUp: true}); drawItem(S, 88, 64, .9, fx); S.sparkles(88, 62, 18, 4); S.dwarf(175, 128, .9, {}); S.label(140, 26, 92, 54, t.label || 'THE CUP'); sayBubble(S, t.say, 70, 70, 4); }},
+  {id: 'jeweler', fit: ['jewelry'], draw: (S, t, fx) => { SC.bench(S, 70, 60); S.dwarf(160, 128, 1.1, {armsUp: true}); drawItem(S, 182, 62, 1, fx); S.sparkles(182, 60, 20, 5); S.gem(60, 98, .4); S.label(110, 24, 172, 54, t.label || 'THE JEWEL'); sayBubble(S, t.say, 160, 70, 4); }},
+  {id: 'trinket', fit: ['figurine', 'toy', 'crafts'], draw: (S, t, fx) => { SC.bench(S, 120, 80); drawItem(S, 120, 88, .9, fx); S.dwarf(60, 128, 1.1, {}); S.circle(80, 82, 6, '#fff8e8'); S.line(84, 86, 92, 94); S.dwarf(190, 128, .9, {}); S.label(170, 24, 126, 74, t.label || 'THE LITTLE ONE'); sayBubble(S, t.say, 60, 70, 4); }},
+  {id: 'sculptor', fit: ['statue'], draw: (S, t, fx) => { drawItem(S, 90, 100, 1.9, fx); S.dwarf(175, 128, 1.1, {}); S.line(190, 100, 204, 88); S.line(204, 88, 210, 82); for (let i = 0; i < 6; i++) S.circle(130 + S.r() * 30, 124 + S.r() * 3, 1.5); S.label(30, 22, 70, 52, t.label || 'THE LIKENESS'); sayBubble(S, t.say, 175, 70, 120); }},
+  {id: 'musician', fit: ['instrument'], draw: (S, t, fx) => { S.dwarf(100, 128, 1.15, {}); drawItem(S, 122, 100, .95, fx); SC.notes(S, 150, 50); S.dwarf(200, 128, .8, {armsUp: true}); S.dwarf(36, 128, .8, {}); S.label(190, 24, 132, 92, t.label || 'THE INSTRUMENT'); sayBubble(S, t.say, 100, 66, 4); }},
+  {id: 'gemcutter', fit: ['gem'], draw: (S, t, fx) => { SC.bench(S, 150, 70); S.gem(150, 86, 1.1); S.dwarf(70, 128, 1.15, {}); S.circle(92, 74, 7, '#fff8e8'); S.line(96, 79, 104, 88); S.label(200, 26, 160, 76, t.label || 'THE GEM'); sayBubble(S, t.say, 70, 66, 4); }},
+  {id: 'cook', fit: ['food'], draw: (S, t, fx) => { S.dwarf(80, 128, 1.15, {armsUp: true}); S.poly([[71, 66], [70, 54], [76, 50], [84, 50], [90, 54], [89, 66]], '#fff8e8'); drawItem(S, 112, 62, 1, fx); S.table(170, 128, 1.4); S.dwarf(190, 128, .8, {}); S.label(190, 24, 120, 52, t.label || 'THE DISH'); sayBubble(S, t.say, 80, 48, 4); }},
+  {id: 'brewer', fit: ['drink'], draw: (S, t, fx) => { S.barrel(80, 128, 1.8); S.line(98, 104, 108, 104); S.dwarf(160, 128, 1.1, {mug: true}); S.label(40, 24, 80, 86, t.label || 'THE BREW'); sayBubble(S, t.say, 160, 70, 110); }},
+  {id: 'scribe', fit: ['book'], draw: (S, t, fx) => { SC.bench(S, 70, 60); S.dwarf(150, 128, 1.15, {armsUp: true}); drawItem(S, 150, 50, 1, fx); S.line(60, 104, 66, 90); S.label(60, 30, 132, 50, t.label || 'THE BOOK'); }},
+  {id: 'mechanic', fit: ['tool'], draw: (S, t, fx) => { drawItem(S, 80, 100, 1.4, fx); S.dwarf(160, 128, 1.1, {}); S.line(175, 100, 190, 84); S.circle(192, 82, 3); S.label(36, 22, 74, 76, t.label || 'THE CONTRAPTION'); sayBubble(S, t.say, 160, 70, 110); }},
+  {id: 'fletcher', fit: ['ammo'], draw: (S, t, fx) => { drawItem(S, 70, 104, 1.3, fx); for (const r of [20, 13, 6]) S.circle(190, 80, r); S.line(170, 100, 190, 128); S.line(210, 100, 190, 128); S.line(150, 78, 184, 80); S.poly([[184, 77], [190, 80], [184, 83]]); S.label(120, 24, 76, 82, t.label || 'THE VOLLEY'); }},
+  {id: 'engraver', fit: ['engraving', 'construction'], draw: (S, t, fx) => { SC.wallStones(S, 20, 110, 96); S.dwarf(48, 116, .55, {armsUp: true}); S.circle(92, 66, 10); S.line(84, 58, 100, 74); S.dwarf(170, 128, 1.1, {}); S.line(156, 100, 136, 92); S.line(136, 92, 130, 90); S.label(200, 26, 92, 50, t.label || 'THE WALL'); sayBubble(S, t.say, 170, 70, 130); }},
+  {id: 'tanner', fit: ['leather'], draw: (S, t, fx) => { S.poly([[40, 128], [40, 60], [110, 60], [110, 128]]); drawItem(S, 75, 92, 1.7, fx); S.dwarf(170, 128, 1.1, {armsUp: true}); S.label(200, 26, 92, 76, t.label || 'THE HIDE'); }},
+  {id: 'smelter', fit: ['metal'], draw: (S, t, fx) => { SC.forge(S, 50); drawItem(S, 130, 112, 1.2, fx); S.dwarf(190, 128, 1.1, {armsUp: true}); S.label(150, 26, 130, 100, t.label || 'THE BARS'); }},
+  {id: 'unveiling', fit: [], draw: (S, t, fx) => { ITEMART.wrapped(S, 90, 100, 1.9); S.dwarf(170, 128, 1.1, {armsUp: true}); S.sparkles(90, 90, 40, 5); S.label(30, 22, 78, 64, t.label || 'UNDER WRAPS'); sayBubble(S, t.say, 170, 70, 110); }},
+];
+// an artifact gets the same workshop picture plus rays, a crowd and the name on a plaque
+const ARTIFACTS = MADE.map(m => ({id: 'art-' + m.id, kinds: ['artifact'], fit: m.fit, draw: (S, t, fx, ev) => {
+  m.draw(S, {...t, say: null}, fx, ev); SC.crowd(S, [16, 226], .55);
+  const nm = (clean(ev.text).match(/has (?:created|named) (.+?), an? /) || [])[1];
+  if (nm) { const tt = nm.length > 24 ? nm.slice(0, 23) + '…' : nm, w = tt.length * 5.6 + 14; S.raw(`<rect x="${120 - w / 2}" y="131" width="${w}" height="9" fill="#f3e7c8" stroke="#241c13" stroke-width=".8"/>`); S.text(120, 138.5, tt, 7.5); }
+  sayBubble(S, t.say, 16, 96, 4);
+}}));
+const SCENES = [
+  ...MADE.map(m => ({...m, kinds: ['master']})), ...ARTIFACTS,
+  // strange moods, by kind of mood
+  {id: 'mood-fey', kinds: ['mood'], fit: ['mood_fey'], draw: (S, t) => { S.workshop(170, 128, 1.1); S.dwarf(70, 128, 1.1, {armsUp: true}); S.sparkles(70, 70, 16, 4); S.text(98, 40, '!', 26); S.label(200, 24, 172, 70, t.label || 'MINE NOW'); sayBubble(S, t.say, 70, 66, 4); }},
+  {id: 'mood-secretive', kinds: ['mood'], fit: ['mood_secretive'], draw: (S, t) => { SC.wallStones(S, 120, 110, 100); SC.bone(S, 150, 60, .8); SC.skull(S, 192, 58, .8); S.gem(170, 96, .35); S.text(208, 98, '?', 14); S.dwarf(70, 128, 1.1, {}); S.line(85, 100, 118, 90); S.label(40, 24, 150, 54, t.label || 'THE SKETCHES'); }},
+  {id: 'mood-possessed', kinds: ['mood'], fit: ['mood_possessed'], draw: (S, t) => { S.dwarf(110, 118, 1.15, {armsUp: true}); SC.swirl(S, 110, 30); S.line(96, 124, 124, 124); S.line(100, 128, 120, 128); S.workshop(200, 128, .7); S.label(40, 24, 104, 30, t.label || 'UNKNOWN FORCES'); }},
+  {id: 'mood-macabre', kinds: ['mood'], fit: ['mood_macabre'], draw: (S, t) => { S.dwarf(100, 128, 1.1, {sad: true}); SC.skull(S, 150, 118); SC.bone(S, 175, 124, 1, .3); SC.bone(S, 60, 124, 1, -.4); S.circle(100, 30, 14, 'rgba(36,28,19,.25)'); S.label(200, 26, 152, 108, t.label || 'MATERIALS'); sayBubble(S, t.say, 100, 66, 4); }},
+  {id: 'mood-fell', kinds: ['mood'], fit: ['mood_fell'], draw: (S, t) => { S.dwarf(110, 128, 1.2, {armsUp: true}); SC.bolt(S, 40, 10); SC.bolt(S, 190, 14); S.text(160, 60, 'HA', 16); S.text(176, 82, 'HA', 12); S.label(40, 90, 96, 80, t.label || 'FELL MOOD'); }},
+  {id: 'mood-claim', kinds: ['mood'], fit: [], draw: (S, t) => { S.workshop(150, 128, 1.3); SC.sign(S, 150, 52, 'KEEP OUT'); S.dwarf(60, 128, 1.1, {}); S.text(86, 50, '?!', 14); S.label(210, 24, 176, 92, t.label || 'THE WORKSHOP'); sayBubble(S, t.say, 60, 66, 4); }},
+  // deaths, by cause
+  {id: 'death-funeral', kinds: ['death'], fit: [], draw: (S, t) => { S.coffin(120, 128, 1.3); S.dwarf(55, 128, 1, {sad: true, tears: true}); S.dwarf(185, 128, 1, {sad: true, tears: true}); S.text(120, 64, 'R.I.P.', 13); if (t.label) S.label(210, 22, 140, 90, t.label); }},
+  {id: 'death-thirst', kinds: ['death'], fit: ['die_thirst'], draw: (S, t) => { S.barrel(70, 128, 1.4); S.barrel(96, 128, 1.1); S.well(180, 128, 1); ITEMART.slab(S, 130, 112, 1.1); S.label(40, 22, 80, 96, t.label || 'DRINKS (UNDRUNK)'); }},
+  {id: 'death-hunger', kinds: ['death'], fit: ['die_hunger'], draw: (S, t) => { S.table(80, 128, 1.6); SC.plate(S, 80, 104); ITEMART.slab(S, 170, 112, 1.1); S.dwarf(214, 128, .8, {sad: true}); S.label(60, 30, 80, 98, t.label || 'EMPTY PLATE'); }},
+  {id: 'death-battle', kinds: ['death'], fit: ['die_combat', 'die_bleeding'], draw: (S, t) => { ITEMART.slab(S, 120, 110, 1.3); ITEMART.shield(S, 80, 116, .8); ITEMART.axe(S, 160, 108, 1); S.dwarf(205, 128, .9, {sad: true, tears: true}); S.label(40, 26, 112, 92, t.label || 'FELL WITH HONOUR'); }},
+  {id: 'death-drowning', kinds: ['death'], fit: ['die_drowning'], draw: (S, t) => { SC.waves(S, 104); SC.waves(S, 116, 20, 220); S.circle(110, 92, 3); S.circle(118, 84, 2); S.circle(104, 80, 2); ITEMART.slab(S, 205, 112, .9); S.label(50, 30, 110, 96, t.label || 'THE WATER'); }},
+  {id: 'death-vampire', kinds: ['death'], fit: ['die_vampire'], draw: (S, t) => { S.coffin(110, 128, 1.2); S.circle(180, 30, 12, 'rgba(36,28,19,.15)'); [[50, 40], [70, 30], [150, 44]].forEach(([x, y]) => { S.poly([[x - 10, y], [x - 4, y - 4], [x, y], [x + 4, y - 4], [x + 10, y], [x, y + 4]], '#241c13'); }); S.label(200, 70, 128, 96, t.label || 'NOT GARLIC'); }},
+  {id: 'death-collapse', kinds: ['death'], fit: ['die_collapse'], draw: (S, t) => { S.rocks(120, 70, 9); ITEMART.slab(S, 40, 112, 1); S.label(200, 26, 140, 80, t.label || 'THE CEILING'); }},
+  {id: 'death-fire', kinds: ['death'], fit: ['die_fire'], draw: (S, t) => { SC.flames(S, 100, 128, 4, 1.2); ITEMART.slab(S, 190, 112, 1); S.dwarf(40, 128, .8, {sad: true}); S.label(150, 26, 104, 104, t.label || 'TOO HOT'); }},
+  {id: 'death-fall', kinds: ['death'], fit: ['die_fall'], draw: (S, t) => { S.line(60, 10, 60, 128); S.line(60, 10, 110, 10); for (let i = 0; i < 4; i++) S.line(30, 30 + i * 20, 60, 30 + i * 20); ITEMART.slab(S, 140, 112, 1.1); S.motion(100, 40, 3); S.label(200, 26, 150, 96, t.label || 'A LONG WAY DOWN'); }},
+  {id: 'death-age', kinds: ['death'], fit: ['die_age'], draw: (S, t) => { ITEMART.chair(S, 70, 114, 1.4); ITEMART.slab(S, 150, 112, 1.1); S.text(150, 70, '★', 14); S.dwarf(205, 128, .85, {sad: true}); S.label(40, 26, 70, 90, t.label || 'THE OLD CHAIR'); }},
+  {id: 'death-sick', kinds: ['death'], fit: ['die_infection', 'die_suffocation'], draw: (S, t) => { S.bed(80, 128, 1.4); ITEMART.slab(S, 170, 112, 1.1); ITEMART.crutch(S, 120, 110, .9); S.label(40, 26, 80, 100, t.label || 'THE SICKBED'); }},
+  // pets
+  {id: 'pet-grave', kinds: ['pet'], fit: ['!die_slaughter'], draw: (S, t, fx) => { ITEMART.slab(S, 120, 116, .8); (fx.facts.has('sp_cat') ? S.cat : fx.facts.has('sp_dog') ? S.dog : S.cat)(70, 128, .8); S.circle(170, 126, 10, false, 3); S.dwarf(205, 128, .9, {sad: true, tears: true}); S.label(40, 26, 66, 104, t.label || 'GOOD ANIMAL'); }},
+  {id: 'pet-butcher', kinds: ['pet'], fit: ['die_slaughter'], draw: (S, t) => { S.table(110, 128, 1.6); for (let i = 0; i < 4; i++) S.circle(92 + i * 12, 106, 5, 'rgba(143,42,28,.3)', 3); S.dwarf(180, 128, 1.1, {}); S.poly([[194, 98], [212, 92], [214, 100], [196, 104]], true); S.line(194, 104, 188, 112); S.label(40, 26, 100, 100, t.label || 'SUPPER'); }},
+  // strikes and discoveries, by what was found
+  {id: 'strike-gem', kinds: ['strike'], fit: ['gem'], draw: (S, t) => { SC.wallStones(S, 130, 104, 110); S.gem(178, 66, 1.2); S.dwarf(70, 128, 1.1, {pick: true, armsUp: true}); S.label(110, 22, 168, 54, t.label || 'GEM'); }},
+  {id: 'strike-ore', kinds: ['strike'], fit: ['ore'], draw: (S, t) => { SC.wallStones(S, 130, 104, 110); for (let i = 0; i < 4; i++) S.line(140, 40 + i * 18, 230, 30 + i * 22); SC.cart(S, 100, 128); S.dwarf(50, 128, 1.1, {pick: true, armsUp: true}); S.label(110, 18, 180, 50, t.label || 'ORE'); }},
+  {id: 'strike-coal', kinds: ['strike'], fit: ['coal'], draw: (S, t) => { SC.wallStones(S, 130, 104, 110); for (let i = 0; i < 6; i++) S.circle(150 + S.r() * 70, 50 + S.r() * 60, 6, '#241c13'); S.dwarf(70, 128, 1.1, {pick: true, armsUp: true}); SC.flames(S, 112, 128, 1, .8); S.label(110, 18, 170, 60, t.label || 'FUEL'); }},
+  {id: 'strike-stone', kinds: ['strike'], fit: ['stone'], draw: (S, t) => { S.circle(165, 98, 30, true, 28); S.dwarf(70, 128, 1.1, {pick: true}); S.label(110, 22, 160, 70, t.label || 'ROCK (GOOD)'); }},
+  {id: 'strike-cavern', kinds: ['strike'], fit: ['cavern'], draw: (S, t) => { S.poly([[120, 128], [120, 30], [236, 30], [236, 128]], 'rgba(36,28,19,.3)'); SC.mushroom(S, 160, 128, 1); SC.mushroom(S, 205, 128, .7); S.dwarf(70, 128, 1.1, {}); S.text(96, 50, '?', 16); S.label(200, 18, 170, 60, t.label || 'THE DEEP'); }},
+  {id: 'strike-magma', kinds: ['strike'], fit: ['magma'], draw: (S, t) => { S.poly([[110, 128], [120, 112], [230, 112], [236, 128]], 'rgba(230,110,30,.5)'); SC.flames(S, 170, 112, 3, .7); S.dwarf(60, 128, 1.1, {armsUp: true}); S.motion(40, 90, 3); S.label(170, 30, 170, 104, t.label || 'MAGMA (HOT)'); }},
+  {id: 'strike-other', kinds: ['strike'], fit: [], draw: (S, t) => { S.dwarf(70, 128, 1.1, {pick: true, armsUp: true}); S.gem(170, 85, 1.6); S.label(200, 22, 175, 58, t.label || 'THE FIND'); }},
+];
+// the older single drawings stay as each kind's fallback scene (siege, beast, migrants, caravan, birth...)
+for (const k of KINDS) if (!SCENES.some(s => s.kinds.includes(k.k))) SCENES.push({id: 'k-' + k.k, kinds: [k.k], fit: [], draw: S => k.draw(S)});
+// most specific scene that fits the facts (a noun beats a category, a category beats "crafts"/"wearable", anything beats
+// a generic scene); a deterministic pick among equals so one event always gets one drawing
+function sceneScore(sc, facts) {
+  const par = new Set(Object.values((LIB.itemcats || {}).parents || {}));
+  let best = 0;
+  for (const t of sc.fit || []) if (t[0] !== '!' && facts.has(t)) best = Math.max(best, t.startsWith('n_') ? 3 : par.has(t) ? 1 : 2);
+  return best;
+}
+function pickScene(ev, k, fx, r) {
+  const c = SCENES.filter(s => s.kinds.includes(k.k) && fits({fit: s.fit}, fx.facts));
+  if (!c.length) return null;
+  const sc = c.map(s => [s, sceneScore(s, fx.facts)]), best = Math.max(...sc.map(x => x[1])), top = sc.filter(x => x[1] === best).map(x => x[0]);
+  return top[Math.floor(r() * top.length)];
+}
+// the scene's own words: headline (scene or kind), caption and labels (the scene's only: they describe this drawing)
+function sceneText(sc, ev, k, fx, ctx, r, extra) {
+  const L = (LIB.scenes || {})[sc.id] || {}, ids = [];
+  const pk = list => { const e = choose1(list, ctx, r, extra); if (e) ids.push(e.id); const x = e ? T(e) : null; return x ? x[0].toUpperCase() + x.slice(1) : null; };   // "emerald, as it..." -> "Emerald, as it..."
+  return {head: pk(L.heads), cap: pk(L.caps), label: pk(L.labels), say: pk(L.says), ids};
+}
+// ==SCENES-END==
 const evText = {};
 function eventText(ev, k) {   // headline/caption/report/arrow label for one event, picked once and reused
   if (evText[ev.id]) return evText[ev.id];
-  const L = (LIB.kinds || {})[k.k] || {}, r = rng(ev.id * 17 + 3), ctx = context(r), ids = [];
-  const who = evWho(ev), fx = evFacts(ev), extra = {who, first: who ? who.split(' ')[0] : null, event: clean(ev.text), item: fx.item, _facts: fx.facts};
+  const L = (LIB.kinds || {})[k.k] || {}, r = rng(ev.id * 17 + 3), ctx = context(r), ids = [], t0 = clean(ev.text);
+  const who = evWho(ev), fx = evFacts(ev);
+  // a mood's workshop is announced separately ("has claimed a Clothier's Shop"): borrow it from the storyline
+  if (k.k === 'mood' && memLoaded) { const A = (mem().arcs || {}).mood; if (A && A.shop && who && A.name === who) fx.facts.add('shop_' + A.shop); }
+  const m = t0.match(/^[^,]+,\s*(.+?) (?:has|is|withdraws|begins|looses)\b/), art = t0.match(/has (?:created|named) (.+?), an? /);
+  const extra = {who, first: who ? who.split(' ')[0] : null, event: t0, item: fx.item || null, art: art ? art[1] : null,
+    prof: m ? m[1].toLowerCase() : null, shop: (t0.match(/has claimed an? (.+?)\.?$/) || [])[1] || null,
+    mineral: ((t0.match(/struck (.+?)!/) || [])[1] || '').replace(/^(some|an?) /, '') || null, _facts: fx.facts};
   const pk = (list, dflt) => { const e = choose1(list, ctx, r, extra); if (e) ids.push(e.id); return e ? T(e) : dflt; };
-  const t = {head: pk(L.heads, k.head), cap: pk(L.caps, k.cap), rep: pk(L.reps, k.rep), label: pk(L.labels, null), kicker: pk(L.kickers, '')};
+  // the drawing comes first: picture, caption and label are written for it; the headline may be the scene's or the kind's
+  const sc = pickScene(ev, k, fx, rng(ev.id * 29 + 1)), st = sc ? sceneText(sc, ev, k, fx, ctx, r, extra) : {ids: []};
+  ids.push(...st.ids);
+  const head = st.head && r() < .6 ? st.head : pk(L.heads, st.head || k.head);
+  // a speech bubble or an arrow label, never both (they share the top of the frame)
+  const say = st.say && r() < .5 ? st.say : null;
+  const t = {head, cap: st.cap || 'Drawn by our sketch artist from eyewitness accounts.', rep: pk(L.reps, k.rep), label: say ? null : st.label, say,
+    kicker: pk(L.kickers, ''), scene: sc, facts: fx};
   markSeen(ids);
   return evText[ev.id] = t;
 }
 function drawEvent(ev, w, h) {
   const k = kindOf(ev); if (!k) return null;
-  const t = eventText(ev, k), sk = Sketch((ev.id || 1) * 31 + 7, w, h);
-  sk.labelText = t.label; k.draw(sk);
+  const t = eventText(ev, k), sk = extend(Sketch((ev.id || 1) * 31 + 7, w, h));
+  if (t.scene && !t.scene.id.startsWith('k-')) { sk.labelText = null; if (t.say) sk.label = () => {}; sk.ground(128); t.scene.draw(sk, t, t.facts, ev); }
+  else { sk.labelText = t.label; k.draw(sk); }
   return {k, t, svg: sk.svg()};
 }
 function portrait(d) {   // courtroom-sketch style portrait of the interviewee
@@ -1373,13 +1615,18 @@ function stripHtml(st, seed) {
 function gagHtml(gg, seed) {
   return `<div class="item gag"><div class="kick">Cartoon</div><div class="panel">${drawPanel(gg.panel || {}, seed, 160, 120)}</div><p class="gag-cap">${esc(gg.caption)}</p></div>`;
 }
+let funniesEv = null;   // the event the Funny Pages drew, so the fold doesn't draw it again on the same page
 function cardFunnies() {
   if (!LIB.strips || !LIB.strips.length) return null;
   const r = rng(Date.now() / 1000 | 0), ctx = context(r);
-  const strips = choose(LIB.strips, ctx, r, 3); if (!strips.length) return null;
+  // the lead panel is the sketch artist's pre-drawn scene for the latest big news, its words tailored to that event
+  let lead = ''; funniesEv = null;
+  const ev = (S.big || []).find(e => e.id !== breakingOn && kindOf(e));
+  if (ev) { const res = drawEvent(ev, 240, 140); if (res) { funniesEv = ev.id; lead = `<div class="strip"><div class="strip-title">From Our Sketch Artist: ${esc(res.t.head)}</div><div style="width:74%;margin:0 auto">${res.svg}</div><div class="deck" style="font-size:11px;text-align:center;margin:1px 0 4px">${esc(res.t.cap)}</div></div>`; } }
+  const strips = choose(LIB.strips, ctx, r, lead ? 2 : 3); if (!strips.length && !lead) return null;
   markSeen(strips.map(s => s.id));
   return `<div class="kicker"><span>The Funny Pages</span><span>${esc(pick(r, ['Sunday Edition', 'Colour Supplement (Colour Not Included)', 'Drawn By Hand, Mostly', 'For Readers Of All Ages Over 12']))}</span></div>
-    ${strips.map((s, i) => stripHtml(s, (Date.now() / 1000 | 0) + i * 101)).join('')}`;
+    ${lead}${strips.map((s, i) => stripHtml(s, (Date.now() / 1000 | 0) + i * 101)).join('')}`;
 }
 
 // ---------- pastimes: horoscopes, puzzles, advice, recipes, quiz ----------
@@ -1869,7 +2116,7 @@ function fillers(r) {
   const tv = choose1(LIB.trivia, ctx, r);
   if (tv) put(tv.id, `<div class="item"><div class="kick">On This Day</div><p class="just">${esc(T(tv))}</p></div>`);
   // our sketch artist: recent big events and a portrait of today's interviewee
-  for (const ev of (S.big || []).filter(e => e.id !== breakingOn).slice(0, 2)) {
+  for (const ev of (S.big || []).filter(e => e.id !== breakingOn && !(cardIdx === 1 && e.id === funniesEv)).slice(0, 2)) {
     const res = drawEvent(ev, 240, 140); if (!res) continue;
     put([], `<div class="item"><div class="kick">From Our Sketch Artist</div><h3>${esc(res.t.head)}</h3>${res.svg}<p class="just" style="font-style:italic;font-size:10px;margin-top:2px">${esc(clean(ev.text))} ${esc(res.t.cap)}</p></div>`);
   }
