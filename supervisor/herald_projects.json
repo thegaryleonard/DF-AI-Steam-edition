@@ -1,5 +1,10 @@
 [
  {
+  "title": "The Foreign Office",
+  "state": "complete",
+  "note": "Two messengers now carry the fort's letters abroad. First stop: The Fatal Empire, where our envoy made contact and opened trade."
+ },
+ {
   "title": "The Indoor Pasture",
   "state": "complete",
   "note": "The herd now lives indoors under the hills, grazing on cave moss, out of the rain and away from ambushes."
@@ -27,7 +32,7 @@
  {
   "title": "Where Is the Caravan?",
   "state": "under way",
-  "note": "No Mountainhome caravan has come since year 126. The engineers are checking the roads, the depot and the diplomatic mail."
+  "note": "The trade office now gives merchants a generous deal so the Mountainhome caravans come back, and our messengers ride out to open trade with the humans, elves and other dwarves."
  },
  {
   "title": "Goods the Mountainhomes Want",

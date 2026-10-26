@@ -33,7 +33,7 @@ if not exist build\\build.ninja (
     -DBUILD_STONESENSE:BOOL=OFF -DBUILD_DOCS:BOOL=OFF -DBUILD_TESTS:BOOL=OFF -DBUILD_DFLAUNCH:BOOL=OFF || exit /b 1
 )
 cmake -S . -B build -DPERL_EXECUTABLE=$PERL >nul || exit /b 1
-ninja -C build df-ai dfai_portrait || exit /b 1
+ninja -C build df-ai dfai_portrait dfai_missions || exit /b 1
 EOF
 cmd /c "$BAT"
 DLL=$(find "$DFHACK/build" -name 'df-ai.plug.dll' | head -1)
@@ -56,6 +56,14 @@ if [ "${1:-}" = install ]; then
     [ -f "${PDLL%.dll}.pdb" ] && cp "${PDLL%.dll}.pdb" "$DF/hack/plugins/"
     cp "$DFAI/portrait/dfai_portrait.lua" "$DF/hack/lua/plugins/"
     "$RUN" load dfai_portrait
+  fi
+  # the missions helper: only copied, never hot-swapped while a call could run
+  MDLL=$(find "$DFHACK/build" -name 'dfai_missions.plug.dll' | head -1)
+  if [ -n "$MDLL" ]; then
+    "$RUN" unload dfai_missions >/dev/null 2>&1 || true
+    cp "$MDLL" "$DF/hack/plugins/"
+    [ -f "${MDLL%.dll}.pdb" ] && cp "${MDLL%.dll}.pdb" "$DF/hack/plugins/"
+    "$RUN" load dfai_missions
   fi
   echo "installed and enabled"
 fi

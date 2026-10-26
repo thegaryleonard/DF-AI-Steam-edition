@@ -7,6 +7,7 @@
 Only the current fort counts: df-ai.log is read from its last "Planning
 complete!" line.
 """
+import json
 import re
 from collections import Counter
 from pathlib import Path
@@ -126,6 +127,39 @@ def liaison():
     return meets[-3:]
 
 
+def foreign():
+    """The foreign office's log (dfai-foreign-office.lua), current fort only."""
+    try:
+        d = json.load(open(DF / "dfhack-config" / "dfai-foreign.json", encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    try:
+        site = json.load(open(HERE / "last_site.json", encoding="utf-8")).get("site_id")
+    except (OSError, ValueError):
+        site = None
+    if site is not None and d.get("site_id") not in (site, -1):
+        return []
+    out = []
+    for e in d.get("log", [])[-6:]:
+        t = re.sub(r"\s+", " ", e.get("text", ""))
+        item = {"year": e.get("year"), "text": t}
+        m = re.match(r"(.+?) set out for (.+?) to (open|improve) trade with (.+?)\.$", t)
+        if m:
+            item.update(kind="left", who=m.group(1), site=m.group(2), topic=m.group(3), civ=m.group(4))
+        m = re.search(r"made contact with (.+?) at (.+?)\.", t)
+        if m:
+            item.update(kind="contact", civ=m.group(1), site=m.group(2))
+        m = re.search(r"The proposal was (.+?)\.", t)
+        if m:
+            item.setdefault("kind", "result")
+            item["result"] = m.group(1)
+        m = re.match(r"(.+?), messenger has returned", t)
+        if m:
+            item["who"] = m.group(1)
+        out.append(item)
+    return out
+
+
 def game_year():
     for l in reversed(_tail(DF / "df-ai.log", 20000)):
         m = DATE.match(l)
@@ -139,7 +173,7 @@ def feed():
         tr = trades()
         year, month = game_year()
         last = max((t["year"] for t in tr if t.get("year")), default=None)
-        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(),
+        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(), "foreign": foreign(),
                 "year": year, "month": month, "last_trade_year": last}
     except Exception as e:      # never break the paper over a log quirk
         return {"ok": False, "error": repr(e)}

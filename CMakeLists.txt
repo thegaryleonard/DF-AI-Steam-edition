@@ -126,6 +126,9 @@ DFHACK_PLUGIN(df-ai ${PROJECT_SRCS} LINK_LIBRARIES ${PROJECT_LIBS} COMPILE_FLAGS
 
 # DF's own unit portraits for the stream broadsheet (version-specific; see portrait/dfai_portrait.cpp)
 DFHACK_PLUGIN(dfai_portrait portrait/dfai_portrait.cpp COMPILE_FLAGS_MSVC "/W3 /WX-")
+# Hands-off world missions (tribute demands, messengers) for the stream fort's
+# foreign office (version-specific; see missions/NOTES.md)
+DFHACK_PLUGIN(dfai_missions missions/dfai_missions.cpp COMPILE_FLAGS_MSVC "/W3 /WX-")
 if(MSVC)
     # ship a PDB so DF/DFHack crash logs and dumps can be symbolized
     target_compile_options(df-ai PRIVATE /Zi)

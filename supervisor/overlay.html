@@ -2294,6 +2294,22 @@ function tradeItems(ctx, r) {
     out.push({ids: ['trade-overdue-' + TR.year], html: `<div class="item"><div class="kick">Caravan Watch</div><h3>Mountainhome Caravan Overdue</h3>
       <p class="just">No caravan has reached the depot since the autumn of ${TR.last_trade_year}${gap > 1 ? `, ${gap} autumns in a row` : ''}. The broker has taken to standing at the depot anyway, staring at the horizon. Theories at the tavern range from bandits to bad roads to a very long lunch.</p></div>`});
   }
+  // the foreign office: envoys leaving and coming home
+  const fo = (TR.foreign || []);
+  const back = fo.filter(f => f.kind === 'contact' || f.kind === 'result').slice(-1)[0];
+  const gone = fo.filter(f => f.kind === 'left').slice(-2);
+  if (back) {
+    const good = /success/.test(back.result || '');
+    const head = back.kind === 'contact' ? `Contact Made With ${cap(clean(back.civ || 'Foreigners'))}` : (good ? 'Envoy Returns Triumphant' : 'Envoy Returns Empty-Handed');
+    const body = back.kind === 'contact'
+      ? `Our messenger ${esc(clean(back.who || ''))} has come home from ${esc(clean(back.site || 'abroad'))}, where the fort made first contact with ${esc(clean(back.civ || 'a foreign power'))} and proposed open trade. The proposal was ${esc(back.result || 'received')}. Their caravans may now find the road to our depot.`
+      : `Our messenger ${esc(clean(back.who || ''))} is back. The proposal was ${esc(back.result || 'heard')}.`;
+    out.push({ids: ['foreign-back-' + back.year + (back.civ || '')], html: `<div class="item"><div class="kick">The Foreign Office</div><h3>${esc(head)}</h3><p class="just">${body}</p></div>`});
+  }
+  if (gone.length) {
+    const lines = gone.map(g => `${esc(clean(g.who))} rides for ${esc(clean(g.site))} to ${esc(g.topic)} trade with ${esc(clean(g.civ))}.`).join(' ');
+    out.push({ids: ['foreign-gone-' + gone.map(g => g.site).join()], html: `<div class="item"><div class="kick">Diplomatic Pouch · Envoys Abroad</div><p class="just">${lines} The broker has been told to tidy the depot, just in case.</p></div>`});
+  }
   const li = (TR.liaison || []).slice(-1)[0];
   if (li && li.wants) {
     const who = li.who ? clean(li.who.replace(/^outpost liaison /, '')) : 'The outpost liaison';
