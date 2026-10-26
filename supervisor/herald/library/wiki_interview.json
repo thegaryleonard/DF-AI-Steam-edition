@@ -1,0 +1,446 @@
+{
+ "questions": {
+  "job": [
+   {
+    "id": "wk-iq-job-001",
+    "text": "Is it true you'd rather be doing something other than {job}?"
+   },
+   {
+    "id": "wk-iq-job-002",
+    "text": "With {soldiers} soldiers on the rota, do you ever get drafted into the drills?",
+    "when": [
+     "army_big"
+    ]
+   },
+   {
+    "id": "wk-iq-job-003",
+    "text": "The caverns are open below us. Do you ever go down?",
+    "when": [
+     "caverns"
+    ]
+   }
+  ],
+  "mood": [
+   {
+    "id": "wk-iq-mood-001",
+    "text": "The whole fort is waiting on the {moody_shop}. How are you holding up?",
+    "when": [
+     "mood_open"
+    ]
+   },
+   {
+    "id": "wk-iq-mood-002",
+    "text": "Have you seen {artifact_new} yet?",
+    "when": [
+     "mood_done"
+    ]
+   },
+   {
+    "id": "wk-iq-mood-003",
+    "text": "How has the fort been since {lastdead} died?",
+    "when": [
+     "death_week"
+    ]
+   },
+   {
+    "id": "wk-iq-mood-004",
+    "text": "Has the rain reached your mood yet?",
+    "when": [
+     "rain"
+    ]
+   }
+  ],
+  "complaint": [
+   {
+    "id": "wk-iq-comp-001",
+    "text": "Too many cats, or not enough?",
+    "when": [
+     "cats_many"
+    ]
+   },
+   {
+    "id": "wk-iq-comp-002",
+    "text": "What do you make of the great thread mountain?",
+    "when": [
+     "thread_glut"
+    ]
+   },
+   {
+    "id": "wk-iq-comp-003",
+    "text": "Is it the same old booze again?",
+    "when": [
+     "drinks_ok"
+    ]
+   },
+   {
+    "id": "wk-iq-comp-004",
+    "text": "How is the fort managing on so little food?",
+    "when": [
+     "food_low"
+    ]
+   }
+  ],
+  "last": [
+   {
+    "id": "wk-iq-last-001",
+    "text": "Any message for {artifact_maker}?",
+    "when": [
+     "mood_done"
+    ]
+   },
+   {
+    "id": "wk-iq-last-002",
+    "text": "Any advice for the newcomers?",
+    "when": [
+     "migrants_week"
+    ]
+   },
+   {
+    "id": "wk-iq-last-003",
+    "text": "Anything you'd say to {enemy}, if they were reading?",
+    "when": [
+     "at_war"
+    ]
+   }
+  ]
+ },
+ "answers": {
+  "mood_happy": [
+   {
+    "id": "wk-ia-mhap-001",
+    "text": "Happy. I prayed, I ate at a table, I drank something new. A dwarf with nothing unmet is a dwarf who works well."
+   },
+   {
+    "id": "wk-ia-mhap-002",
+    "text": "Happy. {artifact_new} is ours. I have seen it twice.",
+    "when": [
+     "mood_done"
+    ]
+   }
+  ],
+  "mood_ecstatic": [
+   {
+    "id": "wk-ia-mecs-001",
+    "text": "Never better. I have friends, a god, a drink and a job I'm good at. That's all of the list."
+   },
+   {
+    "id": "wk-ia-mecs-002",
+    "text": "Ecstatic. The fort made a legend this month and I was in the crowd.",
+    "when": [
+     "artifact_week"
+    ]
+   }
+  ],
+  "mood_content": [
+   {
+    "id": "wk-ia-mcon-001",
+    "text": "Content. Nothing wrong that a good meal and a new kind of drink wouldn't fix."
+   },
+   {
+    "id": "wk-ia-mcon-002",
+    "text": "Content, though the rain is very loud on the surface even from down here. I am lying. I can't hear it at all.",
+    "when": [
+     "rain"
+    ]
+   },
+   {
+    "id": "wk-ia-mcon-003",
+    "text": "Content. Waiting, like everyone, to see what comes out of the {moody_shop}.",
+    "when": [
+     "mood_open"
+    ]
+   }
+  ],
+  "mood_stressed": [
+   {
+    "id": "wk-ia-mstr-001",
+    "text": "Stressed. I haven't prayed or talked to a friend in days, and I can feel the focus going."
+   },
+   {
+    "id": "wk-ia-mstr-002",
+    "text": "Stressed. Since {lastdead} died I can't settle.",
+    "when": [
+     "death_week"
+    ]
+   },
+   {
+    "id": "wk-ia-mstr-003",
+    "text": "Stressed. We are at war with {enemy}, and nobody will tell me what that means for supper.",
+    "when": [
+     "at_war"
+    ]
+   }
+  ],
+  "mood_very_stressed": [
+   {
+    "id": "wk-ia-mvst-001",
+    "text": "Very bad. Haggard and drawn, the doctor says. I need a drink, a friend and a week off."
+   },
+   {
+    "id": "wk-ia-mvst-002",
+    "text": "Terrible. The stores are almost empty and I can count my meals on one hand.",
+    "when": [
+     "food_low"
+    ]
+   }
+  ],
+  "mood_breaking": [
+   {
+    "id": "wk-ia-mbrk-001",
+    "text": "Close to the edge. If I break something this week, I would like the record to show I warned you first."
+   }
+  ],
+  "deity": [
+   {
+    "id": "wk-ia-deity-001",
+    "text": "I pray to {deity}. A dwarf who needs to pray and can't is a dwarf who works badly."
+   },
+   {
+    "id": "wk-ia-deity-002",
+    "text": "I pray to {deity} at the temple, when the performers aren't using it.",
+    "when": [
+     "has_temple"
+    ]
+   }
+  ],
+  "signoff": [
+   {
+    "id": "wk-ia-sign-001",
+    "text": "Drink something different this week. It helps."
+   },
+   {
+    "id": "wk-ia-sign-002",
+    "text": "Bury your dead. Engrave a slab. Sleep well.",
+    "when": [
+     "death_week"
+    ]
+   },
+   {
+    "id": "wk-ia-sign-003",
+    "text": "Bring the moody dwarf what they ask for.",
+    "when": [
+     "mood_open"
+    ]
+   },
+   {
+    "id": "wk-ia-sign-004",
+    "text": "Go and see {artifact_new} before the queue gets longer.",
+    "when": [
+     "mood_done"
+    ]
+   },
+   {
+    "id": "wk-ia-sign-005",
+    "text": "Keep the cavern doors shut.",
+    "when": [
+     "caverns"
+    ]
+   },
+   {
+    "id": "wk-ia-sign-006",
+    "text": "Don't feed the cats. They don't need it.",
+    "when": [
+     "cats_many"
+    ]
+   }
+  ]
+ },
+ "thoughts": {
+  "drink": {
+   "good": [
+    {
+     "id": "wk-it-dr-g-001",
+     "text": "A new drink at last. I was getting tired of the same old booze."
+    },
+    {
+     "id": "wk-it-dr-g-002",
+     "text": "Five mugs from one plump helmet, and I had two of them."
+    }
+   ],
+   "bad": [
+    {
+     "id": "wk-it-dr-b-001",
+     "text": "The same wine again. And again. A dwarf needs variety."
+    },
+    {
+     "id": "wk-it-dr-b-002",
+     "text": "Water. They gave me water. I'm not in the hospital."
+    }
+   ]
+  },
+  "food": {
+   "good": [
+    {
+     "id": "wk-it-fd-g-001",
+     "text": "A roast with three things I like in it. One meal, three favourites."
+    },
+    {
+     "id": "wk-it-fd-g-002",
+     "text": "Cheese, fresh from the farmer's workshop. I'd vote for whoever made it."
+    }
+   ],
+   "bad": [
+    {
+     "id": "wk-it-fd-b-001",
+     "text": "Raw plump helmet on the stairs again."
+    },
+    {
+     "id": "wk-it-fd-b-002",
+     "text": "Quarry bush leaves, raw. Never again."
+    }
+   ]
+  },
+  "prayer": {
+   "good": [
+    {
+     "id": "wk-it-pr-g-001",
+     "text": "Prayed at the temple. My head is clearer than it's been all season."
+    }
+   ],
+   "bad": [
+    {
+     "id": "wk-it-pr-b-001",
+     "text": "Haven't prayed in weeks. I can feel my focus slipping."
+    }
+   ]
+  },
+  "art": {
+   "good": [
+    {
+     "id": "wk-it-ar-g-001",
+     "text": "Saw a masterwork today. A good one makes the whole day better."
+    },
+    {
+     "id": "wk-it-ar-g-002",
+     "text": "Stood in front of the artifact for an hour. Worth it."
+    }
+   ],
+   "bad": [
+    {
+     "id": "wk-it-ar-b-001",
+     "text": "Someone broke a masterwork. Its maker hasn't spoken since."
+    }
+   ]
+  },
+  "animals": {
+   "good": [
+    {
+     "id": "wk-it-an-g-001",
+     "text": "A cat chose me. I didn't ask, but I'm honoured."
+    },
+    {
+     "id": "wk-it-an-g-002",
+     "text": "Watched the herd grazing moss in the pasture. Very peaceful."
+    }
+   ],
+   "bad": [
+    {
+     "id": "wk-it-an-b-001",
+     "text": "A pet died. The slab is small but I'll visit it."
+    }
+   ]
+  },
+  "combat": {
+   "good": [
+    {
+     "id": "wk-it-cb-g-001",
+     "text": "A good spar at the barracks. On rota this month and glad of it."
+    }
+   ],
+   "bad": [
+    {
+     "id": "wk-it-cb-b-001",
+     "text": "Saw a fight I couldn't stop. Still hear it."
+    }
+   ]
+  },
+  "unmet_need": {
+   "good": [
+    {
+     "id": "wk-it-un-g-001",
+     "text": "Finally made something with my own hands. That itch is scratched."
+    }
+   ],
+   "bad": [
+    {
+     "id": "wk-it-un-b-001",
+     "text": "I need to make something, talk to someone, pray, anything. My focus is shot."
+    },
+    {
+     "id": "wk-it-un-b-002",
+     "text": "Haven't seen my family in a month. It's wearing me down."
+    }
+   ]
+  },
+  "lonely": {
+   "bad": [
+    {
+     "id": "wk-it-lo-b-001",
+     "text": "Haven't talked to a friend in days. The tavern is right there and I keep walking past it."
+    }
+   ]
+  },
+  "bored": {
+   "bad": [
+    {
+     "id": "wk-it-bo-b-001",
+     "text": "Nothing exciting has happened in ages. I'd welcome a crundle."
+    }
+   ]
+  },
+  "death": {
+   "bad": [
+    {
+     "id": "wk-it-de-b-001",
+     "text": "Saw a body that hadn't been buried. That's how ghosts start."
+    },
+    {
+     "id": "wk-it-de-b-002",
+     "text": "Lost a friend. Grief doesn't haul itself away."
+    }
+   ]
+  },
+  "miasma": {
+   "bad": [
+    {
+     "id": "wk-it-mi-b-001",
+     "text": "Walked through miasma on the way to work. Somebody forgot something rotten."
+    }
+   ]
+  },
+  "skill": {
+   "good": [
+    {
+     "id": "wk-it-sk-g-001",
+     "text": "Getting better at my trade every day. One day, a masterwork."
+    }
+   ]
+  },
+  "sleep": {
+   "bad": [
+    {
+     "id": "wk-it-sl-b-001",
+     "text": "Slept on the floor. The barracks were full of the off-rota squad."
+    }
+   ]
+  },
+  "trade": {
+   "good": [
+    {
+     "id": "wk-it-tr-g-001",
+     "text": "Saw the caravan come in. Wagons, animals, and somebody else's gossip."
+    }
+   ]
+  }
+ },
+ "decks": [
+  {
+   "id": "wk-ideck-001",
+   "text": "{dwarf}, {age}, the fort's {prof}, gave the Herald five minutes between jobs and spent four of them on the subject of drink variety."
+  },
+  {
+   "id": "wk-ideck-002",
+   "text": "We caught up with {dwarf}, {prof}, {age}, on the way to {job}, and asked what the fort is really talking about."
+  }
+ ]
+}
