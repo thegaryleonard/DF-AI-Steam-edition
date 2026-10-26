@@ -22,6 +22,9 @@ ARC = {"lastdead", "lastdead_prof", "lastdead_cause", "lastdead_ago", "moody", "
        "meat", "fish", "eggs", "leather", "depth", "cavern_depth", "squads", "soldiers", "caravan_civ", "fort_days"}
 LORE |= ARC
 BASE |= LORE; IV |= LORE; BK |= LORE; RUMOR |= LORE; POL |= LORE; OG |= LORE
+# the topic-keyed Society Pages interview (library qa/qa_decks; filled by ivFacts() in overlay.html)
+QA = IV | set("a_prof a_prof_cap pop doing squad milskill trade_level skill_noun trade_title a_trade_title a_trade_title_cap deity2 kin2 child kids kids_cap "
+              "drinks thread herd meals".split())
 CONDS = set("has_past_fort at_war no_meat drinks_high drinks_low rain snow clear pop_big pop_small dogs_many cats farms_many stone_glut wood_low gems recent_death "
             "recent_mood recent_masterpiece recent_strike recent_promotion recent_migrants recent_caravan spring summer autumn winter "
             "peace food_low food_ok food_high drinks_ok has_meat meat_low no_fish has_eggs cats_many herd_big herd_small thread_glut cloth_ok "
@@ -90,7 +93,7 @@ def check_panel(p, sid):
 
 
 for k, v in lib.items():
-    allowed = IV if k in ("thoughts", "questions", "answers", "decks", "idle_decks") else BK if k in ("kinds", "scenes") else RUMOR if k in ("rumors", "briefs", "depot_gossip", "pouch", "pouch_heads") else POL if k in ("order_ads", "recruit_ads", "vacancy_ads", "local", "military", "world", "columns") else OG if k in ("stories", "counters", "followups") else BASE
+    allowed = QA if k in ("qa", "qa_decks") else IV if k in ("thoughts", "questions", "answers", "decks", "idle_decks") else BK if k in ("kinds", "scenes") else RUMOR if k in ("rumors", "briefs", "depot_gossip", "pouch", "pouch_heads") else POL if k in ("order_ads", "recruit_ads", "vacancy_ads", "local", "military", "world", "columns") else OG if k in ("stories", "counters", "followups") else BASE
     walk(v, k, allowed)
 for k in lib.get("followon", {}):
     if k not in ARCKEYS: problems.append(f"followon: unknown storyline {k}")

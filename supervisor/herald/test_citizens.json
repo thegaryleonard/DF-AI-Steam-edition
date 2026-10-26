@@ -1,0 +1,6787 @@
+[ {
+	"age": 39,
+	"born": 90,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Olin Ringmatches",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Kel Openedlabors",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "The Snarling Summer",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 418,
+	"job": "Fill pond",
+	"male": true,
+	"name": "Ingish Delersanád \"Steelmornings\", Administrator",
+	"needs": [ "AcquireObject", "BeWithFriends", "BeExtravagant", "CraftObject" ],
+	"profession": "Administrator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 28,
+		"name": "Observer"
+	}, {
+		"level": 18,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 9,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 88",
+	"stress": -10160,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 35,
+	"born": 95,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Sibrek Wallcolumn",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Cog Tamedseals",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 558,
+	"job": "Pickup equipment",
+	"male": false,
+	"name": "Feb Mengrithlut \"Lashwaxed\", Bard",
+	"needs": [ "CraftObject", "BeWithFriends", "AcquireObject", "Fight" ],
+	"profession": "Bard",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 8,
+		"name": "Dodger"
+	}, {
+		"level": 6,
+		"name": "Discipline"
+	}, {
+		"level": 5,
+		"name": "Concentration"
+	}, {
+		"level": 5,
+		"name": "Student"
+	}, {
+		"level": 4,
+		"name": "Fighter"
+	} ],
+	"squad": "Squad 89",
+	"stress": -17647,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 49,
+	"born": 80,
+	"citizen": true,
+	"family": [ {
+		"alive": false,
+		"name": "Fikod Dikewater",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Kadol Paddledents",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	}, {
+		"alive": false,
+		"name": "Lida Sweetnessmine",
+		"relation": "MASTER"
+	}, {
+		"alive": true,
+		"name": "Nil Craftwheels",
+		"relation": "LOVER"
+	}, {
+		"alive": true,
+		"name": "Nil Craftwheels",
+		"relation": "LOVER"
+	} ],
+	"hungry": false,
+	"id": 884,
+	"job": "Pen/pasture a large animal",
+	"male": true,
+	"name": "Urist Ikalakrul \"Healertin\", Herbalist",
+	"needs": [ "BeWithFriends", "AcquireObject", "Pray to Ast Kûbukliruk Vutram Kezat", "HelpSomebody" ],
+	"profession": "Herbalist",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 36,
+		"name": "Observer"
+	}, {
+		"level": 25,
+		"name": "Herbalist"
+	}, {
+		"level": 22,
+		"name": "Discipline"
+	}, {
+		"level": 17,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 85",
+	"stress": -35383,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "GaveWater",
+		"emotion": "CARING",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 45,
+	"born": 85,
+	"citizen": true,
+	"family": [ {
+		"alive": false,
+		"name": "Olin Wisepulley",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Avuz Goldwarm",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Tosid Cradleescorts the Rampart of Safety",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Isram the Mellow",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Sinsot Judgescorch",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "The Future Seed",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "The Boulder of Diamond",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Madush Hailedtaker the Climactic",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 1482,
+	"job": "Store item in stockpile",
+	"male": true,
+	"name": "Unib Såkzulîgam \"Trumpetgorge\", chief medical dwarf",
+	"needs": [ "MartialTraining", "CraftObject", "Fight", "PracticeSkill" ],
+	"profession": "chief medical dwarf",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 6,
+		"name": "Stonecutter"
+	}, {
+		"level": 3,
+		"name": "Musician"
+	}, {
+		"level": 2,
+		"name": "Singer"
+	}, {
+		"level": 2,
+		"name": "Intimidator"
+	}, {
+		"level": 1,
+		"name": "Grower"
+	} ],
+	"stress": -5277,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 49,
+	"born": 80,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Sarvesh Handvaults",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Geshud Fencetheater",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Urist Healertin",
+		"relation": "LOVER"
+	}, {
+		"alive": true,
+		"name": "Urist Healertin",
+		"relation": "LOVER"
+	}, {
+		"alive": false,
+		"name": "Zuntîr Heldmetal",
+		"relation": "SPOUSE"
+	} ],
+	"hungry": false,
+	"id": 1499,
+	"job": "Idle",
+	"male": false,
+	"name": "Nil Rigòthkol \"Craftwheels\", militia commander",
+	"needs": [ "CraftObject", "BeWithFriends", "AcquireObject", "Pray to Amith" ],
+	"profession": "militia commander",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 11,
+		"name": "Observer"
+	}, {
+		"level": 8,
+		"name": "Dodger"
+	}, {
+		"level": 6,
+		"name": "Discipline"
+	}, {
+		"level": 5,
+		"name": "Student"
+	}, {
+		"level": 5,
+		"name": "Teacher"
+	} ],
+	"squad": "Squad 86",
+	"stress": -17103,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Prayer",
+		"emotion": "WONDER",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 51,
+	"born": 78,
+	"citizen": true,
+	"family": [ {
+		"alive": false,
+		"name": "Zulban Spreadrags",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Lòr Wheelsblows",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	}, {
+		"alive": false,
+		"name": "Solon Wanderedattic",
+		"relation": "LOVER"
+	}, {
+		"alive": false,
+		"name": "Mörul Anklebanner",
+		"relation": "LOVER"
+	}, {
+		"alive": false,
+		"name": "Solon Wanderedattic",
+		"relation": "LOVER"
+	}, {
+		"alive": false,
+		"name": "Mörul Anklebanner",
+		"relation": "LOVER"
+	} ],
+	"hungry": false,
+	"id": 1563,
+	"job": "Idle",
+	"male": false,
+	"name": "Mosus Keskalvod \"Shotsounded\", Scholar",
+	"needs": [ "AcquireObject", "Pray to Ast Kûbukliruk Vutram Kezat", "EatGoodMeal", "TakeItEasy" ],
+	"profession": "Scholar",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 8,
+		"name": "Dodger"
+	}, {
+		"level": 6,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Student"
+	}, {
+		"level": 6,
+		"name": "Concentration"
+	}, {
+		"level": 5,
+		"name": "Observer"
+	} ],
+	"squad": "Squad 86",
+	"stress": -10682,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 55,
+	"born": 74,
+	"citizen": true,
+	"family": [ {
+		"alive": false,
+		"name": "Zulban Spreadrags",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Lòr Wheelsblows",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Feb Lashwaxed",
+		"relation": "CHILD"
+	}, {
+		"alive": true,
+		"name": "Datan Netgirders",
+		"relation": "CHILD"
+	}, {
+		"alive": true,
+		"name": "Alåth Ropeheal",
+		"relation": "CHILD"
+	}, {
+		"alive": true,
+		"name": "èrith Honorcloistered",
+		"relation": "CHILD"
+	}, {
+		"alive": true,
+		"name": "Sibrek Wallcolumn",
+		"relation": "LOVER"
+	}, {
+		"alive": true,
+		"name": "Sibrek Wallcolumn",
+		"relation": "LOVER"
+	} ],
+	"hungry": false,
+	"id": 1567,
+	"job": "Idle",
+	"male": true,
+	"name": "Cog ôsusturvad \"Tamedseals\", Scholar",
+	"needs": [ "Pray to Ast Kûbukliruk Vutram Kezat", "Pray to Omtäl Noramsobìr", "AcquireObject", "TakeItEasy" ],
+	"profession": "Scholar",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 10,
+		"name": "Observer"
+	}, {
+		"level": 7,
+		"name": "Dodger"
+	}, {
+		"level": 6,
+		"name": "Concentration"
+	}, {
+		"level": 6,
+		"name": "Student"
+	}, {
+		"level": 6,
+		"name": "Discipline"
+	} ],
+	"squad": "Squad 86",
+	"stress": 3922,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "DiscussTopic",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "WearItem",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 43,
+	"born": 86,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "ònul Hallcalmed",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Kogan Atticpage",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Tosid Cradleescorts the Rampart of Safety",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ertal",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Isram the Mellow",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Idräth",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Rîthol Rulenewt",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Sinsot Judgescorch",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Assar the Playful",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "The Sweltering Spark",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Madush Hailedtaker the Climactic",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 1646,
+	"job": "Idle",
+	"male": true,
+	"name": "Zutthan Letmoszokun \"Cobaltsieges\", Elite Wrestler",
+	"needs": [ "CraftObject", "AcquireObject", "BeWithFriends", "Pray to Lolum" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 27,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Striker"
+	}, {
+		"level": 9,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 87",
+	"stress": -17575,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Spar",
+		"emotion": "PLEASURE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 66,
+	"born": 64,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 2371,
+	"job": "Idle",
+	"male": false,
+	"name": "Cog Aristcerol \"Assaultlens\", Miner",
+	"needs": [ "BeWithFriends", "AcquireObject", "BeExtravagant", "CraftObject" ],
+	"profession": "Miner",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 24,
+		"name": "Observer"
+	}, {
+		"level": 20,
+		"name": "Miner"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Mechanic"
+	} ],
+	"squad": "Squad 88",
+	"stress": -17050,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 82,
+	"born": 47,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 2454,
+	"job": "Plant seeds",
+	"male": false,
+	"name": "ïteb Konosanam \"Brassaged\", Planter",
+	"needs": [ "BeWithFriends", "BeExtravagant", "AcquireObject", "Excitement" ],
+	"profession": "Planter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 22,
+		"name": "Grower"
+	}, {
+		"level": 12,
+		"name": "Gem Setter"
+	}, {
+		"level": 8,
+		"name": "Stonecutter"
+	}, {
+		"level": 7,
+		"name": "Dodger"
+	}, {
+		"level": 6,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 86",
+	"stress": 2528,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Argument",
+		"emotion": "RESENTMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 55,
+	"born": 74,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ustuth Dustlabors",
+		"relation": "SPOUSE"
+	}, {
+		"alive": true,
+		"name": "Zutthan Clappedkeys",
+		"relation": "CHILD"
+	} ],
+	"hungry": false,
+	"id": 2455,
+	"job": "Get provisions",
+	"male": false,
+	"name": "Nish Zuntîrtarem \"Anvilfates\", Leatherworker",
+	"needs": [ "BeWithFriends", "AcquireObject", "CraftObject", "Excitement" ],
+	"profession": "Leatherworker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 22,
+		"name": "Leatherworker"
+	}, {
+		"level": 16,
+		"name": "Grower"
+	}, {
+		"level": 12,
+		"name": "Carpenter"
+	}, {
+		"level": 7,
+		"name": "Dodger"
+	}, {
+		"level": 7,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 86",
+	"stress": -17756,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "WearItem",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "WearItem",
+		"emotion": "PLEASURE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 52,
+	"born": 78,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Nish Anvilfates",
+		"relation": "SPOUSE"
+	}, {
+		"alive": true,
+		"name": "Zutthan Clappedkeys",
+		"relation": "CHILD"
+	} ],
+	"hungry": false,
+	"id": 2456,
+	"job": "Idle",
+	"male": true,
+	"name": "Ustuth Veshèrith \"Dustlabors\", Miner",
+	"needs": [ "AcquireObject", "MartialTraining", "CraftObject", "BeWithFriends" ],
+	"profession": "Miner",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 20,
+		"name": "Miner"
+	}, {
+		"level": 6,
+		"name": "Stonecutter"
+	}, {
+		"level": 6,
+		"name": "Grower"
+	}, {
+		"level": 4,
+		"name": "Mechanic"
+	}, {
+		"level": 4,
+		"name": "Musician"
+	} ],
+	"stress": -97425,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "GAIETY",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 61,
+	"born": 68,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5325,
+	"job": "Plant seeds",
+	"male": false,
+	"name": "èzum Atîsudil \"Stakelanterns\", manager",
+	"needs": [ "BeExtravagant", "MartialTraining", "HelpSomebody", "CraftObject" ],
+	"profession": "manager",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 40,
+		"name": "Organizer"
+	}, {
+		"level": 25,
+		"name": "Miner"
+	}, {
+		"level": 16,
+		"name": "Grower"
+	}, {
+		"level": 3,
+		"name": "Appraiser"
+	}, {
+		"level": 1,
+		"name": "Judge of Intent"
+	} ],
+	"stress": -17172,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "AdmireBuilding",
+		"emotion": "INTEREST",
+		"strength": 10
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 58,
+	"born": 71,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5327,
+	"job": "Idle",
+	"male": true,
+	"name": "Zuntîr Uzolteling \"Oilcoasts\", bookkeeper",
+	"needs": [ "CraftObject", "AcquireObject", "MartialTraining", "BeCreative" ],
+	"profession": "bookkeeper",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 12,
+		"name": "Grower"
+	}, {
+		"level": 7,
+		"name": "Carpenter"
+	}, {
+		"level": 6,
+		"name": "Stonecutter"
+	}, {
+		"level": 6,
+		"name": "Record Keeper"
+	}, {
+		"level": 3,
+		"name": "Wood Cutter"
+	} ],
+	"stress": -7693,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 52,
+	"born": 77,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5328,
+	"job": "Plant seeds",
+	"male": false,
+	"name": "Dastot Regkôn \"Glovedmasters\", broker",
+	"needs": [ "CraftObject", "MartialTraining", "BeExtravagant", "AcquireObject" ],
+	"profession": "broker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 20,
+		"name": "Grower"
+	}, {
+		"level": 4,
+		"name": "Gem Cutter"
+	}, {
+		"level": 4,
+		"name": "Metal Crafter"
+	}, {
+		"level": 3,
+		"name": "Intimidator"
+	}, {
+		"level": 2,
+		"name": "Musician"
+	} ],
+	"stress": 16776,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 48,
+	"born": 82,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5330,
+	"job": "Idle",
+	"male": true,
+	"name": "Lorbam Rigòthodgúb \"Craftmob\", Stonecutter",
+	"needs": [ "AcquireObject", "BeExtravagant", "CraftObject" ],
+	"profession": "Stonecutter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 36,
+		"name": "Stonecutter"
+	}, {
+		"level": 34,
+		"name": "Observer"
+	}, {
+		"level": 19,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 85",
+	"stress": -16682,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "TeachSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Argument",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Rain",
+		"emotion": "ANNOYANCE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 43,
+	"born": 86,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5331,
+	"job": "Idle",
+	"male": true,
+	"name": "Kivish Umerrimtar \"Blushcastle\", mayor",
+	"needs": [ "AcquireObject", "CraftObject", "MartialTraining", "BeExtravagant" ],
+	"profession": "mayor",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 13,
+		"name": "Consoler"
+	}, {
+		"level": 9,
+		"name": "Negotiator"
+	}, {
+		"level": 9,
+		"name": "Persuader"
+	}, {
+		"level": 9,
+		"name": "Pacifier"
+	}, {
+		"level": 8,
+		"name": "Comedian"
+	} ],
+	"stress": 17514,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "DiscussProblems",
+		"emotion": "RELIEF",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "WORRY",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 50,
+	"born": 79,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "The Sweltering Spark",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Melbil Dyehoisted",
+		"relation": "SPOUSE"
+	}, {
+		"alive": true,
+		"name": "Kulet Ochreheated",
+		"relation": "CHILD"
+	}, {
+		"alive": true,
+		"name": "Udib Clearlances",
+		"relation": "CHILD"
+	} ],
+	"hungry": false,
+	"id": 5539,
+	"job": "Idle",
+	"male": false,
+	"name": "Inod Onshenunib \"Chantedrags\", Woodcrafter",
+	"needs": [ "AcquireObject", "CraftObject", "Pray to Kêshshakîbmat", "BeWithFriends" ],
+	"profession": "Woodcrafter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 13,
+		"name": "Wood Crafter"
+	}, {
+		"level": 9,
+		"name": "Dodger"
+	}, {
+		"level": 7,
+		"name": "Discipline"
+	}, {
+		"level": 7,
+		"name": "Intimidator"
+	}, {
+		"level": 6,
+		"name": "Student"
+	} ],
+	"squad": "Squad 89",
+	"stress": -100000,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 29,
+	"born": 100,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Inod Chantedrags",
+		"relation": "SPOUSE"
+	}, {
+		"alive": true,
+		"name": "Kulet Ochreheated",
+		"relation": "CHILD"
+	}, {
+		"alive": true,
+		"name": "Udib Clearlances",
+		"relation": "CHILD"
+	} ],
+	"hungry": false,
+	"id": 5540,
+	"job": "Idle",
+	"male": true,
+	"name": "Melbil Atírlilum \"Dyehoisted\", Stonecutter",
+	"needs": [ "AcquireObject", "CraftObject", "Fight", "EatGoodMeal" ],
+	"profession": "Stonecutter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 33,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Striker"
+	}, {
+		"level": 8,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 85",
+	"stress": -87140,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "SpouseGaveBirth",
+		"emotion": "AMBIVALENCE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 62,
+	"born": 68,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5543,
+	"job": "Idle",
+	"male": false,
+	"name": "Atír Uzolaval \"Oilloves\", captain of the guard",
+	"needs": [ "AcquireObject", "BeWithFriends", "EatGoodMeal" ],
+	"profession": "captain of the guard",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 36,
+		"name": "Observer"
+	}, {
+		"level": 20,
+		"name": "Discipline"
+	}, {
+		"level": 18,
+		"name": "Fighter"
+	}, {
+		"level": 14,
+		"name": "Striker"
+	}, {
+		"level": 9,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 85",
+	"stress": -84065,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 54,
+	"born": 75,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5602,
+	"job": "Idle",
+	"male": true,
+	"name": "Olon Tâmolast \"Saviorsabre\", Stonecutter",
+	"needs": [ "CraftObject", "AcquireObject", "AdmireArt", "Fight" ],
+	"profession": "Stonecutter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 12,
+		"name": "Dodger"
+	}, {
+		"level": 10,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Concentration"
+	}, {
+		"level": 6,
+		"name": "Student"
+	}, {
+		"level": 6,
+		"name": "Stonecutter"
+	} ],
+	"squad": "Squad 89",
+	"stress": -36536,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 64,
+	"born": 65,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5603,
+	"job": "Idle",
+	"male": true,
+	"name": "Litast Identusung \"Paddledconjures\", hammerer",
+	"needs": [ "AcquireObject", "MartialTraining", "Fight", "CraftObject" ],
+	"profession": "hammerer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 8,
+		"name": "Stonecutter"
+	}, {
+		"level": 5,
+		"name": "Consoler"
+	}, {
+		"level": 4,
+		"name": "Comedian"
+	}, {
+		"level": 4,
+		"name": "Musician"
+	}, {
+		"level": 4,
+		"name": "Persuader"
+	} ],
+	"stress": -48060,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 63,
+	"born": 66,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5604,
+	"job": "Idle",
+	"male": true,
+	"name": "Tosid Ríbarmedtob \"Homageblockade\", Gem Setter",
+	"needs": [ "CraftObject", "HelpSomebody" ],
+	"profession": "Gem Setter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 33,
+		"name": "Observer"
+	}, {
+		"level": 18,
+		"name": "Gem Setter"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 85",
+	"stress": -17525,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WatchPerform",
+		"emotion": "BOREDOM",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 35,
+	"born": 94,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5606,
+	"job": "Idle",
+	"male": true,
+	"name": "Medtob Mafolalak \"Chamberace\", Stonecutter",
+	"needs": [ "Wander", "EatGoodMeal", "HelpSomebody" ],
+	"profession": "Stonecutter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 34,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Striker"
+	}, {
+		"level": 9,
+		"name": "Stonecutter"
+	} ],
+	"squad": "Squad 85",
+	"stress": -37506,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 66,
+	"born": 63,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5607,
+	"job": "Idle",
+	"male": false,
+	"name": "Kikrost Bomrekish \"Whipbar\", Carpenter",
+	"needs": [ "AcquireObject", "Wander" ],
+	"profession": "Carpenter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 34,
+		"name": "Observer"
+	}, {
+		"level": 22,
+		"name": "Carpenter"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Axeman"
+	} ],
+	"squad": "Squad 85",
+	"stress": -16662,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 36,
+	"born": 94,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5608,
+	"job": "Idle",
+	"male": false,
+	"name": "Iden Kûbukmes \"Lancedcreatures\", Stonecutter",
+	"needs": [ "CraftObject", "AcquireObject" ],
+	"profession": "Stonecutter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 35,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	}, {
+		"level": 8,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 85",
+	"stress": -17518,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 0,
+	"born": 130,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Uzol Pulleypaths",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Moldath Touchedrags",
+		"relation": "FATHER"
+	} ],
+	"hungry": false,
+	"id": 6240,
+	"job": "Idle",
+	"male": false,
+	"name": "Thob Amnekonol \"Tributemountains\", Dwarven Baby",
+	"needs": [],
+	"profession": "Dwarven Baby",
+	"race": "dwarf",
+	"skills": [],
+	"strange_mood": "Baby",
+	"stress": -960,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 0,
+	"born": 130,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Nil Practicedstake",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Mosus Lensinked",
+		"relation": "FATHER"
+	} ],
+	"hungry": false,
+	"id": 6241,
+	"job": "Idle",
+	"male": true,
+	"name": "Dakost Thobdakas \"Girdercolor\", Dwarven Baby",
+	"needs": [],
+	"profession": "Dwarven Baby",
+	"race": "dwarf",
+	"skills": [],
+	"strange_mood": "Baby",
+	"stress": 3540,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Miasma",
+		"emotion": "DISGUST",
+		"strength": 0
+	}, {
+		"about": "Rain",
+		"emotion": "GROUCHINESS",
+		"strength": 0
+	}, {
+		"about": "Rain",
+		"emotion": "GROUCHINESS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 5,
+	"born": 124,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "The Sweltering Spark",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Inod Chantedrags",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Melbil Dyehoisted",
+		"relation": "FATHER"
+	} ],
+	"hungry": false,
+	"id": 5687,
+	"job": "Idle",
+	"male": true,
+	"name": "Kulet Nokimvúsh \"Ochreheated\", Dwarven Child",
+	"needs": [],
+	"profession": "Dwarven Child",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 3,
+		"name": "Grower"
+	} ],
+	"stress": -100000,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "PlayToy",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 42,
+	"born": 88,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5743,
+	"job": "Prepare lavish meal",
+	"male": true,
+	"name": "Obok Alåthrath \"Boltstemples\", Cook",
+	"needs": [ "AcquireObject", "BeWithFriends", "BeExtravagant", "Excitement" ],
+	"profession": "Cook",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 24,
+		"name": "Observer"
+	}, {
+		"level": 12,
+		"name": "Cook"
+	}, {
+		"level": 9,
+		"name": "Dodger"
+	}, {
+		"level": 7,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 86",
+	"stress": 3030,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 56,
+	"born": 74,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5744,
+	"job": "Idle",
+	"male": true,
+	"name": "Iden Lenshamudib \"Densyrups\", Animal Caretaker",
+	"needs": [ "CraftObject", "AcquireObject", "EatGoodMeal", "Pray to Dalem Rafum Tenshed" ],
+	"profession": "Animal Caretaker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 25,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Axeman"
+	}, {
+		"level": 7,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 88",
+	"stress": -86920,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 29,
+	"born": 100,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5746,
+	"job": "Idle",
+	"male": false,
+	"name": "Alåth Asdûgalåth \"Drumbolt\", Cook",
+	"needs": [ "AcquireObject", "BeWithFriends", "Fight", "CraftObject" ],
+	"profession": "Cook",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 33,
+		"name": "Observer"
+	}, {
+		"level": 11,
+		"name": "Dodger"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Student"
+	}, {
+		"level": 6,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 86",
+	"stress": -68642,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 58,
+	"born": 71,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5747,
+	"job": "Sleep",
+	"male": true,
+	"name": "Shem Ishenthîkut \"Passionbooks\", Administrator",
+	"needs": [ "AcquireObject", "CraftObject", "EatGoodMeal", "HelpSomebody" ],
+	"profession": "Administrator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 88",
+	"stress": -21679,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "IntellectualDiscussion",
+		"emotion": "EXHILARATION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 38,
+	"born": 92,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5750,
+	"job": "Idle",
+	"male": false,
+	"name": "èrith Libashlocun \"Axerose\", Cheesemaker",
+	"needs": [ "AcquireObject", "BeExtravagant", "Wander", "Excitement" ],
+	"profession": "Cheesemaker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 24,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Axeman"
+	}, {
+		"level": 6,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 88",
+	"stress": -36905,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 63,
+	"born": 67,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5753,
+	"job": "Idle",
+	"male": true,
+	"name": "Mistêm Mozibzefon \"Swallowfountain\", Elite Wrestler",
+	"needs": [ "MakeRomance", "CraftObject", "AcquireObject", "Pray to Dalem Rafum Tenshed" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 31,
+		"name": "Observer"
+	}, {
+		"level": 21,
+		"name": "Discipline"
+	}, {
+		"level": 18,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	}, {
+		"level": 11,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 87",
+	"stress": -18326,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 43,
+	"born": 87,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5756,
+	"job": "Idle",
+	"male": false,
+	"name": "ïteb Sigunrab \"Tourglows\", Elite Wrestler",
+	"needs": [ "AcquireObject", "CraftObject", "EatGoodMeal" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 30,
+		"name": "Observer"
+	}, {
+		"level": 18,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 13,
+		"name": "Student"
+	}, {
+		"level": 13,
+		"name": "Potter"
+	} ],
+	"squad": "Squad 87",
+	"stress": -17562,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "LearnBook",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "ReadBook",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "LearnBook",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "ReadBook",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "LearnTopic",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "GoodMeal",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "DiscussOthersProblems",
+		"emotion": "EMPATHY",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 63,
+	"born": 66,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5757,
+	"job": "Idle",
+	"male": true,
+	"name": "Tekkud Rovodlensham \"Archden\", Elite Wrestler",
+	"needs": [ "AcquireObject", "CraftObject", "EatGoodMeal", "BeWithFriends" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 28,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	}, {
+		"level": 8,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 87",
+	"stress": -7196,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 26,
+	"born": 103,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5758,
+	"job": "Idle",
+	"male": false,
+	"name": "Erib Fikoddum \"Glazemouths\", Elite Wrestler",
+	"needs": [ "BeWithFriends", "MakeMerry", "TakeItEasy", "HelpSomebody" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 30,
+		"name": "Observer"
+	}, {
+		"level": 22,
+		"name": "Bone Carver"
+	}, {
+		"level": 19,
+		"name": "Grower"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	} ],
+	"squad": "Squad 87",
+	"stress": -17759,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 36,
+	"born": 93,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5759,
+	"job": "Idle",
+	"male": false,
+	"name": "Cerol Kolison \"Wheelsplan\", Scholar",
+	"needs": [ "CraftObject", "AcquireObject", "TakeItEasy", "StayOccupied" ],
+	"profession": "Scholar",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 30,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Engraver"
+	}, {
+		"level": 10,
+		"name": "Dodger"
+	}, {
+		"level": 8,
+		"name": "Discipline"
+	}, {
+		"level": 5,
+		"name": "Student"
+	} ],
+	"squad": "Squad 86",
+	"stress": -17580,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 46,
+	"born": 83,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Goden Brassmatched",
+		"relation": "SPOUSE"
+	} ],
+	"hungry": false,
+	"id": 5762,
+	"job": "Idle",
+	"male": false,
+	"name": "Domas Zithiskol \"Meshwheels\", Wrestler",
+	"needs": [ "AcquireObject", "CraftObject", "Wander", "BeCreative" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 29,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 8,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 87",
+	"stress": -17629,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WearItem",
+		"emotion": "AMBIVALENCE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 23,
+	"born": 106,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Domas Meshwheels",
+		"relation": "SPOUSE"
+	} ],
+	"hungry": false,
+	"id": 5763,
+	"job": "Sleep",
+	"male": true,
+	"name": "Goden Konosdalzat \"Brassmatched\", Elite Wrestler",
+	"needs": [ "Wander", "AcquireObject", "BeWithFriends", "CraftObject" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 29,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Striker"
+	}, {
+		"level": 8,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 87",
+	"stress": -37682,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "LackBedroom",
+		"emotion": "EMBARRASSMENT",
+		"strength": 100
+	}, {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": true,
+	"wounds": 0
+}, {
+	"age": 37,
+	"born": 93,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5767,
+	"job": "Idle",
+	"male": false,
+	"name": "Medtob Ushatalåth \"Basementbolts\", Elite Wrestler",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "EatGoodMeal" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 30,
+		"name": "Observer"
+	}, {
+		"level": 18,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	}, {
+		"level": 8,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 87",
+	"stress": -17540,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "BOREDOM",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 35,
+	"born": 94,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5773,
+	"job": "Idle",
+	"male": false,
+	"name": "Lokum Vucarendok \"Urnattic\", Surgeon",
+	"needs": [ "AcquireObject", "CraftObject" ],
+	"profession": "Surgeon",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 32,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	}, {
+		"level": 11,
+		"name": "Surgeon"
+	} ],
+	"squad": "Squad 85",
+	"stress": -17541,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 50,
+	"born": 79,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Mater the Saffron of Steel",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5776,
+	"job": "Idle",
+	"male": true,
+	"name": "ùshrir Olinorshar \"Tongswebbed\", Carpenter",
+	"needs": [ "AcquireObject", "CraftObject", "HelpSomebody", "Pray to Mater Shezpa Kadest" ],
+	"profession": "Carpenter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 36,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 16,
+		"name": "Fighter"
+	}, {
+		"level": 13,
+		"name": "Carpenter"
+	}, {
+		"level": 13,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 85",
+	"stress": -10176,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 52,
+	"born": 78,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Mosus Lensinked",
+		"relation": "SPOUSE"
+	}, {
+		"alive": true,
+		"name": "Dakost Girdercolor",
+		"relation": "CHILD"
+	} ],
+	"hungry": false,
+	"id": 5779,
+	"job": "Sleep",
+	"male": false,
+	"name": "Nil Mubunatîs \"Practicedstake\", Pump Operator",
+	"needs": [ "CraftObject", "AcquireObject", "Fight", "Pray to Lolum" ],
+	"profession": "Pump Operator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 22,
+		"name": "Observer"
+	}, {
+		"level": 10,
+		"name": "Dodger"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Pump Operator"
+	}, {
+		"level": 5,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 86",
+	"stress": -82289,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "GaveBirth",
+		"emotion": "ADORATION",
+		"strength": 0
+	}, {
+		"about": "Argument",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": true,
+	"wounds": 0
+}, {
+	"age": 55,
+	"born": 74,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Nil Practicedstake",
+		"relation": "SPOUSE"
+	}, {
+		"alive": true,
+		"name": "Dakost Girdercolor",
+		"relation": "CHILD"
+	} ],
+	"hungry": false,
+	"id": 5780,
+	"job": "Sleep",
+	"male": true,
+	"name": "Mosus Cerollikot \"Lensinked\", Elite Wrestler",
+	"needs": [ "AcquireObject", "CraftObject", "Pray to Lolum", "EatGoodMeal" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 29,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	}, {
+		"level": 11,
+		"name": "Stonecarver"
+	} ],
+	"squad": "Squad 87",
+	"stress": -42700,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "BecomeParent",
+		"emotion": "BLISS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": true,
+	"wounds": 0
+}, {
+	"age": 34,
+	"born": 96,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5783,
+	"job": "Strange mood",
+	"male": true,
+	"name": "Ustuth åmudil \"Yawnlantern\", Furnace Operator",
+	"needs": [ "CraftObject", "AcquireObject", "Fight", "StayOccupied" ],
+	"profession": "Furnace Operator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 19,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Furnace Operator"
+	}, {
+		"level": 10,
+		"name": "Dodger"
+	}, {
+		"level": 8,
+		"name": "Discipline"
+	}, {
+		"level": 5,
+		"name": "Student"
+	} ],
+	"squad": "Squad 86",
+	"strange_mood": "Secretive",
+	"stress": -17400,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 45,
+	"born": 84,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5860,
+	"job": "Sleep",
+	"male": false,
+	"name": "Solon Nunùrïteb \"Creviceposts\", Performer",
+	"needs": [ "BeWithFriends", "BeExtravagant", "AcquireObject", "Pray to Lolum" ],
+	"profession": "Performer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 25,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Cook"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 11,
+		"name": "Fighter"
+	}, {
+		"level": 9,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 88",
+	"stress": -10568,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "PerformedRiteUndedicatedTemple",
+		"emotion": "WONDER",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": true,
+	"wounds": 0
+}, {
+	"age": 41,
+	"born": 89,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5861,
+	"job": "Pickup equipment",
+	"male": false,
+	"name": "Obok Oboktarem \"Pillarfated\", Fish Dissector",
+	"needs": [ "CraftObject", "Pray to Dalem Rafum Tenshed", "BeWithFriends", "AcquireObject" ],
+	"profession": "Fish Dissector",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 13,
+		"name": "Fish Dissector"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Dodger"
+	}, {
+		"level": 6,
+		"name": "Teacher"
+	}, {
+		"level": 5,
+		"name": "Organizer"
+	} ],
+	"squad": "Squad 89",
+	"stress": -17460,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "PerformedRiteUndedicatedTemple",
+		"emotion": "WONDER",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 59,
+	"born": 71,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5862,
+	"job": "Idle",
+	"male": true,
+	"name": "Zuglar Zasitotam \"Knifenose\", Geographer",
+	"needs": [ "CraftObject", "BeWithFriends", "Excitement", "AcquireObject" ],
+	"profession": "Geographer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 14,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Dodger"
+	}, {
+		"level": 4,
+		"name": "Fighter"
+	}, {
+		"level": 4,
+		"name": "Student"
+	}, {
+		"level": 4,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 89",
+	"stress": -17607,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "BOREDOM",
+		"strength": 0
+	}, {
+		"about": "ReceivedFood",
+		"emotion": "GRATITUDE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 49,
+	"born": 80,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5863,
+	"job": "Idle",
+	"male": true,
+	"name": "Monom Thîkutavéd \"Bookclobbered\", Gem Setter",
+	"needs": [ "BeWithFriends", "AcquireObject", "CraftObject", "MakeMerry" ],
+	"profession": "Gem Setter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 25,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Gem Setter"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 88",
+	"stress": -17520,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 30,
+	"born": 99,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5864,
+	"job": "Idle",
+	"male": true,
+	"name": "Zaneg Shamebudib \"Handledsyrups\", Miner",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "EatGoodMeal" ],
+	"profession": "Miner",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 24,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Miner"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 88",
+	"stress": -17519,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "AdmireBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 4,
+	"born": 126,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Nish Anvilfates",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Ustuth Dustlabors",
+		"relation": "FATHER"
+	} ],
+	"hungry": false,
+	"id": 5906,
+	"job": "Idle",
+	"male": true,
+	"name": "Zutthan Ragedëm \"Clappedkeys\", Dwarven Child",
+	"needs": [],
+	"profession": "Dwarven Child",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 1,
+		"name": "Grower"
+	} ],
+	"stress": -17840,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "BedroomQuality",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "Argument",
+		"emotion": "BITTERNESS",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "PlayToy",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "GoodMeal",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "PlayToy",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "LOVE",
+		"strength": 0
+	}, {
+		"about": "MakeBelieve",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 4,
+	"born": 126,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "The Sweltering Spark",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Inod Chantedrags",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Melbil Dyehoisted",
+		"relation": "FATHER"
+	} ],
+	"hungry": false,
+	"id": 5937,
+	"job": "Idle",
+	"male": true,
+	"name": "Udib Eskûbuk \"Clearlances\", Dwarven Child",
+	"needs": [],
+	"profession": "Dwarven Child",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 2,
+		"name": "Grower"
+	}, {
+		"level": 1,
+		"name": "Persuader"
+	}, {
+		"level": 1,
+		"name": "Intimidator"
+	} ],
+	"stress": -14380,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Argument",
+		"emotion": "EXHILARATION",
+		"strength": 0
+	}, {
+		"about": "PlayToy",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 64,
+	"born": 65,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5909,
+	"job": "Idle",
+	"male": true,
+	"name": "Kumil Oslanzágod \"Woundgrip\", Thresher",
+	"needs": [ "CraftObject", "BeWithFriends", "AcquireObject", "Excitement" ],
+	"profession": "Thresher",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 14,
+		"name": "Thresher"
+	}, {
+		"level": 12,
+		"name": "Dodger"
+	}, {
+		"level": 12,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Teacher"
+	}, {
+		"level": 5,
+		"name": "Fighter"
+	} ],
+	"squad": "Squad 89",
+	"stress": -17560,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 24,
+	"born": 105,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "The Sweltering Spark",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5911,
+	"job": "Idle",
+	"male": false,
+	"name": "Mebzuth Tosidothôs \"Armorwilted\", Bookbinder",
+	"needs": [ "AcquireObject", "BeWithFriends", "Fight", "CauseTrouble" ],
+	"profession": "Bookbinder",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 14,
+		"name": "Dodger"
+	}, {
+		"level": 14,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Bookbinder"
+	}, {
+		"level": 5,
+		"name": "Student"
+	}, {
+		"level": 5,
+		"name": "Fighter"
+	} ],
+	"squad": "Squad 89",
+	"stress": -93110,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 24,
+	"born": 105,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5912,
+	"job": "Pickup equipment",
+	"male": true,
+	"name": "Moldath Idorustuth \"Howlfenced\", Gem Cutter",
+	"needs": [ "AcquireObject", "Excitement", "Fight", "BeCreative" ],
+	"profession": "Gem Cutter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 22,
+		"name": "Gem Cutter"
+	}, {
+		"level": 10,
+		"name": "Dodger"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 7,
+		"name": "Spinner"
+	}, {
+		"level": 6,
+		"name": "Student"
+	} ],
+	"squad": "Squad 89",
+	"stress": -17997,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 59,
+	"born": 70,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Mater the Saffron of Steel",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5915,
+	"job": "Idle",
+	"male": true,
+	"name": "Lòr Kilruddák \"Bronzetree\", Wood Burner",
+	"needs": [ "CraftObject", "Pray to Mater Shezpa Kadest", "AcquireObject", "Excitement" ],
+	"profession": "Wood Burner",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 14,
+		"name": "Dodger"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Wood Burner"
+	}, {
+		"level": 5,
+		"name": "Fighter"
+	}, {
+		"level": 5,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 89",
+	"stress": -26300,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 61,
+	"born": 68,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5919,
+	"job": "Sleep",
+	"male": true,
+	"name": "Limul Thestarlolok \"Crimsongranite\", Potter",
+	"needs": [ "BeExtravagant", "Pray to Cish Sutwarosp", "BeCreative" ],
+	"profession": "Potter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 25,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 90",
+	"stress": -79764,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "IntellectualDiscussion",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Miasma",
+		"emotion": "DISGUST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "DEJECTION",
+		"strength": 0
+	}, {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "BLISS",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": true,
+	"wounds": 0
+}, {
+	"age": 64,
+	"born": 66,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5921,
+	"job": "Idle",
+	"male": true,
+	"name": "Olin Shelretrimtar \"Trancecastle\", Siege Engineer",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "EatGoodMeal" ],
+	"profession": "Siege Engineer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 27,
+		"name": "Observer"
+	}, {
+		"level": 19,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Striker"
+	}, {
+		"level": 10,
+		"name": "Siege Engineer"
+	} ],
+	"squad": "Squad 90",
+	"stress": -16760,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 25,
+	"born": 104,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5922,
+	"job": "Sleep",
+	"male": false,
+	"name": "Onol Rigòthletmos \"Craftedcobalt\", Lye Maker",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "Wander" ],
+	"profession": "Lye Maker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 24,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 11,
+		"name": "Fighter"
+	}, {
+		"level": 9,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 90",
+	"stress": -17522,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 39,
+	"born": 90,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5925,
+	"job": "Idle",
+	"male": true,
+	"name": "Dumed ôsustiden \"Tamedpaddles\", Animal Dissector",
+	"needs": [ "AcquireObject", "BeExtravagant", "CraftObject", "Pray to Cish Sutwarosp" ],
+	"profession": "Animal Dissector",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 25,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 13,
+		"name": "Animal Dissector"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 90",
+	"stress": -14232,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "AdmireBuilding",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "IntellectualDiscussion",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "GoodMeal",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "CrowdedTables",
+		"emotion": "IRRITATION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 39,
+	"born": 90,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5928,
+	"job": "Idle",
+	"male": true,
+	"name": "Sibrek Mafolashmôn \"Chambershade\", Stonecrafter",
+	"needs": [ "AcquireObject", "CraftObject", "BeExtravagant", "EatGoodMeal" ],
+	"profession": "Stonecrafter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 25,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Stone Crafter"
+	}, {
+		"level": 14,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 90",
+	"stress": -17625,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "BOREDOM",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 46,
+	"born": 83,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5947,
+	"job": "Idle",
+	"male": true,
+	"name": "Catten Sebsúrzulban \"Valebanner\", Elite Wrestler",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "BeWithFriends" ],
+	"profession": "Elite Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 29,
+		"name": "Observer"
+	}, {
+		"level": 20,
+		"name": "Discipline"
+	}, {
+		"level": 16,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	}, {
+		"level": 8,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 91",
+	"stress": -40460,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Perform",
+		"emotion": "GAIETY",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 40,
+	"born": 89,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5930,
+	"job": "Eat",
+	"male": false,
+	"name": "Sarvesh Dîshmabimesh \"Rampartsprinkled\", Stone Carver",
+	"needs": [ "AcquireObject", "BeExtravagant", "BeWithFriends", "AdmireArt" ],
+	"profession": "Stone Carver",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 6,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 90",
+	"stress": -17691,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "BOREDOM",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 100
+	}, {
+		"about": "PerformedRiteDedicatedTemple",
+		"emotion": "WONDER",
+		"strength": 0
+	}, {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 51,
+	"born": 78,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5933,
+	"job": "Idle",
+	"male": false,
+	"name": "Mörul Akiriden \"Rewardpaddles\", Peasant",
+	"needs": [ "CraftObject", "BeExtravagant", "AcquireObject", "EatGoodMeal" ],
+	"profession": "Peasant",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 11,
+		"name": "Striker"
+	}, {
+		"level": 10,
+		"name": "Wound Dresser"
+	} ],
+	"squad": "Squad 90",
+	"stress": -17621,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "PerformedRiteDedicatedTemple",
+		"emotion": "WONDER",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 43,
+	"born": 87,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5948,
+	"job": "Idle",
+	"male": false,
+	"name": "Ilral Zonesis \"Helmstrotted\", Wrestler",
+	"needs": [ "AcquireObject", "BeExtravagant", "ThinkAbstractly", "MakeMerry" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 29,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 8,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 91",
+	"stress": -37999,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 56,
+	"born": 73,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5949,
+	"job": "Idle",
+	"male": false,
+	"name": "Dôbar Vîroltar \"Stargild\", Wrestler",
+	"needs": [ "AcquireObject", "BeWithFriends" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 28,
+		"name": "Observer"
+	}, {
+		"level": 18,
+		"name": "Discipline"
+	}, {
+		"level": 15,
+		"name": "Fighter"
+	}, {
+		"level": 12,
+		"name": "Striker"
+	}, {
+		"level": 11,
+		"name": "Wood Crafter"
+	} ],
+	"squad": "Squad 91",
+	"stress": -17648,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 25,
+	"born": 105,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5951,
+	"job": "Idle",
+	"male": true,
+	"name": "Meng Akmamèrith \"Sinklabored\", Wrestler",
+	"needs": [ "AcquireObject", "BeExtravagant", "MakeMerry", "TakeItEasy" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 18,
+		"name": "Brewer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 91",
+	"stress": -17580,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "ReceivedWater",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "AdmireBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "Rain",
+		"emotion": "ANNOYANCE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 32,
+	"born": 97,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "The Sweltering Spark",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5952,
+	"job": "Idle",
+	"male": false,
+	"name": "Sarvesh Arakåblel \"Shaftbust\", Wrestler",
+	"needs": [ "BeWithFriends", "CraftObject", "AcquireObject", "BeExtravagant" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 27,
+		"name": "Observer"
+	}, {
+		"level": 14,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 91",
+	"stress": -17292,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "GoodMeal",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 57,
+	"born": 72,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Athel Daubedcrafted",
+		"relation": "LOVER"
+	} ],
+	"hungry": false,
+	"id": 5953,
+	"job": "Idle",
+	"male": true,
+	"name": "Cilob Imushuthmik \"Dikeshake\", Wrestler",
+	"needs": [ "CraftObject", "BeExtravagant", "AdmireArt", "Pray to Amith" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 25,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 91",
+	"stress": -25109,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 53,
+	"born": 77,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5851,
+	"job": "Idle",
+	"male": true,
+	"name": "Nish Semortobul \"Unionscanyon\", Administrator",
+	"needs": [ "AcquireObject", "CraftObject", "BeWithFriends", "HearEloquence" ],
+	"profession": "Administrator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 90",
+	"stress": -21011,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 53,
+	"born": 77,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5956,
+	"job": "Idle",
+	"male": true,
+	"name": "Thob Zulbanvetek \"Bannertarget\", Wrestler",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "Wander" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 13,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 91",
+	"stress": -32083,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Complained",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Complained",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "AdmireBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 31,
+	"born": 98,
+	"citizen": true,
+	"family": [ {
+		"alive": false,
+		"name": "Sigun Soakedbolted",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Zefon Ringdrilled",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Tosid Cradleescorts the Rampart of Safety",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Rîthol Rulenewt",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Osram the Turquoise of Colors",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 1096,
+	"job": "Idle",
+	"male": true,
+	"name": "Vabôk Fikodberdan \"Glazewalked\", Wrestler",
+	"needs": [ "CraftObject", "AcquireObject", "Wander", "BeExtravagant" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 28,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 91",
+	"stress": -37854,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "AdmireBuilding",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 55,
+	"born": 74,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Cilob Dikeshake",
+		"relation": "LOVER"
+	} ],
+	"hungry": false,
+	"id": 5966,
+	"job": "Idle",
+	"male": true,
+	"name": "Athel Agrigòth \"Daubedcrafted\", Wrestler",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "BeWithFriends" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 27,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Discipline"
+	}, {
+		"level": 14,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Suturer"
+	}, {
+		"level": 10,
+		"name": "Wound Dresser"
+	} ],
+	"squad": "Squad 91",
+	"stress": -98900,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 59,
+	"born": 70,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5968,
+	"job": "Idle",
+	"male": false,
+	"name": "Kol Nishnosing \"Tradebrushes\", Scholar",
+	"needs": [ "AcquireObject", "CraftObject", "BeWithFriends", "Pray to Dalem Rafum Tenshed" ],
+	"profession": "Scholar",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 19,
+		"name": "Observer"
+	}, {
+		"level": 6,
+		"name": "Dodger"
+	}, {
+		"level": 5,
+		"name": "Discipline"
+	}, {
+		"level": 3,
+		"name": "Concentration"
+	}, {
+		"level": 3,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 93",
+	"stress": -17520,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "DiscussTopic",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "DiscussTopic",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 51,
+	"born": 78,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5970,
+	"job": "Idle",
+	"male": false,
+	"name": "Zefon Bomrekkib \"Whippednets\", Armorer",
+	"needs": [ "CraftObject", "BeWithFriends", "Wander", "AcquireObject" ],
+	"profession": "Armorer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 35,
+		"name": "Observer"
+	}, {
+		"level": 20,
+		"name": "Armorsmith"
+	}, {
+		"level": 12,
+		"name": "Dodger"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 7,
+		"name": "Milker"
+	} ],
+	"squad": "Squad 93",
+	"stress": -4440,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WearItem",
+		"emotion": "PLEASURE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 23,
+	"born": 106,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Furi Ruthlesslusts",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5971,
+	"job": "Idle",
+	"male": false,
+	"name": "Stinthäd Nefekimush \"Fancydike\", Siege Operator",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "BeWithFriends" ],
+	"profession": "Siege Operator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 42,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Dodger"
+	}, {
+		"level": 14,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Siege Operator"
+	}, {
+		"level": 8,
+		"name": "Pacifier"
+	} ],
+	"squad": "Squad 93",
+	"stress": -15680,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "BOREDOM",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "LONELINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 43,
+	"born": 87,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Mater the Saffron of Steel",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5974,
+	"job": "Idle",
+	"male": false,
+	"name": "Moldath Geshudzatthud \"Fortressjudged\", Animal Dissector",
+	"needs": [ "BeWithFriends", "AcquireObject", "SelfExamination", "Fight" ],
+	"profession": "Animal Dissector",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 37,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Dodger"
+	}, {
+		"level": 12,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Animal Dissector"
+	}, {
+		"level": 8,
+		"name": "Cook"
+	} ],
+	"squad": "Squad 93",
+	"stress": -16110,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "MakeMasterwork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 38,
+	"born": 91,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5975,
+	"job": "Idle",
+	"male": false,
+	"name": "Mosus Mostibgoden \"Orangeropes\", Planter",
+	"needs": [ "BeCreative", "BeWithFriends", "Pray to Dalem Rafum Tenshed", "Excitement" ],
+	"profession": "Planter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 35,
+		"name": "Observer"
+	}, {
+		"level": 12,
+		"name": "Dodger"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 3,
+		"name": "Student"
+	}, {
+		"level": 3,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 93",
+	"stress": -11116,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 30,
+	"born": 99,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Sibrek Wallcolumn",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Cog Tamedseals",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 538,
+	"job": "Plant seeds",
+	"male": true,
+	"name": "èrith Duraloddom \"Honorcloistered\", Bard",
+	"needs": [ "CraftObject", "BeWithFriends", "HelpSomebody", "AcquireObject" ],
+	"profession": "Bard",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 21,
+		"name": "Observer"
+	}, {
+		"level": 8,
+		"name": "Dodger"
+	}, {
+		"level": 7,
+		"name": "Discipline"
+	}, {
+		"level": 5,
+		"name": "Grower"
+	}, {
+		"level": 3,
+		"name": "Student"
+	} ],
+	"squad": "Squad 93",
+	"stress": -25020,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 48,
+	"born": 82,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6007,
+	"job": "Idle",
+	"male": false,
+	"name": "Urvad Endokroder \"Atticbalded\", Lye Maker",
+	"needs": [ "AcquireObject", "Fight", "HelpSomebody", "Excitement" ],
+	"profession": "Lye Maker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 37,
+		"name": "Observer"
+	}, {
+		"level": 12,
+		"name": "Dodger"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Lye Maker"
+	}, {
+		"level": 4,
+		"name": "Student"
+	} ],
+	"squad": "Squad 93",
+	"stress": -15280,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 49,
+	"born": 81,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6010,
+	"job": "Brew drink from plant",
+	"male": true,
+	"name": "Unib Keskalsholid \"Shotclutch\", Miner",
+	"needs": [ "AcquireObject", "BeWithFriends", "TakeItEasy", "Pray to Dalem Rafum Tenshed" ],
+	"profession": "Miner",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 39,
+		"name": "Observer"
+	}, {
+		"level": 10,
+		"name": "Dodger"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 4,
+		"name": "Conversationalist"
+	}, {
+		"level": 4,
+		"name": "Judge of Intent"
+	} ],
+	"squad": "Squad 93",
+	"stress": -14588,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WearItem",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 54,
+	"born": 75,
+	"citizen": true,
+	"family": [ {
+		"alive": false,
+		"name": "Zulban Spreadrags",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Lòr Wheelsblows",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 1565,
+	"job": "Idle",
+	"male": true,
+	"name": "Tobul Dorenoddom \"Diamondcloistered\", Scholar",
+	"needs": [ "AcquireObject", "Pray to Ast Kûbukliruk Vutram Kezat", "CraftObject", "Pray to Omtäl Noramsobìr" ],
+	"profession": "Scholar",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 16,
+		"name": "Stonecutter"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 90",
+	"stress": -19487,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "Argument",
+		"emotion": "RESENTMENT",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "BLISS",
+		"strength": 0
+	}, {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "PerformedRiteUndedicatedTemple",
+		"emotion": "WONDER",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 36,
+	"born": 94,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6011,
+	"job": "Sleep",
+	"male": false,
+	"name": "Ilral Dakosted \"Floorearly\", Surgeon",
+	"needs": [ "CraftObject", "AcquireObject", "Pray to Amith", "BeWithFriends" ],
+	"profession": "Surgeon",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 41,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Dodger"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Surgeon"
+	}, {
+		"level": 10,
+		"name": "Wound Dresser"
+	} ],
+	"squad": "Squad 93",
+	"stress": -17450,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": true,
+	"wounds": 0
+}, {
+	"age": 55,
+	"born": 75,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6013,
+	"job": "Idle",
+	"male": true,
+	"name": "Edëm Konosborik \"Brasstrenches\", Blacksmith",
+	"needs": [ "AcquireObject", "CraftObject", "BeExtravagant", "Wander" ],
+	"profession": "Blacksmith",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 35,
+		"name": "Observer"
+	}, {
+		"level": 15,
+		"name": "Discipline"
+	}, {
+		"level": 12,
+		"name": "Fighter"
+	}, {
+		"level": 10,
+		"name": "Metalsmith"
+	}, {
+		"level": 8,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 94",
+	"stress": -36097,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "TeachSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 50,
+	"born": 79,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6017,
+	"job": "Idle",
+	"male": false,
+	"name": "Unib Ishensigun \"Passiontours\", Armorer",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "BeWithFriends" ],
+	"profession": "Armorer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 32,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 11,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 94",
+	"stress": -35091,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "TeachSkill",
+		"emotion": "PRIDE",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 43,
+	"born": 87,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6018,
+	"job": "Idle",
+	"male": false,
+	"name": "ònul Zonemäth \"Helmbands\", Mason",
+	"needs": [ "AcquireObject", "Wander", "CraftObject", "BeCreative" ],
+	"profession": "Mason",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 27,
+		"name": "Observer"
+	}, {
+		"level": 10,
+		"name": "Mason"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 8,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 94",
+	"stress": -36440,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "GoodMeal",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	}, {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	}, {
+		"about": "Argument",
+		"emotion": "EXHILARATION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 40,
+	"born": 89,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6019,
+	"job": "Sleep",
+	"male": false,
+	"name": "Oddom Athelthîkut \"Ringbooks\", Glassmaker",
+	"needs": [ "CraftObject", "BeExtravagant", "AcquireObject", "MakeMerry" ],
+	"profession": "Glassmaker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 34,
+		"name": "Observer"
+	}, {
+		"level": 17,
+		"name": "Glassmaker"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 11,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 94",
+	"stress": -17920,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "DEJECTION",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "DEJECTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": true,
+	"wounds": 0
+}, {
+	"age": 63,
+	"born": 66,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6020,
+	"job": "Drink",
+	"male": true,
+	"name": "Thob Idenbardum \"Paddlefought\", Farmer",
+	"needs": [ "BeExtravagant", "EatGoodMeal", "MakeMerry", "TakeItEasy" ],
+	"profession": "Farmer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 33,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Lye Maker"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 11,
+		"name": "Fighter"
+	}, {
+		"level": 9,
+		"name": "Cook"
+	} ],
+	"squad": "Squad 94",
+	"stress": -18669,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 100
+	}, {
+		"about": "Spar",
+		"emotion": "PLEASURE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 55,
+	"born": 74,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6023,
+	"job": "Plant seeds",
+	"male": false,
+	"name": "Olon âbirlolok \"Romanticgranite\", Planter",
+	"needs": [ "CraftObject", "BeWithFriends", "MakeRomance", "AcquireObject" ],
+	"profession": "Planter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 31,
+		"name": "Observer"
+	}, {
+		"level": 18,
+		"name": "Grower"
+	}, {
+		"level": 8,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 94",
+	"stress": -17520,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Spar",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "LONELINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	}, {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "WONDER",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 30,
+	"born": 100,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6024,
+	"job": "Sleep",
+	"male": false,
+	"name": "Amost Nishatöl \"Tradedfound\", Papermaker",
+	"needs": [ "AcquireObject", "CraftObject", "BeExtravagant", "BeCreative" ],
+	"profession": "Papermaker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 36,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Papermaker"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Fighter"
+	}, {
+		"level": 9,
+		"name": "Siege Engineer"
+	} ],
+	"squad": "Squad 94",
+	"stress": -17614,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "IntellectualDiscussion",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Argument",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Miasma",
+		"emotion": "ACCEPTANCE",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": true,
+	"wounds": 0
+}, {
+	"age": 34,
+	"born": 95,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6025,
+	"job": "Idle",
+	"male": false,
+	"name": "Kogan Luslemkol \"Puzzlingwheel\", Planter",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "Pray to Amith" ],
+	"profession": "Planter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 29,
+		"name": "Observer"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 94",
+	"stress": -17520,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "ADMIRATION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "LearnBook",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 48,
+	"born": 81,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6027,
+	"job": "Idle",
+	"male": false,
+	"name": "Fath Zuglaród \"Shiptunneled\", Administrator",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "BeWithFriends" ],
+	"profession": "Administrator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 22,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 11,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 95",
+	"stress": -17637,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "TeachSkill",
+		"emotion": "PRIDE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 39,
+	"born": 90,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6035,
+	"job": "Idle",
+	"male": true,
+	"name": "Edëm Zágodkib \"Grippednets\", Dancer",
+	"needs": [ "BeWithFriends", "BeExtravagant", "AcquireObject", "CraftObject" ],
+	"profession": "Dancer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 34,
+		"name": "Observer"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Striker"
+	}, {
+		"level": 6,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 94",
+	"stress": -7496,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Argument",
+		"emotion": "GLUMNESS",
+		"strength": 0
+	}, {
+		"about": "GoodMeal",
+		"emotion": "DELIGHT",
+		"strength": 0
+	}, {
+		"about": "AdmireBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 38,
+	"born": 91,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6036,
+	"job": "Idle",
+	"male": true,
+	"name": "Ilral Kobelgusil \"Summitcopper\", Scribe",
+	"needs": [ "AcquireObject", "UpholdTradition", "EatGoodMeal", "MakeMerry" ],
+	"profession": "Scribe",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 21,
+		"name": "Observer"
+	}, {
+		"level": 10,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 95",
+	"stress": -15120,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "DiscussOthersProblems",
+		"emotion": "EMPATHY",
+		"strength": 0
+	}, {
+		"about": "IntellectualDiscussion",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Rain",
+		"emotion": "EXASPERATION",
+		"strength": 100
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 30,
+	"born": 99,
+	"citizen": true,
+	"family": [ {
+		"alive": false,
+		"name": "Stâkud Scalyringed",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Sibrek Passmirror",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 537,
+	"job": "Eat",
+	"male": true,
+	"name": "Adil Nazushmomuz \"Bloodcrypts\", Scholar",
+	"needs": [ "AcquireObject", "CraftObject", "TakeItEasy", "MakeMerry" ],
+	"profession": "Scholar",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 21,
+		"name": "Observer"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 9,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 95",
+	"stress": -17625,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "SleptMud",
+		"emotion": "ANNOYANCE",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "MasterSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "WearItem",
+		"emotion": "DELIGHT",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 30,
+	"born": 99,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dodók Armorway",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Olon Paintspines",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Tosid Cradleescorts the Rampart of Safety",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Rîthol Rulenewt",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "The Future Seed",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ertal",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Madush Hailedtaker the Climactic",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Isram the Mellow",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Sinsot Judgescorch",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "The Sweltering Spark",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Datan Netgirders",
+		"relation": "SPOUSE"
+	} ],
+	"hungry": false,
+	"id": 401,
+	"job": "Idle",
+	"male": true,
+	"name": "Minkot Idashmûthkat \"Moistmansion\", Tavern Keeper",
+	"needs": [ "BeWithFriends", "EatGoodMeal", "CraftObject", "BeExtravagant" ],
+	"profession": "Tavern Keeper",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 18,
+		"name": "Observer"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 95",
+	"stress": -36787,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 57,
+	"born": 73,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": false,
+		"name": "Ast Oldgilt",
+		"relation": "DECEASED_SPOUSE"
+	} ],
+	"hungry": false,
+	"id": 6039,
+	"job": "Idle",
+	"male": true,
+	"name": "Id Kadolsibrek \"Hatchetsalves\", Administrator",
+	"needs": [ "AcquireObject", "BeExtravagant", "EatGoodMeal", "CraftObject" ],
+	"profession": "Administrator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 20,
+		"name": "Observer"
+	}, {
+		"level": 12,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Conversationalist"
+	} ],
+	"squad": "Squad 95",
+	"stress": -38182,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "DiscussOthersProblems",
+		"emotion": "EMPATHY",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 33,
+	"born": 96,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Sibrek Wallcolumn",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Cog Tamedseals",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ast Lanceviolence the Gale of Danger",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Minkot Moistmansion",
+		"relation": "SPOUSE"
+	} ],
+	"hungry": false,
+	"id": 557,
+	"job": "Spin thread",
+	"male": false,
+	"name": "Datan Kibthob \"Netgirders\", Dancer",
+	"needs": [ "AcquireObject", "Pray to Cish Sutwarosp", "MakeMerry", "TakeItEasy" ],
+	"profession": "Dancer",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 20,
+		"name": "Observer"
+	}, {
+		"level": 12,
+		"name": "Discipline"
+	}, {
+		"level": 9,
+		"name": "Fighter"
+	}, {
+		"level": 6,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 95",
+	"stress": -82920,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 51,
+	"born": 79,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6040,
+	"job": "Idle",
+	"male": true,
+	"name": "Rigòth Oslanidash \"Windmoistened\", Fish Dissector",
+	"needs": [ "AcquireObject", "BeWithFriends", "BeExtravagant", "HelpSomebody" ],
+	"profession": "Fish Dissector",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 22,
+		"name": "Observer"
+	}, {
+		"level": 10,
+		"name": "Discipline"
+	}, {
+		"level": 9,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	}, {
+		"level": 7,
+		"name": "Fish Dissector"
+	} ],
+	"squad": "Squad 95",
+	"stress": -11015,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "AdmireBuilding",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "ReceivedFood",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 55,
+	"born": 75,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6041,
+	"job": "Idle",
+	"male": true,
+	"name": "Eral Stukónfikod \"Squashedglaze\", Woodcutter",
+	"needs": [ "AcquireObject", "BeExtravagant", "Wander", "MartialTraining" ],
+	"profession": "Woodcutter",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 5,
+		"name": "Conversationalist"
+	}, {
+		"level": 5,
+		"name": "Musician"
+	}, {
+		"level": 5,
+		"name": "Judge of Intent"
+	}, {
+		"level": 4,
+		"name": "Intimidator"
+	}, {
+		"level": 3,
+		"name": "Comedian"
+	} ],
+	"stress": -100000,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 45,
+	"born": 85,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6054,
+	"job": "Idle",
+	"male": false,
+	"name": "Zulban Monomturel \"Paperlearned\", Wrestler",
+	"needs": [ "CraftObject", "AcquireObject", "Fight", "Pray to Dalem Rafum Tenshed" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 39,
+		"name": "Observer"
+	}, {
+		"level": 12,
+		"name": "Dodger"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Potter"
+	}, {
+		"level": 4,
+		"name": "Persuader"
+	} ],
+	"squad": "Squad 96",
+	"stress": -17160,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "PerformedRiteUndedicatedTemple",
+		"emotion": "WONDER",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 60,
+	"born": 69,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6043,
+	"job": "Idle",
+	"male": true,
+	"name": "Ducim Athsercerol \"Charcoallens\", Wrestler",
+	"needs": [ "Fight", "BeWithFriends", "Excitement", "TakeItEasy" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 36,
+		"name": "Observer"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 9,
+		"name": "Dodger"
+	}, {
+		"level": 6,
+		"name": "Engraver"
+	}, {
+		"level": 4,
+		"name": "Weaver"
+	} ],
+	"squad": "Squad 96",
+	"stress": -37219,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Perform",
+		"emotion": "PLEASURE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 24,
+	"born": 105,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5662,
+	"job": "Idle",
+	"male": true,
+	"name": "Sibrek Erushbardum \"Handlefight\", Butcher",
+	"needs": [ "CraftObject", "AcquireObject" ],
+	"profession": "Butcher",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 11,
+		"name": "Fighter"
+	}, {
+		"level": 8,
+		"name": "Striker"
+	}, {
+		"level": 6,
+		"name": "Negotiator"
+	} ],
+	"squad": "Squad 95",
+	"stress": -12058,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 26,
+	"born": 103,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6044,
+	"job": "Idle",
+	"male": true,
+	"name": "Adil Alåthoggez \"Boltsholes\", Wrestler",
+	"needs": [ "Pray to Dalem Rafum Tenshed", "AcquireObject", "Fight", "EatGoodMeal" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 25,
+		"name": "Observer"
+	}, {
+		"level": 6,
+		"name": "Dodger"
+	}, {
+		"level": 4,
+		"name": "Student"
+	}, {
+		"level": 4,
+		"name": "Concentration"
+	}, {
+		"level": 4,
+		"name": "Discipline"
+	} ],
+	"squad": "Squad 96",
+	"stress": 17476,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "DiscussProblems",
+		"emotion": "RELIEF",
+		"strength": 0
+	}, {
+		"about": "WriteBook",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "DiscussProblems",
+		"emotion": "RELIEF",
+		"strength": 0
+	}, {
+		"about": "DiscussProblems",
+		"emotion": "RELIEF",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "WORRY",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 27,
+	"born": 102,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6055,
+	"job": "Idle",
+	"male": false,
+	"name": "Mörul Aralatír \"Womendyes\", Wrestler",
+	"needs": [ "AcquireObject", "BeWithFriends", "BeExtravagant", "Fight" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 38,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Tanner"
+	}, {
+		"level": 9,
+		"name": "Dodger"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 4,
+		"name": "Teacher"
+	} ],
+	"squad": "Squad 96",
+	"stress": -17514,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "TeachSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "LONELINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	}, {
+		"about": "TeachSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 51,
+	"born": 78,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6056,
+	"job": "Idle",
+	"male": true,
+	"name": "Sigun Tatkûbuk \"Touchedlanced\", Wrestler",
+	"needs": [ "BeWithFriends", "Excitement", "AdmireArt", "Pray to Dalem Rafum Tenshed" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 39,
+		"name": "Observer"
+	}, {
+		"level": 10,
+		"name": "Dodger"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 3,
+		"name": "Concentration"
+	}, {
+		"level": 3,
+		"name": "Keyboardist"
+	} ],
+	"squad": "Squad 96",
+	"stress": -13620,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "LONELINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "LONELINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "BOREDOM",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 21,
+	"born": 109,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Cish Bonesphantom",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6057,
+	"job": "Idle",
+	"male": true,
+	"name": "Sarvesh Berfikod \"Earthenglazes\", Wrestler",
+	"needs": [ "CraftObject", "StayOccupied", "Pray to Cish Sutwarosp", "AcquireObject" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 42,
+		"name": "Observer"
+	}, {
+		"level": 12,
+		"name": "Dodger"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 10,
+		"name": "Engraver"
+	}, {
+		"level": 6,
+		"name": "Negotiator"
+	} ],
+	"squad": "Squad 96",
+	"stress": -17500,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "WORRY",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "RESTLESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "RESTLESS",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "WORRY",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 24,
+	"born": 106,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Furi Ruthlesslusts",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6058,
+	"job": "Idle",
+	"male": true,
+	"name": "Bomrek Olinatöl \"Tongsfound\", Wrestler",
+	"needs": [ "BeExtravagant", "BeWithFriends", "AcquireObject", "CraftObject" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 36,
+		"name": "Observer"
+	}, {
+		"level": 11,
+		"name": "Dodger"
+	}, {
+		"level": 8,
+		"name": "Discipline"
+	}, {
+		"level": 4,
+		"name": "Concentration"
+	}, {
+		"level": 4,
+		"name": "Student"
+	} ],
+	"squad": "Squad 96",
+	"stress": -17300,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 51,
+	"born": 79,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Tosid Cradleescorts the Rampart of Safety",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6059,
+	"job": "Idle",
+	"male": false,
+	"name": "Zas Rakustrigòth \"Tombcraft\", Axedwarf",
+	"needs": [ "BeWithFriends", "CraftObject", "Excitement", "AcquireObject" ],
+	"profession": "Axedwarf",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 42,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Dodger"
+	}, {
+		"level": 12,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Wood Crafter"
+	}, {
+		"level": 5,
+		"name": "Fighter"
+	} ],
+	"squad": "Squad 96",
+	"stress": -12815,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 45,
+	"born": 84,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "ònul Hallcalmed",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Kogan Atticpage",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Tosid Cradleescorts the Rampart of Safety",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Ertal",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Isram the Mellow",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Idräth",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Rîthol Rulenewt",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Lolum",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Sinsot Judgescorch",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Assar the Playful",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "The Sweltering Spark",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Madush Hailedtaker the Climactic",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Adil Bridgedents",
+		"relation": "SPOUSE"
+	} ],
+	"hungry": false,
+	"id": 1645,
+	"job": "Drink",
+	"male": false,
+	"name": "Nish Kivishobok \"Lancerpillars\", Wrestler",
+	"needs": [ "CraftObject", "Excitement", "AcquireObject", "Pray to Lolum" ],
+	"profession": "Wrestler",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 31,
+		"name": "Observer"
+	}, {
+		"level": 8,
+		"name": "Dodger"
+	}, {
+		"level": 6,
+		"name": "Discipline"
+	}, {
+		"level": 5,
+		"name": "Student"
+	}, {
+		"level": 5,
+		"name": "Concentration"
+	} ],
+	"squad": "Squad 96",
+	"stress": -17639,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "BOREDOM",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "DiscussTopic",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "PonderTopic",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "DiscussTopic",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 58,
+	"born": 71,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Osram the Turquoise of Colors",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 5665,
+	"job": "Idle",
+	"male": false,
+	"name": "Vutok Avuztath \"Minedusks\", Administrator",
+	"needs": [ "BeWithFriends", "CraftObject", "AcquireObject", "BeExtravagant" ],
+	"profession": "Administrator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 26,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Discipline"
+	}, {
+		"level": 11,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Comedian"
+	} ],
+	"squad": "Squad 97",
+	"stress": -37260,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Perform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Perform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "FRUSTRATION",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "FRUSTRATION",
+		"strength": 0
+	}, {
+		"about": "LearnSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 45,
+	"born": 84,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6100,
+	"job": "Idle",
+	"male": false,
+	"name": "Nish Kolstâkud \"Wheelmachine\", Animal Caretaker",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "EatGoodMeal" ],
+	"profession": "Animal Caretaker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 27,
+		"name": "Observer"
+	}, {
+		"level": 12,
+		"name": "Discipline"
+	}, {
+		"level": 9,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 97",
+	"stress": -99580,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "PerformedRiteDedicatedTemple",
+		"emotion": "RAPTURE",
+		"strength": 0
+	}, {
+		"about": "Death",
+		"emotion": "SADNESS",
+		"strength": 0
+	}, {
+		"about": "WitnessDeath",
+		"emotion": "HORROR",
+		"strength": 0
+	}, {
+		"about": "Trauma",
+		"emotion": "FEAR",
+		"strength": 0
+	}, {
+		"about": "Argument",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "TeachSkill",
+		"emotion": "PRIDE",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "AFFECTION",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 33,
+	"born": 97,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Reg Honoredceilings",
+		"relation": "MOTHER"
+	}, {
+		"alive": true,
+		"name": "Dumed Craftseals",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Omtäl Reliefrelease",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Osram the Turquoise of Colors",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 1522,
+	"job": "Idle",
+	"male": false,
+	"name": "Stâkud Zanorrovod \"Heartarches\", Administrator",
+	"needs": [ "AcquireObject", "BeExtravagant", "Fight", "MartialTraining" ],
+	"profession": "Administrator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 24,
+		"name": "Observer"
+	}, {
+		"level": 11,
+		"name": "Discipline"
+	}, {
+		"level": 8,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Musician"
+	} ],
+	"squad": "Squad 97",
+	"stress": -17560,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Perform",
+		"emotion": "ENJOYMENT",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "BedroomQuality",
+		"emotion": "BLISS",
+		"strength": 0
+	}, {
+		"about": "ImproveSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "DiscussOthersProblems",
+		"emotion": "EMPATHY",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 41,
+	"born": 88,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6103,
+	"job": "Idle",
+	"male": true,
+	"name": "Stinthäd Zansongimush \"Massivedike\", Cheesemaker",
+	"needs": [ "BeExtravagant", "AcquireObject", "EatGoodMeal", "MakeMerry" ],
+	"profession": "Cheesemaker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 24,
+		"name": "Observer"
+	}, {
+		"level": 10,
+		"name": "Discipline"
+	}, {
+		"level": 8,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Striker"
+	}, {
+		"level": 6,
+		"name": "Cheese Maker"
+	} ],
+	"squad": "Squad 97",
+	"stress": -17680,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "AdmireBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "DiscussOthersProblems",
+		"emotion": "EMPATHY",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "AdmireBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	}, {
+		"about": "NeedsUnfulfilled",
+		"emotion": "UNEASINESS",
+		"strength": 0
+	}, {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 40,
+	"born": 89,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 6106,
+	"job": "Idle",
+	"male": true,
+	"name": "Dakost ònulnimar \"Mirroredpaths\", Bone Carver",
+	"needs": [ "AcquireObject", "EatGoodMeal", "Pray to Amith", "HelpSomebody" ],
+	"profession": "Bone Carver",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 15,
+		"name": "Observer"
+	}, {
+		"level": 13,
+		"name": "Bone Carver"
+	}, {
+		"level": 7,
+		"name": "Fighter"
+	}, {
+		"level": 7,
+		"name": "Discipline"
+	}, {
+		"level": 5,
+		"name": "Striker"
+	} ],
+	"squad": "Squad 97",
+	"stress": -16130,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "Talked",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "TeachSkill",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "SleptDirt",
+		"emotion": "ANNOYANCE",
+		"strength": 0
+	}, {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "AdmireBuilding",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "AdmireArrangedBuilding",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 56,
+	"born": 73,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Dalem the Coincidence of Chance",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Moldath Touchedrags",
+		"relation": "SPOUSE"
+	}, {
+		"alive": true,
+		"name": "Thob Tributemountains",
+		"relation": "CHILD"
+	} ],
+	"hungry": false,
+	"id": 6107,
+	"job": "Idle",
+	"male": false,
+	"name": "Uzol Besmarnimar \"Pulleypaths\", Animal Caretaker",
+	"needs": [ "CraftObject", "AcquireObject", "BeExtravagant", "Wander" ],
+	"profession": "Animal Caretaker",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 27,
+		"name": "Observer"
+	}, {
+		"level": 9,
+		"name": "Fighter"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 6,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Wrestler"
+	} ],
+	"squad": "Squad 97",
+	"stress": -37550,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	}, {
+		"about": "MadeFriend",
+		"emotion": "FONDNESS",
+		"strength": 0
+	}, {
+		"about": "WatchPerform",
+		"emotion": "INTEREST",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 25,
+	"born": 104,
+	"citizen": true,
+	"family": [ {
+		"alive": true,
+		"name": "Amith",
+		"relation": "DEITY"
+	}, {
+		"alive": true,
+		"name": "Uzol Pulleypaths",
+		"relation": "SPOUSE"
+	}, {
+		"alive": true,
+		"name": "Thob Tributemountains",
+		"relation": "CHILD"
+	} ],
+	"hungry": false,
+	"id": 6108,
+	"job": "Idle",
+	"male": true,
+	"name": "Moldath Tatunib \"Touchedrags\", Herbalist",
+	"needs": [ "BeWithFriends", "AcquireObject", "CraftObject", "MakeRomance" ],
+	"profession": "Herbalist",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 24,
+		"name": "Observer"
+	}, {
+		"level": 9,
+		"name": "Discipline"
+	}, {
+		"level": 8,
+		"name": "Fighter"
+	}, {
+		"level": 6,
+		"name": "Striker"
+	}, {
+		"level": 4,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 97",
+	"stress": -55555,
+	"thirsty": false,
+	"thoughts": [ {
+		"about": "Syndrome",
+		"emotion": "EUPHORIA",
+		"strength": 0
+	}, {
+		"about": "AdmireBuilding",
+		"emotion": "PLEASURE",
+		"strength": 0
+	}, {
+		"about": "SpouseGaveBirth",
+		"emotion": "ADORATION",
+		"strength": 0
+	}, {
+		"about": "SatisfiedAtWork",
+		"emotion": "SATISFACTION",
+		"strength": 0
+	}, {
+		"about": "GoodMeal",
+		"emotion": "CONTENTMENT",
+		"strength": 0
+	} ],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+}, {
+	"age": 47,
+	"born": 82,
+	"citizen": true,
+	"family": [ {
+		"alive": false,
+		"name": "Erush Stirworked",
+		"relation": "MOTHER"
+	}, {
+		"alive": false,
+		"name": "Tun Handledrum",
+		"relation": "FATHER"
+	}, {
+		"alive": true,
+		"name": "Isram the Mellow",
+		"relation": "DEITY"
+	} ],
+	"hungry": false,
+	"id": 1492,
+	"job": "Idle",
+	"male": true,
+	"name": "Fikod Toradsåkzul \"Bodytrumpet\", Administrator",
+	"needs": [ "CraftObject", "BeExtravagant", "AcquireObject", "Pray to Isram Unob" ],
+	"profession": "Administrator",
+	"race": "dwarf",
+	"skills": [ {
+		"level": 27,
+		"name": "Observer"
+	}, {
+		"level": 10,
+		"name": "Discipline"
+	}, {
+		"level": 9,
+		"name": "Fighter"
+	}, {
+		"level": 6,
+		"name": "Striker"
+	}, {
+		"level": 5,
+		"name": "Dodger"
+	} ],
+	"squad": "Squad 97",
+	"stress": -37662,
+	"thirsty": false,
+	"thoughts": [],
+	"tired": false,
+	"unconscious": false,
+	"wounds": 0
+} ]

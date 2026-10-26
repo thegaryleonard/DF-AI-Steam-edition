@@ -338,7 +338,7 @@ function context(r) {
     ...news, ...worldSlots(r), ...loreSlots(r), ...arcSlots(),
     meat: n(c.meat), fish: n(c.fish), eggs: n(c.eggs), leather: n(c.leather),
     depth: WK && WK.depth && WK.depth.levels ? WK.depth.levels : null, cavern_depth: WK && WK.depth && WK.depth.cavern ? WK.depth.cavern_levels : null,
-    squads: PO && PO.squads && PO.squads.length ? PO.squads.length : null, soldiers: PO && PO.squads && PO.squads.length ? PO.squads.reduce((a, q) => a + (q.members || []).length, 0) || null : null,
+    squads: PO && PO.squads && PO.squads.length ? PO.squads.length : null, soldiers: PO && PO.squads && PO.squads.length ? PO.squads.reduce((a, q) => a + (q.members || []).filter(m => m.here !== false).length, 0) || null : null,   // members away or dead still hold their slot
     caravan_civ: TR && TR.trades && TR.trades.length ? cap(clean(TR.trades[TR.trades.length - 1].civ || '')) || null : null,
     fort_days: f.age_days != null ? f.age_days : null,
   };
@@ -811,69 +811,263 @@ const CATS = [
 ];
 const catOf = t => { for (const [re, c] of CATS) if (re.test(t.about)) return typeof c === 'function' ? c(t) : c; return 'other'; };
 const MOODKEY = {ecstatic: 'mood_ecstatic', happy: 'mood_happy', content: 'mood_content', stressed: 'mood_stressed', 'very stressed': 'mood_very_stressed', 'near breaking': 'mood_breaking'};
-function cardDwarf() {
-  const d = S.dwarf, IV = LIB; if (!d || !IV.answers) return null;
-  const r = rng(Date.now() / 1000 | 0), ctx = context(r);
-  const m = mood(d.stress);
-  const prof = clean(d.profession).toLowerCase();
+// ==IV-BEGIN== (Society Pages interview; herald/test_interview.js runs this block offline against real citizens)
+// The interview is a list of TOPICS. For each topic the dwarf's real data picks a VARIANT (married / single, in a squad
+// or not, which need is unmet...), then a question for that topic (one that doesn't presuppose another variant) and an
+// answer for that topic AND variant, so every answer answers its own question. Text: LIB.qa (library/interview_qa.json).
+const IV_MILSKILL = {'Observer': 'keeping watch', 'Discipline': 'holding the line', 'Fighter': 'close fighting', 'Striker': 'throwing punches',
+  'Dodger': 'dodging', 'Wrestler': 'wrestling', 'Kicker': 'kicking', 'Biter': 'biting', 'Axeman': 'axe work', 'Axedwarf': 'axe work',
+  'Swordsman': 'swordplay', 'Swordsdwarf': 'swordplay', 'Macedwarf': 'mace work', 'Maceman': 'mace work', 'Hammerdwarf': 'hammer work',
+  'Hammerman': 'hammer work', 'Spearman': 'spear work', 'Speardwarf': 'spear work', 'Crossbowman': 'crossbow shooting',
+  'Marksdwarf': 'crossbow shooting', 'Archer': 'archery', 'Bowman': 'archery', 'Shield User': 'shield work', 'Armor User': 'fighting in armour',
+  'Pikeman': 'pike work', 'Pikedwarf': 'pike work', 'Lasher': 'whip work', 'Knife User': 'knife work', 'Ambusher': 'ambushes',
+  'Blowgunner': 'the blowgun', 'Thrower': 'throwing', 'Military Tactics': 'tactics', 'Misc. Object User': 'improvised weapons'};
+// professions whose skill has a different name (planter -> Grower); otherwise the names match
+const IV_PROFSKILL = {planter: ['grower'], armorer: ['armorsmith'], weaponsmith: ['weaponsmith'], fisherdwarf: ['fisherman', 'fisherdwarf'],
+  bard: ['musician', 'singer', 'poet', 'speaker', 'dancer'], performer: ['musician', 'singer', 'poet', 'speaker', 'dancer', 'comedian'],
+  scholar: ['student', 'concentration', 'teacher', 'writer', 'reader', 'critical thinker', 'logician', 'mathematician', 'astronomer', 'chemist', 'geographer', 'optics engineer', 'fluid engineer'],
+  administrator: ['organizer', 'record keeper', 'appraiser', 'negotiator', 'judge of intent', 'persuader', 'conversationalist', 'consoler', 'pacifier', 'intimidator', 'comedian', 'flatterer', 'leader', 'teacher'],
+  'animal caretaker': ['animal caretaker'], woodcutter: ['wood cutter'], doctor: ['diagnostician', 'surgeon', 'bone doctor', 'suturer', 'wound dresser']};
+const IV_SOLDIER = /wrestler|swords|axe ?(dwarf|lord)|mace ?(dwarf|lord)|hammer ?(dwarf|lord)|spear(dwarf|master)|marksdwarf|bowman|bowmaster|pike(man|dwarf|master)|lasher|whipmaster|recruit|blowgunner|champion|knife|soldier/i;
+const IV_JOBS = {'Sleep': 'sleeping', 'Eat': 'eating', 'Drink': 'having a drink', 'Plant seeds': 'planting seeds', 'Pickup equipment': 'collecting equipment',
+  'Fill pond': 'filling a pond', 'Pen/pasture a large animal': 'penning an animal', 'Pen/pasture a small animal': 'penning an animal',
+  'Store item in stockpile': 'hauling goods to a stockpile', 'Get provisions': 'fetching provisions', 'Prepare lavish meal': 'cooking a lavish meal',
+  'Prepare easy meal': 'cooking a quick meal', 'Prepare fine meal': 'cooking a fine meal', 'Brew drink from plant': 'brewing',
+  'Spin thread': 'spinning thread', 'Strange mood': 'in a strange mood', 'Clean': 'cleaning', 'Recover wounded': 'carrying the wounded',
+  'Go shopping': 'shopping', 'Attend party': 'at a party', 'Rest': 'resting', 'Sleep in bed': 'sleeping', 'Seek infant': 'looking for a baby',
+  'Train': 'training', 'Pray': 'praying', 'Attend performance': 'watching a performance', 'Perform': 'performing',
+  'Fish': 'fishing', 'Hunt': 'hunting', 'Mine': 'mining', 'Haul': 'hauling'};
+const IV_MASS = /^(thread|cloth|wood|stone|water|food|meat|fish|leather|silk|metal|glass|rock|soap|lye|ash|potash|pearlash|charcoal|cheese|milk|honey|wax|paper|oil|sand|clay|plaster|booze|drink|flour|sugar|dye|mead|ore|coke|bread|tallow|fat|webs|seeds|plants|crafts|goods|equipment|armor|armour|furniture|ammo|bolts|refuse|garbage)$/;
+function jobPhrase(j) {   // DF's job name ("Construct Armor Stand", "Pen/pasture a large animal") -> plain English ("constructing an armor stand")
+  j = clean(j || '').trim(); if (!j) return null;
+  if (IV_JOBS[j]) return IV_JOBS[j];
+  const w = j.replace(/\/\S*/, '').toLowerCase().split(/\s+/).filter(Boolean); if (!w.length) return null;
+  let v = w[0];
+  const irr = {pickup: 'picking up', setup: 'setting up', lie: 'lying', die: 'dying', be: 'being', see: 'seeing'};
+  v = irr[v] || (/ie$/.test(v) ? v.slice(0, -2) + 'ying' : /[^aeiou]e$/.test(v) && !/(ee|ye|oe)$/.test(v) ? v.slice(0, -1) + 'ing'
+    : /^[^aeiou]*[aeiou][bdgmnpt]$/.test(v) ? v + v.slice(-1) + 'ing' : v + 'ing');
+  const rest = w.slice(1);
+  if (rest.length && !/^(a|an|the|some|from|in|on|at|to|with|for|up|out|into|of|down|off)$/.test(rest[0]) && !/s$/.test(rest[rest.length - 1]) && !IV_MASS.test(rest[rest.length - 1])) rest.unshift(an(rest[0]).split(' ')[0]);
+  return [v, ...rest].join(' ');
+}
+const IV_NEED = {AcquireObject: 'acquire', CraftObject: 'craft', BeWithFriends: 'friends', BeExtravagant: 'extravagant', EatGoodMeal: 'meal', Fight: 'fight',
+  Excitement: 'excitement', Wander: 'wander', HelpSomebody: 'help', TakeItEasy: 'rest', MakeMerry: 'merry', MartialTraining: 'train', BeCreative: 'creative',
+  AdmireArt: 'art', MakeRomance: 'romance', StayOccupied: 'busy', PracticeSkill: 'practice', CauseTrouble: 'trouble', ThinkAbstractly: 'think',
+  HearEloquence: 'eloquence', SelfExamination: 'self', UpholdTradition: 'tradition', LearnSomething: 'learn', BeWithFamily: 'family', DrinkAlcohol: 'drink', SeeAnimal: 'animal'};
+const IV_UP = new Set([...GOOD, 'WONDER', 'ADMIRATION', 'GAIETY', 'EMPATHY', 'SATISFACTION', 'BLISS', 'RAPTURE']);
+const IV_NEUTRAL = new Set(['AMBIVALENCE', 'ACCEPTANCE', 'ANYTHING']);
+function thoughtVariant(t, good, kid) {   // one recent thought -> the highlight/gripe variant it supports (null = nothing to say)
+  const a = t.about || '', e = t.emotion || '';
+  if (good) {
+    if (a === 'WatchPerform') return 'show';
+    if (/Rite|Prayer|Pray|Worship/.test(a)) return 'temple';
+    if (/^Perform/.test(a)) return 'perform';
+    if (a === 'Syndrome') return e === 'EUPHORIA' && !kid ? 'drunk' : null;
+    if (/^(Improve|Learn|Master)Skill$|MakeMasterwork|Masterpiece/.test(a)) return 'skill';
+    if (/^TeachSkill/.test(a)) return 'teach';
+    if (/^(Talked|DiscussTopic|DiscussProblems|DiscussOthersProblems|IntellectualDiscussion|Conversation|Complained)/.test(a)) return 'talk';
+    if (/^MadeFriend/.test(a)) return 'friend';
+    if (/SatisfiedAtWork/.test(a)) return 'work';
+    if (/^BedroomQuality/.test(a)) return 'bedroom';
+    if (/GoodMeal|ReceivedFood|ReceivedWater|AteFine|Lavish/.test(a)) return 'meal';
+    if (/^Admire/.test(a)) return 'building';
+    if (/Rite|Prayer|Pray|Worship/.test(a)) return 'temple';
+    if (/Book|LearnTopic|PonderTopic|Read/.test(a)) return 'book';
+    if (/^Spar/.test(a)) return 'spar';
+    if (/^WearItem/.test(a)) return 'clothes';
+    if (/^(PlayToy|MakeBelieve|PlayGame|PlayedGame)/.test(a)) return 'play';
+    if (/BecomeParent|GaveBirth|SpouseGaveBirth/.test(a)) return 'family';
+    if (/^Argument/.test(a)) return 'argue';
+    if (/^Gave(Water|Food)|Comfort|Helped/.test(a)) return 'help';
+    return null;
+  }
+  if (/Rain|Snow|Weather/.test(a)) return 'rain';
+  if (/Miasma/.test(a)) return 'miasma';
+  if (/^Argument/.test(a)) return 'argue';
+  if (/Crowded/.test(a)) return 'crowded';
+  if (/^Slept(Mud|Grass|Floor|Rock|Ice|Dirt)|SleepNoise|Uncomfortable/.test(a)) return 'mud';
+  if (/LackBedroom|NoBedroom/.test(a)) return 'nobed';
+  if (a === 'WatchPerform') return 'bored_show';
+  if (/Death|Died|Corpse|Dead|Killed|Ghost|Murder/.test(a)) return 'death';
+  if (/Injur|Pain|Wound|Attacked/.test(a)) return 'hurt';
+  if (/Hunger|Hungry|Starv/.test(a)) return 'hunger';
+  if (/Thirst|Dehydrat/.test(a)) return 'thirst';
+  return null;
+}
+const IV_ORDER = ['work', 'military', 'mood', 'highlight', 'gripe', 'needs', 'family', 'faith', 'fort', 'news', 'past', 'war', 'last'];
+const IV_NUM = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+const ucf = s => s ? s[0].toUpperCase() + s.slice(1) : s;
+// everything the interview knows about one dwarf: slots for the text and the variant of every topic it can talk about
+function ivFacts(d, ctx) {
+  const sl0 = ctx.sl, conds = ctx.conds;
   const full = firstName(d.name), nick = (full.match(/"([^"]+)"/) || [])[1];
   const plain = full.replace(/\s*"[^"]*"\s*/, ' ').trim(), first = plain.split(' ')[0];
-  const who = nick || first;
-  const sk = d.skills || [], top = sk[0];
-  const deity = (d.family || []).find(x => x.relation === 'DEITY');
-  const kin = (d.family || []).filter(x => x.relation !== 'DEITY');
-  const job = clean(d.job || '').toLowerCase(), idle = !job || /no job|idle/.test(job);
-  const me = {dwarf: plain, first, nick: who, prof, age: d.age, job: idle ? null : job, deity: deity ? clean(deity.name) : null,
-              skill: top ? top.name.toLowerCase() : null, level: top ? levels[Math.min(top.level, 15)].toLowerCase() : null, skill2: sk[1] ? sk[1].name.toLowerCase() : null};
-  const A = IV.answers, Q = IV.questions || {}, used = [];
-  const say = (list, extra = {}) => { const e = choose1(list, ctx, r, {...me, ...extra}); if (e) used.push(e.id); return e ? T(e) : null; };
-  const ask = (k, extra) => say(Q[k], extra) || '...';
-  // quotes from the dwarf's real recent thoughts
-  const thoughts = (d.thoughts || []).filter((t, i, a) => a.findIndex(u => u.about === t.about && u.emotion === t.emotion) === i);
-  let good = null, bad = null;
-  for (const t of thoughts) {
-    const g = GOOD.has(t.emotion); if (g ? good : bad) continue;
-    const ck = catOf(t), cat = (IV.thoughts || {})[ck] || (IV.thoughts || {}).other; if (!cat) continue;
-    const extra = {adj: adj(t.emotion), about: pretty(t.about).toLowerCase()};
-    const q = say(g ? cat.good : cat.bad, extra); if (!q) continue;
-    const h = say(g ? cat.heads_good : cat.heads_bad, extra);
-    if (g) good = {q, h, cat: ck, about: extra.about}; else bad = {q, h, cat: ck, about: extra.about};
+  const rawProf = clean(d.profession || ''), prof = rawProf.toLowerCase();
+  const baby = /baby/i.test(rawProf), child = !baby && /child/i.test(rawProf);
+  const office = !baby && !child && /^[a-z]/.test(rawProf);
+  const sk = d.skills || [], norm = s => String(s).toLowerCase().replace(/[^a-z ]/g, '').trim();
+  const want = IV_PROFSKILL[prof] || [prof];
+  const tradeSk = sk.find(s => want.includes(norm(s.name)) || norm(s.name).replace(/ /g, '') === prof.replace(/ /g, '')
+    || (prof.length > 4 && norm(s.name).replace(/ /g, '').startsWith(prof.replace(/ /g, '').slice(0, 5))));
+  const mil = sk.filter(s => IV_MILSKILL[s.name]);
+  const milTop = mil.find(s => !/^(Observer|Discipline)$/.test(s.name)) || mil[0];
+  const squad = d.squad ? clean(d.squad) : null;
+  const m = mood(d.stress || 0), tone = (d.stress || 0) < 10000 ? 'up' : 'down';
+  const deities = (d.family || []).filter(x => x.relation === 'DEITY').map(x => cap(clean(x.name)).split(' the ')[0]);
+  const kin = (d.family || []).filter(x => x.relation !== 'DEITY'), kn = x => cap(clean(x.name));
+  const rel = r_ => kin.filter(x => x.relation === r_);
+  const job = clean(d.job || ''), doing = /^(idle|no job)?$/i.test(job) ? null : jobPhrase(job);
+  const levelWord = s => levels[Math.min(s.level, 15)].toLowerCase();
+  const sl = {...sl0, dwarf: plain, first, nick: nick || first, prof, age: d.age,
+    a_prof: office ? 'the ' + prof : an(prof), season: String(sl0.season || '').toLowerCase().replace(/^(early |late |mid)\s*/, '') || null,
+    doing, squad, milskill: milTop ? IV_MILSKILL[milTop.name] : null,
+    trade_level: tradeSk ? levelWord(tradeSk) : null, skill_noun: tradeSk ? tradeSk.name.toLowerCase() : null,
+    trade_title: tradeSk ? `${levelWord(tradeSk)} ${tradeSk.name.toLowerCase()}` : null};
+  sl.a_prof_cap = ucf(sl.a_prof); sl.a_trade_title = sl.trade_title ? an(sl.trade_title) : null; sl.a_trade_title_cap = ucf(sl.a_trade_title);
+  const V = {};   // topic -> variant
+  // work
+  V.work = baby ? 'baby' : child ? 'child' : office ? 'office' : IV_SOLDIER.test(rawProf) && squad ? 'soldier'
+    : tradeSk ? (tradeSk.level <= 3 ? 'trade_low' : tradeSk.level <= 9 ? 'trade_mid' : 'trade_high') : squad && milTop ? 'drills' : 'plain';
+  // military (skipped when the work answer already covered the squad)
+  const soldiers = +String(sl0.soldiers || '0').replace(/,/g, ''), pop = +String(sl0.pop || '0').replace(/,/g, '');
+  if (!baby && !child && soldiers > 0 && !['soldier', 'drills'].includes(V.work))
+    V.military = squad ? (milTop ? 'in_squad' : null) : pop && soldiers / pop >= .5 ? 'civilian_few' : 'civilian';
+  if (!baby) V.mood = {ecstatic: 'ecstatic', happy: 'happy', content: 'content', stressed: 'stressed', 'very stressed': 'very_stressed', 'near breaking': 'breaking'}[m.label];
+  // thoughts: newest first, the first one that says something
+  for (const t of d.thoughts || []) {
+    const e = t.emotion || ''; if (IV_NEUTRAL.has(e)) continue;
+    const good = IV_UP.has(e) || e === 'INTEREST';
+    const v = thoughtVariant(t, good, child); if (!v) continue;
+    if (good) { if (!V.highlight) V.highlight = v; } else if (!V.gripe) V.gripe = v;
   }
-  const QA = [];
-  if (top) {
-    const sq = x => x.replace(/[^a-z]/g, ''), match = sq(prof).includes(sq(me.skill).slice(0, 5)) || sq(me.skill).includes(sq(prof).slice(0, 5));
-    let a = say(match ? A.job_match : A.job_mismatch) || '';
-    if (sk[1]) a += ' ' + (say(sk[1].level >= 6 ? A.skill2_good : A.skill2_bad) || '');
-    QA.push([ask('job'), a.trim()]);
+  if (baby) { delete V.highlight; delete V.gripe; }
+  // family
+  const sp = rel('SPOUSE'), lov = rel('LOVER'), kids = rel('CHILD').filter(x => x.alive), dsp = [...rel('DECEASED_SPOUSE'), ...sp.filter(x => !x.alive)];
+  const par = [...rel('MOTHER'), ...rel('FATHER')], parA = par.filter(x => x.alive);
+  if (baby) { const p = rel('MOTHER').find(x => x.alive) || rel('FATHER').find(x => x.alive); if (p) { V.family = 'baby'; sl.kin = kn(p); sl.rel = p.relation === 'MOTHER' ? 'mother' : 'father'; } }
+  else if (!child && sp.some(x => x.alive)) { V.family = 'spouse'; sl.kin = kn(sp.find(x => x.alive)); }
+  else if (!child && lov.some(x => x.alive)) { V.family = 'lover'; sl.kin = kn(lov.find(x => x.alive)); }
+  else if (!child && kids.length) { V.family = 'children'; sl.child = kn(kids[0]); sl.kids = kids.length === 1 ? 'one child' : `${IV_NUM[kids.length] || kids.length} children`; sl.kids_cap = ucf(sl.kids); }
+  else if (!child && dsp.length) { V.family = 'widowed'; sl.kin = kn(dsp[0]); }
+  else if (parA.length >= 2) { V.family = 'parents'; sl.kin = kn(parA[0]); sl.kin2 = kn(parA[1]); }
+  else if (parA.length === 1) { V.family = 'parent'; sl.kin = kn(parA[0]); sl.rel = parA[0].relation === 'MOTHER' ? 'mother' : 'father'; }
+  else if (par.length) V.family = 'orphan';
+  else if (!child) V.family = 'none';
+  // needs (most neglected first); praying goes to the faith topic
+  const needs = (d.needs || []).map(clean);
+  const prayNeed = needs.find(n => /^Pray to /.test(n));
+  for (const n of needs) {
+    const v = IV_NEED[n]; if (!v || baby) continue;
+    if (v === 'romance' && /spouse|lover/.test(V.family || '')) continue;      // married dwarves don't pine for "somebody special"
+    if (v === 'family' && !/spouse|lover|children|parent/.test(V.family || '')) continue;
+    if (v === 'train' && !squad) continue;
+    if ((v === 'drink' && V.highlight === 'drunk') || (v === 'friends' && /friend|talk/.test(V.highlight || '')) || (v === 'meal' && V.highlight === 'meal')) continue;
+    V.needs = v; break;
   }
-  QA.push([ask('mood'), [say(A[MOODKEY[m.label]]), good && good.q].filter(Boolean).join(' ')]);
-  if (bad) QA.push([ask('complaint'), bad.q]);
-  if (deity) QA.push([ask('deity'), say(A.deity)]);
-  for (const k of kin.slice(0, 2)) {
-    const ex = {kin: clean(k.name), rel: pretty(k.relation).toLowerCase()};
-    QA.push([ask('kin', ex), say(k.alive ? A.kin_alive : A.kin_dead, ex)]);
+  if (V.highlight === 'family' && !/spouse|lover|children|widowed/.test(V.family || '')) delete V.highlight;
+  // faith
+  if (!baby && !child) {
+    if (prayNeed) { V.faith = 'pray_need'; sl.deity = cap(clean(prayNeed.replace(/^Pray to /, ''))); }
+    else if (deities.length >= 2) { V.faith = 'many'; sl.deity = deities[0]; sl.deity2 = deities[1]; }
+    else if (deities.length) { V.faith = 'deity'; sl.deity = deities[0]; }
   }
-  if (!kin.length) QA.push([ask('nokin'), say(A.nokin)]);
-  QA.push([ask('last'), say(A.signoff)]);
-  const lead = bad || good;
-  const fu = followUp(d, lead, who, ctx, r);
-  const headline = (fu && fu.head) || (lead && lead.h) || `${prof.toUpperCase()} SPEAKS OUT`;
-  const sents = (lead ? lead.q : QA[QA.length - 1][1] || '').split(/(?<=[.!?])\s/);
-  const pullTxt = sents[0].length < 30 && sents[1] ? sents[0] + ' ' + sents[1] : sents[0];
-  const deck = say(idle ? IV.idle_decks : IV.decks) || `Our correspondent caught up with ${plain}, ${d.age}, ${prof}.`;
-  markSeen(used);
+  // the fort today (live numbers only)
+  if (!baby && !child) {
+    const fv = ['drinks_low', 'food_low', 'drinks_high', 'thread_glut', 'food_high', 'pop_big', 'young_fort', 'herd_big', 'caverns', 'old_fort'].filter(c => conds.has(c));
+    const need = {drinks_high: 'drinks', thread_glut: 'thread', pop_big: 'pop', young_fort: 'fort_days', herd_big: 'herd'};
+    const ok = fv.filter(c => !need[c] || sl[need[c]] != null);
+    V.fort = ok.length ? ok : ['plain'];   // a list: picked at random below
+  }
+  // this week's big story, unless the subject IS the story
+  const me = plain.toLowerCase(), isMe = n => n && String(n).toLowerCase() === me;
+  const nv = ['death_week', 'mood_open', 'mood_done', 'artifact_week', 'birth_week', 'marriage_week', 'migrants_week', 'caravan_here'].filter(c => conds.has(c))
+    .filter(c => !(c === 'death_week' && isMe(sl.lastdead)) && !(c === 'mood_open' && isMe(sl.moody)) && !((c === 'mood_done' || c === 'artifact_week') && isMe(sl.artifact_maker)));
+  if (!baby && !child && nv.length) V.news = nv;
+  if (V.news && V.news.includes('death_week') && V.gripe === 'death') delete V.gripe;
+  // past forts (clearly past, by name) and records
+  if (!baby && !child) {
+    const pv = [];
+    if (sl.past_fort && sl.past_fort_fate && sl.past_fort !== sl.fort) pv.push('past_fort');
+    if (sl.record && sl.record_fort) pv.push(sl.record_fort === sl.fort ? 'record_here' : 'record_past');
+    if (pv.length) V.past = pv;
+    if (sl.enemy) V.war = ['goblin', 'elven', 'human'].includes(sl.enemy_race) ? sl.enemy_race : 'other';
+  }
+  V.last = baby ? 'baby' : child ? 'child' : 'any';
+  for (const k of Object.keys(V)) if (V[k] == null) delete V[k];
+  return {sl, V, tone, m, plain, who: nick || first, baby, child, squad, sk};
+}
+// how newsworthy each topic is (headline choice) and how much it deserves a slot in a six-question interview
+const IV_WEIGHT = {news: 3.5, gripe: 4.5, highlight: 4, needs: 3.5, family: 3, military: 2.5, faith: 2, fort: 2.5, past: 1.5, war: 1.5};
+const IV_HEAD = {news: 5.5, gripe: 7, highlight: 6, needs: 5, family: 4.5, past: 4, war: 4, fort: 4, military: 3, work: 3, faith: 2.5, mood: 2, last: 0};
+function buildInterview(d, ctx, r) {
+  const QA = LIB.qa || {}, F = ivFacts(d, ctx), sl = F.sl, used = [];
+  const V = {...F.V};
+  for (const k of Object.keys(V)) if (Array.isArray(V[k])) V[k] = pick(r, V[k]);
+  // work and mood always; then the most interesting 3 of the rest; the sign-off last
+  const mid = Object.keys(V).filter(k => IV_WEIGHT[k] != null && QA[k] && (QA[k].a || {})[V[k]]);
+  const chosen = new Set(['work', 'mood', 'last'].filter(k => V[k]));
+  shuffle(r, mid).map(k => [k, IV_WEIGHT[k] + r() * 2.5]).sort((a, b) => b[1] - a[1]).slice(0, F.baby ? 1 : 3).forEach(([k]) => chosen.add(k));
+  const ans = (t, v) => {
+    const all = (((QA[t] || {}).a || {})[v] || []).filter(x => !F.child || !/\b(ale|mugs?|drinks?|drinking|booze|tavern|married|spouse)\b/i.test(x.text));   // children don't talk about ale
+    const e = choose1(all.filter(x => !x.tone || x.tone === F.tone), ctx, r, sl) || choose1(all.filter(x => !x.tone), ctx, r, sl);
+    if (e) used.push(e.id); return e;
+  };
+  const ask = (t, v) => {
+    const L = ((QA[t] || {}).q || []).filter(x => !x.for || x.for.includes(v)), spec = L.filter(x => x.for);
+    // strict topics (the fort, the news, past forts): a variant's answers name its subject, so only its own questions fit
+    const e = (spec.length && (QA[t].strict || r() < .6) ? choose1(spec, ctx, r, sl) : null) || (QA[t].strict && spec.length ? null : choose1(L, ctx, r, sl));
+    if (e) used.push(e.id); return e;
+  };
+  const QAs = [];
+  for (const t of IV_ORDER) {
+    if (!chosen.has(t)) continue;
+    let v = V[t], a = ans(t, v);
+    if (!a && t === 'work') { v = 'plain'; a = ans(t, v); }   // e.g. a soldier profession with no squad name
+    if (!a) continue;
+    const q = ask(t, v); if (!q) continue;
+    QAs.push({topic: t, variant: v, qid: q.id, aid: a.id, q: T(q), a: T(a)});
+  }
+  // headline: the most newsworthy answer in this interview
+  const ranked = QAs.map(x => [x, (IV_HEAD[x.topic] || 0) + (x.topic === 'mood' && /ecstatic|very_stressed|breaking/.test(x.variant) ? 4 : 0) + r() * 2.5]).sort((a, b) => b[1] - a[1]);
+  let head = null, headQA = null;
+  for (const [x] of ranked) {
+    const h = choose1((((QA[x.topic] || {}).h || {})[x.variant]) || [], ctx, r, sl);
+    if (h) { head = T(h); headQA = x; used.push(h.id); break; }
+  }
+  if (!head) { headQA = QAs[0] || null; head = `THE ${String(sl.prof || 'dwarf').toUpperCase()} SPEAKS`; }
+  // the deck: who, and where we found them
+  const job = clean(d.job || '');
+  const st = F.baby ? 'baby' : F.child ? 'child' : /strange mood/i.test(job) || d.strange_mood ? 'mood' : /^sleep/i.test(job) ? 'sleep'
+    : /^(eat|drink)$/i.test(job) ? 'break' : sl.doing ? 'busy' : 'idle';
+  const dk = choose1(((LIB.qa_decks || {})[st]) || [], ctx, r, sl) || choose1(((LIB.qa_decks || {}).idle) || [], ctx, r, sl);
+  if (dk) used.push(dk.id);
+  const deck = dk ? T(dk) : `Our correspondent caught up with ${F.plain}, ${d.age}, ${sl.prof}.`;
+  // pull quote: the headline answer's opening, which reads on its own
+  const src = headQA && headQA.topic !== 'last' ? headQA.a : (QAs.find(x => x.topic !== 'work') || QAs[0] || {}).a || '';
+  const sents = src.split(/(?<=[.!?])\s+/);
+  const pull = sents[0] && sents[0].length < 40 && sents[1] ? sents[0] + ' ' + sents[1] : sents[0] || '';
+  return {who: F.who, plain: F.plain, head, headTopic: headQA ? headQA.topic : null, deck, QAs, pull, used, facts: F};
+}
+// ==IV-END==
+function cardDwarf() {
+  const d = S.dwarf; if (!d || !LIB.qa) return null;
+  const r = rng(Date.now() / 1000 | 0), ctx = context(r);
+  const iv = buildInterview(d, ctx, r);
+  markSeen(iv.used);
+  const m = iv.facts.m, sk = d.skills || [];
   const vit = `<div class="vitals"><div class="sub">Vital Statistics</div>
       <div class="line"><span>Age</span><span class="lead"></span><span>${d.age}</span></div>
       ${d.born != null ? `<div class="line"><span>Born</span><span class="lead"></span><span>Yr ${d.born}</span></div>` : ''}
       <div class="line"><span>Spirits</span><span class="lead"></span><span style="color:${m.color}">${m.label}</span></div>
       <div class="bar"><div style="width:${m.pct}%;background:${m.color}"></div></div>
-      ${sk.slice(0, 5).map(s => `<div class="line"><span>${esc(s.name)}</span><span class="lead"></span><span class="dim">${levels[Math.min(s.level, 15)]}</span></div>`).join('')}
+      ${iv.facts.squad ? `<div class="line"><span>Squad</span><span class="lead"></span><span>${esc(iv.facts.squad)}</span></div>` : ''}
+      ${sk.slice(0, iv.facts.squad ? 4 : 5).map(s => `<div class="line"><span>${esc(s.name)}</span><span class="lead"></span><span class="dim">${levels[Math.min(s.level, 15)]}</span></div>`).join('')}
     </div>`;
-  const qa = QA.filter(([, a]) => a).map(([q, a], i) => `<p class="q"><span class="who">${esc(paper().noun)}:</span> ${esc(q)}</p><p><span class="who">${esc(who)}:</span> ${esc(a)}</p>`
-                       + (i === 1 && pullTxt ? `<div class="pull">“${esc(pullTxt)}”</div>` : '')).join('');
+  const qa = iv.QAs.map((x, i) => `<p class="q"><span class="who">${esc(paper().noun)}:</span> ${esc(x.q)}</p><p><span class="who">${esc(iv.who)}:</span> ${esc(x.a)}</p>`
+                       + (i === 1 && iv.pull ? `<div class="pull">“${esc(iv.pull)}”</div>` : '')).join('');
   return `<div class="kicker"><span>Society Pages</span><span>The ${esc(paper().noun)} Interview</span></div>
-    <div class="headline">${esc(who.toUpperCase())}: ${esc(headline)}</div>
-    <div class="deck">${esc(deck)}${fu && fu.deck ? ' ' + esc(fu.deck) : ''}</div>
+    <div class="headline">${esc(iv.who.toUpperCase())}: ${esc(iv.head)}</div>
+    <div class="deck">${esc(iv.deck)}</div>
     <div class="iv just">${vit}${qa}</div>`;
 }
 

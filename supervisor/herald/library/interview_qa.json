@@ -1,0 +1,3718 @@
+{
+ "qa": {
+  "work": {
+   "q": [
+    {
+     "id": "qa-work-q01",
+     "text": "So, what is it you do around here?"
+    },
+    {
+     "id": "qa-work-q02",
+     "text": "How would you describe your work to a new migrant?"
+    },
+    {
+     "id": "qa-work-q03",
+     "text": "Tell our readers what you do in {fort}."
+    },
+    {
+     "id": "qa-work-q04",
+     "text": "What's your trade?"
+    },
+    {
+     "id": "qa-work-q05",
+     "text": "What does the job of {prof} actually involve?",
+     "for": [
+      "office"
+     ]
+    },
+    {
+     "id": "qa-work-q06",
+     "text": "What does a soldier do all day when nothing is attacking?",
+     "for": [
+      "soldier"
+     ]
+    },
+    {
+     "id": "qa-work-q07",
+     "text": "What do you do all day?",
+     "for": [
+      "child"
+     ]
+    },
+    {
+     "id": "qa-work-q08",
+     "text": "What do you do around here?",
+     "for": [
+      "baby"
+     ]
+    }
+   ],
+   "a": {
+    "trade_low": [
+     {
+      "id": "qa-work-trade_low-a01",
+      "text": "I'm {a_prof}, and I'm still learning. The first hundred mistakes are behind me. The next hundred are scheduled."
+     },
+     {
+      "id": "qa-work-trade_low-a02",
+      "text": "I'm {a_prof}. Not a good one yet, but nobody has been hurt, which is more than some trades can say."
+     },
+     {
+      "id": "qa-work-trade_low-a03",
+      "text": "{a_prof_cap}, technically. The records rate me '{trade_level}', which I am choosing to read as a compliment."
+     },
+     {
+      "id": "qa-work-trade_low-a04",
+      "text": "I'm {a_prof}, and I'm getting better every week. Ask me again next year.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-work-trade_low-a05",
+      "text": "I'm {a_prof}. I'm not good at it yet, and everybody watching me work makes sure I know it.",
+      "tone": "down"
+     }
+    ],
+    "trade_mid": [
+     {
+      "id": "qa-work-trade_mid-a01",
+      "text": "I'm {a_prof}. A {trade_level} one, by the records, which means I'm trusted with the job but not yet with the speech about it."
+     },
+     {
+      "id": "qa-work-trade_mid-a02",
+      "text": "I'm the fort's {prof}. I know the work well enough now that I only swear at it out of habit."
+     },
+     {
+      "id": "qa-work-trade_mid-a03",
+      "text": "{a_prof_cap}. It's honest work. I'd call myself {trade_level} at it, and so would the records, so there."
+     },
+     {
+      "id": "qa-work-trade_mid-a04",
+      "text": "I'm {a_prof}, and I'm good at it. Not legendary, but the work gets done and it gets done right.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-work-trade_mid-a05",
+      "text": "I'm {a_prof}. Competent enough that they keep giving me more of it.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-work-trade_mid-a06",
+      "text": "I'm {a_prof}. Good enough to be trusted, still learning enough to be careful."
+     },
+     {
+      "id": "qa-work-trade_mid-a07",
+      "text": "{a_prof_cap}. The records say {trade_level}. My friends say 'fine'. I'll take either."
+     }
+    ],
+    "trade_high": [
+     {
+      "id": "qa-work-trade_high-a01",
+      "text": "I'm {a_trade_title}. I don't say it to boast. I say it because it's carved on my door."
+     },
+     {
+      "id": "qa-work-trade_high-a02",
+      "text": "I'm {a_prof}. {a_trade_title_cap}, if you want the full title, and the fort does tend to want it."
+     },
+     {
+      "id": "qa-work-trade_high-a03",
+      "text": "I'm {a_prof}, and I'm very good at it. When something goes wrong in my line of work, they come and fetch me."
+     },
+     {
+      "id": "qa-work-trade_high-a04",
+      "text": "I'm {a_trade_title}. Years of practice. I still enjoy it, which surprises everyone, including me.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-work-trade_high-a05",
+      "text": "I'm {a_trade_title}, so naturally they ask me to haul stone.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-work-trade_high-a06",
+      "text": "I'm {a_prof}, and I've been at it long enough to be called {a_trade_title}. My hands know the work better than my head does."
+     },
+     {
+      "id": "qa-work-trade_high-a07",
+      "text": "{a_trade_title_cap}. The young ones come and watch me work. I pretend not to notice."
+     },
+     {
+      "id": "qa-work-trade_high-a08",
+      "text": "I'm {a_prof}. Years of it. There isn't much in my trade that can surprise me now."
+     }
+    ],
+    "drills": [
+     {
+      "id": "qa-work-drills-a01",
+      "text": "They list me as {a_prof}, but these days I spend more time in the barracks with {squad} than at my old trade."
+     },
+     {
+      "id": "qa-work-drills-a02",
+      "text": "On paper I'm {a_prof}. In practice I'm in {squad}, and most of my days go to drilling."
+     },
+     {
+      "id": "qa-work-drills-a03",
+      "text": "I used to be {a_prof}. Then I joined {squad}, and now my best skill is {milskill}."
+     },
+     {
+      "id": "qa-work-drills-a04",
+      "text": "I'm {a_prof} by trade and a soldier by roster. Honestly, I've come to like the drills.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-work-drills-a05",
+      "text": "I'm {a_prof}, supposedly. I haven't touched my trade in so long I'd need a refresher.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-work-drills-a06",
+      "text": "I'm {a_prof}, officially. Unofficially, I'm whoever {squad} needs me to be this week."
+     },
+     {
+      "id": "qa-work-drills-a07",
+      "text": "My trade is {prof}, but the barracks have had more of me than the workshop lately. I'm best at {milskill} now."
+     },
+     {
+      "id": "qa-work-drills-a08",
+      "text": "{a_prof_cap} by trade. These days the sergeant knows my face better than my old foreman does."
+     }
+    ],
+    "soldier": [
+     {
+      "id": "qa-work-soldier-a01",
+      "text": "I'm a soldier in {squad}. We train, we eat, we train again. I'm best at {milskill}."
+     },
+     {
+      "id": "qa-work-soldier-a02",
+      "text": "I'm with {squad}. My job is to be ready, which mostly means practising {milskill} until it's boring."
+     },
+     {
+      "id": "qa-work-soldier-a03",
+      "text": "Train, mostly, with {squad}. Somebody has to stand between {fort} and whatever comes up from below."
+     },
+     {
+      "id": "qa-work-soldier-a04",
+      "text": "Drills with {squad}, then supper. It's a good life when nothing is attacking, and a short one when something is.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-work-soldier-a05",
+      "text": "I'm in {squad}. I train until my arms ache, then they ask me to train some more.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-work-soldier-a06",
+      "text": "I'm in {squad}. We drill until we can do it asleep, and then we drill some more."
+     },
+     {
+      "id": "qa-work-soldier-a07",
+      "text": "Soldiering. I'm with {squad}, and my best skill is {milskill}. I'd rather not have to prove it."
+     },
+     {
+      "id": "qa-work-soldier-a08",
+      "text": "I serve in {squad}. Most days are training. Some days, I hope, will stay that way."
+     }
+    ],
+    "office": [
+     {
+      "id": "qa-work-office-a01",
+      "text": "I'm the {prof}. It means meetings, complaints and a chair that is slightly better than everyone else's."
+     },
+     {
+      "id": "qa-work-office-a02",
+      "text": "Being {prof} is mostly listening. Everybody in {fort} has an opinion, and they bring every one of them to me."
+     },
+     {
+      "id": "qa-work-office-a03",
+      "text": "I'm the {prof}. People think it's an easy post. People are welcome to try it."
+     },
+     {
+      "id": "qa-work-office-a04",
+      "text": "I'm the {prof}, and I enjoy it. Somebody has to keep this place organised, and I happen to like lists.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-work-office-a05",
+      "text": "I'm the {prof}, and the job never ends. I'd swap it for a pick most days.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-work-office-a06",
+      "text": "I'm the {prof}. If something goes wrong in {fort}, it ends up on my desk, usually with a complaint attached."
+     }
+    ],
+    "plain": [
+     {
+      "id": "qa-work-plain-a01",
+      "text": "I'm {a_prof}. I do what the work orders say, and the work orders say a lot."
+     },
+     {
+      "id": "qa-work-plain-a02",
+      "text": "{a_prof_cap}, by trade. These days I take whatever job is closest, like most of {fort}."
+     },
+     {
+      "id": "qa-work-plain-a03",
+      "text": "I'm {a_prof}. It isn't glamorous, but the fort wouldn't run without it, and I remind them of that often."
+     },
+     {
+      "id": "qa-work-plain-a04",
+      "text": "I'm {a_prof}, and I like it fine. Good work, decent company, and the ale is close.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-work-plain-a05",
+      "text": "I'm {a_prof}. Some days I wonder if anybody notices.",
+      "tone": "down"
+     }
+    ],
+    "child": [
+     {
+      "id": "qa-work-child-a01",
+      "text": "I play. And I watch the grown-ups work, so I know how to do it better when I'm big."
+     },
+     {
+      "id": "qa-work-child-a02",
+      "text": "I'm a child. I mostly run about. The soldiers let me watch them drill if I'm quiet."
+     },
+     {
+      "id": "qa-work-child-a03",
+      "text": "Playing, mostly. When I grow up I'm going to be the best miner in {fort}."
+     },
+     {
+      "id": "qa-work-child-a04",
+      "text": "I help. Sometimes. Mostly I'm told to stop helping."
+     }
+    ],
+    "baby": [
+     {
+      "id": "qa-work-baby-a01",
+      "text": "(The subject, being a baby, gurgled.)"
+     },
+     {
+      "id": "qa-work-baby-a02",
+      "text": "(The subject chewed our reporter's notebook.)"
+     },
+     {
+      "id": "qa-work-baby-a03",
+      "text": "(The subject fell asleep mid-question. We have had worse interviews.)"
+     }
+    ]
+   },
+   "h": {
+    "trade_low": [
+     {
+      "id": "qa-work-trade_low-h01",
+      "text": "NEW {prof} STILL LEARNING THE ROPES"
+     },
+     {
+      "id": "qa-work-trade_low-h02",
+      "text": "{prof} PROMISES TO IMPROVE"
+     }
+    ],
+    "trade_mid": [
+     {
+      "id": "qa-work-trade_mid-h01",
+      "text": "A SOLID {prof} SPEAKS"
+     },
+     {
+      "id": "qa-work-trade_mid-h02",
+      "text": "THE {prof} WHO GETS IT DONE"
+     }
+    ],
+    "trade_high": [
+     {
+      "id": "qa-work-trade_high-h01",
+      "text": "{trade_title} AT HOME"
+     },
+     {
+      "id": "qa-work-trade_high-h02",
+      "text": "THE BEST {skill_noun} IN {fort}?"
+     },
+     {
+      "id": "qa-work-trade_high-h03",
+      "text": "A LIFETIME AT THE TRADE"
+     }
+    ],
+    "drills": [
+     {
+      "id": "qa-work-drills-h01",
+      "text": "{prof} BY TRADE, SOLDIER BY ROSTER"
+     },
+     {
+      "id": "qa-work-drills-h02",
+      "text": "THE {prof} WHO JOINED THE DRILLS"
+     },
+     {
+      "id": "qa-work-drills-h03",
+      "text": "FROM THE WORKSHOP TO THE BARRACKS"
+     }
+    ],
+    "soldier": [
+     {
+      "id": "qa-work-soldier-h01",
+      "text": "A DAY WITH {squad}"
+     },
+     {
+      "id": "qa-work-soldier-h02",
+      "text": "SOLDIER'S LIFE, SOLDIER'S VIEW"
+     }
+    ],
+    "office": [
+     {
+      "id": "qa-work-office-h01",
+      "text": "INSIDE THE {prof}'S OFFICE"
+     },
+     {
+      "id": "qa-work-office-h02",
+      "text": "THE {prof} SPEAKS"
+     }
+    ],
+    "plain": [
+     {
+      "id": "qa-work-plain-h01",
+      "text": "THE {prof} SPEAKS"
+     },
+     {
+      "id": "qa-work-plain-h02",
+      "text": "A {prof}'S LIFE"
+     }
+    ],
+    "child": [
+     {
+      "id": "qa-work-child-h01",
+      "text": "THE YOUNGEST VOICE IN {fort}"
+     },
+     {
+      "id": "qa-work-child-h02",
+      "text": "A CHILD'S-EYE VIEW"
+     }
+    ],
+    "baby": [
+     {
+      "id": "qa-work-baby-h01",
+      "text": "OUR SHORTEST INTERVIEW YET"
+     },
+     {
+      "id": "qa-work-baby-h02",
+      "text": "NO COMMENT (AGED 0)"
+     }
+    ]
+   }
+  },
+  "military": {
+   "q": [
+    {
+     "id": "qa-military-q01",
+     "text": "With {soldiers} of our {pop} dwarves on the militia rolls, do you ever get called up for drills?"
+    },
+    {
+     "id": "qa-military-q02",
+     "text": "Are you in the militia?"
+    },
+    {
+     "id": "qa-military-q03",
+     "text": "Do you ever train with the soldiers?"
+    }
+   ],
+   "a": {
+    "in_squad": [
+     {
+      "id": "qa-military-in_squad-a01",
+      "text": "Called up? I'm in {squad}. I spend more time in the barracks than in my own bed."
+     },
+     {
+      "id": "qa-military-in_squad-a02",
+      "text": "I'm in {squad}, so yes, every week. My {milskill} has never been better."
+     },
+     {
+      "id": "qa-military-in_squad-a03",
+      "text": "I'm in {squad}. The drills are long, but you learn who you can rely on."
+     },
+     {
+      "id": "qa-military-in_squad-a04",
+      "text": "I'm in {squad}, and I enjoy it. A good day's training and a mug afterwards. What else is there?",
+      "tone": "up"
+     },
+     {
+      "id": "qa-military-in_squad-a05",
+      "text": "I'm in {squad}. My feet hurt, my arms hurt, and the sergeant is never satisfied.",
+      "tone": "down"
+     }
+    ],
+    "civilian_few": [
+     {
+      "id": "qa-military-civilian_few-a01",
+      "text": "Somebody has to keep the fort running while the rest of them drill. That somebody is me."
+     },
+     {
+      "id": "qa-military-civilian_few-a02",
+      "text": "I'm one of the few left off the rolls. I keep very quiet in case anybody notices."
+     },
+     {
+      "id": "qa-military-civilian_few-a03",
+      "text": "Not yet. With {soldiers} of us in squads already, I think the fort can spare one {prof}."
+     },
+     {
+      "id": "qa-military-civilian_few-a04",
+      "text": "I'm not in a squad, and I'm grateful to everyone who is.",
+      "tone": "up"
+     }
+    ],
+    "civilian": [
+     {
+      "id": "qa-military-civilian-a01",
+      "text": "Not me. I'm happy to let the {soldiers} who signed up do the fighting."
+     },
+     {
+      "id": "qa-military-civilian-a02",
+      "text": "I'm not in a squad. I respect the ones who are. From a distance."
+     },
+     {
+      "id": "qa-military-civilian-a03",
+      "text": "I've thought about it. Then I watch them drill in the rain and I stop thinking about it."
+     },
+     {
+      "id": "qa-military-civilian-a04",
+      "text": "No, but I cheer them on. Every fort needs an audience.",
+      "tone": "up"
+     }
+    ]
+   },
+   "h": {
+    "in_squad": [
+     {
+      "id": "qa-military-in_squad-h01",
+      "text": "DRILLING WITH {squad}"
+     },
+     {
+      "id": "qa-military-in_squad-h02",
+      "text": "LIFE IN THE RANKS"
+     }
+    ],
+    "civilian_few": [
+     {
+      "id": "qa-military-civilian_few-h01",
+      "text": "ONE OF THE LAST CIVILIANS"
+     },
+     {
+      "id": "qa-military-civilian_few-h02",
+      "text": "STILL NOT IN A SQUAD"
+     }
+    ],
+    "civilian": [
+     {
+      "id": "qa-military-civilian-h01",
+      "text": "THE MILITIA? NO THANKS"
+     },
+     {
+      "id": "qa-military-civilian-h02",
+      "text": "HAPPY TO WATCH THE DRILLS"
+     }
+    ]
+   }
+  },
+  "mood": {
+   "q": [
+    {
+     "id": "qa-mood-q01",
+     "text": "How are you feeling these days?"
+    },
+    {
+     "id": "qa-mood-q02",
+     "text": "How is life in {fort} treating you?"
+    },
+    {
+     "id": "qa-mood-q03",
+     "text": "How are your spirits this {season}?"
+    },
+    {
+     "id": "qa-mood-q04",
+     "text": "Are you happy here?"
+    },
+    {
+     "id": "qa-mood-q05",
+     "text": "Our readers worry about you. How are you holding up?"
+    }
+   ],
+   "a": {
+    "ecstatic": [
+     {
+      "id": "qa-mood-ecstatic-a01",
+      "text": "Never better. I wake up smiling and I can't explain it. Possibly the ale."
+     },
+     {
+      "id": "qa-mood-ecstatic-a02",
+      "text": "Wonderful. Honestly wonderful. I keep waiting for something to go wrong and it doesn't."
+     },
+     {
+      "id": "qa-mood-ecstatic-a03",
+      "text": "I've never been happier. Write that down before something changes it."
+     },
+     {
+      "id": "qa-mood-ecstatic-a04",
+      "text": "Marvellous. I hummed all the way down the stairs this morning, and I don't hum."
+     },
+     {
+      "id": "qa-mood-ecstatic-a05",
+      "text": "Couldn't be better. Whatever this fort is doing, it should keep doing it."
+     },
+     {
+      "id": "qa-mood-ecstatic-a06",
+      "text": "On top of the mountain, and I live under it. Make of that what you will."
+     },
+     {
+      "id": "qa-mood-ecstatic-a07",
+      "text": "Happier than I have any right to be. I'm not asking questions."
+     }
+    ],
+    "happy": [
+     {
+      "id": "qa-mood-happy-a01",
+      "text": "Good, thank you. I've got work, friends and a full mug. That's the whole list."
+     },
+     {
+      "id": "qa-mood-happy-a02",
+      "text": "Happy, mostly. Life in {fort} suits me."
+     },
+     {
+      "id": "qa-mood-happy-a03",
+      "text": "Very well. I sleep well, I eat well, and nobody has thrown anything at me this week."
+     },
+     {
+      "id": "qa-mood-happy-a04",
+      "text": "Pretty good. The work is steady and the company is decent."
+     },
+     {
+      "id": "qa-mood-happy-a05",
+      "text": "Well, thank you. Every day has something good in it, if you look."
+     },
+     {
+      "id": "qa-mood-happy-a06",
+      "text": "Cheerful. Somebody told me I was whistling yesterday. I deny it."
+     },
+     {
+      "id": "qa-mood-happy-a07",
+      "text": "Good. Not perfect, but good. I'll take good."
+     }
+    ],
+    "content": [
+     {
+      "id": "qa-mood-content-a01",
+      "text": "Fine. Not dancing, not crying. Steady."
+     },
+     {
+      "id": "qa-mood-content-a02",
+      "text": "Content, I'd say. Some good days, some long ones."
+     },
+     {
+      "id": "qa-mood-content-a03",
+      "text": "I'm all right. Ask me again after supper."
+     },
+     {
+      "id": "qa-mood-content-a04",
+      "text": "Middling. Which, down here, counts as a win."
+     },
+     {
+      "id": "qa-mood-content-a05",
+      "text": "Getting by. No complaints worth printing."
+     }
+    ],
+    "stressed": [
+     {
+      "id": "qa-mood-stressed-a01",
+      "text": "Tired. Things are piling up and I'm not sure who is going to clear them."
+     },
+     {
+      "id": "qa-mood-stressed-a02",
+      "text": "Not great, if I'm honest. Nothing terrible, just one thing after another."
+     },
+     {
+      "id": "qa-mood-stressed-a03",
+      "text": "I've been better. I'm trying to keep my temper, which takes effort."
+     }
+    ],
+    "very_stressed": [
+     {
+      "id": "qa-mood-very_stressed-a01",
+      "text": "Badly. I'm one bad meal away from shouting at somebody."
+     },
+     {
+      "id": "qa-mood-very_stressed-a02",
+      "text": "Poorly. I keep my head down and hope the week ends soon."
+     },
+     {
+      "id": "qa-mood-very_stressed-a03",
+      "text": "Please don't print this, but I'm close to the edge."
+     }
+    ],
+    "breaking": [
+     {
+      "id": "qa-mood-breaking-a01",
+      "text": "I'd rather not talk about it. Leave me alone. Please."
+     },
+     {
+      "id": "qa-mood-breaking-a02",
+      "text": "I'm not well. I don't want to talk. I want somebody to fix things."
+     },
+     {
+      "id": "qa-mood-breaking-a03",
+      "text": "Ask me something else. Anything else."
+     }
+    ]
+   },
+   "h": {
+    "ecstatic": [
+     {
+      "id": "qa-mood-ecstatic-h01",
+      "text": "NEVER BEEN HAPPIER"
+     },
+     {
+      "id": "qa-mood-ecstatic-h02",
+      "text": "THE HAPPIEST DWARF IN {fort}?"
+     },
+     {
+      "id": "qa-mood-ecstatic-h03",
+      "text": "'COULDN'T BE BETTER'"
+     },
+     {
+      "id": "qa-mood-ecstatic-h04",
+      "text": "HUMMING ALL THE WAY DOWN THE STAIRS"
+     },
+     {
+      "id": "qa-mood-ecstatic-h05",
+      "text": "HAPPIER THAN THEY HAVE ANY RIGHT TO BE"
+     }
+    ],
+    "happy": [
+     {
+      "id": "qa-mood-happy-h01",
+      "text": "'LIFE SUITS ME'"
+     },
+     {
+      "id": "qa-mood-happy-h02",
+      "text": "ALL SMILES IN {fort}"
+     },
+     {
+      "id": "qa-mood-happy-h03",
+      "text": "'EVERY DAY HAS SOMETHING GOOD IN IT'"
+     },
+     {
+      "id": "qa-mood-happy-h04",
+      "text": "WHISTLING (ALLEGEDLY)"
+     }
+    ],
+    "content": [
+     {
+      "id": "qa-mood-content-h01",
+      "text": "STEADY AS STONE"
+     },
+     {
+      "id": "qa-mood-content-h02",
+      "text": "NOT DANCING, NOT CRYING"
+     }
+    ],
+    "stressed": [
+     {
+      "id": "qa-mood-stressed-h01",
+      "text": "THINGS ARE PILING UP"
+     },
+     {
+      "id": "qa-mood-stressed-h02",
+      "text": "'I'VE BEEN BETTER'"
+     }
+    ],
+    "very_stressed": [
+     {
+      "id": "qa-mood-very_stressed-h01",
+      "text": "ONE BAD MEAL FROM THE EDGE"
+     },
+     {
+      "id": "qa-mood-very_stressed-h02",
+      "text": "A DWARF UNDER STRAIN"
+     }
+    ],
+    "breaking": [
+     {
+      "id": "qa-mood-breaking-h01",
+      "text": "'LEAVE ME ALONE'"
+     },
+     {
+      "id": "qa-mood-breaking-h02",
+      "text": "A DWARF IN CRISIS"
+     }
+    ]
+   }
+  },
+  "highlight": {
+   "q": [
+    {
+     "id": "qa-highlight-q01",
+     "text": "What's been the best part of your week?"
+    },
+    {
+     "id": "qa-highlight-q02",
+     "text": "Anything cheered you up lately?"
+    },
+    {
+     "id": "qa-highlight-q03",
+     "text": "What was the last thing that put a smile on your face?"
+    },
+    {
+     "id": "qa-highlight-q04",
+     "text": "We hear you've been catching the performances. Any good?",
+     "for": [
+      "show"
+     ]
+    },
+    {
+     "id": "qa-highlight-q05",
+     "text": "We hear you've been performing. How did it go?",
+     "for": [
+      "perform"
+     ]
+    },
+    {
+     "id": "qa-highlight-q06",
+     "text": "We hear you've been learning something new?",
+     "for": [
+      "skill"
+     ]
+    },
+    {
+     "id": "qa-highlight-q07",
+     "text": "You've been teaching, we're told. How are the students?",
+     "for": [
+      "teach"
+     ]
+    }
+   ],
+   "a": {
+    "show": [
+     {
+      "id": "qa-highlight-show-a01",
+      "text": "I watched a performance the other night and I'm still thinking about it. Good stuff."
+     },
+     {
+      "id": "qa-highlight-show-a02",
+      "text": "The performances. I caught a show and forgot about work for a whole evening."
+     },
+     {
+      "id": "qa-highlight-show-a03",
+      "text": "I went to see the performers. Somebody sang about a carp and the whole room cried."
+     },
+     {
+      "id": "qa-highlight-show-a04",
+      "text": "A performance. The poet was good. The dancer was better. I clapped until my hands hurt."
+     }
+    ],
+    "perform": [
+     {
+      "id": "qa-highlight-perform-a01",
+      "text": "I performed! People listened. Some of them even stayed to the end."
+     },
+     {
+      "id": "qa-highlight-perform-a02",
+      "text": "I got up and performed for a crowd. My knees shook, but my voice didn't."
+     },
+     {
+      "id": "qa-highlight-perform-a03",
+      "text": "Performing for the fort. There's nothing like a room that goes quiet for you."
+     },
+     {
+      "id": "qa-highlight-perform-a04",
+      "text": "I performed for the fort. Nobody threw anything, which I'm told is a good review."
+     }
+    ],
+    "drunk": [
+     {
+      "id": "qa-highlight-drunk-a01",
+      "text": "I had a few drinks and felt wonderful. I recommend it. In moderation. Or not."
+     },
+     {
+      "id": "qa-highlight-drunk-a02",
+      "text": "A very good night at the tavern. I don't remember all of it, which is how I know it was good."
+     },
+     {
+      "id": "qa-highlight-drunk-a03",
+      "text": "Drinking, honestly. Last night I was the happiest dwarf in {fort}, for about an hour."
+     },
+     {
+      "id": "qa-highlight-drunk-a04",
+      "text": "A night at the tavern. Good drink, loud company, a song I won't repeat in print."
+     }
+    ],
+    "skill": [
+     {
+      "id": "qa-highlight-skill-a01",
+      "text": "I'm getting better at my work. You can feel it in your hands when something finally clicks."
+     },
+     {
+      "id": "qa-highlight-skill-a02",
+      "text": "I learned something new. Small thing, but I've been waiting years to get it right."
+     },
+     {
+      "id": "qa-highlight-skill-a03",
+      "text": "Improving. Every day a little better. It adds up."
+     },
+     {
+      "id": "qa-highlight-skill-a04",
+      "text": "I finally got the hang of something I'd been struggling with. Small victory. Big grin."
+     }
+    ],
+    "teach": [
+     {
+      "id": "qa-highlight-teach-a01",
+      "text": "Teaching. Watching somebody finally get it is better than getting it yourself."
+     },
+     {
+      "id": "qa-highlight-teach-a02",
+      "text": "I've been passing on what I know. The young ones listen more than they let on."
+     },
+     {
+      "id": "qa-highlight-teach-a03",
+      "text": "I had a student get something right on the first try. I was prouder than they were."
+     }
+    ],
+    "talk": [
+     {
+      "id": "qa-highlight-talk-a01",
+      "text": "A good long talk with a friend. We solved most of the fort's problems, in theory."
+     },
+     {
+      "id": "qa-highlight-talk-a02",
+      "text": "Conversation. I sat with a few dwarves and talked until the lamps burned down."
+     },
+     {
+      "id": "qa-highlight-talk-a03",
+      "text": "Somebody listened to me properly for once. That's rarer than gold down here."
+     },
+     {
+      "id": "qa-highlight-talk-a04",
+      "text": "A long chat over supper. We disagreed about everything and enjoyed every minute."
+     }
+    ],
+    "friend": [
+     {
+      "id": "qa-highlight-friend-a01",
+      "text": "I made a new friend. At my age! It turns out we hate the same things."
+     },
+     {
+      "id": "qa-highlight-friend-a02",
+      "text": "Making a friend. We met over a mug and now we sit together at meals."
+     },
+     {
+      "id": "qa-highlight-friend-a03",
+      "text": "A new friend. You don't expect it this deep under the mountain, but there you go."
+     }
+    ],
+    "work": [
+     {
+      "id": "qa-highlight-work-a01",
+      "text": "A good day's work. I finished what I started and nobody needed it redone."
+     },
+     {
+      "id": "qa-highlight-work-a02",
+      "text": "Work, believe it or not. Some days the job just goes right."
+     },
+     {
+      "id": "qa-highlight-work-a03",
+      "text": "I had a day where everything I touched came out well. I'll be talking about it for weeks."
+     }
+    ],
+    "bedroom": [
+     {
+      "id": "qa-highlight-bedroom-a01",
+      "text": "My bedroom. I love that room. Four walls, a bed and a door that shuts."
+     },
+     {
+      "id": "qa-highlight-bedroom-a02",
+      "text": "Going to bed, honestly. I've got a fine room and I enjoy every minute in it."
+     },
+     {
+      "id": "qa-highlight-bedroom-a03",
+      "text": "My room. Whoever dug it knew what they were doing."
+     }
+    ],
+    "meal": [
+     {
+      "id": "qa-highlight-meal-a01",
+      "text": "A really good meal. I could taste every ingredient, and most of them were on purpose."
+     },
+     {
+      "id": "qa-highlight-meal-a02",
+      "text": "Supper the other night. The cook outdid themselves."
+     },
+     {
+      "id": "qa-highlight-meal-a03",
+      "text": "Food. A proper hot meal. It fixes most things."
+     }
+    ],
+    "building": [
+     {
+      "id": "qa-highlight-building-a01",
+      "text": "I stopped to admire some of the stonework. Somebody in this fort has real talent."
+     },
+     {
+      "id": "qa-highlight-building-a02",
+      "text": "The buildings. I walked past a well-made room and just stood there for a while."
+     },
+     {
+      "id": "qa-highlight-building-a03",
+      "text": "Admiring the halls. A fort that looks this good is a fort worth living in."
+     }
+    ],
+    "temple": [
+     {
+      "id": "qa-highlight-temple-a01",
+      "text": "A ceremony at the temple. I came out feeling lighter than I went in."
+     },
+     {
+      "id": "qa-highlight-temple-a02",
+      "text": "Prayer, and the rites. It's good to stop and remember there's more than work."
+     },
+     {
+      "id": "qa-highlight-temple-a03",
+      "text": "The temple. I joined the rites and felt, for once, that somebody was listening."
+     },
+     {
+      "id": "qa-highlight-temple-a04",
+      "text": "The rites at the temple. Quiet, candles, and a feeling I can't quite name."
+     }
+    ],
+    "book": [
+     {
+      "id": "qa-highlight-book-a01",
+      "text": "Reading. I found a book I hadn't read and lost a whole afternoon in it."
+     },
+     {
+      "id": "qa-highlight-book-a02",
+      "text": "Study. I've been reading and thinking, and I think I understand a little more than before."
+     },
+     {
+      "id": "qa-highlight-book-a03",
+      "text": "A good book. Don't laugh. Some of us read."
+     }
+    ],
+    "spar": [
+     {
+      "id": "qa-highlight-spar-a01",
+      "text": "Sparring. I held my own against a dwarf twice my size."
+     },
+     {
+      "id": "qa-highlight-spar-a02",
+      "text": "A good sparring match. Nothing broken, everything learned."
+     },
+     {
+      "id": "qa-highlight-spar-a03",
+      "text": "Practice fights. I won one. I'm not saying which one."
+     }
+    ],
+    "clothes": [
+     {
+      "id": "qa-highlight-clothes-a01",
+      "text": "I've got clothes I actually like. Small thing, but it makes the day better."
+     },
+     {
+      "id": "qa-highlight-clothes-a02",
+      "text": "New clothes. Well made. I wear them everywhere."
+     },
+     {
+      "id": "qa-highlight-clothes-a03",
+      "text": "Something nice to wear. You feel different in good cloth."
+     }
+    ],
+    "play": [
+     {
+      "id": "qa-highlight-play-a01",
+      "text": "Playing! I had a toy and a whole afternoon."
+     },
+     {
+      "id": "qa-highlight-play-a02",
+      "text": "Make-believe. I was a forgotten beast and everybody ran away."
+     },
+     {
+      "id": "qa-highlight-play-a03",
+      "text": "Games. I won some and I lost some and then I made up new rules."
+     }
+    ],
+    "family": [
+     {
+      "id": "qa-highlight-family-a01",
+      "text": "My family has grown. I still can't quite believe it."
+     },
+     {
+      "id": "qa-highlight-family-a02",
+      "text": "Family news. The best kind. I'm smiling just thinking about it."
+     },
+     {
+      "id": "qa-highlight-family-a03",
+      "text": "A new member of the family. Everything else this week is small next to that."
+     }
+    ],
+    "argue": [
+     {
+      "id": "qa-highlight-argue-a01",
+      "text": "I won an argument. Fair and square. I was right and now everybody knows it."
+     },
+     {
+      "id": "qa-highlight-argue-a02",
+      "text": "A lively debate. I enjoyed every minute and so did the other dwarf, eventually."
+     },
+     {
+      "id": "qa-highlight-argue-a03",
+      "text": "A good argument. Nothing clears the head like being right out loud."
+     }
+    ],
+    "help": [
+     {
+      "id": "qa-highlight-help-a01",
+      "text": "I helped somebody who needed it. That's a good feeling."
+     },
+     {
+      "id": "qa-highlight-help-a02",
+      "text": "I looked after a dwarf who couldn't look after themselves for a bit. Glad I could."
+     },
+     {
+      "id": "qa-highlight-help-a03",
+      "text": "Lending a hand. It's nice to be useful outside the work orders."
+     }
+    ],
+    "other": [
+     {
+      "id": "qa-highlight-other-a01",
+      "text": "Small things. A quiet moment, a good mug. That's enough for me."
+     },
+     {
+      "id": "qa-highlight-other-a02",
+      "text": "Hard to say. A few good days in a row, and nothing went wrong."
+     },
+     {
+      "id": "qa-highlight-other-a03",
+      "text": "Nothing grand. I'm just having a decent week."
+     }
+    ]
+   },
+   "h": {
+    "show": [
+     {
+      "id": "qa-highlight-show-h01",
+      "text": "A NIGHT AT THE PERFORMANCES"
+     },
+     {
+      "id": "qa-highlight-show-h02",
+      "text": "'THE SHOW WAS GOOD STUFF'"
+     }
+    ],
+    "perform": [
+     {
+      "id": "qa-highlight-perform-h01",
+      "text": "STAR OF THE STAGE"
+     },
+     {
+      "id": "qa-highlight-perform-h02",
+      "text": "THE CROWD WENT QUIET FOR THIS PERFORMER"
+     }
+    ],
+    "drunk": [
+     {
+      "id": "qa-highlight-drunk-h01",
+      "text": "A VERY GOOD NIGHT AT THE TAVERN"
+     },
+     {
+      "id": "qa-highlight-drunk-h02",
+      "text": "IN PRAISE OF ALE"
+     }
+    ],
+    "skill": [
+     {
+      "id": "qa-highlight-skill-h01",
+      "text": "GETTING BETTER EVERY DAY"
+     },
+     {
+      "id": "qa-highlight-skill-h02",
+      "text": "'SOMETHING FINALLY CLICKED'"
+     },
+     {
+      "id": "qa-highlight-skill-h03",
+      "text": "A SMALL VICTORY, A BIG GRIN"
+     }
+    ],
+    "teach": [
+     {
+      "id": "qa-highlight-teach-h01",
+      "text": "THE TEACHER'S PRIDE"
+     },
+     {
+      "id": "qa-highlight-teach-h02",
+      "text": "PASSING IT ON"
+     }
+    ],
+    "talk": [
+     {
+      "id": "qa-highlight-talk-h01",
+      "text": "THE ART OF CONVERSATION"
+     },
+     {
+      "id": "qa-highlight-talk-h02",
+      "text": "'SOMEBODY LISTENED'"
+     }
+    ],
+    "friend": [
+     {
+      "id": "qa-highlight-friend-h01",
+      "text": "A NEW FRIEND IN {fort}"
+     },
+     {
+      "id": "qa-highlight-friend-h02",
+      "text": "FRIENDSHIP UNDER THE MOUNTAIN"
+     }
+    ],
+    "work": [
+     {
+      "id": "qa-highlight-work-h01",
+      "text": "A GOOD DAY'S WORK"
+     },
+     {
+      "id": "qa-highlight-work-h02",
+      "text": "WHEN THE JOB GOES RIGHT"
+     }
+    ],
+    "bedroom": [
+     {
+      "id": "qa-highlight-bedroom-h01",
+      "text": "IN LOVE WITH A BEDROOM"
+     },
+     {
+      "id": "qa-highlight-bedroom-h02",
+      "text": "FOUR WALLS AND A DOOR THAT SHUTS"
+     }
+    ],
+    "meal": [
+     {
+      "id": "qa-highlight-meal-h01",
+      "text": "THE COOK OUTDID THEMSELVES"
+     },
+     {
+      "id": "qa-highlight-meal-h02",
+      "text": "IN PRAISE OF A HOT MEAL"
+     }
+    ],
+    "building": [
+     {
+      "id": "qa-highlight-building-h01",
+      "text": "STOPPED IN THEIR TRACKS BY STONEWORK"
+     },
+     {
+      "id": "qa-highlight-building-h02",
+      "text": "THE FORT LOOKS GOOD"
+     }
+    ],
+    "temple": [
+     {
+      "id": "qa-highlight-temple-h01",
+      "text": "LIGHTER AFTER THE RITES"
+     },
+     {
+      "id": "qa-highlight-temple-h02",
+      "text": "FAITH AT THE TEMPLE"
+     }
+    ],
+    "book": [
+     {
+      "id": "qa-highlight-book-h01",
+      "text": "LOST IN A BOOK"
+     },
+     {
+      "id": "qa-highlight-book-h02",
+      "text": "SOME OF US READ"
+     }
+    ],
+    "spar": [
+     {
+      "id": "qa-highlight-spar-h01",
+      "text": "SPARRING AND WINNING"
+     },
+     {
+      "id": "qa-highlight-spar-h02",
+      "text": "PRACTICE MAKES BRUISES"
+     }
+    ],
+    "clothes": [
+     {
+      "id": "qa-highlight-clothes-h01",
+      "text": "DRESSED FOR SUCCESS"
+     },
+     {
+      "id": "qa-highlight-clothes-h02",
+      "text": "THE JOY OF GOOD CLOTH"
+     }
+    ],
+    "play": [
+     {
+      "id": "qa-highlight-play-h01",
+      "text": "A WHOLE AFTERNOON OF PLAY"
+     },
+     {
+      "id": "qa-highlight-play-h02",
+      "text": "GAMES WITH NEW RULES"
+     }
+    ],
+    "family": [
+     {
+      "id": "qa-highlight-family-h01",
+      "text": "THE FAMILY GROWS"
+     },
+     {
+      "id": "qa-highlight-family-h02",
+      "text": "THE BEST KIND OF NEWS"
+     }
+    ],
+    "argue": [
+     {
+      "id": "qa-highlight-argue-h01",
+      "text": "RIGHT, OUT LOUD"
+     },
+     {
+      "id": "qa-highlight-argue-h02",
+      "text": "WINNER OF THE ARGUMENT"
+     }
+    ],
+    "help": [
+     {
+      "id": "qa-highlight-help-h01",
+      "text": "A HELPING HAND"
+     },
+     {
+      "id": "qa-highlight-help-h02",
+      "text": "GLAD TO BE USEFUL"
+     }
+    ],
+    "other": [
+     {
+      "id": "qa-highlight-other-h01",
+      "text": "A DECENT WEEK"
+     },
+     {
+      "id": "qa-highlight-other-h02",
+      "text": "THE SMALL THINGS"
+     }
+    ]
+   }
+  },
+  "gripe": {
+   "q": [
+    {
+     "id": "qa-gripe-q01",
+     "text": "Anything bothering you lately?"
+    },
+    {
+     "id": "qa-gripe-q02",
+     "text": "Any complaints for the overseer?",
+     "for": [
+      "rain",
+      "miasma",
+      "crowded",
+      "mud",
+      "nobed",
+      "hunger",
+      "thirst",
+      "other",
+      "argue"
+     ]
+    },
+    {
+     "id": "qa-gripe-q03",
+     "text": "What's the worst thing that happened to you this week?"
+    },
+    {
+     "id": "qa-gripe-q04",
+     "text": "How are you finding the weather?",
+     "for": [
+      "rain"
+     ]
+    },
+    {
+     "id": "qa-gripe-q05",
+     "text": "We hear there's been a smell. Have you noticed?",
+     "for": [
+      "miasma"
+     ]
+    }
+   ],
+   "a": {
+    "rain": [
+     {
+      "id": "qa-gripe-rain-a01",
+      "text": "The rain. I went outside for one minute and came back soaked to the beard."
+     },
+     {
+      "id": "qa-gripe-rain-a02",
+      "text": "Getting rained on. Dwarves were not made to have water fall on them from above."
+     },
+     {
+      "id": "qa-gripe-rain-a03",
+      "text": "The weather. I don't mind water in a mug. I mind it down my collar."
+     }
+    ],
+    "miasma": [
+     {
+      "id": "qa-gripe-miasma-a01",
+      "text": "The smell. Something is rotting somewhere and the whole corridor knows it."
+     },
+     {
+      "id": "qa-gripe-miasma-a02",
+      "text": "Miasma. Somebody needs to clear whatever is lying about before it walks off by itself."
+     },
+     {
+      "id": "qa-gripe-miasma-a03",
+      "text": "The stink. I won't say where. You'll find it yourself."
+     }
+    ],
+    "argue": [
+     {
+      "id": "qa-gripe-argue-a01",
+      "text": "An argument. Somebody said something and I said something back and now it's a whole thing."
+     },
+     {
+      "id": "qa-gripe-argue-a02",
+      "text": "A quarrel with another dwarf. I'm right, of course, but it still spoils the week."
+     },
+     {
+      "id": "qa-gripe-argue-a03",
+      "text": "I fell out with somebody. We'll make up. Eventually. Possibly."
+     }
+    ],
+    "crowded": [
+     {
+      "id": "qa-gripe-crowded-a01",
+      "text": "The dining hall is packed. I had to eat standing up with somebody's elbow in my soup."
+     },
+     {
+      "id": "qa-gripe-crowded-a02",
+      "text": "Crowded tables. More chairs, please. Or fewer dwarves at supper."
+     },
+     {
+      "id": "qa-gripe-crowded-a03",
+      "text": "Meals are a scrum. I'd like to sit down for one, just once."
+     }
+    ],
+    "mud": [
+     {
+      "id": "qa-gripe-mud-a01",
+      "text": "I had to sleep in the mud. Not a bed, not a floor. Mud."
+     },
+     {
+      "id": "qa-gripe-mud-a02",
+      "text": "Sleeping rough. My back hasn't forgiven me."
+     },
+     {
+      "id": "qa-gripe-mud-a03",
+      "text": "Bedtime on the ground. I'm not a dog. Well, the dogs get beds."
+     }
+    ],
+    "nobed": [
+     {
+      "id": "qa-gripe-nobed-a01",
+      "text": "I don't have a bedroom. I'd settle for a cupboard with a door."
+     },
+     {
+      "id": "qa-gripe-nobed-a02",
+      "text": "No room of my own. I sleep wherever I fall, and I fall in some odd places."
+     },
+     {
+      "id": "qa-gripe-nobed-a03",
+      "text": "A bedroom, or the lack of one. Is that too much to ask?"
+     }
+    ],
+    "bored_show": [
+     {
+      "id": "qa-gripe-bored_show-a01",
+      "text": "I went to a performance and it bored me stiff. I've seen better arguments in the dining hall."
+     },
+     {
+      "id": "qa-gripe-bored_show-a02",
+      "text": "A performance that went on forever. I counted the ceiling tiles twice."
+     },
+     {
+      "id": "qa-gripe-bored_show-a03",
+      "text": "Bad theatre. Somebody recited for an hour and I'll never get it back."
+     }
+    ],
+    "death": [
+     {
+      "id": "qa-gripe-death-a01",
+      "text": "Seeing the dead. You don't forget a thing like that."
+     },
+     {
+      "id": "qa-gripe-death-a02",
+      "text": "Death. It's been close this week, and it shakes you."
+     },
+     {
+      "id": "qa-gripe-death-a03",
+      "text": "A body. I'd rather not say more."
+     }
+    ],
+    "hurt": [
+     {
+      "id": "qa-gripe-hurt-a01",
+      "text": "I got hurt. Not badly. Badly enough to complain about, though."
+     },
+     {
+      "id": "qa-gripe-hurt-a02",
+      "text": "Pain. I took a knock and I'm still feeling it."
+     },
+     {
+      "id": "qa-gripe-hurt-a03",
+      "text": "An injury. The doctor says it'll heal. The doctor says that about everything."
+     }
+    ],
+    "hunger": [
+     {
+      "id": "qa-gripe-hunger-a01",
+      "text": "I've been hungry. Properly hungry, the kind that makes you mean."
+     },
+     {
+      "id": "qa-gripe-hunger-a02",
+      "text": "Food, or the lack of it, when I wanted it."
+     },
+     {
+      "id": "qa-gripe-hunger-a03",
+      "text": "My stomach. It's been empty too often."
+     }
+    ],
+    "thirst": [
+     {
+      "id": "qa-gripe-thirst-a01",
+      "text": "I've been thirsty, and not the good kind. I want a drink and I want it now."
+     },
+     {
+      "id": "qa-gripe-thirst-a02",
+      "text": "No drink when I needed one. Unacceptable."
+     },
+     {
+      "id": "qa-gripe-thirst-a03",
+      "text": "Thirst. A dwarf without a drink is a dwarf without patience."
+     }
+    ],
+    "other": [
+     {
+      "id": "qa-gripe-other-a01",
+      "text": "Little things. They add up."
+     },
+     {
+      "id": "qa-gripe-other-a02",
+      "text": "Nothing I want printed. Let's say the week could have gone better."
+     },
+     {
+      "id": "qa-gripe-other-a03",
+      "text": "One of those weeks. You know the kind."
+     }
+    ]
+   },
+   "h": {
+    "rain": [
+     {
+      "id": "qa-gripe-rain-h01",
+      "text": "SOAKED TO THE BEARD"
+     },
+     {
+      "id": "qa-gripe-rain-h02",
+      "text": "DOWN WITH RAIN"
+     }
+    ],
+    "miasma": [
+     {
+      "id": "qa-gripe-miasma-h01",
+      "text": "SOMETHING IS ROTTING"
+     },
+     {
+      "id": "qa-gripe-miasma-h02",
+      "text": "THE SMELL MUST GO"
+     }
+    ],
+    "argue": [
+     {
+      "id": "qa-gripe-argue-h01",
+      "text": "A QUARREL IN {fort}"
+     },
+     {
+      "id": "qa-gripe-argue-h02",
+      "text": "'I'M RIGHT, OF COURSE'"
+     }
+    ],
+    "crowded": [
+     {
+      "id": "qa-gripe-crowded-h01",
+      "text": "MORE CHAIRS, PLEASE"
+     },
+     {
+      "id": "qa-gripe-crowded-h02",
+      "text": "ELBOWS IN THE SOUP"
+     }
+    ],
+    "mud": [
+     {
+      "id": "qa-gripe-mud-h01",
+      "text": "SLEPT IN THE MUD"
+     },
+     {
+      "id": "qa-gripe-mud-h02",
+      "text": "A BACK THAT WON'T FORGIVE"
+     }
+    ],
+    "nobed": [
+     {
+      "id": "qa-gripe-nobed-h01",
+      "text": "NO ROOM OF THEIR OWN"
+     },
+     {
+      "id": "qa-gripe-nobed-h02",
+      "text": "A CUPBOARD WITH A DOOR, PLEASE"
+     }
+    ],
+    "bored_show": [
+     {
+      "id": "qa-gripe-bored_show-h01",
+      "text": "BORED STIFF AT THE PERFORMANCE"
+     },
+     {
+      "id": "qa-gripe-bored_show-h02",
+      "text": "A SHOW THAT WOULDN'T END"
+     }
+    ],
+    "death": [
+     {
+      "id": "qa-gripe-death-h01",
+      "text": "A DWARF SHAKEN"
+     },
+     {
+      "id": "qa-gripe-death-h02",
+      "text": "TOO CLOSE TO DEATH"
+     }
+    ],
+    "hurt": [
+     {
+      "id": "qa-gripe-hurt-h01",
+      "text": "NURSING AN INJURY"
+     },
+     {
+      "id": "qa-gripe-hurt-h02",
+      "text": "STILL FEELING IT"
+     }
+    ],
+    "hunger": [
+     {
+      "id": "qa-gripe-hunger-h01",
+      "text": "HUNGRY AND MEAN"
+     },
+     {
+      "id": "qa-gripe-hunger-h02",
+      "text": "AN EMPTY STOMACH SPEAKS"
+     }
+    ],
+    "thirst": [
+     {
+      "id": "qa-gripe-thirst-h01",
+      "text": "A DRINK, NOW"
+     },
+     {
+      "id": "qa-gripe-thirst-h02",
+      "text": "THIRSTY AND IMPATIENT"
+     }
+    ],
+    "other": [
+     {
+      "id": "qa-gripe-other-h01",
+      "text": "ONE OF THOSE WEEKS"
+     },
+     {
+      "id": "qa-gripe-other-h02",
+      "text": "THE LITTLE THINGS ADD UP"
+     }
+    ]
+   }
+  },
+  "needs": {
+   "q": [
+    {
+     "id": "qa-needs-q01",
+     "text": "Is there anything you've been missing lately?"
+    },
+    {
+     "id": "qa-needs-q02",
+     "text": "If the overseer granted you one wish, what would it be?"
+    },
+    {
+     "id": "qa-needs-q03",
+     "text": "What would make your week?"
+    }
+   ],
+   "a": {
+    "acquire": [
+     {
+      "id": "qa-needs-acquire-a01",
+      "text": "Something new to call my own. A ring, a figurine, anything. I just want to own a nice thing."
+     },
+     {
+      "id": "qa-needs-acquire-a02",
+      "text": "Shopping. I'd love to pick up something pretty when the next caravan comes."
+     },
+     {
+      "id": "qa-needs-acquire-a03",
+      "text": "Possessions. Everyone else seems to have nicer things than me."
+     },
+     {
+      "id": "qa-needs-acquire-a04",
+      "text": "Something nice of my own. A bracelet, a cup with a bit of gold on it. I'm not fussy. I'm a little fussy."
+     },
+     {
+      "id": "qa-needs-acquire-a05",
+      "text": "A trinket. Everyone deserves one good thing that's theirs and nobody else's."
+     }
+    ],
+    "craft": [
+     {
+      "id": "qa-needs-craft-a01",
+      "text": "Making something with my own hands. Not for an order. Just for me."
+     },
+     {
+      "id": "qa-needs-craft-a02",
+      "text": "Crafting. I miss sitting down and making something from scratch."
+     },
+     {
+      "id": "qa-needs-craft-a03",
+      "text": "A free hour at a workbench. I've got an idea and nowhere to make it."
+     },
+     {
+      "id": "qa-needs-craft-a04",
+      "text": "To make something. I've had a figurine in my head for a month and nowhere to carve it."
+     },
+     {
+      "id": "qa-needs-craft-a05",
+      "text": "Time at a bench with no work order attached. Just me and an idea."
+     }
+    ],
+    "friends": [
+     {
+      "id": "qa-needs-friends-a01",
+      "text": "Time with my friends. We all work different shifts and never see each other."
+     },
+     {
+      "id": "qa-needs-friends-a02",
+      "text": "My friends. I'd give a week's ale for one evening with them."
+     },
+     {
+      "id": "qa-needs-friends-a03",
+      "text": "Company. Good company, not just whoever is at the next table."
+     },
+     {
+      "id": "qa-needs-friends-a04",
+      "text": "An evening with my friends. Just one. We keep missing each other."
+     }
+    ],
+    "extravagant": [
+     {
+      "id": "qa-needs-extravagant-a01",
+      "text": "Something a bit grand. Fine clothes, a fancy room. Life is too short for plain stone."
+     },
+     {
+      "id": "qa-needs-extravagant-a02",
+      "text": "Luxury. Gold trim, gems on the door, the works. Is that so wrong?"
+     },
+     {
+      "id": "qa-needs-extravagant-a03",
+      "text": "A little extravagance. I'm tired of making do."
+     },
+     {
+      "id": "qa-needs-extravagant-a04",
+      "text": "Fine things. A carved chair, a coloured cloak. Something nobody needs and everybody admires."
+     }
+    ],
+    "meal": [
+     {
+      "id": "qa-needs-meal-a01",
+      "text": "A really good meal. Something cooked properly, not just whatever is nearest."
+     },
+     {
+      "id": "qa-needs-meal-a02",
+      "text": "Proper food. A lavish meal I can sit down to and take my time over."
+     },
+     {
+      "id": "qa-needs-meal-a03",
+      "text": "Fine dining. I'd settle for a good roast eaten slowly."
+     }
+    ],
+    "fight": [
+     {
+      "id": "qa-needs-fight-a01",
+      "text": "A good fight. Nothing serious. Just something to test myself against."
+     },
+     {
+      "id": "qa-needs-fight-a02",
+      "text": "Fighting. I've got energy and nowhere to put it."
+     },
+     {
+      "id": "qa-needs-fight-a03",
+      "text": "A scrap. I'm not looking for trouble, but I wouldn't run from it."
+     }
+    ],
+    "excitement": [
+     {
+      "id": "qa-needs-excitement-a01",
+      "text": "Excitement. Anything. Even a small cave-in would liven things up. A small one."
+     },
+     {
+      "id": "qa-needs-excitement-a02",
+      "text": "Something to happen. Every day here is the same."
+     },
+     {
+      "id": "qa-needs-excitement-a03",
+      "text": "A thrill. I'm bored stiff and the walls are starting to look interesting."
+     }
+    ],
+    "wander": [
+     {
+      "id": "qa-needs-wander-a01",
+      "text": "A walk. A long one, with nowhere to be at the end of it."
+     },
+     {
+      "id": "qa-needs-wander-a02",
+      "text": "Wandering. I want to see a bit of the world outside these halls."
+     },
+     {
+      "id": "qa-needs-wander-a03",
+      "text": "Room to roam. I've walked every corridor in {fort} twice."
+     }
+    ],
+    "help": [
+     {
+      "id": "qa-needs-help-a01",
+      "text": "To be useful to somebody. Not a work order, a real person who needs a hand."
+     },
+     {
+      "id": "qa-needs-help-a02",
+      "text": "Helping out. I like knowing I made somebody's day easier."
+     },
+     {
+      "id": "qa-needs-help-a03",
+      "text": "A chance to lend a hand. It's been too long."
+     }
+    ],
+    "rest": [
+     {
+      "id": "qa-needs-rest-a01",
+      "text": "A day off. One. I'd spend it doing absolutely nothing."
+     },
+     {
+      "id": "qa-needs-rest-a02",
+      "text": "Rest. I want to sit down and not be asked to get up."
+     },
+     {
+      "id": "qa-needs-rest-a03",
+      "text": "Taking it easy. I've forgotten how."
+     }
+    ],
+    "merry": [
+     {
+      "id": "qa-needs-merry-a01",
+      "text": "A party. Music, drink, dancing, the lot."
+     },
+     {
+      "id": "qa-needs-merry-a02",
+      "text": "Merriment. The fort could do with a celebration."
+     },
+     {
+      "id": "qa-needs-merry-a03",
+      "text": "A good night out at the tavern with everyone there."
+     }
+    ],
+    "train": [
+     {
+      "id": "qa-needs-train-a01",
+      "text": "Proper weapons practice. I'm getting rusty."
+     },
+     {
+      "id": "qa-needs-train-a02",
+      "text": "Training. A soldier who doesn't drill is just a dwarf with a sword."
+     },
+     {
+      "id": "qa-needs-train-a03",
+      "text": "Time in the barracks. I'd like to keep my edge."
+     }
+    ],
+    "creative": [
+     {
+      "id": "qa-needs-creative-a01",
+      "text": "Room to be creative. Write something, carve something, sing something."
+     },
+     {
+      "id": "qa-needs-creative-a02",
+      "text": "Making something new. Something nobody has asked for."
+     },
+     {
+      "id": "qa-needs-creative-a03",
+      "text": "A creative afternoon. I've got ideas piling up."
+     }
+    ],
+    "art": [
+     {
+      "id": "qa-needs-art-a01",
+      "text": "Something beautiful to look at. A good engraving, a fine statue."
+     },
+     {
+      "id": "qa-needs-art-a02",
+      "text": "Art. I'd walk a long way to see something well made."
+     },
+     {
+      "id": "qa-needs-art-a03",
+      "text": "Admiring something lovely. The fort could use a few more pretty things."
+     }
+    ],
+    "romance": [
+     {
+      "id": "qa-needs-romance-a01",
+      "text": "Romance. There, I said it. Print it in small type."
+     },
+     {
+      "id": "qa-needs-romance-a02",
+      "text": "Somebody special. I'm not getting any younger."
+     },
+     {
+      "id": "qa-needs-romance-a03",
+      "text": "Love, if you must know. The fort is big. Somebody must be out there."
+     }
+    ],
+    "busy": [
+     {
+      "id": "qa-needs-busy-a01",
+      "text": "Something to do. Idle hands, and all that."
+     },
+     {
+      "id": "qa-needs-busy-a02",
+      "text": "Work. Real work. I'm going spare with nothing to do."
+     },
+     {
+      "id": "qa-needs-busy-a03",
+      "text": "A job. Any job. I'll even haul."
+     }
+    ],
+    "practice": [
+     {
+      "id": "qa-needs-practice-a01",
+      "text": "Time to practise my craft. I'm slipping."
+     },
+     {
+      "id": "qa-needs-practice-a02",
+      "text": "Practice. A skill you don't use goes stale."
+     },
+     {
+      "id": "qa-needs-practice-a03",
+      "text": "Time at my trade. I miss the work."
+     }
+    ],
+    "trouble": [
+     {
+      "id": "qa-needs-trouble-a01",
+      "text": "A bit of mischief. Nothing serious. Probably."
+     },
+     {
+      "id": "qa-needs-trouble-a02",
+      "text": "Trouble. Just a little. To keep things interesting."
+     },
+     {
+      "id": "qa-needs-trouble-a03",
+      "text": "Stirring something up. It's been too quiet."
+     }
+    ],
+    "think": [
+     {
+      "id": "qa-needs-think-a01",
+      "text": "Something to think about. A real puzzle, not a work order."
+     },
+     {
+      "id": "qa-needs-think-a02",
+      "text": "Deep thought. A quiet room and a hard question."
+     },
+     {
+      "id": "qa-needs-think-a03",
+      "text": "Ideas. I'd like to ponder something properly."
+     }
+    ],
+    "eloquence": [
+     {
+      "id": "qa-needs-eloquence-a01",
+      "text": "To hear somebody speak well. A good speech, a good poem."
+     },
+     {
+      "id": "qa-needs-eloquence-a02",
+      "text": "Eloquence. Most talk down here is about rocks."
+     },
+     {
+      "id": "qa-needs-eloquence-a03",
+      "text": "Somebody who can turn a phrase. I'd sit and listen all night."
+     }
+    ],
+    "self": [
+     {
+      "id": "qa-needs-self-a01",
+      "text": "A quiet moment to think about my life. Where it's going."
+     },
+     {
+      "id": "qa-needs-self-a02",
+      "text": "Time to reflect. I've been too busy to ask myself how I'm doing."
+     },
+     {
+      "id": "qa-needs-self-a03",
+      "text": "Some peace to sort out my own head."
+     }
+    ],
+    "tradition": [
+     {
+      "id": "qa-needs-tradition-a01",
+      "text": "A bit of tradition. Things done properly, the old way."
+     },
+     {
+      "id": "qa-needs-tradition-a02",
+      "text": "The old customs. Everyone rushes these days."
+     },
+     {
+      "id": "qa-needs-tradition-a03",
+      "text": "Respect for how things were done in the mountainhomes."
+     }
+    ],
+    "learn": [
+     {
+      "id": "qa-needs-learn-a01",
+      "text": "To learn something new. Anything. I'm hungry for it."
+     },
+     {
+      "id": "qa-needs-learn-a02",
+      "text": "Lessons. A book, a teacher, a new skill."
+     },
+     {
+      "id": "qa-needs-learn-a03",
+      "text": "Knowledge. I want to know how things work."
+     }
+    ],
+    "family": [
+     {
+      "id": "qa-needs-family-a01",
+      "text": "Time with my family. We pass each other in the halls and that's it."
+     },
+     {
+      "id": "qa-needs-family-a02",
+      "text": "My family. I'd like a quiet meal with them."
+     },
+     {
+      "id": "qa-needs-family-a03",
+      "text": "Family time. Work keeps getting in the way."
+     }
+    ],
+    "drink": [
+     {
+      "id": "qa-needs-drink-a01",
+      "text": "A drink. A proper one, in a mug, sitting down."
+     },
+     {
+      "id": "qa-needs-drink-a02",
+      "text": "Booze. It's been too long since I had a really good one."
+     },
+     {
+      "id": "qa-needs-drink-a03",
+      "text": "Ale. Strong, cold and soon."
+     }
+    ],
+    "animal": [
+     {
+      "id": "qa-needs-animal-a01",
+      "text": "To see some animals. Something with fur that doesn't want anything from me."
+     },
+     {
+      "id": "qa-needs-animal-a02",
+      "text": "Animals. I'd like to spend time in the pasture."
+     },
+     {
+      "id": "qa-needs-animal-a03",
+      "text": "A pet to scratch behind the ears."
+     }
+    ]
+   },
+   "h": {
+    "acquire": [
+     {
+      "id": "qa-needs-acquire-h01",
+      "text": "IN NEED OF A NICE THING"
+     },
+     {
+      "id": "qa-needs-acquire-h02",
+      "text": "SHOPPING ON THE MIND"
+     },
+     {
+      "id": "qa-needs-acquire-h03",
+      "text": "ONE GOOD THING OF THEIR OWN"
+     }
+    ],
+    "craft": [
+     {
+      "id": "qa-needs-craft-h01",
+      "text": "ITCHING TO MAKE SOMETHING"
+     },
+     {
+      "id": "qa-needs-craft-h02",
+      "text": "AN IDEA AND NO BENCH"
+     }
+    ],
+    "friends": [
+     {
+      "id": "qa-needs-friends-h01",
+      "text": "MISSING FRIENDS"
+     },
+     {
+      "id": "qa-needs-friends-h02",
+      "text": "A WEEK'S ALE FOR AN EVENING WITH FRIENDS"
+     }
+    ],
+    "extravagant": [
+     {
+      "id": "qa-needs-extravagant-h01",
+      "text": "TIRED OF PLAIN STONE"
+     },
+     {
+      "id": "qa-needs-extravagant-h02",
+      "text": "IN PRAISE OF LUXURY"
+     }
+    ],
+    "meal": [
+     {
+      "id": "qa-needs-meal-h01",
+      "text": "DREAMING OF A PROPER MEAL"
+     },
+     {
+      "id": "qa-needs-meal-h02",
+      "text": "A ROAST, EATEN SLOWLY"
+     }
+    ],
+    "fight": [
+     {
+      "id": "qa-needs-fight-h01",
+      "text": "SPOILING FOR A FIGHT"
+     },
+     {
+      "id": "qa-needs-fight-h02",
+      "text": "ENERGY AND NOWHERE TO PUT IT"
+     }
+    ],
+    "excitement": [
+     {
+      "id": "qa-needs-excitement-h01",
+      "text": "BORED STIFF IN {fort}"
+     },
+     {
+      "id": "qa-needs-excitement-h02",
+      "text": "WANTED: EXCITEMENT"
+     }
+    ],
+    "wander": [
+     {
+      "id": "qa-needs-wander-h01",
+      "text": "THE CALL OF THE OPEN ROAD"
+     },
+     {
+      "id": "qa-needs-wander-h02",
+      "text": "WALKED EVERY CORRIDOR TWICE"
+     }
+    ],
+    "help": [
+     {
+      "id": "qa-needs-help-h01",
+      "text": "WANTING TO BE USEFUL"
+     },
+     {
+      "id": "qa-needs-help-h02",
+      "text": "A HAND, OFFERED"
+     }
+    ],
+    "rest": [
+     {
+      "id": "qa-needs-rest-h01",
+      "text": "ONE DAY OFF, PLEASE"
+     },
+     {
+      "id": "qa-needs-rest-h02",
+      "text": "FORGOTTEN HOW TO REST"
+     }
+    ],
+    "merry": [
+     {
+      "id": "qa-needs-merry-h01",
+      "text": "THE FORT NEEDS A PARTY"
+     },
+     {
+      "id": "qa-needs-merry-h02",
+      "text": "WANTED: MERRIMENT"
+     }
+    ],
+    "train": [
+     {
+      "id": "qa-needs-train-h01",
+      "text": "GETTING RUSTY"
+     },
+     {
+      "id": "qa-needs-train-h02",
+      "text": "BACK TO THE BARRACKS"
+     }
+    ],
+    "creative": [
+     {
+      "id": "qa-needs-creative-h01",
+      "text": "IDEAS PILING UP"
+     },
+     {
+      "id": "qa-needs-creative-h02",
+      "text": "A CREATIVE SOUL"
+     }
+    ],
+    "art": [
+     {
+      "id": "qa-needs-art-h01",
+      "text": "IN SEARCH OF BEAUTY"
+     },
+     {
+      "id": "qa-needs-art-h02",
+      "text": "THE FORT NEEDS PRETTY THINGS"
+     }
+    ],
+    "romance": [
+     {
+      "id": "qa-needs-romance-h01",
+      "text": "LOOKING FOR LOVE"
+     },
+     {
+      "id": "qa-needs-romance-h02",
+      "text": "SOMEBODY SPECIAL, SOMEWHERE"
+     }
+    ],
+    "busy": [
+     {
+      "id": "qa-needs-busy-h01",
+      "text": "GOING SPARE WITH NOTHING TO DO"
+     },
+     {
+      "id": "qa-needs-busy-h02",
+      "text": "WILL EVEN HAUL"
+     }
+    ],
+    "practice": [
+     {
+      "id": "qa-needs-practice-h01",
+      "text": "A SKILL GOING STALE"
+     },
+     {
+      "id": "qa-needs-practice-h02",
+      "text": "MISSING THE WORK"
+     }
+    ],
+    "trouble": [
+     {
+      "id": "qa-needs-trouble-h01",
+      "text": "A LITTLE MISCHIEF"
+     },
+     {
+      "id": "qa-needs-trouble-h02",
+      "text": "TOO QUIET IN {fort}"
+     }
+    ],
+    "think": [
+     {
+      "id": "qa-needs-think-h01",
+      "text": "A HARD QUESTION, PLEASE"
+     },
+     {
+      "id": "qa-needs-think-h02",
+      "text": "THE THINKER"
+     }
+    ],
+    "eloquence": [
+     {
+      "id": "qa-needs-eloquence-h01",
+      "text": "WANTED: A GOOD SPEECH"
+     },
+     {
+      "id": "qa-needs-eloquence-h02",
+      "text": "TIRED OF TALK ABOUT ROCKS"
+     }
+    ],
+    "self": [
+     {
+      "id": "qa-needs-self-h01",
+      "text": "TIME TO REFLECT"
+     },
+     {
+      "id": "qa-needs-self-h02",
+      "text": "WHERE IS LIFE GOING?"
+     }
+    ],
+    "tradition": [
+     {
+      "id": "qa-needs-tradition-h01",
+      "text": "THE OLD WAYS"
+     },
+     {
+      "id": "qa-needs-tradition-h02",
+      "text": "EVERYONE RUSHES THESE DAYS"
+     }
+    ],
+    "learn": [
+     {
+      "id": "qa-needs-learn-h01",
+      "text": "HUNGRY TO LEARN"
+     },
+     {
+      "id": "qa-needs-learn-h02",
+      "text": "A MIND WANTING LESSONS"
+     }
+    ],
+    "family": [
+     {
+      "id": "qa-needs-family-h01",
+      "text": "MISSING FAMILY"
+     },
+     {
+      "id": "qa-needs-family-h02",
+      "text": "A QUIET MEAL WITH FAMILY"
+     }
+    ],
+    "drink": [
+     {
+      "id": "qa-needs-drink-h01",
+      "text": "A DRINK, SITTING DOWN"
+     },
+     {
+      "id": "qa-needs-drink-h02",
+      "text": "ALE: STRONG, COLD AND SOON"
+     }
+    ],
+    "animal": [
+     {
+      "id": "qa-needs-animal-h01",
+      "text": "A PET, PLEASE"
+     },
+     {
+      "id": "qa-needs-animal-h02",
+      "text": "OFF TO THE PASTURE"
+     }
+    ]
+   }
+  },
+  "faith": {
+   "q": [
+    {
+     "id": "qa-faith-q01",
+     "text": "Do you follow a god?"
+    },
+    {
+     "id": "qa-faith-q02",
+     "text": "Who do you pray to?"
+    },
+    {
+     "id": "qa-faith-q03",
+     "text": "Does faith play a part in your life down here?",
+     "for": [
+      "deity",
+      "none"
+     ]
+    },
+    {
+     "id": "qa-faith-q04",
+     "text": "Have you had time to pray lately?",
+     "for": [
+      "pray_need"
+     ]
+    }
+   ],
+   "a": {
+    "deity": [
+     {
+      "id": "qa-faith-deity-a01",
+      "text": "I pray to {deity}. Not every day, but when it counts."
+     },
+     {
+      "id": "qa-faith-deity-a02",
+      "text": "{deity}. My family has always prayed there, and so do I."
+     },
+     {
+      "id": "qa-faith-deity-a03",
+      "text": "{deity} watches over me. I try to give them a quiet word now and then."
+     },
+     {
+      "id": "qa-faith-deity-a04",
+      "text": "{deity}, and I think they're listening. Things have gone well lately.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-faith-deity-a05",
+      "text": "{deity}. Though I'd like a word with them about this week.",
+      "tone": "down"
+     }
+    ],
+    "many": [
+     {
+      "id": "qa-faith-many-a01",
+      "text": "{deity}, mostly, and {deity2} when that doesn't work."
+     },
+     {
+      "id": "qa-faith-many-a02",
+      "text": "I keep {deity} and {deity2} in my prayers. It's good to have options."
+     },
+     {
+      "id": "qa-faith-many-a03",
+      "text": "{deity} and {deity2}. I try not to play favourites."
+     }
+    ],
+    "pray_need": [
+     {
+      "id": "qa-faith-pray_need-a01",
+      "text": "Not enough. I owe {deity} a prayer, and I can feel it."
+     },
+     {
+      "id": "qa-faith-pray_need-a02",
+      "text": "No, and it's weighing on me. I need to find a quiet hour with {deity}."
+     },
+     {
+      "id": "qa-faith-pray_need-a03",
+      "text": "Barely. {deity} must think I've forgotten them. I haven't. I've been busy."
+     }
+    ],
+    "none": [
+     {
+      "id": "qa-faith-none-a01",
+      "text": "Not really. I believe in good stone and a full mug."
+     },
+     {
+      "id": "qa-faith-none-a02",
+      "text": "I keep my own counsel. The gods have enough dwarves to worry about."
+     },
+     {
+      "id": "qa-faith-none-a03",
+      "text": "No god for me. I trust what I can hold."
+     }
+    ]
+   },
+   "h": {
+    "deity": [
+     {
+      "id": "qa-faith-deity-h01",
+      "text": "FAITH IN {deity}"
+     },
+     {
+      "id": "qa-faith-deity-h02",
+      "text": "A QUIET WORD WITH THE GODS"
+     }
+    ],
+    "many": [
+     {
+      "id": "qa-faith-many-h01",
+      "text": "TWO GODS, NO FAVOURITES"
+     }
+    ],
+    "pray_need": [
+     {
+      "id": "qa-faith-pray_need-h01",
+      "text": "A PRAYER OVERDUE"
+     },
+     {
+      "id": "qa-faith-pray_need-h02",
+      "text": "'I OWE {deity} A PRAYER'"
+     }
+    ],
+    "none": [
+     {
+      "id": "qa-faith-none-h01",
+      "text": "NO GOD, JUST STONE"
+     }
+    ]
+   }
+  },
+  "family": {
+   "q": [
+    {
+     "id": "qa-family-q01",
+     "text": "Tell us about your family.",
+     "for": [
+      "spouse",
+      "lover",
+      "children",
+      "parents",
+      "parent",
+      "widowed",
+      "orphan",
+      "baby"
+     ]
+    },
+    {
+     "id": "qa-family-q02",
+     "text": "Any news of the children?",
+     "for": [
+      "children"
+     ]
+    },
+    {
+     "id": "qa-family-q03",
+     "text": "Is there anyone special in your life?",
+     "for": [
+      "spouse",
+      "lover",
+      "widowed",
+      "none"
+     ]
+    },
+    {
+     "id": "qa-family-q04",
+     "text": "Any family here in {fort}?",
+     "for": [
+      "none",
+      "orphan",
+      "children",
+      "parents",
+      "parent"
+     ]
+    }
+   ],
+   "a": {
+    "spouse": [
+     {
+      "id": "qa-family-spouse-a01",
+      "text": "I'm married to {kin}. Best decision I ever made, and I tell them so twice a year."
+     },
+     {
+      "id": "qa-family-spouse-a02",
+      "text": "{kin} and I are married. We argue about everything and agree about everything that matters."
+     },
+     {
+      "id": "qa-family-spouse-a03",
+      "text": "My spouse, {kin}. They put up with me, which is more than most would."
+     },
+     {
+      "id": "qa-family-spouse-a04",
+      "text": "{kin}. We're married, and I'd do it again tomorrow.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-family-spouse-a05",
+      "text": "{kin} and I are married. We don't see enough of each other with all this work.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-family-spouse-a06",
+      "text": "{kin}. We've been married a while now. Still my favourite dwarf in {fort}."
+     }
+    ],
+    "lover": [
+     {
+      "id": "qa-family-lover-a01",
+      "text": "There's {kin}. We're not married. Yet. Don't print that. Oh, you're printing it."
+     },
+     {
+      "id": "qa-family-lover-a02",
+      "text": "{kin}, if you must know. We're courting. Slowly. Dwarvishly."
+     },
+     {
+      "id": "qa-family-lover-a03",
+      "text": "I've been seeing {kin}. It's early days, but it's good."
+     }
+    ],
+    "widowed": [
+     {
+      "id": "qa-family-widowed-a01",
+      "text": "I was married to {kin}. They're gone now. I still set out two mugs some nights."
+     },
+     {
+      "id": "qa-family-widowed-a02",
+      "text": "My spouse, {kin}, is no longer with us. I don't talk about it much."
+     },
+     {
+      "id": "qa-family-widowed-a03",
+      "text": "{kin}. We had good years. I think about them every day."
+     }
+    ],
+    "children": [
+     {
+      "id": "qa-family-children-a01",
+      "text": "I have {kids}. {child} is the one who keeps me up at night, in every sense."
+     },
+     {
+      "id": "qa-family-children-a02",
+      "text": "{kids_cap}, and {child} takes after me, poor thing."
+     },
+     {
+      "id": "qa-family-children-a03",
+      "text": "My children. {child} especially. I'm prouder than I let on."
+     }
+    ],
+    "parents": [
+     {
+      "id": "qa-family-parents-a01",
+      "text": "My parents, {kin} and {kin2}. They still tell me how to do my job."
+     },
+     {
+      "id": "qa-family-parents-a02",
+      "text": "{kin} and {kin2}. My parents. They're well, and they have opinions."
+     },
+     {
+      "id": "qa-family-parents-a03",
+      "text": "I've got my mother and father, {kin} and {kin2}. Every family dinner is a debate."
+     }
+    ],
+    "parent": [
+     {
+      "id": "qa-family-parent-a01",
+      "text": "{kin}. My {rel}. Still telling me to stand up straight."
+     },
+     {
+      "id": "qa-family-parent-a02",
+      "text": "My {rel}, {kin}. We're close. Closer than most."
+     },
+     {
+      "id": "qa-family-parent-a03",
+      "text": "{kin}, my {rel}. Wise, stubborn, usually right. I hate that."
+     }
+    ],
+    "orphan": [
+     {
+      "id": "qa-family-orphan-a01",
+      "text": "My parents have passed on. I carry them with me."
+     },
+     {
+      "id": "qa-family-orphan-a02",
+      "text": "No family left, not living. The fort is my family now."
+     },
+     {
+      "id": "qa-family-orphan-a03",
+      "text": "My people are gone. I don't dwell on it, but I don't forget."
+     }
+    ],
+    "none": [
+     {
+      "id": "qa-family-none-a01",
+      "text": "Nobody in particular. My friends, I suppose. And whoever sits next to me at supper."
+     },
+     {
+      "id": "qa-family-none-a02",
+      "text": "No family here. The fort is family enough, most days."
+     },
+     {
+      "id": "qa-family-none-a03",
+      "text": "Not yet. I'm keeping an eye out. A dwarf can hope."
+     },
+     {
+      "id": "qa-family-none-a04",
+      "text": "No one special, and I'm fine with that. More ale for me.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-family-none-a05",
+      "text": "Nobody. Some nights that's harder than others.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-family-none-a06",
+      "text": "Just me. The fort keeps me busy enough."
+     },
+     {
+      "id": "qa-family-none-a07",
+      "text": "Nobody yet. I'm told there's a dwarf for everyone. I'm told a lot of things."
+     },
+     {
+      "id": "qa-family-none-a08",
+      "text": "Not family, but good friends. That's plenty.",
+      "tone": "up"
+     }
+    ],
+    "baby": [
+     {
+      "id": "qa-family-baby-a01",
+      "text": "(The subject pointed at {kin}, its {rel}, and then at the ceiling.)"
+     },
+     {
+      "id": "qa-family-baby-a02",
+      "text": "(The subject said something that sounded like '{kin}'. It may have been a burp.)"
+     }
+    ]
+   },
+   "h": {
+    "spouse": [
+     {
+      "id": "qa-family-spouse-h01",
+      "text": "HAPPILY MARRIED TO {kin}"
+     },
+     {
+      "id": "qa-family-spouse-h02",
+      "text": "A MARRIAGE MADE IN {fort}"
+     }
+    ],
+    "lover": [
+     {
+      "id": "qa-family-lover-h01",
+      "text": "COURTING {kin}"
+     },
+     {
+      "id": "qa-family-lover-h02",
+      "text": "LOVE UNDER THE MOUNTAIN"
+     }
+    ],
+    "widowed": [
+     {
+      "id": "qa-family-widowed-h01",
+      "text": "REMEMBERING {kin}"
+     },
+     {
+      "id": "qa-family-widowed-h02",
+      "text": "TWO MUGS ON THE TABLE"
+     }
+    ],
+    "children": [
+     {
+      "id": "qa-family-children-h01",
+      "text": "A PROUD PARENT"
+     },
+     {
+      "id": "qa-family-children-h02",
+      "text": "{child} TAKES AFTER THE FAMILY"
+     }
+    ],
+    "parents": [
+     {
+      "id": "qa-family-parents-h01",
+      "text": "FAMILY DINNERS ARE A DEBATE"
+     },
+     {
+      "id": "qa-family-parents-h02",
+      "text": "STILL TOLD HOW TO DO THE JOB"
+     }
+    ],
+    "parent": [
+     {
+      "id": "qa-family-parent-h01",
+      "text": "'MY {rel} IS USUALLY RIGHT'"
+     }
+    ],
+    "orphan": [
+     {
+      "id": "qa-family-orphan-h01",
+      "text": "THE FORT IS FAMILY NOW"
+     }
+    ],
+    "none": [
+     {
+      "id": "qa-family-none-h01",
+      "text": "SINGLE IN {fort}"
+     },
+     {
+      "id": "qa-family-none-h02",
+      "text": "KEEPING AN EYE OUT"
+     }
+    ],
+    "baby": [
+     {
+      "id": "qa-family-baby-h01",
+      "text": "A WORD FROM THE NURSERY"
+     }
+    ]
+   }
+  },
+  "fort": {
+   "q": [
+    {
+     "id": "qa-fort-q01",
+     "text": "What do you make of {fort} these days?"
+    },
+    {
+     "id": "qa-fort-q02",
+     "text": "How is the fort doing, from where you stand?"
+    },
+    {
+     "id": "qa-fort-q03",
+     "text": "Our count says the cellars hold {drinks} drinks. Enough?",
+     "for": [
+      "drinks_high"
+     ]
+    },
+    {
+     "id": "qa-fort-q04",
+     "text": "The drink is running low. How is the fort coping?",
+     "for": [
+      "drinks_low"
+     ]
+    },
+    {
+     "id": "qa-fort-q05",
+     "text": "Food is short this season. How are you managing?",
+     "for": [
+      "food_low"
+     ]
+    },
+    {
+     "id": "qa-fort-q06",
+     "text": "Our count is {thread} spools of thread in storage. Any idea what it's for?",
+     "for": [
+      "thread_glut"
+     ]
+    },
+    {
+     "id": "qa-fort-q07",
+     "text": "{fort} is up to {pop} dwarves. Too crowded?",
+     "for": [
+      "pop_big"
+     ]
+    },
+    {
+     "id": "qa-fort-q08",
+     "text": "{fort} is only {fort_days} days old. How is the new place?",
+     "for": [
+      "young_fort"
+     ]
+    },
+    {
+     "id": "qa-fort-q09",
+     "text": "There are {herd} animals in the herds now. Do you ever visit them?",
+     "for": [
+      "herd_big"
+     ]
+    },
+    {
+     "id": "qa-fort-q10",
+     "text": "The caverns are open below us. Do you ever go down?",
+     "for": [
+      "caverns"
+     ]
+    }
+   ],
+   "a": {
+    "drinks_high": [
+     {
+      "id": "qa-fort-drinks_high-a01",
+      "text": "{drinks} drinks? That's the best number I've heard all year. We'll manage."
+     },
+     {
+      "id": "qa-fort-drinks_high-a02",
+      "text": "Plenty to drink. A fort with full cellars is a fort that gets things done."
+     },
+     {
+      "id": "qa-fort-drinks_high-a03",
+      "text": "The cellars are full and the mood is good. Coincidence? No."
+     }
+    ],
+    "drinks_low": [
+     {
+      "id": "qa-fort-drinks_low-a01",
+      "text": "Badly. A dwarf can go without many things. Drink is not one of them."
+     },
+     {
+      "id": "qa-fort-drinks_low-a02",
+      "text": "Everyone's watching the barrels. Somebody needs to get the still going."
+     },
+     {
+      "id": "qa-fort-drinks_low-a03",
+      "text": "Short tempers, short drinks. Fix it, please."
+     }
+    ],
+    "food_low": [
+     {
+      "id": "qa-fort-food_low-a01",
+      "text": "We tighten our belts and eat what's there. Somebody plant something, quickly."
+     },
+     {
+      "id": "qa-fort-food_low-a02",
+      "text": "Hungry, mostly. The farmers are doing what they can."
+     },
+     {
+      "id": "qa-fort-food_low-a03",
+      "text": "Not well. You notice how much you think about food when there isn't any."
+     }
+    ],
+    "food_high": [
+     {
+      "id": "qa-fort-food_high-a01",
+      "text": "Well fed, thank you. Nobody is going hungry here."
+     },
+     {
+      "id": "qa-fort-food_high-a02",
+      "text": "The stores are full. I've had a hot meal every day this week."
+     },
+     {
+      "id": "qa-fort-food_high-a03",
+      "text": "We eat well in {fort}. Better than most forts, I'd wager."
+     }
+    ],
+    "thread_glut": [
+     {
+      "id": "qa-fort-thread_glut-a01",
+      "text": "{thread} spools? I have no idea. I think somebody likes spinning."
+     },
+     {
+      "id": "qa-fort-thread_glut-a02",
+      "text": "Thread? I couldn't tell you. We could wrap the whole mountain twice."
+     },
+     {
+      "id": "qa-fort-thread_glut-a03",
+      "text": "Clothes for everybody, I hope. Then clothes for everybody again."
+     }
+    ],
+    "pop_big": [
+     {
+      "id": "qa-fort-pop_big-a01",
+      "text": "It's busy. {pop} dwarves means a queue for everything, but there's always somebody to talk to."
+     },
+     {
+      "id": "qa-fort-pop_big-a02",
+      "text": "Crowded, but lively. I like a full dining hall."
+     },
+     {
+      "id": "qa-fort-pop_big-a03",
+      "text": "There are faces I don't recognise any more. That's how you know a fort has made it."
+     }
+    ],
+    "young_fort": [
+     {
+      "id": "qa-fort-young_fort-a01",
+      "text": "Still finding my way around. Half the corridors aren't dug yet."
+     },
+     {
+      "id": "qa-fort-young_fort-a02",
+      "text": "It's new, it's rough, and it's ours. Give it a year."
+     },
+     {
+      "id": "qa-fort-young_fort-a03",
+      "text": "Everything is unfinished, including me. We'll get there."
+     }
+    ],
+    "old_fort": [
+     {
+      "id": "qa-fort-old_fort-a01",
+      "text": "{fort} has been here a while now. It feels like home."
+     },
+     {
+      "id": "qa-fort-old_fort-a02",
+      "text": "It's settled. The halls are worn smooth and everyone knows their place."
+     },
+     {
+      "id": "qa-fort-old_fort-a03",
+      "text": "Old enough to have stories, young enough to make more."
+     }
+    ],
+    "herd_big": [
+     {
+      "id": "qa-fort-herd_big-a01",
+      "text": "I visit sometimes. {herd} animals means there's always something chewing."
+     },
+     {
+      "id": "qa-fort-herd_big-a02",
+      "text": "The pastures are full. I like the animals. They don't ask for work orders."
+     },
+     {
+      "id": "qa-fort-herd_big-a03",
+      "text": "I go down to the pasture when I need a quiet minute. The animals don't judge."
+     }
+    ],
+    "caverns": [
+     {
+      "id": "qa-fort-caverns-a01",
+      "text": "Down there? Only if I'm made to. Things live in the dark that don't want visitors."
+     },
+     {
+      "id": "qa-fort-caverns-a02",
+      "text": "I've been down once. The mushrooms are taller than the trees outside. I came back up."
+     },
+     {
+      "id": "qa-fort-caverns-a03",
+      "text": "Never. The caverns can keep themselves to themselves."
+     }
+    ],
+    "plain": [
+     {
+      "id": "qa-fort-plain-a01",
+      "text": "{fort} is doing all right. Could be worse. Has been worse."
+     },
+     {
+      "id": "qa-fort-plain-a02",
+      "text": "It's a decent fort. Good stone, good dwarves, mostly."
+     },
+     {
+      "id": "qa-fort-plain-a03",
+      "text": "I like it here. Don't tell the overseer, they'll get ideas."
+     }
+    ]
+   },
+   "h": {
+    "drinks_high": [
+     {
+      "id": "qa-fort-drinks_high-h01",
+      "text": "{drinks} DRINKS AND COUNTING"
+     },
+     {
+      "id": "qa-fort-drinks_high-h02",
+      "text": "FULL CELLARS, GOOD MOOD"
+     }
+    ],
+    "drinks_low": [
+     {
+      "id": "qa-fort-drinks_low-h01",
+      "text": "THE BARRELS ARE RUNNING DRY"
+     },
+     {
+      "id": "qa-fort-drinks_low-h02",
+      "text": "'FIX THE DRINK, PLEASE'"
+     }
+    ],
+    "food_low": [
+     {
+      "id": "qa-fort-food_low-h01",
+      "text": "TIGHTENING BELTS IN {fort}"
+     },
+     {
+      "id": "qa-fort-food_low-h02",
+      "text": "WAITING ON THE HARVEST"
+     }
+    ],
+    "food_high": [
+     {
+      "id": "qa-fort-food_high-h01",
+      "text": "WELL FED IN {fort}"
+     }
+    ],
+    "thread_glut": [
+     {
+      "id": "qa-fort-thread_glut-h01",
+      "text": "THE MYSTERY OF THE {thread} SPOOLS"
+     },
+     {
+      "id": "qa-fort-thread_glut-h02",
+      "text": "ENOUGH THREAD TO WRAP THE MOUNTAIN"
+     }
+    ],
+    "pop_big": [
+     {
+      "id": "qa-fort-pop_big-h01",
+      "text": "{pop} DWARVES AND A QUEUE FOR EVERYTHING"
+     },
+     {
+      "id": "qa-fort-pop_big-h02",
+      "text": "A FULL DINING HALL"
+     }
+    ],
+    "young_fort": [
+     {
+      "id": "qa-fort-young_fort-h01",
+      "text": "STILL FINDING THE WAY AROUND"
+     },
+     {
+      "id": "qa-fort-young_fort-h02",
+      "text": "NEW FORT, ROUGH EDGES"
+     }
+    ],
+    "old_fort": [
+     {
+      "id": "qa-fort-old_fort-h01",
+      "text": "{fort} FEELS LIKE HOME"
+     }
+    ],
+    "herd_big": [
+     {
+      "id": "qa-fort-herd_big-h01",
+      "text": "THE ANIMALS DON'T JUDGE"
+     },
+     {
+      "id": "qa-fort-herd_big-h02",
+      "text": "A QUIET MINUTE IN THE PASTURE"
+     }
+    ],
+    "caverns": [
+     {
+      "id": "qa-fort-caverns-h01",
+      "text": "THE CAVERNS CAN KEEP TO THEMSELVES"
+     },
+     {
+      "id": "qa-fort-caverns-h02",
+      "text": "NOT GOING DOWN THERE"
+     }
+    ],
+    "plain": [
+     {
+      "id": "qa-fort-plain-h01",
+      "text": "{fort} IS DOING ALL RIGHT"
+     }
+    ]
+   },
+   "strict": true
+  },
+  "news": {
+   "q": [
+    {
+     "id": "qa-news-q01",
+     "text": "How has the fort been since {lastdead} died?",
+     "for": [
+      "death_week"
+     ]
+    },
+    {
+     "id": "qa-news-q02",
+     "text": "{moody} has locked themselves in a workshop. Any idea what they're making?",
+     "for": [
+      "mood_open"
+     ]
+    },
+    {
+     "id": "qa-news-q03",
+     "text": "Have you seen {artifact_new} yet?",
+     "for": [
+      "mood_done",
+      "artifact_week"
+     ]
+    },
+    {
+     "id": "qa-news-q04",
+     "text": "A new wave of migrants has arrived. Any advice for them?",
+     "for": [
+      "migrants_week"
+     ]
+    },
+    {
+     "id": "qa-news-q05",
+     "text": "There's a new baby in the fort. Have you seen it?",
+     "for": [
+      "birth_week"
+     ]
+    },
+    {
+     "id": "qa-news-q06",
+     "text": "There was a wedding this week. Were you there?",
+     "for": [
+      "marriage_week"
+     ]
+    },
+    {
+     "id": "qa-news-q07",
+     "text": "The merchants are at the depot. Buying anything?",
+     "for": [
+      "caravan_here"
+     ]
+    }
+   ],
+   "a": {
+    "death_week": [
+     {
+      "id": "qa-news-death_week-a01",
+      "text": "Quieter. You notice the empty seat at supper. {lastdead} was one of us."
+     },
+     {
+      "id": "qa-news-death_week-a02",
+      "text": "I knew {lastdead} a little. Everybody did. The fort feels smaller now."
+     },
+     {
+      "id": "qa-news-death_week-a03",
+      "text": "We'll carve {lastdead} a good slab. It's the least we can do."
+     },
+     {
+      "id": "qa-news-death_week-a04",
+      "text": "Sad. We carry on, because that's what dwarves do, but it's sad."
+     }
+    ],
+    "mood_open": [
+     {
+      "id": "qa-news-mood_open-a01",
+      "text": "No idea. Nobody goes near the door. Whatever it is, I hope it's worth the wait."
+     },
+     {
+      "id": "qa-news-mood_open-a02",
+      "text": "Something extraordinary, or something terrible. With a mood you never know."
+     },
+     {
+      "id": "qa-news-mood_open-a03",
+      "text": "I left a mug outside the door. It was gone in the morning. That's all I know."
+     },
+     {
+      "id": "qa-news-mood_open-a04",
+      "text": "I walk the long way round so I don't disturb them. Whatever it is, the fort will be talking about it for years."
+     },
+     {
+      "id": "qa-news-mood_open-a05",
+      "text": "I hope they get what they need. A mood that goes wrong is a terrible thing."
+     }
+    ],
+    "mood_done": [
+     {
+      "id": "qa-news-mood_done-a01",
+      "text": "I saw it. {artifact_new}. I don't know what I expected, but it wasn't that, and it was better."
+     },
+     {
+      "id": "qa-news-mood_done-a02",
+      "text": "Yes. {artifact_maker} made something the whole fort will talk about for years."
+     },
+     {
+      "id": "qa-news-mood_done-a03",
+      "text": "I queued to see it. Worth the queue."
+     }
+    ],
+    "artifact_week": [
+     {
+      "id": "qa-news-artifact_week-a01",
+      "text": "I've seen {artifact_new}. A real artifact, here in {fort}. We're on the map now."
+     },
+     {
+      "id": "qa-news-artifact_week-a02",
+      "text": "Yes. You stand there and you just look at it. Hard to believe a dwarf made it."
+     },
+     {
+      "id": "qa-news-artifact_week-a03",
+      "text": "Only from the back of the crowd. Everyone wanted a look."
+     }
+    ],
+    "migrants_week": [
+     {
+      "id": "qa-news-migrants_week-a01",
+      "text": "Find a bed before somebody else does. Then find the tavern."
+     },
+     {
+      "id": "qa-news-migrants_week-a02",
+      "text": "Keep your head down, learn the corridors, and never volunteer to haul."
+     },
+     {
+      "id": "qa-news-migrants_week-a03",
+      "text": "Welcome. Don't touch my mug."
+     },
+     {
+      "id": "qa-news-migrants_week-a04",
+      "text": "Learn where the dining hall is first. Everything else can wait."
+     }
+    ],
+    "birth_week": [
+     {
+      "id": "qa-news-birth_week-a01",
+      "text": "I have. Small, loud and already bearded. A proper dwarf."
+     },
+     {
+      "id": "qa-news-birth_week-a02",
+      "text": "Yes. The parents look exhausted and delighted, which is about right."
+     },
+     {
+      "id": "qa-news-birth_week-a03",
+      "text": "Not yet. I can hear it, though. The whole corridor can hear it."
+     }
+    ],
+    "marriage_week": [
+     {
+      "id": "qa-news-marriage_week-a01",
+      "text": "I was. Good speeches, better ale. I cried, but only a little."
+     },
+     {
+      "id": "qa-news-marriage_week-a02",
+      "text": "I heard it from the dining hall. It sounded like a fine party."
+     },
+     {
+      "id": "qa-news-marriage_week-a03",
+      "text": "No, but I sent my best. Somebody has to keep working."
+     }
+    ],
+    "caravan_here": [
+     {
+      "id": "qa-news-caravan_here-a01",
+      "text": "I'm going to look. I never buy anything. I like looking."
+     },
+     {
+      "id": "qa-news-caravan_here-a02",
+      "text": "If they've got good cloth, maybe. If it's elf wood, absolutely not."
+     },
+     {
+      "id": "qa-news-caravan_here-a03",
+      "text": "The broker does the buying. I just watch the haggling. Best show in the fort."
+     }
+    ]
+   },
+   "h": {
+    "death_week": [
+     {
+      "id": "qa-news-death_week-h01",
+      "text": "THE EMPTY SEAT AT SUPPER"
+     },
+     {
+      "id": "qa-news-death_week-h02",
+      "text": "REMEMBERING {lastdead}"
+     }
+    ],
+    "mood_open": [
+     {
+      "id": "qa-news-mood_open-h01",
+      "text": "WHAT IS {moody} MAKING?"
+     },
+     {
+      "id": "qa-news-mood_open-h02",
+      "text": "THE LOCKED WORKSHOP"
+     },
+     {
+      "id": "qa-news-mood_open-h03",
+      "text": "THE WHOLE FORT IS WAITING"
+     }
+    ],
+    "mood_done": [
+     {
+      "id": "qa-news-mood_done-h01",
+      "text": "{artifact_new}: 'WORTH THE QUEUE'"
+     },
+     {
+      "id": "qa-news-mood_done-h02",
+      "text": "THE ARTIFACT EVERYONE IS TALKING ABOUT"
+     }
+    ],
+    "artifact_week": [
+     {
+      "id": "qa-news-artifact_week-h01",
+      "text": "'WE'RE ON THE MAP NOW'"
+     },
+     {
+      "id": "qa-news-artifact_week-h02",
+      "text": "AN ARTIFACT IN {fort}"
+     }
+    ],
+    "migrants_week": [
+     {
+      "id": "qa-news-migrants_week-h01",
+      "text": "ADVICE FOR THE NEWCOMERS"
+     },
+     {
+      "id": "qa-news-migrants_week-h02",
+      "text": "'DON'T TOUCH MY MUG'"
+     }
+    ],
+    "birth_week": [
+     {
+      "id": "qa-news-birth_week-h01",
+      "text": "A NEW BABY, ALREADY BEARDED"
+     },
+     {
+      "id": "qa-news-birth_week-h02",
+      "text": "THE CORRIDOR CAN HEAR IT"
+     }
+    ],
+    "marriage_week": [
+     {
+      "id": "qa-news-marriage_week-h01",
+      "text": "A FINE WEDDING"
+     },
+     {
+      "id": "qa-news-marriage_week-h02",
+      "text": "GOOD SPEECHES, BETTER ALE"
+     }
+    ],
+    "caravan_here": [
+     {
+      "id": "qa-news-caravan_here-h01",
+      "text": "JUST LOOKING AT THE DEPOT"
+     },
+     {
+      "id": "qa-news-caravan_here-h02",
+      "text": "THE BEST SHOW IN THE FORT: HAGGLING"
+     }
+    ]
+   },
+   "strict": true
+  },
+  "past": {
+   "q": [
+    {
+     "id": "qa-past-q01",
+     "text": "Did you hear what happened to {past_fort}?",
+     "for": [
+      "past_fort"
+     ]
+    },
+    {
+     "id": "qa-past-q02",
+     "text": "Is it true that {record_fort} once had {record}?",
+     "for": [
+      "record_past"
+     ]
+    },
+    {
+     "id": "qa-past-q03",
+     "text": "{fort} holds a record: {record}. Proud?",
+     "for": [
+      "record_here"
+     ]
+    }
+   ],
+   "a": {
+    "past_fort": [
+     {
+      "id": "qa-past-past_fort-a01",
+      "text": "I heard. {past_fort} {past_fort_fate}. It's a hard world out there."
+     },
+     {
+      "id": "qa-past-past_fort-a02",
+      "text": "Everybody's heard. {past_fort} {past_fort_fate}. We try to learn from it."
+     },
+     {
+      "id": "qa-past-past_fort-a03",
+      "text": "Only what the travellers say: {past_fort} {past_fort_fate}. I hope we do better here."
+     }
+    ],
+    "record_past": [
+     {
+      "id": "qa-past-record_past-a01",
+      "text": "So they say. I wasn't there, and from the sound of it, I'm glad."
+     },
+     {
+      "id": "qa-past-record_past-a02",
+      "text": "That's the story. I hope nobody here gets ideas."
+     },
+     {
+      "id": "qa-past-record_past-a03",
+      "text": "I've heard that one. Every fort needs a legend. That was theirs."
+     }
+    ],
+    "record_here": [
+     {
+      "id": "qa-past-record_here-a01",
+      "text": "Proud? Confused, mostly. But yes, a little proud."
+     },
+     {
+      "id": "qa-past-record_here-a02",
+      "text": "Somebody has to hold the record. Might as well be us."
+     },
+     {
+      "id": "qa-past-record_here-a03",
+      "text": "I didn't know it was a competition. Apparently we're winning."
+     }
+    ]
+   },
+   "h": {
+    "past_fort": [
+     {
+      "id": "qa-past-past_fort-h01",
+      "text": "A HARD LESSON FROM {past_fort}"
+     },
+     {
+      "id": "qa-past-past_fort-h02",
+      "text": "REMEMBERING {past_fort}"
+     }
+    ],
+    "record_past": [
+     {
+      "id": "qa-past-record_past-h01",
+      "text": "THE LEGEND OF {record_fort}"
+     }
+    ],
+    "record_here": [
+     {
+      "id": "qa-past-record_here-h01",
+      "text": "{fort} HOLDS THE RECORD"
+     }
+    ]
+   },
+   "strict": true
+  },
+  "war": {
+   "q": [
+    {
+     "id": "qa-war-q01",
+     "text": "We're at war with {enemy}. Any message for them?"
+    },
+    {
+     "id": "qa-war-q02",
+     "text": "How do you feel about the war with {enemy}?"
+    }
+   ],
+   "a": {
+    "goblin": [
+     {
+      "id": "qa-war-goblin-a01",
+      "text": "Come and try it. We have walls, we have soldiers, and we have very long memories."
+     },
+     {
+      "id": "qa-war-goblin-a02",
+      "text": "Goblins. I'd tell them to go home, but I'm not sure they have one."
+     },
+     {
+      "id": "qa-war-goblin-a03",
+      "text": "Stay away from {fort}. We drill every day for exactly this."
+     }
+    ],
+    "elven": [
+     {
+      "id": "qa-war-elven-a01",
+      "text": "Elves. They're at war with us over trees, I expect. It's always trees."
+     },
+     {
+      "id": "qa-war-elven-a02",
+      "text": "Tell them we're sorry about the logs. We're not sorry about the logs."
+     },
+     {
+      "id": "qa-war-elven-a03",
+      "text": "Let them come. We'll offer them a nice wooden chair."
+     }
+    ],
+    "human": [
+     {
+      "id": "qa-war-human-a01",
+      "text": "Humans. Big, slow, and a long way off. I'll worry when I see them."
+     },
+     {
+      "id": "qa-war-human-a02",
+      "text": "Tell them we're happy to trade instead, if they'll stop being silly."
+     },
+     {
+      "id": "qa-war-human-a03",
+      "text": "I've no quarrel with them personally. But if they come, they'll find us ready."
+     }
+    ],
+    "other": [
+     {
+      "id": "qa-war-other-a01",
+      "text": "Stay where you are and we'll stay where we are. That's my message."
+     },
+     {
+      "id": "qa-war-other-a02",
+      "text": "We're ready for them. That's all I'll say."
+     },
+     {
+      "id": "qa-war-other-a03",
+      "text": "Wars end. Forts stay. Mostly."
+     }
+    ]
+   },
+   "h": {
+    "goblin": [
+     {
+      "id": "qa-war-goblin-h01",
+      "text": "A MESSAGE FOR {enemy}: 'COME AND TRY IT'"
+     }
+    ],
+    "elven": [
+     {
+      "id": "qa-war-elven-h01",
+      "text": "'IT'S ALWAYS TREES'"
+     }
+    ],
+    "human": [
+     {
+      "id": "qa-war-human-h01",
+      "text": "NO QUARREL, BUT READY"
+     }
+    ],
+    "other": [
+     {
+      "id": "qa-war-other-h01",
+      "text": "'WE'RE READY FOR THEM'"
+     }
+    ]
+   }
+  },
+  "last": {
+   "q": [
+    {
+     "id": "qa-last-q01",
+     "text": "Any last words for our readers?"
+    },
+    {
+     "id": "qa-last-q02",
+     "text": "Anything else you'd like to say?"
+    },
+    {
+     "id": "qa-last-q03",
+     "text": "Before we go to print, anything to add?"
+    },
+    {
+     "id": "qa-last-q04",
+     "text": "Any parting words?"
+    }
+   ],
+   "a": {
+    "any": [
+     {
+      "id": "qa-last-any-a01",
+      "text": "Drink plenty, sleep when you can, and never stand under anything the miners are working on."
+     },
+     {
+      "id": "qa-last-any-a02",
+      "text": "Look after each other. The mountain won't do it for you."
+     },
+     {
+      "id": "qa-last-any-a03",
+      "text": "Keep your tools sharp and your mug full. The rest sorts itself out."
+     },
+     {
+      "id": "qa-last-any-a04",
+      "text": "Be kind to the cooks. They know where you sleep."
+     },
+     {
+      "id": "qa-last-any-a05",
+      "text": "Don't argue with the overseer. Agree, then do it properly."
+     },
+     {
+      "id": "qa-last-any-a06",
+      "text": "Enjoy it. This is a good fort, and good forts don't last forever.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-last-any-a07",
+      "text": "Somebody fix things around here. That's all.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-last-any-a08",
+      "text": "Things will get better. They have to.",
+      "tone": "down"
+     },
+     {
+      "id": "qa-last-any-a09",
+      "text": "Mind the stairs, thank the haulers, and never trust a carp."
+     },
+     {
+      "id": "qa-last-any-a10",
+      "text": "Look up from your work now and then. This place is something."
+     },
+     {
+      "id": "qa-last-any-a11",
+      "text": "Get some sleep. Whatever it is, it'll still be there in the morning."
+     },
+     {
+      "id": "qa-last-any-a12",
+      "text": "Thank you for asking. Nobody ever asks.",
+      "tone": "up"
+     },
+     {
+      "id": "qa-last-any-a13",
+      "text": "Fix the beds. That's my final word.",
+      "tone": "down"
+     }
+    ],
+    "child": [
+     {
+      "id": "qa-last-child-a01",
+      "text": "When I grow up I'm going to be in charge."
+     },
+     {
+      "id": "qa-last-child-a02",
+      "text": "Can I go now? I'm in the middle of a game."
+     },
+     {
+      "id": "qa-last-child-a03",
+      "text": "Tell the cook I want honey."
+     }
+    ],
+    "baby": [
+     {
+      "id": "qa-last-baby-a01",
+      "text": "(The interview ended when the subject was collected for a nap.)"
+     },
+     {
+      "id": "qa-last-baby-a02",
+      "text": "(The subject waved. We think it was a wave.)"
+     }
+    ]
+   },
+   "h": {
+    "any": [
+     {
+      "id": "qa-last-any-h01",
+      "text": "'LOOK AFTER EACH OTHER'"
+     }
+    ],
+    "child": [
+     {
+      "id": "qa-last-child-h01",
+      "text": "'I'M GOING TO BE IN CHARGE'"
+     }
+    ],
+    "baby": [
+     {
+      "id": "qa-last-baby-h01",
+      "text": "(GURGLE)"
+     }
+    ]
+   }
+  }
+ },
+ "qa_decks": {
+  "busy": [
+   {
+    "id": "qa-deck-busy-01",
+    "text": "We caught {dwarf}, {age}, {prof}, while {doing}, and asked a few questions."
+   },
+   {
+    "id": "qa-deck-busy-02",
+    "text": "We found {dwarf}, {age}, {prof}, {doing}. They didn't stop, so neither did we."
+   },
+   {
+    "id": "qa-deck-busy-03",
+    "text": "{dwarf}, {age}, {prof}, kept {doing} while we talked. Our reporter took notes and tried not to get in the way."
+   },
+   {
+    "id": "qa-deck-busy-04",
+    "text": "Our correspondent found {dwarf}, {age}, {prof}, busy {doing}, and borrowed a few minutes."
+   }
+  ],
+  "idle": [
+   {
+    "id": "qa-deck-idle-01",
+    "text": "{dwarf}, {age}, {prof}, had a free moment, which in {fort} is rare enough to make the paper."
+   },
+   {
+    "id": "qa-deck-idle-02",
+    "text": "We found {dwarf}, {age}, {prof}, with nothing to do, and gave them something: our questions."
+   },
+   {
+    "id": "qa-deck-idle-03",
+    "text": "{dwarf}, {age}, {prof}, was off duty and in a talking mood. We pulled up a chair."
+   },
+   {
+    "id": "qa-deck-idle-04",
+    "text": "Between shifts, {dwarf}, {age}, {prof}, sat down with our reporter for a few minutes."
+   },
+   {
+    "id": "qa-deck-idle-05",
+    "text": "Our correspondent found {dwarf}, {age}, {prof}, between jobs and asked about life in {fort}."
+   },
+   {
+    "id": "qa-deck-idle-06",
+    "text": "{dwarf}, {age}, {prof}, was taking a break when we called. They let us sit down."
+   }
+  ],
+  "sleep": [
+   {
+    "id": "qa-deck-sleep-01",
+    "text": "We woke {dwarf}, {age}, {prof}, for this interview. They have asked us not to do that again."
+   },
+   {
+    "id": "qa-deck-sleep-02",
+    "text": "{dwarf}, {age}, {prof}, answered our questions half asleep. We have tidied the answers a little."
+   }
+  ],
+  "break": [
+   {
+    "id": "qa-deck-break-01",
+    "text": "We sat down with {dwarf}, {age}, {prof}, over a meal and a mug."
+   },
+   {
+    "id": "qa-deck-break-02",
+    "text": "{dwarf}, {age}, {prof}, talked to us between mouthfuls."
+   }
+  ],
+  "mood": [
+   {
+    "id": "qa-deck-mood-01",
+    "text": "{dwarf}, {age}, {prof}, is in the grip of a strange mood and answered from behind a closed door."
+   }
+  ],
+  "child": [
+   {
+    "id": "qa-deck-child-01",
+    "text": "{dwarf}, aged {age}, one of the youngest dwarves in {fort}, agreed to an interview in exchange for a sweet roll."
+   }
+  ],
+  "baby": [
+   {
+    "id": "qa-deck-baby-01",
+    "text": "{dwarf}, aged {age}, is the youngest dwarf we have ever interviewed. Questions were answered on the subject's behalf by the subject."
+   }
+  ]
+ }
+}
