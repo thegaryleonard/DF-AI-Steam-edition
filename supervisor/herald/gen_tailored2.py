@@ -159,9 +159,11 @@ def quiz_and_trivia():
         quiz.append({"id": f"tq-mood-{k_}", "q": f"A dwarf who '{ann}' is in which kind of strange mood?", "options": opts, "answer": k})
     gems = ["emerald", "ruby", "sapphire", "amethyst", "rock crystal", "black zircon", "bloodstone", "moonstone", "onyx", "jet", "carnelian", "lapis lazuli"]
     stones = ["microcline", "orthoclase", "granite", "basalt", "limestone", "dolomite", "marble", "obsidian", "gneiss", "slate", "mica", "alunite"]
+    GQ = ["Which of these would a jeweler cut?", "A miner strikes something that sparkles. Which is it?", "Which of these is a gem, not a plain stone?", "Which of these belongs in the treasury?"]
     for i, g in enumerate(gems):
-        opts = [g, stones[i], stones[(i + 4) % len(stones)]]; k = i % 3; opts[0], opts[k] = opts[k], opts[0]
-        quiz.append({"id": f"tq-gem-{re.sub(r'\W', '', g)}", "q": "Which of these would a jeweler cut?", "options": opts, "answer": k})
+        if i < len(GQ):   # one question per phrasing, so two gem questions never look alike on the same page
+            opts = [g, stones[i], stones[(i + 4) % len(stones)]]; k = i % 3; opts[0], opts[k] = opts[k], opts[0]
+            quiz.append({"id": f"tq-gem-{re.sub(r'\W', '', g)}", "q": GQ[i], "options": opts, "answer": k})
         triv.append({"id": f"tt-gem-{re.sub(r'\W', '', g)}", "text": f"Did you know? {g[0].upper() + g[1:]} is a gem. Miners who strike it should tell the jeweler, and then hide it from strange moods."})
     for i, s in enumerate(stones):
         triv.append({"id": f"tt-stone-{s}", "text": f"Did you know? {s[0].upper() + s[1:]} is plain stone to a jeweler, but a mason can turn it into blocks, tables and doors."})

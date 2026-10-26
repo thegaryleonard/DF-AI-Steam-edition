@@ -31,7 +31,7 @@
     },
     {
      "id": "t3-n-throne-h-4",
-     "text": "THRONE OF THE YEAR",
+     "text": "THE THRONE TO BEAT",
      "fit": [
       "furniture",
       "n_throne"
@@ -67,7 +67,7 @@
     },
     {
      "id": "t3-n-table-h-4",
-     "text": "TABLE OF THE YEAR",
+     "text": "THE TABLE TO BEAT",
      "fit": [
       "furniture",
       "n_table"
@@ -103,7 +103,7 @@
     },
     {
      "id": "t3-n-chair-h-4",
-     "text": "CHAIR OF THE YEAR",
+     "text": "THE CHAIR TO BEAT",
      "fit": [
       "furniture",
       "n_chair"
@@ -139,7 +139,7 @@
     },
     {
      "id": "t3-n-bed-h-4",
-     "text": "BED OF THE YEAR",
+     "text": "THE BED TO BEAT",
      "fit": [
       "furniture",
       "n_bed"
@@ -175,7 +175,7 @@
     },
     {
      "id": "t3-n-door-h-4",
-     "text": "DOOR OF THE YEAR",
+     "text": "THE DOOR TO BEAT",
      "fit": [
       "furniture",
       "n_door"
@@ -211,7 +211,7 @@
     },
     {
      "id": "t3-n-cabinet-h-4",
-     "text": "CABINET OF THE YEAR",
+     "text": "THE CABINET TO BEAT",
      "fit": [
       "furniture",
       "n_cabinet"
@@ -247,7 +247,7 @@
     },
     {
      "id": "t3-n-armorstand-h-4",
-     "text": "ARMOR STAND OF THE YEAR",
+     "text": "THE ARMOR STAND TO BEAT",
      "fit": [
       "furniture",
       "n_armor stand"
@@ -283,7 +283,7 @@
     },
     {
      "id": "t3-n-weaponrack-h-4",
-     "text": "WEAPON RACK OF THE YEAR",
+     "text": "THE WEAPON RACK TO BEAT",
      "fit": [
       "furniture",
       "n_weapon rack"
@@ -319,7 +319,7 @@
     },
     {
      "id": "t3-n-coffin-h-4",
-     "text": "COFFIN OF THE YEAR",
+     "text": "THE COFFIN TO BEAT",
      "fit": [
       "furniture",
       "n_coffin"
@@ -355,7 +355,7 @@
     },
     {
      "id": "t3-n-statue-h-4",
-     "text": "STATUE OF THE YEAR",
+     "text": "THE STATUE TO BEAT",
      "fit": [
       "statue",
       "n_statue"
@@ -391,7 +391,7 @@
     },
     {
      "id": "t3-n-barrel-h-4",
-     "text": "BARREL OF THE YEAR",
+     "text": "THE BARREL TO BEAT",
      "fit": [
       "container",
       "n_barrel"
@@ -427,7 +427,7 @@
     },
     {
      "id": "t3-n-bin-h-4",
-     "text": "BIN OF THE YEAR",
+     "text": "THE BIN TO BEAT",
      "fit": [
       "container",
       "n_bin"
@@ -463,7 +463,7 @@
     },
     {
      "id": "t3-n-bag-h-4",
-     "text": "BAG OF THE YEAR",
+     "text": "THE BAG TO BEAT",
      "fit": [
       "container",
       "n_bag"
@@ -499,7 +499,7 @@
     },
     {
      "id": "t3-n-chest-h-4",
-     "text": "CHEST OF THE YEAR",
+     "text": "THE CHEST TO BEAT",
      "fit": [
       "container",
       "n_chest"
@@ -535,7 +535,7 @@
     },
     {
      "id": "t3-n-mug-h-4",
-     "text": "MUG OF THE YEAR",
+     "text": "THE MUG TO BEAT",
      "fit": [
       "drinkware",
       "n_mug"
@@ -571,7 +571,7 @@
     },
     {
      "id": "t3-n-goblet-h-4",
-     "text": "GOBLET OF THE YEAR",
+     "text": "THE GOBLET TO BEAT",
      "fit": [
       "drinkware",
       "n_goblet"
@@ -607,7 +607,7 @@
     },
     {
      "id": "t3-n-crown-h-4",
-     "text": "CROWN OF THE YEAR",
+     "text": "THE CROWN TO BEAT",
      "fit": [
       "jewelry",
       "n_crown"
@@ -643,7 +643,7 @@
     },
     {
      "id": "t3-n-ring-h-4",
-     "text": "RING OF THE YEAR",
+     "text": "THE RING TO BEAT",
      "fit": [
       "jewelry",
       "n_ring"
@@ -679,7 +679,7 @@
     },
     {
      "id": "t3-n-bracelet-h-4",
-     "text": "BRACELET OF THE YEAR",
+     "text": "THE BRACELET TO BEAT",
      "fit": [
       "jewelry",
       "n_bracelet"
@@ -715,7 +715,7 @@
     },
     {
      "id": "t3-n-amulet-h-4",
-     "text": "AMULET OF THE YEAR",
+     "text": "THE AMULET TO BEAT",
      "fit": [
       "jewelry",
       "n_amulet"
@@ -751,7 +751,7 @@
     },
     {
      "id": "t3-n-scepter-h-4",
-     "text": "SCEPTER OF THE YEAR",
+     "text": "THE SCEPTER TO BEAT",
      "fit": [
       "jewelry",
       "n_scepter"
@@ -787,7 +787,7 @@
     },
     {
      "id": "t3-n-figurine-h-4",
-     "text": "FIGURINE OF THE YEAR",
+     "text": "THE FIGURINE TO BEAT",
      "fit": [
       "figurine",
       "n_figurine"
@@ -823,7 +823,7 @@
     },
     {
      "id": "t3-n-sword-h-4",
-     "text": "SWORD OF THE YEAR",
+     "text": "THE SWORD TO BEAT",
      "fit": [
       "weapon",
       "n_sword"
@@ -859,7 +859,7 @@
     },
     {
      "id": "t3-n-axe-h-4",
-     "text": "AXE OF THE YEAR",
+     "text": "THE AXE TO BEAT",
      "fit": [
       "weapon",
       "n_axe"
@@ -895,7 +895,7 @@
     },
     {
      "id": "t3-n-spear-h-4",
-     "text": "SPEAR OF THE YEAR",
+     "text": "THE SPEAR TO BEAT",
      "fit": [
       "weapon",
       "n_spear"
@@ -931,7 +931,7 @@
     },
     {
      "id": "t3-n-mace-h-4",
-     "text": "MACE OF THE YEAR",
+     "text": "THE MACE TO BEAT",
      "fit": [
       "weapon",
       "n_mace"
@@ -967,7 +967,7 @@
     },
     {
      "id": "t3-n-hammer-h-4",
-     "text": "HAMMER OF THE YEAR",
+     "text": "THE HAMMER TO BEAT",
      "fit": [
       "weapon",
       "n_hammer"
@@ -1003,7 +1003,7 @@
     },
     {
      "id": "t3-n-crossbow-h-4",
-     "text": "CROSSBOW OF THE YEAR",
+     "text": "THE CROSSBOW TO BEAT",
      "fit": [
       "weapon",
       "n_crossbow"
@@ -1039,7 +1039,7 @@
     },
     {
      "id": "t3-n-helm-h-4",
-     "text": "HELM OF THE YEAR",
+     "text": "THE HELM TO BEAT",
      "fit": [
       "armor",
       "n_helm"
@@ -1075,7 +1075,7 @@
     },
     {
      "id": "t3-n-breastplate-h-4",
-     "text": "BREASTPLATE OF THE YEAR",
+     "text": "THE BREASTPLATE TO BEAT",
      "fit": [
       "armor",
       "n_breastplate"
@@ -1111,7 +1111,7 @@
     },
     {
      "id": "t3-n-shield-h-4",
-     "text": "SHIELD OF THE YEAR",
+     "text": "THE SHIELD TO BEAT",
      "fit": [
       "armor",
       "n_shield"
@@ -1147,7 +1147,7 @@
     },
     {
      "id": "t3-n-gauntlet-h-4",
-     "text": "GAUNTLET OF THE YEAR",
+     "text": "THE GAUNTLET TO BEAT",
      "fit": [
       "armor",
       "n_gauntlet"
@@ -1183,7 +1183,7 @@
     },
     {
      "id": "t3-n-boot-h-4",
-     "text": "BOOT OF THE YEAR",
+     "text": "THE BOOT TO BEAT",
      "fit": [
       "armor",
       "n_boot"
@@ -1219,7 +1219,7 @@
     },
     {
      "id": "t3-n-greaves-h-4",
-     "text": "GREAVES OF THE YEAR",
+     "text": "THE GREAVES TO BEAT",
      "fit": [
       "armor",
       "n_greaves"
@@ -1255,7 +1255,7 @@
     },
     {
      "id": "t3-n-shirt-h-4",
-     "text": "SHIRT OF THE YEAR",
+     "text": "THE SHIRT TO BEAT",
      "fit": [
       "clothing",
       "n_shirt"
@@ -1291,7 +1291,7 @@
     },
     {
      "id": "t3-n-cloak-h-4",
-     "text": "CLOAK OF THE YEAR",
+     "text": "THE CLOAK TO BEAT",
      "fit": [
       "clothing",
       "n_cloak"
@@ -1327,7 +1327,7 @@
     },
     {
      "id": "t3-n-trousers-h-4",
-     "text": "TROUSERS OF THE YEAR",
+     "text": "THE TROUSERS TO BEAT",
      "fit": [
       "clothing",
       "n_trousers"
@@ -1363,7 +1363,7 @@
     },
     {
      "id": "t3-n-sock-h-4",
-     "text": "SOCK OF THE YEAR",
+     "text": "THE SOCK TO BEAT",
      "fit": [
       "clothing",
       "n_sock"
@@ -1399,7 +1399,7 @@
     },
     {
      "id": "t3-n-hood-h-4",
-     "text": "HOOD OF THE YEAR",
+     "text": "THE HOOD TO BEAT",
      "fit": [
       "clothing",
       "n_hood"
@@ -1435,7 +1435,7 @@
     },
     {
      "id": "t3-n-roast-h-4",
-     "text": "ROAST OF THE YEAR",
+     "text": "THE ROAST TO BEAT",
      "fit": [
       "food",
       "n_roast"
@@ -1471,7 +1471,7 @@
     },
     {
      "id": "t3-n-biscuits-h-4",
-     "text": "BISCUITS OF THE YEAR",
+     "text": "THE BISCUITS TO BEAT",
      "fit": [
       "food",
       "n_biscuits"
@@ -1507,7 +1507,7 @@
     },
     {
      "id": "t3-n-book-h-4",
-     "text": "BOOK OF THE YEAR",
+     "text": "THE BOOK TO BEAT",
      "fit": [
       "book",
       "n_book"
@@ -1543,7 +1543,7 @@
     },
     {
      "id": "t3-n-mechanism-h-4",
-     "text": "MECHANISM OF THE YEAR",
+     "text": "THE MECHANISM TO BEAT",
      "fit": [
       "tool",
       "n_mechanism"
@@ -1579,7 +1579,7 @@
     },
     {
      "id": "t3-n-splint-h-4",
-     "text": "SPLINT OF THE YEAR",
+     "text": "THE SPLINT TO BEAT",
      "fit": [
       "tool",
       "n_splint"
@@ -1615,7 +1615,7 @@
     },
     {
      "id": "t3-n-crutch-h-4",
-     "text": "CRUTCH OF THE YEAR",
+     "text": "THE CRUTCH TO BEAT",
      "fit": [
       "tool",
       "n_crutch"
@@ -1651,7 +1651,7 @@
     },
     {
      "id": "t3-n-bucket-h-4",
-     "text": "BUCKET OF THE YEAR",
+     "text": "THE BUCKET TO BEAT",
      "fit": [
       "tool",
       "n_bucket"
@@ -1687,7 +1687,7 @@
     },
     {
      "id": "t3-n-cage-h-4",
-     "text": "CAGE OF THE YEAR",
+     "text": "THE CAGE TO BEAT",
      "fit": [
       "tool",
       "n_cage"
@@ -1723,7 +1723,7 @@
     },
     {
      "id": "t3-n-lyre-h-4",
-     "text": "LYRE OF THE YEAR",
+     "text": "THE LYRE TO BEAT",
      "fit": [
       "instrument",
       "n_lyre"
@@ -1759,7 +1759,7 @@
     },
     {
      "id": "t3-n-flute-h-4",
-     "text": "FLUTE OF THE YEAR",
+     "text": "THE FLUTE TO BEAT",
      "fit": [
       "instrument",
       "n_flute"
@@ -1795,7 +1795,7 @@
     },
     {
      "id": "t3-n-drum-h-4",
-     "text": "DRUM OF THE YEAR",
+     "text": "THE DRUM TO BEAT",
      "fit": [
       "instrument",
       "n_drum"
@@ -1831,7 +1831,7 @@
     },
     {
      "id": "t3-n-bolt-h-4",
-     "text": "BOLT OF THE YEAR",
+     "text": "THE BOLT TO BEAT",
      "fit": [
       "ammo",
       "n_bolt"
@@ -5628,7 +5628,7 @@
     },
     {
      "id": "t3-na-armorstand-h-1",
-     "text": "{art}: A ARMOR STAND OF LEGEND",
+     "text": "{art}: AN ARMOR STAND OF LEGEND",
      "fit": [
       "furniture",
       "n_armor stand"
@@ -5862,7 +5862,7 @@
     },
     {
      "id": "t3-na-amulet-h-1",
-     "text": "{art}: A AMULET OF LEGEND",
+     "text": "{art}: AN AMULET OF LEGEND",
      "fit": [
       "jewelry",
       "n_amulet"
@@ -5934,7 +5934,7 @@
     },
     {
      "id": "t3-na-axe-h-1",
-     "text": "{art}: A AXE OF LEGEND",
+     "text": "{art}: AN AXE OF LEGEND",
      "fit": [
       "weapon",
       "n_axe"
@@ -6620,7 +6620,7 @@
     },
     {
      "id": "t3-na-armorstand-r-3",
-     "text": "{who} has made {art}, a armor stand like no other. The fort agrees the kit on it will look better than the soldier.",
+     "text": "{who} has made {art}, an armor stand like no other. The fort agrees the kit on it will look better than the soldier.",
      "fit": [
       "furniture",
       "n_armor stand"
@@ -6971,7 +6971,7 @@
     },
     {
      "id": "t3-na-amulet-r-3",
-     "text": "{who} has made {art}, a amulet like no other. The fort agrees it is said to bring luck, which is new for this fort.",
+     "text": "{who} has made {art}, an amulet like no other. The fort agrees it is said to bring luck, which is new for this fort.",
      "fit": [
       "jewelry",
       "n_amulet"
@@ -7079,7 +7079,7 @@
     },
     {
      "id": "t3-na-axe-r-3",
-     "text": "{who} has made {art}, a axe like no other. The fort agrees the axedwarves have begun drawing lots for it.",
+     "text": "{who} has made {art}, an axe like no other. The fort agrees the axedwarves have begun drawing lots for it.",
      "fit": [
       "weapon",
       "n_axe"
@@ -9317,7 +9317,7 @@
     },
     {
      "id": "t3-d-thirst-h-5",
-     "text": "THIRST TAKES A {prof}",
+     "text": "THIRST TAKES THE {prof}",
      "fit": [
       "die_thirst"
      ],
@@ -9365,7 +9365,7 @@
     },
     {
      "id": "t3-d-hunger-h-5",
-     "text": "HUNGER TAKES A {prof}",
+     "text": "HUNGER TAKES THE {prof}",
      "fit": [
       "die_hunger"
      ],
@@ -9381,7 +9381,7 @@
     },
     {
      "id": "t3-d-vampire-h-1",
-     "text": "BLOODLESS: A WARNING TO {fort}",
+     "text": "A VAMPIRE: A WARNING TO {fort}",
      "fit": [
       "die_vampire"
      ],
@@ -9389,7 +9389,7 @@
     },
     {
      "id": "t3-d-vampire-h-2",
-     "text": "{first}, LOST TO BLOODLESS",
+     "text": "{first}, LOST TO A VAMPIRE",
      "fit": [
       "die_vampire"
      ],
@@ -9397,7 +9397,7 @@
     },
     {
      "id": "t3-d-vampire-h-3",
-     "text": "WHAT TOOK {first}: BLOODLESS",
+     "text": "WHAT TOOK {first}: A VAMPIRE",
      "fit": [
       "die_vampire"
      ],
@@ -9405,7 +9405,7 @@
     },
     {
      "id": "t3-d-vampire-h-4",
-     "text": "MOURNING IN THE HALLS AFTER BLOODLESS",
+     "text": "MOURNING IN THE HALLS AFTER A VAMPIRE",
      "fit": [
       "die_vampire"
      ],
@@ -9413,7 +9413,7 @@
     },
     {
      "id": "t3-d-vampire-h-5",
-     "text": "BLOODLESS TAKES A {prof}",
+     "text": "A VAMPIRE TAKES THE {prof}",
      "fit": [
       "die_vampire"
      ],
@@ -9429,7 +9429,7 @@
     },
     {
      "id": "t3-d-combat-h-1",
-     "text": "FALLEN: A WARNING TO {fort}",
+     "text": "BATTLE: A WARNING TO {fort}",
      "fit": [
       "die_combat"
      ],
@@ -9437,7 +9437,7 @@
     },
     {
      "id": "t3-d-combat-h-2",
-     "text": "{first}, LOST TO FALLEN",
+     "text": "{first}, LOST TO BATTLE",
      "fit": [
       "die_combat"
      ],
@@ -9445,7 +9445,7 @@
     },
     {
      "id": "t3-d-combat-h-3",
-     "text": "WHAT TOOK {first}: FALLEN",
+     "text": "WHAT TOOK {first}: BATTLE",
      "fit": [
       "die_combat"
      ],
@@ -9453,7 +9453,7 @@
     },
     {
      "id": "t3-d-combat-h-4",
-     "text": "MOURNING IN THE HALLS AFTER FALLEN",
+     "text": "MOURNING IN THE HALLS AFTER BATTLE",
      "fit": [
       "die_combat"
      ],
@@ -9461,7 +9461,7 @@
     },
     {
      "id": "t3-d-combat-h-5",
-     "text": "FALLEN TAKES A {prof}",
+     "text": "BATTLE TAKES THE {prof}",
      "fit": [
       "die_combat"
      ],
@@ -9477,7 +9477,7 @@
     },
     {
      "id": "t3-d-bleeding-h-1",
-     "text": "BLED OUT: A WARNING TO {fort}",
+     "text": "BLOOD LOSS: A WARNING TO {fort}",
      "fit": [
       "die_bleeding"
      ],
@@ -9485,7 +9485,7 @@
     },
     {
      "id": "t3-d-bleeding-h-2",
-     "text": "{first}, LOST TO BLED OUT",
+     "text": "{first}, LOST TO BLOOD LOSS",
      "fit": [
       "die_bleeding"
      ],
@@ -9493,7 +9493,7 @@
     },
     {
      "id": "t3-d-bleeding-h-3",
-     "text": "WHAT TOOK {first}: BLED OUT",
+     "text": "WHAT TOOK {first}: BLOOD LOSS",
      "fit": [
       "die_bleeding"
      ],
@@ -9501,7 +9501,7 @@
     },
     {
      "id": "t3-d-bleeding-h-4",
-     "text": "MOURNING IN THE HALLS AFTER BLED OUT",
+     "text": "MOURNING IN THE HALLS AFTER BLOOD LOSS",
      "fit": [
       "die_bleeding"
      ],
@@ -9509,7 +9509,7 @@
     },
     {
      "id": "t3-d-bleeding-h-5",
-     "text": "BLED OUT TAKES A {prof}",
+     "text": "BLOOD LOSS TAKES THE {prof}",
      "fit": [
       "die_bleeding"
      ],
@@ -9525,7 +9525,7 @@
     },
     {
      "id": "t3-d-drowning-h-1",
-     "text": "DROWNED: A WARNING TO {fort}",
+     "text": "DROWNING: A WARNING TO {fort}",
      "fit": [
       "die_drowning"
      ],
@@ -9533,7 +9533,7 @@
     },
     {
      "id": "t3-d-drowning-h-2",
-     "text": "{first}, LOST TO DROWNED",
+     "text": "{first}, LOST TO DROWNING",
      "fit": [
       "die_drowning"
      ],
@@ -9541,7 +9541,7 @@
     },
     {
      "id": "t3-d-drowning-h-3",
-     "text": "WHAT TOOK {first}: DROWNED",
+     "text": "WHAT TOOK {first}: DROWNING",
      "fit": [
       "die_drowning"
      ],
@@ -9549,7 +9549,7 @@
     },
     {
      "id": "t3-d-drowning-h-4",
-     "text": "MOURNING IN THE HALLS AFTER DROWNED",
+     "text": "MOURNING IN THE HALLS AFTER DROWNING",
      "fit": [
       "die_drowning"
      ],
@@ -9557,7 +9557,7 @@
     },
     {
      "id": "t3-d-drowning-h-5",
-     "text": "DROWNED TAKES A {prof}",
+     "text": "DROWNING TAKES THE {prof}",
      "fit": [
       "die_drowning"
      ],
@@ -9573,7 +9573,7 @@
     },
     {
      "id": "t3-d-suffocation-h-1",
-     "text": "SUFFOCATED: A WARNING TO {fort}",
+     "text": "SUFFOCATION: A WARNING TO {fort}",
      "fit": [
       "die_suffocation"
      ],
@@ -9581,7 +9581,7 @@
     },
     {
      "id": "t3-d-suffocation-h-2",
-     "text": "{first}, LOST TO SUFFOCATED",
+     "text": "{first}, LOST TO SUFFOCATION",
      "fit": [
       "die_suffocation"
      ],
@@ -9589,7 +9589,7 @@
     },
     {
      "id": "t3-d-suffocation-h-3",
-     "text": "WHAT TOOK {first}: SUFFOCATED",
+     "text": "WHAT TOOK {first}: SUFFOCATION",
      "fit": [
       "die_suffocation"
      ],
@@ -9597,7 +9597,7 @@
     },
     {
      "id": "t3-d-suffocation-h-4",
-     "text": "MOURNING IN THE HALLS AFTER SUFFOCATED",
+     "text": "MOURNING IN THE HALLS AFTER SUFFOCATION",
      "fit": [
       "die_suffocation"
      ],
@@ -9605,7 +9605,7 @@
     },
     {
      "id": "t3-d-suffocation-h-5",
-     "text": "SUFFOCATED TAKES A {prof}",
+     "text": "SUFFOCATION TAKES THE {prof}",
      "fit": [
       "die_suffocation"
      ],
@@ -9621,7 +9621,7 @@
     },
     {
      "id": "t3-d-fire-h-1",
-     "text": "BURNED: A WARNING TO {fort}",
+     "text": "FIRE: A WARNING TO {fort}",
      "fit": [
       "die_fire"
      ],
@@ -9629,7 +9629,7 @@
     },
     {
      "id": "t3-d-fire-h-2",
-     "text": "{first}, LOST TO BURNED",
+     "text": "{first}, LOST TO FIRE",
      "fit": [
       "die_fire"
      ],
@@ -9637,7 +9637,7 @@
     },
     {
      "id": "t3-d-fire-h-3",
-     "text": "WHAT TOOK {first}: BURNED",
+     "text": "WHAT TOOK {first}: FIRE",
      "fit": [
       "die_fire"
      ],
@@ -9645,7 +9645,7 @@
     },
     {
      "id": "t3-d-fire-h-4",
-     "text": "MOURNING IN THE HALLS AFTER BURNED",
+     "text": "MOURNING IN THE HALLS AFTER FIRE",
      "fit": [
       "die_fire"
      ],
@@ -9653,7 +9653,7 @@
     },
     {
      "id": "t3-d-fire-h-5",
-     "text": "BURNED TAKES A {prof}",
+     "text": "FIRE TAKES THE {prof}",
      "fit": [
       "die_fire"
      ],
@@ -9701,7 +9701,7 @@
     },
     {
      "id": "t3-d-fall-h-5",
-     "text": "A FALL TAKES A {prof}",
+     "text": "A FALL TAKES THE {prof}",
      "fit": [
       "die_fall"
      ],
@@ -9717,7 +9717,7 @@
     },
     {
      "id": "t3-d-collapse-h-1",
-     "text": "CRUSHED: A WARNING TO {fort}",
+     "text": "A CAVE-IN: A WARNING TO {fort}",
      "fit": [
       "die_collapse"
      ],
@@ -9725,7 +9725,7 @@
     },
     {
      "id": "t3-d-collapse-h-2",
-     "text": "{first}, LOST TO CRUSHED",
+     "text": "{first}, LOST TO A CAVE-IN",
      "fit": [
       "die_collapse"
      ],
@@ -9733,7 +9733,7 @@
     },
     {
      "id": "t3-d-collapse-h-3",
-     "text": "WHAT TOOK {first}: CRUSHED",
+     "text": "WHAT TOOK {first}: A CAVE-IN",
      "fit": [
       "die_collapse"
      ],
@@ -9741,7 +9741,7 @@
     },
     {
      "id": "t3-d-collapse-h-4",
-     "text": "MOURNING IN THE HALLS AFTER CRUSHED",
+     "text": "MOURNING IN THE HALLS AFTER A CAVE-IN",
      "fit": [
       "die_collapse"
      ],
@@ -9749,7 +9749,7 @@
     },
     {
      "id": "t3-d-collapse-h-5",
-     "text": "CRUSHED TAKES A {prof}",
+     "text": "A CAVE-IN TAKES THE {prof}",
      "fit": [
       "die_collapse"
      ],
@@ -9797,7 +9797,7 @@
     },
     {
      "id": "t3-d-age-h-5",
-     "text": "OLD AGE TAKES A {prof}",
+     "text": "OLD AGE TAKES THE {prof}",
      "fit": [
       "die_age"
      ],
@@ -9845,7 +9845,7 @@
     },
     {
      "id": "t3-d-infection-h-5",
-     "text": "SICKNESS TAKES A {prof}",
+     "text": "SICKNESS TAKES THE {prof}",
      "fit": [
       "die_infection"
      ],
@@ -9991,7 +9991,7 @@
     },
     {
      "id": "t3-pd-engraver-r-2",
-     "text": "The chisel of {first}, a engraver who carved pictures into our walls, has been set aside in their memory.",
+     "text": "The chisel of {first}, an engraver who carved pictures into our walls, has been set aside in their memory.",
      "fit": [
       "prof_engraver"
      ],
@@ -10039,7 +10039,7 @@
     },
     {
      "id": "t3-pd-armorer-r-2",
-     "text": "The hammer of {first}, a armorer who kept the militia's armor in shape, has been set aside in their memory.",
+     "text": "The hammer of {first}, an armorer who kept the militia's armor in shape, has been set aside in their memory.",
      "fit": [
       "prof_armorer"
      ],
@@ -10543,7 +10543,7 @@
     },
     {
      "id": "t3-pd-animalcaretaker-r-2",
-     "text": "The feed bucket of {first}, a animal caretaker who cared for our animals, has been set aside in their memory.",
+     "text": "The feed bucket of {first}, an animal caretaker who cared for our animals, has been set aside in their memory.",
      "fit": [
       "prof_animal caretaker"
      ],
@@ -10567,7 +10567,7 @@
     },
     {
      "id": "t3-pd-animaltrainer-r-2",
-     "text": "The whistle of {first}, a animal trainer who trained our animals, has been set aside in their memory.",
+     "text": "The whistle of {first}, an animal trainer who trained our animals, has been set aside in their memory.",
      "fit": [
       "prof_animal trainer"
      ],
@@ -11071,7 +11071,7 @@
     },
     {
      "id": "t3-pd-axedwarf-r-2",
-     "text": "The axe of {first}, a axedwarf who stood in the line for us, has been set aside in their memory.",
+     "text": "The axe of {first}, an axedwarf who stood in the line for us, has been set aside in their memory.",
      "fit": [
       "prof_axedwarf"
      ],
@@ -11287,7 +11287,7 @@
     },
     {
      "id": "t3-pd-administrator-r-2",
-     "text": "The paperwork of {first}, a administrator who kept the records, has been set aside in their memory.",
+     "text": "The paperwork of {first}, an administrator who kept the records, has been set aside in their memory.",
      "fit": [
       "prof_administrator"
      ],
@@ -11311,7 +11311,7 @@
     },
     {
      "id": "t3-pd-expeditionleader-r-2",
-     "text": "The map of {first}, a expedition leader who led the founders here, has been set aside in their memory.",
+     "text": "The map of {first}, an expedition leader who led the founders here, has been set aside in their memory.",
      "fit": [
       "prof_expedition leader"
      ],
@@ -11343,7 +11343,7 @@
     },
     {
      "id": "t3-d-thirst-r-3",
-     "text": "A {prof} died of thirst beside a fort full of drink. The fort is asked to look out for one another.",
+     "text": "The {prof} died of thirst beside a fort full of drink. The fort is asked to look out for one another.",
      "fit": [
       "die_thirst"
      ],
@@ -11407,7 +11407,7 @@
     },
     {
      "id": "t3-d-hunger-r-3",
-     "text": "A {prof} starved while the larder sat too far away. The fort is asked to look out for one another.",
+     "text": "The {prof} starved while the larder sat too far away. The fort is asked to look out for one another.",
      "fit": [
       "die_hunger"
      ],
@@ -11471,7 +11471,7 @@
     },
     {
      "id": "t3-d-vampire-r-3",
-     "text": "A {prof} was found drained of blood in the dark of night. The fort is asked to look out for one another.",
+     "text": "The {prof} was found drained of blood in the dark of night. The fort is asked to look out for one another.",
      "fit": [
       "die_vampire"
      ],
@@ -11535,7 +11535,7 @@
     },
     {
      "id": "t3-d-combat-r-3",
-     "text": "A {prof} was struck down with their weapon in hand. The fort is asked to look out for one another.",
+     "text": "The {prof} was struck down with their weapon in hand. The fort is asked to look out for one another.",
      "fit": [
       "die_combat"
      ],
@@ -11599,7 +11599,7 @@
     },
     {
      "id": "t3-d-bleeding-r-3",
-     "text": "A {prof} bled to death before help could arrive. The fort is asked to look out for one another.",
+     "text": "The {prof} bled to death before help could arrive. The fort is asked to look out for one another.",
      "fit": [
       "die_bleeding"
      ],
@@ -11663,7 +11663,7 @@
     },
     {
      "id": "t3-d-drowning-r-3",
-     "text": "A {prof} drowned in deep water. The fort is asked to look out for one another.",
+     "text": "The {prof} drowned in deep water. The fort is asked to look out for one another.",
      "fit": [
       "die_drowning"
      ],
@@ -11727,7 +11727,7 @@
     },
     {
      "id": "t3-d-suffocation-r-3",
-     "text": "A {prof} suffocated unable to draw breath. The fort is asked to look out for one another.",
+     "text": "The {prof} suffocated unable to draw breath. The fort is asked to look out for one another.",
      "fit": [
       "die_suffocation"
      ],
@@ -11791,7 +11791,7 @@
     },
     {
      "id": "t3-d-fire-r-3",
-     "text": "A {prof} burned to death among the flames. The fort is asked to look out for one another.",
+     "text": "The {prof} burned to death among the flames. The fort is asked to look out for one another.",
      "fit": [
       "die_fire"
      ],
@@ -11855,7 +11855,7 @@
     },
     {
      "id": "t3-d-fall-r-3",
-     "text": "A {prof} fell to their death from a great height. The fort is asked to look out for one another.",
+     "text": "The {prof} fell to their death from a great height. The fort is asked to look out for one another.",
      "fit": [
       "die_fall"
      ],
@@ -11919,7 +11919,7 @@
     },
     {
      "id": "t3-d-collapse-r-3",
-     "text": "A {prof} was crushed beneath falling stone. The fort is asked to look out for one another.",
+     "text": "The {prof} was crushed beneath falling stone. The fort is asked to look out for one another.",
      "fit": [
       "die_collapse"
      ],
@@ -11983,7 +11983,7 @@
     },
     {
      "id": "t3-d-age-r-3",
-     "text": "A {prof} died of old age after a long and full life. The fort is asked to look out for one another.",
+     "text": "The {prof} died of old age after a long and full life. The fort is asked to look out for one another.",
      "fit": [
       "die_age"
      ],
@@ -12047,7 +12047,7 @@
     },
     {
      "id": "t3-d-infection-r-3",
-     "text": "A {prof} succumbed to sickness in the sickbed. The fort is asked to look out for one another.",
+     "text": "The {prof} succumbed to sickness in the sickbed. The fort is asked to look out for one another.",
      "fit": [
       "die_infection"
      ],

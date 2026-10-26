@@ -24,6 +24,9 @@ def fill(frame, bank, i):
         if k.isupper() and len(k) > 1 or k == "M": return v.upper()
         return v[0].upper() + v[1:] if k[0].isupper() else v
     out = re.sub(r"<(\w+)>", sub, frame)
+    out = re.sub(r"\b([Aa]) (?=[AEIOUaeiou])(?![Uu](?:ni|s)|[Oo]ne)", lambda m: m.group(1) + ("N " if m.group(1) == "A" and re.sub(r"\{\w+\}", "", out).isupper() else "n "), out)
+    # a live slot may start with a vowel ("a {prof}" -> "a animal trainer"), so use "the" before any slot
+    out = re.sub(r"\b(a|A|an|An|AN) (?=\{)", lambda m: "THE " if re.sub(r"\{\w+\}", "", out).isupper() else ("The " if m.group(1)[0] == "A" else "the "), out)
     return out[0].upper() + out[1:] if out and out[0].islower() and not out.startswith("{") else out
 
 

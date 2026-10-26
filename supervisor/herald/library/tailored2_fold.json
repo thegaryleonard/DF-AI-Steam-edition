@@ -9299,7 +9299,7 @@
   },
   {
    "id": "tq-gem-ruby",
-   "q": "Which of these would a jeweler cut?",
+   "q": "A miner strikes something that sparkles. Which is it?",
    "options": [
     "orthoclase",
     "ruby",
@@ -9309,7 +9309,7 @@
   },
   {
    "id": "tq-gem-sapphire",
-   "q": "Which of these would a jeweler cut?",
+   "q": "Which of these is a gem, not a plain stone?",
    "options": [
     "marble",
     "granite",
@@ -9319,93 +9319,13 @@
   },
   {
    "id": "tq-gem-amethyst",
-   "q": "Which of these would a jeweler cut?",
+   "q": "Which of these belongs in the treasury?",
    "options": [
     "amethyst",
     "basalt",
     "obsidian"
    ],
    "answer": 0
-  },
-  {
-   "id": "tq-gem-rockcrystal",
-   "q": "Which of these would a jeweler cut?",
-   "options": [
-    "limestone",
-    "rock crystal",
-    "gneiss"
-   ],
-   "answer": 1
-  },
-  {
-   "id": "tq-gem-blackzircon",
-   "q": "Which of these would a jeweler cut?",
-   "options": [
-    "slate",
-    "dolomite",
-    "black zircon"
-   ],
-   "answer": 2
-  },
-  {
-   "id": "tq-gem-bloodstone",
-   "q": "Which of these would a jeweler cut?",
-   "options": [
-    "bloodstone",
-    "marble",
-    "mica"
-   ],
-   "answer": 0
-  },
-  {
-   "id": "tq-gem-moonstone",
-   "q": "Which of these would a jeweler cut?",
-   "options": [
-    "obsidian",
-    "moonstone",
-    "alunite"
-   ],
-   "answer": 1
-  },
-  {
-   "id": "tq-gem-onyx",
-   "q": "Which of these would a jeweler cut?",
-   "options": [
-    "microcline",
-    "gneiss",
-    "onyx"
-   ],
-   "answer": 2
-  },
-  {
-   "id": "tq-gem-jet",
-   "q": "Which of these would a jeweler cut?",
-   "options": [
-    "jet",
-    "slate",
-    "orthoclase"
-   ],
-   "answer": 0
-  },
-  {
-   "id": "tq-gem-carnelian",
-   "q": "Which of these would a jeweler cut?",
-   "options": [
-    "mica",
-    "carnelian",
-    "granite"
-   ],
-   "answer": 1
-  },
-  {
-   "id": "tq-gem-lapislazuli",
-   "q": "Which of these would a jeweler cut?",
-   "options": [
-    "basalt",
-    "alunite",
-    "lapis lazuli"
-   ],
-   "answer": 2
   }
  ],
  "trivia": [

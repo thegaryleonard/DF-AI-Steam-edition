@@ -65,7 +65,7 @@ NOUN = {
  "drum": ("instrument", "beaten at the tavern", "the tavern", "the dancers keep time to it without trying"),
  "bolt": ("ammo", "loosed at the enemy", "the ammunition stockpile", "the marksdwarves have promised to aim carefully"),
 }
-N_HEADS = ["A MASTERWORK {item}, READY TO BE <USE_UP>", "THE FINEST <NOUN_UP> IN {fort}", "{first}'S <NOUN_UP>: A MASTERWORK", "<NOUN_UP> OF THE YEAR"]
+N_HEADS = ["A MASTERWORK {item}, READY TO BE <USE_UP>", "THE FINEST <NOUN_UP> IN {fort}", "{first}'S <NOUN_UP>: A MASTERWORK", "THE <NOUN_UP> TO BEAT"]
 N_REPS = ["{who} has made a masterwork {item}, fit to be <use>. Its place will be <sit>, and <joke>.",
   "A masterwork <noun> is a rare thing. {first}'s {item} will be <use>, and <joke>.",
   "The new {item} is headed for <sit>. Those who have seen it say <joke>.",

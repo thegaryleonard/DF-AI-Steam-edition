@@ -36,7 +36,7 @@
     },
     {
      "id": "tg-sc-cloth-c-5",
-     "text": "The finished {item}, sketched quickly before the bookkeeper carried {first} off to celebrate.",
+     "text": "The finished {item}, sketched quickly before the clerks carried {first} off to celebrate.",
      "fit": [
       "cloth"
      ],
@@ -216,7 +216,7 @@
     },
     {
      "id": "tg-sc-cloth-s-5",
-     "text": "Fetch the bookkeeper!",
+     "text": "Fetch the clerks!",
      "fit": [
       "cloth"
      ],
@@ -310,7 +310,7 @@
     },
     {
      "id": "tg-asc-cloth-c-3",
-     "text": "{art}, sketched in a hurry before every dwarf with an eye for a good weave crowded in. It is even; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the cloth traders crowded in. It is even; the sketch is merely good.",
      "fit": [
       "cloth"
      ],
@@ -326,7 +326,7 @@
     },
     {
      "id": "tg-asc-cloth-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "cloth"
      ],
@@ -458,7 +458,7 @@
     },
     {
      "id": "tg-sc-clothing-c-13",
-     "text": "A quick sketch of the masterwork {item} before every noble arrived to admire it.",
+     "text": "A quick sketch of the masterwork {item} before the nobles arrived to admire it.",
      "fit": [
       "clothing"
      ],
@@ -668,7 +668,7 @@
     },
     {
      "id": "tg-asc-clothing-c-3",
-     "text": "{art}, sketched in a hurry before the mayor crowded in. It is well cut; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the courtiers crowded in. It is well cut; the sketch is merely good.",
      "fit": [
       "clothing"
      ],
@@ -684,7 +684,7 @@
     },
     {
      "id": "tg-asc-clothing-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "clothing"
      ],
@@ -752,7 +752,7 @@
     },
     {
      "id": "tg-sc-armor-c-5",
-     "text": "The finished {item}, sketched quickly before every recruit carried {first} off to celebrate.",
+     "text": "The finished {item}, sketched quickly before the recruits carried {first} off to celebrate.",
      "fit": [
       "armor"
      ],
@@ -768,7 +768,7 @@
     },
     {
      "id": "tg-sc-armor-c-7",
-     "text": "A armorer and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "text": "An armorer and a masterwork. Our artist notes that only one of them sat still for the drawing.",
      "fit": [
       "armor"
      ],
@@ -816,7 +816,7 @@
     },
     {
      "id": "tg-sc-armor-c-13",
-     "text": "A quick sketch of the masterwork {item} before the militia captain arrived to admire it.",
+     "text": "A quick sketch of the masterwork {item} before the squad captains arrived to admire it.",
      "fit": [
       "armor"
      ],
@@ -890,7 +890,7 @@
     },
     {
      "id": "tg-sc-armor-h-6",
-     "text": "A ARMORER'S FINEST HOUR",
+     "text": "AN ARMORER'S FINEST HOUR",
      "fit": [
       "armor"
      ],
@@ -932,7 +932,7 @@
     },
     {
      "id": "tg-sc-armor-s-5",
-     "text": "Fetch every recruit!",
+     "text": "Fetch the recruits!",
      "fit": [
       "armor"
      ],
@@ -1026,7 +1026,7 @@
     },
     {
      "id": "tg-asc-armor-c-3",
-     "text": "{art}, sketched in a hurry before the guard crowded in. It is sturdy; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the guards crowded in. It is sturdy; the sketch is merely good.",
      "fit": [
       "armor"
      ],
@@ -1042,7 +1042,7 @@
     },
     {
      "id": "tg-asc-armor-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "armor"
      ],
@@ -1186,7 +1186,7 @@
     },
     {
      "id": "tg-sc-weapon-c-13",
-     "text": "A quick sketch of the masterwork {item} before the militia captain arrived to admire it.",
+     "text": "A quick sketch of the masterwork {item} before the squad captains arrived to admire it.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -1421,7 +1421,7 @@
     },
     {
      "id": "tg-asc-weapon-c-3",
-     "text": "{art}, sketched in a hurry before every recruit crowded in. It is keen; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the recruits crowded in. It is keen; the sketch is merely good.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -1439,7 +1439,7 @@
     },
     {
      "id": "tg-asc-weapon-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -1785,7 +1785,7 @@
     },
     {
      "id": "tg-asc-ammo-c-3",
-     "text": "{art}, sketched in a hurry before the captain of the guard crowded in. It is perfectly weighted; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the guards crowded in. It is perfectly weighted; the sketch is merely good.",
      "fit": [
       "ammo"
      ],
@@ -1801,7 +1801,7 @@
     },
     {
      "id": "tg-asc-ammo-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "ammo"
      ],
@@ -1869,7 +1869,7 @@
     },
     {
      "id": "tg-sc-furniture-c-5",
-     "text": "The finished {item}, sketched quickly before the bookkeeper carried {first} off to celebrate.",
+     "text": "The finished {item}, sketched quickly before the clerks carried {first} off to celebrate.",
      "fit": [
       "furniture"
      ],
@@ -2049,7 +2049,7 @@
     },
     {
      "id": "tg-sc-furniture-s-5",
-     "text": "Fetch the bookkeeper!",
+     "text": "Fetch the clerks!",
      "fit": [
       "furniture"
      ],
@@ -2143,7 +2143,7 @@
     },
     {
      "id": "tg-asc-furniture-c-3",
-     "text": "{art}, sketched in a hurry before every dwarf with an empty room crowded in. It is solid; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before dwarves with empty rooms crowded in. It is solid; the sketch is merely good.",
      "fit": [
       "furniture"
      ],
@@ -2159,7 +2159,7 @@
     },
     {
      "id": "tg-asc-furniture-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "furniture"
      ],
@@ -2517,7 +2517,7 @@
     },
     {
      "id": "tg-asc-container-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "container"
      ],
@@ -2649,7 +2649,7 @@
     },
     {
      "id": "tg-sc-drinkware-c-13",
-     "text": "A quick sketch of the masterwork {item} before the tavern keeper arrived to admire it.",
+     "text": "A quick sketch of the masterwork {item} before the tavern staff arrived to admire it.",
      "fit": [
       "drinkware"
      ],
@@ -2859,7 +2859,7 @@
     },
     {
      "id": "tg-asc-drinkware-c-3",
-     "text": "{art}, sketched in a hurry before every thirsty dwarf crowded in. It is balanced in the hand; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the thirsty crowded in. It is balanced in the hand; the sketch is merely good.",
      "fit": [
       "drinkware"
      ],
@@ -2875,7 +2875,7 @@
     },
     {
      "id": "tg-asc-drinkware-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "drinkware"
      ],
@@ -2959,7 +2959,7 @@
     },
     {
      "id": "tg-sc-jewelry-c-7",
-     "text": "A ornament-maker and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "text": "An ornament-maker and a masterwork. Our artist notes that only one of them sat still for the drawing.",
      "fit": [
       "jewelry"
      ],
@@ -3217,7 +3217,7 @@
     },
     {
      "id": "tg-asc-jewelry-c-3",
-     "text": "{art}, sketched in a hurry before the monarch's envoy crowded in. It is dazzling; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the envoys crowded in. It is dazzling; the sketch is merely good.",
      "fit": [
       "jewelry"
      ],
@@ -3233,7 +3233,7 @@
     },
     {
      "id": "tg-asc-jewelry-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "jewelry"
      ],
@@ -4135,7 +4135,7 @@
     },
     {
      "id": "tg-asc-figurine-c-3",
-     "text": "{art}, sketched in a hurry before the bookkeeper crowded in. It is lifelike; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the clerks crowded in. It is lifelike; the sketch is merely good.",
      "fit": [
       "figurine"
      ],
@@ -4151,7 +4151,7 @@
     },
     {
      "id": "tg-asc-figurine-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "figurine"
      ],
@@ -4215,7 +4215,7 @@
     },
     {
      "id": "tg-asc-toy-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "toy"
      ],
@@ -4279,7 +4279,7 @@
     },
     {
      "id": "tg-asc-crafts-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "crafts"
      ],
@@ -4347,7 +4347,7 @@
     },
     {
      "id": "tg-sc-statue-c-5",
-     "text": "The finished {item}, sketched quickly before every dwarf who passes carried {first} off to celebrate.",
+     "text": "The finished {item}, sketched quickly before the passers-by carried {first} off to celebrate.",
      "fit": [
       "statue"
      ],
@@ -4527,7 +4527,7 @@
     },
     {
      "id": "tg-sc-statue-s-5",
-     "text": "Fetch every dwarf who passes!",
+     "text": "Fetch the passers-by!",
      "fit": [
       "statue"
      ],
@@ -4621,7 +4621,7 @@
     },
     {
      "id": "tg-asc-statue-c-3",
-     "text": "{art}, sketched in a hurry before the bookkeeper crowded in. It is lifelike; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the clerks crowded in. It is lifelike; the sketch is merely good.",
      "fit": [
       "statue"
      ],
@@ -4637,7 +4637,7 @@
     },
     {
      "id": "tg-asc-statue-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "statue"
      ],
@@ -4843,7 +4843,7 @@
     },
     {
      "id": "tg-sc-instrument-h-6",
-     "text": "A INSTRUMENT MAKER'S FINEST HOUR",
+     "text": "AN INSTRUMENT MAKER'S FINEST HOUR",
      "fit": [
       "instrument"
      ],
@@ -4995,7 +4995,7 @@
     },
     {
      "id": "tg-asc-instrument-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "instrument"
      ],
@@ -5353,7 +5353,7 @@
     },
     {
      "id": "tg-asc-gem-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "gem"
      ],
@@ -5421,7 +5421,7 @@
     },
     {
      "id": "tg-sc-food-c-5",
-     "text": "The finished {item}, sketched quickly before the dining hall carried {first} off to celebrate.",
+     "text": "The finished {item}, sketched quickly before the diners carried {first} off to celebrate.",
      "fit": [
       "food"
      ],
@@ -5485,7 +5485,7 @@
     },
     {
      "id": "tg-sc-food-c-13",
-     "text": "A quick sketch of the masterwork {item} before every hungry dwarf arrived to admire it.",
+     "text": "A quick sketch of the masterwork {item} before the hungry arrived to admire it.",
      "fit": [
       "food"
      ],
@@ -5601,7 +5601,7 @@
     },
     {
      "id": "tg-sc-food-s-5",
-     "text": "Fetch the dining hall!",
+     "text": "Fetch the diners!",
      "fit": [
       "food"
      ],
@@ -5711,7 +5711,7 @@
     },
     {
      "id": "tg-asc-food-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "food"
      ],
@@ -5779,7 +5779,7 @@
     },
     {
      "id": "tg-sc-book-c-5",
-     "text": "The finished {item}, sketched quickly before the librarian carried {first} off to celebrate.",
+     "text": "The finished {item}, sketched quickly before the readers carried {first} off to celebrate.",
      "fit": [
       "book"
      ],
@@ -5959,7 +5959,7 @@
     },
     {
      "id": "tg-sc-book-s-5",
-     "text": "Fetch the librarian!",
+     "text": "Fetch the readers!",
      "fit": [
       "book"
      ],
@@ -6069,7 +6069,7 @@
     },
     {
      "id": "tg-asc-book-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "book"
      ],
@@ -6427,7 +6427,7 @@
     },
     {
      "id": "tg-asc-tool-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "tool"
      ],
@@ -6511,7 +6511,7 @@
     },
     {
      "id": "tg-sc-engraving-c-7",
-     "text": "A engraver and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "text": "An engraver and a masterwork. Our artist notes that only one of them sat still for the drawing.",
      "fit": [
       "engraving"
      ],
@@ -6559,7 +6559,7 @@
     },
     {
      "id": "tg-sc-engraving-c-13",
-     "text": "A quick sketch of the masterwork {item} before every passer-by arrived to admire it.",
+     "text": "A quick sketch of the masterwork {item} before passers-by arrived to admire it.",
      "fit": [
       "engraving"
      ],
@@ -6633,7 +6633,7 @@
     },
     {
      "id": "tg-sc-engraving-h-6",
-     "text": "A ENGRAVER'S FINEST HOUR",
+     "text": "AN ENGRAVER'S FINEST HOUR",
      "fit": [
       "engraving"
      ],
@@ -6785,7 +6785,7 @@
     },
     {
      "id": "tg-asc-engraving-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "engraving"
      ],
@@ -7143,7 +7143,7 @@
     },
     {
      "id": "tg-asc-leather-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "leather"
      ],
@@ -7211,7 +7211,7 @@
     },
     {
      "id": "tg-sc-metal-c-5",
-     "text": "The finished {item}, sketched quickly before the bookkeeper carried {first} off to celebrate.",
+     "text": "The finished {item}, sketched quickly before the clerks carried {first} off to celebrate.",
      "fit": [
       "metal"
      ],
@@ -7275,7 +7275,7 @@
     },
     {
      "id": "tg-sc-metal-c-13",
-     "text": "A quick sketch of the masterwork {item} before the bookkeeper arrived to admire it.",
+     "text": "A quick sketch of the masterwork {item} before the clerks arrived to admire it.",
      "fit": [
       "metal"
      ],
@@ -7391,7 +7391,7 @@
     },
     {
      "id": "tg-sc-metal-s-5",
-     "text": "Fetch the bookkeeper!",
+     "text": "Fetch the clerks!",
      "fit": [
       "metal"
      ],
@@ -7485,7 +7485,7 @@
     },
     {
      "id": "tg-asc-metal-c-3",
-     "text": "{art}, sketched in a hurry before the bookkeeper crowded in. It is flawless; the sketch is merely good.",
+     "text": "{art}, sketched in a hurry before the clerks crowded in. It is flawless; the sketch is merely good.",
      "fit": [
       "metal"
      ],
@@ -7501,7 +7501,7 @@
     },
     {
      "id": "tg-asc-metal-c-5",
-     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "text": "{first} with {art}, the {item} that will outlast us all. The crowd agrees.",
      "fit": [
       "metal"
      ],

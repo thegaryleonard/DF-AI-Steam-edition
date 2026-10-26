@@ -922,7 +922,7 @@
    "labels": [
     {
      "id": "t2-ds-combat-l-1",
-     "text": "FALLEN",
+     "text": "BATTLE",
      "fit": [
       "die_combat"
      ],
@@ -938,7 +938,7 @@
     },
     {
      "id": "t2-ds-bleeding-l-1",
-     "text": "BLED OUT",
+     "text": "BLOOD LOSS",
      "fit": [
       "die_bleeding"
      ],
@@ -1026,7 +1026,7 @@
    "labels": [
     {
      "id": "t2-ds-drowning-l-1",
-     "text": "DROWNED",
+     "text": "DROWNING",
      "fit": [
       "die_drowning"
      ],
@@ -1114,7 +1114,7 @@
    "labels": [
     {
      "id": "t2-ds-vampire-l-1",
-     "text": "BLOODLESS",
+     "text": "A VAMPIRE",
      "fit": [
       "die_vampire"
      ],
@@ -1202,7 +1202,7 @@
    "labels": [
     {
      "id": "t2-ds-collapse-l-1",
-     "text": "CRUSHED",
+     "text": "A CAVE-IN",
      "fit": [
       "die_collapse"
      ],
@@ -1290,7 +1290,7 @@
    "labels": [
     {
      "id": "t2-ds-fire-l-1",
-     "text": "BURNED",
+     "text": "FIRE",
      "fit": [
       "die_fire"
      ],
@@ -1634,7 +1634,7 @@
     },
     {
      "id": "t2-ds-suffocation-l-1",
-     "text": "SUFFOCATED",
+     "text": "SUFFOCATION",
      "fit": [
       "die_suffocation"
      ],

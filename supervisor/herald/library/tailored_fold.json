@@ -90,7 +90,7 @@
   },
   {
    "id": "tg-ant-cloth-3",
-   "text": "Every dwarf with an eye for a good weave are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The cloth traders are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "cloth"
    ],
@@ -112,7 +112,7 @@
   },
   {
    "id": "tg-nt-clothing-1",
-   "text": "The masterwork {masterwork} by {masterwright} is now at the clothing stockpile. Every noble are asked to admire it quietly.",
+   "text": "The masterwork {masterwork} by {masterwright} is now at the clothing stockpile. The nobles are asked to admire it quietly.",
    "fit": [
     "clothing"
    ],
@@ -200,7 +200,7 @@
   },
   {
    "id": "tg-ant-clothing-3",
-   "text": "The mayor are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The courtiers are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "clothing"
    ],
@@ -222,7 +222,7 @@
   },
   {
    "id": "tg-nt-armor-1",
-   "text": "The masterwork {masterwork} by {masterwright} is now at the armory. The militia captain are asked to admire it quietly.",
+   "text": "The masterwork {masterwork} by {masterwright} is now at the armory. The squad captains are asked to admire it quietly.",
    "fit": [
     "armor"
    ],
@@ -310,7 +310,7 @@
   },
   {
    "id": "tg-ant-armor-3",
-   "text": "The guard are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The guards are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "armor"
    ],
@@ -332,7 +332,7 @@
   },
   {
    "id": "tg-nt-weapon-1",
-   "text": "The masterwork {masterwork} by {masterwright} is now at the armory. The militia captain are asked to admire it quietly.",
+   "text": "The masterwork {masterwork} by {masterwright} is now at the armory. The squad captains are asked to admire it quietly.",
    "fit": [
     "weapon",
     "mat_metal"
@@ -428,7 +428,7 @@
   },
   {
    "id": "tg-ant-weapon-3",
-   "text": "Every recruit are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The recruits are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "weapon",
     "mat_metal"
@@ -540,7 +540,7 @@
   },
   {
    "id": "tg-ant-ammo-3",
-   "text": "The captain of the guard are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The guards are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "ammo"
    ],
@@ -650,7 +650,7 @@
   },
   {
    "id": "tg-ant-furniture-3",
-   "text": "Every dwarf with an empty room are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "Dwarves with empty rooms are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "furniture"
    ],
@@ -782,7 +782,7 @@
   },
   {
    "id": "tg-nt-drinkware-1",
-   "text": "The masterwork {masterwork} by {masterwright} is now at the tavern shelf. The tavern keeper are asked to admire it quietly.",
+   "text": "The masterwork {masterwork} by {masterwright} is now at the tavern shelf. The tavern staff are asked to admire it quietly.",
    "fit": [
     "drinkware"
    ],
@@ -870,7 +870,7 @@
   },
   {
    "id": "tg-ant-drinkware-3",
-   "text": "Every thirsty dwarf are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The thirsty are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "drinkware"
    ],
@@ -980,7 +980,7 @@
   },
   {
    "id": "tg-ant-jewelry-3",
-   "text": "The monarch's envoy are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The envoys are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "jewelry"
    ],
@@ -1090,7 +1090,7 @@
   },
   {
    "id": "tg-ant-figurine-3",
-   "text": "The bookkeeper are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The clerks are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "figurine"
    ],
@@ -1420,7 +1420,7 @@
   },
   {
    "id": "tg-ant-statue-3",
-   "text": "The bookkeeper are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The clerks are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "statue"
    ],
@@ -1662,7 +1662,7 @@
   },
   {
    "id": "tg-nt-food-1",
-   "text": "The masterwork {masterwork} by {masterwright} is now at the dining hall. Every hungry dwarf are asked to admire it quietly.",
+   "text": "The masterwork {masterwork} by {masterwright} is now at the dining hall. The hungry are asked to admire it quietly.",
    "fit": [
     "food"
    ],
@@ -1992,7 +1992,7 @@
   },
   {
    "id": "tg-nt-engraving-1",
-   "text": "The masterwork {masterwork} by {masterwright} is now at the corridor wall. Every passer-by are asked to admire it quietly.",
+   "text": "The masterwork {masterwork} by {masterwright} is now at the corridor wall. Passers-by are asked to admire it quietly.",
    "fit": [
     "engraving"
    ],
@@ -2212,7 +2212,7 @@
   },
   {
    "id": "tg-nt-metal-1",
-   "text": "The masterwork {masterwork} by {masterwright} is now at the bar stockpile. The bookkeeper are asked to admire it quietly.",
+   "text": "The masterwork {masterwork} by {masterwright} is now at the bar stockpile. The clerks are asked to admire it quietly.",
    "fit": [
     "metal"
    ],
@@ -2300,7 +2300,7 @@
   },
   {
    "id": "tg-ant-metal-3",
-   "text": "The bookkeeper are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
+   "text": "The clerks are reminded that {artifact_new} is an artifact and cannot be traded, whatever the merchants say.",
    "fit": [
     "metal"
    ],
@@ -2335,7 +2335,7 @@
   },
   {
    "id": "tg-gs-cloth-2",
-   "text": "Our sources say the bookkeeper have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
+   "text": "Our sources say the clerks have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
    "fit": [
     "cloth"
    ],
@@ -2390,7 +2390,7 @@
   },
   {
    "id": "tg-ags-cloth-2",
-   "text": "The bookkeeper have formed a queue outside the cloth stockpile to see {artifact_new}. The queue has its own gossip now.",
+   "text": "The clerks have formed a queue outside the cloth stockpile to see {artifact_new}. The queue has its own gossip now.",
    "fit": [
     "cloth"
    ],
@@ -2511,7 +2511,7 @@
   },
   {
    "id": "tg-gs-armor-2",
-   "text": "Our sources say every recruit have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
+   "text": "Our sources say the recruits have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
    "fit": [
     "armor"
    ],
@@ -2566,7 +2566,7 @@
   },
   {
    "id": "tg-ags-armor-2",
-   "text": "Every recruit have formed a queue outside the armory to see {artifact_new}. The queue has its own gossip now.",
+   "text": "The recruits have formed a queue outside the armory to see {artifact_new}. The queue has its own gossip now.",
    "fit": [
     "armor"
    ],
@@ -2783,7 +2783,7 @@
   },
   {
    "id": "tg-gs-furniture-2",
-   "text": "Our sources say the bookkeeper have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
+   "text": "Our sources say the clerks have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
    "fit": [
     "furniture"
    ],
@@ -2838,7 +2838,7 @@
   },
   {
    "id": "tg-ags-furniture-2",
-   "text": "The bookkeeper have formed a queue outside the furniture stockpile to see {artifact_new}. The queue has its own gossip now.",
+   "text": "The clerks have formed a queue outside the furniture stockpile to see {artifact_new}. The queue has its own gossip now.",
    "fit": [
     "furniture"
    ],
@@ -3399,7 +3399,7 @@
   },
   {
    "id": "tg-gs-statue-2",
-   "text": "Our sources say every dwarf who passes have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
+   "text": "Our sources say the passers-by have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
    "fit": [
     "statue"
    ],
@@ -3454,7 +3454,7 @@
   },
   {
    "id": "tg-ags-statue-2",
-   "text": "Every dwarf who passes have formed a queue outside the great hall to see {artifact_new}. The queue has its own gossip now.",
+   "text": "The passers-by have formed a queue outside the great hall to see {artifact_new}. The queue has its own gossip now.",
    "fit": [
     "statue"
    ],
@@ -3663,7 +3663,7 @@
   },
   {
    "id": "tg-gs-food-2",
-   "text": "Our sources say the dining hall have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
+   "text": "Our sources say the diners have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
    "fit": [
     "food"
    ],
@@ -3718,7 +3718,7 @@
   },
   {
    "id": "tg-ags-food-2",
-   "text": "The dining hall have formed a queue outside the dining hall to see {artifact_new}. The queue has its own gossip now.",
+   "text": "The diners have formed a queue outside the dining hall to see {artifact_new}. The queue has its own gossip now.",
    "fit": [
     "food"
    ],
@@ -3751,7 +3751,7 @@
   },
   {
    "id": "tg-gs-book-2",
-   "text": "Our sources say the librarian have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
+   "text": "Our sources say the readers have already argued twice over who gets the {masterwork}. {masterwright} has kept out of it, wisely.",
    "fit": [
     "book"
    ],
@@ -3806,7 +3806,7 @@
   },
   {
    "id": "tg-ags-book-2",
-   "text": "The librarian have formed a queue outside the library to see {artifact_new}. The queue has its own gossip now.",
+   "text": "The readers have formed a queue outside the library to see {artifact_new}. The queue has its own gossip now.",
    "fit": [
     "book"
    ],
@@ -4888,7 +4888,7 @@
   },
   {
    "id": "tg-ob-thirst-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader drink something today, and make sure your friends do too.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader drink something today, and make sure your friends do too.",
    "fit": [
     "die_thirst"
    ],
@@ -4896,7 +4896,7 @@
   },
   {
    "id": "tg-ob-thirst-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_thirst"
    ],
@@ -4928,7 +4928,7 @@
   },
   {
    "id": "tg-ob-hunger-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader eat something today, and share it.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader eat something today, and share it.",
    "fit": [
     "die_hunger"
    ],
@@ -4936,7 +4936,7 @@
   },
   {
    "id": "tg-ob-hunger-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_hunger"
    ],
@@ -4968,7 +4968,7 @@
   },
   {
    "id": "tg-ob-vampire-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader sleep with your door shut and your wits about you.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader sleep with your door shut and your wits about you.",
    "fit": [
     "die_vampire"
    ],
@@ -4976,7 +4976,7 @@
   },
   {
    "id": "tg-ob-vampire-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_vampire"
    ],
@@ -5008,7 +5008,7 @@
   },
   {
    "id": "tg-ob-combat-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader train hard and stand together.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader train hard and stand together.",
    "fit": [
     "die_combat"
    ],
@@ -5016,7 +5016,7 @@
   },
   {
    "id": "tg-ob-combat-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_combat"
    ],
@@ -5048,7 +5048,7 @@
   },
   {
    "id": "tg-ob-bleeding-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader keep the hospital stocked and the doctor sober.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader keep the hospital stocked and the doctor sober.",
    "fit": [
     "die_bleeding"
    ],
@@ -5056,7 +5056,7 @@
   },
   {
    "id": "tg-ob-bleeding-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_bleeding"
    ],
@@ -5088,7 +5088,7 @@
   },
   {
    "id": "tg-ob-drowning-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader keep out of deep water and away from open channels.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader keep out of deep water and away from open channels.",
    "fit": [
     "die_drowning"
    ],
@@ -5096,7 +5096,7 @@
   },
   {
    "id": "tg-ob-drowning-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_drowning"
    ],
@@ -5128,7 +5128,7 @@
   },
   {
    "id": "tg-ob-suffocation-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader mind what you breathe down there.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader mind what you breathe down there.",
    "fit": [
     "die_suffocation"
    ],
@@ -5136,7 +5136,7 @@
   },
   {
    "id": "tg-ob-suffocation-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_suffocation"
    ],
@@ -5168,7 +5168,7 @@
   },
   {
    "id": "tg-ob-fire-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader keep water handy and fire far away.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader keep water handy and fire far away.",
    "fit": [
     "die_fire"
    ],
@@ -5176,7 +5176,7 @@
   },
   {
    "id": "tg-ob-fire-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_fire"
    ],
@@ -5208,7 +5208,7 @@
   },
   {
    "id": "tg-ob-fall-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader mind the edges and build railings.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader mind the edges and build railings.",
    "fit": [
     "die_fall"
    ],
@@ -5216,7 +5216,7 @@
   },
   {
    "id": "tg-ob-fall-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_fall"
    ],
@@ -5248,7 +5248,7 @@
   },
   {
    "id": "tg-ob-collapse-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader check your ceilings and your supports.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader check your ceilings and your supports.",
    "fit": [
     "die_collapse"
    ],
@@ -5256,7 +5256,7 @@
   },
   {
    "id": "tg-ob-collapse-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_collapse"
    ],
@@ -5288,7 +5288,7 @@
   },
   {
    "id": "tg-ob-age-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader tell the old stories while the old dwarves can still correct you.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader tell the old stories while the old dwarves can still correct you.",
    "fit": [
     "die_age"
    ],
@@ -5296,7 +5296,7 @@
   },
   {
    "id": "tg-ob-age-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_age"
    ],
@@ -5328,7 +5328,7 @@
   },
   {
    "id": "tg-ob-infection-2",
-   "text": "We remember {deadname}, a {prof} who has {cause}. Friends ask that every reader keep the hospital clean and the soap stocked.",
+   "text": "We remember {deadname}, the {prof} who has {cause}. Friends ask that every reader keep the hospital clean and the soap stocked.",
    "fit": [
     "die_infection"
    ],
@@ -5336,7 +5336,7 @@
   },
   {
    "id": "tg-ob-infection-3",
-   "text": "{deadname} has {cause}. A {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
+   "text": "{deadname} has {cause}. The {prof} with a laugh you could hear across the dining hall, they leave a quieter fort behind.",
    "fit": [
     "die_infection"
    ],
@@ -5420,7 +5420,7 @@
     },
     {
      "id": "tg-fom-clothing-h-4",
-     "text": "EVERY NOBLE CAN'T STOP TALKING ABOUT THE {masterwork_last}",
+     "text": "THE NOBLES CAN'T STOP TALKING ABOUT THE {masterwork_last}",
      "fit": [
       "clothing"
      ],
@@ -5452,7 +5452,7 @@
     },
     {
      "id": "tg-fom-armor-h-4",
-     "text": "THE MILITIA CAPTAIN CAN'T STOP TALKING ABOUT THE {masterwork_last}",
+     "text": "THE SQUAD CAPTAINS CAN'T STOP TALKING ABOUT THE {masterwork_last}",
      "fit": [
       "armor"
      ],
@@ -5487,7 +5487,7 @@
     },
     {
      "id": "tg-fom-weapon-h-4",
-     "text": "THE MILITIA CAPTAIN CAN'T STOP TALKING ABOUT THE {masterwork_last}",
+     "text": "THE SQUAD CAPTAINS CAN'T STOP TALKING ABOUT THE {masterwork_last}",
      "fit": [
       "weapon",
       "mat_metal"
@@ -5616,7 +5616,7 @@
     },
     {
      "id": "tg-fom-drinkware-h-4",
-     "text": "THE TAVERN KEEPER CAN'T STOP TALKING ABOUT THE {masterwork_last}",
+     "text": "THE TAVERN STAFF CAN'T STOP TALKING ABOUT THE {masterwork_last}",
      "fit": [
       "drinkware"
      ],
@@ -5872,7 +5872,7 @@
     },
     {
      "id": "tg-fom-food-h-4",
-     "text": "EVERY HUNGRY DWARF CAN'T STOP TALKING ABOUT THE {masterwork_last}",
+     "text": "THE HUNGRY CAN'T STOP TALKING ABOUT THE {masterwork_last}",
      "fit": [
       "food"
      ],
@@ -5968,7 +5968,7 @@
     },
     {
      "id": "tg-fom-engraving-h-4",
-     "text": "EVERY PASSER-BY CAN'T STOP TALKING ABOUT THE {masterwork_last}",
+     "text": "PASSERS-BY CAN'T STOP TALKING ABOUT THE {masterwork_last}",
      "fit": [
       "engraving"
      ],
@@ -6058,7 +6058,7 @@
     },
     {
      "id": "tg-fom-cloth-b-3",
-     "text": "The {masterwork_last} has settled in at the cloth stockpile. Every dwarf with an eye for a good weave report it is still even, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the cloth stockpile. The cloth traders report it is still even, which is the point of a masterwork.",
      "fit": [
       "cloth"
      ],
@@ -6074,7 +6074,7 @@
     },
     {
      "id": "tg-fom-clothing-b-1",
-     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the clothier's shop. Every noble visit it at the clothing stockpile and come away inspired.",
+     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the clothier's shop. The nobles visit it at the clothing stockpile and come away inspired.",
      "fit": [
       "clothing"
      ],
@@ -6090,7 +6090,7 @@
     },
     {
      "id": "tg-fom-clothing-b-3",
-     "text": "The {masterwork_last} has settled in at the clothing stockpile. The mayor report it is still well cut, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the clothing stockpile. The courtiers report it is still well cut, which is the point of a masterwork.",
      "fit": [
       "clothing"
      ],
@@ -6106,7 +6106,7 @@
     },
     {
      "id": "tg-fom-armor-b-1",
-     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the armorer's bench. The militia captain visit it at the armory and come away inspired.",
+     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the armorer's bench. The squad captains visit it at the armory and come away inspired.",
      "fit": [
       "armor"
      ],
@@ -6122,7 +6122,7 @@
     },
     {
      "id": "tg-fom-armor-b-3",
-     "text": "The {masterwork_last} has settled in at the armory. The guard report it is still sturdy, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the armory. The guards report it is still sturdy, which is the point of a masterwork.",
      "fit": [
       "armor"
      ],
@@ -6138,7 +6138,7 @@
     },
     {
      "id": "tg-fom-weapon-b-1",
-     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the forge. The militia captain visit it at the armory and come away inspired.",
+     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the forge. The squad captains visit it at the armory and come away inspired.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -6156,7 +6156,7 @@
     },
     {
      "id": "tg-fom-weapon-b-3",
-     "text": "The {masterwork_last} has settled in at the armory. Every recruit report it is still keen, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the armory. The recruits report it is still keen, which is the point of a masterwork.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -6190,7 +6190,7 @@
     },
     {
      "id": "tg-fom-ammo-b-3",
-     "text": "The {masterwork_last} has settled in at the ammunition stockpile. The captain of the guard report it is still perfectly weighted, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the ammunition stockpile. The guards report it is still perfectly weighted, which is the point of a masterwork.",
      "fit": [
       "ammo"
      ],
@@ -6222,7 +6222,7 @@
     },
     {
      "id": "tg-fom-furniture-b-3",
-     "text": "The {masterwork_last} has settled in at the furniture stockpile. Every dwarf with an empty room report it is still solid, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the furniture stockpile. Dwarves with empty rooms report it is still solid, which is the point of a masterwork.",
      "fit": [
       "furniture"
      ],
@@ -6270,7 +6270,7 @@
     },
     {
      "id": "tg-fom-drinkware-b-1",
-     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the craftsdwarf's workshop. The tavern keeper visit it at the tavern shelf and come away inspired.",
+     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the craftsdwarf's workshop. The tavern staff visit it at the tavern shelf and come away inspired.",
      "fit": [
       "drinkware"
      ],
@@ -6286,7 +6286,7 @@
     },
     {
      "id": "tg-fom-drinkware-b-3",
-     "text": "The {masterwork_last} has settled in at the tavern shelf. Every thirsty dwarf report it is still balanced in the hand, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the tavern shelf. The thirsty report it is still balanced in the hand, which is the point of a masterwork.",
      "fit": [
       "drinkware"
      ],
@@ -6318,7 +6318,7 @@
     },
     {
      "id": "tg-fom-jewelry-b-3",
-     "text": "The {masterwork_last} has settled in at the treasury. The monarch's envoy report it is still dazzling, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the treasury. The envoys report it is still dazzling, which is the point of a masterwork.",
      "fit": [
       "jewelry"
      ],
@@ -6350,7 +6350,7 @@
     },
     {
      "id": "tg-fom-figurine-b-3",
-     "text": "The {masterwork_last} has settled in at a high shelf, away from cats. The bookkeeper report it is still lifelike, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at a high shelf, away from cats. The clerks report it is still lifelike, which is the point of a masterwork.",
      "fit": [
       "figurine"
      ],
@@ -6446,7 +6446,7 @@
     },
     {
      "id": "tg-fom-statue-b-3",
-     "text": "The {masterwork_last} has settled in at the great hall. The bookkeeper report it is still lifelike, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the great hall. The clerks report it is still lifelike, which is the point of a masterwork.",
      "fit": [
       "statue"
      ],
@@ -6526,7 +6526,7 @@
     },
     {
      "id": "tg-fom-food-b-1",
-     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the kitchen. Every hungry dwarf visit it at the dining hall and come away inspired.",
+     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the kitchen. The hungry visit it at the dining hall and come away inspired.",
      "fit": [
       "food"
      ],
@@ -6622,7 +6622,7 @@
     },
     {
      "id": "tg-fom-engraving-b-1",
-     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the hall. Every passer-by visit it at the corridor wall and come away inspired.",
+     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the hall. Passers-by visit it at the corridor wall and come away inspired.",
      "fit": [
       "engraving"
      ],
@@ -6686,7 +6686,7 @@
     },
     {
      "id": "tg-fom-metal-b-1",
-     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the smelter. The bookkeeper visit it at the bar stockpile and come away inspired.",
+     "text": "The masterwork {masterwork_last} made by {masterwright_last} is still the talk of the smelter. The clerks visit it at the bar stockpile and come away inspired.",
      "fit": [
       "metal"
      ],
@@ -6702,7 +6702,7 @@
     },
     {
      "id": "tg-fom-metal-b-3",
-     "text": "The {masterwork_last} has settled in at the bar stockpile. The bookkeeper report it is still flawless, which is the point of a masterwork.",
+     "text": "The {masterwork_last} has settled in at the bar stockpile. The clerks report it is still flawless, which is the point of a masterwork.",
      "fit": [
       "metal"
      ],
@@ -7408,7 +7408,7 @@
     },
     {
      "id": "tg-foa-cloth-b-2",
-     "text": "{artifact_new} has settled into {fort} life. The bookkeeper visit daily; the guards have learned their names.",
+     "text": "{artifact_new} has settled into {fort} life. The clerks visit daily; the guards have learned their names.",
      "fit": [
       "cloth"
      ],
@@ -7472,7 +7472,7 @@
     },
     {
      "id": "tg-foa-armor-b-2",
-     "text": "{artifact_new} has settled into {fort} life. Every recruit visit daily; the guards have learned their names.",
+     "text": "{artifact_new} has settled into {fort} life. The recruits visit daily; the guards have learned their names.",
      "fit": [
       "armor"
      ],
@@ -7572,7 +7572,7 @@
     },
     {
      "id": "tg-foa-furniture-b-2",
-     "text": "{artifact_new} has settled into {fort} life. The bookkeeper visit daily; the guards have learned their names.",
+     "text": "{artifact_new} has settled into {fort} life. The clerks visit daily; the guards have learned their names.",
      "fit": [
       "furniture"
      ],
@@ -7796,7 +7796,7 @@
     },
     {
      "id": "tg-foa-statue-b-2",
-     "text": "{artifact_new} has settled into {fort} life. Every dwarf who passes visit daily; the guards have learned their names.",
+     "text": "{artifact_new} has settled into {fort} life. The passers-by visit daily; the guards have learned their names.",
      "fit": [
       "statue"
      ],
@@ -7892,7 +7892,7 @@
     },
     {
      "id": "tg-foa-food-b-2",
-     "text": "{artifact_new} has settled into {fort} life. The dining hall visit daily; the guards have learned their names.",
+     "text": "{artifact_new} has settled into {fort} life. The diners visit daily; the guards have learned their names.",
      "fit": [
       "food"
      ],
@@ -7924,7 +7924,7 @@
     },
     {
      "id": "tg-foa-book-b-2",
-     "text": "{artifact_new} has settled into {fort} life. The librarian visit daily; the guards have learned their names.",
+     "text": "{artifact_new} has settled into {fort} life. The readers visit daily; the guards have learned their names.",
      "fit": [
       "book"
      ],

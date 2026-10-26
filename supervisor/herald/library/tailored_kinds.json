@@ -68,7 +68,7 @@
     },
     {
      "id": "tg-m-cloth-h-9",
-     "text": "MASTERWORK {item} STUNS EVERY DWARF WITH AN EYE FOR A GOOD WEAVE",
+     "text": "MASTERWORK {item} STUNS THE CLOTH TRADERS",
      "fit": [
       "cloth"
      ],
@@ -100,7 +100,7 @@
     },
     {
      "id": "tg-m-cloth-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "cloth"
      ],
@@ -140,7 +140,7 @@
     },
     {
      "id": "tg-m-cloth-h-18",
-     "text": "EVERY DWARF WITH AN EYE FOR A GOOD WEAVE QUEUE TO SEE THE NEW {item}",
+     "text": "THE CLOTH TRADERS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "cloth"
      ],
@@ -212,7 +212,7 @@
     },
     {
      "id": "tg-m-clothing-h-7",
-     "text": "A MASTERWORK, AND EVERY NOBLE KNOW IT",
+     "text": "A MASTERWORK, AND THE NOBLES KNOW IT",
      "fit": [
       "clothing"
      ],
@@ -228,7 +228,7 @@
     },
     {
      "id": "tg-m-clothing-h-9",
-     "text": "MASTERWORK {item} STUNS THE MAYOR",
+     "text": "MASTERWORK {item} STUNS THE COURTIERS",
      "fit": [
       "clothing"
      ],
@@ -260,7 +260,7 @@
     },
     {
      "id": "tg-m-clothing-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "clothing"
      ],
@@ -300,7 +300,7 @@
     },
     {
      "id": "tg-m-clothing-h-18",
-     "text": "THE MAYOR QUEUE TO SEE THE NEW {item}",
+     "text": "THE COURTIERS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "clothing"
      ],
@@ -372,7 +372,7 @@
     },
     {
      "id": "tg-m-armor-h-7",
-     "text": "A MASTERWORK, AND THE MILITIA CAPTAIN KNOW IT",
+     "text": "A MASTERWORK, AND THE SQUAD CAPTAINS KNOW IT",
      "fit": [
       "armor"
      ],
@@ -388,7 +388,7 @@
     },
     {
      "id": "tg-m-armor-h-9",
-     "text": "MASTERWORK {item} STUNS THE GUARD",
+     "text": "MASTERWORK {item} STUNS THE GUARDS",
      "fit": [
       "armor"
      ],
@@ -420,7 +420,7 @@
     },
     {
      "id": "tg-m-armor-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "armor"
      ],
@@ -460,7 +460,7 @@
     },
     {
      "id": "tg-m-armor-h-18",
-     "text": "THE GUARD QUEUE TO SEE THE NEW {item}",
+     "text": "THE GUARDS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "armor"
      ],
@@ -538,7 +538,7 @@
     },
     {
      "id": "tg-m-weapon-h-7",
-     "text": "A MASTERWORK, AND THE MILITIA CAPTAIN KNOW IT",
+     "text": "A MASTERWORK, AND THE SQUAD CAPTAINS KNOW IT",
      "fit": [
       "weapon",
       "mat_metal"
@@ -556,7 +556,7 @@
     },
     {
      "id": "tg-m-weapon-h-9",
-     "text": "MASTERWORK {item} STUNS EVERY RECRUIT",
+     "text": "MASTERWORK {item} STUNS THE RECRUITS",
      "fit": [
       "weapon",
       "mat_metal"
@@ -592,7 +592,7 @@
     },
     {
      "id": "tg-m-weapon-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "weapon",
       "mat_metal"
@@ -637,7 +637,7 @@
     },
     {
      "id": "tg-m-weapon-h-18",
-     "text": "EVERY RECRUIT QUEUE TO SEE THE NEW {item}",
+     "text": "THE RECRUITS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "weapon",
       "mat_metal"
@@ -728,7 +728,7 @@
     },
     {
      "id": "tg-m-ammo-h-9",
-     "text": "MASTERWORK {item} STUNS THE CAPTAIN OF THE GUARD",
+     "text": "MASTERWORK {item} STUNS THE GUARDS",
      "fit": [
       "ammo"
      ],
@@ -760,7 +760,7 @@
     },
     {
      "id": "tg-m-ammo-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "ammo"
      ],
@@ -800,7 +800,7 @@
     },
     {
      "id": "tg-m-ammo-h-18",
-     "text": "THE CAPTAIN OF THE GUARD QUEUE TO SEE THE NEW {item}",
+     "text": "THE GUARDS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "ammo"
      ],
@@ -888,7 +888,7 @@
     },
     {
      "id": "tg-m-furniture-h-9",
-     "text": "MASTERWORK {item} STUNS EVERY DWARF WITH AN EMPTY ROOM",
+     "text": "MASTERWORK {item} STUNS DWARVES WITH EMPTY ROOMS",
      "fit": [
       "furniture"
      ],
@@ -920,7 +920,7 @@
     },
     {
      "id": "tg-m-furniture-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "furniture"
      ],
@@ -960,7 +960,7 @@
     },
     {
      "id": "tg-m-furniture-h-18",
-     "text": "EVERY DWARF WITH AN EMPTY ROOM QUEUE TO SEE THE NEW {item}",
+     "text": "DWARVES WITH EMPTY ROOMS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "furniture"
      ],
@@ -1080,7 +1080,7 @@
     },
     {
      "id": "tg-m-container-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "container"
      ],
@@ -1192,7 +1192,7 @@
     },
     {
      "id": "tg-m-drinkware-h-7",
-     "text": "A MASTERWORK, AND THE TAVERN KEEPER KNOW IT",
+     "text": "A MASTERWORK, AND THE TAVERN STAFF KNOW IT",
      "fit": [
       "drinkware"
      ],
@@ -1208,7 +1208,7 @@
     },
     {
      "id": "tg-m-drinkware-h-9",
-     "text": "MASTERWORK {item} STUNS EVERY THIRSTY DWARF",
+     "text": "MASTERWORK {item} STUNS THE THIRSTY",
      "fit": [
       "drinkware"
      ],
@@ -1240,7 +1240,7 @@
     },
     {
      "id": "tg-m-drinkware-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "drinkware"
      ],
@@ -1280,7 +1280,7 @@
     },
     {
      "id": "tg-m-drinkware-h-18",
-     "text": "EVERY THIRSTY DWARF QUEUE TO SEE THE NEW {item}",
+     "text": "THE THIRSTY QUEUE TO SEE THE NEW {item}",
      "fit": [
       "drinkware"
      ],
@@ -1368,7 +1368,7 @@
     },
     {
      "id": "tg-m-jewelry-h-9",
-     "text": "MASTERWORK {item} STUNS THE MONARCH'S ENVOY",
+     "text": "MASTERWORK {item} STUNS THE ENVOYS",
      "fit": [
       "jewelry"
      ],
@@ -1400,7 +1400,7 @@
     },
     {
      "id": "tg-m-jewelry-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "jewelry"
      ],
@@ -1440,7 +1440,7 @@
     },
     {
      "id": "tg-m-jewelry-h-18",
-     "text": "THE MONARCH'S ENVOY QUEUE TO SEE THE NEW {item}",
+     "text": "THE ENVOYS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "jewelry"
      ],
@@ -1528,7 +1528,7 @@
     },
     {
      "id": "tg-m-figurine-h-9",
-     "text": "MASTERWORK {item} STUNS THE BOOKKEEPER",
+     "text": "MASTERWORK {item} STUNS THE CLERKS",
      "fit": [
       "figurine"
      ],
@@ -1560,7 +1560,7 @@
     },
     {
      "id": "tg-m-figurine-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "figurine"
      ],
@@ -1600,7 +1600,7 @@
     },
     {
      "id": "tg-m-figurine-h-18",
-     "text": "THE BOOKKEEPER QUEUE TO SEE THE NEW {item}",
+     "text": "THE CLERKS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "figurine"
      ],
@@ -1720,7 +1720,7 @@
     },
     {
      "id": "tg-m-toy-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "toy"
      ],
@@ -1880,7 +1880,7 @@
     },
     {
      "id": "tg-m-crafts-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "crafts"
      ],
@@ -2008,7 +2008,7 @@
     },
     {
      "id": "tg-m-statue-h-9",
-     "text": "MASTERWORK {item} STUNS THE BOOKKEEPER",
+     "text": "MASTERWORK {item} STUNS THE CLERKS",
      "fit": [
       "statue"
      ],
@@ -2040,7 +2040,7 @@
     },
     {
      "id": "tg-m-statue-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "statue"
      ],
@@ -2080,7 +2080,7 @@
     },
     {
      "id": "tg-m-statue-h-18",
-     "text": "THE BOOKKEEPER QUEUE TO SEE THE NEW {item}",
+     "text": "THE CLERKS QUEUE TO SEE THE NEW {item}",
      "fit": [
       "statue"
      ],
@@ -2200,7 +2200,7 @@
     },
     {
      "id": "tg-m-instrument-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "instrument"
      ],
@@ -2360,7 +2360,7 @@
     },
     {
      "id": "tg-m-gem-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "gem"
      ],
@@ -2472,7 +2472,7 @@
     },
     {
      "id": "tg-m-food-h-7",
-     "text": "A MASTERWORK, AND EVERY HUNGRY DWARF KNOW IT",
+     "text": "A MASTERWORK, AND THE HUNGRY KNOW IT",
      "fit": [
       "food"
      ],
@@ -2520,7 +2520,7 @@
     },
     {
      "id": "tg-m-food-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "food"
      ],
@@ -2680,7 +2680,7 @@
     },
     {
      "id": "tg-m-book-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "book"
      ],
@@ -2840,7 +2840,7 @@
     },
     {
      "id": "tg-m-tool-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "tool"
      ],
@@ -2952,7 +2952,7 @@
     },
     {
      "id": "tg-m-engraving-h-7",
-     "text": "A MASTERWORK, AND EVERY PASSER-BY KNOW IT",
+     "text": "A MASTERWORK, AND PASSERS-BY KNOW IT",
      "fit": [
       "engraving"
      ],
@@ -3000,7 +3000,7 @@
     },
     {
      "id": "tg-m-engraving-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "engraving"
      ],
@@ -3160,7 +3160,7 @@
     },
     {
      "id": "tg-m-leather-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "leather"
      ],
@@ -3272,7 +3272,7 @@
     },
     {
      "id": "tg-m-metal-h-7",
-     "text": "A MASTERWORK, AND THE BOOKKEEPER KNOW IT",
+     "text": "A MASTERWORK, AND THE CLERKS KNOW IT",
      "fit": [
       "metal"
      ],
@@ -3288,7 +3288,7 @@
     },
     {
      "id": "tg-m-metal-h-9",
-     "text": "MASTERWORK {item} STUNS THE BOOKKEEPER",
+     "text": "MASTERWORK {item} STUNS THE CLERKS",
      "fit": [
       "metal"
      ],
@@ -3320,7 +3320,7 @@
     },
     {
      "id": "tg-m-metal-h-13",
-     "text": "A {item} FOR THE RECORDS",
+     "text": "THE {item} FOR THE RECORDS",
      "fit": [
       "metal"
      ],
@@ -3450,7 +3450,7 @@
     },
     {
      "id": "tg-m-cloth-r-9",
-     "text": "The {item} was woven with the care that only a master's hands bring. Every dwarf with an eye for a good weave are said to be envious, and are not hiding it well.",
+     "text": "The {item} was woven with the care that only a master's hands bring. The cloth traders are said to be envious, and are not hiding it well.",
      "fit": [
       "cloth"
      ],
@@ -3490,7 +3490,7 @@
     },
     {
      "id": "tg-m-cloth-r-14",
-     "text": "The bookkeeper have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
+     "text": "The clerks have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
      "fit": [
       "cloth"
      ],
@@ -3594,7 +3594,7 @@
     },
     {
      "id": "tg-m-cloth-r-27",
-     "text": "Every dwarf with an eye for a good weave have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The cloth traders have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "cloth"
      ],
@@ -3626,7 +3626,7 @@
     },
     {
      "id": "tg-m-clothing-r-1",
-     "text": "{who} has finished a masterwork {item}. Every noble came to look, stayed to admire, and left talking about nothing else.",
+     "text": "{who} has finished a masterwork {item}. The nobles came to look, stayed to admire, and left talking about nothing else.",
      "fit": [
       "clothing"
      ],
@@ -3650,7 +3650,7 @@
     },
     {
      "id": "tg-m-clothing-r-4",
-     "text": "The masterwork {item} will be worn to the tavern. Every noble have already asked to be first in line.",
+     "text": "The masterwork {item} will be worn to the tavern. The nobles have already asked to be first in line.",
      "fit": [
       "clothing"
      ],
@@ -3690,7 +3690,7 @@
     },
     {
      "id": "tg-m-clothing-r-9",
-     "text": "The {item} was sewn with the care that only a master's hands bring. The mayor are said to be envious, and are not hiding it well.",
+     "text": "The {item} was sewn with the care that only a master's hands bring. The courtiers are said to be envious, and are not hiding it well.",
      "fit": [
       "clothing"
      ],
@@ -3834,7 +3834,7 @@
     },
     {
      "id": "tg-m-clothing-r-27",
-     "text": "The mayor have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The courtiers have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "clothing"
      ],
@@ -3866,7 +3866,7 @@
     },
     {
      "id": "tg-m-armor-r-1",
-     "text": "{who} has finished a masterwork {item}. The militia captain came to look, stayed to admire, and left talking about nothing else.",
+     "text": "{who} has finished a masterwork {item}. The squad captains came to look, stayed to admire, and left talking about nothing else.",
      "fit": [
       "armor"
      ],
@@ -3890,7 +3890,7 @@
     },
     {
      "id": "tg-m-armor-r-4",
-     "text": "The masterwork {item} will be issued to the militia. The militia captain have already asked to be first in line.",
+     "text": "The masterwork {item} will be issued to the militia. The squad captains have already asked to be first in line.",
      "fit": [
       "armor"
      ],
@@ -3898,7 +3898,7 @@
     },
     {
      "id": "tg-m-armor-r-5",
-     "text": "{first}, a armorer of some standing, has now made a masterwork {item}. The standing has improved considerably.",
+     "text": "{first}, an armorer of some standing, has now made a masterwork {item}. The standing has improved considerably.",
      "fit": [
       "armor"
      ],
@@ -3930,7 +3930,7 @@
     },
     {
      "id": "tg-m-armor-r-9",
-     "text": "The {item} was made with the care that only a master's hands bring. The guard are said to be envious, and are not hiding it well.",
+     "text": "The {item} was made with the care that only a master's hands bring. The guards are said to be envious, and are not hiding it well.",
      "fit": [
       "armor"
      ],
@@ -3970,7 +3970,7 @@
     },
     {
      "id": "tg-m-armor-r-14",
-     "text": "Every recruit have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
+     "text": "The recruits have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
      "fit": [
       "armor"
      ],
@@ -4074,7 +4074,7 @@
     },
     {
      "id": "tg-m-armor-r-27",
-     "text": "The guard have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The guards have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "armor"
      ],
@@ -4106,7 +4106,7 @@
     },
     {
      "id": "tg-m-weapon-r-1",
-     "text": "{who} has finished a masterwork {item}. The militia captain came to look, stayed to admire, and left talking about nothing else.",
+     "text": "{who} has finished a masterwork {item}. The squad captains came to look, stayed to admire, and left talking about nothing else.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -4133,7 +4133,7 @@
     },
     {
      "id": "tg-m-weapon-r-4",
-     "text": "The masterwork {item} will be carried by the militia. The militia captain have already asked to be first in line.",
+     "text": "The masterwork {item} will be carried by the militia. The squad captains have already asked to be first in line.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -4178,7 +4178,7 @@
     },
     {
      "id": "tg-m-weapon-r-9",
-     "text": "The {item} was forged with the care that only a master's hands bring. Every recruit are said to be envious, and are not hiding it well.",
+     "text": "The {item} was forged with the care that only a master's hands bring. The recruits are said to be envious, and are not hiding it well.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -4340,7 +4340,7 @@
     },
     {
      "id": "tg-m-weapon-r-27",
-     "text": "Every recruit have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The recruits have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -4440,7 +4440,7 @@
     },
     {
      "id": "tg-m-ammo-r-9",
-     "text": "The {item} was fletched with the care that only a master's hands bring. The captain of the guard are said to be envious, and are not hiding it well.",
+     "text": "The {item} was fletched with the care that only a master's hands bring. The guards are said to be envious, and are not hiding it well.",
      "fit": [
       "ammo"
      ],
@@ -4584,7 +4584,7 @@
     },
     {
      "id": "tg-m-ammo-r-27",
-     "text": "The captain of the guard have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The guards have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "ammo"
      ],
@@ -4680,7 +4680,7 @@
     },
     {
      "id": "tg-m-furniture-r-9",
-     "text": "The {item} was built with the care that only a master's hands bring. Every dwarf with an empty room are said to be envious, and are not hiding it well.",
+     "text": "The {item} was built with the care that only a master's hands bring. Dwarves with empty rooms are said to be envious, and are not hiding it well.",
      "fit": [
       "furniture"
      ],
@@ -4720,7 +4720,7 @@
     },
     {
      "id": "tg-m-furniture-r-14",
-     "text": "The bookkeeper have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
+     "text": "The clerks have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
      "fit": [
       "furniture"
      ],
@@ -4824,7 +4824,7 @@
     },
     {
      "id": "tg-m-furniture-r-27",
-     "text": "Every dwarf with an empty room have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "Dwarves with empty rooms have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "furniture"
      ],
@@ -5096,7 +5096,7 @@
     },
     {
      "id": "tg-m-drinkware-r-1",
-     "text": "{who} has finished a masterwork {item}. The tavern keeper came to look, stayed to admire, and left talking about nothing else.",
+     "text": "{who} has finished a masterwork {item}. The tavern staff came to look, stayed to admire, and left talking about nothing else.",
      "fit": [
       "drinkware"
      ],
@@ -5120,7 +5120,7 @@
     },
     {
      "id": "tg-m-drinkware-r-4",
-     "text": "The masterwork {item} will be raised at the tavern. The tavern keeper have already asked to be first in line.",
+     "text": "The masterwork {item} will be raised at the tavern. The tavern staff have already asked to be first in line.",
      "fit": [
       "drinkware"
      ],
@@ -5160,7 +5160,7 @@
     },
     {
      "id": "tg-m-drinkware-r-9",
-     "text": "The {item} was made with the care that only a master's hands bring. Every thirsty dwarf are said to be envious, and are not hiding it well.",
+     "text": "The {item} was made with the care that only a master's hands bring. The thirsty are said to be envious, and are not hiding it well.",
      "fit": [
       "drinkware"
      ],
@@ -5304,7 +5304,7 @@
     },
     {
      "id": "tg-m-drinkware-r-27",
-     "text": "Every thirsty dwarf have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The thirsty have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "drinkware"
      ],
@@ -5368,7 +5368,7 @@
     },
     {
      "id": "tg-m-jewelry-r-5",
-     "text": "{first}, a ornament-maker of some standing, has now made a masterwork {item}. The standing has improved considerably.",
+     "text": "{first}, an ornament-maker of some standing, has now made a masterwork {item}. The standing has improved considerably.",
      "fit": [
       "jewelry"
      ],
@@ -5400,7 +5400,7 @@
     },
     {
      "id": "tg-m-jewelry-r-9",
-     "text": "The {item} was crafted with the care that only a master's hands bring. The monarch's envoy are said to be envious, and are not hiding it well.",
+     "text": "The {item} was crafted with the care that only a master's hands bring. The envoys are said to be envious, and are not hiding it well.",
      "fit": [
       "jewelry"
      ],
@@ -5544,7 +5544,7 @@
     },
     {
      "id": "tg-m-jewelry-r-27",
-     "text": "The monarch's envoy have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The envoys have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "jewelry"
      ],
@@ -5640,7 +5640,7 @@
     },
     {
      "id": "tg-m-figurine-r-9",
-     "text": "The {item} was carved with the care that only a master's hands bring. The bookkeeper are said to be envious, and are not hiding it well.",
+     "text": "The {item} was carved with the care that only a master's hands bring. The clerks are said to be envious, and are not hiding it well.",
      "fit": [
       "figurine"
      ],
@@ -5784,7 +5784,7 @@
     },
     {
      "id": "tg-m-figurine-r-27",
-     "text": "The bookkeeper have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The clerks have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "figurine"
      ],
@@ -6360,7 +6360,7 @@
     },
     {
      "id": "tg-m-statue-r-9",
-     "text": "The {item} was carved with the care that only a master's hands bring. The bookkeeper are said to be envious, and are not hiding it well.",
+     "text": "The {item} was carved with the care that only a master's hands bring. The clerks are said to be envious, and are not hiding it well.",
      "fit": [
       "statue"
      ],
@@ -6400,7 +6400,7 @@
     },
     {
      "id": "tg-m-statue-r-14",
-     "text": "Every dwarf who passes have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
+     "text": "The passers-by have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
      "fit": [
       "statue"
      ],
@@ -6504,7 +6504,7 @@
     },
     {
      "id": "tg-m-statue-r-27",
-     "text": "The bookkeeper have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The clerks have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "statue"
      ],
@@ -7016,7 +7016,7 @@
     },
     {
      "id": "tg-m-food-r-1",
-     "text": "{who} has finished a masterwork {item}. Every hungry dwarf came to look, stayed to admire, and left talking about nothing else.",
+     "text": "{who} has finished a masterwork {item}. The hungry came to look, stayed to admire, and left talking about nothing else.",
      "fit": [
       "food"
      ],
@@ -7040,7 +7040,7 @@
     },
     {
      "id": "tg-m-food-r-4",
-     "text": "The masterwork {item} will be served at the next feast. Every hungry dwarf have already asked to be first in line.",
+     "text": "The masterwork {item} will be served at the next feast. The hungry have already asked to be first in line.",
      "fit": [
       "food"
      ],
@@ -7120,7 +7120,7 @@
     },
     {
      "id": "tg-m-food-r-14",
-     "text": "The dining hall have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
+     "text": "The diners have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
      "fit": [
       "food"
      ],
@@ -7360,7 +7360,7 @@
     },
     {
      "id": "tg-m-book-r-14",
-     "text": "The librarian have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
+     "text": "The readers have offered {first} drinks in exchange for a closer look at the {item}. {first} has accepted every offer.",
      "fit": [
       "book"
      ],
@@ -7736,7 +7736,7 @@
     },
     {
      "id": "tg-m-engraving-r-1",
-     "text": "{who} has finished a masterwork {item}. Every passer-by came to look, stayed to admire, and left talking about nothing else.",
+     "text": "{who} has finished a masterwork {item}. Passers-by came to look, stayed to admire, and left talking about nothing else.",
      "fit": [
       "engraving"
      ],
@@ -7760,7 +7760,7 @@
     },
     {
      "id": "tg-m-engraving-r-4",
-     "text": "The masterwork {item} will be read by everyone who passes. Every passer-by have already asked to be first in line.",
+     "text": "The masterwork {item} will be read by everyone who passes. Passers-by have already asked to be first in line.",
      "fit": [
       "engraving"
      ],
@@ -7768,7 +7768,7 @@
     },
     {
      "id": "tg-m-engraving-r-5",
-     "text": "{first}, a engraver of some standing, has now made a masterwork {item}. The standing has improved considerably.",
+     "text": "{first}, an engraver of some standing, has now made a masterwork {item}. The standing has improved considerably.",
      "fit": [
       "engraving"
      ],
@@ -8216,7 +8216,7 @@
     },
     {
      "id": "tg-m-metal-r-1",
-     "text": "{who} has finished a masterwork {item}. The bookkeeper came to look, stayed to admire, and left talking about nothing else.",
+     "text": "{who} has finished a masterwork {item}. The clerks came to look, stayed to admire, and left talking about nothing else.",
      "fit": [
       "metal"
      ],
@@ -8280,7 +8280,7 @@
     },
     {
      "id": "tg-m-metal-r-9",
-     "text": "The {item} was smelted with the care that only a master's hands bring. The bookkeeper are said to be envious, and are not hiding it well.",
+     "text": "The {item} was smelted with the care that only a master's hands bring. The clerks are said to be envious, and are not hiding it well.",
      "fit": [
       "metal"
      ],
@@ -8424,7 +8424,7 @@
     },
     {
      "id": "tg-m-metal-r-27",
-     "text": "The bookkeeper have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
+     "text": "The clerks have started a waiting list for the next piece like it. {first} has started pretending not to hear.",
      "fit": [
       "metal"
      ],
@@ -8562,7 +8562,7 @@
     },
     {
      "id": "tg-m-cloth-k-14",
-     "text": "The bookkeeper, please form an orderly queue.",
+     "text": "The clerks, please form an orderly queue.",
      "fit": [
       "cloth"
      ],
@@ -8586,7 +8586,7 @@
     },
     {
      "id": "tg-m-clothing-k-1",
-     "text": "Every noble may view the {item} at the clothing stockpile.",
+     "text": "The nobles may view the {item} at the clothing stockpile.",
      "fit": [
       "clothing"
      ],
@@ -8714,7 +8714,7 @@
     },
     {
      "id": "tg-m-armor-k-1",
-     "text": "The militia captain may view the {item} at the armory.",
+     "text": "The squad captains may view the {item} at the armory.",
      "fit": [
       "armor"
      ],
@@ -8818,7 +8818,7 @@
     },
     {
      "id": "tg-m-armor-k-14",
-     "text": "Every recruit, please form an orderly queue.",
+     "text": "The recruits, please form an orderly queue.",
      "fit": [
       "armor"
      ],
@@ -8842,7 +8842,7 @@
     },
     {
      "id": "tg-m-weapon-k-1",
-     "text": "The militia captain may view the {item} at the armory.",
+     "text": "The squad captains may view the {item} at the armory.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -9218,7 +9218,7 @@
     },
     {
      "id": "tg-m-furniture-k-14",
-     "text": "The bookkeeper, please form an orderly queue.",
+     "text": "The clerks, please form an orderly queue.",
      "fit": [
       "furniture"
      ],
@@ -9370,7 +9370,7 @@
     },
     {
      "id": "tg-m-drinkware-k-1",
-     "text": "The tavern keeper may view the {item} at the tavern shelf.",
+     "text": "The tavern staff may view the {item} at the tavern shelf.",
      "fit": [
       "drinkware"
      ],
@@ -10114,7 +10114,7 @@
     },
     {
      "id": "tg-m-statue-k-14",
-     "text": "Every dwarf who passes, please form an orderly queue.",
+     "text": "The passers-by, please form an orderly queue.",
      "fit": [
       "statue"
      ],
@@ -10394,7 +10394,7 @@
     },
     {
      "id": "tg-m-food-k-1",
-     "text": "Every hungry dwarf may view the {item} at the dining hall.",
+     "text": "The hungry may view the {item} at the dining hall.",
      "fit": [
       "food"
      ],
@@ -10498,7 +10498,7 @@
     },
     {
      "id": "tg-m-food-k-14",
-     "text": "The dining hall, please form an orderly queue.",
+     "text": "The diners, please form an orderly queue.",
      "fit": [
       "food"
      ],
@@ -10626,7 +10626,7 @@
     },
     {
      "id": "tg-m-book-k-14",
-     "text": "The librarian, please form an orderly queue.",
+     "text": "The readers, please form an orderly queue.",
      "fit": [
       "book"
      ],
@@ -10778,7 +10778,7 @@
     },
     {
      "id": "tg-m-engraving-k-1",
-     "text": "Every passer-by may view the {item} at the corridor wall.",
+     "text": "Passers-by may view the {item} at the corridor wall.",
      "fit": [
       "engraving"
      ],
@@ -11034,7 +11034,7 @@
     },
     {
      "id": "tg-m-metal-k-1",
-     "text": "The bookkeeper may view the {item} at the bar stockpile.",
+     "text": "The clerks may view the {item} at the bar stockpile.",
      "fit": [
       "metal"
      ],
@@ -11198,7 +11198,7 @@
     },
     {
      "id": "tg-a-cloth-h-5",
-     "text": "THE BOOKKEEPER STUNNED BY {art}",
+     "text": "THE CLERKS STUNNED BY {art}",
      "fit": [
       "cloth"
      ],
@@ -11222,7 +11222,7 @@
     },
     {
      "id": "tg-a-cloth-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "cloth"
      ],
@@ -11318,7 +11318,7 @@
     },
     {
      "id": "tg-a-clothing-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "clothing"
      ],
@@ -11390,7 +11390,7 @@
     },
     {
      "id": "tg-a-armor-h-5",
-     "text": "EVERY RECRUIT STUNNED BY {art}",
+     "text": "THE RECRUITS STUNNED BY {art}",
      "fit": [
       "armor"
      ],
@@ -11414,7 +11414,7 @@
     },
     {
      "id": "tg-a-armor-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "armor"
      ],
@@ -11517,7 +11517,7 @@
     },
     {
      "id": "tg-a-weapon-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "weapon",
       "mat_metal"
@@ -11618,7 +11618,7 @@
     },
     {
      "id": "tg-a-ammo-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "ammo"
      ],
@@ -11690,7 +11690,7 @@
     },
     {
      "id": "tg-a-furniture-h-5",
-     "text": "THE BOOKKEEPER STUNNED BY {art}",
+     "text": "THE CLERKS STUNNED BY {art}",
      "fit": [
       "furniture"
      ],
@@ -11714,7 +11714,7 @@
     },
     {
      "id": "tg-a-furniture-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "furniture"
      ],
@@ -11810,7 +11810,7 @@
     },
     {
      "id": "tg-a-container-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "container"
      ],
@@ -11906,7 +11906,7 @@
     },
     {
      "id": "tg-a-drinkware-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "drinkware"
      ],
@@ -12002,7 +12002,7 @@
     },
     {
      "id": "tg-a-jewelry-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "jewelry"
      ],
@@ -12098,7 +12098,7 @@
     },
     {
      "id": "tg-a-figurine-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "figurine"
      ],
@@ -12194,7 +12194,7 @@
     },
     {
      "id": "tg-a-toy-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "toy"
      ],
@@ -12290,7 +12290,7 @@
     },
     {
      "id": "tg-a-crafts-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "crafts"
      ],
@@ -12362,7 +12362,7 @@
     },
     {
      "id": "tg-a-statue-h-5",
-     "text": "EVERY DWARF WHO PASSES STUNNED BY {art}",
+     "text": "THE PASSERS-BY STUNNED BY {art}",
      "fit": [
       "statue"
      ],
@@ -12386,7 +12386,7 @@
     },
     {
      "id": "tg-a-statue-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "statue"
      ],
@@ -12482,7 +12482,7 @@
     },
     {
      "id": "tg-a-instrument-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "instrument"
      ],
@@ -12578,7 +12578,7 @@
     },
     {
      "id": "tg-a-gem-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "gem"
      ],
@@ -12650,7 +12650,7 @@
     },
     {
      "id": "tg-a-food-h-5",
-     "text": "THE DINING HALL STUNNED BY {art}",
+     "text": "THE DINERS STUNNED BY {art}",
      "fit": [
       "food"
      ],
@@ -12674,7 +12674,7 @@
     },
     {
      "id": "tg-a-food-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "food"
      ],
@@ -12746,7 +12746,7 @@
     },
     {
      "id": "tg-a-book-h-5",
-     "text": "THE LIBRARIAN STUNNED BY {art}",
+     "text": "THE READERS STUNNED BY {art}",
      "fit": [
       "book"
      ],
@@ -12770,7 +12770,7 @@
     },
     {
      "id": "tg-a-book-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "book"
      ],
@@ -12866,7 +12866,7 @@
     },
     {
      "id": "tg-a-tool-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "tool"
      ],
@@ -12962,7 +12962,7 @@
     },
     {
      "id": "tg-a-engraving-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "engraving"
      ],
@@ -13058,7 +13058,7 @@
     },
     {
      "id": "tg-a-leather-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "leather"
      ],
@@ -13130,7 +13130,7 @@
     },
     {
      "id": "tg-a-metal-h-5",
-     "text": "THE BOOKKEEPER STUNNED BY {art}",
+     "text": "THE CLERKS STUNNED BY {art}",
      "fit": [
       "metal"
      ],
@@ -13154,7 +13154,7 @@
     },
     {
      "id": "tg-a-metal-h-8",
-     "text": "LEGEND ARRIVES: A {item} LIKE NO OTHER",
+     "text": "LEGEND ARRIVES: THE {item} LIKE NO OTHER",
      "fit": [
       "metal"
      ],
@@ -13196,7 +13196,7 @@
    "reps": [
     {
      "id": "tg-a-cloth-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The merchants crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The merchants crowded in to see it and had to be gently moved along.",
      "fit": [
       "cloth"
      ],
@@ -13204,7 +13204,7 @@
     },
     {
      "id": "tg-a-cloth-r-2",
-     "text": "{art} is a {item} woven in a single burst of inspiration. It is fine as a spider's web, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} woven in a single burst of inspiration. It is fine as a spider's web, and nobody in {fort} will ever make another like it.",
      "fit": [
       "cloth"
      ],
@@ -13228,7 +13228,7 @@
     },
     {
      "id": "tg-a-cloth-r-5",
-     "text": "The bookkeeper have already asked to borrow {art}. The answer, delivered kindly, was no.",
+     "text": "The clerks have already asked to borrow {art}. The answer, delivered kindly, was no.",
      "fit": [
       "cloth"
      ],
@@ -13300,7 +13300,7 @@
     },
     {
      "id": "tg-a-cloth-r-14",
-     "text": "The legend begins: {art}, a {item}, woven by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, woven by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "cloth"
      ],
@@ -13348,7 +13348,7 @@
     },
     {
      "id": "tg-a-clothing-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. Every noble crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The nobles crowded in to see it and had to be gently moved along.",
      "fit": [
       "clothing"
      ],
@@ -13356,7 +13356,7 @@
     },
     {
      "id": "tg-a-clothing-r-2",
-     "text": "{art} is a {item} sewn in a single burst of inspiration. It is neat at every seam, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} sewn in a single burst of inspiration. It is neat at every seam, and nobody in {fort} will ever make another like it.",
      "fit": [
       "clothing"
      ],
@@ -13452,7 +13452,7 @@
     },
     {
      "id": "tg-a-clothing-r-14",
-     "text": "The legend begins: {art}, a {item}, sewn by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, sewn by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "clothing"
      ],
@@ -13468,7 +13468,7 @@
     },
     {
      "id": "tg-a-clothing-r-16",
-     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and every noble tiptoed past the door.",
+     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and the nobles tiptoed past the door.",
      "fit": [
       "clothing"
      ],
@@ -13492,7 +13492,7 @@
     },
     {
      "id": "tg-a-clothing-r-19",
-     "text": "What makes {art} legendary? Ask every noble; they will tell you at length. Ask {first}; they will just smile.",
+     "text": "What makes {art} legendary? Ask the nobles; they will tell you at length. Ask {first}; they will just smile.",
      "fit": [
       "clothing"
      ],
@@ -13500,7 +13500,7 @@
     },
     {
      "id": "tg-a-armor-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The militia captain crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The squad captains crowded in to see it and had to be gently moved along.",
      "fit": [
       "armor"
      ],
@@ -13508,7 +13508,7 @@
     },
     {
      "id": "tg-a-armor-r-2",
-     "text": "{art} is a {item} made in a single burst of inspiration. It is proof against a goblin's best swing, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} made in a single burst of inspiration. It is proof against a goblin's best swing, and nobody in {fort} will ever make another like it.",
      "fit": [
       "armor"
      ],
@@ -13532,7 +13532,7 @@
     },
     {
      "id": "tg-a-armor-r-5",
-     "text": "Every recruit have already asked to borrow {art}. The answer, delivered kindly, was no.",
+     "text": "The recruits have already asked to borrow {art}. The answer, delivered kindly, was no.",
      "fit": [
       "armor"
      ],
@@ -13604,7 +13604,7 @@
     },
     {
      "id": "tg-a-armor-r-14",
-     "text": "The legend begins: {art}, a {item}, made by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, made by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "armor"
      ],
@@ -13620,7 +13620,7 @@
     },
     {
      "id": "tg-a-armor-r-16",
-     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and the militia captain tiptoed past the door.",
+     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and the squad captains tiptoed past the door.",
      "fit": [
       "armor"
      ],
@@ -13644,7 +13644,7 @@
     },
     {
      "id": "tg-a-armor-r-19",
-     "text": "What makes {art} legendary? Ask the militia captain; they will tell you at length. Ask {first}; they will just smile.",
+     "text": "What makes {art} legendary? Ask the squad captains; they will tell you at length. Ask {first}; they will just smile.",
      "fit": [
       "armor"
      ],
@@ -13652,7 +13652,7 @@
     },
     {
      "id": "tg-a-weapon-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The militia captain crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The squad captains crowded in to see it and had to be gently moved along.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -13661,7 +13661,7 @@
     },
     {
      "id": "tg-a-weapon-r-2",
-     "text": "{art} is a {item} forged in a single burst of inspiration. It is true from tip to grip, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} forged in a single burst of inspiration. It is true from tip to grip, and nobody in {fort} will ever make another like it.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -13769,7 +13769,7 @@
     },
     {
      "id": "tg-a-weapon-r-14",
-     "text": "The legend begins: {art}, a {item}, forged by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, forged by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -13787,7 +13787,7 @@
     },
     {
      "id": "tg-a-weapon-r-16",
-     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and the militia captain tiptoed past the door.",
+     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and the squad captains tiptoed past the door.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -13814,7 +13814,7 @@
     },
     {
      "id": "tg-a-weapon-r-19",
-     "text": "What makes {art} legendary? Ask the militia captain; they will tell you at length. Ask {first}; they will just smile.",
+     "text": "What makes {art} legendary? Ask the squad captains; they will tell you at length. Ask {first}; they will just smile.",
      "fit": [
       "weapon",
       "mat_metal"
@@ -13823,7 +13823,7 @@
     },
     {
      "id": "tg-a-ammo-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The marksdwarves crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The marksdwarves crowded in to see it and had to be gently moved along.",
      "fit": [
       "ammo"
      ],
@@ -13831,7 +13831,7 @@
     },
     {
      "id": "tg-a-ammo-r-2",
-     "text": "{art} is a {item} fletched in a single burst of inspiration. It is true, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} fletched in a single burst of inspiration. It is true, and nobody in {fort} will ever make another like it.",
      "fit": [
       "ammo"
      ],
@@ -13927,7 +13927,7 @@
     },
     {
      "id": "tg-a-ammo-r-14",
-     "text": "The legend begins: {art}, a {item}, fletched by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, fletched by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "ammo"
      ],
@@ -13975,7 +13975,7 @@
     },
     {
      "id": "tg-a-furniture-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The nobles crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The nobles crowded in to see it and had to be gently moved along.",
      "fit": [
       "furniture"
      ],
@@ -13983,7 +13983,7 @@
     },
     {
      "id": "tg-a-furniture-r-2",
-     "text": "{art} is a {item} built in a single burst of inspiration. It is steady on its feet, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} built in a single burst of inspiration. It is steady on its feet, and nobody in {fort} will ever make another like it.",
      "fit": [
       "furniture"
      ],
@@ -14007,7 +14007,7 @@
     },
     {
      "id": "tg-a-furniture-r-5",
-     "text": "The bookkeeper have already asked to borrow {art}. The answer, delivered kindly, was no.",
+     "text": "The clerks have already asked to borrow {art}. The answer, delivered kindly, was no.",
      "fit": [
       "furniture"
      ],
@@ -14079,7 +14079,7 @@
     },
     {
      "id": "tg-a-furniture-r-14",
-     "text": "The legend begins: {art}, a {item}, built by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, built by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "furniture"
      ],
@@ -14127,7 +14127,7 @@
     },
     {
      "id": "tg-a-container-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The cellar keepers crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The cellar keepers crowded in to see it and had to be gently moved along.",
      "fit": [
       "container"
      ],
@@ -14135,7 +14135,7 @@
     },
     {
      "id": "tg-a-container-r-2",
-     "text": "{art} is a {item} made in a single burst of inspiration. It is roomy, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} made in a single burst of inspiration. It is roomy, and nobody in {fort} will ever make another like it.",
      "fit": [
       "container"
      ],
@@ -14231,7 +14231,7 @@
     },
     {
      "id": "tg-a-container-r-14",
-     "text": "The legend begins: {art}, a {item}, made by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, made by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "container"
      ],
@@ -14279,7 +14279,7 @@
     },
     {
      "id": "tg-a-drinkware-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The tavern keeper crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The tavern staff crowded in to see it and had to be gently moved along.",
      "fit": [
       "drinkware"
      ],
@@ -14287,7 +14287,7 @@
     },
     {
      "id": "tg-a-drinkware-r-2",
-     "text": "{art} is a {item} made in a single burst of inspiration. It is the right weight for a long evening, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} made in a single burst of inspiration. It is the right weight for a long evening, and nobody in {fort} will ever make another like it.",
      "fit": [
       "drinkware"
      ],
@@ -14383,7 +14383,7 @@
     },
     {
      "id": "tg-a-drinkware-r-14",
-     "text": "The legend begins: {art}, a {item}, made by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, made by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "drinkware"
      ],
@@ -14399,7 +14399,7 @@
     },
     {
      "id": "tg-a-drinkware-r-16",
-     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and the tavern keeper tiptoed past the door.",
+     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and the tavern staff tiptoed past the door.",
      "fit": [
       "drinkware"
      ],
@@ -14423,7 +14423,7 @@
     },
     {
      "id": "tg-a-drinkware-r-19",
-     "text": "What makes {art} legendary? Ask the tavern keeper; they will tell you at length. Ask {first}; they will just smile.",
+     "text": "What makes {art} legendary? Ask the tavern staff; they will tell you at length. Ask {first}; they will just smile.",
      "fit": [
       "drinkware"
      ],
@@ -14431,7 +14431,7 @@
     },
     {
      "id": "tg-a-jewelry-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The nobles crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The nobles crowded in to see it and had to be gently moved along.",
      "fit": [
       "jewelry"
      ],
@@ -14439,7 +14439,7 @@
     },
     {
      "id": "tg-a-jewelry-r-2",
-     "text": "{art} is a {item} crafted in a single burst of inspiration. It is fit for a monarch, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} crafted in a single burst of inspiration. It is fit for a monarch, and nobody in {fort} will ever make another like it.",
      "fit": [
       "jewelry"
      ],
@@ -14535,7 +14535,7 @@
     },
     {
      "id": "tg-a-jewelry-r-14",
-     "text": "The legend begins: {art}, a {item}, crafted by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, crafted by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "jewelry"
      ],
@@ -14583,7 +14583,7 @@
     },
     {
      "id": "tg-a-figurine-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The collectors crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The collectors crowded in to see it and had to be gently moved along.",
      "fit": [
       "figurine"
      ],
@@ -14591,7 +14591,7 @@
     },
     {
      "id": "tg-a-figurine-r-2",
-     "text": "{art} is a {item} carved in a single burst of inspiration. It is small but perfect, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} carved in a single burst of inspiration. It is small but perfect, and nobody in {fort} will ever make another like it.",
      "fit": [
       "figurine"
      ],
@@ -14687,7 +14687,7 @@
     },
     {
      "id": "tg-a-figurine-r-14",
-     "text": "The legend begins: {art}, a {item}, carved by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, carved by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "figurine"
      ],
@@ -14735,7 +14735,7 @@
     },
     {
      "id": "tg-a-toy-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. A surprising number of grown dwarves crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. A surprising number of grown dwarves crowded in to see it and had to be gently moved along.",
      "fit": [
       "toy"
      ],
@@ -14743,7 +14743,7 @@
     },
     {
      "id": "tg-a-toy-r-2",
-     "text": "{art} is a {item} made in a single burst of inspiration. It is fun, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} made in a single burst of inspiration. It is fun, and nobody in {fort} will ever make another like it.",
      "fit": [
       "toy"
      ],
@@ -14839,7 +14839,7 @@
     },
     {
      "id": "tg-a-toy-r-14",
-     "text": "The legend begins: {art}, a {item}, made by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, made by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "toy"
      ],
@@ -14887,7 +14887,7 @@
     },
     {
      "id": "tg-a-crafts-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The collectors crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The collectors crowded in to see it and had to be gently moved along.",
      "fit": [
       "crafts"
      ],
@@ -14895,7 +14895,7 @@
     },
     {
      "id": "tg-a-crafts-r-2",
-     "text": "{art} is a {item} crafted in a single burst of inspiration. It is well made, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} crafted in a single burst of inspiration. It is well made, and nobody in {fort} will ever make another like it.",
      "fit": [
       "crafts"
      ],
@@ -14991,7 +14991,7 @@
     },
     {
      "id": "tg-a-crafts-r-14",
-     "text": "The legend begins: {art}, a {item}, crafted by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, crafted by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "crafts"
      ],
@@ -15039,7 +15039,7 @@
     },
     {
      "id": "tg-a-statue-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The nobles crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The nobles crowded in to see it and had to be gently moved along.",
      "fit": [
       "statue"
      ],
@@ -15047,7 +15047,7 @@
     },
     {
      "id": "tg-a-statue-r-2",
-     "text": "{art} is a {item} carved in a single burst of inspiration. It is perfect from every side, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} carved in a single burst of inspiration. It is perfect from every side, and nobody in {fort} will ever make another like it.",
      "fit": [
       "statue"
      ],
@@ -15071,7 +15071,7 @@
     },
     {
      "id": "tg-a-statue-r-5",
-     "text": "Every dwarf who passes have already asked to borrow {art}. The answer, delivered kindly, was no.",
+     "text": "The passers-by have already asked to borrow {art}. The answer, delivered kindly, was no.",
      "fit": [
       "statue"
      ],
@@ -15143,7 +15143,7 @@
     },
     {
      "id": "tg-a-statue-r-14",
-     "text": "The legend begins: {art}, a {item}, carved by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, carved by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "statue"
      ],
@@ -15191,7 +15191,7 @@
     },
     {
      "id": "tg-a-instrument-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The performers crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The performers crowded in to see it and had to be gently moved along.",
      "fit": [
       "instrument"
      ],
@@ -15199,7 +15199,7 @@
     },
     {
      "id": "tg-a-instrument-r-2",
-     "text": "{art} is a {item} made in a single burst of inspiration. It is true in every note, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} made in a single burst of inspiration. It is true in every note, and nobody in {fort} will ever make another like it.",
      "fit": [
       "instrument"
      ],
@@ -15295,7 +15295,7 @@
     },
     {
      "id": "tg-a-instrument-r-14",
-     "text": "The legend begins: {art}, a {item}, made by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, made by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "instrument"
      ],
@@ -15343,7 +15343,7 @@
     },
     {
      "id": "tg-a-gem-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The jewelers crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The jewelers crowded in to see it and had to be gently moved along.",
      "fit": [
       "gem"
      ],
@@ -15351,7 +15351,7 @@
     },
     {
      "id": "tg-a-gem-r-2",
-     "text": "{art} is a {item} cut in a single burst of inspiration. It is clear as a lamp, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} cut in a single burst of inspiration. It is clear as a lamp, and nobody in {fort} will ever make another like it.",
      "fit": [
       "gem"
      ],
@@ -15447,7 +15447,7 @@
     },
     {
      "id": "tg-a-gem-r-14",
-     "text": "The legend begins: {art}, a {item}, cut by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, cut by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "gem"
      ],
@@ -15495,7 +15495,7 @@
     },
     {
      "id": "tg-a-food-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. Every hungry dwarf crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The hungry crowded in to see it and had to be gently moved along.",
      "fit": [
       "food"
      ],
@@ -15503,7 +15503,7 @@
     },
     {
      "id": "tg-a-food-r-2",
-     "text": "{art} is a {item} cooked in a single burst of inspiration. It is hot and hearty, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} cooked in a single burst of inspiration. It is hot and hearty, and nobody in {fort} will ever make another like it.",
      "fit": [
       "food"
      ],
@@ -15527,7 +15527,7 @@
     },
     {
      "id": "tg-a-food-r-5",
-     "text": "The dining hall have already asked to borrow {art}. The answer, delivered kindly, was no.",
+     "text": "The diners have already asked to borrow {art}. The answer, delivered kindly, was no.",
      "fit": [
       "food"
      ],
@@ -15599,7 +15599,7 @@
     },
     {
      "id": "tg-a-food-r-14",
-     "text": "The legend begins: {art}, a {item}, cooked by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, cooked by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "food"
      ],
@@ -15615,7 +15615,7 @@
     },
     {
      "id": "tg-a-food-r-16",
-     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and every hungry dwarf tiptoed past the door.",
+     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and the hungry tiptoed past the door.",
      "fit": [
       "food"
      ],
@@ -15639,7 +15639,7 @@
     },
     {
      "id": "tg-a-food-r-19",
-     "text": "What makes {art} legendary? Ask every hungry dwarf; they will tell you at length. Ask {first}; they will just smile.",
+     "text": "What makes {art} legendary? Ask the hungry; they will tell you at length. Ask {first}; they will just smile.",
      "fit": [
       "food"
      ],
@@ -15647,7 +15647,7 @@
     },
     {
      "id": "tg-a-book-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The scholars crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The scholars crowded in to see it and had to be gently moved along.",
      "fit": [
       "book"
      ],
@@ -15655,7 +15655,7 @@
     },
     {
      "id": "tg-a-book-r-2",
-     "text": "{art} is a {item} written in a single burst of inspiration. It is beautifully bound, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} written in a single burst of inspiration. It is beautifully bound, and nobody in {fort} will ever make another like it.",
      "fit": [
       "book"
      ],
@@ -15679,7 +15679,7 @@
     },
     {
      "id": "tg-a-book-r-5",
-     "text": "The librarian have already asked to borrow {art}. The answer, delivered kindly, was no.",
+     "text": "The readers have already asked to borrow {art}. The answer, delivered kindly, was no.",
      "fit": [
       "book"
      ],
@@ -15751,7 +15751,7 @@
     },
     {
      "id": "tg-a-book-r-14",
-     "text": "The legend begins: {art}, a {item}, written by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, written by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "book"
      ],
@@ -15799,7 +15799,7 @@
     },
     {
      "id": "tg-a-tool-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The engineers crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The engineers crowded in to see it and had to be gently moved along.",
      "fit": [
       "tool"
      ],
@@ -15807,7 +15807,7 @@
     },
     {
      "id": "tg-a-tool-r-2",
-     "text": "{art} is a {item} made in a single burst of inspiration. It is built to last, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} made in a single burst of inspiration. It is built to last, and nobody in {fort} will ever make another like it.",
      "fit": [
       "tool"
      ],
@@ -15903,7 +15903,7 @@
     },
     {
      "id": "tg-a-tool-r-14",
-     "text": "The legend begins: {art}, a {item}, made by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, made by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "tool"
      ],
@@ -15951,7 +15951,7 @@
     },
     {
      "id": "tg-a-engraving-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. Every passer-by crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. Passers-by crowded in to see it and had to be gently moved along.",
      "fit": [
       "engraving"
      ],
@@ -15959,7 +15959,7 @@
     },
     {
      "id": "tg-a-engraving-r-2",
-     "text": "{art} is a {item} engraved in a single burst of inspiration. It is beautiful, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} engraved in a single burst of inspiration. It is beautiful, and nobody in {fort} will ever make another like it.",
      "fit": [
       "engraving"
      ],
@@ -16055,7 +16055,7 @@
     },
     {
      "id": "tg-a-engraving-r-14",
-     "text": "The legend begins: {art}, a {item}, engraved by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, engraved by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "engraving"
      ],
@@ -16071,7 +16071,7 @@
     },
     {
      "id": "tg-a-engraving-r-16",
-     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and every passer-by tiptoed past the door.",
+     "text": "{first} slept for a whole day after finishing {art}. Nobody blamed them, and passers-by tiptoed past the door.",
      "fit": [
       "engraving"
      ],
@@ -16095,7 +16095,7 @@
     },
     {
      "id": "tg-a-engraving-r-19",
-     "text": "What makes {art} legendary? Ask every passer-by; they will tell you at length. Ask {first}; they will just smile.",
+     "text": "What makes {art} legendary? Ask passers-by; they will tell you at length. Ask {first}; they will just smile.",
      "fit": [
       "engraving"
      ],
@@ -16103,7 +16103,7 @@
     },
     {
      "id": "tg-a-leather-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The merchants crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The merchants crowded in to see it and had to be gently moved along.",
      "fit": [
       "leather"
      ],
@@ -16111,7 +16111,7 @@
     },
     {
      "id": "tg-a-leather-r-2",
-     "text": "{art} is a {item} tanned in a single burst of inspiration. It is even, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} tanned in a single burst of inspiration. It is even, and nobody in {fort} will ever make another like it.",
      "fit": [
       "leather"
      ],
@@ -16207,7 +16207,7 @@
     },
     {
      "id": "tg-a-leather-r-14",
-     "text": "The legend begins: {art}, a {item}, tanned by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, tanned by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "leather"
      ],
@@ -16255,7 +16255,7 @@
     },
     {
      "id": "tg-a-metal-r-1",
-     "text": "{who} has emerged from a strange mood with {art}, a {item} of legend. The bookkeeper crowded in to see it and had to be gently moved along.",
+     "text": "{who} has emerged from a strange mood with {art}, the {item} of legend. The clerks crowded in to see it and had to be gently moved along.",
      "fit": [
       "metal"
      ],
@@ -16263,7 +16263,7 @@
     },
     {
      "id": "tg-a-metal-r-2",
-     "text": "{art} is a {item} smelted in a single burst of inspiration. It is bright, and nobody in {fort} will ever make another like it.",
+     "text": "{art} is the {item} smelted in a single burst of inspiration. It is bright, and nobody in {fort} will ever make another like it.",
      "fit": [
       "metal"
      ],
@@ -16287,7 +16287,7 @@
     },
     {
      "id": "tg-a-metal-r-5",
-     "text": "The bookkeeper have already asked to borrow {art}. The answer, delivered kindly, was no.",
+     "text": "The clerks have already asked to borrow {art}. The answer, delivered kindly, was no.",
      "fit": [
       "metal"
      ],
@@ -16359,7 +16359,7 @@
     },
     {
      "id": "tg-a-metal-r-14",
-     "text": "The legend begins: {art}, a {item}, smelted by {who}. The Herald will keep a close eye on its adventures.",
+     "text": "The legend begins: {art}, the {item}, smelted by {who}. The Herald will keep a close eye on its adventures.",
      "fit": [
       "metal"
      ],
@@ -16399,7 +16399,7 @@
     },
     {
      "id": "tg-a-metal-r-19",
-     "text": "What makes {art} legendary? Ask the bookkeeper; they will tell you at length. Ask {first}; they will just smile.",
+     "text": "What makes {art} legendary? Ask the clerks; they will tell you at length. Ask {first}; they will just smile.",
      "fit": [
       "metal"
      ],
@@ -17789,7 +17789,7 @@
     },
     {
      "id": "tg-d-thirst-h-4",
-     "text": "A {prof} LOST TO THIRST",
+     "text": "THE {prof} LOST TO THIRST",
      "fit": [
       "die_thirst"
      ],
@@ -17869,7 +17869,7 @@
     },
     {
      "id": "tg-d-hunger-h-4",
-     "text": "A {prof} LOST TO HUNGER",
+     "text": "THE {prof} LOST TO HUNGER",
      "fit": [
       "die_hunger"
      ],
@@ -17941,7 +17941,7 @@
     },
     {
      "id": "tg-d-vampire-h-3",
-     "text": "BLOODLESS CLAIMS {first}",
+     "text": "A VAMPIRE CLAIMS {first}",
      "fit": [
       "die_vampire"
      ],
@@ -17949,7 +17949,7 @@
     },
     {
      "id": "tg-d-vampire-h-4",
-     "text": "A {prof} LOST TO BLOODLESS",
+     "text": "THE {prof} LOST TO A VAMPIRE",
      "fit": [
       "die_vampire"
      ],
@@ -17957,7 +17957,7 @@
     },
     {
      "id": "tg-d-vampire-h-5",
-     "text": "BLOODLESS: THE FORT GRIEVES",
+     "text": "A VAMPIRE: THE FORT GRIEVES",
      "fit": [
       "die_vampire"
      ],
@@ -17981,7 +17981,7 @@
     },
     {
      "id": "tg-d-vampire-h-8",
-     "text": "A SAD DAY: BLOODLESS",
+     "text": "A SAD DAY: A VAMPIRE",
      "fit": [
       "die_vampire"
      ],
@@ -18021,7 +18021,7 @@
     },
     {
      "id": "tg-d-combat-h-3",
-     "text": "FALLEN CLAIMS {first}",
+     "text": "BATTLE CLAIMS {first}",
      "fit": [
       "die_combat"
      ],
@@ -18029,7 +18029,7 @@
     },
     {
      "id": "tg-d-combat-h-4",
-     "text": "A {prof} LOST TO FALLEN",
+     "text": "THE {prof} LOST TO BATTLE",
      "fit": [
       "die_combat"
      ],
@@ -18037,7 +18037,7 @@
     },
     {
      "id": "tg-d-combat-h-5",
-     "text": "FALLEN: THE FORT GRIEVES",
+     "text": "BATTLE: THE FORT GRIEVES",
      "fit": [
       "die_combat"
      ],
@@ -18061,7 +18061,7 @@
     },
     {
      "id": "tg-d-combat-h-8",
-     "text": "A SAD DAY: FALLEN",
+     "text": "A SAD DAY: BATTLE",
      "fit": [
       "die_combat"
      ],
@@ -18101,7 +18101,7 @@
     },
     {
      "id": "tg-d-bleeding-h-3",
-     "text": "BLED OUT CLAIMS {first}",
+     "text": "BLOOD LOSS CLAIMS {first}",
      "fit": [
       "die_bleeding"
      ],
@@ -18109,7 +18109,7 @@
     },
     {
      "id": "tg-d-bleeding-h-4",
-     "text": "A {prof} LOST TO BLED OUT",
+     "text": "THE {prof} LOST TO BLOOD LOSS",
      "fit": [
       "die_bleeding"
      ],
@@ -18117,7 +18117,7 @@
     },
     {
      "id": "tg-d-bleeding-h-5",
-     "text": "BLED OUT: THE FORT GRIEVES",
+     "text": "BLOOD LOSS: THE FORT GRIEVES",
      "fit": [
       "die_bleeding"
      ],
@@ -18141,7 +18141,7 @@
     },
     {
      "id": "tg-d-bleeding-h-8",
-     "text": "A SAD DAY: BLED OUT",
+     "text": "A SAD DAY: BLOOD LOSS",
      "fit": [
       "die_bleeding"
      ],
@@ -18181,7 +18181,7 @@
     },
     {
      "id": "tg-d-drowning-h-3",
-     "text": "DROWNED CLAIMS {first}",
+     "text": "DROWNING CLAIMS {first}",
      "fit": [
       "die_drowning"
      ],
@@ -18189,7 +18189,7 @@
     },
     {
      "id": "tg-d-drowning-h-4",
-     "text": "A {prof} LOST TO DROWNED",
+     "text": "THE {prof} LOST TO DROWNING",
      "fit": [
       "die_drowning"
      ],
@@ -18197,7 +18197,7 @@
     },
     {
      "id": "tg-d-drowning-h-5",
-     "text": "DROWNED: THE FORT GRIEVES",
+     "text": "DROWNING: THE FORT GRIEVES",
      "fit": [
       "die_drowning"
      ],
@@ -18221,7 +18221,7 @@
     },
     {
      "id": "tg-d-drowning-h-8",
-     "text": "A SAD DAY: DROWNED",
+     "text": "A SAD DAY: DROWNING",
      "fit": [
       "die_drowning"
      ],
@@ -18261,7 +18261,7 @@
     },
     {
      "id": "tg-d-suffocation-h-3",
-     "text": "SUFFOCATED CLAIMS {first}",
+     "text": "SUFFOCATION CLAIMS {first}",
      "fit": [
       "die_suffocation"
      ],
@@ -18269,7 +18269,7 @@
     },
     {
      "id": "tg-d-suffocation-h-4",
-     "text": "A {prof} LOST TO SUFFOCATED",
+     "text": "THE {prof} LOST TO SUFFOCATION",
      "fit": [
       "die_suffocation"
      ],
@@ -18277,7 +18277,7 @@
     },
     {
      "id": "tg-d-suffocation-h-5",
-     "text": "SUFFOCATED: THE FORT GRIEVES",
+     "text": "SUFFOCATION: THE FORT GRIEVES",
      "fit": [
       "die_suffocation"
      ],
@@ -18301,7 +18301,7 @@
     },
     {
      "id": "tg-d-suffocation-h-8",
-     "text": "A SAD DAY: SUFFOCATED",
+     "text": "A SAD DAY: SUFFOCATION",
      "fit": [
       "die_suffocation"
      ],
@@ -18341,7 +18341,7 @@
     },
     {
      "id": "tg-d-fire-h-3",
-     "text": "BURNED CLAIMS {first}",
+     "text": "FIRE CLAIMS {first}",
      "fit": [
       "die_fire"
      ],
@@ -18349,7 +18349,7 @@
     },
     {
      "id": "tg-d-fire-h-4",
-     "text": "A {prof} LOST TO BURNED",
+     "text": "THE {prof} LOST TO FIRE",
      "fit": [
       "die_fire"
      ],
@@ -18357,7 +18357,7 @@
     },
     {
      "id": "tg-d-fire-h-5",
-     "text": "BURNED: THE FORT GRIEVES",
+     "text": "FIRE: THE FORT GRIEVES",
      "fit": [
       "die_fire"
      ],
@@ -18381,7 +18381,7 @@
     },
     {
      "id": "tg-d-fire-h-8",
-     "text": "A SAD DAY: BURNED",
+     "text": "A SAD DAY: FIRE",
      "fit": [
       "die_fire"
      ],
@@ -18429,7 +18429,7 @@
     },
     {
      "id": "tg-d-fall-h-4",
-     "text": "A {prof} LOST TO A FALL",
+     "text": "THE {prof} LOST TO A FALL",
      "fit": [
       "die_fall"
      ],
@@ -18501,7 +18501,7 @@
     },
     {
      "id": "tg-d-collapse-h-3",
-     "text": "CRUSHED CLAIMS {first}",
+     "text": "A CAVE-IN CLAIMS {first}",
      "fit": [
       "die_collapse"
      ],
@@ -18509,7 +18509,7 @@
     },
     {
      "id": "tg-d-collapse-h-4",
-     "text": "A {prof} LOST TO CRUSHED",
+     "text": "THE {prof} LOST TO A CAVE-IN",
      "fit": [
       "die_collapse"
      ],
@@ -18517,7 +18517,7 @@
     },
     {
      "id": "tg-d-collapse-h-5",
-     "text": "CRUSHED: THE FORT GRIEVES",
+     "text": "A CAVE-IN: THE FORT GRIEVES",
      "fit": [
       "die_collapse"
      ],
@@ -18541,7 +18541,7 @@
     },
     {
      "id": "tg-d-collapse-h-8",
-     "text": "A SAD DAY: CRUSHED",
+     "text": "A SAD DAY: A CAVE-IN",
      "fit": [
       "die_collapse"
      ],
@@ -18589,7 +18589,7 @@
     },
     {
      "id": "tg-d-age-h-4",
-     "text": "A {prof} LOST TO OLD AGE",
+     "text": "THE {prof} LOST TO OLD AGE",
      "fit": [
       "die_age"
      ],
@@ -18669,7 +18669,7 @@
     },
     {
      "id": "tg-d-infection-h-4",
-     "text": "A {prof} LOST TO SICKNESS",
+     "text": "THE {prof} LOST TO SICKNESS",
      "fit": [
       "die_infection"
      ],
@@ -18751,7 +18751,7 @@
     },
     {
      "id": "tg-d-thirst-r-4",
-     "text": "{first}, a {prof}, died of thirst. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, died of thirst. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_thirst"
      ],
@@ -18807,7 +18807,7 @@
     },
     {
      "id": "tg-d-thirst-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they died of thirst, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they died of thirst, and they are mourned.",
      "fit": [
       "die_thirst"
      ],
@@ -18839,7 +18839,7 @@
     },
     {
      "id": "tg-d-hunger-r-4",
-     "text": "{first}, a {prof}, starved. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, starved. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_hunger"
      ],
@@ -18895,7 +18895,7 @@
     },
     {
      "id": "tg-d-hunger-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they starved, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they starved, and they are mourned.",
      "fit": [
       "die_hunger"
      ],
@@ -18927,7 +18927,7 @@
     },
     {
      "id": "tg-d-vampire-r-4",
-     "text": "{first}, a {prof}, was found drained of blood. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, was found drained of blood. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_vampire"
      ],
@@ -18983,7 +18983,7 @@
     },
     {
      "id": "tg-d-vampire-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they was found drained of blood, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they was found drained of blood, and they are mourned.",
      "fit": [
       "die_vampire"
      ],
@@ -19015,7 +19015,7 @@
     },
     {
      "id": "tg-d-combat-r-4",
-     "text": "{first}, a {prof}, was struck down. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, was struck down. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_combat"
      ],
@@ -19071,7 +19071,7 @@
     },
     {
      "id": "tg-d-combat-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they was struck down, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they was struck down, and they are mourned.",
      "fit": [
       "die_combat"
      ],
@@ -19103,7 +19103,7 @@
     },
     {
      "id": "tg-d-bleeding-r-4",
-     "text": "{first}, a {prof}, bled to death. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, bled to death. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_bleeding"
      ],
@@ -19159,7 +19159,7 @@
     },
     {
      "id": "tg-d-bleeding-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they bled to death, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they bled to death, and they are mourned.",
      "fit": [
       "die_bleeding"
      ],
@@ -19191,7 +19191,7 @@
     },
     {
      "id": "tg-d-drowning-r-4",
-     "text": "{first}, a {prof}, drowned. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, drowned. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_drowning"
      ],
@@ -19247,7 +19247,7 @@
     },
     {
      "id": "tg-d-drowning-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they drowned, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they drowned, and they are mourned.",
      "fit": [
       "die_drowning"
      ],
@@ -19279,7 +19279,7 @@
     },
     {
      "id": "tg-d-suffocation-r-4",
-     "text": "{first}, a {prof}, suffocated. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, suffocated. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_suffocation"
      ],
@@ -19335,7 +19335,7 @@
     },
     {
      "id": "tg-d-suffocation-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they suffocated, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they suffocated, and they are mourned.",
      "fit": [
       "die_suffocation"
      ],
@@ -19367,7 +19367,7 @@
     },
     {
      "id": "tg-d-fire-r-4",
-     "text": "{first}, a {prof}, burned to death. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, burned to death. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_fire"
      ],
@@ -19423,7 +19423,7 @@
     },
     {
      "id": "tg-d-fire-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they burned to death, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they burned to death, and they are mourned.",
      "fit": [
       "die_fire"
      ],
@@ -19455,7 +19455,7 @@
     },
     {
      "id": "tg-d-fall-r-4",
-     "text": "{first}, a {prof}, fell to their death. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, fell to their death. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_fall"
      ],
@@ -19511,7 +19511,7 @@
     },
     {
      "id": "tg-d-fall-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they fell to their death, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they fell to their death, and they are mourned.",
      "fit": [
       "die_fall"
      ],
@@ -19543,7 +19543,7 @@
     },
     {
      "id": "tg-d-collapse-r-4",
-     "text": "{first}, a {prof}, was crushed. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, was crushed. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_collapse"
      ],
@@ -19599,7 +19599,7 @@
     },
     {
      "id": "tg-d-collapse-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they was crushed, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they was crushed, and they are mourned.",
      "fit": [
       "die_collapse"
      ],
@@ -19631,7 +19631,7 @@
     },
     {
      "id": "tg-d-age-r-4",
-     "text": "{first}, a {prof}, died of old age. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, died of old age. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_age"
      ],
@@ -19687,7 +19687,7 @@
     },
     {
      "id": "tg-d-age-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they died of old age, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they died of old age, and they are mourned.",
      "fit": [
       "die_age"
      ],
@@ -19719,7 +19719,7 @@
     },
     {
      "id": "tg-d-infection-r-4",
-     "text": "{first}, a {prof}, succumbed to sickness. A slab has been ordered so that {first} rests easy and stays that way.",
+     "text": "{first}, the {prof}, succumbed to sickness. A slab has been ordered so that {first} rests easy and stays that way.",
      "fit": [
       "die_infection"
      ],
@@ -19775,7 +19775,7 @@
     },
     {
      "id": "tg-d-infection-r-11",
-     "text": "The Herald will print a full obituary for {first}, a {prof}, when the grief allows. For now: they succumbed to sickness, and they are mourned.",
+     "text": "The Herald will print a full obituary for {first}, the {prof}, when the grief allows. For now: they succumbed to sickness, and they are mourned.",
      "fit": [
       "die_infection"
      ],
