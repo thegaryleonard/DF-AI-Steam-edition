@@ -403,7 +403,11 @@ void Plan::checkroom(color_ostream & out, room *r)
             if (f->ignore)
                 continue;
             df::coord t = r->min + f->pos;
-            if (f->bld_id != -1 && !df::building::find(f->bld_id))
+            // a stale id (e.g. saved in a timeline a crash reload threw away)
+            // can name some other building elsewhere: treat it as missing
+            df::building *fb = f->bld_id != -1 ? df::building::find(f->bld_id) : nullptr;
+            bool stale = fb && (fb->z != t.z || t.x < fb->x1 || t.x > fb->x2 || t.y < fb->y1 || t.y > fb->y2);
+            if (f->bld_id != -1 && (!fb || stale))
             {
                 std::ostringstream str;
                 str << "fix furniture " << f->type << " in " << AI::describe_room(r);
