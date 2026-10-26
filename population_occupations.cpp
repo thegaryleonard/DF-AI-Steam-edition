@@ -5,6 +5,10 @@
 #include "modules/Units.h"
 
 #include "df/abstract_building_inn_tavernst.h"
+#include "df/abstract_building_flags.h"
+#include "df/abstract_building_type.h"
+#include "df/abstract_building.h"
+#include "modules/World.h"
 #include "df/abstract_building_libraryst.h"
 #include "df/abstract_building_templest.h"
 #include "df/agreement.h"
@@ -494,8 +498,41 @@ private:
     }
 };
 
-void Population::update_locations(color_ostream &)
+void Population::update_locations(color_ostream & out)
 {
+    // One public tavern: the site's first tavern lets visitors in (bards,
+    // mercenaries, monster hunters and the odd animal person make the fort
+    // livelier, and some ask to stay), every other location stays closed so
+    // visitors have one place to go instead of wandering the whole fort.
+    if (auto site = df::world_site::find(World::GetCurrentSiteId()))
+    {
+        df::abstract_building *pub = nullptr;
+        for (auto loc : site->buildings)
+        {
+            if (loc && loc->getType() == abstract_building_type::INN_TAVERN && !loc->flags.is_set(abstract_building_flags::DOES_NOT_EXIST) &&
+                (!pub || loc->id < pub->id))
+            {
+                pub = loc;
+            }
+        }
+        for (auto loc : site->buildings)
+        {
+            if (!loc)
+                continue;
+            auto t = loc->getType();
+            if (t != abstract_building_type::INN_TAVERN && t != abstract_building_type::TEMPLE && t != abstract_building_type::LIBRARY &&
+                t != abstract_building_type::GUILDHALL && t != abstract_building_type::HOSPITAL)
+                continue;
+            bool want = loc == pub;
+            if (loc->flags.is_set(abstract_building_flags::VISITORS_ALLOWED) != want)
+            {
+                loc->flags.set(abstract_building_flags::VISITORS_ALLOWED, want);
+                if (want)
+                    ai.debug(out, "[LOCATIONS] opened " + AI::describe_name(*loc->getName(), true) + " to visitors (the one public tavern)");
+            }
+        }
+    }
+
     if (!plotinfo->petitions.empty())
     {
         events.queue_exclusive(std::make_unique<CheckPetitionsExclusive>(ai));

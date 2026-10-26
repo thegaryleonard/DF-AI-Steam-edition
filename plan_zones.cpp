@@ -237,8 +237,9 @@ int32_t Plan::create_location(color_ostream & out, df::building_civzonest *zone,
             break;
         }
     }
-    // Citizens and long-term residents only: visitors drink the tavern's stock and
-    // bring vampires, werecreatures and thieves (Blind's guide, docs/blind).
+    // Citizens and long-term residents only by default: visitors drink the stock
+    // and bring vampires, werecreatures and thieves (Blind's guide, docs/blind).
+    // Population::update_locations then opens ONE tavern to visitors.
     loc->flags.set(abstract_building_flags::VISITORS_ALLOWED, false);
     loc->flags.set(abstract_building_flags::NON_CITIZENS_ALLOWED, true);
     loc->flags.set(abstract_building_flags::MEMBERS_ONLY, false);
