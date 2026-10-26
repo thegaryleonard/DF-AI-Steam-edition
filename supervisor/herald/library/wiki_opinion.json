@@ -1,0 +1,1296 @@
+{
+ "editorials": [
+  {
+   "id": "wk-ed-001",
+   "kick": "The Bestiary",
+   "head": "IN DEFENCE OF THE CAT",
+   "body": "There are {cats} cats in {fort} and not one of them has ever eaten a meal it was given. Cats need no feeding: they hunt vermin, wander every room at least once, and are born legendary climbers. They also adopt dwarves rather than the other way round. If a cat has chosen you, you have been chosen. Do not argue.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-ed-002",
+   "kick": "The Bestiary",
+   "head": "ON THE MATTER OF SO MANY CATS",
+   "body": "Readers ask whether {fort} has too many cats. A naturalist cannot answer that question, only count: {cats}. Each kitten is born a legendary climber. Each adult will, sooner or later, sit on the one thing you need. I recommend acceptance.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-ed-003",
+   "kick": "The Bestiary",
+   "head": "THE CARP: A REHABILITATION",
+   "body": "For generations the carp was the terror of every riverbank, a fish with the bite of a bear. Modern carp are, the scholars assure me, merely heavy: nearly as weighty as a dwarf and entirely benign. I have met several. They were rude, but not violent. Fisherdwarves may now relax, a little.",
+   "by": "Tirist Beetlebrow, Naturalist"
+  },
+  {
+   "id": "wk-ed-004",
+   "kick": "The Bestiary",
+   "head": "THE GIANT CAVE SPIDER, AND WHY YOU SHOULD STAY UPSTAIRS",
+   "body": "There are two kinds of cave spider. The small kind is a treat for your cat. The giant kind lives in the deeper caverns, is the size of a grizzly bear, spins webs that hold a dwarf fast, and makes a treat of the cat. Their silk weaves into the finest cloth in the world. Their keepers do not live long. Choose your hobbies carefully.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-ed-005",
+   "kick": "The Bestiary",
+   "head": "CRUNDLES: THE CAVERNS' MOST COMMON NUISANCE",
+   "body": "They come in packs of fifteen or twenty, small, reptilian and cowardly, and every one of them is born an adult and a legendary climber. A lone crundle is no threat. Twenty crundles are a nuisance with a great deal of enthusiasm. Our militia, now {soldiers} strong, is asked not to brag about crundle kills.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "caverns",
+    "has_military"
+   ]
+  },
+  {
+   "id": "wk-ed-006",
+   "kick": "The Bestiary",
+   "head": "TROGLODYTES ARE NOT YOUR FRIENDS",
+   "body": "The upper caverns hold troglodytes: ugly, dim creatures that arrive in bands of eight or so and throw themselves at whatever door they find. Against a soldier they are pitiful. Against an unarmed hauler they are not. The cavern doors are shut for a reason.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-ed-007",
+   "kick": "The Bestiary",
+   "head": "FIRE IMPS AND THE PRICE OF MAGMA",
+   "body": "Dig deep enough and the magma sea sends up its own welcoming committee: fire imps, barely larger than cats, in threes and fours, hurling fireballs. They are born with legendary skill at it. Every dwarf who has ever wanted a magma forge should read this column twice.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-ed-008",
+   "kick": "The Bestiary",
+   "head": "THE FORGOTTEN BEASTS",
+   "body": "The old texts say they were born of the chaos before the world, and wait in the dark places, and that by digging too deep we wake them. Each one is different: a toad of crystal, a spider of salt, a thing of steam. Wealth and noise draw them up. {fort} is {depth} levels deep and quite noisy. I mention this only as a naturalist.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-ed-009",
+   "kick": "The Bestiary",
+   "head": "TITANS: THE SURFACE EDITION",
+   "body": "Forgotten beasts rise from below; titans walk in from above, drawn by a fort's wealth and its numbers. No two are alike. Some breathe fire, some spit webs, some simply stand on things. With {pop} dwarves under one mountain, we are what a titan would call a destination.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "wk-ed-010",
+   "kick": "The Bestiary",
+   "head": "WEREBEASTS AND THE FULL MOON",
+   "body": "A werebeast is an ordinary creature most of the month and a monster on the night of the full moon. The curse comes from an angry god or from the bite of another werebeast. Anyone bitten should report to the hospital, and then perhaps to a nice solid room with a stout door, until the moon has passed.",
+   "by": "Tirist Beetlebrow, Naturalist"
+  },
+  {
+   "id": "wk-ed-011",
+   "kick": "The Bestiary",
+   "head": "ON VAMPIRES, CAREFULLY",
+   "body": "Vampires were cursed in ancient days for profaning their gods. They come among us hidden in migrant waves, and the tell is simple: they never eat, never drink, never sleep, and the dwarves near them keep turning up drained. The justice office takes blood-drinking very seriously. So should you.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "recent_migrants"
+   ]
+  },
+  {
+   "id": "wk-ed-012",
+   "kick": "The Bestiary",
+   "head": "THE NECROMANCER'S TOWER",
+   "body": "Somewhere in {world} a necromancer has built a tower, as they always do, and is raising the dead, as they always do. They are immortal, which gives them a great deal of time to be unpleasant. If a siege ever arrives with no breath in it, you will know whom to thank.",
+   "by": "Tirist Beetlebrow, Naturalist"
+  },
+  {
+   "id": "wk-ed-013",
+   "kick": "The Bestiary",
+   "head": "WHY DOGS DON'T NEED DINNER",
+   "body": "A dog, like a cat, eats nothing in a fortress and asks nothing but a master. Train one at the kennels and it will hunt or fight beside you. The {dogs} dogs of {fort} have been informed that this column exists and have not read it.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "wk-ed-014",
+   "kick": "The Bestiary",
+   "head": "THE NOBLE ART OF GRAZING",
+   "body": "A grazing animal eats grass, and a sensible fort keeps its herd underground. Once a cavern is opened, cave moss and the other cavern grasses spread across any soil below ground, and the herd crops it happily. The {herd} animals of {fort} are proof: nobody here goes hungry on four legs.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "caverns",
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-ed-015",
+   "kick": "The Bestiary",
+   "head": "PEAFOWL, TURKEYS AND THE PROBLEM OF PLUMAGE",
+   "body": "Readers have asked why {fort} keeps so many birds. Birds lay eggs, and eggs are food, and food is the first rule of fortress life. The peacocks are kept for reasons the Bestiary cannot explain. They are kept nonetheless.",
+   "by": "Tirist Beetlebrow, Naturalist",
+   "when": [
+    "has_eggs"
+   ]
+  },
+  {
+   "id": "wk-ed-016",
+   "kick": "The Bestiary",
+   "head": "THE MEGABEASTS OF THE WORLD",
+   "body": "Dragons, hydras, rocs, colossi: the megabeasts are not random monsters but named figures of history, made when the world was made, each with a title and a grudge. When one comes to a fort it is announced by name. I would rather read about them than meet them, and so, I suspect, would you.",
+   "by": "Tirist Beetlebrow, Naturalist"
+  },
+  {
+   "id": "wk-ed-017",
+   "kick": "The Bestiary",
+   "head": "THE KOBOLD, A SHORT STUDY",
+   "body": "Kobolds do not fight. Kobolds take. They creep into a fort, lift whatever shines, and flee the moment they are seen. In this they resemble some of our merchants, though the merchants at least leave a receipt.",
+   "by": "Tirist Beetlebrow, Naturalist"
+  },
+  {
+   "id": "wk-ed-018",
+   "kick": "From the Fields",
+   "head": "THE SIX CROPS OF THE DEEP",
+   "body": "There are six crops for a dwarf's farm. Plump helmets grow in every season and are the heart of the fort. Cave wheat gives beer and flour. Sweet pods give rum, sugar and syrup. Pig tails give ale and thread. Quarry bushes give leaves that must be cooked. Dimple cups give blue dye. Our {farms} plots, properly rotated, give us everything else.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "wk-ed-019",
+   "kick": "From the Fields",
+   "head": "PLANT YOUR PIG TAILS NOW",
+   "body": "Pig tails grow only in summer and autumn, and they are the start of everything a tailor needs: thread at the farmer's workshop, cloth at the loom, and paper, if you mash them to slurry and press it. It is {season}. You know what to do.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "wk-ed-020",
+   "kick": "From the Fields",
+   "head": "PIG TAILS: AN AUTUMN REMINDER",
+   "body": "The pig tail season runs through autumn and then stops dead. Anything you want woven next year, plant this month.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "wk-ed-021",
+   "kick": "From the Fields",
+   "head": "SWEET PODS AND THE SPRING PLANTING",
+   "body": "Sweet pods grow in spring and summer. Ground at the quern they make sugar; at the farmer's workshop, syrup; at the still, rum. A wise farmer plants them while the season holds.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "wk-ed-022",
+   "kick": "From the Fields",
+   "head": "PLUMP HELMETS: A LOVE LETTER",
+   "body": "Purple, round, edible raw and brewable into wine, the plump helmet is the most forgiving crop in the world. It grows in any season. Brew it and you keep the spawn. Eat it raw and you keep the spawn. Cook it, and the spawn is gone. Grow too many and you will drown in them, which is the only farming problem a dwarf enjoys.",
+   "by": "Sodel Mossear, Agriculture Correspondent"
+  },
+  {
+   "id": "wk-ed-023",
+   "kick": "From the Fields",
+   "head": "ON SEEDS, AND THE COUNTING OF THEM",
+   "body": "We hold {seeds} seeds. Every brewed plant returns its seed; every cooked one does not. The cooks and the brewers have been asked to settle this between themselves, preferably without the farmers in the room.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "seeds_many"
+   ]
+  },
+  {
+   "id": "wk-ed-024",
+   "kick": "From the Fields",
+   "head": "THE THREAD MOUNTAIN",
+   "body": "The farmer's workshops have spun {thread} units of thread, which is more than the looms can weave this side of the next age. I propose a moratorium on spinning, a celebration of weaving, and a stern word with whoever keeps queuing the orders.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-ed-025",
+   "kick": "From the Fields",
+   "head": "QUARRY BUSH LEAVES: NOT A SALAD",
+   "body": "A reminder that quarry bush leaves cannot be eaten raw, cannot be brewed, and must be bagged and cooked. Several readers have learned this the hard way this season.",
+   "by": "Sodel Mossear, Agriculture Correspondent"
+  },
+  {
+   "id": "wk-ed-026",
+   "kick": "From the Fields",
+   "head": "A WORD ON MUD",
+   "body": "Farm plots need soil, or mud on stone. Mud comes from water. Water comes from flooding. Flooding comes from dwarves who were told to 'just wet the floor a bit'. The irrigation office regrets the incident on the lower levels.",
+   "by": "Sodel Mossear, Agriculture Correspondent"
+  },
+  {
+   "id": "wk-ed-027",
+   "kick": "From the Fields",
+   "head": "THE HARVEST IS IN",
+   "body": "The plots have done their work: {plants} plants in store, {meals} prepared meals, {drinks} drinks in the barrels. I have farmed under three overseers and I have never said this before, but: well done, everyone.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "food_high",
+    "autumn"
+   ]
+  },
+  {
+   "id": "wk-ed-028",
+   "kick": "From the Fields",
+   "head": "THE STORES ARE LOW. PLANT.",
+   "body": "We are down to our last scraps. Plump helmets will grow in any season and on any soil underground. Every farmer, every hauler, every dwarf who has ever held a seed bag: to the plots.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "wk-ed-029",
+   "kick": "From the Fields",
+   "head": "THE MEAT QUESTION",
+   "body": "A fort cannot live on mushrooms alone, though it can come close. Meat stocks stand at {meat}. The butcher is ready, the hunters have bolts, and the fisherdwarves have the river. Somebody, please, bring the butcher something.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "wk-ed-030",
+   "kick": "From the Fields",
+   "head": "HONEY, THE SEVENTH DRINK",
+   "body": "Every drink a dwarf brews comes from a plant or a fruit, with one exception: honey, from the bees, which brews into mead. A fort with hives has a drink nobody else can make. I suggest we find some bees.",
+   "by": "Sodel Mossear, Agriculture Correspondent"
+  },
+  {
+   "id": "wk-ed-031",
+   "kick": "From the Fields",
+   "head": "THE WINTER FARMER",
+   "body": "Winter does not stop an underground farm. Plump helmets grow through it. The surface may be white, but the plots below are warm and wet and as busy as ever.",
+   "by": "Sodel Mossear, Agriculture Correspondent",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "wk-ed-032",
+   "kick": "The Cellar Book",
+   "head": "FIVE DRINKS A SEASON",
+   "body": "The average dwarf drinks about five times a season. Multiply by {pop} citizens and you have a figure that would frighten a human. We hold {drinks}. I have done the arithmetic; I have also done the tasting. We are, for now, safe.",
+   "by": "Rigoth Tankardson",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-ed-033",
+   "kick": "The Cellar Book",
+   "head": "THE SAME OLD BOOZE",
+   "body": "Dwarves will complain if they drink the same thing too often: 'tired of drinking the same old booze' is a real and recorded grievance. A good cellar has wine, beer, ale and rum on hand. Variety is not a luxury. It is morale.",
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "wk-ed-034",
+   "kick": "The Cellar Book",
+   "head": "ONE PLANT, FIVE MUGS",
+   "body": "Every brewable plant becomes five units of drink at the still, whatever the brewer's skill, and the seed comes back besides. No other trade in the fort turns one thing into five so cheerfully.",
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "wk-ed-035",
+   "kick": "The Cellar Book",
+   "head": "WATER IS FOR THE WOUNDED",
+   "body": "A dwarf can live on water, but works slower and slower without booze, and complains the whole time. Water is for the hospital. Drink is for everyone else.",
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "wk-ed-036",
+   "kick": "The Cellar Book",
+   "head": "THE CELLARS ARE FULL",
+   "body": "{drinks} drinks in store. The brewers have earned a night off, and will spend it, naturally, drinking.",
+   "by": "Rigoth Tankardson",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "wk-ed-037",
+   "kick": "The Cellar Book",
+   "head": "THE BARRELS ARE RUNNING DRY",
+   "body": "We are down to {drinks} drinks. I have seen forts go dry. It starts with slow work and ends with tantrums. Barrels to the still, plants to the brewers, and nobody touch the last cask.",
+   "by": "Rigoth Tankardson",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "wk-ed-038",
+   "kick": "The Cellar Book",
+   "head": "COOKING WITH BOOZE: A WARNING",
+   "body": "Drink can go into a meal, but a meal made with drink no longer gets anyone drunk and no longer slakes a thirst. The cooks have been told. The cooks have been told twice.",
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "wk-ed-039",
+   "kick": "The Cellar Book",
+   "head": "DWARVEN RUM, A LOVE STORY",
+   "body": "Sweet pods, the still, and patience. Rum is the drink of celebration. Save it for an artifact, a wedding, or a Tuesday.",
+   "by": "Rigoth Tankardson"
+  },
+  {
+   "id": "wk-ed-040",
+   "kick": "Mineral Rights",
+   "head": "AQUIFERS AND HUBRIS",
+   "body": "An aquifer is a layer of rock or soil that holds water, and opens to a dig like a tap. Every tile beside an exposed aquifer tile weeps water. Dig through one with care, or with pumps, or not at all. The alternative is a swimming pool at the bottom of the stairs.",
+   "by": "Asmel Seamfinder"
+  },
+  {
+   "id": "wk-ed-041",
+   "kick": "Mineral Rights",
+   "head": "DIGGING DEEP: {depth} LEVELS AND COUNTING",
+   "body": "Our deepest stair now runs {depth} levels below the gate, and the caverns lie {cavern_depth} levels down. There are three cavern layers in a world like ours, and below them, the magma sea, and below that, things we do not discuss.",
+   "by": "Asmel Seamfinder",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-ed-042",
+   "kick": "Mineral Rights",
+   "head": "MAGMA: THE FREE FUEL",
+   "body": "Magma is molten rock from deep in the world. A magma forge, smelter or glass furnace needs no fuel at all. It is, the scholars say, very Fun. They use the capital letter on purpose.",
+   "by": "Asmel Seamfinder",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-ed-043",
+   "kick": "Mineral Rights",
+   "head": "WHAT WE STRUCK",
+   "body": "Our miners report {mineral}. A gem in the rough is worth something; a gem cut at the jeweler's and set into good work is worth a great deal more. To the jewelers, then.",
+   "by": "Asmel Seamfinder",
+   "when": [
+    "recent_strike"
+   ]
+  },
+  {
+   "id": "wk-ed-044",
+   "kick": "Mineral Rights",
+   "head": "{gems} GEMS AND NO PLAN",
+   "body": "The fort holds {gems} gems. Cut, they decorate. Set, they double the value of almost anything. Traded, they buy whatever the caravan has. Hoarded, they attract forgotten beasts. Choose.",
+   "by": "Asmel Seamfinder",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "wk-ed-045",
+   "kick": "Mineral Rights",
+   "head": "THE STONE QUESTION",
+   "body": "We have {stone} stones lying about. Every one of them could be a block, a table, a statue or a coffin. Instead they are tripping the haulers. The masons have been asked to make something, anything.",
+   "by": "Asmel Seamfinder",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "wk-ed-046",
+   "kick": "Mineral Rights",
+   "head": "NO METAL, NO SWORDS",
+   "body": "Our bars stand at {bars}. A fort without metal is a fort whose militia trains with wooden sticks. Smelters need ore and fuel; the ore is in the rock, somewhere, and the miners are asked to find it.",
+   "by": "Asmel Seamfinder",
+   "when": [
+    "bars_low"
+   ]
+  },
+  {
+   "id": "wk-ed-047",
+   "kick": "The Long View",
+   "head": "THE DWARVEN YEAR, EXPLAINED",
+   "body": "Our calendar is twelve months of exactly twenty-eight days, three months to a season, three hundred and thirty-six days to the year. New Year's Day and the first day of spring are the same day: the first of Granite. It is a sensible system. Humans have never forgiven us for it.",
+   "by": "Momuz the Historian"
+  },
+  {
+   "id": "wk-ed-048",
+   "kick": "The Long View",
+   "head": "THE FORTS BEFORE US",
+   "body": "Before {fort} there was {past_fort}, which lasted {past_fort_years} and {past_fort_fate}. Every fort in {world} stands on what the last one learned. Some of what {past_fort} learned was 'not like that'.",
+   "by": "Momuz the Historian",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "wk-ed-049",
+   "kick": "The Long View",
+   "head": "WHAT {past_fort} KNEW",
+   "body": "Old residents of {past_fort} remember it fondly, mostly. It lasted {past_fort_years}. History will record that it {past_fort_fate}. History will not record the cheese, which was excellent.",
+   "by": "Momuz the Historian",
+   "when": [
+    "has_past_fort"
+   ]
+  },
+  {
+   "id": "wk-ed-050",
+   "kick": "The Long View",
+   "head": "ON ARTIFACTS AND MEMORY",
+   "body": "Every artifact in {world} came from a single dwarf in a single mood, and each one carries that dwarf's hopes and fears in its very shape. {artifact_new}, our own {artifact_new_item}, is the newest of them. In a thousand years, when nobody remembers {fort}, someone will remember {artifact_new}.",
+   "by": "Momuz the Historian",
+   "when": [
+    "artifact_week"
+   ]
+  },
+  {
+   "id": "wk-ed-051",
+   "kick": "The Long View",
+   "head": "THE AGE OF {fort}",
+   "body": "{fort} is {fort_days} days old. In the long history of {world} that is less than an afternoon. In the history of the dwarves who live here, it is everything.",
+   "by": "Momuz the Historian"
+  },
+  {
+   "id": "wk-ed-052",
+   "kick": "The Long View",
+   "head": "THE CIVILISATION WE SERVE",
+   "body": "We belong to {civ}, ruled by {monarch}. The monarch has never seen {fort}. The monarch has, we are told, seen our taxes.",
+   "by": "Momuz the Historian"
+  },
+  {
+   "id": "wk-ed-053",
+   "kick": "The Hammer's View",
+   "head": "{squads} SQUADS AND A PROMISE",
+   "body": "We have {squads} squads and {soldiers} soldiers. The schedule rotates them through training month by month, so that the whole army is never off duty at once, and never all asleep. When the gate horn sounds, somebody will be awake. That is all a soldier can promise.",
+   "by": "Old Captain Rigoth",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-ed-054",
+   "kick": "The Hammer's View",
+   "head": "ON SIEGES",
+   "body": "A siege is not an ambush. It is an army, marching from wherever the enemy lives, announced with banners and a great deal of shouting. We are at war with {enemy}. They know where we live.",
+   "by": "Old Captain Rigoth",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-ed-055",
+   "kick": "The Hammer's View",
+   "head": "THE GOBLIN PROBLEM",
+   "body": "Goblins live in dark fortresses in evil lands and are, as a rule, the main reason dwarves build walls. They raid, they kidnap children, they ride beak dogs and bring trolls. I respect them as soldiers. I would respect them more from the other side of a drawbridge.",
+   "by": "Old Captain Rigoth"
+  },
+  {
+   "id": "wk-ed-056",
+   "kick": "The Hammer's View",
+   "head": "PEACE IS A WEAPON TOO",
+   "body": "We are at peace with every neighbour who matters, for now. A peaceful season is a training season. Every day without a siege is a day to drill.",
+   "by": "Old Captain Rigoth",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "wk-ed-057",
+   "kick": "The Hammer's View",
+   "head": "CAGES BY THE HATCH",
+   "body": "Every caged invader is a lesson for the next. The Execution Pit takes them one at a time. The rest watch. This is called deterrence.",
+   "by": "Old Captain Rigoth",
+   "when": [
+    "has_jail"
+   ]
+  },
+  {
+   "id": "wk-ed-058",
+   "kick": "The Hammer's View",
+   "head": "THE MARKSDWARF'S CREED",
+   "body": "A crossbow, a quiver and a bundle of bolts. A marksdwarf who runs out of bolts becomes a dwarf with a heavy stick. Keep the bowyer busy.",
+   "by": "Old Captain Rigoth",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "wk-ed-059",
+   "kick": "The Bookkeeper's Corner",
+   "head": "THE CARAVAN CALENDAR",
+   "body": "Elves trade in spring, humans in summer, our own kin in autumn, and nobody in winter. A broker who knows the calendar has goods ready. A broker who doesn't is still hauling barrels to the depot when the wagons leave.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "wk-ed-060",
+   "kick": "The Bookkeeper's Corner",
+   "head": "ON THE TRADE DEPOT",
+   "body": "A depot can be built of almost anything, but it must be reachable. A caravan that cannot find a path to the depot does not come in at all. Ours has dealt with {caravan_civ}; the ledger is kept, the profits are modest, and the broker's bedroom grows larger every year.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "wk-ed-061",
+   "kick": "The Bookkeeper's Corner",
+   "head": "WHAT THE LIAISON WANTS",
+   "body": "The outpost liaison comes from the capital to agree what the next caravan should bring and what it should buy. Fill the order, and prices improve. Ignore it, and the liaison writes letters.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "wk-ed-062",
+   "kick": "The Bookkeeper's Corner",
+   "head": "QUALITY, OR WHY A MUG COSTS WHAT IT COSTS",
+   "body": "Every crafted thing has a quality: plain, fine, superior, exceptional, masterwork, and above all of them the artifact. Value rises with each step, and a merchant can tell the difference at twenty paces. Our masterwork {masterwork_last} is, I am told, not for sale.",
+   "by": "Bookkeeper Inod",
+   "when": [
+    "masterpiece_week"
+   ]
+  },
+  {
+   "id": "wk-ed-063",
+   "kick": "The Bookkeeper's Corner",
+   "head": "THE BARONY QUESTION",
+   "body": "When a fort grows rich enough, the liaison offers to make it a barony and asks for a name to elevate. A baron brings diplomats, demands and a much bigger bedroom. Choose carefully. You will be furnishing that bedroom forever.",
+   "by": "Bookkeeper Inod"
+  },
+  {
+   "id": "wk-ed-064",
+   "kick": "Ask the Doctor",
+   "head": "WHAT THE HOSPITAL NEEDS",
+   "body": "A hospital runs on thread, cloth, splints, crutches, plaster, soap and buckets, and it keeps them in its own chests. We have {cloth} cloth in store, which I am pleased to report, and not nearly enough soap, which I am not.",
+   "by": "Kadol Splintwell, Chief Medical Dwarf (Retd.)",
+   "when": [
+    "has_hospital",
+    "cloth_ok"
+   ]
+  },
+  {
+   "id": "wk-ed-065",
+   "kick": "Ask the Doctor",
+   "head": "ON STRESS",
+   "body": "A dwarf under long strain grows haggard and drawn, then worse. Breakdowns pass; insanity does not. Look after your friends. Buy them a drink. Do not, on any account, rearrange their bedroom.",
+   "by": "Kadol Splintwell, Chief Medical Dwarf (Retd.)"
+  },
+  {
+   "id": "wk-ed-066",
+   "kick": "Ask the Doctor",
+   "head": "MIASMA IS NOT A SMELL, IT IS A WARNING",
+   "body": "That purple cloud below ground is miasma, and it comes from rot: an unhauled corpse, a forgotten roast. It makes everyone unhappy. Haul your refuse. Bury your dead. Open a window, if we had any.",
+   "by": "Kadol Splintwell, Chief Medical Dwarf (Retd.)"
+  },
+  {
+   "id": "wk-ed-067",
+   "kick": "Ask the Doctor",
+   "head": "THE FOCUS OF THE MIND",
+   "body": "A dwarf whose needs go unmet loses focus, and an unfocused dwarf does worse work and parries worse in a fight. A dwarf who prays, talks, drinks and makes things when they want to is a better craftsdwarf. Medicine is mostly letting people do what they like.",
+   "by": "Kadol Splintwell, Chief Medical Dwarf (Retd.)"
+  },
+  {
+   "id": "wk-ed-068",
+   "kick": "Ask the Doctor",
+   "head": "BABIES IN THE FORGE",
+   "body": "A dwarven mother carries her infant everywhere, including to the anvil and, regrettably, the battlefield. I advise against the battlefield. I have advised against it many times.",
+   "by": "Kadol Splintwell, Chief Medical Dwarf (Retd.)",
+   "when": [
+    "birth_week"
+   ]
+  },
+  {
+   "id": "wk-ed-069",
+   "kick": "Matters of Faith",
+   "head": "A TEMPLE FOR EVERY GOD, OR NONE",
+   "body": "A temple can be dedicated to any god a citizen worships, or to no god in particular, where anyone may pray to whomever they like. Our temple is open. The gods, we trust, are listening, or at least not complaining.",
+   "by": "Our Religion Correspondent",
+   "when": [
+    "has_temple"
+   ]
+  },
+  {
+   "id": "wk-ed-070",
+   "kick": "Matters of Faith",
+   "head": "THE NEED TO PRAY",
+   "body": "Many dwarves need to pray as surely as they need to drink, and grow distracted when they cannot. A temple nearby is not piety, it is productivity.",
+   "by": "Our Religion Correspondent"
+  },
+  {
+   "id": "wk-ed-071",
+   "kick": "Matters of Faith",
+   "head": "PERFORMANCE IN THE TEMPLE",
+   "body": "Performers do not only work the taverns. Poets, dancers and musicians come to temples too, and a good hymn has lifted more spirits in {fort} than any amount of ale. Nearly any amount.",
+   "by": "Our Religion Correspondent",
+   "when": [
+    "has_temple"
+   ]
+  },
+  {
+   "id": "wk-ed-072",
+   "kick": "Editorial",
+   "head": "A FORT OF {pop}",
+   "body": "{fort} now numbers {pop} souls. Above fifty, a fort elects a mayor, the most sociable dwarf available, who must listen to everyone's complaints. We have long passed that mark. We salute the mayor, and we do not envy them.",
+   "by": "The Editorial Board",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "wk-ed-073",
+   "kick": "Editorial",
+   "head": "WE ARE AT WAR. DO NOT PANIC.",
+   "body": "{civ} is at war with {enemy}, of the {enemy_race} kind. War is mostly waiting. Keep the doors shut, the barrels full and the soldiers fed, and let the generals do the worrying.",
+   "by": "The Editorial Board",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-ed-074",
+   "kick": "Editorial",
+   "head": "PEACE, AND WHAT TO DO WITH IT",
+   "body": "There is no war in our name this season. The Herald suggests using the quiet for something useful: a wall, a well, a second still.",
+   "by": "The Editorial Board",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "wk-ed-075",
+   "kick": "Editorial",
+   "head": "THE TAVERN IS THE FORT'S WINDOW",
+   "body": "Visitors, bards and travellers come first to the tavern, and they bring the world with them: rumours, songs and the occasional fistfight. Every fort needs one. Ours has one. Behave in it.",
+   "by": "The Editorial Board",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-ed-076",
+   "kick": "Editorial",
+   "head": "ON THE PROPER BURIAL OF THE DEAD",
+   "body": "A dwarf who is not buried or memorialised may return within a few months as a ghost, to haunt the place of their death. Coffins are cheap. Slabs are cheap. Ghosts are very expensive.",
+   "by": "The Editorial Board",
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "wk-ed-077",
+   "kick": "Editorial",
+   "head": "THE LIBRARY IS OPEN",
+   "body": "Scholars write, scribes copy, and every dwarf who reads a book in our library leaves with a happy thought. We print a newspaper. We are biased. Go anyway.",
+   "by": "The Editorial Board",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "wk-ed-078",
+   "kick": "Editorial",
+   "head": "WHO IS ON CAMERA?",
+   "body": "Readers will have noticed that our On Camera column follows one dwarf at a time. This is not favouritism. It is simply that the rest of you were standing behind a pillar.",
+   "by": "The Editorial Board"
+  },
+  {
+   "id": "wk-ed-079",
+   "kick": "Editorial",
+   "head": "THE RAIN, AND WHY WE LIVE UNDERGROUND",
+   "body": "It is raining over {fort}. Above us, farmers in other lands are getting wet. Below, our plots are as damp as they always are, and nobody had to own a hat.",
+   "by": "The Editorial Board",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-ed-080",
+   "kick": "Editorial",
+   "head": "THE SNOW, AND THE CARAVANS THAT WON'T COME",
+   "body": "Snow over {fort}. No caravan trades in winter. The depot will be quiet until spring brings the elves, if they are still speaking to us.",
+   "by": "The Editorial Board",
+   "when": [
+    "snow",
+    "winter"
+   ]
+  }
+ ],
+ "letters": [
+  {
+   "id": "wk-lt-001",
+   "body": "I have been told that cats need no food in a fortress. I have watched our cats for a season. They need no food because they take mine.",
+   "by": "{citizen}, Hauler",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-lt-002",
+   "body": "Would the dwarf who keeps queuing thread at the farmer's workshop please stop? We have {thread} units of it. I have started using it as a mattress.",
+   "by": "{citizen}, Weaver",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-lt-003",
+   "body": "Since the mood began I have been asked for bones, shells and 'something that remembers'. I am the quartermaster. Nothing in my stockpile remembers anything, least of all where it was put.",
+   "by": "{citizen}, Quartermaster",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-lt-004",
+   "body": "I would like to formally congratulate {artifact_maker} on {artifact_new}. I would also like the {moody_shop} back, as I have six orders waiting.",
+   "by": "{citizen}, Craftsdwarf",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-lt-005",
+   "body": "{lastdead} owed me a mug. I do not want it back. I want it buried with them, full.",
+   "by": "{citizen}",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-lt-006",
+   "body": "With {soldiers} soldiers and {squads} squads, could someone tell me why the training dummies get more attention than the dining hall?",
+   "by": "{citizen}, Cook",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-lt-007",
+   "body": "I have read that forgotten beasts are drawn by wealth and noise. I note that the forge has been ringing since dawn and that we have {gems} gems. I am moving to a quieter fort.",
+   "by": "{citizen}, Concerned",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "wk-lt-008",
+   "body": "Your naturalist says carp are now harmless. My ankle disagrees, but my ankle has never been to school.",
+   "by": "{citizen}, Fisherdwarf"
+  },
+  {
+   "id": "wk-lt-009",
+   "body": "I was told the caravans come in autumn. It is autumn. I have polished my mugs. I am waiting by the depot. I have been waiting for some time.",
+   "by": "{citizen}, Broker",
+   "when": [
+    "autumn",
+    "no_caravan_here"
+   ]
+  },
+  {
+   "id": "wk-lt-010",
+   "body": "The merchants are at the depot and I have been asked to carry every barrel we own there 'to have a look'. Every barrel. Including the full ones.",
+   "by": "{citizen}, Hauler",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "wk-lt-011",
+   "body": "The rain is lovely from down here. I recommend it to everyone, from down here.",
+   "by": "{citizen}",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-lt-012",
+   "body": "I keep reading that we are at war with {enemy}. I have never met anyone from {enemy}. If they are anything like my neighbour, I understand.",
+   "by": "{citizen}",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-lt-013",
+   "body": "Our pasture animals graze cave moss in the dark and look better fed than I do. I would like to file a complaint, and also to be moved to the pasture.",
+   "by": "{citizen}, Planter",
+   "when": [
+    "caverns",
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-lt-014",
+   "body": "I have counted the plump helmets. I have counted them again. There are too many, and I say that as someone who loves them.",
+   "by": "{citizen}, Farmer",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "wk-lt-015",
+   "body": "I hear the hospital wants soap. So do I. So, frankly, does the whole of the east corridor.",
+   "by": "{citizen}",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "wk-lt-016",
+   "body": "The new arrivals have asked where the drink is. I have told them. They have asked where the beds are. I have told them. They have asked what the sky is. I have referred them to your Bestiary column.",
+   "by": "{citizen}, Greeter",
+   "when": [
+    "migrants_week"
+   ]
+  },
+  {
+   "id": "wk-lt-017",
+   "body": "A dwarf drinks five times a season, your columnist says. I would like to know who the other dwarf is who is drinking my share.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "wk-lt-018",
+   "body": "I was promised that the vampire stories in your paper were only stories. Then {citizen2} skipped lunch again.",
+   "by": "{citizen}, Suspicious",
+   "when": [
+    "migrants_week"
+   ]
+  },
+  {
+   "id": "wk-lt-019",
+   "body": "We are {depth} levels deep. My grandmother said the deeper you dig, the more the mountain listens. I have started whispering on the stairs.",
+   "by": "{citizen}, Miner",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-lt-020",
+   "body": "The baby in the forge is very sweet, but must it be held quite so close to the anvil?",
+   "by": "{citizen}, Smith",
+   "when": [
+    "birth_week"
+   ]
+  },
+  {
+   "id": "wk-lt-021",
+   "body": "Please print, for the avoidance of doubt, that quarry bush leaves are not a salad. I am writing from the hospital.",
+   "by": "{citizen}"
+  },
+  {
+   "id": "wk-lt-022",
+   "body": "With {meals} meals in the stores, may I respectfully ask why I am still eating a raw plump helmet on the stairs?",
+   "by": "{citizen}",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "wk-lt-023",
+   "body": "Our stores are nearly empty and the cook has started looking at the cats. The cats have started looking back.",
+   "by": "{citizen}",
+   "when": [
+    "food_low",
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-lt-024",
+   "body": "I would like to thank the masons for the new {masterwork_last}. Wait, that was {masterwright_last}? Then I would like to thank {masterwright_last}, and also to know why the masons are taking credit.",
+   "by": "{citizen}",
+   "when": [
+    "masterpiece_week"
+   ]
+  },
+  {
+   "id": "wk-lt-025",
+   "body": "My bedroom is next to the barracks. I have now heard {soldiers} soldiers train every month of the year, in rotation. I would like a rotation too: out of this bedroom.",
+   "by": "{citizen}",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-lt-026",
+   "body": "I write to defend the troglodytes, who are simply misunderstood. I write from behind a locked door.",
+   "by": "{citizen}",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-lt-027",
+   "body": "Is it true that the elves trade only in spring? If so, I suggest we hold our annual table-carving festival in spring as well, in front of the depot.",
+   "by": "{citizen}, Carpenter",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "wk-lt-028",
+   "body": "Since the funeral of {lastdead} I have been sleeping with a lamp lit. Please tell me the slab is engraved. Please tell me soon.",
+   "by": "{citizen}",
+   "when": [
+    "death_week",
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "wk-lt-029",
+   "body": "Your obituary page spelled my cousin's cause of death wrong. It was not 'struck down'. He was 'struck down, heroically'.",
+   "by": "{citizen}",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "wk-lt-030",
+   "body": "Snow over the gate and the brewers want a holiday. I support the brewers, on condition they bring the holiday down here.",
+   "by": "{citizen}",
+   "when": [
+    "snow"
+   ]
+  }
+ ],
+ "gossip": [
+  {
+   "id": "wk-gs-001",
+   "text": "Overheard by the {moody_shop}: two craftsdwarves betting on what {moody} is making. One says a crown. One says a cage. Neither will say what they bet, but both looked nervous.",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-gs-002",
+   "text": "They say {artifact_maker} has not stopped smiling since {artifact_new} was carried out. They also say {artifact_maker} has not stopped talking about it. The two may be related.",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-gs-003",
+   "text": "Someone at the well swears they saw a light in the catacombs the night after {lastdead} was buried. Someone else says it was the mason working late on the slab. Both are now avoiding the catacombs.",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-gs-004",
+   "text": "{citizen} is telling everyone that the cats follow them because they are kind. {citizen2} says it is because they keep fish in their pockets.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-gs-005",
+   "text": "Talk in the tavern is all about {enemy}. Nobody has seen them. Everybody has an opinion.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-gs-006",
+   "text": "A merchant at the depot claims to have sold a dwarf a lump of 'genuine forgotten beast hide'. The dwarf is said to be {citizen}. The hide is said to be a rug.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "wk-gs-007",
+   "text": "{citizen} has been seen teaching a goat to climb stairs. Nobody knows why. The goat seems to.",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-gs-008",
+   "text": "The new arrivals are already gossiping about the old residents, which the old residents say is very rude, and which they say over dinner, loudly, about the new arrivals.",
+   "when": [
+    "migrants_week"
+   ]
+  },
+  {
+   "id": "wk-gs-009",
+   "text": "{citizen} claims the training dummy in the barracks has a name, a birthday and a favourite drink. {citizen2} claims to be the training dummy's best friend.",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "wk-gs-010",
+   "text": "A scholar in the library is said to be writing a book about the fort's cats. The cats are said to be sitting on it.",
+   "when": [
+    "has_library",
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-gs-011",
+   "text": "Word in the meeting hall is that the brewer has a secret barrel of rum, set aside 'for the next artifact'. The fort has had one. The barrel is lighter.",
+   "when": [
+    "artifact_week"
+   ]
+  },
+  {
+   "id": "wk-gs-012",
+   "text": "{citizen} has been heard arguing with a carp. Witnesses disagree on who won."
+  },
+  {
+   "id": "wk-gs-013",
+   "text": "They say the deepest miner can hear the magma sea if they put an ear to the stone. They say he now wears a helmet with no ear holes.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-gs-014",
+   "text": "{citizen} and {citizen2} were seen sharing a table in the dining hall, then sharing a bench at the tavern, then sharing a very long walk past the farms. The Herald draws no conclusions. The Herald has, however, sharpened a pencil."
+  },
+  {
+   "id": "wk-gs-015",
+   "text": "The broker is said to have practised haggling on the cook, the cats and a statue. He lost to the statue."
+  },
+  {
+   "id": "wk-gs-016",
+   "text": "A planter swears the plump helmets grow faster when sung to. The farmers have started singing. The plump helmets have not commented."
+  },
+  {
+   "id": "wk-gs-017",
+   "text": "{citizen} insists the rain on the surface is 'just the sky crying because it cannot get in'. {citizen2} has started carrying a bucket, just in case.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-gs-018",
+   "text": "Rumour has it that somebody in {fort} is a vampire. Rumour has also been seen eating three meals today, so it isn't Rumour.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "wk-gs-019",
+   "text": "They say {masterwright_last} has started signing everything, including the floor of the workshop.",
+   "when": [
+    "masterpiece_week"
+   ]
+  },
+  {
+   "id": "wk-gs-020",
+   "text": "Talk at the depot: {caravan_civ} merchants say our cloth is the finest in the region and our prices are the worst. The broker took this as a compliment."
+  }
+ ],
+ "obits": [
+  {
+   "id": "wk-ob-001",
+   "text": "{deadname}, {prof}, has {cause}. A coffin has been ordered, a slab is being cut, and the catacombs have been swept. The fort will not give this one a reason to come back.",
+   "when": [
+    "recent_death",
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "wk-ob-002",
+   "text": "{deadname} has {cause}. A {prof} of {fort}, they leave behind a bench, a bed, a favourite mug and a great many dwarves who will not say their name lightly.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "wk-ob-003",
+   "text": "We regret to report that {deadname}, our {prof}, has {cause}. Grief is the one load no hauler can carry for you. Be gentle with the friends of {deadname} this week.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "wk-ob-004",
+   "text": "{deadname} has {cause}. They were a {prof}, a regular at the tavern and a firm believer that every problem could be solved with a second drink. Most of them could.",
+   "when": [
+    "recent_death",
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-ob-005",
+   "text": "{deadname}, {prof}, has {cause}. Their squadmates have asked that their weapon be hung in the barracks, where the training dummies can see it and be afraid.",
+   "when": [
+    "recent_death",
+    "has_military"
+   ]
+  },
+  {
+   "id": "wk-ob-006",
+   "text": "{deadname} has {cause}. A quiet {prof}, they once spent a whole season engraving a wall nobody walks past. We walk past it now.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "wk-ob-007",
+   "text": "The Herald records with sorrow that {deadname}, {prof}, has {cause}. They had been in {fort} since its early days and remembered when the stores were one barrel and a hopeful look.",
+   "when": [
+    "recent_death",
+    "old_fort"
+   ]
+  },
+  {
+   "id": "wk-ob-008",
+   "text": "{deadname} has {cause}. A {prof} who loved the cats, and was loved by them; the cats are said to be waiting by their bedroom door. Somebody please let them in.",
+   "when": [
+    "recent_death",
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-ob-009",
+   "text": "{deadname}, {prof}, has {cause}, in a season of war with {enemy}. They will be remembered when the war is not.",
+   "when": [
+    "recent_death",
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-ob-010",
+   "text": "{deadname} has {cause}. A {prof} of few words and many mugs. The mugs will be buried with them; the words, we keep.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "wk-ob-011",
+   "text": "{deadname}, {prof}, has {cause}. Those who knew them say they would want no fuss. The fort is making a fuss anyway, because that is what a fort is for.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "wk-ob-012",
+   "text": "{deadname} has {cause}. The slab will read: '{deadname}, {prof}. Here, finally, on time.' They were never on time. We miss them already.",
+   "when": [
+    "recent_death"
+   ]
+  }
+ ],
+ "announcements": [
+  {
+   "id": "wk-an-001",
+   "kind": "Unveilings",
+   "text": "{artifact_maker} invites the whole of {fort} to admire {artifact_new}, a {artifact_new_item}. Admiring may be done from a respectful distance. Touching may not.",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-an-002",
+   "kind": "Funerals",
+   "text": "The funeral of {lastdead}, {lastdead_prof}, will be held in the catacombs. Bring a story. Leave the mugs.",
+   "when": [
+    "death_week",
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "wk-an-003",
+   "kind": "Births",
+   "text": "A child has been born in {fort}. Visitors are asked to admire quietly; the child has heard the forge already and is not impressed.",
+   "when": [
+    "birth_week"
+   ]
+  },
+  {
+   "id": "wk-an-004",
+   "kind": "Weddings",
+   "text": "Two citizens of {fort} have married. Gifts may be left at the dining hall. Rocks will be accepted, but not encouraged.",
+   "when": [
+    "marriage_week"
+   ]
+  },
+  {
+   "id": "wk-an-005",
+   "kind": "Welcomes",
+   "text": "The fort welcomes its newest migrants. Beds are being found. Please do not stand in the corridors looking lost; stand in the meeting hall looking lost, with everyone else.",
+   "when": [
+    "migrants_week"
+   ]
+  },
+  {
+   "id": "wk-an-006",
+   "kind": "Commendations",
+   "text": "The Herald commends {masterwright_last} for a masterpiece {masterwork_last}, and reminds all citizens that a lost masterwork upsets its maker for a very long time. Handle with care.",
+   "when": [
+    "masterpiece_week"
+   ]
+  },
+  {
+   "id": "wk-an-007",
+   "kind": "Militia",
+   "text": "All {squads} squads will continue on the rotating training schedule. Soldiers off rotation are reminded that 'off duty' means work, not the tavern.",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "wk-an-008",
+   "kind": "Temple",
+   "text": "Prayers will be said in the temple for anyone who needs them, and a quiet corner will be kept for anyone who needs that more.",
+   "when": [
+    "has_temple"
+   ]
+  },
+  {
+   "id": "wk-an-009",
+   "kind": "Library",
+   "text": "New quires have been bound into codices and shelved. Readers are reminded that the library is for reading, and the miners are reminded that it is not for napping, again.",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "wk-an-010",
+   "kind": "Hospital",
+   "text": "The hospital thanks the weavers for the cloth and the farmers for the thread, and asks once more, very politely, for soap.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "wk-an-011",
+   "kind": "Trade",
+   "text": "The merchants of {caravan_civ} remain our most regular visitors. The broker asks that goods for sale be at the depot before the merchants announce they are leaving: about four days' warning is all anyone gets."
+  },
+  {
+   "id": "wk-an-012",
+   "kind": "Calendar",
+   "text": "It is {month}, in the {season}. The Herald reminds citizens that the dwarven year has exactly 336 days and that every one of them is a working day."
+  },
+  {
+   "id": "wk-an-013",
+   "kind": "Lost and Found",
+   "text": "Found: one seed bag, empty, near the farm plots. The seeds are presumed planted. The farmer is presumed responsible."
+  },
+  {
+   "id": "wk-an-014",
+   "kind": "Caverns",
+   "text": "The cavern doors remain shut after dark, at dawn and at all times in between. Crundles are not pets.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-an-015",
+   "kind": "Weather",
+   "text": "It is raining on the surface. Gatherers outside are asked to come in. Gatherers inside are asked to stay in. Gatherers who are not sure where they are are asked to look up.",
+   "when": [
+    "rain"
+   ]
+  }
+ ]
+}

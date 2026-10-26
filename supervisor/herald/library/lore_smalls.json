@@ -4576,7 +4576,10 @@
   },
   {
    "id": "ls3-nt-057",
-   "text": "The liaison's caravan is here. Please do not agree to anything before lunch."
+   "text": "The liaison's caravan is here. Please do not agree to anything before lunch.",
+   "when": [
+    "caravan_here"
+   ]
   },
   {
    "id": "ls3-nt-058",

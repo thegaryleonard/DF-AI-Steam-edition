@@ -1,0 +1,1920 @@
+{
+ "ads": [
+  {
+   "id": "wk-ad-001",
+   "lines": [
+    [
+     "bk",
+     "Plump Helmet Vintners"
+    ],
+    [
+     "big",
+     "DWARVEN WINE"
+    ],
+    [
+     "eng",
+     "PRESSED FROM THE PURPLE"
+    ],
+    [
+     "fine",
+     "One helmet, five mugs, and the spawn goes back in the plot. {drinks} drinks in our cellars and not one of them is water."
+    ]
+   ],
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-ad-002",
+   "lines": [
+    [
+     "bk",
+     "Cave Wheat Brewing Co."
+    ],
+    [
+     "eng",
+     "A BEER FOR EVERY SEASON"
+    ],
+    [
+     "fine",
+     "Brewed from the finest cave wheat. Tired of drinking the same old booze? So were we. Ask for a beer."
+    ]
+   ],
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-ad-003",
+   "lines": [
+    [
+     "big",
+     "RUM!"
+    ],
+    [
+     "eng",
+     "SWEET POD DISTILLERS"
+    ],
+    [
+     "fine",
+     "For artifacts, weddings and the end of a long mood. Also Tuesdays."
+    ]
+   ],
+   "inv": true,
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-ad-004",
+   "lines": [
+    [
+     "bk",
+     "Pig Tail Ale House"
+    ],
+    [
+     "eng",
+     "FROM THE SUMMER PLOTS"
+    ],
+    [
+     "fine",
+     "Pig tails grow in summer and autumn. Our ale grows on you."
+    ]
+   ],
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-ad-005",
+   "lines": [
+    [
+     "bk",
+     "The Great Thread Sale"
+    ],
+    [
+     "big",
+     "{thread} UNITS"
+    ],
+    [
+     "eng",
+     "EVERYTHING MUST GO"
+    ],
+    [
+     "fine",
+     "The farmer's workshops have outdone themselves. Bring a loom. Bring two. Bring a cart."
+    ]
+   ],
+   "inv": true,
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-ad-006",
+   "lines": [
+    [
+     "bk",
+     "Mossear & Daughters"
+    ],
+    [
+     "eng",
+     "SEED BAGS, NEW AND USED"
+    ],
+    [
+     "fine",
+     "Holding {seeds} seeds? You'll need bags. Brewing returns the seed; cooking doesn't. Plan accordingly."
+    ]
+   ],
+   "when": [
+    "seeds_many"
+   ]
+  },
+  {
+   "id": "wk-ad-007",
+   "lines": [
+    [
+     "bk",
+     "Cat Adoption Society"
+    ],
+    [
+     "big",
+     "{cats} CATS"
+    ],
+    [
+     "eng",
+     "NO FEEDING REQUIRED"
+    ],
+    [
+     "fine",
+     "Fortress cats hunt vermin and need no food. They will choose you. Resistance is not advised."
+    ]
+   ],
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-ad-008",
+   "lines": [
+    [
+     "bk",
+     "Kennel & Leash"
+    ],
+    [
+     "eng",
+     "WAR DOGS · HUNTING DOGS"
+    ],
+    [
+     "fine",
+     "Trained at the kennels, fed by nobody: fortress dogs need no dinner. Ask for a loyal one."
+    ]
+   ],
+   "when": [
+    "dogs_many"
+   ]
+  },
+  {
+   "id": "wk-ad-009",
+   "lines": [
+    [
+     "bk",
+     "Splintwell's Surgical Supplies"
+    ],
+    [
+     "eng",
+     "SPLINTS · CRUTCHES · PLASTER · SOAP"
+    ],
+    [
+     "fine",
+     "The hospital wants all of it. Your shins will want it later."
+    ]
+   ],
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "wk-ad-010",
+   "lines": [
+    [
+     "bk",
+     "Coffin & Slab"
+    ],
+    [
+     "eng",
+     "REST EASY. STAY RESTED."
+    ],
+    [
+     "fine",
+     "The unburied may return within months as ghosts. Our coffins are roomy, our slabs well engraved. Book early."
+    ]
+   ],
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "wk-ad-011",
+   "lines": [
+    [
+     "bk",
+     "The Tavern Players"
+    ],
+    [
+     "eng",
+     "STORIES · DANCE · POETRY · MUSIC"
+    ],
+    [
+     "fine",
+     "Now performing at the tavern most evenings. Hecklers will be dealt with by the keeper."
+    ]
+   ],
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-ad-012",
+   "lines": [
+    [
+     "bk",
+     "Quire & Codex"
+    ],
+    [
+     "eng",
+     "BOOKBINDERS TO THE LIBRARY"
+    ],
+    [
+     "fine",
+     "Scholars write, scribes copy, we bind. Paper pressed from genuine pig tail slurry."
+    ]
+   ],
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "wk-ad-013",
+   "lines": [
+    [
+     "big",
+     "SIEGE INSURANCE"
+    ],
+    [
+     "eng",
+     "GUARANTEED NOT TO PAY"
+    ],
+    [
+     "fine",
+     "At war with {enemy}? Who isn't. Buy a policy today; collect it from your coffin."
+    ]
+   ],
+   "inv": true,
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-ad-014",
+   "lines": [
+    [
+     "bk",
+     "Gem Cutters' Guild"
+    ],
+    [
+     "eng",
+     "{gems} STONES, ONE BENCH"
+    ],
+    [
+     "fine",
+     "A cut gem set into good work doubles its value. A rough gem in a bin doubles nothing. Bring them in."
+    ]
+   ],
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "wk-ad-015",
+   "lines": [
+    [
+     "bk",
+     "Deep Delve Helmets"
+    ],
+    [
+     "eng",
+     "{depth} LEVELS? WEAR ONE."
+    ],
+    [
+     "fine",
+     "The mountain listens the deeper you go. Our helmets don't help with that, but they do help with rocks."
+    ]
+   ],
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-ad-016",
+   "lines": [
+    [
+     "bk",
+     "Crundle Control"
+    ],
+    [
+     "eng",
+     "PACKS OF TWENTY, CLEARED"
+    ],
+    [
+     "fine",
+     "Cowardly, scaly and everywhere. Call before they climb."
+    ]
+   ],
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-ad-017",
+   "lines": [
+    [
+     "bk",
+     "Webfree Silk Co."
+    ],
+    [
+     "eng",
+     "GIANT CAVE SPIDER SILK"
+    ],
+    [
+     "fine",
+     "The finest cloth under the world. Our collectors' widows thank you for your custom."
+    ]
+   ],
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-ad-018",
+   "lines": [
+    [
+     "bk",
+     "Cheese of the Mountainhomes"
+    ],
+    [
+     "eng",
+     "FROM THE FARMER'S WORKSHOP"
+    ],
+    [
+     "fine",
+     "One barrel of milk, several fine stacks of cheese. A dwarf invented it; we merely perfected it."
+    ]
+   ]
+  },
+  {
+   "id": "wk-ad-019",
+   "lines": [
+    [
+     "bk",
+     "Quarry Bush Leaf Roasts"
+    ],
+    [
+     "eng",
+     "COOKED, ALWAYS COOKED"
+    ],
+    [
+     "fine",
+     "Never raw. Never brewed. Always delicious. Ask the hospital why."
+    ]
+   ],
+   "when": [
+    "food_ok"
+   ]
+  },
+  {
+   "id": "wk-ad-020",
+   "lines": [
+    [
+     "bk",
+     "Masterwork Appraisals"
+    ],
+    [
+     "eng",
+     "FINE · SUPERIOR · EXCEPTIONAL · MASTERWORK"
+    ],
+    [
+     "fine",
+     "Know what your mug is worth before the merchant tells you. Artifacts not appraised: we know our limits."
+    ]
+   ]
+  },
+  {
+   "id": "wk-ad-021",
+   "lines": [
+    [
+     "bk",
+     "Mood Supplies Emporium"
+    ],
+    [
+     "eng",
+     "BONES · SHELLS · GEMS · CLOTH"
+    ],
+    [
+     "fine",
+     "Somebody in a strange mood is asking for something you don't have. We have it. Hurry."
+    ]
+   ],
+   "inv": true,
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-ad-022",
+   "lines": [
+    [
+     "bk",
+     "Armour Stand Polishers"
+    ],
+    [
+     "eng",
+     "AS SEEN ON {artifact_new}"
+    ],
+    [
+     "fine",
+     "Bone, wood or metal, we polish them all. Artifacts at the owner's risk."
+    ]
+   ],
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-ad-023",
+   "lines": [
+    [
+     "bk",
+     "Bolts by the Bundle"
+    ],
+    [
+     "eng",
+     "A MARKSDWARF WITHOUT BOLTS IS A DWARF WITH A STICK"
+    ],
+    [
+     "fine",
+     "Bone or metal, by the hundred. The bowyer never sleeps."
+    ]
+   ],
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "wk-ad-024",
+   "lines": [
+    [
+     "bk",
+     "Rotation Rest Co."
+    ],
+    [
+     "eng",
+     "OFF THE TRAINING ROTA?"
+    ],
+    [
+     "fine",
+     "{squads} squads take turns at the barracks. On your month off, rest with us. Beds, mugs and no shouting."
+    ]
+   ],
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-ad-025",
+   "lines": [
+    [
+     "bk",
+     "Moss Meadows Pasture Feed"
+    ],
+    [
+     "eng",
+     "WE SELL NOTHING. YOUR ANIMALS EAT MOSS."
+    ],
+    [
+     "fine",
+     "Cave moss spreads on underground soil once the caverns are open. Your herd will be fine. We are going out of business."
+    ]
+   ],
+   "when": [
+    "caverns",
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-ad-026",
+   "lines": [
+    [
+     "bk",
+     "Egg & Feather"
+    ],
+    [
+     "eng",
+     "FRESH FROM THE NEST BOX"
+    ],
+    [
+     "fine",
+     "Eggs in store this week: {eggs}. Boil them, fry them, or let them hatch and argue with the turkeys."
+    ]
+   ],
+   "when": [
+    "has_eggs"
+   ]
+  },
+  {
+   "id": "wk-ad-027",
+   "lines": [
+    [
+     "bk",
+     "Magma Forge Fittings"
+    ],
+    [
+     "eng",
+     "NO FUEL. NO MERCY."
+    ],
+    [
+     "fine",
+     "Why burn charcoal when the world will burn for you? Fire imp repellent sold separately."
+    ]
+   ],
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-ad-028",
+   "lines": [
+    [
+     "bk",
+     "Aquifer Ltd."
+    ],
+    [
+     "eng",
+     "PUMPS FOR THE BRAVE"
+    ],
+    [
+     "fine",
+     "Every exposed aquifer tile weeps into its neighbours. Ours weep into buckets."
+    ]
+   ]
+  },
+  {
+   "id": "wk-ad-029",
+   "lines": [
+    [
+     "bk",
+     "The Long Calendar"
+    ],
+    [
+     "eng",
+     "336 DAYS · 12 MONTHS · 4 SEASONS"
+    ],
+    [
+     "fine",
+     "Know your Granite from your Obsidian. Printed in stone, refreshed every first of Granite."
+    ]
+   ]
+  },
+  {
+   "id": "wk-ad-030",
+   "lines": [
+    [
+     "big",
+     "STORES LOW?"
+    ],
+    [
+     "eng",
+     "PLANT PLUMP HELMETS"
+    ],
+    [
+     "fine",
+     "They grow in any season, underground, on any mud. The fastest way from empty to fed."
+    ]
+   ],
+   "inv": true,
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "wk-ad-031",
+   "lines": [
+    [
+     "bk",
+     "Last Barrel Brewers"
+    ],
+    [
+     "eng",
+     "EMERGENCY BREWING"
+    ],
+    [
+     "fine",
+     "Down to {drinks}? We will brew anything that grows, except quarry bushes. Quarry bushes we will cook."
+    ]
+   ],
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "wk-ad-032",
+   "lines": [
+    [
+     "bk",
+     "Beak Dog Deterrents"
+    ],
+    [
+     "eng",
+     "GOBLINS RIDE THEM. WE STOP THEM."
+    ],
+    [
+     "fine",
+     "Spikes, walls and a strongly worded sign. Effective against goblins who can read."
+    ]
+   ],
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-ad-033",
+   "lines": [
+    [
+     "bk",
+     "Raincoats of {fort}"
+    ],
+    [
+     "eng",
+     "FOR THE SURFACE ONLY"
+    ],
+    [
+     "fine",
+     "It is raining up top. Our coats keep you dry from the gate to the gate."
+    ]
+   ],
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-ad-034",
+   "lines": [
+    [
+     "bk",
+     "Snowmelt Mead Hall"
+    ],
+    [
+     "eng",
+     "HONEY BREWED, WINTER POURED"
+    ],
+    [
+     "fine",
+     "The only drink in the world not made from a plant. Warm your beard by the hearth."
+    ]
+   ],
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "wk-ad-035",
+   "lines": [
+    [
+     "bk",
+     "The Spring Depot Sale"
+    ],
+    [
+     "eng",
+     "THE ELVES ARE COMING"
+    ],
+    [
+     "fine",
+     "Elven caravans trade in spring. Hide the wooden furniture. Display the stone."
+    ]
+   ],
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "wk-ad-036",
+   "lines": [
+    [
+     "bk",
+     "The Summer Depot Sale"
+    ],
+    [
+     "eng",
+     "HUMAN TRADERS EXPECTED"
+    ],
+    [
+     "fine",
+     "Humans trade in summer and like bronze, cloth and anything shiny. We have {cloth} cloth. Act now."
+    ]
+   ],
+   "when": [
+    "summer",
+    "cloth_ok"
+   ]
+  },
+  {
+   "id": "wk-ad-037",
+   "lines": [
+    [
+     "bk",
+     "The Autumn Depot Sale"
+    ],
+    [
+     "eng",
+     "KIN FROM THE MOUNTAINHOMES"
+    ],
+    [
+     "fine",
+     "Our own caravans come in autumn. They pay in coin, complain in Dwarvish, and drink our stores dry."
+    ]
+   ],
+   "when": [
+    "autumn"
+   ]
+  }
+ ],
+ "classifieds": [
+  {
+   "id": "wk-cl-001",
+   "tag": "Wanted",
+   "text": "Bones, shells, cloth or gems, for a citizen in a strange mood at the {moody_shop}. Leave at the door. Do not knock.",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-cl-002",
+   "tag": "For Sale",
+   "text": "One {moody_shop}, slightly haunted by genius. Available now that {artifact_maker} has finished with it.",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-cl-003",
+   "tag": "Wanted",
+   "text": "Engraver for a memorial slab. Subject: {lastdead}. Urgent: the fort would rather not meet them again.",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-cl-004",
+   "tag": "Lost",
+   "text": "One mug, property of the late {lastdead}. Finder may keep it if they fill it once in their memory.",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-cl-005",
+   "tag": "For Sale",
+   "text": "Thread. A great deal of thread. {thread} units of it, to be exact. Make an offer; make any offer.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-cl-006",
+   "tag": "Free",
+   "text": "Kittens. Several. Need no food, climb everything, will adopt you whether you want it or not.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-cl-007",
+   "tag": "Wanted",
+   "text": "Soap. For the hospital. Also for the east corridor. Also, frankly, for the barracks.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "wk-cl-008",
+   "tag": "Services",
+   "text": "Cave moss inspection for indoor pastures. Spoiler: it is growing. Your herd is fine. Fee: one mug.",
+   "when": [
+    "caverns",
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-cl-009",
+   "tag": "Wanted",
+   "text": "A dwarf who knows the difference between a troglodyte and a crundle, to stand at the cavern door and shout the right word.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-cl-010",
+   "tag": "Personal",
+   "text": "Lonely goat seeks companionship in a well-mossed pasture. Enjoys grazing, staring and stairs.",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-cl-011",
+   "tag": "Services",
+   "text": "Brewing tutorials. One plant makes five drinks. Lesson two: drink them."
+  },
+  {
+   "id": "wk-cl-012",
+   "tag": "Wanted",
+   "text": "Barrels. Empty ones. The still has plants and a brewer and nowhere to put the wine.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "wk-cl-013",
+   "tag": "For Sale",
+   "text": "Quarry bush leaves, bagged, uncooked. Not to be eaten raw. Not to be brewed. Not to be argued about."
+  },
+  {
+   "id": "wk-cl-014",
+   "tag": "Lost",
+   "text": "My sense of direction, somewhere on level {depth}. If found, please lead it upstairs.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-cl-015",
+   "tag": "Wanted",
+   "text": "Training dummy, sturdy, with a forgiving nature. {squads} squads on rotation and the old one has applied for retirement.",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-cl-016",
+   "tag": "Services",
+   "text": "Midwifery and babysitting. Infants carried to work at no extra charge. Forges and battlefields declined.",
+   "when": [
+    "birth_week"
+   ]
+  },
+  {
+   "id": "wk-cl-017",
+   "tag": "For Sale",
+   "text": "Wedding gifts, mostly rocks, slightly used. Ask for the newlyweds.",
+   "when": [
+    "marriage_week"
+   ]
+  },
+  {
+   "id": "wk-cl-018",
+   "tag": "Wanted",
+   "text": "Somebody to explain the calendar to the newcomers: twelve months, twenty-eight days each, spring starts on the first of Granite. Patience required.",
+   "when": [
+    "migrants_week"
+   ]
+  },
+  {
+   "id": "wk-cl-019",
+   "tag": "Notice",
+   "text": "To the merchants of {caravan_civ}: the depot is open, the broker is awake, and the prices are, as ever, outrageous."
+  },
+  {
+   "id": "wk-cl-020",
+   "tag": "Wanted",
+   "text": "Bees. Any number. For mead, the only drink not made from a plant."
+  },
+  {
+   "id": "wk-cl-021",
+   "tag": "For Sale",
+   "text": "Plump helmets, surplus, by the barrel. We are drowning in them. Please rescue us.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "wk-cl-022",
+   "tag": "Services",
+   "text": "Vampire spotting. We watch who skips meals and sleep. Fee: discreet.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "wk-cl-023",
+   "tag": "Lost",
+   "text": "One crossbow bolt, last seen heading for {enemy}. If found, please return it, point first.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-cl-024",
+   "tag": "Wanted",
+   "text": "Masons, any skill, for the {stone} stones lying in the halls. Turn them into something before somebody trips.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "wk-cl-025",
+   "tag": "For Sale",
+   "text": "Gems, rough, in quantity: we have {gems}. Cutters wanted; setters preferred.",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "wk-cl-026",
+   "tag": "Wanted",
+   "text": "Smiths, with ore. We have {bars} bars and a militia with opinions.",
+   "when": [
+    "bars_low"
+   ]
+  },
+  {
+   "id": "wk-cl-027",
+   "tag": "Services",
+   "text": "Miasma removal. Bring us your rotten, your forgotten, your roast left under a bed."
+  },
+  {
+   "id": "wk-cl-028",
+   "tag": "Personal",
+   "text": "{citizen} wishes to apologise to the carp. The carp has not responded."
+  },
+  {
+   "id": "wk-cl-029",
+   "tag": "Wanted",
+   "text": "Gatherers for the surface, any weather except this one.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-cl-030",
+   "tag": "Wanted",
+   "text": "Snow shovellers, for the gate. Warm boots supplied. Warm feet not guaranteed.",
+   "when": [
+    "snow"
+   ]
+  }
+ ],
+ "notices": [
+  {
+   "id": "wk-nt-001",
+   "text": "Please do not disturb the {moody_shop}.",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-nt-002",
+   "text": "{artifact_new} is on display. Look, admire, move along.",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-nt-003",
+   "text": "Slab for {lastdead} in progress. Masons, take your time; get it right.",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-nt-004",
+   "text": "Cats need no feeding. Please stop feeding the cats.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-nt-005",
+   "text": "The cavern doors stay shut.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-nt-006",
+   "text": "Thread orders suspended until further notice.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-nt-007",
+   "text": "No quarry bush leaves in the salad."
+  },
+  {
+   "id": "wk-nt-008",
+   "text": "Brewers: one plant, five drinks. Keep going.",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "wk-nt-009",
+   "text": "Last barrels: ration with dignity.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "wk-nt-010",
+   "text": "Stores are low. Farmers to the plots.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "wk-nt-011",
+   "text": "The hospital needs soap.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "wk-nt-012",
+   "text": "Bury your dead or meet them again.",
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "wk-nt-013",
+   "text": "Training rota posted at the barracks.",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "wk-nt-014",
+   "text": "The depot is quiet. The broker naps.",
+   "when": [
+    "no_caravan_here"
+   ]
+  },
+  {
+   "id": "wk-nt-015",
+   "text": "Merchants at the depot. Brokers to your posts.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "wk-nt-016",
+   "text": "Rain above. Dry below. As designed.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-nt-017",
+   "text": "Snow at the gate. Watch your step.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "wk-nt-018",
+   "text": "Welcome, newcomers. Beds are coming.",
+   "when": [
+    "migrants_week"
+   ]
+  },
+  {
+   "id": "wk-nt-019",
+   "text": "Quiet in the nursery, please.",
+   "when": [
+    "birth_week"
+   ]
+  },
+  {
+   "id": "wk-nt-020",
+   "text": "Congratulations to the newlyweds.",
+   "when": [
+    "marriage_week"
+   ]
+  },
+  {
+   "id": "wk-nt-021",
+   "text": "Haul your refuse. Miasma is everyone's problem."
+  },
+  {
+   "id": "wk-nt-022",
+   "text": "Masterworks: handle with care.",
+   "when": [
+    "masterpiece_week"
+   ]
+  },
+  {
+   "id": "wk-nt-023",
+   "text": "New Year falls on the first of Granite.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "wk-nt-024",
+   "text": "Pig tails: plant before autumn ends.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "wk-nt-025",
+   "text": "Sweet pods: spring and summer only.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "wk-nt-026",
+   "text": "No caravans in winter. Plan ahead.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "wk-nt-027",
+   "text": "Peace holds. Train anyway.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "wk-nt-028",
+   "text": "At war with {enemy}. Doors shut.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-nt-029",
+   "text": "Grazers on moss: all is well.",
+   "when": [
+    "caverns",
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-nt-030",
+   "text": "Mind the aquifer."
+  }
+ ],
+ "almanac": [
+  {
+   "id": "wk-al-001",
+   "text": "{month}, in the {season}. Plump helmets will grow; so will the list of chores."
+  },
+  {
+   "id": "wk-al-002",
+   "text": "Spring: the elven caravans set out, sweet pods go in, and the first of Granite starts the year.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "wk-al-003",
+   "text": "Summer: humans on the roads, pig tails and sweet pods in the plots, and the brook running warm.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "wk-al-004",
+   "text": "Autumn: the dwarven caravan comes from the Mountainhomes, and the last pig tails are planted.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "wk-al-005",
+   "text": "Winter: no caravans on the roads, plump helmets still in the plots, and the river, in colder lands, a floor.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "wk-al-006",
+   "text": "Twenty-eight days to every month, three months to every season, and not one day off."
+  },
+  {
+   "id": "wk-al-007",
+   "text": "A dwarf drinks about five times a season. Plan the brewing accordingly."
+  },
+  {
+   "id": "wk-al-008",
+   "text": "A caravan leaves twenty-five to thirty-three days after it arrives, with about four days' warning.",
+   "when": [
+    "caravan_week"
+   ]
+  },
+  {
+   "id": "wk-al-009",
+   "text": "Forgotten beasts are drawn by wealth and noise; titans by wealth and numbers. Keep at least one of the four low."
+  },
+  {
+   "id": "wk-al-010",
+   "text": "Werebeasts change at the full moon. Check the sky, if you can find it."
+  },
+  {
+   "id": "wk-al-011",
+   "text": "Ghosts may rise within three months of an unburied death. The masons have three months.",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-al-012",
+   "text": "Miasma only forms underground. Above ground, rot is the sky's problem."
+  },
+  {
+   "id": "wk-al-013",
+   "text": "The fort is {fort_days} days old today."
+  },
+  {
+   "id": "wk-al-014",
+   "text": "Weather: {weather}. Below ground: dark, damp, delightful."
+  }
+ ],
+ "trivia": [
+  {
+   "id": "wk-tv-001",
+   "text": "Did you know? Every artifact in the world was made by a dwarf in a strange mood, and no dwarf makes more than one in a lifetime."
+  },
+  {
+   "id": "wk-tv-002",
+   "text": "Did you know? A dwarf in a strange mood will not stop to eat, drink or sleep. Only the birth of a child interrupts the work, and then only briefly.",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-tv-003",
+   "text": "Did you know? Moods come in five kinds: fey, secretive, possessed, fell and macabre. Only the last two are a worry, and they are a big one."
+  },
+  {
+   "id": "wk-tv-004",
+   "text": "Did you know? Brewing turns every plant into five units of drink, whatever the brewer's skill, and gives the seed back."
+  },
+  {
+   "id": "wk-tv-005",
+   "text": "Did you know? Cooking a plant destroys its seed. Brewing it, or eating it raw, does not."
+  },
+  {
+   "id": "wk-tv-006",
+   "text": "Did you know? Plump helmets can be planted in any season, and are the only plant food that can be bought for an embark."
+  },
+  {
+   "id": "wk-tv-007",
+   "text": "Did you know? Honey brews into mead, the only drink in the world not made from a plant or fruit."
+  },
+  {
+   "id": "wk-tv-008",
+   "text": "Did you know? Fortress cats and dogs need no food. Cats are born legendary climbers.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-tv-009",
+   "text": "Did you know? Modern carp are nearly as heavy as a dwarf and entirely harmless. Their ancestors were not."
+  },
+  {
+   "id": "wk-tv-010",
+   "text": "Did you know? Giant cave spiders are the size of grizzly bears and live in the deeper caverns.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-tv-011",
+   "text": "Did you know? Crundles arrive in packs of fifteen to twenty, and every one is born an adult.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-tv-012",
+   "text": "Did you know? Fire imps come up from the magma sea in groups of three or four and throw fireballs.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-tv-013",
+   "text": "Did you know? A world like ours has three cavern layers, and they have open edges, so creatures wander in and out.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-tv-014",
+   "text": "Did you know? Once a cavern with cave moss is opened, the moss can spread over any underground soil, which is why an indoor pasture works.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-tv-015",
+   "text": "Did you know? Elves trade in spring, humans in summer, dwarves in autumn, and nobody trades in winter."
+  },
+  {
+   "id": "wk-tv-016",
+   "text": "Did you know? A caravan that can't find a path to the trade depot won't come in at all."
+  },
+  {
+   "id": "wk-tv-017",
+   "text": "Did you know? A fort elects a mayor, usually its most sociable dwarf, once it reaches fifty citizens.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "wk-tv-018",
+   "text": "Did you know? The outpost liaison lives at the capital and visits each year to agree what the next caravan brings."
+  },
+  {
+   "id": "wk-tv-019",
+   "text": "Did you know? Unmet needs cost a dwarf focus, and an unfocused dwarf makes worse crafts and parries worse."
+  },
+  {
+   "id": "wk-tv-020",
+   "text": "Did you know? A dwarf who is not buried or memorialised may return as a ghost to haunt the place where they died."
+  },
+  {
+   "id": "wk-tv-021",
+   "text": "Did you know? Prepared meals count as every one of their ingredients when it comes to a dwarf's favourite foods."
+  },
+  {
+   "id": "wk-tv-022",
+   "text": "Did you know? A dwarf who drinks the same booze too often gets tired of it, and says so."
+  },
+  {
+   "id": "wk-tv-023",
+   "text": "Did you know? Vampires never eat, drink or sleep, and sometimes arrive hidden in a migrant wave.",
+   "when": [
+    "migrants_week"
+   ]
+  },
+  {
+   "id": "wk-tv-024",
+   "text": "Did you know? Titans are the surface cousins of forgotten beasts, and both are made fresh for every world."
+  },
+  {
+   "id": "wk-tv-025",
+   "text": "Did you know? Magma forges, smelters and glass furnaces need no fuel at all.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-tv-026",
+   "text": "Did you know? Sweet pods grow only in spring and summer; pig tails only in summer and autumn."
+  },
+  {
+   "id": "wk-tv-027",
+   "text": "Did you know? A dwarf who makes an artifact gains a huge leap in skill in that craft, often straight to legendary.",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-tv-028",
+   "text": "Did you know? Performers entertain at taverns and temples alike, with stories, dance, poetry and music.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-tv-029",
+   "text": "Did you know? Libraries need bookshelves for books and chests for writing materials, and a reader leaves with a happy thought.",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "wk-tv-030",
+   "text": "Did you know? A hospital keeps its own thread, cloth, splints, crutches, plaster, buckets and soap.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "wk-tv-031",
+   "text": "Did you know? This fort holds {drinks} drinks, {meals} meals and {plants} plants as of this edition."
+  }
+ ],
+ "proverbs": [
+  {
+   "id": "wk-pv-001",
+   "text": "One plant, five mugs, and the seed comes home."
+  },
+  {
+   "id": "wk-pv-002",
+   "text": "Cook the helmet, lose the spawn."
+  },
+  {
+   "id": "wk-pv-003",
+   "text": "The cat chooses the dwarf."
+  },
+  {
+   "id": "wk-pv-004",
+   "text": "Dig deep, dig quiet."
+  },
+  {
+   "id": "wk-pv-005",
+   "text": "Bury the dead or set a place for them."
+  },
+  {
+   "id": "wk-pv-006",
+   "text": "A mood waits for nothing, least of all you."
+  },
+  {
+   "id": "wk-pv-007",
+   "text": "Wealth draws the beast; noise shows it the way."
+  },
+  {
+   "id": "wk-pv-008",
+   "text": "No caravan comes in winter, and no excuse does either."
+  },
+  {
+   "id": "wk-pv-009",
+   "text": "The same old booze is a fine reason to brew a new one."
+  },
+  {
+   "id": "wk-pv-010",
+   "text": "A masterwork lost is a grudge found."
+  },
+  {
+   "id": "wk-pv-011",
+   "text": "Spring for elves, summer for men, autumn for kin."
+  },
+  {
+   "id": "wk-pv-012",
+   "text": "Never eat a quarry bush raw twice."
+  },
+  {
+   "id": "wk-pv-013",
+   "text": "The deeper the stair, the hotter the welcome."
+  },
+  {
+   "id": "wk-pv-014",
+   "text": "A crundle alone is a joke; twenty is a story."
+  },
+  {
+   "id": "wk-pv-015",
+   "text": "Moss feeds the goat; the goat feeds the fort."
+  },
+  {
+   "id": "wk-pv-016",
+   "text": "Thread spun is not cloth woven."
+  },
+  {
+   "id": "wk-pv-017",
+   "text": "A dwarf without focus parries the air."
+  },
+  {
+   "id": "wk-pv-018",
+   "text": "Every artifact is one dwarf's whole life, made small."
+  },
+  {
+   "id": "wk-pv-019",
+   "text": "When the merchants give four days' notice, take three."
+  },
+  {
+   "id": "wk-pv-020",
+   "text": "The carp forgives; the ankle does not."
+  }
+ ],
+ "ears": [
+  {
+   "id": "wk-er-001",
+   "text": "Mood watch: day {moody_days}",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-er-002",
+   "text": "Now with artifact",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-er-003",
+   "text": "Printed in mourning",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-er-004",
+   "text": "Cats: {cats}",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-er-005",
+   "text": "{soldiers} soldiers can't be wrong",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-er-006",
+   "text": "Read in the tavern",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-er-007",
+   "text": "Rain-proof edition",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-er-008",
+   "text": "Snowbound edition",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "wk-er-009",
+   "text": "{depth} levels deep",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-er-010",
+   "text": "Thread not included",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-er-011",
+   "text": "Brewed with five mugs to the plant"
+  },
+  {
+   "id": "wk-er-012",
+   "text": "Approved by the cats",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-er-013",
+   "text": "War edition",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "wk-er-014",
+   "text": "Peace edition",
+   "when": [
+    "peace"
+   ]
+  }
+ ],
+ "help_wanted": [
+  {
+   "id": "wk-hw-001",
+   "text": "BREWER: one plant in, five drinks out. Must enjoy arithmetic and the smell of fermenting mushrooms.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "wk-hw-002",
+   "text": "TAVERN KEEPER: pour drinks, break up brawls, remember everyone's name and none of their secrets.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-hw-003",
+   "text": "PERFORMER: poets, dancers, storytellers and musicians wanted for the tavern and the temple. Heckling hazard pay available.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-hw-004",
+   "text": "SCRIBE: copy books for the library. Must have a steady hand and a tolerance for miners who nap on the shelves.",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "wk-hw-005",
+   "text": "DOCTOR: diagnosis, surgery, bone setting and sutures. Must not faint. Soap provided, eventually.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "wk-hw-006",
+   "text": "WEAVER: {thread} units of thread are waiting. Looms provided. Patience essential.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-hw-007",
+   "text": "BUTCHER: the herd is large, the meat stores are small. Steady hands, strong stomach.",
+   "when": [
+    "meat_low",
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-hw-008",
+   "text": "FISHERDWARF: the carp are harmless now, the pay is fair, and the river is right there.",
+   "when": [
+    "no_fish"
+   ]
+  },
+  {
+   "id": "wk-hw-009",
+   "text": "MASON: slabs and coffins, urgently. The catacombs must be ready.",
+   "when": [
+    "death_week"
+   ]
+  },
+  {
+   "id": "wk-hw-010",
+   "text": "GEM CUTTER: {gems} rough gems await. Eyes like a hawk, hands like a surgeon.",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "wk-hw-011",
+   "text": "CAVERN SCOUT: report on crundles, troglodytes and anything larger. Hazard pay, and a door that locks.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-hw-012",
+   "text": "FARMER: plump helmets in any season, pig tails in summer and autumn. Muddy boots supplied.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "wk-hw-013",
+   "text": "BROKER: the merchants are here and somebody has to haggle. Must know fine from superior at twenty paces.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "wk-hw-014",
+   "text": "SOLDIER: {squads} squads train on rotation through the year. Join one; get every other month to complain about it.",
+   "when": [
+    "has_military"
+   ]
+  }
+ ],
+ "weather_jokes": [
+  {
+   "id": "wk-wj-001",
+   "text": "Rain over {fort}. The gatherers are wet, the farms below are as damp as ever, and the cats have gone back to bed.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-wj-002",
+   "text": "Heavy weather up top. Down here: the usual drip, the usual dark, the usual complaining.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-wj-003",
+   "text": "Snow at the gate. In colder lands the river becomes a floor; in ours it becomes an excuse.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "wk-wj-004",
+   "text": "Clear skies over {fort}. Somebody will suggest a picnic. Somebody will suggest it at the cavern door. Do not go.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "wk-wj-005",
+   "text": "Fine and clear, {season}. Perfect weather for staying underground and hearing about it.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "wk-wj-006",
+   "text": "Forecast for the caverns: dark, damp, with a chance of crundles.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-wj-007",
+   "text": "Forecast for level {depth}: warm, and getting warmer.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "wk-wj-008",
+   "text": "{season}: no change below ground. There never is. That is the whole point."
+  },
+  {
+   "id": "wk-wj-009",
+   "text": "In evil lands it rains blood and worse. Here, it merely rains. Count your blessings, and your buckets.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "wk-wj-010",
+   "text": "Winter weather reported. No caravans on the roads until spring, so the broker has gone into hibernation.",
+   "when": [
+    "winter"
+   ]
+  }
+ ],
+ "corrections": [
+  {
+   "id": "wk-cr-001",
+   "text": "In yesterday's Bestiary we described the carp as 'harmless'. One reader's ankle has written in to disagree. We stand by the scholars."
+  },
+  {
+   "id": "wk-cr-002",
+   "text": "We wrongly reported that cats need feeding. They do not. We apologise to the cats, who were insulted, and to the cook, who was relieved.",
+   "when": [
+    "cats"
+   ]
+  },
+  {
+   "id": "wk-cr-003",
+   "text": "A notice in our last edition suggested quarry bush leaves 'make a nice salad'. They do not. They must be cooked. The hospital has asked us to say this twice. They must be cooked."
+  },
+  {
+   "id": "wk-cr-004",
+   "text": "Our obituaries page shortened a cause of death to a single word. We have restored the full wording, which the family preferred.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "wk-cr-005",
+   "text": "We said the elven caravan comes in autumn. Elves come in spring; our own kin come in autumn. The broker, who was waiting in the wrong season, has been informed."
+  },
+  {
+   "id": "wk-cr-006",
+   "text": "We misreported the number of days in a year as 365. It is 336. Our correspondent has been sent back to school, which is also 336 days long."
+  },
+  {
+   "id": "wk-cr-007",
+   "text": "Our report on the mood at the {moody_shop} described it as 'probably fine'. We have been asked to stop saying 'probably'.",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-cr-008",
+   "text": "We named the wrong maker for {artifact_new}. It was {artifact_maker}. We regret the error and the shouting.",
+   "when": [
+    "mood_done"
+   ]
+  }
+ ],
+ "scores": [
+  {
+   "id": "wk-sc-001",
+   "text": "Squad Rotation {squads}, Days Off 0",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-sc-002",
+   "text": "Cats {cats}, Vermin 0",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-sc-003",
+   "text": "Thread {thread}, Looms Exhausted",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "wk-sc-004",
+   "text": "Plump Helmets 5, Brewer 1 (drinks five to one)"
+  },
+  {
+   "id": "wk-sc-005",
+   "text": "Crundles 20, Cavern Door 1 (door holds)",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "wk-sc-006",
+   "text": "Carp 0, Ankles 1 (disputed)"
+  },
+  {
+   "id": "wk-sc-007",
+   "text": "Mood {moody_days} days, Patience 0",
+   "when": [
+    "mood_open"
+   ]
+  },
+  {
+   "id": "wk-sc-008",
+   "text": "Artifact 1, Doubters 0",
+   "when": [
+    "mood_done"
+   ]
+  },
+  {
+   "id": "wk-sc-009",
+   "text": "Goats 1, Stairs 1 (rematch scheduled)",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "wk-sc-010",
+   "text": "Rain 1, Gatherers 0",
+   "when": [
+    "rain"
+   ]
+  }
+ ],
+ "sports": [
+  {
+   "id": "wk-sp-001",
+   "head": "TRAINING ROTATION ENTERS ANOTHER MONTH",
+   "body": "With {squads} squads taking turns at the barracks, the fort has a soldier awake at every hour of every day. Our sporting correspondent watched one sparring session and has asked for a cushion.",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "wk-sp-002",
+   "head": "TAVERN BRAWL ENDS IN A DRAW",
+   "body": "The keeper broke it up, the performers kept playing, and both parties bought the other a drink, which they then threw. Officials have ruled it a draw and the keeper has ruled them both out until next week.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "wk-sp-003",
+   "head": "CAT CLIMBING CHAMPIONSHIP: EVERYONE WINS",
+   "body": "Every cat is born a legendary climber, which made the judges' job difficult. All {cats} entrants were awarded first place. The judges were awarded scratches.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "wk-sp-004",
+   "head": "CRUNDLE HUNT CALLED OFF FOR LACK OF CRUNDLES",
+   "body": "The militia arrived at the cavern ready for a pack of twenty. They found one, and it ran. Season standings unaffected.",
+   "when": [
+    "caverns",
+    "has_military"
+   ]
+  }
+ ]
+}
