@@ -1,0 +1,2346 @@
+{
+ "kinds": {
+  "beast": {
+   "heads": [
+    {
+     "id": "t2-b-forgotten-h-1",
+     "text": "FORGOTTEN BEAST ATTACKS {fort}",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-h-2",
+     "text": "A FORGOTTEN BEAST FROM THE CAVERNS",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-h-3",
+     "text": "FORGOTTEN BEAST! TO ARMS!",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-h-4",
+     "text": "THE FORGOTTEN BEAST IS HERE",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-h-5",
+     "text": "{fort} FACES A FORGOTTEN BEAST",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-h-6",
+     "text": "BEWARE THE FORGOTTEN BEAST",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-h-1",
+     "text": "TITAN ATTACKS {fort}",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-h-2",
+     "text": "A TITAN FROM THE WILDS",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-h-3",
+     "text": "TITAN! TO ARMS!",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-h-4",
+     "text": "THE TITAN IS HERE",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-h-5",
+     "text": "{fort} FACES A TITAN",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-h-6",
+     "text": "BEWARE THE TITAN",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-h-1",
+     "text": "WEREBEAST ATTACKS {fort}",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-h-2",
+     "text": "A WEREBEAST FROM THE NIGHT",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-h-3",
+     "text": "WEREBEAST! TO ARMS!",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-h-4",
+     "text": "THE WEREBEAST IS HERE",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-h-5",
+     "text": "{fort} FACES A WEREBEAST",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-h-6",
+     "text": "BEWARE THE WEREBEAST",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-h-1",
+     "text": "MONSTER ATTACKS {fort}",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-h-2",
+     "text": "A MONSTER FROM THE FAR MOUNTAINS",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-h-3",
+     "text": "MONSTER! TO ARMS!",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-h-4",
+     "text": "THE MONSTER IS HERE",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-h-5",
+     "text": "{fort} FACES A MONSTER",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-h-6",
+     "text": "BEWARE THE MONSTER",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-h-1",
+     "text": "BEAST ATTACKS {fort}",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-h-2",
+     "text": "A BEAST FROM THE WILDS",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-h-3",
+     "text": "BEAST! TO ARMS!",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-h-4",
+     "text": "THE BEAST IS HERE",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-h-5",
+     "text": "{fort} FACES A BEAST",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-h-6",
+     "text": "BEWARE THE BEAST",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "reps": [
+    {
+     "id": "t2-b-forgotten-r-1",
+     "text": "A forgotten beast crawled up out of the dark. Citizens are asked to seal the cavern doors and call the squads, and to keep well clear of whatever it breathes or spits.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-r-2",
+     "text": "The forgotten beast came from the caverns. The militia is moving; everyone else is moving the other way.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-r-3",
+     "text": "Elders say a forgotten beast is to be respected and avoided. The Herald agrees: seal the cavern doors and call the squads.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-r-4",
+     "text": "The fort's plan for the forgotten beast is simple: seal the cavern doors and call the squads. The fort's fear is also simple: whatever it breathes or spits.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-r-5",
+     "text": "A forgotten beast has come to {fort}. If you see it, you are too close.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-r-1",
+     "text": "A titan strode in over the hills. Citizens are asked to close the gate and man the walls, and to keep well clear of its size, mostly.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-r-2",
+     "text": "The titan came from the wilds. The militia is moving; everyone else is moving the other way.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-r-3",
+     "text": "Elders say a titan is to be respected and avoided. The Herald agrees: close the gate and man the walls.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-r-4",
+     "text": "The fort's plan for the titan is simple: close the gate and man the walls. The fort's fear is also simple: its size, mostly.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-r-5",
+     "text": "A titan has come to {fort}. If you see it, you are too close.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-r-1",
+     "text": "A werebeast came howling out of the dark. Citizens are asked to keep everyone inside until the moon passes, and to keep well clear of its bite, which spreads the curse.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-r-2",
+     "text": "The werebeast came from the night. The militia is moving; everyone else is moving the other way.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-r-3",
+     "text": "Elders say a werebeast is to be respected and avoided. The Herald agrees: keep everyone inside until the moon passes.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-r-4",
+     "text": "The fort's plan for the werebeast is simple: keep everyone inside until the moon passes. The fort's fear is also simple: its bite, which spreads the curse.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-r-5",
+     "text": "A werebeast has come to {fort}. If you see it, you are too close.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-r-1",
+     "text": "A great monster arrived like a storm. Citizens are asked to send the best squad and pray, and to keep well clear of everything about it.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-r-2",
+     "text": "The great monster came from the far mountains. The militia is moving; everyone else is moving the other way.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-r-3",
+     "text": "Elders say a great monster is to be respected and avoided. The Herald agrees: send the best squad and pray.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-r-4",
+     "text": "The fort's plan for the great monster is simple: send the best squad and pray. The fort's fear is also simple: everything about it.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-r-5",
+     "text": "A great monster has come to {fort}. If you see it, you are too close.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-r-1",
+     "text": "A beast showed up uninvited. Citizens are asked to keep clear and let the militia handle it, and to keep well clear of its teeth.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-r-2",
+     "text": "The beast came from the wilds. The militia is moving; everyone else is moving the other way.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-r-3",
+     "text": "Elders say a beast is to be respected and avoided. The Herald agrees: keep clear and let the militia handle it.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-r-4",
+     "text": "The fort's plan for the beast is simple: keep clear and let the militia handle it. The fort's fear is also simple: its teeth.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-r-5",
+     "text": "A beast has come to {fort}. If you see it, you are too close.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "kickers": [
+    {
+     "id": "t2-b-forgotten-k-1",
+     "text": "Stay inside. Seal the cavern doors and call the squads.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-k-2",
+     "text": "Squads to their posts.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-k-3",
+     "text": "Do not feed the forgotten beast.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-forgotten-k-4",
+     "text": "More news as it happens.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-k-1",
+     "text": "Stay inside. Close the gate and man the walls.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-k-2",
+     "text": "Squads to their posts.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-k-3",
+     "text": "Do not feed the titan.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-titan-k-4",
+     "text": "More news as it happens.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-k-1",
+     "text": "Stay inside. Keep everyone inside until the moon passes.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-k-2",
+     "text": "Squads to their posts.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-k-3",
+     "text": "Do not feed the werebeast.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-were-k-4",
+     "text": "More news as it happens.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-k-1",
+     "text": "Stay inside. Send the best squad and pray.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-k-2",
+     "text": "Squads to their posts.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-k-3",
+     "text": "Do not feed the great monster.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-mega-k-4",
+     "text": "More news as it happens.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-k-1",
+     "text": "Stay inside. Keep clear and let the militia handle it.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-k-2",
+     "text": "Squads to their posts.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-k-3",
+     "text": "Do not feed the beast.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-b-other-k-4",
+     "text": "More news as it happens.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    }
+   ]
+  }
+ },
+ "scenes": {
+  "death-thirst": {
+   "caps": [
+    {
+     "id": "t2-ds-thirst-c-1",
+     "text": "A memorial for {who}, who died of thirst beside a fort full of drink. Our artist drew it plainly.",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-thirst-c-2",
+     "text": "The scene, sketched with care: {first} died of thirst. The fort is asked to drink something today, and make sure your friends do too.",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-thirst-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: a drink at every meal.",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-thirst-c-4",
+     "text": "The place where {first} died of thirst. Friends have left small things beside the slab.",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-thirst-c-5",
+     "text": "A quiet drawing for a sad day. {who} died of thirst.",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-thirst-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-thirst-h-2",
+     "text": "{first} DIED OF THIRST",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-thirst-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-thirst-l-1",
+     "text": "THIRST",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-thirst-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_thirst"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-hunger": {
+   "caps": [
+    {
+     "id": "t2-ds-hunger-c-1",
+     "text": "A memorial for {who}, who starved while the larder sat too far away. Our artist drew it plainly.",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-hunger-c-2",
+     "text": "The scene, sketched with care: {first} starved. The fort is asked to eat something today, and share it.",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-hunger-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: more farm plots.",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-hunger-c-4",
+     "text": "The place where {first} starved. Friends have left small things beside the slab.",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-hunger-c-5",
+     "text": "A quiet drawing for a sad day. {who} starved.",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-hunger-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-hunger-h-2",
+     "text": "{first} STARVED",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-hunger-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-hunger-l-1",
+     "text": "HUNGER",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-hunger-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_hunger"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-battle": {
+   "caps": [
+    {
+     "id": "t2-ds-combat-c-1",
+     "text": "A memorial for {who}, who was struck down with their weapon in hand. Our artist drew it plainly.",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-combat-c-2",
+     "text": "The scene, sketched with care: {first} was struck down. The fort is asked to train hard and stand together.",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-combat-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: a fuller squad.",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-combat-c-4",
+     "text": "The place where {first} was struck down. Friends have left small things beside the slab.",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-combat-c-5",
+     "text": "A quiet drawing for a sad day. {who} was struck down.",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-c-1",
+     "text": "A memorial for {who}, who bled to death before help could arrive. Our artist drew it plainly.",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-c-2",
+     "text": "The scene, sketched with care: {first} bled to death. The fort is asked to keep the hospital stocked and the doctor sober.",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: splints and thread on hand.",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-c-4",
+     "text": "The place where {first} bled to death. Friends have left small things beside the slab.",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-c-5",
+     "text": "A quiet drawing for a sad day. {who} bled to death.",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-combat-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-combat-h-2",
+     "text": "{first} WAS STRUCK DOWN",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-combat-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-h-2",
+     "text": "{first} BLED TO DEATH",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-combat-l-1",
+     "text": "FALLEN",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-combat-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_combat"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-l-1",
+     "text": "BLED OUT",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-bleeding-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_bleeding"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-drowning": {
+   "caps": [
+    {
+     "id": "t2-ds-drowning-c-1",
+     "text": "A memorial for {who}, who drowned in deep water. Our artist drew it plainly.",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-drowning-c-2",
+     "text": "The scene, sketched with care: {first} drowned. The fort is asked to keep out of deep water and away from open channels.",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-drowning-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: a bridge.",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-drowning-c-4",
+     "text": "The place where {first} drowned. Friends have left small things beside the slab.",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-drowning-c-5",
+     "text": "A quiet drawing for a sad day. {who} drowned.",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-drowning-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-drowning-h-2",
+     "text": "{first} DROWNED",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-drowning-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-drowning-l-1",
+     "text": "DROWNED",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-drowning-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_drowning"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-vampire": {
+   "caps": [
+    {
+     "id": "t2-ds-vampire-c-1",
+     "text": "A memorial for {who}, who was found drained of blood in the dark of night. Our artist drew it plainly.",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-vampire-c-2",
+     "text": "The scene, sketched with care: {first} was found drained of blood. The fort is asked to sleep with your door shut and your wits about you.",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-vampire-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: locks on every bedroom.",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-vampire-c-4",
+     "text": "The place where {first} was found drained of blood. Friends have left small things beside the slab.",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-vampire-c-5",
+     "text": "A quiet drawing for a sad day. {who} was found drained of blood.",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-vampire-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-vampire-h-2",
+     "text": "{first} WAS FOUND DRAINED OF BLOOD",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-vampire-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-vampire-l-1",
+     "text": "BLOODLESS",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-vampire-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_vampire"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-collapse": {
+   "caps": [
+    {
+     "id": "t2-ds-collapse-c-1",
+     "text": "A memorial for {who}, who was crushed beneath falling stone. Our artist drew it plainly.",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-collapse-c-2",
+     "text": "The scene, sketched with care: {first} was crushed. The fort is asked to check your ceilings and your supports.",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-collapse-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: an engineer's eye.",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-collapse-c-4",
+     "text": "The place where {first} was crushed. Friends have left small things beside the slab.",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-collapse-c-5",
+     "text": "A quiet drawing for a sad day. {who} was crushed.",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-collapse-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-collapse-h-2",
+     "text": "{first} WAS CRUSHED",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-collapse-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-collapse-l-1",
+     "text": "CRUSHED",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-collapse-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_collapse"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-fire": {
+   "caps": [
+    {
+     "id": "t2-ds-fire-c-1",
+     "text": "A memorial for {who}, who burned to death among the flames. Our artist drew it plainly.",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fire-c-2",
+     "text": "The scene, sketched with care: {first} burned to death. The fort is asked to keep water handy and fire far away.",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fire-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: careful forges.",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fire-c-4",
+     "text": "The place where {first} burned to death. Friends have left small things beside the slab.",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fire-c-5",
+     "text": "A quiet drawing for a sad day. {who} burned to death.",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-fire-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fire-h-2",
+     "text": "{first} BURNED TO DEATH",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fire-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-fire-l-1",
+     "text": "BURNED",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fire-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_fire"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-fall": {
+   "caps": [
+    {
+     "id": "t2-ds-fall-c-1",
+     "text": "A memorial for {who}, who fell to their death from a great height. Our artist drew it plainly.",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fall-c-2",
+     "text": "The scene, sketched with care: {first} fell to their death. The fort is asked to mind the edges and build railings.",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fall-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: fewer holes.",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fall-c-4",
+     "text": "The place where {first} fell to their death. Friends have left small things beside the slab.",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fall-c-5",
+     "text": "A quiet drawing for a sad day. {who} fell to their death.",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-fall-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fall-h-2",
+     "text": "{first} FELL TO THEIR DEATH",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fall-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-fall-l-1",
+     "text": "A FALL",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-fall-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_fall"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-age": {
+   "caps": [
+    {
+     "id": "t2-ds-age-c-1",
+     "text": "A memorial for {who}, who died of old age after a long and full life. Our artist drew it plainly.",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-age-c-2",
+     "text": "The scene, sketched with care: {first} died of old age. The fort is asked to tell the old stories while the old dwarves can still correct you.",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-age-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: writing it all down.",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-age-c-4",
+     "text": "The place where {first} died of old age. Friends have left small things beside the slab.",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-age-c-5",
+     "text": "A quiet drawing for a sad day. {who} died of old age.",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-age-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-age-h-2",
+     "text": "{first} DIED OF OLD AGE",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-age-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-age-l-1",
+     "text": "OLD AGE",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-age-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_age"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "death-sick": {
+   "caps": [
+    {
+     "id": "t2-ds-infection-c-1",
+     "text": "A memorial for {who}, who succumbed to sickness in the sickbed. Our artist drew it plainly.",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-infection-c-2",
+     "text": "The scene, sketched with care: {first} succumbed to sickness. The fort is asked to keep the hospital clean and the soap stocked.",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-infection-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: a second doctor.",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-infection-c-4",
+     "text": "The place where {first} succumbed to sickness. Friends have left small things beside the slab.",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-infection-c-5",
+     "text": "A quiet drawing for a sad day. {who} succumbed to sickness.",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-c-1",
+     "text": "A memorial for {who}, who suffocated unable to draw breath. Our artist drew it plainly.",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-c-2",
+     "text": "The scene, sketched with care: {first} suffocated. The fort is asked to mind what you breathe down there.",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-c-3",
+     "text": "Our artist's tribute to {first}. Below it, in small letters: better tunnels.",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-c-4",
+     "text": "The place where {first} suffocated. Friends have left small things beside the slab.",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-c-5",
+     "text": "A quiet drawing for a sad day. {who} suffocated.",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ds-infection-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-infection-h-2",
+     "text": "{first} SUCCUMBED TO SICKNESS",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-infection-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-h-1",
+     "text": "SKETCH: FAREWELL TO {first}",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-h-2",
+     "text": "{first} SUFFOCATED",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-h-3",
+     "text": "OUR ARTIST REMEMBERS {first}",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "t2-ds-infection-l-1",
+     "text": "SICKNESS",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-infection-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_infection"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-l-1",
+     "text": "SUFFOCATED",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ds-suffocation-l-2",
+     "text": "IN MEMORY",
+     "fit": [
+      "die_suffocation"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "mood-fey": {
+   "caps": [
+    {
+     "id": "t2-ms-fey-c-1",
+     "text": "{who} in a fey mood, with a far-off, shining look. Our artist kept a respectful distance.",
+     "fit": [
+      "mood_fey"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-fey-c-2",
+     "text": "The fey mood, sketched from the doorway: {first} announced what they would make.",
+     "fit": [
+      "mood_fey"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-fey-c-3",
+     "text": "{first}, fey, and the workshop that is about to become very busy.",
+     "fit": [
+      "mood_fey"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-fey-c-4",
+     "text": "Our artist's impression of a fey mood. The real thing is stranger.",
+     "fit": [
+      "mood_fey"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ms-fey-h-1",
+     "text": "SKETCH: A FEY MOOD",
+     "fit": [
+      "mood_fey"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-fey-h-2",
+     "text": "{first}, FEY, AS DRAWN",
+     "fit": [
+      "mood_fey"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "mood-secretive": {
+   "caps": [
+    {
+     "id": "t2-ms-secretive-c-1",
+     "text": "{who} in a secretive mood, with a closed, private look. Our artist kept a respectful distance.",
+     "fit": [
+      "mood_secretive"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-secretive-c-2",
+     "text": "The secretive mood, sketched from the doorway: {first} started drawing pictures of what they need.",
+     "fit": [
+      "mood_secretive"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-secretive-c-3",
+     "text": "{first}, secretive, and the workshop that is about to become very busy.",
+     "fit": [
+      "mood_secretive"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-secretive-c-4",
+     "text": "Our artist's impression of a secretive mood. The real thing is stranger.",
+     "fit": [
+      "mood_secretive"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ms-secretive-h-1",
+     "text": "SKETCH: A SECRETIVE MOOD",
+     "fit": [
+      "mood_secretive"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-secretive-h-2",
+     "text": "{first}, SECRETIVE, AS DRAWN",
+     "fit": [
+      "mood_secretive"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "mood-possessed": {
+   "caps": [
+    {
+     "id": "t2-ms-possessed-c-1",
+     "text": "{who} in a possessed mood, with eyes that are not quite their own. Our artist kept a respectful distance.",
+     "fit": [
+      "mood_possessed"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-possessed-c-2",
+     "text": "The possessed mood, sketched from the doorway: {first} moved as if pulled by strings.",
+     "fit": [
+      "mood_possessed"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-possessed-c-3",
+     "text": "{first}, possessed, and the workshop that is about to become very busy.",
+     "fit": [
+      "mood_possessed"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-possessed-c-4",
+     "text": "Our artist's impression of a possessed mood. The real thing is stranger.",
+     "fit": [
+      "mood_possessed"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ms-possessed-h-1",
+     "text": "SKETCH: A POSSESSED MOOD",
+     "fit": [
+      "mood_possessed"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-possessed-h-2",
+     "text": "{first}, POSSESSED, AS DRAWN",
+     "fit": [
+      "mood_possessed"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "mood-macabre": {
+   "caps": [
+    {
+     "id": "t2-ms-macabre-c-1",
+     "text": "{who} in a macabre mood, with a dark, brooding scowl. Our artist kept a respectful distance.",
+     "fit": [
+      "mood_macabre"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-macabre-c-2",
+     "text": "The macabre mood, sketched from the doorway: {first} began collecting bones.",
+     "fit": [
+      "mood_macabre"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-macabre-c-3",
+     "text": "{first}, macabre, and the workshop that is about to become very busy.",
+     "fit": [
+      "mood_macabre"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-macabre-c-4",
+     "text": "Our artist's impression of a macabre mood. The real thing is stranger.",
+     "fit": [
+      "mood_macabre"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ms-macabre-h-1",
+     "text": "SKETCH: A MACABRE MOOD",
+     "fit": [
+      "mood_macabre"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-macabre-h-2",
+     "text": "{first}, MACABRE, AS DRAWN",
+     "fit": [
+      "mood_macabre"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "mood-fell": {
+   "caps": [
+    {
+     "id": "t2-ms-fell-c-1",
+     "text": "{who} in a fell mood, with a terrible grin. Our artist kept a respectful distance.",
+     "fit": [
+      "mood_fell"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-fell-c-2",
+     "text": "The fell mood, sketched from the doorway: {first} laughed in a way nobody liked.",
+     "fit": [
+      "mood_fell"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-fell-c-3",
+     "text": "{first}, fell, and the workshop that is about to become very busy.",
+     "fit": [
+      "mood_fell"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-fell-c-4",
+     "text": "Our artist's impression of a fell mood. The real thing is stranger.",
+     "fit": [
+      "mood_fell"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ms-fell-h-1",
+     "text": "SKETCH: A FELL MOOD",
+     "fit": [
+      "mood_fell"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ms-fell-h-2",
+     "text": "{first}, FELL, AS DRAWN",
+     "fit": [
+      "mood_fell"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "strike-gem": {
+   "caps": [
+    {
+     "id": "t2-ss-gem-c-1",
+     "text": "The miner who found {mineral}, sketched mid-cheer. The jewelers are already on their way.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-gem-c-2",
+     "text": "{mineral}, as it looked in the rock. It will be cut into jewels.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-gem-c-3",
+     "text": "Our artist went down the mine for this one: {mineral}, and a very happy miner.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-gem-c-4",
+     "text": "The {mineral} strike, drawn by lamplight. The sparkle was real.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ss-gem-h-1",
+     "text": "SKETCH: THE {mineral} STRIKE",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-gem-h-2",
+     "text": "{mineral}, DRAWN FROM THE MINE",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "strike-ore": {
+   "caps": [
+    {
+     "id": "t2-ss-ore-c-1",
+     "text": "The miner who found {mineral}, sketched mid-cheer. The smelters are already on their way.",
+     "fit": [
+      "ore"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-ore-c-2",
+     "text": "{mineral}, as it looked in the rock. It will be smelted into bars.",
+     "fit": [
+      "ore"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-ore-c-3",
+     "text": "Our artist went down the mine for this one: {mineral}, and a very happy miner.",
+     "fit": [
+      "ore"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-ore-c-4",
+     "text": "The {mineral} strike, drawn by lamplight. The glint was real.",
+     "fit": [
+      "ore"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ss-ore-h-1",
+     "text": "SKETCH: THE {mineral} STRIKE",
+     "fit": [
+      "ore"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-ore-h-2",
+     "text": "{mineral}, DRAWN FROM THE MINE",
+     "fit": [
+      "ore"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "strike-coal": {
+   "caps": [
+    {
+     "id": "t2-ss-coal-c-1",
+     "text": "The miner who found {mineral}, sketched mid-cheer. The furnace operators are already on their way.",
+     "fit": [
+      "coal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-coal-c-2",
+     "text": "{mineral}, as it looked in the rock. It will be burned in the furnaces.",
+     "fit": [
+      "coal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-coal-c-3",
+     "text": "Our artist went down the mine for this one: {mineral}, and a very happy miner.",
+     "fit": [
+      "coal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-coal-c-4",
+     "text": "The {mineral} strike, drawn by lamplight. The soot was real.",
+     "fit": [
+      "coal"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ss-coal-h-1",
+     "text": "SKETCH: THE {mineral} STRIKE",
+     "fit": [
+      "coal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-coal-h-2",
+     "text": "{mineral}, DRAWN FROM THE MINE",
+     "fit": [
+      "coal"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "strike-stone": {
+   "caps": [
+    {
+     "id": "t2-ss-stone-c-1",
+     "text": "The miner who found {mineral}, sketched mid-cheer. The masons are already on their way.",
+     "fit": [
+      "stone"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-stone-c-2",
+     "text": "{mineral}, as it looked in the rock. It will be cut into blocks.",
+     "fit": [
+      "stone"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-stone-c-3",
+     "text": "Our artist went down the mine for this one: {mineral}, and a very happy miner.",
+     "fit": [
+      "stone"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-stone-c-4",
+     "text": "The {mineral} strike, drawn by lamplight. The weight was real.",
+     "fit": [
+      "stone"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-ss-stone-h-1",
+     "text": "SKETCH: THE {mineral} STRIKE",
+     "fit": [
+      "stone"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-ss-stone-h-2",
+     "text": "{mineral}, DRAWN FROM THE MINE",
+     "fit": [
+      "stone"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "beast-squad": {
+   "caps": [
+    {
+     "id": "t2-bs-forgotten-c-1",
+     "text": "The forgotten beast, sketched from a very safe distance, and a soldier facing it.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-forgotten-c-2",
+     "text": "Our artist's impression of the forgotten beast. Our artist is now under a table.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-forgotten-c-3",
+     "text": "The forgotten beast and the militia. Only one of them was invited.",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-titan-c-1",
+     "text": "The titan, sketched from a very safe distance, and a soldier facing it.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-titan-c-2",
+     "text": "Our artist's impression of the titan. Our artist is now under a table.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-titan-c-3",
+     "text": "The titan and the militia. Only one of them was invited.",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-were-c-1",
+     "text": "The werebeast, sketched from a very safe distance, and a soldier facing it.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-were-c-2",
+     "text": "Our artist's impression of the werebeast. Our artist is now under a table.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-were-c-3",
+     "text": "The werebeast and the militia. Only one of them was invited.",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-mega-c-1",
+     "text": "The great monster, sketched from a very safe distance, and a soldier facing it.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-mega-c-2",
+     "text": "Our artist's impression of the great monster. Our artist is now under a table.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-mega-c-3",
+     "text": "The great monster and the militia. Only one of them was invited.",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-other-c-1",
+     "text": "The beast, sketched from a very safe distance, and a soldier facing it.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-other-c-2",
+     "text": "Our artist's impression of the beast. Our artist is now under a table.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-other-c-3",
+     "text": "The beast and the militia. Only one of them was invited.",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "t2-bs-forgotten-h-1",
+     "text": "FORGOTTEN BEAST MEETS THE MILITIA",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-forgotten-h-2",
+     "text": "SKETCH: THE FORGOTTEN BEAST",
+     "fit": [
+      "beast_forgotten"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-titan-h-1",
+     "text": "TITAN MEETS THE MILITIA",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-titan-h-2",
+     "text": "SKETCH: THE TITAN",
+     "fit": [
+      "beast_titan"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-were-h-1",
+     "text": "WEREBEAST MEETS THE MILITIA",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-were-h-2",
+     "text": "SKETCH: THE WEREBEAST",
+     "fit": [
+      "beast_were"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-mega-h-1",
+     "text": "MONSTER MEETS THE MILITIA",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-mega-h-2",
+     "text": "SKETCH: THE MONSTER",
+     "fit": [
+      "beast_mega"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-other-h-1",
+     "text": "BEAST MEETS THE MILITIA",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "t2-bs-other-h-2",
+     "text": "SKETCH: THE BEAST",
+     "fit": [
+      "beast_other"
+     ],
+     "fit_auto": false
+    }
+   ]
+  }
+ }
+}

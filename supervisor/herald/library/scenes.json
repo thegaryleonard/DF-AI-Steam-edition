@@ -5627,6 +5627,582 @@
      "text": "SKILL"
     }
    ]
+  },
+  "beast-squad": {
+   "heads": [
+    {
+     "id": "sc-beast-squad-h1",
+     "text": "THE MILITIA MEETS THE BEAST"
+    },
+    {
+     "id": "sc-beast-squad-h2",
+     "text": "SQUAD STANDS FIRM"
+    },
+    {
+     "id": "sc-beast-squad-h3",
+     "text": "AXES UP IN {fort}"
+    },
+    {
+     "id": "sc-beast-squad-h4",
+     "text": "SOLDIERS VERSUS MONSTER"
+    },
+    {
+     "id": "sc-beast-squad-h5",
+     "text": "THE LINE HOLDS"
+    },
+    {
+     "id": "sc-beast-squad-h6",
+     "text": "TO ARMS, {fort}!"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-beast-squad-c1",
+     "text": "The beast, the shield wall and two soldiers who drew the short straw."
+    },
+    {
+     "id": "sc-beast-squad-c2",
+     "text": "Our artist's sketch of the stand-off. The beast is drawn smaller than life, for morale."
+    },
+    {
+     "id": "sc-beast-squad-c3",
+     "text": "Axes raised, shields up, beast grumbling. The rest of the fort is watching from far away."
+    },
+    {
+     "id": "sc-beast-squad-c4",
+     "text": "The militia facing the creature. The artist was at the back, with a pencil."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-beast-squad-l1",
+     "text": "THE BEAST"
+    },
+    {
+     "id": "sc-beast-squad-l2",
+     "text": "UNINVITED"
+    },
+    {
+     "id": "sc-beast-squad-l3",
+     "text": "VERY BIG"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-beast-squad-s1",
+     "text": "Hold the line!"
+    },
+    {
+     "id": "sc-beast-squad-s2",
+     "text": "Is it bigger than yesterday?"
+    },
+    {
+     "id": "sc-beast-squad-s3",
+     "text": "For the fort!"
+    },
+    {
+     "id": "sc-beast-squad-s4",
+     "text": "Nobody run."
+    }
+   ]
+  },
+  "siege-archers": {
+   "heads": [
+    {
+     "id": "sc-siege-archers-h1",
+     "text": "MARKSDWARVES ON THE WALLS"
+    },
+    {
+     "id": "sc-siege-archers-h2",
+     "text": "BOLTS FLY AT THE INVADERS"
+    },
+    {
+     "id": "sc-siege-archers-h3",
+     "text": "THE WALL HOLDS"
+    },
+    {
+     "id": "sc-siege-archers-h4",
+     "text": "{fort} SHOOTS BACK"
+    },
+    {
+     "id": "sc-siege-archers-h5",
+     "text": "ARCHERS TO THE BATTLEMENTS"
+    },
+    {
+     "id": "sc-siege-archers-h6",
+     "text": "THE GATE IS SHUT"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-siege-archers-c1",
+     "text": "Marksdwarves on the wall, bolts in the air, invaders below wishing they had stayed home."
+    },
+    {
+     "id": "sc-siege-archers-c2",
+     "text": "Our sketch of the defence. The wall did most of the work."
+    },
+    {
+     "id": "sc-siege-archers-c3",
+     "text": "Bolts flying from the battlements. The invaders are reconsidering."
+    },
+    {
+     "id": "sc-siege-archers-c4",
+     "text": "The defenders, the wall and the attackers, in descending order of comfort."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-siege-archers-l1",
+     "text": "INVADERS"
+    },
+    {
+     "id": "sc-siege-archers-l2",
+     "text": "THE WALL"
+    },
+    {
+     "id": "sc-siege-archers-l3",
+     "text": "BOLTS"
+    }
+   ]
+  },
+  "tantrum-table": {
+   "heads": [
+    {
+     "id": "sc-tantrum-table-h1",
+     "text": "TABLE OVERTURNED IN TANTRUM"
+    },
+    {
+     "id": "sc-tantrum-table-h2",
+     "text": "A BAD DAY, AND A WORSE TABLE"
+    },
+    {
+     "id": "sc-tantrum-table-h3",
+     "text": "MUG THROWN, TEMPER LOST"
+    },
+    {
+     "id": "sc-tantrum-table-h4",
+     "text": "THE DINING HALL DUCKS"
+    },
+    {
+     "id": "sc-tantrum-table-h5",
+     "text": "TANTRUM! TAKE COVER"
+    },
+    {
+     "id": "sc-tantrum-table-h6",
+     "text": "SOMEONE NEEDS A DRINK, AND A NAP"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-tantrum-table-c1",
+     "text": "A flipped table, a flying mug and a dwarf who has had enough."
+    },
+    {
+     "id": "sc-tantrum-table-c2",
+     "text": "Our artist's sketch of the tantrum. The table has asked to be left out of it."
+    },
+    {
+     "id": "sc-tantrum-table-c3",
+     "text": "The aftermath, mostly. The mug has not yet landed."
+    },
+    {
+     "id": "sc-tantrum-table-c4",
+     "text": "Steam from the ears, a mug in the air. The usual."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-tantrum-table-l1",
+     "text": "THE MUG"
+    },
+    {
+     "id": "sc-tantrum-table-l2",
+     "text": "THE TABLE (FLIPPED)"
+    },
+    {
+     "id": "sc-tantrum-table-l3",
+     "text": "STEAM"
+    }
+   ]
+  },
+  "migrants-line": {
+   "heads": [
+    {
+     "id": "sc-migrants-line-h1",
+     "text": "NEW FACES AT THE DOOR"
+    },
+    {
+     "id": "sc-migrants-line-h2",
+     "text": "MIGRANTS LINE UP FOR {fort}"
+    },
+    {
+     "id": "sc-migrants-line-h3",
+     "text": "WELCOME, NEWCOMERS"
+    },
+    {
+     "id": "sc-migrants-line-h4",
+     "text": "THE QUEUE TO JOIN {fort}"
+    },
+    {
+     "id": "sc-migrants-line-h5",
+     "text": "BAGS, BEARDS AND HOPE"
+    },
+    {
+     "id": "sc-migrants-line-h6",
+     "text": "{fort} GROWS AGAIN"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-migrants-line-c1",
+     "text": "The newcomers at the door, each with one bag and many questions."
+    },
+    {
+     "id": "sc-migrants-line-c2",
+     "text": "A line of migrants and a sign that says WELCOME. The sign was the bookkeeper's idea."
+    },
+    {
+     "id": "sc-migrants-line-c3",
+     "text": "Our sketch of the arrivals. Every one of them asked where the beds are."
+    },
+    {
+     "id": "sc-migrants-line-c4",
+     "text": "The queue at the door. The fort's population went up while our artist drew it."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-migrants-line-l1",
+     "text": "NEW FACES"
+    },
+    {
+     "id": "sc-migrants-line-l2",
+     "text": "THEIR BAGS"
+    },
+    {
+     "id": "sc-migrants-line-l3",
+     "text": "WELCOME"
+    }
+   ]
+  },
+  "caravan-haggle": {
+   "heads": [
+    {
+     "id": "sc-caravan-haggle-h1",
+     "text": "THE HAGGLING BEGINS"
+    },
+    {
+     "id": "sc-caravan-haggle-h2",
+     "text": "TRADERS SET OUT THEIR PRICES"
+    },
+    {
+     "id": "sc-caravan-haggle-h3",
+     "text": "COINS ON THE TABLE"
+    },
+    {
+     "id": "sc-caravan-haggle-h4",
+     "text": "BARGAINS (ALLEGEDLY) AT THE DEPOT"
+    },
+    {
+     "id": "sc-caravan-haggle-h5",
+     "text": "THE BROKER'S FINEST HOUR"
+    },
+    {
+     "id": "sc-caravan-haggle-h6",
+     "text": "TRADE DAY AT {fort}"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-caravan-haggle-c1",
+     "text": "The trade table: coins, a wagon, a merchant and a dwarf who thinks the price is outrageous."
+    },
+    {
+     "id": "sc-caravan-haggle-c2",
+     "text": "Our artist's sketch of the haggling. It went on long after the drawing was done."
+    },
+    {
+     "id": "sc-caravan-haggle-c3",
+     "text": "A broker, a merchant and three coins. The coins are moving very slowly."
+    },
+    {
+     "id": "sc-caravan-haggle-c4",
+     "text": "The depot on trade day. Everyone is pretending not to want anything."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-caravan-haggle-l1",
+     "text": "THE PRICE"
+    },
+    {
+     "id": "sc-caravan-haggle-l2",
+     "text": "THE WAGON"
+    },
+    {
+     "id": "sc-caravan-haggle-l3",
+     "text": "COINS"
+    }
+   ],
+   "says": [
+    {
+     "id": "sc-caravan-haggle-s1",
+     "text": "Outrageous!"
+    },
+    {
+     "id": "sc-caravan-haggle-s2",
+     "text": "Half that."
+    },
+    {
+     "id": "sc-caravan-haggle-s3",
+     "text": "We'll take the lot."
+    },
+    {
+     "id": "sc-caravan-haggle-s4",
+     "text": "Is that your best price?"
+    }
+   ]
+  },
+  "birth-cradle": {
+   "heads": [
+    {
+     "id": "sc-birth-cradle-h1",
+     "text": "A CRADLE, AND A NEW CITIZEN"
+    },
+    {
+     "id": "sc-birth-cradle-h2",
+     "text": "WELCOME TO {fort}, LITTLE ONE"
+    },
+    {
+     "id": "sc-birth-cradle-h3",
+     "text": "THE NURSERY HAS NEWS"
+    },
+    {
+     "id": "sc-birth-cradle-h4",
+     "text": "{fort} GROWS BY ONE SMALL DWARF"
+    },
+    {
+     "id": "sc-birth-cradle-h5",
+     "text": "A BIRTH IN THE FORT"
+    },
+    {
+     "id": "sc-birth-cradle-h6",
+     "text": "PROUD PARENTS, LOUD BABY"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-birth-cradle-c1",
+     "text": "The newest citizen in the cradle, with a proud parent and a delighted neighbour."
+    },
+    {
+     "id": "sc-birth-cradle-c2",
+     "text": "Our sketch of the nursery. The baby slept through it, which is a first."
+    },
+    {
+     "id": "sc-birth-cradle-c3",
+     "text": "A cradle, a heart and two very happy grown-ups."
+    },
+    {
+     "id": "sc-birth-cradle-c4",
+     "text": "The baby, drawn small, as babies are."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-birth-cradle-l1",
+     "text": "NEW CITIZEN"
+    },
+    {
+     "id": "sc-birth-cradle-l2",
+     "text": "THE CRADLE"
+    },
+    {
+     "id": "sc-birth-cradle-l3",
+     "text": "PROUD"
+    }
+   ]
+  },
+  "wedding-arch": {
+   "heads": [
+    {
+     "id": "sc-wedding-arch-h1",
+     "text": "A WEDDING UNDER THE ARCH"
+    },
+    {
+     "id": "sc-wedding-arch-h2",
+     "text": "TWO DWARVES WED IN {fort}"
+    },
+    {
+     "id": "sc-wedding-arch-h3",
+     "text": "THE FORT CHEERS A MARRIAGE"
+    },
+    {
+     "id": "sc-wedding-arch-h4",
+     "text": "LOVE BENEATH THE MOUNTAIN"
+    },
+    {
+     "id": "sc-wedding-arch-h5",
+     "text": "MARRIED, AND HAPPY ABOUT IT"
+    },
+    {
+     "id": "sc-wedding-arch-h6",
+     "text": "A FEAST FOR THE NEWLYWEDS"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-wedding-arch-c1",
+     "text": "The couple under the arch, with two guests cheering more loudly than strictly necessary."
+    },
+    {
+     "id": "sc-wedding-arch-c2",
+     "text": "Our artist's sketch of the wedding. The heart is traditional."
+    },
+    {
+     "id": "sc-wedding-arch-c3",
+     "text": "Hand in hand under the arch. The tavern is buying the first round."
+    },
+    {
+     "id": "sc-wedding-arch-c4",
+     "text": "The newlyweds and their friends. Our artist was invited this time."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-wedding-arch-l1",
+     "text": "THE COUPLE"
+    },
+    {
+     "id": "sc-wedding-arch-l2",
+     "text": "THE ARCH"
+    },
+    {
+     "id": "sc-wedding-arch-l3",
+     "text": "GUESTS"
+    }
+   ]
+  },
+  "ghost-slab": {
+   "heads": [
+    {
+     "id": "sc-ghost-slab-h1",
+     "text": "A GHOST WANTS A SLAB"
+    },
+    {
+     "id": "sc-ghost-slab-h2",
+     "text": "THE RESTLESS DEAD WALK"
+    },
+    {
+     "id": "sc-ghost-slab-h3",
+     "text": "BURY ME, SAYS THE GHOST"
+    },
+    {
+     "id": "sc-ghost-slab-h4",
+     "text": "{fort} IS HAUNTED"
+    },
+    {
+     "id": "sc-ghost-slab-h5",
+     "text": "A SPIRIT WITHOUT REST"
+    },
+    {
+     "id": "sc-ghost-slab-h6",
+     "text": "ENGRAVE A SLAB, QUICK"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-ghost-slab-c1",
+     "text": "A ghost beside an empty slab, asking politely, then less politely."
+    },
+    {
+     "id": "sc-ghost-slab-c2",
+     "text": "Our sketch of the haunting. A slab with a name on it would end it."
+    },
+    {
+     "id": "sc-ghost-slab-c3",
+     "text": "The ghost and the slab it would like engraved. The masons have been told."
+    },
+    {
+     "id": "sc-ghost-slab-c4",
+     "text": "The restless dead, drawn from a safe distance."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-ghost-slab-l1",
+     "text": "A SLAB, PLEASE"
+    },
+    {
+     "id": "sc-ghost-slab-l2",
+     "text": "THE GHOST"
+    },
+    {
+     "id": "sc-ghost-slab-l3",
+     "text": "BURY ME"
+    }
+   ]
+  },
+  "soldier-dummy": {
+   "heads": [
+    {
+     "id": "sc-soldier-dummy-h1",
+     "text": "A SOLDIER BECOMES A MASTER"
+    },
+    {
+     "id": "sc-soldier-dummy-h2",
+     "text": "THE TRAINING DUMMY HAS LOST"
+    },
+    {
+     "id": "sc-soldier-dummy-h3",
+     "text": "MASTERY IN THE BARRACKS"
+    },
+    {
+     "id": "sc-soldier-dummy-h4",
+     "text": "{fort} HAS A NEW CHAMPION"
+    },
+    {
+     "id": "sc-soldier-dummy-h5",
+     "text": "YEARS OF DRILL PAY OFF"
+    },
+    {
+     "id": "sc-soldier-dummy-h6",
+     "text": "THE MILITIA'S BEST"
+    }
+   ],
+   "caps": [
+    {
+     "id": "sc-soldier-dummy-c1",
+     "text": "A new master of arms, and a training dummy that has had a very bad day."
+    },
+    {
+     "id": "sc-soldier-dummy-c2",
+     "text": "Our sketch of the champion at practice. The dummy has asked for leave."
+    },
+    {
+     "id": "sc-soldier-dummy-c3",
+     "text": "Axe up, sparkles everywhere. Mastery looks like this."
+    },
+    {
+     "id": "sc-soldier-dummy-c4",
+     "text": "The barracks, the dummy and the dwarf who beat it, again."
+    }
+   ],
+   "labels": [
+    {
+     "id": "sc-soldier-dummy-l1",
+     "text": "THE DUMMY (LOST)"
+    },
+    {
+     "id": "sc-soldier-dummy-l2",
+     "text": "CHAMPION"
+    },
+    {
+     "id": "sc-soldier-dummy-l3",
+     "text": "SKILL"
+    }
+   ]
   }
  }
 }

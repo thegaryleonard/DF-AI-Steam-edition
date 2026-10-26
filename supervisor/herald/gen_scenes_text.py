@@ -324,6 +324,35 @@ sc("k-soldier", ["A SOLDIER ACHIEVES MASTERY", "{fort} HAS A NEW CHAMPION", "MAS
    ["A master of arms, axe raised, sparkling with skill.", "Our sketch of the champion. The sparkles are earned.", "Years of training, one proud pose.", "The new master, ready for anything."], ["CHAMPION", "THE AXE", "SKILL"], [])
 sc("k-pet", [], [], [], [])
 
+# ---------------- alternative drawings for the other big events ----------------
+sc("beast-squad", ["THE MILITIA MEETS THE BEAST", "SQUAD STANDS FIRM", "AXES UP IN {fort}", "SOLDIERS VERSUS MONSTER", "THE LINE HOLDS", "TO ARMS, {fort}!"],
+   ["The beast, the shield wall and two soldiers who drew the short straw.", "Our artist's sketch of the stand-off. The beast is drawn smaller than life, for morale.", "Axes raised, shields up, beast grumbling. The rest of the fort is watching from far away.", "The militia facing the creature. The artist was at the back, with a pencil."],
+   ["THE BEAST", "UNINVITED", "VERY BIG"], ["Hold the line!", "Is it bigger than yesterday?", "For the fort!", "Nobody run."])
+sc("siege-archers", ["MARKSDWARVES ON THE WALLS", "BOLTS FLY AT THE INVADERS", "THE WALL HOLDS", "{fort} SHOOTS BACK", "ARCHERS TO THE BATTLEMENTS", "THE GATE IS SHUT"],
+   ["Marksdwarves on the wall, bolts in the air, invaders below wishing they had stayed home.", "Our sketch of the defence. The wall did most of the work.", "Bolts flying from the battlements. The invaders are reconsidering.", "The defenders, the wall and the attackers, in descending order of comfort."],
+   ["INVADERS", "THE WALL", "BOLTS"], [])
+sc("tantrum-table", ["TABLE OVERTURNED IN TANTRUM", "A BAD DAY, AND A WORSE TABLE", "MUG THROWN, TEMPER LOST", "THE DINING HALL DUCKS", "TANTRUM! TAKE COVER", "SOMEONE NEEDS A DRINK, AND A NAP"],
+   ["A flipped table, a flying mug and a dwarf who has had enough.", "Our artist's sketch of the tantrum. The table has asked to be left out of it.", "The aftermath, mostly. The mug has not yet landed.", "Steam from the ears, a mug in the air. The usual."],
+   ["THE MUG", "THE TABLE (FLIPPED)", "STEAM"], [])
+sc("migrants-line", ["NEW FACES AT THE DOOR", "MIGRANTS LINE UP FOR {fort}", "WELCOME, NEWCOMERS", "THE QUEUE TO JOIN {fort}", "BAGS, BEARDS AND HOPE", "{fort} GROWS AGAIN"],
+   ["The newcomers at the door, each with one bag and many questions.", "A line of migrants and a sign that says WELCOME. The sign was the bookkeeper's idea.", "Our sketch of the arrivals. Every one of them asked where the beds are.", "The queue at the door. The fort's population went up while our artist drew it."],
+   ["NEW FACES", "THEIR BAGS", "WELCOME"], [])
+sc("caravan-haggle", ["THE HAGGLING BEGINS", "TRADERS SET OUT THEIR PRICES", "COINS ON THE TABLE", "BARGAINS (ALLEGEDLY) AT THE DEPOT", "THE BROKER'S FINEST HOUR", "TRADE DAY AT {fort}"],
+   ["The trade table: coins, a wagon, a merchant and a dwarf who thinks the price is outrageous.", "Our artist's sketch of the haggling. It went on long after the drawing was done.", "A broker, a merchant and three coins. The coins are moving very slowly.", "The depot on trade day. Everyone is pretending not to want anything."],
+   ["THE PRICE", "THE WAGON", "COINS"], ["Outrageous!", "Half that.", "We'll take the lot.", "Is that your best price?"])
+sc("birth-cradle", ["A CRADLE, AND A NEW CITIZEN", "WELCOME TO {fort}, LITTLE ONE", "THE NURSERY HAS NEWS", "{fort} GROWS BY ONE SMALL DWARF", "A BIRTH IN THE FORT", "PROUD PARENTS, LOUD BABY"],
+   ["The newest citizen in the cradle, with a proud parent and a delighted neighbour.", "Our sketch of the nursery. The baby slept through it, which is a first.", "A cradle, a heart and two very happy grown-ups.", "The baby, drawn small, as babies are."],
+   ["NEW CITIZEN", "THE CRADLE", "PROUD"], [])
+sc("wedding-arch", ["A WEDDING UNDER THE ARCH", "TWO DWARVES WED IN {fort}", "THE FORT CHEERS A MARRIAGE", "LOVE BENEATH THE MOUNTAIN", "MARRIED, AND HAPPY ABOUT IT", "A FEAST FOR THE NEWLYWEDS"],
+   ["The couple under the arch, with two guests cheering more loudly than strictly necessary.", "Our artist's sketch of the wedding. The heart is traditional.", "Hand in hand under the arch. The tavern is buying the first round.", "The newlyweds and their friends. Our artist was invited this time."],
+   ["THE COUPLE", "THE ARCH", "GUESTS"], [])
+sc("ghost-slab", ["A GHOST WANTS A SLAB", "THE RESTLESS DEAD WALK", "BURY ME, SAYS THE GHOST", "{fort} IS HAUNTED", "A SPIRIT WITHOUT REST", "ENGRAVE A SLAB, QUICK"],
+   ["A ghost beside an empty slab, asking politely, then less politely.", "Our sketch of the haunting. A slab with a name on it would end it.", "The ghost and the slab it would like engraved. The masons have been told.", "The restless dead, drawn from a safe distance."],
+   ["A SLAB, PLEASE", "THE GHOST", "BURY ME"], [])
+sc("soldier-dummy", ["A SOLDIER BECOMES A MASTER", "THE TRAINING DUMMY HAS LOST", "MASTERY IN THE BARRACKS", "{fort} HAS A NEW CHAMPION", "YEARS OF DRILL PAY OFF", "THE MILITIA'S BEST"],
+   ["A new master of arms, and a training dummy that has had a very bad day.", "Our sketch of the champion at practice. The dummy has asked for leave.", "Axe up, sparkles everywhere. Mastery looks like this.", "The barracks, the dummy and the dwarf who beat it, again."],
+   ["THE DUMMY (LOST)", "CHAMPION", "SKILL"], [])
+
 out = {"scenes": {}}
 n = 0
 for sid, parts in S.items():

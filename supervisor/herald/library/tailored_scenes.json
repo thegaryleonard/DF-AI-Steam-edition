@@ -1,0 +1,7537 @@
+{
+ "scenes": {
+  "weaver": {
+   "caps": [
+    {
+     "id": "tg-sc-cloth-c-1",
+     "text": "{who} shows off the masterwork {item} at the loom room. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-2",
+     "text": "Our artist's sketch of the {item}, fine as a spider's web, and its maker, tight.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-3",
+     "text": "The {item} and the loom-hand who made it, both looking pleased with the day's work.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-4",
+     "text": "The masterwork {item}, held up so the whole of the loom room can see. Everyone did.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-5",
+     "text": "The finished {item}, sketched quickly before the bookkeeper carried {first} off to celebrate.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-6",
+     "text": "{first} with the masterwork {item}. The loom is just out of frame, resting after a hard day.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-7",
+     "text": "A loom-hand and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-8",
+     "text": "The {item}, drawn from life. In life it is soft; in ink it is our best effort.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-9",
+     "text": "The scene at the loom room: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-10",
+     "text": "The masterwork {item} on its way to the cloth stockpile. Our artist ran alongside with a pencil.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-11",
+     "text": "{first} at the loom room, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-13",
+     "text": "A quick sketch of the masterwork {item} before the merchants arrived to admire it.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more fine as a spider's web and less smudged.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the loom room.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-c-16",
+     "text": "The {item} is held up proudly. Behind it, the loom room looks on in approval.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-cloth-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-h-3",
+     "text": "AT THE LOOM ROOM, A MASTERWORK",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-h-4",
+     "text": "OUR ARTIST VISITS THE LOOM ROOM",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-h-6",
+     "text": "A WEAVER'S FINEST HOUR",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-cloth-s-1",
+     "text": "Tight, if I say so myself.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-s-5",
+     "text": "Fetch the bookkeeper!",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-s-8",
+     "text": "My finest!",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-cloth-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-l-2",
+     "text": "WEAVER",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-l-3",
+     "text": "EVEN",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-cloth-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-weaver": {
+   "caps": [
+    {
+     "id": "tg-asc-cloth-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-cloth-c-2",
+     "text": "The crowd at the loom room, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-cloth-c-3",
+     "text": "{art}, sketched in a hurry before every dwarf with an eye for a good weave crowded in. It is even; the sketch is merely good.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-cloth-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-cloth-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-cloth-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-cloth-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-cloth-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "cloth"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "clothier": {
+   "caps": [
+    {
+     "id": "tg-sc-clothing-c-1",
+     "text": "{who} shows off the masterwork {item} at the clothier's shop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-2",
+     "text": "Our artist's sketch of the {item}, neat at every seam, and its maker, warm.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-3",
+     "text": "The {item} and the tailor who made it, both looking pleased with the day's work.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-4",
+     "text": "The masterwork {item}, held up so the whole of the clothier's shop can see. Everyone did.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-5",
+     "text": "The finished {item}, sketched quickly before the tavern regulars carried {first} off to celebrate.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-6",
+     "text": "{first} with the masterwork {item}. The pins is just out of frame, resting after a hard day.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-7",
+     "text": "A tailor and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-8",
+     "text": "The {item}, drawn from life. In life it is beautifully stitched; in ink it is our best effort.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-9",
+     "text": "The scene at the clothier's shop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-10",
+     "text": "The masterwork {item} on its way to the clothing stockpile. Our artist ran alongside with a pencil.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-11",
+     "text": "{first} at the clothier's shop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-13",
+     "text": "A quick sketch of the masterwork {item} before every noble arrived to admire it.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more neat at every seam and less smudged.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the clothier's shop.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-c-16",
+     "text": "The {item} is held up proudly. Behind it, the clothier's shop looks on in approval.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-clothing-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-h-3",
+     "text": "AT THE CLOTHIER'S SHOP, A MASTERWORK",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-h-4",
+     "text": "OUR ARTIST VISITS THE CLOTHIER'S SHOP",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-h-6",
+     "text": "A CLOTHIER'S FINEST HOUR",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-clothing-s-1",
+     "text": "Warm, if I say so myself.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-s-5",
+     "text": "Fetch the tavern regulars!",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-s-8",
+     "text": "My finest!",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-clothing-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-l-2",
+     "text": "CLOTHIER",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-l-3",
+     "text": "WELL CUT",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-clothing-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-clothier": {
+   "caps": [
+    {
+     "id": "tg-asc-clothing-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-clothing-c-2",
+     "text": "The crowd at the clothier's shop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-clothing-c-3",
+     "text": "{art}, sketched in a hurry before the mayor crowded in. It is well cut; the sketch is merely good.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-clothing-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-clothing-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-clothing-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-clothing-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-clothing-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "clothing"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "armorer": {
+   "caps": [
+    {
+     "id": "tg-sc-armor-c-1",
+     "text": "{who} shows off the masterwork {item} at the armorer's bench. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-2",
+     "text": "Our artist's sketch of the {item}, proof against a goblin's best swing, and its maker, close-fitting.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-3",
+     "text": "The {item} and the armorer who made it, both looking pleased with the day's work.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-4",
+     "text": "The masterwork {item}, held up so the whole of the armorer's bench can see. Everyone did.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-5",
+     "text": "The finished {item}, sketched quickly before every recruit carried {first} off to celebrate.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-6",
+     "text": "{first} with the masterwork {item}. The rivets is just out of frame, resting after a hard day.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-7",
+     "text": "A armorer and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-8",
+     "text": "The {item}, drawn from life. In life it is well riveted; in ink it is our best effort.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-9",
+     "text": "The scene at the armorer's bench: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-10",
+     "text": "The masterwork {item} on its way to the armory. Our artist ran alongside with a pencil.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-11",
+     "text": "{first} at the armorer's bench, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-13",
+     "text": "A quick sketch of the masterwork {item} before the militia captain arrived to admire it.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more proof against a goblin's best swing and less smudged.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the armorer's bench.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-c-16",
+     "text": "The {item} is held up proudly. Behind it, the armorer's bench looks on in approval.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-armor-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-h-3",
+     "text": "AT THE ARMORER'S BENCH, A MASTERWORK",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-h-4",
+     "text": "OUR ARTIST VISITS THE ARMORER'S BENCH",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-h-6",
+     "text": "A ARMORER'S FINEST HOUR",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-armor-s-1",
+     "text": "Close-fitting, if I say so myself.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-s-5",
+     "text": "Fetch every recruit!",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-s-8",
+     "text": "My finest!",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-armor-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-l-2",
+     "text": "ARMORER",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-l-3",
+     "text": "STURDY",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-armor-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-armorer": {
+   "caps": [
+    {
+     "id": "tg-asc-armor-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-armor-c-2",
+     "text": "The crowd at the armorer's bench, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-armor-c-3",
+     "text": "{art}, sketched in a hurry before the guard crowded in. It is sturdy; the sketch is merely good.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-armor-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-armor-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-armor-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-armor-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-armor-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "armor"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "weaponsmith": {
+   "caps": [
+    {
+     "id": "tg-sc-weapon-c-1",
+     "text": "{who} shows off the masterwork {item} at the forge. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-2",
+     "text": "Our artist's sketch of the {item}, true from tip to grip, and its maker, deadly.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-3",
+     "text": "The {item} and the bladesmith who made it, both looking pleased with the day's work.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-4",
+     "text": "The masterwork {item}, held up so the whole of the forge can see. Everyone did.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-5",
+     "text": "The finished {item}, sketched quickly before the squad leaders carried {first} off to celebrate.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-6",
+     "text": "{first} with the masterwork {item}. The hammer is just out of frame, resting after a hard day.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-7",
+     "text": "A bladesmith and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-8",
+     "text": "The {item}, drawn from life. In life it is balanced; in ink it is our best effort.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-9",
+     "text": "The scene at the forge: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-10",
+     "text": "The masterwork {item} on its way to the armory. Our artist ran alongside with a pencil.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-11",
+     "text": "{first} at the forge, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-13",
+     "text": "A quick sketch of the masterwork {item} before the militia captain arrived to admire it.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more true from tip to grip and less smudged.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the forge.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-c-16",
+     "text": "The {item} is held up proudly. Behind it, the forge looks on in approval.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-weapon-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-h-3",
+     "text": "AT THE FORGE, A MASTERWORK",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-h-4",
+     "text": "OUR ARTIST VISITS THE FORGE",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-h-6",
+     "text": "A WEAPONSMITH'S FINEST HOUR",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-weapon-s-1",
+     "text": "Deadly, if I say so myself.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-s-5",
+     "text": "Fetch the squad leaders!",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-s-8",
+     "text": "My finest!",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-weapon-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-l-2",
+     "text": "WEAPONSMITH",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-l-3",
+     "text": "KEEN",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-weapon-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-weaponsmith": {
+   "caps": [
+    {
+     "id": "tg-asc-weapon-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-weapon-c-2",
+     "text": "The crowd at the forge, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-weapon-c-3",
+     "text": "{art}, sketched in a hurry before every recruit crowded in. It is keen; the sketch is merely good.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-weapon-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-weapon-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-weapon-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-weapon-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-weapon-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "weapon",
+      "mat_metal"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "fletcher": {
+   "caps": [
+    {
+     "id": "tg-sc-ammo-c-1",
+     "text": "{who} shows off the masterwork {item} at the bowyer's workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-2",
+     "text": "Our artist's sketch of the {item}, true, and its maker, true.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-3",
+     "text": "The {item} and the fletcher who made it, both looking pleased with the day's work.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-4",
+     "text": "The masterwork {item}, held up so the whole of the bowyer's workshop can see. Everyone did.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-5",
+     "text": "The finished {item}, sketched quickly before the hunters carried {first} off to celebrate.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-6",
+     "text": "{first} with the masterwork {item}. The fletching feathers is just out of frame, resting after a hard day.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-7",
+     "text": "A fletcher and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-8",
+     "text": "The {item}, drawn from life. In life it is true; in ink it is our best effort.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-9",
+     "text": "The scene at the bowyer's workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-10",
+     "text": "The masterwork {item} on its way to the ammunition stockpile. Our artist ran alongside with a pencil.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-11",
+     "text": "{first} at the bowyer's workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-13",
+     "text": "A quick sketch of the masterwork {item} before the marksdwarves arrived to admire it.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more true and less smudged.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the bowyer's workshop.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-c-16",
+     "text": "The {item} is held up proudly. Behind it, the bowyer's workshop looks on in approval.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-ammo-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-h-3",
+     "text": "AT THE BOWYER'S WORKSHOP, A MASTERWORK",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-h-4",
+     "text": "OUR ARTIST VISITS THE BOWYER'S WORKSHOP",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-h-6",
+     "text": "A BOWYER'S FINEST HOUR",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-ammo-s-1",
+     "text": "Straight, if I say so myself.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-s-5",
+     "text": "Fetch the hunters!",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-s-8",
+     "text": "My finest!",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-ammo-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-l-2",
+     "text": "BOWYER",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-l-3",
+     "text": "PERFECTLY WEIGHTED",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-ammo-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-fletcher": {
+   "caps": [
+    {
+     "id": "tg-asc-ammo-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-ammo-c-2",
+     "text": "The crowd at the bowyer's workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-ammo-c-3",
+     "text": "{art}, sketched in a hurry before the captain of the guard crowded in. It is perfectly weighted; the sketch is merely good.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-ammo-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-ammo-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-ammo-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-ammo-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-ammo-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "ammo"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "furniture": {
+   "caps": [
+    {
+     "id": "tg-sc-furniture-c-1",
+     "text": "{who} shows off the masterwork {item} at the workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-2",
+     "text": "Our artist's sketch of the {item}, steady on its feet, and its maker, handsome.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-3",
+     "text": "The {item} and the craftsdwarf who made it, both looking pleased with the day's work.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-4",
+     "text": "The masterwork {item}, held up so the whole of the workshop can see. Everyone did.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-5",
+     "text": "The finished {item}, sketched quickly before the bookkeeper carried {first} off to celebrate.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-6",
+     "text": "{first} with the masterwork {item}. The saw is just out of frame, resting after a hard day.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-7",
+     "text": "A craftsdwarf and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-8",
+     "text": "The {item}, drawn from life. In life it is square; in ink it is our best effort.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-9",
+     "text": "The scene at the workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-10",
+     "text": "The masterwork {item} on its way to the furniture stockpile. Our artist ran alongside with a pencil.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-11",
+     "text": "{first} at the workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-13",
+     "text": "A quick sketch of the masterwork {item} before the nobles arrived to admire it.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more steady on its feet and less smudged.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the workshop.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-c-16",
+     "text": "The {item} is held up proudly. Behind it, the workshop looks on in approval.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-furniture-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-h-3",
+     "text": "AT THE WORKSHOP, A MASTERWORK",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-h-4",
+     "text": "OUR ARTIST VISITS THE WORKSHOP",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-h-6",
+     "text": "A FURNITURE-MAKER'S FINEST HOUR",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-furniture-s-1",
+     "text": "Handsome, if I say so myself.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-s-5",
+     "text": "Fetch the bookkeeper!",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-s-8",
+     "text": "My finest!",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-furniture-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-l-2",
+     "text": "FURNITURE-MAKER",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-l-3",
+     "text": "SOLID",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-furniture-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-furniture": {
+   "caps": [
+    {
+     "id": "tg-asc-furniture-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-furniture-c-2",
+     "text": "The crowd at the workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-furniture-c-3",
+     "text": "{art}, sketched in a hurry before every dwarf with an empty room crowded in. It is solid; the sketch is merely good.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-furniture-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-furniture-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-furniture-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-furniture-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-furniture-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "furniture"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "container": {
+   "caps": [
+    {
+     "id": "tg-sc-container-c-1",
+     "text": "{who} shows off the masterwork {item} at the workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-2",
+     "text": "Our artist's sketch of the {item}, roomy, and its maker, sturdy.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-3",
+     "text": "The {item} and the vessel-maker who made it, both looking pleased with the day's work.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-4",
+     "text": "The masterwork {item}, held up so the whole of the workshop can see. Everyone did.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-5",
+     "text": "The finished {item}, sketched quickly before the stockpile keepers carried {first} off to celebrate.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-6",
+     "text": "{first} with the masterwork {item}. The staves is just out of frame, resting after a hard day.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-7",
+     "text": "A vessel-maker and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-8",
+     "text": "The {item}, drawn from life. In life it is watertight; in ink it is our best effort.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-9",
+     "text": "The scene at the workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-10",
+     "text": "The masterwork {item} on its way to the stores. Our artist ran alongside with a pencil.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-11",
+     "text": "{first} at the workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-13",
+     "text": "A quick sketch of the masterwork {item} before the cellar keepers arrived to admire it.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more roomy and less smudged.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the workshop.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-c-16",
+     "text": "The {item} is held up proudly. Behind it, the workshop looks on in approval.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-container-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-h-3",
+     "text": "AT THE WORKSHOP, A MASTERWORK",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-h-4",
+     "text": "OUR ARTIST VISITS THE WORKSHOP",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-h-6",
+     "text": "A COOPER'S FINEST HOUR",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-container-s-1",
+     "text": "Sturdy, if I say so myself.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-s-5",
+     "text": "Fetch the stockpile keepers!",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-s-8",
+     "text": "My finest!",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-container-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-l-2",
+     "text": "COOPER",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-l-3",
+     "text": "SEALED TIGHT",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-container-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-container": {
+   "caps": [
+    {
+     "id": "tg-asc-container-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-container-c-2",
+     "text": "The crowd at the workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-container-c-3",
+     "text": "{art}, sketched in a hurry before the haulers crowded in. It is sealed tight; the sketch is merely good.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-container-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-container-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-container-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-container-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-container-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "container"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "drinkware": {
+   "caps": [
+    {
+     "id": "tg-sc-drinkware-c-1",
+     "text": "{who} shows off the masterwork {item} at the craftsdwarf's workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-2",
+     "text": "Our artist's sketch of the {item}, the right weight for a long evening, and its maker, handsome.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-3",
+     "text": "The {item} and the craftsdwarf who made it, both looking pleased with the day's work.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-4",
+     "text": "The masterwork {item}, held up so the whole of the craftsdwarf's workshop can see. Everyone did.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-5",
+     "text": "The finished {item}, sketched quickly before the regulars carried {first} off to celebrate.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-6",
+     "text": "{first} with the masterwork {item}. The file is just out of frame, resting after a hard day.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-7",
+     "text": "A craftsdwarf and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-8",
+     "text": "The {item}, drawn from life. In life it is perfect for ale; in ink it is our best effort.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-9",
+     "text": "The scene at the craftsdwarf's workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-10",
+     "text": "The masterwork {item} on its way to the tavern shelf. Our artist ran alongside with a pencil.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-11",
+     "text": "{first} at the craftsdwarf's workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-13",
+     "text": "A quick sketch of the masterwork {item} before the tavern keeper arrived to admire it.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more the right weight for a long evening and less smudged.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the craftsdwarf's workshop.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-c-16",
+     "text": "The {item} is held up proudly. Behind it, the craftsdwarf's workshop looks on in approval.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-drinkware-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-h-3",
+     "text": "AT THE CRAFTSDWARF'S WORKSHOP, A MASTERWORK",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-h-4",
+     "text": "OUR ARTIST VISITS THE CRAFTSDWARF'S WORKSHOP",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-h-6",
+     "text": "A CRAFTSDWARF'S FINEST HOUR",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-drinkware-s-1",
+     "text": "Handsome, if I say so myself.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-s-5",
+     "text": "Fetch the regulars!",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-s-8",
+     "text": "My finest!",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-drinkware-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-l-2",
+     "text": "CRAFTSDWARF",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-l-3",
+     "text": "BALANCED IN THE HAND",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-drinkware-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-drinkware": {
+   "caps": [
+    {
+     "id": "tg-asc-drinkware-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-drinkware-c-2",
+     "text": "The crowd at the craftsdwarf's workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-drinkware-c-3",
+     "text": "{art}, sketched in a hurry before every thirsty dwarf crowded in. It is balanced in the hand; the sketch is merely good.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-drinkware-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-drinkware-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-drinkware-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-drinkware-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-drinkware-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "drinkware"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "jeweler": {
+   "caps": [
+    {
+     "id": "tg-sc-jewelry-c-1",
+     "text": "{who} shows off the masterwork {item} at the craftsdwarf's workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-2",
+     "text": "Our artist's sketch of the {item}, fit for a monarch, and its maker, fine.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-3",
+     "text": "The {item} and the ornament-maker who made it, both looking pleased with the day's work.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-4",
+     "text": "The masterwork {item}, held up so the whole of the craftsdwarf's workshop can see. Everyone did.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-5",
+     "text": "The finished {item}, sketched quickly before the merchants carried {first} off to celebrate.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-6",
+     "text": "{first} with the masterwork {item}. The burnisher is just out of frame, resting after a hard day.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-7",
+     "text": "A ornament-maker and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-8",
+     "text": "The {item}, drawn from life. In life it is delicate; in ink it is our best effort.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-9",
+     "text": "The scene at the craftsdwarf's workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-10",
+     "text": "The masterwork {item} on its way to the treasury. Our artist ran alongside with a pencil.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-11",
+     "text": "{first} at the craftsdwarf's workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-13",
+     "text": "A quick sketch of the masterwork {item} before the nobles arrived to admire it.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more fit for a monarch and less smudged.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the craftsdwarf's workshop.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-c-16",
+     "text": "The {item} is held up proudly. Behind it, the craftsdwarf's workshop looks on in approval.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-jewelry-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-h-3",
+     "text": "AT THE CRAFTSDWARF'S WORKSHOP, A MASTERWORK",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-h-4",
+     "text": "OUR ARTIST VISITS THE CRAFTSDWARF'S WORKSHOP",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-h-6",
+     "text": "A CRAFTSDWARF'S FINEST HOUR",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-jewelry-s-1",
+     "text": "Fine, if I say so myself.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-s-5",
+     "text": "Fetch the merchants!",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-s-8",
+     "text": "My finest!",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-jewelry-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-l-2",
+     "text": "CRAFTSDWARF",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-l-3",
+     "text": "DAZZLING",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-jewelry-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-jeweler": {
+   "caps": [
+    {
+     "id": "tg-asc-jewelry-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-jewelry-c-2",
+     "text": "The crowd at the craftsdwarf's workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-jewelry-c-3",
+     "text": "{art}, sketched in a hurry before the monarch's envoy crowded in. It is dazzling; the sketch is merely good.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-jewelry-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-jewelry-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-jewelry-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-jewelry-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-jewelry-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "jewelry"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "trinket": {
+   "caps": [
+    {
+     "id": "tg-sc-figurine-c-1",
+     "text": "{who} shows off the masterwork {item} at the craftsdwarf's workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-2",
+     "text": "Our artist's sketch of the {item}, small but perfect, and its maker, charming.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-3",
+     "text": "The {item} and the carver who made it, both looking pleased with the day's work.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-4",
+     "text": "The masterwork {item}, held up so the whole of the craftsdwarf's workshop can see. Everyone did.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-5",
+     "text": "The finished {item}, sketched quickly before the nobles carried {first} off to celebrate.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-6",
+     "text": "{first} with the masterwork {item}. The chisel is just out of frame, resting after a hard day.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-7",
+     "text": "A carver and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-8",
+     "text": "The {item}, drawn from life. In life it is detailed; in ink it is our best effort.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-9",
+     "text": "The scene at the craftsdwarf's workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-10",
+     "text": "The masterwork {item} on its way to a high shelf, away from cats. Our artist ran alongside with a pencil.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-11",
+     "text": "{first} at the craftsdwarf's workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-13",
+     "text": "A quick sketch of the masterwork {item} before the collectors arrived to admire it.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more small but perfect and less smudged.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the craftsdwarf's workshop.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-c-16",
+     "text": "The {item} is held up proudly. Behind it, the craftsdwarf's workshop looks on in approval.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-1",
+     "text": "{who} shows off the masterwork {item} at the craftsdwarf's workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-2",
+     "text": "Our artist's sketch of the {item}, fun, and its maker, fun.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-3",
+     "text": "The {item} and the toymaker who made it, both looking pleased with the day's work.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-4",
+     "text": "The masterwork {item}, held up so the whole of the craftsdwarf's workshop can see. Everyone did.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-5",
+     "text": "The finished {item}, sketched quickly before a surprising number of grown dwarves carried {first} off to celebrate.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-6",
+     "text": "{first} with the masterwork {item}. The glue is just out of frame, resting after a hard day.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-7",
+     "text": "A toymaker and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-8",
+     "text": "The {item}, drawn from life. In life it is fun; in ink it is our best effort.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-9",
+     "text": "The scene at the craftsdwarf's workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-10",
+     "text": "The masterwork {item} on its way to the nursery. Our artist ran alongside with a pencil.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-11",
+     "text": "{first} at the craftsdwarf's workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-13",
+     "text": "A quick sketch of the masterwork {item} before a surprising number of grown dwarves arrived to admire it.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more fun and less smudged.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the craftsdwarf's workshop.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-c-16",
+     "text": "The {item} is held up proudly. Behind it, the craftsdwarf's workshop looks on in approval.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-1",
+     "text": "{who} shows off the masterwork {item} at the craftsdwarf's workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-2",
+     "text": "Our artist's sketch of the {item}, well made, and its maker, well made.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-3",
+     "text": "The {item} and the craftsdwarf who made it, both looking pleased with the day's work.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-4",
+     "text": "The masterwork {item}, held up so the whole of the craftsdwarf's workshop can see. Everyone did.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-5",
+     "text": "The finished {item}, sketched quickly before the collectors carried {first} off to celebrate.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-6",
+     "text": "{first} with the masterwork {item}. The chisel is just out of frame, resting after a hard day.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-7",
+     "text": "A craftsdwarf and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-8",
+     "text": "The {item}, drawn from life. In life it is well made; in ink it is our best effort.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-9",
+     "text": "The scene at the craftsdwarf's workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-10",
+     "text": "The masterwork {item} on its way to the finished goods stockpile. Our artist ran alongside with a pencil.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-11",
+     "text": "{first} at the craftsdwarf's workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-13",
+     "text": "A quick sketch of the masterwork {item} before the collectors arrived to admire it.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more well made and less smudged.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the craftsdwarf's workshop.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-c-16",
+     "text": "The {item} is held up proudly. Behind it, the craftsdwarf's workshop looks on in approval.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-figurine-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-h-3",
+     "text": "AT THE CRAFTSDWARF'S WORKSHOP, A MASTERWORK",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-h-4",
+     "text": "OUR ARTIST VISITS THE CRAFTSDWARF'S WORKSHOP",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-h-6",
+     "text": "A CRAFTSDWARF'S FINEST HOUR",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-h-3",
+     "text": "AT THE CRAFTSDWARF'S WORKSHOP, A MASTERWORK",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-h-4",
+     "text": "OUR ARTIST VISITS THE CRAFTSDWARF'S WORKSHOP",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-h-6",
+     "text": "A CRAFTSDWARF'S FINEST HOUR",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-h-3",
+     "text": "AT THE CRAFTSDWARF'S WORKSHOP, A MASTERWORK",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-h-4",
+     "text": "OUR ARTIST VISITS THE CRAFTSDWARF'S WORKSHOP",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-h-6",
+     "text": "A CRAFTSDWARF'S FINEST HOUR",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-figurine-s-1",
+     "text": "Charming, if I say so myself.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-s-5",
+     "text": "Fetch the nobles!",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-s-8",
+     "text": "My finest!",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-1",
+     "text": "Clever, if I say so myself.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-5",
+     "text": "Fetch a surprising number of grown dwarves!",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-8",
+     "text": "My finest!",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-1",
+     "text": "Fine, if I say so myself.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-5",
+     "text": "Fetch the collectors!",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-8",
+     "text": "My finest!",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-figurine-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-l-2",
+     "text": "CRAFTSDWARF",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-l-3",
+     "text": "LIFELIKE",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-figurine-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-l-2",
+     "text": "CRAFTSDWARF",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-l-3",
+     "text": "STURDY ENOUGH FOR CHILDREN",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-toy-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-l-2",
+     "text": "CRAFTSDWARF",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-l-3",
+     "text": "CHARMING",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-crafts-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-trinket": {
+   "caps": [
+    {
+     "id": "tg-asc-figurine-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-figurine-c-2",
+     "text": "The crowd at the craftsdwarf's workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-figurine-c-3",
+     "text": "{art}, sketched in a hurry before the bookkeeper crowded in. It is lifelike; the sketch is merely good.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-figurine-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-figurine-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-figurine-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-figurine-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-figurine-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "figurine"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-toy-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-toy-c-2",
+     "text": "The crowd at the craftsdwarf's workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-toy-c-3",
+     "text": "{art}, sketched in a hurry before a surprising number of grown dwarves crowded in. It is sturdy enough for children; the sketch is merely good.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-toy-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-toy-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-toy-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-toy-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-toy-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "toy"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-crafts-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-crafts-c-2",
+     "text": "The crowd at the craftsdwarf's workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-crafts-c-3",
+     "text": "{art}, sketched in a hurry before the collectors crowded in. It is charming; the sketch is merely good.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-crafts-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-crafts-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-crafts-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-crafts-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-crafts-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "crafts"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "sculptor": {
+   "caps": [
+    {
+     "id": "tg-sc-statue-c-1",
+     "text": "{who} shows off the masterwork {item} at the mason's workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-2",
+     "text": "Our artist's sketch of the {item}, perfect from every side, and its maker, commanding.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-3",
+     "text": "The {item} and the stonecrafter who made it, both looking pleased with the day's work.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-4",
+     "text": "The masterwork {item}, held up so the whole of the mason's workshop can see. Everyone did.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-5",
+     "text": "The finished {item}, sketched quickly before every dwarf who passes carried {first} off to celebrate.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-6",
+     "text": "{first} with the masterwork {item}. The mallet is just out of frame, resting after a hard day.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-7",
+     "text": "A stonecrafter and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-8",
+     "text": "The {item}, drawn from life. In life it is noble; in ink it is our best effort.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-9",
+     "text": "The scene at the mason's workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-10",
+     "text": "The masterwork {item} on its way to the great hall. Our artist ran alongside with a pencil.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-11",
+     "text": "{first} at the mason's workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-13",
+     "text": "A quick sketch of the masterwork {item} before the nobles arrived to admire it.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more perfect from every side and less smudged.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the mason's workshop.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-c-16",
+     "text": "The {item} is held up proudly. Behind it, the mason's workshop looks on in approval.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-statue-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-h-3",
+     "text": "AT THE MASON'S WORKSHOP, A MASTERWORK",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-h-4",
+     "text": "OUR ARTIST VISITS THE MASON'S WORKSHOP",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-h-6",
+     "text": "A SCULPTOR'S FINEST HOUR",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-statue-s-1",
+     "text": "Commanding, if I say so myself.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-s-5",
+     "text": "Fetch every dwarf who passes!",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-s-8",
+     "text": "My finest!",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-statue-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-l-2",
+     "text": "SCULPTOR",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-l-3",
+     "text": "LIFELIKE",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-statue-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-sculptor": {
+   "caps": [
+    {
+     "id": "tg-asc-statue-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-statue-c-2",
+     "text": "The crowd at the mason's workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-statue-c-3",
+     "text": "{art}, sketched in a hurry before the bookkeeper crowded in. It is lifelike; the sketch is merely good.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-statue-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-statue-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-statue-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-statue-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-statue-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "statue"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "musician": {
+   "caps": [
+    {
+     "id": "tg-sc-instrument-c-1",
+     "text": "{who} shows off the masterwork {item} at the craftsdwarf's workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-2",
+     "text": "Our artist's sketch of the {item}, true in every note, and its maker, true in every note.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-3",
+     "text": "The {item} and the craftsdwarf who made it, both looking pleased with the day's work.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-4",
+     "text": "The masterwork {item}, held up so the whole of the craftsdwarf's workshop can see. Everyone did.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-5",
+     "text": "The finished {item}, sketched quickly before the tavern crowd carried {first} off to celebrate.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-6",
+     "text": "{first} with the masterwork {item}. The strings is just out of frame, resting after a hard day.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-7",
+     "text": "A craftsdwarf and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-8",
+     "text": "The {item}, drawn from life. In life it is true in every note; in ink it is our best effort.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-9",
+     "text": "The scene at the craftsdwarf's workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-10",
+     "text": "The masterwork {item} on its way to the tavern stage. Our artist ran alongside with a pencil.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-11",
+     "text": "{first} at the craftsdwarf's workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-13",
+     "text": "A quick sketch of the masterwork {item} before the performers arrived to admire it.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more true in every note and less smudged.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the craftsdwarf's workshop.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-c-16",
+     "text": "The {item} is held up proudly. Behind it, the craftsdwarf's workshop looks on in approval.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-instrument-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-h-3",
+     "text": "AT THE CRAFTSDWARF'S WORKSHOP, A MASTERWORK",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-h-4",
+     "text": "OUR ARTIST VISITS THE CRAFTSDWARF'S WORKSHOP",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-h-6",
+     "text": "A INSTRUMENT MAKER'S FINEST HOUR",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-instrument-s-1",
+     "text": "Sweet-sounding, if I say so myself.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-s-5",
+     "text": "Fetch the tavern crowd!",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-s-8",
+     "text": "My finest!",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-instrument-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-l-2",
+     "text": "INSTRUMENT MAKER",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-l-3",
+     "text": "LOUD IN THE RIGHT WAY",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-instrument-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-musician": {
+   "caps": [
+    {
+     "id": "tg-asc-instrument-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-instrument-c-2",
+     "text": "The crowd at the craftsdwarf's workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-instrument-c-3",
+     "text": "{art}, sketched in a hurry before the dancers crowded in. It is loud in the right way; the sketch is merely good.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-instrument-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-instrument-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-instrument-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-instrument-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-instrument-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "instrument"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "gemcutter": {
+   "caps": [
+    {
+     "id": "tg-sc-gem-c-1",
+     "text": "{who} shows off the masterwork {item} at the jeweler's bench. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-2",
+     "text": "Our artist's sketch of the {item}, clear as a lamp, and its maker, perfectly faceted.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-3",
+     "text": "The {item} and the jeweler who made it, both looking pleased with the day's work.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-4",
+     "text": "The masterwork {item}, held up so the whole of the jeweler's bench can see. Everyone did.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-5",
+     "text": "The finished {item}, sketched quickly before the merchants carried {first} off to celebrate.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-6",
+     "text": "{first} with the masterwork {item}. The wheel is just out of frame, resting after a hard day.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-7",
+     "text": "A jeweler and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-8",
+     "text": "The {item}, drawn from life. In life it is brilliant; in ink it is our best effort.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-9",
+     "text": "The scene at the jeweler's bench: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-10",
+     "text": "The masterwork {item} on its way to the treasury. Our artist ran alongside with a pencil.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-11",
+     "text": "{first} at the jeweler's bench, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-13",
+     "text": "A quick sketch of the masterwork {item} before the jewelers arrived to admire it.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more clear as a lamp and less smudged.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the jeweler's bench.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-c-16",
+     "text": "The {item} is held up proudly. Behind it, the jeweler's bench looks on in approval.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-gem-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-h-3",
+     "text": "AT THE JEWELER'S BENCH, A MASTERWORK",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-h-4",
+     "text": "OUR ARTIST VISITS THE JEWELER'S BENCH",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-h-6",
+     "text": "A GEM CUTTER'S FINEST HOUR",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-gem-s-1",
+     "text": "Perfectly faceted, if I say so myself.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-s-5",
+     "text": "Fetch the merchants!",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-s-8",
+     "text": "My finest!",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-gem-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-l-2",
+     "text": "GEM CUTTER",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-l-3",
+     "text": "FLAWLESS",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-gem-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-gemcutter": {
+   "caps": [
+    {
+     "id": "tg-asc-gem-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-gem-c-2",
+     "text": "The crowd at the jeweler's bench, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-gem-c-3",
+     "text": "{art}, sketched in a hurry before the nobles crowded in. It is flawless; the sketch is merely good.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-gem-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-gem-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-gem-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-gem-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-gem-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "gem"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "cook": {
+   "caps": [
+    {
+     "id": "tg-sc-food-c-1",
+     "text": "{who} shows off the masterwork {item} at the kitchen. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-2",
+     "text": "Our artist's sketch of the {item}, hot and hearty, and its maker, rich.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-3",
+     "text": "The {item} and the chef who made it, both looking pleased with the day's work.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-4",
+     "text": "The masterwork {item}, held up so the whole of the kitchen can see. Everyone did.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-5",
+     "text": "The finished {item}, sketched quickly before the dining hall carried {first} off to celebrate.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-6",
+     "text": "{first} with the masterwork {item}. The spoon is just out of frame, resting after a hard day.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-7",
+     "text": "A chef and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-8",
+     "text": "The {item}, drawn from life. In life it is perfectly seasoned; in ink it is our best effort.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-9",
+     "text": "The scene at the kitchen: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-10",
+     "text": "The masterwork {item} on its way to the dining hall. Our artist ran alongside with a pencil.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-11",
+     "text": "{first} at the kitchen, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-13",
+     "text": "A quick sketch of the masterwork {item} before every hungry dwarf arrived to admire it.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more hot and hearty and less smudged.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the kitchen.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-c-16",
+     "text": "The {item} is held up proudly. Behind it, the kitchen looks on in approval.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-food-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-h-3",
+     "text": "AT THE KITCHEN, A MASTERWORK",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-h-4",
+     "text": "OUR ARTIST VISITS THE KITCHEN",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-h-6",
+     "text": "A COOK'S FINEST HOUR",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-food-s-1",
+     "text": "Rich, if I say so myself.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-s-5",
+     "text": "Fetch the dining hall!",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-s-8",
+     "text": "My finest!",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-food-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-l-2",
+     "text": "COOK",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-l-3",
+     "text": "DELICIOUS",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-food-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-cook": {
+   "caps": [
+    {
+     "id": "tg-asc-food-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-food-c-2",
+     "text": "The crowd at the kitchen, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-food-c-3",
+     "text": "{art}, sketched in a hurry before the nobles crowded in. It is delicious; the sketch is merely good.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-food-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-food-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-food-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-food-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-food-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "food"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "scribe": {
+   "caps": [
+    {
+     "id": "tg-sc-book-c-1",
+     "text": "{who} shows off the masterwork {item} at the library. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-2",
+     "text": "Our artist's sketch of the {item}, beautifully bound, and its maker, beautifully bound.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-3",
+     "text": "The {item} and the scholar who made it, both looking pleased with the day's work.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-4",
+     "text": "The masterwork {item}, held up so the whole of the library can see. Everyone did.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-5",
+     "text": "The finished {item}, sketched quickly before the librarian carried {first} off to celebrate.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-6",
+     "text": "{first} with the masterwork {item}. The ink is just out of frame, resting after a hard day.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-7",
+     "text": "A scholar and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-8",
+     "text": "The {item}, drawn from life. In life it is beautifully bound; in ink it is our best effort.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-9",
+     "text": "The scene at the library: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-10",
+     "text": "The masterwork {item} on its way to the library. Our artist ran alongside with a pencil.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-11",
+     "text": "{first} at the library, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-13",
+     "text": "A quick sketch of the masterwork {item} before the scholars arrived to admire it.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more beautifully bound and less smudged.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the library.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-c-16",
+     "text": "The {item} is held up proudly. Behind it, the library looks on in approval.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-book-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-h-3",
+     "text": "AT THE LIBRARY, A MASTERWORK",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-h-4",
+     "text": "OUR ARTIST VISITS THE LIBRARY",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-h-6",
+     "text": "A SCRIBE'S FINEST HOUR",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-book-s-1",
+     "text": "Learned, if I say so myself.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-s-5",
+     "text": "Fetch the librarian!",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-s-8",
+     "text": "My finest!",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-book-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-l-2",
+     "text": "SCRIBE",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-l-3",
+     "text": "CLEARLY WRITTEN",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-book-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-scribe": {
+   "caps": [
+    {
+     "id": "tg-asc-book-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-book-c-2",
+     "text": "The crowd at the library, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-book-c-3",
+     "text": "{art}, sketched in a hurry before the curious crowded in. It is clearly written; the sketch is merely good.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-book-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-book-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-book-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-book-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-book-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "book"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "mechanic": {
+   "caps": [
+    {
+     "id": "tg-sc-tool-c-1",
+     "text": "{who} shows off the masterwork {item} at the workshop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-2",
+     "text": "Our artist's sketch of the {item}, built to last, and its maker, clever.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-3",
+     "text": "The {item} and the craftsdwarf who made it, both looking pleased with the day's work.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-4",
+     "text": "The masterwork {item}, held up so the whole of the workshop can see. Everyone did.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-5",
+     "text": "The finished {item}, sketched quickly before the mechanics carried {first} off to celebrate.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-6",
+     "text": "{first} with the masterwork {item}. The hammer is just out of frame, resting after a hard day.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-7",
+     "text": "A craftsdwarf and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-8",
+     "text": "The {item}, drawn from life. In life it is reliable; in ink it is our best effort.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-9",
+     "text": "The scene at the workshop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-10",
+     "text": "The masterwork {item} on its way to the workshop. Our artist ran alongside with a pencil.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-11",
+     "text": "{first} at the workshop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-13",
+     "text": "A quick sketch of the masterwork {item} before the engineers arrived to admire it.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more built to last and less smudged.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the workshop.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-c-16",
+     "text": "The {item} is held up proudly. Behind it, the workshop looks on in approval.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-tool-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-h-3",
+     "text": "AT THE WORKSHOP, A MASTERWORK",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-h-4",
+     "text": "OUR ARTIST VISITS THE WORKSHOP",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-h-6",
+     "text": "A MECHANIC'S FINEST HOUR",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-tool-s-1",
+     "text": "Clever, if I say so myself.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-s-5",
+     "text": "Fetch the mechanics!",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-s-8",
+     "text": "My finest!",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-tool-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-l-2",
+     "text": "MECHANIC",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-l-3",
+     "text": "PRECISE",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-tool-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-mechanic": {
+   "caps": [
+    {
+     "id": "tg-asc-tool-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-tool-c-2",
+     "text": "The crowd at the workshop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-tool-c-3",
+     "text": "{art}, sketched in a hurry before the workers who need it crowded in. It is precise; the sketch is merely good.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-tool-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-tool-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-tool-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-tool-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-tool-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "tool"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "engraver": {
+   "caps": [
+    {
+     "id": "tg-sc-engraving-c-1",
+     "text": "{who} shows off the masterwork {item} at the hall. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-2",
+     "text": "Our artist's sketch of the {item}, beautiful, and its maker, deep-cut.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-3",
+     "text": "The {item} and the engraver who made it, both looking pleased with the day's work.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-4",
+     "text": "The masterwork {item}, held up so the whole of the hall can see. Everyone did.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-5",
+     "text": "The finished {item}, sketched quickly before the scholars carried {first} off to celebrate.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-6",
+     "text": "{first} with the masterwork {item}. The mallet is just out of frame, resting after a hard day.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-7",
+     "text": "A engraver and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-8",
+     "text": "The {item}, drawn from life. In life it is detailed; in ink it is our best effort.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-9",
+     "text": "The scene at the hall: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-10",
+     "text": "The masterwork {item} on its way to the corridor wall. Our artist ran alongside with a pencil.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-11",
+     "text": "{first} at the hall, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-13",
+     "text": "A quick sketch of the masterwork {item} before every passer-by arrived to admire it.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more beautiful and less smudged.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the hall.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-c-16",
+     "text": "The {item} is held up proudly. Behind it, the hall looks on in approval.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-engraving-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-h-3",
+     "text": "AT THE HALL, A MASTERWORK",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-h-4",
+     "text": "OUR ARTIST VISITS THE HALL",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-h-6",
+     "text": "A ENGRAVER'S FINEST HOUR",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-engraving-s-1",
+     "text": "Deep-cut, if I say so myself.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-s-5",
+     "text": "Fetch the scholars!",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-s-8",
+     "text": "My finest!",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-engraving-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-l-2",
+     "text": "ENGRAVER",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-l-3",
+     "text": "VIVID",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-engraving-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-engraver": {
+   "caps": [
+    {
+     "id": "tg-asc-engraving-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-engraving-c-2",
+     "text": "The crowd at the hall, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-engraving-c-3",
+     "text": "{art}, sketched in a hurry before the nobles crowded in. It is vivid; the sketch is merely good.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-engraving-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-engraving-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-engraving-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-engraving-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-engraving-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "engraving"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "tanner": {
+   "caps": [
+    {
+     "id": "tg-sc-leather-c-1",
+     "text": "{who} shows off the masterwork {item} at the tanner's shop. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-2",
+     "text": "Our artist's sketch of the {item}, even, and its maker, even.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-3",
+     "text": "The {item} and the tanner who made it, both looking pleased with the day's work.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-4",
+     "text": "The masterwork {item}, held up so the whole of the tanner's shop can see. Everyone did.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-5",
+     "text": "The finished {item}, sketched quickly before the merchants carried {first} off to celebrate.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-6",
+     "text": "{first} with the masterwork {item}. The stretching frame is just out of frame, resting after a hard day.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-7",
+     "text": "A tanner and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-8",
+     "text": "The {item}, drawn from life. In life it is even; in ink it is our best effort.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-9",
+     "text": "The scene at the tanner's shop: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-10",
+     "text": "The masterwork {item} on its way to the leather stockpile. Our artist ran alongside with a pencil.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-11",
+     "text": "{first} at the tanner's shop, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-13",
+     "text": "A quick sketch of the masterwork {item} before the merchants arrived to admire it.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more even and less smudged.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the tanner's shop.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-c-16",
+     "text": "The {item} is held up proudly. Behind it, the tanner's shop looks on in approval.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-leather-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-h-3",
+     "text": "AT THE TANNER'S SHOP, A MASTERWORK",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-h-4",
+     "text": "OUR ARTIST VISITS THE TANNER'S SHOP",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-h-6",
+     "text": "A TANNER'S FINEST HOUR",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-leather-s-1",
+     "text": "Supple, if I say so myself.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-s-5",
+     "text": "Fetch the merchants!",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-s-8",
+     "text": "My finest!",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-leather-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-l-2",
+     "text": "TANNER",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-l-3",
+     "text": "FLAWLESS",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-leather-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-tanner": {
+   "caps": [
+    {
+     "id": "tg-asc-leather-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-leather-c-2",
+     "text": "The crowd at the tanner's shop, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-leather-c-3",
+     "text": "{art}, sketched in a hurry before the merchants crowded in. It is flawless; the sketch is merely good.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-leather-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-leather-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-leather-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-leather-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-leather-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "leather"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "smelter": {
+   "caps": [
+    {
+     "id": "tg-sc-metal-c-1",
+     "text": "{who} shows off the masterwork {item} at the smelter. The artist drew it twice, then gave up and drew it once, properly.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-2",
+     "text": "Our artist's sketch of the {item}, bright, and its maker, bright.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-3",
+     "text": "The {item} and the furnace operator who made it, both looking pleased with the day's work.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-4",
+     "text": "The masterwork {item}, held up so the whole of the smelter can see. Everyone did.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-5",
+     "text": "The finished {item}, sketched quickly before the bookkeeper carried {first} off to celebrate.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-6",
+     "text": "{first} with the masterwork {item}. The tongs is just out of frame, resting after a hard day.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-7",
+     "text": "A furnace operator and a masterwork. Our artist notes that only one of them sat still for the drawing.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-8",
+     "text": "The {item}, drawn from life. In life it is bright; in ink it is our best effort.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-9",
+     "text": "The scene at the smelter: the {item}, its maker, and a great deal of pride.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-10",
+     "text": "The masterwork {item} on its way to the bar stockpile. Our artist ran alongside with a pencil.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-11",
+     "text": "{first} at the smelter, holding up the {item} for our artist. Our artist asked for one more minute. {first} gave thirty seconds.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-12",
+     "text": "The {item}, the maker and the workshop. All three looked very pleased about it.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-13",
+     "text": "A quick sketch of the masterwork {item} before the bookkeeper arrived to admire it.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-14",
+     "text": "Our artist's impression of the {item}. The real one is more bright and less smudged.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-15",
+     "text": "{who} and the {item}, as seen by our sketch artist on a busy day at the smelter.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-c-16",
+     "text": "The {item} is held up proudly. Behind it, the smelter looks on in approval.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "heads": [
+    {
+     "id": "tg-sc-metal-h-1",
+     "text": "SKETCH: THE MASTERWORK {item}",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-h-2",
+     "text": "{first} AND THE {item}, DRAWN FROM LIFE",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-h-3",
+     "text": "AT THE SMELTER, A MASTERWORK",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-h-4",
+     "text": "OUR ARTIST VISITS THE SMELTER",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-h-5",
+     "text": "THE {item}, AS SEEN BY OUR ARTIST",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-h-6",
+     "text": "A SMELTER'S FINEST HOUR",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "says": [
+    {
+     "id": "tg-sc-metal-s-1",
+     "text": "Pure, if I say so myself.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-s-2",
+     "text": "Mind the {item}!",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-s-3",
+     "text": "Took me all day!",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-s-4",
+     "text": "Best work I've done.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-s-5",
+     "text": "Fetch the bookkeeper!",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-s-6",
+     "text": "Look at that!",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-s-7",
+     "text": "Not bad, eh?",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-s-8",
+     "text": "My finest!",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-s-9",
+     "text": "Don't touch, just look.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    }
+   ],
+   "labels": [
+    {
+     "id": "tg-sc-metal-l-1",
+     "text": "THE {item}",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-l-2",
+     "text": "SMELTER",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-l-3",
+     "text": "FLAWLESS",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-sc-metal-l-4",
+     "text": "MASTERWORK",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    }
+   ]
+  },
+  "art-smelter": {
+   "caps": [
+    {
+     "id": "tg-asc-metal-c-1",
+     "text": "{art}, the legendary {item}, with {who} and a crowd that will not go home.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-metal-c-2",
+     "text": "The crowd at the smelter, come to see {art}. Our artist stood on a crate for this view.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-metal-c-3",
+     "text": "{art}, sketched in a hurry before the bookkeeper crowded in. It is flawless; the sketch is merely good.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-metal-c-4",
+     "text": "The maker of {art}, the crowd, and the plaque that makes it official.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-metal-c-5",
+     "text": "{first} with {art}, a {item} that will outlast us all. The crowd agrees.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-metal-c-6",
+     "text": "{art} on display at last. The queue is longer than the drawing.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-metal-c-7",
+     "text": "The unveiling of {art}. Our artist was elbowed twice and drew it anyway.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    },
+    {
+     "id": "tg-asc-metal-c-8",
+     "text": "{art}, the legendary {item}, and the dwarves who could not stop staring at it.",
+     "fit": [
+      "metal"
+     ],
+     "fit_auto": false
+    }
+   ]
+  }
+ }
+}

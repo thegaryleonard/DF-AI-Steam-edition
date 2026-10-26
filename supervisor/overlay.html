@@ -432,7 +432,11 @@ function evFacts(ev) {
     if (/slaughtered/.test(t)) f.add('die_slaughter');
     else { const cm = t.match(/^[^,]+,\s*.+? has (.+?)[.!]*$/) || t.match(/ has (.+?)[.!]*$/); const k = deathCause(cm ? cm[1] : '', t); if (k) f.add('die_' + k); }
     if (/PET_DEATH/.test(ty) || /\(Tame\)/.test(t)) f.add('pet');
+    else if ((m = t.match(/^[^,(]+,\s*([A-Za-z][a-z]+(?: [a-z]+)*) (?:has|was|is)\b/))) f.add('prof_' + m[1].toLowerCase());
     if (/\b(cat|kitten|tom|she-cat)\b/i.test(t)) f.add('sp_cat'); else if (/\b(dog|puppy|hound|stray puppy)\b/i.test(t)) f.add('sp_dog');
+  } else if (/MEGABEAST|WEREBEAST|BEAST_AMBUSH/.test(ty)) {
+    f.add(/forgotten beast/i.test(t) ? 'beast_forgotten' : /\btitan\b/i.test(t) ? 'beast_titan' : /\bwere\w+/i.test(t) ? 'beast_were'
+      : /dragon|hydra|\broc\b|colossus|cyclops|ettin|giant/i.test(t) ? 'beast_mega' : 'beast_other');
   } else if (/STRUCK|FEATURE_DISCOVERY/.test(ty)) {
     if ((m = t.match(/struck (.+?)!/))) {
       f.add(mineralClass(m[1]));
@@ -463,7 +467,7 @@ function slotFacts(e, sl) {
   return f;
 }
 // a tag group is the prefix before "_" for mat_/die_/mood_/sp_/shop_, else the item group; every group the entry names must match
-const fitGroup = t => /^(mat|die|mood|sp|shop|ev|metal|n|prof)_/.test(t) ? t.split('_')[0] : 'item';
+const fitGroup = t => /^(mat|die|mood|sp|shop|ev|metal|n|prof|beast)_/.test(t) ? t.split('_')[0] : 'item';
 let FIT_OFF = false;   // the offline test flips this to measure the old behaviour
 function fits(e, facts) {
   if (FIT_OFF || !e.fit || !e.fit.length) return true;
@@ -1358,8 +1362,20 @@ const SCENES = [
   {id: 'strike-magma', kinds: ['strike'], fit: ['magma'], draw: (S, t) => { S.poly([[110, 128], [120, 112], [230, 112], [236, 128]], 'rgba(230,110,30,.5)'); SC.flames(S, 170, 112, 3, .7); S.dwarf(60, 128, 1.1, {armsUp: true}); S.motion(40, 90, 3); S.label(170, 30, 170, 104, t.label || 'MAGMA (HOT)'); }},
   {id: 'strike-other', kinds: ['strike'], fit: [], draw: (S, t) => { S.dwarf(70, 128, 1.1, {pick: true, armsUp: true}); S.gem(170, 85, 1.6); S.label(200, 22, 175, 58, t.label || 'THE FIND'); }},
 ];
-// the older single drawings stay as each kind's fallback scene (siege, beast, migrants, caravan, birth...)
-for (const k of KINDS) if (!SCENES.some(s => s.kinds.includes(k.k))) SCENES.push({id: 'k-' + k.k, kinds: [k.k], fit: [], draw: S => k.draw(S)});
+// more situations for the other big events (each an alternative drawing for its kind, picked at random per event)
+SCENES.push(
+  {id: 'beast-squad', kinds: ['beast'], fit: ['beast_forgotten', 'beast_titan', 'beast_were', 'beast_mega', 'beast_other'], draw: (S, t) => { S.beast(70, 128, .8); S.dwarf(170, 128, 1.1, {axe: true}); ITEMART.shield(S, 152, 100, .55); S.dwarf(210, 128, .8, {axe: true}); S.motion(130, 86, 3); S.label(200, 24, 90, 60, t.label || 'THE BEAST'); sayBubble(S, t.say, 170, 70, 120); }},
+  {id: 'siege-archers', kinds: ['siege'], fit: [], draw: (S, t) => { S.wall(150, 128, 86, 46); S.dwarf(172, 82, .7, {}); S.dwarf(208, 82, .7, {}); ITEMART.crossbow(S, 160, 68, .55); [30, 62, 96].forEach(x => S.goblin(x, 128, .8)); for (let i = 0; i < 3; i++) S.line(150 - i * 18, 60 + i * 6, 136 - i * 18, 63 + i * 6); S.label(60, 22, 62, 74, t.label || 'INVADERS'); }},
+  {id: 'tantrum-table', kinds: ['berserk'], fit: [], draw: (S, t) => { S.poly([[40, 128], [60, 108], [104, 112], [96, 128]]); S.line(56, 112, 40, 96); S.dwarf(150, 128, 1.15, {armsUp: true}); S.steam(150, 60); S.mugP(196, 70, 1.3); S.motion(186, 70, 2); S.text(60, 40, '#!@%', 16); S.label(210, 24, 196, 64, t.label || 'THE MUG'); }},
+  {id: 'migrants-line', kinds: ['migrants'], fit: [], draw: (S, t) => { S.door(28, 128, 1.4); [70, 104, 138, 172].forEach((x, i) => { S.dwarf(x, 128, .8, {}); ITEMART.bag(S, x + 12, 112, .5); }); SC.sign(S, 210, 72, 'WELCOME'); S.line(210, 76, 210, 128); S.label(110, 24, 104, 78, t.label || 'NEW FACES'); }},
+  {id: 'caravan-haggle', kinds: ['caravan'], fit: [], draw: (S, t) => { S.wagon(52, 128, .9, 0); S.table(130, 128, 1.4); S.circle(122, 104, 3, 'rgba(230,199,90,.6)'); S.circle(130, 104, 3, 'rgba(230,199,90,.6)'); S.circle(138, 104, 3, 'rgba(230,199,90,.6)'); S.dwarf(92, 128, .9, {}); S.dwarf(186, 128, 1, {armsUp: true}); S.label(200, 24, 130, 98, t.label || 'THE PRICE'); sayBubble(S, t.say, 186, 74, 120); }},
+  {id: 'birth-cradle', kinds: ['birth'], fit: [], draw: (S, t) => { S.poly([[96, 128], [92, 104], [148, 104], [144, 128]], true); S.arc(120, 128, 30, 6, 0, Math.PI); S.baby(126, 104, .9); S.dwarf(60, 128, 1.1, {}); S.dwarf(185, 128, 1, {armsUp: true}); S.heart(120, 50, .8); S.label(210, 24, 128, 90, t.label || 'NEW CITIZEN'); }},
+  {id: 'wedding-arch', kinds: ['marriage'], fit: [], draw: (S, t) => { S.arc(120, 128, 54, 86, Math.PI, Math.PI * 2); S.dwarf(100, 128, 1, {}); S.dwarf(140, 128, 1, {}); S.line(108, 100, 132, 100); S.heart(120, 30, .8); S.dwarf(28, 128, .7, {armsUp: true}); S.dwarf(212, 128, .7, {armsUp: true}); S.label(210, 22, 140, 74, t.label || 'THE COUPLE'); }},
+  {id: 'ghost-slab', kinds: ['ghost'], fit: [], draw: (S, t) => { ITEMART.slab(S, 170, 112, 1.2); S.ghost(90, 104, 1.1); S.text(46, 50, 'BURY ME', 11); S.dwarf(214, 128, .8, {armsUp: true}); S.label(190, 20, 168, 92, t.label || 'A SLAB, PLEASE'); }},
+  {id: 'soldier-dummy', kinds: ['soldier'], fit: [], draw: (S, t) => { S.line(170, 128, 170, 76); S.line(150, 96, 190, 96); S.circle(170, 68, 9, true); S.dwarf(90, 128, 1.2, {axe: true, armsUp: true}); S.motion(140, 70, 3); S.sparkles(90, 60, 30, 5); S.label(210, 24, 172, 62, t.label || 'THE DUMMY (LOST)'); }},
+);
+// the older single drawings stay as one of each kind's scenes (siege, beast, migrants, caravan, birth...)
+for (const k of KINDS) if (!['master', 'artifact', 'mood', 'death', 'strike'].includes(k.k)) SCENES.push({id: 'k-' + k.k, kinds: [k.k], fit: [], draw: S => k.draw(S)});
 // most specific scene that fits the facts (a noun beats a category, a category beats "crafts"/"wearable", anything beats
 // a generic scene); a deterministic pick among equals so one event always gets one drawing
 function sceneScore(sc, facts) {
@@ -1376,7 +1392,9 @@ function pickScene(ev, k, fx, r) {
 }
 // the scene's own words: headline (scene or kind), caption and labels (the scene's only: they describe this drawing)
 function sceneText(sc, ev, k, fx, ctx, r, extra) {
-  const L = (LIB.scenes || {})[sc.id] || {}, ids = [];
+  const L0 = (LIB.scenes || {})[sc.id] || {}, ids = [], K0 = (LIB.kinds || {})[k.k] || {};
+  // a classic kind drawing also uses the kind's own captions and labels, which were written for that drawing
+  const L = sc.id.startsWith('k-') ? {heads: L0.heads, says: L0.says, caps: [...(L0.caps || []), ...(K0.caps || [])], labels: [...(L0.labels || []), ...(K0.labels || [])]} : L0;
   const pk = list => { const e = choose1(list, ctx, r, extra); if (e) ids.push(e.id); const x = e ? T(e) : null; return x ? x[0].toUpperCase() + x.slice(1) : null; };   // "emerald, as it..." -> "Emerald, as it..."
   return {head: pk(L.heads), cap: pk(L.caps), label: pk(L.labels), say: pk(L.says), ids};
 }

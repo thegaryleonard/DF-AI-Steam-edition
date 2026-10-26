@@ -1,0 +1,906 @@
+{
+ "stories": {
+  "no_meat": {
+   "heads": [
+    {
+     "id": "t2-sk-no_meat-h1",
+     "text": "MEAT WATCH, DAY {days}"
+    },
+    {
+     "id": "t2-sk-no_meat-h2",
+     "text": "MEAT WATCH: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-no_meat-h3",
+     "text": "{days} DAYS OF NO MEAT"
+    },
+    {
+     "id": "t2-sk-no_meat-h4",
+     "text": "MEAT WATCH CONTINUES"
+    },
+    {
+     "id": "t2-sk-no_meat-h5",
+     "text": "REPORT NO. {n}: MEAT WATCH"
+    },
+    {
+     "id": "t2-sk-no_meat-h6",
+     "text": "STILL NO MEAT, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-no_meat-b1",
+     "text": "It has been {days} days of no meat since {since}. The hunters and fishers are doing what they can, and the butcher's block stays empty."
+    },
+    {
+     "id": "t2-sk-no_meat-b2",
+     "text": "Day {days} of no meat. The butcher's block stays empty, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-no_meat-b3",
+     "text": "Report number {n} on no meat, which began {since}. The hunters and fishers ask for patience; the butcher's block stays empty."
+    },
+    {
+     "id": "t2-sk-no_meat-b4",
+     "text": "{days} days now. The butcher's block stays empty. Everyone is asked to help the hunters and fishers however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-no_meat-eh1",
+     "text": "IT'S OVER: MEAT WATCH ENDS"
+    },
+    {
+     "id": "t2-sk-no_meat-eh2",
+     "text": "MEAT WATCH ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-no_meat-eh3",
+     "text": "GOOD NEWS: MEAT IS BACK"
+    },
+    {
+     "id": "t2-sk-no_meat-eh4",
+     "text": "THE END OF NO MEAT"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-no_meat-eb1",
+     "text": "After {days} days, meat is back. The hunters and fishers are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-no_meat-eb2",
+     "text": "Meat is back. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-no_meat-eb3",
+     "text": "The bookkeeper has closed the file on no meat: {days} days, now over. The hunters and fishers may rest."
+    }
+   ]
+  },
+  "no_fish": {
+   "heads": [
+    {
+     "id": "t2-sk-no_fish-h1",
+     "text": "FISH WATCH, DAY {days}"
+    },
+    {
+     "id": "t2-sk-no_fish-h2",
+     "text": "FISH WATCH: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-no_fish-h3",
+     "text": "{days} DAYS OF NO FISH"
+    },
+    {
+     "id": "t2-sk-no_fish-h4",
+     "text": "FISH WATCH CONTINUES"
+    },
+    {
+     "id": "t2-sk-no_fish-h5",
+     "text": "REPORT NO. {n}: FISH WATCH"
+    },
+    {
+     "id": "t2-sk-no_fish-h6",
+     "text": "STILL NO FISH, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-no_fish-b1",
+     "text": "It has been {days} days of no fish since {since}. The fishers are doing what they can, and the fish stall is still bare."
+    },
+    {
+     "id": "t2-sk-no_fish-b2",
+     "text": "Day {days} of no fish. The fish stall is still bare, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-no_fish-b3",
+     "text": "Report number {n} on no fish, which began {since}. The fishers ask for patience; the fish stall is still bare."
+    },
+    {
+     "id": "t2-sk-no_fish-b4",
+     "text": "{days} days now. The fish stall is still bare. Everyone is asked to help the fishers however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-no_fish-eh1",
+     "text": "IT'S OVER: FISH WATCH ENDS"
+    },
+    {
+     "id": "t2-sk-no_fish-eh2",
+     "text": "FISH WATCH ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-no_fish-eh3",
+     "text": "GOOD NEWS: FISH ARE BACK IN THE STORES"
+    },
+    {
+     "id": "t2-sk-no_fish-eh4",
+     "text": "THE END OF NO FISH"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-no_fish-eb1",
+     "text": "After {days} days, fish are back in the stores. The fishers are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-no_fish-eb2",
+     "text": "Fish are back in the stores. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-no_fish-eb3",
+     "text": "The bookkeeper has closed the file on no fish: {days} days, now over. The fishers may rest."
+    }
+   ]
+  },
+  "drinks_low": {
+   "heads": [
+    {
+     "id": "t2-sk-drinks_low-h1",
+     "text": "DRY SPELL, DAY {days}"
+    },
+    {
+     "id": "t2-sk-drinks_low-h2",
+     "text": "DRY SPELL: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-drinks_low-h3",
+     "text": "{days} DAYS OF LOW DRINK"
+    },
+    {
+     "id": "t2-sk-drinks_low-h4",
+     "text": "DRY SPELL CONTINUES"
+    },
+    {
+     "id": "t2-sk-drinks_low-h5",
+     "text": "REPORT NO. {n}: DRY SPELL"
+    },
+    {
+     "id": "t2-sk-drinks_low-h6",
+     "text": "STILL LOW DRINK, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-drinks_low-b1",
+     "text": "It has been {days} days of low drink since {since}. The brewers are doing what they can, and the tavern pours small mugs."
+    },
+    {
+     "id": "t2-sk-drinks_low-b2",
+     "text": "Day {days} of low drink. The tavern pours small mugs, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-drinks_low-b3",
+     "text": "Report number {n} on low drink, which began {since}. The brewers ask for patience; the tavern pours small mugs."
+    },
+    {
+     "id": "t2-sk-drinks_low-b4",
+     "text": "{days} days now. The tavern pours small mugs. Everyone is asked to help the brewers however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-drinks_low-eh1",
+     "text": "IT'S OVER: DRY SPELL ENDS"
+    },
+    {
+     "id": "t2-sk-drinks_low-eh2",
+     "text": "DRY SPELL ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-drinks_low-eh3",
+     "text": "GOOD NEWS: THE CELLAR IS FULL AGAIN"
+    },
+    {
+     "id": "t2-sk-drinks_low-eh4",
+     "text": "THE END OF LOW DRINK"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-drinks_low-eb1",
+     "text": "After {days} days, the cellar is full again. The brewers are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-drinks_low-eb2",
+     "text": "The cellar is full again. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-drinks_low-eb3",
+     "text": "The bookkeeper has closed the file on low drink: {days} days, now over. The brewers may rest."
+    }
+   ]
+  },
+  "famine": {
+   "heads": [
+    {
+     "id": "t2-sk-famine-h1",
+     "text": "FAMINE, DAY {days}"
+    },
+    {
+     "id": "t2-sk-famine-h2",
+     "text": "FAMINE: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-famine-h3",
+     "text": "{days} DAYS OF FAMINE"
+    },
+    {
+     "id": "t2-sk-famine-h4",
+     "text": "FAMINE CONTINUES"
+    },
+    {
+     "id": "t2-sk-famine-h5",
+     "text": "REPORT NO. {n}: FAMINE"
+    },
+    {
+     "id": "t2-sk-famine-h6",
+     "text": "STILL FAMINE, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-famine-b1",
+     "text": "It has been {days} days of famine since {since}. The farmers and cooks are doing what they can, and plates are thin."
+    },
+    {
+     "id": "t2-sk-famine-b2",
+     "text": "Day {days} of famine. Plates are thin, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-famine-b3",
+     "text": "Report number {n} on famine, which began {since}. The farmers and cooks ask for patience; plates are thin."
+    },
+    {
+     "id": "t2-sk-famine-b4",
+     "text": "{days} days now. Plates are thin. Everyone is asked to help the farmers and cooks however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-famine-eh1",
+     "text": "IT'S OVER: FAMINE ENDS"
+    },
+    {
+     "id": "t2-sk-famine-eh2",
+     "text": "FAMINE ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-famine-eh3",
+     "text": "GOOD NEWS: THE LARDER HAS RECOVERED"
+    },
+    {
+     "id": "t2-sk-famine-eh4",
+     "text": "THE END OF FAMINE"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-famine-eb1",
+     "text": "After {days} days, the larder has recovered. The farmers and cooks are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-famine-eb2",
+     "text": "The larder has recovered. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-famine-eb3",
+     "text": "The bookkeeper has closed the file on famine: {days} days, now over. The farmers and cooks may rest."
+    }
+   ]
+  },
+  "wood_low": {
+   "heads": [
+    {
+     "id": "t2-sk-wood_low-h1",
+     "text": "WOOD SHORTAGE, DAY {days}"
+    },
+    {
+     "id": "t2-sk-wood_low-h2",
+     "text": "WOOD SHORTAGE: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-wood_low-h3",
+     "text": "{days} DAYS OF NO WOOD"
+    },
+    {
+     "id": "t2-sk-wood_low-h4",
+     "text": "WOOD SHORTAGE CONTINUES"
+    },
+    {
+     "id": "t2-sk-wood_low-h5",
+     "text": "REPORT NO. {n}: WOOD SHORTAGE"
+    },
+    {
+     "id": "t2-sk-wood_low-h6",
+     "text": "STILL NO WOOD, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-wood_low-b1",
+     "text": "It has been {days} days of no wood since {since}. The woodcutters are doing what they can, and the carpenter sits idle."
+    },
+    {
+     "id": "t2-sk-wood_low-b2",
+     "text": "Day {days} of no wood. The carpenter sits idle, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-wood_low-b3",
+     "text": "Report number {n} on no wood, which began {since}. The woodcutters ask for patience; the carpenter sits idle."
+    },
+    {
+     "id": "t2-sk-wood_low-b4",
+     "text": "{days} days now. The carpenter sits idle. Everyone is asked to help the woodcutters however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-wood_low-eh1",
+     "text": "IT'S OVER: WOOD SHORTAGE ENDS"
+    },
+    {
+     "id": "t2-sk-wood_low-eh2",
+     "text": "WOOD SHORTAGE ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-wood_low-eh3",
+     "text": "GOOD NEWS: THE WOODPILE IS RESTOCKED"
+    },
+    {
+     "id": "t2-sk-wood_low-eh4",
+     "text": "THE END OF NO WOOD"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-wood_low-eb1",
+     "text": "After {days} days, the woodpile is restocked. The woodcutters are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-wood_low-eb2",
+     "text": "The woodpile is restocked. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-wood_low-eb3",
+     "text": "The bookkeeper has closed the file on no wood: {days} days, now over. The woodcutters may rest."
+    }
+   ]
+  },
+  "rain": {
+   "heads": [
+    {
+     "id": "t2-sk-rain-h1",
+     "text": "THE RAINS, DAY {days}"
+    },
+    {
+     "id": "t2-sk-rain-h2",
+     "text": "THE RAINS: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-rain-h3",
+     "text": "{days} DAYS OF RAIN"
+    },
+    {
+     "id": "t2-sk-rain-h4",
+     "text": "THE RAINS CONTINUES"
+    },
+    {
+     "id": "t2-sk-rain-h5",
+     "text": "REPORT NO. {n}: THE RAINS"
+    },
+    {
+     "id": "t2-sk-rain-h6",
+     "text": "STILL RAIN, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-rain-b1",
+     "text": "It has been {days} days of rain since {since}. The outdoor workers are doing what they can, and the surface is soaked."
+    },
+    {
+     "id": "t2-sk-rain-b2",
+     "text": "Day {days} of rain. The surface is soaked, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-rain-b3",
+     "text": "Report number {n} on rain, which began {since}. The outdoor workers ask for patience; the surface is soaked."
+    },
+    {
+     "id": "t2-sk-rain-b4",
+     "text": "{days} days now. The surface is soaked. Everyone is asked to help the outdoor workers however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-rain-eh1",
+     "text": "IT'S OVER: THE RAINS ENDS"
+    },
+    {
+     "id": "t2-sk-rain-eh2",
+     "text": "THE RAINS ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-rain-eh3",
+     "text": "GOOD NEWS: THE RAIN HAS STOPPED"
+    },
+    {
+     "id": "t2-sk-rain-eh4",
+     "text": "THE END OF RAIN"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-rain-eb1",
+     "text": "After {days} days, the rain has stopped. The outdoor workers are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-rain-eb2",
+     "text": "The rain has stopped. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-rain-eb3",
+     "text": "The bookkeeper has closed the file on rain: {days} days, now over. The outdoor workers may rest."
+    }
+   ]
+  },
+  "snow": {
+   "heads": [
+    {
+     "id": "t2-sk-snow-h1",
+     "text": "THE SNOWS, DAY {days}"
+    },
+    {
+     "id": "t2-sk-snow-h2",
+     "text": "THE SNOWS: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-snow-h3",
+     "text": "{days} DAYS OF SNOW"
+    },
+    {
+     "id": "t2-sk-snow-h4",
+     "text": "THE SNOWS CONTINUES"
+    },
+    {
+     "id": "t2-sk-snow-h5",
+     "text": "REPORT NO. {n}: THE SNOWS"
+    },
+    {
+     "id": "t2-sk-snow-h6",
+     "text": "STILL SNOW, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-snow-b1",
+     "text": "It has been {days} days of snow since {since}. The gate guards are doing what they can, and the surface is white and cold."
+    },
+    {
+     "id": "t2-sk-snow-b2",
+     "text": "Day {days} of snow. The surface is white and cold, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-snow-b3",
+     "text": "Report number {n} on snow, which began {since}. The gate guards ask for patience; the surface is white and cold."
+    },
+    {
+     "id": "t2-sk-snow-b4",
+     "text": "{days} days now. The surface is white and cold. Everyone is asked to help the gate guards however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-snow-eh1",
+     "text": "IT'S OVER: THE SNOWS ENDS"
+    },
+    {
+     "id": "t2-sk-snow-eh2",
+     "text": "THE SNOWS ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-snow-eh3",
+     "text": "GOOD NEWS: THE SNOW HAS STOPPED"
+    },
+    {
+     "id": "t2-sk-snow-eh4",
+     "text": "THE END OF SNOW"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-snow-eb1",
+     "text": "After {days} days, the snow has stopped. The gate guards are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-snow-eb2",
+     "text": "The snow has stopped. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-snow-eb3",
+     "text": "The bookkeeper has closed the file on snow: {days} days, now over. The gate guards may rest."
+    }
+   ]
+  },
+  "drinks_high": {
+   "heads": [
+    {
+     "id": "t2-sk-drinks_high-h1",
+     "text": "THE GREAT CELLAR, DAY {days}"
+    },
+    {
+     "id": "t2-sk-drinks_high-h2",
+     "text": "THE GREAT CELLAR: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-drinks_high-h3",
+     "text": "{days} DAYS OF MORE DRINK THAN ROOM"
+    },
+    {
+     "id": "t2-sk-drinks_high-h4",
+     "text": "THE GREAT CELLAR CONTINUES"
+    },
+    {
+     "id": "t2-sk-drinks_high-h5",
+     "text": "REPORT NO. {n}: THE GREAT CELLAR"
+    },
+    {
+     "id": "t2-sk-drinks_high-h6",
+     "text": "STILL MORE DRINK THAN ROOM, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-drinks_high-b1",
+     "text": "It has been {days} days of more drink than room since {since}. The haulers are doing what they can, and barrels crowd the corridors."
+    },
+    {
+     "id": "t2-sk-drinks_high-b2",
+     "text": "Day {days} of more drink than room. Barrels crowd the corridors, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-drinks_high-b3",
+     "text": "Report number {n} on more drink than room, which began {since}. The haulers ask for patience; barrels crowd the corridors."
+    },
+    {
+     "id": "t2-sk-drinks_high-b4",
+     "text": "{days} days now. Barrels crowd the corridors. Everyone is asked to help the haulers however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-drinks_high-eh1",
+     "text": "IT'S OVER: THE GREAT CELLAR ENDS"
+    },
+    {
+     "id": "t2-sk-drinks_high-eh2",
+     "text": "THE GREAT CELLAR ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-drinks_high-eh3",
+     "text": "GOOD NEWS: THE CELLAR IS MERELY FULL AGAIN"
+    },
+    {
+     "id": "t2-sk-drinks_high-eh4",
+     "text": "THE END OF MORE DRINK THAN ROOM"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-drinks_high-eb1",
+     "text": "After {days} days, the cellar is merely full again. The haulers are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-drinks_high-eb2",
+     "text": "The cellar is merely full again. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-drinks_high-eb3",
+     "text": "The bookkeeper has closed the file on more drink than room: {days} days, now over. The haulers may rest."
+    }
+   ]
+  },
+  "stone_glut": {
+   "heads": [
+    {
+     "id": "t2-sk-stone_glut-h1",
+     "text": "STONE MOUNTAIN, DAY {days}"
+    },
+    {
+     "id": "t2-sk-stone_glut-h2",
+     "text": "STONE MOUNTAIN: DAY {days} AND COUNTING"
+    },
+    {
+     "id": "t2-sk-stone_glut-h3",
+     "text": "{days} DAYS OF TOO MUCH STONE"
+    },
+    {
+     "id": "t2-sk-stone_glut-h4",
+     "text": "STONE MOUNTAIN CONTINUES"
+    },
+    {
+     "id": "t2-sk-stone_glut-h5",
+     "text": "REPORT NO. {n}: STONE MOUNTAIN"
+    },
+    {
+     "id": "t2-sk-stone_glut-h6",
+     "text": "STILL TOO MUCH STONE, SAYS THE BOOKKEEPER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "t2-sk-stone_glut-b1",
+     "text": "It has been {days} days of too much stone since {since}. The masons are doing what they can, and the stockpile overflows."
+    },
+    {
+     "id": "t2-sk-stone_glut-b2",
+     "text": "Day {days} of too much stone. The stockpile overflows, and the Herald will keep counting until it ends."
+    },
+    {
+     "id": "t2-sk-stone_glut-b3",
+     "text": "Report number {n} on too much stone, which began {since}. The masons ask for patience; the stockpile overflows."
+    },
+    {
+     "id": "t2-sk-stone_glut-b4",
+     "text": "{days} days now. The stockpile overflows. Everyone is asked to help the masons however they can."
+    }
+   ],
+   "ended_heads": [
+    {
+     "id": "t2-sk-stone_glut-eh1",
+     "text": "IT'S OVER: STONE MOUNTAIN ENDS"
+    },
+    {
+     "id": "t2-sk-stone_glut-eh2",
+     "text": "STONE MOUNTAIN ENDS AFTER {days} DAYS"
+    },
+    {
+     "id": "t2-sk-stone_glut-eh3",
+     "text": "GOOD NEWS: THE STONE PILE HAS SHRUNK"
+    },
+    {
+     "id": "t2-sk-stone_glut-eh4",
+     "text": "THE END OF TOO MUCH STONE"
+    }
+   ],
+   "ended_bodies": [
+    {
+     "id": "t2-sk-stone_glut-eb1",
+     "text": "After {days} days, the stone pile has shrunk. The masons are thanked, and a mug has been raised."
+    },
+    {
+     "id": "t2-sk-stone_glut-eb2",
+     "text": "The stone pile has shrunk. The streak that began {since} lasted {days} days and is now history."
+    },
+    {
+     "id": "t2-sk-stone_glut-eb3",
+     "text": "The bookkeeper has closed the file on too much stone: {days} days, now over. The masons may rest."
+    }
+   ]
+  }
+ },
+ "counters": {
+  "death": [
+   {
+    "id": "t2-cn-death-1",
+    "text": "Days since a funeral: {days}"
+   },
+   {
+    "id": "t2-cn-death-2",
+    "text": "Days without a funeral: {days}"
+   },
+   {
+    "id": "t2-cn-death-3",
+    "text": "It has been {days} days since a funeral"
+   },
+   {
+    "id": "t2-cn-death-4",
+    "text": "Count since a funeral: {days} days"
+   }
+  ],
+  "pet": [
+   {
+    "id": "t2-cn-pet-1",
+    "text": "Days since we lost a pet: {days}"
+   },
+   {
+    "id": "t2-cn-pet-2",
+    "text": "Days without we lost a pet: {days}"
+   },
+   {
+    "id": "t2-cn-pet-3",
+    "text": "It has been {days} days since we lost a pet"
+   },
+   {
+    "id": "t2-cn-pet-4",
+    "text": "Count since we lost a pet: {days} days"
+   }
+  ],
+  "tantrum": [
+   {
+    "id": "t2-cn-tantrum-1",
+    "text": "Days since a tantrum: {days}"
+   },
+   {
+    "id": "t2-cn-tantrum-2",
+    "text": "Days without a tantrum: {days}"
+   },
+   {
+    "id": "t2-cn-tantrum-3",
+    "text": "It has been {days} days since a tantrum"
+   },
+   {
+    "id": "t2-cn-tantrum-4",
+    "text": "Count since a tantrum: {days} days"
+   }
+  ],
+  "mood": [
+   {
+    "id": "t2-cn-mood-1",
+    "text": "Days since a strange mood: {days}"
+   },
+   {
+    "id": "t2-cn-mood-2",
+    "text": "Days without a strange mood: {days}"
+   },
+   {
+    "id": "t2-cn-mood-3",
+    "text": "It has been {days} days since a strange mood"
+   },
+   {
+    "id": "t2-cn-mood-4",
+    "text": "Count since a strange mood: {days} days"
+   }
+  ],
+  "artifact": [
+   {
+    "id": "t2-cn-artifact-1",
+    "text": "Days since a new artifact: {days}"
+   },
+   {
+    "id": "t2-cn-artifact-2",
+    "text": "Days without a new artifact: {days}"
+   },
+   {
+    "id": "t2-cn-artifact-3",
+    "text": "It has been {days} days since a new artifact"
+   },
+   {
+    "id": "t2-cn-artifact-4",
+    "text": "Count since a new artifact: {days} days"
+   }
+  ],
+  "masterpiece": [
+   {
+    "id": "t2-cn-masterpiece-1",
+    "text": "Days since a masterpiece: {days}"
+   },
+   {
+    "id": "t2-cn-masterpiece-2",
+    "text": "Days without a masterpiece: {days}"
+   },
+   {
+    "id": "t2-cn-masterpiece-3",
+    "text": "It has been {days} days since a masterpiece"
+   },
+   {
+    "id": "t2-cn-masterpiece-4",
+    "text": "Count since a masterpiece: {days} days"
+   }
+  ],
+  "migrants": [
+   {
+    "id": "t2-cn-migrants-1",
+    "text": "Days since migrants arrived: {days}"
+   },
+   {
+    "id": "t2-cn-migrants-2",
+    "text": "Days without migrants arrived: {days}"
+   },
+   {
+    "id": "t2-cn-migrants-3",
+    "text": "It has been {days} days since migrants arrived"
+   },
+   {
+    "id": "t2-cn-migrants-4",
+    "text": "Count since migrants arrived: {days} days"
+   }
+  ],
+  "caravan": [
+   {
+    "id": "t2-cn-caravan-1",
+    "text": "Days since the last caravan: {days}"
+   },
+   {
+    "id": "t2-cn-caravan-2",
+    "text": "Days without the last caravan: {days}"
+   },
+   {
+    "id": "t2-cn-caravan-3",
+    "text": "It has been {days} days since the last caravan"
+   },
+   {
+    "id": "t2-cn-caravan-4",
+    "text": "Count since the last caravan: {days} days"
+   }
+  ],
+  "strike": [
+   {
+    "id": "t2-cn-strike-1",
+    "text": "Days since a lucky strike: {days}"
+   },
+   {
+    "id": "t2-cn-strike-2",
+    "text": "Days without a lucky strike: {days}"
+   },
+   {
+    "id": "t2-cn-strike-3",
+    "text": "It has been {days} days since a lucky strike"
+   },
+   {
+    "id": "t2-cn-strike-4",
+    "text": "Count since a lucky strike: {days} days"
+   }
+  ],
+  "birth": [
+   {
+    "id": "t2-cn-birth-1",
+    "text": "Days since a birth: {days}"
+   },
+   {
+    "id": "t2-cn-birth-2",
+    "text": "Days without a birth: {days}"
+   },
+   {
+    "id": "t2-cn-birth-3",
+    "text": "It has been {days} days since a birth"
+   },
+   {
+    "id": "t2-cn-birth-4",
+    "text": "Count since a birth: {days} days"
+   }
+  ],
+  "siege": [
+   {
+    "id": "t2-cn-siege-1",
+    "text": "Days since an attack: {days}"
+   },
+   {
+    "id": "t2-cn-siege-2",
+    "text": "Days without an attack: {days}"
+   },
+   {
+    "id": "t2-cn-siege-3",
+    "text": "It has been {days} days since an attack"
+   },
+   {
+    "id": "t2-cn-siege-4",
+    "text": "Count since an attack: {days} days"
+   }
+  ]
+ }
+}

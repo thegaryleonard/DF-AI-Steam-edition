@@ -1,0 +1,4504 @@
+{
+ "notices": [
+  {
+   "id": "t3-nf-throne-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be sat upon by somebody important. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_throne"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-throne-2",
+   "text": "Now at the noble quarters: the masterwork {masterwork} by {masterwright}. Admire it; every noble has suddenly remembered they are tired.",
+   "fit": [
+    "furniture",
+    "n_throne"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-throne-3",
+   "text": "Requests to have the masterwork {masterwork} sat upon by somebody important should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_throne"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-table-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be set for dinner. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_table"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-table-2",
+   "text": "Now at the dining hall: the masterwork {masterwork} by {masterwright}. Admire it; dinner will be served on it, and dinner will feel honoured.",
+   "fit": [
+    "furniture",
+    "n_table"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-table-3",
+   "text": "Requests to have the masterwork {masterwork} set for dinner should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_table"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-chair-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be sat on. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_chair"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-chair-2",
+   "text": "Now at the dining hall: the masterwork {masterwork} by {masterwright}. Admire it; the queue to sit on it has its own chairs.",
+   "fit": [
+    "furniture",
+    "n_chair"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-chair-3",
+   "text": "Requests to have the masterwork {masterwork} sat on should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_chair"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bed-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be slept in. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_bed"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bed-2",
+   "text": "Now at a lucky dwarf's bedroom: the masterwork {masterwork} by {masterwright}. Admire it; whoever gets it will never be late for work again, or ever wake up.",
+   "fit": [
+    "furniture",
+    "n_bed"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bed-3",
+   "text": "Requests to have the masterwork {masterwork} slept in should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_bed"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-door-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be hung in a doorway. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_door"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-door-2",
+   "text": "Now at the main hall: the masterwork {masterwork} by {masterwright}. Admire it; it opens, it closes, and it does both beautifully.",
+   "fit": [
+    "furniture",
+    "n_door"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-door-3",
+   "text": "Requests to have the masterwork {masterwork} hung in a doorway should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_door"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cabinet-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be filled with somebody's belongings. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_cabinet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cabinet-2",
+   "text": "Now at a bedroom: the masterwork {masterwork} by {masterwright}. Admire it; belongings have never been stored so grandly.",
+   "fit": [
+    "furniture",
+    "n_cabinet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cabinet-3",
+   "text": "Requests to have the masterwork {masterwork} filled with somebody's belongings should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_cabinet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-armorstand-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be used to display a soldier's kit. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_armor stand"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-armorstand-2",
+   "text": "Now at the barracks: the masterwork {masterwork} by {masterwright}. Admire it; the kit on it will look better than the soldier.",
+   "fit": [
+    "furniture",
+    "n_armor stand"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-armorstand-3",
+   "text": "Requests to have the masterwork {masterwork} used to display a soldier's kit should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_armor stand"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-weaponrack-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be hung with the squad's weapons. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_weapon rack"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-weaponrack-2",
+   "text": "Now at the barracks: the masterwork {masterwork} by {masterwright}. Admire it; the weapons on it are standing up straighter.",
+   "fit": [
+    "furniture",
+    "n_weapon rack"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-weaponrack-3",
+   "text": "Requests to have the masterwork {masterwork} hung with the squad's weapons should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_weapon rack"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-coffin-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be kept ready for a funeral. Please do not borrow it first.",
+   "fit": [
+    "furniture",
+    "n_coffin"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-coffin-2",
+   "text": "Now at the tombs: the masterwork {masterwork} by {masterwright}. Admire it; nobody is in a hurry to try it.",
+   "fit": [
+    "furniture",
+    "n_coffin"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-coffin-3",
+   "text": "Requests to have the masterwork {masterwork} kept ready for a funeral should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "furniture",
+    "n_coffin"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-statue-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be set up in the great hall. Please do not borrow it first.",
+   "fit": [
+    "statue",
+    "n_statue"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-statue-2",
+   "text": "Now at the great hall: the masterwork {masterwork} by {masterwright}. Admire it; it looks back at you, kindly.",
+   "fit": [
+    "statue",
+    "n_statue"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-statue-3",
+   "text": "Requests to have the masterwork {masterwork} set up in the great hall should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "statue",
+    "n_statue"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-barrel-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be filled and stacked. Please do not borrow it first.",
+   "fit": [
+    "container",
+    "n_barrel"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-barrel-2",
+   "text": "Now at the stores: the masterwork {masterwork} by {masterwright}. Admire it; it rolls straight and stands steady, which the haulers appreciate.",
+   "fit": [
+    "container",
+    "n_barrel"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-barrel-3",
+   "text": "Requests to have the masterwork {masterwork} filled and stacked should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "container",
+    "n_barrel"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bin-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be filled with goods. Please do not borrow it first.",
+   "fit": [
+    "container",
+    "n_bin"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bin-2",
+   "text": "Now at the stockpile: the masterwork {masterwork} by {masterwright}. Admire it; it holds things so neatly the haulers have started weeping.",
+   "fit": [
+    "container",
+    "n_bin"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bin-3",
+   "text": "Requests to have the masterwork {masterwork} filled with goods should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "container",
+    "n_bin"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bag-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be filled and carried. Please do not borrow it first.",
+   "fit": [
+    "container",
+    "n_bag"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bag-2",
+   "text": "Now at the stores: the masterwork {masterwork} by {masterwright}. Admire it; it carries anything without a single split seam.",
+   "fit": [
+    "container",
+    "n_bag"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bag-3",
+   "text": "Requests to have the masterwork {masterwork} filled and carried should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "container",
+    "n_bag"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-chest-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be locked with something precious inside. Please do not borrow it first.",
+   "fit": [
+    "container",
+    "n_chest"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-chest-2",
+   "text": "Now at a bedroom: the masterwork {masterwork} by {masterwright}. Admire it; the lid closes with a very satisfying thunk.",
+   "fit": [
+    "container",
+    "n_chest"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-chest-3",
+   "text": "Requests to have the masterwork {masterwork} locked with something precious inside should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "container",
+    "n_chest"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mug-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be raised at the tavern. Please do not borrow it first.",
+   "fit": [
+    "drinkware",
+    "n_mug"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mug-2",
+   "text": "Now at the tavern: the masterwork {masterwork} by {masterwright}. Admire it; every toast sounds better from it.",
+   "fit": [
+    "drinkware",
+    "n_mug"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mug-3",
+   "text": "Requests to have the masterwork {masterwork} raised at the tavern should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "drinkware",
+    "n_mug"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-goblet-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be raised at a feast. Please do not borrow it first.",
+   "fit": [
+    "drinkware",
+    "n_goblet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-goblet-2",
+   "text": "Now at the tavern: the masterwork {masterwork} by {masterwright}. Admire it; wine in it looks like a noble's dream.",
+   "fit": [
+    "drinkware",
+    "n_goblet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-goblet-3",
+   "text": "Requests to have the masterwork {masterwork} raised at a feast should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "drinkware",
+    "n_goblet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crown-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be placed on a noble head. Please do not borrow it first.",
+   "fit": [
+    "jewelry",
+    "n_crown"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crown-2",
+   "text": "Now at the treasury: the masterwork {masterwork} by {masterwright}. Admire it; the nobles have started measuring their heads.",
+   "fit": [
+    "jewelry",
+    "n_crown"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crown-3",
+   "text": "Requests to have the masterwork {masterwork} placed on a noble head should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "jewelry",
+    "n_crown"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-ring-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be slipped on a finger. Please do not borrow it first.",
+   "fit": [
+    "jewelry",
+    "n_ring"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-ring-2",
+   "text": "Now at the treasury: the masterwork {masterwork} by {masterwright}. Admire it; it fits any finger that the bookkeeper approves.",
+   "fit": [
+    "jewelry",
+    "n_ring"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-ring-3",
+   "text": "Requests to have the masterwork {masterwork} slipped on a finger should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "jewelry",
+    "n_ring"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bracelet-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be fastened on a wrist. Please do not borrow it first.",
+   "fit": [
+    "jewelry",
+    "n_bracelet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bracelet-2",
+   "text": "Now at the treasury: the masterwork {masterwork} by {masterwright}. Admire it; it jingles just enough to be noticed.",
+   "fit": [
+    "jewelry",
+    "n_bracelet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bracelet-3",
+   "text": "Requests to have the masterwork {masterwork} fastened on a wrist should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "jewelry",
+    "n_bracelet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-amulet-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be presented to a noble. Please do not borrow it first.",
+   "fit": [
+    "jewelry",
+    "n_amulet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-amulet-2",
+   "text": "Now at the treasury: the masterwork {masterwork} by {masterwright}. Admire it; it is said to bring luck, which is new for this fort.",
+   "fit": [
+    "jewelry",
+    "n_amulet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-amulet-3",
+   "text": "Requests to have the masterwork {masterwork} presented to a noble should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "jewelry",
+    "n_amulet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-scepter-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be carried at ceremonies. Please do not borrow it first.",
+   "fit": [
+    "jewelry",
+    "n_scepter"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-scepter-2",
+   "text": "Now at the treasury: the masterwork {masterwork} by {masterwright}. Admire it; the mayor has practised holding it in a mirror.",
+   "fit": [
+    "jewelry",
+    "n_scepter"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-scepter-3",
+   "text": "Requests to have the masterwork {masterwork} carried at ceremonies should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "jewelry",
+    "n_scepter"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-figurine-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be set on a shelf. Please do not borrow it first.",
+   "fit": [
+    "figurine",
+    "n_figurine"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-figurine-2",
+   "text": "Now at a high shelf: the masterwork {masterwork} by {masterwright}. Admire it; it is small enough to pocket and too good to.",
+   "fit": [
+    "figurine",
+    "n_figurine"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-figurine-3",
+   "text": "Requests to have the masterwork {masterwork} set on a shelf should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "figurine",
+    "n_figurine"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-sword-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be carried into battle. Please do not borrow it first.",
+   "fit": [
+    "weapon",
+    "n_sword"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-sword-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; it sings when swung, the swordsdwarves say.",
+   "fit": [
+    "weapon",
+    "n_sword"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-sword-3",
+   "text": "Requests to have the masterwork {masterwork} carried into battle should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "weapon",
+    "n_sword"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-axe-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be swung at the enemy. Please do not borrow it first.",
+   "fit": [
+    "weapon",
+    "n_axe"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-axe-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; the axedwarves have begun drawing lots for it.",
+   "fit": [
+    "weapon",
+    "n_axe"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-axe-3",
+   "text": "Requests to have the masterwork {masterwork} swung at the enemy should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "weapon",
+    "n_axe"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-spear-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be levelled at the enemy. Please do not borrow it first.",
+   "fit": [
+    "weapon",
+    "n_spear"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-spear-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; it is long, sharp and very well behaved.",
+   "fit": [
+    "weapon",
+    "n_spear"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-spear-3",
+   "text": "Requests to have the masterwork {masterwork} levelled at the enemy should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "weapon",
+    "n_spear"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mace-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be swung at goblin heads. Please do not borrow it first.",
+   "fit": [
+    "weapon",
+    "n_mace"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mace-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; the macedwarves are humming happily.",
+   "fit": [
+    "weapon",
+    "n_mace"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mace-3",
+   "text": "Requests to have the masterwork {masterwork} swung at goblin heads should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "weapon",
+    "n_mace"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-hammer-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be swung in battle. Please do not borrow it first.",
+   "fit": [
+    "weapon",
+    "n_hammer"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-hammer-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; the hammerdwarves have formed a fan club.",
+   "fit": [
+    "weapon",
+    "n_hammer"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-hammer-3",
+   "text": "Requests to have the masterwork {masterwork} swung in battle should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "weapon",
+    "n_hammer"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crossbow-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be aimed from the walls. Please do not borrow it first.",
+   "fit": [
+    "weapon",
+    "n_crossbow"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crossbow-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; the marksdwarves are already arguing over it.",
+   "fit": [
+    "weapon",
+    "n_crossbow"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crossbow-3",
+   "text": "Requests to have the masterwork {masterwork} aimed from the walls should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "weapon",
+    "n_crossbow"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-helm-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn on the head. Please do not borrow it first.",
+   "fit": [
+    "armor",
+    "n_helm"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-helm-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; whoever wears it will have the best-protected thoughts in the fort.",
+   "fit": [
+    "armor",
+    "n_helm"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-helm-3",
+   "text": "Requests to have the masterwork {masterwork} worn on the head should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "armor",
+    "n_helm"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-breastplate-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn into battle. Please do not borrow it first.",
+   "fit": [
+    "armor",
+    "n_breastplate"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-breastplate-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; it fits like it was waiting for its soldier.",
+   "fit": [
+    "armor",
+    "n_breastplate"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-breastplate-3",
+   "text": "Requests to have the masterwork {masterwork} worn into battle should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "armor",
+    "n_breastplate"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-shield-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be carried into the line. Please do not borrow it first.",
+   "fit": [
+    "armor",
+    "n_shield"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-shield-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; the shield wall just got one good shield stronger.",
+   "fit": [
+    "armor",
+    "n_shield"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-shield-3",
+   "text": "Requests to have the masterwork {masterwork} carried into the line should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "armor",
+    "n_shield"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-gauntlet-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn on a soldier's hand. Please do not borrow it first.",
+   "fit": [
+    "armor",
+    "n_gauntlet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-gauntlet-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; it grips a weapon like a promise.",
+   "fit": [
+    "armor",
+    "n_gauntlet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-gauntlet-3",
+   "text": "Requests to have the masterwork {masterwork} worn on a soldier's hand should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "armor",
+    "n_gauntlet"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-boot-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn on the march. Please do not borrow it first.",
+   "fit": [
+    "armor",
+    "n_boot"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-boot-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; the soldier who wears it will march in comfort.",
+   "fit": [
+    "armor",
+    "n_boot"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-boot-3",
+   "text": "Requests to have the masterwork {masterwork} worn on the march should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "armor",
+    "n_boot"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-greaves-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be strapped to a soldier's legs. Please do not borrow it first.",
+   "fit": [
+    "armor",
+    "n_greaves"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-greaves-2",
+   "text": "Now at the armory: the masterwork {masterwork} by {masterwright}. Admire it; the shins of the militia are safer for it.",
+   "fit": [
+    "armor",
+    "n_greaves"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-greaves-3",
+   "text": "Requests to have the masterwork {masterwork} strapped to a soldier's legs should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "armor",
+    "n_greaves"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-shirt-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn under everything else. Please do not borrow it first.",
+   "fit": [
+    "clothing",
+    "n_shirt"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-shirt-2",
+   "text": "Now at the clothing stockpile: the masterwork {masterwork} by {masterwright}. Admire it; it is soft enough to wear all week, which somebody will.",
+   "fit": [
+    "clothing",
+    "n_shirt"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-shirt-3",
+   "text": "Requests to have the masterwork {masterwork} worn under everything else should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "clothing",
+    "n_shirt"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cloak-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn against the cold. Please do not borrow it first.",
+   "fit": [
+    "clothing",
+    "n_cloak"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cloak-2",
+   "text": "Now at the clothing stockpile: the masterwork {masterwork} by {masterwright}. Admire it; it billows nicely in the corridor draughts.",
+   "fit": [
+    "clothing",
+    "n_cloak"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cloak-3",
+   "text": "Requests to have the masterwork {masterwork} worn against the cold should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "clothing",
+    "n_cloak"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-trousers-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn every day. Please do not borrow it first.",
+   "fit": [
+    "clothing",
+    "n_trousers"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-trousers-2",
+   "text": "Now at the clothing stockpile: the masterwork {masterwork} by {masterwright}. Admire it; the seams are perfect, which is rare in trousers.",
+   "fit": [
+    "clothing",
+    "n_trousers"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-trousers-3",
+   "text": "Requests to have the masterwork {masterwork} worn every day should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "clothing",
+    "n_trousers"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-sock-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn on one foot. Please do not borrow it first.",
+   "fit": [
+    "clothing",
+    "n_sock"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-sock-2",
+   "text": "Now at the clothing stockpile: the masterwork {masterwork} by {masterwright}. Admire it; it is the finest sock in the fort, and it has a partner somewhere.",
+   "fit": [
+    "clothing",
+    "n_sock"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-sock-3",
+   "text": "Requests to have the masterwork {masterwork} worn on one foot should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "clothing",
+    "n_sock"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-hood-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be worn against the wind. Please do not borrow it first.",
+   "fit": [
+    "clothing",
+    "n_hood"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-hood-2",
+   "text": "Now at the clothing stockpile: the masterwork {masterwork} by {masterwright}. Admire it; the outdoor workers want one each.",
+   "fit": [
+    "clothing",
+    "n_hood"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-hood-3",
+   "text": "Requests to have the masterwork {masterwork} worn against the wind should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "clothing",
+    "n_hood"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-roast-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be served at dinner. Please do not borrow it first.",
+   "fit": [
+    "food",
+    "n_roast"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-roast-2",
+   "text": "Now at the dining hall: the masterwork {masterwork} by {masterwright}. Admire it; the smell reached three levels up.",
+   "fit": [
+    "food",
+    "n_roast"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-roast-3",
+   "text": "Requests to have the masterwork {masterwork} served at dinner should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "food",
+    "n_roast"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-biscuits-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be eaten at breakfast. Please do not borrow it first.",
+   "fit": [
+    "food",
+    "n_biscuits"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-biscuits-2",
+   "text": "Now at the dining hall: the masterwork {masterwork} by {masterwright}. Admire it; they crunch in exactly the right way.",
+   "fit": [
+    "food",
+    "n_biscuits"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-biscuits-3",
+   "text": "Requests to have the masterwork {masterwork} eaten at breakfast should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "food",
+    "n_biscuits"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-book-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be read in the library. Please do not borrow it first.",
+   "fit": [
+    "book",
+    "n_book"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-book-2",
+   "text": "Now at the library: the masterwork {masterwork} by {masterwright}. Admire it; the scholars have stopped arguing to read it.",
+   "fit": [
+    "book",
+    "n_book"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-book-3",
+   "text": "Requests to have the masterwork {masterwork} read in the library should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "book",
+    "n_book"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mechanism-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be fitted into a lever or a trap. Please do not borrow it first.",
+   "fit": [
+    "tool",
+    "n_mechanism"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mechanism-2",
+   "text": "Now at the engineers' stores: the masterwork {masterwork} by {masterwright}. Admire it; it clicks as sweetly as a cat purrs.",
+   "fit": [
+    "tool",
+    "n_mechanism"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-mechanism-3",
+   "text": "Requests to have the masterwork {masterwork} fitted into a lever or a trap should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "tool",
+    "n_mechanism"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-splint-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be used on a broken leg. Please do not borrow it first.",
+   "fit": [
+    "tool",
+    "n_splint"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-splint-2",
+   "text": "Now at the hospital: the masterwork {masterwork} by {masterwright}. Admire it; the doctor hopes nobody needs it, and is glad it's there.",
+   "fit": [
+    "tool",
+    "n_splint"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-splint-3",
+   "text": "Requests to have the masterwork {masterwork} used on a broken leg should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "tool",
+    "n_splint"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crutch-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be leaned on by the wounded. Please do not borrow it first.",
+   "fit": [
+    "tool",
+    "n_crutch"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crutch-2",
+   "text": "Now at the hospital: the masterwork {masterwork} by {masterwright}. Admire it; it is so comfortable patients are reluctant to give it back.",
+   "fit": [
+    "tool",
+    "n_crutch"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-crutch-3",
+   "text": "Requests to have the masterwork {masterwork} leaned on by the wounded should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "tool",
+    "n_crutch"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bucket-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be filled at the well. Please do not borrow it first.",
+   "fit": [
+    "tool",
+    "n_bucket"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bucket-2",
+   "text": "Now at the well: the masterwork {masterwork} by {masterwright}. Admire it; it carries water without spilling a drop.",
+   "fit": [
+    "tool",
+    "n_bucket"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bucket-3",
+   "text": "Requests to have the masterwork {masterwork} filled at the well should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "tool",
+    "n_bucket"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cage-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be set as a trap. Please do not borrow it first.",
+   "fit": [
+    "tool",
+    "n_cage"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cage-2",
+   "text": "Now at the trap corridor: the masterwork {masterwork} by {masterwright}. Admire it; it is ready for the next unwelcome visitor.",
+   "fit": [
+    "tool",
+    "n_cage"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-cage-3",
+   "text": "Requests to have the masterwork {masterwork} set as a trap should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "tool",
+    "n_cage"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-lyre-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be played at the tavern. Please do not borrow it first.",
+   "fit": [
+    "instrument",
+    "n_lyre"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-lyre-2",
+   "text": "Now at the tavern: the masterwork {masterwork} by {masterwright}. Admire it; the performers want to borrow it every night.",
+   "fit": [
+    "instrument",
+    "n_lyre"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-lyre-3",
+   "text": "Requests to have the masterwork {masterwork} played at the tavern should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "instrument",
+    "n_lyre"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-flute-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be played at the tavern. Please do not borrow it first.",
+   "fit": [
+    "instrument",
+    "n_flute"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-flute-2",
+   "text": "Now at the tavern: the masterwork {masterwork} by {masterwright}. Admire it; its notes carry down every corridor.",
+   "fit": [
+    "instrument",
+    "n_flute"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-flute-3",
+   "text": "Requests to have the masterwork {masterwork} played at the tavern should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "instrument",
+    "n_flute"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-drum-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be beaten at the tavern. Please do not borrow it first.",
+   "fit": [
+    "instrument",
+    "n_drum"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-drum-2",
+   "text": "Now at the tavern: the masterwork {masterwork} by {masterwright}. Admire it; the dancers keep time to it without trying.",
+   "fit": [
+    "instrument",
+    "n_drum"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-drum-3",
+   "text": "Requests to have the masterwork {masterwork} beaten at the tavern should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "instrument",
+    "n_drum"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bolt-1",
+   "text": "The masterwork {masterwork} by {masterwright} will be loosed at the enemy. Please do not borrow it first.",
+   "fit": [
+    "ammo",
+    "n_bolt"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bolt-2",
+   "text": "Now at the ammunition stockpile: the masterwork {masterwork} by {masterwright}. Admire it; the marksdwarves have promised to aim carefully.",
+   "fit": [
+    "ammo",
+    "n_bolt"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-nf-bolt-3",
+   "text": "Requests to have the masterwork {masterwork} loosed at the enemy should go to {masterwright}. Expect a long wait.",
+   "fit": [
+    "ammo",
+    "n_bolt"
+   ],
+   "fit_auto": false,
+   "when": [
+    "recent_masterpiece"
+   ]
+  },
+  {
+   "id": "t3-cn-food_low-1",
+   "text": "{fort} notes that the food stockpile is running thin. Plan accordingly.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "t3-cn-food_low-2",
+   "text": "Fact of the week: the food stockpile is running thin.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "t3-cn-food_low-3",
+   "text": "Your Herald reports that the food stockpile is running thin; eat what you take and take only what you eat.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "t3-cn-food_low-4",
+   "text": "Remember: the food stockpile is running thin. And the cook has started counting plump helmets out loud.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "t3-cn-food_low-5",
+   "text": "The Overseer is aware that the food stockpile is running thin.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "t3-cn-food_ok-1",
+   "text": "{fort} notes that the larder is in decent shape. Plan accordingly.",
+   "when": [
+    "food_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-food_ok-2",
+   "text": "Fact of the week: the larder is in decent shape.",
+   "when": [
+    "food_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-food_ok-3",
+   "text": "Your Herald reports that the larder is in decent shape; keep the farms planted all the same.",
+   "when": [
+    "food_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-food_ok-4",
+   "text": "Remember: the larder is in decent shape. And the cook has been seen smiling, briefly.",
+   "when": [
+    "food_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-food_ok-5",
+   "text": "The Overseer is aware that the larder is in decent shape.",
+   "when": [
+    "food_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-food_high-1",
+   "text": "{fort} notes that there are more prepared meals than mouths. Plan accordingly.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "t3-cn-food_high-2",
+   "text": "Fact of the week: there are more prepared meals than mouths.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "t3-cn-food_high-3",
+   "text": "Your Herald reports that there are more prepared meals than mouths; share a meal with a friend.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "t3-cn-food_high-4",
+   "text": "Remember: there are more prepared meals than mouths. And the dining hall has run out of table, not food.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "t3-cn-food_high-5",
+   "text": "The Overseer is aware that there are more prepared meals than mouths.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_low-1",
+   "text": "{fort} notes that the drink stockpile is low. Plan accordingly.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_low-2",
+   "text": "Fact of the week: the drink stockpile is low.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_low-3",
+   "text": "Your Herald reports that the drink stockpile is low; brewers to the stills, everyone else to the farms.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_low-4",
+   "text": "Remember: the drink stockpile is low. And the tavern keeper is pouring smaller mugs and hoping nobody notices.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_low-5",
+   "text": "The Overseer is aware that the drink stockpile is low.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_ok-1",
+   "text": "{fort} notes that the cellar is well stocked. Plan accordingly.",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_ok-2",
+   "text": "Fact of the week: the cellar is well stocked.",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_ok-3",
+   "text": "Your Herald reports that the cellar is well stocked; drink, but leave some for the haulers.",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_ok-4",
+   "text": "Remember: the cellar is well stocked. And the brewers have been granted an extra nap.",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_ok-5",
+   "text": "The Overseer is aware that the cellar is well stocked.",
+   "when": [
+    "drinks_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_high-1",
+   "text": "{fort} notes that the barrels are stacked to the ceiling. Plan accordingly.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_high-2",
+   "text": "Fact of the week: the barrels are stacked to the ceiling.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_high-3",
+   "text": "Your Herald reports that the barrels are stacked to the ceiling; walk to the cellar before you get thirsty, not after.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_high-4",
+   "text": "Remember: the barrels are stacked to the ceiling. And the cellar now has a cellar.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "t3-cn-drinks_high-5",
+   "text": "The Overseer is aware that the barrels are stacked to the ceiling.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "t3-cn-no_meat-1",
+   "text": "{fort} notes that there is no meat or fish in the stores. Plan accordingly.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-no_meat-2",
+   "text": "Fact of the week: there is no meat or fish in the stores.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-no_meat-3",
+   "text": "Your Herald reports that there is no meat or fish in the stores; the hunters and fishers are needed.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-no_meat-4",
+   "text": "Remember: there is no meat or fish in the stores. And the butcher has taken up knitting.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-no_meat-5",
+   "text": "The Overseer is aware that there is no meat or fish in the stores.",
+   "when": [
+    "no_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-has_meat-1",
+   "text": "{fort} notes that there is meat and fish in the stores. Plan accordingly.",
+   "when": [
+    "has_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-has_meat-2",
+   "text": "Fact of the week: there is meat and fish in the stores.",
+   "when": [
+    "has_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-has_meat-3",
+   "text": "Your Herald reports that there is meat and fish in the stores; thank the hunters and the fishers.",
+   "when": [
+    "has_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-has_meat-4",
+   "text": "Remember: there is meat and fish in the stores. And the cats have started visiting the kitchen hourly.",
+   "when": [
+    "has_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-has_meat-5",
+   "text": "The Overseer is aware that there is meat and fish in the stores.",
+   "when": [
+    "has_meat"
+   ]
+  },
+  {
+   "id": "t3-cn-no_fish-1",
+   "text": "{fort} notes that there is not a single fish in the stores. Plan accordingly.",
+   "when": [
+    "no_fish"
+   ]
+  },
+  {
+   "id": "t3-cn-no_fish-2",
+   "text": "Fact of the week: there is not a single fish in the stores.",
+   "when": [
+    "no_fish"
+   ]
+  },
+  {
+   "id": "t3-cn-no_fish-3",
+   "text": "Your Herald reports that there is not a single fish in the stores; send a fisher to the water.",
+   "when": [
+    "no_fish"
+   ]
+  },
+  {
+   "id": "t3-cn-no_fish-4",
+   "text": "Remember: there is not a single fish in the stores. And the carp are said to be gloating.",
+   "when": [
+    "no_fish"
+   ]
+  },
+  {
+   "id": "t3-cn-no_fish-5",
+   "text": "The Overseer is aware that there is not a single fish in the stores.",
+   "when": [
+    "no_fish"
+   ]
+  },
+  {
+   "id": "t3-cn-has_eggs-1",
+   "text": "{fort} notes that there are eggs in the stores. Plan accordingly.",
+   "when": [
+    "has_eggs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_eggs-2",
+   "text": "Fact of the week: there are eggs in the stores.",
+   "when": [
+    "has_eggs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_eggs-3",
+   "text": "Your Herald reports that there are eggs in the stores; thank a hen today.",
+   "when": [
+    "has_eggs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_eggs-4",
+   "text": "Remember: there are eggs in the stores. And the hens have formed a union.",
+   "when": [
+    "has_eggs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_eggs-5",
+   "text": "The Overseer is aware that there are eggs in the stores.",
+   "when": [
+    "has_eggs"
+   ]
+  },
+  {
+   "id": "t3-cn-rain-1",
+   "text": "{fort} notes that it is raining outside. Plan accordingly.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "t3-cn-rain-2",
+   "text": "Fact of the week: it is raining outside.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "t3-cn-rain-3",
+   "text": "Your Herald reports that it is raining outside; keep below, or bring a hood.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "t3-cn-rain-4",
+   "text": "Remember: it is raining outside. And the outdoor workers have discovered why dwarves live underground.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "t3-cn-rain-5",
+   "text": "The Overseer is aware that it is raining outside.",
+   "when": [
+    "rain"
+   ]
+  },
+  {
+   "id": "t3-cn-snow-1",
+   "text": "{fort} notes that snow is falling outside. Plan accordingly.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "t3-cn-snow-2",
+   "text": "Fact of the week: snow is falling outside.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "t3-cn-snow-3",
+   "text": "Your Herald reports that snow is falling outside; keep the gate clear and the boots dry.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "t3-cn-snow-4",
+   "text": "Remember: snow is falling outside. And the snow has been asked to leave and has declined.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "t3-cn-snow-5",
+   "text": "The Overseer is aware that snow is falling outside.",
+   "when": [
+    "snow"
+   ]
+  },
+  {
+   "id": "t3-cn-clear-1",
+   "text": "{fort} notes that the sky is clear. Plan accordingly.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "t3-cn-clear-2",
+   "text": "Fact of the week: the sky is clear.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "t3-cn-clear-3",
+   "text": "Your Herald reports that the sky is clear; if you must go up, go now.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "t3-cn-clear-4",
+   "text": "Remember: the sky is clear. And the sky is still there, for those who check.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "t3-cn-clear-5",
+   "text": "The Overseer is aware that the sky is clear.",
+   "when": [
+    "clear"
+   ]
+  },
+  {
+   "id": "t3-cn-spring-1",
+   "text": "{fort} notes that it is spring. Plan accordingly.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-cn-spring-2",
+   "text": "Fact of the week: it is spring.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-cn-spring-3",
+   "text": "Your Herald reports that it is spring; plant the fields and watch the gate for migrants.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-cn-spring-4",
+   "text": "Remember: it is spring. And the surface has turned green again, which upsets the miners.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-cn-spring-5",
+   "text": "The Overseer is aware that it is spring.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-cn-summer-1",
+   "text": "{fort} notes that it is summer. Plan accordingly.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-cn-summer-2",
+   "text": "Fact of the week: it is summer.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-cn-summer-3",
+   "text": "Your Herald reports that it is summer; harvest what is ripe and drink plenty.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-cn-summer-4",
+   "text": "Remember: it is summer. And the surface is hot and bright and nobody likes it.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-cn-summer-5",
+   "text": "The Overseer is aware that it is summer.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-cn-autumn-1",
+   "text": "{fort} notes that it is autumn. Plan accordingly.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-cn-autumn-2",
+   "text": "Fact of the week: it is autumn.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-cn-autumn-3",
+   "text": "Your Herald reports that it is autumn; bring in the harvest and check the barrels.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-cn-autumn-4",
+   "text": "Remember: it is autumn. And the trees are dropping their leaves, which is how trees apologise.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-cn-autumn-5",
+   "text": "The Overseer is aware that it is autumn.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-cn-winter-1",
+   "text": "{fort} notes that it is winter. Plan accordingly.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-cn-winter-2",
+   "text": "Fact of the week: it is winter.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-cn-winter-3",
+   "text": "Your Herald reports that it is winter; keep the stores full and the fires lit.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-cn-winter-4",
+   "text": "Remember: it is winter. And the outdoor pond is now a floor.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-cn-winter-5",
+   "text": "The Overseer is aware that it is winter.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_big-1",
+   "text": "{fort} notes that the halls are crowded. Plan accordingly.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_big-2",
+   "text": "Fact of the week: the halls are crowded.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_big-3",
+   "text": "Your Herald reports that the halls are crowded; be patient in the corridors.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_big-4",
+   "text": "Remember: the halls are crowded. And there is now a queue for the queue.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_big-5",
+   "text": "The Overseer is aware that the halls are crowded.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_small-1",
+   "text": "{fort} notes that the fort is small and everyone knows everyone. Plan accordingly.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_small-2",
+   "text": "Fact of the week: the fort is small and everyone knows everyone.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_small-3",
+   "text": "Your Herald reports that the fort is small and everyone knows everyone; look after your neighbours, you have so few.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_small-4",
+   "text": "Remember: the fort is small and everyone knows everyone. And the roll call takes no time at all.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_small-5",
+   "text": "The Overseer is aware that the fort is small and everyone knows everyone.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_mid-1",
+   "text": "{fort} notes that the fort is growing steadily. Plan accordingly.",
+   "when": [
+    "pop_mid"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_mid-2",
+   "text": "Fact of the week: the fort is growing steadily.",
+   "when": [
+    "pop_mid"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_mid-3",
+   "text": "Your Herald reports that the fort is growing steadily; build bedrooms before they are needed.",
+   "when": [
+    "pop_mid"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_mid-4",
+   "text": "Remember: the fort is growing steadily. And new faces outnumber old excuses.",
+   "when": [
+    "pop_mid"
+   ]
+  },
+  {
+   "id": "t3-cn-pop_mid-5",
+   "text": "The Overseer is aware that the fort is growing steadily.",
+   "when": [
+    "pop_mid"
+   ]
+  },
+  {
+   "id": "t3-cn-young_fort-1",
+   "text": "{fort} notes that the fort is still young. Plan accordingly.",
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-young_fort-2",
+   "text": "Fact of the week: the fort is still young.",
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-young_fort-3",
+   "text": "Your Herald reports that the fort is still young; dig deep and build the basics first.",
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-young_fort-4",
+   "text": "Remember: the fort is still young. And the founders still argue about where the first stair went.",
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-young_fort-5",
+   "text": "The Overseer is aware that the fort is still young.",
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-old_fort-1",
+   "text": "{fort} notes that the fort has seen more than a year. Plan accordingly.",
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-old_fort-2",
+   "text": "Fact of the week: the fort has seen more than a year.",
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-old_fort-3",
+   "text": "Your Herald reports that the fort has seen more than a year; tell the young ones the old stories.",
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-old_fort-4",
+   "text": "Remember: the fort has seen more than a year. And the oldest corridor now has a name and a grudge.",
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-old_fort-5",
+   "text": "The Overseer is aware that the fort has seen more than a year.",
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "t3-cn-caverns-1",
+   "text": "{fort} notes that the caverns are open below. Plan accordingly.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "t3-cn-caverns-2",
+   "text": "Fact of the week: the caverns are open below.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "t3-cn-caverns-3",
+   "text": "Your Herald reports that the caverns are open below; keep the cavern doors shut at night.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "t3-cn-caverns-4",
+   "text": "Remember: the caverns are open below. And something down there keeps rearranging the mushrooms.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "t3-cn-caverns-5",
+   "text": "The Overseer is aware that the caverns are open below.",
+   "when": [
+    "caverns"
+   ]
+  },
+  {
+   "id": "t3-cn-deep-1",
+   "text": "{fort} notes that the fort reaches very deep. Plan accordingly.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "t3-cn-deep-2",
+   "text": "Fact of the week: the fort reaches very deep.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "t3-cn-deep-3",
+   "text": "Your Herald reports that the fort reaches very deep; mind the stairs on the way down.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "t3-cn-deep-4",
+   "text": "Remember: the fort reaches very deep. And the deepest miners write home by bucket.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "t3-cn-deep-5",
+   "text": "The Overseer is aware that the fort reaches very deep.",
+   "when": [
+    "deep"
+   ]
+  },
+  {
+   "id": "t3-cn-caravan_here-1",
+   "text": "{fort} notes that merchants are at the depot. Plan accordingly.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-caravan_here-2",
+   "text": "Fact of the week: merchants are at the depot.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-caravan_here-3",
+   "text": "Your Herald reports that merchants are at the depot; bring your best goods and your hardest bargaining.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-caravan_here-4",
+   "text": "Remember: merchants are at the depot. And the merchants have noticed our mugs.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-caravan_here-5",
+   "text": "The Overseer is aware that merchants are at the depot.",
+   "when": [
+    "caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-no_caravan_here-1",
+   "text": "{fort} notes that the depot is quiet. Plan accordingly.",
+   "when": [
+    "no_caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-no_caravan_here-2",
+   "text": "Fact of the week: the depot is quiet.",
+   "when": [
+    "no_caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-no_caravan_here-3",
+   "text": "Your Herald reports that the depot is quiet; make goods now, so they are ready when the merchants come.",
+   "when": [
+    "no_caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-no_caravan_here-4",
+   "text": "Remember: the depot is quiet. And the depot clerk is talking to the wagons that aren't there.",
+   "when": [
+    "no_caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-no_caravan_here-5",
+   "text": "The Overseer is aware that the depot is quiet.",
+   "when": [
+    "no_caravan_here"
+   ]
+  },
+  {
+   "id": "t3-cn-peace-1",
+   "text": "{fort} notes that the fort is at peace. Plan accordingly.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "t3-cn-peace-2",
+   "text": "Fact of the week: the fort is at peace.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "t3-cn-peace-3",
+   "text": "Your Herald reports that the fort is at peace; train anyway; peace is a season, not a promise.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "t3-cn-peace-4",
+   "text": "Remember: the fort is at peace. And the militia has been polishing things that are already shiny.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "t3-cn-peace-5",
+   "text": "The Overseer is aware that the fort is at peace.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "t3-cn-at_war-1",
+   "text": "{fort} notes that the fort is at war with {enemy}. Plan accordingly.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "t3-cn-at_war-2",
+   "text": "Fact of the week: the fort is at war with {enemy}.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "t3-cn-at_war-3",
+   "text": "Your Herald reports that the fort is at war with {enemy}; keep the gate guarded and the militia drilled.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "t3-cn-at_war-4",
+   "text": "Remember: the fort is at war with {enemy}. And {enemy} are said to read this paper, so the paper says the walls are very high.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "t3-cn-at_war-5",
+   "text": "The Overseer is aware that the fort is at war with {enemy}.",
+   "when": [
+    "at_war"
+   ]
+  },
+  {
+   "id": "t3-cn-has_military-1",
+   "text": "{fort} notes that the fort has a militia. Plan accordingly.",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "t3-cn-has_military-2",
+   "text": "Fact of the week: the fort has a militia.",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "t3-cn-has_military-3",
+   "text": "Your Herald reports that the fort has a militia; feed the soldiers well.",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "t3-cn-has_military-4",
+   "text": "Remember: the fort has a militia. And the barracks smell of polish and determination.",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "t3-cn-has_military-5",
+   "text": "The Overseer is aware that the fort has a militia.",
+   "when": [
+    "has_military"
+   ]
+  },
+  {
+   "id": "t3-cn-army_big-1",
+   "text": "{fort} notes that the militia is large. Plan accordingly.",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "t3-cn-army_big-2",
+   "text": "Fact of the week: the militia is large.",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "t3-cn-army_big-3",
+   "text": "Your Herald reports that the militia is large; keep them training in turns.",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "t3-cn-army_big-4",
+   "text": "Remember: the militia is large. And the training yard needs its own training yard.",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "t3-cn-army_big-5",
+   "text": "The Overseer is aware that the militia is large.",
+   "when": [
+    "army_big"
+   ]
+  },
+  {
+   "id": "t3-cn-no_military-1",
+   "text": "{fort} notes that the fort has no militia. Plan accordingly.",
+   "when": [
+    "no_military"
+   ]
+  },
+  {
+   "id": "t3-cn-no_military-2",
+   "text": "Fact of the week: the fort has no militia.",
+   "when": [
+    "no_military"
+   ]
+  },
+  {
+   "id": "t3-cn-no_military-3",
+   "text": "Your Herald reports that the fort has no militia; raise a squad before you need one.",
+   "when": [
+    "no_military"
+   ]
+  },
+  {
+   "id": "t3-cn-no_military-4",
+   "text": "Remember: the fort has no militia. And the official defence plan is 'run'.",
+   "when": [
+    "no_military"
+   ]
+  },
+  {
+   "id": "t3-cn-no_military-5",
+   "text": "The Overseer is aware that the fort has no militia.",
+   "when": [
+    "no_military"
+   ]
+  },
+  {
+   "id": "t3-cn-cats_many-1",
+   "text": "{fort} notes that the fort has a great many cats. Plan accordingly.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "t3-cn-cats_many-2",
+   "text": "Fact of the week: the fort has a great many cats.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "t3-cn-cats_many-3",
+   "text": "Your Herald reports that the fort has a great many cats; watch where you step.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "t3-cn-cats_many-4",
+   "text": "Remember: the fort has a great many cats. And the cats have begun holding meetings.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "t3-cn-cats_many-5",
+   "text": "The Overseer is aware that the fort has a great many cats.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_big-1",
+   "text": "{fort} notes that the herds are large. Plan accordingly.",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_big-2",
+   "text": "Fact of the week: the herds are large.",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_big-3",
+   "text": "Your Herald reports that the herds are large; keep the pastures in good order.",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_big-4",
+   "text": "Remember: the herds are large. And the animals now outnumber the excuses for not shearing them.",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_big-5",
+   "text": "The Overseer is aware that the herds are large.",
+   "when": [
+    "herd_big"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_small-1",
+   "text": "{fort} notes that the fort keeps only a few animals. Plan accordingly.",
+   "when": [
+    "herd_small"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_small-2",
+   "text": "Fact of the week: the fort keeps only a few animals.",
+   "when": [
+    "herd_small"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_small-3",
+   "text": "Your Herald reports that the fort keeps only a few animals; look after the ones we have.",
+   "when": [
+    "herd_small"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_small-4",
+   "text": "Remember: the fort keeps only a few animals. And every animal has a name and an opinion.",
+   "when": [
+    "herd_small"
+   ]
+  },
+  {
+   "id": "t3-cn-herd_small-5",
+   "text": "The Overseer is aware that the fort keeps only a few animals.",
+   "when": [
+    "herd_small"
+   ]
+  },
+  {
+   "id": "t3-cn-gems_many-1",
+   "text": "{fort} notes that the gem stores are full. Plan accordingly.",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "t3-cn-gems_many-2",
+   "text": "Fact of the week: the gem stores are full.",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "t3-cn-gems_many-3",
+   "text": "Your Herald reports that the gem stores are full; keep a few rough ones for strange moods.",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "t3-cn-gems_many-4",
+   "text": "Remember: the gem stores are full. And the jewelers have run out of shelf.",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "t3-cn-gems_many-5",
+   "text": "The Overseer is aware that the gem stores are full.",
+   "when": [
+    "gems_many"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_low-1",
+   "text": "{fort} notes that metal bars are scarce. Plan accordingly.",
+   "when": [
+    "bars_low"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_low-2",
+   "text": "Fact of the week: metal bars are scarce.",
+   "when": [
+    "bars_low"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_low-3",
+   "text": "Your Herald reports that metal bars are scarce; send the smelters ore and fuel.",
+   "when": [
+    "bars_low"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_low-4",
+   "text": "Remember: metal bars are scarce. And the smiths are hammering very carefully.",
+   "when": [
+    "bars_low"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_low-5",
+   "text": "The Overseer is aware that metal bars are scarce.",
+   "when": [
+    "bars_low"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_many-1",
+   "text": "{fort} notes that the bar stockpile is full. Plan accordingly.",
+   "when": [
+    "bars_many"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_many-2",
+   "text": "Fact of the week: the bar stockpile is full.",
+   "when": [
+    "bars_many"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_many-3",
+   "text": "Your Herald reports that the bar stockpile is full; let the smiths make something grand.",
+   "when": [
+    "bars_many"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_many-4",
+   "text": "Remember: the bar stockpile is full. And the bookkeeper counts the bars twice for the pleasure of it.",
+   "when": [
+    "bars_many"
+   ]
+  },
+  {
+   "id": "t3-cn-bars_many-5",
+   "text": "The Overseer is aware that the bar stockpile is full.",
+   "when": [
+    "bars_many"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_low-1",
+   "text": "{fort} notes that wood is scarce. Plan accordingly.",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_low-2",
+   "text": "Fact of the week: wood is scarce.",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_low-3",
+   "text": "Your Herald reports that wood is scarce; send the woodcutters out, carefully.",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_low-4",
+   "text": "Remember: wood is scarce. And the carpenter is building very small things.",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_low-5",
+   "text": "The Overseer is aware that wood is scarce.",
+   "when": [
+    "wood_low"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_ok-1",
+   "text": "{fort} notes that there is wood in the stores. Plan accordingly.",
+   "when": [
+    "wood_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_ok-2",
+   "text": "Fact of the week: there is wood in the stores.",
+   "when": [
+    "wood_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_ok-3",
+   "text": "Your Herald reports that there is wood in the stores; the carpenter is ready for orders.",
+   "when": [
+    "wood_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_ok-4",
+   "text": "Remember: there is wood in the stores. And the woodpile has been described as 'adequate', the highest praise for a woodpile.",
+   "when": [
+    "wood_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-wood_ok-5",
+   "text": "The Overseer is aware that there is wood in the stores.",
+   "when": [
+    "wood_ok"
+   ]
+  },
+  {
+   "id": "t3-cn-stone_glut-1",
+   "text": "{fort} notes that there is far more stone than anyone needs. Plan accordingly.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-stone_glut-2",
+   "text": "Fact of the week: there is far more stone than anyone needs.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-stone_glut-3",
+   "text": "Your Herald reports that there is far more stone than anyone needs; build something big.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-stone_glut-4",
+   "text": "Remember: there is far more stone than anyone needs. And the stone has started stacking itself out of boredom.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-stone_glut-5",
+   "text": "The Overseer is aware that there is far more stone than anyone needs.",
+   "when": [
+    "stone_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-thread_glut-1",
+   "text": "{fort} notes that there is a mountain of thread. Plan accordingly.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-thread_glut-2",
+   "text": "Fact of the week: there is a mountain of thread.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-thread_glut-3",
+   "text": "Your Herald reports that there is a mountain of thread; weave it before it tangles.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-thread_glut-4",
+   "text": "Remember: there is a mountain of thread. And the weavers have been seen hiding from the thread.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-thread_glut-5",
+   "text": "The Overseer is aware that there is a mountain of thread.",
+   "when": [
+    "thread_glut"
+   ]
+  },
+  {
+   "id": "t3-cn-seeds_many-1",
+   "text": "{fort} notes that the seed stores are overflowing. Plan accordingly.",
+   "when": [
+    "seeds_many"
+   ]
+  },
+  {
+   "id": "t3-cn-seeds_many-2",
+   "text": "Fact of the week: the seed stores are overflowing.",
+   "when": [
+    "seeds_many"
+   ]
+  },
+  {
+   "id": "t3-cn-seeds_many-3",
+   "text": "Your Herald reports that the seed stores are overflowing; plant more fields.",
+   "when": [
+    "seeds_many"
+   ]
+  },
+  {
+   "id": "t3-cn-seeds_many-4",
+   "text": "Remember: the seed stores are overflowing. And the seeds outnumber the dwarves several hundred to one.",
+   "when": [
+    "seeds_many"
+   ]
+  },
+  {
+   "id": "t3-cn-seeds_many-5",
+   "text": "The Overseer is aware that the seed stores are overflowing.",
+   "when": [
+    "seeds_many"
+   ]
+  },
+  {
+   "id": "t3-cn-farms_many-1",
+   "text": "{fort} notes that the fort has many farm plots. Plan accordingly.",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "t3-cn-farms_many-2",
+   "text": "Fact of the week: the fort has many farm plots.",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "t3-cn-farms_many-3",
+   "text": "Your Herald reports that the fort has many farm plots; keep the farmers fed and rested.",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "t3-cn-farms_many-4",
+   "text": "Remember: the fort has many farm plots. And the farmers have started naming the plots.",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "t3-cn-farms_many-5",
+   "text": "The Overseer is aware that the fort has many farm plots.",
+   "when": [
+    "farms_many"
+   ]
+  },
+  {
+   "id": "t3-cn-has_tavern-1",
+   "text": "{fort} notes that the fort has a tavern. Plan accordingly.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "t3-cn-has_tavern-2",
+   "text": "Fact of the week: the fort has a tavern.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "t3-cn-has_tavern-3",
+   "text": "Your Herald reports that the fort has a tavern; raise a mug with a stranger.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "t3-cn-has_tavern-4",
+   "text": "Remember: the fort has a tavern. And the tavern keeper knows every secret and tells none of them, mostly.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "t3-cn-has_tavern-5",
+   "text": "The Overseer is aware that the fort has a tavern.",
+   "when": [
+    "has_tavern"
+   ]
+  },
+  {
+   "id": "t3-cn-has_temple-1",
+   "text": "{fort} notes that the fort has a temple. Plan accordingly.",
+   "when": [
+    "has_temple"
+   ]
+  },
+  {
+   "id": "t3-cn-has_temple-2",
+   "text": "Fact of the week: the fort has a temple.",
+   "when": [
+    "has_temple"
+   ]
+  },
+  {
+   "id": "t3-cn-has_temple-3",
+   "text": "Your Herald reports that the fort has a temple; pray, meditate, or at least sit quietly.",
+   "when": [
+    "has_temple"
+   ]
+  },
+  {
+   "id": "t3-cn-has_temple-4",
+   "text": "Remember: the fort has a temple. And the temple is the only room in the fort where nobody hauls anything.",
+   "when": [
+    "has_temple"
+   ]
+  },
+  {
+   "id": "t3-cn-has_temple-5",
+   "text": "The Overseer is aware that the fort has a temple.",
+   "when": [
+    "has_temple"
+   ]
+  },
+  {
+   "id": "t3-cn-has_library-1",
+   "text": "{fort} notes that the fort has a library. Plan accordingly.",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "t3-cn-has_library-2",
+   "text": "Fact of the week: the fort has a library.",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "t3-cn-has_library-3",
+   "text": "Your Herald reports that the fort has a library; read something today.",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "t3-cn-has_library-4",
+   "text": "Remember: the fort has a library. And the librarian shushes even the cats.",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "t3-cn-has_library-5",
+   "text": "The Overseer is aware that the fort has a library.",
+   "when": [
+    "has_library"
+   ]
+  },
+  {
+   "id": "t3-cn-has_hospital-1",
+   "text": "{fort} notes that the fort has a hospital. Plan accordingly.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "t3-cn-has_hospital-2",
+   "text": "Fact of the week: the fort has a hospital.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "t3-cn-has_hospital-3",
+   "text": "Your Herald reports that the fort has a hospital; see the doctor when you are hurt, not after.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "t3-cn-has_hospital-4",
+   "text": "Remember: the fort has a hospital. And the hospital has more splints than patients, which is how it should be.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "t3-cn-has_hospital-5",
+   "text": "The Overseer is aware that the fort has a hospital.",
+   "when": [
+    "has_hospital"
+   ]
+  },
+  {
+   "id": "t3-cn-has_catacombs-1",
+   "text": "{fort} notes that the fort has catacombs for the dead. Plan accordingly.",
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_catacombs-2",
+   "text": "Fact of the week: the fort has catacombs for the dead.",
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_catacombs-3",
+   "text": "Your Herald reports that the fort has catacombs for the dead; visit the tombs and remember.",
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_catacombs-4",
+   "text": "Remember: the fort has catacombs for the dead. And the catacombs are the quietest neighbours in the fort.",
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_catacombs-5",
+   "text": "The Overseer is aware that the fort has catacombs for the dead.",
+   "when": [
+    "has_catacombs"
+   ]
+  },
+  {
+   "id": "t3-cn-has_jail-1",
+   "text": "{fort} notes that the fort has a jail. Plan accordingly.",
+   "when": [
+    "has_jail"
+   ]
+  },
+  {
+   "id": "t3-cn-has_jail-2",
+   "text": "Fact of the week: the fort has a jail.",
+   "when": [
+    "has_jail"
+   ]
+  },
+  {
+   "id": "t3-cn-has_jail-3",
+   "text": "Your Herald reports that the fort has a jail; behave.",
+   "when": [
+    "has_jail"
+   ]
+  },
+  {
+   "id": "t3-cn-has_jail-4",
+   "text": "Remember: the fort has a jail. And the jail is cleaner than most bedrooms.",
+   "when": [
+    "has_jail"
+   ]
+  },
+  {
+   "id": "t3-cn-has_jail-5",
+   "text": "The Overseer is aware that the fort has a jail.",
+   "when": [
+    "has_jail"
+   ]
+  }
+ ],
+ "horoscopes": {
+  "Granite": [
+   {
+    "id": "t3-hs-granite-1",
+    "text": "Granite brings a steady spirit. Look for a solid foundation, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-granite-2",
+    "text": "Born under Granite? This month you are steady. The stars point to a solid foundation."
+   },
+   {
+    "id": "t3-hs-granite-3",
+    "text": "Granite: a steady month. Expect a solid foundation, and a full mug."
+   },
+   {
+    "id": "t3-hs-granite-4",
+    "text": "The stones say Granite is steady. Trust it, and watch for a solid foundation."
+   },
+   {
+    "id": "t3-hs-granite-5",
+    "text": "Granite, your sign favours a solid foundation. Be steady, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-granite-6",
+    "text": "A steady Granite lies ahead. A solid foundation is closer than it looks."
+   },
+   {
+    "id": "t3-hs-granite-7",
+    "text": "Granite: put down the pick for an hour. A solid foundation will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-granite-8",
+    "text": "For Granite, the omens are steady. Share your luck: a solid foundation is better shared."
+   },
+   {
+    "id": "t3-hs-granite-9",
+    "text": "Granite dwarves are steady this season. Your lucky find: a solid foundation."
+   },
+   {
+    "id": "t3-hs-granite-10",
+    "text": "Granite: the stars are steady, the cellar is full, and a solid foundation is near."
+   }
+  ],
+  "Slate": [
+   {
+    "id": "t3-hs-slate-1",
+    "text": "Slate brings a quiet spirit. Look for a clean start, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-slate-2",
+    "text": "Born under Slate? This month you are quiet. The stars point to a clean start."
+   },
+   {
+    "id": "t3-hs-slate-3",
+    "text": "Slate: a quiet month. Expect a clean start, and a full mug."
+   },
+   {
+    "id": "t3-hs-slate-4",
+    "text": "The stones say Slate is quiet. Trust it, and watch for a clean start."
+   },
+   {
+    "id": "t3-hs-slate-5",
+    "text": "Slate, your sign favours a clean start. Be quiet, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-slate-6",
+    "text": "A quiet Slate lies ahead. A clean start is closer than it looks."
+   },
+   {
+    "id": "t3-hs-slate-7",
+    "text": "Slate: put down the pick for an hour. A clean start will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-slate-8",
+    "text": "For Slate, the omens are quiet. Share your luck: a clean start is better shared."
+   },
+   {
+    "id": "t3-hs-slate-9",
+    "text": "Slate dwarves are quiet this season. Your lucky find: a clean start."
+   },
+   {
+    "id": "t3-hs-slate-10",
+    "text": "Slate: the stars are quiet, the cellar is full, and a clean start is near."
+   }
+  ],
+  "Felsite": [
+   {
+    "id": "t3-hs-felsite-1",
+    "text": "Felsite brings a bright spirit. Look for a spark of an idea, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-felsite-2",
+    "text": "Born under Felsite? This month you are bright. The stars point to a spark of an idea."
+   },
+   {
+    "id": "t3-hs-felsite-3",
+    "text": "Felsite: a bright month. Expect a spark of an idea, and a full mug."
+   },
+   {
+    "id": "t3-hs-felsite-4",
+    "text": "The stones say Felsite is bright. Trust it, and watch for a spark of an idea."
+   },
+   {
+    "id": "t3-hs-felsite-5",
+    "text": "Felsite, your sign favours a spark of an idea. Be bright, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-felsite-6",
+    "text": "A bright Felsite lies ahead. A spark of an idea is closer than it looks."
+   },
+   {
+    "id": "t3-hs-felsite-7",
+    "text": "Felsite: put down the pick for an hour. A spark of an idea will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-felsite-8",
+    "text": "For Felsite, the omens are bright. Share your luck: a spark of an idea is better shared."
+   },
+   {
+    "id": "t3-hs-felsite-9",
+    "text": "Felsite dwarves are bright this season. Your lucky find: a spark of an idea."
+   },
+   {
+    "id": "t3-hs-felsite-10",
+    "text": "Felsite: the stars are bright, the cellar is full, and a spark of an idea is near."
+   }
+  ],
+  "Hematite": [
+   {
+    "id": "t3-hs-hematite-1",
+    "text": "Hematite brings a strong spirit. Look for red iron in the hills, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-hematite-2",
+    "text": "Born under Hematite? This month you are strong. The stars point to red iron in the hills."
+   },
+   {
+    "id": "t3-hs-hematite-3",
+    "text": "Hematite: a strong month. Expect red iron in the hills, and a full mug."
+   },
+   {
+    "id": "t3-hs-hematite-4",
+    "text": "The stones say Hematite is strong. Trust it, and watch for red iron in the hills."
+   },
+   {
+    "id": "t3-hs-hematite-5",
+    "text": "Hematite, your sign favours red iron in the hills. Be strong, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-hematite-6",
+    "text": "A strong Hematite lies ahead. Red iron in the hills is closer than it looks."
+   },
+   {
+    "id": "t3-hs-hematite-7",
+    "text": "Hematite: put down the pick for an hour. Red iron in the hills will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-hematite-8",
+    "text": "For Hematite, the omens are strong. Share your luck: red iron in the hills is better shared."
+   },
+   {
+    "id": "t3-hs-hematite-9",
+    "text": "Hematite dwarves are strong this season. Your lucky find: red iron in the hills."
+   },
+   {
+    "id": "t3-hs-hematite-10",
+    "text": "Hematite: the stars are strong, the cellar is full, and red iron in the hills is near."
+   }
+  ],
+  "Malachite": [
+   {
+    "id": "t3-hs-malachite-1",
+    "text": "Malachite brings a lucky spirit. Look for green fortune, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-malachite-2",
+    "text": "Born under Malachite? This month you are lucky. The stars point to green fortune."
+   },
+   {
+    "id": "t3-hs-malachite-3",
+    "text": "Malachite: a lucky month. Expect green fortune, and a full mug."
+   },
+   {
+    "id": "t3-hs-malachite-4",
+    "text": "The stones say Malachite is lucky. Trust it, and watch for green fortune."
+   },
+   {
+    "id": "t3-hs-malachite-5",
+    "text": "Malachite, your sign favours green fortune. Be lucky, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-malachite-6",
+    "text": "A lucky Malachite lies ahead. Green fortune is closer than it looks."
+   },
+   {
+    "id": "t3-hs-malachite-7",
+    "text": "Malachite: put down the pick for an hour. Green fortune will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-malachite-8",
+    "text": "For Malachite, the omens are lucky. Share your luck: green fortune is better shared."
+   },
+   {
+    "id": "t3-hs-malachite-9",
+    "text": "Malachite dwarves are lucky this season. Your lucky find: green fortune."
+   },
+   {
+    "id": "t3-hs-malachite-10",
+    "text": "Malachite: the stars are lucky, the cellar is full, and green fortune is near."
+   }
+  ],
+  "Galena": [
+   {
+    "id": "t3-hs-galena-1",
+    "text": "Galena brings a heavy spirit. Look for silver in the lead, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-galena-2",
+    "text": "Born under Galena? This month you are heavy. The stars point to silver in the lead."
+   },
+   {
+    "id": "t3-hs-galena-3",
+    "text": "Galena: a heavy month. Expect silver in the lead, and a full mug."
+   },
+   {
+    "id": "t3-hs-galena-4",
+    "text": "The stones say Galena is heavy. Trust it, and watch for silver in the lead."
+   },
+   {
+    "id": "t3-hs-galena-5",
+    "text": "Galena, your sign favours silver in the lead. Be heavy, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-galena-6",
+    "text": "A heavy Galena lies ahead. Silver in the lead is closer than it looks."
+   },
+   {
+    "id": "t3-hs-galena-7",
+    "text": "Galena: put down the pick for an hour. Silver in the lead will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-galena-8",
+    "text": "For Galena, the omens are heavy. Share your luck: silver in the lead is better shared."
+   },
+   {
+    "id": "t3-hs-galena-9",
+    "text": "Galena dwarves are heavy this season. Your lucky find: silver in the lead."
+   },
+   {
+    "id": "t3-hs-galena-10",
+    "text": "Galena: the stars are heavy, the cellar is full, and silver in the lead is near."
+   }
+  ],
+  "Limestone": [
+   {
+    "id": "t3-hs-limestone-1",
+    "text": "Limestone brings a patient spirit. Look for slow good work, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-limestone-2",
+    "text": "Born under Limestone? This month you are patient. The stars point to slow good work."
+   },
+   {
+    "id": "t3-hs-limestone-3",
+    "text": "Limestone: a patient month. Expect slow good work, and a full mug."
+   },
+   {
+    "id": "t3-hs-limestone-4",
+    "text": "The stones say Limestone is patient. Trust it, and watch for slow good work."
+   },
+   {
+    "id": "t3-hs-limestone-5",
+    "text": "Limestone, your sign favours slow good work. Be patient, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-limestone-6",
+    "text": "A patient Limestone lies ahead. Slow good work is closer than it looks."
+   },
+   {
+    "id": "t3-hs-limestone-7",
+    "text": "Limestone: put down the pick for an hour. Slow good work will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-limestone-8",
+    "text": "For Limestone, the omens are patient. Share your luck: slow good work is better shared."
+   },
+   {
+    "id": "t3-hs-limestone-9",
+    "text": "Limestone dwarves are patient this season. Your lucky find: slow good work."
+   },
+   {
+    "id": "t3-hs-limestone-10",
+    "text": "Limestone: the stars are patient, the cellar is full, and slow good work is near."
+   }
+  ],
+  "Sandstone": [
+   {
+    "id": "t3-hs-sandstone-1",
+    "text": "Sandstone brings a warm spirit. Look for the late summer sun, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-sandstone-2",
+    "text": "Born under Sandstone? This month you are warm. The stars point to the late summer sun."
+   },
+   {
+    "id": "t3-hs-sandstone-3",
+    "text": "Sandstone: a warm month. Expect the late summer sun, and a full mug."
+   },
+   {
+    "id": "t3-hs-sandstone-4",
+    "text": "The stones say Sandstone is warm. Trust it, and watch for the late summer sun."
+   },
+   {
+    "id": "t3-hs-sandstone-5",
+    "text": "Sandstone, your sign favours the late summer sun. Be warm, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-sandstone-6",
+    "text": "A warm Sandstone lies ahead. The late summer sun is closer than it looks."
+   },
+   {
+    "id": "t3-hs-sandstone-7",
+    "text": "Sandstone: put down the pick for an hour. The late summer sun will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-sandstone-8",
+    "text": "For Sandstone, the omens are warm. Share your luck: the late summer sun is better shared."
+   },
+   {
+    "id": "t3-hs-sandstone-9",
+    "text": "Sandstone dwarves are warm this season. Your lucky find: the late summer sun."
+   },
+   {
+    "id": "t3-hs-sandstone-10",
+    "text": "Sandstone: the stars are warm, the cellar is full, and the late summer sun is near."
+   }
+  ],
+  "Timber": [
+   {
+    "id": "t3-hs-timber-1",
+    "text": "Timber brings a busy spirit. Look for a full woodpile, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-timber-2",
+    "text": "Born under Timber? This month you are busy. The stars point to a full woodpile."
+   },
+   {
+    "id": "t3-hs-timber-3",
+    "text": "Timber: a busy month. Expect a full woodpile, and a full mug."
+   },
+   {
+    "id": "t3-hs-timber-4",
+    "text": "The stones say Timber is busy. Trust it, and watch for a full woodpile."
+   },
+   {
+    "id": "t3-hs-timber-5",
+    "text": "Timber, your sign favours a full woodpile. Be busy, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-timber-6",
+    "text": "A busy Timber lies ahead. A full woodpile is closer than it looks."
+   },
+   {
+    "id": "t3-hs-timber-7",
+    "text": "Timber: put down the pick for an hour. A full woodpile will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-timber-8",
+    "text": "For Timber, the omens are busy. Share your luck: a full woodpile is better shared."
+   },
+   {
+    "id": "t3-hs-timber-9",
+    "text": "Timber dwarves are busy this season. Your lucky find: a full woodpile."
+   },
+   {
+    "id": "t3-hs-timber-10",
+    "text": "Timber: the stars are busy, the cellar is full, and a full woodpile is near."
+   }
+  ],
+  "Moonstone": [
+   {
+    "id": "t3-hs-moonstone-1",
+    "text": "Moonstone brings a dreamy spirit. Look for a pale glow, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-moonstone-2",
+    "text": "Born under Moonstone? This month you are dreamy. The stars point to a pale glow."
+   },
+   {
+    "id": "t3-hs-moonstone-3",
+    "text": "Moonstone: a dreamy month. Expect a pale glow, and a full mug."
+   },
+   {
+    "id": "t3-hs-moonstone-4",
+    "text": "The stones say Moonstone is dreamy. Trust it, and watch for a pale glow."
+   },
+   {
+    "id": "t3-hs-moonstone-5",
+    "text": "Moonstone, your sign favours a pale glow. Be dreamy, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-moonstone-6",
+    "text": "A dreamy Moonstone lies ahead. A pale glow is closer than it looks."
+   },
+   {
+    "id": "t3-hs-moonstone-7",
+    "text": "Moonstone: put down the pick for an hour. A pale glow will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-moonstone-8",
+    "text": "For Moonstone, the omens are dreamy. Share your luck: a pale glow is better shared."
+   },
+   {
+    "id": "t3-hs-moonstone-9",
+    "text": "Moonstone dwarves are dreamy this season. Your lucky find: a pale glow."
+   },
+   {
+    "id": "t3-hs-moonstone-10",
+    "text": "Moonstone: the stars are dreamy, the cellar is full, and a pale glow is near."
+   }
+  ],
+  "Opal": [
+   {
+    "id": "t3-hs-opal-1",
+    "text": "Opal brings a changeable spirit. Look for colours in the dark, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-opal-2",
+    "text": "Born under Opal? This month you are changeable. The stars point to colours in the dark."
+   },
+   {
+    "id": "t3-hs-opal-3",
+    "text": "Opal: a changeable month. Expect colours in the dark, and a full mug."
+   },
+   {
+    "id": "t3-hs-opal-4",
+    "text": "The stones say Opal is changeable. Trust it, and watch for colours in the dark."
+   },
+   {
+    "id": "t3-hs-opal-5",
+    "text": "Opal, your sign favours colours in the dark. Be changeable, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-opal-6",
+    "text": "A changeable Opal lies ahead. Colours in the dark is closer than it looks."
+   },
+   {
+    "id": "t3-hs-opal-7",
+    "text": "Opal: put down the pick for an hour. Colours in the dark will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-opal-8",
+    "text": "For Opal, the omens are changeable. Share your luck: colours in the dark is better shared."
+   },
+   {
+    "id": "t3-hs-opal-9",
+    "text": "Opal dwarves are changeable this season. Your lucky find: colours in the dark."
+   },
+   {
+    "id": "t3-hs-opal-10",
+    "text": "Opal: the stars are changeable, the cellar is full, and colours in the dark is near."
+   }
+  ],
+  "Obsidian": [
+   {
+    "id": "t3-hs-obsidian-1",
+    "text": "Obsidian brings a sharp spirit. Look for a clear edge, and take it when it comes."
+   },
+   {
+    "id": "t3-hs-obsidian-2",
+    "text": "Born under Obsidian? This month you are sharp. The stars point to a clear edge."
+   },
+   {
+    "id": "t3-hs-obsidian-3",
+    "text": "Obsidian: a sharp month. Expect a clear edge, and a full mug."
+   },
+   {
+    "id": "t3-hs-obsidian-4",
+    "text": "The stones say Obsidian is sharp. Trust it, and watch for a clear edge."
+   },
+   {
+    "id": "t3-hs-obsidian-5",
+    "text": "Obsidian, your sign favours a clear edge. Be sharp, and avoid the cats."
+   },
+   {
+    "id": "t3-hs-obsidian-6",
+    "text": "A sharp Obsidian lies ahead. A clear edge is closer than it looks."
+   },
+   {
+    "id": "t3-hs-obsidian-7",
+    "text": "Obsidian: put down the pick for an hour. A clear edge will wait; the ale will not."
+   },
+   {
+    "id": "t3-hs-obsidian-8",
+    "text": "For Obsidian, the omens are sharp. Share your luck: a clear edge is better shared."
+   },
+   {
+    "id": "t3-hs-obsidian-9",
+    "text": "Obsidian dwarves are sharp this season. Your lucky find: a clear edge."
+   },
+   {
+    "id": "t3-hs-obsidian-10",
+    "text": "Obsidian: the stars are sharp, the cellar is full, and a clear edge is near."
+   }
+  ]
+ },
+ "weather_jokes": [
+  {
+   "id": "t3-ws-rain-spring-1",
+   "text": "Weather desk: spring rain waters the fields. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "rain",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-spring-2",
+   "text": "Outside, spring rain waters the fields. Inside, the ale is the right temperature.",
+   "when": [
+    "rain",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-spring-3",
+   "text": "Today's forecast: spring rain waters the fields. The Herald's advice: work underground.",
+   "when": [
+    "rain",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-spring-4",
+   "text": "Report from the gate: spring rain waters the fields. The guards have opinions.",
+   "when": [
+    "rain",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-spring-5",
+   "text": "Spring rain waters the fields, says the gate guard, who would like a hot drink.",
+   "when": [
+    "rain",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-summer-1",
+   "text": "Weather desk: a summer shower cools the surface. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "rain",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-summer-2",
+   "text": "Outside, a summer shower cools the surface. Inside, the ale is the right temperature.",
+   "when": [
+    "rain",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-summer-3",
+   "text": "Today's forecast: a summer shower cools the surface. The Herald's advice: work underground.",
+   "when": [
+    "rain",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-summer-4",
+   "text": "Report from the gate: a summer shower cools the surface. The guards have opinions.",
+   "when": [
+    "rain",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-summer-5",
+   "text": "A summer shower cools the surface, says the gate guard, who would like a hot drink.",
+   "when": [
+    "rain",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-autumn-1",
+   "text": "Weather desk: autumn rain soaks the harvest. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "rain",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-autumn-2",
+   "text": "Outside, autumn rain soaks the harvest. Inside, the ale is the right temperature.",
+   "when": [
+    "rain",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-autumn-3",
+   "text": "Today's forecast: autumn rain soaks the harvest. The Herald's advice: work underground.",
+   "when": [
+    "rain",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-autumn-4",
+   "text": "Report from the gate: autumn rain soaks the harvest. The guards have opinions.",
+   "when": [
+    "rain",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-autumn-5",
+   "text": "Autumn rain soaks the harvest, says the gate guard, who would like a hot drink.",
+   "when": [
+    "rain",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-winter-1",
+   "text": "Weather desk: cold winter rain falls. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "rain",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-winter-2",
+   "text": "Outside, cold winter rain falls. Inside, the ale is the right temperature.",
+   "when": [
+    "rain",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-winter-3",
+   "text": "Today's forecast: cold winter rain falls. The Herald's advice: work underground.",
+   "when": [
+    "rain",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-winter-4",
+   "text": "Report from the gate: cold winter rain falls. The guards have opinions.",
+   "when": [
+    "rain",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-rain-winter-5",
+   "text": "Cold winter rain falls, says the gate guard, who would like a hot drink.",
+   "when": [
+    "rain",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-winter-1",
+   "text": "Weather desk: winter snow covers the land. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "snow",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-winter-2",
+   "text": "Outside, winter snow covers the land. Inside, the ale is the right temperature.",
+   "when": [
+    "snow",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-winter-3",
+   "text": "Today's forecast: winter snow covers the land. The Herald's advice: work underground.",
+   "when": [
+    "snow",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-winter-4",
+   "text": "Report from the gate: winter snow covers the land. The guards have opinions.",
+   "when": [
+    "snow",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-winter-5",
+   "text": "Winter snow covers the land, says the gate guard, who would like a hot drink.",
+   "when": [
+    "snow",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-autumn-1",
+   "text": "Weather desk: early snow dusts the hills. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "snow",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-autumn-2",
+   "text": "Outside, early snow dusts the hills. Inside, the ale is the right temperature.",
+   "when": [
+    "snow",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-autumn-3",
+   "text": "Today's forecast: early snow dusts the hills. The Herald's advice: work underground.",
+   "when": [
+    "snow",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-autumn-4",
+   "text": "Report from the gate: early snow dusts the hills. The guards have opinions.",
+   "when": [
+    "snow",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-autumn-5",
+   "text": "Early snow dusts the hills, says the gate guard, who would like a hot drink.",
+   "when": [
+    "snow",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-spring-1",
+   "text": "Weather desk: late snow lingers into spring. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "snow",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-spring-2",
+   "text": "Outside, late snow lingers into spring. Inside, the ale is the right temperature.",
+   "when": [
+    "snow",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-spring-3",
+   "text": "Today's forecast: late snow lingers into spring. The Herald's advice: work underground.",
+   "when": [
+    "snow",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-spring-4",
+   "text": "Report from the gate: late snow lingers into spring. The guards have opinions.",
+   "when": [
+    "snow",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-snow-spring-5",
+   "text": "Late snow lingers into spring, says the gate guard, who would like a hot drink.",
+   "when": [
+    "snow",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-spring-1",
+   "text": "Weather desk: the spring sky is clear. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "clear",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-spring-2",
+   "text": "Outside, the spring sky is clear. Inside, the ale is the right temperature.",
+   "when": [
+    "clear",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-spring-3",
+   "text": "Today's forecast: the spring sky is clear. The Herald's advice: work underground.",
+   "when": [
+    "clear",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-spring-4",
+   "text": "Report from the gate: the spring sky is clear. The guards have opinions.",
+   "when": [
+    "clear",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-spring-5",
+   "text": "The spring sky is clear, says the gate guard, who would like a hot drink.",
+   "when": [
+    "clear",
+    "spring"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-summer-1",
+   "text": "Weather desk: the summer sun is blazing. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "clear",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-summer-2",
+   "text": "Outside, the summer sun is blazing. Inside, the ale is the right temperature.",
+   "when": [
+    "clear",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-summer-3",
+   "text": "Today's forecast: the summer sun is blazing. The Herald's advice: work underground.",
+   "when": [
+    "clear",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-summer-4",
+   "text": "Report from the gate: the summer sun is blazing. The guards have opinions.",
+   "when": [
+    "clear",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-summer-5",
+   "text": "The summer sun is blazing, says the gate guard, who would like a hot drink.",
+   "when": [
+    "clear",
+    "summer"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-autumn-1",
+   "text": "Weather desk: a clear autumn day. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "clear",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-autumn-2",
+   "text": "Outside, a clear autumn day. Inside, the ale is the right temperature.",
+   "when": [
+    "clear",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-autumn-3",
+   "text": "Today's forecast: a clear autumn day. The Herald's advice: work underground.",
+   "when": [
+    "clear",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-autumn-4",
+   "text": "Report from the gate: a clear autumn day. The guards have opinions.",
+   "when": [
+    "clear",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-autumn-5",
+   "text": "A clear autumn day, says the gate guard, who would like a hot drink.",
+   "when": [
+    "clear",
+    "autumn"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-winter-1",
+   "text": "Weather desk: a bright, cold winter sky. Those working outside are thanked; everyone else may stay in.",
+   "when": [
+    "clear",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-winter-2",
+   "text": "Outside, a bright, cold winter sky. Inside, the ale is the right temperature.",
+   "when": [
+    "clear",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-winter-3",
+   "text": "Today's forecast: a bright, cold winter sky. The Herald's advice: work underground.",
+   "when": [
+    "clear",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-winter-4",
+   "text": "Report from the gate: a bright, cold winter sky. The guards have opinions.",
+   "when": [
+    "clear",
+    "winter"
+   ]
+  },
+  {
+   "id": "t3-ws-clear-winter-5",
+   "text": "A bright, cold winter sky, says the gate guard, who would like a hot drink.",
+   "when": [
+    "clear",
+    "winter"
+   ]
+  }
+ ],
+ "proverbs": []
+}
