@@ -130,7 +130,12 @@ def liaison():
 def foreign():
     """The foreign office's log (dfai-foreign-office.lua), current fort only."""
     try:
-        d = json.load(open(DF / "dfhack-config" / "dfai-foreign.json", encoding="utf-8"))
+        b = open(DF / "dfhack-config" / "dfai-foreign.json", "rb").read()
+        try:
+            txt = b.decode("utf-8")
+        except UnicodeDecodeError:
+            txt = b.decode("cp437")  # DF's own text (names with accents)
+        d = json.loads(txt)
     except (OSError, ValueError):
         return []
     try:
@@ -153,9 +158,21 @@ def foreign():
         if m:
             item.setdefault("kind", "result")
             item["result"] = m.group(1)
+        m = re.search(r"The proposal (succeeded|failed)", t)
+        if m:
+            item.setdefault("kind", "result")
+            item["result"] = "a success" if m.group(1) == "succeeded" else "a failure"
         m = re.match(r"(.+?), messenger has returned", t)
         if m:
             item["who"] = m.group(1)
+        m = re.search(r"The (?:dwarf|human|elf|goblin) (.+?) of .+? met with the (\w+) (.+?)(?:, (.+) of| of) (.+?),? to (?:make|open|improve|discuss|ask|demand|request|seek)", t)
+        if m:
+            item.update(who=m.group(1), met_race=m.group(2), met=m.group(3), met_title=m.group(4) or "")
+        m = re.search(r"the (?:dwarf|human|elf|goblin) (.+?) could not meet with (.+?) as there were no suitable representatives in (.+?)\.", t)
+        if m:
+            item.update(kind="nomeet", who=m.group(1), civ=m.group(2), site=m.group(3))
+        if re.search(r"lie|lying", t):
+            item["lied"] = True
         out.append(item)
     return out
 

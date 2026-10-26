@@ -302,6 +302,21 @@ function arcConds() {
     migrants_week: within('migrants', 10), birth_week: within('birth', 14), masterpiece_week: within('masterpiece', 7) && !!A.masterpiece.name,
     marriage_week: within('marriage', 14), beast_week: within('beast', 14), caravan_week: within('caravan', 20)};
 }
+// the foreign office (dfai-foreign-office.lua via /trade.json): fresh contacts and envoys on the road
+function foreignConds(sl) {
+  const fo = (TR && TR.foreign) || [], yr = (TR && TR.year) || 0;
+  const back = fo.filter(f => (f.kind === 'contact' || f.kind === 'result') && f.year >= yr - 0).slice(-1)[0];
+  const out = fo.filter((f, i) => f.kind === 'left' && !fo.some((g, j) => j > i && g.kind !== 'left' && clean(g.who || '') === clean(f.who || ''))).slice(-1)[0];
+  const c = {};
+  if (back && back.kind === 'contact') {
+    c.contact_new = true;
+    Object.assign(sl, {contact_civ: cap(clean(back.civ || '')), contact_site: clean(back.site || ''), envoy_back: clean(back.who || '')});
+    if (back.met) Object.assign(sl, {contact_met: clean(back.met), contact_title: clean(back.met_title || ''), contact_race: back.met_race});
+  }
+  if (out) { c.envoys_out = true; Object.assign(sl, {envoy: clean(out.who || ''), envoy_site: clean(out.site || ''), envoy_civ: cap(clean(out.civ || ''))}); }
+  sl._foreign = fo;
+  return c;
+}
 function extraConds(c, an_, sl) {
   const g = k => c[k] || 0, st = !!(K && K.stocks), food = g('meals') + g('plants') + g('meat') + g('fish');
   const herd = Object.values(an_).reduce((a, b) => a + b, 0), lm = (WK && WK.landmarks) || [];
@@ -313,6 +328,7 @@ function extraConds(c, an_, sl) {
     seeds_many: g('seeds') > 400, gems_many: g('gems') > 100, bars_low: st && g('bars') < 10, bars_many: g('bars') > 100, wood_ok: g('wood') >= 100,
     caverns: !!(WK && WK.depth && WK.depth.cavern), deep: !!(WK && WK.depth && WK.depth.levels > 50),
     caravan_here: !!here, no_caravan_here: !!(TR && TR.ok) && !here,
+    ...foreignConds(sl),
     has_military: !!(PO && PO.squads && PO.squads.length), army_big: (sl.soldiers || 0) >= 30, no_military: !!(PO && PO.ok) && !(PO.squads || []).length,
     has_tavern: has(/Tavern/), has_temple: has(/Temple/), has_library: has(/Library/), has_hospital: has(/Hospital/), has_catacombs: has(/Catacomb/), has_jail: has(/Jail/),
     pop_mid: (S.fort || {}).population >= 15 && (S.fort || {}).population <= 30, young_fort: (S.fort || {}).age_days != null && S.fort.age_days < 112,
@@ -894,7 +910,7 @@ function thoughtVariant(t, good, kid) {   // one recent thought -> the highlight
   if (/Thirst|Dehydrat/.test(a)) return 'thirst';
   return null;
 }
-const IV_ORDER = ['work', 'military', 'mood', 'highlight', 'gripe', 'needs', 'family', 'faith', 'fort', 'news', 'past', 'war', 'last'];
+const IV_ORDER = ['work', 'envoy', 'military', 'mood', 'highlight', 'gripe', 'needs', 'family', 'faith', 'fort', 'news', 'past', 'war', 'last'];
 const IV_NUM = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 const ucf = s => s ? s[0].toUpperCase() + s.slice(1) : s;
 // everything the interview knows about one dwarf: slots for the text and the variant of every topic it can talk about
@@ -979,8 +995,12 @@ function ivFacts(d, ctx) {
     V.fort = ok.length ? ok : ['plain'];   // a list: picked at random below
   }
   // this week's big story, unless the subject IS the story
-  const me = plain.toLowerCase(), isMe = n => n && String(n).toLowerCase() === me;
-  const nv = ['death_week', 'mood_open', 'mood_done', 'artifact_week', 'birth_week', 'marriage_week', 'migrants_week', 'caravan_here'].filter(c => conds.has(c))
+  // DF's reports name a dwarf by first name + translated surname ("Vutok Minedusks"), the card by the dwarvish one
+  const me = plain.toLowerCase(), me2 = nick ? (first + ' ' + nick).toLowerCase() : me;
+  const isMe = n => n && [me, me2].includes(String(n).toLowerCase());
+  const nv = ['death_week', 'mood_open', 'mood_done', 'artifact_week', 'birth_week', 'marriage_week', 'migrants_week', 'caravan_here', 'contact_new', 'envoys_out'].filter(c => conds.has(c))
+    .filter(c => !(c === 'contact_new' && isMe(sl.envoy_back)) && !(c === 'envoys_out' && isMe(sl.envoy))
+      && !(c === 'contact_new' && !sl.contact_civ) && !(c === 'envoys_out' && !sl.envoy_civ))
     .filter(c => !(c === 'death_week' && isMe(sl.lastdead)) && !(c === 'mood_open' && isMe(sl.moody)) && !((c === 'mood_done' || c === 'artifact_week') && isMe(sl.artifact_maker)));
   if (!baby && !child && nv.length) V.news = nv;
   if (V.news && V.news.includes('death_week') && V.gripe === 'death') delete V.gripe;
@@ -992,13 +1012,20 @@ function ivFacts(d, ctx) {
     if (pv.length) V.past = pv;
     if (sl.enemy) V.war = ['goblin', 'elven', 'human'].includes(sl.enemy_race) ? sl.enemy_race : 'other';
   }
+  // the envoy home from abroad talks about the trip
+  const fb = (sl0._foreign || []).filter(f => f.kind !== 'left' && isMe(clean(f.who || ''))).slice(-1)[0];
+  if (fb && !baby && !child) {
+    V.envoy = fb.kind === 'nomeet' ? 'nomeet' : fb.kind === 'contact' ? (fb.lied ? 'contact_lied' : 'contact') : (/success/.test(fb.result || '') ? 'good' : 'bad');
+    Object.assign(sl, {envoy_civ: cap(clean(fb.civ || 'them')), envoy_site: clean(fb.site || 'abroad'), envoy_met: clean(fb.met || 'their envoy'),
+      envoy_title: clean(fb.met_title || fb.met_race || 'official'), envoy_result: fb.result || 'well received'});
+  }
   V.last = baby ? 'baby' : child ? 'child' : 'any';
   for (const k of Object.keys(V)) if (V[k] == null) delete V[k];
   return {sl, V, tone, m, plain, who: nick || first, baby, child, squad, sk};
 }
 // how newsworthy each topic is (headline choice) and how much it deserves a slot in a six-question interview
-const IV_WEIGHT = {news: 3.5, gripe: 4.5, highlight: 4, needs: 3.5, family: 3, military: 2.5, faith: 2, fort: 2.5, past: 1.5, war: 1.5};
-const IV_HEAD = {news: 5.5, gripe: 7, highlight: 6, needs: 5, family: 4.5, past: 4, war: 4, fort: 4, military: 3, work: 3, faith: 2.5, mood: 2, last: 0};
+const IV_WEIGHT = {envoy: 9, news: 3.5, gripe: 4.5, highlight: 4, needs: 3.5, family: 3, military: 2.5, faith: 2, fort: 2.5, past: 1.5, war: 1.5};
+const IV_HEAD = {envoy: 9, news: 5.5, gripe: 7, highlight: 6, needs: 5, family: 4.5, past: 4, war: 4, fort: 4, military: 3, work: 3, faith: 2.5, mood: 2, last: 0};
 function buildInterview(d, ctx, r) {
   const QA = LIB.qa || {}, F = ivFacts(d, ctx), sl = F.sl, used = [];
   const V = {...F.V};
@@ -2296,13 +2323,18 @@ function tradeItems(ctx, r) {
   }
   // the foreign office: envoys leaving and coming home
   const fo = (TR.foreign || []);
-  const back = fo.filter(f => f.kind === 'contact' || f.kind === 'result').slice(-1)[0];
-  const gone = fo.filter(f => f.kind === 'left').slice(-2);
+  const back = fo.filter(f => f.kind === 'contact' || f.kind === 'result' || f.kind === 'nomeet').slice(-1)[0];
+  const later = f => fo.indexOf(f);
+  const gone = fo.filter(f => f.kind === 'left' && !fo.some(g => g.kind !== 'left' && later(g) > later(f) && clean(g.who || '') === clean(f.who || ''))).slice(-2);
   if (back) {
     const good = /success/.test(back.result || '');
-    const head = back.kind === 'contact' ? `Contact Made With ${cap(clean(back.civ || 'Foreigners'))}` : (good ? 'Envoy Returns Triumphant' : 'Envoy Returns Empty-Handed');
-    const body = back.kind === 'contact'
-      ? `Our messenger ${esc(clean(back.who || ''))} has come home from ${esc(clean(back.site || 'abroad'))}, where the fort made first contact with ${esc(clean(back.civ || 'a foreign power'))} and proposed open trade. The proposal was ${esc(back.result || 'received')}. Their caravans may now find the road to our depot.`
+    const met = back.met ? ` There ${esc(clean(back.who || 'our envoy'))} met ${back.met_title ? 'the ' + esc(clean(back.met_title)) + ' ' : ''}${esc(clean(back.met))}${back.met_race ? ', ' + esc(back.met_race) + ',' : ''} and ${back.lied ? 'told, by several accounts, some magnificent lies about the size of the fort' : 'argued the fort’s case'}.` : '';
+    const head = back.kind === 'nomeet' ? `Envoy Finds Nobody Home at ${clean(back.site || 'the Gates')}`
+      : back.kind === 'contact' ? `Contact Made With ${cap(clean(back.civ || 'Foreigners'))}` : (good ? 'Envoy Returns Triumphant' : 'Envoy Returns Empty-Handed');
+    const body = back.kind === 'nomeet'
+      ? `Our messenger ${esc(clean(back.who || ''))} walked all the way to ${esc(clean(back.site || 'their town'))} and found no one there able to speak for ${esc(clean(back.civ || 'them'))}. The foreign office will try one of their other towns.`
+      : back.kind === 'contact'
+      ? `Our messenger ${esc(clean(back.who || ''))} has come home from ${esc(clean(back.site || 'abroad'))}, where the fort made first contact with ${esc(clean(back.civ || 'a foreign power'))} and proposed open trade.${met} The proposal was ${esc(back.result || 'received')}. Their caravans may now find the road to our depot.`
       : `Our messenger ${esc(clean(back.who || ''))} is back. The proposal was ${esc(back.result || 'heard')}.`;
     out.push({ids: ['foreign-back-' + back.year + (back.civ || '')], html: `<div class="item"><div class="kick">The Foreign Office</div><h3>${esc(head)}</h3><p class="just">${body}</p></div>`});
   }

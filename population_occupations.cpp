@@ -3,6 +3,15 @@
 #include "room.h"
 
 #include "modules/Units.h"
+#include "df/item.h"
+#include "df/tiletype.h"
+#include "df/general_ref_type.h"
+#include "df/buildings_other_id.h"
+#include "df/items_other_id.h"
+#include "df/furniture_type.h"
+#include "modules/Maps.h"
+#include "modules/Items.h"
+#include "modules/Buildings.h"
 
 #include "df/abstract_building_inn_tavernst.h"
 #include "df/building_stockpilest.h"
@@ -533,8 +542,129 @@ private:
     }
 };
 
+
+// Empty barrels have nowhere to go: drinks are drunk straight from barrels in
+// the tavern's booze stockpile, the emptied barrel stays put, and with the
+// fort's only barrel stockpile full they pile up until the booze stockpile has
+// no room left for drink (Showerwheels: 56 empty barrels on 5 tiles, 3 drinks).
+// When 10+ empty barrels lie loose (not in a stockpile that wants them), give
+// them a barrels-only stockpile near the still, where brewers need them anyway.
+static bool barrel_ok_tile(df::coord t)
+{
+    auto tt = Maps::getTileType(t);
+    auto des = Maps::getTileDesignation(t);
+    auto occ = Maps::getTileOccupancy(t);
+    if (!tt || !des || !occ || des->bits.outside || des->bits.flow_size || occ->bits.building != tile_building_occ::None)
+        return false;
+    return ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Floor;
+}
+
+static void barrel_overflow(AI & ai, color_ostream & out)
+{
+    static int32_t last = -1;
+    if (last != -1 && *cur_year_tick >= last && *cur_year_tick - last < 1200)
+        return; // daily
+    last = *cur_year_tick;
+
+    int loose = 0;
+    for (auto item : world->items.other[items_other_id::BARREL])
+    {
+        auto & f = item->flags.bits;
+        if (f.in_building || f.trader || f.forbid || f.in_job || f.removed || f.garbage_collect || f.construction || f.in_inventory || f.foreign)
+            continue;
+        if (Items::getGeneralRef(item, general_ref_type::CONTAINS_ITEM))
+            continue; // holds something
+        auto sp = virtual_cast<df::building_stockpilest>(Buildings::findAtTile(Items::getPosition(item)));
+        if (sp && sp->settings.flags.bits.furniture && size_t(furniture_type::BARREL) < sp->settings.furniture.type.size() && sp->settings.furniture.type[furniture_type::BARREL])
+            continue; // already stored where barrels belong
+        loose++;
+    }
+    if (loose < 10)
+        return;
+
+    // free space in existing barrel stockpiles?
+    int room = 0;
+    for (auto bld : world->buildings.other[buildings_other_id::STOCKPILE])
+    {
+        auto sp = virtual_cast<df::building_stockpilest>(bld);
+        if (!sp || !sp->settings.flags.bits.furniture || size_t(furniture_type::BARREL) >= sp->settings.furniture.type.size() || !sp->settings.furniture.type[furniture_type::BARREL])
+            continue;
+        for (int16_t x = sp->x1; x <= sp->x2; x++)
+            for (int16_t y = sp->y1; y <= sp->y2; y++)
+            {
+                auto occ = Maps::getTileOccupancy(df::coord(x, y, sp->z));
+                if (occ && !occ->bits.item && Buildings::containsTile(sp, df::coord2d(x, y)))
+                    room++;
+            }
+    }
+    if (room >= loose)
+        return;
+
+    df::building *still = nullptr;
+    for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_STILL])
+    {
+        still = bld;
+        break;
+    }
+    if (!still)
+        return;
+    df::coord origin(still->centerx, still->centery, still->z);
+
+    // the biggest pile that fits nearby, no bigger than needed
+    static const int16_t sizes[][2] = {{8, 6}, {6, 5}, {5, 4}, {4, 3}, {3, 3}};
+    int16_t W = 0, H = 0;
+    df::coord c;
+    const int need = loose - room, n = int(sizeof(sizes) / sizeof(sizes[0]));
+    for (int i = 0; i < n; i++)
+    {
+        int16_t w = sizes[i][0], h = sizes[i][1];
+        if (i + 1 < n && sizes[i + 1][0] * sizes[i + 1][1] >= need)
+            continue; // a smaller one still holds them all
+        c = AI::spiral_search(origin, 25, 3, [origin, w, h](df::coord t) -> bool
+        {
+            for (int16_t dx = 0; dx < w; dx++)
+                for (int16_t dy = 0; dy < h; dy++)
+                    if (!barrel_ok_tile(t + df::coord(dx, dy, 0)))
+                        return false;
+            return Maps::canWalkBetween(origin, t);
+        });
+        if (c.isValid())
+        {
+            W = w;
+            H = h;
+            break;
+        }
+    }
+    if (!c.isValid())
+    {
+        ai.debug(out, stl_sprintf("[LOCATIONS] %d empty barrels lying loose and no free floor near the still for a barrel stockpile", loose));
+        return;
+    }
+    auto bld = virtual_cast<df::building_stockpilest>(Buildings::allocInstance(c, building_type::Stockpile));
+    if (!bld)
+        return;
+    Buildings::setSize(bld, df::coord2d(W, H));
+    if (!Buildings::constructAbstract(bld))
+        return;
+    Core::getInstance().runCommand(out, stl_sprintf("stockpiles import barrels --stockpile %d --mode set", bld->id));
+    // the barrels preset only names the item type; a fresh pile accepts no
+    // material and no quality level, so nothing would ever be hauled there
+    for (size_t i = 0; i < bld->settings.furniture.mats.size(); i++)
+        bld->settings.furniture.mats[i] = true;
+    for (size_t i = 0; i < bld->settings.furniture.other_mats.size(); i++)
+        bld->settings.furniture.other_mats[i] = true;
+    for (int i = 0; i < 7; i++)
+    {
+        bld->settings.furniture.quality_core[i] = true;
+        bld->settings.furniture.quality_total[i] = true;
+    }
+    ai.debug(out, stl_sprintf("[LOCATIONS] %d empty barrels had nowhere to go: barrel stockpile %d made by the still at (%d, %d, %d)", loose, bld->id, c.x, c.y, c.z));
+}
+
 void Population::update_locations(color_ostream & out)
 {
+    barrel_overflow(ai, out);
+
     // Tavern booze stockpiles hold drinks only (user request). The template
     // left prepared meals on, and 5 tiles of meals kept every barrel out, so
     // the tavern keeper walked to the main stores for each mug.

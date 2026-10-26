@@ -3095,6 +3095,48 @@
      "for": [
       "caravan_here"
      ]
+    },
+    {
+     "id": "qa-news-qf01",
+     "text": "Word is we finally have contact with {contact_civ}. What do you make of it?",
+     "for": [
+      "contact_new"
+     ]
+    },
+    {
+     "id": "qa-news-qf02",
+     "text": "Have you heard? {envoy_back} came back from {contact_site} with a deal.",
+     "for": [
+      "contact_new"
+     ]
+    },
+    {
+     "id": "qa-news-qf03",
+     "text": "{contact_civ} know we exist now. Good thing?",
+     "for": [
+      "contact_new"
+     ]
+    },
+    {
+     "id": "qa-news-qe01",
+     "text": "{envoy} rode out for {envoy_site}. Will it work?",
+     "for": [
+      "envoys_out"
+     ]
+    },
+    {
+     "id": "qa-news-qe02",
+     "text": "We've sent {envoy} to talk trade with {envoy_civ}. Your thoughts?",
+     "for": [
+      "envoys_out"
+     ]
+    },
+    {
+     "id": "qa-news-qe03",
+     "text": "What would you want {envoy_civ} to bring us, if {envoy} talks them into it?",
+     "for": [
+      "envoys_out"
+     ]
     }
    ],
    "a": {
@@ -3225,6 +3267,50 @@
       "id": "qa-news-caravan_here-a03",
       "text": "The broker does the buying. I just watch the haggling. Best show in the fort."
      }
+    ],
+    "contact_new": [
+     {
+      "id": "qa-news-contact_new-a01",
+      "text": "Good. More caravans, more things to buy, more strangers to stare at in the tavern."
+     },
+     {
+      "id": "qa-news-contact_new-a02",
+      "text": "It means a caravan, eventually. I've been saving a mug for something foreign to drink."
+     },
+     {
+      "id": "qa-news-contact_new-a03",
+      "text": "I hope {contact_civ} like stone. We have a great deal of stone."
+     },
+     {
+      "id": "qa-news-contact_new-a04",
+      "text": "Everybody's talking about it. {envoy_back} has told the story four times tonight and it got better every time."
+     },
+     {
+      "id": "qa-news-contact_new-a05",
+      "text": "Contact is fine. Contact is how wars start too. Let's see what they bring first."
+     }
+    ],
+    "envoys_out": [
+     {
+      "id": "qa-news-envoys_out-a01",
+      "text": "If anyone can talk {envoy_civ} into trading, it's {envoy}. That dwarf could sell gravel to a quarry."
+     },
+     {
+      "id": "qa-news-envoys_out-a02",
+      "text": "Cloth. Spices. Anything that isn't another rock. I'd settle for a new kind of cheese."
+     },
+     {
+      "id": "qa-news-envoys_out-a03",
+      "text": "I hope {envoy} packed enough to drink. {envoy_site} is a long walk."
+     },
+     {
+      "id": "qa-news-envoys_out-a04",
+      "text": "It's a long way to {envoy_site} with nothing but a letter. Braver than me."
+     },
+     {
+      "id": "qa-news-envoys_out-a05",
+      "text": "We'll know by the next season. Either a caravan turns up or {envoy} does, looking sheepish."
+     }
     ]
    },
    "h": {
@@ -3310,6 +3396,34 @@
      {
       "id": "qa-news-caravan_here-h02",
       "text": "THE BEST SHOW IN THE FORT: HAGGLING"
+     }
+    ],
+    "contact_new": [
+     {
+      "id": "qa-news-contact_new-h01",
+      "text": "“MORE CARAVANS, MORE STRANGERS”"
+     },
+     {
+      "id": "qa-news-contact_new-h02",
+      "text": "THE FORT MEETS THE WORLD"
+     },
+     {
+      "id": "qa-news-contact_new-h03",
+      "text": "“I HOPE THEY LIKE STONE”"
+     }
+    ],
+    "envoys_out": [
+     {
+      "id": "qa-news-envoys_out-h01",
+      "text": "WAITING ON THE ENVOY"
+     },
+     {
+      "id": "qa-news-envoys_out-h02",
+      "text": "“BRAVER THAN ME”"
+     },
+     {
+      "id": "qa-news-envoys_out-h03",
+      "text": "“ANYTHING THAT ISN'T ANOTHER ROCK”"
      }
     ]
    },
@@ -3626,6 +3740,169 @@
      {
       "id": "qa-last-baby-h01",
       "text": "(GURGLE)"
+     }
+    ]
+   }
+  },
+  "envoy": {
+   "strict": true,
+   "q": [
+    {
+     "id": "qa-envoy-q01",
+     "text": "You've just come back from {envoy_site}. How did it go?",
+     "for": [
+      "contact",
+      "contact_lied",
+      "good",
+      "bad",
+      "nomeet"
+     ]
+    },
+    {
+     "id": "qa-envoy-q02",
+     "text": "What was it like, meeting {envoy_civ}?",
+     "for": [
+      "contact",
+      "contact_lied",
+      "good",
+      "bad"
+     ]
+    },
+    {
+     "id": "qa-envoy-q03",
+     "text": "Tell us about {envoy_met}.",
+     "for": [
+      "contact",
+      "contact_lied",
+      "good",
+      "bad"
+     ]
+    },
+    {
+     "id": "qa-envoy-q04",
+     "text": "Were you nervous, walking into {envoy_site} with the fort's letter?",
+     "for": [
+      "contact",
+      "contact_lied",
+      "good",
+      "bad",
+      "nomeet"
+     ]
+    }
+   ],
+   "a": {
+    "contact": [
+     {
+      "id": "qa-envoy-contact-a01",
+      "text": "Long walk, short meeting. {envoy_met} heard me out, the {envoy_title} nodded, and now {envoy_civ} know where {fort} is. The proposal was {envoy_result}."
+     },
+     {
+      "id": "qa-envoy-contact-a02",
+      "text": "I said who we were and what we make. They'd never heard of us. They have now."
+     },
+     {
+      "id": "qa-envoy-contact-a03",
+      "text": "{envoy_met} wanted to know if we're the kind of dwarves who trade or the kind who raid. I said trade. I said it twice."
+     }
+    ],
+    "contact_lied": [
+     {
+      "id": "qa-envoy-contact_lied-a01",
+      "text": "I may have made the fort sound a little bigger than it is. And richer. And closer. It worked, didn't it? {envoy_result}, they said."
+     },
+     {
+      "id": "qa-envoy-contact_lied-a02",
+      "text": "Let's say I told {envoy_met} a story with some extra rooms in it. Diplomacy is mostly confidence."
+     },
+     {
+      "id": "qa-envoy-contact_lied-a03",
+      "text": "Lying? I prefer ‘describing our future.’ {envoy_civ} will see it when the caravan arrives. Or they won't, and I'll be somewhere else."
+     }
+    ],
+    "good": [
+     {
+      "id": "qa-envoy-good-a01",
+      "text": "It went well. {envoy_met} agreed, and I got a decent meal out of it."
+     },
+     {
+      "id": "qa-envoy-good-a02",
+      "text": "Better than I hoped. The proposal was {envoy_result}."
+     }
+    ],
+    "bad": [
+     {
+      "id": "qa-envoy-bad-a01",
+      "text": "Not well. {envoy_met} listened politely and said no impolitely."
+     },
+     {
+      "id": "qa-envoy-bad-a02",
+      "text": "They weren't interested. I'll try again next year with a better hat."
+     }
+    ],
+    "nomeet": [
+     {
+      "id": "qa-envoy-nomeet-a01",
+      "text": "I walked all the way to {envoy_site} and there was nobody to talk to. Nobody in charge, anyway. I talked to a tree for a while."
+     },
+     {
+      "id": "qa-envoy-nomeet-a02",
+      "text": "Empty-handed. No one in {envoy_site} could speak for {envoy_civ}. The foreign office says try another town. My feet say no."
+     },
+     {
+      "id": "qa-envoy-nomeet-a03",
+      "text": "Long walk. Nice scenery. No meeting. I'm told that counts as diplomacy experience."
+     }
+    ]
+   },
+   "h": {
+    "contact": [
+     {
+      "id": "qa-envoy-contact-h01",
+      "text": "“THEY'D NEVER HEARD OF US. THEY HAVE NOW”"
+     },
+     {
+      "id": "qa-envoy-contact-h02",
+      "text": "THE ENVOY RETURNS"
+     },
+     {
+      "id": "qa-envoy-contact-h03",
+      "text": "“I SAID TRADE. I SAID IT TWICE”"
+     }
+    ],
+    "contact_lied": [
+     {
+      "id": "qa-envoy-contact_lied-h01",
+      "text": "“DIPLOMACY IS MOSTLY CONFIDENCE”"
+     },
+     {
+      "id": "qa-envoy-contact_lied-h02",
+      "text": "THE ENVOY WHO LIED FOR THE FORT"
+     },
+     {
+      "id": "qa-envoy-contact_lied-h03",
+      "text": "“A STORY WITH SOME EXTRA ROOMS IN IT”"
+     }
+    ],
+    "good": [
+     {
+      "id": "qa-envoy-good-h01",
+      "text": "THE ENVOY'S GOOD NEWS"
+     }
+    ],
+    "bad": [
+     {
+      "id": "qa-envoy-bad-h01",
+      "text": "“A BETTER HAT NEXT YEAR”"
+     }
+    ],
+    "nomeet": [
+     {
+      "id": "qa-envoy-nomeet-h01",
+      "text": "“I TALKED TO A TREE FOR A WHILE”"
+     },
+     {
+      "id": "qa-envoy-nomeet-h02",
+      "text": "NOBODY HOME, SAYS THE ENVOY"
      }
     ]
    }

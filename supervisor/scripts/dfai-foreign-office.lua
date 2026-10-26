@@ -34,6 +34,7 @@ local function load_state()
     s.sent = s.sent or {}
     s.log = s.log or {}
     s.scanned = s.scanned or false
+    s.badsite = s.badsite or {}
     return s
 end
 
@@ -76,7 +77,9 @@ local function read_reports(s)
         newest = math.max(newest, r.id)
         local txt = r.text
         if txt:find('messenger has returned') or txt:find('The proposal was') then
-            table.insert(s.log, {year = r.year, text = txt})
+            table.insert(s.log, {year = r.year, text = dfhack.df2utf(txt)})
+            local bad = txt:match('no suitable representatives in (.-)%.')
+            if bad then s.badsite[bad] = r.year end
             for cid, sent in pairs(s.sent) do
                 local e = df.historical_entity.find(tonumber(cid))
                 if e and txt:find(name_of(e), 1, true) then
@@ -91,11 +94,13 @@ local function read_reports(s)
     while #s.log > 20 do table.remove(s.log, 1) end
 end
 
-local function nearest_site(e, me)
+local function nearest_site(e, me, bad)
     local best, bd
     for _, l in ipairs(e.site_links) do
         local site = df.world_site.find(l.target)
-        if site and (l.flags.residence or l.flags.capital) then
+        -- skip sites where an envoy found nobody to talk to (within 3 years)
+        local b = site and bad[name_of(site)]
+        if site and (l.flags.residence or l.flags.capital) and not (b and df.global.cur_year - b < 3) then
             local d = math.abs(site.pos.x - me.pos.x) + math.abs(site.pos.y - me.pos.y)
             if not bd or d < bd then best, bd = site, d end
         end
@@ -138,7 +143,7 @@ function step(force)
             local cid = tostring(e.id)
             local sent = s.sent[cid]
             if not (sent and year - sent.year < 2) then -- one outstanding mission per civ (2 years grace)
-                local site, dist = nearest_site(e, me)
+                local site, dist = nearest_site(e, me, s.badsite)
                 if site then
                     if not s.contact[cid] then
                         table.insert(choices, {e = e, site = site, dist = dist, topic = TOPIC_OPEN})
