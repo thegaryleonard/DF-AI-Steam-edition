@@ -154,7 +154,9 @@ static void fill_indoor_pasture(AI & ai, Population & pop, color_ostream & out)
             if (auto c = Units::getCasteRaw(u))
                 if (c->flags.is_set(caste_raw_flags::GRAZER))
                     grazers++;
-    int cap = std::max(4, grass / 8);
+    // user: grazers eat cave moss as well as grass underground, so no waiting
+    // for grass to spread (grass count kept for the log only)
+    int cap = 1 << 30;
     int moved = 0;
     for (auto u : world->units.active)
     {
