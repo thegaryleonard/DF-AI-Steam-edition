@@ -95,10 +95,11 @@ local function center(b) return xyz2pos((b.x1 + b.x2) // 2, (b.y1 + b.y2) // 2, 
 local function find_rooms()
     local rooms, seen_loc = {}, {}
     local counts = {}
-    local function add(name, kind, pos, detail, short)
+    local function add(name, kind, pos, detail, short, box)
         counts[kind] = (counts[kind] or 0) + 1
-        rooms[#rooms + 1] = {name = name, kind = kind, pos = pos, detail = detail, short = short}
+        rooms[#rooms + 1] = {name = name, kind = kind, pos = pos, detail = detail, short = short, box = box}
     end
+    local function box(b) return {b.x1, b.y1, b.x2, b.y2, b.z} end
     for _, z in ipairs(df.global.world.buildings.other.ACTIVITY_ZONE) do
         if z.spec_sub_flag.active ~= false then
             local loc = loc_of(z)
@@ -107,23 +108,23 @@ local function find_rooms()
                 local kind = LOC_KIND[loc:getType()] or 'Hall'
                 local ok, detail, short = pcall(loc_detail, loc)
                 if not ok then detail, short = nil, nil end
-                add(dfhack.df2utf(dfhack.translation.translateName(loc.name, true)), kind, center(z), detail, short)
+                add(dfhack.df2utf(dfhack.translation.translateName(loc.name, true)), kind, center(z), detail, short, box(z))
             elseif not loc then
                 local t = z.type
                 if t == df.civzone_type.DiningHall and (counts['Dining Hall'] or 0) < 2 then
-                    add('The Dining Hall', 'Dining Hall', center(z))
+                    add('The Dining Hall', 'Dining Hall', center(z), nil, nil, box(z))
                 elseif t == df.civzone_type.MeetingHall and (counts['Meeting Hall'] or 0) < 2 then
-                    add('The Meeting Hall', 'Meeting Hall', center(z))
+                    add('The Meeting Hall', 'Meeting Hall', center(z), nil, nil, box(z))
                 elseif t == df.civzone_type.Barracks and (counts['Barracks'] or 0) < 2 then
-                    add('The Barracks', 'Barracks', center(z))
+                    add('The Barracks', 'Barracks', center(z), nil, nil, box(z))
                 elseif t == df.civzone_type.Pen and (z.x2 - z.x1 + 1) * (z.y2 - z.y1 + 1) >= 200 then
-                    add('The Pasture', 'Pasture', center(z))
+                    add('The Pasture', 'Pasture', center(z), nil, nil, box(z))
                 end
             end
         end
     end
     for _, b in ipairs(df.global.world.buildings.other.TRADE_DEPOT) do
-        add('The Trade Depot', 'Trade Depot', center(b))
+        add('The Trade Depot', 'Trade Depot', center(b), nil, nil, box(b))
         break
     end
     -- machine rooms: a cluster of screw pumps (the mist generator); show the
@@ -176,13 +177,119 @@ end
 
 local function view() return ('%d,%d,%d'):format(df.global.window_x, df.global.window_y, df.global.window_z) end
 
-local function show_next_room()
+-- Busy spots: where a crowd of the fort's dwarves is doing the same thing
+-- right now (a dig face, a building site, harvest, a party). Found fresh at
+-- every pick from units.active only (bounded, no map scans).
+local JOB_GROUP = {
+    Dig = 'dig', DigChannel = 'dig', CarveRamp = 'dig', CarveUpwardStaircase = 'dig', CarveDownwardStaircase = 'dig',
+    CarveUpDownStaircase = 'dig', DetailWall = 'smooth', DetailFloor = 'smooth', CarveFortification = 'smooth', CarveTrack = 'smooth',
+    ConstructBuilding = 'build', CarveTrack2 = 'build', FellTree = 'wood', HarvestPlant = 'farm', PlantSeeds = 'farm',
+    GatherPlants = 'farm', Fish = 'fish', StoreItemInStockpile = 'haul', StoreItemInBag = 'haul', StoreItemInBarrel = 'haul',
+    StoreItemInBin = 'haul', BringItemToDepot = 'trade', BringItemToShop = 'haul', Eat = 'eat', Drink = 'eat', DrinkItem = 'eat',
+    Pray = 'pray', Socialize = 'party', PerformMusic = 'party', PerformDance = 'party', PerformStory = 'party', PerformPoetry = 'party',
+    Train = 'train', MilitaryTrain = 'train', SparringPartner = 'train', MakeWeapon = 'forge', MakeArmor = 'forge',
+    SmeltOre = 'forge', BuryCorpse = 'bury', DumpItem = 'dump',
+}
+local GROUP_NAME = {
+    dig = {'The Dig Face', 'dwarves digging'}, smooth = {'The Engravers', 'dwarves smoothing and carving stone'},
+    build = {'A Building Site', 'dwarves building'}, wood = {'The Woodcutters', 'dwarves felling trees'},
+    farm = {'The Fields', 'dwarves at the harvest'}, fish = {'The Fishing Hole', 'dwarves fishing'},
+    haul = {'The Haulers', 'dwarves hauling'}, trade = {'The Depot Rush', 'dwarves carrying goods to trade'},
+    eat = {'Supper Time', 'dwarves eating and drinking'}, pray = {'A Prayer Meeting', 'dwarves praying'},
+    party = {'A Party', 'dwarves dancing, playing and talking'}, train = {'Drill Practice', 'soldiers training'},
+    forge = {'The Forges Roar', 'smiths at work'}, bury = {'A Funeral', 'dwarves burying the dead'},
+    dump = {'The Refuse Run', 'dwarves taking out the garbage'},
+}
+local SPOT = 12 -- crowd grid cell, tiles
+
+local function unit_positions()
+    local list = {}
+    for _, u in ipairs(df.global.world.units.active) do
+        if dfhack.units.isActive(u) and not dfhack.units.isDead(u) and not u.flags1.caged
+                and (dfhack.units.isCitizen(u) or dfhack.units.isVisitor(u) or dfhack.units.isMerchant(u)) then
+            local j = u.job.current_job
+            list[#list + 1] = {x = u.pos.x, y = u.pos.y, z = u.pos.z, job = j and df.job_type[j.job_type], cit = dfhack.units.isCitizen(u)}
+        end
+    end
+    return list
+end
+
+local function busy(r, units)
+    local n = 0
+    local b = r.box
+    for _, u in ipairs(units) do
+        if b then
+            if u.z == b[5] and u.x >= b[1] - 1 and u.x <= b[3] + 1 and u.y >= b[2] - 1 and u.y <= b[4] + 1 then n = n + 1 end
+        elseif u.z == r.pos.z and math.abs(u.x - r.pos.x) <= 5 and math.abs(u.y - r.pos.y) <= 5 then
+            n = n + 1
+        end
+    end
+    return n
+end
+
+local function busy_spots(units)
+    local cells = {}
+    for _, u in ipairs(units) do
+        local g = u.cit and u.job and JOB_GROUP[u.job]
+        if g then
+            local k = ('%s:%d:%d:%d'):format(g, u.x // SPOT, u.y // SPOT, u.z)
+            local c = cells[k]
+            if not c then c = {g = g, n = 0, sx = 0, sy = 0, z = u.z}; cells[k] = c end
+            c.n, c.sx, c.sy = c.n + 1, c.sx + u.x, c.sy + u.y
+        end
+    end
+    local spots = {}
+    for _, c in pairs(cells) do
+        -- hauling and eating are everywhere: only big crowds count
+        local need = (c.g == 'haul' or c.g == 'eat') and 6 or (c.g == 'dig' or c.g == 'build' or c.g == 'smooth') and 3 or 4
+        if c.n >= need then
+            local nm = GROUP_NAME[c.g]
+            spots[#spots + 1] = {name = nm[1], kind = ('%d %s'):format(c.n, nm[2]), spot = c.g, n = c.n,
+                pos = xyz2pos(c.sx // c.n, c.sy // c.n, c.z)}
+        end
+    end
+    return spots
+end
+
+-- Pick the next place: busy places first, but nothing is forgotten. A room
+-- unseen for OVERDUE seconds jumps the queue (the garbage chute gets its turn),
+-- and no place repeats within MIN_GAP.
+local OVERDUE, MIN_GAP = 30 * 60, 6 * 60
+-- rooms can share a name (three temples to one god): key by place too
+local function key_of(r) return r.spot and ('spot:' .. r.spot) or ('%s@%d,%d,%d'):format(r.name, r.pos.x, r.pos.y, r.pos.z) end
+local function pick_room()
     if not tour.rooms or os.time() - tour.rooms_at > 300 then
         tour.rooms, tour.rooms_at = find_rooms(), os.time()
     end
-    if #tour.rooms == 0 then return false end
-    tour.idx = tour.idx % #tour.rooms + 1
-    local r = tour.rooms[tour.idx]
+    tour.shown = tour.shown or {}
+    tour.started = tour.started or os.time()
+    local now, units = os.time(), unit_positions()
+    local cands = {}
+    for _, r in ipairs(tour.rooms) do cands[#cands + 1] = r end
+    for _, sp in ipairs(busy_spots(units)) do cands[#cands + 1] = sp end
+    local best, bs
+    for _, r in ipairs(cands) do
+        local key = key_of(r)
+        -- never shown: as if last seen half an OVERDUE before the tour started (jittered)
+        r.jit = r.jit or (r.spot and 0 or math.random(0, 600))
+        local seen = tour.shown[key]
+        local stale = seen and (now - seen) or (now - tour.started + OVERDUE // 2 - r.jit)
+        if stale >= MIN_GAP then
+            local b = r.spot and r.n or busy(r, units)
+            r.busy = b
+            local score = math.min(stale, OVERDUE) / 60 + 4 * math.min(b, 8) + (r.spot and 6 or 0)
+            if (r.spot or r.kind) == tour.last_kind then score = score - 20 end -- not two barracks in a row
+            if stale >= OVERDUE then score = 1000 + stale / 60 end
+            if not bs or score > bs then best, bs = r, score end
+        end
+    end
+    if best then tour.shown[key_of(best)] = now; tour.last_kind = best.spot or best.kind; tour.last_pick = ('%s (busy %d)'):format(best.name, best.busy or 0) end
+    return best
+end
+
+local function show_next_room()
+    local r = pick_room()
+    if not r then return false end
     dfhack.run_command_silent('disable', 'spectate')
     df.global.plotinfo.follow_unit = -1
     dfhack.gui.revealInDwarfmodeMap(r.pos, true, true)
@@ -406,7 +513,7 @@ if dfhack_flags.module then return end
 
 local cmd = ({...})[1] or 'status'
 if cmd == 'start' then
-    tour.running = true; tour.last_switch = os.time(); tour.gen = (tour.gen or 0) + 1; tick(tour.gen)
+    tour.running = true; tour.last_switch = os.time(); tour.started = tour.started or os.time(); tour.gen = (tour.gen or 0) + 1; tick(tour.gen)
     print('dfai-room-tour: running')
 elseif cmd == 'stop' then
     tour.running = false
@@ -426,6 +533,13 @@ elseif cmd == 'threats' then
     end
 elseif cmd == 'guest' then
     print(show_guest() and ('following ' .. dfhack.units.getReadableName(df.unit.find(tour.guest))) or 'no guests')
+elseif cmd == 'busy' then
+    local units = unit_positions()
+    for _, sp in ipairs(busy_spots(units)) do print('spot', sp.name, sp.kind, sp.pos.x, sp.pos.y, sp.pos.z) end
+    for _, r in ipairs(find_rooms()) do
+        local key = key_of(r)
+        print(('%-32s busy %2d  last shown %s'):format(r.name, busy(r, units), tour.shown and tour.shown[key] and (os.time() - tour.shown[key]) .. 's ago' or 'never'))
+    end
 elseif cmd == 'list' then
     for i, r in ipairs(find_rooms()) do print(i, r.kind, r.name, r.pos.x, r.pos.y, r.pos.z) end
 else
