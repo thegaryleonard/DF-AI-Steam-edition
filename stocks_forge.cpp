@@ -537,7 +537,10 @@ void Stocks::queue_use_metal_ore(color_ostream & out, int32_t amount, std::ostre
 
     if (world->buildings.other[buildings_other_id::FURNACE_SMELTER_MAGMA].empty())
     {
-        amount = std::min(amount, count_free.at(stock_item::coal));
+        // count_free has no coal entry until the stocks pass has counted it
+        // (the mood handler can get here first): .at() threw and crashed DF
+        auto coal = count_free.find(stock_item::coal);
+        amount = std::min(amount, coal == count_free.end() ? 0 : coal->second);
         if (amount <= 0)
         {
             reason << "not enough coal";
@@ -615,7 +618,7 @@ void Stocks::queue_use_raw_coke(color_ostream & out, int32_t amount, std::ostrea
     if (world->buildings.other[buildings_other_id::FURNACE_SMELTER_MAGMA].empty())
     {
         // need at least 1 unit of fuel to bootstrap
-        if (count_free.at(stock_item::coal) <= 0)
+        if (!count_free.count(stock_item::coal) || count_free.at(stock_item::coal) <= 0)
         {
             reason << "need coal or charcoal";
             return;

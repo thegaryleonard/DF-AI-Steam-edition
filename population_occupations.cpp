@@ -313,9 +313,23 @@ public:
             switch (details->type)
             {
                 case agreement_details_type::Residency:
-                    ai.debug(out, "[v50] [Population] answering residency petitions is not supported yet; would accept residency petition from " + describe_party(petition, details->data.Residency->applicant) + ".");
-                    given_up.insert(agreement_id);
-                    continue;
+                {
+                    // DF's own residency conversion isn't documented well
+                    // enough to copy, so a dwarf who asks to stay (the public
+                    // tavern's bards and dancers) is welcomed as a citizen
+                    // instead, the same conversion as a citizenship petition.
+                    // Other races are left for the player.
+                    auto ru = applicant_unit(petition, details->data.Residency->applicant);
+                    what = "residency petition from " + describe_party(petition, details->data.Residency->applicant);
+                    if (!ru || ru->race != plotinfo->race_id)
+                    {
+                        ai.debug(out, "[Population] leaving " + what + " for the player (not a dwarf)");
+                        given_up.insert(agreement_id);
+                        continue;
+                    }
+                    done = accept_as_citizen(out, petition, details->data.Residency->applicant, what + " (welcomed as a citizen)");
+                    break;
+                }
                 case agreement_details_type::Parley:
                     ai.debug(out, "[v50] [Population] answering parley petitions is not supported yet; would reject petition for a parley from " + describe_party(petition, details->data.Parley->asker) + ".");
                     given_up.insert(agreement_id);
@@ -414,8 +428,27 @@ private:
 
     bool accept_citizenship(color_ostream & out, df::agreement *petition, df::agreement_details_data_citizenship *data, const std::string & what)
     {
+        return accept_as_citizen(out, petition, data->applicant, what);
+    }
+
+    df::unit *applicant_unit(df::agreement *petition, int32_t applicant)
+    {
+        if (auto party = find_party(petition, applicant))
+        {
+            for (auto hfid : party->histfig_ids)
+            {
+                auto fig = df::historical_figure::find(hfid);
+                if (auto u = fig ? df::unit::find(fig->unit_id) : nullptr)
+                    return u;
+            }
+        }
+        return nullptr;
+    }
+
+    bool accept_as_citizen(color_ostream & out, df::agreement *petition, int32_t applicant, const std::string & what)
+    {
         df::unit *u = nullptr;
-        if (auto party = find_party(petition, data->applicant))
+        if (auto party = find_party(petition, applicant))
         {
             for (auto hfid : party->histfig_ids)
             {
