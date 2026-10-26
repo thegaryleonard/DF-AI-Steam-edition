@@ -1,4 +1,6 @@
 #include "ai.h"
+
+#include <algorithm>
 #include "population.h"
 #include "plan.h"
 
@@ -7,6 +9,13 @@
 
 #include "df/building_civzonest.h"
 #include "df/building_nest_boxst.h"
+#include "df/items_other_id.h"
+#include "df/tiletype.h"
+#include "df/civzone_type.h"
+#include "df/tool_uses.h"
+#include "df/itemdef_toolst.h"
+#include "df/item_toolst.h"
+#include "modules/Maps.h"
 #include "df/caste_raw.h"
 #include "df/creature_raw.h"
 #include "df/general_ref_building_civzone_assignedst.h"
@@ -28,8 +37,100 @@
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
+// Nest boxes in the indoor pasture (user request): once an underground pen
+// exists, keep about one nest box per three tame egg-laying hens in it (1-6),
+// placed against the pen's walls so they don't block the grazing floor. One
+// box per call; boxes under construction count, so it never over-places.
+static void place_indoor_nest_boxes(AI & ai, color_ostream & out)
+{
+    int hens = 0;
+    for (auto u : world->units.active)
+    {
+        if (Units::isActive(u) && Units::isTame(u) && Units::isEggLayer(u) && Units::isFemale(u) && !Units::isCitizen(u))
+            hens++;
+    }
+    if (!hens)
+        return;
+    int want = std::max(1, std::min(6, (hens + 2) / 3));
+
+    for (auto bld : world->buildings.other[buildings_other_id::ACTIVITY_ZONE])
+    {
+        auto zone = virtual_cast<df::building_civzonest>(bld);
+        if (!zone || zone->type != civzone_type::Pen)
+            continue;
+        df::coord mid((zone->x1 + zone->x2) / 2, (zone->y1 + zone->y2) / 2, zone->z);
+        auto mdes = Maps::getTileDesignation(mid);
+        if (!mdes || mdes->bits.outside)
+            continue;
+
+        int have = 0;
+        for (auto nb : world->buildings.other[buildings_other_id::NEST_BOX])
+        {
+            if (nb->z == zone->z && nb->centerx >= zone->x1 && nb->centerx <= zone->x2 && nb->centery >= zone->y1 && nb->centery <= zone->y2)
+                have++;
+        }
+        if (have >= want)
+            continue;
+
+        df::item *box = nullptr;
+        for (auto item : world->items.other[items_other_id::TOOL])
+        {
+            auto tool = virtual_cast<df::item_toolst>(item);
+            if (!tool || !tool->subtype)
+                continue;
+            auto & uses = tool->subtype->tool_use;
+            if (std::find(uses.begin(), uses.end(), tool_uses::NEST_BOX) == uses.end())
+                continue;
+            auto & f = item->flags.bits;
+            if (f.forbid || f.dump || f.in_job || f.owned || f.trader || f.foreign || f.construction || f.in_building || f.removed || f.garbage_collect || f.hidden || f.in_inventory)
+                continue;
+            box = item;
+            break;
+        }
+        if (!box)
+            return; // stocks keeps one spare nest box made; try again next time
+
+        // a free floor tile inside the pen with a wall next to it
+        df::coord spot;
+        for (int16_t y = zone->y1; y <= zone->y2 && !spot.isValid(); y++)
+        {
+            for (int16_t x = zone->x1; x <= zone->x2 && !spot.isValid(); x++)
+            {
+                df::coord t(x, y, zone->z);
+                auto tt = Maps::getTileType(t);
+                auto occ = Maps::getTileOccupancy(t);
+                auto des = Maps::getTileDesignation(t);
+                if (!tt || !occ || !des || des->bits.flow_size || occ->bits.building != tile_building_occ::None)
+                    continue;
+                if (ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Floor)
+                    continue;
+                bool walled = false;
+                for (int16_t d = 0; d < 4 && !walled; d++)
+                {
+                    df::coord n = t + df::coord(d == 0 ? 1 : d == 1 ? -1 : 0, d == 2 ? 1 : d == 3 ? -1 : 0, 0);
+                    auto nt = Maps::getTileType(n);
+                    walled = nt && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *nt)) == tiletype_shape_basic::Wall;
+                }
+                if (walled)
+                    spot = t;
+            }
+        }
+        if (!spot.isValid())
+            continue;
+
+        df::building *nb = Buildings::allocInstance(spot, building_type::NestBox);
+        Buildings::setSize(nb, df::coord(1, 1, 1));
+        std::vector<df::item *> items{box};
+        if (Buildings::constructWithItems(nb, items))
+            ai.debug(out, stl_sprintf("[PETS] nest box %d/%d in the indoor pasture at (%d, %d, %d)", have + 1, want, spot.x, spot.y, spot.z));
+        return;
+    }
+}
+
 void Population::update_pets(color_ostream & out)
 {
+    place_indoor_nest_boxes(ai, out);
+
     if (!ai.plan.pastures_ready(out))
     {
         // will check next time

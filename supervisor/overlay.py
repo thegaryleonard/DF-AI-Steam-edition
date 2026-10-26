@@ -26,6 +26,7 @@ SEEN_FILE = HERE / "herald" / "seen.json"   # library entry id -> unix time last
 seen_lock = threading.Lock()
 MEMORY_FILE = HERE / "herald" / "memory.json"   # running stories: shortages, streaks, days-since counters, dwarf grievances
 trade_cache = {"at": 0, "data": {"ok": False}}
+works_cache = {"at": 0, "data": {"ok": False}}
 cache = {"state": {"ok": False}, "history": {"artifacts": []}, "world": {}, "stocks": {}, "rumors": {}, "politics": {}, "history_world": None}
 STOCKS_EVERY_S = 30
 RUMORS_EVERY_S = 60   # news the fort has heard from diplomats, the liaison and caravans
@@ -120,6 +121,17 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = (SEEN_FILE.read_bytes() if SEEN_FILE.exists() else b"{}"), "application/json"
         elif self.path.startswith("/memory.json"):
             body, ctype = (MEMORY_FILE.read_bytes() if MEMORY_FILE.exists() else b"{}"), "application/json"
+        elif self.path.startswith("/works.json"):
+            # construction in progress and the fort's goals (herald_works.py)
+            import herald_works
+            now = time.time()
+            if now - works_cache["at"] > 120:
+                try:
+                    works_cache["data"] = herald_works.feed()
+                except Exception as e:
+                    works_cache["data"] = {"ok": False, "error": repr(e)}
+                works_cache["at"] = now
+            body, ctype = json.dumps(works_cache["data"], ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/trade.json"):
             # caravans, deals and the liaison's wishes, from the logs (herald_trade.py)
             import herald_trade

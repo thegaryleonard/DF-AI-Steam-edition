@@ -1518,6 +1518,58 @@ function officialItems(ctx, r) {
   if (col) out.push({ids: [col.id], html: `<div class="item"><div class="kick">${esc(col.kick || 'Politics')}</div><h3>${esc(col.head)}</h3><p class="just dropcap">${esc(col.body)}</p><div class="by">— ${esc(col.by)}</div></div>`});
   return out;
 }
+// ---------- the works office: construction and the fort's goals ----------
+let WK = {};
+async function pollWorks() { try { const r = await get('/works.json'); if (r && r.ok) WK = r; } catch (e) {} }
+const WORKQUIP = [
+  "The overseer insists everything is on schedule. Nobody has seen the schedule.",
+  "Masons report steady progress and a worrying shortage of things to lean on.",
+  "Dwarves are asked to stop standing in the doorways being helpful.",
+  "Pardon the dust. And the noise. And the occasional cave-in."];
+const STATEWORD = {complete: 'Open', 'under way': 'Under way', planned: 'Planned', approved: 'Approved'};
+function plural(n, w) { return n === 1 || /s$/.test(w) ? w : (/(sh|ch|x)$/.test(w) ? w + "es" : w + "s"); }
+function worksItems(ctx, r) {
+  const out = [];
+  if (!WK.ok) return out;
+  const busy = (WK.building || []).map(([w, n]) => `${n > 1 ? n + ' ' + plural(n, w) : 'a ' + w}`);
+  if (busy.length || WK.halls) {
+    const list = busy.slice(0, 4);
+    if (WK.halls) list.push(`${WK.halls} new ${WK.halls === 1 ? 'hallway' : 'hallways'}`);
+    const last = list.length > 1 ? list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1] : list[0];
+    out.push({ids: ['works-busy-' + list.join()], html: `<div class="item"><div class="kick">Construction in Progress</div><h3>Picks Swing on ${list.length} Fronts</h3>
+      <p class="just">Diggers and masons are at work on ${esc(last)}. ${esc(pick(r, WORKQUIP))}</p></div>`});
+  }
+  const goals = WK.goals || [];
+  if (goals.length) {
+    const rows = goals.slice(0, 3).map(g => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(g.name)}</span><span>${g.digging ? 'digging' : g.finished + ' of ' + g.of}</span></div>`).join('');
+    out.push({ids: ['works-goals-' + goals[0].name], html: `<div class="item cls"><div class="kick">The Overseer\u2019s List</div>
+      <p class="just">Next on the fort\u2019s plans, with ${WK.goals_done} earlier steps done and dusted:</p>${rows}</div>`});
+  }
+  const done = (WK.done || []).slice(-3);
+  if (done.length) {
+    const d = done[done.length - 1];
+    out.push({ids: ['works-done-' + d.at], html: `<div class="item"><div class="kick">Ribbon Cut</div><h3>New ${esc(cap(d.what))} Opens</h3>
+      <p class="just">Builders have finished a new ${esc(d.what)}${done.length > 1 ? `, following hard on the heels of the ${esc(done.slice(0, -1).map(x => x.what).join(' and the '))}` : ''}. Dwarves are invited to admire it and then get back to work.</p></div>`});
+  }
+  const lm = WK.landmarks || [];
+  if (lm.length) {
+    const rows = lm.slice(0, 8).map(l => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(l.name)}</span><span>${esc(STATEWORD[l.state] || l.state)}</span></div>`).join('');
+    out.push({ids: ['works-landmarks'], html: `<div class="item cls"><div class="kick">Civic Works · ${WK.rooms_finished} of ${WK.rooms_total} rooms built</div>${rows}</div>`});
+  }
+  const dp = WK.depth || {};
+  if (dp.levels) {
+    out.push({ids: ['works-depth-' + dp.levels], html: `<div class="item"><div class="kick">The Depth Gauge</div><h3>Fort Reaches ${dp.levels} Levels Down</h3>
+      <p class="just">The deepest stair now runs ${dp.levels} levels below the front gate.${dp.cavern ? ` Our miners broke into the caverns ${dp.cavern_levels} levels down and set up camp there, against all advice.` : ' The caverns have not been reached yet. Miners say they can hear something down there.'}</p></div>`});
+  }
+  const pj = WK.projects || [];
+  if (pj.length) {
+    const p = pick(r, pj);
+    out.push({ids: ['works-project-' + p.title], html: `<div class="item"><div class="kick">From the Works Office · ${esc(STATEWORD[p.state] || p.state)}</div><h3>${esc(p.title)}</h3>
+      <p class="just">${esc(p.note)}</p></div>`});
+  }
+  return out;
+}
+
 // ---------- trade & diplomacy desk ----------
 let TR = {};
 async function pollTrade() { try { const r = await get('/trade.json'); if (r && r.ok) TR = r; } catch (e) {} }
@@ -1576,7 +1628,7 @@ function citizens() {
 }
 function fillers(r) {
   // the trade desk leads every other issue (stories would otherwise always fill the fold)
-  const ctx = context(r), trade = tradeItems(ctx, r), lead = r() < 0.5;
+  const ctx = context(r), trade = [...tradeItems(ctx, r), ...worksItems(ctx, r)], lead = r() < 0.6;
   const out = [...(lead ? shuffle(r, trade).slice(0, 2) : []), ...storyItems(ctx, r), ...(lead ? [] : trade), ...officialItems(ctx, r), ...pageItems(ctx, r), ...featureItems(ctx, r)];
   const put = (ids, html) => out.push({ids: [].concat(ids), html});
   // display ads
@@ -1772,11 +1824,11 @@ async function pollSlow() {
   } catch (e) {}
 }
 (async () => {
-  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics(), pollLore(), pollTrade()]);
+  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics(), pollLore(), pollTrade(), pollWorks()]);
   if (document.fonts && document.fonts.ready) await document.fonts.ready;
   trackStories(); checkRumors(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
   nextCard();
-  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollTrade, 60000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
+  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollTrade, 60000); setInterval(pollWorks, 120000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
 })();
 
 // reload by itself when overlay.html changes on disk, so OBS never needs a manual refresh
