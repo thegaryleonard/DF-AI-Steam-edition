@@ -211,6 +211,29 @@ def install_scripts():
         shutil.copy2(f, dst / f.name)
 
 
+def place_window():
+    """Put the DF window where the stream layout expects it (OBS captures it
+    there). Size also lives in prefs/init.txt WINDOWEDX/Y; position doesn't."""
+    try:
+        import ctypes
+        x, y, w, h = CFG.get("window_rect", [510, 0, 1412, 1039])
+        u = ctypes.windll.user32
+        hwnd = None
+        for _ in range(20):
+            hwnd = u.FindWindowW(None, "Dwarf Fortress")
+            if hwnd:
+                break
+            time.sleep(1)
+        if not hwnd:
+            log("place_window: DF window not found")
+            return
+        u.ShowWindow(hwnd, 9)  # SW_RESTORE
+        u.SetWindowPos(hwnd, 0, x, y, w, h, 0x0004 | 0x0010)  # NOZORDER | NOACTIVATE
+        log(f"DF window placed at {x},{y} {w}x{h}")
+    except Exception as e:
+        log(f"place_window failed: {e!r}")
+
+
 def launch_and_load(save=None):
     """Start DF via Steam, load a save, enable df-ai. Returns True on success."""
     save = save or newest_save()
@@ -222,6 +245,7 @@ def launch_and_load(save=None):
         log("DF did not reach the title screen")
         return False
     time.sleep(5)
+    place_window()
     if not load_save(save):
         return False
     st = wait_for(lambda: (s := status()) and s.get("map") and s, CFG["load_timeout_s"], step=10)
