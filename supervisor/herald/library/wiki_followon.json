@@ -1,0 +1,450 @@
+{
+ "followon": {
+  "mood_open": {
+   "heads": [
+    {
+     "id": "wk-fo-moodo-h-01",
+     "text": "THE VIGIL AT THE {moody_shop}"
+    },
+    {
+     "id": "wk-fo-moodo-h-02",
+     "text": "{moody}: STILL IN THERE"
+    },
+    {
+     "id": "wk-fo-moodo-h-03",
+     "text": "MOOD WATCH, DAY {moody_days}"
+    },
+    {
+     "id": "wk-fo-moodo-h-04",
+     "text": "DO NOT KNOCK: {moody} AT WORK"
+    },
+    {
+     "id": "wk-fo-moodo-h-05",
+     "text": "MATERIALS SOUGHT FOR {moody}'S VISION"
+    },
+    {
+     "id": "wk-fo-moodo-h-06",
+     "text": "FORT HOLDS ITS BREATH OVER {moody_shop}"
+    },
+    {
+     "id": "wk-fo-moodo-h-07",
+     "text": "WHAT IS {moody} MAKING? NOBODY DARES ASK"
+    },
+    {
+     "id": "wk-fo-moodo-h-08",
+     "text": "THE MOOD CONTINUES; SO DOES THE MUTTERING"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-moodo-b-01",
+     "text": "{moody}, until recently a perfectly ordinary {moody_prof}, has now spent {moody_days} days inside the {moody_shop} with the door shut. Neighbours report sketching, humming and the occasional shout of 'no, not THAT bone'. Those who have seen a mood before say the first rule is simple: give the dwarf what they ask for, and give it quickly."
+    },
+    {
+     "id": "wk-fo-moodo-b-02",
+     "text": "The Herald reminds readers that a dwarf in a strange mood does not stop to eat, drink or sleep, and that one who cannot begin the work within a few months does not come back from it. If {moody} asks you for something, you have it. If you do not have it, you know someone who does."
+    },
+    {
+     "id": "wk-fo-moodo-b-03",
+     "text": "Day {moody_days} of the vigil. A small crowd has gathered outside the {moody_shop}. Nobody is quite sure whether they are there to support {moody} or to see what happens. A hauler who brought in a load of stone reports that {moody} 'looked through me, and then through the wall behind me'."
+    },
+    {
+     "id": "wk-fo-moodo-b-04",
+     "text": "Old hands divide moods into five kinds: the fey, the secretive, the possessed, the fell and the macabre. A fey dwarf works with a glad, faraway look. A secretive one hides the work. A macabre one asks for bones, and you should not ask why. Our correspondent outside the {moody_shop} declines to say which kind {moody} is having, on the grounds that he would like to keep his skull."
+    },
+    {
+     "id": "wk-fo-moodo-b-05",
+     "text": "The {moody_shop} has been claimed for the duration. Every other craftsdwarf in {fort} has been told to use another bench, and has taken it surprisingly well, mostly because nobody wants to be the one who interrupted {moody}."
+    },
+    {
+     "id": "wk-fo-moodo-b-06",
+     "text": "Scholars note that each dwarf makes at most one artifact in a lifetime, and that the work, when it comes, comes all at once. {moody} has been staring at the same corner of the {moody_shop} for {moody_days} days. The Herald is told this is normal. The Herald is not reassured."
+    },
+    {
+     "id": "wk-fo-moodo-b-07",
+     "text": "Readers have asked whether it is safe to bring {moody} a drink. It is not. A moody dwarf does not drink. Bring materials instead, place them by the door, and step away slowly."
+    },
+    {
+     "id": "wk-fo-moodo-b-08",
+     "text": "The fort's stores are being turned out in search of whatever {moody} is demanding this week. Bones, shells, gems, cloth and an alarming request for 'something that remembers' have all been reported. The quartermaster has begun sleeping in the stockpile."
+    },
+    {
+     "id": "wk-fo-moodl-b-01",
+     "text": "{moody_days} days now. Those who remember older forts speak quietly of the dwarves who never started: the ones who went to the {moody_shop}, waited for materials that never came, and then went somewhere much worse. Check your stockpiles. Check them again.",
+     "when": [
+      "mood_long"
+     ]
+    },
+    {
+     "id": "wk-fo-moodl-b-02",
+     "text": "The mood at the {moody_shop} has passed its tenth day, and the jokes have stopped. The fort's brokers have been asked to buy anything the caravans carry that {moody} might want, and the manager has been seen pacing outside the workshop with a list.",
+     "when": [
+      "mood_long"
+     ]
+    }
+   ]
+  },
+  "mood_done": {
+   "heads": [
+    {
+     "id": "wk-fo-moodd-h-01",
+     "text": "UNVEILED: {artifact_new}"
+    },
+    {
+     "id": "wk-fo-moodd-h-02",
+     "text": "{artifact_maker} EMERGES, AND BRINGS {artifact_new} WITH THEM"
+    },
+    {
+     "id": "wk-fo-moodd-h-03",
+     "text": "THE MOOD BREAKS; A LEGEND IS BORN"
+    },
+    {
+     "id": "wk-fo-moodd-h-04",
+     "text": "BEHOLD THE {artifact_new_item}"
+    },
+    {
+     "id": "wk-fo-moodd-h-05",
+     "text": "{artifact_new}: FIRST REACTIONS"
+    },
+    {
+     "id": "wk-fo-moodd-h-06",
+     "text": "THE {moody_shop} DOOR OPENS AT LAST"
+    },
+    {
+     "id": "wk-fo-moodd-h-07",
+     "text": "A MASTERWORK BEYOND MASTERWORKS"
+    },
+    {
+     "id": "wk-fo-moodd-h-08",
+     "text": "{artifact_maker} SLEEPS FOR THE FIRST TIME IN WEEKS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-moodd-b-01",
+     "text": "After {mood_took} days behind the door of the {moody_shop}, {artifact_maker} has finished {artifact_new}, a {artifact_new_item} of no equal anywhere in {world}. The maker was last seen asking for a very large drink and a very long nap, in that order."
+    },
+    {
+     "id": "wk-fo-moodd-b-02",
+     "text": "The fort has its artifact. {artifact_new} is a {artifact_new_item}, and those who have seen it say it is the kind of object that makes a dwarf go quiet. {artifact_maker} is said to have gained more skill in one sitting than most dwarves do in a lifetime, which is the usual price and the usual reward."
+    },
+    {
+     "id": "wk-fo-moodd-b-03",
+     "text": "A crowd gathered at the {moody_shop} as {artifact_maker} carried out {artifact_new}. Nobody cheered at first. Then everybody did. The Herald notes for the record that the {artifact_new_item} cannot be traded, melted or improved upon, and that anyone who suggests otherwise will be dealt with by the rest of us."
+    },
+    {
+     "id": "wk-fo-moodd-b-04",
+     "text": "The vigil is over and the verdict is in: {artifact_new}, a {artifact_new_item}, is the finest thing ever made in {fort}. {artifact_maker} has returned to ordinary work and ordinary meals, and says only that 'it wanted to be made'."
+    },
+    {
+     "id": "wk-fo-moodd-b-05",
+     "text": "Craftsdwarves across {fort} have spent the day walking past {artifact_new} and then walking back to their own benches, looking at their own work, and sighing. The masons are taking it hardest."
+    },
+    {
+     "id": "wk-fo-moodd-b-06",
+     "text": "{artifact_maker} has asked the Herald to print that {artifact_new} was 'not difficult, just obvious'. We print it. We do not believe it."
+    },
+    {
+     "id": "wk-fo-moodd-o-01",
+     "text": "In keeping with the custom, {artifact_maker} has offered {artifact_new} to {artifact_offered_to}. The fort lends its legend; the name stays ours."
+    },
+    {
+     "id": "wk-fo-moodd-o-02",
+     "text": "{artifact_new} has been offered to {artifact_offered_to}, which is either a great honour or a polite way of saying the {artifact_new_item} is too good for the dining hall."
+    }
+   ]
+  },
+  "artifact_week": {
+   "heads": [
+    {
+     "id": "wk-fo-art-h-01",
+     "text": "{artifact_new}: THE TALK OF THE HALLS"
+    },
+    {
+     "id": "wk-fo-art-h-02",
+     "text": "PILGRIMS QUEUE TO SEE {artifact_new}"
+    },
+    {
+     "id": "wk-fo-art-h-03",
+     "text": "WHO MADE {artifact_new}? {artifact_maker}, THAT'S WHO"
+    },
+    {
+     "id": "wk-fo-art-h-04",
+     "text": "ARTIFACT FEVER GRIPS {fort}"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-art-b-01",
+     "text": "A week on, the queue to see {artifact_new} has not shortened. Some visitors stay for hours. Some come back with sketches. One came back with a strange look in the eye, and the Herald has made a note to check on him."
+    },
+    {
+     "id": "wk-fo-art-b-02",
+     "text": "{artifact_maker} has now been asked about {artifact_new} so often that they have started answering before the question. 'Yes, it is a {artifact_new_item}. No, you cannot touch it. Yes, I am also surprised.'"
+    },
+    {
+     "id": "wk-fo-art-b-03",
+     "text": "Experts remind readers that artifacts cannot be made on purpose: they come only from a strange mood, and only once per dwarf. {artifact_maker} has had theirs. The rest of us are still waiting, and some of us are sketching hopefully."
+    },
+    {
+     "id": "wk-fo-art-b-04",
+     "text": "The Herald's art critic, asked for a review of {artifact_new}, wrote one word and then lay down. We print it here in full: 'yes'."
+    }
+   ]
+  },
+  "death_week": {
+   "heads": [
+    {
+     "id": "wk-fo-death-h-01",
+     "text": "{fort} REMEMBERS {lastdead}"
+    },
+    {
+     "id": "wk-fo-death-h-02",
+     "text": "THE FUNERAL OF {lastdead}"
+    },
+    {
+     "id": "wk-fo-death-h-03",
+     "text": "A SLAB FOR {lastdead}"
+    },
+    {
+     "id": "wk-fo-death-h-04",
+     "text": "{lastdead}: A LIFE IN {fort}"
+    },
+    {
+     "id": "wk-fo-death-h-05",
+     "text": "AFTER {lastdead}, QUESTIONS"
+    },
+    {
+     "id": "wk-fo-death-h-06",
+     "text": "MOURNERS GATHER FOR {lastdead}"
+    },
+    {
+     "id": "wk-fo-death-h-07",
+     "text": "THE EMPTY CHAIR AT DINNER"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-death-b-01",
+     "text": "{lastdead}, {lastdead_prof}, has {lastdead_cause}, and the fort is still counting the cost. Friends describe a dwarf who worked hard and complained only about the things worth complaining about. The Herald asks that a coffin be found and a slab engraved: the restless dead remember who forgot them."
+    },
+    {
+     "id": "wk-fo-death-b-02",
+     "text": "It is the old wisdom and the wiki's too: a dwarf who is not buried or memorialised may come back as a ghost within a few months, haunting the place they fell. {fort} has a mason. {fort} has stone. The Herald trusts that {lastdead} will rest."
+    },
+    {
+     "id": "wk-fo-death-b-03",
+     "text": "Those who worked beside {lastdead} have been given the day to grieve, which most of them spent working, because that is what {lastdead} would have done. A memorial is planned. The Herald will print the inscription when it is carved."
+    },
+    {
+     "id": "wk-fo-death-b-04",
+     "text": "The death of {lastdead} ({lastdead_ago}) has left a gap in the {lastdead_prof} rota and a larger one in the dining hall. A friend says the best tribute would be to finish what they started. Another says the best tribute would be a good drink. Both are being attempted."
+    },
+    {
+     "id": "wk-fo-death-b-05",
+     "text": "Grief, the old hands say, is the one emotion a dwarf can't haul away. Expect sad faces and short tempers in the halls this week, and be kind to anyone who knew {lastdead}. The tavern is open late."
+    },
+    {
+     "id": "wk-fo-death-b-06",
+     "text": "The Herald has received several letters about {lastdead}. Most are fond. One is about a borrowed mug that was never returned. The family has been informed, and the mug will be buried too."
+    },
+    {
+     "id": "wk-fo-death-b-07",
+     "text": "Questions are being asked about how {lastdead} came to have {lastdead_cause}. The overseer says lessons will be learned. The Herald will be keeping a list of which ones."
+    }
+   ]
+  },
+  "birth_week": {
+   "heads": [
+    {
+     "id": "wk-fo-birth-h-01",
+     "text": "THE NEWEST CITIZEN: A WEEK IN"
+    },
+    {
+     "id": "wk-fo-birth-h-02",
+     "text": "NURSERY NEWS: STILL TINY, STILL LOUD"
+    },
+    {
+     "id": "wk-fo-birth-h-03",
+     "text": "BABY HAS OPINIONS ALREADY"
+    },
+    {
+     "id": "wk-fo-birth-h-04",
+     "text": "A WARM WELCOME, A COLD CRADLE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-birth-b-01",
+     "text": "The fort's newest citizen has now survived a week of {fort}, which puts them ahead of several migrants we could name. Visitors report a strong grip, a loud voice and a firm dislike of the hammer noise from the forges."
+    },
+    {
+     "id": "wk-fo-birth-b-02",
+     "text": "Dwarven babies, our medical correspondent notes, are carried everywhere by their mothers, including to work, including to the forge, and occasionally into battle. The child is said to be taking this well."
+    },
+    {
+     "id": "wk-fo-birth-b-03",
+     "text": "A child born in the mountain grows up thinking the sky is a rumour. The Herald has been asked by the parents not to correct this until the child is at least twelve."
+    }
+   ]
+  },
+  "marriage_week": {
+   "heads": [
+    {
+     "id": "wk-fo-marr-h-01",
+     "text": "THE NEWLYWEDS: A REPORT"
+    },
+    {
+     "id": "wk-fo-marr-h-02",
+     "text": "MARRIED LIFE BEGINS, MOSTLY INDOORS"
+    },
+    {
+     "id": "wk-fo-marr-h-03",
+     "text": "WEDDING GIFTS STILL ARRIVING (MOSTLY ROCKS)"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-marr-b-01",
+     "text": "The happy couple have moved into one bedroom and out of the other, which the housing office describes as 'a net gain of one room and one argument'. Friends say they are very happy. Neighbours say the walls are thin."
+    },
+    {
+     "id": "wk-fo-marr-b-02",
+     "text": "Dwarven weddings are short and dwarven marriages are long. The Herald wishes the couple a full barrel, a warm bed and a door that shuts."
+    },
+    {
+     "id": "wk-fo-marr-b-03",
+     "text": "Gifts for the newlyweds have so far included three stone mugs, a slightly used chest, and a cat that nobody claims to have sent. The cat has stayed."
+    }
+   ]
+  },
+  "migrants_week": {
+   "heads": [
+    {
+     "id": "wk-fo-migr-h-01",
+     "text": "NEW ARRIVALS: ONE WEEK LATER"
+    },
+    {
+     "id": "wk-fo-migr-h-02",
+     "text": "THE MIGRANTS SETTLE IN (AND ASK QUESTIONS)"
+    },
+    {
+     "id": "wk-fo-migr-h-03",
+     "text": "WHO ARE THE NEWCOMERS? THE HERALD ASKS"
+    },
+    {
+     "id": "wk-fo-migr-h-04",
+     "text": "MIGRANT WAVE STRAINS BEDS, NOT PATIENCE"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-migr-b-01",
+     "text": "A week after the latest migrants walked in, most have found a bed, a job and somebody to complain to. A handful are still wandering the halls asking where the drinks are. The answer is: the stockpile, and keep walking."
+    },
+    {
+     "id": "wk-fo-migr-b-02",
+     "text": "The newcomers have been assigned to hauling, as all newcomers are, while the manager works out what they are actually good at. One claims to be a legendary fish dissector. The fort's fish population has been warned."
+    },
+    {
+     "id": "wk-fo-migr-b-03",
+     "text": "Old residents are reminded that every migrant is a citizen the moment they arrive, and that the bedroom you were saving 'for later' is now theirs. Bring your own pillow."
+    },
+    {
+     "id": "wk-fo-migr-b-04",
+     "text": "Not every new face is what it seems, say the old stories: vampires have been known to slip in with a migrant wave, never eating, never sleeping. The Herald is sure our newcomers are lovely. The Herald has also noticed who skipped lunch."
+    }
+   ]
+  },
+  "masterpiece_week": {
+   "heads": [
+    {
+     "id": "wk-fo-mast-h-01",
+     "text": "{masterwright_last} TAKES A BOW"
+    },
+    {
+     "id": "wk-fo-mast-h-02",
+     "text": "THE {masterwork_last}, REVISITED"
+    },
+    {
+     "id": "wk-fo-mast-h-03",
+     "text": "MASTERPIECE CROWD STILL GATHERING"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-mast-b-01",
+     "text": "{masterwright_last}'s masterpiece {masterwork_last} is still drawing admirers. A masterwork, the guilds remind us, is the highest quality a dwarf can reach on purpose; only a mood goes further. {masterwright_last} has been asked not to mention this every time somebody looks at it."
+    },
+    {
+     "id": "wk-fo-mast-b-02",
+     "text": "Dwarves are proud of their masterworks and take it very badly when one is lost or destroyed. The {masterwork_last} has therefore been moved somewhere safe, with a sign, and a guard, and a second sign about the guard."
+    },
+    {
+     "id": "wk-fo-mast-b-03",
+     "text": "Since the {masterwork_last} was finished, {masterwright_last} has been impossible to talk to and very easy to find: just follow the sound of somebody explaining technique."
+    }
+   ]
+  },
+  "beast_week": {
+   "heads": [
+    {
+     "id": "wk-fo-beast-h-01",
+     "text": "AFTER THE BEAST: COUNTING THE DAMAGE"
+    },
+    {
+     "id": "wk-fo-beast-h-02",
+     "text": "THE MONSTER, ONE WEEK ON"
+    },
+    {
+     "id": "wk-fo-beast-h-03",
+     "text": "BEAST TALK DOMINATES THE TAVERN"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-beast-b-01",
+     "text": "The fort is still talking about the beast. Forgotten beasts come up from the caverns, drawn, the scholars say, by wealth and noise, and titans come down from the surface for much the same reasons. {fort} has a lot of both. The militia has been asked to stop looking so pleased about it."
+    },
+    {
+     "id": "wk-fo-beast-b-02",
+     "text": "Our sketch artist's drawing of the creature has been taken down from the meeting hall after complaints from parents. It has been replaced with a drawing of the militia, which got even more complaints."
+    },
+    {
+     "id": "wk-fo-beast-b-03",
+     "text": "The question every dwarf is asking: was it alone? The answer, from the old books, is that the deep is never empty for long."
+    }
+   ]
+  },
+  "caravan_week": {
+   "heads": [
+    {
+     "id": "wk-fo-car-h-01",
+     "text": "AFTER THE CARAVAN: WHAT WE BOUGHT, WHAT WE REGRET"
+    },
+    {
+     "id": "wk-fo-car-h-02",
+     "text": "THE DEPOT, THE MORNING AFTER"
+    },
+    {
+     "id": "wk-fo-car-h-03",
+     "text": "MERCHANTS' GOSSIP STILL MAKING THE ROUNDS"
+    }
+   ],
+   "bodies": [
+    {
+     "id": "wk-fo-car-b-01",
+     "text": "Caravans stay for a few weeks at most, the broker reminds us, and give about four days' notice before they pack up. Anyone still holding a trinket they meant to sell should run."
+    },
+    {
+     "id": "wk-fo-car-b-02",
+     "text": "The merchants brought goods, gossip and a strong smell of pack animal. The goods are in the stockpiles; the gossip is in the tavern; the smell is in the depot and will be for some time."
+    },
+    {
+     "id": "wk-fo-car-b-03",
+     "text": "Every caravan brings news from the wider world along with its barrels, and this one was no exception. The Foreign Desk is still sorting the true stories from the merely entertaining ones."
+    }
+   ]
+  }
+ }
+}

@@ -16,9 +16,19 @@ POL = {"fort", "pop", "season", "civ", "government", "n", "job", "material", "ma
 OG = {"days", "since", "n", "fort", "season", "weather", "pop", "drinks", "wood", "meals", "citizen", "nick", "topic"}
 # world-history slots, allowed in every section; filled from herald/lore/<world>.json (built from real events)
 LORE = {"past_fort", "past_fort_fate", "past_fort_years", "record", "record_fort", "civ", "monarch", "liaison", "enemy", "enemy_race", "world"}
+# storyline (arc) slots from memory, plus extra stock/works/military slots; context() fills these for every section
+ARC = {"lastdead", "lastdead_prof", "lastdead_cause", "lastdead_ago", "moody", "moody_prof", "moody_shop", "moody_days", "mood_took", "artifact_new",
+       "artifact_new_item", "artifact_maker", "artifact_offered_to", "masterwright_last", "masterwork_last", "newborn_parent", "bride",
+       "meat", "fish", "eggs", "leather", "depth", "cavern_depth", "squads", "soldiers", "caravan_civ", "fort_days"}
+LORE |= ARC
 BASE |= LORE; IV |= LORE; BK |= LORE; RUMOR |= LORE; POL |= LORE; OG |= LORE
 CONDS = set("has_past_fort at_war no_meat drinks_high drinks_low rain snow clear pop_big pop_small dogs_many cats farms_many stone_glut wood_low gems recent_death "
-            "recent_mood recent_masterpiece recent_strike recent_promotion recent_migrants recent_caravan spring summer autumn winter".split())
+            "recent_mood recent_masterpiece recent_strike recent_promotion recent_migrants recent_caravan spring summer autumn winter "
+            "peace food_low food_ok food_high drinks_ok has_meat meat_low no_fish has_eggs cats_many herd_big herd_small thread_glut cloth_ok "
+            "seeds_many gems_many bars_low bars_many wood_ok caverns deep caravan_here no_caravan_here has_military army_big no_military "
+            "has_tavern has_temple has_library has_hospital has_catacombs has_jail pop_mid young_fort old_fort "
+            "death_week mood_open mood_long artifact_week mood_done migrants_week birth_week masterpiece_week marriage_week beast_week caravan_week".split())
+ARCKEYS = {"mood_done", "death_week", "mood_open", "artifact_week", "beast_week", "birth_week", "marriage_week", "migrants_week", "masterpiece_week", "caravan_week"}
 BG = set("hall mine outside farm tavern depot bedroom workshop cavern none".split())
 PROPS = set("barrel mug coffin gem tree well door bed table anvil workshop wagon rocks sun cloud rain sock crown sign".split())
 WHO = set("dwarf noble elf goblin kobold cat dog carp ghost beast baby".split())
@@ -82,6 +92,14 @@ def check_panel(p, sid):
 for k, v in lib.items():
     allowed = IV if k in ("thoughts", "questions", "answers", "decks", "idle_decks") else BK if k == "kinds" else RUMOR if k in ("rumors", "briefs", "depot_gossip", "pouch", "pouch_heads") else POL if k in ("order_ads", "recruit_ads", "vacancy_ads", "local", "military", "world", "columns") else OG if k in ("stories", "counters", "followups") else BASE
     walk(v, k, allowed)
+for k in lib.get("followon", {}):
+    if k not in ARCKEYS: problems.append(f"followon: unknown storyline {k}")
+    for part in ("heads", "bodies"):
+        if not lib["followon"][k].get(part): problems.append(f"followon.{k}: no {part}")
+for k, v in lib.get("room_blurbs", {}).items():
+    if not isinstance(v, list) or not all(isinstance(x, str) and 20 < len(x) < 260 for x in v): problems.append(f"room_blurbs.{k}: bad lines")
+    for x in v:
+        if "{" in x: problems.append(f"room_blurbs.{k}: slots are not filled in room blurbs: {x[:40]}")
 for st in lib.get("strips", []):
     if not 3 <= len(st.get("panels", [])) <= 4: problems.append(f"{st.get('id')}: {len(st.get('panels', []))} panels")
     for p in st.get("panels", []): check_panel(p, st.get("id"))

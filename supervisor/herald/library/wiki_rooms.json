@@ -1,0 +1,115 @@
+{
+ "room_blurbs": {
+  "Tavern": [
+   "A good tavern needs a keeper to pour, performers to entertain, and enough room for the occasional brawl. This one has all three.",
+   "Visitors come here first: bards, poets and travellers trading rumours from far-off towns for a mug of whatever is in the barrel.",
+   "Some performers ask to stay for a season or two. The keeper says that is how you know the ale is good."
+  ],
+  "Temple": [
+   "Performers sometimes come here too: a hymn, a dance or a long story about a god who probably wouldn't approve.",
+   "A temple can be raised to one god or to none in particular. Either way, the dwarves who pray here leave lighter than they came."
+  ],
+  "Library": [
+   "Scholars write quires and scrolls here, scribes copy them, and the books are bound into codices for the shelves.",
+   "Reading is a pleasure to a dwarf, the scholars insist. The miners nod politely and come here to nap."
+  ],
+  "Hospital": [
+   "The hospital keeps thread, cloth, splints, crutches, plaster, soap and buckets on hand. The doctors want more of everything.",
+   "Diagnosis, surgery, bone setting and sutures: the fort's doctors do it all, and most of it with the patient awake."
+  ],
+  "Barracks": [
+   "A hundred blows a day land on the training dummies here. The dummies have not complained once, which makes them the fort's best soldiers.",
+   "Squads take turns to drill here through the year, so that somebody is always sharp and somebody is always asleep."
+  ],
+  "Pasture": [
+   "Below ground, cave moss and other cavern grasses spread on soil once the caverns are open, and the grazers here crop it as fast as it grows.",
+   "Goats, yaks and anything else with four legs and an appetite. The moss grows back; the animals keep coming back for it."
+  ],
+  "Trade Depot": [
+   "Caravans come in their seasons: elves in spring, humans in summer, our own kin in autumn. Nobody comes in winter.",
+   "Merchants stay a few weeks at most and give about four days' warning before they pack. The broker sleeps here when they're in."
+  ],
+  "Entrance": [
+   "The first thing a siege sees, and the last thing a caravan wants to wait in front of.",
+   "Migrants arrive here, wide-eyed, and are immediately handed something to carry."
+  ],
+  "Dining Hall": [
+   "A dwarf who eats at a good table in good company remembers it fondly for days. A dwarf who eats on the floor remembers it longer.",
+   "Prepared meals count as every ingredient in them, so one good roast can please a whole table of picky eaters."
+  ],
+  "Meeting Hall": [
+   "Idle dwarves drift here between jobs. If you want to know what really happened, ask here; if you want to know what happened twice, ask again."
+  ],
+  "The Still": [
+   "One plant in, five drinks out, and the seeds come back for planting. The finest arithmetic in the fort.",
+   "Plump helmets become dwarven wine, cave wheat becomes beer, sweet pods become rum and pig tails become ale. Quarry bush leaves cannot be brewed, and the brewer would like that known."
+  ],
+  "The Kitchen": [
+   "Cooking a plant destroys its seeds, so the cook and the farmer have an understanding: the cook gets the plump helmets, the farmer gets the spawn back from the brewer.",
+   "A legendary cook can make a meal worth many times its ingredients. This kitchen is working on it."
+  ],
+  "The Underground Farms": [
+   "Six crops grow underground: plump helmets in any season, cave wheat, sweet pods, pig tails, quarry bushes and dimple cups, each in its season.",
+   "Farm plots need soil or mud. The farmers here have plenty of both, mostly on their boots."
+  ],
+  "The Farmer's Workshop": [
+   "Pig tails become thread here, sweet pods become syrup, quarry bushes give up their leaves, and milk becomes cheese.",
+   "Thread from this bench feeds the looms, and cloth from the looms feeds the hospital, the tailors and the moods."
+  ],
+  "The Loom": [
+   "Pig tail thread, cave spider silk and the occasional bale of wool: it all becomes cloth here, one patient throw at a time."
+  ],
+  "The Fishery": [
+   "Fish come in from the water and leave as meals. The carp, once the terror of every riverbank, are now merely heavy."
+  ],
+  "The Catacombs": [
+   "A buried dwarf stays buried. An unburied one may come back within a few months as a ghost, and ghosts hold grudges.",
+   "Every coffin here was carved in the fort's own workshops. Slabs on the walls remember the ones whose bodies were never found."
+  ],
+  "The Jail": [
+   "The captain of the guard hands out the sentences: a beating, a stretch in a cell, or a stern look from somebody important."
+  ],
+  "The Execution Pit": [
+   "Caged invaders come here for the last time. The shaft is deep, the hatch is quick, and the paperwork is very short."
+  ],
+  "The Smelter": [
+   "Ore becomes bars here. Every sword, nail and masterwork bucket in the fort started as a rock in this furnace."
+  ],
+  "The Magma Smelter": [
+   "Magma needs no fuel and asks no questions. The furnace operator keeps a bucket of water handy, out of habit, not hope."
+  ],
+  "The Forge": [
+   "Weapons, armour, anvils and the odd crown for a demanding noble. The smith's arms are the size of most dwarves' legs."
+  ],
+  "The Craftsdwarf's Workshop": [
+   "Bone, shell, stone and wood become crafts here, and a mood sometimes claims this very bench for an artifact."
+  ],
+  "The Mason's Workshop": [
+   "Doors, tables, thrones, coffins and slabs for the dead. Most of the fort's furniture began as a wall."
+  ],
+  "The Jeweler's Workshop": [
+   "Rough gems are cut here and set into the fort's finest work. A cut gem in the right setting doubles the value of anything."
+  ],
+  "The Carpenter's Workshop": [
+   "Barrels come from here, and without barrels there is no drink. Treat the carpenter accordingly."
+  ],
+  "The Mechanic's Workshop": [
+   "Mechanisms for levers, traps, floodgates and pumps. Very small parts doing very large jobs."
+  ],
+  "The Cistern": [
+   "Water kept back for a dry day. Dwarves drink booze, but the wounded drink water, and the hospital needs it close."
+  ],
+  "The Mist Generator": [
+   "Dwarves who walk through the mist come out with a happy thought about the spray. It is engineering in the service of a good mood."
+  ],
+  "The Windmills": [
+   "Wind is free, the sails are cheap and the gears are dwarven. The axle runs down into the rock and the power goes where it's needed."
+  ],
+  "Workshop": [
+   "The fort's workshops never stop for long. Somewhere a work order is always waiting, and somewhere a dwarf is always pretending not to see it."
+  ],
+  "Furnace": [
+   "Fuel, ore and heat. The furnace operator's beard is shorter than it was last year, and the operator will not discuss it."
+  ]
+ }
+}

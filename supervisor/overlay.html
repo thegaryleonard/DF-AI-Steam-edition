@@ -239,7 +239,7 @@ function newsSlots() {
     if (b.type === 'CITIZEN_DEATH' && nm && !o.deadname) {
       o.deadname = cap(nm);
       const m = t.match(/^[^,]+,\s*(.+?) has (.+?)\.?$/);   // "Bomrek Enshalcatten, Miner has been found dead, dehydrated."
-      if (m) { o.prof = m[1].toLowerCase(); o.cause = m[2].replace(/^been found dead,?\s*/, '').replace(/^been /, '') || 'mysterious circumstances'; }
+      if (m) { o.prof = m[1].toLowerCase(); o.cause = m[2].replace(/\.+$/, '').trim() || 'died in mysterious circumstances'; }
     }
     if (/MOOD/.test(b.type) && nm && !o.moodname) o.moodname = cap(nm);
     if (/MASTERPIECE/.test(b.type) && !o.masterwork) { const m = t.match(/^(.+?) has created an? masterpiece (.+?)!?$/); if (m) { o.masterwright = cap(m[1]); o.masterwork = m[2].replace(/\[\d+\]/, '').trim(); } }
@@ -261,6 +261,60 @@ function loreSlots(r) {
     record: rec ? rec.text : null, record_fort: rec ? cap(clean(rec.fort)) : null,
     civ: pol.civ || null, monarch: pol.monarch || null, liaison: pol.liaison || null, enemy: pol.enemy || null, enemy_race: pol.enemy_race || null};
 }
+// ---------- running storylines (arcs): a big event keeps being covered for days afterwards ----------
+// trackStories() records the newest event of each kind in memory (who, when, details); entries follow up on it
+// with {lastdead}, {moody}, {artifact_new}... and conditions like death_week or mood_open.
+const ARC_OF = [[/CITIZEN_DEATH/, 'death'], [/STRANGE_MOOD/, 'mood'], [/MADE_ARTIFACT|NAMED_ARTIFACT/, 'artifact'], [/MIGRANT/, 'migrants'],
+  [/BIRTH_CITIZEN/, 'birth'], [/MASTERPIECE/, 'masterpiece'], [/MARRIAGE/, 'marriage'], [/MEGABEAST|WEREBEAST|BEAST_AMBUSH/, 'beast'], [/CARAVAN/, 'caravan']];
+function arcInfo(kind, t) {
+  const nm = (t.match(/^([^,]+?)(?:,| has | withdraws| is )/) || [])[1];
+  const o = {name: nm && !/^(Some|A|An|The|You)\b/.test(nm) ? cap(nm.trim()) : null};
+  let m;
+  if (kind === 'death' && (m = t.match(/^[^,]+,\s*(.+?) has (.+?)\.?$/))) { o.prof = m[1].toLowerCase(); o.cause = m[2].replace(/\.+$/, ''); }
+  if (kind === 'artifact' && (m = t.match(/has (?:created|named) (.+?),? an? ([^!.]+)/))) { o.art = m[1].replace(/[☼≡*+]/g, '').trim(); o.item = m[2].replace(/[☼≡*+]/g, '').trim(); }
+  if (kind === 'artifact' && (m = t.match(/offers it to (.+?)\.?$/))) o.offered = m[1].trim();
+  if (kind === 'masterpiece' && (m = t.match(/masterpiece (.+?)!?$/))) o.item = m[1].replace(/[☼≡*+!]|\[\d+\]/g, '').trim();
+  if (kind === 'mood' && (m = t.match(/^[^,]+,\s*(.+?) withdraws/))) o.prof = m[1].toLowerCase();
+  if (kind === 'caravan' && (m = t.match(/from (.+?) (?:has|have) arrived/i))) o.civ = cap(m[1]);
+  return o;
+}
+function arcSlots() {
+  if (!memLoaded) return {};
+  const A = mem().arcs || {}, today = dayOf(S.fort), d = k => A[k] && today != null ? Math.max(0, today - A[k].day) : null;
+  const ago = k => { const n = d(k); return n == null ? null : n === 0 ? 'today' : n === 1 ? 'yesterday' : `${n} days ago`; };
+  const g = (k, f) => A[k] && A[k][f] ? A[k][f] : null;
+  return {lastdead: g('death', 'name'), lastdead_prof: g('death', 'prof'), lastdead_cause: g('death', 'cause'), lastdead_ago: ago('death'),
+    moody: g('mood', 'name'), moody_prof: g('mood', 'prof'), moody_shop: g('mood', 'shop'), moody_days: d('mood'), mood_took: A.mood && A.artifact && A.artifact.day >= A.mood.day ? A.artifact.day - A.mood.day : null,
+    artifact_new: g('artifact', 'art'), artifact_new_item: g('artifact', 'item'), artifact_maker: g('artifact', 'name'), artifact_offered_to: g('artifact', 'offered'),
+    masterwright_last: g('masterpiece', 'name'), masterwork_last: g('masterpiece', 'item'),
+    newborn_parent: g('birth', 'name'), bride: g('marriage', 'name')};
+}
+function arcConds() {
+  if (!memLoaded) return {};
+  const A = mem().arcs || {}, today = dayOf(S.fort), within = (k, n) => !!A[k] && today != null && today - A[k].day <= n;
+  const moodOpen = within('mood', 60) && !(A.artifact && A.artifact.day >= A.mood.day) && !(A.death && A.death.day >= A.mood.day && A.death.name === A.mood.name);
+  return {death_week: within('death', 7) && !!A.death.name, mood_open: moodOpen && !!A.mood.name, mood_long: moodOpen && today - A.mood.day >= 10,
+    artifact_week: within('artifact', 10) && !!A.artifact.name, mood_done: within('artifact', 10) && !!A.mood && A.artifact.day >= A.mood.day && A.artifact.name === A.mood.name,
+    migrants_week: within('migrants', 7), birth_week: within('birth', 7), masterpiece_week: within('masterpiece', 5) && !!A.masterpiece.name,
+    marriage_week: within('marriage', 7), beast_week: within('beast', 10), caravan_week: within('caravan', 12)};
+}
+function extraConds(c, an_, sl) {
+  const g = k => c[k] || 0, st = !!(K && K.stocks), food = g('meals') + g('plants') + g('meat') + g('fish');
+  const herd = Object.values(an_).reduce((a, b) => a + b, 0), lm = (WK && WK.landmarks) || [];
+  const has = re => lm.some(l => re.test(l.name) && l.state === 'complete');
+  const here = TR && (TR.caravans || []).some(x => x.present);
+  return {food_low: st && food < 60, food_ok: st && food >= 200, food_high: st && g('meals') >= 300, drinks_ok: st && g('drinks') >= 300,
+    has_meat: st && g('meat') + g('fish') >= 20, meat_low: st && g('meat') + g('fish') < 20, no_fish: st && !g('fish'), has_eggs: st && g('eggs') > 0,
+    cats_many: (an_.cats || 0) > 8, herd_big: herd > 40, herd_small: st && herd < 10, thread_glut: g('thread') > 1000, cloth_ok: g('cloth') >= 50,
+    seeds_many: g('seeds') > 400, gems_many: g('gems') > 100, bars_low: st && g('bars') < 10, bars_many: g('bars') > 100, wood_ok: g('wood') >= 100,
+    caverns: !!(WK && WK.depth && WK.depth.cavern), deep: !!(WK && WK.depth && WK.depth.levels > 50),
+    caravan_here: !!here, no_caravan_here: !!(TR && TR.ok) && !here,
+    has_military: !!(PO && PO.squads && PO.squads.length), army_big: (sl.soldiers || 0) >= 30, no_military: !!(PO && PO.ok) && !(PO.squads || []).length,
+    has_tavern: has(/Tavern/), has_temple: has(/Temple/), has_library: has(/Library/), has_hospital: has(/Hospital/), has_catacombs: has(/Catacomb/), has_jail: has(/Jail/),
+    pop_mid: (S.fort || {}).population >= 15 && (S.fort || {}).population <= 30, young_fort: (S.fort || {}).age_days != null && S.fort.age_days < 112,
+    old_fort: (S.fort || {}).age_days != null && S.fort.age_days >= 336,
+    ...arcConds()};
+}
 function context(r) {
   const c = (K && K.stocks) || {}, an_ = (K && K.animals) || {}, f = S.fort || {}, wx = S.weather || {};
   const names = [...new Set([...(S.names || []), ...citizens()])].map(n => cap(clean(n))).filter(n => n.trim());
@@ -277,7 +331,12 @@ function context(r) {
     topanimal: top && top[1] > 1 ? top[0] : null, topanimal_n: top && top[1] > 1 ? top[1] : null, farms: n(K && K.farms),
     citizen: ppl[0], citizen2: ppl[1], citizen_first: ppl[2] ? ppl[2].split(' ')[0] : null, _people: ppl,
     artifact: art ? clean(art.name) : null, artifact_item: art ? clean(art.item).replace(/^[-\s«]+|[-\s»]+$/g, '').replace(/[«»]/g, '') : null,
-    ...news, ...worldSlots(r), ...loreSlots(r),
+    ...news, ...worldSlots(r), ...loreSlots(r), ...arcSlots(),
+    meat: n(c.meat), fish: n(c.fish), eggs: n(c.eggs), leather: n(c.leather),
+    depth: WK && WK.depth && WK.depth.levels ? WK.depth.levels : null, cavern_depth: WK && WK.depth && WK.depth.cavern ? WK.depth.cavern_levels : null,
+    squads: PO && PO.squads && PO.squads.length ? PO.squads.length : null, soldiers: PO && PO.squads && PO.squads.length ? PO.squads.reduce((a, q) => a + (q.members || []).length, 0) || null : null,
+    caravan_civ: TR && TR.trades && TR.trades.length ? cap(clean(TR.trades[TR.trades.length - 1].civ || '')) || null : null,
+    fort_days: f.age_days != null ? f.age_days : null,
   };
   const se = (wx.season || '').toLowerCase(), g = k => c[k] || 0;
   const conds = new Set(Object.entries({
@@ -287,7 +346,8 @@ function context(r) {
     wood_low: K && K.stocks && g('wood') < 20, gems: g('gems') > 0, recent_death: !!news.deadname, recent_mood: !!news.moodname,
     recent_masterpiece: !!news.masterwork, recent_strike: !!news.mineral, recent_promotion: !!news.promoted,
     recent_migrants: !!news._migrants, recent_caravan: !!news._caravan,
-    has_past_fort: !!sl.past_fort, at_war: !!sl.enemy,
+    has_past_fort: !!sl.past_fort, at_war: !!sl.enemy, peace: !!(PO && PO.ok) && !sl.enemy,
+    ...extraConds(c, an_, sl),
     spring: se.includes('spring'), summer: se.includes('summer'), autumn: se.includes('autumn'), winter: se.includes('winter'),
   }).filter(([, v]) => v).map(([k]) => k));
   return {sl, conds};
@@ -397,6 +457,19 @@ function trackStories() {
     const ck = (COUNTER_OF.find(([re]) => re.test(b.type || '')) || [])[1]; if (!ck) continue;
     if (M.lastIds[ck] !== b.id) { M.lastIds[ck] = b.id; M.counters[ck] = b.tick != null && b.year != null ? b.year * 336 + Math.floor(b.tick / 1200) : today; memDirty = true; }
   }
+  // storylines: the newest event of each kind, with who and what, so later issues can follow it up
+  M.arcs = M.arcs || {};
+  for (const b of [...(S.big || [])].reverse()) {
+    const ak = (ARC_OF.find(([re]) => re.test(b.type || '')) || [])[1]; if (!ak) continue;
+    const day = b.tick != null && b.year != null ? b.year * 336 + Math.floor(b.tick / 1200) : today;
+    const cur = M.arcs[ak];
+    if (cur && ((cur.id === b.id && cur.v === 3) || cur.day > day)) continue;
+    M.arcs[ak] = {...(cur && cur.id === b.id ? cur : {}), id: b.id, day, v: 3, ...arcInfo(ak, clean(b.text || ''))}; memDirty = true;
+  }
+  if (M.arcs.mood && !M.arcs.mood.shop) for (const e of S.events || []) {
+    const m = clean(e.text || '').match(/^(.+?) has claimed an? (.+?)\.$/);
+    if (m && cap(m[1]) === M.arcs.mood.name) { M.arcs.mood.shop = m[2]; memDirty = true; break; }
+  }
   if (memDirty) saveMem();
 }
 function storyHead(keys, ctx, r) {   // the ag report's headline becomes the running story's latest installment
@@ -423,6 +496,13 @@ function storyItems(ctx, r) {
     const ex = {days: en.until - en.since, since: dateOf(en.since), n: en.n + 1};
     const h = choose1(O[k].ended_heads, ctx, r, ex), b = choose1(O[k].ended_bodies, ctx, r, ex); if (!h || !b) continue;
     items.push({ids: [h.id, b.id], html: `<div class="item run"><div class="kick">It's Over · ${ex.days} Days</div><h3>${esc(T(h))}</h3><p class="just">${esc(T(b))}</p></div>`});
+  }
+  // continuing coverage: follow-ups to recent big news (funeral after a death, vigil during a mood, unveiling after it)
+  const FO = LIB.followon || {}, cc = arcConds();
+  const arcs = ['mood_done', 'death_week', 'mood_open', 'artifact_week', 'beast_week', 'birth_week', 'marriage_week', 'migrants_week', 'masterpiece_week', 'caravan_week'].filter(k => cc[k] && FO[k]);
+  for (const k of arcs.slice(0, 1)) {
+    const h = choose1(FO[k].heads, ctx, r), b = choose1(FO[k].bodies, ctx, r); if (!h || !b) continue;
+    items.push({ids: [h.id, b.id], html: `<div class="item run"><div class="kick">Continuing Coverage</div><h3>${esc(T(h))}</h3><p class="just">${esc(T(b))}</p></div>`});
   }
   // the "days since" board
   const C = LIB.counters || {}, lines = [];
@@ -1738,7 +1818,7 @@ let blurbFor = '', blurbText = '';
 function roomBlurb(t) {   // one line per visit, a different one on the next visit
   const key = t.name + '|' + t.kind;
   if (key !== blurbFor) {
-    const pool = ROOMBLURBS[t.name] || ROOMBLURBS[t.kind] || [];
+    const RB = LIB.room_blurbs || {}, pool = [...(ROOMBLURBS[t.name] || ROOMBLURBS[t.kind] || []), ...(RB[t.name] || (ROOMBLURBS[t.name] ? [] : RB[t.kind]) || [])];
     blurbFor = key; blurbText = pool.length ? pool[Math.floor(Math.random() * pool.length)] : '';
   }
   return blurbText;
