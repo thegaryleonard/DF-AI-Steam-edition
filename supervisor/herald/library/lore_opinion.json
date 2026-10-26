@@ -1195,9 +1195,8 @@
    "id": "lp-lt-strike-mineral",
    "body": "We have struck {mineral}. Good. Wonderful, even. Please do not let anyone turn it into two thousand of anything. Ten is plenty. Ten is a lovely number.",
    "by": "{citizen}",
-   "when": [
-    "recent_strike"
-   ]
+   "when": ["recent_strike"],
+   "fit": ["gem", "ore", "coal", "stone"]
   },
   {
    "id": "lp-lt-summer-letter",
@@ -2668,9 +2667,8 @@
   {
    "id": "lp-ob-mood-legend",
    "text": "{deadname} has {cause}. Once seized by a strange mood, this {prof} demanded rough gems in a fort that had cut every last one, and somehow found one in a goblin's pocket. That artifact is still the pride of the fort.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_combat"]
   },
   {
    "id": "lp-ob-hospital-patient",
@@ -2719,10 +2717,8 @@
   {
    "id": "lp-ob-enemy-veteran",
    "text": "{deadname} has {cause}. A {prof} who always said they would one day face {enemy} in battle, they never did, because the militia never left the barracks. They practised their battle cry in the tavern for years.",
-   "when": [
-    "recent_death",
-    "at_war"
-   ]
+   "when": ["recent_death", "at_war"],
+   "fit": ["die_combat"]
   },
   {
    "id": "lp-ob-monarch-letters",
@@ -2769,9 +2765,8 @@
   {
    "id": "lp-ob-cistern-swimmer",
    "text": "{deadname}, {prof}, has {cause}. They swam in the cistern every evening and called it 'the only use of all that water'. Thirsty miners took issue with this, but all agreed they had excellent form.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_drowning", "die_thirst"]
   },
   {
    "id": "lp-ob-captain-buddy",
@@ -2811,9 +2806,8 @@
   {
    "id": "lp-ob-refugee",
    "text": "{deadname} has {cause}. A {prof} who came to {fort} with a refugee band after the goblins burned their town, they said the fort felt like home within a week. The fort felt the same about them. Their bed is kept made.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_combat", "die_fire"]
   },
   {
    "id": "lp-ob-sheriff-badge",
@@ -2846,9 +2840,8 @@
   {
    "id": "lp-ob-famine-founder",
    "text": "{deadname} has {cause}. One of the founders who arrived with too few plants and no drink, this {prof} survived famine, day 32, and every day after it. They always kept a plant in their pocket. It has been planted for them.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_hunger"]
   },
   {
    "id": "lp-ob-gem-counter",
@@ -2916,9 +2909,8 @@
   {
    "id": "lp-ob-artifact-guard",
    "text": "We remember {deadname}, a {prof} who slept beside {artifact} every night, in case the goblins came for this one too. They have {cause}. The artifact has been moved closer to the tavern, where others can watch it.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_combat"]
   },
   {
    "id": "lp-ob-pit-thrower",
@@ -2960,10 +2952,9 @@
   {
    "id": "lp-ob-enchanted-crazed-hex",
    "text": "{deadname}, {prof}, has {cause}. They came to us after The Crazed Hex burned Ironcrowds, carrying only a bucket. The bucket was their proudest possession. It has been filled with ale and set beside the slab.",
-   "when": [
-    "recent_death"
-   ],
-   "world": "The Enchanted Planes"
+   "when": ["recent_death"],
+   "world": "The Enchanted Planes",
+   "fit": ["die_fire"]
   },
   {
    "id": "lp-ob-enchanted-iden",
@@ -3008,17 +2999,15 @@
   {
    "id": "lp-ob-enchanted-sentinel",
    "text": "We remember {deadname}, a {prof} who delivered the Quakefocus Sentinel every morning through famine and armor stands alike. They have {cause}. Their route is now walked by a Herald runner, who is slower.",
-   "when": [
-    "recent_death"
-   ],
-   "world": "The Enchanted Planes"
+   "when": ["recent_death"],
+   "world": "The Enchanted Planes",
+   "fit": ["die_hunger"]
   },
   {
    "id": "lp-ob-ten-only",
    "text": "{deadname}, {prof}, has {cause}. Asked once to make a thousand of something, they made ten, set down their tools and said 'that is plenty'. The Overseer never forgave them. The fort never forgot them. Ten candles will burn.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_fire"]
   }
  ],
  "announcements": [

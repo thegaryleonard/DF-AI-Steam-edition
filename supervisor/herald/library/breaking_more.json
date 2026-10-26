@@ -352,115 +352,141 @@
       "heads": [
         {
           "id": "bk2-pet-head-1",
-          "text": "TINY PAWS, BIG LOSS"
+          "text": "TINY PAWS, BIG LOSS",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-head-2",
-          "text": "FORT SAYS GOODBYE TO A FRIEND"
+          "text": "FORT SAYS GOODBYE TO A FRIEND",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-head-3",
-          "text": "KENNELS IN MOURNING"
+          "text": "KENNELS IN MOURNING",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-head-4",
-          "text": "BELOVED BEAST LAID TO REST"
+          "text": "BELOVED BEAST LAID TO REST",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-head-5",
-          "text": "ONE LESS WAG IN THE HALLS"
+          "text": "ONE LESS WAG IN THE HALLS",
+          "fit": ["sp_dog", "!die_slaughter"]
         },
         {
           "id": "bk2-pet-head-6",
-          "text": "PET OWNER ASKS FOR QUIET"
+          "text": "PET OWNER ASKS FOR QUIET",
+          "fit": ["!die_slaughter"]
         }
       ],
       "caps": [
         {
           "id": "bk2-pet-cap-1",
-          "text": "The pet's collar, hung by the door. The artist drew it from memory and one small bell."
+          "text": "The pet's collar, hung by the door. The artist drew it from memory and one small bell.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-cap-2",
-          "text": "The pet's water bowl, untouched. The artist apologises for being this sad in ink."
+          "text": "The pet's water bowl, untouched. The artist apologises for being this sad in ink.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-cap-3",
-          "text": "The animal mid-yawn, a pose it held for most of its life."
+          "text": "The animal mid-yawn, a pose it held for most of its life.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-cap-4",
-          "text": "The kennel, decorated with flowers the artist describes as 'mostly cave moss.'"
+          "text": "The kennel, decorated with flowers the artist describes as 'mostly cave moss.'",
+          "fit": ["sp_dog", "!die_slaughter"]
         },
         {
           "id": "bk2-pet-cap-5",
-          "text": "A small parade of mourners. The parrot at the front is not real; the artist wanted a parrot."
+          "text": "A small parade of mourners. The parrot at the front is not real; the artist wanted a parrot.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-cap-6",
-          "text": "The pet as drawn by the owner's child: four legs, a big smile and a crown."
+          "text": "The pet as drawn by the owner's child: four legs, a big smile and a crown.",
+          "fit": ["!die_slaughter"]
         }
       ],
       "reps": [
         {
           "id": "bk2-pet-rep-1",
-          "text": "The animal will be remembered for following its owner everywhere, including into the forge, the barracks and, once, a private audience with the baron."
+          "text": "The animal will be remembered for following its owner everywhere, including into the forge, the barracks and, once, a private audience with the baron.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-rep-2",
-          "text": "{who} has adopted a stony silence and asked that nobody say the word 'fetch' in the dining hall for a while."
+          "text": "{who} has adopted a stony silence and asked that nobody say the word 'fetch' in the dining hall for a while.",
+          "fit": ["ev_adopt"]
         },
         {
           "id": "bk2-pet-rep-3",
-          "text": "Its favourite activities were sleeping, demanding food and walking directly under hauling dwarves. The fortress will be quieter, and slightly safer."
+          "text": "Its favourite activities were sleeping, demanding food and walking directly under hauling dwarves. The fortress will be quieter, and slightly safer.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-rep-4",
-          "text": "The animal trainer has written a heartfelt tribute that reads, in full: 'Good. Very good. The best.' It has been pinned to the kennel door."
+          "text": "The animal trainer has written a heartfelt tribute that reads, in full: 'Good. Very good. The best.' It has been pinned to the kennel door.",
+          "fit": ["sp_dog", "!die_slaughter"]
         },
         {
           "id": "bk2-pet-rep-5",
-          "text": "A small engraving has been commissioned showing the pet on a sunny day. The engraver has never seen a sunny day and will be guessing."
+          "text": "A small engraving has been commissioned showing the pet on a sunny day. The engraver has never seen a sunny day and will be guessing.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-rep-6",
-          "text": "With the loss, {fort} counts {pop} citizens and one sad, empty corner of the dining hall that nobody has the heart to walk through."
+          "text": "With the loss, {fort} counts {pop} citizens and one sad, empty corner of the dining hall that nobody has the heart to walk through.",
+          "fit": ["!die_slaughter"]
         }
       ],
       "labels": [
         {
           "id": "bk2-pet-label-1",
-          "text": "EMPTY BOWL"
+          "text": "EMPTY BOWL",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-label-2",
-          "text": "THE COLLAR"
+          "text": "THE COLLAR",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-label-3",
-          "text": "KENNEL"
+          "text": "KENNEL",
+          "fit": ["sp_dog", "!die_slaughter"]
         },
         {
           "id": "bk2-pet-label-4",
-          "text": "A SMALL BELL"
+          "text": "A SMALL BELL",
+          "fit": ["!die_slaughter"]
         }
       ],
       "kickers": [
         {
           "id": "bk2-pet-kick-1",
-          "text": "Belly rubs are suspended for one day in tribute."
+          "text": "Belly rubs are suspended for one day in tribute.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-kick-2",
-          "text": "{first} is accepting condolences and treats."
+          "text": "{first} is accepting condolences and treats.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk2-pet-kick-3",
-          "text": "The kennel door has been left open, just in case."
+          "text": "The kennel door has been left open, just in case.",
+          "fit": ["sp_dog", "!die_slaughter"]
         },
         {
           "id": "bk2-pet-kick-4",
-          "text": "Tributes may be left beside the bowl."
+          "text": "Tributes may be left beside the bowl.",
+          "fit": ["!die_slaughter"]
         }
       ]
     },
@@ -588,15 +614,18 @@
         },
         {
           "id": "bk2-mood-head-2",
-          "text": "MYSTERIOUS ORDERS FOR CLOTH"
+          "text": "MYSTERIOUS ORDERS FOR CLOTH",
+          "fit": ["shop_Clothier's Shop", "shop_Loom"]
         },
         {
           "id": "bk2-mood-head-3",
-          "text": "FEY! FEY! (NOBODY KNOWS WHY)"
+          "text": "FEY! FEY! (NOBODY KNOWS WHY)",
+          "fit": ["mood_fey"]
         },
         {
           "id": "bk2-mood-head-4",
-          "text": "FORGE DOOR BARRED FROM INSIDE"
+          "text": "FORGE DOOR BARRED FROM INSIDE",
+          "fit": ["shop_Magma Forge", "shop_Metalsmith's Forge"]
         },
         {
           "id": "bk2-mood-head-5",
@@ -614,7 +643,8 @@
         },
         {
           "id": "bk2-mood-cap-2",
-          "text": "A hauler bringing a log to the door. He was shooed away. It was the wrong log."
+          "text": "A hauler bringing a log to the door. He was shooed away. It was the wrong log.",
+          "fit": ["shop_Carpenter's Workshop", "shop_Bowyer's Workshop"]
         },
         {
           "id": "bk2-mood-cap-3",
@@ -636,11 +666,13 @@
       "reps": [
         {
           "id": "bk2-mood-rep-1",
-          "text": "{who} rose from bed in the middle of the night, said 'leather, and something soft,' and walked straight into the leather works, mildly evicting the tanner."
+          "text": "{who} rose from bed in the middle of the night, said 'leather, and something soft,' and walked straight into the leather works, mildly evicting the tanner.",
+          "fit": ["shop_Leather Works", "shop_Tanner's Shop"]
         },
         {
           "id": "bk2-mood-rep-2",
-          "text": "The demands on the door now include 'something old,' 'something green' and a word the bookkeeper believes means 'gem.' Haulers are searching under everything."
+          "text": "The demands on the door now include 'something old,' 'something green' and a word the bookkeeper believes means 'gem.' Haulers are searching under everything.",
+          "fit": ["shop_Jeweler's Workshop"]
         },
         {
           "id": "bk2-mood-rep-3",
@@ -652,7 +684,8 @@
         },
         {
           "id": "bk2-mood-rep-5",
-          "text": "Haulers have brought cloth, wood, bone and a rock. The dwarf took the rock and sent everything else back with a polite growl."
+          "text": "Haulers have brought cloth, wood, bone and a rock. The dwarf took the rock and sent everything else back with a polite growl.",
+          "fit": ["shop_Mason's Workshop", "shop_Stoneworker's Workshop"]
         },
         {
           "id": "bk2-mood-rep-6",
@@ -670,7 +703,8 @@
         },
         {
           "id": "bk2-mood-label-3",
-          "text": "WRONG LOG"
+          "text": "WRONG LOG",
+          "fit": ["shop_Carpenter's Workshop", "shop_Bowyer's Workshop"]
         },
         {
           "id": "bk2-mood-label-4",
@@ -684,7 +718,8 @@
         },
         {
           "id": "bk2-mood-kick-2",
-          "text": "{first} requests no visitors and one very specific gem."
+          "text": "{first} requests no visitors and one very specific gem.",
+          "fit": ["shop_Jeweler's Workshop"]
         },
         {
           "id": "bk2-mood-kick-3",
@@ -700,11 +735,13 @@
       "heads": [
         {
           "id": "bk2-artifact-head-1",
-          "text": "A LEGEND IS FORGED"
+          "text": "A LEGEND IS FORGED",
+          "fit": ["ammo", "armor", "container", "crafts", "furniture", "instrument", "metal", "tool", "weapon", "mat_metal"]
         },
         {
           "id": "bk2-artifact-head-2",
-          "text": "BEHOLD: AN EXTREMELY FANCY CHAIR"
+          "text": "BEHOLD: AN EXTREMELY FANCY CHAIR",
+          "fit": ["furniture", "n_chair"]
         },
         {
           "id": "bk2-artifact-head-3",
@@ -820,11 +857,13 @@
         },
         {
           "id": "bk2-master-head-2",
-          "text": "EXQUISITE BARREL ROCKS TAVERN"
+          "text": "EXQUISITE BARREL ROCKS TAVERN",
+          "fit": ["container", "n_barrel"]
         },
         {
           "id": "bk2-master-head-3",
-          "text": "A MASTERWORK BED. NOBODY SLEEPS"
+          "text": "A MASTERWORK BED. NOBODY SLEEPS",
+          "fit": ["furniture", "n_bed"]
         },
         {
           "id": "bk2-master-head-4",
@@ -862,7 +901,8 @@
         },
         {
           "id": "bk2-master-cap-6",
-          "text": "A close view of the joinery. The artist borrowed the jeweler's lens and had to give it back."
+          "text": "A close view of the joinery. The artist borrowed the jeweler's lens and had to give it back.",
+          "fit": ["furniture"]
         }
       ],
       "reps": [
@@ -932,19 +972,23 @@
       "heads": [
         {
           "id": "bk2-strike-head-1",
-          "text": "GEMS! ACTUAL GEMS! CLAIMS MINER"
+          "text": "GEMS! ACTUAL GEMS! CLAIMS MINER",
+          "fit": ["gem"]
         },
         {
           "id": "bk2-strike-head-2",
-          "text": "MAGMA FOUND; EVERYONE STEPS BACK"
+          "text": "MAGMA FOUND; EVERYONE STEPS BACK",
+          "fit": ["magma"]
         },
         {
           "id": "bk2-strike-head-3",
-          "text": "MINE OPENS INTO SOMETHING DAMP"
+          "text": "MINE OPENS INTO SOMETHING DAMP",
+          "fit": ["cavern"]
         },
         {
           "id": "bk2-strike-head-4",
-          "text": "RICH VEIN; MINERS DO A JIG"
+          "text": "RICH VEIN; MINERS DO A JIG",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk2-strike-head-5",
@@ -952,17 +996,20 @@
         },
         {
           "id": "bk2-strike-head-6",
-          "text": "PICKAXE FINDS NEW NEIGHBOURS"
+          "text": "PICKAXE FINDS NEW NEIGHBOURS",
+          "fit": ["cavern"]
         }
       ],
       "caps": [
         {
           "id": "bk2-strike-cap-1",
-          "text": "The magma sea, glowing. The artist used every orange on hand and borrowed a red."
+          "text": "The magma sea, glowing. The artist used every orange on hand and borrowed a red.",
+          "fit": ["magma"]
         },
         {
           "id": "bk2-strike-cap-2",
-          "text": "A gem cluster drawn at five times scale, to match the miner's description."
+          "text": "A gem cluster drawn at five times scale, to match the miner's description.",
+          "fit": ["gem"]
         },
         {
           "id": "bk2-strike-cap-3",
@@ -974,51 +1021,62 @@
         },
         {
           "id": "bk2-strike-cap-5",
-          "text": "Artist's impression of the vein: a wiggly yellow line and the word 'MONEY.'"
+          "text": "Artist's impression of the vein: a wiggly yellow line and the word 'MONEY.'",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk2-strike-cap-6",
-          "text": "The first ore cart, drawn moments before it tipped over."
+          "text": "The first ore cart, drawn moments before it tipped over.",
+          "fit": ["ore"]
         }
       ],
       "reps": [
         {
           "id": "bk2-strike-rep-1",
-          "text": "Miners broke into a pocket of gems so large that the jeweler has requested a chair, a lamp and to be left alone for most of the season."
+          "text": "Miners broke into a pocket of gems so large that the jeweler has requested a chair, a lamp and to be left alone for most of the season.",
+          "fit": ["gem"]
         },
         {
           "id": "bk2-strike-rep-2",
-          "text": "{who} reports striking a vein of ore 'thick as a beard and twice as shiny,' a phrase since written on the mine wall in charcoal."
+          "text": "{who} reports striking a vein of ore 'thick as a beard and twice as shiny,' a phrase since written on the mine wall in charcoal.",
+          "fit": ["coal", "ore"]
         },
         {
           "id": "bk2-strike-rep-3",
-          "text": "Engineers confirm the heat rising from the lower tunnels is magma. They describe it as 'useful,' 'exciting' and 'please do not lean over.'"
+          "text": "Engineers confirm the heat rising from the lower tunnels is magma. They describe it as 'useful,' 'exciting' and 'please do not lean over.'",
+          "fit": ["magma"]
         },
         {
           "id": "bk2-strike-rep-4",
-          "text": "The forges are expected to be busy for years. The smiths have quietly asked whether they could be busy in slightly smaller amounts."
+          "text": "The forges are expected to be busy for years. The smiths have quietly asked whether they could be busy in slightly smaller amounts.",
+          "fit": ["ore"]
         },
         {
           "id": "bk2-strike-rep-5",
-          "text": "The new cavern is full of strange mushrooms, strange sounds and, according to one scout, a strange smell of wet dog. No dog has been found."
+          "text": "The new cavern is full of strange mushrooms, strange sounds and, according to one scout, a strange smell of wet dog. No dog has been found.",
+          "fit": ["cavern"]
         },
         {
           "id": "bk2-strike-rep-6",
-          "text": "With the find, {fort} officially has something worth stealing. Our security correspondent has asked for a raise and a helmet."
+          "text": "With the find, {fort} officially has something worth stealing. Our security correspondent has asked for a raise and a helmet.",
+          "fit": ["gem", "ore"]
         }
       ],
       "labels": [
         {
           "id": "bk2-strike-label-1",
-          "text": "GEMS!!!"
+          "text": "GEMS!!!",
+          "fit": ["gem"]
         },
         {
           "id": "bk2-strike-label-2",
-          "text": "MAGMA (HOT)"
+          "text": "MAGMA (HOT)",
+          "fit": ["magma"]
         },
         {
           "id": "bk2-strike-label-3",
-          "text": "ORE CART"
+          "text": "ORE CART",
+          "fit": ["ore"]
         },
         {
           "id": "bk2-strike-label-4",
@@ -1028,7 +1086,8 @@
       "kickers": [
         {
           "id": "bk2-strike-kick-1",
-          "text": "Please do not lick the ore to test it."
+          "text": "Please do not lick the ore to test it.",
+          "fit": ["ore"]
         },
         {
           "id": "bk2-strike-kick-2",
@@ -1040,7 +1099,8 @@
         },
         {
           "id": "bk2-strike-kick-4",
-          "text": "The jeweler is not taking visitors."
+          "text": "The jeweler is not taking visitors.",
+          "fit": ["gem"]
         }
       ]
     },

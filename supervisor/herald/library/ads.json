@@ -321,23 +321,16 @@
   },
   {
    "id": "ad-strike-the-earth",
-   "when": [
-    "recent_strike"
-   ],
+   "when": ["recent_strike"],
    "lines": [
-    [
-     "big",
-     "STRIKE THE EARTH"
-    ],
-    [
-     "eng",
-     "FRESH {mineral} IN STOCK"
-    ],
+    ["big", "STRIKE THE EARTH"],
+    ["eng", "FRESH {mineral} IN STOCK"],
     [
      "fine",
      "Straight from the rock face. The miners' guild reminds you to look up before mining the ceiling."
     ]
-   ]
+   ],
+   "fit": ["gem", "ore", "coal", "stone"]
   },
   {
    "id": "ad-dry-feet",
@@ -502,23 +495,16 @@
   },
   {
    "id": "ad-masterwork-gallery",
-   "when": [
-    "recent_masterpiece"
-   ],
+   "when": ["recent_masterpiece"],
    "lines": [
-    [
-     "bk",
-     "Masterwork Gallery"
-    ],
-    [
-     "eng",
-     "NOW SHOWING: {masterwork}"
-    ],
+    ["bk", "Masterwork Gallery"],
+    ["eng", "NOW SHOWING: {masterwork}"],
     [
      "fine",
      "By {masterwright}. Do not touch it, sit on it, or praise it insufficiently within earshot."
     ]
-   ]
+   ],
+   "fit": ["furniture"]
   },
   {
    "id": "ad-plaque-engravers",

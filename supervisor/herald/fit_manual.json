@@ -1,0 +1,356 @@
+{
+ "_doc": "Hand-reviewed fit tags (tag_library.py applies these over its automatic cue scan; test_fit.js exempts them from the word check). [] = true for anything; ev_never = a one-off joke about a past world event that no live event can match; !x = anything except x.",
+ "lb-death-head-1": [
+  "die_thirst"
+ ],
+ "lb-death-head-2": [
+  "die_thirst"
+ ],
+ "lb-death-head-3": [
+  "die_thirst"
+ ],
+ "lb-death-cap-1": [
+  "die_thirst"
+ ],
+ "lb-death-cap-6": [
+  "die_thirst"
+ ],
+ "lb-death-cap-9": [
+  "die_thirst"
+ ],
+ "lb-death-cap-10": [
+  "die_thirst"
+ ],
+ "lb-death-rep-1": [
+  "die_thirst"
+ ],
+ "lb-death-rep-2": [
+  "die_thirst"
+ ],
+ "lb-death-rep-8": [
+  "die_thirst"
+ ],
+ "lb-death-rep-12": [
+  "die_thirst"
+ ],
+ "lb-death-rep-13": [
+  "die_thirst"
+ ],
+ "lb-death-rep-10": [
+  "die_thirst"
+ ],
+ "lb-death-rep-14": [
+  "die_thirst"
+ ],
+ "lb-death-label-1": [
+  "die_thirst"
+ ],
+ "lb-death-label-6": [
+  "die_thirst"
+ ],
+ "lb-death-kicker-1": [
+  "die_thirst"
+ ],
+ "lb-death-kicker-2": [
+  "die_thirst"
+ ],
+ "lb-death-head-9": [
+  "die_thirst",
+  "die_hunger"
+ ],
+ "lb-death-head-10": [
+  "die_thirst"
+ ],
+ "lb-death-cap-2": [
+  "die_thirst"
+ ],
+ "lb-death-label-7": [
+  "die_thirst"
+ ],
+ "lb-death-rep-7": [
+  "die_thirst",
+  "die_hunger"
+ ],
+ "lb-death-head-5": [
+  "die_fall"
+ ],
+ "lb-death-cap-3": [
+  "die_fall"
+ ],
+ "lb-death-rep-4": [
+  "die_fall"
+ ],
+ "lb-death-label-2": [
+  "die_fall"
+ ],
+ "lb-death-kicker-3": [
+  "die_fall"
+ ],
+ "lb-death-kicker-4": [
+  "die_fall"
+ ],
+ "lb-death-head-4": [
+  "ev_never"
+ ],
+ "lb-death-cap-4": [
+  "ev_never"
+ ],
+ "lb-death-rep-5": [
+  "ev_never"
+ ],
+ "lb-death-label-3": [
+  "ev_never"
+ ],
+ "lb-death-kicker-5": [
+  "ev_never"
+ ],
+ "lb-death-head-6": [
+  "ev_never"
+ ],
+ "lb-death-cap-5": [
+  "ev_never"
+ ],
+ "lb-death-rep-3": [
+  "ev_never"
+ ],
+ "lb-death-label-4": [
+  "ev_never"
+ ],
+ "lb-death-kicker-6": [
+  "ev_never"
+ ],
+ "lb-death-head-11": [
+  "die_bleeding",
+  "die_infection",
+  "die_fall"
+ ],
+ "lb-death-cap-7": [
+  "die_bleeding",
+  "die_infection",
+  "die_fall"
+ ],
+ "lb-death-rep-6": [
+  "die_bleeding",
+  "die_infection",
+  "die_fall"
+ ],
+ "lb-death-label-5": [
+  "die_bleeding",
+  "die_infection",
+  "die_fall"
+ ],
+ "lb-death-kicker-8": [
+  "die_bleeding",
+  "die_infection",
+  "die_fall"
+ ],
+ "lb-death-head-12": [
+  "die_combat"
+ ],
+ "lb-mood-head-4": [
+  "prof_fisherdwarf",
+  "mood_fey"
+ ],
+ "lb-mood-cap-7": [
+  "prof_fisherdwarf",
+  "mood_fey"
+ ],
+ "lb-mood-head-5": [
+  "prof_butcher"
+ ],
+ "lb-mood-cap-8": [
+  "prof_butcher"
+ ],
+ "lb-mood-head-10": [
+  "ev_never"
+ ],
+ "lb-mood-rep-2": [
+  "ev_never"
+ ],
+ "lb-mood-rep-3": [
+  "ev_never"
+ ],
+ "lb-mood-head-3": [
+  "prof_dwarven child",
+  "shop_Clothier's Shop",
+  "shop_Loom"
+ ],
+ "lb-mood-cap-3": [
+  "prof_dwarven child",
+  "shop_Clothier's Shop",
+  "shop_Loom"
+ ],
+ "lb-mood-rep-4": [
+  "prof_dwarven child",
+  "shop_Clothier's Shop",
+  "shop_Loom"
+ ],
+ "lb-mood-kicker-6": [
+  "prof_dwarven child"
+ ],
+ "lb-mood-head-6": [
+  "shop_Jeweler's Workshop"
+ ],
+ "lb-mood-cap-1": [
+  "shop_Jeweler's Workshop"
+ ],
+ "lb-mood-cap-5": [
+  "shop_Jeweler's Workshop"
+ ],
+ "lb-mood-label-1": [
+  "shop_Jeweler's Workshop"
+ ],
+ "lb-mood-label-2": [
+  "shop_Jeweler's Workshop"
+ ],
+ "lb-mood-rep-8": [
+  "shop_Jeweler's Workshop"
+ ],
+ "lb-mood-rep-6": [
+  "shop_Jeweler's Workshop"
+ ],
+ "lb-mood-cap-2": [
+  "shop_Jeweler's Workshop"
+ ],
+ "lb-mood-rep-10": [],
+ "bk-mood-cap-2": [
+  "shop_Bone Carver's Workshop",
+  "shop_Craftsdwarf's Workshop"
+ ],
+ "bk-mood-label-4": [
+  "shop_Bone Carver's Workshop",
+  "shop_Craftsdwarf's Workshop"
+ ],
+ "bk-mood-rep-2": [
+  "shop_Bone Carver's Workshop",
+  "shop_Craftsdwarf's Workshop"
+ ],
+ "bk-mood-rep-5": [],
+ "bk-mood-cap-8": [],
+ "bk2-mood-rep-4": [],
+ "bk2-mood-rep-5": [
+  "shop_Mason's Workshop",
+  "shop_Stoneworker's Workshop"
+ ],
+ "bk2-mood-cap-2": [
+  "shop_Carpenter's Workshop",
+  "shop_Bowyer's Workshop"
+ ],
+ "bk2-mood-label-3": [
+  "shop_Carpenter's Workshop",
+  "shop_Bowyer's Workshop"
+ ],
+ "lb-strike-head-8": [
+  "ev_never"
+ ],
+ "lb-strike-head-11": [
+  "gem"
+ ],
+ "lb-strike-cap-1": [
+  "gem"
+ ],
+ "lb-strike-label-2": [
+  "gem"
+ ],
+ "lb-strike-kicker-1": [
+  "gem"
+ ],
+ "bk2-strike-kick-4": [
+  "gem"
+ ],
+ "lb-strike-cap-10": [
+  "gem"
+ ],
+ "lb-strike-cap-3": [
+  "gem",
+  "ore"
+ ],
+ "bk-strike-head-2": [
+  "gem",
+  "ore"
+ ],
+ "bk-strike-head-3": [
+  "gem",
+  "ore"
+ ],
+ "bk-strike-rep-3": [
+  "gem",
+  "ore"
+ ],
+ "bk-strike-rep-4": [
+  "gem",
+  "ore"
+ ],
+ "bk-strike-label-1": [
+  "gem",
+  "ore"
+ ],
+ "bk-strike-kick-2": [
+  "gem",
+  "ore"
+ ],
+ "bk-strike-cap-6": [
+  "gem",
+  "ore"
+ ],
+ "bk2-strike-head-3": [
+  "cavern"
+ ],
+ "bk2-strike-head-4": [
+  "gem",
+  "ore"
+ ],
+ "bk2-strike-head-6": [
+  "cavern"
+ ],
+ "bk2-strike-cap-5": [
+  "gem",
+  "ore"
+ ],
+ "bk2-strike-rep-4": [
+  "ore"
+ ],
+ "bk2-strike-rep-6": [
+  "gem",
+  "ore"
+ ],
+ "lb-strike-head-12": [
+  "gem",
+  "ore"
+ ],
+ "lb-strike-head-2": [
+  "gem",
+  "ore",
+  "coal",
+  "stone"
+ ],
+ "lb-strike-label-3": [
+  "gem",
+  "ore",
+  "coal",
+  "stone"
+ ],
+ "lb-strike-rep-8": [
+  "gem",
+  "ore",
+  "coal",
+  "stone"
+ ],
+ "lb-strike-rep-2": [
+  "gem",
+  "ore",
+  "coal",
+  "stone"
+ ],
+ "bk-strike-rep-2": [],
+ "lb-strike-rep-5": [
+  "gem",
+  "ore"
+ ],
+ "lb-strike-head-10": [
+  "gem",
+  "ore",
+  "coal",
+  "stone"
+ ]
+}

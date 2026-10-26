@@ -134,11 +134,13 @@
     },
     {
      "id": "wk-fo-moodd-b-04",
-     "text": "The vigil is over and the verdict is in: {artifact_new}, a {artifact_new_item}, is the finest thing ever made in {fort}. {artifact_maker} has returned to ordinary work and ordinary meals, and says only that 'it wanted to be made'."
+     "text": "The vigil is over and the verdict is in: {artifact_new}, a {artifact_new_item}, is the finest thing ever made in {fort}. {artifact_maker} has returned to ordinary work and ordinary meals, and says only that 'it wanted to be made'.",
+     "fit": ["food"]
     },
     {
      "id": "wk-fo-moodd-b-05",
-     "text": "Craftsdwarves across {fort} have spent the day walking past {artifact_new} and then walking back to their own benches, looking at their own work, and sighing. The masons are taking it hardest."
+     "text": "Craftsdwarves across {fort} have spent the day walking past {artifact_new} and then walking back to their own benches, looking at their own work, and sighing. The masons are taking it hardest.",
+     "fit": ["construction", "container", "crafts", "engraving", "furniture", "statue", "tool", "mat_stone"]
     },
     {
      "id": "wk-fo-moodd-b-06",
@@ -360,7 +362,8 @@
    "heads": [
     {
      "id": "wk-fo-mast-h-01",
-     "text": "{masterwright_last} TAKES A BOW"
+     "text": "{masterwright_last} TAKES A BOW",
+     "fit": ["n_bow"]
     },
     {
      "id": "wk-fo-mast-h-02",

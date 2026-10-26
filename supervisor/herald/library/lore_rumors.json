@@ -2028,11 +2028,13 @@
     {
      "id": "lr-artifact_in_site-b01",
      "text": "{artifact}, a {artifact_item}, is held at {site}, {source} reports. Our artifact desk adds it to the list, beside The Nuanced Hamlet at goblin-held Searabbeys and Claspedserpent, the silver mace of Quakefocus, which nobody has visited since the thrones.",
-     "world": "The Enchanted Planes"
+     "world": "The Enchanted Planes",
+     "fit": ["furniture", "weapon", "n_mace", "n_throne"]
     },
     {
      "id": "lr-artifact_in_site-b02",
-     "text": "{artifact} rests at {site}, {source} reports. Those who have seen the {artifact_item} say it is breathtaking. The dwarf who made it is said to have demanded rough gems for it, which in this world puts it among the rarest objects ever made."
+     "text": "{artifact} rests at {site}, {source} reports. Those who have seen the {artifact_item} say it is breathtaking. The dwarf who made it is said to have demanded rough gems for it, which in this world puts it among the rarest objects ever made.",
+     "fit": ["gem"]
     },
     {
      "id": "lr-artifact_in_site-b03",
@@ -2044,7 +2046,8 @@
     },
     {
      "id": "lr-artifact_in_site-b05",
-     "text": "{artifact}, a {artifact_item} of great fame, is at {site}, {source} reports. Merchants say it is displayed on a pedestal. Our furniture desk asks whether the pedestal is an armor stand, because in some forts every surface eventually was."
+     "text": "{artifact}, a {artifact_item} of great fame, is at {site}, {source} reports. Merchants say it is displayed on a pedestal. Our furniture desk asks whether the pedestal is an armor stand, because in some forts every surface eventually was.",
+     "fit": ["furniture", "n_armor stand", "n_pedestal"]
     },
     {
      "id": "lr-artifact_in_site-b06",
@@ -2127,11 +2130,13 @@
     },
     {
      "id": "lr-artifact_in_subregion-b05",
-     "text": "{region} is said to hide {artifact}, a {artifact_item}, {source} reports. Locals are hunting for it by torchlight. Our militia captain would help, but the search would count as being on duty, and that is not something he does."
+     "text": "{region} is said to hide {artifact}, a {artifact_item}, {source} reports. Locals are hunting for it by torchlight. Our militia captain would help, but the search would count as being on duty, and that is not something he does.",
+     "fit": ["leather"]
     },
     {
      "id": "lr-artifact_in_subregion-b06",
-     "text": "The {artifact_item} {artifact} is somewhere in {region}, {source} reports. Experts warn it could be anywhere, from a ditch to a cave to a goblin's sock. Our goblin correspondent adds that goblins do not wear socks, which narrows it down."
+     "text": "The {artifact_item} {artifact} is somewhere in {region}, {source} reports. Experts warn it could be anywhere, from a ditch to a cave to a goblin's sock. Our goblin correspondent adds that goblins do not wear socks, which narrows it down.",
+     "fit": ["clothing", "wearable", "n_sock"]
     },
     {
      "id": "lr-artifact_in_subregion-b07",
@@ -2210,7 +2215,8 @@
     },
     {
      "id": "lr-artifact_in_inventory-b06",
-     "text": "{source} reports that {hf} has {artifact}. The {artifact_item} is reportedly kept in a pouch with a few rough gems, which is the first time in years anybody in this world has had rough gems, and our moods are jealous."
+     "text": "{source} reports that {hf} has {artifact}. The {artifact_item} is reportedly kept in a pouch with a few rough gems, which is the first time in years anybody in this world has had rough gems, and our moods are jealous.",
+     "fit": ["gem"]
     },
     {
      "id": "lr-artifact_in_inventory-b07",
@@ -2271,7 +2277,8 @@
    "bodies": [
     {
      "id": "lr-artifact_not_in_site-b01",
-     "text": "{artifact} is no longer at {site}, {source} reports. Nobody knows where the {artifact_item} has gone. At {fort}, the sheriff's office would investigate, but it has been vacant for some time, and its desk has been smoothed."
+     "text": "{artifact} is no longer at {site}, {source} reports. Nobody knows where the {artifact_item} has gone. At {fort}, the sheriff's office would investigate, but it has been vacant for some time, and its desk has been smoothed.",
+     "fit": ["construction"]
     },
     {
      "id": "lr-artifact_not_in_site-b02",
@@ -2351,7 +2358,8 @@
    "bodies": [
     {
      "id": "lr-artifact_destroyed-b01",
-     "text": "{artifact}, a {artifact_item}, has been destroyed, {source} reports. Readers who remember how hard it is to get a mood its rough gems in this world are taking the news personally. One has written in to say she will never cut a gem again."
+     "text": "{artifact}, a {artifact_item}, has been destroyed, {source} reports. Readers who remember how hard it is to get a mood its rough gems in this world are taking the news personally. One has written in to say she will never cut a gem again.",
+     "fit": ["gem"]
     },
     {
      "id": "lr-artifact_destroyed-b02",
@@ -2368,7 +2376,8 @@
     },
     {
      "id": "lr-artifact_destroyed-b05",
-     "text": "The {artifact_item} {artifact} has been lost forever, {source} reports. Our heritage desk lists it among the world's tragedies, alongside the dwarves of the Safety burrow and the fey carpenter who died of thirst beside a heap of rough gems."
+     "text": "The {artifact_item} {artifact} has been lost forever, {source} reports. Our heritage desk lists it among the world's tragedies, alongside the dwarves of the Safety burrow and the fey carpenter who died of thirst beside a heap of rough gems.",
+     "fit": ["furniture", "gem"]
     },
     {
      "id": "lr-artifact_destroyed-b06",
@@ -2377,11 +2386,13 @@
     {
      "id": "lr-artifact_destroyed-b07",
      "text": "{source} reports the destruction of {artifact}, a {artifact_item}. Our readers have asked that Claspedserpent be checked at once to make sure it is all right. It is said to be at Quakefocus, under a great deal of furniture.",
-     "world": "The Enchanted Planes"
+     "world": "The Enchanted Planes",
+     "fit": ["furniture"]
     },
     {
      "id": "lr-artifact_destroyed-b08",
-     "text": "{artifact}, a famous {artifact_item}, has been destroyed, {source} reports. The Herald is printing this page with a black border, as is traditional, and with a small drawing of an armor stand, as is customary for sad news."
+     "text": "{artifact}, a famous {artifact_item}, has been destroyed, {source} reports. The Herald is printing this page with a black border, as is traditional, and with a small drawing of an armor stand, as is customary for sad news.",
+     "fit": ["furniture", "n_armor stand"]
     },
     {
      "id": "lr-artifact_destroyed-b09",

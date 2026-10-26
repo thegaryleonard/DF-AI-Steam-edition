@@ -277,7 +277,8 @@ function arcInfo(kind, t) {
   if (kind === 'artifact' && (m = t.match(/has (?:created|named) (.+?),? an? ([^!.]+)/))) { o.art = m[1].replace(/[☼≡*+]/g, '').trim(); o.item = m[2].replace(/[☼≡*+]/g, '').trim(); }
   if (kind === 'artifact' && (m = t.match(/offers it to (.+?)\.?$/))) o.offered = m[1].trim();
   if (kind === 'masterpiece' && (m = t.match(/masterpiece (.+?)!?$/))) o.item = m[1].replace(/[☼≡*+!]|\[\d+\]/g, '').trim();
-  if (kind === 'mood' && (m = t.match(/^[^,]+,\s*(.+?) withdraws/))) o.prof = m[1].toLowerCase();
+  if (kind === 'mood' && (m = t.match(/^[^,]+,\s*(.+?) (?:withdraws|is taken|has been possessed|begins to stalk|looses)/))) o.prof = m[1].toLowerCase();
+  if (kind === 'mood') o.kind = moodKind(t);
   if (kind === 'caravan' && (m = t.match(/from (.+?) (?:has|have) arrived/i))) o.civ = cap(m[1]);
   return o;
 }
@@ -355,6 +356,141 @@ function context(r) {
   }).filter(([, v]) => v).map(([k]) => k));
   return {sl, conds};
 }
+// ==FIT-BEGIN== (item/cause matching; herald/test_fit.js runs this block offline against real gamelog announcements)
+// Every template that assumes what was made (a cloth, a sword, a smoothed wall), how someone died, or which mood struck
+// carries a "fit" tag (herald/tag_library.py writes them from LIB.itemcats cues). An entry with a fit tag only prints when
+// the live event's facts match it; untagged entries must be true for anything.
+let FITX = null;
+function fitIndex() {
+  const C = LIB.itemcats; if (!C) return null;
+  if (FITX && FITX.src === C) return FITX;
+  const nouns = [];
+  for (const [cat, list] of Object.entries(C.nouns || {})) for (const n of list) nouns.push([n, cat]);
+  nouns.sort((a, b) => b[0].length - a[0].length);
+  const esc_ = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const words = l => new RegExp('(?:^|[\\s-])(?:' + l.slice().sort((a, b) => b.length - a.length).map(esc_).join('|') + ')$');
+  const mats = Object.entries(C.mats || {}).map(([m, l]) => [m, new RegExp('(?:^|\\s)(?:' + l.map(esc_).join('|') + ')(?:\\s|$)')]);
+  FITX = {src: C, nouns: nouns.map(([n, cat]) => [new RegExp('(?:^|[\\s-])' + esc_(n) + '(?:s|es)?$'), cat, n]),
+    gem: words(C.gemwords || []), ore: words(C.orewords || []), coal: words(C.coalwords || []), mats,
+    death: Object.entries(C.death || {}).map(([k, re]) => [k, new RegExp(re, 'i')]),
+    mood: Object.entries(C.moodkinds || {}).map(([k, re]) => [k, new RegExp(re, 'i')])};
+  return FITX;
+}
+// "☼large marquise cut blue jade☼" / "cow bone figurine of Kivish Glaciercrypt" / "plump helmet roast [4]" -> the bare item phrase
+function itemPhrase(s) {
+  return clean(String(s || '')).toLowerCase().replace(/\[\d+\]/g, '').replace(/[!.,;:]+\s*$/, '').replace(/[☼≡*+«»]/g, '')
+    .replace(/^-+|-+$/g, '').replace(/\s+/g, ' ').trim()
+    .replace(/^(an?|the|some) /, '')
+    .replace(/\b(statue|figurine|totem|image|engraving|book|codex|scroll|quire|slab|painting|carving) (of|depicting|about|titled|entitled|called) .*$/, '$1')
+    .replace(/, /g, ' ').trim();
+}
+function itemInfo(s) {   // {cat, base}: base is the noun a template may name ("short sword" -> sword, "armor stand")
+  const X = fitIndex(), p = itemPhrase(s); if (!X || !p) return {cat: null, base: null};
+  if (/\bcut\b/.test(p) && !/\bcut (?:out|up)\b/.test(p) || /^(?:large )?perfect /.test(p) || /\bcabochon\b/.test(p)) return {cat: 'gem', base: null};
+  const C = LIB.itemcats, syn = C.synonyms || {}, comp = C.compound || [];
+  for (const [re, cat, n] of X.nouns) if (re.test(p)) {
+    const n2 = syn[n] || n, b = comp.includes(n2) ? n2 : (syn[n2.split(' ').pop()] || n2.split(' ').pop());
+    return {cat, base: b};
+  }
+  if (X.gem.test(p)) return {cat: 'gem', base: null};
+  return {cat: null, base: null};
+}
+const itemCat = s => itemInfo(s).cat;
+function itemMat(s) {
+  const X = fitIndex(), p = itemPhrase(s); if (!X || !p) return null;
+  const cat = itemCat(p); if (cat === 'gem') return 'gem';
+  const head = p.replace(/\s*\S+$/, '');   // the material is everything before the head noun
+  for (const [m, re] of X.mats) if (re.test(head + ' ')) return m;
+  // DF names stone items by the bare rock ("basalt table", "realgar armor stand"); food, cloth and books have no rock
+  return head && ['furniture', 'statue', 'crafts', 'container', 'tool', 'instrument', 'construction', 'engraving'].includes(cat) ? 'stone' : null;
+}
+function mineralClass(s) {
+  const X = fitIndex(), p = itemPhrase(s).replace(/^(some|an?) /, ''); if (!X || !p) return null;
+  return X.ore.test(p) ? 'ore' : X.coal.test(p) ? 'coal' : X.gem.test(p) ? 'gem' : 'stone';
+}
+function deathCause(cause, text) {
+  const X = fitIndex(); if (!X) return null;
+  const c = String(cause || '').trim();
+  for (const [k, re] of X.death) if (re.test(c)) return k;
+  return c ? 'unknown' : null;
+}
+function moodKind(t) { const X = fitIndex(); if (!X) return null; for (const [k, re] of X.mood) if (re.test(t)) return k; return null; }
+// the facts one event establishes: item category and material, death cause, mood kind, mineral class, pet fate
+function evFacts(ev) {
+  const t = clean(ev.text || ''), ty = ev.type || '', f = new Set(); let item = null, m;
+  if (/MASTERPIECE|MASTERFUL/.test(ty) || /masterpiece|masterful/.test(t)) {
+    if ((m = t.match(/has created an? masterpiece (.+?)!?$/))) item = itemPhrase(m[1]);
+    else if ((m = t.match(/has (\w+) an? masterpiece/))) { const v = (LIB.itemcats || {}).verbs || {}; if (v[m[1]]) f.add(v[m[1]]); }
+    else if ((m = t.match(/has (?:improved|decorated) an? (.+?) masterfully/))) item = itemPhrase(m[1]);
+  } else if (/MADE_ARTIFACT|NAMED_ARTIFACT/.test(ty) || /has created .+?, an? /.test(t)) {
+    if ((m = t.match(/has (?:created|named) .+?, an? (.+?)!/))) item = itemPhrase(m[1]);
+  } else if (/STRANGE_MOOD|ARTIFACT_BEGUN|MOOD_BUILDING/.test(ty)) {
+    const k = moodKind(t); if (k) f.add('mood_' + k);
+    if ((m = t.match(/^[^,]+,\s*(.+?) (?:is taken|withdraws|has been possessed|begins to stalk|looses)/))) f.add('prof_' + m[1].toLowerCase());
+    if ((m = t.match(/has claimed an? (.+?)\.?$/))) { const sh = ((LIB.itemcats || {}).shops || {})[m[1]]; if (sh) f.add('shop_' + m[1]); }
+  } else if (/CITIZEN_DEATH|PET_DEATH/.test(ty)) {
+    if (/slaughtered/.test(t)) f.add('die_slaughter');
+    else { const cm = t.match(/^[^,]+,\s*.+? has (.+?)[.!]*$/) || t.match(/ has (.+?)[.!]*$/); const k = deathCause(cm ? cm[1] : '', t); if (k) f.add('die_' + k); }
+    if (/PET_DEATH/.test(ty) || /\(Tame\)/.test(t)) f.add('pet');
+    if (/\b(cat|kitten|tom|she-cat)\b/i.test(t)) f.add('sp_cat'); else if (/\b(dog|puppy|hound|stray puppy)\b/i.test(t)) f.add('sp_dog');
+  } else if (/STRUCK|FEATURE_DISCOVERY/.test(ty)) {
+    if ((m = t.match(/struck (.+?)!/))) {
+      f.add(mineralClass(m[1]));
+      const om = ((LIB.itemcats || {}).oremetals || {})[itemPhrase(m[1]).replace(/^(some|an?) /, '')]; if (om) om.forEach(x => f.add('metal_' + x));
+    }
+    else if (/magma/i.test(t)) f.add('magma'); else if (/cavern/i.test(t)) f.add('cavern'); else f.add('feature');
+  }
+  if (item) { const ii = itemInfo(item), mt = itemMat(item); if (ii.cat) f.add(ii.cat); if (ii.base) f.add('n_' + ii.base); if (mt) f.add('mat_' + mt); }
+  const par = (LIB.itemcats || {}).parents || {};
+  for (const x of [...f]) if (par[x]) f.add(par[x]);   // a mug is also "crafts", a helm is also "wearable"
+  return {facts: f, item};
+}
+// facts implied by the slots a fold entry uses ({masterwork} "pig tail cloth" -> cloth, {cause} "died of thirst" -> die_thirst)
+const FIT_SLOTS = {masterwork: 'item', masterwork_last: 'item', artifact_item: 'item', artifact_new_item: 'item', mineral: 'mineral',
+  cause: 'cause', lastdead_cause: 'cause', moody_shop: 'shop'};
+function slotFacts(e, sl) {
+  const f = new Set(), s = JSON.stringify(e);
+  for (const [k, how] of Object.entries(FIT_SLOTS)) {
+    if (!s.includes('{' + k + '}') || sl[k] == null) continue;
+    const v = String(sl[k]);
+    if (how === 'item') { const ii = itemInfo(v), m = itemMat(v); if (ii.cat) f.add(ii.cat); if (ii.base) f.add('n_' + ii.base); if (m) f.add('mat_' + m); }
+    else if (how === 'mineral') f.add(mineralClass(v));
+    else if (how === 'cause') { const c = deathCause(v, ''); if (c) f.add('die_' + c); }
+    else if (how === 'shop') f.add('shop_' + v);
+  }
+  const par = (LIB.itemcats || {}).parents || {};
+  for (const x of [...f]) if (par[x]) f.add(par[x]);
+  return f;
+}
+// a tag group is the prefix before "_" for mat_/die_/mood_/sp_/shop_, else the item group; every group the entry names must match
+const fitGroup = t => /^(mat|die|mood|sp|shop|ev|metal|n|prof)_/.test(t) ? t.split('_')[0] : 'item';
+let FIT_OFF = false;   // the offline test flips this to measure the old behaviour
+function fits(e, facts) {
+  if (FIT_OFF || !e.fit || !e.fit.length) return true;
+  if (!facts || !facts.size) return e.fit.every(t => t[0] === '!');
+  // a mood that claimed a shop counts as every item category that shop can make
+  const fx = new Set(facts), sh = (LIB.itemcats || {}).shops || {};
+  for (const x of facts) if (x.startsWith('shop_') && sh[x.slice(5)]) sh[x.slice(5)].forEach(c => fx.add(c));
+  const want = {};
+  for (const t of e.fit) {
+    if (t[0] === '!') { if (fx.has(t.slice(1))) return false; continue; }   // "!furniture": true for anything except furniture
+    (want[fitGroup(t)] = want[fitGroup(t)] || []).push(t);
+  }
+  return Object.values(want).every(ts => ts.some(t => fx.has(t)));
+}
+// facts for a running storyline (Continuing Coverage): what the newest artifact/masterpiece was, how the dwarf died
+function arcFacts(key) {
+  if (!memLoaded) return new Set();
+  const A = mem().arcs || {}, f = new Set(), par = (LIB.itemcats || {}).parents || {};
+  const item = v => { if (!v) return; const ii = itemInfo(v), mt = itemMat(v); if (ii.cat) f.add(ii.cat); if (ii.base) f.add('n_' + ii.base); if (mt) f.add('mat_' + mt); };
+  if (key === 'masterpiece_week') item(A.masterpiece && A.masterpiece.item);
+  if (key === 'artifact_week' || key === 'mood_done') item(A.artifact && A.artifact.item);
+  if (key === 'death_week' && A.death) { const c = deathCause(A.death.cause, ''); if (c) f.add('die_' + c); }
+  if ((key === 'mood_open' || key === 'mood_long') && A.mood) { if (A.mood.shop) f.add('shop_' + A.mood.shop); if (A.mood.kind) f.add('mood_' + A.mood.kind); }
+  for (const x of [...f]) if (par[x]) f.add(par[x]);
+  return f;
+}
+// ==FIT-END==
 // fill every string in an entry; null if any slot is missing (that entry just isn't eligible right now)
 function fillT(s, sl) {
   let ok = true;
@@ -365,7 +501,7 @@ function fillT(s, sl) {
   return ownName(/[A-Z]{4}/.test(bare) && !/[a-z]/.test(bare) ? out.toUpperCase() : out);
 }
 function fillE(e, sl) {
-  const walk = v => typeof v === 'string' ? fillT(v, sl) : Array.isArray(v) ? v.map(walk) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k === 'id' || k === 'when' ? x : walk(x)])) : v;
+  const walk = v => typeof v === 'string' ? fillT(v, sl) : Array.isArray(v) ? v.map(walk) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k === 'id' || k === 'when' || k === 'fit' ? x : walk(x)])) : v;
   const out = walk(e), bad = JSON.stringify(out).includes('null');   // a failed fill leaves null somewhere
   return bad ? null : out;
 }
@@ -382,6 +518,7 @@ function choose(list, ctx, r, n = 1, extra = {}) {
       const pp = sl._people, i = Math.floor(r() * pp.length), j = (i + 1 + Math.floor(r() * (pp.length - 1))) % pp.length;
       esl = {...sl, citizen: pp[i], citizen2: pp[j], citizen_first: pp[(j + 1) % pp.length].split(' ')[0]};
     }
+    if (e.fit && !fits(e, extra._facts || slotFacts(e, esl))) continue;   // never glue a cloth story to a smoothed-wall joke
     const f = fillE(e, esl); if (!f) continue;
     const topical = (e.when && e.when.length) || NEWSY.test(JSON.stringify(e));
     cands.push({f, score: (SEEN[e.id] || 0) - (topical ? 86400 : 0) + r() * 1800});
@@ -466,8 +603,8 @@ function trackStories() {
     const ak = (ARC_OF.find(([re]) => re.test(b.type || '')) || [])[1]; if (!ak) continue;
     const day = b.tick != null && b.year != null ? b.year * 336 + Math.floor(b.tick / 1200) : today;
     const cur = M.arcs[ak];
-    if (cur && ((cur.id === b.id && cur.v === 3) || cur.day > day)) continue;
-    M.arcs[ak] = {...(cur && cur.id === b.id ? cur : {}), id: b.id, day, v: 3, ...arcInfo(ak, clean(b.text || ''))}; memDirty = true;
+    if (cur && ((cur.id === b.id && cur.v === 4) || cur.day > day)) continue;
+    M.arcs[ak] = {...(cur && cur.id === b.id ? cur : {}), id: b.id, day, v: 4, ...arcInfo(ak, clean(b.text || ''))}; memDirty = true;
   }
   if (M.arcs.mood && !M.arcs.mood.shop) for (const e of S.events || []) {
     const m = clean(e.text || '').match(/^(.+?) has claimed an? (.+?)\.$/);
@@ -504,7 +641,7 @@ function storyItems(ctx, r) {
   const FO = LIB.followon || {}, cc = arcConds();
   const arcs = ['mood_done', 'death_week', 'mood_open', 'artifact_week', 'beast_week', 'birth_week', 'marriage_week', 'migrants_week', 'masterpiece_week', 'caravan_week'].filter(k => cc[k] && FO[k]);
   for (const k of arcs.slice(0, 1)) {
-    const h = choose1(FO[k].heads, ctx, r), b = choose1(FO[k].bodies, ctx, r); if (!h || !b) continue;
+    const fx = {_facts: arcFacts(k)}, h = choose1(FO[k].heads, ctx, r, fx), b = choose1(FO[k].bodies, ctx, r, fx); if (!h || !b) continue;
     items.push({lead: true, ids: [h.id, b.id], html: `<div class="item run"><div class="kick">Continuing Coverage</div><h3>${esc(T(h))}</h3><p class="just">${esc(T(b))}</p></div>`});
   }
   // the "days since" board
@@ -1020,7 +1157,7 @@ const evText = {};
 function eventText(ev, k) {   // headline/caption/report/arrow label for one event, picked once and reused
   if (evText[ev.id]) return evText[ev.id];
   const L = (LIB.kinds || {})[k.k] || {}, r = rng(ev.id * 17 + 3), ctx = context(r), ids = [];
-  const who = evWho(ev), extra = {who, first: who ? who.split(' ')[0] : null, event: clean(ev.text)};
+  const who = evWho(ev), fx = evFacts(ev), extra = {who, first: who ? who.split(' ')[0] : null, event: clean(ev.text), item: fx.item, _facts: fx.facts};
   const pk = (list, dflt) => { const e = choose1(list, ctx, r, extra); if (e) ids.push(e.id); return e ? T(e) : dflt; };
   const t = {head: pk(L.heads, k.head), cap: pk(L.caps, k.cap), rep: pk(L.reps, k.rep), label: pk(L.labels, null), kicker: pk(L.kickers, '')};
   markSeen(ids);

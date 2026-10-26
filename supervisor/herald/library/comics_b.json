@@ -874,9 +874,7 @@
    "panels": [
     {
      "bg": "workshop",
-     "props": [
-      "workshop"
-     ],
+     "props": ["workshop"],
      "cast": [
       {
        "who": "dwarf",
@@ -888,9 +886,7 @@
     },
     {
      "bg": "workshop",
-     "props": [
-      "workshop"
-     ],
+     "props": ["workshop"],
      "cast": [
       {
        "who": "dwarf",
@@ -907,9 +903,7 @@
     },
     {
      "bg": "workshop",
-     "props": [
-      "workshop"
-     ],
+     "props": ["workshop"],
      "cast": [
       {
        "who": "dwarf",
@@ -927,9 +921,8 @@
      "caption": "He could not wear it."
     }
    ],
-   "when": [
-    "recent_mood"
-   ]
+   "when": ["recent_mood"],
+   "fit": ["!wearable"]
   },
   {
    "id": "cb-moody-leather",

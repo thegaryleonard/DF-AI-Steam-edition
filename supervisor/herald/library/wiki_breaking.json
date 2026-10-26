@@ -56,7 +56,8 @@
     },
     {
      "id": "wk-bk-mood-k-002",
-     "text": "Bring bones, shells and patience."
+     "text": "Bring bones, shells and patience.",
+     "fit": ["shop_Bone Carver's Workshop", "shop_Craftsdwarf's Workshop"]
     }
    ]
   },
@@ -64,7 +65,8 @@
    "heads": [
     {
      "id": "wk-bk-artifact-h-001",
-     "text": "A LEGEND IS FORGED IN {fort}"
+     "text": "A LEGEND IS FORGED IN {fort}",
+     "fit": ["ammo", "armor", "container", "crafts", "furniture", "instrument", "metal", "tool", "weapon", "mat_metal"]
     },
     {
      "id": "wk-bk-artifact-h-002",
@@ -356,7 +358,8 @@
    "reps": [
     {
      "id": "wk-bk-strike-r-001",
-     "text": "Rough gems are only half the story: cut at the jeweler's and set into good work, they double its value."
+     "text": "Rough gems are only half the story: cut at the jeweler's and set into good work, they double its value.",
+     "fit": ["gem"]
     }
    ]
   },

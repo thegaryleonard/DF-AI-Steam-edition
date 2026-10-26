@@ -482,27 +482,33 @@
    "heads": [
     {
      "id": "lb-death-head-1",
-     "text": "DWARF DIES OF THIRST, BESIDE ALE"
+     "text": "DWARF DIES OF THIRST, BESIDE ALE",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-head-2",
-     "text": "2,000 DRINKS; ONE PARCHED DWARF"
+     "text": "2,000 DRINKS; ONE PARCHED DWARF",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-head-3",
-     "text": "THIRST PARADOX CLAIMS ANOTHER"
+     "text": "THIRST PARADOX CLAIMS ANOTHER",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-head-4",
-     "text": "CITIZEN PERISHES IN 'SAFETY'"
+     "text": "CITIZEN PERISHES IN 'SAFETY'",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-head-5",
-     "text": "TREE BRANCH TAKES ANOTHER MINER"
+     "text": "TREE BRANCH TAKES ANOTHER MINER",
+     "fit": ["die_fall"]
     },
     {
      "id": "lb-death-head-6",
-     "text": "GARBAGE PIT CLAIMS A HAULER"
+     "text": "GARBAGE PIT CLAIMS A HAULER",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-head-7",
@@ -514,49 +520,60 @@
     },
     {
      "id": "lb-death-head-9",
-     "text": "THE STOCKPILE WAS RIGHT THERE"
+     "text": "THE STOCKPILE WAS RIGHT THERE",
+     "fit": ["die_thirst", "die_hunger"]
     },
     {
      "id": "lb-death-head-10",
-     "text": "GEMS NEARBY, LIFE NOT"
+     "text": "GEMS NEARBY, LIFE NOT",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-head-11",
-     "text": "FALLEN DWARF HAD NO DOCTOR"
+     "text": "FALLEN DWARF HAD NO DOCTOR",
+     "fit": ["die_bleeding", "die_infection", "die_fall"]
     },
     {
      "id": "lb-death-head-12",
-     "text": "FORT LOSES ONE MORE TO DUTY"
+     "text": "FORT LOSES ONE MORE TO DUTY",
+     "fit": ["die_combat"]
     }
    ],
    "caps": [
     {
      "id": "lb-death-cap-1",
-     "text": "The deceased's last view: two thousand drinks, unlabelled and therefore untouched."
+     "text": "The deceased's last view: two thousand drinks, unlabelled and therefore untouched.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-cap-2",
-     "text": "Memorial sketch. The rough gems in the background are not symbolic. They were there."
+     "text": "Memorial sketch. The rough gems in the background are not symbolic. They were there.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-cap-3",
-     "text": "The tree in question. It has been asked to explain itself, and has not."
+     "text": "The tree in question. It has been asked to explain itself, and has not.",
+     "fit": ["die_fall"]
     },
     {
      "id": "lb-death-cap-4",
-     "text": "The Safety burrow entrance, now marked with a second, smaller sign: 'Not.'"
+     "text": "The Safety burrow entrance, now marked with a second, smaller sign: 'Not.'",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-cap-5",
-     "text": "The garbage pit, viewed from a respectful distance and a strong wind."
+     "text": "The garbage pit, viewed from a respectful distance and a strong wind.",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-cap-6",
-     "text": "The deceased's mug, which was full the whole time, in the next room."
+     "text": "The deceased's mug, which was full the whole time, in the next room.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-cap-7",
-     "text": "The hospital where the dwarf was taken. This is one of the ones without a doctor."
+     "text": "The hospital where the dwarf was taken. This is one of the ones without a doctor.",
+     "fit": ["die_bleeding", "die_infection", "die_fall"]
     },
     {
      "id": "lb-death-cap-8",
@@ -564,11 +581,13 @@
     },
     {
      "id": "lb-death-cap-9",
-     "text": "Mourners at the slab. One is nervously checking the drinks stockpile, for herself."
+     "text": "Mourners at the slab. One is nervously checking the drinks stockpile, for herself.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-cap-10",
-     "text": "Artist's tribute. The thirst-themed border was the editor's idea; the family did not object."
+     "text": "Artist's tribute. The thirst-themed border was the editor's idea; the family did not object.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-cap-11",
@@ -582,39 +601,45 @@
    "reps": [
     {
      "id": "lb-death-rep-1",
-     "text": "{first} died of thirst this week. At the time the fortress held over two thousand drinks, most a short walk away and none of them, apparently, the right one."
+     "text": "{first} died of thirst this week. At the time the fortress held over two thousand drinks, most a short walk away and none of them, apparently, the right one.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-rep-2",
      "text": "The Herald recalls Bomrek Enshalcatten of Searabbeys, found dead, dehydrated, beside 1,994 drinks. Scholars call it the thirst paradox. The dead have other words for it.",
-     "world": "The Enchanted Planes"
+     "world": "The Enchanted Planes",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-rep-3",
-     "text": "{first} was hauling refuse back out of the garbage pit when more refuse came down. The Overseer has called the incident 'circular' and queued another haul."
+     "text": "{first} was hauling refuse back out of the garbage pit when more refuse came down. The Overseer has called the incident 'circular' and queued another haul.",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-rep-4",
-     "text": "Friends say {first} climbed a tree to fetch a log and simply never came down. Miners are again reminded that trees go up, and dwarves belong down."
+     "text": "Friends say {first} climbed a tree to fetch a log and simply never came down. Miners are again reminded that trees go up, and dwarves belong down.",
+     "fit": ["die_fall"]
     },
     {
      "id": "lb-death-rep-5",
-     "text": "The cause of death is listed as 'Safety'. Officials clarify this means the burrow, not the general concept, though the general concept is also under review."
+     "text": "The cause of death is listed as 'Safety'. Officials clarify this means the burrow, not the general concept, though the general concept is also under review.",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-rep-6",
-     "text": "{first} was carried to a hospital with beds, splints and a traction bench, but no doctor, as the chief medical dwarf's office remains vacant."
+     "text": "{first} was carried to a hospital with beds, splints and a traction bench, but no doctor, as the chief medical dwarf's office remains vacant.",
+     "fit": ["die_bleeding", "die_infection", "die_fall"]
     },
     {
      "id": "lb-death-rep-7",
-     "text": "Colleagues remember {first} as tireless. The job log agrees: seventy smoothing jobs in a row, no breaks, no meals, no drink, every one perfectly smooth."
+     "text": "Colleagues remember {first} as tireless. The job log agrees: seventy smoothing jobs in a row, no breaks, no meals, no drink, every one perfectly smooth.",
+     "fit": ["die_thirst", "die_hunger"]
     },
     {
      "id": "lb-death-rep-8",
      "text": "Veterans of {past_fort} swear a carpenter there died of thirst beside a heap of rough gems. 'He couldn't drink them,' said one. 'But you could see him thinking about it.'",
-     "when": [
-      "has_past_fort"
-     ]
+     "when": ["has_past_fort"],
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-rep-9",
@@ -622,7 +647,8 @@
     },
     {
      "id": "lb-death-rep-10",
-     "text": "The population of {fort} is now {pop}. The bookkeeper has recounted three times, sighed twice, and checked the drinks once, just in case."
+     "text": "The population of {fort} is now {pop}. The bookkeeper has recounted three times, sighed twice, and checked the drinks once, just in case.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-rep-11",
@@ -630,45 +656,55 @@
     },
     {
      "id": "lb-death-rep-12",
-     "text": "Witnesses agree the deceased walked past the well, the tavern and a barrel to reach the far side of the map and pick one strawberry, in the rain."
+     "text": "Witnesses agree the deceased walked past the well, the tavern and a barrel to reach the far side of the map and pick one strawberry, in the rain.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-rep-13",
-     "text": "In lieu of flowers, the family asks that citizens go and have a drink right now, on purpose, while they still can."
+     "text": "In lieu of flowers, the family asks that citizens go and have a drink right now, on purpose, while they still can.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-rep-14",
-     "text": "The death has been ruled 'fortress-related'. The Herald offers condolences and a reminder that the cistern is full and nobody will be cross if you use it."
+     "text": "The death has been ruled 'fortress-related'. The Herald offers condolences and a reminder that the cistern is full and nobody will be cross if you use it.",
+     "fit": ["die_thirst"]
     }
    ],
    "labels": [
     {
      "id": "lb-death-label-1",
-     "text": "ALL THE DRINKS"
+     "text": "ALL THE DRINKS",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-label-2",
-     "text": "THE TREE (GUILTY)"
+     "text": "THE TREE (GUILTY)",
+     "fit": ["die_fall"]
     },
     {
      "id": "lb-death-label-3",
-     "text": "SAFETY (NOT)"
+     "text": "SAFETY (NOT)",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-label-4",
-     "text": "THE PIT"
+     "text": "THE PIT",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-label-5",
-     "text": "NO DOCTOR"
+     "text": "NO DOCTOR",
+     "fit": ["die_bleeding", "die_infection", "die_fall"]
     },
     {
      "id": "lb-death-label-6",
-     "text": "UNTOUCHED ALE"
+     "text": "UNTOUCHED ALE",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-label-7",
-     "text": "ROUGH GEMS (MANY)"
+     "text": "ROUGH GEMS (MANY)",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-label-8",
@@ -678,27 +714,33 @@
    "kickers": [
     {
      "id": "lb-death-kicker-1",
-     "text": "Please drink something today. Anything. The Herald insists."
+     "text": "Please drink something today. Anything. The Herald insists.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-kicker-2",
-     "text": "{first} is survived by 2,000 drinks, all unopened."
+     "text": "{first} is survived by 2,000 drinks, all unopened.",
+     "fit": ["die_thirst"]
     },
     {
      "id": "lb-death-kicker-3",
-     "text": "The tree has been questioned and released."
+     "text": "The tree has been questioned and released.",
+     "fit": ["die_fall"]
     },
     {
      "id": "lb-death-kicker-4",
-     "text": "Trees: not even once."
+     "text": "Trees: not even once.",
+     "fit": ["die_fall"]
     },
     {
      "id": "lb-death-kicker-5",
-     "text": "Safety burrow tours are suspended indefinitely."
+     "text": "Safety burrow tours are suspended indefinitely.",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-kicker-6",
-     "text": "Do not haul anything out of the garbage pit. Ever."
+     "text": "Do not haul anything out of the garbage pit. Ever.",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-death-kicker-7",
@@ -706,7 +748,8 @@
     },
     {
      "id": "lb-death-kicker-8",
-     "text": "A doctor is wanted; inquire at any of our four hospitals."
+     "text": "A doctor is wanted; inquire at any of our four hospitals.",
+     "fit": ["die_bleeding", "die_infection", "die_fall"]
     }
    ]
   },
@@ -714,234 +757,284 @@
    "heads": [
     {
      "id": "lb-pet-head-1",
-     "text": "DOG ADOPTED; FORT'S ODDS IMPROVE"
+     "text": "DOG ADOPTED; FORT'S ODDS IMPROVE",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-2",
-     "text": "PET ADOPTED, MILITIA DOUBLES"
+     "text": "PET ADOPTED, MILITIA DOUBLES",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-3",
-     "text": "CAT ADOPTS DWARF, FILES NO FORM"
+     "text": "CAT ADOPTS DWARF, FILES NO FORM",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-4",
-     "text": "NEW PET OUTRANKS THE MAYOR"
+     "text": "NEW PET OUTRANKS THE MAYOR",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-5",
-     "text": "ANIMAL BOND FORMED; DRINKS SAFE"
+     "text": "ANIMAL BOND FORMED; DRINKS SAFE",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-6",
-     "text": "BEST FRIEND FOUND, NOT IN A TREE"
+     "text": "BEST FRIEND FOUND, NOT IN A TREE",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-7",
-     "text": "PET TAKES OFFICE NOBODY WANTED"
+     "text": "PET TAKES OFFICE NOBODY WANTED",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-8",
-     "text": "DWARF FINDS LOVE, IT HAS FUR"
+     "text": "DWARF FINDS LOVE, IT HAS FUR",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-9",
-     "text": "\"IT BITES,\" SAYS PROUD OWNER"
+     "text": "\"IT BITES,\" SAYS PROUD OWNER",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-10",
-     "text": "PET JOINS FORT, IGNORES ORDERS"
+     "text": "PET JOINS FORT, IGNORES ORDERS",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-11",
-     "text": "PET NAMED AFTER OLD FORT"
+     "text": "PET NAMED AFTER OLD FORT",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-head-12",
-     "text": "CREATURE SIGNS ON AT LAST"
+     "text": "CREATURE SIGNS ON AT LAST",
+     "fit": ["ev_adopt"]
     }
    ],
    "caps": [
     {
      "id": "lb-pet-cap-1",
-     "text": "The new pet, asleep on a throne. There are hundreds of them, so nobody minded."
+     "text": "The new pet, asleep on a throne. There are hundreds of them, so nobody minded.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-2",
-     "text": "Owner and pet in the tavern. Only one of them was told the drinks were free."
+     "text": "Owner and pet in the tavern. Only one of them was told the drinks were free.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-3",
-     "text": "The pet guarding a rough gem. Moody dwarves are advised to ask nicely."
+     "text": "The pet guarding a rough gem. Moody dwarves are advised to ask nicely.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-4",
-     "text": "The animal visiting the barracks, raising militia attendance by one hundred per cent."
+     "text": "The animal visiting the barracks, raising militia attendance by one hundred per cent.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-5",
-     "text": "Owner and pet beside the mist ring. Both are damp. Both claim happiness."
+     "text": "Owner and pet beside the mist ring. Both are damp. Both claim happiness.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-6",
-     "text": "The pet refusing to enter the Safety burrow. Experts call it our smartest citizen."
+     "text": "The pet refusing to enter the Safety burrow. Experts call it our smartest citizen.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-7",
-     "text": "The animal's chosen bed: inside an armor stand. Finally, a use."
+     "text": "The animal's chosen bed: inside an armor stand. Finally, a use.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-8",
-     "text": "The pet sniffing the garbage pit. It came back out, which is more than some managed."
+     "text": "The pet sniffing the garbage pit. It came back out, which is more than some managed.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-9",
-     "text": "The pet greeting a merchant, who has been asked to stop haggling over it."
+     "text": "The pet greeting a merchant, who has been asked to stop haggling over it.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-10",
-     "text": "Portrait of the happy pair, with the pet drawn larger at the pet's insistence."
+     "text": "Portrait of the happy pair, with the pet drawn larger at the pet's insistence.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-11",
-     "text": "Owner, pet, and the mayor's citation for unlicensed adoption, in that order."
+     "text": "Owner, pet, and the mayor's citation for unlicensed adoption, in that order.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-cap-12",
-     "text": "The pet watching the moat. The moat watching back has not been confirmed."
+     "text": "The pet watching the moat. The moat watching back has not been confirmed.",
+     "fit": ["ev_adopt"]
     }
    ],
    "reps": [
     {
      "id": "lb-pet-rep-1",
      "text": "{who} has adopted an animal companion. Elders of {past_fort} still speak of its dogs with the pride usually reserved for drinks.",
-     "when": [
-      "has_past_fort"
-     ]
+     "when": ["has_past_fort"],
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-2",
-     "text": "The new pet drinks from the well every day, making it, by the bookkeeper's reckoning, the best-hydrated resident of {fort}."
+     "text": "The new pet drinks from the well every day, making it, by the bookkeeper's reckoning, the best-hydrated resident of {fort}.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-3",
-     "text": "The militia captain has offered the pet a place in the squad, as there are nine vacancies. The pet accepted and immediately went Off duty."
+     "text": "The militia captain has offered the pet a place in the squad, as there are nine vacancies. The pet accepted and immediately went Off duty.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-4",
-     "text": "The mayor's office has charged the pet with a production order violation for producing nothing. The pet has responded by sleeping on the charge sheet."
+     "text": "The mayor's office has charged the pet with a production order violation for producing nothing. The pet has responded by sleeping on the charge sheet.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-5",
-     "text": "Vets, of whom we have none, say the pet should be kept away from trees, deep burrows and the garbage pit, which is also the Herald's advice to dwarves."
+     "text": "Vets, of whom we have none, say the pet should be kept away from trees, deep burrows and the garbage pit, which is also the Herald's advice to dwarves.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-6",
-     "text": "The pet has been offered the vacant office of sheriff. Officials note it is the first candidate in years to show interest, though the interest was mostly in the chair."
+     "text": "The pet has been offered the vacant office of sheriff. Officials note it is the first candidate in years to show interest, though the interest was mostly in the chair.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-7",
-     "text": "{who} says the animal is loyal, brave and a good listener. Asked to name one other resident of {fort} with all three, the owner went quiet."
+     "text": "{who} says the animal is loyal, brave and a good listener. Asked to name one other resident of {fort} with all three, the owner went quiet.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-8",
-     "text": "The Overseer has marked the adoption by queuing eleven pet beds and fifteen hundred food bowls. The order is believed to be running away already."
+     "text": "The Overseer has marked the adoption by queuing eleven pet beds and fifteen hundred food bowls. The order is believed to be running away already.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-9",
-     "text": "Passing elves praised the adoption as 'a bond with nature.' Our dwarves praised it as 'a thing that might bite goblins.' Both parties left happy."
+     "text": "Passing elves praised the adoption as 'a bond with nature.' Our dwarves praised it as 'a thing that might bite goblins.' Both parties left happy.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-10",
-     "text": "The pet has toured the hospitals, sniffing three without doctors and one with. It preferred the doctor, and growled at the vacant office."
+     "text": "The pet has toured the hospitals, sniffing three without doctors and one with. It preferred the doctor, and growled at the vacant office.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-11",
-     "text": "The pair were seen sharing a meal in the dining hall. Of the {pop} residents, the pet is reportedly the only one with no complaints."
+     "text": "The pair were seen sharing a meal in the dining hall. Of the {pop} residents, the pet is reportedly the only one with no complaints.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-12",
      "text": "Old soldiers recall a dog at {past_fort} that knew the way to every throne by smell. 'Hundreds of them,' they say. 'Every one, sniffed.'",
-     "when": [
-      "has_past_fort"
-     ]
+     "when": ["has_past_fort"],
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-13",
-     "text": "Neighbours report the pet barks at the cistern, the windmills and the Overseer's notice board, which several dwarves call the bravest thing anyone has done."
+     "text": "Neighbours report the pet barks at the cistern, the windmills and the Overseer's notice board, which several dwarves call the bravest thing anyone has done.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-rep-14",
-     "text": "The pet's first official act was to steal a sausage from the butcher, ending what some had begun calling the great meat shortage."
+     "text": "The pet's first official act was to steal a sausage from the butcher, ending what some had begun calling the great meat shortage.",
+     "fit": ["ev_adopt"]
     }
    ],
    "labels": [
     {
      "id": "lb-pet-label-1",
-     "text": "GOOD BEAST"
+     "text": "GOOD BEAST",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-label-2",
-     "text": "GOOD GIRL?"
+     "text": "GOOD GIRL?",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-label-3",
-     "text": "HAPPY OWNER"
+     "text": "HAPPY OWNER",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-label-4",
-     "text": "THRONE (1 OF MANY)"
+     "text": "THRONE (1 OF MANY)",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-label-5",
-     "text": "SQUAD MEMBER #2"
+     "text": "SQUAD MEMBER #2",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-label-6",
-     "text": "CHEW TOY"
+     "text": "CHEW TOY",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-label-7",
-     "text": "THE PIT (NO)"
+     "text": "THE PIT (NO)",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-label-8",
-     "text": "WET FUR"
+     "text": "WET FUR",
+     "fit": ["ev_adopt"]
     }
    ],
    "kickers": [
     {
      "id": "lb-pet-kicker-1",
-     "text": "The pet could not be reached; it was asleep on a throne."
+     "text": "The pet could not be reached; it was asleep on a throne.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-kicker-2",
-     "text": "{first} requests the pet be addressed as 'sir'."
+     "text": "{first} requests the pet be addressed as 'sir'.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-kicker-3",
-     "text": "The pet is not available for the sheriff's job. Yet."
+     "text": "The pet is not available for the sheriff's job. Yet.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-kicker-4",
-     "text": "Keep pets out of trees, burrows and pits, as with dwarves."
+     "text": "Keep pets out of trees, burrows and pits, as with dwarves.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-kicker-5",
      "text": "Searabbeys had thirteen dogs. We have ambitions.",
-     "world": "The Enchanted Planes"
+     "world": "The Enchanted Planes",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-kicker-6",
-     "text": "The pet is drinking enough. Learn from the pet."
+     "text": "The pet is drinking enough. Learn from the pet.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-kicker-7",
-     "text": "Petting is permitted. Adoption forms are, regrettably, mandatory."
+     "text": "Petting is permitted. Adoption forms are, regrettably, mandatory.",
+     "fit": ["ev_adopt"]
     },
     {
      "id": "lb-pet-kicker-8",
-     "text": "Militia strength now two, counting paws."
+     "text": "Militia strength now two, counting paws.",
+     "fit": ["ev_adopt"]
     }
    ]
   },
@@ -1177,35 +1270,43 @@
    "heads": [
     {
      "id": "lb-mood-head-1",
-     "text": "MOODY DWARF WANTS ROUGH GEMS. ANY?"
+     "text": "MOODY DWARF WANTS ROUGH GEMS. ANY?",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-head-2",
-     "text": "EVERY GEM CUT; MOOD ARRIVES ON CUE"
+     "text": "EVERY GEM CUT; MOOD ARRIVES ON CUE",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-head-3",
-     "text": "CHILD IN MOOD DEMANDS PLANT CLOTH"
+     "text": "CHILD IN MOOD DEMANDS PLANT CLOTH",
+     "fit": ["prof_dwarven child", "shop_Clothier's Shop", "shop_Loom"]
     },
     {
      "id": "lb-mood-head-4",
-     "text": "FISHERDWARF FEY, GEMLESS, GRIM"
+     "text": "FISHERDWARF FEY, GEMLESS, GRIM",
+     "fit": ["prof_fisherdwarf", "mood_fey"]
     },
     {
      "id": "lb-mood-head-5",
-     "text": "MOOD STRIKES THE BUTCHER, SADLY"
+     "text": "MOOD STRIKES THE BUTCHER, SADLY",
+     "fit": ["prof_butcher"]
     },
     {
      "id": "lb-mood-head-6",
-     "text": "\"ROUGH, NOT CUT,\" SAYS MOODY DWARF"
+     "text": "\"ROUGH, NOT CUT,\" SAYS MOODY DWARF",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-head-7",
-     "text": "JEWELER BLAMED FOR CUTTING IT ALL"
+     "text": "JEWELER BLAMED FOR CUTTING IT ALL",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-head-8",
-     "text": "FEY DWARF CLAIMS LOOM ROOM AT LAST"
+     "text": "FEY DWARF CLAIMS LOOM ROOM AT LAST",
+     "fit": ["mood_fey", "shop_Clothier's Shop", "shop_Loom"]
     },
     {
      "id": "lb-mood-head-9",
@@ -1213,11 +1314,13 @@
     },
     {
      "id": "lb-mood-head-10",
-     "text": "OVERSEER: \"SHE CAN WAIT\""
+     "text": "OVERSEER: \"SHE CAN WAIT\"",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-mood-head-11",
-     "text": "HISTORY REPEATS; GEMS DON'T"
+     "text": "HISTORY REPEATS; GEMS DON'T",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-head-12",
@@ -1227,35 +1330,43 @@
    "caps": [
     {
      "id": "lb-mood-cap-1",
-     "text": "The moody dwarf's request, in full: 'ROUGH.' Underlined four times."
+     "text": "The moody dwarf's request, in full: 'ROUGH.' Underlined four times.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-cap-2",
-     "text": "The gem stockpile: every stone cut, polished and entirely useless to this dwarf."
+     "text": "The gem stockpile: every stone cut, polished and entirely useless to this dwarf.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-cap-3",
-     "text": "A child in a strange mood, demanding plant cloth. The child is four."
+     "text": "A child in a strange mood, demanding plant cloth. The child is four.",
+     "fit": ["prof_dwarven child", "shop_Clothier's Shop", "shop_Loom"]
     },
     {
      "id": "lb-mood-cap-4",
-     "text": "The jeweler beside her work, trying very hard to look like she didn't do it."
+     "text": "The jeweler beside her work, trying very hard to look like she didn't do it.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-cap-5",
-     "text": "The workshop door, barred. Behind it, a dwarf. Behind the dwarf, a need for something rough."
+     "text": "The workshop door, barred. Behind it, a dwarf. Behind the dwarf, a need for something rough.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-cap-6",
-     "text": "Haulers searching the old stockpiles for one rough gem. They found eight hundred loose stones."
+     "text": "Haulers searching the old stockpiles for one rough gem. They found eight hundred loose stones.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-cap-7",
-     "text": "The fey fisherdwarf, sketching a fish made of gems we no longer have."
+     "text": "The fey fisherdwarf, sketching a fish made of gems we no longer have.",
+     "fit": ["prof_fisherdwarf", "mood_fey"]
     },
     {
      "id": "lb-mood-cap-8",
-     "text": "The moody butcher, eyeing a sapphire that nobody can uncut."
+     "text": "The moody butcher, eyeing a sapphire that nobody can uncut.",
+     "fit": ["prof_butcher"]
     },
     {
      "id": "lb-mood-cap-9",
@@ -1263,57 +1374,67 @@
     },
     {
      "id": "lb-mood-cap-10",
-     "text": "The moody weaver at a free loom. Veterans of older forts in the doorway, applauding quietly."
+     "text": "The moody weaver at a free loom. Veterans of older forts in the doorway, applauding quietly.",
+     "fit": ["shop_Clothier's Shop", "shop_Loom"]
     },
     {
      "id": "lb-mood-cap-11",
-     "text": "Artist's map of where rough gems might remain. It is mostly the caverns. And a goblin."
+     "text": "Artist's map of where rough gems might remain. It is mostly the caverns. And a goblin.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-cap-12",
-     "text": "The moody dwarf at sunrise, hour nineteen of staring. Still wants rough gems."
+     "text": "The moody dwarf at sunrise, hour nineteen of staring. Still wants rough gems.",
+     "fit": ["shop_Jeweler's Workshop"]
     }
    ],
    "reps": [
     {
      "id": "lb-mood-rep-1",
-     "text": "{who} has been seized by a strange mood and asked, through the workshop door, for rough gems. Every gem in {fort} was cut last season, by standing order."
+     "text": "{who} has been seized by a strange mood and asked, through the workshop door, for rough gems. Every gem in {fort} was cut last season, by standing order.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-rep-2",
-     "text": "This is the fourth mood in a row to want the one material the fort just used up. Scholars call it coincidence. Moody dwarves call it 'typical'."
+     "text": "This is the fourth mood in a row to want the one material the fort just used up. Scholars call it coincidence. Moody dwarves call it 'typical'.",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-mood-rep-3",
      "text": "Readers recall a fey carpenter at Quakefocus who died of thirst beside 150 rough gems. This mood, by contrast, has the thirst but not the gems.",
-     "world": "The Enchanted Planes"
+     "world": "The Enchanted Planes",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-mood-rep-4",
-     "text": "A dwarven child has fallen into a strange mood and demanded plant cloth. Parents say it is the most focused the child has ever been, meals included."
+     "text": "A dwarven child has fallen into a strange mood and demanded plant cloth. Parents say it is the most focused the child has ever been, meals included.",
+     "fit": ["prof_dwarven child", "shop_Clothier's Shop", "shop_Loom"]
     },
     {
      "id": "lb-mood-rep-5",
-     "text": "{first} has claimed a workshop and wants 'something rough, something precious, something the Overseer has not cut.' The jeweler has gone into hiding."
+     "text": "{first} has claimed a workshop and wants 'something rough, something precious, something the Overseer has not cut.' The jeweler has gone into hiding.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-rep-6",
-     "text": "Miners went into the caverns for one rough gem and returned with stone. Stone, they argue, is rough. {first} disagrees, through the door."
+     "text": "Miners went into the caverns for one rough gem and returned with stone. Stone, they argue, is rough. {first} disagrees, through the door.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-rep-7",
-     "text": "The Overseer has answered the mood by queuing another round of gem cutting. The management insists this is unrelated and asks for no further questions."
+     "text": "The Overseer has answered the mood by queuing another round of gem cutting. The management insists this is unrelated and asks for no further questions.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-rep-8",
-     "text": "Haulers searched the refuse pile, the old stockpiles and the garbage pit for anything uncut. They found a sock. The sock has been rejected."
+     "text": "Haulers searched the refuse pile, the old stockpiles and the garbage pit for anything uncut. They found a sock. The sock has been rejected.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-rep-9",
      "text": "The Herald recalls a possessed weaver at {past_fort} who died waiting for the loom room. This time the loom room is free, which officials call progress.",
-     "when": [
-      "has_past_fort"
-     ]
+     "when": ["has_past_fort"],
+     "fit": ["mood_possessed", "shop_Clothier's Shop", "shop_Loom"]
     },
     {
      "id": "lb-mood-rep-10",
@@ -1321,7 +1442,8 @@
     },
     {
      "id": "lb-mood-rep-11",
-     "text": "{liaison}, our liaison, writes that there is much to share and that rough gems may join next year's import agreement, at a modest double the price."
+     "text": "{liaison}, our liaison, writes that there is much to share and that rough gems may join next year's import agreement, at a modest double the price.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-rep-12",
@@ -1334,27 +1456,30 @@
     {
      "id": "lb-mood-rep-14",
      "text": "{who} has asked for rough gems, then cloth, then rough gems again. The cloth stockpile shows seven silk scraps, which veterans of {past_fort} say hide a shortage.",
-     "when": [
-      "has_past_fort"
-     ]
+     "when": ["has_past_fort"],
+     "fit": ["shop_Clothier's Shop", "shop_Jeweler's Workshop", "shop_Leather Works", "shop_Loom", "shop_Tanner's Shop"]
     }
    ],
    "labels": [
     {
      "id": "lb-mood-label-1",
-     "text": "ROUGH, PLEASE"
+     "text": "ROUGH, PLEASE",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-label-2",
-     "text": "ALL CUT"
+     "text": "ALL CUT",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-label-3",
-     "text": "JEWELER (GUILTY)"
+     "text": "JEWELER (GUILTY)",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-label-4",
-     "text": "PLANT CLOTH?"
+     "text": "PLANT CLOTH?",
+     "fit": ["shop_Clothier's Shop", "shop_Loom"]
     },
     {
      "id": "lb-mood-label-5",
@@ -1366,21 +1491,25 @@
     },
     {
      "id": "lb-mood-label-7",
-     "text": "7 SILK SCRAPS"
+     "text": "7 SILK SCRAPS",
+     "fit": ["shop_Clothier's Shop", "shop_Loom"]
     },
     {
      "id": "lb-mood-label-8",
-     "text": "GEM, ALLEGEDLY"
+     "text": "GEM, ALLEGEDLY",
+     "fit": ["shop_Jeweler's Workshop"]
     }
    ],
    "kickers": [
     {
      "id": "lb-mood-kicker-1",
-     "text": "If you have a rough gem, slide it under the door."
+     "text": "If you have a rough gem, slide it under the door.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-kicker-2",
-     "text": "The jeweler is excused from comment."
+     "text": "The jeweler is excused from comment.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-kicker-3",
@@ -1388,15 +1517,18 @@
     },
     {
      "id": "lb-mood-kicker-4",
-     "text": "{first} asks for privacy and one (1) uncut gem."
+     "text": "{first} asks for privacy and one (1) uncut gem.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-kicker-5",
-     "text": "Please hold all gem cutting until further notice."
+     "text": "Please hold all gem cutting until further notice.",
+     "fit": ["shop_Jeweler's Workshop"]
     },
     {
      "id": "lb-mood-kicker-6",
-     "text": "Children in moods are to be addressed as 'master'."
+     "text": "Children in moods are to be addressed as 'master'.",
+     "fit": ["prof_dwarven child"]
     },
     {
      "id": "lb-mood-kicker-7",
@@ -1404,7 +1536,8 @@
     },
     {
      "id": "lb-mood-kicker-8",
-     "text": "Rough gems available by import agreement, at a slight markup."
+     "text": "Rough gems available by import agreement, at a slight markup.",
+     "fit": ["shop_Jeweler's Workshop"]
     }
    ]
   },
@@ -1412,7 +1545,8 @@
    "heads": [
     {
      "id": "lb-artifact-head-1",
-     "text": "NEW ARTIFACT; NOT AN ARMOR STAND"
+     "text": "NEW ARTIFACT; NOT AN ARMOR STAND",
+     "fit": ["!furniture"]
     },
     {
      "id": "lb-artifact-head-2",
@@ -1467,7 +1601,8 @@
     {
      "id": "lb-artifact-cap-2",
      "text": "The artifact beside Claspedserpent, the silver mace of Quakefocus. Each eyes the other.",
-     "world": "The Enchanted Planes"
+     "world": "The Enchanted Planes",
+     "fit": ["weapon", "n_mace"]
     },
     {
      "id": "lb-artifact-cap-3",
@@ -1519,12 +1654,14 @@
    "reps": [
     {
      "id": "lb-artifact-rep-1",
-     "text": "{who} has emerged from a strange mood with a legendary artifact. Despite the Overseer's best efforts, it is not an armor stand, and it is not a throne."
+     "text": "{who} has emerged from a strange mood with a legendary artifact. Despite the Overseer's best efforts, it is not an armor stand, and it is not a throne.",
+     "fit": ["!furniture"]
     },
     {
      "id": "lb-artifact-rep-2",
      "text": "Scholars rank the piece beside Claspedserpent, the silver mace of Quakefocus, and The Nuanced Hamlet, still at Searabbeys and still held by goblins.",
-     "world": "The Enchanted Planes"
+     "world": "The Enchanted Planes",
+     "fit": ["weapon", "n_mace"]
     },
     {
      "id": "lb-artifact-rep-3",
@@ -1583,7 +1720,8 @@
     },
     {
      "id": "lb-artifact-label-2",
-     "text": "NOT A THRONE"
+     "text": "NOT A THRONE",
+     "fit": ["!furniture"]
     },
     {
      "id": "lb-artifact-label-3",
@@ -1652,15 +1790,18 @@
    "heads": [
     {
      "id": "lb-master-head-1",
-     "text": "MASTERPIECE AMID 1,000 STANDS"
+     "text": "MASTERPIECE AMID 1,000 STANDS",
+     "fit": ["furniture"]
     },
     {
      "id": "lb-master-head-2",
-     "text": "SMOOTHER HAILED AS LEGENDARY"
+     "text": "SMOOTHER HAILED AS LEGENDARY",
+     "fit": ["construction"]
     },
     {
      "id": "lb-master-head-3",
-     "text": "WALL PERFECT; SMOOTHER PARCHED"
+     "text": "WALL PERFECT; SMOOTHER PARCHED",
+     "fit": ["construction"]
     },
     {
      "id": "lb-master-head-4",
@@ -1668,15 +1809,18 @@
     },
     {
      "id": "lb-master-head-5",
-     "text": "FINEST OF A HUNDRED THRONES?"
+     "text": "FINEST OF A HUNDRED THRONES?",
+     "fit": ["furniture", "n_throne"]
     },
     {
      "id": "lb-master-head-6",
-     "text": "MASTERWORK FROM THE LAST GEM"
+     "text": "MASTERWORK FROM THE LAST GEM",
+     "fit": ["gem"]
     },
     {
      "id": "lb-master-head-7",
-     "text": "\"BEST ARMOR STAND I'VE EVER SEEN\""
+     "text": "\"BEST ARMOR STAND I'VE EVER SEEN\"",
+     "fit": ["furniture", "n_armor stand"]
     },
     {
      "id": "lb-master-head-8",
@@ -1702,7 +1846,8 @@
    "caps": [
     {
      "id": "lb-master-cap-1",
-     "text": "The masterwork among a sea of ordinary armor stands, like a duck in a pond of ducks."
+     "text": "The masterwork among a sea of ordinary armor stands, like a duck in a pond of ducks.",
+     "fit": ["furniture", "n_armor stand"]
     },
     {
      "id": "lb-master-cap-2",
@@ -1710,11 +1855,13 @@
     },
     {
      "id": "lb-master-cap-3",
-     "text": "A wall smoothed so perfectly that three dwarves have walked into it."
+     "text": "A wall smoothed so perfectly that three dwarves have walked into it.",
+     "fit": ["construction"]
     },
     {
      "id": "lb-master-cap-4",
-     "text": "The finest throne in the fort, among a hundred others. You can tell by the glow."
+     "text": "The finest throne in the fort, among a hundred others. You can tell by the glow.",
+     "fit": ["furniture", "n_throne"]
     },
     {
      "id": "lb-master-cap-5",
@@ -1722,7 +1869,8 @@
     },
     {
      "id": "lb-master-cap-6",
-     "text": "The masterwork mug. The first drink from it was ceremonial. The second, essential."
+     "text": "The masterwork mug. The first drink from it was ceremonial. The second, essential.",
+     "fit": ["drinkware", "n_mug"]
     },
     {
      "id": "lb-master-cap-7",
@@ -1752,7 +1900,8 @@
    "reps": [
     {
      "id": "lb-master-rep-1",
-     "text": "{who} has produced a masterpiece. Of the eleven hundred armor stands made this season, critics say this one alone stands as if it means it."
+     "text": "{who} has produced a masterpiece. Of the eleven hundred armor stands made this season, critics say this one alone stands as if it means it.",
+     "fit": ["furniture", "n_armor stand"]
     },
     {
      "id": "lb-master-rep-2",
@@ -1761,9 +1910,8 @@
     {
      "id": "lb-master-rep-3",
      "text": "Veterans of {record_fort}, remembered for {record}, call the piece 'the first one I'd actually sit on, or hang a helm on.'",
-     "when": [
-      "has_past_fort"
-     ]
+     "when": ["has_past_fort"],
+     "fit": ["furniture"]
     },
     {
      "id": "lb-master-rep-4",
@@ -1775,7 +1923,8 @@
     },
     {
      "id": "lb-master-rep-6",
-     "text": "The piece was finished with the fort's very last rough gem, moments before a dwarf went into a strange mood and asked for the very last rough gem."
+     "text": "The piece was finished with the fort's very last rough gem, moments before a dwarf went into a strange mood and asked for the very last rough gem.",
+     "fit": ["gem"]
     },
     {
      "id": "lb-master-rep-7",
@@ -1792,9 +1941,8 @@
     {
      "id": "lb-master-rep-10",
      "text": "Elders compare it to the work of the old smiths of {past_fort}, which {past_fort_fate}. 'Lock this one up,' they advise.",
-     "when": [
-      "has_past_fort"
-     ]
+     "when": ["has_past_fort"],
+     "fit": ["ammo", "armor", "container", "crafts", "furniture", "instrument", "metal", "tool", "weapon", "mat_metal"]
     },
     {
      "id": "lb-master-rep-11",
@@ -1802,11 +1950,13 @@
     },
     {
      "id": "lb-master-rep-12",
-     "text": "A legendary smoother has finished a wall so perfect that the Overseer has asked for it to be smoothed again, to check."
+     "text": "A legendary smoother has finished a wall so perfect that the Overseer has asked for it to be smoothed again, to check.",
+     "fit": ["construction"]
     },
     {
      "id": "lb-master-rep-13",
-     "text": "The masterpiece now sits in the dining hall, improving every meal for those who can see it, which is mostly the cat."
+     "text": "The masterpiece now sits in the dining hall, improving every meal for those who can see it, which is mostly the cat.",
+     "fit": ["furniture", "statue"]
     },
     {
      "id": "lb-master-rep-14",
@@ -1820,11 +1970,13 @@
     },
     {
      "id": "lb-master-label-2",
-     "text": "ORDINARY STAND"
+     "text": "ORDINARY STAND",
+     "fit": ["furniture"]
     },
     {
      "id": "lb-master-label-3",
-     "text": "SMOOTH (VERY)"
+     "text": "SMOOTH (VERY)",
+     "fit": ["construction"]
     },
     {
      "id": "lb-master-label-4",
@@ -1832,7 +1984,8 @@
     },
     {
      "id": "lb-master-label-5",
-     "text": "THRONE #100"
+     "text": "THRONE #100",
+     "fit": ["furniture", "n_throne"]
     },
     {
      "id": "lb-master-label-6",
@@ -1844,7 +1997,8 @@
     },
     {
      "id": "lb-master-label-8",
-     "text": "THE LAST GEM"
+     "text": "THE LAST GEM",
+     "fit": ["gem"]
     }
    ],
    "kickers": [
@@ -1858,7 +2012,8 @@
     },
     {
      "id": "lb-master-kicker-3",
-     "text": "Walk carefully; the walls are now dangerously smooth."
+     "text": "Walk carefully; the walls are now dangerously smooth.",
+     "fit": ["construction"]
     },
     {
      "id": "lb-master-kicker-4",
@@ -1870,11 +2025,13 @@
     },
     {
      "id": "lb-master-kicker-6",
-     "text": "One good armor stand. Only a thousand to go."
+     "text": "One good armor stand. Only a thousand to go.",
+     "fit": ["furniture", "n_armor stand"]
     },
     {
      "id": "lb-master-kicker-7",
-     "text": "Please drink from the masterwork mug. That is what it is for."
+     "text": "Please drink from the masterwork mug. That is what it is for.",
+     "fit": ["drinkware", "n_mug"]
     },
     {
      "id": "lb-master-kicker-8",
@@ -1886,23 +2043,28 @@
    "heads": [
     {
      "id": "lb-strike-head-1",
-     "text": "ROUGH GEMS FOUND! MOODS REJOICE"
+     "text": "ROUGH GEMS FOUND! MOODS REJOICE",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-head-2",
-     "text": "VEIN FOUND; 10,000 JOBS QUEUED"
+     "text": "VEIN FOUND; 10,000 JOBS QUEUED",
+     "fit": ["gem", "ore", "coal", "stone"]
     },
     {
      "id": "lb-strike-head-3",
-     "text": "STRIKE THE EARTH, THEN SMOOTH IT"
+     "text": "STRIKE THE EARTH, THEN SMOOTH IT",
+     "fit": ["gem", "ore", "coal", "stone"]
     },
     {
      "id": "lb-strike-head-4",
-     "text": "MINER STRIKES ORE, AVOIDS TREES"
+     "text": "MINER STRIKES ORE, AVOIDS TREES",
+     "fit": ["ore"]
     },
     {
      "id": "lb-strike-head-5",
-     "text": "GEMS FOUND; JEWELER RESTRAINED"
+     "text": "GEMS FOUND; JEWELER RESTRAINED",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-head-6",
@@ -1910,45 +2072,55 @@
     },
     {
      "id": "lb-strike-head-7",
-     "text": "SILVER STRIKE; MACE NOSTALGIA"
+     "text": "SILVER STRIKE; MACE NOSTALGIA",
+     "fit": ["ore", "metal_silver"]
     },
     {
      "id": "lb-strike-head-8",
-     "text": "MINE HITS WATER; DWARVES STILL DRY"
+     "text": "MINE HITS WATER; DWARVES STILL DRY",
+     "fit": ["ev_never"]
     },
     {
      "id": "lb-strike-head-9",
-     "text": "ORE AHOY! OVERSEER ORDERS STANDS"
+     "text": "ORE AHOY! OVERSEER ORDERS STANDS",
+     "fit": ["ore"]
     },
     {
      "id": "lb-strike-head-10",
-     "text": "NEW VEIN, NEW GOBLIN INTEREST"
+     "text": "NEW VEIN, NEW GOBLIN INTEREST",
+     "fit": ["gem", "ore", "coal", "stone"]
     },
     {
      "id": "lb-strike-head-11",
-     "text": "800 LOOSE STONES; ONE GOOD ONE"
+     "text": "800 LOOSE STONES; ONE GOOD ONE",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-head-12",
-     "text": "MINERS HIT IT BIG, KEEP DIGGING"
+     "text": "MINERS HIT IT BIG, KEEP DIGGING",
+     "fit": ["gem", "ore"]
     }
    ],
    "caps": [
     {
      "id": "lb-strike-cap-1",
-     "text": "The miner's find. The jeweler was drawn outside the frame, for everyone's safety."
+     "text": "The miner's find. The jeweler was drawn outside the frame, for everyone's safety.",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-cap-2",
-     "text": "A pocket of rough gems, sketched quickly before anyone could cut them."
+     "text": "A pocket of rough gems, sketched quickly before anyone could cut them.",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-cap-3",
-     "text": "The vein, glittering. The Overseer's planned armor stands, glittering faintly in the future."
+     "text": "The vein, glittering. The Overseer's planned armor stands, glittering faintly in the future.",
+     "fit": ["gem", "ore"]
     },
     {
      "id": "lb-strike-cap-4",
-     "text": "The miner pointing at ore and also, by accident, at a forgotten beast's front door."
+     "text": "The miner pointing at ore and also, by accident, at a forgotten beast's front door.",
+     "fit": ["ore"]
     },
     {
      "id": "lb-strike-cap-5",
@@ -1956,7 +2128,8 @@
     },
     {
      "id": "lb-strike-cap-6",
-     "text": "Silver, the stuff of legendary maces. The veterans stood very still to look at it."
+     "text": "Silver, the stuff of legendary maces. The veterans stood very still to look at it.",
+     "fit": ["ore", "metal_silver"]
     },
     {
      "id": "lb-strike-cap-7",
@@ -1975,7 +2148,8 @@
     },
     {
      "id": "lb-strike-cap-10",
-     "text": "The moodiest dwarf in the fort, peering in, asking if any of it is rough."
+     "text": "The moodiest dwarf in the fort, peering in, asking if any of it is rough.",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-cap-11",
@@ -1989,11 +2163,13 @@
    "reps": [
     {
      "id": "lb-strike-rep-1",
-     "text": "Miners have struck a pocket of rough gems. The jeweler was escorted from the area at once, and every dwarf with a history of moods has been told, quietly, to wait."
+     "text": "Miners have struck a pocket of rough gems. The jeweler was escorted from the area at once, and every dwarf with a history of moods has been told, quietly, to wait.",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-rep-2",
-     "text": "{who} hit the vein mid-swing and shouted 'Strike the earth!' The Overseer heard it and queued eleven hundred more digging jobs, to be thorough."
+     "text": "{who} hit the vein mid-swing and shouted 'Strike the earth!' The Overseer heard it and queued eleven hundred more digging jobs, to be thorough.",
+     "fit": ["gem", "ore", "coal", "stone"]
     },
     {
      "id": "lb-strike-rep-3",
@@ -2008,61 +2184,72 @@
     },
     {
      "id": "lb-strike-rep-5",
-     "text": "The bookkeeper values the find at roughly a thousand armor stands, a unit of value the fort has, sadly, adopted."
+     "text": "The bookkeeper values the find at roughly a thousand armor stands, a unit of value the fort has, sadly, adopted.",
+     "fit": ["gem", "ore"]
     },
     {
      "id": "lb-strike-rep-6",
-     "text": "Engineers warn deeper digging means caverns, and caverns mean forgotten beasts. Miners reply that it also means rough gems. The debate continues."
+     "text": "Engineers warn deeper digging means caverns, and caverns mean forgotten beasts. Miners reply that it also means rough gems. The debate continues.",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-rep-7",
-     "text": "{liaison}, our liaison, writes that there is much to share and asks whether the ore might be exported at double the price. The miners replied with a gesture."
+     "text": "{liaison}, our liaison, writes that there is much to share and asks whether the ore might be exported at double the price. The miners replied with a gesture.",
+     "fit": ["ore"]
     },
     {
      "id": "lb-strike-rep-8",
-     "text": "{first} reports striking the vein 'with one swing, and three days of swinging before it.' A drink was sent down, and {first} was watched until it was finished."
+     "text": "{first} reports striking the vein 'with one swing, and three days of swinging before it.' A drink was sent down, and {first} was watched until it was finished.",
+     "fit": ["gem", "ore", "coal", "stone"]
     },
     {
      "id": "lb-strike-rep-9",
-     "text": "The mayor's office praised the strike and filed a production order violation, as the ore was found before the order to find it was issued."
+     "text": "The mayor's office praised the strike and filed a production order violation, as the ore was found before the order to find it was issued.",
+     "fit": ["ore"]
     },
     {
      "id": "lb-strike-rep-10",
      "text": "{enemy} is believed to read the Herald. The Herald therefore reports the strike was small, dull and mostly gravel.",
-     "when": [
-      "at_war"
-     ]
+     "when": ["at_war"],
+     "fit": ["gem", "ore", "coal", "stone"]
     },
     {
      "id": "lb-strike-rep-11",
      "text": "Silver has been found, the metal of Claspedserpent, the great mace of Quakefocus. The weaponsmiths are thrilled. The militia, all one of it, is asleep.",
-     "world": "The Enchanted Planes"
+     "world": "The Enchanted Planes",
+     "fit": ["ore", "metal_silver"]
     },
     {
      "id": "lb-strike-rep-12",
-     "text": "The ore stockpile is now full, and the overflow has been stacked in the throne room, among thrones one through a hundred."
+     "text": "The ore stockpile is now full, and the overflow has been stacked in the throne room, among thrones one through a hundred.",
+     "fit": ["ore"]
     },
     {
      "id": "lb-strike-rep-13",
-     "text": "The strike is so promising that the Overseer has ordered the tunnels smoothed, the smoothing engraved and the engravings, possibly, smoothed."
+     "text": "The strike is so promising that the Overseer has ordered the tunnels smoothed, the smoothing engraved and the engravings, possibly, smoothed.",
+     "fit": ["gem", "ore", "coal", "stone"]
     },
     {
      "id": "lb-strike-rep-14",
-     "text": "Miners are reminded the find is underground, which is the correct direction. Trees are the wrong direction. A miner on a branch has never struck anything."
+     "text": "Miners are reminded the find is underground, which is the correct direction. Trees are the wrong direction. A miner on a branch has never struck anything.",
+     "fit": ["gem", "ore", "coal", "stone"]
     }
    ],
    "labels": [
     {
      "id": "lb-strike-label-1",
-     "text": "ROUGH GEMS!"
+     "text": "ROUGH GEMS!",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-label-2",
-     "text": "JEWELER (HELD)"
+     "text": "JEWELER (HELD)",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-label-3",
-     "text": "THE VEIN"
+     "text": "THE VEIN",
+     "fit": ["gem", "ore", "coal", "stone"]
     },
     {
      "id": "lb-strike-label-4",
@@ -2070,7 +2257,8 @@
     },
     {
      "id": "lb-strike-label-5",
-     "text": "SILVER"
+     "text": "SILVER",
+     "fit": ["ore", "metal_silver"]
     },
     {
      "id": "lb-strike-label-6",
@@ -2088,11 +2276,13 @@
    "kickers": [
     {
      "id": "lb-strike-kicker-1",
-     "text": "Jewelers are asked to keep their hands in their pockets."
+     "text": "Jewelers are asked to keep their hands in their pockets.",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-kicker-2",
-     "text": "Rough gems are reserved for the next strange mood."
+     "text": "Rough gems are reserved for the next strange mood.",
+     "fit": ["gem"]
     },
     {
      "id": "lb-strike-kicker-3",
@@ -2112,7 +2302,8 @@
     },
     {
      "id": "lb-strike-kicker-7",
-     "text": "Next stop: the caverns, and whatever lives there."
+     "text": "Next stop: the caverns, and whatever lives there.",
+     "fit": ["cavern"]
     },
     {
      "id": "lb-strike-kicker-8",

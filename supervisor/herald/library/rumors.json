@@ -1686,7 +1686,8 @@
    "bodies": [
     {
      "id": "rm-artifact_in_inventory-b01",
-     "text": "{artifact}, a {artifact_item}, is in the possession of {hf}, {source} reports. The holder is said to carry it everywhere, including to dinner, to bed and, by some accounts, to the bath."
+     "text": "{artifact}, a {artifact_item}, is in the possession of {hf}, {source} reports. The holder is said to carry it everywhere, including to dinner, to bed and, by some accounts, to the bath.",
+     "fit": ["furniture", "n_bed"]
     },
     {
      "id": "rm-artifact_in_inventory-b02",
@@ -1756,7 +1757,8 @@
     },
     {
      "id": "rm-artifact_not_in_site-b05",
-     "text": "{artifact} is gone from {site}, according to {source}. The town launched a search, checked under every bed and found three lost socks, a cat and no {artifact_item}."
+     "text": "{artifact} is gone from {site}, according to {source}. The town launched a search, checked under every bed and found three lost socks, a cat and no {artifact_item}.",
+     "fit": ["clothing", "furniture", "n_bed", "n_sock"]
     },
     {
      "id": "rm-artifact_not_in_site-b06",

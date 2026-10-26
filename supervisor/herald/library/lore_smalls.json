@@ -1098,22 +1098,15 @@
   {
    "id": "ls3-ad-061",
    "lines": [
-    [
-     "bk",
-     "Masterwork Insurance"
-    ],
-    [
-     "eng",
-     "COVERING {masterwork}"
-    ],
+    ["bk", "Masterwork Insurance"],
+    ["eng", "COVERING {masterwork}"],
     [
      "fine",
      "If the Overseer melts it, sells it or forgets it on a stockpile at the map's edge, we pay out. In plump helmets, mostly."
     ]
    ],
-   "when": [
-    "recent_masterpiece"
-   ]
+   "when": ["recent_masterpiece"],
+   "fit": ["armor", "weapon", "n_helm"]
   },
   {
    "id": "ls3-ad-062",
@@ -1138,22 +1131,15 @@
   {
    "id": "ls3-ad-063",
    "lines": [
-    [
-     "bk",
-     "Strike Seminars"
-    ],
-    [
-     "eng",
-     "SO YOU FOUND {mineral}"
-    ],
+    ["bk", "Strike Seminars"],
+    ["eng", "SO YOU FOUND {mineral}"],
     [
      "fine",
      "And the Overseer has ordered two thousand things out of it. We teach restraint. Final exam: carve one thing. Then stop. Then stop again."
     ]
    ],
-   "when": [
-    "recent_strike"
-   ]
+   "when": ["recent_strike"],
+   "fit": ["gem", "ore", "coal", "stone"]
   },
   {
    "id": "ls3-ad-064",
@@ -1477,22 +1463,15 @@
   {
    "id": "ls3-ad-082",
    "lines": [
-    [
-     "bk",
-     "{masterwright}'s Workshop"
-    ],
-    [
-     "eng",
-     "AS SEEN IN {masterwork}"
-    ],
+    ["bk", "{masterwright}'s Workshop"],
+    ["eng", "AS SEEN IN {masterwork}"],
     [
      "fine",
      "Commissions now open, except for armor stands, thrones and anything else that might accidentally be ordered two thousand times."
     ]
    ],
-   "when": [
-    "recent_masterpiece"
-   ]
+   "when": ["recent_masterpiece"],
+   "fit": ["furniture", "n_armor stand", "n_throne"]
   },
   {
    "id": "ls3-ad-083",
@@ -4711,9 +4690,8 @@
   {
    "id": "ls3-nt-080",
    "text": "{mineral} has been struck. The Overseer has not yet ordered anything silly from it. Yet.",
-   "when": [
-    "recent_strike"
-   ]
+   "when": ["recent_strike"],
+   "fit": ["gem", "ore", "coal", "stone"]
   },
   {
    "id": "ls3-nt-081",

@@ -460,27 +460,33 @@
       "heads": [
         {
           "id": "bk-pet-head-1",
-          "text": "BELOVED ANIMAL PASSES ON"
+          "text": "BELOVED ANIMAL PASSES ON",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-head-2",
-          "text": "FORT IN MOURNING FOR GOOD BOY"
+          "text": "FORT IN MOURNING FOR GOOD BOY",
+          "fit": ["sp_dog", "!die_slaughter"]
         },
         {
           "id": "bk-pet-head-3",
-          "text": "PET DIES. CATS UNMOVED."
+          "text": "PET DIES. CATS UNMOVED.",
+          "fit": ["sp_cat", "!die_slaughter"]
         },
         {
           "id": "bk-pet-head-4",
-          "text": "FAREWELL, FURRY FRIEND"
+          "text": "FAREWELL, FURRY FRIEND",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-head-5",
-          "text": "ANIMAL LOST, OWNER INCONSOLABLE"
+          "text": "ANIMAL LOST, OWNER INCONSOLABLE",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-head-6",
-          "text": "A PAW PRINT ON OUR HEARTS"
+          "text": "A PAW PRINT ON OUR HEARTS",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-head-7",
@@ -488,115 +494,141 @@
         },
         {
           "id": "bk-pet-head-8",
-          "text": "FORT ONE CREATURE LIGHTER"
+          "text": "FORT ONE CREATURE LIGHTER",
+          "fit": ["!die_slaughter"]
         }
       ],
       "caps": [
         {
           "id": "bk-pet-cap-1",
-          "text": "The late animal, drawn with four legs. The artist checked. Twice."
+          "text": "The late animal, drawn with four legs. The artist checked. Twice.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-cap-2",
-          "text": "Artist's impression of the pet. The artist was not sure what species it was and hedged."
+          "text": "Artist's impression of the pet. The artist was not sure what species it was and hedged.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-cap-3",
-          "text": "The animal's favourite spot, a pile of socks, recreated faithfully."
+          "text": "The animal's favourite spot, a pile of socks, recreated faithfully.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-cap-4",
-          "text": "A tiny grave with a tiny slab. The artist cried and smudged the ink."
+          "text": "A tiny grave with a tiny slab. The artist cried and smudged the ink.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-cap-5",
-          "text": "The owner, weeping. The tears are the size of the owner's head. Artistic licence."
+          "text": "The owner, weeping. The tears are the size of the owner's head. Artistic licence.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-cap-6",
-          "text": "The other cats, attending the funeral for the free food."
+          "text": "The other cats, attending the funeral for the free food.",
+          "fit": ["sp_cat", "!die_slaughter"]
         },
         {
           "id": "bk-pet-cap-7",
-          "text": "This is either a dog or a very fluffy war hammer. The artist will not say."
+          "text": "This is either a dog or a very fluffy war hammer. The artist will not say.",
+          "fit": ["sp_dog", "!die_slaughter"]
         },
         {
           "id": "bk-pet-cap-8",
-          "text": "The pet in happier times, chasing a vermin the artist forgot to draw."
+          "text": "The pet in happier times, chasing a vermin the artist forgot to draw.",
+          "fit": ["!die_slaughter"]
         }
       ],
       "reps": [
         {
           "id": "bk-pet-rep-1",
-          "text": "The animal is remembered for its loyalty, its warmth, and its habit of sleeping in the dining hall exactly where everyone wanted to walk."
+          "text": "The animal is remembered for its loyalty, its warmth, and its habit of sleeping in the dining hall exactly where everyone wanted to walk.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-rep-2",
-          "text": "Its owner, {who}, has taken the news badly and is said to be one bad meal away from a full tantrum. Friends are bringing ale."
+          "text": "Its owner, {who}, has taken the news badly and is said to be one bad meal away from a full tantrum. Friends are bringing ale.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-rep-3",
-          "text": "The fortress cats have issued no statement but were seen eating from the deceased's food bowl within the hour."
+          "text": "The fortress cats have issued no statement but were seen eating from the deceased's food bowl within the hour.",
+          "fit": ["sp_cat", "!die_slaughter"]
         },
         {
           "id": "bk-pet-rep-4",
-          "text": "A small memorial is planned near the kennels. The mason has agreed to engrave it with a picture of the animal, or of a carp, depending on mood."
+          "text": "A small memorial is planned near the kennels. The mason has agreed to engrave it with a picture of the animal, or of a carp, depending on mood.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-rep-5",
-          "text": "Animal handlers confirm the creature lived a full life, by which they mean it ate, slept, and once bit a noble, which everyone secretly enjoyed."
+          "text": "Animal handlers confirm the creature lived a full life, by which they mean it ate, slept, and once bit a noble, which everyone secretly enjoyed.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-rep-6",
-          "text": "Children of the fortress have been told the animal has gone to live on a big farm on the surface, where the sky is large and frightening."
+          "text": "Children of the fortress have been told the animal has gone to live on a big farm on the surface, where the sky is large and frightening.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-rep-7",
-          "text": "The loss leaves {fort} with {pop} citizens and one fewer warm thing to put your feet on during the long winter."
+          "text": "The loss leaves {fort} with {pop} citizens and one fewer warm thing to put your feet on during the long winter.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-rep-8",
-          "text": "Veterinary science, such as it is, has been consulted and confirms the animal is 'definitely not getting up again, sorry.'"
+          "text": "Veterinary science, such as it is, has been consulted and confirms the animal is 'definitely not getting up again, sorry.'",
+          "fit": ["!die_slaughter"]
         }
       ],
       "labels": [
         {
           "id": "bk-pet-label-1",
-          "text": "GOOD BOY"
+          "text": "GOOD BOY",
+          "fit": ["sp_dog", "!die_slaughter"]
         },
         {
           "id": "bk-pet-label-2",
-          "text": "VERY FLUFFY"
+          "text": "VERY FLUFFY",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-label-3",
-          "text": "THE OWNER (SAD)"
+          "text": "THE OWNER (SAD)",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-label-4",
-          "text": "TINY GRAVE"
+          "text": "TINY GRAVE",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-label-5",
-          "text": "LEGS (4)"
+          "text": "LEGS (4)",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-label-6",
-          "text": "A SOCK"
+          "text": "A SOCK",
+          "fit": ["!die_slaughter"]
         }
       ],
       "kickers": [
         {
           "id": "bk-pet-kick-1",
-          "text": "The animal has no comment, and never did."
+          "text": "The animal has no comment, and never did.",
+          "fit": ["!die_slaughter"]
         },
         {
           "id": "bk-pet-kick-2",
-          "text": "Please do not adopt another one until the paperwork is done."
+          "text": "Please do not adopt another one until the paperwork is done.",
+          "fit": ["ev_adopt"]
         },
         {
           "id": "bk-pet-kick-3",
-          "text": "{first} has asked for privacy and a puppy."
+          "text": "{first} has asked for privacy and a puppy.",
+          "fit": ["sp_dog", "!die_slaughter"]
         }
       ]
     },
@@ -760,7 +792,8 @@
         },
         {
           "id": "bk-mood-head-3",
-          "text": "\"I NEED BONES,\" SAYS DWARF"
+          "text": "\"I NEED BONES,\" SAYS DWARF",
+          "fit": ["shop_Bone Carver's Workshop", "shop_Craftsdwarf's Workshop"]
         },
         {
           "id": "bk-mood-head-4",
@@ -776,7 +809,8 @@
         },
         {
           "id": "bk-mood-head-7",
-          "text": "MOODY DWARF CLAIMS THE FORGE"
+          "text": "MOODY DWARF CLAIMS THE FORGE",
+          "fit": ["shop_Magma Forge", "shop_Metalsmith's Forge"]
         },
         {
           "id": "bk-mood-head-8",
@@ -790,7 +824,8 @@
         },
         {
           "id": "bk-mood-cap-2",
-          "text": "A list of demands pinned to the workshop door. The artist could only read 'SHELLS?'"
+          "text": "A list of demands pinned to the workshop door. The artist could only read 'SHELLS?'",
+          "fit": ["shop_Bone Carver's Workshop", "shop_Craftsdwarf's Workshop"]
         },
         {
           "id": "bk-mood-cap-3",
@@ -824,7 +859,8 @@
         },
         {
           "id": "bk-mood-rep-2",
-          "text": "{who} has posted a scribbled list of required materials. Haulers can find the stone and the wood but are unsure what 'the bones of something proud' means."
+          "text": "{who} has posted a scribbled list of required materials. Haulers can find the stone and the wood but are unsure what 'the bones of something proud' means.",
+          "fit": ["shop_Bone Carver's Workshop", "shop_Craftsdwarf's Workshop"]
         },
         {
           "id": "bk-mood-rep-3",
@@ -832,7 +868,8 @@
         },
         {
           "id": "bk-mood-rep-4",
-          "text": "The workshop has been claimed, the door is shut, and the forge is roaring. Other craftsdwarves were asked to find something else to do. They chose drinking."
+          "text": "The workshop has been claimed, the door is shut, and the forge is roaring. Other craftsdwarves were asked to find something else to do. They chose drinking.",
+          "fit": ["shop_Magma Forge", "shop_Metalsmith's Forge"]
         },
         {
           "id": "bk-mood-rep-5",
@@ -866,11 +903,13 @@
         },
         {
           "id": "bk-mood-label-4",
-          "text": "SHELLS?"
+          "text": "SHELLS?",
+          "fit": ["shop_Bone Carver's Workshop", "shop_Craftsdwarf's Workshop"]
         },
         {
           "id": "bk-mood-label-5",
-          "text": "BONES?"
+          "text": "BONES?",
+          "fit": ["shop_Bone Carver's Workshop", "shop_Craftsdwarf's Workshop"]
         },
         {
           "id": "bk-mood-label-6",
@@ -900,7 +939,8 @@
       "heads": [
         {
           "id": "bk-artifact-head-1",
-          "text": "ARTIFACT CREATED! IT'S... A MUG"
+          "text": "ARTIFACT CREATED! IT'S... A MUG",
+          "fit": ["drinkware", "n_mug"]
         },
         {
           "id": "bk-artifact-head-2",
@@ -950,7 +990,8 @@
         },
         {
           "id": "bk-artifact-cap-5",
-          "text": "Detail of the menacing spikes. There were spikes. There are always spikes."
+          "text": "Detail of the menacing spikes. There were spikes. There are always spikes.",
+          "fit": ["n_menacing spike"]
         },
         {
           "id": "bk-artifact-cap-6",
@@ -958,7 +999,8 @@
         },
         {
           "id": "bk-artifact-cap-7",
-          "text": "We believe this is a crown. The artist believes it is a hat. They have stopped speaking."
+          "text": "We believe this is a crown. The artist believes it is a hat. They have stopped speaking.",
+          "fit": ["jewelry"]
         },
         {
           "id": "bk-artifact-cap-8",
@@ -1068,7 +1110,8 @@
         },
         {
           "id": "bk-master-head-6",
-          "text": "NEW MASTERWORK HAS NICE EDGES"
+          "text": "NEW MASTERWORK HAS NICE EDGES",
+          "fit": ["weapon"]
         },
         {
           "id": "bk-master-head-7",
@@ -1094,7 +1137,8 @@
         },
         {
           "id": "bk-master-cap-4",
-          "text": "The item from three angles. All three angles look like a boot."
+          "text": "The item from three angles. All three angles look like a boot.",
+          "fit": ["wearable", "n_boot"]
         },
         {
           "id": "bk-master-cap-5",
@@ -1158,7 +1202,8 @@
         },
         {
           "id": "bk-master-label-3",
-          "text": "PERFECT EDGE"
+          "text": "PERFECT EDGE",
+          "fit": ["weapon"]
         },
         {
           "id": "bk-master-label-4",
@@ -1192,15 +1237,18 @@
       "heads": [
         {
           "id": "bk-strike-head-1",
-          "text": "STRIKE THE EARTH! EARTH STRUCK"
+          "text": "STRIKE THE EARTH! EARTH STRUCK",
+          "fit": ["gem", "ore", "coal", "stone"]
         },
         {
           "id": "bk-strike-head-2",
-          "text": "MINERS HIT SOMETHING SHINY"
+          "text": "MINERS HIT SOMETHING SHINY",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk-strike-head-3",
-          "text": "RICHES FOUND! NOBLES EXCITED"
+          "text": "RICHES FOUND! NOBLES EXCITED",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk-strike-head-4",
@@ -1208,7 +1256,8 @@
         },
         {
           "id": "bk-strike-head-5",
-          "text": "CAVERN OPENS: DARK, ROOMY, DAMP"
+          "text": "CAVERN OPENS: DARK, ROOMY, DAMP",
+          "fit": ["cavern"]
         },
         {
           "id": "bk-strike-head-6",
@@ -1226,7 +1275,8 @@
       "caps": [
         {
           "id": "bk-strike-cap-1",
-          "text": "The vein of ore, as described by the miner: 'like that, but shinier.'"
+          "text": "The vein of ore, as described by the miner: 'like that, but shinier.'",
+          "fit": ["ore"]
         },
         {
           "id": "bk-strike-cap-2",
@@ -1238,7 +1288,8 @@
         },
         {
           "id": "bk-strike-cap-4",
-          "text": "The newly opened cavern. It is a black square. The artist insists that is what it looked like."
+          "text": "The newly opened cavern. It is a black square. The artist insists that is what it looked like.",
+          "fit": ["cavern"]
         },
         {
           "id": "bk-strike-cap-5",
@@ -1246,7 +1297,8 @@
         },
         {
           "id": "bk-strike-cap-6",
-          "text": "Sparkles indicate value. The artist uses sparkles generously and without evidence."
+          "text": "Sparkles indicate value. The artist uses sparkles generously and without evidence.",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk-strike-cap-7",
@@ -1254,7 +1306,8 @@
         },
         {
           "id": "bk-strike-cap-8",
-          "text": "A mushroom tree in the cavern. The artist has never seen a tree and guessed."
+          "text": "A mushroom tree in the cavern. The artist has never seen a tree and guessed.",
+          "fit": ["cavern"]
         }
       ],
       "reps": [
@@ -1268,19 +1321,23 @@
         },
         {
           "id": "bk-strike-rep-3",
-          "text": "Economists predict the find will double the fortress's wealth, triple the nobles' demands and quadruple the number of goblins who suddenly want to visit."
+          "text": "Economists predict the find will double the fortress's wealth, triple the nobles' demands and quadruple the number of goblins who suddenly want to visit.",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk-strike-rep-4",
-          "text": "The bookkeeper has been asked to count the new riches but has instead gone to lie down. 'It's too many,' he said, faintly."
+          "text": "The bookkeeper has been asked to count the new riches but has instead gone to lie down. 'It's too many,' he said, faintly.",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk-strike-rep-5",
-          "text": "Experts warn that what lies further below may be magma, glory, or something that has been waiting very patiently. Digging will continue anyway."
+          "text": "Experts warn that what lies further below may be magma, glory, or something that has been waiting very patiently. Digging will continue anyway.",
+          "fit": ["magma"]
         },
         {
           "id": "bk-strike-rep-6",
-          "text": "Smelters are reportedly ecstatic, which in a smelter looks like a slight nod. Their furnaces have been stoked accordingly."
+          "text": "Smelters are reportedly ecstatic, which in a smelter looks like a slight nod. Their furnaces have been stoked accordingly.",
+          "fit": ["ore"]
         },
         {
           "id": "bk-strike-rep-7",
@@ -1294,15 +1351,18 @@
       "labels": [
         {
           "id": "bk-strike-label-1",
-          "text": "SHINY!!"
+          "text": "SHINY!!",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk-strike-label-2",
-          "text": "ORE"
+          "text": "ORE",
+          "fit": ["ore"]
         },
         {
           "id": "bk-strike-label-3",
-          "text": "MORE ORE"
+          "text": "MORE ORE",
+          "fit": ["ore"]
         },
         {
           "id": "bk-strike-label-4",
@@ -1328,7 +1388,8 @@
         },
         {
           "id": "bk-strike-kick-2",
-          "text": "The deep rock had no comment, but glittered suggestively."
+          "text": "The deep rock had no comment, but glittered suggestively.",
+          "fit": ["gem", "ore"]
         },
         {
           "id": "bk-strike-kick-3",

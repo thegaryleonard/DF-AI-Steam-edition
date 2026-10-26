@@ -384,9 +384,8 @@
    "head": "WHAT WE STRUCK",
    "body": "Our miners report {mineral}. A gem in the rough is worth something; a gem cut at the jeweler's and set into good work is worth a great deal more. To the jewelers, then.",
    "by": "Asmel Seamfinder",
-   "when": [
-    "recent_strike"
-   ]
+   "when": ["recent_strike"],
+   "fit": ["gem"]
   },
   {
    "id": "wk-ed-044",
@@ -553,9 +552,8 @@
    "head": "QUALITY, OR WHY A MUG COSTS WHAT IT COSTS",
    "body": "Every crafted thing has a quality: plain, fine, superior, exceptional, masterwork, and above all of them the artifact. Value rises with each step, and a merchant can tell the difference at twenty paces. Our masterwork {masterwork_last} is, I am told, not for sale.",
    "by": "Bookkeeper Inod",
-   "when": [
-    "masterpiece_week"
-   ]
+   "when": ["masterpiece_week"],
+   "fit": ["drinkware", "n_mug"]
   },
   {
    "id": "wk-ed-063",
@@ -905,9 +903,8 @@
    "id": "wk-lt-024",
    "body": "I would like to thank the masons for the new {masterwork_last}. Wait, that was {masterwright_last}? Then I would like to thank {masterwright_last}, and also to know why the masons are taking credit.",
    "by": "{citizen}",
-   "when": [
-    "masterpiece_week"
-   ]
+   "when": ["masterpiece_week"],
+   "fit": ["construction", "container", "crafts", "engraving", "furniture", "statue", "tool", "mat_stone"]
   },
   {
    "id": "wk-lt-025",
@@ -1121,10 +1118,8 @@
   {
    "id": "wk-ob-005",
    "text": "{deadname}, {prof}, has {cause}. Their squadmates have asked that their weapon be hung in the barracks, where the training dummies can see it and be afraid.",
-   "when": [
-    "recent_death",
-    "has_military"
-   ]
+   "when": ["recent_death", "has_military"],
+   "fit": ["die_combat"]
   },
   {
    "id": "wk-ob-006",

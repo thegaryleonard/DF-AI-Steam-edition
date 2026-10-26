@@ -2329,7 +2329,8 @@
    },
    {
     "id": "lo-artifact_in_site-b2",
-    "text": "The {artifact_item} {artifact} rests at {site}; artifacts back home send their regards from their pedestals."
+    "text": "The {artifact_item} {artifact} rests at {site}; artifacts back home send their regards from their pedestals.",
+    "fit": ["furniture", "n_pedestal"]
    },
    {
     "id": "lo-artifact_in_site-b3",

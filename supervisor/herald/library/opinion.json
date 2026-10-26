@@ -123,13 +123,12 @@
     },
     {
       "id": "ed-science-mineral",
-      "when": [
-        "recent_strike"
-      ],
+      "when": ["recent_strike"],
       "kick": "Science",
       "head": "{mineral}: A GEOLOGIST'S HUMBLE REVIEW",
       "body": "The miners have struck {mineral}, and this desk has spent a full afternoon licking it. Findings: it is a rock. It is a nice rock. Tastes faintly of ambition. We recommend everyone stop by and admire it before a hauler moves it to a stockpile three levels away, where it will never be seen again.",
-      "by": "Our Mining Correspondent"
+      "by": "Our Mining Correspondent",
+      "fit": ["gem", "ore", "coal", "stone"]
     },
     {
       "id": "ed-noble-mandate",
@@ -262,7 +261,8 @@
       "kick": "Commentary",
       "head": "A VISIT TO {artifact}, SINCE YOU ASKED",
       "body": "Our fort's prized artifact, {artifact}, a {artifact_item}, remains on display, guarded by two dwarves and one very suspicious cat. Visitors are asked not to touch it, lick it, or wear it to the tavern. The artisan who made it has not spoken in seasons, apart from the occasional whispered 'you're welcome'.",
-      "by": "Our Arts Critic"
+      "by": "Our Arts Critic",
+      "fit": ["wearable"]
     },
     {
       "id": "ed-business-trade-depot",
@@ -590,11 +590,10 @@
     },
     {
       "id": "lt-masterpiece-sour",
-      "when": [
-        "recent_masterpiece"
-      ],
+      "when": ["recent_masterpiece"],
       "body": "everyone is talking about the {masterwork} made by {masterwright}. I have also made things this month. Several mugs. Nobody writes about the mugs. The mugs are fine, thank you for asking.",
-      "by": "{citizen}, Stonecrafter"
+      "by": "{citizen}, Stonecrafter",
+      "fit": ["drinkware", "mat_stone", "n_mug"]
     },
     {
       "id": "lt-promotion-sour",
@@ -646,11 +645,10 @@
     },
     {
       "id": "lt-strike-mineral",
-      "when": [
-        "recent_strike"
-      ],
+      "when": ["recent_strike"],
       "body": "I was the miner who struck the {mineral}. I would like credit. I would also like a mug. A small statue would also be acceptable. Mostly I would like credit.",
-      "by": "{citizen}, Miner"
+      "by": "{citizen}, Miner",
+      "fit": ["gem", "ore", "coal", "stone"]
     },
     {
       "id": "lt-strike-skeptic",
@@ -809,7 +807,8 @@
     {
       "id": "lt-artifact-wear",
       "body": "I would like permission to wear {artifact}, the {artifact_item}, to the tavern on special occasions. Only once. Only for a night. I will return it, more or less, intact.",
-      "by": "{citizen}"
+      "by": "{citizen}",
+      "fit": ["wearable"]
     },
     {
       "id": "lt-forgotten-beast-reminder",

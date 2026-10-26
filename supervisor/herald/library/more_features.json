@@ -1059,9 +1059,8 @@
     "I'd like my leather back.",
     "The door opened, the artifact came out, and {moodname} asked what day it was."
    ],
-   "when": [
-    "recent_mood"
-   ]
+   "when": ["recent_mood"],
+   "fit": ["leather", "mat_bone"]
   },
   {
    "id": "x3-vp-cavern-breach",
@@ -1606,9 +1605,8 @@
    "id": "x3-an-arrive-mood-artifact",
    "kind": "Arrivals",
    "text": "Please welcome {artifact}, the newest resident of {fort}. This fine {artifact_item} emerged with {moodname} after a long, loud week. It will be receiving visitors at its pedestal.",
-   "when": [
-    "recent_mood"
-   ]
+   "when": ["recent_mood"],
+   "fit": ["furniture", "n_pedestal"]
   },
   {
    "id": "x3-an-anniv-founding-mug",
@@ -1629,9 +1627,8 @@
    "id": "x3-an-anniv-masterwork",
    "kind": "Anniversaries",
    "text": "One year since {masterwright} finished {masterwork}, and the fort is still talking about it, mainly because {masterwright} brings it up at every meal.",
-   "when": [
-    "recent_masterpiece"
-   ]
+   "when": ["recent_masterpiece"],
+   "fit": ["food"]
   },
   {
    "id": "x3-an-engage-miners",
@@ -2023,9 +2020,8 @@
   {
    "id": "x3-ob-goblin-pen-pal",
    "text": "{deadname} has {cause}. A patient {prof}, they taught the caged goblin to play cards and lost to him every single time. The goblin has asked to attend the funeral. The cage will be wheeled.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_combat"]
   },
   {
    "id": "x3-ob-ramp-defender",
@@ -2086,9 +2082,8 @@
   {
    "id": "x3-ob-winter-walker",
    "text": "{deadname}, {prof}, has {cause}. They liked to walk across the frozen river every winter, 'to check'. They always reported back that it was frozen. We will check ourselves now, from the bank.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_drowning"]
   },
   {
    "id": "x3-ob-bed-hoarder",
@@ -2128,9 +2123,8 @@
   {
    "id": "x3-ob-hospital-escapee",
    "text": "{deadname}, {prof}, has {cause}. Over a long life they escaped the hospital nine times, once while still in traction. The chief medical dwarf calls them 'the worst patient I ever loved'. A crutch has been retired in their honour.",
-   "when": [
-    "recent_death"
-   ]
+   "when": ["recent_death"],
+   "fit": ["die_age"]
   },
   {
    "id": "x3-ob-bookkeeper-count",
@@ -2256,9 +2250,8 @@
   {
    "id": "x3-gs-masterpiece-envy",
    "text": "Since {masterwright} made {masterwork}, several rival craftsdwarves have been working late. One has produced a masterwork of their own: a mug reading 'not bad, {masterwright}'. It is very finely made.",
-   "when": [
-    "recent_masterpiece"
-   ]
+   "when": ["recent_masterpiece"],
+   "fit": ["drinkware", "n_mug"]
   },
   {
    "id": "x3-gs-well-proposal",
@@ -2589,9 +2582,8 @@
   {
    "id": "x3-cr-strike-mineral",
    "text": "We reported that miners had struck 'something shiny'. It was {mineral}. Our science desk would like to stress that 'shiny' is not a mineral, and has been sent back to the library.",
-   "when": [
-    "recent_strike"
-   ]
+   "when": ["recent_strike"],
+   "fit": ["gem", "ore", "coal", "stone"]
   },
   {
    "id": "x3-cr-caravan-goods",
