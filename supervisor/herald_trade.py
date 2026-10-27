@@ -143,7 +143,35 @@ def war():
         site = None
     if site is not None and d.get("site_id") not in (site, -1):
         return []
-    return d.get("log", [])[-8:]
+    log, seen = [], set()
+    for e in d.get("log", []):
+        k = json.dumps(e, sort_keys=True)
+        if k not in seen:
+            seen.add(k)
+            log.append(e)
+    raids, cur = [], {}
+    for e in log:
+        key = e.get("squad") or e.get("site")
+        if e.get("kind") == "left":
+            old = cur.get(key)
+            if old and not old["result"] and not old["home"]:
+                raids.remove(old)  # never came back in this timeline (a crash reload)
+            cur[key] = dict(e, result=None, home=None)
+            raids.append(cur[key])
+        elif e.get("kind") == "result":
+            r = next((x for x in reversed(raids) if x["site"] == e.get("site") and not x["result"]), None)
+            if r:
+                r["result"] = e.get("what")
+            else:
+                raids.append(dict(e, kind="left", result=e.get("what"), home=None, squad=None))
+        elif e.get("kind") == "home":
+            r = cur.pop(key, None) or next((x for x in reversed(raids) if x["site"] == e.get("site") and not x["home"]), None)
+            if r:
+                r["home"] = e
+    attacks = [e for e in log if e.get("kind") == "attacked_us"]
+    tally = {"raids": len(raids), "sites": len({r["site"] for r in raids}),
+             "lost": sum(len((r.get("home") or {}).get("lost") or []) for r in raids)}
+    return {"raids": raids[-6:], "attacks": attacks[-3:], "tally": tally}
 
 
 def foreign():

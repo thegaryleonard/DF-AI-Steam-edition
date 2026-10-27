@@ -315,6 +315,7 @@ function foreignConds(sl) {
   }
   if (out) { c.envoys_out = true; Object.assign(sl, {envoy: clean(out.who || ''), envoy_site: clean(out.site || ''), envoy_civ: cap(clean(out.civ || ''))}); }
   sl._foreign = fo;
+  sl._raids = ((TR && TR.war) || {}).raids || [];
   return c;
 }
 function extraConds(c, an_, sl) {
@@ -910,7 +911,7 @@ function thoughtVariant(t, good, kid) {   // one recent thought -> the highlight
   if (/Thirst|Dehydrat/.test(a)) return 'thirst';
   return null;
 }
-const IV_ORDER = ['work', 'envoy', 'military', 'mood', 'highlight', 'gripe', 'needs', 'family', 'faith', 'fort', 'news', 'past', 'war', 'last'];
+const IV_ORDER = ['work', 'envoy', 'raid', 'military', 'mood', 'highlight', 'gripe', 'needs', 'family', 'faith', 'fort', 'news', 'past', 'war', 'last'];
 const IV_NUM = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 const ucf = s => s ? s[0].toUpperCase() + s.slice(1) : s;
 // everything the interview knows about one dwarf: slots for the text and the variant of every topic it can talk about
@@ -1019,13 +1020,21 @@ function ivFacts(d, ctx) {
     Object.assign(sl, {envoy_civ: cap(clean(fb.civ || 'them')), envoy_site: clean(fb.site || 'abroad'), envoy_met: clean(fb.met || 'their envoy'),
       envoy_title: clean(fb.met_title || fb.met_race || 'official'), envoy_result: fb.result || 'well received'});
   }
+  // a soldier home from a raid talks about it
+  const rd = (sl0._raids || []).filter(x => x.home && (x.home.members || x.members || []).some(n => isMe(clean(n)))).slice(-1)[0];
+  if (rd && !baby && !child) {
+    const lost = (rd.home.lost || []).map(clean);
+    V.raid = lost.length ? 'lost' : rd.at_war === false ? 'peace' : 'war';
+    Object.assign(sl, {raid_site: clean(rd.site), raid_civ: cap(clean(rd.civ || 'them')), raid_lost: lost[0] || null,
+      raid_verb: rd.result || 'raided', raid_n: String((rd.home.total || 0))});
+  }
   V.last = baby ? 'baby' : child ? 'child' : 'any';
   for (const k of Object.keys(V)) if (V[k] == null) delete V[k];
   return {sl, V, tone, m, plain, who: nick || first, baby, child, squad, sk};
 }
 // how newsworthy each topic is (headline choice) and how much it deserves a slot in a six-question interview
-const IV_WEIGHT = {envoy: 9, news: 3.5, gripe: 4.5, highlight: 4, needs: 3.5, family: 3, military: 2.5, faith: 2, fort: 2.5, past: 1.5, war: 1.5};
-const IV_HEAD = {envoy: 9, news: 5.5, gripe: 7, highlight: 6, needs: 5, family: 4.5, past: 4, war: 4, fort: 4, military: 3, work: 3, faith: 2.5, mood: 2, last: 0};
+const IV_WEIGHT = {envoy: 9, raid: 8, news: 3.5, gripe: 4.5, highlight: 4, needs: 3.5, family: 3, military: 2.5, faith: 2, fort: 2.5, past: 1.5, war: 1.5};
+const IV_HEAD = {envoy: 9, raid: 8.5, news: 5.5, gripe: 7, highlight: 6, needs: 5, family: 4.5, past: 4, war: 4, fort: 4, military: 3, work: 3, faith: 2.5, mood: 2, last: 0};
 function buildInterview(d, ctx, r) {
   const QA = LIB.qa || {}, F = ivFacts(d, ctx), sl = F.sl, used = [];
   const V = {...F.V};
@@ -2321,18 +2330,31 @@ function tradeItems(ctx, r) {
     out.push({ids: ['trade-overdue-' + TR.year], html: `<div class="item"><div class="kick">Caravan Watch</div><h3>Mountainhome Caravan Overdue</h3>
       <p class="just">No caravan has reached the depot since the autumn of ${TR.last_trade_year}${gap > 1 ? `, ${gap} autumns in a row` : ''}. The broker has taken to standing at the depot anyway, staring at the horizon. Theories at the tavern range from bandits to bad roads to a very long lunch.</p></div>`});
   }
-  // the war office: raids on the civilizations we are at war with
-  const wl = (TR.war || []);
-  const res = wl.filter(w => w.kind === 'result').slice(-1)[0];
-  const home = wl.filter(w => w.kind === 'home').slice(-1)[0];
-  const away = wl.filter((w, i) => w.kind === 'left' && !wl.some((g, j) => j > i && g.kind === 'home' && g.squad === w.squad)).slice(-1)[0];
-  if (res) {
-    const verb = {plundered: 'Plundered', attacked: 'Attacked', destroyed: 'Razed', 'fought a battle near': 'Battle Near'}[res.what] || 'Raid On';
-    const casualty = home && home.total ? (home.alive === home.total ? ` All ${home.total} came home.` : ` ${home.alive} of ${home.total} came home; the fort mourns the rest.`) : '';
-    out.push({ids: ['war-res-' + res.year + res.site], html: `<div class="item"><div class="kick">Dispatches From The Front</div><h3>${esc(verb)} ${esc(clean(res.site))}</h3><p class="just">Our soldiers have ${esc(res.what)} ${esc(clean(res.site))}, a town of ${esc(clean(res.civ))}, with whom we are at war.${casualty} Whatever they carried back will turn up in the stockpiles, and the tavern will hear the story many times.</p></div>`});
+  // the war office: raids, the enemy's replies, the campaign so far
+  const W = TR.war || {}, raids = W.raids || [];
+  const SITE_KIND = {PlayerFortress: 'fortress', DarkFortress: 'dark fortress', ForestRetreat: 'forest retreat', Town: 'town', Hamlet: 'hamlet', MountainHalls: 'mountain hall', Fortress: 'fortress', Camp: 'camp', Cave: 'cave', Monument: 'monument'};
+  const who = r_ => r_.leader ? `${esc(clean(r_.leader))} and ${Math.max(0, (r_.members || []).length - 1)} others` : esc(r_.squad || 'a squad');
+  const done = raids.filter(r_ => r_.result || r_.home).slice(-1)[0];
+  if (done) {
+    const hm = done.home || {}, lost = hm.lost || [];
+    const verb = {plundered: 'Plundered', attacked: 'Attacked', destroyed: 'Razed', 'fought a battle near': 'Battle Near'}[done.result] || 'Raid On';
+    const kind = SITE_KIND[done.site_type] || 'settlement';
+    const peace = done.at_war === false ? ` We are, officially, at peace with ${esc(clean(done.civ))}. The war office prefers the word "antagonizing".` : '';
+    const home = hm.total ? (lost.length ? ` ${hm.alive} of ${hm.total} came home. The fort mourns ${esc(lost.map(clean).join(', '))}.` : ` All ${hm.total} came home on their own feet.`) : ' The squad is on the road home.';
+    const old = done.site_type === 'PlayerFortress' ? ` ${esc(clean(done.site))} was a dwarven fortress once; the goblins hold it now, and our soldiers walked its halls again.` : '';
+    out.push({ids: ['war-res-' + done.year + done.site + (hm.total || '')], html: `<div class="item"><div class="kick">Dispatches From The Front · Raid Report</div><h3>${esc(verb)} ${esc(clean(done.site))}</h3><p class="just">${who(done)} have ${esc(done.result || 'raided')} ${esc(clean(done.site))}, a ${kind} of ${esc(clean(done.civ))}.${old}${home}${peace} Whatever they carried back will turn up in the stockpiles, and the tavern will hear the story many times.</p></div>`});
   }
+  const away = raids.filter(r_ => !r_.result && !r_.home).slice(-1)[0];
   if (away) {
-    out.push({ids: ['war-away-' + away.year + away.site], html: `<div class="item"><div class="kick">War Office</div><h3>${esc(away.squad)} Marches On ${esc(clean(away.site))}</h3><p class="just">A squad has left the fort to ${esc(away.mode)} ${esc(clean(away.site))} of ${esc(clean(away.civ))}. Families wait by the gate. The war office says they will be home before the next caravan.</p></div>`});
+    out.push({ids: ['war-away-' + away.year + away.site], html: `<div class="item"><div class="kick">War Office</div><h3>Soldiers March On ${esc(clean(away.site))}</h3><p class="just">${who(away)} have left the fort to ${esc(away.mode || 'raid')} ${esc(clean(away.site))} of ${esc(clean(away.civ))}. Families wait by the gate. The war office says they will be home before the next caravan.</p></div>`});
+  }
+  const hit = (W.attacks || []).slice(-1)[0];
+  if (hit) {
+    out.push({ids: ['war-hit-' + hit.year + hit.civ], html: `<div class="item"><div class="kick">The Enemy Replies</div><h3>${esc(cap(clean(hit.civ)))} Strike Back</h3><p class="just">The world's chroniclers record that ${esc(clean(hit.civ))} ${esc(hit.what)} ${esc(S.fort && S.fort.name ? clean(S.fort.name) : 'our fort')} this year. Raids have consequences. Keep a weapon by the bed.</p></div>`});
+  }
+  const T = W.tally || {};
+  if (T.raids >= 2) {
+    out.push({ids: ['war-tally-' + T.raids], html: `<div class="item"><div class="kick">The War Ledger</div><p class="just">${T.raids} raids so far, against ${T.sites} ${T.sites === 1 ? 'settlement' : 'settlements'}. ${T.lost ? `${T.lost} of our soldiers have not come back.` : 'Not one soldier lost.'} The war office calls this a success. The war office is not the one being shot at.</p></div>`});
   }
   // the foreign office: envoys leaving and coming home
   const fo = (TR.foreign || []);

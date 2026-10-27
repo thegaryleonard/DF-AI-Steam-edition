@@ -3906,6 +3906,136 @@
      }
     ]
    }
+  },
+  "raid": {
+   "strict": true,
+   "q": [
+    {
+     "id": "qa-raid-q01",
+     "text": "You were at {raid_site}. What was it like?",
+     "for": [
+      "war",
+      "peace",
+      "lost"
+     ]
+    },
+    {
+     "id": "qa-raid-q02",
+     "text": "How did the raid on {raid_site} go?",
+     "for": [
+      "war",
+      "peace",
+      "lost"
+     ]
+    },
+    {
+     "id": "qa-raid-q03",
+     "text": "What did you bring back from {raid_site}?",
+     "for": [
+      "war",
+      "peace",
+      "lost"
+     ]
+    },
+    {
+     "id": "qa-raid-qp01",
+     "text": "Aren't we at peace with {raid_civ}?",
+     "for": [
+      "peace"
+     ]
+    },
+    {
+     "id": "qa-raid-ql01",
+     "text": "I'm sorry about {raid_lost}. Do you want to talk about it?",
+     "for": [
+      "lost"
+     ]
+    }
+   ],
+   "a": {
+    "war": [
+     {
+      "id": "qa-raid-war-a01",
+      "text": "Long march, short fight. They didn't expect us. We {raid_verb} {raid_site} and came home before the ale went flat."
+     },
+     {
+      "id": "qa-raid-war-a02",
+      "text": "Loud. Then quiet. Then we were carrying things. That's a raid."
+     },
+     {
+      "id": "qa-raid-war-a03",
+      "text": "Their walls were thinner than ours. Tell the masons that, they'll like it."
+     },
+     {
+      "id": "qa-raid-war-a04",
+      "text": "I brought back a story. The rest is in the stockpile."
+     }
+    ],
+    "peace": [
+     {
+      "id": "qa-raid-peace-a01",
+      "text": "Officially, yes. Unofficially, we {raid_verb} {raid_site}. The war office says it's ‘antagonizing’. I say it's walking a long way to hit goblins."
+     },
+     {
+      "id": "qa-raid-peace-a02",
+      "text": "Peace is what you call it until somebody notices. {raid_civ} have noticed."
+     },
+     {
+      "id": "qa-raid-peace-a03",
+      "text": "They took one of our old forts. We took some of their things. Seems fair to me."
+     }
+    ],
+    "lost": [
+     {
+      "id": "qa-raid-lost-a01",
+      "text": "Not really. {raid_lost} was next to me on the march out. Not on the march back."
+     },
+     {
+      "id": "qa-raid-lost-a02",
+      "text": "We {raid_verb} {raid_site}. It cost us {raid_lost}. Ask me again next year if it was worth it."
+     },
+     {
+      "id": "qa-raid-lost-a03",
+      "text": "I'll drink to {raid_lost} tonight. Then I'll sharpen my axe."
+     }
+    ]
+   },
+   "h": {
+    "war": [
+     {
+      "id": "qa-raid-war-h01",
+      "text": "“LOUD. THEN QUIET. THEN WE WERE CARRYING THINGS”"
+     },
+     {
+      "id": "qa-raid-war-h02",
+      "text": "BACK FROM THE RAID"
+     },
+     {
+      "id": "qa-raid-war-h03",
+      "text": "“THEIR WALLS WERE THINNER THAN OURS”"
+     }
+    ],
+    "peace": [
+     {
+      "id": "qa-raid-peace-h01",
+      "text": "“PEACE IS WHAT YOU CALL IT UNTIL SOMEBODY NOTICES”"
+     },
+     {
+      "id": "qa-raid-peace-h02",
+      "text": "“A LONG WAY TO HIT GOBLINS”"
+     }
+    ],
+    "lost": [
+     {
+      "id": "qa-raid-lost-h01",
+      "text": "“NOT ON THE MARCH BACK”"
+     },
+     {
+      "id": "qa-raid-lost-h02",
+      "text": "A SOLDIER REMEMBERS"
+     }
+    ]
+   }
   }
  },
  "qa_decks": {
