@@ -30,6 +30,7 @@ cd /d "%DFAI%"
 echo Starting the broadsheet, stream page, chat logger and game manager from %DFAI%
 start "dfai overlay"    /min cmd /c ""%PY%" -u overlay.py            >> "%LOGS%\overlay.log" 2>&1"
 start "dfai lan copy"   /min cmd /c ""%PY%" -u lan_proxy.py 8780     >> "%LOGS%\lan_proxy.log" 2>&1"
+start "dfai overseer"   /min cmd /c ""%PY%" -u overseer.py          >> "%LOGS%\overseer.log" 2>&1"
 start "dfai gamefeed"   /min cmd /c ""%PY%" -u gamefeed.py           >> "%LOGS%\gamefeed.log" 2>&1"
 start "dfai twitch log" /min cmd /c ""%PY%" -u twitch_chat_log.py tediusprocesses laserjetlab >> "%LOGS%\twitch.log" 2>&1"
 rem give the web pages a moment, then the manager (it launches DF and OBS)

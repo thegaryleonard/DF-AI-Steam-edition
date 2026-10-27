@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Overseer's Desk</title>
+<style>
+  body { margin: 0; background: #ece4d0; color: #1d1a14; font: 15px Georgia, "Times New Roman", serif; }
+  header { padding: 14px 22px 8px; border-bottom: 3px double #1d1a14; }
+  header h1 { margin: 0; font-size: 30px; letter-spacing: 1px; }
+  header .sub { font-style: italic; color: #5b5242; }
+  main { display: grid; grid-template-columns: 1fr 380px; gap: 18px; padding: 16px 22px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #1d1a14; margin: 14px 0 8px; padding-bottom: 2px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+  .card { background: #f7f1e1; border: 1px solid #b9ad91; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .card b { font-size: 15px; }
+  .card span { font-size: 13px; color: #4a4336; flex: 1; }
+  button { font: bold 13px Georgia, serif; background: #1d1a14; color: #f7f1e1; border: 0; padding: 6px 10px; cursor: pointer; }
+  button:disabled { background: #8d8473; cursor: default; }
+  .planned { opacity: .6; }
+  .planned button { background: #8d8473; }
+  .status div { padding: 5px 0; border-bottom: 1px dotted #b9ad91; font-size: 13px; }
+  .status b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .log .e { padding: 6px 0; border-bottom: 1px dotted #b9ad91; font-size: 12px; }
+  .log pre { white-space: pre-wrap; margin: 3px 0 0; font: 12px Consolas, monospace; max-height: 140px; overflow: auto; }
+  .bad { color: #8b1a1a; }
+</style>
+</head>
+<body>
+<header><h1>The Overseer's Desk</h1><div class="sub">Orders for the fort. The dwarves will get round to them. Probably.</div></header>
+<main>
+  <section id="groups"></section>
+  <aside>
+    <h2>The Fort Right Now</h2><div class="status" id="status">Asking the dwarves...</div>
+    <h2>Orders Given</h2><div class="log" id="log"></div>
+  </aside>
+</main>
+<script>
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const get = async u => (await fetch(u, {cache: 'no-store'})).json();
+async function load() {
+  const c = await get('/commands.json'), groups = {};
+  for (const x of c.commands) (groups[x.group] = groups[x.group] || []).push(x);
+  for (const x of c.planned) (groups[x.group] = groups[x.group] || []).push({...x, planned: true});
+  document.getElementById('groups').innerHTML = Object.entries(groups).map(([g, xs]) => `<h2>${esc(g)}</h2><div class="cards">` +
+    xs.map(x => `<div class="card${x.planned ? ' planned' : ''}"><b>${esc(x.label)}</b><span>${esc(x.help)}</span>` +
+      (x.planned ? '<button disabled>Coming soon</button>' : `<button data-key="${esc(x.key)}">Order it</button>`) + '</div>').join('') + '</div>').join('');
+  document.querySelectorAll('button[data-key]').forEach(b => b.onclick = () => run(b));
+}
+async function run(b) {
+  b.disabled = true; const was = b.textContent; b.textContent = 'Sending...';
+  try { await fetch('/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: b.dataset.key})}); }
+  finally { b.disabled = false; b.textContent = was; refreshLog(); setTimeout(refreshStatus, 1500); }
+}
+async function refreshStatus() {
+  try { const s = await get('/status.json');
+    document.getElementById('status').innerHTML = s.map(r => `<div><b>${esc(r.label)}</b>${esc(r.text)}</div>`).join(''); } catch (e) {}
+}
+async function refreshLog() {
+  try { const l = await get('/log.json');
+    document.getElementById('log').innerHTML = l.map(e => `<div class="e"><b class="${e.ok ? '' : 'bad'}">${esc(e.at)} ${esc(e.label)}</b>${e.out ? `<pre>${esc(e.out)}</pre>` : ''}</div>`).join('') || '<i>No orders yet.</i>'; } catch (e) {}
+}
+load(); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
+</script>
+</body>
+</html>

@@ -30,6 +30,7 @@ check those addresses first and do nothing on any other build.
 | dfai_supervisor.py | supervisor | Freeze watchdog, crash restarts (at most 3 an hour), quicksaves about every 20 min, diplomat meetings (dfai-diplomacy.lua), Discord notes. |
 | overlay.py :8765 | supervisor | The Herald broadsheet (overlay.html, herald_*.py). |
 | gamefeed :8766, lan_proxy :8780 | supervisor | The stream page and the LAN view. |
+| overseer.py :8767 | supervisor | The Overseer's Desk: fort commands (war, diplomacy, construction, camera). Local only, never behind lan_proxy. |
 | dfai-room-tour.lua | dfhack-config/scripts | Spectate camera: a busy-aware room tour, guests, the battle camera, and a watchdog that hands control back to spectate. |
 | dfai-foreign-office.lua | scripts | Monthly. Sends messengers to open or improve trade with peaceful civs. |
 | dfai-war-office.lua | scripts | Sends a squad to raid an enemy site about every 2 game months and logs the result for the Herald. |
