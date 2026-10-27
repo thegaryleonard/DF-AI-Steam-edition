@@ -6,7 +6,9 @@
 -- (now and then a pillage) against the nearest site governed by a civilization
 -- at war with us, through the dfai_missions plugin. Never more than MAX_OUT
 -- squads abroad, never while a threat is on the map (the fort needs them), and
--- squads take turns. It does not declare wars itself.
+-- squads take turns. It does not declare wars by messenger; civs on the
+-- antagonize list (user: "keep raiding them and antagonizing them") are raided
+-- as if at war.
 -- Runs on a game-tick timer, so it can never fire while the game is saving.
 -- Record: dfhack.persistent (site) + dfhack-config/dfai-war.json for the Herald.
 
@@ -44,9 +46,10 @@ local function government(site)
     end
 end
 
-local function enemies()
+local function enemies(s)
     local civ = df.historical_entity.find(df.global.plotinfo.civ_id)
     local out = {}
+    for cid in pairs((s and s.antagonize) or {}) do out[tonumber(cid)] = true end
     for _, st in ipairs(civ.relations.diplomacy.state) do
         if st.relation == df.diplomacy_state_type.TotalWar or st.relation == df.diplomacy_state_type.Skirmishing then
             out[st.group_id] = true
@@ -167,7 +170,7 @@ function step(force)
     if out >= MAX_OUT then save_state(s) return 'squad already abroad' end
     if not force and s.next_at and now_abs() < s.next_at then save_state(s) return 'resting' end
     if threat_on_map() then save_state(s) return 'threat on the map: squads stay home' end
-    local foes = enemies()
+    local foes = enemies(s)
     local tl = targets(foes)
     if #tl == 0 then save_state(s) return 'no enemy sites' end
     -- the squad that waited longest
@@ -209,8 +212,17 @@ elseif cmd == 'stop' then
 elseif cmd == 'now' then
     local ok, res = pcall(step, true)
     print('war office: ' .. tostring(res))
+elseif cmd == 'antagonize' then
+    local s = load_state()
+    s.antagonize = s.antagonize or {}
+    local id = tonumber(({...})[2])
+    local e = id and df.historical_entity.find(id)
+    if not e then print('usage: dfai-war-office antagonize <civ id>') return end
+    s.antagonize[tostring(id)] = df.global.cur_year
+    save_state(s)
+    print('antagonizing ' .. name_of(e))
 elseif cmd == 'list' then
-    for _, t in ipairs(targets(enemies())) do print(t.site.id, name_of(t.site), df.world_site_type[t.site.type], name_of(t.civ), t.dist) end
+    for _, t in ipairs(targets(enemies(load_state()))) do print(t.site.id, name_of(t.site), df.world_site_type[t.site.type], name_of(t.civ), t.dist) end
     for _, l in ipairs(load_state().log) do print('log', json.encode(l)) end
 else
     print('war office last: ' .. tostring(_G.dfai_war_last))
