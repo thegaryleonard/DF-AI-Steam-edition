@@ -784,7 +784,7 @@ void PerformTradeExclusive::Run(color_ostream & out)
         dfhack_offer += pg.first;
         offer_weight += item_weight(pg.second.item);
     }
-    // the gifts: value per unit of weight (cut gems first), times how much of
+    // the extras (added to the trade, not given as gifts): value per unit of weight (cut gems first), times how much of
     // it we have lying around
     auto gift_score = [&](const std::pair<int32_t, good_t> & x) -> double
     {
@@ -811,7 +811,7 @@ void PerformTradeExclusive::Run(color_ostream & out)
         gifts++;
     }
     if (gifts)
-        ai.debug(out, stl_sprintf("[trade] Adding %d gifts to keep the traders happy (offer %d for a request they value at %d).", gifts, int32_t(dfhack_offer), dfhack_request));
+        ai.debug(out, stl_sprintf("[trade] Adding %d extra items to our side of the trade to keep the traders happy (offer %d for a request they value at %d).", gifts, int32_t(dfhack_offer), dfhack_request));
     if (dfhack_offer < pv_target && dfhack_offer >= pv_minimum)
     {
         pv_target = dfhack_offer; // as generous as their packs allow
