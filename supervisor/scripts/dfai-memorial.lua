@@ -75,6 +75,11 @@ local function carve(hf_id, mat_index)
     local j = df.job:new()
     j.job_type = df.job_type.ConstructStatue
     j.pos = xyz2pos(shop.centerx, shop.centery, shop.z)
+    -- the stone goes on the JOB: a workshop job takes its material from
+    -- job.mat_type/mat_index, and a material on the job_item alone is ignored
+    -- (the first statues came out basalt, diorite and even iron ore)
+    j.mat_type = 0
+    j.mat_index = mat_index
     local ji = df.job_item:new()
     ji.item_type = df.item_type.BOULDER
     ji.item_subtype = -1
