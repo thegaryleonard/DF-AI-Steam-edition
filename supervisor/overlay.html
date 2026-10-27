@@ -2386,6 +2386,24 @@ function tradeItems(ctx, r) {
     out.push({ids: ['trade-overdue-' + TR.year], html: `<div class="item"><div class="kick">Caravan Watch</div><h3>Mountainhome Caravan Overdue</h3>
       <p class="just">No caravan has reached the depot since the autumn of ${TR.last_trade_year}${gap > 1 ? `, ${gap} autumns in a row` : ''}. The broker has taken to standing at the depot anyway, staring at the horizon. Theories at the tavern range from bandits to bad roads to a very long lunch.</p></div>`});
   }
+  // the beast hunt: special edition (dfai-beast-hunt report)
+  const BH = TR.hunt;
+  const capName = t => String(t || '').replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase());
+  if (BH && BH.phase === 'done' && (BH.beasts || []).length) {
+    const slain = BH.beasts.filter(b => b.dead), fallen = BH.fallen || [];
+    const first = s => esc(clean(s || '').split(' ')[0]);
+    const lines = slain.map(b => `${esc(clean(b.name))}${b.what ? `, ${esc(clean(b.what)).replace(/^An? /, m => m.toLowerCase()).replace(/\.\s.*$/, '')}` : ''}, fell to ${b.slayer ? `${esc(clean(b.slayer))}${b.slayer_job ? ' the ' + esc(clean(b.slayer_job)).toLowerCase() : ''}${b.slayer_alive ? '' : ', who did not live to tell of it'}` : 'the massed squads'}.`).join(' ');
+    out.push({ids: ['hunt-front-' + BH.year], html: `<div class="item"><div class="kick">Special Edition · The Beast Hunt</div><h3>${slain.length === 1 ? 'Forgotten Beast Slain' : `${slain.length} Forgotten Beasts Slain`}${fallen.length ? `, ${fallen.length} Dwarves Fall` : ''}</h3>
+      <p class="just">On the overseer's word the miners cut a stair down to the first cavern and stopped one step short. ${BH.mustered ? esc(BH.mustered.replace(/ at the door$/, '')) + ' mustered' : 'The squads mustered'} at the new cavern door in full gear; then the last step was dug and the army went in. ${lines} ${fallen.length ? `The fort paid for it: ${fallen.length} of our own did not come back.` : 'Not one of ours was lost.'}</p></div>`});
+    if (fallen.length) {
+      const rows = fallen.map(f => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(capName(clean(f.name)))}</span><span>${esc(clean(f.job || ''))}</span></div>`).join('');
+      out.push({ids: ['hunt-honour-' + BH.year], html: `<div class="item cls"><div class="kick">Roll of Honour · Fallen in the Beast Hunt</div>${rows}<p class="just" style="margin-top:4px">Their statues are being carved in microcline for niches in the walls of The Ominous Sack. Raise a mug.</p></div>`});
+    }
+    const slayers = slain.filter(b => b.slayer);
+    if (slayers.length) {
+      out.push({ids: ['hunt-slayers-' + BH.year], html: `<div class="item"><div class="kick">The Slayers</div><p class="just">${slayers.map(b => `${esc(clean(b.slayer))} (${b.slayer_alive ? 'still with us' : 'fallen'}) struck the blow that ended ${first(b.name)}.`).join(' ')} Both have statues in the mist chamber, beside the beasts they brought down. The tavern will be hearing about it for years.</p></div>`});
+    }
+  }
   // the war office: raids, the enemy's replies, the campaign so far
   const W = TR.war || {}, raids = W.raids || [];
   const SITE_KIND = {PlayerFortress: 'fortress', DarkFortress: 'dark fortress', ForestRetreat: 'forest retreat', Town: 'town', Hamlet: 'hamlet', MountainHalls: 'mountain hall', Fortress: 'fortress', Camp: 'camp', Cave: 'cave', Monument: 'monument'};
@@ -2601,7 +2619,7 @@ function renderFollow() {
     const st = S.tour.statue;
     const made = [st.quality ? `${esc(st.quality)} work` : '', st.maker ? `carved by ${esc(st.maker)}` : ''].filter(Boolean).join(', ');
     html = `<div class="kicker"><span><span class="live">On Camera</span></span><span>Statue</span></div>
-      <h3>${st.subject ? esc(st.subject) : 'A Statue'}</h3>
+      <h3>${st.subject ? esc(String(st.subject).replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase())) : 'A Statue'}</h3>
       <div class="sub">${esc(st.item)}${made ? ` &middot; ${made}` : ''}</div>
       ${st.story ? `<div class="beastdesc">${esc(st.story)}</div>` : ''}
       ${st.scene ? `<div class="doing">${esc(st.scene)}</div>` : ''}`;

@@ -259,12 +259,20 @@ def game_year():
     return None, None
 
 
+def hunt():
+    """The beast hunt's story (dfai-beast-hunt.lua report), current fort only."""
+    try:
+        return json.loads(open(DF / "dfhack-config" / "dfai-beast-hunt.json", "rb").read().decode("utf-8", "replace"))
+    except (OSError, ValueError):
+        return None
+
+
 def feed():
     try:
         tr = trades()
         year, month = game_year()
         last = max((t["year"] for t in tr if t.get("year")), default=None)
-        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(), "requests": requests(), "foreign": foreign(), "war": war(),
+        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(), "requests": requests(), "foreign": foreign(), "war": war(), "hunt": hunt(),
                 "year": year, "month": month, "last_trade_year": last}
     except Exception as e:      # never break the paper over a log quirk
         return {"ok": False, "error": repr(e)}

@@ -121,6 +121,52 @@ local function unit_name(u)
     return dfhack.df2utf(n:gsub(', Forgotten Beast', ''))
 end
 
+-- the hunt's story for the Herald (herald_trade.py reads this file)
+local function hfn(u)
+    local hf = u and u.hist_figure_id ~= -1 and df.historical_figure.find(u.hist_figure_id)
+    local n = hf and dfhack.translation.translateName(hf.name, true) or (u and dfhack.units.getReadableName(u)) or ''
+    return dfhack.df2utf(n)
+end
+local function killer_of(u)
+    local inc = u and u.counters.death_id >= 0 and df.incident.find(u.counters.death_id)
+    return inc and inc.criminal ~= -1 and df.unit.find(inc.criminal) or nil
+end
+function report()
+    local s = load_state()
+    local out = {year = df.global.cur_year, phase = s.phase, mustered = s.mustered, beasts = {}, fallen = {}}
+    for id, nm in pairs(s.hunted or {}) do
+        local u = df.unit.find(tonumber(id))
+        local raw = u and df.creature_raw.find(u.race)
+        local k = killer_of(u)
+        out.beasts[#out.beasts + 1] = {
+            name = nm, dead = u and dfhack.units.isDead(u) or false,
+            what = raw and dfhack.df2utf(raw.caste[u.caste].description) or '',
+            slayer = k and hfn(k) or nil,
+            slayer_job = k and dfhack.df2utf(dfhack.units.getProfessionName(k)) or nil,
+            slayer_alive = k and not dfhack.units.isDead(k) or false,
+        }
+    end
+    -- our dead from the attack to a day after the end (the hunt's own clock)
+    local t0, t1 = s.attack_at or 0, (s.done_at or now_abs()) + 1200
+    for _, u in ipairs(df.global.world.units.all) do
+        if dfhack.units.isOwnCiv(u) and dfhack.units.isDead(u) and dfhack.units.isDwarf(u) then
+            local hf = df.historical_figure.find(u.hist_figure_id)
+            local t = hf and hf.died_year >= 0 and (hf.died_year * 403200 + hf.died_seconds)
+            if t and t >= t0 and t <= t1 then
+                local k = killer_of(u)
+                local kraw = k and df.creature_raw.find(k.race)
+                out.fallen[#out.fallen + 1] = {
+                    name = hfn(u), job = dfhack.df2utf(dfhack.units.getProfessionName(u)),
+                    by = k and (dfhack.units.isForgottenBeast(k) and hfn(k):match('^[^,]+') or (kraw and kraw.name[0])) or nil,
+                }
+            end
+        end
+    end
+    local f = io.open('dfhack-config/dfai-beast-hunt.json', 'w')
+    if f then f:write(require('json').encode(out)) f:close() end
+    return out
+end
+
 local function step()
     if df.global.plotinfo.main.fortress_entity == nil or df.global.plotinfo.site_id ~= SITE then return 'not this fort' end
     local s = load_state()
@@ -185,6 +231,7 @@ local function step()
         local c = citizen()
         if c and dfhack.maps.canWalkBetween(c.pos, P(CAVERN)) then
             s.phase = 'attack'
+            s.attack_at = now_abs()
             pcall(function() reqscript('dfai-projects').done('beasthunt') end)
         end
     end
@@ -234,12 +281,14 @@ local function step()
         for id in pairs(s.hunted) do if not s.killed[id] then left = left + 1 end end
         if (left == 0 and next(s.hunted)) or #squads == 0 then
             s.phase = 'done'
+            s.done_at = now_abs()
             local n = 0
             for _ in pairs(s.killed) do n = n + 1 end
             local msg = #squads == 0 and ('the army is gone; %d beasts killed'):format(n)
                 or ('every beast that could reach the fort is dead (%d)'):format(n)
             log('done: ' .. msg)
             notify('**Beast hunt over:** ' .. msg .. '.')
+            pcall(report)
         end
     end
     save_state(s)
@@ -260,6 +309,24 @@ if cmd == 'start' then
 elseif cmd == 'stop' then
     repeatUtil.cancel(KEY)
     print('beast hunt: stopped')
+elseif cmd == 'report' then
+    local ids = {select(2, ...)}
+    dfhack.timeout(1, 'ticks', function()
+        if #ids > 0 then   -- 'report <hf ids>': set the hunt's window from known deaths
+            local st, lo, hi = load_state(), nil, nil
+            for _, id in ipairs(ids) do
+                local hf = df.historical_figure.find(tonumber(id))
+                if hf and hf.died_year >= 0 then
+                    local t = hf.died_year * 403200 + hf.died_seconds
+                    lo, hi = math.min(lo or t, t), math.max(hi or t, t)
+                end
+            end
+            if lo then st.attack_at, st.done_at = lo - 1200, hi save_state(st) end
+        end
+        local ok, r = pcall(report)
+        if not ok then _G.dfai_beast_hunt_err = tostring(r) else _G.dfai_beast_hunt_err = nil end
+    end)
+    print('beast hunt: report queued')
 elseif cmd == 'attack' then
     dfhack.timeout(1, 'ticks', function() local s = load_state() s.force = true save_state(s) end)
     print('beast hunt: breaching without waiting for the muster')
