@@ -1970,10 +1970,13 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
 bool Population::military_all_squads_attack_unit(color_ostream & out, df::unit *u, const std::string & reason)
 {
     bool any = false;
+    if (!military_target_reachable(u))
+        return false;
     for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
         auto sq = df::squad::find(sqid);
-        if (sq && military_squad_attack_unit(out, sq, u, reason))
+        // squads abroad on a mission keep their own orders
+        if (sq && sq->assigned_army_controller_id == -1 && military_squad_attack_unit(out, sq, u, reason))
             any = true;
     }
     return any;

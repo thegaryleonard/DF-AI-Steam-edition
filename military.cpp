@@ -1,11 +1,13 @@
 #include "ai.h"
 #include "df/historical_figure.h"
+#include "df/incident.h"
 #include "df/squad_position.h"
 #include <algorithm>
 #include <set>
 #include "population.h"
 #include "plan.h"
 
+REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
 
 #include "df/activity_entry.h"
@@ -29,8 +31,11 @@ REQUIRE_GLOBAL(world);
 // an invader still far from the fort (and from every citizen) is left alone:
 // the squads muster at the gate in full kit first (Population::battle_stations)
 // user: "once dudes are mustered you can just go attack, you don't have to
-// wait for them" - when half the soldiers at home stand at the gate, the
-// muster is over and every reachable invader is a target, however far off.
+// wait for them" / "as soon as say 40% of the troops are mustered, go off and
+// start killing in a murder ball, especially if dwarves are dying out there":
+// when 40% of the soldiers at home stand at the gate - or any dwarf has died
+// in the last two days - the muster is over and every reachable invader is a
+// target for every squad, however far off.
 static bool army_mustered(AI & ai)
 {
     static int32_t at_tick = -1;
@@ -62,13 +67,36 @@ static bool army_mustered(AI & ai)
                 there++;
         }
     }
-    cached = total > 0 && there * 2 >= total;
+    cached = total > 0 && there * 5 >= total * 2;
+    return cached;
+}
+
+static bool dwarves_dying()
+{
+    static int32_t at_tick = -1;
+    static bool cached = false;
+    if (*cur_year_tick / 100 == at_tick)
+        return cached;
+    at_tick = *cur_year_tick / 100;
+    cached = false;
+    int64_t now = int64_t(*cur_year) * 403200 + *cur_year_tick;
+    for (auto u : world->units.all)
+    {
+        if (!Units::isDead(u) || !Units::isOwnCiv(u) || u->counters.death_id < 0)
+            continue;
+        auto inc = df::incident::find(u->counters.death_id);
+        if (inc && now - (int64_t(inc->event_year) * 403200 + inc->event_time) <= 2 * 1200)
+        {
+            cached = true;
+            break;
+        }
+    }
     return cached;
 }
 
 static bool invader_close(AI & ai, df::unit *u)
 {
-    if (army_mustered(ai))
+    if (army_mustered(ai) || dwarves_dying())
         return true;
     df::coord p = Units::getPosition(u);
     if (ai.plan.entrance())
@@ -116,7 +144,7 @@ bool AI::tag_enemies(color_ostream & out)
                     return true;
                 // one squad per ordinary target: orders handed out before
                 // that rule left 17 squads chasing 3 monkeys
-                if (!Units::isGreatDanger(t) && !claimed.insert(uid).second)
+                if (!Units::isGreatDanger(t) && !t->flags1.bits.active_invader && !t->flags1.bits.marauder && !claimed.insert(uid).second)
                     return true;
                 return false;
             }), ids.end());
@@ -185,13 +213,13 @@ bool AI::tag_enemies(color_ostream & out)
             else if (u->flags1.bits.active_invader)
             {
                 if (invader_close(*this, u))
-                    found = pop.military_random_squad_attack_unit(out, u, "active invader") || found;
+                    found = pop.military_all_squads_attack_unit(out, u, "active invader (murder ball)") || found;
                 else
                     pop.invaders_far++;
             }
             else if (u->flags1.bits.marauder)
             {
-                found = pop.military_random_squad_attack_unit(out, u, "marauder") || found;
+                found = pop.military_all_squads_attack_unit(out, u, "marauder (murder ball)") || found;
             }
             else if (u->flags2.bits.underworld)
             {
