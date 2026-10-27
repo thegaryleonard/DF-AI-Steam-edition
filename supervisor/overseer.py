@@ -45,6 +45,13 @@ COMMANDS = {
     "cam.statue":   ("Camera", "Show a statue", "The statue shown least recently, with its story.", ["lua", "reqscript('dfai-room-tour').show_statue_check()"], 30),
     "cam.leaves":   ("Camera", "Look at the trees", "Leaves mode: a breather on the nearest stand of trees.", ["lua", "reqscript('dfai-room-tour').show_leaves_check(true)"], 30),
     "cam.threats":  ("Camera", "Threats", "What the battle camera can see.", ["dfai-room-tour", "threats"], 30),
+    # the fort
+    "holiday.start": ("Fort", "Holiday party mode", "No jobs, no masters: everyone parties for N game days (about 1.5 min each), then every labor goes back as it was. Squads stay on guard.", ["dfai-holiday", "start", "{n}"], 30),
+    "holiday.stop":  ("Fort", "End the holiday", "Back to work now.", ["dfai-holiday", "stop"], 30),
+}
+# orders that take a number: key -> (label, min, max, default)
+PARAMS = {
+    "holiday.start": ("days", 1, 28, 7),
 }
 STATUS = [
     ("War office", ["dfai-war-office"]),
@@ -52,11 +59,11 @@ STATUS = [
     ("Mist generator", ["dfai-mist-build"]),
     ("Deep dig", ["dfai-deep-dig"]),
     ("Deep camp", ["dfai-deep-camp"]),
+    ("Holiday", ["dfai-holiday"]),
 ]
 PLANNED = [
     ("Construction", "Dig X levels down and scrub for ore", "A shaft of X levels with side galleries that mark every ore vein for mining."),
     ("Construction", "Construction priority", "Put the fort's planned rooms in the order you want them dug."),
-    ("Fort", "Holiday party mode", "No jobs, no masters: everyone parties for a while, then everything goes back as it was."),
 ]
 status_cache = {"at": 0, "data": []}
 
@@ -103,7 +110,9 @@ class Handler(BaseHTTPRequestHandler):
         if path in ("/", "/index.html"):
             self.send((HERE / "overseer.html").read_bytes(), "text/html; charset=utf-8")
         elif path == "/commands.json":
-            cmds = [{"key": k, "group": g, "label": l, "help": h} for k, (g, l, h, _, _) in COMMANDS.items()]
+            cmds = [{"key": k, "group": g, "label": l, "help": h,
+                     "param": dict(zip(("name", "min", "max", "default"), PARAMS[k])) if k in PARAMS else None}
+                    for k, (g, l, h, _, _) in COMMANDS.items()]
             planned = [{"group": g, "label": l, "help": h} for g, l, h in PLANNED]
             self.send(json.dumps({"commands": cmds, "planned": planned}).encode())
         elif path == "/status.json":
@@ -123,13 +132,23 @@ class Handler(BaseHTTPRequestHandler):
             self.send_error(403)
             return
         try:
-            key = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0) or b"{}").get("key")
+            req = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0) or b"{}")
         except ValueError:
-            key = None
+            req = {}
+        key = req.get("key")
         if key not in COMMANDS:
             self.send_error(400)
             return
         group, label, _, args, timeout = COMMANDS[key]
+        if key in PARAMS:
+            _, lo, hi, default = PARAMS[key]
+            try:
+                n = int(req.get("n", default))
+            except (TypeError, ValueError):
+                n = default
+            n = max(lo, min(hi, n))   # only ever a clamped integer reaches the game
+            args = [str(n) if a == "{n}" else a for a in args]
+            label = f"{label} ({n} {PARAMS[key][0]})"
         out = sup.dfhack(*args, timeout=timeout)
         entry = {"at": time.strftime("%H:%M:%S"), "key": key, "label": label,
                  "ok": out is not None, "out": clean(out)[-2000:] if out is not None else "no answer from the game"}

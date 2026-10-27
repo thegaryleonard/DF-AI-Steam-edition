@@ -43,12 +43,12 @@ async function load() {
   for (const x of c.planned) (groups[x.group] = groups[x.group] || []).push({...x, planned: true});
   document.getElementById('groups').innerHTML = Object.entries(groups).map(([g, xs]) => `<h2>${esc(g)}</h2><div class="cards">` +
     xs.map(x => `<div class="card${x.planned ? ' planned' : ''}"><b>${esc(x.label)}</b><span>${esc(x.help)}</span>` +
-      (x.planned ? '<button disabled>Coming soon</button>' : `<button data-key="${esc(x.key)}">Order it</button>`) + '</div>').join('') + '</div>').join('');
+      (x.planned ? '<button disabled>Coming soon</button>' : (x.param ? `<label style="font-size:13px">${esc(x.param.name)}: <input type="number" id="n-${esc(x.key)}" min="${x.param.min}" max="${x.param.max}" value="${x.param.default}" style="width:60px"></label>` : '') + `<button data-key="${esc(x.key)}">Order it</button>`) + '</div>').join('') + '</div>').join('');
   document.querySelectorAll('button[data-key]').forEach(b => b.onclick = () => run(b));
 }
 async function run(b) {
   b.disabled = true; const was = b.textContent; b.textContent = 'Sending...';
-  try { await fetch('/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: b.dataset.key})}); }
+  try { await fetch('/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: b.dataset.key, n: (document.getElementById('n-' + b.dataset.key) || {}).value})}); }
   finally { b.disabled = false; b.textContent = was; refreshLog(); setTimeout(refreshStatus, 1500); }
 }
 async function refreshStatus() {
