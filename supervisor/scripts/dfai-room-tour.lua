@@ -254,7 +254,7 @@ end
 -- Pick the next place: busy places first, but nothing is forgotten. A room
 -- unseen for OVERDUE seconds jumps the queue (the garbage chute gets its turn),
 -- and no place repeats within MIN_GAP.
-local OVERDUE, MIN_GAP = 30 * 60, 6 * 60
+local OVERDUE, MIN_GAP, SPOT_GAP = 30 * 60, 15 * 60, 8 * 60
 -- rooms can share a name (three temples to one god): key by place too
 local function key_of(r) return r.spot and ('spot:' .. r.spot) or ('%s@%d,%d,%d'):format(r.name, r.pos.x, r.pos.y, r.pos.z) end
 local function pick_room()
@@ -274,10 +274,10 @@ local function pick_room()
         r.jit = r.jit or (r.spot and 0 or math.random(0, 600))
         local seen = tour.shown[key]
         local stale = seen and (now - seen) or (now - tour.started + OVERDUE // 2 - r.jit)
-        if stale >= MIN_GAP then
+        if stale >= (r.spot and SPOT_GAP or MIN_GAP) then
             local b = r.spot and r.n or busy(r, units)
             r.busy = b
-            local score = math.min(stale, OVERDUE) / 60 + 4 * math.min(b, 8) + (r.spot and 6 or 0)
+            local score = math.min(stale, OVERDUE) / 60 + 1.5 * math.min(b, 6) + (r.spot and 4 or 0)
             if (r.spot or r.kind) == tour.last_kind then score = score - 20 end -- not two barracks in a row
             if stale >= OVERDUE then score = 1000 + stale / 60 end
             if not bs or score > bs then best, bs = r, score end
@@ -301,7 +301,8 @@ end
 -- guests: interesting creatures that aren't the fort's dwarves (visitors,
 -- merchants, diplomats, animal people, elves, goblins, odd peaceful beasts)
 local GUEST_SECS = 25
-local GUEST_GAP = 120 -- the same guest isn't shown again for this long
+local GUEST_GAP = 600 -- the same guest isn't shown again for this long
+local GUEST_EVERY = 5 * 60 -- and some guest at most this often
 
 local function revealed(u)
     if tour.test_reveal_all then return true end -- testing only
@@ -340,6 +341,10 @@ local function pick_guest()
     local now = os.time()
     for _, u in ipairs(df.global.world.units.active) do
         local ok, g = pcall(is_guest, u)
+        local b = tour.prev_box
+        if ok and g and b and u.pos.z == b[5] and u.pos.x >= b[1] - 2 and u.pos.x <= b[3] + 2 and u.pos.y >= b[2] - 2 and u.pos.y <= b[4] + 2 then
+            g = false -- the room we just showed: we've seen them
+        end
         if ok and g then
             local t = tour.guest_seen[u.id] or 0
             if now - t >= GUEST_GAP and (not best or t < best_t) then best, best_t = u, t end
@@ -349,9 +354,11 @@ local function pick_guest()
 end
 
 local function show_guest()
+    if os.time() - (tour.last_guest_at or 0) < GUEST_EVERY then return false end
     local u = pick_guest()
     if not u then return false end
     tour.guest_seen[u.id] = os.time()
+    tour.last_guest_at = os.time()
     dfhack.run_command_silent('disable', 'spectate')
     df.global.plotinfo.follow_unit = u.id
     tour.guest, tour.current = u.id, nil
@@ -409,7 +416,36 @@ local function back_to_dwarves()
     tour.last_switch = os.time()
 end
 
+-- the camera must never die: a followed creature that leaves the map (a squad
+-- off on a raid, a messenger, a merchant) or a camera left with nothing to do
+-- hands control back to spectate
+local IDLE_SECS = 45
+local function camera_watchdog()
+    local fu = df.global.plotinfo.follow_unit
+    if fu ~= -1 then
+        local u = df.unit.find(fu)
+        if not u or not dfhack.units.isActive(u) or u.flags1.inactive or dfhack.units.isDead(u) then
+            df.global.plotinfo.follow_unit = -1
+            tour.current, tour.guest, tour.threat = nil, nil, nil
+            dfhack.run_command_silent('enable', 'spectate')
+            tour.last_switch = os.time()
+            tour.idle_since = nil
+            return
+        end
+    end
+    if not tour.current and not tour.guest and not spectate_on() and df.global.plotinfo.follow_unit == -1 then
+        tour.idle_since = tour.idle_since or os.time()
+        if os.time() - tour.idle_since >= IDLE_SECS then
+            dfhack.run_command_silent('enable', 'spectate')
+            tour.idle_since = nil
+        end
+    else
+        tour.idle_since = nil
+    end
+end
+
 local function step()
+    camera_watchdog()
     -- threats first: break into anything (room, guest, dwarf) except another threat,
     -- and only while the stream camera is in charge
     if not tour.threat and (tour.current or tour.guest or spectate_on()) and pick_threat() then
@@ -427,6 +463,7 @@ local function step()
         end
         if now - tour.last_switch >= ROOM_SECS then
             -- after a room, visit a guest if one is around, else back to dwarves
+            tour.prev_box = tour.current.box or {tour.current.pos.x - 5, tour.current.pos.y - 5, tour.current.pos.x + 5, tour.current.pos.y + 5, tour.current.pos.z}
             tour.current = nil
             if not show_guest() then back_to_dwarves() end
         end

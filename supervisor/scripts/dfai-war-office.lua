@@ -210,8 +210,29 @@ elseif cmd == 'stop' then
     repeatUtil.cancel(KEY)
     print('war office stopped')
 elseif cmd == 'now' then
-    local ok, res = pcall(step, true)
-    print('war office: ' .. tostring(res))
+    -- run on the next game tick (never from the console thread mid-save); with
+    -- 'follow', the camera follows the squad's first soldier for 4 minutes
+    local follow = ({...})[2] == 'follow'
+    dfhack.timeout(1, 'ticks', function()
+        local ok, res = pcall(step, true)
+        _G.dfai_war_last = ok and res or ('error: ' .. tostring(res))
+        if not (ok and follow and tostring(res):find('^sent')) then return end
+        for sid in pairs(load_state().sent) do
+            local sq = df.squad.find(tonumber(sid))
+            for _, p in ipairs(sq and sq.positions or {}) do
+                local hf = p.occupant ~= -1 and df.historical_figure.find(p.occupant)
+                local u = hf and df.unit.find(hf.unit_id)
+                if u and dfhack.units.isActive(u) then
+                    dfhack.run_command_silent('disable', 'spectate')
+                    df.global.plotinfo.follow_unit = u.id
+                    _G.dfai_war_follow = u.id
+                    dfhack.timeout(4800, 'frames', function() dfhack.run_command_silent('enable', 'spectate') end)
+                    return
+                end
+            end
+        end
+    end)
+    print('war office: queued for the next game tick')
 elseif cmd == 'antagonize' then
     local s = load_state()
     s.antagonize = s.antagonize or {}
