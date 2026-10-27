@@ -148,6 +148,14 @@ end
 
 local function now_days() return df.global.cur_year * 336 + df.global.cur_year_tick // 1200 end
 
+-- the stream camera's mission mode follows these (dfai-projects.lua)
+local function project(key, title, x1, y1, z1, x2, y2, z2, manual)
+    pcall(function() reqscript('dfai-projects').add(key, title, x1, y1, z1, x2, y2, z2, manual) end)
+end
+local function project_done(key)
+    pcall(function() reqscript('dfai-projects').done(key) end)
+end
+
 local function dig_hall(s)
     local n = 0
     for dx = -HALL_R, HALL_R do
@@ -182,7 +190,11 @@ function step()
     if s.status == 'done' and s.next_gallery and now_days() >= s.next_gallery then
         local n = dig_gallery(s)
         s.next_gallery = now_days() + 84
-        if n > 0 then note(s, ('A new gallery, %d tiles, strikes out from the Deep Hall.'):format(n)) end
+        if n > 0 then
+            note(s, ('A new gallery, %d tiles, strikes out from the Deep Hall.'):format(n))
+            local R = HALL_R + 12
+            project('gallery' .. s.galleries, 'A Gallery From The Deep Hall', s.x - R, s.y - R, s.cur, s.x + R, s.y + R, s.cur)
+        end
         save_state(s)
         return 'gallery: ' .. n .. ' tiles'
     end
@@ -239,6 +251,8 @@ function step()
         if why then
             if n > 0 then break end -- dig what is designated first, then finish
             local h = dig_hall(s)
+            project_done('deepdig')
+            project('deephall', 'The Deep Hall', s.x - HALL_R, s.y - HALL_R, s.cur, s.x + HALL_R, s.y + HALL_R, s.cur)
             s.status, s.stop_reason = 'done', why
             s.next_gallery = now_days() + 28
             note(s, ('The shaft stops %d levels down: %s lies below. The miners carve the Deep Hall (%d tiles).'):format(s.top - s.cur, why, h))
@@ -250,6 +264,7 @@ function step()
         n = n + 1
     end
     s.designated_at = now_days()
+    project('deepdig', 'The Deep Shaft', s.x, s.y, s.cur, s.x, s.y, s.top, true)
     note(s, ('%d more levels marked for the miners: the deep shaft will reach %d levels below the cavern.'):format(n, s.top - s.cur))
     save_state(s)
     return ('designated %d levels, down to level %d'):format(n, s.cur)

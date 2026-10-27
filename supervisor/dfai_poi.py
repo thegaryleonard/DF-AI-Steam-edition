@@ -85,6 +85,39 @@ def build(plan):
     return pois
 
 
+PROJECT_NAMES = {
+    "stockpile": "A New Storeroom", "nobleroom": "New Noble Quarters", "barracks": "New Barracks",
+    "infirmary": "A New Hospital", "cemetery": "New Catacombs", "cistern": "A New Cistern",
+    "jail": "A New Jail", "tradedepot": "The Trade Depot", "pitcage": "The Execution Pit",
+    "garbagedump": "A New Refuse Chute",
+}
+LOCATION_NAMES = {"tavern": "A New Tavern", "library": "A New Library", "temple": "A New Temple",
+                  "guildhall": "A New Guildhall", "hospital": "A New Hospital"}
+
+
+def projects(plan):
+    """Rooms df-ai is digging right now, for the stream camera's mission mode
+    (dfai-room-tour.lua follows the dwarf working inside the box)."""
+    out = []
+    for i, r in enumerate(plan["r"]):
+        if r.get("status") != "dig":
+            continue
+        t = r.get("type")
+        if t == "workshop" and r.get("workshop_type") in WORKSHOP_NAMES:
+            title = "A New " + WORKSHOP_NAMES[r["workshop_type"]].replace("The ", "")
+        elif t == "furnace" and r.get("furnace_type") in FURNACE_NAMES:
+            title = "A New " + FURNACE_NAMES[r["furnace_type"]].replace("The ", "")
+        elif t == "location":
+            title = LOCATION_NAMES.get(r.get("location_type"), "A New Hall")
+        else:
+            title = PROJECT_NAMES.get(t)
+        if not title:
+            continue        # bedrooms, corridors, ponds, farm plots: too small or too many
+        (x1, y1, z1), (x2, y2, z2) = r["min"], r["max"]
+        out.append({"key": f"room:{i}", "title": title, "box": [x1, y1, z1, x2, y2, z2]})
+    return out
+
+
 def main():
     f = Path(sys.argv[1]) / "df-ai-plan.dat" if len(sys.argv) > 1 else newest_plan()
     if not f or not f.is_file():
@@ -92,7 +125,7 @@ def main():
         return 1
     plan = json.loads(f.read_text(encoding="utf-8"))
     pois = build(plan)
-    OUT.write_text(json.dumps({"site_id": plan.get("site_id"), "plan": str(f), "pois": pois}, indent=1), encoding="utf-8")
+    OUT.write_text(json.dumps({"site_id": plan.get("site_id"), "plan": str(f), "pois": pois, "projects": projects(plan)}, indent=1), encoding="utf-8")
     print(f"{len(pois)} points of interest from {f} -> {OUT}")
     return 0
 

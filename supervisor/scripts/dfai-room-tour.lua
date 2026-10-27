@@ -369,7 +369,7 @@ local function show_guest()
     tour.last_guest_at = os.time()
     dfhack.run_command_silent('disable', 'spectate')
     df.global.plotinfo.follow_unit = u.id
-    tour.guest, tour.current = u.id, nil
+    tour.guest, tour.current, tour.project = u.id, nil, nil
     tour.last_switch = os.time()
     return true
 end
@@ -430,7 +430,7 @@ local function show_threat()
     tour.threat_seen[u.id] = now
     dfhack.run_command_silent('disable', 'spectate')
     df.global.plotinfo.follow_unit = u.id
-    tour.guest, tour.current, tour.threat = u.id, nil, true
+    tour.guest, tour.current, tour.threat, tour.project = u.id, nil, true, nil
     tour.last_switch = now
     return true
 end
@@ -439,7 +439,7 @@ local function back_to_dwarves()
     if tour.guest and df.global.plotinfo.follow_unit == tour.guest then
         df.global.plotinfo.follow_unit = -1 -- let spectate pick a dwarf right away
     end
-    tour.current, tour.guest, tour.threat = nil, nil, nil
+    tour.current, tour.guest, tour.threat, tour.project = nil, nil, nil, nil
     dfhack.run_command_silent('enable', 'spectate')
     tour.last_switch = os.time()
 end
@@ -454,7 +454,7 @@ local function camera_watchdog()
         local u = df.unit.find(fu)
         if not u or not dfhack.units.isActive(u) or u.flags1.inactive or dfhack.units.isDead(u) then
             df.global.plotinfo.follow_unit = -1
-            tour.current, tour.guest, tour.threat = nil, nil, nil
+            tour.current, tour.guest, tour.threat, tour.project = nil, nil, nil, nil
             dfhack.run_command_silent('enable', 'spectate')
             tour.last_switch = os.time()
             tour.idle_since = nil
@@ -472,6 +472,180 @@ local function camera_watchdog()
     end
 end
 
+-- mission mode (user idea): follow a project as it gets built. Projects come
+-- from dfai-projects (rescues, the deep shaft: anything a script or the console
+-- posts) and from the job list (a new workshop, furnace, depot, well or bridge
+-- going up). The camera follows the dwarf working inside the project's box
+-- under a "PROJECT:" banner, and cuts to the result when it is finished.
+local PROJECT_SECS = 40      -- following the worker
+local PROJECT_EVERY = 4 * 60 -- some project at most this often
+local PROJECT_GAP = 10 * 60  -- the same project again after this long
+local DONE_SECS = 20         -- the finished-result shot
+local SCAN_SECS = 10
+local BIG_BUILDINGS = {
+    [df.building_type.Workshop] = true, [df.building_type.Furnace] = true,
+    [df.building_type.TradeDepot] = true, [df.building_type.Well] = true,
+    [df.building_type.Bridge] = true, [df.building_type.Windmill] = true,
+    [df.building_type.WaterWheel] = true, [df.building_type.ScrewPump] = true,
+}
+local WORK_JOBS = {
+    [df.job_type.Dig] = true, [df.job_type.CarveUpwardStaircase] = true, [df.job_type.CarveDownwardStaircase] = true,
+    [df.job_type.CarveUpDownStaircase] = true, [df.job_type.CarveRamp] = true, [df.job_type.DigChannel] = true,
+    [df.job_type.ConstructBuilding] = true, [df.job_type.SmoothFloor] = true, [df.job_type.SmoothWall] = true,
+    [df.job_type.CarveFortification] = true, [df.job_type.CarveTrack] = true, [df.job_type.DetailWall] = true,
+    [df.job_type.DetailFloor] = true,
+}
+
+local function projects_mod()
+    local ok, m = pcall(reqscript, 'dfai-projects')
+    return ok and m or nil
+end
+
+local function in_box(pos, b)
+    return pos.x >= b[1] - 1 and pos.x <= b[4] + 1 and pos.y >= b[2] - 1 and pos.y <= b[5] + 1 and pos.z >= b[3] and pos.z <= b[6]
+end
+
+local function bld_name(b)
+    local ok, n = pcall(dfhack.buildings.getName, b)
+    if ok and n and n ~= '' then return dfhack.df2utf(n) end
+    return df.building_type[b:getType()] or 'building'
+end
+
+-- every SCAN_SECS: the live projects, each with the worker (if any) on a job in its box
+local function scan_projects()
+    local now = os.time()
+    if tour.proj_list and now - (tour.proj_scan_at or 0) < SCAN_SECS then return tour.proj_list end
+    tour.proj_scan_at = now
+    tour.proj_auto = tour.proj_auto or {}
+    local m = projects_mod()
+    local list = {}
+    if m then
+        pcall(m.prune)
+        for _, p in ipairs(m.list()) do list[#list + 1] = p end
+    end
+    -- rooms df-ai is digging (dfai_poi.py writes them from df-ai's plan)
+    tour.proj_state = tour.proj_state or {}
+    local ok, data = pcall(function() return require('json').decode_file(dfhack.getDFPath() .. '/dfhack-config/dfai-poi.json') end)
+    if ok and data and data.projects then
+        for _, r in ipairs(data.projects) do
+            local st = tour.proj_state[r.key]
+            if not st then st = {key = r.key, title = r.title, box = r.box, added = now, plan = true}; tour.proj_state[r.key] = st end
+            list[#list + 1] = st
+        end
+    end
+    for key, st in pairs(tour.proj_state) do
+        if st.done and now - (st.done_at or now) > 3600 then tour.proj_state[key] = nil end
+    end
+    -- new big buildings going up
+    local jobs = {}
+    local l = df.global.world.jobs.list.next
+    while l do
+        local j = l.item
+        if WORK_JOBS[j.job_type] then jobs[#jobs + 1] = j end
+        if j.job_type == df.job_type.ConstructBuilding then
+            local b = dfhack.job.getHolder(j)
+            if b and BIG_BUILDINGS[b:getType()] then
+                local key = 'bld:' .. b.id
+                if not tour.proj_auto[key] then
+                    tour.proj_auto[key] = {key = key, title = 'New ' .. bld_name(b), bld = b.id, added = now,
+                        box = {b.x1, b.y1, b.z, b.x2, b.y2, b.z}}
+                end
+            end
+        end
+        l = l.next
+    end
+    for key, p in pairs(tour.proj_auto) do
+        local b = df.building.find(p.bld)
+        if not b then
+            tour.proj_auto[key] = nil -- cancelled or removed
+        else
+            if not p.done and b:getBuildStage() >= b:getMaxBuildStage() then
+                p.done, p.done_at, p.title = true, now, bld_name(b)
+            end
+            if p.done and now - p.done_at > 3600 then tour.proj_auto[key] = nil else list[#list + 1] = p end
+        end
+    end
+    -- the worker in each box, and auto-finish for non-manual listed projects
+    for _, p in ipairs(list) do
+        p.worker, p.job, p.njobs = nil, nil, 0
+        for _, j in ipairs(jobs) do
+            if in_box(j.pos, p.box) then
+                p.njobs = p.njobs + 1
+                local w = dfhack.job.getWorker(j)
+                if w and not p.worker then p.worker, p.job = w.id, dfhack.job.getName(j) end
+            end
+        end
+        if not p.bld and (m or p.plan) then
+            if p.njobs > 0 and not p.seen_work then
+                if not p.plan then pcall(m.update, p.key, {seen_work = true}) end
+                p.seen_work = true
+            end
+            if not p.done and not p.manual and p.seen_work and p.njobs == 0 then
+                p.idle_scans = (tour.proj_idle or {})[p.key] or 0
+                tour.proj_idle = tour.proj_idle or {}
+                tour.proj_idle[p.key] = p.idle_scans + 1
+                if p.idle_scans + 1 >= 3 then
+                    if not p.plan then pcall(m.done, p.key) end
+                    p.done, p.done_at = true, now
+                end
+            elseif tour.proj_idle then
+                tour.proj_idle[p.key] = nil
+            end
+        end
+    end
+    tour.proj_list = list
+    return list
+end
+scan_projects_check = function() tour.proj_scan_at = 0 return scan_projects() end
+
+local function box_center(b) return xyz2pos((b[1] + b[4]) // 2, (b[2] + b[5]) // 2, b[6]) end
+
+-- the finished result, once per project
+local function show_project_done()
+    tour.proj_shown_done = tour.proj_shown_done or {}
+    for _, p in ipairs(scan_projects()) do
+        if p.done and not tour.proj_shown_done[p.key] then
+            tour.proj_shown_done[p.key] = true
+            local b = p.box
+            local pos = box_center(b)
+            if p.key == 'deepdig' then pos = xyz2pos(b[1], b[2], b[3]) end -- the bottom of a shaft
+            dfhack.run_command_silent('disable', 'spectate')
+            df.global.plotinfo.follow_unit = -1
+            dfhack.gui.revealInDwarfmodeMap(pos, true, true)
+            tour.current = {name = 'Project complete', short = p.title, pos = pos, secs = DONE_SECS,
+                box = {b[1], b[2], b[4], b[5], pos.z}}
+            tour.view, tour.last_switch, tour.project = view(), os.time(), nil
+            return true
+        end
+    end
+    return false
+end
+
+local function show_project()
+    local now = os.time()
+    if now - (tour.last_project_at or 0) < PROJECT_EVERY then return false end
+    tour.proj_seen = tour.proj_seen or {}
+    local best, best_t
+    for _, p in ipairs(scan_projects()) do
+        local u = p.worker and df.unit.find(p.worker)
+        if not p.done and u and dfhack.units.isActive(u) and revealed(u) then
+            local t = tour.proj_seen[p.key] or 0
+            if now - t >= PROJECT_GAP and (not best or t < best_t) then best, best_t = p, t end
+        end
+    end
+    if not best then return false end
+    tour.proj_seen[best.key] = now
+    tour.last_project_at = now
+    dfhack.run_command_silent('disable', 'spectate')
+    df.global.plotinfo.follow_unit = best.worker
+    tour.guest, tour.current, tour.threat, tour.project = best.worker, nil, nil, best
+    tour.last_switch = now
+    return true
+end
+
+-- testing: take the next project now
+function show_project_check() tour.last_project_at = 0 tour.proj_scan_at = 0 tour.proj_seen = {} return show_project() end
+
 local function step()
     camera_watchdog()
     -- threats first: break into anything (room, guest, dwarf) except another threat,
@@ -484,28 +658,36 @@ local function step()
         return
     end
     local now = os.time()
+    if tour.project then
+        for _, p in ipairs(scan_projects()) do
+            if p.key == tour.project.key then tour.project = p end
+        end
+    end
     if tour.current then
         if view() ~= tour.view then
             tour.current = nil -- a person moved the map: leave the camera to them
             return
         end
-        if now - tour.last_switch >= ROOM_SECS then
+        if now - tour.last_switch >= (tour.current.secs or ROOM_SECS) then
             -- after a room, visit a guest if one is around, else back to dwarves
             tour.prev_box = tour.current.box or {tour.current.pos.x - 5, tour.current.pos.y - 5, tour.current.pos.x + 5, tour.current.pos.y + 5, tour.current.pos.z}
             tour.current = nil
-            if not show_guest() then back_to_dwarves() end
+            if not show_project_done() and not show_guest() then back_to_dwarves() end
         end
     elseif tour.guest then
         local u = df.unit.find(tour.guest)
         if df.global.plotinfo.follow_unit ~= tour.guest then
             back_to_dwarves() -- the camera lost the guest (or someone took it)
+        elseif tour.project and tour.project.done then
+            tour.guest, tour.project = nil, nil
+            if not show_project_done() then back_to_dwarves() end
         elseif not u or not dfhack.units.isActive(u) or dfhack.units.isDead(u)
-            or now - tour.last_switch >= (tour.threat and ((tour.battle_n or 0) >= 3 and BATTLE_SECS or THREAT_SECS) or GUEST_SECS) then
+            or now - tour.last_switch >= (tour.threat and ((tour.battle_n or 0) >= 3 and BATTLE_SECS or THREAT_SECS) or (tour.project and PROJECT_SECS) or GUEST_SECS) then
             -- a threat's time is up (or it died): next threat if any, else dwarves
             if not (tour.threat and show_threat()) then back_to_dwarves() end
         end
     elseif spectate_on() and now - tour.last_switch >= DWARF_SECS then
-        show_next_room()
+        if not show_project_done() and not show_project() then show_next_room() end
     end
 end
 
@@ -552,6 +734,10 @@ local function banner_lines()
         if dfhack.units.isMerchant(u) then prof = prof .. ' (merchant)'
         elseif dfhack.units.isDiplomat(u) then prof = prof .. ' (diplomat)'
         elseif dfhack.units.isVisitor(u) then prof = prof .. ' (visitor)' end
+    end
+    if tour.project and tour.guest == u.id then
+        local job = u.job.current_job and dfhack.job.getName(u.job.current_job) or tour.project.job or 'On the way'
+        return ('PROJECT: ' .. dfhack.utf2df(tour.project.title)):upper(), name .. ', ' .. prof .. ': ' .. job
     end
     if tour.threat and tour.guest == u.id then
         local alive, fallen = 0, 0
