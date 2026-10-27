@@ -20,7 +20,7 @@ local KEY = 'dfai-deep-dig'
 local MATURE_POP = 60
 local SAFE = 3          -- levels kept between the shaft bottom and any liquid/void
 local HALL_R = 2        -- the hall is (2R+1)^2
-local STALL_DAYS = 20   -- re-designate a level nobody dug
+local STALL_DAYS = 10   -- re-designate a level nobody dug
 local BATCH = 10        -- levels designated at a time (user: "dig 10 levels at a time")
 
 local function shape(x, y, z)
@@ -52,11 +52,27 @@ local function danger_at(x, y, z)
     end
 end
 
+-- dig priority 1 (as quickfort sets it): the shaft is far below the fort, and
+-- at the default priority the miners always found a nearer dig job first (the
+-- last level waited for hours)
+local function set_priority(b, x, y, p)
+    local ev
+    for _, v in ipairs(b.block_events) do
+        if v:getType() == df.block_square_event_type.designation_priority then ev = v break end
+    end
+    if not ev then
+        b.block_events:insert('#', {new = df.block_square_event_designation_priorityst})
+        ev = b.block_events[#b.block_events - 1]
+    end
+    ev.priority[x % 16][y % 16] = p * 1000
+end
+
 local function designate(x, y, z, kind)
     local f = dfhack.maps.getTileFlags(x, y, z)
     local b = dfhack.maps.getTileBlock(x, y, z)
     if not f or not b then return false end
     f.dig = kind
+    set_priority(b, x, y, 1)
     b.flags.designated = true
     return true
 end
