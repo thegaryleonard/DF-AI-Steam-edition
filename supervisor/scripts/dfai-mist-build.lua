@@ -68,6 +68,27 @@ local function left_C(d)
     return n
 end
 
+-- inside both rooms, open-air and ramp-top tiles (the west side is a cliff
+-- edge) get a constructed floor: the room is sealed, and the builders get a
+-- tile to stand on for the walls over the drop (a wall over open air can only
+-- be built from beside it on the same level)
+local function floor_holes()
+    local n = 0
+    for y = Y1 + 1, Y2 - 1 do
+        for x = X1 + 1, X2 - 1 do
+            if x ~= 27 then
+                local tt = dfhack.maps.getTileType(x, y, Z)
+                local sh = tt and df.tiletype.attrs[tt].shape
+                if (sh == df.tiletype_shape.EMPTY or sh == df.tiletype_shape.RAMP_TOP) and not dfhack.buildings.findAtTile(xyz2pos(x, y, Z)) then
+                    if pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Construction,
+                        subtype = df.construction_type.Floor, pos = xyz2pos(x, y, Z)}) then n = n + 1 end
+                end
+            end
+        end
+    end
+    return n
+end
+
 local function windmills()
     local placed, built = 0, 0
     for _, w in ipairs(WINDMILLS) do
@@ -111,11 +132,23 @@ function step()
     if not d then return 'no cell list' end
     local s = load()
     dfhack.run_command_silent('unsuspend')
+    -- autolabor kept ONE builder for the whole fort (minimum 1), so every wall
+    -- waited in a single line: keep 8 while the build runs, then hand it back
+    if s.phase ~= 'ready' and not s.builders then
+        dfhack.run_command_silent('autolabor', 'BUILD_CONSTRUCTION', '8', '200')
+        s.builders = true
+        save(s)
+    elseif s.phase == 'ready' and s.builders then
+        dfhack.run_command_silent('autolabor', 'BUILD_CONSTRUCTION', '1', '200')
+        s.builders = nil
+        save(s)
+    end
     if s.phase == 'A' then
         if not s.project then
             project('add', 'mist', 'The Walled Entrance And Mist Generator', X1, Y1, Z, X2, Y2, Z + 1, true)
             s.project = true
         end
+        floor_holes()
         local n = left_A(d)
         if n > 0 then
             qf('A_z177_walls.csv', CUR)
@@ -157,8 +190,58 @@ function step()
     elseif s.phase == 'ready' then
         local cur, need = power()
         return ('ready to prime: power %d / %d'):format(cur, need)
+    elseif s.phase == 'priming' then
+        -- user: a pond over a statue square; it takes two or three buckets to
+        -- kick off. Once that much water is inside, the pond goes (no top-ups).
+        local w = water_inside()
+        if w >= PRIME_WATER then
+            remove_pond()
+            s.phase = 'running'
+            save(s)
+            return ('primed with %d/7 of water: pond removed, the generator runs on its own'):format(w)
+        end
+        if not pond_zone() then make_pond() end
+        return ('priming: %d/7 of water inside, pond open at %d,%d,%d'):format(w, POND[1], POND[2], POND[3])
+    elseif s.phase == 'running' then
+        return ('running: %d/7 of water inside'):format(water_inside())
     end
     return s.phase
+end
+
+-- priming pond over the statue at the ring's NW corner (open tile above it)
+POND = {30, 118, 175}
+PRIME_WATER = 21     -- three buckets' worth, in 1/7 units
+function water_inside()
+    local w = 0
+    for z = Z, Z + 1 do
+        for x = X1, X2 do
+            for y = Y1, Y2 do
+                local f = dfhack.maps.getTileFlags(x, y, z)
+                if f and not f.liquid_type then w = w + f.flow_size end
+            end
+        end
+    end
+    return w
+end
+function pond_zone()
+    for _, b in ipairs(df.global.world.buildings.other.ACTIVITY_ZONE) do
+        if b.type == df.civzone_type.Pond and b.z == POND[3] and b.x1 <= POND[1] and b.x2 >= POND[1] and b.y1 <= POND[2] and b.y2 >= POND[2] then return b end
+    end
+end
+function make_pond()
+    local f = io.open('dfhack-config/blueprints/dfai-mist/E_pond.csv', 'w')
+    f:write('#zone label(pond)\np{name="Mist Generator Priming Pond"}\n')
+    f:close()
+    dfhack.run_command_silent('quickfort', 'run', 'dfai-mist/E_pond.csv', '-c', ('%d,%d,%d'):format(POND[1], POND[2], POND[3]))
+    local z = pond_zone()
+    if z then
+        z.spec_sub_flag.active = true
+        print('[mist] priming pond opened: dwarves will bucket water in')
+    end
+end
+function remove_pond()
+    local z = pond_zone()
+    if z then dfhack.buildings.deconstruct(z) end
 end
 
 local function tick()
@@ -171,6 +254,13 @@ local cmd = ({...})[1] or 'status'
 if cmd == 'start' then
     repeatUtil.scheduleEvery(KEY, 600, 'ticks', tick) -- twice a game day
     print('mist build: started')
+elseif cmd == 'prime' then
+    dfhack.timeout(1, 'ticks', function()
+        local s = load()
+        if s.phase == 'ready' or s.phase == 'running' then s.phase = 'priming' save(s) end
+        tick()
+    end)
+    print('mist build: priming queued')
 elseif cmd == 'now' then
     dfhack.timeout(1, 'ticks', tick)
     print('mist build: queued for the next game tick')
