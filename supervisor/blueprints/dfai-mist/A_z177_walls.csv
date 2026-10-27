@@ -1,0 +1,12 @@
+#build label(walls) start(1;1)
+Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,d,Cw,Cw,Cw,Cw
+Cw,,,,,,,,Cw,,,,,,,,,,Cw
+Cw,,,,,,,,Cw,,,,,,,,,,Cw
+Cw,,,,,,,,Cw,,,,,,,,,,Cw
+Cw,,,,,,,,Cw,,,,,,,,,,Cw
+Cw,,,,,,,,Cw,,,,,,,,,,d
+Cw,,,,,,,,Cw,,,,,,,,,,Cw
+d,,,,,,,,d,,,,,,,,,,Cw
+Cw,,,,,,,,Cw,,,,,,,,,,Cw
+Cw,,,,,,,,Cw,,,,,,,,,Cu,Cw
+Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,d,Cw,Cw,Cw,Cw
