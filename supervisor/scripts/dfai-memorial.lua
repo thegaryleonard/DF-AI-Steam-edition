@@ -29,7 +29,13 @@ local NICHES = {
     {64, 127, 7186},   -- Fikod "Autumnalceiling", wrestler
     {53, 124, 6865},   -- Erith "Axerose", axe lord
     {53, 126, 7189},   -- Melbil "Neutralshoots", hammerdwarf
+    -- the mist chamber (z174, floor already there): the beasts and their slayers
+    {30, 118, 97, 174},    -- Osel "Witchsplashed the Washed", forgotten beast
+    {33, 118, 4711, 174},  -- Solon "Greatercrafted", who slew Osel and fell
+    {30, 121, 64, 174},    -- Rulush, forgotten beast
+    {33, 121, 6825, 174},  -- Lorbam "Craftmob", who slew Rulush
 }
+local function nz(n) return n[4] or Z end
 
 local function load() return dfhack.persistent.getSiteData(KEY, {}) end
 local function save(s) dfhack.persistent.saveSiteData(KEY, s) end
@@ -120,15 +126,15 @@ local function step()
     if s.phase == 'dig' then
         local left = 0
         for _, n in ipairs(NICHES) do
-            if shape(n[1], n[2], Z) == df.tiletype_shape.WALL then
+            if shape(n[1], n[2], nz(n)) == df.tiletype_shape.WALL then
                 left = left + 1
-                if dfhack.maps.getTileFlags(n[1], n[2], Z).dig == df.tile_dig_designation.No then designate(n[1], n[2], Z) end
+                if dfhack.maps.getTileFlags(n[1], n[2], nz(n)).dig == df.tile_dig_designation.No then designate(n[1], n[2], nz(n)) end
             end
         end
         -- carving starts at once, alongside the digging
         for _, n in ipairs(NICHES) do
             local k = tostring(n[3])
-            if not s.ordered[k] and not s.placed[k] and not carving_for(n[3]) and carve(n[3], mat) then s.ordered[k] = true end
+            if not s.ordered[k] and not s.placed[k] and not carving_for(n[3]) and not statue_of(n[3]) and carve(n[3], mat) then s.ordered[k] = true end
         end
         if left == 0 then s.phase = 'place' end
         save(s)
@@ -139,7 +145,11 @@ local function step()
         local done, waiting = 0, {}
         for _, n in ipairs(NICHES) do
             local k = tostring(n[3])
-            local b = dfhack.buildings.findAtTile(xyz2pos(n[1], n[2], Z))
+            local b = dfhack.buildings.findAtTile(xyz2pos(n[1], n[2], nz(n)))
+            if b and df.building_statuest:is_instance(b) and b:getBuildStage() == 0 and #b.contained_items == 0 and not s.placed[k] then
+                dfhack.buildings.deconstruct(b)
+                b = nil
+            end
             if b and df.building_statuest:is_instance(b) then
                 if b:getBuildStage() >= b:getMaxBuildStage() then done = done + 1 end
                 s.placed[k] = true
@@ -148,7 +158,7 @@ local function step()
                 if it then
                     it.flags.forbid = false
                     local ok, nb = pcall(dfhack.buildings.constructBuilding,
-                        {type = df.building_type.Statue, pos = xyz2pos(n[1], n[2], Z), items = {it}})
+                        {type = df.building_type.Statue, pos = xyz2pos(n[1], n[2], nz(n)), items = {it}})
                     if ok and nb then s.placed[k] = true end
                 elseif not carving_for(n[3]) then
                     carve(n[3], mat)   -- lost or cancelled: carve again
@@ -159,12 +169,20 @@ local function step()
         if done == #NICHES then
             s.phase = 'done'
             local names = {}
-            for _, n in ipairs(NICHES) do names[#names + 1] = hf_name(n[3]) end
-            notify(('**A memorial for the fallen.** Eight microcline statues now stand in niches cut into the walls of The Ominous Sack, one for each dwarf who died in the beast hunt: %s. The camera visits them with their stories.')
+            for _, n in ipairs(NICHES) do if not n[4] then names[#names + 1] = hf_name(n[3]) end end
+            notify(('**A memorial for the fallen.** Eight microcline statues now stand in niches cut into the walls of The Ominous Sack, one for each dwarf who died in the beast hunt: %s. In the mist chamber, the two beasts stand beside the dwarves who slew them. The camera visits them all with their stories.')
                 :format(table.concat(names, ', ')))
+            -- generic statues held back for the story ones can go anywhere now
+            for _, it in ipairs(df.global.world.items.other.STATUE) do
+                if it.flags.forbid and not it.flags.in_building and not it.flags.in_job then
+                    local mine = false
+                    for _, n in ipairs(NICHES) do if dfhack.df2utf(it.description) == hf_name(n[3]) then mine = true end end
+                    if not mine then it.flags.forbid = false end
+                end
+            end
         end
         save(s)
-        return ('statues: %d of %d standing%s'):format(done, #NICHES, #waiting > 0 and ('; waiting on ' .. table.concat(waiting, ', ')) or '')
+        return ('statues: %d of %d standing (memorial and mist chamber)%s'):format(done, #NICHES, #waiting > 0 and ('; waiting on ' .. table.concat(waiting, ', ')) or '')
     end
     return s.phase
 end
