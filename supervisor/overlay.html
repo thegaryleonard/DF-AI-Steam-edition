@@ -2315,6 +2315,22 @@ function worksItems(ctx, r) {
       : `Below the deepest cavern a single stair is going down, one level at a time${lv ? `, ${lv} so far` : ''}. Nobody asked the miners to do this. Nobody could stop them either. The works office promises to stop well above anything molten.`;
     out.push({ids: ['works-deep-' + lv + (dd.status || '')], html: `<div class="item"><div class="kick">The Works Office · Going Down</div><h3>${esc(head)}</h3><p class="just">${body}</p>${last ? `<p class="just" style="font-style:italic">${esc(last.text)}</p>` : ''}</div>`});
   }
+  // finished on stream (mission mode): who dug it and where
+  const bt = (WK.built || []).slice(-1)[0];
+  if (bt) {
+    const what = clean(bt.title || 'a new room').replace(/^(A|The) New /i, '').replace(/^New /i, '');
+    const nm = bt.name ? clean(bt.name) : null;
+    const ws = (bt.workers || []).map(w => clean(w));
+    const crew = ws.length ? (ws.length === 1 ? ws[0] : ws.slice(0, -1).join(', ') + ' and ' + ws[ws.length - 1]) : 'the fort\u2019s miners';
+    const where = bt.below > 0 ? `, ${bt.below} levels below the entrance` : (bt.below === 0 ? ', at the level of the gate' : '');
+    const head = nm ? `${esc(nm)} Opens Its Doors` : `New ${esc(cap(what))} Finished`;
+    const tail = /tavern/i.test(what) ? 'The first round is said to be on the miners. The miners deny this.'
+      : /farm/i.test(what) ? 'The planters move in next. The miners have been asked to stop tracking rock dust into the soil.'
+      : /storeroom/i.test(what) ? 'The haulers have already started filling it, which is how you know it is truly finished.'
+      : 'Dwarves are invited to admire it and then get back to work.';
+    const body = `${nm ? `The new ${esc(what.toLowerCase())}, ${esc(nm)},` : `A new ${esc(what.toLowerCase())}`} is finished${esc(where)}. The work was done by ${esc(crew)}, live on the fort\u2019s viewing stone. ${tail}`;
+    out.push({ids: ['works-built-' + bt.at], html: `<div class="item"><div class="kick">Ribbon Cut · Seen on Stream</div><h3>${head}</h3><p class="just">${body}</p></div>`});
+  }
   const pj = WK.projects || [];
   if (pj.length) {
     const p = pick(r, pj);

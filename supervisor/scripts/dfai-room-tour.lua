@@ -160,6 +160,14 @@ local function find_rooms()
             pois[#pois + 1] = {name = p.name, kind = p.kind, pos = xyz2pos(p.x, p.y, p.z)}
         end
     end
+    -- finished projects that drew a crowd (mission mode promotes them)
+    local okp, pm = pcall(reqscript, 'dfai-projects')
+    if okp and pm and pm.promoted then
+        for _, p in ipairs(pm.promoted()) do
+            pois[#pois + 1] = {name = p.name, kind = p.kind or 'Built on stream', pos = xyz2pos(p.x, p.y, p.z),
+                box = p.box and {p.box[1], p.box[2], p.box[4], p.box[5], p.box[3]} or nil}
+        end
+    end
     -- the deep dig's current bottom (dfai-deep-dig.lua)
     local okd, deep = pcall(function()
         return require('json').decode_file(dfhack.getDFPath() .. '/dfhack-config/dfai-deep.json')
@@ -529,7 +537,14 @@ local function scan_projects()
     if ok and data and data.projects then
         for _, r in ipairs(data.projects) do
             local st = tour.proj_state[r.key]
-            if not st then st = {key = r.key, title = r.title, box = r.box, added = now, plan = true}; tour.proj_state[r.key] = st end
+            if not st then
+                st = {key = r.key, title = r.title, box = r.box, added = now, plan = true, promote = r.promote, kind = r.kind}
+                local f = dfhack.maps.getTileFlags(r.box[1], r.box[2], r.box[3])
+                if f and f.feature_global and r.kind == 'location' then
+                    st.title = st.title:gsub('^A New ', 'A New Cavern ')
+                end
+                tour.proj_state[r.key] = st
+            end
             list[#list + 1] = st
         end
     end
@@ -593,6 +608,50 @@ local function scan_projects()
             end
         end
     end
+    -- progress (dug tiles in the box, or the building's stage), who worked
+    -- on it, and the crowd once it is finished
+    tour.proj_workers = tour.proj_workers or {}
+    tour.proj_traffic = tour.proj_traffic or {}
+    for _, p in ipairs(list) do
+        local b = p.box
+        if p.bld then
+            local bb = df.building.find(p.bld)
+            if bb and bb:getMaxBuildStage() > 0 then p.pct = math.floor(100 * bb:getBuildStage() / bb:getMaxBuildStage()) end
+            p.what = 'built'
+        elseif (b[4] - b[1] + 1) * (b[5] - b[2] + 1) * (b[6] - b[3] + 1) <= 400 then
+            local open, all = 0, 0
+            for z = b[3], b[6] do for y = b[2], b[5] do for x = b[1], b[4] do
+                local tt = dfhack.maps.getTileType(x, y, z)
+                if tt then
+                    all = all + 1
+                    if df.tiletype.attrs[tt].shape ~= df.tiletype_shape.WALL then open = open + 1 end
+                end
+            end end end
+            if all > 0 then p.pct = math.floor(100 * open / all) end
+            p.what = 'dug'
+        end
+        if p.worker then
+            local w = df.unit.find(p.worker)
+            local ws = tour.proj_workers[p.key] or {}
+            tour.proj_workers[p.key] = ws
+            if w then
+                local nm = dfhack.df2utf(dfhack.units.getReadableName(w)):gsub(',.*$', ''):gsub('^(%S+).-"(.-)".*$', '%1 "%2"')
+                if not ws[nm] then ws[nm] = true; ws[#ws + 1] = nm end
+            end
+        end
+        if p.done and p.promote and not p.promoted then
+            local n = 0
+            for _, u in ipairs(df.global.world.units.active) do
+                if dfhack.units.isActive(u) and in_box(u.pos, b) then n = n + 1 end
+            end
+            if n >= 3 then tour.proj_traffic[p.key] = (tour.proj_traffic[p.key] or 0) + 1 end
+            if (tour.proj_traffic[p.key] or 0) >= 3 and m and m.promote then
+                local name = p.real_name or p.title:gsub('^A New ', 'The '):gsub('^New ', 'The New ')
+                pcall(m.promote, p.key, name, p.title, b)
+                p.promoted = true
+            end
+        end
+    end
     tour.proj_list = list
     return list
 end
@@ -607,12 +666,30 @@ local function show_project_done()
         if p.done and not tour.proj_shown_done[p.key] then
             tour.proj_shown_done[p.key] = true
             local b = p.box
+            -- the room's real name once DF knows it (a tavern called The Brash Voice)
+            local okr, rooms = pcall(find_rooms)
+            if okr then
+                for _, r in ipairs(rooms) do
+                    if r.box and r.box[5] >= b[3] and r.box[5] <= b[6] and r.pos.x >= b[1] and r.pos.x <= b[4] and r.pos.y >= b[2] and r.pos.y <= b[5] then
+                        p.real_name = r.name
+                        break
+                    end
+                end
+            end
+            local ws = tour.proj_workers and tour.proj_workers[p.key] or {}
+            local m = projects_mod()
+            if m and m.log_done then
+                pcall(m.log_done, {title = p.title, name = p.real_name, z = b[3], workers = {table.unpack(ws, 1, math.min(#ws, 4))},
+                    kind = p.kind or (p.bld and 'building') or p.key:match('^%a+'), year = df.global.cur_year,
+                    month = df.global.cur_year_tick // 33600 + 1})
+            end
             local pos = box_center(b)
             if p.key == 'deepdig' then pos = xyz2pos(b[1], b[2], b[3]) end -- the bottom of a shaft
             dfhack.run_command_silent('disable', 'spectate')
             df.global.plotinfo.follow_unit = -1
             dfhack.gui.revealInDwarfmodeMap(pos, true, true)
-            tour.current = {name = 'Project complete', short = p.title, pos = pos, secs = DONE_SECS,
+            local by = #ws > 0 and (' | by ' .. ws[1]:gsub(' ".*', '') .. (#ws > 1 and (' and ' .. (#ws - 1) .. ' more') or '')) or ''
+            tour.current = {name = 'Project complete', short = (p.real_name or p.title) .. by, pos = pos, secs = DONE_SECS,
                 box = {b[1], b[2], b[4], b[5], pos.z}}
             tour.view, tour.last_switch, tour.project = view(), os.time(), nil
             return true
@@ -636,6 +713,21 @@ local function show_project()
     if not best then return false end
     tour.proj_seen[best.key] = now
     tour.last_project_at = now
+    tour.proj_opened = tour.proj_opened or {}
+    if not tour.proj_opened[best.key] then
+        -- first time on stream: the site before the dwarves get far ("Breaking ground")
+        tour.proj_opened[best.key] = true
+        local b = best.box
+        local pos = box_center(b)
+        if best.key == 'deepdig' then pos = xyz2pos(b[1], b[2], b[3]) end
+        dfhack.run_command_silent('disable', 'spectate')
+        df.global.plotinfo.follow_unit = -1
+        dfhack.gui.revealInDwarfmodeMap(pos, true, true)
+        tour.current = {name = 'PROJECT: ' .. best.title, short = 'Breaking ground' .. (best.pct and (' | ' .. best.pct .. '% ' .. (best.what or 'done')) or ''),
+            pos = pos, secs = 10, then_follow = best.key, box = {b[1], b[2], b[4], b[5], pos.z}}
+        tour.view, tour.last_switch, tour.project = view(), now, nil
+        return true
+    end
     dfhack.run_command_silent('disable', 'spectate')
     df.global.plotinfo.follow_unit = best.worker
     tour.guest, tour.current, tour.threat, tour.project = best.worker, nil, nil, best
@@ -671,7 +763,19 @@ local function step()
         if now - tour.last_switch >= (tour.current.secs or ROOM_SECS) then
             -- after a room, visit a guest if one is around, else back to dwarves
             tour.prev_box = tour.current.box or {tour.current.pos.x - 5, tour.current.pos.y - 5, tour.current.pos.x + 5, tour.current.pos.y + 5, tour.current.pos.z}
+            local follow = tour.current.then_follow
             tour.current = nil
+            if follow then
+                -- the opening shot is over: follow the worker
+                for _, p in ipairs(scan_projects()) do
+                    local u = p.key == follow and p.worker and df.unit.find(p.worker)
+                    if u then
+                        df.global.plotinfo.follow_unit = p.worker
+                        tour.guest, tour.project, tour.last_switch = p.worker, p, os.time()
+                        return
+                    end
+                end
+            end
             if not show_project_done() and not show_guest() then back_to_dwarves() end
         end
     elseif tour.guest then
@@ -721,7 +825,7 @@ end
 -- what the banner shows: the room being toured, else the followed creature
 local function banner_lines()
     local r = tour.current
-    if r then return dfhack.utf2df(r.name):upper(), dfhack.utf2df(r.short or r.kind) end
+    if r then return dfhack.utf2df(r.name):upper(), dfhack.utf2df(r.short or r.kind or '') end
     local u = df.unit.find(df.global.plotinfo.follow_unit)
     if not u then return nil end
     local name = dfhack.units.getReadableName(u):gsub(',.*$', '')
@@ -737,7 +841,8 @@ local function banner_lines()
     end
     if tour.project and tour.guest == u.id then
         local job = u.job.current_job and dfhack.job.getName(u.job.current_job) or tour.project.job or 'On the way'
-        return ('PROJECT: ' .. dfhack.utf2df(tour.project.title)):upper(), name .. ', ' .. prof .. ': ' .. job
+        local pct = tour.project.pct and (' (' .. tour.project.pct .. '% ' .. (tour.project.what or 'done') .. ')') or ''
+        return ('PROJECT: ' .. dfhack.utf2df(tour.project.title)):upper() .. pct, name .. ', ' .. prof .. ': ' .. job
     end
     if tour.threat and tour.guest == u.id then
         local alive, fallen = 0, 0

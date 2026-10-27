@@ -179,7 +179,20 @@ def feed():
     except (OSError, ValueError, NameError):
         deep = None
 
-    return {"ok": True, "site": site, "deep": deep, "building": busy.most_common(6), "halls": halls, "goals": goals[:4],
+    # projects the stream camera saw finished (dfai-projects.lua log_done)
+    built = []
+    try:
+        bd = json.loads((dfai_poi.DF_DIR / "dfhack-config" / "dfai-projects-done.json").read_bytes().decode("utf-8", "replace"))
+        if bd.get("site_id") in (site, -1):
+            built = [b for b in bd.get("done", []) if isinstance(b, dict)][-4:]
+    except (OSError, ValueError):
+        built = []
+    if ent is not None:
+        for b in built:
+            if isinstance(b.get("z"), int):
+                b["below"] = ent - b["z"]
+
+    return {"ok": True, "site": site, "deep": deep, "built": built, "building": busy.most_common(6), "halls": halls, "goals": goals[:4],
             "goals_done": done_goals, "done": st["done"][-5:], "landmarks": landmarks, "depth": depth,
             "rooms_finished": fin, "rooms_total": total, "projects": projects}
 

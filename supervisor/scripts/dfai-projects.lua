@@ -61,6 +61,31 @@ function prune()
     if changed then save(d) end
 end
 
+-- finished projects that drew a crowd: permanent tour stops
+function promoted() return load().promoted or {} end
+
+function promote(key, name, kind, box)
+    local d = load()
+    d.promoted = d.promoted or {}
+    for _, p in ipairs(d.promoted) do if p.key == key then return end end
+    table.insert(d.promoted, {key = key, name = name, kind = kind, box = box,
+        x = (box[1] + box[4]) // 2, y = (box[2] + box[5]) // 2, z = box[3]})
+    save(d)
+end
+
+-- finished projects for the Herald's Works desk (supervisor/herald_works.py)
+local DONE_FILE = dfhack.getDFPath() .. '/dfhack-config/dfai-projects-done.json'
+function log_done(entry)
+    local json = require('json')
+    local ok, data = pcall(json.decode_file, DONE_FILE)
+    local s = dfhack.world.getCurrentSite()
+    if not ok or type(data) ~= 'table' or data.site_id ~= (s and s.id) then data = {site_id = s and s.id, done = {}} end
+    entry.at = os.time()
+    table.insert(data.done, entry)
+    while #data.done > 20 do table.remove(data.done, 1) end
+    json.encode_file(data, DONE_FILE)
+end
+
 if dfhack_flags.module then return end
 
 local args = {...}
@@ -73,6 +98,8 @@ if cmd == 'add' then
     print('project added: ' .. args[3])
 elseif cmd == 'done' then done(args[2]) print('project done: ' .. tostring(args[2]))
 elseif cmd == 'remove' then remove(args[2]) print('project removed: ' .. tostring(args[2]))
+elseif cmd == 'promoted' then
+    for _, p in ipairs(promoted()) do print(p.key, p.name, p.x, p.y, p.z) end
 else
     for _, p in ipairs(list()) do
         local b = p.box

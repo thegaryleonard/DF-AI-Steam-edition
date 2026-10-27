@@ -89,8 +89,10 @@ PROJECT_NAMES = {
     "stockpile": "A New Storeroom", "nobleroom": "New Noble Quarters", "barracks": "New Barracks",
     "infirmary": "A New Hospital", "cemetery": "New Catacombs", "cistern": "A New Cistern",
     "jail": "A New Jail", "tradedepot": "The Trade Depot", "pitcage": "The Execution Pit",
-    "garbagedump": "A New Refuse Chute",
+    "garbagedump": "A New Refuse Chute", "farmplot": "New Farm Plots", "dininghall": "A New Dining Hall",
 }
+# finished rooms of these kinds that draw a crowd become tour stops (taverns, farms...)
+PROMOTE = {"location", "farmplot", "barracks", "infirmary", "dininghall", "outpost", "pasture", "cemetery", "nobleroom"}
 LOCATION_NAMES = {"tavern": "A New Tavern", "library": "A New Library", "temple": "A New Temple",
                   "guildhall": "A New Guildhall", "hospital": "A New Hospital"}
 
@@ -109,12 +111,17 @@ def projects(plan):
             title = "A New " + FURNACE_NAMES[r["furnace_type"]].replace("The ", "")
         elif t == "location":
             title = LOCATION_NAMES.get(r.get("location_type"), "A New Hall")
+        elif t == "outpost" and r.get("outpost_type") == "cavern":
+            title = "A Cavern Outpost"
+        elif t == "pasture" and not r.get("outdoor"):
+            title = "The Indoor Pasture"
         else:
             title = PROJECT_NAMES.get(t)
         if not title:
             continue        # bedrooms, corridors, ponds, farm plots: too small or too many
         (x1, y1, z1), (x2, y2, z2) = r["min"], r["max"]
-        out.append({"key": f"room:{i}", "title": title, "box": [x1, y1, z1, x2, y2, z2]})
+        out.append({"key": f"room:{i}", "title": title, "box": [x1, y1, z1, x2, y2, z2],
+                    "promote": t in PROMOTE, "kind": t, "location": r.get("location_type")})
     return out
 
 
