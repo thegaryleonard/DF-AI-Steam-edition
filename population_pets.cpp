@@ -9,6 +9,8 @@
 
 #include "df/building_civzonest.h"
 #include "df/building_nest_boxst.h"
+#include <sstream>
+#include "stocks.h"
 #include "df/items_other_id.h"
 #include "df/tiletype.h"
 #include "df/civzone_type.h"
@@ -90,7 +92,22 @@ static void place_indoor_nest_boxes(AI & ai, color_ostream & out)
             break;
         }
         if (!box)
-            return; // stocks keeps one spare nest box made; try again next time
+        {
+            // stocks counts built boxes as its "one spare", so it never made
+            // more (1 box for 38 hens): order one ourselves unless an order
+            // for nest boxes is already open
+            int16_t sub = ai.stocks.min_subtype_for_item(stock_item::nest_box);
+            bool ordered = false;
+            for (auto mo : world->manager_orders.all)
+                if (mo->job_type == job_type::MakeTool && mo->item_subtype == sub && mo->amount_left > 0)
+                    ordered = true;
+            if (!ordered && sub != -1)
+            {
+                std::ostringstream reason;
+                ai.stocks.queue_need(out, stock_item::nest_box, std::min(3, want - have), reason);
+            }
+            return;
+        }
 
         // a free floor tile inside the pen with a wall next to it
         df::coord spot;
