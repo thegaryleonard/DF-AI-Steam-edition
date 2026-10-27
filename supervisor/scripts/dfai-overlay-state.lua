@@ -143,6 +143,7 @@ if out.ok then
   local tour = rawget(_G, 'dfai_tour')
   if tour and tour.current then
     out.tour = { name = tour.current.name, kind = tour.current.kind, detail = tour.current.detail }
+    if tour.current.statue then out.tour.statue = tour.current.statue end
     -- live facts for the On Camera card: who is here and what the workshop is making
     local okl, live = pcall(function()
       local p = tour.current.pos

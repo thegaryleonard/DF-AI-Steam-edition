@@ -2597,6 +2597,17 @@ function renderFollow() {
   const d = S.followed || S.dwarf, live = !!S.followed;
   let html = '';
 
+  if (S.tour && S.tour.statue) {
+    const st = S.tour.statue;
+    const made = [st.quality ? `${esc(st.quality)} work` : '', st.maker ? `carved by ${esc(st.maker)}` : ''].filter(Boolean).join(', ');
+    html = `<div class="kicker"><span><span class="live">On Camera</span></span><span>Statue</span></div>
+      <h3>${st.subject ? esc(st.subject) : 'A Statue'}</h3>
+      <div class="sub">${esc(st.item)}${made ? ` &middot; ${made}` : ''}</div>
+      ${st.story ? `<div class="beastdesc">${esc(st.story)}</div>` : ''}
+      ${st.scene ? `<div class="doing">${esc(st.scene)}</div>` : ''}`;
+    if (html !== followHtml) { followHtml = html; el.innerHTML = html; }
+    return;
+  }
   if (S.tour && S.tour.name) {
     html = `<div class="kicker"><span><span class="live">On Camera</span></span><span>Room Tour</span></div>
       <h3>${esc(clean(S.tour.name))}</h3><div class="sub">${esc(S.tour.kind)}</div>

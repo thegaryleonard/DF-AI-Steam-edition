@@ -796,6 +796,42 @@ show_leaves_check = function(force) if force then tour.season = -1 end return sh
 -- testing: take the next project now
 function show_project_check() tour.last_project_at = 0 tour.proj_scan_at = 0 tour.proj_seen = {} return show_project() end
 
+-- statue stops (user: "sprinkle in statues and then spectate them to see their
+-- description"): every STATUE_EVERY the camera rests on the statue shown least
+-- recently; the broadsheet's On Camera card tells who it depicts (dfai-art)
+local STATUE_EVERY = 8 * 60
+local STATUE_SECS = 30
+local STATUE_GAP = 30 * 60
+local function show_statue(force_id)
+    local now = os.time()
+    if not force_id and now - (tour.last_statue_at or 0) < STATUE_EVERY then return false end
+    tour.statue_seen = tour.statue_seen or {}
+    local ok, art = pcall(reqscript, 'dfai-art')
+    if not ok then return false end
+    local best, bt
+    for _, b in ipairs(df.global.world.buildings.other.STATUE) do
+        if b:getBuildStage() >= b:getMaxBuildStage() and #b.contained_items > 0
+            and not dfhack.maps.getTileFlags(xyz2pos(b.centerx, b.centery, b.z)).hidden then
+            local t = tour.statue_seen[b.id] or 0
+            if (force_id == b.id) or (not force_id and now - t >= STATUE_GAP and (not best or t < bt)) then best, bt = b, t end
+        end
+    end
+    if not best then return false end
+    local okc, card = pcall(art.statue_card, best)
+    if not okc or not card then return false end
+    tour.statue_seen[best.id], tour.last_statue_at = now, now
+    local pos = xyz2pos(best.centerx, best.centery, best.z)
+    dfhack.run_command_silent('disable', 'spectate')
+    df.global.plotinfo.follow_unit = -1
+    dfhack.gui.revealInDwarfmodeMap(pos, true, true)
+    local subject = card.subject and (' of ' .. card.subject) or ''
+    tour.current = {name = 'A Statue' .. subject, kind = 'Statue', short = ((card.quality ~= '' and (card.quality .. ' ') or '') .. (card.material or 'stone')) .. (card.maker and (' | by ' .. dfhack.utf2df(card.maker)) or ''),
+        pos = pos, secs = STATUE_SECS, statue = card}
+    tour.view, tour.last_switch, tour.guest, tour.project = view(), now, nil, nil
+    return true
+end
+show_statue_check = function(id) return show_statue(id or -1) end
+
 local function step()
     camera_watchdog()
     -- threats first: break into anything (room, guest, dwarf) except another threat,
@@ -852,7 +888,7 @@ local function step()
             if not (tour.threat and show_threat()) then back_to_dwarves() end
         end
     elseif spectate_on() and now - tour.last_switch >= DWARF_SECS then
-        if not show_project_done() and not show_project() then show_next_room() end
+        if not show_project_done() and not show_project() and not show_statue() then show_next_room() end
     end
 end
 
