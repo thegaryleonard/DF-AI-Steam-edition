@@ -2321,6 +2321,19 @@ function tradeItems(ctx, r) {
     out.push({ids: ['trade-overdue-' + TR.year], html: `<div class="item"><div class="kick">Caravan Watch</div><h3>Mountainhome Caravan Overdue</h3>
       <p class="just">No caravan has reached the depot since the autumn of ${TR.last_trade_year}${gap > 1 ? `, ${gap} autumns in a row` : ''}. The broker has taken to standing at the depot anyway, staring at the horizon. Theories at the tavern range from bandits to bad roads to a very long lunch.</p></div>`});
   }
+  // the war office: raids on the civilizations we are at war with
+  const wl = (TR.war || []);
+  const res = wl.filter(w => w.kind === 'result').slice(-1)[0];
+  const home = wl.filter(w => w.kind === 'home').slice(-1)[0];
+  const away = wl.filter((w, i) => w.kind === 'left' && !wl.some((g, j) => j > i && g.kind === 'home' && g.squad === w.squad)).slice(-1)[0];
+  if (res) {
+    const verb = {plundered: 'Plundered', attacked: 'Attacked', destroyed: 'Razed', 'fought a battle near': 'Battle Near'}[res.what] || 'Raid On';
+    const casualty = home && home.total ? (home.alive === home.total ? ` All ${home.total} came home.` : ` ${home.alive} of ${home.total} came home; the fort mourns the rest.`) : '';
+    out.push({ids: ['war-res-' + res.year + res.site], html: `<div class="item"><div class="kick">Dispatches From The Front</div><h3>${esc(verb)} ${esc(clean(res.site))}</h3><p class="just">Our soldiers have ${esc(res.what)} ${esc(clean(res.site))}, a town of ${esc(clean(res.civ))}, with whom we are at war.${casualty} Whatever they carried back will turn up in the stockpiles, and the tavern will hear the story many times.</p></div>`});
+  }
+  if (away) {
+    out.push({ids: ['war-away-' + away.year + away.site], html: `<div class="item"><div class="kick">War Office</div><h3>${esc(away.squad)} Marches On ${esc(clean(away.site))}</h3><p class="just">A squad has left the fort to ${esc(away.mode)} ${esc(clean(away.site))} of ${esc(clean(away.civ))}. Families wait by the gate. The war office says they will be home before the next caravan.</p></div>`});
+  }
   // the foreign office: envoys leaving and coming home
   const fo = (TR.foreign || []);
   const back = fo.filter(f => f.kind === 'contact' || f.kind === 'result' || f.kind === 'nomeet').slice(-1)[0];

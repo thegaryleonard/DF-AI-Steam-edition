@@ -127,6 +127,25 @@ def liaison():
     return meets[-3:]
 
 
+def war():
+    """The war office's log (dfai-war-office.lua), current fort only."""
+    try:
+        b = open(DF / "dfhack-config" / "dfai-war.json", "rb").read()
+        try:
+            d = json.loads(b.decode("utf-8"))
+        except UnicodeDecodeError:
+            d = json.loads(b.decode("cp437"))
+    except (OSError, ValueError):
+        return []
+    try:
+        site = json.load(open(HERE / "last_site.json", encoding="utf-8")).get("site_id")
+    except (OSError, ValueError):
+        site = None
+    if site is not None and d.get("site_id") not in (site, -1):
+        return []
+    return d.get("log", [])[-8:]
+
+
 def foreign():
     """The foreign office's log (dfai-foreign-office.lua), current fort only."""
     try:
@@ -190,7 +209,7 @@ def feed():
         tr = trades()
         year, month = game_year()
         last = max((t["year"] for t in tr if t.get("year")), default=None)
-        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(), "foreign": foreign(),
+        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(), "foreign": foreign(), "war": war(),
                 "year": year, "month": month, "last_trade_year": last}
     except Exception as e:      # never break the paper over a log quirk
         return {"ok": False, "error": repr(e)}
