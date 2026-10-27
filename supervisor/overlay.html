@@ -2167,8 +2167,35 @@ function localStory(r) {
   for (const [k, sl] of shuffle(r, opts.slice(0, -1)).concat([opts[opts.length - 1]])) { const s = polStory('local', k, {...polSlots(r), ...sl}, r); if (s) return s; }
   return null;
 }
+// which squad the Militia box shows: one abroad on a raid, else one just back,
+// else a different squad every 10 minutes
+function raidOf(sq) {
+  const raids = ((TR && TR.war) || {}).raids || [];
+  const idm = x => x.squad_id === sq.id || (x.squad && x.squad === 'Squad ' + sq.id) || (x.squad && x.squad === squadSlots(sq).squad);
+  return raids.filter(idm).slice(-1)[0] || null;
+}
+function featuredSquad() {
+  const all = PO.squads || [];
+  if (!all.length) return null;
+  const away = all.find(s => s.abroad);
+  if (away) return away;
+  const yr = (TR && TR.year) || 0;
+  const back = all.filter(s => { const x = raidOf(s); return x && x.home && x.home.year >= yr; });
+  if (back.length && (Date.now() / 600000 | 0) % 2 === 0) return back[(Date.now() / 1200000 | 0) % back.length];
+  return all[(Date.now() / 600000 | 0) % all.length];
+}
 function militaryStory(r) {
-  const sq = (PO.squads || [])[0];
+  const sq = featuredSquad();
+  if (sq) {
+    const x = raidOf(sq), ss = squadSlots(sq);
+    if (sq.abroad && x) return {ids: ['mil-away-' + x.site], head: `${ss.squad} Marches On ${clean(x.site)}`,
+      body: `${ss.squad} is away from the fort: ${ss.captain} led ${sq.members.length} soldiers out to ${x.mode || 'raid'} ${clean(x.site)}, a town of ${clean(x.civ)}. The barracks are quiet. Their bunks are made.`};
+    if (x && x.home && !sq.abroad) {
+      const lost = x.home.lost || [];
+      return {ids: ['mil-back-' + x.site + x.home.year], head: `${ss.squad} Home From ${clean(x.site)}`,
+        body: `${ss.squad} is back from ${x.result ? (x.result === 'plundered' ? 'plundering' : x.result === 'attacked' ? 'attacking' : 'raiding') : 'raiding'} ${clean(x.site)}. ${lost.length ? `${x.home.alive} of ${x.home.total} came home; ${lost.map(clean).join(', ')} did not.` : `All ${x.home.total || sq.members.length} came home.`} The squad has ${ss.kills} confirmed kills between them, and they will tell you about every one.`};
+    }
+  }
   const st = militaryStatus(sq), sl = sq ? squadSlots(sq) : {};
   return polStory('military', st, {...polSlots(r), ...sl}, r) || (sq && sq.vacancies ? polStory('military', 'understaffed', {...polSlots(r), ...sl}, r) : null);
 }
@@ -2189,8 +2216,9 @@ function cardPolitics() {
   const loc = (PO.local_posts || []).slice(0, 14);
   const roster = loc.map(p => `<div class="line"><span>${esc(cap(p.title))}</span><span class="lead"></span><span class="${p.holder ? '' : 'dead'}">${p.holder ? esc(hn(p.holder).split(' ')[0]) + (p.holder.here ? '' : ' (abroad)') : 'VACANT'}</span></div>`).join('');
   const crimes = (PO.crimes || []).filter(c => c.criminal).slice(0, 4).map(c => `<div>❖ <b>${esc(hn(c.criminal))}</b>, ${esc(crimeText(c.kind))}${c.victim ? ` (complainant: ${esc(hn(c.victim))})` : ''}${c.discovered ? '' : ' <i>— unsolved</i>'}</div>`).join('');
-  const sq = (PO.squads || [])[0], ss = sq && squadSlots(sq);
-  const squadBox = sq ? `<div class="sub">The Militia</div><div class="squad"><b>${esc(ss.squad)}</b> · ${esc(ss.routine || 'no routine')}${ss.order ? ' · orders: ' + esc(pretty(ss.order).toLowerCase()) : ''}
+  const sq = featuredSquad(), ss = sq && squadSlots(sq), rx = sq && raidOf(sq);
+  const sqState = sq && sq.abroad && rx ? `away: ${rx.mode || 'raid'} on ${clean(rx.site)}` : (ss && ss.routine) || 'no routine';
+  const squadBox = sq ? `<div class="sub">The Militia · ${(PO.squads || []).length} squads</div><div class="squad"><b>${esc(ss.squad)}</b> · ${esc(sqState)}${ss.order && !sq.abroad ? ' · orders: ' + esc(pretty(ss.order).toLowerCase()) : ''}
       <div class="bar"><div style="width:${100 * sq.members.length / (sq.members.length + sq.vacancies)}%;background:var(--ink2)"></div></div>
       <div class="dim">${sq.members.length} enlisted, ${sq.vacancies} vacancies, ${ss.kills} confirmed kills</div>
       ${sq.members.slice(0, 5).map(m => `<div class="line"><span>${esc(hn(m))}${m.leader ? ' ★' : ''}</span><span class="lead"></span><span class="dim">${m.kills || 0} kills</span></div>`).join('')}</div>`

@@ -166,7 +166,7 @@ local function read_results(s)
                 local hf = df.historical_figure.find(mem.hf)
                 if hf and hf.died_year == -1 then alive = alive + 1 else lost[#lost + 1] = mem.name end
             end
-            table.insert(s.log, {year = df.global.cur_year, kind = 'home', squad = m.squad, site = m.site, civ = m.civ, mode = m.mode,
+            table.insert(s.log, {year = df.global.cur_year, kind = 'home', squad = m.squad, squad_id = tonumber(sid), site = m.site, civ = m.civ, mode = m.mode,
                 alive = alive, total = total, lost = lost, leader = m.leader, members = m.names, at_war = m.at_war})
         end
     end
@@ -200,17 +200,20 @@ function step(force)
     local id = p.invade(tg.site.id, tostring(best.id), mode)
     if not id or id < 0 then save_state(s) return 'mission refused for ' .. name_of(tg.site) end
     local sqname = name_of(best)
-    if sqname == '' then sqname = 'Squad ' .. best.id end
+    if sqname == '' then
+        local cap = best.positions[0] and best.positions[0].occupant ~= -1 and df.historical_figure.find(best.positions[0].occupant)
+        sqname = cap and (dfhack.df2utf(dfhack.translation.translateName(cap.name, false)):match('^(%S+)') .. "'s Squad") or ('Squad ' .. best.id)
+    end
     local mem = members(best)
     local names = {}
     for _, x in ipairs(mem) do names[#names + 1] = x.name end
     local at_war = not (s.antagonize or {})[tostring(tg.civ.id)]
-    s.sent[tostring(best.id)] = {year = df.global.cur_year, site = name_of(tg.site), civ = name_of(tg.civ), mode = mode, squad = sqname,
+    s.sent[tostring(best.id)] = {year = df.global.cur_year, site = name_of(tg.site), civ = name_of(tg.civ), mode = mode, squad = sqname, squad_id = best.id,
         members = mem, names = names, leader = names[1], at_war = at_war}
     s.turn[tostring(best.id)] = now_abs()
     s.next_at = now_abs() + WAR_EVERY * 1200
     table.insert(s.log, {year = df.global.cur_year, kind = 'left', squad = sqname, site = name_of(tg.site), civ = name_of(tg.civ), mode = mode,
-        leader = names[1], members = names, at_war = at_war, site_type = df.world_site_type[tg.site.type]})
+        leader = names[1], members = names, at_war = at_war, site_type = df.world_site_type[tg.site.type], squad_id = best.id})
     save_state(s)
     return ('sent %s to %s %s (%s)'):format(sqname, mode, name_of(tg.site), name_of(tg.civ))
 end

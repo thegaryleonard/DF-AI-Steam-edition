@@ -42,7 +42,7 @@ local all = w.squads.all
 for i = 0, math.min(#all - 1, 400) do
   local s = all[i]
   if s.entity_id == p.group_id then
-    local sq = {name = u(tr(s.name, true)), dwarvish = u(tr(s.name, false)), alias = u(s.alias), members = {}, vacancies = 0, orders = {}}
+    local sq = {id = s.id, abroad = s.assigned_army_controller_id ~= -1, name = u(tr(s.name, true)), dwarvish = u(tr(s.name, false)), alias = u(s.alias), members = {}, vacancies = 0, orders = {}}
     for j = 0, math.min(#s.positions - 1, 12) do
       local sp = s.positions[j]
       if sp.occupant >= 0 then
