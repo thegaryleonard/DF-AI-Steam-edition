@@ -737,21 +737,27 @@ void PerformTradeExclusive::Run(color_ostream & out)
         }
     }
     int64_t pv_target = (int64_t(dfhack_request) * TRADE_MARGIN_NUM + TRADE_MARGIN_DEN - 1) / TRADE_MARGIN_DEN;
-    // Be generous when we can afford it (user: value barely matters to the
-    // fort, but merchant profit sets next year's trade sentiment, and caravans
-    // that keep losing out stop coming). With plenty to spare, give them
-    // double what they hand over; with some to spare, 60% more.
+    // Be generous (user: "just give traders extra stuff to make them happy.
+    // gems are valuable and light, they love that. whatever you have a ton
+    // of. the goal is for them to leave happy, not to strike a great deal").
+    // Merchant profit also sets next year's trade sentiment.
     int64_t pv_minimum = pv_target;
-    if (max_offer_value >= int64_t(dfhack_request) * 3)
+    if (max_offer_value >= int64_t(dfhack_request) * 4)
+        pv_target = int64_t(dfhack_request) * 3;
+    else if (max_offer_value >= int64_t(dfhack_request) * 5 / 2)
         pv_target = int64_t(dfhack_request) * 2;
-    else if (max_offer_value >= int64_t(dfhack_request) * 2)
-        pv_target = int64_t(dfhack_request) * 8 / 5;
-    // ...but only what they can carry: what we give may weigh no more than
-    // what they hand over plus a little (their animals were carrying it in).
+    else if (max_offer_value >= int64_t(dfhack_request) * 3 / 2)
+        pv_target = std::max(pv_target, int64_t(dfhack_request) * 7 / 5);
+    // ...but only what they can carry: the gifts may weigh no more than what
+    // they hand over plus a margin (their animals were carrying it in).
     int64_t carry_cap = 0;
     for (auto & g : request)
         carry_cap += item_weight(g.item);
-    carry_cap = carry_cap * 5 / 4 + 50;
+    carry_cap = carry_cap * 3 / 2 + 200;
+    // how many of the same kind we hold: piles of it are the first to go
+    std::map<std::pair<int32_t, int32_t>, int32_t> copies;
+    for (auto & g : fort_goods)
+        copies[std::make_pair(int32_t(g.item->getType()), int32_t(g.item->getMaterial()))]++;
     std::vector<std::pair<int32_t, good_t>> offer_sorted;
     for (auto & g : fort_goods)
     {
@@ -761,26 +767,51 @@ void PerformTradeExclusive::Run(color_ostream & out)
             offer_sorted.push_back(std::make_pair(pv, g));
         }
     }
+    // the part that pays for the request: most valuable first, as before
     std::stable_sort(offer_sorted.begin(), offer_sorted.end(), [](const std::pair<int32_t, good_t> & x, const std::pair<int32_t, good_t> & y) -> bool { return x.first > y.first; });
     std::vector<std::pair<int32_t, good_t>> chosen;
+    std::vector<std::pair<int32_t, good_t>> rest;
     int64_t dfhack_offer = 0;
     int64_t offer_weight = 0;
     for (auto & pg : offer_sorted)
     {
-        if (dfhack_offer >= pv_target)
+        if (dfhack_offer >= pv_minimum)
         {
-            break;
-        }
-        int64_t w = item_weight(pg.second.item);
-        // past the minimum, extra gifts must fit in their packs
-        if (dfhack_offer >= pv_minimum && offer_weight + w > carry_cap)
-        {
+            rest.push_back(pg);
             continue;
         }
         chosen.push_back(pg);
         dfhack_offer += pg.first;
-        offer_weight += w;
+        offer_weight += item_weight(pg.second.item);
     }
+    // the gifts: value per unit of weight (cut gems first), times how much of
+    // it we have lying around
+    auto gift_score = [&](const std::pair<int32_t, good_t> & x) -> double
+    {
+        double w = double(std::max<int64_t>(1, item_weight(x.second.item)));
+        double score = double(x.first) / w;
+        auto t = x.second.item->getType();
+        if (t == item_type::SMALLGEM || t == item_type::GEM)
+            score *= 4;
+        int32_t n = copies[std::make_pair(int32_t(t), int32_t(x.second.item->getMaterial()))];
+        return score * std::min(4.0, 1.0 + n / 5.0);
+    };
+    std::stable_sort(rest.begin(), rest.end(), [&](const std::pair<int32_t, good_t> & x, const std::pair<int32_t, good_t> & y) -> bool { return gift_score(x) > gift_score(y); });
+    int32_t gifts = 0;
+    for (auto & pg : rest)
+    {
+        if (dfhack_offer >= pv_target)
+            break;
+        int64_t w = item_weight(pg.second.item);
+        if (offer_weight + w > carry_cap)
+            continue;
+        chosen.push_back(pg);
+        dfhack_offer += pg.first;
+        offer_weight += w;
+        gifts++;
+    }
+    if (gifts)
+        ai.debug(out, stl_sprintf("[trade] Adding %d gifts to keep the traders happy (offer %d for a request they value at %d).", gifts, int32_t(dfhack_offer), dfhack_request));
     if (dfhack_offer < pv_target && dfhack_offer >= pv_minimum)
     {
         pv_target = dfhack_offer; // as generous as their packs allow
