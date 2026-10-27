@@ -190,6 +190,19 @@ function step()
     end
     if #undug > 0 then
         if now_days() - (s.designated_at or 0) > STALL_DAYS then
+            -- a stalled level: clear every dig job in the shaft column (stale
+            -- ones on dug levels and duplicates from earlier re-designations
+            -- kept the miners off it), then designate the undug levels again
+            local jobs = {}
+            local l = df.global.world.jobs.list.next
+            while l do
+                local j = l.item
+                if j.pos.x == s.x and j.pos.y == s.y and j.pos.z <= s.top and j.pos.z >= s.cur and not dfhack.job.getWorker(j) then
+                    jobs[#jobs + 1] = j
+                end
+                l = l.next
+            end
+            for _, j in ipairs(jobs) do dfhack.job.removeJob(j) end
             for _, z in ipairs(undug) do
                 designate(s.x, s.y, z, z == s.top and df.tile_dig_designation.DownStair or df.tile_dig_designation.UpDownStair)
             end
