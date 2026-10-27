@@ -39,6 +39,8 @@ COMMANDS = {
     "camp.now":     ("Construction", "Deep camp: next step", "Dig or furnish the next piece of the deep camp.", ["dfai-deep-camp", "now"], 30),
     "dig.now":      ("Construction", "Deep dig: next 10 levels", "The shaft goes down another batch.", ["dfai-deep-dig", "now"], 30),
     "dig.stop":     ("Construction", "Deep dig: stop", "No more shaft levels.", ["dfai-deep-dig", "stop"], 30),
+    "ore.start":    ("Construction", "Dig down and scrub for ore", "A staircase N levels down with galleries on every level; every ore vein they expose is marked for mining. Picks the spot with the most ore and never digs near water, magma or caverns.", ["dfai-ore-scrub", "start", "{n}"], 30),
+    "ore.stop":     ("Construction", "Stop the ore scrub", "No more veins marked (what is marked stays).", ["dfai-ore-scrub", "stop"], 30),
     "projects":     ("Construction", "Projects", "Everything being dug or built that the camera follows.", ["dfai-projects", "list"], 30),
     # camera
     "cam.next":     ("Camera", "Next room", "The tour moves on now.", ["dfai-room-tour", "next"], 30),
@@ -52,6 +54,7 @@ COMMANDS = {
 # orders that take a number: key -> (label, min, max, default)
 PARAMS = {
     "holiday.start": ("days", 1, 28, 7),
+    "ore.start": ("levels", 1, 20, 10),
 }
 STATUS = [
     ("War office", ["dfai-war-office"]),
@@ -60,9 +63,9 @@ STATUS = [
     ("Deep dig", ["dfai-deep-dig"]),
     ("Deep camp", ["dfai-deep-camp"]),
     ("Holiday", ["dfai-holiday"]),
+    ("Ore scrub", ["dfai-ore-scrub"]),
 ]
 PLANNED = [
-    ("Construction", "Dig X levels down and scrub for ore", "A shaft of X levels with side galleries that mark every ore vein for mining."),
     ("Construction", "Construction priority", "Put the fort's planned rooms in the order you want them dug."),
 ]
 status_cache = {"at": 0, "data": []}
