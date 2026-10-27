@@ -651,6 +651,11 @@ static void vent_workshops(AI & ai, color_ostream & out)
         if (r->status != room_status::finished || (r->workshop_type != workshop_type::Fishery && r->workshop_type != workshop_type::Butchers))
             return false;
         df::coord c((r->min.x + r->max.x) / 2, (r->min.y + r->max.y) / 2, r->max.z + 1);
+        // only over a workshop that really stands there (a reload can leave the
+        // plan ahead of the map: channelling over rock makes a ramp, not a vent)
+        auto ws = df::building::find(r->bld_id);
+        if (!ws || ws->z != r->max.z || ws->centerx != c.x || ws->centery != c.y || ws->getBuildStage() < ws->getMaxBuildStage())
+            return false;
         auto tt = Maps::getTileType(c);
         auto des = Maps::getTileDesignation(c);
         auto occ = Maps::getTileOccupancy(c);

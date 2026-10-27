@@ -198,7 +198,20 @@ namespace
 
     // ---- Lua API --------------------------------------------------------------
 
+    int32_t invade_impl(int32_t site_id, std::string squad_ids, std::string mode);
+    // mode: tribute (ongoing), tribute_once, raid, pillage, raze, puppet, surrender
+    // (the MISSION_DETAILS option rows, NOTES.md: intent + flag bits 0x2/0x4/0x200)
+    int32_t invade(int32_t site_id, std::string squad_ids, std::string mode)
+    {
+        return invade_impl(site_id, squad_ids, mode);
+    }
+
     int32_t tribute(int32_t site_id, std::string squad_ids, bool ongoing)
+    {
+        return invade_impl(site_id, squad_ids, ongoing ? "tribute" : "tribute_once");
+    }
+
+    int32_t invade_impl(int32_t site_id, std::string squad_ids, std::string mode)
     {
         if (why != "ok" || !plotinfo->main.fortress_entity || !plotinfo->main.fortress_site) return -1;
         auto target = df::world_site::find(site_id);
@@ -227,10 +240,18 @@ namespace
         // the "Demand tribute" option rows (feed 0x1401d5c97 / 0x1401d5cc4)
         if (civ)
         {
-            d->invasion_intent = df::invasion_intent_type::DEMAND_TRIBUTE;
-            d->flag.bits.DEMAND_TRIBUTE_ONE_TIME = !ongoing;
-            d->flag.bits.DEMAND_TRIBUTE_ONGOING = ongoing;
+            using it = df::invasion_intent_type;
+            d->flag.bits.DEMAND_TRIBUTE_ONE_TIME = false;
+            d->flag.bits.DEMAND_TRIBUTE_ONGOING = false;
             d->flag.bits.DEMAND_SURRENDER_AND_MAYBE_LEAVE = false;
+            if (mode == "tribute") { d->invasion_intent = it::DEMAND_TRIBUTE; d->flag.bits.DEMAND_TRIBUTE_ONGOING = true; }
+            else if (mode == "tribute_once") { d->invasion_intent = it::DEMAND_TRIBUTE; d->flag.bits.DEMAND_TRIBUTE_ONE_TIME = true; }
+            else if (mode == "raid") d->invasion_intent = it::RAID;
+            else if (mode == "pillage") d->invasion_intent = it::PILLAGE;
+            else if (mode == "raze") d->invasion_intent = it::OBLITERATION;
+            else if (mode == "puppet") d->invasion_intent = it::INSTALL_PUPPET_GOVERNMENT;
+            else if (mode == "surrender") { d->invasion_intent = it::INSTALL_PUPPET_GOVERNMENT; d->flag.bits.DEMAND_SURRENDER_AND_MAYBE_LEAVE = true; }
+            else { delete_ac(ac); return -1; }
         }
         // squad rows (feed 0x1401d5f15)
         for (int32_t sid : parse_ids(squad_ids))
@@ -317,6 +338,7 @@ namespace
 DFHACK_PLUGIN_LUA_FUNCTIONS {
     DFHACK_LUA_FUNCTION(status),
     DFHACK_LUA_FUNCTION(tribute),
+    DFHACK_LUA_FUNCTION(invade),
     DFHACK_LUA_FUNCTION(messenger),
     DFHACK_LUA_FUNCTION(cancel),
     DFHACK_LUA_END
