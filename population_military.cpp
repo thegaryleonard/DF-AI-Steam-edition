@@ -31,6 +31,7 @@
 #include "df/squad.h"
 #include "df/squad_ammo_spec.h"
 #include "df/squad_order_kill_listst.h"
+#include "df/squad_order_movest.h"
 #include "df/squad_position.h"
 #include "df/squad_uniform_spec.h"
 #include "df/plotinfost.h"
@@ -882,6 +883,118 @@ void Population::arm_soldiers(color_ostream & out)
 // civilian alert (a "Safety" burrow flood-filled over the indoor fort), and
 // lift it once nothing dangerous has been reachable for a while. A forgotten
 // beast killed ~24 civilians caught outdoors in Quakefocus.
+// Invaders or a great danger on the map: every squad goes on the "Ready"
+// routine (on duty, in uniform: off-duty soldiers had been fighting goblins
+// bare-handed while 60 weapons sat in the stockpiles), equipment is
+// re-assigned, and squads with no one to kill yet muster at the fort entrance.
+// When the map has been quiet for a while, everyone goes back to training.
+// our "muster at the gate" orders: a plain move order to the fort entrance
+static bool is_muster(AI & ai, df::squad_order_movest *mv)
+{
+    return mv && ai.plan.entrance() && mv->pos == ai.plan.entrance()->pos();
+}
+
+static int32_t routine_named(const char *name)
+{
+    auto & rs = plotinfo->alerts.routines;
+    for (size_t i = 0; i < rs.size(); i++)
+        if (rs[i] && rs[i]->name == name)
+            return int32_t(i);
+    return -1;
+}
+
+static void request_equipment(df::squad *squad)
+{
+    df::equipment_update update;
+    update.whole = 0;
+    update.bits.weapon = update.bits.armor = update.bits.shoes = update.bits.shield = 1;
+    update.bits.helm = update.bits.gloves = update.bits.ammo = update.bits.pants = 1;
+    update.bits.backpack = update.bits.quiver = update.bits.flask = 1;
+    if (squad)
+        squad->ammo.update.whole |= update.whole;
+    plotinfo->equipment.update.whole |= update.whole;
+}
+
+void Population::battle_stations(color_ostream & out, bool danger)
+{
+    auto fe = plotinfo->main.fortress_entity;
+    if (!fe)
+        return;
+    int32_t ready = routine_named("Ready"), train = routine_named("Staggered training");
+    if (danger)
+    {
+        battle_quiet = 0;
+        for (auto sqid : fe->squads)
+        {
+            auto sq = df::squad::find(sqid);
+            if (!sq || sq->assigned_army_controller_id != -1)
+                continue; // away on a mission
+            if (ready >= 0 && sq->cur_routine_idx != ready)
+            {
+                sq->cur_routine_idx = ready;
+                request_equipment(sq);
+            }
+            bool has_kill = false;
+            df::squad_order_movest *muster = nullptr;
+            size_t muster_i = 0;
+            for (size_t i = 0; i < sq->orders.size(); i++)
+            {
+                if (strict_virtual_cast<df::squad_order_kill_listst>(sq->orders[i]))
+                    has_kill = true;
+                else if (auto mv = strict_virtual_cast<df::squad_order_movest>(sq->orders[i]))
+                    if (is_muster(ai, mv)) { muster = mv; muster_i = i; }
+            }
+            if (!has_kill && !muster && ai.plan.entrance())
+            {
+                auto mv = df::allocate<df::squad_order_movest>();
+                mv->year = *cur_year;
+                mv->year_tick = *cur_year_tick;
+                mv->pos = ai.plan.entrance()->pos();
+                mv->point_id = -1;
+                sq->orders.push_back(mv);
+            }
+            else if (has_kill && muster)
+            {
+                vector_erase_at(sq->orders, muster_i); // engage: the muster is over
+            }
+        }
+        if (!battle_mode)
+        {
+            battle_mode = true;
+            ai.debug(out, stl_sprintf("[MILITARY] battle stations: every squad on the Ready routine in full uniform%s", invaders_far ? stl_sprintf(", mustering at the gate while %d invaders approach", invaders_far).c_str() : ""));
+        }
+        return;
+    }
+    if (++battle_quiet < 8)
+        return;
+    // quiet: back to training (also catches a battle interrupted by a reload)
+    bool any = false;
+    for (auto sqid : fe->squads)
+    {
+        auto sq = df::squad::find(sqid);
+        if (!sq)
+            continue;
+        if (ready >= 0 && train >= 0 && sq->cur_routine_idx == ready)
+        {
+            sq->cur_routine_idx = train;
+            any = true;
+        }
+        for (size_t i = 0; i < sq->orders.size(); i++)
+        {
+            auto mv = strict_virtual_cast<df::squad_order_movest>(sq->orders[i]);
+            if (is_muster(ai, mv))
+            {
+                vector_erase_at(sq->orders, i);
+                i--;
+                any = true;
+            }
+        }
+    }
+    if (battle_mode || any)
+        ai.debug(out, "[MILITARY] stand down: squads back to staggered training");
+    battle_mode = false;
+}
+
 void Population::civilian_alert(color_ostream & out, bool danger)
 {
     static int quiet_checks = 0;
@@ -1382,6 +1495,8 @@ void Population::update_military(color_ostream & out)
         }
     }
     civilian_alert(out, great_danger);
+    battle_stations(out, great_danger || invaders_far > 0);
+    invaders_far = 0;
 
     if (everyone_fights)
     {

@@ -390,16 +390,36 @@ local function is_threat(u)
 end
 is_threat_check = is_threat
 
+-- battle mode: the camera goes where the fighting is. Threats next to one of
+-- our citizens (in the melee) come first, least recently shown first; with 3+
+-- threats on the map the camera cuts every BATTLE_SECS. The banner counts them.
+local BATTLE_SECS = 15
+local function near_citizen(u, cits)
+    local p = u.pos
+    for _, c in ipairs(cits) do
+        if c.z == p.z and math.abs(c.x - p.x) <= 5 and math.abs(c.y - p.y) <= 5 then return true end
+    end
+    return false
+end
+
 local function pick_threat()
     tour.threat_seen = tour.threat_seen or {}
-    local now, best, best_t = os.time(), nil, nil
+    local now, best, best_s = os.time(), nil, nil
+    local cits = {}
+    for _, c in ipairs(dfhack.units.getCitizens(true)) do cits[#cits + 1] = c.pos end
+    local n = 0
     for _, u in ipairs(df.global.world.units.active) do
         local ok, th = pcall(is_threat, u)
         if ok and th then
+            n = n + 1
             local t = tour.threat_seen[u.id] or 0
-            if now - t >= THREAT_GAP and (not best or t < best_t) then best, best_t = u, t end
+            if now - t >= THREAT_GAP then
+                local score = (now - t) + (near_citizen(u, cits) and 100000 or 0)
+                if not best or score > best_s then best, best_s = u, score end
+            end
         end
     end
+    tour.battle_n = n
     return best
 end
 
@@ -480,7 +500,7 @@ local function step()
         if df.global.plotinfo.follow_unit ~= tour.guest then
             back_to_dwarves() -- the camera lost the guest (or someone took it)
         elseif not u or not dfhack.units.isActive(u) or dfhack.units.isDead(u)
-            or now - tour.last_switch >= (tour.threat and THREAT_SECS or GUEST_SECS) then
+            or now - tour.last_switch >= (tour.threat and ((tour.battle_n or 0) >= 3 and BATTLE_SECS or THREAT_SECS) or GUEST_SECS) then
             -- a threat's time is up (or it died): next threat if any, else dwarves
             if not (tour.threat and show_threat()) then back_to_dwarves() end
         end
@@ -532,6 +552,16 @@ local function banner_lines()
         if dfhack.units.isMerchant(u) then prof = prof .. ' (merchant)'
         elseif dfhack.units.isDiplomat(u) then prof = prof .. ' (diplomat)'
         elseif dfhack.units.isVisitor(u) then prof = prof .. ' (visitor)' end
+    end
+    if tour.threat and tour.guest == u.id then
+        local alive, fallen = 0, 0
+        for _, x in ipairs(df.global.world.units.active) do
+            if x.flags1.active_invader or x.flags2.visitor_uninvited then
+                if dfhack.units.isDead(x) then fallen = fallen + 1 elseif dfhack.units.isActive(x) then alive = alive + 1 end
+            end
+        end
+        local tag = alive + fallen > 1 and ('BATTLE: %d invaders, %d fallen'):format(alive, fallen) or 'BATTLE'
+        return name:upper(), tag .. ' | ' .. prof
     end
     local job = u.job.current_job and dfhack.job.getName(u.job.current_job)
         or (u.race ~= df.global.plotinfo.race_id and 'Wandering' or 'No job')

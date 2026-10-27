@@ -101,6 +101,10 @@ public:
     static bool is_doctor(df::unit *u);
     static bool carries_baby(df::unit *u);
     void civilian_alert(color_ostream & out, bool danger);
+    void battle_stations(color_ostream & out, bool danger);
+    int32_t invaders_far = 0; // invaders seen far from the fort this pass (military.cpp)
+    bool battle_mode = false;
+    int32_t battle_quiet = 0;
     void update_crimes(color_ostream & out);
     void update_locations(color_ostream & out);
 

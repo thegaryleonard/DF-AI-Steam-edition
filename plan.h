@@ -59,6 +59,7 @@ class Plan
     std::set<stock_item::item> cache_nofurnish;
     room *fort_entrance;
 public:
+    room *entrance() const { return fort_entrance; }
     std::map<int32_t, std::vector<std::pair<df::coord, int32_t>>> map_veins;
 private:
     std::vector<df::workshop_type> important_workshops;

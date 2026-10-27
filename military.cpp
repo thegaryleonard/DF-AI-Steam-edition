@@ -1,5 +1,7 @@
 #include "ai.h"
+#include <algorithm>
 #include "population.h"
+#include "plan.h"
 
 #include "df/activity_entry.h"
 #include "df/activity_event_conflictst.h"
@@ -19,6 +21,29 @@
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
+// an invader still far from the fort (and from every citizen) is left alone:
+// the squads muster at the gate in full kit first (Population::battle_stations)
+static bool invader_close(AI & ai, df::unit *u)
+{
+    df::coord p = Units::getPosition(u);
+    if (ai.plan.entrance())
+    {
+        df::coord e = ai.plan.entrance()->pos();
+        if (std::abs(p.x - e.x) <= 25 && std::abs(p.y - e.y) <= 25 && std::abs(p.z - e.z) <= 6)
+            return true;
+    }
+    for (auto id : ai.pop.citizen)
+    {
+        auto c = df::unit::find(id);
+        if (!c)
+            continue;
+        df::coord q = Units::getPosition(c);
+        if (std::abs(p.x - q.x) <= 10 && std::abs(p.y - q.y) <= 10 && std::abs(p.z - q.z) <= 2)
+            return true;
+    }
+    return false;
+}
+
 bool AI::tag_enemies(color_ostream & out)
 {
     bool found = false;
@@ -28,6 +53,26 @@ bool AI::tag_enemies(color_ostream & out)
         if (!squad)
         {
             continue;
+        }
+        // drop targets that are gone or dead (they piled up after a battle and
+        // flooded the log with "Cannot find unit for squad kill order")
+        for (size_t i = 0; i < squad->orders.size(); i++)
+        {
+            auto kill = virtual_cast<df::squad_order_kill_listst>(squad->orders.at(i));
+            if (!kill)
+                continue;
+            auto & ids = kill->units;
+            ids.erase(std::remove_if(ids.begin(), ids.end(), [](int32_t uid) -> bool
+            {
+                auto t = df::unit::find(uid);
+                return !t || Units::isDead(t);
+            }), ids.end());
+            if (ids.empty())
+            {
+                vector_erase_at(squad->orders, i);
+                i--;
+                found = true;
+            }
         }
         for (auto order : squad->orders)
         {
@@ -86,7 +131,10 @@ bool AI::tag_enemies(color_ostream & out)
             }
             else if (u->flags1.bits.active_invader)
             {
-                found = pop.military_random_squad_attack_unit(out, u, "active invader") || found;
+                if (invader_close(*this, u))
+                    found = pop.military_random_squad_attack_unit(out, u, "active invader") || found;
+                else
+                    pop.invaders_far++;
             }
             else if (u->flags1.bits.marauder)
             {

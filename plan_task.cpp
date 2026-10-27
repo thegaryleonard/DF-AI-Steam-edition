@@ -111,6 +111,34 @@ void Plan::update(color_ostream &)
                 else
                 {
                     t.r->dig();
+                    // DF never makes a dig job for a hidden tile whose only
+                    // way in is a staircase below or above it (miners can't
+                    // "see" up a stair): 18 rooms, the wood furnace among
+                    // them, waited forever. Uncover such tiles.
+                    for (int16_t z = t.r->min.z; z <= t.r->max.z; z++)
+                        for (int16_t x = t.r->min.x; x <= t.r->max.x; x++)
+                            for (int16_t y = t.r->min.y; y <= t.r->max.y; y++)
+                            {
+                                df::coord c(x, y, z);
+                                auto des = Maps::getTileDesignation(c);
+                                if (!des || !des->bits.hidden || des->bits.dig == tile_dig_designation::No)
+                                    continue;
+                                for (int dz : {-1, 1})
+                                {
+                                    df::coord n(x, y, z + dz);
+                                    auto nd = Maps::getTileDesignation(n);
+                                    auto nt = Maps::getTileType(n);
+                                    if (!nd || !nt || nd->bits.hidden)
+                                        continue;
+                                    auto sh = ENUM_ATTR(tiletype, shape, *nt);
+                                    if ((dz < 0 && (sh == tiletype_shape::STAIR_UP || sh == tiletype_shape::STAIR_UPDOWN)) ||
+                                        (dz > 0 && (sh == tiletype_shape::STAIR_DOWN || sh == tiletype_shape::STAIR_UPDOWN)))
+                                    {
+                                        des->bits.hidden = 0;
+                                        break;
+                                    }
+                                }
+                            }
                 }
                 break;
             case task_type::construct_tradedepot:
