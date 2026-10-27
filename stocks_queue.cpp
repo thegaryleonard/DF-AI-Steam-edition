@@ -869,7 +869,12 @@ void Stocks::queue_need(color_ostream & out, stock_item::item what, int32_t amou
 
 int16_t Stocks::min_subtype_for_item(stock_item::item what)
 {
-    const auto & count = count_subtype.at(what);
+    // not counted yet right after a load (population runs before stocks):
+    // that threw std::out_of_range from the nest-box code and crashed DF
+    auto found = count_subtype.find(what);
+    if (found == count_subtype.end())
+        return -1;
+    const auto & count = found->second;
     auto min = std::min_element(count.begin(), count.end(), [](std::pair<const int16_t, std::pair<int32_t, int32_t>> a, std::pair<const int16_t, std::pair<int32_t, int32_t>> b) -> bool
     {
         return a.second.first < b.second.first;
