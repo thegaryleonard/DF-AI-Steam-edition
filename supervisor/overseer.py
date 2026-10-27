@@ -96,7 +96,7 @@ def status():
         rows = []
         for label, args in STATUS:
             out = clean(sup.dfhack(*args, timeout=20))
-            rows.append({"label": label, "text": out.splitlines()[-1] if out else "no answer from the game"})
+            rows.append({"label": label, "text": out.splitlines()[0] if out else "no answer from the game"})
         status_cache["at"], status_cache["data"] = time.time(), rows
     return status_cache["data"]
 

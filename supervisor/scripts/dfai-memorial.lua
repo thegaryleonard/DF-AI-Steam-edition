@@ -185,7 +185,9 @@ local function step()
         if left == 0 then s.phase = 'place' end
         local res = place(s, mat)
         save(s)
-        return ('cutting niches: %d of %d left; %s'):format(left, #NICHES, res)
+        local niches = 0
+        for _, n in ipairs(NICHES) do if not n[4] then niches = niches + 1 end end
+        return ('cutting niches: %d of %d left; %s'):format(left, niches, res)
     end
 
     if s.phase == 'place' then return place(s, mat) end
