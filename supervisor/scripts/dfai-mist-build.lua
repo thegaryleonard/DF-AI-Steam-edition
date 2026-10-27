@@ -194,7 +194,9 @@ function step()
         -- user: a pond over a statue square; it takes two or three buckets to
         -- kick off. Once that much water is inside, the pond goes (no top-ups).
         local w = water_inside()
-        if w >= PRIME_WATER then
+        -- it kicks off once the pumps carry a full tile round the ring and
+        -- the mist starts (one bucket did it at Showerwheels)
+        if w >= PRIME_WATER or (w >= 7 and mist_near() > 0) then
             remove_pond()
             s.phase = 'running'
             save(s)
@@ -203,7 +205,7 @@ function step()
         if not pond_zone() then make_pond() end
         return ('priming: %d/7 of water inside, pond open at %d,%d,%d'):format(w, POND[1], POND[2], POND[3])
     elseif s.phase == 'running' then
-        return ('running: %d/7 of water inside'):format(water_inside())
+        return ('running: %d/7 of water inside, %d mist clouds'):format(water_inside(), mist_near())
     end
     return s.phase
 end
@@ -222,6 +224,13 @@ function water_inside()
         end
     end
     return w
+end
+function mist_near()
+    local m = 0
+    for _, fl in ipairs(df.global.flows) do
+        if fl.type == df.flow_type.Mist and fl.density > 0 and fl.pos.x >= X1 - 6 and fl.pos.x <= X2 + 6 and fl.pos.y >= Y1 - 6 and fl.pos.y <= Y2 + 6 then m = m + 1 end
+    end
+    return m
 end
 function pond_zone()
     for _, b in ipairs(df.global.world.buildings.other.ACTIVITY_ZONE) do
