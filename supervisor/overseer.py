@@ -64,6 +64,7 @@ STATUS = [
     ("Deep camp", ["dfai-deep-camp"]),
     ("Holiday", ["dfai-holiday"]),
     ("Ore scrub", ["dfai-ore-scrub"]),
+    ("Memorial", ["dfai-memorial"]),
 ]
 PLANNED = [
     ("Construction", "Construction priority", "Put the fort's planned rooms in the order you want them dug."),
