@@ -121,10 +121,19 @@ STREAM_PAGE = """<!doctype html>
   html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #1b1610; }
   #game { position: absolute; left: 0; top: 0; width: 1420px; height: 1080px; object-fit: contain; background: #000; }
   #paper { position: absolute; left: 1420px; top: 0; width: 500px; height: 1080px; border: 0; }
+  /* the way to the Overseer's Desk: invisible until the mouse finds the corner,
+     never shown inside OBS or off this PC (the desk only answers localhost) */
+  #desk { position: absolute; left: 0; bottom: 0; padding: 10px 14px; font: bold 14px Georgia, serif;
+          color: #f7f1e1; background: rgba(29, 26, 20, .85); text-decoration: none; opacity: 0; transition: opacity .2s; display: none; }
+  #desk:hover { opacity: 1; }
 </style></head>
 <body>
   <img id="game" src="/game.mjpg" alt="">
   <iframe id="paper" src="__HERALD__"></iframe>
+  <a id="desk" href="http://localhost:8767/">The Overseer's Desk &rarr;</a>
+  <script>
+    if (!window.obsstudio && ['localhost', '127.0.0.1'].includes(location.hostname)) document.getElementById('desk').style.display = 'block';
+  </script>
 </body></html>
 """
 

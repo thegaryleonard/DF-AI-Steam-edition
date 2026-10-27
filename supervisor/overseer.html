@@ -34,6 +34,11 @@
     <h2>Orders Given</h2><div class="log" id="log"></div>
   </aside>
 </main>
+<footer style="padding: 10px 22px 18px; border-top: 3px double #1d1a14; margin: 0 22px; font-size: 14px;">
+  <a href="http://localhost:8766/" style="color: #1d1a14; font-weight: bold;">Watch the fort (the stream page)</a>
+  &nbsp;&middot;&nbsp;
+  <a href="http://localhost:8765/" style="color: #1d1a14;">The broadsheet on its own</a>
+</footer>
 <script>
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 const get = async u => (await fetch(u, {cache: 'no-store'})).json();
