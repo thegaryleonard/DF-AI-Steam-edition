@@ -49,7 +49,7 @@ local function hf_name(id)
     return hf and dfhack.df2utf(dfhack.translation.translateName(hf.name, true)) or tostring(id)
 end
 local function stone_index()
-    for i, r in ipairs(df.global.world.raws.inorganics) do if r.id == STONE then return i end end
+    for i, r in ipairs(df.global.world.raws.inorganics.all) do if r.id == STONE then return i end end
     return -1
 end
 
