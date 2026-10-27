@@ -371,6 +371,20 @@ void Stocks::queue_need(color_ostream & out, stock_item::item what, int32_t amou
     }
     case stock_item::coal:
     {
+        // fuel two ways (user): mine coal (bituminous coal / lignite, turned
+        // into coke at the smelter) when the map has a vein and little raw
+        // coke is stocked, and burn wood into charcoal at the wood furnace
+        if (count_free.at(stock_item::raw_coke) < 10)
+        {
+            for (auto & vein : ai.plan.map_veins)
+            {
+                if (!is_raw_coke(vein.first).empty() && ai.plan.dig_vein(out, vein.first, 20))
+                {
+                    reason << "marked " << MaterialInfo(0, vein.first).toString() << " vein for excavation (fuel); ";
+                    break;
+                }
+            }
+        }
         tmpl.job_type = job_type::MakeCharcoal;
         // dont use wood -> charcoal if we have bituminous coal
         // (except for bootstraping)
