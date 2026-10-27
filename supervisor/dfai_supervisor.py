@@ -425,7 +425,9 @@ class Supervisor:
         if now - getattr(self, "last_poi", 0) > 600:
             self.last_poi = now
             try:
+                import importlib
                 import dfai_poi
+                importlib.reload(dfai_poi)   # pick up edits without restarting the supervisor
                 dfai_poi.main()
             except Exception as e:
                 log(f"poi refresh failed: {e!r}")
