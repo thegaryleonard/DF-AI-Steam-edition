@@ -823,6 +823,25 @@ local function centered(s, w)
 end
 
 -- what the banner shows: the room being toured, else the followed creature
+-- the job, naming the item for hauling-type jobs ("Storing item in
+-- stockpile" -> "Storing a copper battle axe in stockpile")
+local function job_text(j)
+    local name = dfhack.job.getName(j)
+    if not name:lower():find('item', 1, true) then return name end
+    local it
+    for _, ref in ipairs(j.items) do
+        if ref.item then it = ref.item break end
+    end
+    if not it then return name end
+    local ok, desc = pcall(dfhack.items.getReadableDescription, it)
+    if not ok or not desc or desc == '' then ok, desc = pcall(dfhack.items.getDescription, it, 0, true) end
+    if not ok or not desc or desc == '' then return name end
+    desc = dfhack.df2utf(desc):gsub('^%l', string.lower)
+    local out, n = name:gsub('[Ii]tems?', desc, 1)
+    return n > 0 and out or (name .. ': ' .. desc)
+end
+job_text_check = job_text
+
 local function banner_lines()
     local r = tour.current
     if r then return dfhack.utf2df(r.name):upper(), dfhack.utf2df(r.short or r.kind or '') end
@@ -840,7 +859,7 @@ local function banner_lines()
         elseif dfhack.units.isVisitor(u) then prof = prof .. ' (visitor)' end
     end
     if tour.project and tour.guest == u.id then
-        local job = u.job.current_job and dfhack.job.getName(u.job.current_job) or tour.project.job or 'On the way'
+        local job = u.job.current_job and job_text(u.job.current_job) or tour.project.job or 'On the way'
         local pct = tour.project.pct and (' (' .. tour.project.pct .. '% ' .. (tour.project.what or 'done') .. ')') or ''
         return ('PROJECT: ' .. dfhack.utf2df(tour.project.title)):upper() .. pct, name .. ', ' .. prof .. ': ' .. job
     end
@@ -854,7 +873,7 @@ local function banner_lines()
         local tag = alive + fallen > 1 and ('BATTLE: %d invaders, %d fallen'):format(alive, fallen) or 'BATTLE'
         return name:upper(), tag .. ' | ' .. prof
     end
-    local job = u.job.current_job and dfhack.job.getName(u.job.current_job)
+    local job = u.job.current_job and job_text(u.job.current_job)
         or (u.race ~= df.global.plotinfo.race_id and 'Wandering' or 'No job')
     return name:upper(), prof .. ': ' .. job
 end
