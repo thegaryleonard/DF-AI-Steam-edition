@@ -682,7 +682,7 @@ void PerformTradeExclusive::Run(color_ostream & out)
             continue;
         }
         int32_t g_pv = perceived_value(g.item, caravan);
-        if ((int64_t(request_pv) + g_pv) * TRADE_MARGIN_NUM / TRADE_MARGIN_DEN > max_offer_value)
+        if (((int64_t(request_pv) + g_pv) * TRADE_MARGIN_NUM + TRADE_MARGIN_DEN - 1) / TRADE_MARGIN_DEN > max_offer_value) // rounded up, as the final check is
         {
             ai.debug(out, "[trade] Cannot afford item, skipping: " + AI::describe_item(g.item));
             continue;
@@ -707,6 +707,34 @@ void PerformTradeExclusive::Run(color_ostream & out)
     for (auto & g : request)
     {
         dfhack_request += perceived_value(g.item, caravan);
+    }
+    // the wish list was picked by our prices; at the merchants' prices plus
+    // their margin it can be out of reach of everything we own (Spring 133:
+    // request 7386, our whole stock 8863, nothing traded). Trim the least
+    // wanted requests until the deal is affordable.
+    {
+        int64_t total_offer = 0;
+        for (auto & g : fort_goods)
+        {
+            int32_t pv = perceived_value(g.item, caravan);
+            if (pv > 0)
+                total_offer += pv;
+        }
+        size_t before = request.size();
+        while (!request.empty() && (int64_t(dfhack_request) * TRADE_MARGIN_NUM + TRADE_MARGIN_DEN - 1) / TRADE_MARGIN_DEN > total_offer)
+        {
+            dfhack_request -= perceived_value(request.back().item, caravan);
+            request_value -= request.back().price;
+            request.pop_back();
+        }
+        if (request.size() != before)
+            ai.debug(out, stl_sprintf("[trade] Trimmed the request by %d items to %d (they value it at %d; everything we offer is worth %d to them).", int32_t(before - request.size()), int32_t(request.size()), dfhack_request, int32_t(total_offer)));
+        if (request.empty())
+        {
+            ai.debug(out, "[trade] Nothing we can afford at their prices from " + from + "; goods stay at the depot for the player.");
+            result = FAILED;
+            return;
+        }
     }
     int64_t pv_target = (int64_t(dfhack_request) * TRADE_MARGIN_NUM + TRADE_MARGIN_DEN - 1) / TRADE_MARGIN_DEN;
     // Be generous when we can afford it (user: value barely matters to the
