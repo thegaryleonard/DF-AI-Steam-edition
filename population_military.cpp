@@ -31,6 +31,8 @@
 #include "df/squad.h"
 #include "df/squad_ammo_spec.h"
 #include "df/squad_order_kill_listst.h"
+#include "df/squad_barracks_infost.h"
+#include "df/squad_position_equipmentst.h"
 #include "df/squad_order_movest.h"
 #include "df/squad_position.h"
 #include "df/squad_uniform_spec.h"
@@ -915,6 +917,90 @@ static void request_equipment(df::squad *squad)
     plotinfo->equipment.update.whole |= update.whole;
 }
 
+// Archery ranges go to the squads that shoot (user request: an archery range
+// for the marksdwarves). df-ai gave each range to whichever squad got the
+// barracks it belongs to: squad 95 (no crossbows) had one while the two
+// crossbow squads (9 each) had none, and nobody practised. Once a game day,
+// every squad with 3+ ranged weapons assigned also gets training rights on
+// the range nearest its barracks (DF lets squads share a zone).
+static void ranged_squads_to_ranges(AI & ai, color_ostream & out)
+{
+    static int32_t last_day = -1;
+    int32_t day = *cur_year * 1000 + *cur_year_tick / 1200;
+    if (day == last_day)
+        return;
+    last_day = day;
+
+    std::vector<df::building_civzonest *> ranges;
+    for (auto b : world->buildings.other[buildings_other_id::ACTIVITY_ZONE])
+    {
+        auto z = virtual_cast<df::building_civzonest>(b);
+        if (z && z->type == civzone_type::ArcheryRange && z->spec_sub_flag.bits.active)
+            ranges.push_back(z);
+    }
+    auto fe = plotinfo->main.fortress_entity;
+    if (ranges.empty() || !fe)
+        return;
+
+    for (auto sqid : fe->squads)
+    {
+        auto sq = df::squad::find(sqid);
+        if (!sq)
+            continue;
+        int32_t ranged = 0;
+        for (auto pos : sq->positions)
+        {
+            if (!pos)
+                continue;
+            for (auto iid : pos->equipment.assigned_items)
+            {
+                auto w = virtual_cast<df::item_weaponst>(df::item::find(iid));
+                if (w && w->subtype && w->subtype->skill_ranged != job_skill::NONE)
+                {
+                    ranged++;
+                    break;
+                }
+            }
+        }
+        if (ranged < 3)
+            continue;
+        // already training on a range?
+        bool has = false;
+        df::coord home;
+        for (auto rm : sq->rooms)
+        {
+            auto z = virtual_cast<df::building_civzonest>(df::building::find(rm->building_id));
+            if (!z)
+                continue;
+            if (z->type == civzone_type::ArcheryRange && rm->mode.bits.train)
+                has = true;
+            if (z->type == civzone_type::Barracks && !home.isValid())
+                home = df::coord(z->centerx, z->centery, z->z);
+        }
+        if (has)
+            continue;
+        df::building_civzonest *best = nullptr;
+        int32_t best_d = 0;
+        for (auto z : ranges)
+        {
+            int32_t d = home.isValid() ? std::abs(z->centerx - home.x) + std::abs(z->centery - home.y) + 4 * std::abs(z->z - home.z) : 0;
+            if (!best || d < best_d)
+            {
+                best = z;
+                best_d = d;
+            }
+        }
+        df::squad_use_flags flags;
+        flags.whole = 0;
+        flags.bits.train = 1;
+        Military::updateRoomAssignments(sq->id, best->id, flags);
+        std::string nm = !sq->alias.empty() ? sq->alias : AI::describe_name(sq->name, true);
+        if (nm.empty())
+            nm = stl_sprintf("squad %d", sq->id);
+        ai.debug(out, stl_sprintf("[MILITARY] %s (%d crossbows/bows) trains on the archery range %d", nm.c_str(), ranged, best->id));
+    }
+}
+
 void Population::battle_stations(color_ostream & out, bool danger)
 {
     auto fe = plotinfo->main.fortress_entity;
@@ -1496,6 +1582,7 @@ void Population::update_military(color_ostream & out)
     }
     civilian_alert(out, great_danger);
     battle_stations(out, great_danger || invaders_far > 0);
+    ranged_squads_to_ranges(ai, out);
     invaders_far = 0;
 
     if (everyone_fights)
