@@ -202,6 +202,8 @@ function step(force)
     if not p then return 'dfai_missions not ready' end
     local s = load_state()
     read_results(s)
+    -- 'hold': every squad stays home (a beast fight coming); returns still logged
+    if s.hold then save_state(s) return 'holding: the army stays home (' .. tostring(s.hold) .. ')' end
     local out, total = 0, 0
     for _ in pairs(s.sent) do out = out + 1 end
     for _, sq in ipairs(df.global.world.squads.all) do
@@ -255,6 +257,21 @@ if cmd == 'start' then
     -- first check on the next game day (never from the console: a save may be running)
     repeatUtil.scheduleEvery(KEY, 1200, 'ticks', tick) -- check daily
     print('war office: started')
+elseif cmd == 'hold' then
+    local why = table.concat({select(2, ...)}, ' ')
+    dfhack.timeout(1, 'ticks', function()
+        local st = load_state()
+        st.hold = why ~= '' and why or 'held'
+        save_state(st)
+    end)
+    print('war office: holding all squads at home')
+elseif cmd == 'resume' then
+    dfhack.timeout(1, 'ticks', function()
+        local st = load_state()
+        st.hold = nil
+        save_state(st)
+    end)
+    print('war office: raids resume')
 elseif cmd == 'stop' then
     repeatUtil.cancel(KEY)
     print('war office stopped')
