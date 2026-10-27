@@ -118,11 +118,11 @@ class Feed:
 STREAM_PAGE = """<!doctype html>
 <html><head><meta charset="utf-8"><title>Dwarf Fortress - live</title>
 <style>
-  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #1b1610; }
-  #game { position: absolute; left: 0; top: 0; width: 1420px; height: 1080px; object-fit: contain; background: #000; }
-  #paper { position: absolute; left: 1420px; top: 0; width: 500px; height: 1080px; border: 0; }
-  /* the way to the Overseer's Desk: invisible until the mouse finds the corner,
-     never shown inside OBS or off this PC (the desk only answers localhost) */
+  html, body { margin: 0; width: 100vw; height: 100vh; overflow: hidden; background: #1b1610; }
+  #game { position: absolute; left: 0; top: 0; height: 100vh; object-fit: contain; background: #000; }
+  /* the broadsheet is laid out at its native 480px and scaled up to fill
+     whatever width is left, so its text grows with it (readability) */
+  #paper { position: absolute; top: 0; width: 480px; border: 0; transform-origin: 0 0; }
   #desk { position: absolute; left: 0; bottom: 0; padding: 10px 14px; font: bold 14px Georgia, serif;
           color: #f7f1e1; background: rgba(29, 26, 20, .85); text-decoration: none; opacity: 0; transition: opacity .2s; display: none; }
   #desk:hover { opacity: 1; }
@@ -133,6 +133,19 @@ STREAM_PAGE = """<!doctype html>
   <a id="desk" href="http://localhost:8767/">The Overseer's Desk &rarr;</a>
   <script>
     if (!window.obsstudio && ['localhost', '127.0.0.1'].includes(location.hostname)) document.getElementById('desk').style.display = 'block';
+    const game = document.getElementById('game'), paper = document.getElementById('paper');
+    function layout() {
+      const W = innerWidth, H = innerHeight;
+      const aspect = (game.naturalWidth && game.naturalHeight) ? game.naturalWidth / game.naturalHeight : 1.39;
+      // the paper takes everything the game doesn't need at full height, and never less than 31%
+      const P = Math.max(Math.round(W * 0.31), Math.round(W - H * aspect));
+      const s = P / 480;
+      game.style.width = (W - P) + 'px';
+      paper.style.left = (W - P) + 'px';
+      paper.style.height = (H / s) + 'px';
+      paper.style.transform = 'scale(' + s + ')';
+    }
+    addEventListener('resize', layout); game.addEventListener('load', layout); layout(); setInterval(layout, 5000);
   </script>
 </body></html>
 """
