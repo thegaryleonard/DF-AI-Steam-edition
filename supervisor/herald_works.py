@@ -171,7 +171,15 @@ def feed():
     except (OSError, ValueError):
         projects = []
 
-    return {"ok": True, "site": site, "building": busy.most_common(6), "halls": halls, "goals": goals[:4],
+    deep = None
+    try:
+        dd = json.loads((dfai_poi.DF_DIR / "dfhack-config" / "dfai-deep.json").read_bytes().decode("utf-8", "replace"))
+        if dd.get("site_id") in (site, -1) and dd.get("top") is not None:
+            deep = dd
+    except (OSError, ValueError, NameError):
+        deep = None
+
+    return {"ok": True, "site": site, "deep": deep, "building": busy.most_common(6), "halls": halls, "goals": goals[:4],
             "goals_done": done_goals, "done": st["done"][-5:], "landmarks": landmarks, "depth": depth,
             "rooms_finished": fin, "rooms_total": total, "projects": projects}
 

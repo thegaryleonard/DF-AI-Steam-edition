@@ -160,6 +160,14 @@ local function find_rooms()
             pois[#pois + 1] = {name = p.name, kind = p.kind, pos = xyz2pos(p.x, p.y, p.z)}
         end
     end
+    -- the deep dig's current bottom (dfai-deep-dig.lua)
+    local okd, deep = pcall(function()
+        return require('json').decode_file(dfhack.getDFPath() .. '/dfhack-config/dfai-deep.json')
+    end)
+    if okd and deep and s and deep.site_id == s.id and deep.x and deep.bottom then
+        pois[#pois + 1] = {name = deep.status == 'done' and 'The Deep Hall' or 'The Deep Shaft',
+            kind = ('%d levels below the caverns'):format(deep.levels or 0), pos = xyz2pos(deep.x, deep.y, deep.bottom)}
+    end
     -- interleave rooms and points of interest so the tour mixes them
     local mixed, i, j = {}, 1, 1
     while i <= #rooms or j <= #pois do

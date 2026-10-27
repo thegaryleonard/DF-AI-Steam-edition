@@ -2276,6 +2276,17 @@ function worksItems(ctx, r) {
     out.push({ids: ['works-depth-' + dp.levels], html: `<div class="item"><div class="kick">The Depth Gauge</div><h3>Fort Reaches ${dp.levels} Levels Down</h3>
       <p class="just">The deepest stair now runs ${dp.levels} levels below the front gate.${dp.cavern ? ` Our miners broke into the caverns ${dp.cavern_levels} levels down and set up camp there, against all advice.` : ' The caverns have not been reached yet. Miners say they can hear something down there.'}</p></div>`});
   }
+  // the deep dig (dfai-deep-dig.lua): a stair shaft below the deepest cavern
+  const dd = WK.deep;
+  if (dd && dd.top != null) {
+    const lv = dd.levels || 0, last = (dd.log || []).slice(-1)[0];
+    const head = dd.status === 'done' ? (/magma/.test(dd.stop_reason || '') ? 'Miners Stop Just Above The Magma Sea' : 'The Deep Hall Is Carved')
+      : lv ? `The Deep Shaft: ${lv} ${lv === 1 ? 'Level' : 'Levels'} Below The Caverns` : 'The Deep Dig Begins';
+    const body = dd.status === 'done'
+      ? `The shaft sank ${lv} levels below the deepest cavern before the miners felt the warmth of ${esc(dd.stop_reason || 'something')} under their boots and stopped. At the bottom they are carving the Deep Hall.${dd.galleries ? ` ${dd.galleries} exploration ${dd.galleries === 1 ? 'gallery strikes' : 'galleries strike'} out from it, looking for ore and gems.` : ''}`
+      : `Below the deepest cavern a single stair is going down, one level at a time${lv ? `, ${lv} so far` : ''}. Nobody asked the miners to do this. Nobody could stop them either. The works office promises to stop well above anything molten.`;
+    out.push({ids: ['works-deep-' + lv + (dd.status || '')], html: `<div class="item"><div class="kick">The Works Office · Going Down</div><h3>${esc(head)}</h3><p class="just">${body}</p>${last ? `<p class="just" style="font-style:italic">${esc(last.text)}</p>` : ''}</div>`});
+  }
   const pj = WK.projects || [];
   if (pj.length) {
     const p = pick(r, pj);
