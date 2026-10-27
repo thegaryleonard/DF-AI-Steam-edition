@@ -923,6 +923,17 @@ static void request_equipment(df::squad *squad)
 // crossbow squads (9 each) had none, and nobody practised. Once a game day,
 // every squad with 3+ ranged weapons assigned also gets training rights on
 // the range nearest its barracks (DF lets squads share a zone).
+bool Population::military_target_reachable(df::unit *u)
+{
+    for (auto id : citizen)
+    {
+        auto c = df::unit::find(id);
+        if (c && Units::isActive(c) && !Units::isDead(c))
+            return Maps::canWalkBetween(Units::getPosition(c), Units::getPosition(u));
+    }
+    return true;
+}
+
 static void ranged_squads_to_ranges(AI & ai, color_ostream & out)
 {
     static int32_t last_day = -1;
@@ -1844,6 +1855,31 @@ public:
 
 bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit *u, const std::string & reason)
 {
+    // One squad per ordinary target (a monkey that bit a dancer): each new
+    // attack used to hand the same animal to the next squad, and all 17
+    // squads ended up chasing 3 gray langurs. Great dangers still get more.
+    if (!Units::isGreatDanger(u))
+    {
+        for (auto sqid : plotinfo->main.fortress_entity->squads)
+        {
+            auto sq = df::squad::find(sqid);
+            if (!sq)
+                continue;
+            for (auto it : sq->orders)
+                if (auto so = strict_virtual_cast<df::squad_order_kill_listst>(it))
+                    if (std::find(so->units.begin(), so->units.end(), u->id) != so->units.end())
+                        return false;
+        }
+        for (auto & oc : squad_order_changes)
+            if (oc.unit_id == u->id && !oc.remove)
+                return false;
+    }
+    // never send a squad after something nobody can walk to: the order never
+    // clears and the squad stands at the nearest spot forever (a wild boar on
+    // a ledge held one)
+    if (!military_target_reachable(u))
+        return false;
+
     df::squad *squad = nullptr;
     int32_t best = std::numeric_limits<int32_t>::min();
     for (auto sqid : plotinfo->main.fortress_entity->squads)

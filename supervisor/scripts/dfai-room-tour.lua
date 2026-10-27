@@ -828,15 +828,27 @@ end
 local function job_text(j)
     local name = dfhack.job.getName(j)
     if not name:lower():find('item', 1, true) then return name end
-    local it
+    -- the hauled thing, not the bin or barrel it goes into
+    local it, cont
+    local CONTAINER = {[df.item_type.BIN] = true, [df.item_type.BARREL] = true, [df.item_type.BOX] = true,
+        [df.item_type.BAG] = true, [df.item_type.TOOL] = true}
     for _, ref in ipairs(j.items) do
-        if ref.item then it = ref.item break end
+        if ref.item then
+            if CONTAINER[ref.item:getType()] then cont = cont or ref.item
+            elseif not it then it = ref.item end
+        end
     end
+    it = it or cont
     if not it then return name end
     local ok, desc = pcall(dfhack.items.getReadableDescription, it)
     if not ok or not desc or desc == '' then ok, desc = pcall(dfhack.items.getDescription, it, 0, true) end
     if not ok or not desc or desc == '' then return name end
-    desc = dfhack.df2utf(desc):gsub('^%l', string.lower)
+    -- keep DF's own encoding (the banner draws in it), and drop the quality
+    -- marks round crafted items (-x- +x+ *x* and the CP437 quality symbols)
+    local marks = '[%-%+%*' .. string.char(240, 15, 174, 175) .. ']'
+    desc = desc:gsub('%s*<#%d+>', '')
+    for _ = 1, 3 do desc = desc:gsub('^' .. marks, ''):gsub(marks .. '$', '') end
+    desc = desc:gsub('^%u', string.lower)
     local out, n = name:gsub('[Ii]tems?', desc, 1)
     return n > 0 and out or (name .. ': ' .. desc)
 end

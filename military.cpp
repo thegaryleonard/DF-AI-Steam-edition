@@ -1,5 +1,6 @@
 #include "ai.h"
 #include <algorithm>
+#include <set>
 #include "population.h"
 #include "plan.h"
 
@@ -47,6 +48,7 @@ static bool invader_close(AI & ai, df::unit *u)
 bool AI::tag_enemies(color_ostream & out)
 {
     bool found = false;
+    std::set<int32_t> claimed; // ordinary kill targets already held by a squad
     for (auto id : plotinfo->main.fortress_entity->squads)
     {
         auto squad = df::squad::find(id);
@@ -54,7 +56,8 @@ bool AI::tag_enemies(color_ostream & out)
         {
             continue;
         }
-        // drop targets that are gone or dead (they piled up after a battle and
+        Population *pop_ref = &pop;
+        // drop targets that are gone, dead or out of reach (they piled up after a battle and
         // flooded the log with "Cannot find unit for squad kill order")
         for (size_t i = 0; i < squad->orders.size(); i++)
         {
@@ -62,10 +65,16 @@ bool AI::tag_enemies(color_ostream & out)
             if (!kill)
                 continue;
             auto & ids = kill->units;
-            ids.erase(std::remove_if(ids.begin(), ids.end(), [](int32_t uid) -> bool
+            ids.erase(std::remove_if(ids.begin(), ids.end(), [pop_ref, &claimed](int32_t uid) -> bool
             {
                 auto t = df::unit::find(uid);
-                return !t || Units::isDead(t);
+                if (!t || Units::isDead(t) || !pop_ref->military_target_reachable(t))
+                    return true;
+                // one squad per ordinary target: orders handed out before
+                // that rule left 17 squads chasing 3 monkeys
+                if (!Units::isGreatDanger(t) && !claimed.insert(uid).second)
+                    return true;
+                return false;
             }), ids.end());
             if (ids.empty())
             {
