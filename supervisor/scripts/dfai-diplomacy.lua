@@ -53,5 +53,24 @@ elseif d.taking_requests then
   print(click_text('Done') and 'REQUESTS done (none requested)' or 'STUCK on requests screen')
 else
   local text = said()
-  print((click_text('Okay') and 'SAID ' or 'STUCK ') .. text)
+  -- answers to requests that come with a choice. The elves' tree-felling cap is
+  -- refused: wood is the fort's charcoal for smelting and armor, and a little
+  -- conflict is welcome on stream. Anything unknown takes the first answer
+  -- rather than freezing the game (DF waits forever on this screen).
+  local CHOICES = {
+    {'We cannot stop production', 'REFUSED tree cap: '},
+    {'We will not be bound', 'REFUSED: '},
+  }
+  for _, c in ipairs(CHOICES) do
+    if click_text(c[1]) then print(c[2] .. text) return end
+  end
+  if click_text('Okay') then print('SAID ' .. text) return end
+  for y = 0, gps.dimy - 1 do
+    local r = row(y)
+    local opt = r:match('^        (%u.+[%.!])%s*$')
+    if opt and #opt > 12 and not text:find(opt, 1, true) then
+      if click_text(opt) then print('CHOSE "' .. opt .. '" for: ' .. text) return end
+    end
+  end
+  print('STUCK ' .. text)
 end
