@@ -201,8 +201,14 @@ void Plan::attribute_noblerooms(color_ostream & out, const std::set<int32_t> & i
 
     for (auto it = id_list.begin(); it != id_list.end(); it++)
     {
+        // the noble may be off the map (on a raid or mission): DF removes the
+        // unit, and getNoblePositions(nullptr) throws, which crashed the game
+        // in a loop. Keep their rooms and look again when they're back.
+        df::unit *noble = df::unit::find(*it);
+        if (!noble)
+            continue;
         std::vector<Units::NoblePosition> entpos;
-        Units::getNoblePositions(&entpos, df::unit::find(*it));
+        Units::getNoblePositions(&entpos, noble);
         room *base = ai.find_room(room_type::nobleroom, [it](room *r) -> bool { return r->owner == *it; });
         if (!base)
             base = ai.find_room(room_type::nobleroom, [](room *r) -> bool { return r->owner == -1; });
