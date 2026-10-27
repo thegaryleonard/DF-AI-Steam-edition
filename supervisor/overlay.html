@@ -2701,6 +2701,8 @@ async function pollSlow() {
   const ear = document.getElementById('ear-r'); if (!ear) return;
   ear.style.cursor = 'pointer'; ear.title = "The Overseer's Desk";
   ear.addEventListener('click', () => { try { window.top.location.href = 'http://localhost:8767/'; } catch (e) { window.location.href = 'http://localhost:8767/'; } }); })();
+// inside the stream page the paper fills its frame's width (the frame decides how wide)
+if (window.self !== window.top) document.body.style.width = '100%';
 // reload by itself when overlay.html changes on disk, so OBS never needs a manual refresh
 (() => { let base = null;
   const sig = async () => { const t = await (await fetch('/index.html', {cache: 'no-store'})).text(); let h = 0; for (let i = 0; i < t.length; i++) h = (h * 31 + t.charCodeAt(i)) | 0; return t.length + ':' + h; };

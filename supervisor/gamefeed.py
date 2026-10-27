@@ -120,9 +120,8 @@ STREAM_PAGE = """<!doctype html>
 <style>
   html, body { margin: 0; width: 100vw; height: 100vh; overflow: hidden; background: #1b1610; }
   #game { position: absolute; left: 0; top: 0; height: 100vh; object-fit: contain; background: #000; }
-  /* the broadsheet is laid out at its native 480px and scaled up to fill
-     whatever width is left, so its text grows with it (readability) */
-  #paper { position: absolute; top: 0; width: 480px; border: 0; transform-origin: 0 0; }
+  /* the broadsheet takes the width the game doesn't need (560-700px), full height, no scaling */
+  #paper { position: absolute; top: 0; height: 100vh; border: 0; }
   #desk { position: absolute; left: 0; bottom: 0; padding: 10px 14px; font: bold 14px Georgia, serif;
           color: #f7f1e1; background: rgba(29, 26, 20, .85); text-decoration: none; opacity: 0; transition: opacity .2s; display: none; }
   #desk:hover { opacity: 1; }
@@ -137,13 +136,10 @@ STREAM_PAGE = """<!doctype html>
     function layout() {
       const W = innerWidth, H = innerHeight;
       const aspect = (game.naturalWidth && game.naturalHeight) ? game.naturalWidth / game.naturalHeight : 1.39;
-      // the paper takes everything the game doesn't need at full height, and never less than 31%
-      const P = Math.max(Math.round(W * 0.31), Math.round(W - H * aspect));
-      const s = P / 480;
+      const P = Math.min(700, Math.max(560, Math.round(W - H * aspect)));
       game.style.width = (W - P) + 'px';
       paper.style.left = (W - P) + 'px';
-      paper.style.height = (H / s) + 'px';
-      paper.style.transform = 'scale(' + s + ')';
+      paper.style.width = P + 'px';
     }
     addEventListener('resize', layout); game.addEventListener('load', layout); layout(); setInterval(layout, 5000);
   </script>
