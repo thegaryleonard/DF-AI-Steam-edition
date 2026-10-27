@@ -1,5 +1,6 @@
 #include "plan_priorities.h"
 #include "ai.h"
+#include "modules/Maps.h"
 #include "plan.h"
 
 #include <functional>
@@ -9,7 +10,41 @@
 #include "df/buildings_other_id.h"
 #include "df/world.h"
 
+REQUIRE_GLOBAL(cur_year_tick);
+REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(world);
+
+// fraction of tiles holding items over every finished stockpile room of this
+// kind (cached per kind for a game day); true when 75% or more are used, or
+// when there are none yet
+static bool stockpiles_filling(AI & ai, stockpile_type::type kind)
+{
+    static std::map<int, std::pair<int32_t, bool>> cache;
+    int32_t day = *cur_year * 1000 + *cur_year_tick / 1200;
+    auto it = cache.find(int(kind));
+    if (it != cache.end() && it->second.first == day)
+        return it->second.second;
+    int32_t used = 0, total = 0;
+    for (auto r : ai.plan.all_rooms())
+    {
+        if (r->type != room_type::stockpile || r->stockpile_type != kind || r->status != room_status::finished || r->workshop)
+            continue;
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+                for (int16_t z = r->min.z; z <= r->max.z; z++)
+                {
+                    auto occ = Maps::getTileOccupancy(df::coord(x, y, z));
+                    if (!occ)
+                        continue;
+                    total++;
+                    if (occ->bits.item)
+                        used++;
+                }
+    }
+    bool filling = total == 0 || used * 4 >= total * 3;
+    cache[int(kind)] = std::make_pair(day, filling);
+    return filling;
+}
 
 #define BEGIN_ENUM BEGIN_IMPLEMENT_ENUM
 #define ENUM_ITEM IMPLEMENT_ENUM_ITEM
@@ -673,6 +708,14 @@ bool plan_priority_t::act(AI & ai, color_ostream & out, std::ostream & reason)
                     }
                 }
                 if (!any_match)
+                {
+                    continue;
+                }
+
+                // more storerooms only when the ones we have are filling up
+                // (user: the storerooms were excessive; with bins they fill slower)
+                if (action == plan_priority_action::dig && r->type == room_type::stockpile && r->workshop == nullptr &&
+                    r->level >= (r->stockpile_type == stockpile_type::food ? 3 : 2) && !stockpiles_filling(ai, r->stockpile_type))
                 {
                     continue;
                 }

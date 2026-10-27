@@ -60,6 +60,7 @@ class Plan
     room *fort_entrance;
 public:
     room *entrance() const { return fort_entrance; }
+    const std::vector<room *> & all_rooms() const { return rooms_and_corridors; }
     std::map<int32_t, std::vector<std::pair<df::coord, int32_t>>> map_veins;
 private:
     std::vector<df::workshop_type> important_workshops;

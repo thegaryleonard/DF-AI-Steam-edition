@@ -1,4 +1,5 @@
 #include "ai.h"
+#include "df/building_stockpilest.h"
 #include "df/item_body_component.h"
 #include <set>
 #include <map>
@@ -148,6 +149,74 @@ static void dump_rotten(AI & ai, color_ostream & out)
         ai.debug(out, stl_sprintf("[REFUSE] marked %d rotten items for the dump", n));
 }
 
+// Containers (user request): the FIRST stockpile of each kind stays
+// container-free so viewers can see what's in the room; every later pile of
+// that kind gets a bin per tile (small goods) or a barrel per tile (food), so
+// fewer storerooms fill up. No pile had a single bin before (358 piles, 0 bin
+// slots) and every stack took its own tile. Barrels are never reduced: drinks
+// only come in barrels. Once a game day.
+static void stockpile_containers(AI & ai, color_ostream & out)
+{
+    static int32_t last_day = -1;
+    int32_t day = *cur_year * 1000 + *cur_year_tick / 1200;
+    if (day == last_day)
+        return;
+    last_day = day;
+
+    enum kind_t { K_NONE, K_BIN, K_BARREL };
+    auto kind_of = [](df::building_stockpilest *sp, int & cat) -> kind_t
+    {
+        auto & f = sp->settings.flags.bits;
+        if (f.food) { cat = 1; return K_BARREL; }
+        if (f.finished_goods) { cat = 2; return K_BIN; }
+        if (f.gems) { cat = 3; return K_BIN; }
+        if (f.bars_blocks) { cat = 4; return K_BIN; }
+        if (f.cloth) { cat = 5; return K_BIN; }
+        if (f.leather) { cat = 6; return K_BIN; }
+        if (f.weapons) { cat = 7; return K_BIN; }
+        if (f.armor) { cat = 8; return K_BIN; }
+        if (f.ammo) { cat = 9; return K_BIN; }
+        if (f.coins) { cat = 10; return K_BIN; }
+        if (f.sheet) { cat = 11; return K_BIN; }
+        cat = 0;
+        return K_NONE; // stone, wood, furniture, refuse, corpses, animals: no containers
+    };
+
+    std::map<int, int32_t> first; // category -> lowest stockpile id (the showcase)
+    for (auto bld : world->buildings.other[buildings_other_id::STOCKPILE])
+    {
+        auto sp = virtual_cast<df::building_stockpilest>(bld);
+        int cat;
+        if (!sp || kind_of(sp, cat) == K_NONE)
+            continue;
+        if (!first.count(cat) || sp->id < first.at(cat))
+            first[cat] = sp->id;
+    }
+
+    int32_t changed = 0;
+    for (auto bld : world->buildings.other[buildings_other_id::STOCKPILE])
+    {
+        auto sp = virtual_cast<df::building_stockpilest>(bld);
+        int cat;
+        kind_t k = sp ? kind_of(sp, cat) : K_NONE;
+        if (k == K_NONE || sp->id == first.at(cat))
+            continue;
+        int32_t tiles = (sp->x2 - sp->x1 + 1) * (sp->y2 - sp->y1 + 1);
+        if (k == K_BIN && sp->storage.max_bins < tiles)
+        {
+            sp->storage.max_bins = tiles;
+            changed++;
+        }
+        else if (k == K_BARREL && sp->storage.max_barrels < tiles)
+        {
+            sp->storage.max_barrels = tiles;
+            changed++;
+        }
+    }
+    if (changed)
+        ai.debug(out, stl_sprintf("[STOCKS] containers allowed on %d stockpiles (the first of each kind stays open for viewing)", changed));
+}
+
 void Population::update(color_ostream & out)
 {
     update_counter++;
@@ -182,6 +251,7 @@ void Population::update(color_ostream & out)
         break;
     case 8:
         update_locations(out);
+        stockpile_containers(ai, out);
         break;
     case 9:
         if (ai.eventsJson.is_open())
