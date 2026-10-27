@@ -1,4 +1,5 @@
 #include "ai.h"
+#include "df/item_body_component.h"
 #include <set>
 #include <map>
 #include "population.h"
@@ -114,6 +115,39 @@ command_result Population::onupdate_unregister(color_ostream &)
     return CR_OK;
 }
 
+// Anything rotten goes to the dump (user rule): rotting meat, fish, plants and
+// corpses left lying about spread miasma. Once a game day, loose rotten items
+// are marked for dumping. Our own people's (and pets') remains stay where they
+// are so they can still be buried; carried, in-use, built-in, forbidden and
+// traders' items are left alone.
+static void dump_rotten(AI & ai, color_ostream & out)
+{
+    static int32_t last_day = -1;
+    int32_t day = *cur_year * 1000 + *cur_year_tick / 1200;
+    if (day == last_day)
+        return;
+    last_day = day;
+
+    int32_t n = 0;
+    for (auto it : world->items.other[items_other_id::IN_PLAY])
+    {
+        auto & f = it->flags.bits;
+        if (!f.rotten || f.dump || f.in_job || f.in_inventory || f.in_building || f.construction ||
+            f.artifact || f.owned || f.trader || f.forbid || f.removed || f.garbage_collect || f.hidden)
+            continue;
+        if (auto body = virtual_cast<df::item_body_component>(it))
+        {
+            auto u = df::unit::find(body->unit_id);
+            if (u && u->civ_id == plotinfo->civ_id)
+                continue; // a citizen or pet: keep for burial
+        }
+        f.dump = 1;
+        n++;
+    }
+    if (n)
+        ai.debug(out, stl_sprintf("[REFUSE] marked %d rotten items for the dump", n));
+}
+
 void Population::update(color_ostream & out)
 {
     update_counter++;
@@ -141,6 +175,7 @@ void Population::update(color_ostream & out)
     case 6:
         update_deads(out);
         update_moods(out);
+        dump_rotten(ai, out);
         break;
     case 7:
         update_caged(out);
