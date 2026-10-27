@@ -2,9 +2,9 @@
 --
 --   dfai-war-office start|stop|status|now|list
 --
--- Every WAR_EVERY game days (and on start) it sends ONE free squad on a raid
+-- Every squad raids once a month (SQUAD_EVERY days), one departure a day, HOME_GUARD squads stay home;
 -- (now and then a pillage) against the nearest site governed by a civilization
--- at war with us, through the dfai_missions plugin. Never more than MAX_OUT
+-- targets rotate across every other civilization (ALL_CIVS), through the dfai_missions plugin.
 -- squads abroad, never while a threat is on the map (the fort needs them), and
 -- squads take turns. It does not declare wars by messenger; civs on the
 -- antagonize list (user: "keep raiding them and antagonizing them") are raided
@@ -16,8 +16,11 @@ local json = require('json')
 local repeatUtil = require('repeat-util')
 
 local KEY = 'dfai-war-office'
-local WAR_EVERY = 2 * 28 -- game days between new missions
-local MAX_OUT = 1
+-- user (end-of-fort phase): every squad raids once a month, targets rotate
+-- round every civilization but our own, "make some enemies"
+local SQUAD_EVERY = 28   -- game days between one squad's raids
+local HOME_GUARD = 2     -- squads that always stay home
+local ALL_CIVS = true    -- every other civilization is a target, not just enemies
 
 local function plugin()
     local t = {}
@@ -58,6 +61,13 @@ end
 local function enemies(s)
     local civ = df.historical_entity.find(df.global.plotinfo.civ_id)
     local out = {}
+    if ALL_CIVS then
+        for _, e in ipairs(df.global.world.entities.all) do
+            if e.type == df.historical_entity_type.Civilization and e.id ~= civ.id and #e.site_links > 0 then
+                out[e.id] = true
+            end
+        end
+    end
     for cid in pairs((s and s.antagonize) or {}) do out[tonumber(cid)] = true end
     for _, st in ipairs(civ.relations.diplomacy.state) do
         if st.relation == df.diplomacy_state_type.TotalWar or st.relation == df.diplomacy_state_type.Skirmishing then
@@ -79,6 +89,20 @@ local function targets(foes)
     end
     table.sort(list, function(a, b) return a.dist < b.dist end)
     return list
+end
+
+-- the civ hit least recently, then its site hit least recently (nearest first on ties)
+local function pick_target(s, tl)
+    s.civ_turn = s.civ_turn or {}
+    s.site_turn = s.site_turn or {}
+    local best, bk
+    for i, t in ipairs(tl) do
+        local k = {s.civ_turn[tostring(t.civ.id)] or 0, s.site_turn[tostring(t.site.id)] or 0, i}
+        if not best or k[1] < bk[1] or (k[1] == bk[1] and (k[2] < bk[2] or (k[2] == bk[2] and k[3] < bk[3]))) then
+            best, bk = t, k
+        end
+    end
+    return best
 end
 
 local function threat_on_map()
@@ -178,24 +202,28 @@ function step(force)
     if not p then return 'dfai_missions not ready' end
     local s = load_state()
     read_results(s)
-    local out = 0
+    local out, total = 0, 0
     for _ in pairs(s.sent) do out = out + 1 end
-    if out >= MAX_OUT then save_state(s) return 'squad already abroad' end
-    if not force and s.next_at and now_abs() < s.next_at then save_state(s) return 'resting' end
+    for _, sq in ipairs(df.global.world.squads.all) do
+        if sq.entity_id == df.global.plotinfo.group_id then total = total + 1 end
+    end
+    if out >= total - HOME_GUARD then save_state(s) return ('%d squads abroad, %d stay home'):format(out, HOME_GUARD) end
     if threat_on_map() then save_state(s) return 'threat on the map: squads stay home' end
     local foes = enemies(s)
     local tl = targets(foes)
     if #tl == 0 then save_state(s) return 'no enemy sites' end
-    -- the squad that waited longest
+    -- the squad that waited longest, if its month at home is up
     local best, bt
     for _, sq in ipairs(df.global.world.squads.all) do
         if squad_ready(sq) then
             local t = s.turn[tostring(sq.id)] or 0
-            if not best or t < bt then best, bt = sq, t end
+            if (force or now_abs() - t >= SQUAD_EVERY * 1200) and (not best or t < bt) then best, bt = sq, t end
         end
     end
-    if not best then save_state(s) return 'no squad ready' end
-    local tg = tl[1]
+    if not best then save_state(s) return 'no squad due' end
+    local tg = pick_target(s, tl)
+    s.civ_turn[tostring(tg.civ.id)] = now_abs()
+    s.site_turn[tostring(tg.site.id)] = now_abs()
     local mode = (math.random() < 0.25) and 'pillage' or 'raid'
     local id = p.invade(tg.site.id, tostring(best.id), mode)
     if not id or id < 0 then save_state(s) return 'mission refused for ' .. name_of(tg.site) end
@@ -211,7 +239,6 @@ function step(force)
     s.sent[tostring(best.id)] = {year = df.global.cur_year, site = name_of(tg.site), civ = name_of(tg.civ), mode = mode, squad = sqname, squad_id = best.id,
         members = mem, names = names, leader = names[1], at_war = at_war}
     s.turn[tostring(best.id)] = now_abs()
-    s.next_at = now_abs() + WAR_EVERY * 1200
     table.insert(s.log, {year = df.global.cur_year, kind = 'left', squad = sqname, site = name_of(tg.site), civ = name_of(tg.civ), mode = mode,
         leader = names[1], members = names, at_war = at_war, site_type = df.world_site_type[tg.site.type], squad_id = best.id})
     save_state(s)
@@ -226,7 +253,7 @@ end
 local cmd = ({...})[1] or 'status'
 if cmd == 'start' then
     -- first check on the next game day (never from the console: a save may be running)
-    repeatUtil.scheduleEvery(KEY, 1200, 'ticks', tick) -- check daily; missions every WAR_EVERY days
+    repeatUtil.scheduleEvery(KEY, 1200, 'ticks', tick) -- check daily
     print('war office: started')
 elseif cmd == 'stop' then
     repeatUtil.cancel(KEY)
