@@ -2,7 +2,7 @@
 --
 --   dfai-war-office start|stop|status|now|list
 --
--- Every squad raids once a month (SQUAD_EVERY days), one departure a day, HOME_GUARD squads stay home;
+-- One raiding party abroad at a time (MAX_OUT); squads take turns, none more than once a month (SQUAD_EVERY);
 -- (now and then a pillage) against the nearest site governed by a civilization
 -- targets rotate across every other civilization (ALL_CIVS), through the dfai_missions plugin.
 -- squads abroad, never while a threat is on the map (the fort needs them), and
@@ -20,6 +20,7 @@ local KEY = 'dfai-war-office'
 -- round every civilization but our own, "make some enemies"
 local SQUAD_EVERY = 28   -- game days between one squad's raids
 local HOME_GUARD = 2     -- squads that always stay home
+local MAX_OUT = 1        -- raiding parties abroad at once
 local ALL_CIVS = true    -- every other civilization is a target, not just enemies
 
 local function plugin()
@@ -209,7 +210,9 @@ function step(force)
     for _, sq in ipairs(df.global.world.squads.all) do
         if sq.entity_id == df.global.plotinfo.group_id then total = total + 1 end
     end
-    if out >= total - HOME_GUARD then save_state(s) return ('%d squads abroad, %d stay home'):format(out, HOME_GUARD) end
+    -- one in, one out (user): a single raiding party abroad at a time, the next
+    -- leaves when it comes home, so the fort is never emptied
+    if out >= MAX_OUT or out >= total - HOME_GUARD then save_state(s) return ('%d squad(s) abroad'):format(out) end
     if threat_on_map() then save_state(s) return 'threat on the map: squads stay home' end
     local foes = enemies(s)
     local tl = targets(foes)
