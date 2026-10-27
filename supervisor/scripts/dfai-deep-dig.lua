@@ -4,8 +4,8 @@
 --   dfai-deep-dig start|stop|status|now
 --
 -- Once the fort is mature (MATURE_POP+ citizens, at least one cavern outpost),
--- it sinks a staircase shaft from the deepest cavern outpost df-ai dug, one
--- level at a time: the next level is designated only when the last one is dug.
+-- it sinks a staircase shaft from the deepest cavern outpost df-ai dug, BATCH
+-- levels at a time: the next batch is designated when the last one is dug.
 -- It never breaks into liquid: when magma, water, an aquifer or open space
 -- shows up within SAFE levels below (or beside) the shaft, it stops, and the
 -- miners carve "The Deep Hall" at the bottom. Then it starts a side gallery
@@ -21,6 +21,7 @@ local MATURE_POP = 60
 local SAFE = 3          -- levels kept between the shaft bottom and any liquid/void
 local HALL_R = 2        -- the hall is (2R+1)^2
 local STALL_DAYS = 20   -- re-designate a level nobody dug
+local BATCH = 10        -- levels designated at a time (user: "dig 10 levels at a time")
 
 local function shape(x, y, z)
     local tt = dfhack.maps.getTileType(x, y, z)
@@ -101,15 +102,25 @@ local function find_start()
         end
     end
     if not best then return nil, 'no cavern outpost yet' end
-    -- a cavern-floor tile next to the outpost with solid rock under it
+    -- a cavern-floor tile next to the outpost with solid rock under it, and
+    -- outside every df-ai room and corridor (df-ai "repairs" holes in its
+    -- rooms with a constructed floor, which capped the first shaft)
     local cx, cy, z = best.min[1], best.min[2], best.min[3]
-    for r = 1, 6 do
+    local function planned(x, y)
+        for _, r in ipairs(plan.r or {}) do
+            if r.min[3] <= z and r.max[3] >= z and x >= r.min[1] - 1 and x <= r.max[1] + 1 and y >= r.min[2] - 1 and y <= r.max[2] + 1 then
+                return true
+            end
+        end
+        return false
+    end
+    for r = 1, 10 do
         for dx = -r, r do
             for dy = -r, r do
                 local x, y = cx + dx, cy + dy
                 local s = shape(x, y, z)
                 local f = dfhack.maps.getTileFlags(x, y, z)
-                if s == df.tiletype_shape.FLOOR and f and not f.hidden and f.flow_size == 0
+                if s == df.tiletype_shape.FLOOR and f and not f.hidden and f.flow_size == 0 and not planned(x, y)
                         and is_wall(x, y, z - 1) and not danger_at(x, y, z - 1) and not danger_at(x, y, z - 2) then
                     return {x = x, y = y, z = z}
                 end
@@ -172,39 +183,47 @@ function step()
         save_state(s)
         return 'started at ' .. st.x .. ',' .. st.y .. ',' .. st.z
     end
-    -- has the current level been dug?
-    if not is_stair(s.x, s.y, s.cur) then
+    -- has the current batch been dug? (every level from the top to the bottom designated)
+    local undug = {}
+    for z = s.cur, s.top do
+        if not is_stair(s.x, s.y, z) then undug[#undug + 1] = z end
+    end
+    if #undug > 0 then
         if now_days() - (s.designated_at or 0) > STALL_DAYS then
-            designate(s.x, s.y, s.cur, s.cur == s.top and df.tile_dig_designation.DownStair or df.tile_dig_designation.UpDownStair)
+            for _, z in ipairs(undug) do
+                designate(s.x, s.y, z, z == s.top and df.tile_dig_designation.DownStair or df.tile_dig_designation.UpDownStair)
+            end
             s.designated_at = now_days()
         end
         save_state(s)
-        return 'waiting for the miners at level ' .. s.cur
+        return ('waiting for the miners: %d of the batch to dig, bottom at level %d'):format(#undug, s.cur)
     end
-    -- next level down, if it is safe
-    for k = 1, SAFE do
-        local why = danger_at(s.x, s.y, s.cur - k)
+    -- the next batch down, each level only if safe
+    local n = 0
+    while n < BATCH do
+        local why
+        for k = 1, SAFE do
+            why = danger_at(s.x, s.y, s.cur - k)
+            if why then break end
+        end
+        if not why and not is_wall(s.x, s.y, s.cur - 1) then why = 'no rock below' end
         if why then
-            -- stop here: the shaft ends in a hall
-            local n = dig_hall(s)
+            if n > 0 then break end -- dig what is designated first, then finish
+            local h = dig_hall(s)
             s.status, s.stop_reason = 'done', why
             s.next_gallery = now_days() + 28
-            note(s, ('The shaft stops %d levels down: %s lies below. The miners carve the Deep Hall (%d tiles).'):format(s.top - s.cur, why, n))
+            note(s, ('The shaft stops %d levels down: %s lies below. The miners carve the Deep Hall (%d tiles).'):format(s.top - s.cur, why, h))
             save_state(s)
             return 'done: ' .. why
         end
+        s.cur = s.cur - 1
+        designate(s.x, s.y, s.cur, df.tile_dig_designation.UpDownStair)
+        n = n + 1
     end
-    if not is_wall(s.x, s.y, s.cur - 1) then
-        s.status, s.stop_reason = 'done', 'no rock below'
-        save_state(s)
-        return 'done: no rock below'
-    end
-    s.cur = s.cur - 1
-    designate(s.x, s.y, s.cur, df.tile_dig_designation.UpDownStair)
     s.designated_at = now_days()
-    if (s.top - s.cur) % 5 == 0 then note(s, ('The deep shaft passes %d levels below the cavern.'):format(s.top - s.cur)) end
+    note(s, ('%d more levels marked for the miners: the deep shaft will reach %d levels below the cavern.'):format(n, s.top - s.cur))
     save_state(s)
-    return 'digging level ' .. s.cur
+    return ('designated %d levels, down to level %d'):format(n, s.cur)
 end
 
 local function tick()
