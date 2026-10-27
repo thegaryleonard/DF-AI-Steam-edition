@@ -698,16 +698,22 @@ local function show_project_done()
     return false
 end
 
-local function show_project()
+-- critical projects (user: "stick to critical mission views like breaching
+-- the caves so things aren't missed; even if it's not busy it's suspenseful"):
+-- shown whenever someone is working on them, every CRITICAL_GAP, for longer
+local CRITICAL_GAP = 2 * 60
+local CRITICAL_SECS = 75
+local function show_project(critical_only)
     local now = os.time()
-    if now - (tour.last_project_at or 0) < PROJECT_EVERY then return false end
     tour.proj_seen = tour.proj_seen or {}
     local best, best_t
     for _, p in ipairs(scan_projects()) do
         local u = p.worker and df.unit.find(p.worker)
-        if not p.done and u and dfhack.units.isActive(u) and revealed(u) then
+        if not p.done and u and dfhack.units.isActive(u) and revealed(u) and (p.critical or not critical_only) then
             local t = tour.proj_seen[p.key] or 0
-            if now - t >= PROJECT_GAP and (not best or t < best_t) then best, best_t = p, t end
+            local gap = p.critical and CRITICAL_GAP or PROJECT_GAP
+            local due = p.critical or now - (tour.last_project_at or 0) >= PROJECT_EVERY
+            if due and now - t >= gap and (not best or (p.critical and not best.critical) or (not not p.critical == not not best.critical and t < best_t)) then best, best_t = p, t end
         end
     end
     if not best then return false end
@@ -735,6 +741,58 @@ local function show_project()
     return true
 end
 
+-- leaves mode (user: "when the seasons change and the leaves visibly change,
+-- take a breath and watch that"): on a new season the camera rests on a stand
+-- of surface trees near the fort for LEAVES_SECS under a season banner
+local LEAVES_SECS = 40
+local SEASON_NAME = {[0] = 'Spring', 'Summer', 'Autumn', 'Winter'}
+local SEASON_LINE = {[0] = 'New leaves on the trees', 'The trees in full leaf', 'The leaves are turning', 'Bare branches and the first frost'}
+local function tree_spot()
+    if tour.tree_spot and tour.tree_spot_at and os.time() - tour.tree_spot_at < 3600 then return tour.tree_spot end
+    local cits = dfhack.units.getCitizens(true)
+    local cx, cy, cz = 96, 96, 170
+    if #cits > 0 then cx, cy, cz = cits[1].pos.x, cits[1].pos.y, cits[1].pos.z end
+    local mx, my, mz = dfhack.maps.getTileSize()
+    local best, bn
+    for z = math.min(mz - 1, cz + 12), math.max(0, cz - 6), -1 do
+        for x = 20, mx - 21, 6 do
+            for y = 16, my - 17, 6 do
+                local f = dfhack.maps.getTileFlags(x, y, z)
+                if f and f.outside and not f.hidden then
+                    local n = 0
+                    for dx = -3, 3, 2 do for dy = -3, 3, 2 do
+                        local tt = dfhack.maps.getTileType(x + dx, y + dy, z)
+                        if tt then
+                            local a = df.tiletype.attrs[tt]
+                            if a.material == df.tiletype_material.TREE or a.material == df.tiletype_material.PLANT and a.shape == df.tiletype_shape.SAPLING then n = n + 1 end
+                        end
+                    end end
+                    n = n * 10 - (math.abs(x - cx) + math.abs(y - cy)) // 8
+                    if n > 20 and (not best or n > bn) then best, bn = xyz2pos(x, y, z), n end
+                end
+            end
+        end
+    end
+    tour.tree_spot, tour.tree_spot_at = best, os.time()
+    return best
+end
+
+local function show_leaves()
+    local season = df.global.cur_season
+    if tour.season == nil then tour.season = season return false end
+    if season == tour.season then return false end
+    tour.season = season
+    local pos = tree_spot()
+    if not pos then return false end
+    dfhack.run_command_silent('disable', 'spectate')
+    df.global.plotinfo.follow_unit = -1
+    dfhack.gui.revealInDwarfmodeMap(pos, true, true)
+    tour.current = {name = SEASON_NAME[season] or 'A new season', short = SEASON_LINE[season] or '', pos = pos, secs = LEAVES_SECS}
+    tour.view, tour.last_switch, tour.guest, tour.project = view(), os.time(), nil, nil
+    return true
+end
+show_leaves_check = function(force) if force then tour.season = -1 end return show_leaves() end
+
 -- testing: take the next project now
 function show_project_check() tour.last_project_at = 0 tour.proj_scan_at = 0 tour.proj_seen = {} return show_project() end
 
@@ -755,6 +813,9 @@ local function step()
             if p.key == tour.project.key then tour.project = p end
         end
     end
+    if not tour.threat and not (tour.current and tour.current.secs == LEAVES_SECS) and show_leaves() then return end
+    if not tour.threat and not (tour.project and tour.project.critical) and not (tour.current and tour.current.then_follow)
+        and (tour.current or spectate_on()) and show_project(true) then return end
     if tour.current then
         if view() ~= tour.view then
             tour.current = nil -- a person moved the map: leave the camera to them
@@ -786,7 +847,7 @@ local function step()
             tour.guest, tour.project = nil, nil
             if not show_project_done() then back_to_dwarves() end
         elseif not u or not dfhack.units.isActive(u) or dfhack.units.isDead(u)
-            or now - tour.last_switch >= (tour.threat and ((tour.battle_n or 0) >= 3 and BATTLE_SECS or THREAT_SECS) or (tour.project and PROJECT_SECS) or GUEST_SECS) then
+            or now - tour.last_switch >= (tour.threat and ((tour.battle_n or 0) >= 3 and BATTLE_SECS or THREAT_SECS) or (tour.project and (tour.project.critical and CRITICAL_SECS or PROJECT_SECS)) or GUEST_SECS) then
             -- a threat's time is up (or it died): next threat if any, else dwarves
             if not (tour.threat and show_threat()) then back_to_dwarves() end
         end
@@ -873,7 +934,7 @@ local function banner_lines()
     if tour.project and tour.guest == u.id then
         local job = u.job.current_job and job_text(u.job.current_job) or tour.project.job or 'On the way'
         local pct = tour.project.pct and (' (' .. tour.project.pct .. '% ' .. (tour.project.what or 'done') .. ')') or ''
-        return ('PROJECT: ' .. dfhack.utf2df(tour.project.title)):upper() .. pct, name .. ', ' .. prof .. ': ' .. job
+        return ((tour.project.critical and 'MISSION: ' or 'PROJECT: ') .. dfhack.utf2df(tour.project.title)):upper() .. pct, name .. ', ' .. prof .. ': ' .. job
     end
     if tour.threat and tour.guest == u.id then
         local alive, fallen = 0, 0
