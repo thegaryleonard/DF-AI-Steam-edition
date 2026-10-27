@@ -162,6 +162,8 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
                     });
                 }
 
+                // soldiers in copper today beat soldiers in iron "some day": take the
+                // best metal actually stocked, and only wait (below) when none is
                 for (auto mi : best)
                 {
                     if (potential_bars.count(mi))
@@ -169,6 +171,9 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
                         chosen_type = mi;
                         return true;
                     }
+                }
+                for (auto mi : best)
+                {
 
                     std::ostringstream may_forge_reason;
                     if (may_forge_bars(out, mi, may_forge_reason, need_bars) >= 150)
@@ -254,6 +259,8 @@ static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::it
                 return world->raws.inorganics.all[a]->material.strength.yield[strain_type::IMPACT] > world->raws.inorganics.all[b]->material.strength.yield[strain_type::IMPACT];
             });
 
+            // soldiers in copper today beat soldiers in iron "some day": take the
+            // best metal actually stocked, and only wait (below) when none is
             for (auto mi : best)
             {
                 if (potential_bars.count(mi))
@@ -261,6 +268,9 @@ static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::it
                     chosen_type = mi;
                     return true;
                 }
+            }
+            for (auto mi : best)
+            {
 
                 std::ostringstream may_forge_reason;
                 if (ai.stocks.may_forge_bars(out, mi, may_forge_reason, need_bars) >= 150)

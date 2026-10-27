@@ -105,7 +105,7 @@ def caravans():
     return events[-6:]
 
 
-def liaison():
+def _liaison():
     meets, cur = [], None
     for path in (HERE / "logs" / "supervisor.log", HERE / "supervisor.log"):
         for l in _tail(path, 2_000_000):
@@ -122,9 +122,36 @@ def liaison():
                     cur["wants"] = m.group(1)
                 if "import agreement" in said or "export agreement" in said:
                     cur["agreement"] = True
+            elif "diplomacy: REFUSED" in l or "diplomacy: CHOSE" in l:
+                # a request the fort answered (dfai-diplomacy.lua): the elves'
+                # tree-felling cap and the like
+                said = l.split("diplomacy: ", 1)[1].strip()
+                m = re.match(r"(REFUSED[^:]*|CHOSE \"[^\"]*\" for): (.+)", said)
+                if m:
+                    if cur is None:
+                        cur = {"when": l[:16], "wants": None, "agreement": False, "who": None}
+                        meets.append(cur)
+                    text = m.group(2)
+                    w = re.match(r"([^:]{3,60}): (.+)", text)
+                    cur["request"] = {"answer": "refused" if m.group(1).startswith("REFUSED") else m.group(1)[7:-5],
+                                      "who": w.group(1) if w else None, "text": w.group(2) if w else text,
+                                      "trees": "tree" in text.lower()}
     meets = list({m["when"]: m for m in meets}.values())   # both logs may hold a meeting
     meets.sort(key=lambda m: m["when"])
-    return meets[-3:]
+    return meets
+
+
+def liaison_all():
+    return _liaison()
+
+
+def liaison():
+    return [m for m in _liaison() if not m.get("request") or m.get("wants")][-3:]
+
+
+def requests():
+    """Requests from diplomats the fort answered, newest last."""
+    return [dict(m["request"], when=m["when"]) for m in liaison_all() if m.get("request")][-3:]
 
 
 def war():
@@ -237,7 +264,7 @@ def feed():
         tr = trades()
         year, month = game_year()
         last = max((t["year"] for t in tr if t.get("year")), default=None)
-        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(), "foreign": foreign(), "war": war(),
+        return {"ok": True, "trades": tr, "caravans": caravans(), "liaison": liaison(), "requests": requests(), "foreign": foreign(), "war": war(),
                 "year": year, "month": month, "last_trade_year": last}
     except Exception as e:      # never break the paper over a log quirk
         return {"ok": False, "error": repr(e)}
