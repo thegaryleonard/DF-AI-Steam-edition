@@ -203,7 +203,7 @@ local function step()
             end
         end
         local squads = home_squads()
-        if not s.attack_sent then
+        if not s.attack_sent and #beasts > 0 then
             s.attack_sent = true
             local names = {}
             for _, u in ipairs(beasts) do names[#names + 1] = unit_name(u) end
