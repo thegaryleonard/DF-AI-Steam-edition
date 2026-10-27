@@ -130,6 +130,7 @@ void Watch::reset()
     NeededPerDwarf[stock_item::armor_shield] = 3;
     NeededPerDwarf[stock_item::armor_torso] = 3;
     NeededPerDwarf[stock_item::cloth] = 20;
+    NeededPerDwarf[stock_item::coal] = 30; // one fuel bar per forge job: arming a big militia takes far more than 12
     NeededPerDwarf[stock_item::clothes_feet] = 40;
     NeededPerDwarf[stock_item::clothes_hands] = 40;
     NeededPerDwarf[stock_item::clothes_head] = 20;

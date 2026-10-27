@@ -121,7 +121,7 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
             if (need_bars < 1)
                 need_bars = 1;
 
-            bool able = queue_need_forge(out, pref, need_bars, stock_item, job_type::MakeWeapon, [&](const std::map<int32_t, int32_t> & potential_bars, const std::map<int32_t, int32_t> &, int32_t & chosen_type) -> bool
+            bool able = queue_need_forge(out, pref, need_bars, stock_item, job_type::MakeWeapon, [&](const std::map<int32_t, int32_t> & potential_bars, const std::map<int32_t, int32_t> & cur_bars, int32_t & chosen_type) -> bool
             {
                 std::vector<int32_t> best;
                 best.insert(best.end(), metal_pref.at(pref).begin(), metal_pref.at(pref).end());
@@ -163,10 +163,11 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
                 }
 
                 // soldiers in copper today beat soldiers in iron "some day": take the
-                // best metal actually stocked, and only wait (below) when none is
+                // best metal with bars in hand (potential_bars also counts unsmelted
+                // ore), and only wait (below) when none is
                 for (auto mi : best)
                 {
-                    if (potential_bars.count(mi))
+                    if (potential_bars.count(mi) && cur_bars.count(mi) && cur_bars.at(mi) >= need_bars)
                     {
                         chosen_type = mi;
                         return true;
@@ -248,7 +249,7 @@ static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::it
         if (need_bars < 1)
             need_bars = 1;
 
-        ai.stocks.queue_need_forge(out, material_flags::ITEMS_ARMOR, need_bars, what, job, [&ai, &out, &reason, need_bars](const std::map<int32_t, int32_t> & potential_bars, const std::map<int32_t, int32_t> &, int32_t & chosen_type) -> bool
+        ai.stocks.queue_need_forge(out, material_flags::ITEMS_ARMOR, need_bars, what, job, [&ai, &out, &reason, need_bars](const std::map<int32_t, int32_t> & potential_bars, const std::map<int32_t, int32_t> & cur_bars, int32_t & chosen_type) -> bool
         {
             std::vector<int32_t> best;
             const auto & pref = ai.stocks.metal_pref.at(material_flags::ITEMS_ARMOR);
@@ -260,10 +261,11 @@ static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::it
             });
 
             // soldiers in copper today beat soldiers in iron "some day": take the
-            // best metal actually stocked, and only wait (below) when none is
+            // best metal with bars in hand (potential_bars also counts unsmelted
+            // ore), and only wait (below) when none is
             for (auto mi : best)
             {
-                if (potential_bars.count(mi))
+                if (potential_bars.count(mi) && cur_bars.count(mi) && cur_bars.at(mi) >= need_bars)
                 {
                     chosen_type = mi;
                     return true;
