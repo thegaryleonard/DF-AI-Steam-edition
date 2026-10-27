@@ -42,6 +42,14 @@ local function unit_card(u)
   card.race = dfhack.df2utf(dfhack.units.getRaceReadableName and dfhack.units.getRaceReadableName(u) or '')
   card.male = u.sex == 1
   card.citizen = dfhack.units.isCitizen(u)
+  -- creatures off the street (forgotten beasts above all): their physical description
+  if not card.citizen then
+    local raw = df.creature_raw.find(u.race)
+    local caste = raw and raw.caste[u.caste]
+    if caste and caste.description ~= '' then card.description = dfhack.df2utf(caste.description) end
+    if dfhack.units.isForgottenBeast and dfhack.units.isForgottenBeast(u) then card.race = 'Forgotten Beast'
+    elseif dfhack.units.isGreatDanger(u) then card.danger = true end
+  end
   -- only wounds that still hurt or bleed (old healed scars stay in body.wounds)
   card.wounds = 0
   for _, w in ipairs(u.body.wounds) do

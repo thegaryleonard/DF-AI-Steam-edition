@@ -162,6 +162,7 @@
   .dots span.on { background: var(--ink); }
 #follow .portrait { float: right; width: 112px; height: 112px; image-rendering: pixelated; margin: 0 0 4px 8px;
   border: 1px solid #2b2118; background: radial-gradient(circle at 50% 60%, #efe3c4 0%, #d9c79f 100%); }
+.beastdesc { font-style: italic; font-size: 13px; line-height: 1.35; margin: 4px 0 6px; padding: 4px 6px; border-left: 3px solid #8b1a1a; }
 </style>
 </head>
 <body>
@@ -2622,12 +2623,13 @@ function renderFollow() {
       <h3>${esc(given)}${nick ? ` <span style="font-weight:normal;font-style:italic;font-size:13px">"${esc(nick)}"</span>` : ''}</h3>
       <div class="sub">${esc(clean(d.profession || ''))}${d.age ? `, ${d.age} years old` : ''}${d.squad ? ` · ${esc(clean(d.squad))}` : ''}${d.strange_mood ? ` · <span class="warn">${esc(pretty(d.strange_mood))} mood!</span>` : ''}</div>
       <div class="doing"><b>Now:</b> ${esc(clean(d.job || 'Idle'))}</div>
-      <div class="grid">
+      ${d.description && d.citizen === false ? `<div class="beastdesc">${esc(d.description)}</div>
+      <div class="lbl">Health</div><div class="${flags.length ? 'warn' : ''}">${flags.length ? esc(flags.join(', ')) : 'Unhurt'}</div>` : `<div class="grid">
         <div><div class="lbl">Mood: ${esc(m.label)}</div><div class="bar"><i style="width:${m.pct}%;background:${m.color}"></i></div>
              <div class="lbl">Health</div><div class="${flags.length ? 'warn' : ''}">${flags.length ? esc(flags.join(', ')) : 'Healthy'}</div>
              <div class="lbl" style="margin-top:2px">Best at</div>${skills}</div>
         <div><div class="lbl">Longs for</div>${needs}${kin ? `<div class="lbl" style="margin-top:2px">Kin</div><div>${kin}</div>` : ''}</div>
-      </div>
+      </div>`}
       ${th ? `<div class="th"><b>Lately:</b> ${th}</div>` : ''}`;
   }
   if (html !== followHtml) { followHtml = html; el.innerHTML = html; }
