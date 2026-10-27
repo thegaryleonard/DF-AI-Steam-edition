@@ -1,8 +1,12 @@
 #include "ai.h"
+#include "df/historical_figure.h"
+#include "df/squad_position.h"
 #include <algorithm>
 #include <set>
 #include "population.h"
 #include "plan.h"
+
+REQUIRE_GLOBAL(cur_year_tick);
 
 #include "df/activity_entry.h"
 #include "df/activity_event_conflictst.h"
@@ -24,8 +28,48 @@ REQUIRE_GLOBAL(world);
 
 // an invader still far from the fort (and from every citizen) is left alone:
 // the squads muster at the gate in full kit first (Population::battle_stations)
+// user: "once dudes are mustered you can just go attack, you don't have to
+// wait for them" - when half the soldiers at home stand at the gate, the
+// muster is over and every reachable invader is a target, however far off.
+static bool army_mustered(AI & ai)
+{
+    static int32_t at_tick = -1;
+    static bool cached = false;
+    if (*cur_year_tick == at_tick)
+        return cached;
+    at_tick = *cur_year_tick;
+    cached = false;
+    if (!ai.plan.entrance())
+        return false;
+    df::coord e = ai.plan.entrance()->pos();
+    int32_t total = 0, there = 0;
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
+    {
+        auto sq = df::squad::find(sqid);
+        if (!sq || sq->assigned_army_controller_id != -1)
+            continue;
+        for (auto pos : sq->positions)
+        {
+            if (!pos || pos->occupant == -1)
+                continue;
+            auto hf = df::historical_figure::find(pos->occupant);
+            auto m = hf ? df::unit::find(hf->unit_id) : nullptr;
+            if (!m || !Units::isActive(m) || Units::isDead(m))
+                continue;
+            total++;
+            df::coord q = Units::getPosition(m);
+            if (std::abs(q.x - e.x) <= 8 && std::abs(q.y - e.y) <= 8 && std::abs(q.z - e.z) <= 2)
+                there++;
+        }
+    }
+    cached = total > 0 && there * 2 >= total;
+    return cached;
+}
+
 static bool invader_close(AI & ai, df::unit *u)
 {
+    if (army_mustered(ai))
+        return true;
     df::coord p = Units::getPosition(u);
     if (ai.plan.entrance())
     {

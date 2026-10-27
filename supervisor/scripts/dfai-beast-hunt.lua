@@ -24,7 +24,7 @@ local STAIRS = {{42, 92, 132, 'DownStair'}, {42, 92, 131, 'UpDownStair'}}
 local LAST = {42, 92, 130, 'UpStair'}
 local CAVERN = {42, 91, 130}       -- cavern floor the last stair opens onto
 local MUSTER_TICKS = 2 * 1200      -- two game days at most
-local MUSTER_SHARE = 0.6
+local MUSTER_SHARE = 0.5   -- user: once they're mustered, go; don't wait for stragglers
 local NOTIFY = (os.getenv('LOCALAPPDATA') or '') .. '/hermes/cache/dfai_notify.txt'
 
 local function notify(msg)
