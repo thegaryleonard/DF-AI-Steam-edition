@@ -16,6 +16,9 @@
 		},
 		{
 			"skip": true
+		},
+		{
+			"skip": true
 		}
 	]
 }

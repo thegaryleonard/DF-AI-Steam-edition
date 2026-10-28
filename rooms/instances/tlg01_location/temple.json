@@ -16,6 +16,9 @@
 		},
 		{
 			"type": "offering_place"
+		},
+		{
+			"skip": true
 		}
 	]
 }

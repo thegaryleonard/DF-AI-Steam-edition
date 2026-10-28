@@ -269,11 +269,25 @@
 			],
 			"max": [
 				-10,
-				4,
+				0,
 				0
 			],
 			"workshop": 0,
 			"placeholder": 2
+		},
+		{
+			"min": [
+				-10,
+				1,
+				0
+			],
+			"max": [
+				-10,
+				4,
+				0
+			],
+			"workshop": 0,
+			"placeholder": 5
 		}
 	]
 }

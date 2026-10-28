@@ -4,13 +4,15 @@
 		{
 			"location_type": "library"
 		},
-		{
-		},
+		{},
 		{
 			"skip": true
 		},
 		{
 			"type": "bookcase"
+		},
+		{
+			"skip": true
 		}
 	]
 }
