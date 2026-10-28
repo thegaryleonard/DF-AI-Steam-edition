@@ -182,7 +182,25 @@ local function find_rooms()
         if i <= #rooms then mixed[#mixed + 1] = rooms[i]; i = i + 1 end
         if j <= #pois then mixed[#mixed + 1] = pois[j]; j = j + 1 end
     end
-    return mixed
+    -- every stop, on or off, for the Overseer's Desk; stops switched off there
+    -- (dfhack-config/dfai-tour-off.json, a list of names) leave the tour
+    local off = {}
+    pcall(function()
+        for _, n in ipairs(require('json').decode_file(dfhack.getDFPath() .. '/dfhack-config/dfai-tour-off.json') or {}) do off[n] = true end
+    end)
+    local all, kept = {}, {}
+    for _, r in ipairs(mixed) do
+        local nm = dfhack.df2utf(r.name or '?')
+        local k = ('%s@%d,%d,%d'):format(nm, r.pos.x, r.pos.y, r.pos.z)   -- names repeat (six rooms of one tavern)
+        all[#all + 1] = {key = k, name = nm, kind = dfhack.df2utf(r.kind or ''), x = r.pos.x, y = r.pos.y, z = r.pos.z, on = not off[k]}
+        if not off[k] then kept[#kept + 1] = r end
+    end
+    pcall(function()
+        local f = io.open(dfhack.getDFPath() .. '/dfhack-config/dfai-tour-stops.json', 'w')
+        f:write(require('json').encode(all))
+        f:close()
+    end)
+    return kept, mixed
 end
 
 local function spectate_on()
@@ -301,6 +319,24 @@ local function pick_room()
     end
     if best then tour.shown[key_of(best)] = now; tour.last_kind = best.spot or best.kind; tour.last_pick = ('%s (busy %d)'):format(best.name, best.busy or 0) end
     return best
+end
+
+local function show_named(name)
+    local _, all = find_rooms()
+    tour.rooms, tour.rooms_at = nil, 0   -- the on/off list may have changed: re-read next pick
+    for _, r in ipairs(all) do
+        if ('%s@%d,%d,%d'):format(dfhack.df2utf(r.name or ''), r.pos.x, r.pos.y, r.pos.z) == name then
+            dfhack.run_command_silent('disable', 'spectate')
+            df.global.plotinfo.follow_unit = -1
+            dfhack.gui.revealInDwarfmodeMap(r.pos, true, true)
+            tour.current, tour.view = r, view()
+            tour.last_switch = os.time()
+            tour.shown = tour.shown or {}
+            tour.shown[key_of(r)] = os.time()
+            return true
+        end
+    end
+    return false
 end
 
 local function show_next_room()
@@ -1029,6 +1065,17 @@ elseif cmd == 'statue' or cmd == 'leaves' then
             or (cmd == 'statue' and 'no finished statue in view' or 'no trees found'))
     end)
     print(cmd == 'statue' and 'statue: on its way to the camera' or 'trees: on their way to the camera')
+elseif cmd == 'stops' then
+    -- refresh the stop list now (and re-read the on/off list on the next pick)
+    dfhack.timeout(1, 'ticks', function() tour.rooms, tour.rooms_at = nil, 0 pcall(find_rooms) end)
+    print('stops: refreshing')
+elseif cmd == 'show' then
+    local name = table.concat({select(2, ...)}, ' ')
+    dfhack.timeout(1, 'ticks', function()
+        local ok, shown = pcall(show_named, name)
+        _G.dfai_tour_order = not ok and ('error: ' .. tostring(shown)) or (shown and ('showing ' .. name:gsub('@.*', '')) or ('no stop called ' .. name))
+    end)
+    print('show: ' .. name)
 elseif cmd == 'last' then
     print(tostring(rawget(_G, 'dfai_tour_order') or 'nothing yet'))
 elseif cmd == 'guests' then

@@ -10,6 +10,7 @@ allow-list run through DFHack (game-state changes inside the scripts already wai
 for a game tick); nothing here builds a command from what the page sends.
 """
 import json
+import re
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -101,6 +102,53 @@ def status():
     return status_cache["data"]
 
 
+# ---- tour stops (dfai-room-tour writes the list; the off list is ours) ----
+def df_path(name):
+    return Path(sup.CFG["df_dir"]) / "dfhack-config" / name
+
+
+def read_json(path, default):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return default
+
+
+def stops():
+    return read_json(df_path("dfai-tour-stops.json"), [])
+
+
+# ---- blueprints (quickfort's own list; df-ai's exports and this fort's
+# site scripts are left out: they only make sense where they were made) ----
+BP_SKIP = re.compile(r"^(df-ai-|dfai-mist/|dfai-deep-camp|dfai-pasture)")
+SAFE_FILE = re.compile(r"^[\w./ -]+\.(csv|xlsx)$")
+SAFE_LABEL = re.compile(r"^[\w-]+$")
+bp_cache = {"at": 0, "data": []}
+
+
+def blueprints():
+    if time.time() - bp_cache["at"] > 60:
+        out = sup.dfhack("quickfort", "list", "-u", timeout=30) or ""
+        rows = []
+        for line in out.replace("\r", "").splitlines():
+            m = re.match(r"^\s*(\d+)\) (.+?) -n /(\S+) \((\w+)(?::\s*(.*))?\)\s*$", line)
+            if not m or BP_SKIP.match(m.group(2)):
+                continue
+            f, label, mode, note = m.group(2), m.group(3), m.group(4), (m.group(5) or "").strip()
+            if mode == "notes" or not SAFE_FILE.match(f) or not SAFE_LABEL.match(label):
+                continue
+            rows.append({"file": f, "label": label, "mode": mode, "note": note})
+        bp_cache["at"], bp_cache["data"] = time.time(), rows
+    return bp_cache["data"]
+
+
+def camera():
+    out = sup.dfhack("lua", "local d=dfhack.gui.getDwarfmodeViewDims() print(df.global.window_x + (d.map_x2 - d.map_x1 + 1) // 2, "
+                     "df.global.window_y + (d.map_y2 - d.map_y1 + 1) // 2, df.global.window_z)", timeout=20) or ""
+    m = re.search(r"(-?\d+)\s+(-?\d+)\s+(-?\d+)", out)
+    return {"x": int(m.group(1)), "y": int(m.group(2)), "z": int(m.group(3))} if m else None
+
+
 class Handler(BaseHTTPRequestHandler):
     def send(self, body, ctype="application/json", code=200):
         self.send_response(code)
@@ -121,15 +169,26 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps({"commands": cmds, "planned": planned}).encode())
         elif path == "/status.json":
             self.send(json.dumps(status(), ensure_ascii=False).encode())
+        elif path == "/stops.json":
+            self.send(json.dumps(stops(), ensure_ascii=False).encode())
+        elif path == "/blueprints.json":
+            self.send(json.dumps(blueprints(), ensure_ascii=False).encode())
+        elif path == "/camera.json":
+            self.send(json.dumps(camera()).encode())
         elif path == "/log.json":
             self.send(json.dumps(read_log()[:30], ensure_ascii=False).encode())
         else:
             self.send_error(404)
 
+    def answer(self, label, key, out):
+        entry = {"at": time.strftime("%H:%M:%S"), "key": key, "label": label,
+                 "ok": out is not None, "out": clean(out)[-2000:] if out is not None else "no answer from the game"}
+        write_log(entry)
+        status_cache["at"] = 0
+        self.send(json.dumps(entry, ensure_ascii=False).encode())
+
     def do_POST(self):
-        if self.path.split("?")[0] != "/run":
-            self.send_error(404)
-            return
+        path = self.path.split("?")[0]
         # only pages served from this machine (blocks other sites posting here)
         origin = self.headers.get("Origin") or ""
         if origin and not origin.startswith(("http://localhost:%d" % PORT, "http://127.0.0.1:%d" % PORT)):
@@ -139,6 +198,61 @@ class Handler(BaseHTTPRequestHandler):
             req = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0) or b"{}")
         except ValueError:
             req = {}
+        if path == "/stop":
+            # switch a tour stop on or off; only keys the tour itself listed
+            known = {s_["key"]: s_ for s_ in stops()}
+            k = req.get("key")
+            if k not in known:
+                self.send_error(400)
+                return
+            off_path = df_path("dfai-tour-off.json")
+            off = set(read_json(off_path, []))
+            if req.get("on"):
+                off.discard(k)
+            else:
+                off.add(k)
+            off_path.write_text(json.dumps(sorted(off), ensure_ascii=False), encoding="utf-8")
+            sup.dfhack("dfai-room-tour", "stops", timeout=20)
+            self.send(json.dumps({"ok": True, "off": len(off)}).encode())
+            return
+        if path == "/show":
+            known = {s_["key"]: s_ for s_ in stops()}
+            k = req.get("key")
+            if k not in known:
+                self.send_error(400)
+                return
+            out = sup.dfhack("dfai-room-tour", "show", k, timeout=20)
+            time.sleep(1.5)
+            out = sup.dfhack("dfai-room-tour", "last", timeout=20) or out
+            self.answer("Show " + known[k]["name"], "cam.show", out)
+            return
+        if path == "/blueprint":
+            known = {(b["file"], b["label"]): b for b in blueprints()}
+            f, label = req.get("file"), req.get("label")
+            if (f, label) not in known:
+                self.send_error(400)
+                return
+            try:
+                x, y, z = (int(req.get(c)) for c in ("x", "y", "z"))
+            except (TypeError, ValueError):
+                self.send_error(400)
+                return
+            x, y, z = max(0, min(400, x)), max(0, min(400, y)), max(0, min(400, z))
+            if req.get("dry"):
+                out = sup.dfhack("quickfort", "run", f, "-n", "/" + label, "-c", f"{x},{y},{z}", "--dry-run", timeout=60)
+                self.answer(f"Preview {f} /{label} at {x},{y},{z}", "bp.preview", out)
+                return
+            # the real thing runs on the game tick (never from the console thread)
+            lua = ("dfhack.timeout(1,'ticks',function() _G.dfai_overseer_qf = dfhack.run_command_silent("
+                   f"'quickfort','run','{f}','-n','/{label}','-c','{x},{y},{z}') end)")
+            sup.dfhack("lua", lua, timeout=20)
+            time.sleep(2)
+            out = sup.dfhack("lua", "print(_G.dfai_overseer_qf or 'still running')", timeout=20)
+            self.answer(f"Build {f} /{label} at {x},{y},{z}", "bp.run", out)
+            return
+        if path != "/run":
+            self.send_error(404)
+            return
         key = req.get("key")
         if key not in COMMANDS:
             self.send_error(400)
@@ -157,11 +271,7 @@ class Handler(BaseHTTPRequestHandler):
         if out is not None and args[:1] == ["dfai-room-tour"] and args[1:2] in (["statue"], ["leaves"]):
             time.sleep(1.5)   # the camera moves on the next game tick
             out = sup.dfhack("dfai-room-tour", "last", timeout=20) or out
-        entry = {"at": time.strftime("%H:%M:%S"), "key": key, "label": label,
-                 "ok": out is not None, "out": clean(out)[-2000:] if out is not None else "no answer from the game"}
-        write_log(entry)
-        status_cache["at"] = 0
-        self.send(json.dumps(entry, ensure_ascii=False).encode())
+        self.answer(label, key, out)
 
     def log_message(self, *a):
         pass

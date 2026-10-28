@@ -23,12 +23,38 @@
   .log .e { padding: 6px 0; border-bottom: 1px dotted #b9ad91; font-size: 12px; }
   .log pre { white-space: pre-wrap; margin: 3px 0 0; font: 12px Consolas, monospace; max-height: 140px; overflow: auto; }
   .bad { color: #8b1a1a; }
+  details { margin-top: 6px; }
+  summary { cursor: pointer; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #1d1a14; padding: 4px 0; margin-top: 10px; }
+  .stops { columns: 2 260px; column-gap: 18px; font-size: 13px; margin-top: 6px; }
+  .stop { break-inside: avoid; display: flex; align-items: center; gap: 6px; padding: 2px 0; border-bottom: 1px dotted #c9bd9f; }
+  .stop.off span { color: #8d8473; text-decoration: line-through; }
+  .stop small { color: #6b624f; margin-left: auto; white-space: nowrap; }
+  .stop a { font-size: 12px; color: #1d1a14; cursor: pointer; }
+  .bps { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; margin-top: 6px; }
+  .bp { background: #f7f1e1; border: 1px solid #b9ad91; padding: 8px; font-size: 13px; }
+  .bp b { display: block; }
+  .bp .row { display: flex; gap: 6px; margin-top: 6px; }
+  .where { display: flex; gap: 6px; align-items: center; font-size: 13px; margin: 6px 0; flex-wrap: wrap; }
+  .where input { width: 56px; }
 </style>
 </head>
 <body>
 <header><h1>The Overseer's Desk</h1><div class="sub">Orders for the fort. The dwarves will get round to them. Probably.</div></header>
 <main>
-  <section id="groups"></section>
+  <section>
+    <div id="groups"></div>
+    <details open><summary>Tour Stops: what the camera visits</summary>
+      <div style="font-size:13px;margin-top:4px">Untick a stop to take it off the tour; "show" sends the camera there now.
+        <a href="#" onclick="setAll(true);return false">all on</a> &middot; <a href="#" onclick="setAll(false);return false">all off</a></div>
+      <div class="stops" id="stops">Asking the tour...</div>
+    </details>
+    <details open><summary>Blueprints: build something</summary>
+      <div class="where">Where: x <input id="bx" type="number"> y <input id="by" type="number"> z <input id="bz" type="number">
+        <button onclick="useCamera()">Where the camera is looking</button>
+        <span style="color:#6b624f">The blueprint's start corner goes here. Preview first: it checks every tile without building.</span></div>
+      <div class="bps" id="bps">Asking quickfort...</div>
+    </details>
+  </section>
   <aside>
     <h2>The Fort Right Now</h2><div class="status" id="status">Asking the dwarves...</div>
     <h2>Orders Given</h2><div class="log" id="log"></div>
@@ -64,6 +90,46 @@ async function refreshLog() {
   try { const l = await get('/log.json');
     document.getElementById('log').innerHTML = l.map(e => `<div class="e"><b class="${e.ok ? '' : 'bad'}">${esc(e.at)} ${esc(e.label)}</b>${e.out ? `<pre>${esc(e.out)}</pre>` : ''}</div>`).join('') || '<i>No orders yet.</i>'; } catch (e) {}
 }
+let STOPS = [];
+async function loadStops() {
+  try { STOPS = await get('/stops.json'); } catch (e) { return; }
+  const kinds = {};
+  for (const s of STOPS) (kinds[s.kind || 'Other'] = kinds[s.kind || 'Other'] || []).push(s);
+  document.getElementById('stops').innerHTML = STOPS.length ? STOPS.map((s, i) =>
+    `<label class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${i}" ${s.on ? 'checked' : ''}><span>${esc(s.name)}</span><small>${esc(s.kind)} &middot; lvl ${s.z}</small><a data-show="${i}">show</a></label>`).join('')
+    : '<i>The tour has not listed its stops yet.</i>';
+  document.querySelectorAll('#stops input[data-i]').forEach(c => c.onchange = () => toggle(STOPS[c.dataset.i], c.checked));
+  document.querySelectorAll('#stops a[data-show]').forEach(a => a.onclick = async () => {
+    await fetch('/show', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: STOPS[a.dataset.show].key})}); refreshLog(); });
+}
+async function toggle(s, on) {
+  await fetch('/stop', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: s.key, on})});
+  setTimeout(loadStops, 1500);
+}
+async function setAll(on) { for (const s of STOPS) if (s.on !== on) await fetch('/stop', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: s.key, on})}); setTimeout(loadStops, 1500); }
+let BPS = [];
+async function loadBps() {
+  try { BPS = await get('/blueprints.json'); } catch (e) { return; }
+  const files = {};
+  for (const b of BPS) (files[b.file] = files[b.file] || []).push(b);
+  document.getElementById('bps').innerHTML = Object.entries(files).map(([f, xs]) => `<div class="bp"><b>${esc(f.replace(/\.csv$/, ''))}</b>` +
+    xs.map(b => { const i = BPS.indexOf(b); return `<div class="row"><span style="flex:1">${esc(b.label)} <small>(${esc(b.mode)}${b.note ? ': ' + esc(b.note) : ''})</small></span><button data-bp="${i}" data-dry="1">Preview</button><button data-bp="${i}">Build</button></div>`; }).join('') + '</div>').join('')
+    || '<i>No blueprints found.</i>';
+  document.querySelectorAll('#bps button[data-bp]').forEach(btn => btn.onclick = () => buildBp(btn));
+}
+async function useCamera() {
+  try { const c = await get('/camera.json'); if (c) { bx.value = c.x; by.value = c.y; bz.value = c.z; } } catch (e) {}
+}
+async function buildBp(btn) {
+  const b = BPS[btn.dataset.bp], dry = !!btn.dataset.dry;
+  if (bx.value === '' || by.value === '' || bz.value === '') { alert('Pick a place first: type x, y, z or use "Where the camera is looking".'); return; }
+  if (!dry && !confirm(`Build ${b.file} /${b.label} at ${bx.value}, ${by.value}, ${bz.value}? (Preview it first if unsure.)`)) return;
+  btn.disabled = true;
+  try { await fetch('/blueprint', {method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({file: b.file, label: b.label, x: bx.value, y: by.value, z: bz.value, dry})}); }
+  finally { btn.disabled = false; refreshLog(); }
+}
+loadStops(); loadBps(); setInterval(loadStops, 60000);
 load(); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
 </script>
 </body>
