@@ -69,6 +69,33 @@ All of the scripts start from onMapLoad.init.
 - Fuel comes from charcoal at the wood furnace and from coal veins, which are
   dug when fewer than 10 raw coal boulders are stocked.
 
+## Next fort checklist (the owner's lessons from Showerwheels)
+
+Before embarking:
+- New embark in region58, random_embark off. Never touch the owner's real saves.
+- Turn off end-of-fort mode: the war office's monthly raids and rotating targets were for ending Showerwheels. Next fort, raid only forts that offend or attack first, and only once the fort has 200 citizens and metal armor.
+
+Layout:
+- The cistern well overlaps the hospital, so the sick get water without a walk.
+- One public tavern only. A citizens-only deep camp is fine.
+- The first stockpile of each kind has no bins or barrels. Containers start with the second.
+- The execution tower stays above ground; any new one goes underground.
+- Vents go over a fishery or a butcher's shop open to the sky.
+- The livestock pen must be big enough for its grazers: they ate the indoor pen's cave moss bare. Put grazers on cavern moss (dfai-pastures) and cap the herd.
+
+Order of work:
+- Food and drink first.
+- Build the mist generator (walled entrance) before any cavern work. Prime it with one bucket of water; no top-ups.
+- Deep digs go 10 levels at a time. Scrub for ore early (dfai-ore-scrub) so iron is known before the first siege.
+- Armor: df-ai now orders armor to fill every soldier's uniform, not just a few spares. Check that the forges are busy once the army passes about 30.
+- Fuel: mine coal, or burn wood into charcoal at a wood furnace.
+- Trade: let caravans leave happy. Add gems and whatever is plentiful.
+
+Never:
+- Force strange moods, or fake a caravan.
+- Leave the world screen open (the freeze watchdog kills DF after about 9 minutes).
+- Run whole-map Lua scans on the live game.
+
 ## Open items
 
 - Not yet seen in a real siege: the muster and the battle camera.

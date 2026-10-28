@@ -2386,6 +2386,29 @@ function tradeItems(ctx, r) {
     out.push({ids: ['trade-overdue-' + TR.year], html: `<div class="item"><div class="kick">Caravan Watch</div><h3>Mountainhome Caravan Overdue</h3>
       <p class="just">No caravan has reached the depot since the autumn of ${TR.last_trade_year}${gap > 1 ? `, ${gap} autumns in a row` : ''}. The broker has taken to standing at the depot anyway, staring at the horizon. Theories at the tavern range from bandits to bad roads to a very long lunch.</p></div>`});
   }
+  const nameUp = t => String(t || '').replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase());
+  // While You Slept: the morning recap, for viewers (and the overseer) just arriving
+  const hr = new Date().getHours();
+  if (RC && RC.hours && hr >= 6 && hr < 13) {
+    const dd = RC.deaths || [], bs = RC.beasts || [], rd = RC.raids || [], ar = RC.artifacts || [];
+    const CS = {bleed: 'bled out', struck_down: 'struck down', shot: 'shot', thirst: 'thirst', hunger: 'hunger', infection: 'infection', drown: 'drowned', scare: 'died of fright', fall: 'a fall', suffocate: 'suffocated', burn: 'burned', cavein: 'cave-in'};
+    const parts = [];
+    if (RC.enemy_dead) parts.push(`the fort's defenders killed ${RC.enemy_dead} foes${bs.length ? `, ${bs.length === 1 ? 'a forgotten beast' : bs.length + ' great beasts'} among them (${esc(bs.slice(0, 3).map(nameUp).join(', '))}${bs.length > 3 ? ' and more' : ''})` : ''}`);
+    if (dd.length) parts.push(`${dd.length} of our own died`);
+    if (rd.length) parts.push(`${rd.length} raiding part${rd.length > 1 ? 'ies' : 'y'} came home`);
+    if (ar.length) parts.push(`${ar.length} artifact${ar.length > 1 ? 's were' : ' was'} made (${esc(ar.slice(0, 2).join(', '))})`);
+    if (RC.births) parts.push(`${RC.births} dwarf${RC.births > 1 ? 's were' : ' was'} born`);
+    if (parts.length) {
+      const last = parts.length > 1 ? parts.slice(0, -1).join('; ') + '; and ' + parts[parts.length - 1] : parts[0];
+      out.push({ids: ['recap-' + Math.floor((RC.now || 0) / 33600)], html: `<div class="item"><div class="kick">While You Slept · The Last ${RC.hours} Hours</div>
+        <h3>${RC.enemy_dead > dd.length ? 'The Fort Held Through The Night' : dd.length ? 'A Hard Night At Showerwheels' : 'A Quiet Night'}</h3>
+        <p class="just">For those just waking: overnight ${last}. ${RC.pop} citizens answered the morning roll.</p></div>`});
+    }
+    if (dd.length >= 3) {
+      const rows = dd.slice(0, 10).map(x => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(nameUp(x.name))}</span><span>${esc(x.by ? 'by ' + nameUp(x.by) : (CS[x.cause] || x.cause || ''))}</span></div>`).join('');
+      out.push({ids: ['recap-dead-' + Math.floor((RC.now || 0) / 33600)], html: `<div class="item cls"><div class="kick">Overnight · The Fallen</div>${rows}${dd.length > 10 ? `<div><i>and ${dd.length - 10} more</i></div>` : ''}</div>`});
+    }
+  }
   // the battle report: the last battle at the fort, from the world's own history (dfai-battle-report)
   const BT = TR.battle || {}, LB = BT.last;
   const nameCap = t => String(t || '').replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase());
@@ -2705,6 +2728,8 @@ async function pollState() {
   if (params.has('breaking') && seenBig) (S.big = S.big || []).unshift({id: 999999, type: params.get('breaking'), text: params.get('text') || 'Urist McTest has done something newsworthy.', year: 105});
   masthead(); checkBig(); trackStories(); renderFollow();
 }
+let RC = {};   // "While You Slept": the fort's last ~9 real hours (overlay.py /recap.json)
+async function pollRecap() { try { RC = await get('/recap.json') || {}; } catch (e) {} }
 async function pollStocks() {
   try { const k = await get('/stocks.json'); if (k && k.stocks) { if (K && K.stocks) prevStocks = K.stocks; K = k; } } catch (e) {}
 }
@@ -2727,6 +2752,7 @@ async function pollSlow() {
   trackStories(); checkRumors(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
   nextCard();
   setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollTrade, 60000); setInterval(pollWorks, 120000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
+  pollRecap(); setInterval(pollRecap, 300000);
 })();
 
 // the price box is the door to the Overseer's Desk (user request); only on this

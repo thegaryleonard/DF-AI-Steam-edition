@@ -55,6 +55,60 @@ def run_json(script, timeout=60):
         return None
 
 
+CLOCK_FILE = HERE / "herald" / "clock.json"   # real time -> game time, every half hour (for "While You Slept")
+recap_cache = {"at": 0, "data": {}}
+
+
+def remember_clock(st):
+    """Note the game time once per real half hour (kept for 2 days)."""
+    g = (st.get("fort") or {})
+    year, tick = g.get("year"), g.get("tick")
+    if year is None or tick is None:
+        return
+    try:
+        clock = json.loads(CLOCK_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        clock = []
+    now = int(time.time())
+    if clock and now - clock[-1][0] < 1800:
+        return
+    clock.append([now, int(year) * 403200 + int(tick), g.get("name")])
+    clock = [c for c in clock if now - c[0] < 2 * 86400]
+    CLOCK_FILE.write_text(json.dumps(clock), encoding="utf-8")
+
+
+def recap():
+    """What happened in the last ~9 real hours, in game terms (dfai-recap)."""
+    if time.time() - recap_cache["at"] < 300:
+        return recap_cache["data"]
+    try:
+        clock = json.loads(CLOCK_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        clock = []
+    fort = (cache["state"].get("fort") or {}).get("name")
+    now = time.time()
+    old = [c for c in clock if 7 * 3600 <= now - c[0] <= 12 * 3600 and c[2] == fort]
+    data = {}
+    if old:
+        start = old[-1]
+        r = run_json_args(["dfai-recap", str(start[1])])
+        if r:
+            r["hours"] = round((now - start[0]) / 3600)
+            data = r
+    recap_cache["at"], recap_cache["data"] = now, data
+    return data
+
+
+def run_json_args(args, timeout=60):
+    out = sup.dfhack(*args, timeout=timeout)
+    if not out or "{" not in out:
+        return None
+    try:
+        return json.loads(out[out.index("{"):])
+    except ValueError:
+        return None
+
+
 def poller():
     last_stocks = last_rumors = 0
     while True:
@@ -74,6 +128,10 @@ def poller():
         st = run_json("dfai-overlay-state", timeout=20)
         if st is not None:
             cache["state"] = st
+            try:
+                remember_clock(st)
+            except Exception as e:
+                print(f"clock: {e}", flush=True)
             try:
                 herald_lore.observe(st, cache["stocks"], cache["politics"], cache["rumors"])
             except Exception as e:   # the paper's memory must never stop the feed
@@ -105,6 +163,8 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path.startswith("/lore.json"):
             world = ((cache["state"].get("fort") or {}).get("world")) or ""
             body, ctype = json.dumps(herald_lore.for_world(world), ensure_ascii=False).encode(), "application/json"
+        elif self.path.startswith("/recap.json"):
+            body, ctype = json.dumps(recap(), ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/rumors.json"):
             body, ctype = json.dumps(cache["rumors"]).encode(), "application/json"
         elif self.path.startswith("/world.json"):

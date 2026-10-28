@@ -61,6 +61,33 @@ REQUIRE_GLOBAL(hist_event_next_id);
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
+// A squad's name for the log: DF 53 squads usually have no translated name,
+// so the log read "Ordering squad  to kill": use the alias, else the name,
+// else what the game shows ("Kivish's Squad", after the leader).
+static std::string squad_label(df::squad *squad)
+{
+    if (!squad)
+        return "a squad";
+    if (!squad->alias.empty())
+        return squad->alias;
+    std::string nm = squad_label(squad);
+    if (!nm.empty())
+        return nm;
+    for (auto pos : squad->positions)
+    {
+        if (!pos || pos->occupant == -1)
+            continue;
+        auto hf = df::historical_figure::find(pos->occupant);
+        if (hf && !hf->name.first_name.empty())
+        {
+            std::string first = hf->name.first_name;
+            first[0] = toupper(first[0]);
+            return first + "'s Squad";
+        }
+    }
+    return "squad " + std::to_string(squad->id);
+}
+
 // In DF 0.47 these exclusive callbacks drove the military screen with
 // simulated keypresses. In v50+ they edit squads directly through DFHack's
 // Military module and the underlying structures.
@@ -259,7 +286,7 @@ public:
         }
         if (!asn)
         {
-            ai.debug(out, "[ERROR] Cannot find leader assignment for squad " + AI::describe_name(squad->name, true));
+            ai.debug(out, "[ERROR] Cannot find leader assignment for squad " + squad_label(squad));
             return false;
         }
 
@@ -285,7 +312,7 @@ public:
                 holder->military.squad_id = squad->id;
                 holder->military.squad_position = 0;
                 flag_equipment_update(squad);
-                ai.debug(out, "Seating existing " + AI::describe_unit(holder) + " as leader of " + AI::describe_name(squad->name, true));
+                ai.debug(out, "Seating existing " + AI::describe_unit(holder) + " as leader of " + squad_label(squad));
             }
             return false;
         }
@@ -432,7 +459,7 @@ public:
                             continue;
                         }
 
-                        ai.debug(out, "Reassigning " + AI::describe_unit(other) + " from " + AI::describe_name(squad->name, true) + " to lead new squad " + AI::describe_name(selected_squad->name, true));
+                        ai.debug(out, "Reassigning " + AI::describe_unit(other) + " from " + squad_label(squad) + " to lead new squad " + AI::describe_name(selected_squad->name, true));
                         Military::removeFromSquad(other->id);
                         reassigned = appoint_leader(out, selected_squad, other);
                         break;
@@ -638,7 +665,7 @@ public:
 
         flag_equipment_update(squad);
 
-        ai.debug(out, "Assigned uniform " + uniform->name + " to squad " + AI::describe_name(squad->name, true));
+        ai.debug(out, "Assigned uniform " + uniform->name + " to squad " + squad_label(squad));
     }
 
     static bool compare(const df::unit *a, const df::unit *b)
@@ -677,7 +704,7 @@ public:
 
         flag_equipment_update(squad);
 
-        ai.debug(out, "Dismissed " + AI::describe_unit(u) + " from " + AI::describe_name(squad->name, true));
+        ai.debug(out, "Dismissed " + AI::describe_unit(u) + " from " + squad_label(squad));
     }
 
     static bool compare(const df::unit *a, const df::unit *b)
@@ -1342,7 +1369,7 @@ void Population::schedule_training(color_ostream & out)
             std::string months;
             for (int32_t m = 0; m < 12; m++)
                 months += m % groups == group ? 'T' : '.';
-            ai.debug(out, stl_sprintf("[MILITARY] training rotation: squad %d %s: group %d of %d, months %s", squad->id, AI::describe_name(squad->name, true).c_str(), group + 1, groups, months.c_str()));
+            ai.debug(out, stl_sprintf("[MILITARY] training rotation: squad %d %s: group %d of %d, months %s", squad->id, squad_label(squad).c_str(), group + 1, groups, months.c_str()));
         }
         for (int32_t m = 0; m < 12; m++)
         {
@@ -1764,14 +1791,14 @@ public:
                 {
                     if (kill_orders.at(squad->id).erase(unit->id))
                     {
-                        ai.debug(out, "Cancelling squad order for " + AI::describe_name(squad->name, true) + " to kill " + AI::describe_unit(unit) + ": " + change.reason);
+                        ai.debug(out, "Cancelling squad order for " + squad_label(squad) + " to kill " + AI::describe_unit(unit) + ": " + change.reason);
                     }
                 }
                 else
                 {
                     if (kill_orders.at(squad->id).insert(unit->id).second)
                     {
-                        ai.debug(out, "Ordering squad " + AI::describe_name(squad->name, true) + " to kill " + AI::describe_unit(unit) + ": " + change.reason);
+                        ai.debug(out, "Ordering squad " + squad_label(squad) + " to kill " + AI::describe_unit(unit) + ": " + change.reason);
                     }
                 }
                 break;

@@ -1,4 +1,8 @@
 #include "ai.h"
+#include "df/squad.h"
+#include "df/squad_position.h"
+#include "df/squad_uniform_spec.h"
+#include "df/historical_entity.h"
 #include "stocks.h"
 #include "event_manager.h"
 
@@ -208,6 +212,51 @@ void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item,
 template<typename D>
 static bool is_armordef_metal(D *d) { return d->props.flags.is_set(armor_general_flags::METAL); }
 
+// Soldiers still waiting for a piece of uniform in this slot: the spare-stock
+// target (a few per 100 dwarves) never covered an army of 114, and with 222
+// iron bars in hand 60 soldiers went without body armor.
+static int32_t unfilled_uniform_slots(df::uniform_category cat)
+{
+    int32_t n = 0;
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
+    {
+        auto sq = df::squad::find(sqid);
+        if (!sq)
+            continue;
+        for (auto pos : sq->positions)
+        {
+            if (!pos || pos->occupant == -1)
+                continue;
+            for (auto spec : pos->equipment.uniform[cat])
+            {
+                if (spec && spec->assigned.empty())
+                    n++;
+            }
+        }
+    }
+    return n;
+}
+
+static df::uniform_category slot_of(stock_item::item what)
+{
+    switch (what)
+    {
+    case stock_item::armor_torso: return uniform_category::body;
+    case stock_item::armor_head: return uniform_category::head;
+    case stock_item::armor_legs: return uniform_category::pants;
+    case stock_item::armor_hands: return uniform_category::gloves;
+    case stock_item::armor_feet: return uniform_category::shoes;
+    case stock_item::armor_shield: return uniform_category::shield;
+    default: return uniform_category::body;
+    }
+}
+
+// soldiers short of uniform pieces for an armor stock item (used by num_needed)
+int32_t dfai_unfilled_armor(stock_item::item what)
+{
+    return unfilled_uniform_slots(slot_of(what));
+}
+
 template<typename D, typename I>
 static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::item what, const std::vector<int16_t> & idefs, df::job_type job, std::ostream & reason, int32_t div = 1, std::function<bool(D *)> pred = is_armordef_metal<D>)
 {
@@ -222,6 +271,17 @@ static void queue_need_armor_helper(AI & ai, color_ostream & out, stock_item::it
 
         int32_t cnt = ai.stocks.num_needed(what);
         cnt -= ai.stocks.count_subtype[what][id].first;
+        {
+            // the soldiers' shortfall, split over the metal kinds of this slot
+            int32_t kinds = 0;
+            for (auto id2 : idefs)
+                if (pred(D::find(id2)))
+                    kinds++;
+            int32_t short_by = unfilled_uniform_slots(slot_of(what)) * div;
+            if (kinds > 0)
+                short_by = (short_by + kinds - 1) / kinds;
+            cnt = std::max(cnt, std::min(short_by, 10 * div));   // at most 10 per order round
+        }
 
         for (auto mo : world->manager_orders.all)
         {

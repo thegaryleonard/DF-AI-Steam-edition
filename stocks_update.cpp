@@ -493,12 +493,24 @@ void Stocks::update_slabs(color_ostream & out)
     updating_slabs = false;
 }
 
+int32_t dfai_unfilled_armor(stock_item::item what);
+
 int32_t Stocks::num_needed(stock_item::item key)
 {
     int32_t amount = Watch.Needed.at(key);
     if (Watch.NeededPerDwarf.count(key))
     {
         amount += int32_t(ai.pop.citizen.size()) * Watch.NeededPerDwarf.at(key) / 100;
+    }
+    switch (key)
+    {
+    case stock_item::armor_torso: case stock_item::armor_head: case stock_item::armor_legs:
+    case stock_item::armor_hands: case stock_item::armor_feet: case stock_item::armor_shield:
+        // the army's own shortfall: soldiers waiting for this piece of uniform
+        amount = std::max(amount, std::min(dfai_unfilled_armor(key), 40));
+        break;
+    default:
+        break;
     }
     return amount;
 }

@@ -112,6 +112,7 @@ if out.ok then
     dwarvish = site and name_of(site.name, false) or '?',
     world = name_of(df.global.world.world_data.name, true),
     year = df.global.cur_year,
+    tick = df.global.cur_year_tick,
     month = months[tick // 33600 + 1],
     day = (tick % 33600) // 1200 + 1,
     population = #citizens,
