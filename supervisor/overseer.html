@@ -46,7 +46,15 @@
 </style>
 </head>
 <body>
-<button id="asciibtn" title="The game's classic ASCII mode">Game: graphics</button>
+<button id="asciibtn" title="The game's Classic ASCII glyphs">Game: graphics ▾</button>
+<div id="asciibox" style="display:none;position:fixed;top:40px;right:14px;z-index:9;width:340px;background:#f7f1e1;border:1px solid #1d1a14;padding:10px;font-size:13px;box-shadow:2px 2px 0 #1d1a14">
+  <b>The game's Classic ASCII glyphs</b> <small>(switched live in the game's own settings)</small>
+  <div style="margin:6px 0">Now: <span id="asciimode"></span><br>
+    <button data-mode="on">ASCII now</button> <button data-mode="off">Graphics now</button> <button data-mode="auto">Follow schedule</button></div>
+  <div><b>Schedule:</b> ASCII for the last <input id="asciimin" type="number" min="1" max="30" style="width:44px"> minutes of these hours:</div>
+  <div id="asciihours" style="margin:4px 0"></div>
+  <button id="asciisave">Save schedule</button>
+</div>
 <header><h1>The Overseer's Desk</h1><div class="sub">Orders for the fort. The dwarves will get round to them. Probably.</div></header>
 <main>
   <section>
@@ -202,13 +210,23 @@ async function refreshCards() {
 }
 load().then(refreshCards); setInterval(refreshCards, 10000); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
 
-// the game's own classic ASCII mode (Settings > Video > Classic ASCII). DF
-// reads it at start-up, so the switch shows on the next start of the game.
+// the game's Classic ASCII glyphs: on demand, or the last few minutes of chosen hours
 (() => {
   const b = document.getElementById('asciibtn');
-  const show = st => { b.textContent = st.next ? 'Game: ASCII on next start' : 'Game: graphics'; b.title = st.note || ''; b.dataset.on = st.next ? '1' : ''; };
-  get('/ascii.json').then(show).catch(() => {});
-  b.onclick = async () => { const r = await fetch('/ascii', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({on: !b.dataset.on})}); show(await r.json()); refreshLog(); };
+  const box = document.getElementById('asciibox');
+  let st = {};
+  const show = x => { st = x;
+    b.textContent = x.shows === 'ASCII' ? 'Game: ASCII ▾' : 'Game: graphics ▾'; b.dataset.on = x.shows === 'ASCII' ? '1' : '';
+    document.getElementById('asciimode').textContent = x.mode === 'on' ? 'held in ASCII' : x.mode === 'off' ? 'held in graphics' : 'following the schedule';
+    document.getElementById('asciimin').value = x.minutes || 5;
+    document.getElementById('asciihours').innerHTML = [...Array(24).keys()].map(h => `<label style="display:inline-block;width:44px;font-size:12px"><input type="checkbox" value="${h}" ${(x.hours || []).includes(h) ? 'checked' : ''}>${h}:00</label>`).join('');
+  };
+  const load = () => get('/ascii.json').then(show).catch(() => {});
+  b.onclick = () => { box.style.display = box.style.display === 'block' ? 'none' : 'block'; if (box.style.display === 'block') load(); };
+  const send = async (u, body) => { const r = await fetch(u, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)}); show(await r.json()); refreshLog(); };
+  box.querySelectorAll('[data-mode]').forEach(x => x.onclick = () => send('/ascii', {mode: x.dataset.mode}));
+  document.getElementById('asciisave').onclick = () => send('/ascii_schedule', {hours: [...box.querySelectorAll('#asciihours input:checked')].map(c => +c.value), minutes: +document.getElementById('asciimin').value});
+  load(); setInterval(load, 60000);
 })();
 </script>
 </body>

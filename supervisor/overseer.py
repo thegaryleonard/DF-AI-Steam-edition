@@ -237,26 +237,17 @@ def card_status():
     return cards
 
 
-# ---- the game's classic ASCII setting (prefs/init.txt, read when DF starts) ----
+# ---- the game's Classic ASCII glyphs, live (dfai-ascii.lua clicks the game's own settings) ----
+ASCII_CFG = "dfai-ascii.json"
+
+
 def ascii_state():
-    p = Path(sup.CFG["df_dir"]) / "prefs" / "init.txt"
-    try:
-        t = p.read_text(encoding="cp437")
-    except OSError:
-        return {"next": False, "note": "prefs/init.txt not found"}
-    m = re.search(r"\[USE_CLASSIC_ASCII:(YES|NO)\]", t)
-    on = bool(m and m.group(1) == "YES")
-    return {"next": on, "note": ("Classic ASCII is set: the game switches on its next start." if on else "Graphics are set. Click to switch the game to classic ASCII; it takes effect on the game's next start.")}
-
-
-def set_ascii(on):
-    p = Path(sup.CFG["df_dir"]) / "prefs" / "init.txt"
-    t = p.read_text(encoding="cp437")
-    new = "[USE_CLASSIC_ASCII:%s]" % ("YES" if on else "NO")
-    t2, n = re.subn(r"\[USE_CLASSIC_ASCII:(YES|NO)\]", new, t)
-    if not n:
-        t2 = t.rstrip("\n") + "\n" + new + "\n"
-    p.write_text(t2, encoding="cp437")
+    out = sup.dfhack("dfai-ascii", timeout=20) or ""
+    line = (out.strip().splitlines() or [""])[0]
+    m = re.search(r"game shows (\w+); mode (\w+)", line)
+    cfg = read_json(df_path(ASCII_CFG), {"hours": [], "minutes": 5})
+    return {"shows": m.group(1) if m else "?", "mode": m.group(2) if m else "?", "hours": cfg.get("hours", []),
+            "minutes": cfg.get("minutes", 5), "line": line}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -336,10 +327,28 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps({"ok": True, "off": len(off)}).encode())
             return
         if path == "/ascii":
-            set_ascii(bool(req.get("on")))
+            mode = req.get("mode")
+            if mode not in ("on", "off", "auto"):
+                self.send_error(400)
+                return
+            sup.dfhack("dfai-ascii", mode, timeout=20)
+            time.sleep(1.5)
             st = ascii_state()
-            write_log({"at": time.strftime("%H:%M:%S"), "key": "game.ascii", "label": "Game display: " + ("classic ASCII" if st["next"] else "graphics"),
-                       "ok": True, "out": "takes effect when the game next starts"})
+            write_log({"at": time.strftime("%H:%M:%S"), "key": "game.ascii", "label": {"on": "Game to ASCII", "off": "Game to graphics", "auto": "Game display: follow the ASCII schedule"}[mode],
+                       "ok": True, "out": st["line"]})
+            self.send(json.dumps(st).encode())
+            return
+        if path == "/ascii_schedule":
+            try:
+                hours = sorted({int(h) for h in req.get("hours", []) if 0 <= int(h) <= 23})
+                minutes = max(1, min(30, int(req.get("minutes", 5))))
+            except (TypeError, ValueError):
+                self.send_error(400)
+                return
+            df_path(ASCII_CFG).write_text(json.dumps({"hours": hours, "minutes": minutes}), encoding="utf-8")
+            st = ascii_state()
+            write_log({"at": time.strftime("%H:%M:%S"), "key": "game.ascii_schedule", "label": "ASCII schedule set", "ok": True,
+                       "out": (f"last {minutes} min of " + ", ".join(f"{h}:00" for h in hours) + " hours") if hours else "no scheduled ASCII"})
             self.send(json.dumps(st).encode())
             return
         if path == "/dig":
