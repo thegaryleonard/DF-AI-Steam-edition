@@ -190,6 +190,51 @@ def dig_order():
         return []
 
 
+# ---- a status line on every card (user: "send a raid now: 1 raid out currently") ----
+card_cache = {"at": 0, "data": {}}
+
+
+def card_status():
+    if time.time() - card_cache["at"] < 8:
+        return card_cache["data"]
+    out = sup.dfhack("dfai-overseer-status", timeout=20) or ""
+    try:
+        st = json.loads(out[out.index("{"):])
+    except ValueError:
+        return card_cache["data"]
+    w = st.get("war") or {}
+    abroad = w.get("abroad") or []
+    out_now = ("Out now: " + "; ".join(abroad)) if abroad else "No raid out right now."
+    held = w.get("hold")
+    fo = st.get("foreign") or {}
+    proj = st.get("projects") or []
+    cards = {
+        "war.raid": out_now + ("" if not w.get("last") else f" Last: {w['last']}."),
+        "war.hold": f"Holding the army home ({held})." if held else "Raids are running: one party out at a time.",
+        "war.resume": f"Raids are on hold ({held})." if held else "Raids are already running.",
+        "war.list": out_now,
+        "beast.attack": "Beast hunt: " + st.get("beast", "?"),
+        "fo.now": f"{fo.get('envoys', 0)} envoy(s) on the road; {fo.get('contacts', 0)} civs contacted.",
+        "fo.list": f"{fo.get('contacts', 0)} civs contacted.",
+        "mist.status": st.get("mist", "?"),
+        "mist.prime": st.get("mist", "?"),
+        "camp.now": st.get("camp", "?"),
+        "dig.now": st.get("dig", "?"),
+        "dig.stop": st.get("dig", "?"),
+        "ore.start": st.get("ore", "?"),
+        "ore.stop": st.get("ore", "?"),
+        "projects": (f"{len(proj)} under way: " + ", ".join(proj)) if proj else "Nothing big under way.",
+        "cam.next": "On camera: " + st.get("camera", "?"),
+        "cam.statue": "On camera: " + st.get("camera", "?"),
+        "cam.leaves": "On camera: " + st.get("camera", "?"),
+        "cam.threats": f"{st.get('threats', 0)} threat(s) in view." if st.get("threats") else "No threats in view.",
+        "holiday.start": st.get("holiday", "?"),
+        "holiday.stop": st.get("holiday", "?"),
+    }
+    card_cache["at"], card_cache["data"] = time.time(), cards
+    return cards
+
+
 class Handler(BaseHTTPRequestHandler):
     def send(self, body, ctype="application/json", code=200):
         self.send_response(code)
@@ -214,6 +259,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps(stops(), ensure_ascii=False).encode())
         elif path == "/blueprints.json":
             self.send(json.dumps(blueprints(), ensure_ascii=False).encode())
+        elif path == "/cardstatus.json":
+            self.send(json.dumps(card_status(), ensure_ascii=False).encode())
         elif path == "/plan.json":
             rooms, at = plan_rooms()
             self.send(json.dumps({"rooms": rooms, "order": dig_order(),
@@ -229,7 +276,7 @@ class Handler(BaseHTTPRequestHandler):
         entry = {"at": time.strftime("%H:%M:%S"), "key": key, "label": label,
                  "ok": out is not None, "out": clean(out)[-2000:] if out is not None else "no answer from the game"}
         write_log(entry)
-        status_cache["at"] = 0
+        status_cache["at"] = card_cache["at"] = 0
         self.send(json.dumps(entry, ensure_ascii=False).encode())
 
     def do_POST(self):

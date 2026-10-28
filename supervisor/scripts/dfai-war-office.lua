@@ -123,8 +123,12 @@ local function squad_ready(sq)
         if p.occupant ~= -1 then
             local hf = df.historical_figure.find(p.occupant)
             local u = hf and df.unit.find(hf.unit_id)
-            if not u or not dfhack.units.isActive(u) or u.flags1.left or u.mood ~= -1 or u.health and u.health.flags.needs_healthcare then return false end
-            n = n + 1
+            -- members off the map (stayed abroad after a raid, or dead) don't
+            -- hold the squad back: every squad had one, and no raid left for years
+            if u and dfhack.units.isActive(u) and not u.flags1.left and not dfhack.units.isDead(u) then
+                if u.mood ~= -1 or (u.health and u.health.flags.needs_healthcare) then return false end
+                n = n + 1
+            end
         end
     end
     return n >= 5

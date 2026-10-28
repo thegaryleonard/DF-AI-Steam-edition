@@ -14,6 +14,7 @@
   .card { background: #f7f1e1; border: 1px solid #b9ad91; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
   .card b { font-size: 15px; }
   .card span { font-size: 13px; color: #4a4336; flex: 1; }
+  .card .now { font-size: 12.5px; font-weight: bold; color: #1d1a14; background: #ebe1c8; border-left: 3px solid #8b1a1a; padding: 3px 6px; flex: 0; }
   button { font: bold 13px Georgia, serif; background: #1d1a14; color: #f7f1e1; border: 0; padding: 6px 10px; cursor: pointer; }
   button:disabled { background: #8d8473; cursor: default; }
   .planned { opacity: .6; }
@@ -86,14 +87,14 @@ async function load() {
   for (const x of c.commands) (groups[x.group] = groups[x.group] || []).push(x);
   for (const x of c.planned) (groups[x.group] = groups[x.group] || []).push({...x, planned: true});
   document.getElementById('groups').innerHTML = Object.entries(groups).map(([g, xs]) => `<h2>${esc(g)}</h2><div class="cards">` +
-    xs.map(x => `<div class="card${x.planned ? ' planned' : ''}"><b>${esc(x.label)}</b><span>${esc(x.help)}</span>` +
+    xs.map(x => `<div class="card${x.planned ? ' planned' : ''}"><b>${esc(x.label)}</b><span>${esc(x.help)}</span>${x.planned ? '' : `<div class="now" id="now-${esc(x.key)}">...</div>`}` +
       (x.planned ? '<button disabled>Coming soon</button>' : (x.param ? `<label style="font-size:13px">${esc(x.param.name)}: <input type="number" id="n-${esc(x.key)}" min="${x.param.min}" max="${x.param.max}" value="${x.param.default}" style="width:60px"></label>` : '') + `<button data-key="${esc(x.key)}">Order it</button>`) + '</div>').join('') + '</div>').join('');
   document.querySelectorAll('button[data-key]').forEach(b => b.onclick = () => run(b));
 }
 async function run(b) {
   b.disabled = true; const was = b.textContent; b.textContent = 'Sending...';
   try { await fetch('/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: b.dataset.key, n: (document.getElementById('n-' + b.dataset.key) || {}).value})}); }
-  finally { b.disabled = false; b.textContent = was; refreshLog(); setTimeout(refreshStatus, 1500); }
+  finally { b.disabled = false; b.textContent = was; refreshLog(); setTimeout(refreshStatus, 1500); setTimeout(refreshCards, 2500); }
 }
 async function refreshStatus() {
   try { const s = await get('/status.json');
@@ -126,7 +127,7 @@ function render() {
   let last = null, html = '';
   for (const s of xs) {
     if (ss.value === 'kind' && s.kind !== last) { html += `<h4>${esc(s.kind || 'Other')}</h4>`; last = s.kind; }
-    html += `<label class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${s.i}" ${s.on ? 'checked' : ''}><span class="go" data-show="${s.i}" title="Send the camera here" style="cursor:pointer;text-decoration:underline dotted">${esc(s.name)}</span><small>${ss.value === 'kind' ? '' : esc(s.kind) + ' &middot; '}lvl ${s.z}</small><a data-show="${s.i}">show</a></label>`;
+    html += `<div class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${s.i}" ${s.on ? 'checked' : ''}><span class="go" data-show="${s.i}" title="Send the camera here" style="cursor:pointer;text-decoration:underline dotted">${esc(s.name)}</span><small>${ss.value === 'kind' ? '' : esc(s.kind) + ' &middot; '}lvl ${s.z}</small><a data-show="${s.i}">show</a></div>`;
   }
   document.getElementById('stops').innerHTML = html || (STOPS.length ? '<i>Nothing matches.</i>' : '<i>The tour has not listed its stops yet.</i>');
   document.querySelectorAll('#stops input[data-i]').forEach(c => c.onchange = () => setKeys([STOPS[c.dataset.i].key], c.checked));
@@ -191,7 +192,11 @@ async function loadPlan() {
   document.querySelectorAll('#planned [data-goto]').forEach(a => a.onclick = async () => { await post('/goto', {key: a.dataset.goto}); refreshLog(); });
 }
 loadStops(); loadBps(); loadPlan(); setInterval(loadStops, 60000); setInterval(loadPlan, 120000);
-load(); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
+async function refreshCards() {
+  try { const c = await get('/cardstatus.json');
+    for (const [k, v] of Object.entries(c)) { const el = document.getElementById('now-' + k); if (el) el.textContent = v; } } catch (e) {}
+}
+load().then(refreshCards); setInterval(refreshCards, 10000); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
 </script>
 </body>
 </html>
