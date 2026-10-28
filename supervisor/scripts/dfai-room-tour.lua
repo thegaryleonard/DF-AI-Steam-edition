@@ -92,6 +92,7 @@ end
 
 local function center(b) return xyz2pos((b.x1 + b.x2) // 2, (b.y1 + b.y2) // 2, b.z) end
 
+local shaft_bottom   -- below
 local function find_rooms()
     local rooms, seen_loc = {}, {}
     local counts = {}
@@ -190,6 +191,7 @@ local function find_rooms()
     end)
     local all, kept = {}, {}
     for _, r in ipairs(mixed) do
+        if r.bottom == nil then r.bottom = shaft_bottom(r.pos) or false end
         local nm = dfhack.df2utf(r.name or '?')
         local k = ('%s@%d,%d,%d'):format(nm, r.pos.x, r.pos.y, r.pos.z)   -- names repeat (six rooms of one tavern)
         all[#all + 1] = {key = k, name = nm, kind = dfhack.df2utf(r.kind or ''), x = r.pos.x, y = r.pos.y, z = r.pos.z, on = not off[k]}
@@ -201,6 +203,23 @@ local function find_rooms()
         f:close()
     end)
     return kept, mixed
+end
+
+-- a stop over a shaft (the refuse chute, the execution pit, a cistern): how
+-- far down the open space goes, so the camera can ride it to the bottom
+function shaft_bottom(pos)
+    local z = pos.z
+    local function open(zz)
+        local tt = dfhack.maps.getTileType(pos.x, pos.y, zz)
+        local sh = tt and df.tiletype.attrs[tt].shape
+        return sh == df.tiletype_shape.EMPTY or sh == df.tiletype_shape.RAMP_TOP
+    end
+    if not open(z) and not open(z - 1) then return nil end
+    local b = z
+    while b - 1 >= 0 and open(b - 1) and z - b < 60 do b = b - 1 end
+    -- the floor the shaft lands on
+    b = b - 1
+    if z - b >= 3 then return b end
 end
 
 local function spectate_on()
@@ -321,6 +340,27 @@ local function pick_room()
     return best
 end
 
+local RIDE_TOP, RIDE_STEP, RIDE_BOTTOM = 80, 36, 100   -- frames (the game runs at 20)
+local function ride_down(r)
+    if not r.bottom then return end
+    tour.ride = (tour.ride or 0) + 1
+    local gen, z = tour.ride, r.pos.z
+    r.level = nil
+    local levels = r.pos.z - r.bottom
+    r.secs = math.max(ROOM_SECS, math.ceil((RIDE_TOP + levels * RIDE_STEP + RIDE_BOTTOM) / 20))
+    local function step_down()
+        if tour.ride ~= gen or tour.current ~= r or view() ~= tour.view then return end
+        z = z - 1
+        if z < r.bottom then return end
+        dfhack.gui.revealInDwarfmodeMap(xyz2pos(r.pos.x, r.pos.y, z), true, true)
+        tour.view = view()
+        r.level = ('%d levels down of %d'):format(r.pos.z - z, levels)
+        if z == r.bottom then r.level = ('the bottom, %d levels down'):format(levels) return end
+        dfhack.timeout(RIDE_STEP, 'frames', step_down)
+    end
+    dfhack.timeout(RIDE_TOP, 'frames', step_down)
+end
+
 local function show_named(name)
     local _, all = find_rooms()
     tour.rooms, tour.rooms_at = nil, 0   -- the on/off list may have changed: re-read next pick
@@ -331,6 +371,7 @@ local function show_named(name)
             dfhack.gui.revealInDwarfmodeMap(r.pos, true, true)
             tour.current, tour.view = r, view()
             tour.last_switch = os.time()
+            ride_down(r)
             tour.shown = tour.shown or {}
             tour.shown[key_of(r)] = os.time()
             return true
@@ -347,6 +388,7 @@ local function show_next_room()
     dfhack.gui.revealInDwarfmodeMap(r.pos, true, true)
     tour.current, tour.view = r, view()
     tour.last_switch = os.time()
+    ride_down(r)
     return true
 end
 
@@ -992,7 +1034,7 @@ job_text_check = job_text
 
 local function banner_lines()
     local r = tour.current
-    if r then return dfhack.utf2df(r.name):upper(), dfhack.utf2df(r.short or r.kind or '') end
+    if r then return dfhack.utf2df(r.name):upper(), dfhack.utf2df(r.level and ((r.short or r.kind or '') .. ' | ' .. r.level) or (r.short or r.kind or '')) end
     local u = df.unit.find(df.global.plotinfo.follow_unit)
     if not u then return nil end
     local name = dfhack.units.getReadableName(u):gsub(',.*$', '')

@@ -42,7 +42,6 @@ COMMANDS = {
     "dig.stop":     ("Construction", "Deep dig: stop", "No more shaft levels.", ["dfai-deep-dig", "stop"], 30),
     "ore.start":    ("Construction", "Dig down and scrub for ore", "A staircase N levels down with galleries on every level; every ore vein they expose is marked for mining. Picks the spot with the most ore and never digs near water, magma or caverns.", ["dfai-ore-scrub", "start", "{n}"], 30),
     "ore.stop":     ("Construction", "Stop the ore scrub", "No more veins marked (what is marked stays).", ["dfai-ore-scrub", "stop"], 30),
-    "catacomb":     ("Construction", "Build: a new catacomb wing", "Digs a 5x9 vault beside a corridor on a catacomb level (solid dry rock only) and fills it with 18 coffins, a door and a tomb for each. Order it twice and the second waits for the first. Restless dead (ghosts) get memorial slabs from df-ai on their own.", ["dfai-catacomb", "new"], 30),
     "smasher":      ("Construction", "Atom smasher: check now", "The refuse chute and the execution pit drop onto 1-tile drawbridges at the bottom of the pit (level 157). Anything that lands on one is wiped out when the bridge swings up. While it is being built this checks the next step; once running it smashes whatever is lying there now.", ["dfai-atom-smasher", "now"], 30),
     "projects":     ("Construction", "What's being built", "Read-only: lists every big job the camera's mission mode is following right now (new rooms being dug, a cavern breach, the ore scrub) and how far along each is. The answer shows up in Orders Given on the right.", ["dfai-projects", "list"], 30),
     # camera
@@ -68,6 +67,8 @@ STATUS = [
     ("Holiday", ["dfai-holiday"]),
     ("Ore scrub", ["dfai-ore-scrub"]),
     ("Memorial", ["dfai-memorial"]),
+    ("Building to order", ["dfai-build"]),
+    ("Catacomb wing", ["dfai-catacomb"]),
 ]
 PLANNED = [
 ]
@@ -276,6 +277,21 @@ def future_state():
     return st
 
 
+# ---- build a room: any kind df-ai builds (dfai-build.lua) ----
+kinds_cache = {"at": 0, "data": []}
+
+
+def build_kinds():
+    if time.time() - kinds_cache["at"] < 600 and kinds_cache["data"]:
+        return kinds_cache["data"]
+    out = sup.dfhack("dfai-build", "kinds", timeout=20) or ""
+    try:
+        kinds_cache["data"], kinds_cache["at"] = json.loads(out[out.index("["):]), time.time()
+    except ValueError:
+        pass
+    return kinds_cache["data"]
+
+
 class Handler(BaseHTTPRequestHandler):
     def send(self, body, ctype="application/json", code=200):
         self.send_response(code)
@@ -300,6 +316,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps(stops(), ensure_ascii=False).encode())
         elif path == "/blueprints.json":
             self.send(json.dumps(blueprints(), ensure_ascii=False).encode())
+        elif path == "/buildkinds.json":
+            out = sup.dfhack("dfai-build", timeout=20) or ""
+            self.send(json.dumps({"kinds": build_kinds(), "status": out.strip().splitlines()[0] if out.strip() else ""}, ensure_ascii=False).encode())
         elif path == "/future.json":
             self.send(json.dumps(future_state(), ensure_ascii=False).encode())
         elif path == "/ascii.json":
@@ -353,6 +372,19 @@ class Handler(BaseHTTPRequestHandler):
             off_path.write_text(json.dumps(sorted(off), ensure_ascii=False), encoding="utf-8")
             sup.dfhack("dfai-room-tour", "stops", timeout=20)
             self.send(json.dumps({"ok": True, "off": len(off)}).encode())
+            return
+        if path == "/build":
+            kinds = {k["key"]: k for k in build_kinds()}
+            kind = req.get("kind")
+            if kind not in kinds:
+                self.send_error(400)
+                return
+            try:
+                n = max(1, min(5, int(req.get("n", 1))))
+            except (TypeError, ValueError):
+                n = 1
+            out = sup.dfhack("dfai-build", "new", kind, str(n), timeout=20)
+            self.answer(f"Build: {n} x {kinds[kind]['label']}", "build." + kind, out)
             return
         if path == "/future":
             # the biggest order on the desk: only with the fort's name typed back

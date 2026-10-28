@@ -47,6 +47,45 @@ local function safe(x, y, z)
 end
 
 -- a vault: doorway (dx,dy) from the corridor tile, room beyond it
+
+-- designate a tile for digging with a priority (quickfort's own designation of
+-- the doorway didn't stick: the corridor walls are smoothed, and something
+-- clears it); the room behind it stays hidden until the doorway is open
+local function designate(x, y, z, prio)
+    local f = dfhack.maps.getTileFlags(x, y, z)
+    local b = dfhack.maps.getTileBlock(x, y, z)
+    if not f or not b then return end
+    f.dig = df.tile_dig_designation.Default
+    local ev
+    for _, v in ipairs(b.block_events) do
+        if v:getType() == df.block_square_event_type.designation_priority then ev = v break end
+    end
+    if not ev then
+        b.block_events:insert('#', {new = df.block_square_event_designation_priorityst})
+        ev = b.block_events[#b.block_events - 1]
+    end
+    ev.priority[x % 16][y % 16] = prio or 2000
+    b.flags.designated = true
+end
+-- (a designated tile becomes a Dig job and its flag clears: only re-mark
+-- tiles with neither, or every check piles up another job)
+local function keep_digging(w)
+    local x1, y1, x2, y2 = table.unpack(w.box)
+    local jobs = {}
+    local l = df.global.world.jobs.list.next
+    while l do
+        local j = l.item
+        if j.job_type == df.job_type.Dig and j.pos.z == w.z then jobs[j.pos.x * 10000 + j.pos.y] = true end
+        l = l.next
+    end
+    local function want(x, y)
+        if not is_floor(x, y, w.z) and not jobs[x * 10000 + y] and dfhack.maps.getTileFlags(x, y, w.z).dig == df.tile_dig_designation.No then
+            designate(x, y, w.z, 2000)
+        end
+    end
+    want(w.door[1], w.door[2])
+    for x = x1, x2 do for y = y1, y2 do want(x, y) end end
+end
 local DIRS = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}}
 local function room_box(fx, fy, d)
     local dx, dy = d[1], d[2]
@@ -164,9 +203,8 @@ local function step(s)
         if dug == of and is_floor(w.door[1], w.door[2], w.z) then
             w.phase = 'build'
             qf(w, 'build')
-        elseif dug == 0 and (w.redig or 0) < 3 then
-            w.redig = (w.redig or 0) + 1   -- designations can be lost on a reload
-            qf(w, 'dig')
+        else
+            keep_digging(w)
         end
     elseif w.phase == 'build' then
         local placed = count(w, function(x, y)

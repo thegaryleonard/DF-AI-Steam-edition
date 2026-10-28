@@ -68,6 +68,12 @@
       <div class="where" id="kinds"></div>
       <div class="stops" id="stops">Asking the tour...</div>
     </details>
+    <details open><summary>Build a room: anything df-ai builds</summary>
+      <div class="where">Pick a kind and how many. Each is dug into solid, dry rock beside a corridor near rooms of the same kind, then furnished and zoned; the camera follows it. Furniture comes from the fort's stock.</div>
+      <div class="where"><select id="bkind" style="max-width:260px"></select> &times; <input id="bn" type="number" min="1" max="5" value="1" style="width:44px">
+        <button id="bgo">Build it</button> <span id="bhelp" style="color:#6b624f"></span></div>
+      <div class="where" id="bstatus" style="font-weight:bold"></div>
+    </details>
     <details open><summary>Construction order: what gets dug next</summary>
       <div class="where">These are rooms df-ai has planned but not finished. Add one to the order and it is dug before anything df-ai picks itself, in the order listed (one at a time). Leave the order empty and df-ai decides as usual.
         <span id="plansaved" style="color:#6b624f"></span></div>
@@ -260,6 +266,24 @@ load().then(refreshCards); setInterval(refreshCards, 10000); refreshStatus(); re
     refreshLog(); setTimeout(load, 2000);
   });
   load(); setInterval(load, 15000);
+})();
+
+// build a room of any kind (dfai-build)
+(() => {
+  let K = [];
+  const sel = document.getElementById('bkind'), help = document.getElementById('bhelp');
+  const load = async () => {
+    try { const d = await get('/buildkinds.json'); document.getElementById('bstatus').textContent = d.status || '';
+      if (!K.length && d.kinds.length) { K = d.kinds; let g = null, h = '';
+        for (const k of K) { if (k.group !== g) { if (g) h += '</optgroup>'; h += `<optgroup label="${esc(k.group)}">`; g = k.group; } h += `<option value="${esc(k.key)}">${esc(k.label)}</option>`; }
+        sel.innerHTML = h + '</optgroup>'; sel.onchange(); } } catch (e) {}
+  };
+  sel.onchange = () => { const k = K.find(x => x.key === sel.value); help.textContent = k ? k.help : ''; };
+  document.getElementById('bgo').onclick = async () => {
+    await fetch('/build', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({kind: sel.value, n: +document.getElementById('bn').value})});
+    refreshLog(); setTimeout(load, 2500);
+  };
+  load(); setInterval(load, 30000);
 })();
 </script>
 </body>
