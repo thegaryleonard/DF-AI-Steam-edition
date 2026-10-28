@@ -171,9 +171,16 @@ static void fill_indoor_pasture(AI & ai, Population & pop, color_ostream & out)
             if (auto c = Units::getCasteRaw(u))
                 if (c->flags.is_set(caste_raw_flags::GRAZER))
                     grazers++;
-    // user: grazers eat cave moss as well as grass underground, so no waiting
-    // for grass to spread (grass count kept for the log only)
-    int cap = 1 << 30;
+    // grazers eat the cave moss, but it regrows slowly: with no cap the pen
+    // took 56 grazers on 72 tiles and was eaten bare (user: "out of cave moss,
+    // need a bigger pen"). One grazer per 8 tiles of pen; the rest go to the
+    // cavern pastures (dfai-pastures.lua balances every pen daily).
+    int tiles = 0;
+    for (int16_t x = zone->x1; x <= zone->x2; x++)
+        for (int16_t y = zone->y1; y <= zone->y2; y++)
+            if (Buildings::containsTile(zone, df::coord2d(x, y)))
+                tiles++;
+    int cap = std::max(4, tiles / 8);
     int moved = 0;
     for (auto u : world->units.active)
     {
