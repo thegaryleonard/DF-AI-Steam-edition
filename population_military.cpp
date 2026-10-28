@@ -70,7 +70,7 @@ static std::string squad_label(df::squad *squad)
         return "a squad";
     if (!squad->alias.empty())
         return squad->alias;
-    std::string nm = squad_label(squad);
+    std::string nm = AI::describe_name(squad->name, true);
     if (!nm.empty())
         return nm;
     for (auto pos : squad->positions)

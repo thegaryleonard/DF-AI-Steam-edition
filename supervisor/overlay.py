@@ -70,6 +70,12 @@ def remember_clock(st):
     except (OSError, ValueError):
         clock = []
     now = int(time.time())
+    g_abs = int(year) * 403200 + int(tick)
+    # a crash reloads an older autosave: forget clock marks from the lost future
+    kept = [c for c in clock if not (c[2] == g.get("name") and c[1] > g_abs)]
+    if len(kept) != len(clock):
+        clock = kept
+        CLOCK_FILE.write_text(json.dumps(clock), encoding="utf-8")
     if clock and now - clock[-1][0] < 1800:
         return
     clock.append([now, int(year) * 403200 + int(tick), g.get("name")])
@@ -77,24 +83,76 @@ def remember_clock(st):
     CLOCK_FILE.write_text(json.dumps(clock), encoding="utf-8")
 
 
+ISSUES = HERE / "herald" / "issues"        # the daily editions, kept for the archive
+EVENTS_LOG = HERE / "herald" / "events.json"  # every big event seen, with real time (for the editions)
+
+
+def log_big_events(st):
+    """Keep every 'big' event (deaths, sieges, moods, artifacts...) with the real time it was seen."""
+    big = st.get("big") or []
+    if not big:
+        return
+    try:
+        log = json.loads(EVENTS_LOG.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        log = []
+    ids = {e.get("id") for e in log}
+    now = int(time.time())
+    new = [dict(b, seen=now, fort=(st.get("fort") or {}).get("name")) for b in big if b.get("id") not in ids]
+    if new:
+        log = [e for e in log + new if now - e.get("seen", now) < 3 * 86400]
+        EVENTS_LOG.write_text(json.dumps(log, ensure_ascii=False), encoding="utf-8")
+
+
+def edition_now(now=None):
+    """Which daily issue is out: the morning 'While You Slept' (6am-1pm, covering
+    since 10pm last night) or the 'Evening News' (3pm-midnight, since 6am)."""
+    lt = time.localtime(now or time.time())
+    day = time.mktime((lt.tm_year, lt.tm_mon, lt.tm_mday, 0, 0, 0, 0, 0, -1))
+    if 6 <= lt.tm_hour < 13:
+        return "morning", day - 2 * 3600, time.strftime("%Y-%m-%d", lt)
+    if lt.tm_hour >= 15:
+        return "evening", day + 6 * 3600, time.strftime("%Y-%m-%d", lt)
+    return None, None, None
+
+
 def recap():
-    """What happened in the last ~9 real hours, in game terms (dfai-recap)."""
+    """The current daily issue, in game terms (dfai-recap), archived to herald/issues/."""
     if time.time() - recap_cache["at"] < 300:
         return recap_cache["data"]
-    try:
-        clock = json.loads(CLOCK_FILE.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        clock = []
-    fort = (cache["state"].get("fort") or {}).get("name")
     now = time.time()
-    old = [c for c in clock if 7 * 3600 <= now - c[0] <= 12 * 3600 and c[2] == fort]
+    ed, since, date = edition_now(now)
     data = {}
-    if old:
-        start = old[-1]
-        r = run_json_args(["dfai-recap", str(start[1])])
-        if r:
-            r["hours"] = round((now - start[0]) / 3600)
-            data = r
+    if ed:
+        try:
+            clock = json.loads(CLOCK_FILE.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            clock = []
+        fort = (cache["state"].get("fort") or {}).get("name")
+        mine = [c for c in clock if c[2] == fort and c[0] >= since - 1800]
+        if mine:
+            start = mine[0]
+            r = run_json_args(["dfai-recap", str(start[1])])
+            if r:
+                r.update(edition=ed, date=date, hours=max(1, round((now - start[0]) / 3600)), fort=fort)
+                try:
+                    done = json.loads((Path(sup.CFG["df_dir"]) / "dfhack-config" / "dfai-projects-done.json").read_text(encoding="utf-8"))
+                    from collections import Counter
+                    cnt = Counter(d.get("title") or d.get("name") or d.get("key") for d in done.get("done", []) if d.get("at", 0) >= start[0])
+                    r["projects"] = [t if n == 1 else f"{t} (x{n})" for t, n in cnt.most_common()]
+                except (OSError, ValueError, AttributeError):
+                    r["projects"] = []
+                try:
+                    ev = json.loads(EVENTS_LOG.read_text(encoding="utf-8"))
+                    r["big"] = [{"type": e.get("type"), "text": e.get("text")} for e in ev if e.get("seen", 0) >= start[0] and e.get("fort") == fort][-12:]
+                except (OSError, ValueError):
+                    r["big"] = []
+                data = r
+                try:
+                    ISSUES.mkdir(parents=True, exist_ok=True)
+                    (ISSUES / f"{date}-{ed}.json").write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
+                except OSError as e:
+                    print(f"issue archive: {e}", flush=True)
     recap_cache["at"], recap_cache["data"] = now, data
     return data
 
@@ -128,6 +186,10 @@ def poller():
         st = run_json("dfai-overlay-state", timeout=20)
         if st is not None:
             cache["state"] = st
+            try:
+                log_big_events(st)
+            except Exception as e:
+                print(f"events: {e}", flush=True)
             try:
                 remember_clock(st)
             except Exception as e:

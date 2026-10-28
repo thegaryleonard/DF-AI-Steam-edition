@@ -42,12 +42,13 @@ end
 for _, u in ipairs(dfhack.units.getCitizens(true)) do
     if T(u.birth_year, u.birth_time) >= since then out.births = out.births + 1 end
 end
--- raids that left or came home
+-- raids sent in the window: the war office notes when each squad last set out
 local W = dfhack.persistent.getSiteData('dfai-war-office', {})
-for _, e in ipairs(W.log or {}) do
-    -- the war log keeps years only: anything this year or later that is in the window's year
-    if (e.year or 0) >= stop_year and (e.kind == 'home' or e.kind == 'result') then
-        out.raids[#out.raids + 1] = ('%s %s %s'):format(e.squad or 'a squad', e.kind == 'home' and 'came home from' or (e.what or 'hit'), e.site or '?')
+for sid, at in pairs(W.turn or {}) do
+    if at >= since then
+        local sq = df.squad.find(tonumber(sid))
+        local nm = sq and (sq.alias ~= '' and sq.alias or dfhack.df2utf(dfhack.translation.translateName(sq.name, true))) or ''
+        out.raids[#out.raids + 1] = nm ~= '' and nm or ('squad ' .. sid)
     end
 end
 out.pop = #dfhack.units.getCitizens(true)
