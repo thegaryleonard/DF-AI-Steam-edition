@@ -185,7 +185,7 @@ def new_world():
     if not after:
         raise Failed("the new world's folder did not appear in the save directory")
     WORLD = max(after, key=lambda p: p.stat().st_mtime).name
-    cfg = json.loads(sup.CFG_FILE.read_text(encoding="utf-8")) if sup.CFG_FILE.exists() else {}
+    cfg = json.loads(sup.CFG_FILE.read_text(encoding="utf-8-sig")) if sup.CFG_FILE.exists() else {}
     old = cfg.get("world_folder", CFG["world_folder"])
     cfg["world_folder"] = WORLD
     cfg.setdefault("past_worlds", []).append(old)

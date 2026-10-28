@@ -13,13 +13,15 @@ rem        * when a fort falls, abandons it and embarks a new one nearby
 rem  Close everything with stop-dfai-stream.bat
 rem ===================================================================
 setlocal
-set "DFAI=C:\Users\dad\dfai-stream\df-ai\supervisor"
-if not exist "%DFAI%\dfai_supervisor.py" set "DFAI=C:\Users\dad\AppData\Local\Temp\dfai2\df-ai\supervisor"
+set "DFAI=%~dp0"
+if "%DFAI:~-1%"=="\" set "DFAI=%DFAI:~0,-1%"
 if not exist "%DFAI%\dfai_supervisor.py" (
   echo Could not find the df-ai supervisor folder. & pause & exit /b 1
 )
-set "PY=C:\Users\dad\AppData\Local\Python\pythoncore-3.15-64\python.exe"
-if not exist "%PY%" set "PY=py -3"
+set "PY="
+if exist "%DFAI%\python.txt" set /p PY=<"%DFAI%\python.txt"
+if not defined PY set "PY=C:\Users\dad\AppData\Local\Python\pythoncore-3.15-64\python.exe"
+if not exist "%PY%" set "PY=python"
 set "LOGS=%DFAI%\logs"
 if not exist "%LOGS%" mkdir "%LOGS%"
 

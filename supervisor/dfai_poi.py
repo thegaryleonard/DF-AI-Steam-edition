@@ -12,7 +12,16 @@ import os
 import sys
 from pathlib import Path
 
-DF_DIR = Path(r"C:\Program Files (x86)\Steam\steamapps\common\Dwarf Fortress")
+def _df_dir():
+    # same source as dfai_supervisor's CFG["df_dir"] (supervisor.json beside this file)
+    import json as _json
+    d = r"C:\Program Files (x86)\Steam\steamapps\common\Dwarf Fortress"
+    try:
+        d = _json.loads(Path(__file__).with_name("supervisor.json").read_text(encoding="utf-8-sig")).get("df_dir", d)
+    except (OSError, ValueError):
+        pass
+    return Path(d)
+DF_DIR = _df_dir()
 SAVE_DIRS = [Path(os.path.expandvars(r"%APPDATA%\Bay 12 Games\Dwarf Fortress\save")), DF_DIR / "save"]
 OUT = DF_DIR / "dfhack-config" / "dfai-poi.json"
 

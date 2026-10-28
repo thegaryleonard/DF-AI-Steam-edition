@@ -42,7 +42,7 @@ CFG = {
 }
 CFG_FILE = Path(__file__).with_name("supervisor.json")
 if CFG_FILE.exists():
-    CFG.update(json.loads(CFG_FILE.read_text(encoding="utf-8")))
+    CFG.update(json.loads(CFG_FILE.read_text(encoding="utf-8-sig")))
 
 LOG = Path(__file__).with_name("supervisor.log")
 DFHACK_RUN = str(Path(CFG["df_dir"]) / "hack" / "dfhack-run.exe")
