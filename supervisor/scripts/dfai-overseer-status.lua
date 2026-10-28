@@ -68,6 +68,8 @@ elseif df.global.plotinfo.follow_unit ~= -1 then
     cam = u and ('following ' .. dfhack.df2utf(dfhack.units.getReadableName(u)):gsub(',.*', '')) or nil
 end
 out.camera = cam or 'free'
+local okl, cl = pcall(reqscript, 'dfai-camera-lock')
+out.camlock = okl and cl.status and cl.status() or 'not running'
 local threats = 0
 for _, u in ipairs(df.global.world.units.active) do
     if not dfhack.units.isDead(u) and (u.flags1.active_invader or dfhack.units.isGreatDanger(u))

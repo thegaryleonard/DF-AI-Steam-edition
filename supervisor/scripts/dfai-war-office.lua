@@ -290,6 +290,8 @@ elseif cmd == 'now' then
         local ok, res = pcall(step, true)
         _G.dfai_war_last = ok and res or ('error: ' .. tostring(res))
         if not (ok and follow and tostring(res):find('^sent')) then return end
+        local cl = rawget(_G, 'dfai_camlock')
+        if cl and cl.lock then return end -- the camera is locked: no send-off shot
         for sid in pairs(load_state().sent) do
             local sq = df.squad.find(tonumber(sid))
             for _, p in ipairs(sq and sq.positions or {}) do
@@ -299,7 +301,7 @@ elseif cmd == 'now' then
                     dfhack.run_command_silent('disable', 'spectate')
                     df.global.plotinfo.follow_unit = u.id
                     _G.dfai_war_follow = u.id
-                    dfhack.timeout(4800, 'frames', function() dfhack.run_command_silent('enable', 'spectate') end)
+                    dfhack.timeout(4800, 'frames', function() local c = rawget(_G, 'dfai_camlock') if not (c and c.lock) then dfhack.run_command_silent('enable', 'spectate') end end)
                     return
                 end
             end

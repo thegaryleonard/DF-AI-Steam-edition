@@ -26,6 +26,8 @@ local function tick()
     keeper.still = 0
     return
   end
+  local cl = rawget(_G, 'dfai_camlock')
+  if cl and cl.lock then keeper.still, keeper.last = 0, nil return end -- dfai-camera-lock holds the camera
   if spectate_on() then keeper.still, keeper.last = 0, nil return end
   local v = view()
   -- a camera that follows a unit moves by itself: that's not a person scrolling

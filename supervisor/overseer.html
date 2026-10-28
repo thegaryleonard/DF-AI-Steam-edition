@@ -60,7 +60,7 @@
   <section>
     <div id="groups"></div>
     <details open><summary>Tour Stops: what the camera visits</summary>
-      <div class="where">Untick a stop to take it off the tour; "show" sends the camera there now.</div>
+      <div class="where">Untick a stop to take it off the tour; "show" sends the camera there now, "lock" holds it there until you unlock it (Camera card).</div>
       <div class="where">Find: <input id="sq" type="search" style="width:180px" placeholder="name or kind">
         Sort: <select id="ss"><option value="kind">kind</option><option value="name">name</option><option value="z">level</option><option value="tour">tour order</option></select>
         Show: <select id="sf"><option value="">all</option><option value="on">on the tour</option><option value="off">off the tour</option></select>
@@ -156,11 +156,12 @@ function render() {
   let last = null, html = '';
   for (const s of xs) {
     if (ss.value === 'kind' && s.kind !== last) { html += `<h4>${esc(s.kind || 'Other')}</h4>`; last = s.kind; }
-    html += `<div class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${s.i}" ${s.on ? 'checked' : ''}><span class="go" data-show="${s.i}" title="Send the camera here" style="cursor:pointer;text-decoration:underline dotted">${esc(s.name)}</span><small>${ss.value === 'kind' ? '' : esc(s.kind) + ' &middot; '}lvl ${s.z}</small><a data-show="${s.i}">show</a></div>`;
+    html += `<div class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${s.i}" ${s.on ? 'checked' : ''}><span class="go" data-show="${s.i}" title="Send the camera here" style="cursor:pointer;text-decoration:underline dotted">${esc(s.name)}</span><small>${ss.value === 'kind' ? '' : esc(s.kind) + ' &middot; '}lvl ${s.z}</small><a data-show="${s.i}">show</a> <a data-lock="${s.i}" title="Hold the camera here until unlocked">lock</a></div>`;
   }
   document.getElementById('stops').innerHTML = html || (STOPS.length ? '<i>Nothing matches.</i>' : '<i>The tour has not listed its stops yet.</i>');
   document.querySelectorAll('#stops input[data-i]').forEach(c => c.onchange = () => setKeys([STOPS[c.dataset.i].key], c.checked));
   document.querySelectorAll('#stops [data-show]').forEach(a => a.onclick = async () => { await post('/show', {key: STOPS[a.dataset.show].key}); refreshLog(); });
+  document.querySelectorAll('#stops [data-lock]').forEach(a => a.onclick = async () => { await post('/lock', {key: STOPS[a.dataset.lock].key}); refreshLog(); });
 }
 async function loadStops() {
   try { STOPS = await get('/stops.json'); } catch (e) { return; }

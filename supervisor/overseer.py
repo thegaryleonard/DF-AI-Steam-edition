@@ -52,6 +52,9 @@ COMMANDS = {
     "cam.next":     ("Camera", "Next room", "The tour moves on now.", ["dfai-room-tour", "next"], 30),
     "cam.statue":   ("Camera", "Show a statue", "The statue shown least recently, with its story.", ["dfai-room-tour", "statue"], 30),
     "cam.leaves":   ("Camera", "Look at the trees", "Leaves mode: a breather on the nearest stand of trees.", ["dfai-room-tour", "leaves"], 30),
+    "cam.lock":     ("Camera", "Lock the camera here", "Holds the camera on what it shows right now. Spectate, the tour, projects and raid send-offs leave it alone until the time is up or you unlock it (minutes: 0 = until you unlock). A tour stop's \"lock\" link locks on that stop.", ["dfai-camera-lock", "here", "{n}"], 30),
+    "cam.locktrees": ("Camera", "Lock on the trees", "Holds the camera on the thickest stand of surface trees. Every year it also locks there by itself from the 6th to the 10th of Limestone, while the leaves turn for autumn (a battle still gets the camera, then it goes back to the trees).", ["dfai-camera-lock", "trees", "{n}"], 30),
+    "cam.unlock":   ("Camera", "Unlock the camera", "Back to the tour and spectate. Unlocking during the autumn days ends them for this year.", ["dfai-camera-lock", "off"], 30),
     "cam.threats":  ("Camera", "Threats", "What the battle camera can see.", ["dfai-room-tour", "threats"], 30),
     # the fort
     "holiday.start": ("Fort", "Holiday party mode", "No jobs, no masters: everyone parties for N game days (about 1.5 min each), then every labor goes back as it was. Squads stay on guard.", ["dfai-holiday", "start", "{n}"], 30),
@@ -59,6 +62,8 @@ COMMANDS = {
 }
 # orders that take a number: key -> (label, min, max, default)
 PARAMS = {
+    "cam.lock": ("minutes", 0, 240, 0),
+    "cam.locktrees": ("minutes", 0, 240, 10),
     "holiday.start": ("days", 1, 28, 7),
     "ore.start": ("levels", 1, 20, 10),
 }
@@ -242,6 +247,9 @@ def card_status():
         "cam.next": "On camera: " + st.get("camera", "?"),
         "cam.statue": "On camera: " + st.get("camera", "?"),
         "cam.leaves": "On camera: " + st.get("camera", "?"),
+        "cam.lock": "Camera " + st.get("camlock", "?"),
+        "cam.locktrees": "Camera " + st.get("camlock", "?"),
+        "cam.unlock": "Camera " + st.get("camlock", "?"),
         "cam.threats": f"{st.get('threats', 0)} threat(s) in view." if st.get("threats") else "No threats in view.",
         "holiday.start": st.get("holiday", "?"),
         "holiday.stop": st.get("holiday", "?"),
@@ -477,6 +485,24 @@ class Handler(BaseHTTPRequestHandler):
                    f"df.global.plotinfo.follow_unit=-1 dfhack.gui.revealInDwarfmodeMap(xyz2pos({r['x']},{r['y']},{r['z']}),true,true) end)")
             out = sup.dfhack("lua", lua, timeout=20)
             self.answer(f"Camera to the planned {r['name']}", "cam.goto", "camera moved" if out is not None else None)
+            return
+        if path == "/lock":
+            # lock the camera on a tour stop: only coordinates and the name from
+            # the game's own stop list reach the game, never page input
+            known = {s_["key"]: s_ for s_ in stops()}
+            k = req.get("key")
+            if k not in known:
+                self.send_error(400)
+                return
+            s_ = known[k]
+            try:
+                x, y, z = int(s_["x"]), int(s_["y"]), int(s_["z"])
+            except (KeyError, TypeError, ValueError):
+                self.send_error(400)
+                return
+            name = re.sub(r"[^\w' -]", "", str(s_.get("name", "")))[:60] or "A tour stop"
+            out = sup.dfhack("dfai-camera-lock", "at", str(x), str(y), str(z), "0", name, timeout=20)
+            self.answer("Lock the camera on " + name, "cam.lock", out)
             return
         if path == "/show":
             known = {s_["key"]: s_ for s_ in stops()}

@@ -914,7 +914,14 @@ end
 show_statue_check = function(id) return show_statue(id or true) end
 
 local function step()
-    camera_watchdog()
+    -- dfai-camera-lock holds the camera: nothing moves it (a lock that lets
+    -- battles in still runs the threat check below)
+    local cl = rawget(_G, 'dfai_camlock')
+    local held = cl and cl.lock
+    if held and not held.yield then return end
+    if held and tour.current and not tour.current.lock and not tour.threat then tour.current = nil end
+    if not held then camera_watchdog() end
+    if held and tour.threat then camera_watchdog() end
     -- threats first: break into anything (room, guest, dwarf) except another threat,
     -- and only while the stream camera is in charge
     if not tour.threat and (tour.current or tour.guest or spectate_on()) and pick_threat() then
@@ -924,6 +931,7 @@ local function step()
     if not dfhack.isMapLoaded() or not dfhack.gui.matchFocusString('dwarfmode/Default') then
         return
     end
+    if held and not tour.threat then return end
     local now = os.time()
     if tour.project then
         for _, p in ipairs(scan_projects()) do
