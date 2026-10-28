@@ -101,7 +101,8 @@ local function construct(y, z, ctype)
     end
 end
 
-local function tick()
+local tick
+function tick()
     if df.global.gamemode ~= df.game_mode.DWARF or df.global.plotinfo.site_id ~= SITE then return end
     local s = load()
     if s.phase == 'open' then
@@ -162,6 +163,8 @@ local function tick()
             trigger(s.hatch, true)
             local hid = s.hatch
             dfhack.timeout(30, 'ticks', function() trigger(hid, false) end)
+            -- and smash what fell once it has landed, rather than half a day later
+            dfhack.timeout(120, 'ticks', function() pcall(tick) end)
             s.dropped = (s.dropped or 0) + on_hatch
         end
         for i, y in ipairs({Y_PIT, Y_DUMP}) do
