@@ -55,6 +55,12 @@
       <div class="where" id="kinds"></div>
       <div class="stops" id="stops">Asking the tour...</div>
     </details>
+    <details open><summary>Construction order: what gets dug next</summary>
+      <div class="where">These are rooms df-ai has planned but not finished. Add one to the order and it is dug before anything df-ai picks itself, in the order listed (one at a time). Leave the order empty and df-ai decides as usual.
+        <span id="plansaved" style="color:#6b624f"></span></div>
+      <div id="order" class="where"></div>
+      <div class="stops" id="planned">Reading the plan...</div>
+    </details>
     <details open><summary>Blueprints: build something</summary>
       <div class="where">Where: x <input id="bx" type="number"> y <input id="by" type="number"> z <input id="bz" type="number">
         <button onclick="useCamera()">Where the camera is looking</button>
@@ -120,11 +126,11 @@ function render() {
   let last = null, html = '';
   for (const s of xs) {
     if (ss.value === 'kind' && s.kind !== last) { html += `<h4>${esc(s.kind || 'Other')}</h4>`; last = s.kind; }
-    html += `<label class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${s.i}" ${s.on ? 'checked' : ''}><span>${esc(s.name)}</span><small>${ss.value === 'kind' ? '' : esc(s.kind) + ' &middot; '}lvl ${s.z}</small><a data-show="${s.i}">show</a></label>`;
+    html += `<label class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${s.i}" ${s.on ? 'checked' : ''}><span class="go" data-show="${s.i}" title="Send the camera here" style="cursor:pointer;text-decoration:underline dotted">${esc(s.name)}</span><small>${ss.value === 'kind' ? '' : esc(s.kind) + ' &middot; '}lvl ${s.z}</small><a data-show="${s.i}">show</a></label>`;
   }
   document.getElementById('stops').innerHTML = html || (STOPS.length ? '<i>Nothing matches.</i>' : '<i>The tour has not listed its stops yet.</i>');
   document.querySelectorAll('#stops input[data-i]').forEach(c => c.onchange = () => setKeys([STOPS[c.dataset.i].key], c.checked));
-  document.querySelectorAll('#stops a[data-show]').forEach(a => a.onclick = async () => { await post('/show', {key: STOPS[a.dataset.show].key}); refreshLog(); });
+  document.querySelectorAll('#stops [data-show]').forEach(a => a.onclick = async () => { await post('/show', {key: STOPS[a.dataset.show].key}); refreshLog(); });
 }
 async function loadStops() {
   try { STOPS = await get('/stops.json'); } catch (e) { return; }
@@ -160,7 +166,31 @@ async function buildBp(btn) {
     body: JSON.stringify({file: b.file, label: b.label, x: bx.value, y: by.value, z: bz.value, dry})}); }
   finally { btn.disabled = false; refreshLog(); }
 }
-loadStops(); loadBps(); setInterval(loadStops, 60000);
+let PLAN = {rooms: [], order: []};
+async function loadPlan() {
+  try { PLAN = await get('/plan.json'); } catch (e) { return; }
+  const byKey = Object.fromEntries(PLAN.rooms.map(r => [r.key, r]));
+  plansaved.textContent = PLAN.saved ? `(df-ai's plan as of the last save, ${PLAN.saved})` : '';
+  order.innerHTML = '<b>The order:</b> ' + (PLAN.order.length ? PLAN.order.map((k, i) =>
+    `<span class="chip">${i + 1}. ${esc((byKey[k] || {name: k + ' (done or gone)'}).name)} ${i ? `<a href="#" data-up="${esc(k)}">&uarr;</a>` : ''} <a href="#" data-rm="${esc(k)}">&times;</a></span>`).join(' ')
+    + ' <a href="#" id="dclear">clear</a>' : '<i>empty: df-ai decides</i>');
+  let last = null, html = '';
+  for (const r of PLAN.rooms) {
+    if (r.type !== last) { html += `<h4>${esc(r.type)}</h4>`; last = r.type; }
+    const inOrder = PLAN.order.includes(r.key);
+    html += `<div class="stop"><span class="go" data-goto="${esc(r.key)}" style="cursor:pointer;text-decoration:underline dotted" title="Send the camera here">${esc(r.name)}</span>`
+      + `<small>${esc(r.size)} &middot; lvl ${r.z}${r.status === 'dig' ? ' &middot; digging now' : ''}</small>`
+      + (r.status === 'plan' ? `<a data-add="${esc(r.key)}">${inOrder ? 'in order' : 'dig next'}</a>` : '') + '</div>';
+  }
+  planned.innerHTML = html || '<i>Nothing planned: df-ai has dug everything it wanted.</i>';
+  const dig = (op, key) => post('/dig', {op, key}).then(() => { loadPlan(); refreshLog(); });
+  document.querySelectorAll('#planned a[data-add]').forEach(a => a.onclick = () => dig('add', a.dataset.add));
+  document.querySelectorAll('#order a[data-up]').forEach(a => a.onclick = e => { e.preventDefault(); dig('up', a.dataset.up); });
+  document.querySelectorAll('#order a[data-rm]').forEach(a => a.onclick = e => { e.preventDefault(); dig('remove', a.dataset.rm); });
+  const c = document.getElementById('dclear'); if (c) c.onclick = e => { e.preventDefault(); dig('clear'); };
+  document.querySelectorAll('#planned [data-goto]').forEach(a => a.onclick = async () => { await post('/goto', {key: a.dataset.goto}); refreshLog(); });
+}
+loadStops(); loadBps(); loadPlan(); setInterval(loadStops, 60000); setInterval(loadPlan, 120000);
 load(); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
 </script>
 </body>

@@ -37,12 +37,12 @@ COMMANDS = {
     # construction
     "mist.status":  ("Construction", "Mist generator", "Build and run state.", ["dfai-mist-build"], 30),
     "mist.prime":   ("Construction", "Prime the mist generator", "Opens a pond over a statue for a bucket or three (no top-ups).", ["dfai-mist-build", "prime"], 30),
-    "camp.now":     ("Construction", "Deep camp: next step", "Dig or furnish the next piece of the deep camp.", ["dfai-deep-camp", "now"], 30),
+    "camp.now":     ("Construction", "Deep camp: check it", "The deep camp is the rest stop at level 38, at the bottom of the main shaft: a citizens-only tavern, a dormitory with 4 beds, a still and food, so the deep miners don't climb 130 levels for a drink. It is built. This re-checks it and digs or furnishes anything missing (a stolen bed, a broken still).", ["dfai-deep-camp", "now"], 30),
     "dig.now":      ("Construction", "Deep dig: next 10 levels", "The shaft goes down another batch.", ["dfai-deep-dig", "now"], 30),
     "dig.stop":     ("Construction", "Deep dig: stop", "No more shaft levels.", ["dfai-deep-dig", "stop"], 30),
     "ore.start":    ("Construction", "Dig down and scrub for ore", "A staircase N levels down with galleries on every level; every ore vein they expose is marked for mining. Picks the spot with the most ore and never digs near water, magma or caverns.", ["dfai-ore-scrub", "start", "{n}"], 30),
     "ore.stop":     ("Construction", "Stop the ore scrub", "No more veins marked (what is marked stays).", ["dfai-ore-scrub", "stop"], 30),
-    "projects":     ("Construction", "Projects", "Everything being dug or built that the camera follows.", ["dfai-projects", "list"], 30),
+    "projects":     ("Construction", "What's being built", "Read-only: lists every big job the camera's mission mode is following right now (new rooms being dug, a cavern breach, the ore scrub) and how far along each is. The answer shows up in Orders Given on the right.", ["dfai-projects", "list"], 30),
     # camera
     "cam.next":     ("Camera", "Next room", "The tour moves on now.", ["dfai-room-tour", "next"], 30),
     "cam.statue":   ("Camera", "Show a statue", "The statue shown least recently, with its story.", ["dfai-room-tour", "statue"], 30),
@@ -68,7 +68,6 @@ STATUS = [
     ("Memorial", ["dfai-memorial"]),
 ]
 PLANNED = [
-    ("Construction", "Construction priority", "Put the fort's planned rooms in the order you want them dug."),
 ]
 status_cache = {"at": 0, "data": []}
 
@@ -149,6 +148,48 @@ def camera():
     return {"x": int(m.group(1)), "y": int(m.group(2)), "z": int(m.group(3))} if m else None
 
 
+# ---- construction order: df-ai's planned rooms, dug first in the order given ----
+import glob, os
+DIG_FILE = "dfai-overseer-dig.txt"
+ROOM_WORDS = {"stockpile": "storeroom", "nobleroom": "noble room", "cemetery": "catacomb", "dininghall": "dining hall",
+              "infirmary": "hospital", "farmplot": "farm plot", "tradedepot": "trade depot", "pitcage": "execution pit",
+              "garbagedump": "refuse chute", "location": "", "outpost": "outpost"}
+
+
+def plan_rooms():
+    files = glob.glob(os.path.expandvars(r"%APPDATA%\Bay 12 Games\Dwarf Fortress\save\*\df-ai-plan.dat"))
+    if not files:
+        return [], None
+    f = max(files, key=os.path.getmtime)
+    try:
+        plan = json.loads(Path(f).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return [], None
+    out = []
+    for r in plan.get("r", []):
+        if r.get("status") not in ("plan", "dig") or r.get("type") == "corridor":
+            continue
+        t = r.get("type", "")
+        sub = (r.get("stockpile_type") or r.get("nobleroom_type") or r.get("location_type") or r.get("workshop_type")
+               or r.get("furnace_type") or r.get("farm_type") or r.get("outpost_type") or r.get("cistern_type") or "")
+        word = ROOM_WORDS.get(t, t)
+        name = (f"noble {sub}" if t == "nobleroom" else f"{sub} {word}").strip() if sub else word
+        name = name.replace("_", " ")
+        (x1, y1, z1), (x2, y2, z2) = r["min"], r["max"]
+        out.append({"key": f"{x1},{y1},{z1}", "name": name[:1].upper() + name[1:], "type": t, "status": r["status"],
+                    "size": f"{x2 - x1 + 1}x{y2 - y1 + 1}", "x": (x1 + x2) // 2, "y": (y1 + y2) // 2, "z": z1,
+                    "comment": r.get("comment", "")})
+    out.sort(key=lambda r: (r["type"], r["name"], -r["z"]))
+    return out, os.path.getmtime(f)
+
+
+def dig_order():
+    try:
+        return [l.strip() for l in df_path(DIG_FILE).read_text(encoding="utf-8").splitlines() if l.strip()]
+    except OSError:
+        return []
+
+
 class Handler(BaseHTTPRequestHandler):
     def send(self, body, ctype="application/json", code=200):
         self.send_response(code)
@@ -173,6 +214,10 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps(stops(), ensure_ascii=False).encode())
         elif path == "/blueprints.json":
             self.send(json.dumps(blueprints(), ensure_ascii=False).encode())
+        elif path == "/plan.json":
+            rooms, at = plan_rooms()
+            self.send(json.dumps({"rooms": rooms, "order": dig_order(),
+                                  "saved": time.strftime("%H:%M", time.localtime(at)) if at else None}, ensure_ascii=False).encode())
         elif path == "/camera.json":
             self.send(json.dumps(camera()).encode())
         elif path == "/log.json":
@@ -216,6 +261,41 @@ class Handler(BaseHTTPRequestHandler):
             off_path.write_text(json.dumps(sorted(off), ensure_ascii=False), encoding="utf-8")
             sup.dfhack("dfai-room-tour", "stops", timeout=20)
             self.send(json.dumps({"ok": True, "off": len(off)}).encode())
+            return
+        if path == "/dig":
+            # the construction order: add / remove / up / clear; keys must be planned rooms
+            rooms = {r["key"]: r for r in plan_rooms()[0]}
+            order = dig_order()
+            op, k = req.get("op"), req.get("key")
+            if op == "clear":
+                order = []
+            elif k not in rooms and not (op == "remove" and k in order):
+                self.send_error(400)
+                return
+            elif op == "add" and k not in order:
+                order.append(k)
+            elif op == "remove" and k in order:
+                order.remove(k)
+            elif op == "up" and k in order and order.index(k) > 0:
+                i = order.index(k)
+                order[i - 1], order[i] = order[i], order[i - 1]
+            df_path(DIG_FILE).write_text("\n".join(order) + ("\n" if order else ""), encoding="utf-8")
+            name = rooms.get(k, {}).get("name", k) if k else ""
+            write_log({"at": time.strftime("%H:%M:%S"), "key": "dig." + str(op), "label": f"Construction order: {op} {name}".strip(),
+                       "ok": True, "out": "order now: " + (", ".join(rooms[o]["name"] if o in rooms else o for o in order) or "empty (df-ai decides)")})
+            self.send(json.dumps({"ok": True, "order": order}).encode())
+            return
+        if path == "/goto":
+            # send the camera to a planned room
+            rooms = {r["key"]: r for r in plan_rooms()[0]}
+            r = rooms.get(req.get("key"))
+            if not r:
+                self.send_error(400)
+                return
+            lua = (f"dfhack.timeout(1,'ticks',function() dfhack.run_command_silent('disable','spectate') "
+                   f"df.global.plotinfo.follow_unit=-1 dfhack.gui.revealInDwarfmodeMap(xyz2pos({r['x']},{r['y']},{r['z']}),true,true) end)")
+            out = sup.dfhack("lua", lua, timeout=20)
+            self.answer(f"Camera to the planned {r['name']}", "cam.goto", "camera moved" if out is not None else None)
             return
         if path == "/show":
             known = {s_["key"]: s_ for s_ in stops()}

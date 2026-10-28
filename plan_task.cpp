@@ -1,4 +1,6 @@
 #include "ai.h"
+#include <cstdio>
+#include <fstream>
 #include "debug.h"
 #include "plan.h"
 
@@ -311,6 +313,36 @@ bool Plan::checkidle(color_ostream & out, std::ostream & reason)
         }
     }
 
+
+    // The overseer's construction order (Overseer's Desk, user request): rooms
+    // listed in dfhack-config/dfai-overseer-dig.txt ("x,y,z" of a room's min
+    // corner, one per line, in order) are dug before df-ai's own priorities,
+    // even while df-ai has a room of its own queued (each starts once).
+    {
+        std::ifstream f("dfhack-config/dfai-overseer-dig.txt");
+        std::string line;
+        while (f && std::getline(f, line))
+        {
+            int x, y, z;
+            if (sscanf(line.c_str(), "%d,%d,%d", &x, &y, &z) != 3)
+                continue;
+            for (auto r : rooms_and_corridors)
+            {
+                if (!r || r->min.x != x || r->min.y != y || r->min.z != z)
+                    continue;
+                if (r->status == room_status::plan)
+                {
+                    if (digroom(out, r, true))
+                    {
+                        reason << "overseer's order: " << AI::describe_room(r);
+                        ai.debug(out, "[OVERSEER] digging " + AI::describe_room(r) + " (construction order)");
+                        return false;
+                    }
+                }
+                break;
+            }
+        }
+    }
 
     for (auto t : tasks_generic)
     {
