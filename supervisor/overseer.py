@@ -250,6 +250,30 @@ def ascii_state():
             "minutes": cfg.get("minutes", 5), "line": line}
 
 
+# ---- the fort's future: retire it, start a new fort here or in a new world ----
+import subprocess, sys
+NF_STATUS = Path(__file__).with_name("logs") / "new_fort_status.json"
+nf_proc = {"p": None}
+
+
+def fort_name():
+    out = sup.dfhack("lua", "local s=dfhack.world.getCurrentSite() print(s and dfhack.df2utf(dfhack.translation.translateName(s.name,true)) or '')", timeout=20) or ""
+    return out.strip()
+
+
+def future_state():
+    try:
+        st = json.loads(NF_STATUS.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        st = {}
+    p = nf_proc["p"]
+    alive = bool(p and p.poll() is None)
+    st["running"] = alive or (st.get("running") and time.time() - NF_STATUS.stat().st_mtime < 4 * 3600 if NF_STATUS.exists() else False)
+    st["fort"] = fort_name()
+    st["world_folder"] = sup.CFG.get("world_folder")
+    return st
+
+
 class Handler(BaseHTTPRequestHandler):
     def send(self, body, ctype="application/json", code=200):
         self.send_response(code)
@@ -274,6 +298,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps(stops(), ensure_ascii=False).encode())
         elif path == "/blueprints.json":
             self.send(json.dumps(blueprints(), ensure_ascii=False).encode())
+        elif path == "/future.json":
+            self.send(json.dumps(future_state(), ensure_ascii=False).encode())
         elif path == "/ascii.json":
             self.send(json.dumps(ascii_state()).encode())
         elif path == "/cardstatus.json":
@@ -325,6 +351,28 @@ class Handler(BaseHTTPRequestHandler):
             off_path.write_text(json.dumps(sorted(off), ensure_ascii=False), encoding="utf-8")
             sup.dfhack("dfai-room-tour", "stops", timeout=20)
             self.send(json.dumps({"ok": True, "off": len(off)}).encode())
+            return
+        if path == "/future":
+            # the biggest order on the desk: only with the fort's name typed back
+            mode = req.get("mode")
+            st = future_state()
+            if mode not in ("fort", "world"):
+                self.send_error(400)
+                return
+            if st.get("running"):
+                self.send(json.dumps({"ok": False, "why": "a new fort is already being made"}).encode())
+                return
+            name = st.get("fort") or ""
+            if not name or (req.get("confirm") or "").strip().lower() != name.lower():
+                self.send(json.dumps({"ok": False, "why": f"type the fort's name ({name or 'no fort loaded'}) to confirm"}).encode())
+                return
+            args = [sys.executable, str(Path(__file__).with_name("new_fort.py"))] + (["--new-world"] if mode == "world" else [])
+            log_f = open(Path(__file__).with_name("logs") / "new_fort_run.log", "a", encoding="utf-8")
+            nf_proc["p"] = subprocess.Popen(args, cwd=str(Path(__file__).parent), stdout=log_f, stderr=subprocess.STDOUT,
+                                            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+            label = f"Retire {name}: " + ("a new world and a new fort" if mode == "world" else "a new fort in this world")
+            write_log({"at": time.strftime("%H:%M:%S"), "key": "future." + mode, "label": label, "ok": True, "out": "started; progress shows on the desk"})
+            self.send(json.dumps({"ok": True}).encode())
             return
         if path == "/ascii":
             mode = req.get("mode")

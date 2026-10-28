@@ -86,6 +86,17 @@
     <h2>Orders Given</h2><div class="log" id="log"></div>
   </aside>
 </main>
+<section style="margin: 0 22px 14px; padding: 10px 12px; border: 2px solid #8b1a1a; background: #f3e6d0">
+  <h2 style="margin: 0 0 4px; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; color: #8b1a1a">The Fort's Future</h2>
+  <div style="font-size: 13px; margin-bottom: 6px">Every fort ends. Retire <b id="ffort">this one</b> while it stands (it stays in the world's history, and the Herald remembers it), then:</div>
+  <div style="display: flex; gap: 10px; flex-wrap: wrap">
+    <div class="card" style="flex: 1; min-width: 260px"><b>A new fort in this world</b><span>Retires the fort, saves the world, embarks a few days' walk from here (river, no aquifer) and hands the new fort to df-ai. Same history, same neighbours, same grudges. About 15 minutes.</span>
+      <button data-future="fort">Retire, new fort here</button></div>
+    <div class="card" style="flex: 1; min-width: 260px"><b>A new world</b><span>Retires the fort, generates a brand new world (the game's basic settings, as last used; generating history can take an hour or more), embarks in it and starts df-ai. The old world stays saved; the Herald starts its first issue for the new one.</span>
+      <button data-future="world">Retire, new world</button></div>
+  </div>
+  <div id="fstatus" style="font-size: 12.5px; margin-top: 6px; white-space: pre-line"></div>
+</section>
 <footer style="padding: 10px 22px 18px; border-top: 3px double #1d1a14; margin: 0 22px; font-size: 14px;">
   <a href="http://localhost:8766/" style="color: #1d1a14; font-weight: bold;">Watch the fort (the stream page)</a>
   &nbsp;&middot;&nbsp;
@@ -227,6 +238,28 @@ load().then(refreshCards); setInterval(refreshCards, 10000); refreshStatus(); re
   box.querySelectorAll('[data-mode]').forEach(x => x.onclick = () => send('/ascii', {mode: x.dataset.mode}));
   document.getElementById('asciisave').onclick = () => send('/ascii_schedule', {hours: [...box.querySelectorAll('#asciihours input:checked')].map(c => +c.value), minutes: +document.getElementById('asciimin').value});
   load(); setInterval(load, 60000);
+})();
+
+// the fort's future: type the fort's name to confirm; progress from new_fort.py
+(() => {
+  const show = st => {
+    document.getElementById('ffort').textContent = st.fort || 'this fort';
+    const f = document.getElementById('fstatus');
+    f.textContent = st.running ? 'Under way: ' + (st.step || 'starting') + '\n' + (st.steps || []).slice(-6).join('\n')
+      : st.step ? 'Last run: ' + st.step + (st.error ? ' (needs a look)' : '') : '';
+    document.querySelectorAll('[data-future]').forEach(b => b.disabled = !!st.running);
+  };
+  const load = () => get('/future.json').then(show).catch(() => {});
+  document.querySelectorAll('[data-future]').forEach(b => b.onclick = async () => {
+    const st = await get('/future.json');
+    const what = b.dataset.future === 'world' ? 'retire ' + st.fort + ' and generate a NEW WORLD' : 'retire ' + st.fort + ' and start a new fort in this world';
+    const typed = prompt(`This will ${what}.\nThe fort is saved and stays in the world's history, but the stream moves on.\n\nType the fort's name (${st.fort}) to confirm:`);
+    if (!typed) return;
+    const r = await (await fetch('/future', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({mode: b.dataset.future, confirm: typed})})).json();
+    if (!r.ok) alert(r.why || 'not started');
+    refreshLog(); setTimeout(load, 2000);
+  });
+  load(); setInterval(load, 15000);
 })();
 </script>
 </body>

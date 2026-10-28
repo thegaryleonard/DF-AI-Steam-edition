@@ -560,7 +560,8 @@ const dayOf = f => f && f.year != null && f.day != null ? f.year * 336 + Math.ma
 const dateOf = d => `${d % 28 + 1} ${MONTHS[Math.floor(d % 336 / 28)]}, Yr ${Math.floor(d / 336)}`;
 let MEMALL = {}, memLoaded = false, memDirty = false, memTimer = null;
 function mem() {
-  const k = (S.fort && S.fort.name) || '?';
+  const f = S.fort || {}, k = (f.world ? f.world + ' / ' : '') + (f.name || '?');
+  if (!MEMALL[k] && f.name && MEMALL[f.name] && f.world) { MEMALL[k] = MEMALL[f.name]; delete MEMALL[f.name]; }   // older memory was keyed by fort name only
   return MEMALL[k] = MEMALL[k] || {streaks: {}, ended: {}, counters: {}, lastIds: {}, dwarves: {}, started: dayOf(S.fort), v: 2};
 }
 function saveMem() {
@@ -2387,6 +2388,20 @@ function tradeItems(ctx, r) {
       <p class="just">No caravan has reached the depot since the autumn of ${TR.last_trade_year}${gap > 1 ? `, ${gap} autumns in a row` : ''}. The broker has taken to standing at the depot anyway, staring at the horizon. Theories at the tavern range from bandits to bad roads to a very long lunch.</p></div>`});
   }
   const nameUp = t => String(t || '').replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase());
+  // a fort's first season: "A New Fort" (in a world we know) or "A New World"
+  const FF = S.fort || {};
+  if (FF.name && FF.age_days != null && FF.age_days < 84) {
+    const pastHere = (LORE.past || []).filter(x => x.name !== FF.name), other = (LORE.elsewhere || []).filter(w => (w.forts || []).length);
+    if (pastHere.length) {
+      const last = pastHere[pastHere.length - 1];
+      out.push({ids: ['first-fort-' + FF.name], html: `<div class="item"><div class="kick">A New Fort · ${esc(clean(FF.world || ''))}</div><h3>${esc(clean(FF.name))} Is Founded</h3>
+        <p class="just">A new band of dwarves has struck the first pick at ${esc(clean(FF.name))}. They are not the first of their kind in ${esc(clean(FF.world || 'these lands'))}: ${pastHere.length === 1 ? 'one fort came before them' : pastHere.length + ' forts came before them'}, most recently ${esc(clean(last.name))}${last.fate ? `, which ${esc(last.fate)}` : ''}. The neighbours remember. So do their grudges.</p></div>`});
+    } else if (other.length) {
+      const w = other[other.length - 1];
+      out.push({ids: ['first-world-' + (FF.world || FF.name)], html: `<div class="item"><div class="kick">A New World · Volume One</div><h3>A World Is Born: ${esc(clean(FF.world || 'Unknown Lands'))}</h3>
+        <p class="just">The old world, ${esc(clean(w.world))}, is closed and shelved, its ${w.forts.length === 1 ? 'one fort' : w.forts.length + ' forts'} (the last of them ${esc(clean(w.last || '?'))}) now ink in the archive. Here everything is new: new mountains, new gods, new neighbours who have never heard of us. ${esc(clean(FF.name))} is the first fort of this age. The Herald starts at page one.</p></div>`});
+    }
+  }
   // the daily issue: "While You Slept" in the morning, "The Evening News" in the
   // afternoon (overlay.py picks the edition and archives it in herald/issues/)
   if (RC && RC.hours && RC.edition) {

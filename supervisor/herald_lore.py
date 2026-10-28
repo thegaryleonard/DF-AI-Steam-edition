@@ -138,8 +138,13 @@ def _record(W, key, text, fort, n):
 
 
 def for_world(world):
-    """What the page needs: ended forts (with fate/years) and the records, newest first."""
+    """What the page needs: ended forts (with fate/years) and the records, newest first,
+    plus the other worlds the stream has played (for a new world's first issue)."""
     with lock:
-        W = load().get(world) or {"forts": {}, "records": [], "order": []}
+        allw = load()
+    W = allw.get(world) or {"forts": {}, "records": [], "order": []}
     forts = [{k: v for k, v in W["forts"][n].items() if k != "seen_events"} for n in W["order"]]
-    return {"world": world, "forts": forts, "past": [x for x in forts if x.get("ended")], "records": W["records"]}
+    others = [{"world": w, "forts": [W2["forts"][n]["name"] for n in W2.get("order", [])],
+               "last": (W2["forts"][W2["order"][-1]] if W2.get("order") else {}).get("name")}
+              for w, W2 in allw.items() if w != world]
+    return {"world": world, "forts": forts, "past": [x for x in forts if x.get("ended")], "records": W["records"], "elsewhere": others}

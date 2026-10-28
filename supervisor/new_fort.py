@@ -8,6 +8,16 @@ keys on these screens) and checks the result in data before going on.
     python new_fort.py            retire the current fort, embark nearby
     python new_fort.py --abandon  abandon it instead (a fallen fort)
     python new_fort.py --title    already at the title screen: just embark
+    python new_fort.py --new-world  retire, generate a new world, embark in it
+    python new_fort.py --new-world --title   at the title screen: new world + embark
+
+A new world is made from the title screen's "Create new world" with whatever
+the basic world settings were last time, then "Play now" (which saves it). The
+new world's folder becomes supervisor.json's world_folder, so later forts
+(and a fallen fort's replacement) embark there.
+
+The Overseer's Desk starts this (POST /future, with the fort's name typed to
+confirm) and shows its progress from supervisor.log ("new fort: ..." lines).
 
 Used by dfai_supervisor.py when a fort falls; run it by hand to test.
 """
@@ -23,6 +33,20 @@ import dfai_supervisor as sup
 from dfai_supervisor import CFG, dfhack, log
 
 WORLD = CFG["world_folder"]
+STATUS = Path(__file__).with_name("logs") / "new_fort_status.json"
+
+
+def status(step, **kw):
+    """Progress for the Overseer's Desk."""
+    try:
+        d = json.loads(STATUS.read_text(encoding="utf-8")) if STATUS.exists() else {}
+    except ValueError:
+        d = {}
+    d.update(kw, step=step, at=time.strftime("%H:%M:%S"))
+    d.setdefault("steps", []).append(f"{d['at']} {step}")
+    d["steps"] = d["steps"][-30:]
+    STATUS.write_text(json.dumps(d, indent=1), encoding="utf-8")
+    log(f"new fort: {step}")
 GEAR_TILE = (-29, 1)       # the main menu gear, top right (tiles from the right edge)
 SCREEN = "dfai-screen"
 
@@ -131,6 +155,59 @@ def leave(abandon, site):
     log(f"new fort: {'abandoning' if abandon else 'retiring'} {site}; the world simulates")
 
 
+# --- a new world -------------------------------------------------------------
+
+def new_world():
+    """From the title screen: Create new world (basic settings as last used),
+    wait for history to finish, Play now. Returns the new world's folder."""
+    global WORLD
+    save = Path(CFG["save_dir"])
+    before = {p.name for p in save.iterdir() if p.is_dir()}
+    wait_focus("title", 60)
+    time.sleep(3)
+    click("Create new world")
+    time.sleep(5)
+    status("world generation settings open")
+    # the basic settings screen: its main button is "Create world" (a returning
+    # player may first be asked whether to use the last settings)
+    for t in ["Create world", "Create new world", "Generate world"]:
+        if click(t, must=False):
+            break
+    else:
+        raise Failed(f"no create-world button on the world generation screen (focus {focus()})")
+    status("generating the world (this takes a while)")
+    found = wait_text(["Play now", "Play Now", "Use this world"], 3 * 3600, step=30)
+    time.sleep(5)
+    click(found)
+    status("world finished; saving it")
+    wait_focus("choose_game_type", 30 * 60, step=10)
+    after = [p for p in save.iterdir() if p.is_dir() and p.name not in before and p.name.startswith("region")]
+    if not after:
+        raise Failed("the new world's folder did not appear in the save directory")
+    WORLD = max(after, key=lambda p: p.stat().st_mtime).name
+    cfg = json.loads(sup.CFG_FILE.read_text(encoding="utf-8")) if sup.CFG_FILE.exists() else {}
+    old = cfg.get("world_folder", CFG["world_folder"])
+    cfg["world_folder"] = WORLD
+    cfg.setdefault("past_worlds", []).append(old)
+    sup.CFG_FILE.write_text(json.dumps(cfg, indent=2), encoding="utf-8")
+    CFG["world_folder"] = WORLD
+    # a new world has no old fort to embark near
+    p = Path(CFG.get("state_dir", Path(__file__).parent)) / "last_site.json"
+    if p.exists():
+        p.unlink()
+    status(f"new world saved as {WORLD}", world=WORLD)
+    return WORLD
+
+
+def reset_fort_files():
+    """The desk's per-fort lists mean nothing in a new fort."""
+    cfgdir = Path(CFG["df_dir"]) / "dfhack-config"
+    for name in ["dfai-overseer-dig.txt", "dfai-tour-off.json", "dfai-tour-stops.json"]:
+        f = cfgdir / name
+        if f.exists():
+            f.unlink()
+
+
 # --- the new embark ---------------------------------------------------------
 
 def old_site_pos():
@@ -153,7 +230,9 @@ CSS = "local v=dfhack.gui.getViewscreenByType(df.viewscreen_choose_start_sitest,
 
 
 def open_world():
-    if focus().startswith("title"):
+    if focus().startswith("choose_game_type"):
+        pass    # straight from a new world's "Play now"
+    elif focus().startswith("title"):
         pick_world()
     wait_focus("choose_game_type", 10 * 60, step=5)   # after loading the world (adopt_region)
     time.sleep(3)
@@ -286,14 +365,24 @@ def start_df_ai():
     return name
 
 
-def run(mode="retire"):
+def run(mode="retire", world=False):
     try:
+        status("starting: " + ("retire, new world, new fort" if world else mode), running=True, error=None, mode=mode, world_mode=world)
         if mode != "title":
             remember_site()
+            status("ending the fort")
             end_fort(abandon=(mode == "abandon"))
+        if world:
+            new_world()
+        status("embarking")
+        reset_fort_files()
         embark()
-        return start_df_ai()
+        status("starting df-ai")
+        name = start_df_ai()
+        status(f"done: {name}", running=False)
+        return name
     except Failed as e:
+        status(f"FAILED: {e}", running=False, error=str(e))
         log(f"new fort FAILED: {e}")
         sup.notify(f"starting a new fort failed: {e}. Needs a human (or me) to finish by hand.", ping=True)
         return None
@@ -304,6 +393,7 @@ if __name__ == "__main__":
     g = ap.add_mutually_exclusive_group()
     g.add_argument("--abandon", action="store_true")
     g.add_argument("--title", action="store_true")
+    ap.add_argument("--new-world", action="store_true", help="generate a new world before embarking")
     a = ap.parse_args()
-    r = run("abandon" if a.abandon else "title" if a.title else "retire")
+    r = run("abandon" if a.abandon else "title" if a.title else "retire", world=a.new_world)
     sys.exit(0 if r else 1)

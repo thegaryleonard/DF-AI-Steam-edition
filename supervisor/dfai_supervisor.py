@@ -365,6 +365,17 @@ class Supervisor:
         if not df_running():
             self.restart("Dwarf Fortress is not running (crashed?)")
             return
+        # a new fort / new world is being made (new_fort.py, e.g. from the
+        # Overseer's Desk): world generation can keep DFHack busy for a long
+        # time, so don't take a slow answer for a hang
+        try:
+            nf = json.loads((Path(__file__).with_name("logs") / "new_fort_status.json").read_text(encoding="utf-8"))
+            if nf.get("running") and now - (Path(__file__).with_name("logs") / "new_fort_status.json").stat().st_mtime < 4 * 3600:
+                self.unresponsive_since = None
+                self.last_progress = now
+                return
+        except (OSError, ValueError):
+            pass
         st = status()
         if st is None:
             self.unresponsive_since = self.unresponsive_since or now

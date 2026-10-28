@@ -69,6 +69,24 @@ All of the scripts start from onMapLoad.init.
 - Fuel comes from charcoal at the wood furnace and from coal veins, which are
   dug when fewer than 10 raw coal boulders are stocked.
 
+## Forts, worlds and the Herald (owner's plan)
+
+The stream plays several forts in one world, one after another, so the world builds a history: Searabbeys, Quakefocus, Creaturemirrored and Showerwheels, all in The Enchanted Planes (region58). Some day the owner will want a new world.
+
+- **Overseer's Desk, "The Fort's Future":** two buttons, each confirmed by typing the fort's name:
+  - "Retire, new fort here" runs `new_fort.py`: retire, save, embark nearby, start df-ai.
+  - "Retire, new world" runs `new_fort.py --new-world`: title screen "Create new world" with the basic settings as last used, then "Play now". The new folder becomes `world_folder` in supervisor.json, and the old one goes to `past_worlds`.
+  - Progress: `logs/new_fort_status.json`, shown on the desk.
+  - **Untested end to end:** the world-generation screens. The button texts are guessed from the wiki: "Create world", then "Play now".
+- **The supervisor stands back** while `new_fort_status.json` says running (up to 4 h). Worldgen keeps DFHack busy.
+- **Herald:**
+  - Lore is kept per world (herald/lore.json) and past forts carry their fates.
+  - Running-story memory is keyed "world / fort".
+  - A fort's first 84 days get "A New Fort" (with its predecessors in this world) or "A New World · Volume One" (naming the old world and its forts).
+  - The daily issues are archived in herald/issues/.
+- **A new fort clears** the desk's per-fort files: dig order, tour on/off, tour stops.
+- **Fort-specific loops** check their site id and stop doing anything elsewhere: the mist build, the atom smasher (SITE = 350), the memorial. Re-plan them per fort.
+
 ## Next fort checklist (the owner's lessons from Showerwheels)
 
 Before embarking:
