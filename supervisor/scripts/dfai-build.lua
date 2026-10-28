@@ -44,6 +44,8 @@ local K = {
                      if v == S - 1 then return 'b' end
                      if v == 0 and u ~= L // 2 then return (u % 2 == 0) and 'a' or 'r' end end,
                  zone = 'B', near = {df.civzone_type.Barracks}, help = '9 beds, armor stands and weapon racks'},
+    pasture   = {label = 'Indoor pasture', L = 11, S = 9, soil = true, zone = 'n', near = {df.civzone_type.Pen},
+                 help = 'dug in soil (cave grass only grows on soil); feeds about 12 grazers once the grass is in'},
     jail      = {label = 'Jail cell', L = 3, S = 3, furn = function(u, v) if u == 1 and v == 1 then return 'v' end end,
                  zone = 'j', near = {df.civzone_type.Dungeon}, help = 'a cell with a chain'},
 }
@@ -130,13 +132,15 @@ local function keep_digging(w)
         end
     end
     want(w.door[1], w.door[2])
+    for _, c in ipairs(w.tunnel or {}) do want(c[1], c[2]) end
     for x = x1, x2 do for y = y1, y2 do want(x, y) end end
 end
 local DIRS = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}}
 -- a room of L x S behind a door at corridor tile f + d
-local function room_of(fx, fy, z, d, L, S)
+local function room_of(fx, fy, z, d, L, S, t)
     local dx, dy = d[1], d[2]
-    local doorx, doory = fx + dx, fy + dy
+    t = t or 1
+    local doorx, doory = fx + dx * t, fy + dy * t
     local x1, y1, x2, y2
     if dy ~= 0 then
         x1, x2 = doorx - (L // 2), doorx - (L // 2) + L - 1
@@ -145,7 +149,9 @@ local function room_of(fx, fy, z, d, L, S)
         y1, y2 = doory - (L // 2), doory - (L // 2) + L - 1
         if dx < 0 then x2 = doorx - 1 x1 = x2 - S + 1 else x1 = doorx + 1 x2 = x1 + S - 1 end
     end
-    return {door = {doorx, doory}, box = {x1, y1, x2, y2}, z = z, d = d, L = L, S = S}
+    local tunnel = {}
+    for i = 1, t - 1 do tunnel[#tunnel + 1] = {fx + dx * i, fy + dy * i} end
+    return {door = {doorx, doory}, box = {x1, y1, x2, y2}, z = z, d = d, L = L, S = S, tunnel = tunnel}
 end
 -- room-local (u, v) of a map tile
 local function uv(w, x, y)
@@ -154,14 +160,24 @@ local function uv(w, x, y)
     if dy ~= 0 then return x - x1, dy > 0 and (y - y1) or (y2 - y) end
     return y - y1, dx > 0 and (x - x1) or (x2 - x)
 end
-local function fits(fx, fy, z, d, L, S)
-    local w = room_of(fx, fy, z, d, L, S)
+local function is_soil(x, y, z)
+    local a = attrs(x, y, z)
+    return a and a.material == df.tiletype_material.SOIL
+end
+local function fits(fx, fy, z, d, L, S, soil, t)
+    local w = room_of(fx, fy, z, d, L, S, t)
     if not safe(w.door[1], w.door[2], z) then return nil end
+    for _, c in ipairs(w.tunnel) do if not safe(c[1], c[2], z) then return nil end end
     local x1, y1, x2, y2 = table.unpack(w.box)
     for x = x1 - 1, x2 + 1 do for y = y1 - 1, y2 + 1 do
         if not (x == w.door[1] and y == w.door[2]) and not is_wall(x, y, z) then return nil end
-        if x >= x1 and x <= x2 and y >= y1 and y <= y2 and not safe(x, y, z) then return nil end
+        if x >= x1 and x <= x2 and y >= y1 and y <= y2 then
+            if not safe(x, y, z) then return nil end
+            if soil and is_soil(x, y, z) then w.soil_n = (w.soil_n or 0) + 1 end
+        end
     end end
+    -- grass only grows on soil, and soil underground is ragged: most of it will do
+    if soil and (w.soil_n or 0) < L * S * 0.7 then return nil end
     return w
 end
 
@@ -185,17 +201,33 @@ local function anchors(kind)
 end
 local function find_site(kind)
     local cit = dfhack.units.getCitizens(true)[1]
-    for i, A in ipairs(anchors(kind)) do
-        if i > 6 then break end
+    local list = anchors(kind)
+    if kind.soil then
+        -- soil is a thin layer: try the levels around each anchor too
+        local more = {}
+        for i, A in ipairs(list) do
+            if i > 2 then break end
+            for dz = -2, 2 do more[#more + 1] = {z = A.z + dz, n = A.n, x = A.x, y = A.y} end
+        end
+        list = more
+    end
+    for i, A in ipairs(list) do
+        if i > (kind.soil and 10 or 6) then break end
         local best, bd
-        for x = A.x - 30, A.x + 30 do for y = A.y - 30, A.y + 30 do
+        local R = kind.soil and 24 or 30
+        for x = A.x - R, A.x + R do for y = A.y - R, A.y + R do
             if is_floor(x, y, A.z) and not dfhack.buildings.findAtTile(xyz2pos(x, y, A.z))
                 and (not cit or dfhack.maps.canWalkBetween(cit.pos, xyz2pos(x, y, A.z))) then
                 for _, d in ipairs(DIRS) do
-                    local w = fits(x, y, A.z, d, kind.L, kind.S)
-                    if w then
-                        local dist = (x - A.x) ^ 2 + (y - A.y) ^ 2
-                        if not bd or dist < bd then best, bd = w, dist end
+                    -- straight off the corridor; soil rooms may sit at the end of a short tunnel
+                    for t = 1, kind.soil and 10 or 1 do
+                        local w = fits(x, y, A.z, d, kind.L, kind.S, kind.soil, t)
+                        if w then
+                            local dist = (x - A.x) ^ 2 + (y - A.y) ^ 2 + t * t * 4
+                            if not bd or dist < bd then best, bd = w, dist end
+                            break
+                        end
+                        if not safe(x + d[1] * t, y + d[2] * t, A.z) then break end
                     end
                 end
             end
@@ -234,7 +266,12 @@ local function write_bp(kind, w)
         end
         return table.concat(rows, '\n')
     end
-    local inroom = function(x, y) return x >= x1 and x <= x2 and y >= y1 and y <= y2 end
+    for _, c in ipairs(w.tunnel or {}) do
+        gx1, gy1, gx2, gy2 = math.min(gx1, c[1]), math.min(gy1, c[2]), math.max(gx2, c[1]), math.max(gy2, c[2])
+    end
+    local tun = {}
+    for _, c in ipairs(w.tunnel or {}) do tun[c[1] * 10000 + c[2]] = true end
+    local inroom = function(x, y) return (x >= x1 and x <= x2 and y >= y1 and y <= y2) or tun[x * 10000 + y] end
     local body = '#dig label(dig) start(1;1)\n' .. grid(function(x, y) if (x == w.door[1] and y == w.door[2]) or inroom(x, y) then return 'd' end end)
         .. '\n#build label(build) start(1;1)\n' .. grid(function(x, y)
             if x == w.door[1] and y == w.door[2] then return 'd' end
@@ -300,7 +337,9 @@ local function step(s)
     if w.phase == 'dig' then
         local n, of = dug(w)
         s.last = ('digging the new %s: %d of %d'):format(kind.label:lower(), n, of)
-        if n == of and is_floor(w.door[1], w.door[2], w.z) then
+        local tunnel_open = true
+        for _, c in ipairs(w.tunnel or {}) do if not is_floor(c[1], c[2], w.z) then tunnel_open = false end end
+        if n == of and tunnel_open and is_floor(w.door[1], w.door[2], w.z) then
             w.phase = 'build'
             qf(kind, w, 'build')
             if kind.pile then qf(kind, w, 'place') end

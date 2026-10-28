@@ -49,6 +49,7 @@ out.memorial = cmd('dfai-memorial')
 out.smasher = cmd('dfai-atom-smasher')
 out.catacomb = cmd('dfai-catacomb')
 out.cavore = cmd('dfai-cavern-ore')
+out.pastures = (cmd('dfai-pastures'):gsub(' | .*', ''))
 
 -- projects the camera follows
 local okp, pm = pcall(reqscript, 'dfai-projects')

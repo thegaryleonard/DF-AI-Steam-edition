@@ -44,6 +44,8 @@ COMMANDS = {
     "ore.stop":     ("Construction", "Stop the ore scrub", "No more veins marked (what is marked stays).", ["dfai-ore-scrub", "stop"], 30),
     "cavore.start": ("Construction", "Mine the caverns' ore", "Once a game day, marks every metal-ore tile showing in the caverns' walls (next to seen, reachable cavern floor; never beside water). As each is dug the next tile of the vein shows and is marked, so the veins get followed into the rock.", ["dfai-cavern-ore", "start"], 30),
     "cavore.stop":  ("Construction", "Stop mining the caverns", "No new cavern ore is marked (what is marked stays marked).", ["dfai-cavern-ore", "stop"], 30),
+    "pasture.cave": ("Construction", "Cavern pastures: use them", "Off by default (indoor pens are safer). Turns on the two big pens on the first cavern's grass and lets the herd spread into them.", ["dfai-pastures", "cavern", "on"], 30),
+    "pasture.home": ("Construction", "Cavern pastures: bring the herd home", "Indoor pens only: grazers in the caverns come back as indoor grass allows, new indoor pasture rooms are ordered when the herd outgrows them, and autobutcher trims each species to its share of the grass.", ["dfai-pastures", "cavern", "off"], 30),
     "smasher":      ("Construction", "Atom smasher: check now", "The refuse chute and the execution pit drop onto 1-tile drawbridges at the bottom of the pit (level 157). Anything that lands on one is wiped out when the bridge swings up. While it is being built this checks the next step; once running it smashes whatever is lying there now.", ["dfai-atom-smasher", "now"], 30),
     "projects":     ("Construction", "What's being built", "Read-only: lists every big job the camera's mission mode is following right now (new rooms being dug, a cavern breach, the ore scrub) and how far along each is. The answer shows up in Orders Given on the right.", ["dfai-projects", "list"], 30),
     # camera
@@ -71,6 +73,7 @@ STATUS = [
     ("Memorial", ["dfai-memorial"]),
     ("Building to order", ["dfai-build"]),
     ("Cavern ore", ["dfai-cavern-ore"]),
+    ("Pastures", ["dfai-pastures"]),
     ("Catacomb wing", ["dfai-catacomb"]),
 ]
 PLANNED = [
@@ -230,6 +233,8 @@ def card_status():
         "ore.start": st.get("ore", "?"),
         "ore.stop": st.get("ore", "?"),
         "smasher": st.get("smasher", "?"),
+        "pasture.cave": st.get("pastures", "?"),
+        "pasture.home": st.get("pastures", "?"),
         "cavore.start": st.get("cavore", "?"),
         "cavore.stop": st.get("cavore", "?"),
         "catacomb": st.get("catacomb", "?"),
