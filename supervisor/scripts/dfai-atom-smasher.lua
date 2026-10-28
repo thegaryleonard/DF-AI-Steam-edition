@@ -79,6 +79,26 @@ local function hatch_at_chute()
     end
 end
 local function trigger(id, state) return dfhack.run_command_silent('ai', 'trigger', tostring(id), state and '1' or '0') end
+-- anyone at all standing on a tile (citizen, pet, visitor): the hatch never opens under them
+local function anyone_on(y, z)
+    for _, u in ipairs(df.global.world.units.active) do
+        if u.pos.x == X and u.pos.y == y and u.pos.z == z and not dfhack.units.isDead(u) then return true end
+    end
+end
+-- our own dead are never smashed: a body of the fort goes in a coffin, or
+-- the dwarf comes back as a ghost (Dastot Doorbalanced, year 138)
+local function our_dead_on(y)
+    local blk = dfhack.maps.getTileBlock(X, y, Z_BOT)
+    if not blk then return false end
+    for _, id in ipairs(blk.items) do
+        local it = df.item.find(id)
+        if it and it.pos.x == X and it.pos.y == y and it.pos.z == Z_BOT and (df.item_corpsest:is_instance(it) or df.item_corpsepiecest:is_instance(it)) then
+            local hf = it.hist_figure_id and df.historical_figure.find(it.hist_figure_id)
+            if hf and hf.civ_id == df.global.plotinfo.civ_id then return dfhack.df2utf(dfhack.translation.translateName(hf.name, true)) end
+        end
+    end
+    return false
+end
 local function removing(y)
     local l = df.global.world.jobs.list.next
     while l do
@@ -158,11 +178,12 @@ function tick()
         end
     elseif s.phase == 'running' then
         -- drop the refuse: open the hatch, close it again a moment later
+        -- (trigger state 0 opens a hatch and it swings shut on its own a few
+        -- ticks later, tested; so it opens in the same tick as the check that
+        -- nobody is standing on it, and never on a delay)
         local on_hatch = loose_items(Y_DUMP, Z_TOP)
-        if s.hatch and on_hatch > 0 and not citizen_on(Y_DUMP, Z_TOP) then
-            trigger(s.hatch, true)
-            local hid = s.hatch
-            dfhack.timeout(30, 'ticks', function() trigger(hid, false) end)
+        if s.hatch and on_hatch > 0 and not anyone_on(Y_DUMP, Z_TOP) then
+            trigger(s.hatch, false)
             -- and smash what fell once it has landed, rather than half a day later
             dfhack.timeout(120, 'ticks', function() pcall(tick) end)
             s.dropped = (s.dropped or 0) + on_hatch
@@ -170,7 +191,10 @@ function tick()
         for i, y in ipairs({Y_PIT, Y_DUMP}) do
             local id = s['bridge' .. i]
             local n = items_on(y)
-            if id and n > 0 and not citizen_on(y) then
+            local ours = n > 0 and our_dead_on(y)
+            if ours then
+                s.last = ('not smashing: the remains of %s lie on the %s bridge'):format(ours, y == Y_PIT and 'pit' or 'chute')
+            elseif id and n > 0 and not anyone_on(y, Z_BOT) or (id and n > 0 and y == Y_PIT and not citizen_on(y)) then
                 -- trigger state 0 raises a drawbridge, 1 lowers it (tested); it
                 -- takes up to ~100 ticks to swing, so lower it again after 200
                 trigger(id, false)

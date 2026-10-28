@@ -42,6 +42,7 @@ COMMANDS = {
     "dig.stop":     ("Construction", "Deep dig: stop", "No more shaft levels.", ["dfai-deep-dig", "stop"], 30),
     "ore.start":    ("Construction", "Dig down and scrub for ore", "A staircase N levels down with galleries on every level; every ore vein they expose is marked for mining. Picks the spot with the most ore and never digs near water, magma or caverns.", ["dfai-ore-scrub", "start", "{n}"], 30),
     "ore.stop":     ("Construction", "Stop the ore scrub", "No more veins marked (what is marked stays).", ["dfai-ore-scrub", "stop"], 30),
+    "catacomb":     ("Construction", "Build: a new catacomb wing", "Digs a 5x9 vault beside a corridor on a catacomb level (solid dry rock only) and fills it with 18 coffins, a door and a tomb for each. Order it twice and the second waits for the first. Restless dead (ghosts) get memorial slabs from df-ai on their own.", ["dfai-catacomb", "new"], 30),
     "smasher":      ("Construction", "Atom smasher: check now", "The refuse chute and the execution pit drop onto 1-tile drawbridges at the bottom of the pit (level 157). Anything that lands on one is wiped out when the bridge swings up. While it is being built this checks the next step; once running it smashes whatever is lying there now.", ["dfai-atom-smasher", "now"], 30),
     "projects":     ("Construction", "What's being built", "Read-only: lists every big job the camera's mission mode is following right now (new rooms being dug, a cavern breach, the ore scrub) and how far along each is. The answer shows up in Orders Given on the right.", ["dfai-projects", "list"], 30),
     # camera
@@ -225,6 +226,7 @@ def card_status():
         "ore.start": st.get("ore", "?"),
         "ore.stop": st.get("ore", "?"),
         "smasher": st.get("smasher", "?"),
+        "catacomb": st.get("catacomb", "?"),
         "projects": (f"{len(proj)} under way: " + ", ".join(proj)) if proj else "Nothing big under way.",
         "cam.next": "On camera: " + st.get("camera", "?"),
         "cam.statue": "On camera: " + st.get("camera", "?"),

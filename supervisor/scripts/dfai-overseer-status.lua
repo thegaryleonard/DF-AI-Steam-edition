@@ -47,6 +47,7 @@ out.ore = cmd('dfai-ore-scrub')
 out.holiday = cmd('dfai-holiday')
 out.memorial = cmd('dfai-memorial')
 out.smasher = cmd('dfai-atom-smasher')
+out.catacomb = cmd('dfai-catacomb')
 
 -- projects the camera follows
 local okp, pm = pcall(reqscript, 'dfai-projects')

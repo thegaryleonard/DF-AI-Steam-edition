@@ -1,0 +1,231 @@
+-- dfai-catacomb: dig and furnish a new catacomb wing on the Overseer's order
+-- (user: "might need more catacombs"). Finds solid, dry rock beside a corridor
+-- on a level that already has catacombs, digs a 9x5 vault behind a doorway,
+-- then fills it with quickfort: 18 coffins (top and bottom rows, an aisle
+-- between), a door, and a 1-tile tomb zone on each coffin (as df-ai's own
+-- catacombs have). Coffins come from the fort's stock; df-ai makes more when
+-- it runs short.
+--   dfai-catacomb new        plan one now (a second order queues after it)
+--   dfai-catacomb status
+--@module = true
+
+local repeatUtil = require('repeat-util')
+local KEY = 'dfai-catacomb'
+local W, H = 9, 5
+local BP = 'dfai-gen/catacomb.csv'
+
+local function load() return dfhack.persistent.getSiteData(KEY, {wings = {}}) end
+local function save(s) dfhack.persistent.saveSiteData(KEY, s) end
+local function project(fn, ...)
+    local a = {...}
+    pcall(function() reqscript('dfai-projects')[fn](table.unpack(a)) end)
+end
+local function attrs(x, y, z)
+    local tt = dfhack.maps.getTileType(x, y, z)
+    return tt and df.tiletype.attrs[tt]
+end
+local function is_wall(x, y, z)
+    local a = attrs(x, y, z)
+    return a and a.shape == df.tiletype_shape.WALL and a.material ~= df.tiletype_material.CONSTRUCTION
+        and a.material ~= df.tiletype_material.TREE and a.material ~= df.tiletype_material.ROOT
+end
+local function is_floor(x, y, z)
+    local a = attrs(x, y, z)
+    return a and a.shape == df.tiletype_shape.FLOOR
+end
+-- no water, magma, caverns, outside or hidden holes anywhere around the tile
+local function safe(x, y, z)
+    if not dfhack.maps.isValidTilePos(x, y, z) or not is_wall(x, y, z) then return false end
+    for dz = -1, 1 do for dx = -1, 1 do for dy = -1, 1 do
+        local f = dfhack.maps.getTileFlags(x + dx, y + dy, z + dz)
+        if not f then return false end
+        if f.flow_size > 0 or f.water_table or f.outside or f.feature_global or f.feature_local then return false end
+        local a = attrs(x + dx, y + dy, z + dz)
+        if a and dz ~= 0 and a.shape == df.tiletype_shape.EMPTY then return false end
+    end end end
+    return true
+end
+
+-- a vault: doorway (dx,dy) from the corridor tile, room beyond it
+local DIRS = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}}
+local function room_box(fx, fy, d)
+    local dx, dy = d[1], d[2]
+    local doorx, doory = fx + dx, fy + dy
+    local x1, y1, x2, y2
+    if dy ~= 0 then   -- north/south: the room's long side faces the corridor
+        x1, x2 = doorx - (W // 2), doorx + (W // 2)
+        if dy < 0 then y2 = doory - 1 y1 = y2 - H + 1 else y1 = doory + 1 y2 = y1 + H - 1 end
+    else
+        y1, y2 = doory - (W // 2), doory + (W // 2)
+        if dx < 0 then x2 = doorx - 1 x1 = x2 - H + 1 else x1 = doorx + 1 x2 = x1 + H - 1 end
+    end
+    return doorx, doory, x1, y1, x2, y2
+end
+local function fits(fx, fy, z, d)
+    local doorx, doory, x1, y1, x2, y2 = room_box(fx, fy, d)
+    if not safe(doorx, doory, z) then return nil end
+    for x = x1 - 1, x2 + 1 do for y = y1 - 1, y2 + 1 do
+        if not (x == doorx and y == doory) and not is_wall(x, y, z) then return nil end
+        if x >= x1 and x <= x2 and y >= y1 and y <= y2 and not safe(x, y, z) then return nil end
+    end end
+    return {door = {doorx, doory}, box = {x1, y1, x2, y2}, z = z, long_x = d[2] ~= 0}
+end
+
+local function find_site()
+    -- levels with catacombs, nearest the biggest cluster first
+    local lv, cx, cy = {}, {}, {}
+    for _, t in ipairs(df.global.world.buildings.other.ZONE_TOMB) do
+        lv[t.z] = (lv[t.z] or 0) + 1
+        cx[t.z] = (cx[t.z] or 0) + t.x1
+        cy[t.z] = (cy[t.z] or 0) + t.y1
+    end
+    local levels = {}
+    for z, n in pairs(lv) do levels[#levels + 1] = {z = z, n = n, x = cx[z] // n, y = cy[z] // n} end
+    table.sort(levels, function(a, b) return a.n > b.n end)
+    local cit = dfhack.units.getCitizens(true)[1]
+    for _, L in ipairs(levels) do
+        local best, bd
+        for x = L.x - 30, L.x + 30 do for y = L.y - 30, L.y + 30 do
+            if is_floor(x, y, L.z) and not dfhack.buildings.findAtTile(xyz2pos(x, y, L.z))
+                and (not cit or dfhack.maps.canWalkBetween(cit.pos, xyz2pos(x, y, L.z))) then
+                for _, d in ipairs(DIRS) do
+                    local f = fits(x, y, L.z, d)
+                    if f then
+                        local dist = (x - L.x) ^ 2 + (y - L.y) ^ 2
+                        if not bd or dist < bd then best, bd = f, dist end
+                    end
+                end
+            end
+        end end
+        if best then return best end
+    end
+end
+
+-- the blueprint for one wing, written fresh each time (quickfort runs it)
+local function write_bp(w)
+    local x1, y1, x2, y2 = table.unpack(w.box)
+    local gx1, gy1 = math.min(x1, w.door[1]), math.min(y1, w.door[2])
+    local gx2, gy2 = math.max(x2, w.door[1]), math.max(y2, w.door[2])
+    local function grid(fn)
+        local rows = {}
+        for y = gy1, gy2 do
+            local r = {}
+            for x = gx1, gx2 do r[#r + 1] = fn(x, y) or '' end
+            rows[#rows + 1] = table.concat(r, ',')
+        end
+        return table.concat(rows, '\n')
+    end
+    local function coffin(x, y)
+        if x < x1 or x > x2 or y < y1 or y > y2 then return false end
+        if w.long_x then return y == y1 or y == y2 else return x == x1 or x == x2 end
+    end
+    local body = '#dig label(dig) start(1;1)\n' .. grid(function(x, y)
+            if (x == w.door[1] and y == w.door[2]) or (x >= x1 and x <= x2 and y >= y1 and y <= y2) then return 'd' end end)
+        .. '\n#build label(build) start(1;1)\n' .. grid(function(x, y)
+            if x == w.door[1] and y == w.door[2] then return 'd' end
+            if coffin(x, y) then return 'n' end end)
+        .. '\n#zone label(zone) start(1;1)\n' .. grid(function(x, y) if coffin(x, y) then return 'T' end end) .. '\n'
+    local dir = dfhack.getDFPath() .. '/dfhack-config/blueprints/dfai-gen'
+    dfhack.filesystem.mkdir_recursive(dir)
+    local f = io.open(dir .. '/catacomb.csv', 'w')
+    f:write(body)
+    f:close()
+    return gx1, gy1
+end
+local function qf(w, label)
+    local gx, gy = write_bp(w)
+    return dfhack.run_command_silent('quickfort', 'run', BP, '-n', '/' .. label, '-c', ('%d,%d,%d'):format(gx, gy, w.z))
+end
+local function count(w, fn)
+    local x1, y1, x2, y2 = table.unpack(w.box)
+    local n, of = 0, 0
+    for x = x1, x2 do for y = y1, y2 do of = of + 1 if fn(x, y) then n = n + 1 end end end
+    return n, of
+end
+
+local function step(s)
+    local w = s.current
+    if not w then
+        if (s.queued or 0) <= 0 then return end
+        w = find_site()
+        if not w then s.last = 'no solid dry rock beside a corridor near the catacombs' s.queued = 0 return end
+        s.queued = s.queued - 1
+        w.phase = 'dig'
+        w.key = ('catacomb-%d'):format(#s.wings + 1)
+        s.current = w
+        qf(w, 'dig')
+        project('add', w.key, 'A New Catacomb Wing', w.box[1], w.box[2], w.z, w.box[3], w.box[4], w.z, true)
+        s.last = ('digging a new catacomb wing at %d,%d,%d'):format(w.box[1], w.box[2], w.z)
+        return
+    end
+    if w.phase == 'dig' then
+        local dug, of = count(w, function(x, y) return is_floor(x, y, w.z) end)
+        s.last = ('digging the new catacomb wing: %d of %d'):format(dug, of)
+        if dug == of and is_floor(w.door[1], w.door[2], w.z) then
+            w.phase = 'build'
+            qf(w, 'build')
+        elseif dug == 0 and (w.redig or 0) < 3 then
+            w.redig = (w.redig or 0) + 1   -- designations can be lost on a reload
+            qf(w, 'dig')
+        end
+    elseif w.phase == 'build' then
+        local placed = count(w, function(x, y)
+            local b = dfhack.buildings.findAtTile(xyz2pos(x, y, w.z))
+            return b and b:getType() == df.building_type.Coffin and b:getBuildStage() >= b:getMaxBuildStage()
+        end)
+        s.last = ('furnishing the new catacomb wing: %d of 18 coffins'):format(placed)
+        if placed >= 18 then
+            w.phase = 'zone'
+        end
+    elseif w.phase == 'zone' then
+        qf(w, 'zone')
+        w.phase = 'done'
+        table.insert(s.wings, {box = w.box, z = w.z, door = w.door})
+        s.current = nil
+        project('done', w.key)
+        s.last = ('new catacomb wing ready: 18 tombs at level %d'):format(w.z)
+    end
+end
+
+local function tick()
+    if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
+    local s = load()
+    local ok, err = pcall(step, s)
+    if not ok then s.last = 'error: ' .. tostring(err) end
+    save(s)
+    if not s.current and (s.queued or 0) <= 0 then repeatUtil.cancel(KEY) end
+end
+
+function status()
+    local s = load()
+    local free = 0
+    for _, t in ipairs(df.global.world.buildings.other.ZONE_TOMB) do if t.assigned_unit_id == -1 then free = free + 1 end end
+    return ('catacombs: %d tomb zones, %d unclaimed; %s%s'):format(#df.global.world.buildings.other.ZONE_TOMB, free,
+        s.last or 'no new wings ordered', (s.queued or 0) > 0 and (' (%d more ordered)'):format(s.queued) or '')
+end
+
+if dfhack_flags.module then return end
+local cmd = ({...})[1]
+if cmd == 'new' then
+    local s = load()
+    s.queued = (s.queued or 0) + 1
+    save(s)
+    repeatUtil.scheduleEvery(KEY, 600, 'ticks', tick)
+    dfhack.timeout(1, 'ticks', tick)
+    print('catacombs: a new wing ordered')
+elseif cmd == 'find' then
+    -- dry run: where would a wing go, and what would quickfort do there
+    local t0 = os.clock()
+    local w = find_site()
+    if not w then print('no site') return end
+    print(('site: room %d,%d..%d,%d level %d, door %d,%d (%.2fs)'):format(w.box[1], w.box[2], w.box[3], w.box[4], w.z, w.door[1], w.door[2], os.clock() - t0))
+    local gx, gy = write_bp(w)
+    for _, l in ipairs({'dig', 'build', 'zone'}) do
+        print(l .. ': ' .. (dfhack.run_command_silent('quickfort', 'run', BP, '-n', '/' .. l, '-c', ('%d,%d,%d'):format(gx, gy, w.z), '--dry-run'):gsub('%s+', ' ')))
+    end
+elseif cmd == 'resume' then
+    local s = load()
+    if s.current or (s.queued or 0) > 0 then repeatUtil.scheduleEvery(KEY, 600, 'ticks', tick) end
+else
+    print(status())
+end
