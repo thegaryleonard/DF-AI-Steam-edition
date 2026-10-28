@@ -1,6 +1,7 @@
 // a dwarf fortress autonomous artificial intelligence (more or less)
 
 #include "ai.h"
+#include "df/building_bridgest.h"
 #include "blueprint.h"
 #include "embark.h"
 #include "event_manager.h"
@@ -224,6 +225,22 @@ command_result ai_command(color_ostream & out, std::vector<std::string> & args)
     {
         // Run log.cpp - AI::status()
         AI::write_df(out, dwarfAI->status(), "\n", "\n", [](const std::string & s) -> std::string { return DF2CONSOLE(s); });
+        return CR_OK;
+    }
+
+    if (args.size() == 3 && args[0] == "bridge")
+    {
+        // "ai bridge <building id> <0|1>": work a drawbridge as a linked lever
+        // would (the atom smasher at the bottom of the execution pit;
+        // dfai-atom-smasher.lua). Only bridges, nothing else.
+        auto bld = virtual_cast<df::building_bridgest>(df::building::find(atoi(args[1].c_str())));
+        if (!bld || bld->getBuildStage() < bld->getMaxBuildStage())
+        {
+            out << "no finished bridge with that id" << std::endl;
+            return CR_WRONG_USAGE;
+        }
+        bld->setTriggerState(atoi(args[2].c_str()) ? 1 : 0);
+        out << "bridge " << bld->id << (atoi(args[2].c_str()) ? " raising" : " lowering") << std::endl;
         return CR_OK;
     }
 

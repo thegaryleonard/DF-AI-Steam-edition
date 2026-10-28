@@ -14,6 +14,8 @@
   .card { background: #f7f1e1; border: 1px solid #b9ad91; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
   .card b { font-size: 15px; }
   .card span { font-size: 13px; color: #4a4336; flex: 1; }
+  #asciibtn { position: fixed; top: 10px; right: 14px; z-index: 9; font: bold 12px Consolas, monospace; padding: 4px 8px; background: #1d1a14; color: #f7f1e1; border: 0; cursor: pointer; }
+  #asciibtn[data-on='1'] { background: #000; color: #55ff55; }
   .card .now { font-size: 12.5px; font-weight: bold; color: #1d1a14; background: #ebe1c8; border-left: 3px solid #8b1a1a; padding: 3px 6px; flex: 0; }
   button { font: bold 13px Georgia, serif; background: #1d1a14; color: #f7f1e1; border: 0; padding: 6px 10px; cursor: pointer; }
   button:disabled { background: #8d8473; cursor: default; }
@@ -41,32 +43,10 @@
   .chip.part { background: #e8dcc0; }
   .stops h4 { margin: 8px 0 2px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; break-after: avoid; }
 
-  /* ASCII mode (user: "for funsies"): the desk as the game looked in 2006 */
-  #asciibtn { position: fixed; top: 10px; right: 14px; z-index: 9; font: bold 12px Consolas, monospace; padding: 4px 8px; background: #1d1a14; color: #f7f1e1; border: 0; cursor: pointer; }
-  body.ascii, body.ascii * { font-family: "Px437 IBM VGA 8x16", "Perfect DOS VGA 437", Consolas, "Courier New", monospace !important; letter-spacing: 0 !important; }
-  body.ascii { background: #000 !important; color: #c0c0c0 !important; }
-  body.ascii h1, body.ascii h2, body.ascii h3, body.ascii summary { color: #ffff55 !important; text-transform: uppercase; border-color: #555 !important; }
-  body.ascii h1::before { content: "\2554\2550\2550 "; color: #55ff55; } body.ascii h1::after { content: " \2550\2550\2557"; color: #55ff55; }
-  body.ascii .card, body.ascii details, body.ascii .stop, body.ascii .chip { background: #000 !important; border: 1px dashed #555 !important; border-radius: 0 !important; box-shadow: none !important; color: #c0c0c0 !important; }
-  body.ascii .card b { color: #55ffff !important; }
-  body.ascii .card b::before { content: "\263A "; color: #ffff55; }
-  body.ascii .card span, body.ascii small, body.ascii .where { color: #aaa !important; }
-  body.ascii .card .now { background: #000 !important; color: #55ff55 !important; border-left: 2px solid #55ff55 !important; }
-  body.ascii .card .now::before { content: "> "; }
-  body.ascii button { background: #0000aa !important; color: #ffff55 !important; border: 1px solid #ffff55 !important; border-radius: 0 !important; text-transform: uppercase; }
-  body.ascii button::before { content: "["; } body.ascii button::after { content: "]"; }
-  body.ascii button:hover { background: #aa0000 !important; }
-  body.ascii .card.planned { opacity: .5; }
-  body.ascii a { color: #ff55ff !important; }
-  body.ascii input, body.ascii select { background: #000 !important; color: #55ff55 !important; border: 1px solid #55ff55 !important; border-radius: 0 !important; }
-  body.ascii hr, body.ascii header { border-color: #555 !important; }
-  body.ascii #asciibtn { background: #55ff55; color: #000; }
-  body.ascii::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 10;
-    background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 1px, transparent 1px 3px); }
 </style>
 </head>
 <body>
-<button id="asciibtn" title="Toggle ASCII mode">ASCII mode</button>
+<button id="asciibtn" title="The game's classic ASCII mode">Game: graphics</button>
 <header><h1>The Overseer's Desk</h1><div class="sub">Orders for the fort. The dwarves will get round to them. Probably.</div></header>
 <main>
   <section>
@@ -222,15 +202,13 @@ async function refreshCards() {
 }
 load().then(refreshCards); setInterval(refreshCards, 10000); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
 
-// ASCII mode: remembered per browser; the subtitle changes with it
+// the game's own classic ASCII mode (Settings > Video > Classic ASCII). DF
+// reads it at start-up, so the switch shows on the next start of the game.
 (() => {
-  const b = document.getElementById('asciibtn'), sub = document.querySelector('header p, .sub, h1 + p');
-  const was = sub ? sub.textContent : '';
-  const set = on => { document.body.classList.toggle('ascii', on); b.textContent = on ? 'Graphics mode' : 'ASCII mode';
-    if (sub) sub.textContent = on ? 'Losing is fun. Press ESC to... no, wait, that does nothing here.' : was;
-    try { localStorage.setItem('ovAscii', on ? '1' : ''); } catch (e) {} };
-  b.onclick = () => set(!document.body.classList.contains('ascii'));
-  try { if (localStorage.getItem('ovAscii')) set(true); } catch (e) {}
+  const b = document.getElementById('asciibtn');
+  const show = st => { b.textContent = st.next ? 'Game: ASCII on next start' : 'Game: graphics'; b.title = st.note || ''; b.dataset.on = st.next ? '1' : ''; };
+  get('/ascii.json').then(show).catch(() => {});
+  b.onclick = async () => { const r = await fetch('/ascii', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({on: !b.dataset.on})}); show(await r.json()); refreshLog(); };
 })();
 </script>
 </body>

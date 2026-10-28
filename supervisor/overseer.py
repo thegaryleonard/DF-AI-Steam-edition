@@ -42,6 +42,7 @@ COMMANDS = {
     "dig.stop":     ("Construction", "Deep dig: stop", "No more shaft levels.", ["dfai-deep-dig", "stop"], 30),
     "ore.start":    ("Construction", "Dig down and scrub for ore", "A staircase N levels down with galleries on every level; every ore vein they expose is marked for mining. Picks the spot with the most ore and never digs near water, magma or caverns.", ["dfai-ore-scrub", "start", "{n}"], 30),
     "ore.stop":     ("Construction", "Stop the ore scrub", "No more veins marked (what is marked stays).", ["dfai-ore-scrub", "stop"], 30),
+    "smasher":      ("Construction", "Atom smasher: check now", "The refuse chute and the execution pit drop onto 1-tile drawbridges at the bottom of the pit (level 157). Anything that lands on one is wiped out when the bridge swings up. While it is being built this checks the next step; once running it smashes whatever is lying there now.", ["dfai-atom-smasher", "now"], 30),
     "projects":     ("Construction", "What's being built", "Read-only: lists every big job the camera's mission mode is following right now (new rooms being dug, a cavern breach, the ore scrub) and how far along each is. The answer shows up in Orders Given on the right.", ["dfai-projects", "list"], 30),
     # camera
     "cam.next":     ("Camera", "Next room", "The tour moves on now.", ["dfai-room-tour", "next"], 30),
@@ -223,6 +224,7 @@ def card_status():
         "dig.stop": st.get("dig", "?"),
         "ore.start": st.get("ore", "?"),
         "ore.stop": st.get("ore", "?"),
+        "smasher": st.get("smasher", "?"),
         "projects": (f"{len(proj)} under way: " + ", ".join(proj)) if proj else "Nothing big under way.",
         "cam.next": "On camera: " + st.get("camera", "?"),
         "cam.statue": "On camera: " + st.get("camera", "?"),
@@ -233,6 +235,28 @@ def card_status():
     }
     card_cache["at"], card_cache["data"] = time.time(), cards
     return cards
+
+
+# ---- the game's classic ASCII setting (prefs/init.txt, read when DF starts) ----
+def ascii_state():
+    p = Path(sup.CFG["df_dir"]) / "prefs" / "init.txt"
+    try:
+        t = p.read_text(encoding="cp437")
+    except OSError:
+        return {"next": False, "note": "prefs/init.txt not found"}
+    m = re.search(r"\[USE_CLASSIC_ASCII:(YES|NO)\]", t)
+    on = bool(m and m.group(1) == "YES")
+    return {"next": on, "note": ("Classic ASCII is set: the game switches on its next start." if on else "Graphics are set. Click to switch the game to classic ASCII; it takes effect on the game's next start.")}
+
+
+def set_ascii(on):
+    p = Path(sup.CFG["df_dir"]) / "prefs" / "init.txt"
+    t = p.read_text(encoding="cp437")
+    new = "[USE_CLASSIC_ASCII:%s]" % ("YES" if on else "NO")
+    t2, n = re.subn(r"\[USE_CLASSIC_ASCII:(YES|NO)\]", new, t)
+    if not n:
+        t2 = t.rstrip("\n") + "\n" + new + "\n"
+    p.write_text(t2, encoding="cp437")
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -259,6 +283,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps(stops(), ensure_ascii=False).encode())
         elif path == "/blueprints.json":
             self.send(json.dumps(blueprints(), ensure_ascii=False).encode())
+        elif path == "/ascii.json":
+            self.send(json.dumps(ascii_state()).encode())
         elif path == "/cardstatus.json":
             self.send(json.dumps(card_status(), ensure_ascii=False).encode())
         elif path == "/plan.json":
@@ -308,6 +334,13 @@ class Handler(BaseHTTPRequestHandler):
             off_path.write_text(json.dumps(sorted(off), ensure_ascii=False), encoding="utf-8")
             sup.dfhack("dfai-room-tour", "stops", timeout=20)
             self.send(json.dumps({"ok": True, "off": len(off)}).encode())
+            return
+        if path == "/ascii":
+            set_ascii(bool(req.get("on")))
+            st = ascii_state()
+            write_log({"at": time.strftime("%H:%M:%S"), "key": "game.ascii", "label": "Game display: " + ("classic ASCII" if st["next"] else "graphics"),
+                       "ok": True, "out": "takes effect when the game next starts"})
+            self.send(json.dumps(st).encode())
             return
         if path == "/dig":
             # the construction order: add / remove / up / clear; keys must be planned rooms
