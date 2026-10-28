@@ -90,7 +90,8 @@ function image_of(item)
     local ref = item and item.image
     if not ref or ref.id == -1 then return nil end
     local chunk = df.art_image_chunk.find(ref.id)
-    return chunk and chunk.images[ref.subid]
+    local m = chunk and chunk.images[ref.subid]
+    return m and m.art_image or nil   -- the chunk holds members; the image hangs off each
 end
 
 local function event_text(img)
@@ -242,7 +243,9 @@ function statue_card(b)
     if not it then return nil end
     local subject = dfhack.df2utf(it.description or '')
     local story, kind
-    local text = describe_image(image_of(it))   -- only if the game has it loaded
+    -- the full scene, only if the game happens to have it loaded; never fatal
+    local okd, text = pcall(function() return describe_image(image_of(it)) end)
+    if not okd then text = nil end
     if subject ~= '' then
         local hf = find_hf_by_name(subject)
         if hf then

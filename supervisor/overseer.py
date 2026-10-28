@@ -44,8 +44,8 @@ COMMANDS = {
     "projects":     ("Construction", "Projects", "Everything being dug or built that the camera follows.", ["dfai-projects", "list"], 30),
     # camera
     "cam.next":     ("Camera", "Next room", "The tour moves on now.", ["dfai-room-tour", "next"], 30),
-    "cam.statue":   ("Camera", "Show a statue", "The statue shown least recently, with its story.", ["lua", "reqscript('dfai-room-tour').show_statue_check()"], 30),
-    "cam.leaves":   ("Camera", "Look at the trees", "Leaves mode: a breather on the nearest stand of trees.", ["lua", "reqscript('dfai-room-tour').show_leaves_check(true)"], 30),
+    "cam.statue":   ("Camera", "Show a statue", "The statue shown least recently, with its story.", ["dfai-room-tour", "statue"], 30),
+    "cam.leaves":   ("Camera", "Look at the trees", "Leaves mode: a breather on the nearest stand of trees.", ["dfai-room-tour", "leaves"], 30),
     "cam.threats":  ("Camera", "Threats", "What the battle camera can see.", ["dfai-room-tour", "threats"], 30),
     # the fort
     "holiday.start": ("Fort", "Holiday party mode", "No jobs, no masters: everyone parties for N game days (about 1.5 min each), then every labor goes back as it was. Squads stay on guard.", ["dfai-holiday", "start", "{n}"], 30),
@@ -154,6 +154,9 @@ class Handler(BaseHTTPRequestHandler):
             args = [str(n) if a == "{n}" else a for a in args]
             label = f"{label} ({n} {PARAMS[key][0]})"
         out = sup.dfhack(*args, timeout=timeout)
+        if out is not None and args[:1] == ["dfai-room-tour"] and args[1:2] in (["statue"], ["leaves"]):
+            time.sleep(1.5)   # the camera moves on the next game tick
+            out = sup.dfhack("dfai-room-tour", "last", timeout=20) or out
         entry = {"at": time.strftime("%H:%M:%S"), "key": key, "label": label,
                  "ok": out is not None, "out": clean(out)[-2000:] if out is not None else "no answer from the game"}
         write_log(entry)

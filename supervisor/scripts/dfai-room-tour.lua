@@ -804,6 +804,7 @@ local STATUE_SECS = 30
 local STATUE_GAP = 30 * 60
 local function show_statue(force_id)
     local now = os.time()
+    local pick_id = type(force_id) == 'number' and force_id or nil
     if not force_id and now - (tour.last_statue_at or 0) < STATUE_EVERY then return false end
     tour.statue_seen = tour.statue_seen or {}
     local ok, art = pcall(reqscript, 'dfai-art')
@@ -813,7 +814,9 @@ local function show_statue(force_id)
         if b:getBuildStage() >= b:getMaxBuildStage() and #b.contained_items > 0
             and not dfhack.maps.getTileFlags(xyz2pos(b.centerx, b.centery, b.z)).hidden then
             local t = tour.statue_seen[b.id] or 0
-            if (force_id == b.id) or (not force_id and now - t >= STATUE_GAP and (not best or t < bt)) then best, bt = b, t end
+            if pick_id then
+                if pick_id == b.id then best, bt = b, t end
+            elseif (force_id or now - t >= STATUE_GAP) and (not best or t < bt) then best, bt = b, t end
         end
     end
     if not best then return false end
@@ -830,7 +833,7 @@ local function show_statue(force_id)
     tour.view, tour.last_switch, tour.guest, tour.project = view(), now, nil, nil
     return true
 end
-show_statue_check = function(id) return show_statue(id or -1) end
+show_statue_check = function(id) return show_statue(id or true) end
 
 local function step()
     camera_watchdog()
@@ -1015,6 +1018,19 @@ elseif cmd == 'stop' then
     print('dfai-room-tour: stopped')
 elseif cmd == 'next' then
     print(show_next_room() and ('showing ' .. tour.current.name) or 'no rooms')
+elseif cmd == 'statue' or cmd == 'leaves' then
+    -- overseer orders: run on the game tick, answer on the next call to 'last'
+    dfhack.timeout(1, 'ticks', function()
+        local ok, shown
+        if cmd == 'statue' then ok, shown = pcall(show_statue, true)
+        else ok, shown = pcall(show_leaves_check, true) end
+        _G.dfai_tour_order = not ok and ('error: ' .. tostring(shown))
+            or (shown and ('showing ' .. dfhack.df2utf(tour.current and tour.current.name or '?') .. (tour.current and tour.current.short and (': ' .. dfhack.df2utf(tour.current.short)) or ''))
+            or (cmd == 'statue' and 'no finished statue in view' or 'no trees found'))
+    end)
+    print(cmd == 'statue' and 'statue: on its way to the camera' or 'trees: on their way to the camera')
+elseif cmd == 'last' then
+    print(tostring(rawget(_G, 'dfai_tour_order') or 'nothing yet'))
 elseif cmd == 'guests' then
     for _, u in ipairs(df.global.world.units.active) do
         local ok, g = pcall(is_guest, u)
