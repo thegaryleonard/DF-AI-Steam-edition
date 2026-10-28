@@ -2386,6 +2386,37 @@ function tradeItems(ctx, r) {
     out.push({ids: ['trade-overdue-' + TR.year], html: `<div class="item"><div class="kick">Caravan Watch</div><h3>Mountainhome Caravan Overdue</h3>
       <p class="just">No caravan has reached the depot since the autumn of ${TR.last_trade_year}${gap > 1 ? `, ${gap} autumns in a row` : ''}. The broker has taken to standing at the depot anyway, staring at the horizon. Theories at the tavern range from bandits to bad roads to a very long lunch.</p></div>`});
   }
+  // the battle report: the last battle at the fort, from the world's own history (dfai-battle-report)
+  const BT = TR.battle || {}, LB = BT.last;
+  const nameCap = t => String(t || '').replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase());
+  if (LB && LB.enemy_dead + (LB.our_dead || []).length >= 2) {
+    const fresh = LB.days_ago <= 28, dead = LB.our_dead || [];
+    const CAUSE = {bleed: 'bled out', struck_down: 'struck down', shot: 'shot', suffocate: 'suffocated', burn: 'burned', drown: 'drowned',
+      infection: 'died of infection', crushed_bridge: 'crushed', fall: 'fell', drawbridge: 'crushed', cavein: 'buried in a cave-in', magma: 'melted'};
+    const foes = (LB.enemy_races || []).map(r_ => `${r_.n} ${esc(r_.race)}`).join(', ');
+    const civs = (LB.enemy_civs || []).length ? ` Their dead belonged to ${esc(LB.enemy_civs.slice(0, 3).join(', '))}${LB.enemy_civs.length > 3 ? ' and others' : ''}.` : '';
+    const beasts = (LB.beasts || []).length ? ` Among the slain: ${esc(LB.beasts.join(', '))}.` : '';
+    const span = LB.hours < 24 ? `${LB.hours} hours` : `${Math.round(LB.hours / 24)} days`;
+    const when = LB.days_ago <= 1 ? 'Yesterday' : `${LB.days_ago} days ago`;
+    const verdict = LB.enemy_dead > dead.length * 2 ? 'The fort held, and held hard.' : LB.enemy_dead > dead.length ? 'The fort held, at a price.' : 'A costly day for Showerwheels.';
+    out.push({ids: ['battle-' + LB.id + '-' + (fresh ? 'f' : 'a')], html: `<div class="item"><div class="kick">${fresh ? 'Battle Report' : 'From The Archive · The Last Battle'} · ${esc(LB.began)}</div>
+      <h3>${LB.enemy_dead} Enemies Slain, ${dead.length} Of Ours Fall</h3>
+      <p class="just">${when}, fighting broke out at the fort and lasted ${span}. The enemy dead: ${foes || 'none recorded'}.${civs}${beasts} ${verdict}${LB.wounded_now ? ` ${LB.wounded_now} citizens are still nursing wounds.` : ''}</p></div>`});
+    const slay = LB.slayers || [];
+    if (slay.length || dead.length) {
+      const rowsS = slay.map(x => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(nameCap(x.name))}${x.alive ? '' : ' &dagger;'}</span><span>${x.kills} kill${x.kills > 1 ? 's' : ''}</span></div>`).join('');
+      const rowsD = dead.slice(0, 12).map(x => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(nameCap(x.name))}, ${esc(String(x.job || '').toLowerCase())}</span><span>${esc(CAUSE[x.cause] || x.cause || '')}</span></div>`).join('');
+      out.push({ids: ['battle-stats-' + LB.id], html: `<div class="item cls"><div class="kick">By The Numbers · ${esc(LB.ended)}</div>
+        ${rowsS ? `<div style="font-weight:bold;margin-top:2px">Our blades</div>${rowsS}` : ''}
+        ${rowsD ? `<div style="font-weight:bold;margin-top:4px">Our fallen</div>${rowsD}${dead.length > 12 ? `<div><i>and ${dead.length - 12} more</i></div>` : ''}` : ''}</div>`});
+    }
+  }
+  const DD = BT.deadliest || [];
+  if (DD.length >= 3) {
+    const rows = DD.map((x, i) => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${i + 1}. ${esc(nameCap(x.name))}, ${esc(String(x.job || '').toLowerCase())}</span><span>${x.kills}</span></div>`).join('');
+    out.push({ids: ['deadliest-' + DD.map(x => x.kills).join('.')], html: `<div class="item cls"><div class="kick">The Deadliest Dwarves · Lifetime Kills</div>${rows}
+      <p class="just" style="margin-top:3px">The marksdwarves lead the table, as they do every year. The wrestlers dispute the scoring.</p></div>`});
+  }
   // the beast hunt: special edition (dfai-beast-hunt report)
   const BH = TR.hunt;
   const capName = t => String(t || '').replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase());
