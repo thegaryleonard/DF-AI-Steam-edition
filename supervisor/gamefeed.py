@@ -139,7 +139,7 @@ STREAM_PAGE = """<!doctype html>
       const P = Math.min(700, Math.max(560, Math.round(W - H * aspect)));
       game.style.width = (W - P) + 'px';
       paper.style.left = (W - P) + 'px';
-      paper.style.width = P + 'px';
+      paper.style.width = (P - 16) + 'px';   // a gutter on the right, so a window edge never cuts the paper
     }
     addEventListener('resize', layout); game.addEventListener('load', layout); layout(); setInterval(layout, 5000);
   </script>
