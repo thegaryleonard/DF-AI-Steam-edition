@@ -13,8 +13,12 @@
 --           11,128,157). Items land on the lowered bridge; raising a 1-tile
 --           bridge brings its whole deck up onto that tile: gone.
 --   seal    the stair top floored over again (nothing climbs out)
---   running when anything lies on a bridge, raise it, then lower it 50 ticks
---           later ("ai bridge <id> 1|0" in the df-ai plugin, as a lever would)
+--   hatch   a hatch over the refuse chute: dwarves won't dump into open space
+--           in this version, so they dump onto the closed hatch instead
+--   running when refuse lies on the hatch, open it (it all drops 11 levels onto
+--           the chute's bridge) and close it; when anything lies on a bridge,
+--           raise it, then lower it 50 ticks later ("ai trigger <id> 1|0" in
+--           the df-ai plugin, as a lever would). Never with a citizen on it.
 --@module = true
 --[====[
 dfai-atom-smasher
@@ -48,15 +52,33 @@ local function items_on(y)
     if not blk then return 0 end
     for _, id in ipairs(blk.items) do
         local it = df.item.find(id)
-        if it and it.pos.x == X and it.pos.y == y and it.pos.z == Z_BOT and it.flags.on_ground then n = n + 1 end
+        if it and it.pos.x == X and it.pos.y == y and it.pos.z == Z_BOT and it.flags.on_ground and not it.flags.in_building then n = n + 1 end
     end
     return n
 end
-local function citizen_on(y)
+local function citizen_on(y, z)
     for _, u in ipairs(df.global.world.units.active) do
-        if u.pos.x == X and u.pos.y == y and u.pos.z == Z_BOT and dfhack.units.isCitizen(u) and not dfhack.units.isDead(u) then return true end
+        if u.pos.x == X and u.pos.y == y and u.pos.z == (z or Z_BOT) and dfhack.units.isCitizen(u) and not dfhack.units.isDead(u) then return true end
     end
 end
+local function loose_items(y, z)
+    local n = 0
+    local blk = dfhack.maps.getTileBlock(X, y, z)
+    if not blk then return 0 end
+    for _, id in ipairs(blk.items) do
+        local it = df.item.find(id)
+        if it and it.pos.x == X and it.pos.y == y and it.pos.z == z and it.flags.on_ground and not it.flags.in_job then n = n + 1 end
+    end
+    return n
+end
+local function hatch_at_chute()
+    local b = dfhack.buildings.findAtTile(xyz2pos(X, Y_DUMP, Z_TOP))
+    -- the dump zone is there too: find the hatch among the buildings on the tile
+    for _, h in ipairs(df.global.world.buildings.other.HATCH) do
+        if h.x1 == X and h.y1 == Y_DUMP and h.z == Z_TOP then return h end
+    end
+end
+local function trigger(id, state) return dfhack.run_command_silent('ai', 'trigger', tostring(id), state and '1' or '0') end
 local function removing(y)
     local l = df.global.world.jobs.list.next
     while l do
@@ -111,8 +133,8 @@ local function tick()
     elseif s.phase == 'seal' then
         local sh = shape(X, Y_STAIR, Z_TOP)
         if sh == df.tiletype_shape.FLOOR then
-            s.phase = 'running'
-            s.last = 'sealed; smashing'
+            s.phase = 'hatch'
+            s.last = 'sealed'
         elseif sh == df.tiletype_shape.STAIR_DOWN and is_construction(X, Y_STAIR, Z_TOP) then
             if not removing(Y_STAIR) then dfhack.constructions.designateRemove(xyz2pos(X, Y_STAIR, Z_TOP)) end
             s.last = 'taking the stair out'
@@ -120,13 +142,36 @@ local function tick()
             construct(Y_STAIR, Z_TOP, df.construction_type.Floor)
             s.last = 'flooring over the stair'
         end
+    elseif s.phase == 'running' and not hatch_at_chute() then
+        s.phase = 'hatch'
+    end
+    if s.phase == 'hatch' then
+        local h = hatch_at_chute()
+        if built(h) then
+            s.hatch = h.id
+            s.phase = 'running'
+            s.last = 'hatch over the chute built; smashing'
+        elseif not h then
+            pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Hatch, pos = xyz2pos(X, Y_DUMP, Z_TOP)})
+            s.last = 'a hatch over the refuse chute'
+        end
     elseif s.phase == 'running' then
+        -- drop the refuse: open the hatch, close it again a moment later
+        local on_hatch = loose_items(Y_DUMP, Z_TOP)
+        if s.hatch and on_hatch > 0 and not citizen_on(Y_DUMP, Z_TOP) then
+            trigger(s.hatch, true)
+            local hid = s.hatch
+            dfhack.timeout(30, 'ticks', function() trigger(hid, false) end)
+            s.dropped = (s.dropped or 0) + on_hatch
+        end
         for i, y in ipairs({Y_PIT, Y_DUMP}) do
             local id = s['bridge' .. i]
             local n = items_on(y)
             if id and n > 0 and not citizen_on(y) then
-                dfhack.run_command_silent('ai', 'bridge', tostring(id), '1')
-                dfhack.timeout(50, 'ticks', function() dfhack.run_command_silent('ai', 'bridge', tostring(id), '0') end)
+                -- trigger state 0 raises a drawbridge, 1 lowers it (tested); it
+                -- takes up to ~100 ticks to swing, so lower it again after 200
+                trigger(id, false)
+                dfhack.timeout(200, 'ticks', function() trigger(id, true) end)
                 s.smashed = (s.smashed or 0) + n
                 s.last = ('smashed %d item(s) at the %s'):format(n, y == Y_PIT and 'execution pit' or 'refuse chute')
             end
@@ -137,7 +182,7 @@ end
 
 local function status()
     local s = load()
-    return ('atom smasher: %s; %s; %d items smashed so far'):format(s.phase, s.last or 'starting', s.smashed or 0)
+    return ('atom smasher: %s; %s; %d items smashed so far, %d dropped down the chute'):format(s.phase, s.last or 'starting', s.smashed or 0, s.dropped or 0)
 end
 
 if dfhack_flags.module then return end
