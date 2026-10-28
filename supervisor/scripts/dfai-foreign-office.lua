@@ -163,7 +163,7 @@ function step(force)
     s.sent[tostring(c.e.id)] = {year = year, topic = c.topic, ac = id}
     local what = (c.topic == TOPIC_OPEN and 'open trade with ' or 'improve trade with ') .. name_of(c.e)
     table.insert(s.log, {year = year, text = ('%s set out for %s to %s.'):format(
-        dfhack.translation.translateName(hf.name, true), dfhack.translation.translateName(c.site.name, true), what)})
+        dfhack.df2utf(dfhack.translation.translateName(hf.name, true)), dfhack.df2utf(dfhack.translation.translateName(c.site.name, true)), what)})
     save_state(s)
     return 'sent: ' .. what
 end

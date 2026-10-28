@@ -13,7 +13,9 @@ local function u8(s) return s or '' end
 local out = {}
 
 -- war office
-local W = dfhack.persistent.getSiteData('dfai-war-office', {})
+-- one unreadable store must not blank every card on the desk
+local function site(key) local ok, d = pcall(dfhack.persistent.getSiteData, key, {}) return ok and type(d) == 'table' and d or {broken = true} end
+local W = site('dfai-war-office')
 local abroad = {}
 for sid, m in pairs(W.sent or {}) do
     abroad[#abroad + 1] = ('%s (%s %s)'):format(u8(m.squad or ('squad ' .. sid)), m.mode or 'raid', u8(m.site or '?'))
@@ -31,13 +33,13 @@ out.war = {
 }
 
 -- foreign office: envoys on the road
-local F = dfhack.persistent.getSiteData('dfai-foreign-office', {})
+local F = site('dfai-foreign-office')
 local envoys = 0
 for _ in pairs(F.sent or {}) do envoys = envoys + 1 end
-out.foreign = {envoys = envoys, contacts = (function() local n = 0 for _ in pairs(F.contact or {}) do n = n + 1 end return n end)()}
+out.foreign = {broken = F.broken, envoys = envoys, contacts = (function() local n = 0 for _ in pairs(F.contact or {}) do n = n + 1 end return n end)()}
 
 -- the automation scripts' own status lines
-out.beast = cmd('dfai-beast-hunt')
+out.beast = (cmd('dfai-beast-hunt'):gsub('; err nil', ''))
 out.mist = cmd('dfai-mist-build')
 out.camp = cmd('dfai-deep-camp')
 out.dig = cmd('dfai-deep-dig')
@@ -57,10 +59,10 @@ out.projects = working
 -- the camera
 local tour = rawget(_G, 'dfai_tour') or {}
 local cam
-if tour.current and tour.current.name then cam = u8(tour.current.name)
+if tour.current and tour.current.name then cam = dfhack.df2utf(tour.current.name)
 elseif df.global.plotinfo.follow_unit ~= -1 then
     local u = df.unit.find(df.global.plotinfo.follow_unit)
-    cam = u and ('following ' .. u8(dfhack.units.getReadableName(u)):gsub(',.*', '')) or nil
+    cam = u and ('following ' .. dfhack.df2utf(dfhack.units.getReadableName(u)):gsub(',.*', '')) or nil
 end
 out.camera = cam or 'free'
 local threats = 0

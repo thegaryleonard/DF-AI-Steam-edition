@@ -215,7 +215,7 @@ def card_status():
         "war.resume": f"Raids are on hold ({held})." if held else "Raids are already running.",
         "war.list": out_now,
         "beast.attack": "Beast hunt: " + st.get("beast", "?"),
-        "fo.now": f"{fo.get('envoys', 0)} envoy(s) on the road; {fo.get('contacts', 0)} civs contacted.",
+        "fo.now": "The foreign office's records are unreadable; needs a look." if fo.get("broken") else f"{fo.get('envoys', 0)} envoy(s) on the road; {fo.get('contacts', 0)} civs contacted.",
         "fo.list": f"{fo.get('contacts', 0)} civs contacted.",
         "mist.status": st.get("mist", "?"),
         "mist.prime": st.get("mist", "?"),
