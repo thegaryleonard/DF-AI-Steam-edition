@@ -26,7 +26,7 @@ end
 out.war = {
     abroad = abroad,
     hold = W.hold,
-    last = last and ('%s %s %s'):format(u8(last.squad or ''), last.kind == 'home' and 'came home from' or (last.what or 'hit'), u8(last.site or '')) or nil,
+    last = last and (((last.squad and last.squad ~= '') and last.squad or 'the raiders') .. ' ' .. (last.kind == 'home' and 'came home from' or (last.what or 'hit')) .. ' ' .. (last.site or '?')) or nil,
     office = cmd('dfai-war-office'),
 }
 

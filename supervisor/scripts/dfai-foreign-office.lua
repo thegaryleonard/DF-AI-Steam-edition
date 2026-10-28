@@ -48,7 +48,7 @@ local function save_state(s)
     end
 end
 
-local function name_of(e) return dfhack.translation.translateName(e.name, true) end
+local function name_of(e) return dfhack.df2utf(dfhack.translation.translateName(e.name, true)) end   -- utf-8: these go into the saved JSON (cp437 there broke the reader)
 
 -- first contacts already in the world history (one bounded scan per fort)
 local function scan_contacts(s)
@@ -75,9 +75,9 @@ local function read_reports(s)
         local r = reports[i]
         if r.id <= last then break end
         newest = math.max(newest, r.id)
-        local txt = r.text
+        local txt = dfhack.df2utf(r.text)
         if txt:find('messenger has returned') or txt:find('The proposal was') then
-            table.insert(s.log, {year = r.year, text = dfhack.df2utf(txt)})
+            table.insert(s.log, {year = r.year, text = txt})
             local bad = txt:match('no suitable representatives in (.-)%.')
             if bad then s.badsite[bad] = r.year end
             for cid, sent in pairs(s.sent) do
