@@ -199,18 +199,20 @@ class Handler(BaseHTTPRequestHandler):
         except ValueError:
             req = {}
         if path == "/stop":
-            # switch a tour stop on or off; only keys the tour itself listed
+            # switch tour stops on or off (one key, or a list); only keys the tour itself listed
             known = {s_["key"]: s_ for s_ in stops()}
-            k = req.get("key")
-            if k not in known:
+            keys = req.get("keys") if isinstance(req.get("keys"), list) else [req.get("key")]
+            keys = [k for k in keys if k in known]
+            if not keys:
                 self.send_error(400)
                 return
             off_path = df_path("dfai-tour-off.json")
             off = set(read_json(off_path, []))
-            if req.get("on"):
-                off.discard(k)
-            else:
-                off.add(k)
+            for k in keys:
+                if req.get("on"):
+                    off.discard(k)
+                else:
+                    off.add(k)
             off_path.write_text(json.dumps(sorted(off), ensure_ascii=False), encoding="utf-8")
             sup.dfhack("dfai-room-tour", "stops", timeout=20)
             self.send(json.dumps({"ok": True, "off": len(off)}).encode())

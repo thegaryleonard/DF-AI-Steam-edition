@@ -36,6 +36,9 @@
   .bp .row { display: flex; gap: 6px; margin-top: 6px; }
   .where { display: flex; gap: 6px; align-items: center; font-size: 13px; margin: 6px 0; flex-wrap: wrap; }
   .where input { width: 56px; }
+  .chip { border: 1px solid #b9ad91; background: #f7f1e1; padding: 2px 6px; font-size: 12px; display: inline-flex; gap: 4px; align-items: center; }
+  .chip.part { background: #e8dcc0; }
+  .stops h4 { margin: 8px 0 2px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; break-after: avoid; }
 </style>
 </head>
 <body>
@@ -44,8 +47,12 @@
   <section>
     <div id="groups"></div>
     <details open><summary>Tour Stops: what the camera visits</summary>
-      <div style="font-size:13px;margin-top:4px">Untick a stop to take it off the tour; "show" sends the camera there now.
-        <a href="#" onclick="setAll(true);return false">all on</a> &middot; <a href="#" onclick="setAll(false);return false">all off</a></div>
+      <div class="where">Untick a stop to take it off the tour; "show" sends the camera there now.</div>
+      <div class="where">Find: <input id="sq" type="search" style="width:180px" placeholder="name or kind">
+        Sort: <select id="ss"><option value="kind">kind</option><option value="name">name</option><option value="z">level</option><option value="tour">tour order</option></select>
+        Show: <select id="sf"><option value="">all</option><option value="on">on the tour</option><option value="off">off the tour</option></select>
+        &middot; shown: <a href="#" onclick="setShown(true);return false">all on</a> / <a href="#" onclick="setShown(false);return false">all off</a></div>
+      <div class="where" id="kinds"></div>
       <div class="stops" id="stops">Asking the tour...</div>
     </details>
     <details open><summary>Blueprints: build something</summary>
@@ -91,22 +98,46 @@ async function refreshLog() {
     document.getElementById('log').innerHTML = l.map(e => `<div class="e"><b class="${e.ok ? '' : 'bad'}">${esc(e.at)} ${esc(e.label)}</b>${e.out ? `<pre>${esc(e.out)}</pre>` : ''}</div>`).join('') || '<i>No orders yet.</i>'; } catch (e) {}
 }
 let STOPS = [];
+const post = (u, b) => fetch(u, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(b)});
+function shownStops() {
+  const q = sq.value.trim().toLowerCase(), f = sf.value;
+  let xs = STOPS.map((s, i) => ({...s, i})).filter(s => (!q || (s.name + ' ' + s.kind).toLowerCase().includes(q)) && (!f || (f === 'on') === s.on));
+  const by = ss.value;
+  if (by === 'name') xs.sort((a, b) => a.name.localeCompare(b.name));
+  else if (by === 'z') xs.sort((a, b) => b.z - a.z || a.name.localeCompare(b.name));
+  else if (by === 'kind') xs.sort((a, b) => (a.kind || '').localeCompare(b.kind || '') || a.name.localeCompare(b.name));
+  return xs;
+}
+function render() {
+  // one checkbox per kind: "all hospitals" on or off at once
+  const kinds = {};
+  for (const s of STOPS) { const k = s.kind || 'Other'; (kinds[k] = kinds[k] || {on: 0, n: 0}).n++; if (s.on) kinds[k].on++; }
+  document.getElementById('kinds').innerHTML = 'All of a kind: ' + Object.entries(kinds).sort((a, b) => a[0].localeCompare(b[0])).map(([k, c]) =>
+    `<label class="chip${c.on && c.on < c.n ? ' part' : ''}"><input type="checkbox" data-kind="${esc(k)}" ${c.on === c.n ? 'checked' : ''}>${esc(k)} <small>${c.on}/${c.n}</small></label>`).join(' ');
+  document.querySelectorAll('#kinds input[data-kind]').forEach(c => c.onchange = () =>
+    setKeys(STOPS.filter(s => (s.kind || 'Other') === c.dataset.kind).map(s => s.key), c.checked));
+  const xs = shownStops();
+  let last = null, html = '';
+  for (const s of xs) {
+    if (ss.value === 'kind' && s.kind !== last) { html += `<h4>${esc(s.kind || 'Other')}</h4>`; last = s.kind; }
+    html += `<label class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${s.i}" ${s.on ? 'checked' : ''}><span>${esc(s.name)}</span><small>${ss.value === 'kind' ? '' : esc(s.kind) + ' &middot; '}lvl ${s.z}</small><a data-show="${s.i}">show</a></label>`;
+  }
+  document.getElementById('stops').innerHTML = html || (STOPS.length ? '<i>Nothing matches.</i>' : '<i>The tour has not listed its stops yet.</i>');
+  document.querySelectorAll('#stops input[data-i]').forEach(c => c.onchange = () => setKeys([STOPS[c.dataset.i].key], c.checked));
+  document.querySelectorAll('#stops a[data-show]').forEach(a => a.onclick = async () => { await post('/show', {key: STOPS[a.dataset.show].key}); refreshLog(); });
+}
 async function loadStops() {
   try { STOPS = await get('/stops.json'); } catch (e) { return; }
-  const kinds = {};
-  for (const s of STOPS) (kinds[s.kind || 'Other'] = kinds[s.kind || 'Other'] || []).push(s);
-  document.getElementById('stops').innerHTML = STOPS.length ? STOPS.map((s, i) =>
-    `<label class="stop${s.on ? '' : ' off'}"><input type="checkbox" data-i="${i}" ${s.on ? 'checked' : ''}><span>${esc(s.name)}</span><small>${esc(s.kind)} &middot; lvl ${s.z}</small><a data-show="${i}">show</a></label>`).join('')
-    : '<i>The tour has not listed its stops yet.</i>';
-  document.querySelectorAll('#stops input[data-i]').forEach(c => c.onchange = () => toggle(STOPS[c.dataset.i], c.checked));
-  document.querySelectorAll('#stops a[data-show]').forEach(a => a.onclick = async () => {
-    await fetch('/show', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: STOPS[a.dataset.show].key})}); refreshLog(); });
+  render();
 }
-async function toggle(s, on) {
-  await fetch('/stop', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: s.key, on})});
+async function setKeys(keys, on) {
+  for (const s of STOPS) if (keys.includes(s.key)) s.on = on;   // show it at once
+  render();
+  await post('/stop', {keys, on});
   setTimeout(loadStops, 1500);
 }
-async function setAll(on) { for (const s of STOPS) if (s.on !== on) await fetch('/stop', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: s.key, on})}); setTimeout(loadStops, 1500); }
+function setShown(on) { setKeys(shownStops().map(s => s.key), on); }
+['sq', 'ss', 'sf'].forEach(id => document.getElementById(id).addEventListener('input', render));
 let BPS = [];
 async function loadBps() {
   try { BPS = await get('/blueprints.json'); } catch (e) { return; }

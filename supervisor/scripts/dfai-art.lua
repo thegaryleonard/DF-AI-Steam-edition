@@ -191,7 +191,7 @@ local function hf_story(hf)
     local race = race_name(hf.race)
     local prof = hf.profession ~= -1 and df.profession.attrs[hf.profession].caption or nil
     local who = (race:match('^[aeiou]') and 'an ' or 'a ') .. race
-    if prof and prof ~= '' then who = who .. ' ' .. prof:lower() end
+    if prof and prof ~= '' and prof:lower() ~= 'peasant' and prof:lower() ~= 'child' then who = who .. ' ' .. prof:lower() end
     local civ = hf.civ_id ~= -1 and df.historical_entity.find(hf.civ_id)
     local ours = hf.civ_id == df.global.plotinfo.civ_id
     if civ and not ours then
@@ -237,12 +237,46 @@ local function creature_story(words)
     end
 end
 
+-- what the subject did: who they killed (named victims first), from history
+local function deeds(hf)
+    local k = hf.info and hf.info.kills
+    if not k then return nil end
+    local named = {}
+    for _, evid in ipairs(k.events) do
+        local ev = df.history_event.find(evid)
+        if ev and ev:getType() == df.history_event_type.HIST_FIGURE_DIED then
+            local v = df.historical_figure.find(ev.victim_hf)
+            if v then named[#named + 1] = name_of_hf(v, true):gsub(' the .*$', '') end
+        end
+    end
+    local others = 0
+    for _, c in ipairs(k.killed_count) do others = others + c end
+    local total = #named + others
+    if total == 0 then return nil end
+    local list = {table.unpack(named, 1, math.min(4, #named))}
+    local text = ('In life %s killed %d %s'):format(name_of_hf(hf, true):match('^(%S+)'), total, total == 1 and 'creature' or 'creatures')
+    if #list > 0 then text = text .. ', among them ' .. table.concat(list, ', ') .. (#named > #list and ' and others' or '') end
+    return text .. '.'
+end
+
+-- the scene the game would show: who struck the subject down, from history
+local function scene_from_history(hf)
+    if hf.died_year < 0 then return nil end
+    local u = df.unit.find(hf.unit_id)
+    local inc = u and u.counters.death_id >= 0 and df.incident.find(u.counters.death_id)
+    local k = inc and inc.criminal ~= -1 and df.unit.find(inc.criminal)
+    local khf = k and k.hist_figure_id ~= -1 and df.historical_figure.find(k.hist_figure_id)
+    if not khf then return nil end
+    local a, b = name_of_hf(khf, true):gsub(' the .*$', ''), name_of_hf(hf, true):gsub(' the .*$', '')
+    return ('The artwork relates to the death of %s at the hands of %s in the year %d.'):format(b, a, hf.died_year)
+end
+
 -- a statue building -> {item, subject, story, maker, quality, ...}
 function statue_card(b)
     local it = b and b.contained_items[0] and b.contained_items[0].item
     if not it then return nil end
     local subject = dfhack.df2utf(it.description or '')
-    local story, kind
+    local story, kind, deed, relates
     -- the full scene, only if the game happens to have it loaded; never fatal
     local okd, text = pcall(function() return describe_image(image_of(it)) end)
     if not okd then text = nil end
@@ -250,11 +284,23 @@ function statue_card(b)
         local hf = find_hf_by_name(subject)
         if hf then
             story, kind = subject .. ' was ' .. hf_story(hf), 'figure'
+            deed = deeds(hf)
+            relates = scene_from_history(hf)
         else
             story, kind = creature_story(subject), 'creature'
         end
     end
     local maker = it.maker ~= -1 and df.historical_figure.find(it.maker)
+    local maker_job
+    local mu = maker and df.unit.find(maker.unit_id)
+    if mu then maker_job = dfhack.df2utf(dfhack.units.getProfessionName(mu)):lower() end
+    -- how many statues of the same subject the fort has (the masons have favourites)
+    local same = 0
+    if subject ~= '' then
+        for _, o in ipairs(df.global.world.items.other.STATUE) do
+            if o.description == it.description then same = same + 1 end
+        end
+    end
     local mat = dfhack.matinfo.decode(it)
     local desc = dfhack.df2utf(dfhack.items.getDescription(it, 0, true))
     local marks = '[%-%+%*' .. string.char(0xe2, 0x89, 0xa1, 0xe2, 0x98, 0xbc) .. ']'
@@ -269,6 +315,11 @@ function statue_card(b)
         material = mat and mat:toString() or nil,
         quality = QUALITY[it.quality] or '',
         maker = maker and name_of_hf(maker) or nil,
+        maker_job = maker_job,
+        value = dfhack.items.getValue(it),
+        deeds = deed,
+        relates = relates,
+        copies = same,
         pos = {x = b.centerx, y = b.centery, z = b.z},
     }
 end

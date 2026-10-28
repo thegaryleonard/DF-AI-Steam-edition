@@ -2648,12 +2648,15 @@ function renderFollow() {
 
   if (S.tour && S.tour.statue) {
     const st = S.tour.statue;
-    const made = [st.quality ? `${esc(st.quality)} work` : '', st.maker ? `carved by ${esc(st.maker)}` : ''].filter(Boolean).join(', ');
+    const made = [st.quality ? `${esc(st.quality)} work` : '', st.maker ? `carved by ${esc(st.maker)}${st.maker_job ? ', ' + esc(st.maker_job) : ''}` : '', st.value ? `worth ${st.value}&#9788;` : ''].filter(Boolean).join(', ');
     html = `<div class="kicker"><span><span class="live">On Camera</span></span><span>Statue</span></div>
       <h3>${st.subject ? esc(String(st.subject).replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase())) : 'A Statue'}</h3>
       <div class="sub">${esc(st.item)}${made ? ` &middot; ${made}` : ''}</div>
       ${st.story ? `<div class="beastdesc">${esc(st.story)}</div>` : ''}
-      ${st.scene ? `<div class="doing">${esc(st.scene)}</div>` : ''}`;
+      ${st.scene ? `<div class="doing">${esc(st.scene)}</div>` : ''}
+      ${st.relates && !st.scene ? `<div class="doing">${esc(st.relates)}</div>` : ''}
+      ${st.deeds ? `<div class="doing">${esc(st.deeds)}</div>` : ''}
+      ${st.copies > 1 ? `<div class="doing" style="font-style:italic">One of ${st.copies} statues of ${esc(String(st.subject).split(' ')[0])} in the fort. The masons have a favourite.</div>` : ''}`;
     if (html !== followHtml) { followHtml = html; el.innerHTML = html; }
     return;
   }
