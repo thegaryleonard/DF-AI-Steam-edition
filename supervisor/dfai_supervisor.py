@@ -37,6 +37,7 @@ CFG = {
     "launch_timeout_s": 300,
     "load_timeout_s": 600,
     "auto_new_fort": True,      # a fallen fort is abandoned and a new one embarked nearby (new_fort.py)
+    "after_fall": "",           # "new_world": the next fallen fort is followed by a NEW world (one time; then cleared)
     "world_folder": "region58", # the world new forts embark in
     "obs_keeper": False,        # true = restart OBS and start streaming if it closes/crashes (obs_keeper.py)
 }
@@ -355,6 +356,26 @@ class Supervisor:
             if "[MOOD]" in line and "needs" in line:
                 log("mood: " + line.split("[MOOD]", 1)[1].strip()[:300])
 
+    def fort_fell(self, mode):
+        """The fort is gone: abandon it (if the game still shows it) and embark
+        a new one - in a brand-new world when after_fall says so (one time)."""
+        world = CFG.get("after_fall") == "new_world"
+        notify("the fort has fallen (no citizens left). " + ("Generating a NEW WORLD and embarking a new fort in it."
+               if world else "Abandoning it and embarking a new fort nearby."), ping=True)
+        import new_fort
+        name = new_fort.run(mode, world=world)
+        if world and name:
+            try:   # one time only: later falls embark in the new world
+                cfg = json.loads(CFG_FILE.read_text(encoding="utf-8-sig")) if CFG_FILE.exists() else {}
+                cfg["after_fall"] = ""
+                CFG_FILE.write_text(json.dumps(cfg, indent=2), encoding="utf-8")
+                CFG["after_fall"] = ""
+            except (OSError, ValueError) as e:
+                log(f"after_fall: could not clear it: {e}")
+        self.last_progress = time.time()
+        if name:
+            notify(f"new fort {name.split(chr(9))[0]} embarked{' in a new world' if world else ''}; df-ai is running it.", ping=True)
+
     def step(self):
         now = time.time()
         if self.obs:
@@ -384,21 +405,30 @@ class Supervisor:
             return
         self.unresponsive_since = None
         if not st.get("map"):
+            # a fort that just fell can drop the game straight back to the title
+            # screen: the last time we saw it, it had (almost) nobody left
+            lc, lc_at = getattr(self, "last_citizens", None), getattr(self, "last_citizens_at", 0)
+            if (lc is not None and lc <= 3 and now - lc_at < 3600 and "title" in str(st.get("focus", ""))
+                    and CFG.get("auto_new_fort", True)):
+                self.title_since = getattr(self, "title_since", None) or now
+                if now - self.title_since > 120:
+                    self.title_since, self.last_citizens = None, None
+                    self.fort_fell(mode="title")
+                    return
+            else:
+                self.title_since = None
             # title screen / menus: a human (or df-ai's embark) is doing something
             self.last_progress = now
             return
+        if st.get("citizens") is not None:
+            self.last_citizens, self.last_citizens_at = st.get("citizens"), now
 
         # a fallen fort (no citizens left): abandon it and embark a new one nearby
         if st.get("citizens") == 0 and CFG.get("auto_new_fort", True):
             self.no_citizens_since = getattr(self, "no_citizens_since", None) or now
             if now - self.no_citizens_since > 180:
-                notify("the fort has fallen (no citizens left). Abandoning it and embarking a new fort nearby.", ping=True)
-                import new_fort
-                name = new_fort.run("abandon")
                 self.no_citizens_since = None
-                self.last_progress = time.time()
-                if name:
-                    notify(f"new fort {name.split(chr(9))[0]} embarked; df-ai is running it.", ping=True)
+                self.fort_fell(mode="abandon")
                 return
         else:
             self.no_citizens_since = None
