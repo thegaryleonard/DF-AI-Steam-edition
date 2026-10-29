@@ -35,7 +35,8 @@ end
 local OPEN = {[df.tiletype_shape.FLOOR] = true, [df.tiletype_shape.RAMP] = true, [df.tiletype_shape.STAIR_UP] = true,
     [df.tiletype_shape.STAIR_DOWN] = true, [df.tiletype_shape.STAIR_UPDOWN] = true, [df.tiletype_shape.BOULDER] = true,
     [df.tiletype_shape.PEBBLES] = true, [df.tiletype_shape.SHRUB] = true, [df.tiletype_shape.SAPLING] = true,
-    [df.tiletype_shape.RAMP_TOP] = true, [df.tiletype_shape.EMPTY] = true}
+    [df.tiletype_shape.RAMP_TOP] = true, [df.tiletype_shape.EMPTY] = true, [df.tiletype_shape.FORTIFICATION] = true,
+    [df.tiletype_shape.TWIG] = true}
 local STAND = {[df.tiletype_shape.FLOOR] = true, [df.tiletype_shape.PEBBLES] = true, [df.tiletype_shape.BOULDER] = true,
     [df.tiletype_shape.STAIR_UP] = true, [df.tiletype_shape.STAIR_DOWN] = true, [df.tiletype_shape.STAIR_UPDOWN] = true}
 local function blocked_by_building(x, y, z)
@@ -44,6 +45,21 @@ local function blocked_by_building(x, y, z)
     if not o then return true end
     -- walls, closed doors, hatches, statues and the like stop bolts
     return o.building == df.tile_building_occ.Impassable or o.building == df.tile_building_occ.Obstacle
+end
+local AIR = {[df.tiletype_shape.EMPTY] = true, [df.tiletype_shape.RAMP_TOP] = true}
+local function clear_line3(x0, y0, z0, x1, y1, z1)
+    local n = math.max(math.abs(x1 - x0), math.abs(y1 - y0), math.abs(z1 - z0))
+    local px, py, pz = x0, y0, z0
+    for i = 1, n - 1 do
+        local x = x0 + math.floor((x1 - x0) * i / n + 0.5)
+        local y = y0 + math.floor((y1 - y0) * i / n + 0.5)
+        local z = z0 + math.floor((z1 - z0) * i / n + 0.5)
+        if not OPEN[shape(x, y, z)] or blocked_by_building(x, y, z) then return false end
+        if z ~= pz and not AIR[shape(x, y, math.max(z, pz))] then return false end
+        px, py, pz = x, y, z
+    end
+    if z1 ~= pz and not AIR[shape(x1, y1, math.max(z1, pz))] and not AIR[shape(px, py, math.max(z1, pz))] then return false end
+    return true
 end
 local function clear_line(x0, y0, x1, y1, z)
     local dx, dy = math.abs(x1 - x0), math.abs(y1 - y0)
@@ -92,21 +108,32 @@ local function drop_ours(sq)
     end
 end
 
--- a post 5-12 tiles from the beast on its level, clear line, reachable, near the squad
+-- a post 5-12 tiles from the beast - on its level, or up to 3 levels below or
+-- 1 above when there's open air between (a beast on a ledge over a cavern gets
+-- shot from the floor below) - with a clear line of fire, reachable by the
+-- squad, and out of the beast's reach (not next to it, and not on its walkable
+-- patch if it can't walk to the fort)
 local function find_post(b, from)
     local best, bs
     local bx, by, bz = b.pos.x, b.pos.y, b.pos.z
-    for x = bx - 12, bx + 12 do for y = by - 12, by + 12 do
-        local d = math.max(math.abs(x - bx), math.abs(y - by))
-        if d >= 5 and STAND[shape(x, y, bz)] and not blocked_by_building(x, y, bz) then
-            local f = dfhack.maps.getTileFlags(x, y, bz)
-            if f and not f.hidden and f.flow_size == 0 and dfhack.maps.canWalkBetween(from, xyz2pos(x, y, bz)) and clear_line(x, y, bx, by, bz) then
-                -- near 8 tiles, and close to where the archers are now (shortest walk, least chance they path past it)
-                local sc = math.abs(d - 8) * 4 + (math.abs(x - from.x) + math.abs(y - from.y) + 10 * math.abs(bz - from.z)) / 10
-                if not best or sc < bs then best, bs = {x, y, bz}, sc end
+    local bgroup = dfhack.maps.getWalkableGroup(b.pos)
+    for z = bz - 3, bz + 1 do
+        for x = bx - 12, bx + 12 do for y = by - 12, by + 12 do
+            local d = math.max(math.abs(x - bx), math.abs(y - by), math.abs(z - bz))
+            local flat = math.max(math.abs(x - bx), math.abs(y - by))
+            if d >= 4 and d <= 12 and (flat >= 4 or math.abs(z - bz) >= 2) and STAND[shape(x, y, z)] and not blocked_by_building(x, y, z) then
+                local f = dfhack.maps.getTileFlags(x, y, z)
+                local p = xyz2pos(x, y, z)
+                if f and not f.hidden and f.flow_size == 0 and dfhack.maps.canWalkBetween(from, p)
+                    and (z == bz and clear_line(x, y, bx, by, bz) or z ~= bz and clear_line3(x, y, z, bx, by, bz)) then
+                    -- ~8 tiles off, close to where the archers are, and not where the beast can walk
+                    local sc = math.abs(d - 8) * 4 + (math.abs(x - from.x) + math.abs(y - from.y) + 10 * math.abs(z - from.z)) / 10
+                        + (dfhack.maps.getWalkableGroup(p) == bgroup and 30 or 0)
+                    if not best or sc < bs then best, bs = {x, y, z}, sc end
+                end
             end
-        end
-    end end
+        end end
+    end
     return best
 end
 
