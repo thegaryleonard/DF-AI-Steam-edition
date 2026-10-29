@@ -491,6 +491,7 @@ end
 local function pick_threat()
     tour.threat_seen = tour.threat_seen or {}
     local now, best, best_s = os.time(), nil, nil
+    local any, any_s = nil, nil   -- (recently shown: still better than leaving the conflict)
     local cits = {}
     for _, c in ipairs(dfhack.units.getCitizens(true)) do cits[#cits + 1] = c.pos end
     local n = 0
@@ -499,6 +500,8 @@ local function pick_threat()
         if ok and th then
             n = n + 1
             local t = tour.threat_seen[u.id] or 0
+            local sa = (now - t) + (near_citizen(u, cits) and 100000 or 0)
+            if not any or sa > any_s then any, any_s = u, sa end
             if now - t >= THREAT_GAP then
                 local score = (now - t) + (near_citizen(u, cits) and 100000 or 0)
                 if not best or score > best_s then best, best_s = u, score end
@@ -506,7 +509,108 @@ local function pick_threat()
         end
     end
     tour.battle_n = n
-    return best
+    return best or (tour.threat and any) or nil
+end
+
+-- fight camera (user: "gotta have the conflict on screen at all times,
+-- especially when things fight"): the game keeps every fight as a conflict
+-- (sides, units, and how serious: brawl, fist fight, lethal). Sparring and
+-- horseplay don't count. While any fight is live, the camera follows a
+-- fighter in the worst one - the one who just landed a blow if it can tell -
+-- and stays with the fight until it's over; a fighter who falls hands the
+-- shot to another. Fights beat everything but a desk camera lock.
+local FIGHT_LEVEL = {[df.conflict_level.Brawl] = 'BRAWL', [df.conflict_level.Nonlethal] = 'FIST FIGHT', [df.conflict_level.Lethal] = 'BATTLE', [df.conflict_level.NoQuarter] = 'NO QUARTER'}
+local FIGHTER_SECS = 25   -- then another fighter in the same fight, if one is hot
+local function recent_blows()
+    -- where blows landed in the last ~300 ticks (combat reports carry a position)
+    local out, r = {}, df.global.world.status.reports
+    local now = df.global.cur_year * 403200 + df.global.cur_year_tick
+    for i = #r - 1, math.max(0, #r - 80), -1 do
+        local x = r[i]
+        if (df.announcement_type[x.type] or ''):find('^COMBAT') then
+            local at = x.year * 403200 + x.time
+            if now - at > 300 then break end
+            out[#out + 1] = x.pos
+        end
+    end
+    return out
+end
+local function alive(u)
+    return u and dfhack.units.isActive(u) and not dfhack.units.isDead(u) and not u.flags1.inactive
+end
+local function fights()
+    local out = {}
+    local min = tour.fight_test_min or df.conflict_level.Brawl
+    local blows = recent_blows()
+    for _, a in ipairs(df.global.world.activities.all) do
+        for _, e in ipairs(a.events) do
+            if df.activity_event_conflictst:is_instance(e) then
+                local lvl = -1
+                for _, sd in ipairs(e.sides) do
+                    for _, en in ipairs(sd.enemies) do
+                        local l = en.conflict_level
+                        if l >= min and l ~= df.conflict_level.Horseplay and (l ~= df.conflict_level.Training or tour.fight_test_min) and l > lvl then lvl = l end
+                    end
+                end
+                if lvl >= min then
+                    local f = {id = e.event_id, level = lvl, units = {}, set = {}, sides = {}, cits = 0, hot = {}}
+                    for si, sd in ipairs(e.sides) do
+                        local n = 0
+                        for _, id in ipairs(sd.unit_ids) do
+                            local u = df.unit.find(id)
+                            if alive(u) and revealed(u) then
+                                f.units[#f.units + 1] = u
+                                f.set[id] = si
+                                n = n + 1
+                                if dfhack.units.isCitizen(u) then f.cits = f.cits + 1 end
+                                for _, p in ipairs(blows) do
+                                    if p.z == u.pos.z and math.abs(p.x - u.pos.x) <= 1 and math.abs(p.y - u.pos.y) <= 1 then f.hot[id] = true break end
+                                end
+                            end
+                        end
+                        f.sides[#f.sides + 1] = n
+                    end
+                    local live = next(f.hot) ~= nil or e.attack_inactivity_timer < 200
+                    local sides_up = 0
+                    for _, n in ipairs(f.sides) do if n > 0 then sides_up = sides_up + 1 end end
+                    if live and sides_up >= 2 then out[#out + 1] = f end
+                end
+            end
+        end
+    end
+    table.sort(out, function(a, b)
+        local sa = a.level * 1000 + (a.cits > 0 and 500 or 0) + #a.units
+        local sb = b.level * 1000 + (b.cits > 0 and 500 or 0) + #b.units
+        return sa > sb
+    end)
+    return out
+end
+fights_check = fights
+local function fight_step(f)
+    local now = os.time()
+    local cur = df.global.plotinfo.follow_unit
+    local cu = cur ~= -1 and df.unit.find(cur)
+    local same = tour.fight and tour.fight.id == f.id
+    local keep = same and f.set[cur] and alive(cu) and cu.counters.unconscious == 0 and now - tour.last_switch < FIGHTER_SECS
+    if not keep then
+        -- who to watch: someone who just landed a blow, the enemy side first; else anyone still standing
+        local best, bs
+        for _, u in ipairs(f.units) do
+            local sc = (f.hot[u.id] and 100 or 0) + (dfhack.units.isCitizen(u) and 0 or 10) + (u.counters.unconscious == 0 and 5 or 0)
+                + (u.id == cur and 1 or 0) + (same and u.id ~= cur and 2 or 0)
+            if not best or sc > bs then best, bs = u, sc end
+        end
+        if not best then return false end
+        dfhack.run_command_silent('disable', 'spectate')
+        df.global.plotinfo.follow_unit = best.id
+        tour.guest, tour.current, tour.project = best.id, nil, nil
+        tour.last_switch = now
+        tour.threat_seen = tour.threat_seen or {}
+        tour.threat_seen[best.id] = now
+    end
+    tour.threat = true
+    tour.fight = {id = f.id, level = f.level, sides = f.sides, n = #f.units}
+    return true
 end
 
 local function show_threat()
@@ -1026,6 +1130,14 @@ local function step()
     if held and tour.current and not tour.current.lock and not tour.threat then tour.current = nil end
     if not held then camera_watchdog() end
     if held and tour.threat then camera_watchdog() end
+    -- fights first: they hold the camera until they're over
+    local okf, fl = pcall(fights)
+    if okf and fl[1] and dfhack.isMapLoaded() then
+        if fight_step(fl[1]) then return end
+    elseif tour.fight then
+        tour.fight = nil   -- over: the threat logic below carries on (or back to the dwarves)
+        tour.last_switch = os.time() - THREAT_SECS + 5
+    end
     -- threats first: break into anything (room, guest, dwarf) except another threat,
     -- and only while the stream camera is in charge
     if not tour.threat and (tour.current or tour.guest or spectate_on() or tour.party_mode) and pick_threat() then
@@ -1179,6 +1291,11 @@ local function banner_lines()
     end
     if tour.party_mode and tour.party_shot and tour.party_shot.unit == u.id then
         return name:upper(), dfhack.utf2df(tour.party_shot.what)
+    end
+    if tour.fight and tour.guest == u.id then
+        local sd = tour.fight.sides or {}
+        local tag = (FIGHT_LEVEL[tour.fight.level] or 'FIGHT') .. (#sd >= 2 and (': %d vs %d'):format(sd[1], sd[2]) or '')
+        return name:upper(), tag .. ' | ' .. prof
     end
     if tour.threat and tour.guest == u.id then
         local alive, fallen = 0, 0
