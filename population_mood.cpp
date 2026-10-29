@@ -68,6 +68,12 @@ static bool mood_item_matches(df::job_item *ji, df::item *item)
     // DFHack's ItemTypeInfo::matches only accepts plant/silk/yarn for THREAD,
     // so "silk cloth" / "plant cloth" never matched anything. Check those
     // material flags ourselves.
+    // isSuitableMaterial ignores the job item's mat_type: "BLOCKS of rock"
+    // (mat_type 0) matched wooden blocks, so the rescue below picked them.
+    if (ji->mat_type != -1 && minfo.type != ji->mat_type)
+        return false;
+    if (ji->mat_type != -1 && ji->mat_index != -1 && minfo.index != ji->mat_index)
+        return false;
     auto itype = item->getType();
     if ((itype == item_type::CLOTH || itype == item_type::THREAD) &&
         (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn))
@@ -389,7 +395,8 @@ void Population::update_moods(color_ostream & out)
                     }
                     auto & f = item->flags.bits;
                     if (f.in_job || f.owned || f.trader || f.foreign || f.artifact || f.removed || f.forbid || f.dump ||
-                        f.garbage_collect || f.on_fire || f.rotten || f.construction || f.spider_web || f.hidden || f.in_inventory)
+                        f.garbage_collect || f.on_fire || f.rotten || f.construction || f.spider_web || f.hidden || f.in_inventory ||
+                        f.in_building)
                     {
                         continue;
                     }
@@ -403,8 +410,10 @@ void Population::update_moods(color_ostream & out)
                     {
                         ai.debug(out, stl_sprintf("[MOOD] %s was not fetching %s (thirst %d): carried %s to the workshop", who.c_str(), describe_job_item(ji).c_str(), u->counters2.thirst_timer, AI::describe_item(item).c_str()));
                         have = ji->quantity;
+                        break;
                     }
-                    break;
+                    // a failed move (item held by a building, container) must
+                    // not end the search: Rakust waited on BLOCKS this way
                 }
             }
             if (released)
@@ -418,14 +427,21 @@ void Population::update_moods(color_ostream & out)
                 // plant cloth while 2000 silk threads sat in the stockpile
                 // (nothing ever ordered weaving).
                 auto flag = ji->flags2.bits.plant ? material_flags::THREAD_PLANT : ji->flags2.bits.silk ? material_flags::SILK : material_flags::YARN;
-                int32_t thread = 0;
+                int32_t thread = 0, webs = 0;
                 for (auto item : world->items.other[items_other_id::THREAD])
                 {
                     auto & f = item->flags.bits;
                     if (f.forbid || f.in_job || f.dump || f.removed || f.trader || f.owned)
                         continue;
                     MaterialInfo mi(item);
-                    if (mi.material && mi.material->flags.is_set(flag))
+                    if (!mi.material || !mi.material->flags.is_set(flag))
+                        continue;
+                    // Webs still hanging in the caverns count as THREAD but
+                    // nobody weaves them until collected: Rakust's silk weave
+                    // order sat two months on 662 uncollected webs.
+                    if (f.spider_web)
+                        webs++;
+                    else
                         thread++;
                 }
                 std::ostringstream why;
@@ -453,7 +469,7 @@ void Population::update_moods(color_ostream & out)
                 else if (ji->flags2.bits.silk)
                 {
                     *standing_orders_auto_collect_webs = 1;
-                    ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on");
+                    ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on (" + std::to_string(webs) + " webs to collect)");
                 }
             }
             if (!usable && ji->item_type == item_type::ROUGH && mood_warned.insert(who + "|rough|" + std::to_string(idx)).second)
