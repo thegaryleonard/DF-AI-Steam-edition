@@ -85,7 +85,15 @@ local function switch(want_ascii, why)
             local o = mi().options
             local has = false
             for _, v in ipairs(o.option) do if v == df.main_menu_option_type.SETTINGS then has = true end end
-            if #o.option == 0 then return 'the Esc menu is not built yet (press Esc once by hand after a load)' end
+            if #o.option == 0 then
+                -- after a load DF builds this list on the first real Esc press.
+                -- Put back the list DF itself built last time (remembered below);
+                -- never a made-up one (that crashed the game)
+                local saved = state().menu
+                if not saved or #saved == 0 then return 'the Esc menu is not built yet (press Esc once by hand after a load)' end
+                for _, e in ipairs(saved) do o.option:insert('#', e[1]) o.option_index:insert('#', e[2]) end
+                has = true
+            end
             if not has then return 'the Esc menu holds something else (press Esc once by hand, then retry)' end
             o.open = true
         end,
@@ -120,8 +128,20 @@ local function scheduled_now()
     return false
 end
 
+-- remember DF's own fort Esc menu whenever it's built, for the next load
+local function remember_menu(s)
+    local o = mi().options
+    if o.context ~= df.options_context_type.MAIN_DWARF or #o.option == 0 or (s.menu and #s.menu == #o.option) then return end
+    local has, m = false, {}
+    for i, v in ipairs(o.option) do m[#m + 1] = {v, o.option_index[i]} if v == df.main_menu_option_type.SETTINGS then has = true end end
+    if has then s.menu = m save_state(s) end
+end
+
 local function tick()
     local s = state()
+    pcall(remember_menu, s)
+    -- a remembered menu: no need to wait out a back-off from "not built yet"
+    if s.menu and s.last and s.last:find('not built yet') then s.last = nil save_state(s) end
     -- after a failed try, wait 30 min before opening the Esc menu again (user:
     -- "a little popup ... with the current track name ... up and gone real
     -- fast": every 30 s it flashed the Esc menu and gave up)
