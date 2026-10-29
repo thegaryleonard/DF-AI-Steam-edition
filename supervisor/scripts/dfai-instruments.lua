@@ -135,7 +135,7 @@ local function day()
             s.sets[key] = true
             if not first then
                 dfhack.gui.showAnnouncement(('A full orchestra! The fort now owns every instrument of %s.'):format(dfhack.utf2df(p.name)), COLOR_LIGHTGREEN, true)
-                notify(('**A full orchestra!** Showerwheels now owns all %d instruments of %s.'):format(p.total, p.name))
+                notify(('**A full orchestra!** %s now owns all %d instruments of %s.'):format((function() local s = dfhack.world.getCurrentSite() return s and dfhack.df2utf(dfhack.translation.translateName(s.name, true)) or 'The fort' end)(), p.total, p.name))
                 table.insert(s.news, 1, {what = 'set', text = ('every instrument of %s (%d)'):format(p.name, p.total), at = df.global.cur_year_tick})
             end
         end
@@ -147,7 +147,7 @@ local function day()
     while #s.news > 12 do table.remove(s.news) end
     if c.have >= c.total and not s.grand then
         s.grand = true
-        notify(('**THE GRAND CONCERT!** Showerwheels has collected all %d instruments in the world.'):format(c.total))
+        notify(('**THE GRAND CONCERT!** %s has collected all %d instruments in the world.'):format((function() local s = dfhack.world.getCurrentSite() return s and dfhack.df2utf(dfhack.translation.translateName(s.name, true)) or 'The fort' end)(), c.total))
         dfhack.run_command_silent('dfai-holiday', 'start', '7', 'The Grand Concert')
     end
     s.have, s.total = c.have, c.total

@@ -1363,7 +1363,7 @@ function cardInstruments() {
   const head = INS.grand ? 'The Grand Concert: Every Instrument In The World' : pick(r, [`${INS.have} Instruments And Counting`, 'Collect Them All!', 'The Great Instrument Hunt', `The Collection Grows: ${INS.have} Of ${INS.total}`]);
   return `<div class="kicker"><span>The Instrument Collection</span><span>${INS.have} of ${INS.total} &middot; ${pct}%</span></div>
     <div class="headline">${esc(head)}</div>
-    <div class="deck">Every people in the world plays its own instruments. Showerwheels wants one of each: made at home, bought from caravans or carried back from raids.${INS.tavern ? ` ${INS.on_show || 0} are on show at ${esc(clean(INS.tavern))}, where anyone may play.` : ''}</div>
+    <div class="deck">Every people in the world plays its own instruments. ${esc(S.fort && S.fort.name ? clean(S.fort.name) : 'The fort')} wants one of each: made at home, bought from caravans or carried back from raids.${INS.tavern ? ` ${INS.on_show || 0} are on show at ${esc(clean(INS.tavern))}, where anyone may play.` : ''}</div>
     <table>${rows}</table>
     <div class="body" style="font-size:11.5px">${news ? news + ' ' : ''}${ours && ours.have < ours.total ? `Our own people know ${ours.total} instruments; the fort has ${ours.have}.${INS.ordering ? ` In the workshops now: a ${esc(clean(INS.ordering))}.` : ''} ` : ''}${rest.length ? `Still to find: the instruments of ${rest.length} more peoples, ${esc(rest.slice(0, 2).map(p => clean(p.name)).join(' and '))} among them.` : ''}
     ${full ? ` Full orchestras: ${full}.` : ' Collect a whole people\'s set for a full orchestra; collect the world\'s for the Grand Concert.'}</div>`;
@@ -2543,7 +2543,7 @@ function tradeItems(ctx, r) {
     if (ar.length) parts.push(`${ar.length} artifact${ar.length > 1 ? 's were' : ' was'} made (${esc(ar.slice(0, 2).join(', '))})`);
     if (RC.births) parts.push(`${RC.births} dwarf${RC.births > 1 ? 's were' : ' was'} born`);
     const head = RC.enemy_dead > dd.length * 2 && RC.enemy_dead >= 3 ? (eve ? 'A Day Of Victories' : 'The Fort Held Through The Night')
-      : dd.length >= 5 ? (eve ? 'A Grim Day At Showerwheels' : 'A Hard Night At Showerwheels')
+      : dd.length >= 5 ? (eve ? 'A Grim Day At ' : 'A Hard Night At ') + (S.fort && S.fort.name ? clean(S.fort.name) : 'The Fort')
       : pj.length ? (eve ? 'Builders Carry The Day' : 'The Builders Worked Through The Night')
       : ar.length ? 'Masterworks And Madness' : (eve ? 'A Day Like Any Other' : 'A Quiet Night');
     const dayName = RC.date ? new Date(RC.date + 'T12:00').toLocaleDateString('en-GB', {weekday: 'long', day: 'numeric', month: 'long'}) : '';
@@ -2583,7 +2583,7 @@ function tradeItems(ctx, r) {
     const beasts = (LB.beasts || []).length ? ` Among the slain: ${esc(LB.beasts.join(', '))}.` : '';
     const span = LB.hours < 24 ? `${LB.hours} hours` : `${Math.round(LB.hours / 24)} days`;
     const when = LB.days_ago <= 1 ? 'Yesterday' : `${LB.days_ago} days ago`;
-    const verdict = LB.enemy_dead > dead.length * 2 ? 'The fort held, and held hard.' : LB.enemy_dead > dead.length ? 'The fort held, at a price.' : 'A costly day for Showerwheels.';
+    const verdict = LB.enemy_dead > dead.length * 2 ? 'The fort held, and held hard.' : LB.enemy_dead > dead.length ? 'The fort held, at a price.' : 'A costly day for ' + (S.fort && S.fort.name ? clean(S.fort.name) : 'the fort') + '.';
     out.push({ids: ['battle-' + LB.id + '-' + (fresh ? 'f' : 'a')], html: `<div class="item"><div class="kick">${fresh ? 'Battle Report' : 'From The Archive · The Last Battle'} · ${esc(LB.began)}</div>
       <h3>${LB.enemy_dead} Enemies Slain, ${dead.length} Of Ours Fall</h3>
       <p class="just">${when}, fighting broke out at the fort and lasted ${span}. The enemy dead: ${foes || 'none recorded'}.${civs}${beasts} ${verdict}${LB.wounded_now ? ` ${LB.wounded_now} citizens are still nursing wounds.` : ''}</p></div>`});
