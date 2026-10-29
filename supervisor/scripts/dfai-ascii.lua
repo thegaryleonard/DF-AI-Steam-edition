@@ -85,7 +85,8 @@ local function switch(want_ascii, why)
             local o = mi().options
             local has = false
             for _, v in ipairs(o.option) do if v == df.main_menu_option_type.SETTINGS then has = true end end
-            if not has and #o.option > 0 then return 'the Esc menu holds something else (press Esc once by hand, then retry)' end
+            if #o.option == 0 then return 'the Esc menu is not built yet (press Esc once by hand after a load)' end
+            if not has then return 'the Esc menu holds something else (press Esc once by hand, then retry)' end
             o.open = true
         end,
         function() if not mi().options.open then return 'no Esc menu' end click(find_text('Settings', P.settings)) end,
@@ -121,6 +122,10 @@ end
 
 local function tick()
     local s = state()
+    -- after a failed try, wait 30 min before opening the Esc menu again (user:
+    -- "a little popup ... with the current track name ... up and gone real
+    -- fast": every 30 s it flashed the Esc menu and gave up)
+    if s.last and s.last:find('^gave up') and s.at and os.time() - s.at < 1800 then return end
     if s.mode == 'on' then switch(true, 'on demand')
     elseif s.mode == 'off' then switch(false, 'on demand')
     else switch(scheduled_now(), 'schedule') end
