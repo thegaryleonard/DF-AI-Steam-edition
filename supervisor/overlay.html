@@ -1346,6 +1346,29 @@ function cardHoliday() {
   return null;
 }
 
+// ---------- card: the Instrument Collection (dfai-instruments) ----------
+// every people in the world has its own instruments; the fort collects them all
+let INS = {};
+async function pollInstruments() { try { INS = await get('/instruments.json') || {}; } catch (e) {} }
+function cardInstruments() {
+  if (!INS || !INS.total || !INS.peoples) return null;
+  const pct = Math.round(100 * INS.have / INS.total);
+  const full = INS.peoples.filter(p => p.have === p.total).length;
+  const rows = INS.peoples.filter(p => p.have || p.ours).slice(0, 7).map(p => `<tr><td>${esc(clean(p.name))}${p.ours ? ' <i>(ours)</i>' : ''}<div class="dim" style="font-size:10px">${esc(p.race)}</div></td>
+    <td class="n">${p.have}/${p.total}</td><td class="b"><div class="lvl"><div style="width:${Math.round(100 * p.have / p.total)}%"></div></div></td></tr>`).join('');
+  const rest = INS.peoples.filter(p => !p.have && !p.ours);
+  const news = (INS.news || []).slice(0, 2).map(n => n.what === 'set' ? `A full orchestra: ${esc(clean(n.text))}!` : `New: ${esc(clean(n.text))}.`).join(' ');
+  const ours = INS.peoples.find(p => p.ours);
+  const r = rng(INS.have * 7 + (Date.now() / 600000 | 0));
+  const head = INS.grand ? 'The Grand Concert: Every Instrument In The World' : pick(r, [`${INS.have} Instruments And Counting`, 'Collect Them All!', 'The Great Instrument Hunt', `The Collection Grows: ${INS.have} Of ${INS.total}`]);
+  return `<div class="kicker"><span>The Instrument Collection</span><span>${INS.have} of ${INS.total} &middot; ${pct}%</span></div>
+    <div class="headline">${esc(head)}</div>
+    <div class="deck">Every people in the world plays its own instruments. Showerwheels wants one of each: made at home, bought from caravans or carried back from raids.${INS.tavern ? ` ${INS.on_show || 0} are on show at ${esc(clean(INS.tavern))}, where anyone may play.` : ''}</div>
+    <table>${rows}</table>
+    <div class="body" style="font-size:11.5px">${news ? news + ' ' : ''}${ours && ours.have < ours.total ? `Our own people know ${ours.total} instruments; the fort has ${ours.have}.${INS.ordering ? ` In the workshops now: a ${esc(clean(INS.ordering))}.` : ''} ` : ''}${rest.length ? `Still to find: the instruments of ${rest.length} more peoples, ${esc(rest.slice(0, 2).map(p => clean(p.name)).join(' and '))} among them.` : ''}
+    ${full ? ` Full orchestras: ${full}.` : ' Collect a whole people\'s set for a full orchestra; collect the world\'s for the Grand Concert.'}</div>`;
+}
+
 // ---------- card: from the archives ----------
 function cardArchive() {
   if (!H.artifacts || !H.artifacts.length) return null;
@@ -2724,7 +2747,7 @@ function fillFold() {
 
 // ---------- rotation ----------
 const CARDS = [
-  {fn: cardHoliday, secs: 35}, {fn: cardDwarf, secs: 30}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardPolitics, secs: 30}, {fn: cardArchive, secs: 20},
+  {fn: cardHoliday, secs: 35}, {fn: cardDwarf, secs: 30}, {fn: cardInstruments, secs: 25}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardPolitics, secs: 30}, {fn: cardArchive, secs: 20},
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
 // ?zoom=1.5 scales the whole paper (OBS browser sources: set the source width to 480*zoom)
@@ -2894,6 +2917,7 @@ async function pollSlow() {
   setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollTrade, 60000); setInterval(pollWorks, 120000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
   pollRecap(); setInterval(pollRecap, 300000);
   setInterval(holBar, 1000);
+  pollInstruments(); setInterval(pollInstruments, 120000);
 })();
 
 // the price box is the door to the Overseer's Desk (user request); only on this

@@ -27,7 +27,7 @@ seen_lock = threading.Lock()
 MEMORY_FILE = HERE / "herald" / "memory.json"   # running stories: shortages, streaks, days-since counters, dwarf grievances
 trade_cache = {"at": 0, "data": {"ok": False}}
 works_cache = {"at": 0, "data": {"ok": False}}
-cache = {"state": {"ok": False}, "history": {"artifacts": []}, "world": {}, "stocks": {}, "rumors": {}, "politics": {}, "history_world": None}
+cache = {"state": {"ok": False}, "history": {"artifacts": []}, "world": {}, "stocks": {}, "rumors": {}, "politics": {}, "history_world": None, "instruments": {}}
 STOCKS_EVERY_S = 30
 RUMORS_EVERY_S = 60   # news the fort has heard from diplomats, the liaison and caravans
 MOCK = "--mock" in sys.argv
@@ -183,6 +183,9 @@ def poller():
             sk = run_json("dfai-overlay-stocks", timeout=30)
             if sk is not None:
                 cache["stocks"] = sk
+            ins = run_json_args(["dfai-instruments", "json"], timeout=30)   # the instrument collection
+            if ins is not None:
+                cache["instruments"] = ins
         st = run_json("dfai-overlay-state", timeout=20)
         if st is not None:
             cache["state"] = st
@@ -227,6 +230,8 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = json.dumps(herald_lore.for_world(world), ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/recap.json"):
             body, ctype = json.dumps(recap(), ensure_ascii=False).encode(), "application/json"
+        elif self.path.startswith("/instruments.json"):
+            body, ctype = json.dumps(cache["instruments"], ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/rumors.json"):
             body, ctype = json.dumps(cache["rumors"]).encode(), "application/json"
         elif self.path.startswith("/world.json"):
