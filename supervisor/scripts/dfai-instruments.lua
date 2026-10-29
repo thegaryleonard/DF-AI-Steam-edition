@@ -117,6 +117,65 @@ local function order_next(c)
     end
 end
 
+-- big instruments (a third of all kinds: organs, drums...) are PLACED_AS_BUILDING:
+-- like a weapon rack they're installed, not just stored (user: "some instruments
+-- are installed like how weapons racks are installed"). Each loose one gets
+-- built in the music hall (dfai-build 'music'), else in the public tavern,
+-- on every third tile so the patrons can walk between them.
+local function free_big_instruments()
+    local out = {}
+    for _, i in ipairs(df.global.world.items.other.INSTRUMENT) do
+        local f = i.flags
+        if i.subtype and i.subtype.flags.PLACED_AS_BUILDING and not dfhack.items.getHolderUnit(i)
+            and not f.in_job and not f.trader and not f.construction and not f.removed and not f.garbage_collect
+            and not f.hostile and not f.owned and not f.forbid then
+            -- loose, or just made and still sitting in its workshop
+            local r = dfhack.items.getGeneralRef(i, df.general_ref_type.BUILDING_HOLDER)
+            local hb = r and df.building.find(r.building_id)
+            if not hb or hb:getType() == df.building_type.Workshop or hb:getType() == df.building_type.Furnace then
+                out[#out + 1] = i
+            end
+        end
+    end
+    return out
+end
+local function slots()
+    local boxes = {}
+    local okb, build = pcall(reqscript, 'dfai-build')
+    local bs = dfhack.persistent.getSiteData('dfai-build', {built = {}})
+    for _, r in ipairs(bs.built or {}) do
+        if r.kind == 'music' then boxes[#boxes + 1] = {r.box[1], r.box[2], r.box[3], r.box[4], r.z} end
+    end
+    if #boxes == 0 and okb and build.public_tavern then
+        local _, zones = build.public_tavern()
+        for _, z in ipairs(zones or {}) do boxes[#boxes + 1] = {z.x1, z.y1, z.x2, z.y2, z.z} end
+    end
+    local out = {}
+    for _, b in ipairs(boxes) do
+        for x = b[1] + 1, b[3] - 1, 3 do for y = b[2] + 1, b[4] - 1, 3 do
+            local p = xyz2pos(x, y, b[5])
+            local tt = dfhack.maps.getTileType(p)
+            local bld = dfhack.buildings.findAtTile(p)
+            if tt and df.tiletype.attrs[tt].shape == df.tiletype_shape.FLOOR and not (bld and bld:getType() ~= df.building_type.Civzone
+                and bld:getType() ~= df.building_type.Stockpile) and dfhack.maps.getTileFlags(p).flow_size == 0 then
+                out[#out + 1] = p
+            end
+        end end
+    end
+    return out
+end
+function install()
+    local items, places = free_big_instruments(), slots()
+    local n = 0
+    for i, it in ipairs(items) do
+        local p = places[i]
+        if not p then break end
+        local b = dfhack.buildings.constructBuilding{type = df.building_type.Instrument, pos = p, items = {it}}
+        if b then n = n + 1 end
+    end
+    return n, #items, #places
+end
+
 local function day()
     if not dfhack.isMapLoaded() then return end
     local s = load()
@@ -153,6 +212,8 @@ local function day()
     s.have, s.total = c.have, c.total
     s.tavern, s.on_show = display(c.have)
     s.ordering = order_next(c)
+    local okn, n = pcall(install)
+    if okn and n and n > 0 then s.installed = (s.installed or 0) + n end
     -- every fort gets a music hall beside its public tavern, once (dfai-build
     -- waits for the tavern itself)
     if not s.hall_ordered then
