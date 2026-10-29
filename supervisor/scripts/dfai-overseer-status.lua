@@ -39,13 +39,46 @@ for _ in pairs(F.sent or {}) do envoys = envoys + 1 end
 out.foreign = {broken = F.broken, envoys = envoys, contacts = (function() local n = 0 for _ in pairs(F.contact or {}) do n = n + 1 end return n end)()}
 
 -- the automation scripts' own status lines
-out.beast = (cmd('dfai-beast-hunt'):gsub('; err nil', ''))
+-- the army and the beasts right now
+local cits = dfhack.units.getCitizens(true)
+local soldiers, squads = 0, {}
+for _, u in ipairs(cits) do
+    if u.military.squad_id ~= -1 then soldiers = soldiers + 1 squads[u.military.squad_id] = true end
+end
+local nsq = 0
+for _ in pairs(squads) do nsq = nsq + 1 end
+out.army = {citizens = #cits, soldiers = soldiers, squads = nsq}
+local beasts = {}
+local okt, tour = pcall(reqscript, 'dfai-room-tour')
+local cpos = {}
+for _, c in ipairs(cits) do cpos[#cpos + 1] = c.pos end
+for _, u in ipairs(df.global.world.units.active) do
+    if (dfhack.units.isForgottenBeast(u) or dfhack.units.isMegabeast(u) or dfhack.units.isTitan(u) or dfhack.units.isDemon(u))
+        and dfhack.units.isActive(u) and not dfhack.units.isDead(u) and not dfhack.maps.getTileFlags(u.pos).hidden then
+        local near = okt and tour.close_to_fort and tour.close_to_fort(u, cpos)
+        beasts[#beasts + 1] = ('%s (level %d, %s)'):format(u8(dfhack.units.getReadableName(u)):gsub(',.*$', ''), u.pos.z, near and 'IN THE FORT' or 'down in the caverns')
+    end
+end
+local hunt = (cmd('dfai-beast-hunt'):gsub('; err nil', ''))
+if hunt:find('^done') or hunt:find('^idle') or hunt == '' then
+    out.beast = ('No hunt running. %s Army: %d soldiers in %d squads.'):format(
+        #beasts > 0 and ('Beasts in sight: ' .. table.concat(beasts, '; ') .. '.') or 'No beasts in sight.', soldiers, nsq)
+else
+    out.beast = hunt .. (' (army now: %d soldiers)'):format(soldiers)
+end
+out.beasts = beasts
 out.mist = cmd('dfai-mist-build')
-out.camp = cmd('dfai-deep-camp')
-out.dig = cmd('dfai-deep-dig')
+local function tidy(t) return (t:gsub('^done; last: done', 'done')) end
+out.camp = tidy(cmd('dfai-deep-camp'))
+do
+    local here = 0
+    for _, u in ipairs(cits) do if u.pos.z <= 45 then here = here + 1 end end
+    out.camp = out.camp .. ('; %d dwarves down there now'):format(here)
+end
+out.dig = tidy(cmd('dfai-deep-dig'))
 out.ore = cmd('dfai-ore-scrub')
 out.holiday = cmd('dfai-holiday')
-out.memorial = cmd('dfai-memorial')
+out.memorial = tidy(cmd('dfai-memorial'))
 out.smasher = cmd('dfai-atom-smasher')
 out.catacomb = cmd('dfai-catacomb')
 out.cavore = cmd('dfai-cavern-ore')

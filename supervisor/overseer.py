@@ -242,12 +242,14 @@ def card_status():
     held = w.get("hold")
     fo = st.get("foreign") or {}
     proj = st.get("projects") or []
+    army = st.get("army") or {}
+    army_line = f" Army: {army.get('soldiers', '?')} soldiers in {army.get('squads', '?')} squads, {army.get('citizens', '?')} citizens." if army else ""
     cards = {
-        "war.raid": out_now + ("" if not w.get("last") else f" Last: {w['last']}."),
-        "war.hold": f"Holding the army home ({held})." if held else "Raids are running: one party out at a time.",
+        "war.raid": out_now + ("" if not w.get("last") else f" Last: {w['last']}.") + army_line,
+        "war.hold": (f"Holding the army home ({held})." if held else "Raids are running: one party out at a time.") + army_line,
         "war.resume": f"Raids are on hold ({held})." if held else "Raids are already running.",
         "war.list": out_now,
-        "beast.attack": "Beast hunt: " + st.get("beast", "?"),
+        "beast.attack": st.get("beast", "?"),
         "fo.now": "The foreign office's records are unreadable; needs a look." if fo.get("broken") else f"{fo.get('envoys', 0)} envoy(s) on the road; {fo.get('contacts', 0)} civs contacted.",
         "fo.list": f"{fo.get('contacts', 0)} civs contacted.",
         "mist.status": st.get("mist", "?"),
@@ -274,6 +276,7 @@ def card_status():
         "holiday.start": st.get("holiday", "?"),
         "holiday.stop": st.get("holiday", "?"),
     }
+    cards["_at"] = time.time()   # when the game last answered (a busy game can't, mid-battle)
     card_cache["at"], card_cache["data"] = time.time(), cards
     return cards
 

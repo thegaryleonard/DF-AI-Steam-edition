@@ -234,7 +234,11 @@ async function loadPlan() {
 loadStops(); loadBps(); loadPlan(); setInterval(loadStops, 60000); setInterval(loadPlan, 120000);
 async function refreshCards() {
   try { const c = await get('/cardstatus.json');
-    for (const [k, v] of Object.entries(c)) { const el = document.getElementById('now-' + k); if (el) el.textContent = v; } } catch (e) {}
+    // the game is too busy to answer (a big battle): say how old the news is instead of passing it off as now
+    const age = c._at ? Date.now() / 1000 - c._at : 0;
+    const stale = age > 60 ? ` (as of ${Math.round(age / 60)} min ago: the game is too busy to answer)` : '';
+    for (const [k, v] of Object.entries(c)) { if (k === '_at') continue; const el = document.getElementById('now-' + k); if (el) { el.textContent = v + stale; el.style.opacity = stale ? .6 : 1; } } }
+  catch (e) { document.querySelectorAll('.now').forEach(el => el.style.opacity = .6); }
 }
 load().then(refreshCards); setInterval(refreshCards, 10000); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
 
