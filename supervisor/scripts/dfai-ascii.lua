@@ -104,6 +104,9 @@ local function switch(want_ascii, why)
         function() if mi().settings.open then mi().settings.open = false end click(find_text('Return to game', P.ret)) end,
         function() if mi().options.open then mi().options.open = false end
             busy = false
+            -- the settings screen's Done re-applies the game's own FPS cap (100):
+            -- the stream runs at 20
+            df.global.enabler.fps, df.global.init.fps_cap = 20, 20
             local s = state() s.last = (want_ascii and 'switched to ASCII' or 'switched to graphics') .. (why and (' (' .. why .. ')') or '') s.at = os.time() save_state(s)
         end,
     }
