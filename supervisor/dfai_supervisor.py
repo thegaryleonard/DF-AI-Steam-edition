@@ -186,8 +186,12 @@ print('NOSAVE')""") or ""
     steps = [
         ("dfai-screen", "click", "Continue active game"),
         ("lua", TITLE_LUA + f"""
+-- match the world by the save's own header (world names carry accents;
+-- quoting them into Lua broke on the escapes)
+local wn
+for _,h in ipairs(t.savegame_header) do if h.full_path == '{path}' then wn = h.world_name end end
 for i,h in ipairs(t.savegame_header_world) do
-  if h.world_name == {json.dumps(world)} then t.scroll_position_world_choice=i print('OK') return end
+  if wn and h.world_name == wn then t.scroll_position_world_choice=i print('OK') return end
 end"""),
         ("dfai-screen", "click", "World: "),          # first visible row = the scrolled-to world
         ("lua", TITLE_LUA + f"""

@@ -41,6 +41,22 @@ local function click(p)
     gui.simulateInput(dfhack.gui.getDFViewscreen(true), '_MOUSE_L')
 end
 
+-- the Esc menu's rows move (a siege adds "Succumb to the invasion", a new fort
+-- has none of the old fort's extra lines): find the button by its words
+local function find_text(text, fallback)
+    local g = df.global.gps
+    for y = 0, g.dimy - 1 do
+        local r = {}
+        for x = 0, g.dimx - 1 do
+            local t = dfhack.screen.readTile(x, y)
+            r[#r + 1] = (t and t.ch and t.ch >= 32 and t.ch < 127) and string.char(t.ch) or ' '
+        end
+        local x = table.concat(r):find(text, 1, true)
+        if x then return {x - 1 + #text // 2, y} end
+    end
+    return fallback
+end
+
 local busy = false
 local function bail(why)
     pcall(function() mi().settings.open = false end)
@@ -61,12 +77,22 @@ local function switch(want_ascii, why)
     if mi().options.open or mi().settings.open then return end   -- someone is in the menus: leave it
     busy = true
     local steps = {
-        function() mi().options.open = true end,   -- the Esc menu (Esc itself isn't taken from simulated input)
-        function() if not mi().options.open then return 'no Esc menu' end click(P.settings) end,
+        function()   -- the Esc menu (Esc itself isn't taken from simulated input)
+            -- opening it this way shows the menu's last contents; if that isn't
+            -- the plain fort menu (e.g. the save-timeline choices left over from
+            -- the abandon-and-new-world run) don't click blind - rebuilding the
+            -- list by hand crashed the game
+            local o = mi().options
+            local has = false
+            for _, v in ipairs(o.option) do if v == df.main_menu_option_type.SETTINGS then has = true end end
+            if not has and #o.option > 0 then return 'the Esc menu holds something else (press Esc once by hand, then retry)' end
+            o.open = true
+        end,
+        function() if not mi().options.open then return 'no Esc menu' end click(find_text('Settings', P.settings)) end,
         function() if not mi().settings.open then return 'no settings screen' end
             if mi().settings.current_mode ~= 0 then return 'not on the Video tab' end click(P.toggle) end,
         function() if is_ascii() ~= want_ascii then return 'the switch did not change' end click(P.done) end,
-        function() if mi().settings.open then mi().settings.open = false end click(P.ret) end,
+        function() if mi().settings.open then mi().settings.open = false end click(find_text('Return to game', P.ret)) end,
         function() if mi().options.open then mi().options.open = false end
             busy = false
             local s = state() s.last = (want_ascii and 'switched to ASCII' or 'switched to graphics') .. (why and (' (' .. why .. ')') or '') s.at = os.time() save_state(s)
