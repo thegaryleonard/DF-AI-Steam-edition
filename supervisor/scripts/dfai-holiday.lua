@@ -196,6 +196,23 @@ local NEED_LABORS = {
     BLOCKS = {'MASON'}, GLASS = {'GLASSMAKER'}, BONES = {'BUTCHER'}, SHELL = {'BUTCHER', 'FISH'}, CORPSEPIECE = {'BUTCHER'},
 }
 local PER_LABOR = 3
+-- does the fort have one the moody dwarf can still take? (then it just has to
+-- fetch it: nobody needs to make one)
+local function on_hand(ji)
+    local other = df.items_other_id[df.item_type[ji.item_type] or '']
+    if not other then return true end   -- (bones and such: df-ai frees those itself)
+    for _, it in ipairs(df.global.world.items.other[other]) do
+        local f = it.flags
+        if not (f.in_job or f.forbid or f.dump or f.garbage_collect or f.trader or f.construction or f.in_building or f.owned)
+            and dfhack.job.isSuitableItem(ji, it:getType(), it:getSubtype())
+            and dfhack.job.isSuitableMaterial(ji, it:getMaterial(), it:getMaterialIndex(), it:getType())
+            and (ji.min_dimension <= 0 or not it.dimension or it.dimension >= ji.min_dimension) then
+            local h = dfhack.items.getHolderUnit(it)
+            if not h or h == nil then return true end
+        end
+    end
+    return false
+end
 local function mood_needs()
     -- {labor index = true}, and a line for the Herald
     local want, who, items = {}, nil, {}
@@ -205,7 +222,7 @@ local function mood_needs()
             local got = {}
             for _, r in ipairs(j.items) do got[r.job_item_idx] = (got[r.job_item_idx] or 0) + 1 end
             for i, ji in ipairs(j.job_items.elements) do
-                if (got[i] or 0) < 1 then
+                if (got[i] or 0) < 1 and not on_hand(ji) then
                     local key = df.item_type[ji.item_type] or 'NONE'
                     if key == 'NONE' and (ji.flags2.body_part or ji.flags2.bone) then key = 'BONES' end
                     for _, l in ipairs(NEED_LABORS[key] or {}) do if df.unit_labor[l] then want[df.unit_labor[l]] = true end end
