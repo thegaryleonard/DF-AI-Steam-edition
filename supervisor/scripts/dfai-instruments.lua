@@ -153,6 +153,15 @@ local function day()
     s.have, s.total = c.have, c.total
     s.tavern, s.on_show = display(c.have)
     s.ordering = order_next(c)
+    -- every fort gets a music hall beside its public tavern, once (dfai-build
+    -- waits for the tavern itself)
+    if not s.hall_ordered then
+        local okb, build = pcall(reqscript, 'dfai-build')
+        if okb and build.public_tavern and build.public_tavern() then
+            dfhack.run_command_silent('dfai-build', 'new', 'music')
+            s.hall_ordered = df.global.cur_year
+        end
+    end
     save(s)
 end
 

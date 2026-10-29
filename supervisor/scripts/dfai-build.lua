@@ -46,6 +46,10 @@ local K = {
                  zone = 'B', near = {df.civzone_type.Barracks}, help = '9 beds, armor stands and weapon racks'},
     pasture   = {label = 'Indoor pasture', L = 11, S = 9, soil = true, zone = 'n', near = {df.civzone_type.Pen},
                  help = 'dug in soil (cave grass only grows on soil); feeds about 12 grazers once the grass is in'},
+    -- user: "another 20x20 room with a stockpile for the instruments, no
+    -- containers ... make that part of the tavern zone and lets see what happens"
+    music     = {label = 'Music hall (part of the public tavern)', L = 20, S = 20, pile = 'g', instruments = true, attach = 'public tavern',
+                 help = 'a 20x20 hall beside the public tavern with an instruments-only stockpile, zoned into the tavern'},
     jail      = {label = 'Jail cell', L = 3, S = 3, furn = function(u, v) if u == 1 and v == 1 then return 'v' end end,
                  zone = 'j', near = {df.civzone_type.Dungeon}, help = 'a cell with a chain'},
 }
@@ -182,7 +186,29 @@ local function fits(fx, fy, z, d, L, S, soil, t)
 end
 
 -- where to look: around rooms of the same kind, else around the fort's busiest levels
+-- the fort's public tavern (visitors allowed): the location and its zones
+function public_tavern()
+    local site = dfhack.world.getCurrentSite()
+    if not site then return end
+    for _, b in ipairs(site.buildings) do
+        if b:getType() == df.abstract_building_type.INN_TAVERN and b.flags.VISITORS_ALLOWED then
+            local zones = {}
+            for _, id in ipairs(b.contents.building_ids) do
+                local z = df.building.find(id)
+                if z then zones[#zones + 1] = z end
+            end
+            if #zones > 0 then return b, zones end
+        end
+    end
+end
+
 local function anchors(kind)
+    if kind.attach then
+        local _, zones = public_tavern()
+        local out = {}
+        for _, z in ipairs(zones or {}) do out[#out + 1] = {z = z.z, n = 1, x = (z.x1 + z.x2) // 2, y = (z.y1 + z.y2) // 2} end
+        return out
+    end
     local want = {}
     for _, t in ipairs(kind.near or {}) do want[t] = true end
     local by = {}
@@ -299,6 +325,43 @@ local function qf(kind, w, label, dry)
     if dry then args[#args + 1] = '--dry-run' end
     return dfhack.run_command_silent(table.unpack(args))
 end
+-- the room's own buildings
+local function at_box(w, want)
+    local x1, y1, x2, y2 = table.unpack(w.box)
+    for _, b in ipairs(df.global.world.buildings.all) do
+        if b.z == w.z and want(b) and b.x1 >= x1 and b.x2 <= x2 and b.y1 >= y1 and b.y2 <= y2 then return b end
+    end
+end
+-- instruments only, no bins/barrels/wheelbarrows (the user's rule for a
+-- first pile and for this one)
+local function setup_instrument_pile(w)
+    local pile = at_box(w, function(b) return b:getType() == df.building_type.Stockpile end)
+    if not pile then return false end
+    dfhack.run_command_silent('stockpiles', 'import', 'cat_finished_goods', '-s', tostring(pile.id))
+    dfhack.run_command_silent('stockpiles', 'import', 'cat_finished_goods', '-s', tostring(pile.id), '-m', 'disable', '-f', 'type/')
+    dfhack.run_command_silent('stockpiles', 'import', 'cat_finished_goods', '-s', tostring(pile.id), '-m', 'enable', '-f', 'type/INSTRUMENT')
+    pile.storage.max_bins, pile.storage.max_barrels, pile.storage.max_wheelbarrows = 0, 0, 0
+    return true
+end
+-- make the room's zone part of the public tavern (as quickfort's own
+-- location=tavern/label does for zones in one blueprint), on the game's tick
+local function attach_to_tavern(w)
+    local loc = public_tavern()
+    local zone = at_box(w, function(b) return b:getType() == df.building_type.Civzone end)
+    if not loc or not zone then return false end
+    dfhack.timeout(1, 'ticks', function()
+        local site = dfhack.world.getCurrentSite()
+        local have = false
+        for _, id in ipairs(loc.contents.building_ids) do if id == zone.id then have = true end end
+        if not have then loc.contents.building_ids:insert('#', zone.id) end
+        zone.site_id = site.id
+        zone.location_id = loc.id
+        zone:uncategorize()
+        zone:categorize(true)
+    end)
+    return true
+end
+
 local function dug(w)
     local x1, y1, x2, y2 = table.unpack(w.box)
     local n, of = 0, 0
@@ -322,6 +385,11 @@ local function step(s)
         if not job then return end
         local kind = K[job]
         if not kind then s.last = 'unknown room kind ' .. tostring(job) return end
+        if kind.attach and not public_tavern() then
+            table.insert(s.queue, 1, job)
+            s.last = ('the %s waits for the fort to open a public tavern'):format(kind.label:lower())
+            return
+        end
         w = find_site(kind)
         if not w then s.last = ('no solid dry rock beside a corridor for a %s'):format(kind.label:lower()) return end
         w.kind, w.phase = job, 'dig'
@@ -350,10 +418,15 @@ local function step(s)
         local n, of = furnished(kind, w)
         s.last = ('furnishing the new %s: %d of %d'):format(kind.label:lower(), n, of)
         w.waits = (w.waits or 0) + 1
+        if kind.instruments and not w.pile_set then w.pile_set = setup_instrument_pile(w) or nil end
         if w.waits % 20 == 0 then qf(kind, w, 'build') end   -- re-place anything cancelled
         if n >= of then w.phase = 'zone' end
     elseif w.phase == 'zone' then
         if kind.zone or kind.zone_each then qf(kind, w, 'zone') end
+        if kind.attach then
+            if not w.zoned then qf({zone = 'm'}, w, 'zone') w.zoned = true return end   -- a plain meeting zone first
+            if not attach_to_tavern(w) then s.last = 'could not join the new hall to the public tavern' end
+        end
         table.insert(s.built, {kind = w.kind, box = w.box, z = w.z})
         s.current = nil
         project('done', w.key)
