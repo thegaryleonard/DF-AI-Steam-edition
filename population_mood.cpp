@@ -204,6 +204,9 @@ df::building *place_workshop_near(df::coord origin, df::workshop_type type)
 // thirst_timer at which a stalled mood gets its items carried in (dwarves
 // die of thirst somewhere past ~75000 for a moody dwarf who won't drink)
 static const int32_t MOOD_RESCUE_THIRST = 40000;
+// thirst_timer past which a requirement the fort can't make in time is
+// created outright (a small cheat the user approved over a dead dwarf)
+static const int32_t MOOD_CHEAT_THIRST = 45000;
 
 void Population::update_moods(color_ostream & out)
 {
@@ -318,6 +321,16 @@ void Population::update_moods(color_ostream & out)
                 {
                     continue;
                 }
+                // Items in a chest (the hospital's cloth, thread, splints)
+                // are not fetched by the mood even when not flagged foreign:
+                // Monom waited a month beside two whole yarn cloths there.
+                if (auto hb = Items::getHolderBuilding(item))
+                {
+                    if (hb->getType() == building_type::Box)
+                    {
+                        continue;
+                    }
+                }
                 if (f.forbid || f.dump)
                 {
                     f.forbid = false;
@@ -342,7 +355,7 @@ void Population::update_moods(color_ostream & out)
                     }
                     df::item_type itype = item->getType();
                     auto & f = item->flags.bits;
-                    if (!f.foreign || f.trader || f.in_job || f.owned || f.artifact || f.removed || f.garbage_collect)
+                    if (f.trader || f.in_job || f.owned || f.artifact || f.removed || f.garbage_collect)
                     {
                         continue;
                     }
@@ -353,8 +366,13 @@ void Population::update_moods(color_ostream & out)
                         continue;
                     }
                     // in a location chest: take it out; loose (hospital cloth
-                    // hauled to a stockpile keeps the flag): just claim it
+                    // hauled to a stockpile keeps the flag): just claim it.
+                    // Chest items need not be flagged foreign to be hidden.
                     df::building *holder = Items::getHolderBuilding(item);
+                    if (!f.foreign && !(holder && holder->getType() == building_type::Box))
+                    {
+                        continue;
+                    }
                     if (holder && holder->getType() != building_type::Box)
                     {
                         continue;
@@ -470,6 +488,36 @@ void Population::update_moods(color_ostream & out)
                 {
                     *standing_orders_auto_collect_webs = 1;
                     ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on (" + std::to_string(webs) + " webs to collect)");
+                }
+            }
+            if (!usable && ji->item_type == item_type::CLOTH && (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn) &&
+                holder && u->counters2.thirst_timer > MOOD_CHEAT_THIRST)
+            {
+                // Last resort: Monom needed silk cloth with no silk thread in
+                // the fort and 545 webs, none reachable. Rather than lose the
+                // dwarf, create one whole piece at the workshop (a cheat).
+                auto flag = ji->flags2.bits.plant ? material_flags::THREAD_PLANT : ji->flags2.bits.silk ? material_flags::SILK : material_flags::YARN;
+                df::item *src = nullptr;
+                for (auto item : world->items.other[items_other_id::THREAD])
+                {
+                    MaterialInfo mi(item);
+                    if (mi.material && mi.material->flags.is_set(flag))
+                    {
+                        src = item;
+                        break;
+                    }
+                }
+                std::vector<df::item *> made;
+                if (src && Items::createItem(made, u, item_type::CLOTH, -1, src->getMaterial(), src->getMaterialIndex()) && !made.empty())
+                {
+                    df::item *c = made[0];
+                    if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, c, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] CHEAT: nothing could supply %s for %s (thirst %d): created %s at the workshop",
+                            describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, AI::describe_item(c).c_str()));
+                        usable++;
+                    }
                 }
             }
             if (!usable && ji->item_type == item_type::ROUGH && mood_warned.insert(who + "|rough|" + std::to_string(idx)).second)
