@@ -624,7 +624,10 @@ void Population::update_moods(color_ostream & out)
                 std::map<int32_t, std::vector<df::unit *>> herd;
                 for (auto a : world->units.active)
                 {
-                    if (!Units::isAlive(a) || !Units::isTame(a) || !Units::isOwnCiv(a) || Units::isCitizen(a))
+                    // units.active keeps slaughtered/dead animals (flags1.inactive)
+                    // with the slaughter flag still set: 32 such carcasses read as
+                    // "slaughter pending" and no new animal was ever marked.
+                    if (!Units::isActive(a) || !Units::isAlive(a) || !Units::isTame(a) || !Units::isOwnCiv(a) || Units::isCitizen(a))
                         continue;
                     if (a->flags2.bits.slaughter)
                         pending = true;
