@@ -50,7 +50,22 @@ elseif d.selecting_land_holder_position then
   -- land holder (baron etc.) appointment: not handled yet; leave it for a human
   print('NEEDS-HUMAN land holder selection: ' .. said())
 elseif d.taking_requests then
-  print(click_text('Done') and 'REQUESTS done (none requested)' or 'STUCK on requests screen')
+  -- ask for something every time (user: "just request something, anything.
+  -- meat is good since were always short"): meat first, then fish and cheese
+  local WANT = {Meat = 4, Fish = 3, Cheese = 2, MeatFishRecipes = 2}
+  local asked = {}
+  local req = d.dipev and d.dipev.sell_requests
+  if req then
+    for cat, pri in pairs(WANT) do
+      local v = req.priority[df.entity_sell_category[cat]]
+      if v and #v > 0 then
+        for i = 0, #v - 1 do if v[i] < pri then v[i] = pri end end
+        asked[#asked + 1] = ('%s (%d kinds)'):format(cat, #v)
+      end
+    end
+  end
+  local what = #asked > 0 and table.concat(asked, ', ') or 'nothing on offer'
+  print(click_text('Done') and ('REQUESTS done: asked for ' .. what) or 'STUCK on requests screen')
 else
   local text = said()
   -- answers to requests that come with a choice. The elves' tree-felling cap is
