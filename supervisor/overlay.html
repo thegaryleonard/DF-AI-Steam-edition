@@ -1327,7 +1327,8 @@ function cardHoliday() {
       <div class="holclock"><div class="big" id="hol-big">${holGameLeft(t)} left</div><div class="small"><span id="hol-real">${holRealLeft(t)}</span> &middot; then every dwarf goes back to the job they left</div></div>
       <div class="body"><p class="just">${now.length ? `Right now ${holList(now)}.` : 'The fort is quiet: everyone is sleeping it off.'}${stage.length ? ` On stage: ${holList(stage)}.` : ''}
       ${tally.length ? ` ${since}: ${holList(tally)}.` : ''}${h.peak ? ` The biggest crowd so far: ${h.peak} revellers at once.` : ''}
-      ${h.on_guard ? ` The ${h.on_guard} dwarves in the fort's squads still keep watch, between rounds.` : ''}</p></div>`;
+      ${h.on_guard ? ` The ${h.on_guard} dwarves in the fort's squads still keep watch, between rounds.` : ''}
+      ${h.mood ? ` Only one job is worth working on a holiday: ${esc(clean(h.mood.who))} is in a strange mood and still needs ${esc(h.mood.needs)}, so ${h.mood.crew} dwarf${h.mood.crew > 1 ? 's have' : ' has'} put down the mug to help.` : ''}</p></div>`;
   }
   if (holRecent(h)) {
     const L = h.last, tally = [];

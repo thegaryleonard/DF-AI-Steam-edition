@@ -174,7 +174,7 @@ local function finish(why)
     end
     if s.autolabor then dfhack.run_command_silent('enable', 'autolabor') end
     local P = s.party or {}
-    s.active, s.labors = false, nil
+    s.active, s.labors, s.crew, s.mood_line = false, nil, nil, nil
     s.last = {ended = now_abs(), people = back, why = why, days = s.days, started = P.started, title = s.title,
         drunk = P.drinks0 and math.max(0, P.drinks0 - drinks()) or nil, eaten = P.meals0 and math.max(0, P.meals0 - meals()) or nil,
         nshows = P.nshows, shows = P.shows, peak = P.peak}
@@ -182,6 +182,77 @@ local function finish(why)
     announce((s.last.title and (dfhack.utf2df(s.last.title) .. ' is over.') or 'The holiday is over.') .. ' Back to work!')
     notify(('**%s is over** (%s). %d dwarves are back at work.'):format(s.last.title or 'The holiday', why, back))
     return ('holiday over: %d dwarves back at work'):format(back)
+end
+
+-- the one job worth working on a holiday (user: "the only holiday job thats
+-- worth working on a holiday is a strange mood missing item"): while a moody
+-- dwarf still lacks an item, the dwarves who normally make that kind of item
+-- (up to 3 per labor, from the labors they had before the holiday) get just
+-- those labors back, so df-ai's mood orders (weave the cloth, tan the hide,
+-- dig the gem...) get done. Once the mood has everything they go back to the party.
+local NEED_LABORS = {
+    SKIN_TANNED = {'BUTCHER', 'TANNER'}, CLOTH = {'WEAVER', 'PROCESS_PLANT', 'SPINNER'}, THREAD = {'PROCESS_PLANT', 'SPINNER'},
+    ROUGH = {'MINE'}, SMALLGEM = {'CUT_GEM', 'MINE'}, BAR = {'SMELT', 'BURN_WOOD'}, WOOD = {'CUTWOOD'}, BOULDER = {'MINE'},
+    BLOCKS = {'MASON'}, GLASS = {'GLASSMAKER'}, BONES = {'BUTCHER'}, SHELL = {'BUTCHER', 'FISH'}, CORPSEPIECE = {'BUTCHER'},
+}
+local PER_LABOR = 3
+local function mood_needs()
+    -- {labor index = true}, and a line for the Herald
+    local want, who, items = {}, nil, {}
+    for _, u in ipairs(dfhack.units.getCitizens(true)) do
+        local j = u.job.current_job
+        if j and (df.job_type[j.job_type] or ''):find('^StrangeMood') then
+            local got = {}
+            for _, r in ipairs(j.items) do got[r.job_item_idx] = (got[r.job_item_idx] or 0) + 1 end
+            for i, ji in ipairs(j.job_items.elements) do
+                if (got[i] or 0) < 1 then
+                    local key = df.item_type[ji.item_type] or 'NONE'
+                    if key == 'NONE' and (ji.flags2.body_part or ji.flags2.bone) then key = 'BONES' end
+                    for _, l in ipairs(NEED_LABORS[key] or {}) do if df.unit_labor[l] then want[df.unit_labor[l]] = true end end
+                    items[#items + 1] = ({SKIN_TANNED = 'leather', ROUGH = 'a rough gem', SMALLGEM = 'a cut gem', BAR = 'metal bars', BONES = 'bones', BOULDER = 'a boulder', CORPSEPIECE = 'bones', THREAD = 'thread', CLOTH = 'cloth', WOOD = 'wood', BLOCKS = 'stone blocks', GLASS = 'glass', SHELL = 'shell'})[key] or key:lower():gsub('_', ' ')
+                    who = who or u
+                end
+            end
+        end
+    end
+    return want, who, items
+end
+local function update_mood_crew(s)
+    local want, who, items = mood_needs()
+    local crew = {}
+    for labor in pairs(want) do
+        local n = 0
+        for id, on in pairs(s.labors or {}) do
+            if n >= PER_LABOR then break end
+            local u = df.unit.find(tonumber(id))
+            if u and not dfhack.units.isDead(u) and u.mood == -1 then
+                for _, i in ipairs(on) do
+                    if i == labor then
+                        crew[id] = crew[id] or {}
+                        table.insert(crew[id], labor)
+                        n = n + 1
+                        break
+                    end
+                end
+            end
+        end
+    end
+    local had = s.crew and next(s.crew) ~= nil
+    local function list(t) return #t > 1 and table.concat(t, ', ', 1, #t - 1) .. ' and ' .. t[#t] or (t[1] or '') end
+    s.crew = crew
+    local nc = 0
+    for _ in pairs(crew) do nc = nc + 1 end
+    if who and nc > 0 then
+        s.mood_line = {who = (dfhack.df2utf(dfhack.units.getReadableName(who)):gsub(',.*$', '')), needs = list(items), crew = nc}
+        if not had then
+            announce(('%s is in a strange mood and still needs %s: %d dwarves put down their mugs to help.'):format(
+                (dfhack.units.getReadableName(who):gsub(',.*$', '')), list(items), nc))
+        end
+    else
+        s.mood_line = nil
+        if had then announce('The moody dwarf has everything. The helpers go back to the party.') end
+    end
+    return crew
 end
 
 -- the fort calendar: a holiday starts on its day (once a year); invaders in
@@ -225,6 +296,14 @@ local function tick()
         end
         return
     end
+    -- the mood crew, checked once a game hour
+    local crew = s.crew or {}
+    if (s.crew_at or -1) ~= now_abs() // 50 then
+        s.crew_at = now_abs() // 50
+        local ok, c = pcall(update_mood_crew, s)
+        crew = ok and c or {}
+        save(s)
+    end
     -- citizens who arrived during the holiday join the party too
     for _, u in ipairs(dfhack.units.getCitizens(true)) do
         if not s.labors[tostring(u.id)] then
@@ -235,8 +314,14 @@ local function tick()
             s.labors[tostring(u.id)] = on
             save(s)
         else
-            -- something handed a labor back (autolabor, a noble): take it off again
-            for i, v in ipairs(u.status.labors) do if v then u.status.labors[i] = false end end
+            -- something handed a labor back (autolabor, a noble): take it off again,
+            -- except the mood crew's
+            local keep = {}
+            for _, l in ipairs(crew[tostring(u.id)] or {}) do keep[l] = true end
+            for i, v in ipairs(u.status.labors) do
+                if v and not keep[i] then u.status.labors[i] = false
+                elseif keep[i] and not v then u.status.labors[i] = true end
+            end
         end
     end
     -- the tally: every performance once, and the biggest crowd
@@ -280,6 +365,7 @@ function report()
         local sq = 0
         for _, u in ipairs(dfhack.units.getCitizens(true)) do if u.military.squad_id ~= -1 then sq = sq + 1 end end
         r.on_guard = sq
+        r.mood = s.mood_line
     elseif s.last then
         r.last = s.last
     end
