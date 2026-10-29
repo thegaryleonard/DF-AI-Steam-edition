@@ -913,6 +913,110 @@ local function show_statue(force_id)
 end
 show_statue_check = function(id) return show_statue(id or true) end
 
+-- holiday camera (user: "for holiday spectator mode, only show taverns and
+-- people in taverns partying"): while dfai-holiday runs, the camera takes
+-- turns between a tavern (the busiest first) and a dwarf partying in one
+-- (performers first, then the dancers and talkers). Battles still break in.
+local PARTY_ROOM_SECS, PARTY_DWARF_SECS = 20, 30
+local function holiday_on()
+    local now = os.time()
+    if not tour.hol_at or now - tour.hol_at >= 10 then
+        tour.hol_at = now
+        local ok, d = pcall(dfhack.persistent.getSiteData, 'dfai-holiday', {})
+        tour.hol_on = ok and d and d.active and true or false
+    end
+    return tour.hol_on
+end
+local function taverns()
+    local out = {}
+    local site = dfhack.world.getCurrentSite()
+    for _, loc in ipairs(site and site.buildings or {}) do
+        if df.abstract_building_inn_tavernst:is_instance(loc) and not loc.flags.DOES_NOT_EXIST then
+            for _, bid in ipairs(loc.contents.building_ids) do
+                local z = df.building.find(bid)
+                if z then out[#out + 1] = {name = tr(loc.name, true), box = {z.x1, z.y1, z.x2, z.y2, z.z}, people = {}} end
+            end
+        end
+    end
+    -- who is in each, and what they're doing
+    local doing, role = {}, {}
+    local ROLE = {STORYTELLER = 'telling a story', POEM_RECITER = 'reciting poetry', MUSICAL_VOICE = 'on stage, making music', DANCER = 'dancing', PREACHER = 'preaching'}
+    for _, a in ipairs(df.global.world.activities.all) do
+        for _, e in ipairs(a.events) do
+            local perf = df.activity_event_performancest:is_instance(e)
+            local ok, units = pcall(function() return e.participants.units end)
+            if perf and ok then
+                for _, id in ipairs(units) do doing[id] = math.max(doing[id] or 0, 2) end
+                -- the performers by role (storyteller, poet, singer/player, dancer); the rest listen
+                for _, r in ipairs(e.participant_actions) do
+                    if r.type ~= df.performance_participant_type.SPECTATOR and r.type ~= df.performance_participant_type.INCIDENTAL_SPECTATOR
+                        and r.type ~= df.performance_participant_type.NONE and r.unit_id ~= -1 then
+                        doing[r.unit_id] = 3
+                        role[r.unit_id] = ROLE[df.performance_participant_type[r.type]]
+                    end
+                end
+            elseif ok then
+                for _, id in ipairs(units) do doing[id] = math.max(doing[id] or 0, 1) end
+            end
+        end
+    end
+    for _, u in ipairs(dfhack.units.getCitizens(true)) do
+        for _, t in ipairs(out) do
+            local b = t.box
+            if u.pos.z == b[5] and u.pos.x >= b[1] and u.pos.x <= b[3] and u.pos.y >= b[2] and u.pos.y <= b[4] then
+                t.people[#t.people + 1] = {id = u.id, score = doing[u.id] or 0, role = role[u.id], tavern = t.name}
+                break
+            end
+        end
+    end
+    table.sort(out, function(a, b) return #a.people > #b.people end)
+    return out
+end
+local function party_step()
+    local now = os.time()
+    dfhack.run_command_silent('disable', 'spectate')
+    -- the current shot still running?
+    if tour.party_shot and now < tour.party_shot.ends then
+        if tour.party_shot.kind == 'room' then return end
+        local u = df.unit.find(tour.party_shot.unit)
+        if u and dfhack.units.isActive(u) and df.global.plotinfo.follow_unit == u.id then return end
+    end
+    local T = taverns()
+    if #T == 0 then tour.party_shot = nil return end
+    tour.party_n = (tour.party_n or 0) + 1
+    tour.guest, tour.project = nil, nil
+    if tour.party_n % 2 == 1 then
+        -- a tavern: the busiest, but not the same one twice running if another has a crowd
+        local t = T[1]
+        if tour.party_last_room == t.name and T[2] and #T[2].people > 0 then t = T[2] end
+        tour.party_last_room = t.name
+        df.global.plotinfo.follow_unit = -1
+        local b = t.box
+        local pos = xyz2pos((b[1] + b[3]) // 2, (b[2] + b[4]) // 2, b[5])
+        dfhack.gui.revealInDwarfmodeMap(pos, true, true)
+        tour.current = {name = t.name, short = #t.people > 0 and ('Holiday! %d dwarves partying'):format(#t.people) or 'Holiday! Waiting for the crowd',
+            pos = pos, secs = PARTY_ROOM_SECS, party = true, box = b}
+        tour.view, tour.last_switch = view(), now
+        tour.party_shot = {kind = 'room', ends = now + PARTY_ROOM_SECS}
+        return
+    end
+    -- a reveller: performers, then dancers and talkers, then anyone in a tavern
+    local best
+    for _, t in ipairs(T) do
+        for _, p in ipairs(t.people) do
+            if p.id ~= tour.party_last_unit and (not best or p.score > best.score) then best = p end
+        end
+    end
+    if not best then tour.party_n = 0 tour.party_shot = {kind = 'room', ends = now + 5} return end
+    tour.party_last_unit = best.id
+    tour.current = nil
+    df.global.plotinfo.follow_unit = best.id
+    tour.last_switch = now
+    local WHAT = {[3] = 'on stage', [2] = 'in the audience', [1] = 'drinking and talking', [0] = 'propping up the bar'}
+    tour.party_shot = {kind = 'unit', unit = best.id, ends = now + PARTY_DWARF_SECS,
+        what = ('Holiday at %s: %s'):format(best.tavern, best.role or WHAT[best.score] or 'partying')}
+end
+
 local function step()
     -- dfai-camera-lock holds the camera: nothing moves it (a lock that lets
     -- battles in still runs the threat check below)
@@ -924,7 +1028,7 @@ local function step()
     if held and tour.threat then camera_watchdog() end
     -- threats first: break into anything (room, guest, dwarf) except another threat,
     -- and only while the stream camera is in charge
-    if not tour.threat and (tour.current or tour.guest or spectate_on()) and pick_threat() then
+    if not tour.threat and (tour.current or tour.guest or spectate_on() or tour.party_mode) and pick_threat() then
         show_threat()
         return
     end
@@ -932,6 +1036,18 @@ local function step()
         return
     end
     if held and not tour.threat then return end
+    -- holiday: taverns and the dwarves partying in them, nothing else (battles
+    -- still come first: the threat check above runs before this)
+    if holiday_on() and not tour.threat then
+        tour.party_mode = true
+        party_step()
+        return
+    elseif tour.party_mode and not holiday_on() then
+        tour.party_mode, tour.party_shot = nil, nil
+        if tour.current and tour.current.party then tour.current = nil end
+        back_to_dwarves()
+        return
+    end
     local now = os.time()
     if tour.project then
         for _, p in ipairs(scan_projects()) do
@@ -1060,6 +1176,9 @@ local function banner_lines()
         local job = u.job.current_job and job_text(u.job.current_job) or tour.project.job or 'On the way'
         local pct = tour.project.pct and (' (' .. tour.project.pct .. '% ' .. (tour.project.what or 'done') .. ')') or ''
         return ((tour.project.critical and 'MISSION: ' or 'PROJECT: ') .. dfhack.utf2df(tour.project.title)):upper() .. pct, name .. ', ' .. prof .. ': ' .. job
+    end
+    if tour.party_mode and tour.party_shot and tour.party_shot.unit == u.id then
+        return name:upper(), dfhack.utf2df(tour.party_shot.what)
     end
     if tour.threat and tour.guest == u.id then
         local alive, fallen = 0, 0
