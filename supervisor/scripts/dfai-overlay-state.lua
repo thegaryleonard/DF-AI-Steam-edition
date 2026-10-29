@@ -226,4 +226,12 @@ if out.ok then
     end
   end
 end
+-- the holiday (party mode): live numbers for the Herald's article and timer
+if out.ok then
+  local okh, hol = pcall(reqscript, 'dfai-holiday')
+  if okh and hol.report then
+    local okr, r = pcall(hol.report)
+    if okr then out.holiday = r end
+  end
+end
 print(json.encode(out))
