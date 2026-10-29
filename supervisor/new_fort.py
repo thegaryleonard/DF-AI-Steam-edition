@@ -145,9 +145,11 @@ def end_fort(abandon):
 
 def leave(abandon, site):
     if abandon:
-        click("Abandon the fortress to ruin")
+        # during a siege DF 53 offers "Succumb to the invasion" instead
+        if not click("Abandon the fortress to ruin", must=False):
+            click("Succumb to the invasion")
         time.sleep(2)
-        click("Abandon", must=False) or click("Yes", must=False)
+        click("Abandon", must=False) or click("Succumb", must=False) or click("Yes", must=False)
     else:
         click("Retire the fortress (for the time being)")
         time.sleep(2)
