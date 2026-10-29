@@ -1258,10 +1258,13 @@ const HOL = {samples: [], rate: null};
 function holTrack() {
   const h = S.holiday, now = Date.now() / 1000;
   if (!h || !h.active) { HOL.samples = []; return; }
-  HOL.at = now; HOL.left = h.left_ticks;
+  // the feed refreshes the game clock every few seconds, so one repeat is not a pause:
+  // paused = the clock has not moved for 30 seconds
+  if (h.now !== HOL.lastTick) { HOL.lastTick = h.now; HOL.movedAt = now; HOL.at = now; HOL.left = h.left_ticks; }
+  else if (HOL.left == null) { HOL.at = now; HOL.left = h.left_ticks; }
   HOL.samples.push([now, h.now]); HOL.samples = HOL.samples.filter(x => now - x[0] < 300);
   const a = HOL.samples[0], b = HOL.samples[HOL.samples.length - 1];
-  HOL.paused = HOL.samples.length >= 3 && b[1] === HOL.samples[HOL.samples.length - 3][1];
+  HOL.paused = now - (HOL.movedAt || now) > 30;
   if (b[0] - a[0] >= 20 && b[1] > a[1]) HOL.rate = (b[1] - a[1]) / (b[0] - a[0]);
 }
 function holLeft() {   // ticks left now, between polls
@@ -1285,13 +1288,13 @@ function holBar() {
   const h = S.holiday;
   if (h && h.active) {
     const t = holLeft(), total = (h.days || 1) * 1200, day = Math.min(h.days, Math.floor((total - t) / 1200) + 1);
-    el.innerHTML = `&#10038; HOLIDAY &#10038; Day ${day} of ${h.days} &middot; <span class="clk">${holGameLeft(t)}</span> left &middot; ${holRealLeft(t)}<div class="hb"><i style="width:${(100 * (1 - t / total)).toFixed(1)}%"></i></div>`;
+    el.innerHTML = `&#10038; ${esc(clean(h.title || 'Holiday')).toUpperCase()} &#10038; Day ${day} of ${h.days} &middot; <span class="clk">${holGameLeft(t)}</span> left &middot; ${holRealLeft(t)}<div class="hb"><i style="width:${(100 * (1 - t / total)).toFixed(1)}%"></i></div>`;
     el.classList.add('on');
     const big = document.getElementById('hol-big'), real = document.getElementById('hol-real');   // the front-page clock ticks too
     if (big) big.textContent = holGameLeft(t) + ' left';
     if (real) real.textContent = holRealLeft(t);
   } else if (holRecent(h)) {
-    el.innerHTML = `The holiday is over &middot; ${h.last.people || 'every'} dwarves are back at work`;
+    el.innerHTML = `${esc(clean(h.last.title || 'The holiday'))} is over &middot; ${h.last.people || 'every'} dwarves are back at work`;
     el.classList.add('on');
   } else el.classList.remove('on');
 }
@@ -1303,7 +1306,8 @@ function cardHoliday() {
   if (h.active) {
     const t = holLeft(), total = h.days * 1200, day = Math.min(h.days, Math.floor((total - t) / 1200) + 1);
     const r = rng(Math.floor(h.started / 1200) + day);
-    const head = pick(r, [`No Jobs, No Masters: ${fort} Parties`, 'The Picks Are Down And The Mugs Are Up', 'A Fort On Holiday',
+    const T = h.title ? clean(h.title) : '';
+    const head = T ? pick(r, [`${T}!`, `${T}: The Picks Are Down`, `${fort} Celebrates ${T}`, `${T}: No Jobs, No Masters`]) : pick(r, [`No Jobs, No Masters: ${fort} Parties`, 'The Picks Are Down And The Mugs Are Up', 'A Fort On Holiday',
       'Tools Down! The Overseer Declares A Holiday', 'The Great Holiday Of ' + fort]);
     const now = [];
     if (h.talking) now.push(`${h.talking} are deep in conversation`);
@@ -1319,7 +1323,7 @@ function cardHoliday() {
     if (h.nshows) tally.push(`${h.nshows} performance${h.nshows > 1 ? 's' : ''} given`);
     return `<div class="kicker"><span>Holiday Special &middot; By Order Of The Overseer</span><span>Day ${day} of ${h.days}</span></div>
       <div class="headline">${esc(head)}</div>
-      <div class="deck">The overseer declared ${h.days} days of rest. Every labor is off; the fort's ${h.people} citizens have nothing to do but enjoy themselves.</div>
+      <div class="deck">${T ? `${esc(T)} is here: ${h.days} days of rest.` : `The overseer declared ${h.days} days of rest.`} Every labor is off; the fort's ${h.people} citizens have nothing to do but enjoy themselves.</div>
       <div class="holclock"><div class="big" id="hol-big">${holGameLeft(t)} left</div><div class="small"><span id="hol-real">${holRealLeft(t)}</span> &middot; then every dwarf goes back to the job they left</div></div>
       <div class="body"><p class="just">${now.length ? `Right now ${holList(now)}.` : 'The fort is quiet: everyone is sleeping it off.'}${stage.length ? ` On stage: ${holList(stage)}.` : ''}
       ${tally.length ? ` ${since}: ${holList(tally)}.` : ''}${h.peak ? ` The biggest crowd so far: ${h.peak} revellers at once.` : ''}
@@ -1332,8 +1336,8 @@ function cardHoliday() {
     if (L.nshows) tally.push(`put on ${L.nshows} performance${L.nshows > 1 ? 's' : ''}`);
     const best = (L.shows || []).slice().sort((a, b) => b.crowd - a.crowd)[0];
     return `<div class="kicker"><span>Holiday Special &middot; The Morning After</span><span>${L.days ? L.days + ' days of rest' : 'Back to work'}</span></div>
-      <div class="headline">Back To Work!</div>
-      <div class="deck">The holiday is over${L.why ? ` (${esc(L.why)})` : ''}. ${L.people || 'Every'} dwarves picked their tools back up.</div>
+      <div class="headline">${L.title ? esc(clean(L.title)) + ' Is Over' : 'Back To Work!'}</div>
+      <div class="deck">${L.title ? 'Back to work' : 'The holiday is over'}${L.why ? ` (${esc(L.why)})` : ''}. ${L.people || 'Every'} dwarves picked their tools back up.</div>
       <div class="body"><p class="just">${tally.length ? `In all, ${fort} ${holList(tally)}.` : ''}${L.peak ? ` At its height, ${L.peak} dwarves were partying at once.` : ''}
       ${best ? ` The show of the holiday: ${esc(holName(best.by))}'s ${esc(String(best.kind).replace(/^an? /, ''))}, before a crowd of ${best.crowd}.` : ''}
       The miners report sore heads; the overseer reports nothing at all.</p></div>`;
@@ -2534,6 +2538,14 @@ function tradeItems(ctx, r) {
       const rows = dd.slice(0, 10).map(x => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(nameUp(x.name))}</span><span>${esc(x.by ? 'by ' + nameUp(x.by) : (CS[x.cause] || x.cause || ''))}</span></div>`).join('');
       out.push({ids: ['issue-dead-' + RC.date + '-' + RC.edition + '-' + dd.length], html: `<div class="item cls"><div class="kick">${eve ? 'Today' : 'Overnight'} · The Fallen</div>${rows}${dd.length > 10 ? `<div><i>and ${dd.length - 10} more</i></div>` : ''}</div>`});
     }
+  }
+  // the fort calendar: what's coming up (dfai-holiday upcoming)
+  const UP = (S.holiday && S.holiday.upcoming) || [];
+  if (UP.length && !(S.holiday && S.holiday.active)) {
+    const rows = UP.map(x => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(clean(x.name))}</span><span>${esc(x.date)}${x.in_days ? `, in ${x.in_days} day${x.in_days > 1 ? 's' : ''}` : ', today!'}</span></div>`).join('');
+    const nx = UP[0];
+    out.push({ids: ['calendar-' + UP.map(x => x.name + x.in_days).join('|')], html: `<div class="item cls"><div class="kick">The Fort Calendar &middot; Coming Up</div>${rows}
+      <p class="just" style="margin-top:3px">${S.holiday.waiting ? 'The next holiday is put off until the invaders are gone.' : nx.in_days <= 7 ? `Only ${nx.in_days} day${nx.in_days === 1 ? '' : 's'} until ${esc(clean(nx.name))}. The tavern keepers are rolling out the barrels.` : `${nx.days} days off for ${esc(clean(nx.name))}. The miners are already counting.`}</p></div>`});
   }
   // the battle report: the last battle at the fort, from the world's own history (dfai-battle-report)
   const BT = TR.battle || {}, LB = BT.last;

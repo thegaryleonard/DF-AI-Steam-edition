@@ -74,6 +74,13 @@
         <button id="bgo">Build it</button> <span id="bhelp" style="color:#6b624f"></span></div>
       <div class="where" id="bstatus" style="font-weight:bold"></div>
     </details>
+    <details open><summary>The Fort Calendar: holidays every year</summary>
+      <div class="where">Each holiday starts on its day every year: everyone downs tools and goes partying, and the Herald covers it. If invaders are in the fort that day, it waits until they're gone.</div>
+      <div class="stops" id="cal">Reading the calendar...</div>
+      <div class="where">Add: <input id="calname" maxlength="40" placeholder="name, e.g. The Feast of Ale" style="width:200px">
+        on the <input id="calday" type="number" min="1" max="28" value="1" style="width:44px"> of <select id="calmonth"></select>
+        for <input id="caldays" type="number" min="1" max="28" value="3" style="width:44px"> days <button id="caladd">Add to the calendar</button></div>
+    </details>
     <details open><summary>Construction order: what gets dug next</summary>
       <div class="where">These are rooms df-ai has planned but not finished. Add one to the order and it is dug before anything df-ai picks itself, in the order listed (one at a time). Leave the order empty and df-ai decides as usual.
         <span id="plansaved" style="color:#6b624f"></span></div>
@@ -119,10 +126,13 @@ async function load() {
     xs.map(x => `<div class="card${x.planned ? ' planned' : ''}"><b>${esc(x.label)}</b><span>${esc(x.help)}</span>${x.planned ? '' : `<div class="now" id="now-${esc(x.key)}">...</div>`}` +
       (x.planned ? '<button disabled>Coming soon</button>' : (x.param ? `<label style="font-size:13px">${esc(x.param.name)}: <input type="number" id="n-${esc(x.key)}" min="${x.param.min}" max="${x.param.max}" value="${x.param.default}" style="width:60px"></label>` : '') + `<button data-key="${esc(x.key)}">Order it</button>`) + '</div>').join('') + '</div>').join('');
   document.querySelectorAll('button[data-key]').forEach(b => b.onclick = () => run(b));
+  // the holiday card takes a name too
+  const hb = document.querySelector('button[data-key="holiday.start"]');
+  if (hb) hb.insertAdjacentHTML('beforebegin', '<label style="font-size:13px">name: <input id="t-holiday.start" maxlength="40" placeholder="optional" style="width:150px"></label> ');
 }
 async function run(b) {
   b.disabled = true; const was = b.textContent; b.textContent = 'Sending...';
-  try { await fetch('/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: b.dataset.key, n: (document.getElementById('n-' + b.dataset.key) || {}).value})}); }
+  try { await fetch('/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: b.dataset.key, n: (document.getElementById('n-' + b.dataset.key) || {}).value, title: (document.getElementById('t-' + b.dataset.key) || {}).value})}); }
   finally { b.disabled = false; b.textContent = was; refreshLog(); setTimeout(refreshStatus, 1500); setTimeout(refreshCards, 2500); }
 }
 async function refreshStatus() {
@@ -227,6 +237,23 @@ async function refreshCards() {
     for (const [k, v] of Object.entries(c)) { const el = document.getElementById('now-' + k); if (el) el.textContent = v; } } catch (e) {}
 }
 load().then(refreshCards); setInterval(refreshCards, 10000); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
+
+// the fort calendar
+(() => {
+  const ord = n => n + ((n % 100 >= 11 && n % 100 <= 13) ? 'th' : ({1: 'st', 2: 'nd', 3: 'rd'}[n % 10] || 'th'));
+  const show = c => {
+    const sel = document.getElementById('calmonth');
+    if (!sel.options.length) sel.innerHTML = c.months.map(m => `<option>${esc(m)}</option>`).join('');
+    document.getElementById('cal').innerHTML = (c.calendar || []).length ? c.calendar.map(h => `<div class="stop"><span><b>${esc(h.name)}</b></span><small>the ${ord(h.day)} of ${esc(h.month)} &middot; ${h.days} day${h.days > 1 ? 's' : ''}</small><a href="#" data-caldel="${esc(h.name)}">remove</a></div>`).join('')
+      : '<i>No holidays yet. Add one below.</i>';
+    document.querySelectorAll('[data-caldel]').forEach(a => a.onclick = e => { e.preventDefault(); send({op: 'del', name: a.dataset.caldel}); });
+  };
+  const send = async body => { const r = await fetch('/calendar', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
+    if (r.ok) show(await r.json()); else alert('The calendar did not take that (a name, a day 1-28 and a length 1-28 days, please).'); refreshLog(); setTimeout(refreshCards, 2000); };
+  document.getElementById('caladd').onclick = () => send({op: 'add', name: document.getElementById('calname').value, month: document.getElementById('calmonth').value,
+    day: +document.getElementById('calday').value, days: +document.getElementById('caldays').value});
+  get('/calendar.json').then(show).catch(() => {});
+})();
 
 // the game's Classic ASCII glyphs: on demand, or the last few minutes of chosen hours
 (() => {

@@ -57,7 +57,7 @@ COMMANDS = {
     "cam.unlock":   ("Camera", "Unlock the camera", "Back to the tour and spectate. Unlocking during the autumn days ends them for this year.", ["dfai-camera-lock", "off"], 30),
     "cam.threats":  ("Camera", "Threats", "What the battle camera can see.", ["dfai-room-tour", "threats"], 30),
     # the fort
-    "holiday.start": ("Fort", "Holiday party mode", "No jobs, no masters: everyone parties for N game days (about 1.5 min each), then every labor goes back as it was. Squads stay on guard.", ["dfai-holiday", "start", "{n}"], 30),
+    "holiday.start": ("Fort", "Holiday party mode", "No jobs, no masters: everyone parties for N game days (a minute or two each), then every labor goes back as it was. Squads stay on guard. Give it a name if you like; it goes on the Herald. The Fort Calendar below sets holidays that come round every year.", ["dfai-holiday", "start", "{n}"], 30),
     "holiday.stop":  ("Fort", "End the holiday", "Back to work now.", ["dfai-holiday", "stop"], 30),
 }
 # orders that take a number: key -> (label, min, max, default)
@@ -113,6 +113,25 @@ def status():
             rows.append({"label": label, "text": out.splitlines()[0] if out else "no answer from the game"})
         status_cache["at"], status_cache["data"] = time.time(), rows
     return status_cache["data"]
+
+
+# ---- the fort calendar (dfai-holiday reads dfhack-config/dfai-holidays.json) ----
+MONTHS = ["Granite", "Slate", "Felsite", "Hematite", "Malachite", "Galena", "Limestone", "Sandstone", "Timber", "Moonstone", "Opal", "Obsidian"]
+HOLIDAYS_CFG = "dfai-holidays.json"
+
+
+def clean_title(t):
+    t = re.sub(r"[^A-Za-z0-9' ,.!-]", "", str(t or "")).strip()
+    return re.sub(r"\s+", " ", t)[:40]
+
+
+def calendar_read():
+    c = read_json(df_path(HOLIDAYS_CFG), None)
+    return c if isinstance(c, dict) else {"calendar": []}
+
+
+def calendar_write(c):
+    df_path(HOLIDAYS_CFG).write_text(json.dumps(c, indent=1), encoding="utf-8")
 
 
 # ---- tour stops (dfai-room-tour writes the list; the off list is ours) ----
@@ -339,6 +358,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps({"kinds": build_kinds(), "status": out.strip().splitlines()[0] if out.strip() else ""}, ensure_ascii=False).encode())
         elif path == "/future.json":
             self.send(json.dumps(future_state(), ensure_ascii=False).encode())
+        elif path == "/calendar.json":
+            self.send(json.dumps({"calendar": calendar_read().get("calendar", []), "months": MONTHS}).encode())
         elif path == "/ascii.json":
             self.send(json.dumps(ascii_state()).encode())
         elif path == "/cardstatus.json":
@@ -437,6 +458,39 @@ class Handler(BaseHTTPRequestHandler):
             write_log({"at": time.strftime("%H:%M:%S"), "key": "game.ascii", "label": {"on": "Game to ASCII", "off": "Game to graphics", "auto": "Game display: follow the ASCII schedule"}[mode],
                        "ok": True, "out": st["line"]})
             self.send(json.dumps(st).encode())
+            return
+        if path == "/calendar":
+            # add / remove a yearly holiday; every field is checked and clamped here
+            cal = calendar_read()
+            days = cal.setdefault("calendar", [])
+            op = req.get("op")
+            if op == "add":
+                name, month = clean_title(req.get("name")), req.get("month")
+                try:
+                    day, n = max(1, min(28, int(req.get("day", 1)))), max(1, min(28, int(req.get("days", 3))))
+                except (TypeError, ValueError):
+                    self.send_error(400)
+                    return
+                if not name or month not in MONTHS or len(days) >= 24:
+                    self.send_error(400)
+                    return
+                days[:] = [h for h in days if h.get("name") != name]
+                days.append({"name": name, "month": month, "day": day, "days": n})
+                days.sort(key=lambda h: (MONTHS.index(h["month"]) if h.get("month") in MONTHS else 99, h.get("day", 1)))
+                what = f"added {name}: the {day} {month}, {n} days"
+            elif op == "del":
+                name = req.get("name")
+                if not any(h.get("name") == name for h in days):
+                    self.send_error(400)
+                    return
+                days[:] = [h for h in days if h.get("name") != name]
+                what = f"removed {name}"
+            else:
+                self.send_error(400)
+                return
+            calendar_write(cal)
+            write_log({"at": time.strftime("%H:%M:%S"), "key": "holiday.calendar", "label": "Fort calendar", "ok": True, "out": what})
+            self.send(json.dumps({"calendar": days, "months": MONTHS}).encode())
             return
         if path == "/ascii_schedule":
             try:
@@ -547,6 +601,18 @@ class Handler(BaseHTTPRequestHandler):
             self.send_error(400)
             return
         group, label, _, args, timeout = COMMANDS[key]
+        if key == "holiday.start":
+            # an optional name: it goes into the calendar file for the game to pick up,
+            # never into the command
+            title = clean_title(req.get("title"))
+            cal = calendar_read()
+            if title:
+                cal["next_title"] = title
+            else:
+                cal.pop("next_title", None)
+            calendar_write(cal)
+            if title:
+                label = f"{label}: {title}"
         if key in PARAMS:
             _, lo, hi, default = PARAMS[key]
             try:
