@@ -117,6 +117,52 @@ static bool invader_close(AI & ai, df::unit *u)
     return false;
 }
 
+// Wildlife is only the army's business at home (user: "i issued some 'stay at
+// home' orders but people are deployed" - squads of hungry wrestlers chased
+// platybelodon herds across the whole surface because one had swiped at a
+// woodcutter): inside the fort, or within 25 tiles / 6 levels of the gate.
+static bool near_fort(AI & ai, df::unit *u)
+{
+    df::coord p = Units::getPosition(u);
+    auto d = Maps::getTileDesignation(p);
+    if (d && !d->bits.outside)
+        return true;
+    if (ai.plan.entrance())
+    {
+        df::coord e = ai.plan.entrance()->pos();
+        if (std::abs(p.x - e.x) <= 25 && std::abs(p.y - e.y) <= 25 && std::abs(p.z - e.z) <= 6)
+            return true;
+    }
+    return false;
+}
+
+// A squad that's mostly hungry or thirsty is let off ordinary targets so it
+// can eat (soldiers locked on a kill order don't; Hammerfaiths' squads went
+// 40+ days on a war tiger and a platybelodon, and one died of thirst).
+static bool squad_needs_meal(df::squad *squad)
+{
+    int32_t n = 0, needy = 0;
+    for (auto pos : squad->positions)
+    {
+        if (!pos || pos->occupant == -1)
+            continue;
+        auto hf = df::historical_figure::find(pos->occupant);
+        auto u = hf ? df::unit::find(hf->unit_id) : nullptr;
+        if (!u || Units::isDead(u))
+            continue;
+        n++;
+        if (u->counters2.hunger_timer > 50000 || u->counters2.thirst_timer > 30000)
+            needy++;
+    }
+    return n > 0 && needy * 2 >= n;
+}
+
+static bool ordinary_target(df::unit *t)
+{
+    return !Units::isGreatDanger(t) && !t->flags1.bits.active_invader && !t->flags1.bits.marauder &&
+        !Units::isOpposedToLife(t) && !t->flags2.bits.underworld;
+}
+
 bool AI::tag_enemies(color_ostream & out)
 {
     bool found = false;
@@ -129,6 +175,8 @@ bool AI::tag_enemies(color_ostream & out)
             continue;
         }
         Population *pop_ref = &pop;
+        AI *ai_ref = this;
+        bool hungry = squad_needs_meal(squad);
         // drop targets that are gone, dead or out of reach (they piled up after a battle and
         // flooded the log with "Cannot find unit for squad kill order")
         for (size_t i = 0; i < squad->orders.size(); i++)
@@ -137,10 +185,13 @@ bool AI::tag_enemies(color_ostream & out)
             if (!kill)
                 continue;
             auto & ids = kill->units;
-            ids.erase(std::remove_if(ids.begin(), ids.end(), [pop_ref, &claimed](int32_t uid) -> bool
+            ids.erase(std::remove_if(ids.begin(), ids.end(), [pop_ref, ai_ref, hungry, &claimed](int32_t uid) -> bool
             {
                 auto t = df::unit::find(uid);
                 if (!t || Units::isDead(t) || !pop_ref->military_target_reachable(t))
+                    return true;
+                // ordinary wildlife: only near home, and not while the squad starves
+                if (ordinary_target(t) && (hungry || !near_fort(*ai_ref, t)))
                     return true;
                 // one squad per ordinary target: orders handed out before
                 // that rule left 17 squads chasing 3 monkeys
@@ -233,7 +284,7 @@ bool AI::tag_enemies(color_ostream & out)
             {
                 found = pop.military_cancel_attack_order(out, u, "hunting target of " + AI::describe_unit(hunter)) || found;
             }
-            else if (auto citizen = u->flags2.bits.roaming_wilderness_population_source ? is_attacking_citizen(u) : nullptr)
+            else if (auto citizen = u->flags2.bits.roaming_wilderness_population_source && near_fort(*this, u) ? is_attacking_citizen(u) : nullptr)
             {
                 found = pop.military_random_squad_attack_unit(out, u, "attacking citizen: " + AI::describe_unit(citizen)) || found;
             }
