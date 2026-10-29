@@ -488,6 +488,26 @@ local function near_citizen(u, cits)
     return false
 end
 
+-- a great beast wandering the caverns far below isn't worth the stream's
+-- time (user: "you can move off of beasts if they arent even close to being a
+-- threat but if they creep up into a stairwell you might want to keep an eye
+-- on it"): it counts once it's in the fort's own space - a tunnel, a
+-- stairwell, a room (underground, not cavern, not the magma sea) - or within
+-- 15 tiles and 3 levels of a citizen
+function close_to_fort(u, cits)
+    local f = dfhack.maps.getTileFlags(u.pos)
+    if f and f.subterranean and not f.feature_local and not f.feature_global then return true end
+    local p = u.pos
+    for _, c in ipairs(cits) do
+        if math.abs(c.z - p.z) <= 3 and math.abs(c.x - p.x) <= 15 and math.abs(c.y - p.y) <= 15 then return true end
+    end
+    return false
+end
+local function great_beast(u)
+    return dfhack.units.isForgottenBeast(u) or dfhack.units.isMegabeast(u) or dfhack.units.isSemiMegabeast(u)
+        or dfhack.units.isTitan(u) or dfhack.units.isDemon(u)
+end
+
 local function pick_threat()
     tour.threat_seen = tour.threat_seen or {}
     local now, best, best_s = os.time(), nil, nil
@@ -497,6 +517,7 @@ local function pick_threat()
     local n = 0
     for _, u in ipairs(df.global.world.units.active) do
         local ok, th = pcall(is_threat, u)
+        if ok and th and not dfhack.units.isInvader(u) and great_beast(u) and not close_to_fort(u, cits) then th = false end
         if ok and th then
             n = n + 1
             local t = tour.threat_seen[u.id] or 0
@@ -540,6 +561,8 @@ local function alive(u)
 end
 local function fights()
     local out = {}
+    tour.cit_pos = {}
+    for _, c in ipairs(dfhack.units.getCitizens(true)) do tour.cit_pos[#tour.cit_pos + 1] = c.pos end
     local min = tour.fight_test_min or df.conflict_level.Brawl
     local blows = recent_blows()
     for _, a in ipairs(df.global.world.activities.all) do
@@ -571,6 +594,12 @@ local function fights()
                         f.sides[#f.sides + 1] = n
                     end
                     local live = next(f.hot) ~= nil or e.attack_inactivity_timer < 200
+                    if live and f.cits == 0 then
+                        -- (beast against beast down in the caverns: not the fort's business)
+                        local near = false
+                        for _, u in ipairs(f.units) do if close_to_fort(u, tour.cit_pos or {}) then near = true break end end
+                        live = near
+                    end
                     local sides_up = 0
                     for _, n in ipairs(f.sides) do if n > 0 then sides_up = sides_up + 1 end end
                     if live and sides_up >= 2 then out[#out + 1] = f end

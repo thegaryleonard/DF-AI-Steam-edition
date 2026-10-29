@@ -78,6 +78,7 @@ STATUS = [
     ("Memorial", ["dfai-memorial"]),
     ("Building to order", ["dfai-build"]),
     ("Cavern ore", ["dfai-cavern-ore"]),
+    ("Archer posts", ["dfai-archer-posts"]),
     ("Pastures", ["dfai-pastures"]),
     ("Catacomb wing", ["dfai-catacomb"]),
 ]
