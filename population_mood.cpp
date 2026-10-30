@@ -49,8 +49,10 @@
 #include "df/building_item_role_type.h"
 #include "df/job_role_type.h"
 
+#include "df/plotinfost.h"
 REQUIRE_GLOBAL(standing_orders_auto_collect_webs);
 REQUIRE_GLOBAL(world);
+REQUIRE_GLOBAL(plotinfo);
 
 // Job::isSuitableItem checks material flags (silk/plant/yarn) against the job
 // item's own (blank) material and fails every cloth; isSuitableMaterial does
@@ -582,6 +584,72 @@ void Population::update_moods(color_ostream & out)
                 {
                     ai.debug(out, "[MOOD] no rough gems for " + who + " and no reachable gem vein near the fort");
                 }
+            }
+            if (!usable && ji->item_type == item_type::BLOCKS && (ji->mat_type == 0 || ji->mat_type == -1) &&
+                mood_warned.insert(who + "|blocks|" + std::to_string(idx)).second)
+            {
+                // Rock blocks: the fort's free blocks were all built into
+                // walls, and nothing ever ordered more (a fey broker sat at
+                // thirst 62000 waiting for 2 BLOCKS beside 1900 boulders).
+                // Order blocks cut at a mason's from the commonest free
+                // non-economic stone (economic stone never starts a job).
+                bool have_mason = false;
+                for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_MASON])
+                {
+                    if (bld->getBuildStage() == bld->getMaxBuildStage())
+                        have_mason = true;
+                }
+                if (!have_mason && mood_warned.insert(who + "|mason").second)
+                {
+                    if (df::building *bld = place_workshop_near(u->pos, workshop_type::Masons))
+                        ai.debug(out, stl_sprintf("[MOOD] no Mason's workshop for %s's blocks: placed one (building %d)", who.c_str(), bld->id));
+                }
+                std::map<int32_t, int32_t> stone;
+                for (auto i : world->items.other[items_other_id::BOULDER])
+                {
+                    auto & f = i->flags.bits;
+                    if (i->getMaterial() != 0 || f.forbid || f.in_job || f.trader || f.dump || f.garbage_collect ||
+                        f.construction || f.in_building || f.owned || f.removed)
+                        continue;
+                    int32_t mi = i->getMaterialIndex();
+                    if (ji->mat_index >= 0 && mi != ji->mat_index)
+                        continue;
+                    if (mi < 0 || size_t(mi) >= plotinfo->economic_stone.size() || plotinfo->economic_stone[mi])
+                        continue;
+                    stone[mi]++;
+                }
+                int32_t best = -1, best_n = 0;
+                for (auto & kv : stone)
+                {
+                    if (kv.second > best_n)
+                    {
+                        best = kv.first;
+                        best_n = kv.second;
+                    }
+                }
+                bool pending = false;
+                for (auto mo : world->manager_orders.all)
+                {
+                    if (mo->job_type == job_type::ConstructBlocks && mo->amount_left > 0)
+                        pending = true;
+                }
+                if (best >= 0 && !pending)
+                {
+                    df::manager_order_template tmpl;
+                    tmpl.job_type = job_type::ConstructBlocks;
+                    tmpl.mat_type = 0;
+                    tmpl.mat_index = best;
+                    std::ostringstream why;
+                    // one boulder gives four blocks
+                    ai.stocks.add_manager_order(out, tmpl, (ji->quantity + 3) / 4 + 1, why);
+                    ai.debug(out, stl_sprintf("[MOOD] %s needs rock blocks: ordered %s blocks cut ", who.c_str(), MaterialInfo(0, best).toString().c_str()) + why.str());
+                }
+                else if (best < 0)
+                {
+                    ai.debug(out, "[MOOD] " + who + " needs rock blocks and no free non-economic boulder exists");
+                }
+                if (best >= 0 || pending)
+                    usable++;
             }
             if (!usable && ji->item_type == item_type::SMALLGEM)
             {
