@@ -26,6 +26,7 @@
 #include "modules/Items.h"
 #include "df/map_block.h"
 #include "df/inorganic_raw.h"
+#include "df/creature_raw.h"
 #include "df/reaction.h"
 #include "df/reaction_product_itemst.h"
 #include "df/reaction_reagent_itemst.h"
@@ -1032,6 +1033,28 @@ void Population::update_moods(color_ostream & out)
                 ai.debug(out, "[MOOD] ordered a hide tanned for " + who + " " + why.str());
                 if (pending || pick)
                     usable++;
+            }
+            if (!usable && ji->item_type == item_type::SKIN_TANNED && holder && u->counters2.thirst_timer > MOOD_CHEAT_THIRST)
+            {
+                // Last resort (a cheat): Solon's glassmaker mood reached thirst
+                // 62000 waiting on leather (nothing slaughtered or tanned in
+                // time). Create one tanned hide at the workshop.
+                MaterialInfo lm;
+                bool found = lm.find("CREATURE:COW:LEATHER");
+                for (size_t c = 0; !found && c < world->raws.creatures.all.size(); c++)
+                    found = lm.find("CREATURE:" + world->raws.creatures.all[c]->creature_id + ":LEATHER");
+                std::vector<df::item *> made;
+                if (found && Items::createItem(made, u, item_type::SKIN_TANNED, -1, lm.type, lm.index) && !made.empty())
+                {
+                    df::item *c = made[0];
+                    if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, c, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] CHEAT: nothing could supply %s for %s (thirst %d): created %s at the workshop",
+                            describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, AI::describe_item(c).c_str()));
+                        usable++;
+                    }
+                }
             }
             if (!usable && (ji->flags2.bits.shell || ji->flags2.bits.pearl || ji->flags2.bits.horn || ji->flags2.bits.ivory_tooth) &&
                 u->counters2.thirst_timer > MOOD_CHEAT_THIRST - 15000)
