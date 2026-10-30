@@ -116,6 +116,53 @@ def edition_now(now=None):
     return None, None, None
 
 
+def recap_since(since, now):
+    """What happened at this fort since real time 'since', in game terms
+    (dfai-recap from the game tick the fort was at then), plus finished
+    projects and the big events seen. {} if the fort wasn't running then."""
+    try:
+        clock = json.loads(CLOCK_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        clock = []
+    fort = (cache["state"].get("fort") or {}).get("name")
+    mine = [c for c in clock if c[2] == fort and c[0] >= since - 1800]
+    if not mine:
+        return {}
+    start = mine[0]
+    r = run_json_args(["dfai-recap", str(start[1])])
+    if not r:
+        return {}
+    r.update(hours=max(1, round((now - start[0]) / 3600)), fort=fort, game_days=max(0, (mine[-1][1] - start[1]) // 1200))
+    try:
+        done = json.loads((Path(sup.CFG["df_dir"]) / "dfhack-config" / "dfai-projects-done.json").read_text(encoding="utf-8"))
+        from collections import Counter
+        cnt = Counter(d.get("title") or d.get("name") or d.get("key") for d in done.get("done", []) if d.get("at", 0) >= start[0])
+        r["projects"] = [t if n == 1 else f"{t} (x{n})" for t, n in cnt.most_common()]
+    except (OSError, ValueError, AttributeError):
+        r["projects"] = []
+    try:
+        ev = json.loads(EVENTS_LOG.read_text(encoding="utf-8"))
+        r["big"] = [{"type": e.get("type"), "text": e.get("text")} for e in ev if e.get("seen", 0) >= start[0] and e.get("fort") == fort][-12:]
+    except (OSError, ValueError):
+        r["big"] = []
+    return r
+
+
+RECENT_HOURS = 4
+recent_cache = {"at": 0, "data": {}}
+
+
+def recent():
+    """The rolling card: the last RECENT_HOURS of real time at this fort (user:
+    "a card just recapping the last 4 hours"), refreshed every 5 minutes."""
+    if time.time() - recent_cache["at"] < 300:
+        return recent_cache["data"]
+    now = time.time()
+    data = recap_since(now - RECENT_HOURS * 3600, now)
+    recent_cache["at"], recent_cache["data"] = now, data
+    return data
+
+
 def recap():
     """The current daily issue, in game terms (dfai-recap), archived to herald/issues/."""
     if time.time() - recap_cache["at"] < 300:
@@ -228,6 +275,8 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path.startswith("/lore.json"):
             world = ((cache["state"].get("fort") or {}).get("world")) or ""
             body, ctype = json.dumps(herald_lore.for_world(world), ensure_ascii=False).encode(), "application/json"
+        elif self.path.startswith("/recent.json"):
+            body, ctype = json.dumps(recent(), ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/recap.json"):
             body, ctype = json.dumps(recap(), ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/instruments.json"):

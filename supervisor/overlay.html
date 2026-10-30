@@ -1369,6 +1369,35 @@ function cardInstruments() {
     ${full ? ` Full orchestras: ${full}.` : ' Collect a whole people\'s set for a full orchestra; collect the world\'s for the Grand Concert.'}</div>`;
 }
 
+// ---------- card: recent news, the last four hours (overlay.py /recent.json) ----------
+function cardRecent() {
+  if (!RR || !RR.hours) return null;
+  const nameUp = t => String(t || '').replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase());
+  const dd = RR.deaths || [], bs = (RR.beasts || []).map(nameUp), rd = RR.raids || [], ar = RR.artifacts || [], pj = RR.projects || [], bg = RR.big || [];
+  const parts = [];
+  if (RR.enemy_dead) parts.push(`${RR.enemy_dead} foe${RR.enemy_dead > 1 ? 's' : ''} fell to the defenders${bs.length ? `, ${esc(bs.slice(0, 2).join(' and '))} among them` : ''}`);
+  if (dd.length) parts.push(`${dd.length} of our own died`);
+  if (pj.length) parts.push(`the builders finished ${pj.length === 1 ? esc(pj[0]) : pj.length + ' works'}`);
+  if (rd.length) parts.push(`${rd.length} raiding part${rd.length > 1 ? 'ies' : 'y'} set out`);
+  if (ar.length) parts.push(`${ar.length} artifact${ar.length > 1 ? 's were' : ' was'} made`);
+  if (RR.births) parts.push(`${RR.births} dwarf${RR.births > 1 ? 's were' : ' was'} born`);
+  const fort = RR.fort ? clean(RR.fort) : 'The Fort';
+  const head = dd.length >= 3 ? `Losses At ${fort}` : RR.enemy_dead >= 3 ? 'The Defenders Have Been Busy' : ar.length ? 'New Treasures In The Halls'
+    : pj.length >= 3 ? 'The Builders Never Stop' : `The Latest From ${fort}`;
+  const joined = parts.join('; '), lead = parts.length ? joined.charAt(0).toUpperCase() + joined.slice(1) + '.' : 'Nothing worth the ink: the fort simply got on with it.';
+  const days = RR.game_days ? `${RR.game_days} game day${RR.game_days > 1 ? 's' : ''}` : '';
+  const rows = [];
+  for (const x of dd.slice(0, 4)) rows.push(['Fallen', nameUp(x.name) + (x.by ? ', by ' + nameUp(x.by) : '')]);
+  for (const a of ar.slice(0, 3)) rows.push(['Artifact', a]);
+  for (const t of pj.slice(0, 4)) rows.push(['Built', t.replace(/\(x(\d+)\)/, '×$1')]);
+  const drama = bg.filter(e => !/DEATH|DIED|MASTERPIECE/.test(e.type || '')).slice(-3);
+  return `<div class="kicker"><span>Recent News · The Last ${RR.hours} Hour${RR.hours > 1 ? 's' : ''}</span><span>${esc(days)}</span></div>
+    <div class="headline">${esc(head)}</div>
+    <div class="deck">${lead}${RR.pop ? ` ${RR.pop} citizens at the last count.` : ''}</div>
+    ${rows.length ? `<table>${rows.map(([k, v]) => `<tr><td class="dim" style="font-size:10px;width:62px">${esc(k)}</td><td>${esc(clean(v))}</td></tr>`).join('')}</table>` : ''}
+    ${drama.length ? `<div class="body" style="font-size:11.5px">${drama.map(e => '&bull; ' + esc(clean(e.text || ''))).join('<br>')}</div>` : ''}`;
+}
+
 // ---------- card: from the archives ----------
 function cardArchive() {
   if (!H.artifacts || !H.artifacts.length) return null;
@@ -2747,7 +2776,7 @@ function fillFold() {
 
 // ---------- rotation ----------
 const CARDS = [
-  {fn: cardHoliday, secs: 35}, {fn: cardDwarf, secs: 30}, {fn: cardInstruments, secs: 25}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardPolitics, secs: 30}, {fn: cardArchive, secs: 20},
+  {fn: cardHoliday, secs: 35}, {fn: cardRecent, secs: 30}, {fn: cardDwarf, secs: 30}, {fn: cardInstruments, secs: 25}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardPolitics, secs: 30}, {fn: cardArchive, secs: 20},
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
 // ?zoom=1.5 scales the whole paper (OBS browser sources: set the source width to 480*zoom)
@@ -2891,6 +2920,8 @@ async function pollState() {
   masthead(); checkBig(); trackStories(); renderFollow();
   holTrack(); holBar();
 }
+let RR = {};   // the rolling last-4-hours card (overlay.py /recent.json)
+async function pollRecent() { try { RR = await get('/recent.json') || {}; } catch (e) {} }
 let RC = {};   // "While You Slept": the fort's last ~9 real hours (overlay.py /recap.json)
 async function pollRecap() { try { RC = await get('/recap.json') || {}; } catch (e) {} }
 async function pollStocks() {
@@ -2916,6 +2947,7 @@ async function pollSlow() {
   nextCard();
   setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollTrade, 60000); setInterval(pollWorks, 120000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
   pollRecap(); setInterval(pollRecap, 300000);
+  pollRecent(); setInterval(pollRecent, 300000);
   setInterval(holBar, 1000);
   pollInstruments(); setInterval(pollInstruments, 120000);
 })();
