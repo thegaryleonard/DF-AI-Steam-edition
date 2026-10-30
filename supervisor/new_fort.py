@@ -284,6 +284,10 @@ def find_sites(near):
     lua(CSS + f"""for i=2,#v.find_param-1 do v.find_param[i]=-1 end
 v.find_param[{opt}.DimensionX]={EMBARK} v.find_param[{opt}.DimensionY]={EMBARK}
 v.find_param[{opt}.AquiferLight]=0 v.find_param[{opt}.AquiferHeavy]=0 print('OK')""")
+    time.sleep(1)
+    # what the finder shows for those settings (Twistgravel flooded from an
+    # aquifer even so: keep a record of what "0" means on screen)
+    log("new fort: finder aquifer settings: " + " | ".join(l.split("\t", 1)[-1].strip() for l in dump().splitlines() if "quifer" in l))
     click("Begin")
     wait_text(["Match found", "No match", "no match"], 10 * 60, step=5)
     # the finder panel hides the Embark button: close it, the results stay
@@ -331,8 +335,14 @@ v.doing_site_finder=false v.zoomed_in=true v.zoom_cent_x={x} v.zoom_cent_y={y}
 v.region_cent_x={x} v.region_cent_y={y}
 l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x={x}*16+{HI} l.embark_pos_max.y={y}*16+{HI}
 print('OK')""")
-    time.sleep(1)
-    if "Click on the map to embark" not in dump():
+    time.sleep(2)
+    # the embark panel lists the site's features: an aquifer floods the fort
+    # (Twistgravel: the lower fort cut off, haulers stuck, 29 died of thirst)
+    d = dump()
+    if "quifer" in d:
+        log(f"new fort: ({x},{y}) has an aquifer: skipped")
+        return False
+    if "Click on the map to embark" not in d:
         if not click_last("Embark"):
             return False
         time.sleep(2)
@@ -344,8 +354,9 @@ l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x
         return True
     d = dump()
     # savage land only means big animals: take it; anything else (evil, salt
-    # water...) is turned down
-    if "savage" in d.lower() and "evil" not in d.lower() and "salt" not in d.lower() and "Confirm" in d:
+    # water, an aquifer - the savage warning lists them together, and
+    # confirming it put Twistgravel on a light aquifer that flooded) is turned down
+    if "savage" in d.lower() and not any(w in d.lower() for w in ("evil", "salt", "aquifer", "flood")) and "Confirm" in d:
         click("Confirm", must=False)
         time.sleep(4)
         if focus().startswith("setupdwarfgame") or focus().startswith("dwarfmode"):
