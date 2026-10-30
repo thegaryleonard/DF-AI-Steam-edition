@@ -42,11 +42,12 @@ function reserved()
         end
     end
     local bk = dfhack.persistent.getSiteData('dfai-bunker', {built = {}})
-    for _, b in ipairs(bk.built or {}) do boxes[#boxes + 1] = {x1 = b.x1, y1 = b.y1, x2 = b.x2, y2 = b.y2, z1 = b.z, z2 = b.z + 1} end
+    for _, b in ipairs(bk.built or {}) do if b.z then boxes[#boxes + 1] = {x1 = b.x1, y1 = b.y1, x2 = b.x2, y2 = b.y2, z1 = b.z, z2 = b.z + 1} end end
     local c = bk.current
-    if c and c.x1 then boxes[#boxes + 1] = {x1 = c.x1, y1 = c.y1, x2 = c.x2, y2 = c.y2, z1 = c.z, z2 = c.z + 1} end
+    if c and c.x1 and c.z then boxes[#boxes + 1] = {x1 = c.x1, y1 = c.y1, x2 = c.x2, y2 = c.y2, z1 = c.z, z2 = c.z + 1} end
     local mi = dfhack.persistent.getSiteData('dfai-mist', {})
-    if mi.box then local b = mi.box boxes[#boxes + 1] = {x1 = b.x1, y1 = b.y1, x2 = b.x2, y2 = b.y2, z1 = b.z, z2 = b.z + 1} end
+    -- (only a planned generator's box: an old or half-written one has no level)
+    if mi.plan and mi.box and mi.box.z then local b = mi.box boxes[#boxes + 1] = {x1 = b.x1, y1 = b.y1, x2 = b.x2, y2 = b.y2, z1 = b.z, z2 = b.z + 1} end
     local w = dfhack.persistent.getSiteData('dfai-walls', {})
     for _, t in ipairs(w.ring or {}) do ring[t[1] * 10000 + t[2]] = true end
     return {boxes = boxes, ring = ring}

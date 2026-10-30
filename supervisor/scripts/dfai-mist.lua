@@ -144,8 +144,8 @@ local function tunnel(ax, ay, bx, by, z)
     end
 end
 
-function find_site()
-    local r = ring_site()
+function find_site(keep_ring)
+    local r = keep_ring or ring_site()
     if not r then return nil, 'no room for the pump ring over the public tavern (it needs 4 free floor tiles for statues, a free tile for a stair, and solid rock above)' end
     local e = S.entrance()
     if not e then return nil, 'no fort entrance known yet' end
@@ -174,13 +174,18 @@ function find_site()
                         for _, p in ipairs(t) do if p[1] == stair[1] and p[2] == stair[2] then t = nil break end end
                     end
                     if t then
-                        for n = 4, 2, -1 do
+                        -- power: 4 pumps at 10 each, 1 per axle tile and per
+                        -- gear; a windmill gives 40 in a good wind (20 in a
+                        -- poor one): enough windmills for the whole train
+                        local need = 40 + #t + (zs - zc - 1) + 8
+                        local min_mills = math.ceil(need / 40)
+                        for n = 4, min_mills, -1 do
                             local placed = false
                             for _, d in ipairs(DIRS) do
                                 local mills, gears = row(sx, sy, d, n)
                                 local ok, bb = row_ok(mills, gears, zs, res)
                                 if ok then
-                                    best = {dist = dist, ring = r, zc = zc, zs = zs, shaft = {sx, sy}, stair = stair, tunnel = t,
+                                    best = {need = need, dist = dist, ring = r, zc = zc, zs = zs, shaft = {sx, sy}, stair = stair, tunnel = t,
                                         mills = mills, gears = gears, box = {x1 = bb.x1, y1 = bb.y1, x2 = bb.x2, y2 = bb.y2, z = zs}}
                                     placed = true
                                     break
@@ -430,8 +435,9 @@ local function tick()
                 if not go then s.last = 'mist generator: on hold, ' .. tostring(why) return end
                 if pri.no_water() then s.last = 'mist generator: waits, there is no water on the map to prime it with' return end
             end
-            local p, why = find_site()
+            local p, why = find_site(s.keep_ring)
             if not p then s.last = 'mist generator: ' .. tostring(why) return end
+            s.keep_ring = nil
             p.phase = 'dig'
             s.plan, s.box, s.tries = p, p.box, 0
             local r = p.ring
@@ -453,12 +459,31 @@ if cmd == 'start' then
 elseif cmd == 'now' then
     dfhack.timeout(1, 'ticks', tick)
     print('mist generator: queued')
+elseif cmd == 'replan' then
+    dfhack.timeout(1, 'ticks', function()
+        local st = load()
+        local old = st.plan
+        st.plan, st.box = nil, nil
+        st.keep_ring = old and old.ring   -- its chamber is already being dug: keep it
+        save(st)
+        if old and old.tunnel then
+            local keep = {}
+            local function undesignate(x, y, z)
+                local f = dfhack.maps.getTileFlags(x, y, z)
+                if f and f.dig ~= df.tile_dig_designation.No and shape(x, y, z) == Sh.WALL then f.dig = df.tile_dig_designation.No end
+            end
+            for i, t in ipairs(old.tunnel) do if i > 1 then undesignate(t[1], t[2], old.zc) end end
+            for z = old.zc, old.zs - 1 do undesignate(old.stair[1], old.stair[2], z) end
+        end
+        tick()
+    end)
+    print('mist generator: replanning')
 elseif cmd == 'find' then
     local p, why = find_site()
     if not p then print('no site: ' .. tostring(why)) return end
     print(('ring over the tavern at %d,%d level %d (chamber level %d, tavern traffic %d)'):format(p.ring.x, p.ring.y, p.ring.z, p.zc, p.ring.feet))
     print(('shaft at %d,%d from level %d up to the surface at %d (%d vertical axles), stair beside it at %d,%d'):format(p.shaft[1], p.shaft[2], p.zc, p.zs, p.zs - p.zc - 1, p.stair[1], p.stair[2]))
-    print(('tunnel %d tiles; %d windmills at level %d from %d,%d'):format(#p.tunnel, #p.mills, p.zs, p.mills[1][1], p.mills[1][2]))
+    print(('tunnel %d tiles; %d windmills at level %d from %d,%d; power needed about %d'):format(#p.tunnel, #p.mills, p.zs, p.mills[1][1], p.mills[1][2], p.need or 0))
     local keys = {}
     for _, c in ipairs(cells_machines(p)) do keys[#keys + 1] = c[3] end
     print('chamber + tunnel machines: ' .. table.concat(keys, ' '))
