@@ -26,6 +26,10 @@
 #include "modules/Items.h"
 #include "df/map_block.h"
 #include "df/inorganic_raw.h"
+#include "df/reaction.h"
+#include "df/reaction_product_itemst.h"
+#include "df/reaction_reagent_itemst.h"
+#include "df/item_barst.h"
 #include "df/block_square_event_mineralst.h"
 #include "df/manager_order_template.h"
 #include "df/manager_order.h"
@@ -738,7 +742,126 @@ void Population::update_moods(color_ostream & out)
                 }
                 else
                 {
-                    ai.debug(out, "[MOOD] " + who + " needs " + MaterialInfo(0, metal).toString() + " bars and no free ore yields it");
+                    // No ore yields it: an alloy (a fey armorsmith wanted
+                    // bronze, the fort had neither copper nor tin bars and
+                    // reached thirst 65000). Queue the alloy reaction at the
+                    // smelter and smelt ore for each missing ingredient metal.
+                    auto smelt_for = [&](int32_t m, int32_t bars) -> bool
+                    {
+                        int32_t ore = -1, prob = 0, n = 0;
+                        std::map<int32_t, int32_t> cnt;
+                        for (auto i : world->items.other[items_other_id::BOULDER])
+                        {
+                            auto & f = i->flags.bits;
+                            if (i->getMaterial() != 0 || f.forbid || f.in_job || f.trader || f.dump || f.garbage_collect || f.construction || f.in_building)
+                                continue;
+                            auto inorg = df::inorganic_raw::find(i->getMaterialIndex());
+                            if (!inorg)
+                                continue;
+                            for (size_t k = 0; k < inorg->metal_ore.mat_index.size(); k++)
+                            {
+                                if (inorg->metal_ore.mat_index[k] != m)
+                                    continue;
+                                int32_t pr = k < inorg->metal_ore.probability.size() ? inorg->metal_ore.probability[k] : 100;
+                                cnt[i->getMaterialIndex()]++;
+                                if (pr > prob)
+                                {
+                                    prob = pr;
+                                    ore = i->getMaterialIndex();
+                                }
+                            }
+                        }
+                        if (ore < 0)
+                            return false;
+                        n = cnt[ore];
+                        for (auto mo : world->manager_orders.all)
+                        {
+                            if (mo->job_type == job_type::SmeltOre && mo->mat_type == 0 && mo->mat_index == ore && mo->amount_left > 0)
+                                return true;
+                        }
+                        int32_t want = std::min(std::min((bars * 100 + prob - 1) / std::max<int32_t>(prob, 1) + 1, n), int32_t(30));
+                        df::manager_order_template tmpl;
+                        tmpl.job_type = job_type::SmeltOre;
+                        tmpl.mat_type = 0;
+                        tmpl.mat_index = ore;
+                        std::ostringstream why;
+                        ai.stocks.add_manager_order(out, tmpl, want, why);
+                        ai.debug(out, stl_sprintf("[MOOD] %s's alloy needs %s: ordered %d %s smelted ", who.c_str(),
+                            MaterialInfo(0, m).toString().c_str(), want, MaterialInfo(0, ore).toString().c_str()) + why.str());
+                        return true;
+                    };
+                    bool alloy = false;
+                    for (auto r : world->raws.reactions.reactions)
+                    {
+                        bool makes = false;
+                        for (auto rp : r->products)
+                        {
+                            auto rpi = virtual_cast<df::reaction_product_itemst>(rp);
+                            if (rpi && rpi->item_type == item_type::BAR && rpi->mat_type == 0 && rpi->mat_index == metal)
+                                makes = true;
+                        }
+                        if (!makes)
+                            continue;
+                        bool ok = true;
+                        std::vector<std::pair<int32_t, int32_t>> need;
+                        for (auto rr : r->reagents)
+                        {
+                            auto rri = virtual_cast<df::reaction_reagent_itemst>(rr);
+                            if (!rri || rri->item_type != item_type::BAR || rri->mat_type != 0 || rri->mat_index < 0)
+                            {
+                                // fuel/flux reagents (coal, boulders) are left to the smelter
+                                if (rri && rri->item_type == item_type::BAR && rri->mat_type != 0)
+                                    continue;
+                                ok = false;
+                                break;
+                            }
+                            int32_t have = 0;
+                            for (auto i : world->items.other[items_other_id::BAR])
+                            {
+                                auto & f = i->flags.bits;
+                                if (i->getMaterial() == 0 && i->getMaterialIndex() == rri->mat_index &&
+                                    !(f.forbid || f.in_job || f.trader || f.dump || f.garbage_collect || f.construction || f.in_building || f.owned))
+                                    have += virtual_cast<df::item_barst>(i)->dimension;
+                            }
+                            if (have < rri->quantity)
+                                need.push_back(std::make_pair(rri->mat_index, (rri->quantity - have + 149) / 150));
+                        }
+                        if (!ok)
+                            continue;
+                        bool reachable = true;
+                        for (auto & nb : need)
+                        {
+                            if (!smelt_for(nb.first, nb.second))
+                                reachable = false;
+                        }
+                        if (!reachable)
+                            continue;
+                        bool pending = false;
+                        for (auto mo : world->manager_orders.all)
+                        {
+                            if (mo->job_type == job_type::CustomReaction && mo->reaction_name == r->code && mo->amount_left > 0)
+                                pending = true;
+                        }
+                        if (!pending)
+                        {
+                            df::manager_order_template tmpl;
+                            tmpl.job_type = job_type::CustomReaction;
+                            tmpl.reaction_name = r->code;
+                            tmpl.item_type = item_type::NONE;
+                            tmpl.item_subtype = -1;
+                            tmpl.mat_type = -1;
+                            tmpl.mat_index = -1;
+                            std::ostringstream why;
+                            ai.stocks.add_manager_order(out, tmpl, 1, why);
+                            ai.debug(out, "[MOOD] " + who + " needs " + MaterialInfo(0, metal).toString() + " bars: ordered alloy reaction " + r->code + " " + why.str());
+                        }
+                        alloy = true;
+                        break;
+                    }
+                    if (alloy)
+                        usable++;
+                    else
+                        ai.debug(out, "[MOOD] " + who + " needs " + MaterialInfo(0, metal).toString() + " bars and no free ore or alloy ingredients yield it");
                 }
             }
             if (!usable && ji->item_type == item_type::BAR && mood_warned.insert(who + "|bar|" + std::to_string(idx)).second)
