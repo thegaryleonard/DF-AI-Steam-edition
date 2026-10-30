@@ -67,7 +67,13 @@ void Stocks::farmplot(color_ostream & out, room *r, bool initial)
         may.push_back(i);
     }
 
-    bld->farm_flags.bits.seasonal_fertilize = true;
+    // fertilize only with potash in stock: without it each tile posts a job
+    // that's cancelled at once (Hammerfaiths had 177 of them clogging the
+    // job list); dfai-fort-health switches it back on when potash arrives
+    {
+        auto pot = count_free.find(stock_item::potash);
+        bld->farm_flags.bits.seasonal_fertilize = pot != count_free.end() && pot->second >= 5;
+    }
 
     bool isfirst = ai.find_room(room_type::farmplot, [&](room *other) -> bool { return r->farm_type == other->farm_type && r->outdoor == other->outdoor; }) == r;
     for (int8_t season = 0; season < 4; season++)

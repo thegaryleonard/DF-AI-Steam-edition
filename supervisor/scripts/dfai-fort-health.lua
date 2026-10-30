@@ -78,13 +78,28 @@ local function check_fertilizer(out)
         changed > 0 and (' (%d plots switched)'):format(changed) or '', removed > 0 and (', %d dead-end fertilize jobs cleared'):format(removed) or '')
 end
 
+-- a dead dwarf who belonged to this fort (site government member)
+local function was_ours(u)
+    if not u or not dfhack.units.isDwarf(u) or u.civ_id ~= df.global.plotinfo.civ_id then return false end
+    local hf = df.historical_figure.find(u.hist_figure_id)
+    if not hf then return false end
+    for _, l in ipairs(hf.entity_links) do
+        if l.entity_id == df.global.plotinfo.group_id then return true end
+    end
+    return false
+end
 local function check_coffins(out)
-    local unburied = 0
+    -- one per dead fort dwarf whose body (or what's left of it) isn't in a coffin
+    local seen, unburied = {}, 0
     for _, i in ipairs(df.global.world.items.other.ANY_CORPSE) do
-        local u = i.unit_id and df.unit.find(i.unit_id)
-        if u and u.civ_id == df.global.plotinfo.civ_id and dfhack.units.isDwarf(u) and not i.flags.in_building and not i.flags.dump then
-            local b = dfhack.items.getHolderBuilding(i)
-            if not b or b:getType() ~= df.building_type.Coffin then unburied = unburied + 1 end
+        local uid = i.unit_id
+        if uid and uid ~= -1 and not seen[uid] then
+            local u = df.unit.find(uid)
+            if u and dfhack.units.isDead(u) and was_ours(u) then
+                seen[uid] = true
+                local b = dfhack.items.getHolderBuilding(i)
+                if not b or b:getType() ~= df.building_type.Coffin then unburied = unburied + 1 end
+            end
         end
     end
     local empty = 0
@@ -93,18 +108,19 @@ local function check_coffins(out)
     end
     local loose = 0
     for _, i in ipairs(df.global.world.items.other.COFFIN) do if not i.flags.in_building and not i.flags.forbid then loose = loose + 1 end end
-    local ordered = 0
+    local ordered, orders = 0, {}
     for _, mo in ipairs(df.global.world.manager_orders.all) do
-        if mo.job_type == df.job_type.ConstructCoffin then ordered = ordered + mo.amount_left end
+        if mo.job_type == df.job_type.ConstructCoffin then ordered = ordered + mo.amount_left orders[#orders + 1] = mo end
     end
-    local short = unburied + 2 - empty - loose - ordered
+    -- at most 10 coffins on order at a time
+    local short = math.min(unburied + 2 - empty - loose, 10) - ordered
     if short > 0 then
-        dfhack.run_command_silent('workorder', ('{"job":"ConstructCoffin","amount_total":%d,"material":"INORGANIC"}'):format(math.min(short, 10)))
+        dfhack.run_command_silent('workorder', ('{"job":"ConstructCoffin","amount_total":%d,"material":"INORGANIC"}'):format(short))
     end
     local ghosts = 0
     for _, u in ipairs(df.global.world.units.active) do if dfhack.units.isGhost(u) and not dfhack.units.isDead(u) then ghosts = ghosts + 1 end end
-    out[#out + 1] = ('coffins: %d dwarves unburied, %d ghosts; %d empty coffins, %d made, %d on order%s'):format(unburied, ghosts, empty, loose, ordered,
-        short > 0 and (' - ordered %d more'):format(math.min(short, 10)) or '')
+    out[#out + 1] = ('coffins: %d fort dwarves unburied, %d ghosts; %d empty coffins, %d made, %d on order%s'):format(unburied, ghosts, empty, loose, ordered,
+        short > 0 and (' - ordered %d more'):format(short) or '')
 end
 
 local function posted_ids()

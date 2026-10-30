@@ -120,7 +120,7 @@ def stop_stream_scripts():
 
 def end_fort(abandon):
     site = lua("local s=dfhack.world.getCurrentSite() print(s and dfhack.translation.translateName(s.name,true) or '?')")
-    backup(("abandon-" if abandon else "retire-") + site.replace(" ", "")[:20])
+    backup(("abandon-" if abandon else "retire-") + ("".join(c for c in site if c.isalnum())[:20] or "fort"))
     stop_stream_scripts()
     time.sleep(3)
     ENDED = ["Save world and return to title menu", "Return to title", "Start new game in existing world"]
@@ -232,6 +232,8 @@ CSS = "local v=dfhack.gui.getViewscreenByType(df.viewscreen_choose_start_sitest,
 
 
 def open_world():
+    if focus().startswith("choose_start_site"):
+        return  # already there (a retry)
     if focus().startswith("choose_game_type"):
         pass    # straight from a new world's "Play now"
     elif focus().startswith("title"):
@@ -258,24 +260,48 @@ end print('NOWORLD')""")
 
 
 def find_sites(near):
-    """Run DF's site finder for river + no aquifer; return matching region
-    tiles, nearest the old fort first."""
+    """Run DF's site finder for river + no aquifer + calm (not savage) land;
+    return matching region tiles, nearest the old fort first (a new world:
+    nearest its middle). Savage land rejects every embark with a warning, so
+    calm comes first; if nothing calm has a river, any savagery will do."""
     opt = "df.embark_finder_option"
-    click("Find embark location")
-    time.sleep(2)
-    lua(CSS + f"""for i=2,#v.find_param-1 do v.find_param[i]=-1 end
-v.find_param[{opt}.DimensionX]=4 v.find_param[{opt}.DimensionY]=4
+
+    def search(savagery):
+        # back to the plain world map (a retry can find it zoomed in or mid-embark)
+        lua(CSS + "v.choosing_embark=false v.zoomed_in=false v.doing_site_finder=false print('OK')")
+        time.sleep(1)
+        if "Clear find results" in dump():
+            click("Clear find results", must=False)
+            time.sleep(2)
+        if not click("Find embark location", must=False):
+            raise Failed(f"no site finder button (focus {focus()})")
+        time.sleep(2)
+        lua(CSS + f"""for i=2,#v.find_param-1 do v.find_param[i]=-1 end
+v.find_param[{opt}.DimensionX]=4 v.find_param[{opt}.DimensionY]=4 v.find_param[{opt}.Savagery]={savagery}
 v.find_param[{opt}.AquiferLight]=0 v.find_param[{opt}.AquiferHeavy]=0 v.find_param[{opt}.River]=1 print('OK')""")
-    click("Begin")
-    wait_text(["Match found", "No match", "no match"], 10 * 60, step=5)
-    out = lua(f"""local wd=df.global.world.world_data local o={{}}
-for x=0,wd.world_width-1 do for y=0,wd.world_height-1 do
+        click("Begin")
+        wait_text(["Match found", "No match", "no match"], 10 * 60, step=5)
+        # the finder panel hides the Embark button: close it, the results stay
+        lua(CSS + "v.doing_site_finder=false print('OK')")
+        time.sleep(1)
+        out = lua(f"""local wd=df.global.world.world_data local o={{}}
+for x=2,wd.world_width-3 do for y=2,wd.world_height-3 do
   local r=wd.region_map[x]:_displace(y)
   if r.finder_rank>0 and #r.sites==0 and not r.flags.has_site then o[#o+1]=x..','..y end
 end end print(table.concat(o,' '))""")
-    sites = [tuple(map(int, s.split(","))) for s in out.split() if "," in s]
+        return [tuple(map(int, s.split(","))) for s in out.split() if "," in s]
+
+    sites = search(0)               # calm
+    if len(sites) < 3:
+        log("new fort: no calm river sites; any savagery")
+        sites = search(-1)
     if near:
         sites.sort(key=lambda p: (p[0] - near["x"]) ** 2 + (p[1] - near["y"]) ** 2)  # site pos is in region tiles
+    else:
+        # a new world: towards the middle of the world
+        wh = lua("local wd=df.global.world.world_data print(wd.world_width, wd.world_height)").split()
+        cx, cy = (int(wh[0]) // 2, int(wh[1]) // 2) if len(wh) == 2 else (64, 64)
+        sites.sort(key=lambda p: (p[0] - cx) ** 2 + (p[1] - cy) ** 2)
     log(f"new fort: site finder matched {len(sites)} region tiles")
     return sites
 
@@ -286,7 +312,9 @@ def try_embark(x, y):
     so: set the location in data, press Embark, click anywhere on the map.
     embark_pos_* are in world-wide local tiles (region * 16 + offset).
     Returns True if the game took it (no aquifer or other warning)."""
+    # zoomed in on the region tile: that's where the Embark button lives
     lua(CSS + f"""local l=v.location l.region_pos.x={x} l.region_pos.y={y}
+v.doing_site_finder=false v.zoomed_in=true v.zoom_cent_x={x} v.zoom_cent_y={y}
 v.region_cent_x={x} v.region_cent_y={y}
 l.embark_pos_min.x={x}*16+6 l.embark_pos_min.y={y}*16+6 l.embark_pos_max.x={x}*16+9 l.embark_pos_max.y={y}*16+9
 print('OK')""")
@@ -362,7 +390,7 @@ def start_df_ai():
                 ["lua", "df.global.enabler.fps=20 df.global.init.fps_cap=20"]):
         dfhack(*cmd)
     remember_site()
-    name = lua("local s=dfhack.world.getCurrentSite() print(dfhack.translation.translateName(s.name,true), dfhack.translation.translateName(s.name,false))")
+    name = lua("local s=dfhack.world.getCurrentSite() print(dfhack.df2utf(dfhack.translation.translateName(s.name,true))..'	'..dfhack.df2utf(dfhack.translation.translateName(s.name,false)))")
     log(f"new fort: {name} is up; df-ai running")
     return name
 
