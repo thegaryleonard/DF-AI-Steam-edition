@@ -1,0 +1,41 @@
+# This file runs when a map is loaded in adventure or fort mode, after any
+# onLoad.init files (which run earlier, when the world is loaded).
+#
+# You can extend or override DFHack's default configuration by adding commands
+# to this file.
+
+# df-ai stream mode: spectate camera with labels, resumed when nobody is playing
+dfai-site-reset
+enable spectate
+dfai-spectate-keeper start
+dfai-follow-label-only
+lua df.global.enabler.fps=20 df.global.init.fps_cap=20
+overlay enable dfai-room-tour.label
+dfai-room-tour start
+spectate set tooltip-follow false
+overlay enable dfai-portrait-builder.builder
+dfai-foreign-office start
+dfai-war-office start
+dfai-deep-dig start
+dfai-mist-build start
+dfai-deep-camp start
+dfai-beast-hunt start
+dfai-holiday resume
+dfai-ore-scrub resume
+dfai-memorial start
+dfai-battle-report start
+dfai-pastures start
+dfai-atom-smasher start
+dfai-ascii start
+dfai-catacomb resume
+dfai-build resume
+dfai-cavern-ore resume
+autolabor BUTCHER 4 8
+dfai-camera-lock start
+dfai-instruments start
+dfai-archer-posts start
+
+dfai-cavern-seal start
+dfai-armory start
+autolabor MASON 6 12
+dfai-fort-health start
