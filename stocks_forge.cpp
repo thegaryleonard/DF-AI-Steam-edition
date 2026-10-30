@@ -475,9 +475,18 @@ int32_t Stocks::may_forge_bars(color_ostream & out, int32_t mat_index, std::ostr
 void Stocks::queue_use_metal_ore(color_ostream & out, int32_t amount, std::ostream & reason)
 {
     // make coke from bituminous coal has priority if there isn't a magma smelter
+    // find(), not at(): the mood handler can call this before the stocks pass
+    // has counted (right after a load or hot-install), and at() aborted DF
+    auto free_of = [this](stock_item::item k) -> int32_t
+    {
+        auto it = count_free.find(k);
+        return it == count_free.end() ? 0 : it->second;
+    };
+    auto watch_raw_coke = Watch.WatchStock.find(stock_item::raw_coke);
     if (world->buildings.other[buildings_other_id::FURNACE_SMELTER_MAGMA].empty() &&
-        count_free.at(stock_item::raw_coke) > Watch.WatchStock.at(stock_item::raw_coke) &&
-        count_free.at(stock_item::coal) < 100)
+        watch_raw_coke != Watch.WatchStock.end() &&
+        free_of(stock_item::raw_coke) > watch_raw_coke->second &&
+        free_of(stock_item::coal) < 100)
     {
         reason << "making coal instead";
         return;

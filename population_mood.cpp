@@ -605,7 +605,14 @@ void Population::update_moods(color_ostream & out)
                 usable++;
             }
             if (!usable && ji->item_type == item_type::BAR && ji->mat_type == 0 && ji->mat_index >= 0 &&
-                mood_warned.insert(who + "|barmat|" + std::to_string(idx)).second)
+                !mood_warned.insert(who + "|barmat|" + std::to_string(idx)).second)
+            {
+                // already ordered the specific metal: don't fall through to the
+                // generic any-ore order (wrong metal, and it ran before stocks
+                // had counted and crashed DF)
+                usable++;
+            }
+            else if (!usable && ji->item_type == item_type::BAR && ji->mat_type == 0 && ji->mat_index >= 0)
             {
                 // The mood wants one SPECIFIC metal (a metalcrafter asked for
                 // silver while the smelters only ran magnetite, and the generic
