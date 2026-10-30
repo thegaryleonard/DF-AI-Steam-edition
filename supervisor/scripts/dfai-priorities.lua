@@ -14,8 +14,10 @@
 
 local json = require('json')
 local CFG = dfhack.getDFPath() .. '/dfhack-config/dfai-priorities.json'
-DEFAULT = {'food', 'drink', 'defense', 'mining', 'housing', 'outreach'}
-ACTIVITY = {mining = true, outreach = true}
+DEFAULT = {'food', 'drink', 'defense', 'mining', 'housing', 'bunkers', 'walls', 'mist', 'outreach'}
+ACTIVITY = {mining = true, outreach = true, bunkers = true, walls = true, mist = true}
+-- activities with no builder for a new fort yet: listed so they can be ranked
+NO_BUILDER = {walls = true, mist = true}
 LABEL = {
     food = 'Food: farms going and 15 meals or food per dwarf',
     drink = 'Drink: 10 drinks per dwarf',
@@ -23,6 +25,9 @@ LABEL = {
     housing = 'Housing: a bed for every dwarf',
     mining = 'Big mining: the deep dig, cavern ore and ore marking',
     outreach = 'Outreach: raids and messengers (also wait for 100 citizens)',
+    bunkers = 'Bolt-thrower bunkers outside the gate (one per 40 citizens, up to 3)',
+    walls = 'Exterior walls round the surface',
+    mist = 'Mist generator by the entrance',
 }
 P = rawget(_G, 'dfai_priorities') or {met = {}}
 rawset(_G, 'dfai_priorities', P)
@@ -85,6 +90,7 @@ function state()
         local e = {key = k, label = LABEL[k], kind = ACTIVITY[k] and 'activity' or 'goal'}
         if ACTIVITY[k] then
             e.ok = blocking == nil
+            if NO_BUILDER[k] then e.ok = false e.line = '(no builder for new forts yet)' out[#out + 1] = e goto continue end
             e.line = blocking and ('waits for ' .. blocking) or 'go ahead'
         else
             local ok, have, want, line = pcall(MEASURE[k], pop)
@@ -96,6 +102,7 @@ function state()
             if not met and not blocking then blocking = k end
         end
         out[#out + 1] = e
+        ::continue::
     end
     return out
 end

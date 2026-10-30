@@ -56,7 +56,7 @@ local K = {
 local WORKSHOPS = {wc = "Carpenter's", wm = "Mason's", wr = "Craftsdwarf's", wf = "Metalsmith's forge", wj = "Jeweler's", wb = "Bowyer's",
     wt = "Mechanic's", wl = 'Still', wz = 'Kitchen', wu = "Butcher's", wn = "Tanner's", we = 'Leather works', wk = "Clothier's",
     wo = 'Loom', wh = 'Fishery', ww = "Farmer's", wy = 'Ashery', wd = "Dyer's", wS = "Soap maker's", wq = 'Quern',
-    es = 'Smelter', ew = 'Wood furnace', eg = 'Glass furnace', ek = 'Kiln'}
+    ws = 'Siege workshop', es = 'Smelter', ew = 'Wood furnace', eg = 'Glass furnace', ek = 'Kiln'}
 for k, name in pairs(WORKSHOPS) do
     local plain = name:find("'s") ~= nil   -- "Carpenter's" -> "Carpenter's workshop"; "Kiln" stays
     K['workshop-' .. k] = {label = plain and (name .. ' workshop'):gsub(' forge workshop$', ' forge') or name,

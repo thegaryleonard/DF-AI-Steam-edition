@@ -137,7 +137,7 @@ def calendar_write(c):
 
 
 # ---- the fort's priority list (dfai-priorities.lua reads dfhack-config/dfai-priorities.json) ----
-PRIORITY_KEYS = ["food", "drink", "defense", "housing", "mining", "outreach"]
+PRIORITY_KEYS = ["food", "drink", "defense", "housing", "mining", "outreach", "bunkers", "walls", "mist"]
 PRIORITIES_CFG = "dfai-priorities.json"
 
 

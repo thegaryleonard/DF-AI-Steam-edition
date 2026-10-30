@@ -636,9 +636,17 @@ public:
             pos->equipment.flags = uniform->flags;
         }
 
+        // Metal bolts are for killing, bone and wood bolts for training (user).
+        // Squads set up before that rule had one any-material spec for both:
+        // swap it for the split ones.
+        if (ranged && squad->ammo.ammunition.size() == 1 && squad->ammo.ammunition[0]->material_class == entity_material_category::None)
+        {
+            delete squad->ammo.ammunition[0];
+            squad->ammo.ammunition.clear();
+        }
         if (ranged && squad->ammo.ammunition.empty())
         {
-            // Give marksdwarves some bolts, for both combat and training.
+            // Give marksdwarves some bolts: metal to fight with, bone and wood to train with.
             int16_t bolt_subtype = -1;
             for (auto subtype : plotinfo->main.fortress_entity->resources.ammo_type)
             {
@@ -652,14 +660,20 @@ public:
 
             if (bolt_subtype != -1)
             {
-                auto ammo = new df::squad_ammo_spec();
-                ammo->item_type = item_type::AMMO;
-                ammo->item_subtype = bolt_subtype;
-                ammo->material_class = entity_material_category::None;
-                ammo->amount = 500;
-                ammo->flags.bits.use_combat = 1;
-                ammo->flags.bits.use_training = 1;
-                squad->ammo.ammunition.push_back(ammo);
+                auto spec = [&](df::entity_material_category mat, int32_t amount, bool combat)
+                {
+                    auto ammo = new df::squad_ammo_spec();
+                    ammo->item_type = item_type::AMMO;
+                    ammo->item_subtype = bolt_subtype;
+                    ammo->material_class = mat;
+                    ammo->amount = amount;
+                    ammo->flags.bits.use_combat = combat;
+                    ammo->flags.bits.use_training = !combat;
+                    squad->ammo.ammunition.push_back(ammo);
+                };
+                spec(entity_material_category::AmmoMetal, 300, true);
+                spec(entity_material_category::Bone, 200, false);
+                spec(entity_material_category::Wood, 200, false);
             }
         }
 
