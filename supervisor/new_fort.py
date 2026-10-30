@@ -310,7 +310,9 @@ for x=2,wd.world_width-3 do for y=2,wd.world_height-3 do
     s=s+math.min(r.vegetation,70)                         -- trees
     if r.evilness>=33 then s=s-40 end                     -- leaning evil
     if r.rainfall<20 then s=s-30 end                      -- desert
-    if river[x*1000+y] then s=s+40 end                    -- river/stream: a bonus
+    -- water: Twistgravel died of thirst and Fortresstome could never fill its
+    -- farm ponds ("No water source"): a river or brook ranks above any dry site
+    if river[x*1000+y] or r.flags.has_river or r.flags.is_brook then s=s+200 end
     s=s-math.sqrt((x-{cx})^2+(y-{cy})^2)*0.5
     o[#o+1]={{x,y,math.floor(s)}}
   end

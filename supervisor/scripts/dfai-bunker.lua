@@ -24,6 +24,7 @@
 
 local repeatUtil = require('repeat-util')
 local KEY = 'dfai-bunker'
+local SURF = reqscript('dfai-surface')
 local W, D = 7, 5          -- across, deep (front row v=0)
 
 local function load() return dfhack.persistent.getSiteData(KEY, {built = {}}) end
@@ -81,7 +82,7 @@ function find_site()
     local faces = {'North', 'South', 'West', 'East'}
     table.sort(faces, function(a, b) return d[a] < d[b] end)
     local cit = dfhack.units.getCitizens(true)[1]
-    local s = load()
+    local res = SURF.reserved()
     -- the gate's level first, then the levels just above and below (hills)
     for _, dz in ipairs({0, 1, -1, 2, -2, 3, -3}) do
     for _, face in ipairs(faces) do
@@ -97,9 +98,8 @@ function find_site()
                     if face == 'North' or face == 'South' then b.x, b.y = cx - W // 2, cy - D // 2 else b.x, b.y = cx - D // 2, cy - W // 2 end
                     local x1, y1, x2, y2 = box(b)
                     local ok = x1 > 2 and y1 > 2 and x2 < mx - 3 and y2 < my - 3
-                    for _, o in ipairs(s.built) do   -- keep clear of other bunkers
-                        if ok and o.z == b.z and x1 <= o.x2 + 3 and x2 >= o.x1 - 3 and y1 <= o.y2 + 3 and y2 >= o.y1 - 3 then ok = false end
-                    end
+                    -- keep clear of other bunkers, projects and the curtain wall
+                    if ok and SURF.taken(x1, y1, x2, y2, b.z, 3, res) then ok = false end
                     for x = x1, x2 do
                         if not ok then break end
                         for y = y1, y2 do if not good_tile(x, y, b.z) then ok = false break end end
@@ -260,6 +260,7 @@ local function step(s)
             dfhack.run_command_silent('autolabor', 'SIEGEOPERATE', '1', '3')
             local x1, y1, x2, y2 = box(b)
             table.insert(s.built, {x1 = x1, y1 = y1, x2 = x2, y2 = y2, z = b.z, face = b.face, engine = e.id})
+            pcall(function() reqscript('dfai-projects').done('bunker' .. #s.built) end)
             s.current = nil
             s.last = ('bunker %d ready, facing %s, firing at enemies'):format(#s.built, b.face:lower())
             dfhack.gui.showAnnouncement('A bolt-thrower bunker is ready outside the gate.', COLOR_LIGHTGREEN, true)
@@ -274,6 +275,7 @@ local function start_one(s)
     if not b then s.last = 'no bunker site: ' .. tostring(why) return false end
     b.phase = 'workshop'
     s.current = b
+    pcall(function() reqscript('dfai-projects').add('bunker' .. (#s.built + 1), 'A Bolt-Thrower Bunker', b.x1, b.y1, b.z, b.x2, b.y2, b.z + 1, true) end)
     s.last = ('a bunker is planned at %d,%d level %d, facing %s'):format(b.x1, b.y1, b.z, b.face:lower())
     return true
 end

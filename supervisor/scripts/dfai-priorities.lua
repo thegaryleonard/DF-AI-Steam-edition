@@ -16,8 +16,7 @@ local json = require('json')
 local CFG = dfhack.getDFPath() .. '/dfhack-config/dfai-priorities.json'
 DEFAULT = {'food', 'drink', 'defense', 'mining', 'housing', 'bunkers', 'walls', 'mist', 'outreach'}
 ACTIVITY = {mining = true, outreach = true, bunkers = true, walls = true, mist = true}
--- activities with no builder for a new fort yet: listed so they can be ranked
-NO_BUILDER = {walls = true, mist = true}
+NO_BUILDER = {}
 LABEL = {
     food = 'Food: farms going and 15 meals or food per dwarf',
     drink = 'Drink: 10 drinks per dwarf',
@@ -26,8 +25,8 @@ LABEL = {
     mining = 'Big mining: the deep dig, cavern ore and ore marking',
     outreach = 'Outreach: raids and messengers (also wait for 100 citizens)',
     bunkers = 'Bolt-thrower bunkers outside the gate (one per 40 citizens, up to 3)',
-    walls = 'Exterior walls round the surface',
-    mist = 'Mist generator by the entrance',
+    walls = 'Curtain wall round the front yard, gate facing the invaders',
+    mist = 'Wind-powered mist generator by the gate',
 }
 P = rawget(_G, 'dfai_priorities') or {met = {}}
 rawset(_G, 'dfai_priorities', P)
@@ -48,6 +47,15 @@ local function count(list, pred)
 end
 local function usable(i) local f = i.flags return not (f.forbid or f.rotten or f.trader or f.dump or f.garbage_collect) end
 
+-- has a dwarf lately given up filling a pond for want of water?
+function no_water()
+    local r = df.global.world.status.reports
+    for i = #r - 1, math.max(0, #r - 400), -1 do
+        if r[i].text:find('No water source', 1, true) then return true end
+    end
+    return false
+end
+
 -- each goal: have, want, and a short line
 local MEASURE = {
     food = function(pop)
@@ -55,6 +63,11 @@ local MEASURE = {
         local farms = 0
         for _, b in ipairs(df.global.world.buildings.other.FARM_PLOT) do if b:getBuildStage() >= b:getMaxBuildStage() then farms = farms + 1 end end
         local want = 15 * pop
+        -- no water on the map: stone farms can't be irrigated, so the stock
+        -- alone counts (else this would hold up the digging that finds water)
+        if farms == 0 and no_water() then
+            return food, want, ('%d food, no farm plots: no water to irrigate them'):format(food)
+        end
         return (farms > 0 and food or 0), want, ('%d food, %d farm plots'):format(food, farms)
     end,
     drink = function(pop)
@@ -83,7 +96,7 @@ local MEASURE = {
 }
 
 -- the live list: {key, label, kind, met/allowed, line}
-function state()
+function state(quick)
     local pop = #dfhack.units.getCitizens(true)
     local out, blocking = {}, nil
     for _, k in ipairs(order()) do
@@ -92,6 +105,13 @@ function state()
             e.ok = blocking == nil
             if NO_BUILDER[k] then e.ok = false e.line = '(no builder for new forts yet)' out[#out + 1] = e goto continue end
             e.line = blocking and ('waits for ' .. blocking) or 'go ahead'
+            e.why = e.line
+            -- big projects: how far along they are
+            local mod = ({bunkers = 'dfai-bunker', walls = 'dfai-walls', mist = 'dfai-mist'})[k]
+            if mod and not quick then
+                local okm, m = pcall(reqscript, mod)
+                if okm and m.status then local oks, st = pcall(m.status) if oks and st then e.line = e.line .. '. ' .. tostring(st) end end
+            end
         else
             local ok, have, want, line = pcall(MEASURE[k], pop)
             if not ok then have, want, line = 0, 1, 'error: ' .. tostring(have) end
@@ -110,8 +130,8 @@ end
 -- may this activity run now? true, or false and why
 function allowed(what)
     if not dfhack.isMapLoaded() then return false, 'no fort' end
-    for _, e in ipairs(state()) do
-        if e.key == what then return e.ok, e.line end
+    for _, e in ipairs(state(true)) do
+        if e.key == what then return e.ok, e.why or e.line end
     end
     return true
 end
