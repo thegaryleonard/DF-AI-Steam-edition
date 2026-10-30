@@ -181,7 +181,7 @@ local function step()
     H.report, H.at = out, df.global.cur_year_tick
 end
 
-function status() return 'fort health:\n  ' .. (#H.report > 0 and table.concat(H.report, '\n  ') or 'not checked yet') end
+function status() return 'fort health: ' .. (#H.report > 0 and table.concat(H.report, ' | ') or 'not checked yet') end
 
 if dfhack_flags.module then return end
 local cmd = ({...})[1] or 'status'
