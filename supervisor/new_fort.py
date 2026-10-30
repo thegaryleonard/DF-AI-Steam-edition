@@ -260,49 +260,56 @@ end print('NOWORLD')""")
 
 
 def find_sites(near):
-    """Run DF's site finder for river + no aquifer + calm (not savage) land;
-    return matching region tiles, nearest the old fort first (a new world:
-    nearest its middle). Savage land rejects every embark with a warning, so
-    calm comes first; if nothing calm has a river, any savagery will do."""
+    """Pick embark tiles (user: "you can be in a savage area it just means big
+    animals but you want good weather usually and trees and a river/stream is
+    a bonus"). DF's site finder only rules out aquifers; then every match is
+    scored here: never evil or salty, mild weather, trees, a river/stream as
+    a bonus, a little for being near the old fort (a new world: its middle).
+    Best first."""
     opt = "df.embark_finder_option"
-
-    def search(savagery):
-        # back to the plain world map (a retry can find it zoomed in or mid-embark)
-        lua(CSS + "v.choosing_embark=false v.zoomed_in=false v.doing_site_finder=false print('OK')")
-        time.sleep(1)
-        if "Clear find results" in dump():
-            click("Clear find results", must=False)
-            time.sleep(2)
-        if not click("Find embark location", must=False):
-            raise Failed(f"no site finder button (focus {focus()})")
+    lua(CSS + "v.choosing_embark=false v.zoomed_in=false v.doing_site_finder=false print('OK')")
+    time.sleep(1)
+    if "Clear find results" in dump():
+        click("Clear find results", must=False)
         time.sleep(2)
-        lua(CSS + f"""for i=2,#v.find_param-1 do v.find_param[i]=-1 end
-v.find_param[{opt}.DimensionX]=4 v.find_param[{opt}.DimensionY]=4 v.find_param[{opt}.Savagery]={savagery}
-v.find_param[{opt}.AquiferLight]=0 v.find_param[{opt}.AquiferHeavy]=0 v.find_param[{opt}.River]=1 print('OK')""")
-        click("Begin")
-        wait_text(["Match found", "No match", "no match"], 10 * 60, step=5)
-        # the finder panel hides the Embark button: close it, the results stay
-        lua(CSS + "v.doing_site_finder=false print('OK')")
-        time.sleep(1)
-        out = lua(f"""local wd=df.global.world.world_data local o={{}}
-for x=2,wd.world_width-3 do for y=2,wd.world_height-3 do
-  local r=wd.region_map[x]:_displace(y)
-  if r.finder_rank>0 and #r.sites==0 and not r.flags.has_site then o[#o+1]=x..','..y end
-end end print(table.concat(o,' '))""")
-        return [tuple(map(int, s.split(","))) for s in out.split() if "," in s]
-
-    sites = search(0)               # calm
-    if len(sites) < 3:
-        log("new fort: no calm river sites; any savagery")
-        sites = search(-1)
+    if not click("Find embark location", must=False):
+        raise Failed(f"no site finder button (focus {focus()})")
+    time.sleep(2)
+    lua(CSS + f"""for i=2,#v.find_param-1 do v.find_param[i]=-1 end
+v.find_param[{opt}.DimensionX]=4 v.find_param[{opt}.DimensionY]=4
+v.find_param[{opt}.AquiferLight]=0 v.find_param[{opt}.AquiferHeavy]=0 print('OK')""")
+    click("Begin")
+    wait_text(["Match found", "No match", "no match"], 10 * 60, step=5)
+    # the finder panel hides the Embark button: close it, the results stay
+    lua(CSS + "v.doing_site_finder=false print('OK')")
+    time.sleep(1)
     if near:
-        sites.sort(key=lambda p: (p[0] - near["x"]) ** 2 + (p[1] - near["y"]) ** 2)  # site pos is in region tiles
+        cx, cy = near["x"], near["y"]   # site pos is in region tiles
     else:
-        # a new world: towards the middle of the world
         wh = lua("local wd=df.global.world.world_data print(wd.world_width, wd.world_height)").split()
         cx, cy = (int(wh[0]) // 2, int(wh[1]) // 2) if len(wh) == 2 else (64, 64)
-        sites.sort(key=lambda p: (p[0] - cx) ** 2 + (p[1] - cy) ** 2)
-    log(f"new fort: site finder matched {len(sites)} region tiles")
+    out = lua(f"""local wd=df.global.world.world_data
+local river={{}}
+for _,rv in ipairs(wd.rivers) do for i=0,#rv.path.x-1 do river[rv.path.x[i]*1000+rv.path.y[i]]=true end end
+local o={{}}
+for x=2,wd.world_width-3 do for y=2,wd.world_height-3 do
+  local r=wd.region_map[x]:_displace(y)
+  if r.finder_rank>0 and #r.sites==0 and not r.flags.has_site and r.evilness<66 and r.salinity<10 and r.elevation>99 and r.elevation<250 then
+    local s=0
+    s=s-math.abs(r.temperature-55)*2                      -- mild weather
+    s=s+math.min(r.vegetation,70)                         -- trees
+    if r.evilness>=33 then s=s-40 end                     -- leaning evil
+    if r.rainfall<20 then s=s-30 end                      -- desert
+    if river[x*1000+y] then s=s+40 end                    -- river/stream: a bonus
+    s=s-math.sqrt((x-{cx})^2+(y-{cy})^2)*0.5
+    o[#o+1]={{x,y,math.floor(s)}}
+  end
+end end
+table.sort(o,function(a,b) return a[3]>b[3] end)
+local t={{}} for i=1,math.min(30,#o) do t[#t+1]=o[i][1]..','..o[i][2]..','..o[i][3] end print(#o, table.concat(t,' '))""")
+    parts = out.split()
+    sites = [tuple(map(int, p.split(",")[:2])) for p in parts[1:] if p.count(",") == 2]
+    log(f"new fort: site finder matched {parts[0] if parts else 0} tiles; best: {' '.join(parts[1:6])}")
     return sites
 
 
@@ -330,6 +337,15 @@ l.embark_pos_min.x={x}*16+6 l.embark_pos_min.y={y}*16+6 l.embark_pos_max.x={x}*1
     if focus().startswith("setupdwarfgame") or focus().startswith("dwarfmode"):
         return True
     d = dump()
+    # savage land only means big animals: take it; anything else (evil, salt
+    # water...) is turned down
+    if "savage" in d.lower() and "evil" not in d.lower() and "salt" not in d.lower() and "Confirm" in d:
+        click("Confirm", must=False)
+        time.sleep(4)
+        if focus().startswith("setupdwarfgame") or focus().startswith("dwarfmode"):
+            log(f"new fort: ({x},{y}) is savage: taken anyway")
+            return True
+        d = dump()
     warn = [l.strip() for l in d.splitlines()[:4] if "selected" in l or "aquifer" in l.lower()]
     log(f"new fort: ({x},{y}) not taken: {warn[:1] or d.splitlines()[:2]}")
     click("Abort", must=False)
