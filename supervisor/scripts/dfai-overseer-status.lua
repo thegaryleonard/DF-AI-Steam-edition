@@ -82,6 +82,10 @@ out.memorial = tidy(cmd('dfai-memorial'))
 out.smasher = cmd('dfai-atom-smasher')
 out.catacomb = cmd('dfai-catacomb')
 out.cavore = cmd('dfai-cavern-ore')
+out.health = (cmd('dfai-fort-health'):gsub('^fort health:%s*', ''):gsub('%s*
+%s*', ' | '))
+out.armory = cmd('dfai-armory')
+out.seal = cmd('dfai-cavern-seal')
 out.pastures = (cmd('dfai-pastures'):gsub(' | .*', ''))
 
 -- projects the camera follows
