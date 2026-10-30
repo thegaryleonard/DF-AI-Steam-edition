@@ -533,7 +533,64 @@ void Population::update_moods(color_ostream & out)
                     }
                 }
             }
-            if (!usable && ji->item_type == item_type::ROUGH && mood_warned.insert(who + "|rough|" + std::to_string(idx)).second)
+            if (!usable && ji->item_type == item_type::WOOD && mood_warned.insert(who + "|wood|" + std::to_string(idx)).second)
+            {
+                // No free logs at all (Unib's glassmaker mood sat at thirst
+                // 48000 needing one log in a fort with zero logs): fell trees.
+                std::ostringstream why;
+                ai.stocks.cuttrees(out, 3, why);
+                ai.debug(out, "[MOOD] no logs for " + who + ": marked trees for felling " + why.str());
+            }
+            if (!usable && ji->item_type == item_type::ROUGH && ji->mat_type >= 3 && ji->mat_type <= 5 &&
+                mood_warned.insert(who + "|rawglass|" + std::to_string(idx)).second)
+            {
+                // Raw glass (green/clear/crystal), not a gem: mining gem veins
+                // never supplies it. Order it made at a glass furnace.
+                std::ostringstream why;
+                df::manager_order_template tmpl;
+                tmpl.job_type = job_type::MakeRawGlass;
+                tmpl.mat_type = ji->mat_type;
+                tmpl.mat_index = -1;
+                ai.stocks.add_manager_order(out, tmpl, std::max<int32_t>(1, ji->quantity), why);
+                ai.debug(out, "[MOOD] no raw glass for " + who + ": ordered " + describe_job_item(ji) + " " + why.str());
+            }
+            if (!usable && holder && u->counters2.thirst_timer > MOOD_CHEAT_THIRST &&
+                ((ji->item_type == item_type::ROUGH && ji->mat_type >= 3 && ji->mat_type <= 5) || ji->item_type == item_type::WOOD))
+            {
+                // Last resort (a cheat): create the raw glass / log at the
+                // workshop rather than let the dwarf die of thirst.
+                int16_t mt = ji->mat_type;
+                int32_t mi = -1;
+                if (ji->item_type == item_type::WOOD)
+                {
+                    for (auto plant : world->raws.plants.trees)
+                    {
+                        MaterialInfo wm;
+                        if (wm.find("PLANT:" + plant->id + ":WOOD"))
+                        {
+                            mt = wm.type;
+                            mi = wm.index;
+                            break;
+                        }
+                    }
+                }
+                int32_t want = ji->item_type == item_type::ROUGH ? std::max<int32_t>(1, ji->quantity) : 1;
+                for (int32_t n = 0; n < want && mt >= 0; n++)
+                {
+                    std::vector<df::item *> made;
+                    if (!Items::createItem(made, u, ji->item_type, -1, mt, mi) || made.empty())
+                        break;
+                    df::item *c = made[0];
+                    if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, c, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] CHEAT: nothing could supply %s for %s (thirst %d): created %s at the workshop",
+                            describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, AI::describe_item(c).c_str()));
+                        usable++;
+                    }
+                }
+            }
+            if (!usable && ji->item_type == item_type::ROUGH && !(ji->mat_type >= 3 && ji->mat_type <= 5) && mood_warned.insert(who + "|rough|" + std::to_string(idx)).second)
             {
                 // No rough gem anywhere: mine one. Look for a gem vein tile
                 // next to a walkable tile the dwarf can reach, near its level.
