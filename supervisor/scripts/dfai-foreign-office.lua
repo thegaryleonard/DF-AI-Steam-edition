@@ -130,6 +130,11 @@ function step(force)
     local me = dfhack.world.getCurrentSite()
     local ourciv = df.historical_entity.find(df.global.plotinfo.civ_id)
     if not me or not ourciv then save_state(s) return 'no fort' end
+    local okp_, pri_ = pcall(reqscript, 'dfai-priorities')
+    if okp_ then
+        local go_, why_ = pri_.allowed('outreach')
+        if not go_ then save_state(s) return 'on hold: ' .. tostring(why_) end
+    end
     -- user: "no messenger dispatch until 100 population. give the fort time
     -- to grow before announcing your presence" (returning messengers'
     -- reports above are still read)

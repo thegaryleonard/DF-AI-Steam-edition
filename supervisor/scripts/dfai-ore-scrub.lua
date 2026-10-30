@@ -195,6 +195,11 @@ end
 local function tick()
     local s = load()
     if not s.active then return end
+    local okp_, pri_ = pcall(reqscript, 'dfai-priorities')
+    if okp_ then
+        local go_, why_ = pri_.allowed('mining')
+        if not go_ then return end
+    end
     local new = scrub(s)
     if new > 0 then print(('[ore scrub] %d more ore tiles marked'):format(new)) end
     local left = remaining(s)

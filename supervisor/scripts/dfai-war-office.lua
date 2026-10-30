@@ -227,6 +227,11 @@ function step(force)
     -- leaves when it comes home, so the fort is never emptied
     if out >= MAX_OUT or out >= total - HOME_GUARD then save_state(s) return ('%d squad(s) abroad'):format(out) end
     if threat_on_map() then save_state(s) return 'threat on the map: squads stay home' end
+    local okp_, pri_ = pcall(reqscript, 'dfai-priorities')
+    if okp_ then
+        local go_, why_ = pri_.allowed('outreach')
+        if not go_ then save_state(s) return 'on hold: ' .. tostring(why_) end
+    end
     local pop = #dfhack.units.getCitizens(true)
     if pop < MIN_POP then save_state(s) return ('no raids until the fort has %d citizens (%d now) and armored squads'):format(MIN_POP, pop) end
     local foes = enemies(s)

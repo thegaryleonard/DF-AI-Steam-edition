@@ -186,6 +186,11 @@ local function dig_gallery(s)
 end
 
 function step()
+    local okp_, pri_ = pcall(reqscript, 'dfai-priorities')
+    if okp_ then
+        local go_, why_ = pri_.allowed('mining')
+        if not go_ then return 'on hold: ' .. tostring(why_) end
+    end
     local s = load_state()
     if s.status == 'done' and s.next_gallery and now_days() >= s.next_gallery then
         local n = dig_gallery(s)

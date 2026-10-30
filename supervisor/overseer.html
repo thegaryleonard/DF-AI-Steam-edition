@@ -74,6 +74,10 @@
         <button id="bgo">Build it</button> <span id="bhelp" style="color:#6b624f"></span></div>
       <div class="where" id="bstatus" style="font-weight:bold"></div>
     </details>
+    <details open><summary>Fort priorities: what comes first</summary>
+      <div class="where">Top to bottom. Goals (food, drink...) are met or not; activities (big mining, outreach) wait until every goal above them is met. Move things with the arrows.</div>
+      <div class="stops" id="prio">Reading the priorities...</div>
+    </details>
     <details open><summary>The Fort Calendar: holidays every year</summary>
       <div class="where">Each holiday starts on its day every year: everyone downs tools and goes partying, and the Herald covers it. If invaders are in the fort that day, it waits until they're gone.</div>
       <div class="stops" id="cal">Reading the calendar...</div>
@@ -241,6 +245,28 @@ async function refreshCards() {
   catch (e) { document.querySelectorAll('.now').forEach(el => el.style.opacity = .6); }
 }
 load().then(refreshCards); setInterval(refreshCards, 10000); refreshStatus(); refreshLog(); setInterval(refreshStatus, 20000); setInterval(refreshLog, 20000);
+
+// the fort's priority list
+(() => {
+  let keys = [];
+  const show = d => {
+    const list = d.order || [];
+    keys = list.map(e => e.key);
+    document.getElementById('prio').innerHTML = list.map((e, i) => `<div class="stop"><span>${i + 1}. <b>${e.ok ? '&#10003;' : '&#9675;'} ${esc(e.label)}</b></span>` +
+      `<small>${esc(e.line || '')}</small><a href="#" data-pup="${i}">&uarr;</a> <a href="#" data-pdown="${i}">&darr;</a></div>`).join('');
+    document.querySelectorAll('[data-pup],[data-pdown]').forEach(a => a.onclick = ev => {
+      ev.preventDefault();
+      const i = +(a.dataset.pup ?? a.dataset.pdown), j = a.dataset.pup !== undefined ? i - 1 : i + 1;
+      if (j < 0 || j >= keys.length) return;
+      [keys[i], keys[j]] = [keys[j], keys[i]];
+      send();
+    });
+  };
+  const send = async () => { const r = await fetch('/priorities', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({order: keys})});
+    if (r.ok) show(await r.json()); refreshLog(); };
+  const load = () => get('/priorities.json').then(show).catch(() => {});
+  load(); setInterval(load, 30000);
+})();
 
 // the fort calendar
 (() => {

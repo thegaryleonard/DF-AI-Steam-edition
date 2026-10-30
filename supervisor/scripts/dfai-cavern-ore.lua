@@ -118,6 +118,11 @@ end
 
 local function pass()
     if scan.busy or df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
+    local okp_, pri_ = pcall(reqscript, 'dfai-priorities')
+    if okp_ then
+        local go_, why_ = pri_.allowed('mining')
+        if not go_ then local s0 = load() s0.last = 'on hold: ' .. tostring(why_) save(s0) return end
+    end
     scan.busy = true
     local s = load()
     local cit = dfhack.units.getCitizens(true)[1]

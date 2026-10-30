@@ -136,6 +136,20 @@ def calendar_write(c):
     df_path(HOLIDAYS_CFG).write_text(json.dumps(c, indent=1), encoding="utf-8")
 
 
+# ---- the fort's priority list (dfai-priorities.lua reads dfhack-config/dfai-priorities.json) ----
+PRIORITY_KEYS = ["food", "drink", "defense", "housing", "mining", "outreach"]
+PRIORITIES_CFG = "dfai-priorities.json"
+
+
+def priorities_state():
+    out = sup.dfhack("dfai-priorities", "json", timeout=20) or ""
+    try:
+        return json.loads(out[out.index("{"):])
+    except ValueError:
+        order = (read_json(df_path(PRIORITIES_CFG), {}) or {}).get("order") or []
+        return {"order": [{"key": k, "label": k, "line": "(the game didn't answer)"} for k in order]}
+
+
 # ---- tour stops (dfai-room-tour writes the list; the off list is ours) ----
 def df_path(name):
     return Path(sup.CFG["df_dir"]) / "dfhack-config" / name
@@ -364,6 +378,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps({"kinds": build_kinds(), "status": out.strip().splitlines()[0] if out.strip() else ""}, ensure_ascii=False).encode())
         elif path == "/future.json":
             self.send(json.dumps(future_state(), ensure_ascii=False).encode())
+        elif path == "/priorities.json":
+            self.send(json.dumps(priorities_state(), ensure_ascii=False).encode())
         elif path == "/calendar.json":
             self.send(json.dumps({"calendar": calendar_read().get("calendar", []), "months": MONTHS}).encode())
         elif path == "/ascii.json":
@@ -464,6 +480,16 @@ class Handler(BaseHTTPRequestHandler):
             write_log({"at": time.strftime("%H:%M:%S"), "key": "game.ascii", "label": {"on": "Game to ASCII", "off": "Game to graphics", "auto": "Game display: follow the ASCII schedule"}[mode],
                        "ok": True, "out": st["line"]})
             self.send(json.dumps(st).encode())
+            return
+        if path == "/priorities":
+            # the whole list, reordered: must be exactly the known keys, each once
+            order = req.get("order")
+            if not isinstance(order, list) or sorted(order) != sorted(PRIORITY_KEYS):
+                self.send_error(400)
+                return
+            df_path(PRIORITIES_CFG).write_text(json.dumps({"order": order}, indent=1), encoding="utf-8")
+            write_log({"at": time.strftime("%H:%M:%S"), "key": "fort.priorities", "label": "Fort priorities", "ok": True, "out": " > ".join(order)})
+            self.send(json.dumps(priorities_state(), ensure_ascii=False).encode())
             return
         if path == "/calendar":
             # add / remove a yearly holiday; every field is checked and clamped here
