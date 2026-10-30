@@ -34,6 +34,7 @@
 #include "modules/Materials.h"
 #include "modules/Units.h"
 
+#include "df/item_body_component.h"
 #include "df/item.h"
 #include "df/items_other_id.h"
 #include "df/building.h"
@@ -807,6 +808,50 @@ void Population::update_moods(color_ostream & out)
                 ai.debug(out, "[MOOD] ordered a hide tanned for " + who + " " + why.str());
                 if (pending || pick)
                     usable++;
+            }
+            if (!usable && (ji->flags2.bits.shell || ji->flags2.bits.pearl || ji->flags2.bits.horn || ji->flags2.bits.ivory_tooth) &&
+                u->counters2.thirst_timer > MOOD_CHEAT_THIRST - 15000)
+            {
+                // Rare body-part materials: Ushat, a moody bone carver, wanted
+                // "any shells" in a fort with no shelled creature at all and
+                // nearly died of thirst. Nothing in the fort can make a shell,
+                // and a hand-made corpse piece crashed DF (empty body data), so
+                // relax the requirement to bone when free bone exists (a cheat).
+                auto saved = ji->flags2.whole;
+                ji->flags2.bits.shell = 0;
+                ji->flags2.bits.pearl = 0;
+                ji->flags2.bits.horn = 0;
+                ji->flags2.bits.ivory_tooth = 0;
+                ji->flags2.bits.bone = 1;
+                int32_t bones = 0;
+                for (auto item : world->items.other[items_other_id::IN_PLAY])
+                {
+                    df::item_type itype = item->getType();
+                    if ((ji->item_type != item_type::NONE && itype != ji->item_type) ||
+                        (ji->item_subtype != -1 && item->getSubtype() != ji->item_subtype) ||
+                        !mood_item_matches(ji, item))
+                        continue;
+                    auto & f = item->flags.bits;
+                    if (f.in_job || f.owned || f.trader || f.foreign || f.artifact || f.removed ||
+                        f.garbage_collect || f.on_fire || f.rotten || f.construction || f.hidden)
+                        continue;
+                    if (auto c = virtual_cast<df::item_body_component>(item))
+                        if (c->hist_figure_id != -1)
+                            continue; // named remains stay buryable
+                    f.forbid = false;
+                    f.dump = false;
+                    bones++;
+                }
+                if (bones)
+                {
+                    ai.debug(out, stl_sprintf("[MOOD] CHEAT: nothing in the fort supplies %s's rare body-part item (thirst %d): requirement relaxed to bone (%d free)",
+                        who.c_str(), u->counters2.thirst_timer, bones));
+                    usable++;
+                }
+                else
+                {
+                    ji->flags2.whole = saved;
+                }
             }
             if (!usable)
             {
