@@ -236,7 +236,36 @@ local function check_drink(out)
     out[#out + 1] = ('drink: %d drinks for %d citizens, %d wells, %d thirsty%s'):format(drinks, pop, wells, thirsty, note)
 end
 
-local CHECKS = {check_stone, check_fertilizer, check_coffins, check_workshops, check_army, check_stockpiles, check_drink}
+-- Stuck caravans (user: "stuck on 12 population because of a stuck merchant
+-- caravan"): a caravan whose time is up ("Leaving", 0 left) but whose
+-- merchants stand idle on the map for days holds up the next caravans and
+-- the migrant waves. After STUCK_DAYS of that they're sent home, as
+-- fix/stuck-merchants does (it only catches off-map ones; these are on it).
+local STUCK_DAYS = 5
+local function check_caravans(out)
+    local leaving = false
+    for _, c in ipairs(df.global.plotinfo.caravans) do
+        if c.trade_state == df.caravan_state.T_trade_state.Leaving and c.time_remaining <= 0 then leaving = true end
+    end
+    local idle = {}
+    for _, u in ipairs(df.global.world.units.active) do
+        if u.flags1.merchant and not u.flags1.left and not dfhack.units.isDead(u) and dfhack.units.isActive(u) and not u.job.current_job then
+            idle[#idle + 1] = u
+        end
+    end
+    if not leaving or #idle == 0 then H.stuck_days = 0 return end
+    H.stuck_days = (H.stuck_days or 0) + 1
+    if H.stuck_days < STUCK_DAYS then
+        out[#out + 1] = ('caravan: %d merchants idle after leaving time, %d of %d days before they are sent home'):format(#idle, H.stuck_days, STUCK_DAYS)
+        return
+    end
+    for _, u in ipairs(idle) do u.flags1.left = true end
+    H.stuck_days = 0
+    out[#out + 1] = ('caravan: %d stuck merchants and animals sent home'):format(#idle)
+    dfhack.gui.showAnnouncement('The stuck merchants have finally found the road home.', COLOR_YELLOW, false)
+end
+
+local CHECKS = {check_stone, check_fertilizer, check_coffins, check_workshops, check_army, check_stockpiles, check_drink, check_caravans}
 local function step()
     if not dfhack.isMapLoaded() or df.global.gamemode ~= df.game_mode.DWARF then return end
     local out = {}
