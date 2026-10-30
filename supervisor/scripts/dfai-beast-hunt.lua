@@ -162,6 +162,7 @@ function report()
             end
         end
     end
+    out.site_id = df.global.plotinfo.site_id
     local f = io.open('dfhack-config/dfai-beast-hunt.json', 'w')
     if f then f:write(require('json').encode(out)) f:close() end
     return out

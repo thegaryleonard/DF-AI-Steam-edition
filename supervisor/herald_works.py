@@ -170,6 +170,8 @@ def feed():
         projects = json.load(open(PROJECTS, encoding="utf-8"))
     except (OSError, ValueError):
         projects = []
+    # hand-written notes belong to the fort they were written for
+    projects = [p for p in projects if isinstance(p, dict) and p.get("site") in (site, None, -1)]
 
     deep = None
     try:

@@ -2,41 +2,49 @@
  {
   "title": "The Foreign Office",
   "state": "complete",
-  "note": "Two messengers now carry the fort's letters abroad. First stop: The Fatal Empire, where our envoy made contact and opened trade."
+  "note": "Two messengers now carry the fort's letters abroad. First stop: The Fatal Empire, where our envoy made contact and opened trade.",
+  "site": 350
  },
  {
   "title": "The Indoor Pasture",
   "state": "complete",
-  "note": "The herd now lives indoors under the hills, grazing on cave moss, out of the rain and away from ambushes."
+  "note": "The herd now lives indoors under the hills, grazing on cave moss, out of the rain and away from ambushes.",
+  "site": 350
  },
  {
   "title": "Booze at the Bar",
   "state": "complete",
-  "note": "The tavern's own stockpile now holds barrels of drink instead of leftover meals, so the keeper pours without a trip to the cellar."
+  "note": "The tavern's own stockpile now holds barrels of drink instead of leftover meals, so the keeper pours without a trip to the cellar.",
+  "site": 350
  },
  {
   "title": "Nest Boxes for the Indoor Pasture",
   "state": "approved",
-  "note": "Nest boxes go up against the walls of the new indoor pasture, about one for every three hens."
+  "note": "Nest boxes go up against the walls of the new indoor pasture, about one for every three hens.",
+  "site": 350
  },
  {
   "title": "One Public Tavern",
   "state": "complete",
-  "note": "The fort's first tavern now welcomes travellers. Every other hall stays members-only."
+  "note": "The fort's first tavern now welcomes travellers. Every other hall stays members-only.",
+  "site": 350
  },
  {
   "title": "Faces for the Herald",
   "state": "complete",
-  "note": "The Herald now prints a proper portrait of whoever is on camera."
+  "note": "The Herald now prints a proper portrait of whoever is on camera.",
+  "site": 350
  },
  {
   "title": "Where Is the Caravan?",
   "state": "under way",
-  "note": "The trade office now gives merchants a generous deal so the Mountainhome caravans come back, and our messengers ride out to open trade with the humans, elves and other dwarves."
+  "note": "The trade office now gives merchants a generous deal so the Mountainhome caravans come back, and our messengers ride out to open trade with the humans, elves and other dwarves.",
+  "site": 350
  },
  {
   "title": "Goods the Mountainhomes Want",
   "state": "planned",
-  "note": "Make what the liaison asks for before the next caravan, and sign the trade agreements."
+  "note": "Make what the liaison asks for before the next caravan, and sign the trade agreements.",
+  "site": 350
  }
 ]

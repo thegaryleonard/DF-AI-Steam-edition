@@ -259,10 +259,24 @@ def game_year():
     return None, None
 
 
+def _site():
+    """The current fort's site id (dfai_poi keeps dfai-poi.json up to date)."""
+    try:
+        return json.loads(open(DF / "dfhack-config" / "dfai-poi.json", "rb").read().decode("utf-8", "replace")).get("site_id")
+    except (OSError, ValueError):
+        return None
+
+
+def _this_fort(d):
+    # reports carry the site they were written at; one without (written
+    # before the tag existed) or from another fort stays off the paper
+    return d if isinstance(d, dict) and d.get("site_id") is not None and d.get("site_id") == _site() else None
+
+
 def hunt():
     """The beast hunt's story (dfai-beast-hunt.lua report), current fort only."""
     try:
-        return json.loads(open(DF / "dfhack-config" / "dfai-beast-hunt.json", "rb").read().decode("utf-8", "replace"))
+        return _this_fort(json.loads(open(DF / "dfhack-config" / "dfai-beast-hunt.json", "rb").read().decode("utf-8", "replace")))
     except (OSError, ValueError):
         return None
 
@@ -270,7 +284,7 @@ def hunt():
 def battle():
     """The last battle at the fort and the deadliest dwarves (dfai-battle-report.lua)."""
     try:
-        return json.loads(open(DF / "dfhack-config" / "dfai-battle.json", "rb").read().decode("utf-8", "replace"))
+        return _this_fort(json.loads(open(DF / "dfhack-config" / "dfai-battle.json", "rb").read().decode("utf-8", "replace")))
     except (OSError, ValueError):
         return None
 

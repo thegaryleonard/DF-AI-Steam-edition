@@ -161,7 +161,7 @@ function run()
         for _, x in ipairs(b) do if x.k then slain = true end end
         if #b >= 2 and enemy and slain then last = b break end
     end
-    local out = {ok = true, year = df.global.cur_year, deadliest = deadliest(), last = last and report_of(last) or nil}
+    local out = {ok = true, site_id = df.global.plotinfo.site_id, year = df.global.cur_year, deadliest = deadliest(), last = last and report_of(last) or nil}
     local f = io.open('dfhack-config/dfai-battle.json', 'w')
     if f then f:write(require('json').encode(out)) f:close() end
     return out
