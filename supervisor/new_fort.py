@@ -422,7 +422,7 @@ def start_df_ai():
     for cmd in (["enable", "spectate"], ["dfai-spectate-keeper", "start"], ["dfai-follow-label-only"],
                 ["overlay", "enable", "dfai-room-tour.label"], ["dfai-room-tour", "start"],
                 ["spectate", "set", "tooltip-follow", "false"],
-                ["lua", "df.global.enabler.fps=20 df.global.init.fps_cap=20"]):
+                ["dfai-fps", "apply"]):
         dfhack(*cmd)
     remember_site()
     name = lua("local s=dfhack.world.getCurrentSite() print(dfhack.df2utf(dfhack.translation.translateName(s.name,true))..'	'..dfhack.df2utf(dfhack.translation.translateName(s.name,false)))")

@@ -9,7 +9,7 @@ dfai-site-reset
 enable spectate
 dfai-spectate-keeper start
 dfai-follow-label-only
-lua df.global.enabler.fps=20 df.global.init.fps_cap=20
+dfai-fps apply
 overlay enable dfai-room-tour.label
 dfai-room-tour start
 spectate set tooltip-follow false

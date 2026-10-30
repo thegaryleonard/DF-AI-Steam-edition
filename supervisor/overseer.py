@@ -35,8 +35,7 @@ COMMANDS = {
     "fo.now":       ("Diplomacy", "Send messengers", "Ask the neighbours for trade and visits now.", ["dfai-foreign-office", "now"], 30),
     "fo.list":      ("Diplomacy", "Relations", "Who we know and how they feel about us.", ["dfai-foreign-office", "list"], 60),
     # construction
-    "mist.status":  ("Construction", "Mist generator", "Build and run state.", ["dfai-mist-build"], 30),
-    "mist.prime":   ("Construction", "Prime the mist generator", "Opens a pond over a statue for a bucket or three (no top-ups).", ["dfai-mist-build", "prime"], 30),
+    "mist.status":  ("Construction", "Mist generator", "Build and run state of the tavern mist generator (pump ring over the tavern, windmills by the entrance).", ["dfai-mist"], 30),
     "camp.now":     ("Construction", "Deep camp: check it", "The deep camp is the rest stop at level 38, at the bottom of the main shaft: a citizens-only tavern, a dormitory with 4 beds, a still and food, so the deep miners don't climb 130 levels for a drink. It is built. This re-checks it and digs or furnishes anything missing (a stolen bed, a broken still).", ["dfai-deep-camp", "now"], 30),
     "dig.now":      ("Construction", "Deep dig: next 10 levels", "The shaft goes down another batch.", ["dfai-deep-dig", "now"], 30),
     "dig.stop":     ("Construction", "Deep dig: stop", "No more shaft levels.", ["dfai-deep-dig", "stop"], 30),
@@ -60,6 +59,8 @@ COMMANDS = {
     # the fort
     "holiday.start": ("Fort", "Holiday party mode", "No jobs, no masters: everyone parties for N game days (a minute or two each), then every labor goes back as it was. Squads stay on guard. Give it a name if you like; it goes on the Herald. The Fort Calendar below sets holidays that come round every year.", ["dfai-holiday", "start", "{n}"], 30),
     "holiday.stop":  ("Fort", "End the holiday", "Back to work now.", ["dfai-holiday", "stop"], 30),
+    # the game itself
+    "game.fps":      ("Game", "Set the FPS cap", "How fast the game may run (frames per second, 5-100). Lower is easier on the stream and the PC; higher makes the fort move faster. Kept across reloads, the ASCII switch and new forts.", ["dfai-fps", "set", "{n}"], 30),
 }
 # orders that take a number: key -> (label, min, max, default)
 PARAMS = {
@@ -67,14 +68,16 @@ PARAMS = {
     "cam.locktrees": ("minutes", 0, 240, 10),
     "holiday.start": ("days", 1, 28, 7),
     "ore.start": ("levels", 1, 20, 10),
+    "game.fps": ("FPS", 5, 100, 20),
 }
 STATUS = [
     ("War office", ["dfai-war-office"]),
     ("Beast hunt", ["dfai-beast-hunt"]),
-    ("Mist generator", ["dfai-mist-build"]),
+    ("Mist generator", ["dfai-mist"]),
     ("Deep dig", ["dfai-deep-dig"]),
     ("Deep camp", ["dfai-deep-camp"]),
     ("Holiday", ["dfai-holiday"]),
+    ("Game speed", ["dfai-fps"]),
     ("Ore scrub", ["dfai-ore-scrub"]),
     ("Memorial", ["dfai-memorial"]),
     ("Building to order", ["dfai-build"]),
