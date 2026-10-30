@@ -28,6 +28,7 @@
 #include "df/inorganic_raw.h"
 #include "df/block_square_event_mineralst.h"
 #include "df/manager_order_template.h"
+#include "df/manager_order.h"
 #include "df/material_flags.h"
 #include "modules/Job.h"
 #include "modules/Materials.h"
@@ -602,6 +603,67 @@ void Population::update_moods(color_ostream & out)
                 ai.stocks.queue_use_gems(out, 1, why);
                 ai.debug(out, "[MOOD] queued gem cutting for " + who + (why.str().empty() ? std::string() : " (" + why.str() + ")"));
                 usable++;
+            }
+            if (!usable && ji->item_type == item_type::BAR && ji->mat_type == 0 && ji->mat_index >= 0 &&
+                mood_warned.insert(who + "|barmat|" + std::to_string(idx)).second)
+            {
+                // The mood wants one SPECIFIC metal (a metalcrafter asked for
+                // silver while the smelters only ran magnetite, and the generic
+                // ore order below bails out whenever any SmeltOre order exists).
+                // Smelt an ore that yields that metal, best yield first.
+                int32_t metal = ji->mat_index;
+                int32_t best_ore = -1, best_prob = 0, free_boulders = 0;
+                std::map<int32_t, int32_t> ore_count;
+                for (auto i : world->items.other[items_other_id::BOULDER])
+                {
+                    if (i->getMaterial() != 0 || i->flags.bits.forbid || i->flags.bits.in_job || i->flags.bits.trader ||
+                        i->flags.bits.dump || i->flags.bits.garbage_collect || i->flags.bits.construction || i->flags.bits.in_building)
+                        continue;
+                    auto inorg = df::inorganic_raw::find(i->getMaterialIndex());
+                    if (!inorg)
+                        continue;
+                    for (size_t k = 0; k < inorg->metal_ore.mat_index.size(); k++)
+                    {
+                        if (inorg->metal_ore.mat_index[k] != metal)
+                            continue;
+                        int32_t prob = k < inorg->metal_ore.probability.size() ? inorg->metal_ore.probability[k] : 100;
+                        ore_count[i->getMaterialIndex()]++;
+                        if (prob > best_prob)
+                        {
+                            best_prob = prob;
+                            best_ore = i->getMaterialIndex();
+                        }
+                    }
+                }
+                if (best_ore >= 0)
+                {
+                    free_boulders = ore_count[best_ore];
+                    bool pending = false;
+                    for (auto mo : world->manager_orders.all)
+                    {
+                        if (mo->job_type == job_type::SmeltOre && mo->mat_type == 0 && mo->mat_index == best_ore && mo->amount_left > 0)
+                            pending = true;
+                    }
+                    if (!pending)
+                    {
+                        // each smelt gives the metal with probability prob%
+                        int32_t want = (ji->quantity * 100 + best_prob - 1) / std::max<int32_t>(best_prob, 1) + 2;
+                        want = std::min(std::min(want, free_boulders), int32_t(30));
+                        df::manager_order_template tmpl;
+                        tmpl.job_type = job_type::SmeltOre;
+                        tmpl.mat_type = 0;
+                        tmpl.mat_index = best_ore;
+                        std::ostringstream why;
+                        ai.stocks.add_manager_order(out, tmpl, want, why);
+                        ai.debug(out, stl_sprintf("[MOOD] %s needs %s bars: ordered %d %s smelted (%d%% yield) ", who.c_str(),
+                            MaterialInfo(0, metal).toString().c_str(), want, MaterialInfo(0, best_ore).toString().c_str(), best_prob) + why.str());
+                    }
+                    usable++;
+                }
+                else
+                {
+                    ai.debug(out, "[MOOD] " + who + " needs " + MaterialInfo(0, metal).toString() + " bars and no free ore yields it");
+                }
             }
             if (!usable && ji->item_type == item_type::BAR && mood_warned.insert(who + "|bar|" + std::to_string(idx)).second)
             {
