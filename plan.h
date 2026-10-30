@@ -211,6 +211,9 @@ public:
 
     command_result setup_blueprint(color_ostream & out);
     command_result setup_blueprint_caverns(color_ostream & out);
+    // plan an outpost into the next cavern now (no water on the surface: the
+    // caverns often have some); false + why if one is already planned or none is left
+    bool dig_next_cavern_now(color_ostream & out, std::string & why);
     command_result setup_outdoor_gathering_zones(color_ostream & out);
     bool setup_fishing_zone(color_ostream & out);
 

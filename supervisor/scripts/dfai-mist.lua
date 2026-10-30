@@ -24,7 +24,7 @@ local W, H = 19, 11
 
 -- the layout, west to east, north to south
 local A = [[
-Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,d,Cw,Cw,Cw,Cw
+Cw,Cw,Cw,Cw,d,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,d,Cw,Cw,Cw,Cw
 Cw,,,,,,,,Cw,,,,,,,,,,Cw
 Cw,,,,,,,,Cw,,,,,,,,,,Cw
 Cw,,,,,,,,Cw,,,,,,,,,,Cw
@@ -34,7 +34,7 @@ Cw,,,,,,,,Cw,,,,,,,,,,Cw
 d,,,,,,,,d,,,,,,,,,,Cw
 Cw,,,,,,,,Cw,,,,,,,,,,Cw
 Cw,,,,,,,,Cw,,,,,,,,,Cu,Cw
-Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,d,Cw,Cw,Cw,Cw]]
+Cw,Cw,Cw,Cw,d,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,Cw,d,Cw,Cw,Cw,Cw]]
 local B = [[
 CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF,CF
 CF,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,Cf,CF
@@ -198,9 +198,56 @@ local function site_tile(x, y, z, lx, ly)
     local fu = dfhack.maps.getTileFlags(x, y, z + 1)
     return fu.outside and (up.shape == Sh.EMPTY or up.shape == Sh.RAMP_TOP)
 end
--- hilly maps rarely have a flat 19x11 by the door: look over the whole map
--- (nearest first) and a few levels up and down
-function find_site() return S.find_near_gate(W, H, site_tile, {min_dist = 8, max_dist = 60, levels = {0, 1, -1, 2, -2, 3, -3}}) end
+-- Mist only does any good where dwarves walk through it (user: "it only
+-- works if its creating the mist (the statue level) in a high traffic
+-- area"). So the site comes from dfai-traffic's footstep counts: for each of
+-- the busiest outdoor tiles, every placement that puts that tile inside the
+-- mist room (it has doors on all four sides, so a path crosses it whichever
+-- way it runs) is tried, and the one whose mist room sees the most feet wins.
+-- No guessing before there's data: it waits for ~20 days of counts.
+local MIST_ROOM = {1, 1, 7, 9}      -- local x1, y1, x2, y2 of the statue room
+local MIN_SAMPLES = 240
+function find_site(min_samples)
+    local okt, TR = pcall(reqscript, 'dfai-traffic')
+    if not okt then return nil, 'no traffic counts (dfai-traffic missing)' end
+    if TR.samples() < (min_samples or MIN_SAMPLES) then
+        return nil, ('counting where the dwarves walk first (%d of %d samples)'):format(TR.samples(), MIN_SAMPLES)
+    end
+    local mx, my = dfhack.maps.getTileSize()
+    local res = S.reserved()
+    local cit = dfhack.units.getCitizens(true)[1]
+    local hot = TR.hottest(40, function(x, y, z)
+        local f = dfhack.maps.getTileFlags(x, y, z)
+        return f and f.outside and not f.hidden
+    end)
+    local best, tried = nil, {}
+    for _, h in ipairs(hot) do
+        local z = h[3]
+        for lx = MIST_ROOM[1], MIST_ROOM[3] do
+            for ly = MIST_ROOM[2], MIST_ROOM[4] do
+                local x1, y1 = h[1] - lx, h[2] - ly
+                local x2, y2 = x1 + W - 1, y1 + H - 1
+                local k = (z * 1000 + y1) * 1000 + x1
+                if not tried[k] and x1 > 2 and y1 > 2 and x2 < mx - 3 and y2 < my - 3 and not S.taken(x1, y1, x2, y2, z, 2, res) then
+                    tried[k] = true
+                    local ok = true
+                    for x = x1, x2 do
+                        for y = y1, y2 do if not site_tile(x, y, z, x - x1, y - y1) then ok = false break end end
+                        if not ok then break end
+                    end
+                    if ok and cit and not dfhack.maps.canWalkBetween(cit.pos, xyz2pos(x1 - 1, y1 + 7, z))
+                        and not dfhack.maps.canWalkBetween(cit.pos, xyz2pos(x1 + 4, y1 - 1, z)) then ok = false end
+                    if ok then
+                        local feet = TR.box(x1 + MIST_ROOM[1], y1 + MIST_ROOM[2], x1 + MIST_ROOM[3], y1 + MIST_ROOM[4], z)
+                        if not best or feet > best.feet then best = {x1 = x1, y1 = y1, x2 = x2, y2 = y2, z = z, feet = feet} end
+                    end
+                end
+            end
+        end
+    end
+    if not best then return nil, 'no open ground for it on the busy paths' end
+    return best
+end
 
 -- fell every tree in the box; true once none are left
 local function clear_trees(b)
@@ -289,7 +336,7 @@ local function plan(s)
     s.box, s.tries = b, 0
     write_bp()
     pcall(function() reqscript('dfai-projects').add('mist', 'The Mist Generator', b.x1, b.y1, b.z, b.x2, b.y2, b.z + 1, true) end)
-    s.last = ('mist generator planned at %d,%d level %d'):format(b.x1, b.y1, b.z)
+    s.last = ('mist generator planned at %d,%d level %d, on a path walked %d times in the count'):format(b.x1, b.y1, b.z, b.feet or 0)
     return true
 end
 
@@ -327,9 +374,9 @@ elseif cmd == 'now' then
     dfhack.timeout(1, 'ticks', tick)
     print('mist generator: queued')
 elseif cmd == 'find' then
-    local b, why = find_site()
+    local b, why = find_site(({...})[2] == 'early' and 1 or nil)
     if not b then print('no site: ' .. tostring(why)) return end
-    print(('site %d,%d..%d,%d level %d'):format(b.x1, b.y1, b.x2, b.y2, b.z))
+    print(('site %d,%d..%d,%d level %d; mist room footsteps %d'):format(b.x1, b.y1, b.x2, b.y2, b.z, b.feet or 0))
     write_bp()
     for _, l in ipairs({{'mist_walls'}, {'mist_statues'}, {'mist_roof', true}, {'mist_machines', true}}) do
         local out = dfhack.run_command_silent('quickfort', 'run', 'dfai-gen/' .. l[1] .. '.csv', '-c', ('%d,%d,%d'):format(b.x1, b.y1, b.z + (l[2] and 1 or 0)), '--dry-run')

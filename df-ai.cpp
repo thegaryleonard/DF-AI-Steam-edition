@@ -246,6 +246,18 @@ command_result ai_command(color_ostream & out, std::vector<std::string> & args)
         return CR_OK;
     }
 
+    if (args.size() == 1 && args[0] == "cavern")
+    {
+        if (!dwarfAI)
+        {
+            out << "df-ai is not running" << std::endl;
+            return CR_OK;
+        }
+        std::string why;
+        dwarfAI->plan.dig_next_cavern_now(out, why);
+        out << why << std::endl;
+        return CR_OK;
+    }
     if (args.size() == 1 && args[0] == "report")
     {
         std::string str = dwarfAI->report();

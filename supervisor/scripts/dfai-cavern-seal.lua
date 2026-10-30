@@ -170,6 +170,98 @@ local function first_cavern_step(s, notes, ops)
     end
 end
 
+-- Water from the caverns (user: "there will often be water in the caverns").
+-- A fort with no water on the surface (dwarves cancel "Fill pond: No water
+-- source") asks df-ai for a cavern outpost right away instead of at the end of
+-- its plan; a breach into a cavern that has water gets a DOOR instead of the
+-- wall (a "water gate"), so dwarves can bucket water for the farm ponds and
+-- drink. The door is locked while anything dangerous is out in that cavern.
+local function no_water()
+    local ok, pri = pcall(reqscript, 'dfai-priorities')
+    return ok and pri.no_water()
+end
+-- visible water out in the cavern near the outpost target (sampled, cheap)
+local function cavern_water(t, region)
+    for dz = 2, -6, -1 do
+        local z = t[3] + dz
+        for dx = -40, 40, 2 do
+            for dy = -40, 40, 2 do
+                local x, y = t[1] + dx, t[2] + dy
+                if dfhack.maps.isValidTilePos(x, y, z) then
+                    local f = dfhack.maps.getTileFlags(x, y, z)
+                    if f and not f.hidden and f.flow_size >= 3 and not f.liquid_type and f.feature_global
+                        and region_of(x, y, z) == region then
+                        return {x, y, z}
+                    end
+                end
+            end
+        end
+    end
+end
+local function dangerous_in(region)
+    for _, u in ipairs(df.global.world.units.active) do
+        if not dfhack.units.isDead(u) and dfhack.units.isActive(u) and not dfhack.units.isCitizen(u) and not u.flags1.caged
+            and (dfhack.units.isDanger(u) or dfhack.units.isGreatDanger(u)) then
+            local f = dfhack.maps.getTileFlags(u.pos)
+            if f and f.feature_global and not f.hidden and region_of(u.pos.x, u.pos.y, u.pos.z) == region then return u end
+        end
+    end
+end
+local function door_at(w)
+    local bld = dfhack.buildings.findAtTile(xyz2pos(w[1], w[2], w[3]))
+    return bld and bld:getType() == df.building_type.Door and bld or nil
+end
+-- one breach: turn it into / keep it as a water gate; returns a note or nil
+local function water_gate(s, key, o, notes)
+    local w, t = o.wall, o.target
+    local region = region_of(t[1], t[2], t[3])
+    if not region then return false end
+    local st = s.done[key]
+    if st ~= 'watergate' and st ~= 'to_watergate' then
+        if not no_water() then return false end
+        local tf = dfhack.maps.getTileFlags(t[1], t[2], t[3])
+        if not (region.feature_init and region.feature_init.flags.Discovered and tf and not tf.hidden) then return false end
+        local wat = cavern_water(t, region)
+        if not wat then return false end
+        s.done[key] = 'to_watergate'
+        s.water = s.water or {}
+        s.water[key] = wat
+        notes[#notes + 1] = ('water found in the cavern at %d,%d,%d: the breach gets a door instead of a wall'):format(wat[1], wat[2], wat[3])
+        dfhack.gui.showAnnouncement('Water in the caverns! The way down gets a door so the dwarves can fetch it.', COLOR_LIGHTCYAN, true)
+        st = 'to_watergate'
+    end
+    if st == 'to_watergate' then
+        local sh = shape(w[1], w[2], w[3])
+        local bld = dfhack.buildings.findAtTile(xyz2pos(w[1], w[2], w[3]))
+        if door_at(w) then
+            if door_at(w):getBuildStage() >= door_at(w):getMaxBuildStage() then s.done[key] = 'watergate' end
+            notes[#notes + 1] = 'water gate: door going in'
+        elseif sh == df.tiletype_shape.WALL then
+            dfhack.constructions.designateRemove(xyz2pos(w[1], w[2], w[3]))
+            notes[#notes + 1] = 'water gate: taking the seal wall down'
+        elseif sh == df.tiletype_shape.FLOOR and not bld then
+            pcall(dfhack.run_command_silent, 'quickfort', 'run', 'dfai-gen/seal_door.csv', '-c', ('%d,%d,%d'):format(w[1], w[2], w[3]))
+            notes[#notes + 1] = 'water gate: door ordered'
+        else
+            notes[#notes + 1] = 'water gate: waiting on the breach tile'
+        end
+        return true
+    end
+    -- a working water gate: locked while something dangerous is out there
+    local d = door_at(w)
+    if d then
+        local foe = dangerous_in(region)
+        if (foe ~= nil) ~= d.door_flags.forbidden then
+            d.door_flags.forbidden = foe ~= nil
+            if foe then dfhack.gui.showAnnouncement('Danger in the caverns: the water gate is locked.', COLOR_YELLOW, false) end
+        end
+        notes[#notes + 1] = foe and 'water gate locked: danger in the cavern' or 'water gate open: dwarves fetch water from the cavern'
+    else
+        s.done[key] = 'to_watergate'   -- the door is gone: put it back
+    end
+    return true
+end
+
 C = rawget(_G, 'dfai_cavern_seal') or {last = 'idle'}
 rawset(_G, 'dfai_cavern_seal', C)
 
@@ -178,6 +270,23 @@ local function step()
     local s = load()
     local notes = {}
     local ops = outposts()
+    local gates = 0
+    for key, o in pairs(ops) do
+        local okw, isgate = pcall(water_gate, s, key, o, notes)
+        if not okw then notes[#notes + 1] = 'water gate: ' .. tostring(isgate) elseif isgate then gates = gates + 1 end
+    end
+    -- no water anywhere: ask df-ai for the next cavern now (every few days)
+    if gates == 0 and no_water() then
+        local day = df.global.cur_year * 336 + df.global.cur_year_tick // 1200
+        if not s.asked or day - s.asked >= 5 then
+            s.asked = day
+            local out = dfhack.run_command_silent('ai', 'cavern')
+            local last = ''
+            for l in (out or ''):gmatch('[^%c]+') do last = l end
+            s.ask_result = last
+        end
+        notes[#notes + 1] = 'no water on the map: asked df-ai for the next cavern (' .. tostring(s.ask_result) .. ')'
+    end
     for key, o in pairs(ops) do
         -- the first cavern, once reopened, isn't walled up again by this loop
         if not s.done[key] and not (s.first and s.first.phase ~= 'sealed' and first_cavern(s) == key) then
@@ -223,6 +332,7 @@ if dfhack_flags.module then return end
 local dir = dfhack.getDFPath() .. '/dfhack-config/blueprints/dfai-gen'
 dfhack.filesystem.mkdir_recursive(dir)
 local f = io.open(dir .. '/seal.csv', 'w') f:write('#build label(seal) start(1;1)\nCw\n') f:close()
+f = io.open(dir .. '/seal_door.csv', 'w') f:write('#build label(door) start(1;1)\nd\n') f:close()
 local cmd = ({...})[1] or 'status'
 if cmd == 'start' then
     repeatUtil.scheduleEvery(KEY, 1200, 'ticks', function() local ok, e = pcall(step) if not ok then C.last = 'error: ' .. tostring(e) end end)

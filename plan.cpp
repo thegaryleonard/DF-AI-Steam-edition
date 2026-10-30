@@ -1511,6 +1511,27 @@ bool Plan::setup_fishing_zone(color_ostream & out)
     return zone != nullptr;
 }
 
+bool Plan::dig_next_cavern_now(color_ostream & out, std::string & why)
+{
+    for (auto r : rooms_and_corridors)
+    {
+        if (r->type == room_type::outpost && r->outpost_type == outpost_type::cavern && r->status != room_status::finished)
+        {
+            why = "a cavern outpost is already planned";
+            return false;
+        }
+    }
+    if (setup_blueprint_caverns(out) != CR_OK)
+    {
+        why = "no undiscovered cavern found";
+        return false;
+    }
+    ai.debug(out, "found next cavern (asked for: water)");
+    categorize_all();
+    why = "cavern outpost planned";
+    return true;
+}
+
 command_result Plan::setup_blueprint_caverns(color_ostream & out)
 {
     df::coord wall;
