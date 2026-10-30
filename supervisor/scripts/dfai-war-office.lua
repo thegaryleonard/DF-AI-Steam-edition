@@ -116,6 +116,8 @@ local function threat_on_map()
     return false
 end
 
+local MIN_POP = 100   -- user: no raids before population 100 (and armor)
+
 local function squad_ready(sq)
     if sq.entity_id ~= df.global.plotinfo.group_id or sq.assigned_army_controller_id ~= -1 then return false end
     local n = 0
@@ -127,6 +129,13 @@ local function squad_ready(sq)
             -- hold the squad back: every squad had one, and no raid left for years
             if u and dfhack.units.isActive(u) and not u.flags1.left and not dfhack.units.isDead(u) then
                 if u.mood ~= -1 or (u.health and u.health.flags.needs_healthcare) then return false end
+                -- armored (user: "nobody goes on raids until population 100
+                -- and they have armor"): every uniform armor slot filled
+                for _, cat in ipairs({'body', 'head', 'pants'}) do
+                    for _, spec in ipairs(p.equipment.uniform[cat]) do
+                        if #spec.assigned == 0 then return false end
+                    end
+                end
                 n = n + 1
             end
         end
@@ -218,6 +227,8 @@ function step(force)
     -- leaves when it comes home, so the fort is never emptied
     if out >= MAX_OUT or out >= total - HOME_GUARD then save_state(s) return ('%d squad(s) abroad'):format(out) end
     if threat_on_map() then save_state(s) return 'threat on the map: squads stay home' end
+    local pop = #dfhack.units.getCitizens(true)
+    if pop < MIN_POP then save_state(s) return ('no raids until the fort has %d citizens (%d now) and armored squads'):format(MIN_POP, pop) end
     local foes = enemies(s)
     local tl = targets(foes)
     if #tl == 0 then save_state(s) return 'no enemy sites' end
