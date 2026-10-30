@@ -1276,13 +1276,18 @@ local function job_text(j)
     local CONTAINER = {[df.item_type.BIN] = true, [df.item_type.BARREL] = true, [df.item_type.BOX] = true,
         [df.item_type.BAG] = true, [df.item_type.TOOL] = true}
     for _, ref in ipairs(j.items) do
-        if ref.item then
-            if CONTAINER[ref.item:getType()] then cont = cont or ref.item
-            elseif not it then it = ref.item end
+        -- only items the world still lists: a job can point at an item that
+        -- is being destroyed, and describing that crashed DF (getDescription
+        -- from this banner, 2026-10-29 23:36). df.item.find is a plain lookup.
+        local r = ref.item
+        local live = r and df.item.find(r.id)
+        if live and live == r then
+            if CONTAINER[live:getType()] then cont = cont or live
+            elseif not it then it = live end
         end
     end
     it = it or cont
-    if not it then return name end
+    if not it or it.flags.garbage_collect or it.flags.removed then return name end
     local ok, desc = pcall(dfhack.items.getReadableDescription, it)
     if not ok or not desc or desc == '' then ok, desc = pcall(dfhack.items.getDescription, it, 0, true) end
     if not ok or not desc or desc == '' then return name end
