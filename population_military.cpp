@@ -1623,9 +1623,24 @@ void Population::update_military(color_ostream & out)
     ranged_squads_to_ranges(ai, out);
     invaders_far = 0;
 
+    // A grown fort keeps 40% of its citizens under arms, not everyone: with
+    // 49 of 58 adults drafted, Hammerfaiths had 34 mason jobs (coffins and
+    // memorial slabs for six ghosts among them) and nobody free to do them.
     if (everyone_fights)
     {
-        want_draft.insert(want_draft.end(), draft_pool.begin(), draft_pool.end());
+        size_t target = citizen.size() * 40 / 100;
+        if (citizen_military > target + 2 && !under_attack)
+        {
+            auto mid = soldiers.begin() + std::min(citizen_military - target, soldiers.size());
+            std::partial_sort(soldiers.begin(), mid, soldiers.end(), &MilitarySetupExclusive::Dismiss::compare);
+            events.queue_exclusive(std::make_unique<MilitarySetupExclusive::Dismiss>(ai, soldiers.begin(), mid));
+        }
+        else if (citizen_military < target)
+        {
+            auto mid = draft_pool.begin() + std::min(target - citizen_military, draft_pool.size());
+            std::partial_sort(draft_pool.begin(), mid, draft_pool.end(), &MilitarySetupExclusive::Draft::compare);
+            want_draft.insert(want_draft.end(), draft_pool.begin(), mid);
+        }
     }
     else if (citizen_military > max_military && !under_attack)
     {
