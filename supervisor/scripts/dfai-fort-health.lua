@@ -170,7 +170,73 @@ local function check_army(out)
     out[#out + 1] = ('army: %d soldiers of %d citizens; %d hungry or thirsty; %d not holding a weapon right now'):format(sol, #c, hungry, unarmed)
 end
 
-local CHECKS = {check_stone, check_fertilizer, check_coffins, check_workshops, check_army}
+-- 7. stockpiles nobody can walk to: Twistgravel logged ~140,000 "Store item
+-- in bin: Drop-off inaccessible" cancellations - haulers spent their days
+-- walking to a pile they couldn't reach, the brewing stalled and most of the
+-- fort died of thirst. A pile no citizen can reach is set to take nothing
+-- (it's left in place; reachable again -> its settings are put back).
+local function check_stockpiles(out)
+    local from
+    for _, u in ipairs(citizens()) do
+        if dfhack.units.isActive(u) and not dfhack.units.isDead(u) then from = u.pos break end
+    end
+    if not from then return end
+    local s = dfhack.persistent.getSiteData(KEY .. '-piles', {closed = {}})
+    local shut, reopened = 0, 0
+    for _, b in ipairs(df.global.world.buildings.other.STOCKPILE) do
+        local reach = false
+        for x = b.x1, b.x2 do
+            for y = b.y1, b.y2 do
+                if dfhack.buildings.containsTile(b, x, y) and dfhack.maps.canWalkBetween(from, xyz2pos(x, y, b.z)) then reach = true break end
+            end
+            if reach then break end
+        end
+        local key = tostring(b.id)
+        if not reach and not s.closed[key] then
+            s.closed[key] = b.settings.flags.whole
+            b.settings.flags.whole = 0
+            shut = shut + 1
+        elseif reach and s.closed[key] then
+            b.settings.flags.whole = s.closed[key]
+            s.closed[key] = nil
+            reopened = reopened + 1
+        end
+    end
+    local closed = 0
+    for k in pairs(s.closed) do if df.building.find(tonumber(k)) then closed = closed + 1 else s.closed[k] = nil end end
+    dfhack.persistent.saveSiteData(KEY .. '-piles', s)
+    out[#out + 1] = ('stockpiles: %d out of reach and closed%s%s'):format(closed, shut > 0 and (' (%d just now)'):format(shut) or '',
+        reopened > 0 and ('; %d reachable again, reopened'):format(reopened) or '')
+end
+
+-- 8. drink: thirst killed 29 at Twistgravel - say so early, and push brewing
+local function check_drink(out)
+    local drinks = 0
+    for _, i in ipairs(df.global.world.items.other.DRINK) do
+        if not i.flags.forbid and not i.flags.rotten and not i.flags.trader then drinks = drinks + i.stack_size end
+    end
+    local pop = #citizens()
+    local wells = 0
+    for _, b in ipairs(df.global.world.buildings.other.WELL or {}) do if b:getBuildStage() >= b:getMaxBuildStage() then wells = wells + 1 end end
+    local thirsty = 0
+    for _, u in ipairs(citizens()) do if u.counters2.thirst_timer > 30000 then thirsty = thirsty + 1 end end
+    local note = ''
+    if pop > 0 and drinks < pop * 5 then
+        local brew = 0
+        for _, mo in ipairs(df.global.world.manager_orders.all) do
+            if mo.job_type == df.job_type.BrewDrinkPlant or mo.job_type == df.job_type.BrewDrinkFruit then brew = brew + mo.amount_left end
+        end
+        if brew < 10 then
+            dfhack.run_command_silent('workorder', '{"job":"BrewDrinkPlant","amount_total":10}')
+            note = ' - LOW: ordered 10 more brews'
+        else
+            note = ' - LOW'
+        end
+    end
+    out[#out + 1] = ('drink: %d drinks for %d citizens, %d wells, %d thirsty%s'):format(drinks, pop, wells, thirsty, note)
+end
+
+local CHECKS = {check_stone, check_fertilizer, check_coffins, check_workshops, check_army, check_stockpiles, check_drink}
 local function step()
     if not dfhack.isMapLoaded() or df.global.gamemode ~= df.game_mode.DWARF then return end
     local out = {}
