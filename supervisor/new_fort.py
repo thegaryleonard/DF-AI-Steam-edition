@@ -228,6 +228,12 @@ def remember_site():
         p.write_text(json.dumps({"x": int(parts[0]), "y": int(parts[1]), "site_id": int(parts[2])}))
 
 
+# embark size in region tiles (48x48 map tiles each). User: "try 2x2 and see
+# how that works" - a smaller map the stream camera can show more of.
+EMBARK = max(1, min(16, int(CFG.get("embark_size", 2))))
+LO = 8 - EMBARK // 2
+HI = LO + EMBARK - 1
+
 CSS = "local v=dfhack.gui.getViewscreenByType(df.viewscreen_choose_start_sitest,0) or qerror('not on the embark screen'); "
 
 
@@ -276,7 +282,7 @@ def find_sites(near):
         raise Failed(f"no site finder button (focus {focus()})")
     time.sleep(2)
     lua(CSS + f"""for i=2,#v.find_param-1 do v.find_param[i]=-1 end
-v.find_param[{opt}.DimensionX]=4 v.find_param[{opt}.DimensionY]=4
+v.find_param[{opt}.DimensionX]={EMBARK} v.find_param[{opt}.DimensionY]={EMBARK}
 v.find_param[{opt}.AquiferLight]=0 v.find_param[{opt}.AquiferHeavy]=0 print('OK')""")
     click("Begin")
     wait_text(["Match found", "No match", "no match"], 10 * 60, step=5)
@@ -314,7 +320,7 @@ local t={{}} for i=1,math.min(30,#o) do t[#t+1]=o[i][1]..','..o[i][2]..','..o[i]
 
 
 def try_embark(x, y):
-    """Embark on region tile (x, y), a 4x4 in its middle. The embark screen
+    """Embark on region tile (x, y), an EMBARK x EMBARK square in its middle. The embark screen
     uses its location fields, not the mouse position, when the map is clicked,
     so: set the location in data, press Embark, click anywhere on the map.
     embark_pos_* are in world-wide local tiles (region * 16 + offset).
@@ -323,7 +329,7 @@ def try_embark(x, y):
     lua(CSS + f"""local l=v.location l.region_pos.x={x} l.region_pos.y={y}
 v.doing_site_finder=false v.zoomed_in=true v.zoom_cent_x={x} v.zoom_cent_y={y}
 v.region_cent_x={x} v.region_cent_y={y}
-l.embark_pos_min.x={x}*16+6 l.embark_pos_min.y={y}*16+6 l.embark_pos_max.x={x}*16+9 l.embark_pos_max.y={y}*16+9
+l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x={x}*16+{HI} l.embark_pos_max.y={y}*16+{HI}
 print('OK')""")
     time.sleep(1)
     if "Click on the map to embark" not in dump():
@@ -331,7 +337,7 @@ print('OK')""")
             return False
         time.sleep(2)
     lua(CSS + f"""local l=v.location l.region_pos.x={x} l.region_pos.y={y}
-l.embark_pos_min.x={x}*16+6 l.embark_pos_min.y={y}*16+6 l.embark_pos_max.x={x}*16+9 l.embark_pos_max.y={y}*16+9 print('OK')""")
+l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x={x}*16+{HI} l.embark_pos_max.y={y}*16+{HI} print('OK')""")
     dfhack(SCREEN, "tile", "120", "40")   # any tile on the map
     time.sleep(4)
     if focus().startswith("setupdwarfgame") or focus().startswith("dwarfmode"):
