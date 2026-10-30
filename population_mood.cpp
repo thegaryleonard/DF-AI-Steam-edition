@@ -324,8 +324,13 @@ void Population::update_moods(color_ostream & out)
                     continue;
                 }
                 auto & f = item->flags.bits;
+                // in_building: built into a workshop or depot. Counting those
+                // as usable hid that the fort had no free rock blocks at all,
+                // so the blocks handler never fired (a fey carpenter waited
+                // past thirst 30000 for 2 BLOCKS while 6 sat in buildings).
                 if (f.in_job || f.owned || f.trader || f.foreign || f.artifact || f.removed ||
-                    f.garbage_collect || f.on_fire || f.rotten || f.construction || f.spider_web || f.hidden)
+                    f.garbage_collect || f.on_fire || f.rotten || f.construction || f.spider_web || f.hidden ||
+                    f.in_building)
                 {
                     continue;
                 }
@@ -609,7 +614,9 @@ void Population::update_moods(color_ostream & out)
                     if (df::building *bld = place_workshop_near(u->pos, workshop_type::Masons))
                         ai.debug(out, stl_sprintf("[MOOD] no Mason's workshop for %s's blocks: placed one (building %d)", who.c_str(), bld->id));
                 }
-                std::map<int32_t, int32_t> stone;
+                // Only boulders the moody dwarf can walk to: a pass that picked
+                // microcline sitting on an unreachable ledge just cancelled.
+                std::map<int32_t, int32_t> stone, econ;
                 for (auto i : world->items.other[items_other_id::BOULDER])
                 {
                     auto & f = i->flags.bits;
@@ -619,9 +626,15 @@ void Population::update_moods(color_ostream & out)
                     int32_t mi = i->getMaterialIndex();
                     if (ji->mat_index >= 0 && mi != ji->mat_index)
                         continue;
-                    if (mi < 0 || size_t(mi) >= plotinfo->economic_stone.size() || plotinfo->economic_stone[mi])
+                    if (mi < 0 || size_t(mi) >= plotinfo->economic_stone.size())
                         continue;
-                    stone[mi]++;
+                    df::coord ipos = Items::getPosition(i);
+                    if (!ipos.isValid() || !Maps::canWalkBetween(u->pos, ipos))
+                        continue;
+                    if (plotinfo->economic_stone[mi])
+                        econ[mi]++;
+                    else
+                        stone[mi]++;
                 }
                 int32_t best = -1, best_n = 0;
                 for (auto & kv : stone)
@@ -630,6 +643,37 @@ void Population::update_moods(color_ostream & out)
                     {
                         best = kv.first;
                         best_n = kv.second;
+                    }
+                }
+                if (best < 0)
+                {
+                    // Every reachable boulder is flagged economic (Ral Athamlogem
+                    // had only ore, coal, gypsum and kaolinite loose, so every
+                    // mason job cancelled). Free the commonest stone that is not
+                    // an ore, flux, fuel or plaster.
+                    for (auto & kv : econ)
+                    {
+                        auto raw = df::inorganic_raw::find(kv.first);
+                        if (!raw || !raw->metal_ore.mat_index.empty())
+                            continue;
+                        bool keep = false;
+                        for (auto rc : raw->material.reaction_class)
+                        {
+                            if (rc && (*rc == "FLUX" || *rc == "COAL" || *rc == "GYPSUM"))
+                                keep = true;
+                        }
+                        if (keep || raw->material.flags.is_set(material_flags::IS_METAL))
+                            continue;
+                        if (kv.second > best_n)
+                        {
+                            best = kv.first;
+                            best_n = kv.second;
+                        }
+                    }
+                    if (best >= 0)
+                    {
+                        plotinfo->economic_stone[best] = 0;
+                        ai.debug(out, stl_sprintf("[MOOD] %s needs rock blocks and all reachable stone is economic: freed %s (%d boulders)", who.c_str(), MaterialInfo(0, best).toString().c_str(), best_n));
                     }
                 }
                 bool pending = false;
