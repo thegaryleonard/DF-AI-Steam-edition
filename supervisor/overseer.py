@@ -274,6 +274,69 @@ def blueprint_preview(f):
     return {"file": f, "sections": secs}
 
 
+BP_IMPORT_MAX = 512 * 1024
+
+
+def import_blueprint(req):
+    """Save a blueprint the user dropped or pasted on the desk into
+    blueprints/imported/. With dry=true only parse it and send back the
+    drawing. Never writes outside that folder; never replaces a file unless
+    asked to (and only one in imported/); no keystroke (#query/#config)
+    blueprints."""
+    import base64
+    import io
+    import zipfile
+    name = re.split(r"[\\\\/]", str(req.get("name") or ""))[-1].strip()
+    name = re.sub(r"[^\w.-]+", "_", name)[:60]
+    if not re.match(r"^[\w][\w.-]*\.(csv|xlsx)$", name):
+        return {"error": "the file name must end in .csv or .xlsx"}
+    root = (Path(sup.CFG["df_dir"]) / "dfhack-config" / "blueprints").resolve()
+    dest = (root / "imported" / name).resolve()
+    if (root / "imported") not in [dest.parent]:
+        return {"error": "bad file name"}
+    if name.endswith(".csv"):
+        text = req.get("text")
+        if not isinstance(text, str) or not text.strip():
+            return {"error": "no blueprint text"}
+        data = text.replace("\r\n", "\n").encode("utf-8")
+        if len(data) > BP_IMPORT_MAX:
+            return {"error": "too big (512 KB at most)"}
+        modes = {m.lower() for m in re.findall(r"^\W{0,2}#(\w+)", text, re.M)}
+        if modes & {"query", "config"}:
+            return {"error": "keystroke blueprints (#query / #config) can't be imported here"}
+        try:
+            secs = parse_blueprint_csv(text)
+        except Exception as e:
+            return {"error": f"could not read it: {e}"}
+        if not secs:
+            return {"error": "no #dig, #build, #place or #zone section found - is this a quickfort blueprint?"}
+        preview = {"file": "imported/" + name, "sections": secs}
+    else:
+        try:
+            data = base64.b64decode(str(req.get("b64") or ""), validate=True)
+        except ValueError:
+            return {"error": "the spreadsheet didn't arrive intact"}
+        if len(data) > BP_IMPORT_MAX:
+            return {"error": "too big (512 KB at most)"}
+        try:
+            with zipfile.ZipFile(io.BytesIO(data)) as z:
+                if "xl/workbook.xml" not in z.namelist():
+                    raise ValueError
+        except (zipfile.BadZipFile, ValueError):
+            return {"error": "that isn't an Excel .xlsx file"}
+        preview = {"file": "imported/" + name, "sections": [], "note": "spreadsheets can't be drawn here; quickfort will read it"}
+    exists = dest.exists()
+    if req.get("dry"):
+        return dict(preview=preview, exists=exists, name=name)
+    if exists and not req.get("overwrite"):
+        return {"error": f"imported/{name} already exists - tick 'replace it' to overwrite", "exists": True}
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_bytes(data)
+    bp_cache["at"] = 0
+    labels = [b["label"] for b in blueprints() if b["file"] == "imported/" + name]
+    return {"ok": True, "file": "imported/" + name, "labels": labels, "replaced": exists}
+
+
 def camera():
     out = sup.dfhack("lua", "local d=dfhack.gui.getDwarfmodeViewDims() print(df.global.window_x + (d.map_x2 - d.map_x1 + 1) // 2, "
                      "df.global.window_y + (d.map_y2 - d.map_y1 + 1) // 2, df.global.window_z)", timeout=20) or ""
@@ -538,10 +601,18 @@ class Handler(BaseHTTPRequestHandler):
         if origin and not origin.startswith(("http://localhost:%d" % PORT, "http://127.0.0.1:%d" % PORT)):
             self.send_error(403)
             return
+        n = int(self.headers.get("Content-Length", 0) or 0)
+        if n > 2 * 1024 * 1024:   # nothing the desk sends is this big
+            self.send_error(413)
+            return
         try:
-            req = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0) or b"{}")
+            req = json.loads(self.rfile.read(n) or b"{}")
         except ValueError:
             req = {}
+        if path == "/bpimport":
+            res = import_blueprint(req)
+            self.send(json.dumps(res, ensure_ascii=False).encode(), code=200 if res.get("ok") or res.get("preview") else 400)
+            return
         if path == "/stop":
             # switch tour stops on or off (one key, or a list); only keys the tour itself listed
             known = {s_["key"]: s_ for s_ in stops()}

@@ -366,7 +366,7 @@ label.fld { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5
 
     <!-- blueprints -->
     <section class="page" id="p-blueprints">
-      <div class="ph"><div><h1>Blueprints</h1><p>Build something from quickfort's list. The blueprint's start corner goes at the spot below. Preview first: it checks every tile without building.</p></div></div>
+      <div class="ph"><div><h1>Blueprints</h1><p>Build something from quickfort's list. The blueprint's start corner goes at the spot below. Preview first: it checks every tile without building.</p></div><button class="btn primary" id="bpimp">&#8679; Import blueprint</button></div>
       <div class="panel" style="margin-bottom:14px"><div class="bd"><div class="toolbar" style="margin:0">
         <b style="font-family:var(--serif)">Where</b>
         <label class="fld">x <input id="bx" type="number"></label><label class="fld">y <input id="by" type="number"></label><label class="fld">z <input id="bz" type="number"></label>
@@ -413,6 +413,17 @@ label.fld { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5
   </aside>
 </div>
 
+<div class="modal" id="bpimport"><div class="box" style="width:min(900px,96vw)">
+  <div style="display:flex;justify-content:space-between;align-items:baseline"><h3>Import a blueprint</h3><button class="btn sm" id="bpix">Close</button></div>
+  <p>Drop a quickfort <b>.csv</b> or <b>.xlsx</b> here, pick one, or paste the text. It is saved in <code>blueprints/imported/</code> and shows up in the list below. Nothing is built until you press Build.</p>
+  <div id="bpidrop" style="border:2px dashed var(--line2);border-radius:10px;padding:14px;text-align:center;color:var(--muted);cursor:pointer">Drop a file here or <u>choose one</u><input type="file" id="bpifile" accept=".csv,.xlsx" style="display:none"></div>
+  <textarea id="bpitext" spellcheck="false" placeholder="...or paste the blueprint (it starts with a line like  #build label(beds) )" style="width:100%;height:110px;margin-top:10px;font:12px var(--mono);background:var(--bg2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px"></textarea>
+  <div class="toolbar" style="margin:8px 0"><label class="fld">Name <input id="bpiname" placeholder="my-blueprint.csv" style="width:240px"></label>
+    <label style="display:none;gap:5px;align-items:center" id="bpiowl"><input type="checkbox" id="bpiow"> replace it</label>
+    <span id="bpimsg" class="dim" style="flex:1"></span></div>
+  <div class="bpstage" style="background:#0d0b09;border:1px solid var(--line);border-radius:10px;padding:8px;display:grid;place-items:center;min-height:120px;max-height:44vh;overflow:auto"><canvas id="bpic"></canvas></div>
+  <div class="row"><button class="btn" id="bpicancel">Cancel</button><button class="btn primary" id="bpisave" disabled>Save it</button></div>
+</div></div>
 <div class="modal" id="bpview"><div class="box">
   <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><h3 id="bpvt">Blueprint</h3><button class="btn sm" id="bpvx">Close</button></div>
   <div class="bpctl"><span id="bpvlayers"></span><span class="lvls" id="bpvlvls"></span><span id="bpvsize" class="dim"></span></div>
@@ -980,6 +991,65 @@ $('bpvc').addEventListener('mousemove', e => {
   tip.style.display = 'block'; tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY + 12) + 'px';
 });
 $('bpvc').addEventListener('mouseleave', () => { $('bptip').style.display = 'none'; });
+
+/* ---------- import a blueprint ---------- */
+const BPI = {name: '', text: '', b64: '', timer: null};
+function bpiOpen() { $('bpimport').classList.add('on'); }
+function bpiClose() { $('bpimport').classList.remove('on'); }
+$('bpimp').onclick = bpiOpen; $('bpix').onclick = bpiClose; $('bpicancel').onclick = bpiClose;
+function bpiBody(dry) {
+  const name = $('bpiname').value.trim();
+  return name.toLowerCase().endsWith('.xlsx') ? {name, b64: BPI.b64, dry, overwrite: $('bpiow').checked} : {name, text: $('bpitext').value, dry, overwrite: $('bpiow').checked};
+}
+async function bpiCheck() {
+  const msg = $('bpimsg'), save = $('bpisave'), cv = $('bpic');
+  save.disabled = true;
+  if (!$('bpiname').value.trim() || (!$('bpitext').value.trim() && !BPI.b64)) { msg.textContent = 'Drop a file or paste one, and give it a name.'; return; }
+  if (!/\.(csv|xlsx)$/i.test($('bpiname').value.trim())) $('bpiname').value = $('bpiname').value.trim().replace(/\.\w*$/, '') + '.csv';
+  let r;
+  try { r = await (await fetch('/bpimport', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(bpiBody(true))})).json(); }
+  catch (e) { msg.textContent = 'The desk did not answer.'; return; }
+  if (r.error) { msg.innerHTML = `<span style="color:#ff9c86">${esc(r.error)}</span>`; cv.width = 1; cv.height = 1; return; }
+  $('bpiowl').style.display = r.exists ? 'inline-flex' : 'none';
+  const secs = r.preview.sections || [];
+  const [w, hh] = bpBounds(r.preview, null), lv = bpLevels(r.preview);
+  msg.innerHTML = secs.length ? `<span style="color:var(--green)">Looks good:</span> ${secs.map(s => esc(s.label) + ' <small>(' + esc(s.mode) + ')</small>').join(', ')} &middot; ${w} &times; ${hh}${lv.length > 1 ? ` &middot; ${lv.length} levels (start level shown)` : ''}${r.exists ? ' &middot; <b>a file with this name is already there</b>' : ''}`
+    : esc(r.preview.note || 'ok');
+  if (secs.length) drawBp(cv, r.preview, {z: lv.includes(0) ? 0 : lv[0], boxW: $('bpic').parentElement.clientWidth - 20, boxH: innerHeight * .4, max: 24, fit: true});
+  save.disabled = r.exists && !$('bpiow').checked;
+}
+const bpiSoon = () => { clearTimeout(BPI.timer); BPI.timer = setTimeout(bpiCheck, 350); };
+$('bpitext').addEventListener('input', () => { BPI.b64 = ''; if (!$('bpiname').value.trim()) { const m = $('bpitext').value.match(/label\(([\w-]+)\)/); $('bpiname').value = (m ? m[1] : 'pasted') + '.csv'; } bpiSoon(); });
+$('bpiname').addEventListener('input', bpiSoon);
+$('bpiow').addEventListener('change', bpiCheck);
+async function bpiTake(f) {
+  if (!f) return;
+  if (f.size > 512 * 1024) { $('bpimsg').innerHTML = '<span style="color:#ff9c86">too big (512 KB at most)</span>'; return; }
+  $('bpiname').value = f.name;
+  if (/\.xlsx$/i.test(f.name)) {
+    const buf = new Uint8Array(await f.arrayBuffer()); let bin = ''; for (let i = 0; i < buf.length; i += 32768) bin += String.fromCharCode(...buf.subarray(i, i + 32768));
+    BPI.b64 = btoa(bin); $('bpitext').value = ''; $('bpitext').placeholder = '(a spreadsheet: ' + f.name + ')';
+  } else { BPI.b64 = ''; $('bpitext').value = await f.text(); }
+  bpiCheck();
+}
+$('bpidrop').onclick = () => $('bpifile').click();
+$('bpifile').onchange = e => bpiTake(e.target.files[0]);
+['dragover', 'dragenter'].forEach(ev => $('bpidrop').addEventListener(ev, e => { e.preventDefault(); $('bpidrop').style.borderColor = 'var(--gold)'; }));
+['dragleave', 'drop'].forEach(ev => $('bpidrop').addEventListener(ev, e => { e.preventDefault(); $('bpidrop').style.borderColor = ''; }));
+$('bpidrop').addEventListener('drop', e => bpiTake(e.dataTransfer.files[0]));
+$('bpisave').onclick = async () => {
+  $('bpisave').disabled = true;
+  let r;
+  try { r = await (await fetch('/bpimport', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(bpiBody(false))})).json(); }
+  catch (e) { toast('Import failed', 'The desk did not answer.', true); $('bpisave').disabled = false; return; }
+  if (r.error) { toast('Not imported', r.error, true); $('bpisave').disabled = false; return; }
+  toast(r.replaced ? 'Blueprint replaced' : 'Blueprint imported', `${r.file}: ${r.labels.length ? r.labels.join(', ') : 'quickfort will list it shortly'}`);
+  delete BPC[r.file];
+  bpiClose(); $('bpitext').value = ''; $('bpiname').value = ''; BPI.b64 = ''; $('bpiowl').style.display = 'none';
+  await loadBps();
+  const el = document.querySelector(`canvas.bpthumb[data-file="${CSS.escape(r.file)}"]`);
+  if (el) { el.scrollIntoView({behavior: 'smooth', block: 'center'}); el.closest('.bpf').style.outline = '2px solid var(--gold)'; }
+};
 
 /* ---------- construction order ---------- */
 let PLAN = {rooms: [], order: []};
