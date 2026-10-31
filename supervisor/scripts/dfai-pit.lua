@@ -146,7 +146,36 @@ local function bridge_dir(d)
     if d[1] == 1 then return D.Right elseif d[1] == -1 then return D.Left elseif d[2] == 1 then return D.Down else return D.Up end
 end
 
+-- anything alive that isn't ours down in the shaft or the pen?
+local function intruder(sh)
+    for _, u in ipairs(df.global.world.units.active) do
+        if not dfhack.units.isDead(u) and not dfhack.units.isCitizen(u) and u.pos.z >= sh.zb - 1 and u.pos.z < sh.zt
+            and math.abs(u.pos.x - sh.p[1]) <= 3 and math.abs(u.pos.y - sh.p[2]) <= 4 then return u end
+    end
+end
+-- no executions while the builders work down there (a pitted giant rat
+-- walked out up their stair): the pit zone is off until the shaft is resealed
+local function pit_zone(sh)
+    for _, zn in ipairs(df.global.world.buildings.other.ACTIVITY_ZONE) do
+        if zn.type == df.civzone_type.Pond and zn.z == sh.zt and zn.x1 <= sh.p[1] and zn.x2 >= sh.p[1] and zn.y1 <= sh.p[2] and zn.y2 >= sh.p[2] then return zn end
+    end
+end
+local WORKING = {open = true, dig = true, drop = true, cap = true, crusher = true, reseal = true}
+local function guard(s)
+    local sh = s.shaft
+    if not sh then return end
+    local pz = pit_zone(sh)
+    if pz then pz.spec_sub_flag.active = not WORKING[s.phase] end
+    local g = s.gate and df.building.find(s.gate)
+    if not g then return end
+    local foe = intruder(sh)
+    if (foe ~= nil) ~= g.door_flags.forbidden then g.door_flags.forbidden = foe ~= nil end
+    return foe
+end
+
 local function step(s)
+    local foe = guard(s)
+    if foe then return 'LOCKED: ' .. dfhack.df2utf(dfhack.units.getReadableName(foe)) .. ' is down in the shaft; the builders wait' end
     local sh = s.shaft
     if not sh then
         sh = find_shaft()
@@ -172,7 +201,16 @@ local function step(s)
     if s.phase == 'open' then
         local x, y, z = sh.s[1], sh.s[2], sh.zt
         local st = shape(x, y, z)
-        if st == Sh.STAIR_DOWN or st == Sh.STAIR_UPDOWN then s.phase = 'dig'
+        if st == Sh.STAIR_DOWN or st == Sh.STAIR_UPDOWN then
+            -- a hatch over the builders' stair: it is locked the moment
+            -- anything that isn't ours is down there (user: "there is still a
+            -- way out": the open stair let a pitted creature walk up)
+            local h = hatch_at(x, y, z)
+            if built(h) then s.gate, s.phase = h.id, 'dig'
+            else
+                if not h then pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Hatch, pos = xyz2pos(x, y, z)}) end
+                return 'a lockable hatch over the builders\' stair into the shaft'
+            end
         elseif st == Sh.FLOOR and is_construction(x, y, z) then
             if not removing(x, y, z) then dfhack.constructions.designateRemove(xyz2pos(x, y, z)) end
             return 'opening the stair into the pit shaft for the builders'
@@ -250,7 +288,13 @@ local function step(s)
             end
         end
         local st = shape(x, y, z)
-        if st == Sh.FLOOR then s.phase = 'hatch'
+        local gh = hatch_at(x, y, z)
+        if gh then
+            gh.door_flags.forbidden = true
+            if not gh.flags.almost_deleted then dfhack.buildings.deconstruct(gh) end
+            return 'taking the builders\' hatch off the shaft stair'
+        end
+        if st == Sh.FLOOR then s.phase, s.gate = 'hatch', nil
         elseif st == Sh.STAIR_DOWN and is_construction(x, y, z) then
             if not removing(x, y, z) then dfhack.constructions.designateRemove(xyz2pos(x, y, z)) end
             return 'taking the builders\' stair out of the shaft'
