@@ -40,7 +40,20 @@ local function is_beast(race)
     local raw = df.creature_raw.find(race)
     return raw and (raw.flags.HAS_ANY_FEATURE_BEAST or raw.flags.HAS_ANY_TITAN or raw.flags.HAS_ANY_MEGABEAST or raw.flags.HAS_ANY_DEMON) or false
 end
+-- a pet with a name of its own (given by its owner, or a historical name)
+local function named_pet(hf)
+    if not hf then return false end
+    if dfhack.translation.translateName(hf.name, true) ~= '' then return true end
+    local u = hf.unit_id ~= -1 and df.unit.find(hf.unit_id)
+    return u and u.name.nickname ~= '' or false
+end
+local function pet_name(hf)
+    local u = hf.unit_id ~= -1 and df.unit.find(hf.unit_id)
+    local n = u and u.name.nickname ~= '' and dfhack.df2utf(u.name.nickname) or hf_name(hf)
+    return n
+end
 local function profession(hf)
+    if hf and hf.race ~= df.global.plotinfo.race_id then return race_of(hf.race) end   -- a pet: "cat", "war dog"
     local u = hf and hf.unit_id ~= -1 and df.unit.find(hf.unit_id)
     if u then return dfhack.df2utf(dfhack.units.getProfessionName(u)) end
     return hf and hf.profession ~= -1 and df.profession.attrs[hf.profession].caption or ''
@@ -59,9 +72,10 @@ local function deaths()
             local k = e.slayer_hf ~= -1 and df.historical_figure.find(e.slayer_hf) or nil
             local cause = df.death_type[e.death_cause] or ''
             -- butchered livestock, old age and the execution pit are not battles
-            -- our pets (a kitten listed among 'Our fallen') are neither side's dead
+            -- our animals: a NAMED pet is one of the fort's dead (owner: "named pets
+            -- should absolutely count"); a nameless stray kitten is not
             local skip = cause == 'SLAUGHTER' or cause == 'OLD_AGE' or (v and v.civ_id ~= civ and e.slayer_hf == -1)
-                or (v and v.civ_id == civ and v.race ~= df.global.plotinfo.race_id)
+                or (v and v.civ_id == civ and v.race ~= df.global.plotinfo.race_id and not named_pet(v))
             if v and not skip then
                 out[#out + 1] = {t = T(e.year, e.seconds), year = e.year, sec = e.seconds, v = v, k = k,
                     ours = v.civ_id == civ, k_ours = k and k.civ_id == civ or false,
@@ -89,7 +103,8 @@ local function report_of(b)
         if x.ours then
             local by = x.k and (x.k_ours and hf_name(x.k) or (is_beast(x.k.race) and hf_name(x.k):match('^[^,]+') or race_of(x.k.race)))
                 or (x.k_race ~= -1 and race_of(x.k_race)) or nil
-            ours[#ours + 1] = {name = hf_name(x.v), job = profession(x.v), by = by, cause = x.cause:lower()}
+            local pet = x.v.race ~= df.global.plotinfo.race_id
+            ours[#ours + 1] = {name = pet and pet_name(x.v) or hf_name(x.v), job = profession(x.v), pet = pet or nil, by = by, cause = x.cause:lower()}
         else
             enemies = enemies + 1
             local r = race_of(x.v.race, true)

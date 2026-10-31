@@ -34,6 +34,13 @@ local function job(hf)
     end
 end
 local function mine(hf) return hf and hf.civ_id == civ and hf.race == df.global.plotinfo.race_id end
+-- one of our animals with a name of its own: counted among the fort's dead
+local function named_pet(hf)
+    if not hf or hf.civ_id ~= civ or hf.race == df.global.plotinfo.race_id then return false end
+    if dfhack.translation.translateName(hf.name, true) ~= '' then return true end
+    local u = hf.unit_id ~= -1 and df.unit.find(hf.unit_id)
+    return u and u.name.nickname ~= '' or false
+end
 local out = {deaths = {}, enemy_dead = 0, enemy_kinds = {}, beasts = {}, beast_kinds = {}, artifacts = {}, artifact_info = {}, births = 0, raids = {},
     marriages = {}, nobles = {}, masterpieces = 0, killers = {},
     now = T(df.global.cur_year, df.global.cur_year_tick),
@@ -51,13 +58,16 @@ for i = #ev - 1, 0, -1 do
         if t == HT.HIST_FIGURE_DIED and e.site == site then
             local v = df.historical_figure.find(e.victim_hf)
             local cause = df.death_type[e.death_cause] or ''
-            if mine(v) and cause ~= 'OLD_AGE' and cause ~= 'MEMORIALIZE' then
+            local pet = named_pet(v)
+            if (mine(v) or pet) and cause ~= 'OLD_AGE' and cause ~= 'MEMORIALIZE' and cause ~= 'SLAUGHTER' then
                 local k = e.slayer_hf ~= -1 and df.historical_figure.find(e.slayer_hf) or nil
                 local krace = k and k.race or e.slayer_race
                 local by = k and nm(k) or nil
                 local bykind = krace ~= -1 and kind(krace) or nil
                 if by and bykind and by:lower() == bykind:lower() then by = nil end
-                out.deaths[#out.deaths + 1] = {name = nm(v), job = job(v), by = by, by_kind = bykind,
+                local pu = pet and v.unit_id ~= -1 and df.unit.find(v.unit_id)
+                out.deaths[#out.deaths + 1] = {name = (pu and pu.name.nickname ~= '') and dfhack.df2utf(pu.name.nickname) or nm(v),
+                    job = pet and kind(v.race) or job(v), pet = pet or nil, by = by, by_kind = bykind,
                     friendly = (k and mine(k)) and true or nil, cause = cause:lower(), y = when.y, s = when.s}
                 if by then
                     killers[by] = killers[by] or {name = by, kind = bykind, n = 0}
