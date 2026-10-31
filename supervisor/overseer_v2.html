@@ -252,6 +252,20 @@ label.fld { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5
 .modal .box input { width: 100%; padding: 8px 10px; font-size: 15px; }
 .modal .box .row { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
 .modal .box .err { color: #ff9c86; font-size: 13px; margin-top: 8px; min-height: 1em; }
+/* blueprint previews */
+.bpthumb { display: block; width: 100%; height: 96px; image-rendering: auto; margin: 6px 0 8px; background: #0d0b09; border: 1px solid var(--line); border-radius: 8px; cursor: zoom-in; image-rendering: pixelated; }
+.bpthumb:hover { border-color: var(--gold); }
+.bpthumb.none { cursor: default; }
+#bpview .box { width: min(1100px, 96vw); max-height: 92vh; display: flex; flex-direction: column; }
+#bpview .bpstage { flex: 1; min-height: 200px; overflow: auto; background: #0d0b09; border: 1px solid var(--line); border-radius: 10px; padding: 10px; display: grid; place-items: center; position: relative; }
+#bpview canvas { image-rendering: pixelated; }
+#bpview .bpctl { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin: 4px 0 10px; font-size: 13px; color: var(--muted); }
+#bpview .bpctl label { display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
+#bpview .lvls button { margin-right: 4px; }
+#bpview .lvls button.on { background: var(--gold); color: #1a1408; border-color: var(--gold); }
+#bpview .legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted); margin-top: 8px; }
+#bpview .legend i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+#bptip { position: fixed; pointer-events: none; background: var(--panel2); border: 1px solid var(--line2); border-radius: 6px; padding: 4px 8px; font-size: 12px; z-index: 60; display: none; white-space: nowrap; }
 .toasts { position: fixed; right: 346px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 60; max-width: 420px; }
 .toast { background: #1e1a15f5; border: 1px solid var(--line2); border-left: 3px solid var(--green); border-radius: 8px; padding: 9px 12px; box-shadow: 0 10px 30px #000a; font-size: 13px; }
 .toast.bad { border-left-color: var(--red); }
@@ -399,6 +413,13 @@ label.fld { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5
   </aside>
 </div>
 
+<div class="modal" id="bpview"><div class="box">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><h3 id="bpvt">Blueprint</h3><button class="btn sm" id="bpvx">Close</button></div>
+  <div class="bpctl"><span id="bpvlayers"></span><span class="lvls" id="bpvlvls"></span><span id="bpvsize" class="dim"></span></div>
+  <div class="bpstage"><canvas id="bpvc"></canvas></div>
+  <div class="legend" id="bpvleg"></div>
+</div></div>
+<div id="bptip"></div>
 <div class="modal" id="modal"><div class="box">
   <h3 id="m-title"></h3><p id="m-text"></p>
   <input id="m-input" autocomplete="off" spellcheck="false">
@@ -813,11 +834,12 @@ async function loadBps() {
   try { BPS = await get('/blueprints.json'); } catch (e) { return; }
   const files = {};
   for (const b of BPS) (files[b.file] = files[b.file] || []).push(b);
-  $('bps').innerHTML = Object.entries(files).map(([f, xs]) => `<div class="bpf panel"><div class="fn">${esc(f.replace(/\.csv$/, ''))}</div>` +
+  $('bps').innerHTML = Object.entries(files).map(([f, xs]) => `<div class="bpf panel"><div class="fn">${esc(f.replace(/\.csv$/, ''))}</div><canvas class="bpthumb" data-file="${esc(f)}"></canvas>` +
     xs.map(b => { const i = BPS.indexOf(b); return `<div class="bprow"><span>${esc(b.label)} <small>${esc(b.mode)}${b.note ? ': ' + esc(b.note) : ''}</small></span>` +
       `<button class="btn sm" data-bp="${i}" data-dry="1">Preview</button><button class="btn sm primary" data-bp="${i}">Build</button></div>`; }).join('') + '</div>').join('')
     || '<div class="empty">No blueprints found.</div>';
   document.querySelectorAll('#bps button[data-bp]').forEach(btn => btn.onclick = () => buildBp(btn));
+  drawThumbs();
 }
 const bx = $('bx'), by = $('by'), bz = $('bz');
 $('usecam').onclick = async () => { try { const c = await get('/camera.json'); if (c) { bx.value = c.x; by.value = c.y; bz.value = c.z; } else toast('The game did not say where the camera is', '', true); } catch (e) {} };
@@ -829,6 +851,135 @@ async function buildBp(btn) {
   try { await answer(post('/blueprint', {file: b.file, label: b.label, x: bx.value, y: by.value, z: bz.value, dry})); }
   finally { btn.disabled = false; }
 }
+
+/* ---------- blueprint previews: drawn from the file itself ---------- */
+const BPC = {};   // file -> preview data
+const STOCK = {a: ['Animals', '#b98a5a'], f: ['Food', '#8bbf6a'], u: ['Furniture', '#c49a6c'], n: ['Coins', '#e0c04a'], y: ['Corpses', '#8a6f8f'],
+  r: ['Refuse', '#7a6a4a'], s: ['Stone', '#9a948a'], w: ['Wood', '#a0703a'], e: ['Gems', '#5fb8a8'], b: ['Bars & blocks', '#b0b8c0'],
+  h: ['Cloth', '#d98aa8'], l: ['Leather', '#a8784a'], z: ['Ammo', '#d4573f'], S: ['Sheets', '#e8dcc0'], g: ['Finished goods', '#e0a84a'],
+  p: ['Weapons', '#c06060'], d: ['Armor', '#7080a0'], c: ['Custom', '#a98bd6']};
+const DIGN = {d: 'dig', h: 'channel', j: 'down stair', u: 'up stair', i: 'up/down stair', r: 'ramp', x: 'remove', z: 'remove ramp', T: 'chop trees', t: 'smooth', e: 'engrave', F: 'fortify', M: 'mark'};
+const BUILDN = {Cw: 'wall', CF: 'fortification', Cf: 'floor', Cr: 'ramp', Cu: 'up stair', Cd: 'down stair', Cx: 'up/down stair', d: 'door', b: 'bed', c: 'chair',
+  t: 'table', h: 'chest', f: 'cabinet', a: 'armor stand', r: 'weapon rack', s: 'statue', n: 'coffin', x: 'floodgate', H: 'hatch', W: 'well', l: 'lever',
+  B: 'bars', y: 'window', Y: 'gem window', g: 'bridge', T: 'trap', m: 'animal trap', v: 'chain', j: 'cage', A: 'archery target', R: 'traction bench',
+  N: 'nest box', k: 'hive', it: 'bolt thrower', ib: 'catapult', Mh: 'water wheel', Mm: 'windmill', Mg: 'gear', Mrs: 'roller', Mhs: 'axle', Mvs: 'vertical axle',
+  Msu: 'screw pump', wc: 'carpenter', wf: 'farmer', wv: 'butcher', wj: 'jeweler', wm: 'mason', wu: 'tanner', wn: 'craftsdwarf', wr: 'still', wq: 'quern',
+  wd: 'mill', ws: 'siege shop', wt: 'loom', wk: 'kitchen', wl: 'leatherworks', wy: 'bowyer', wb: 'smith', wo: 'clothier', wh: 'fishery', we: 'tannery',
+  ea: 'smelter', ew: 'wood furnace', ek: 'kiln', eg: 'glass', p: 'farm plot', I: 'instrument', D: 'dresser', o: 'bookcase', O: 'pedestal', P: 'display case', S: 'support'};
+const ZONEN = {m: 'meeting area', b: 'bedroom', h: 'dining', n: 'pen/pasture', p: 'pit/pond', w: 'water source', f: 'fishing', s: 'sand', o: 'office', t: 'tomb',
+  T: 'tavern', l: 'library', z: 'temple', g: 'gather', d: 'garbage dump', c: 'clay', a: 'animal training', r: 'archery', H: 'hospital', i: 'barracks', A: 'dungeon'};
+const bare = c => String(c || '').replace(/\u2026$/, '').replace(/[{:\[(].*$/, '').trim();
+function cellInfo(mode, code) {
+  const c = bare(code);
+  if (!c) return null;
+  if (mode === 'dig') return {name: DIGN[c[0]] || 'dig ' + c, fill: c[0] === 'h' ? '#2b2118' : c[0] === 'T' ? '#3d5a2a' : '#5a4a38', glyph: {j: '>', u: '<', i: 'X', r: '^', h: '\u25BC'}[c[0]] || ''};
+  if (mode === 'build') {
+    if (c[0] === 'C') return {name: BUILDN[c] || 'construction', fill: c === 'Cw' ? '#8f877c' : c === 'CF' ? '#6f675c' : '#5e5548', glyph: c === 'CF' ? '#' : {Cu: '<', Cd: '>', Cx: 'X', Cr: '^'}[c] || '', solid: true};
+    const MACH = {Ms: 'screw pump', Mh: 'horizontal axle', Mv: 'vertical axle', Mw: 'water wheel', Mr: 'roller', Mg: 'gear', Mm: 'windmill'};
+    const n = (c[0] === 'M' && MACH[c.slice(0, 2)]) || BUILDN[c] || BUILDN[c.slice(0, 3)] || BUILDN[c.slice(0, 2)] || BUILDN[c[0]];
+    return {name: n || 'build ' + c, fill: null, glyph: c[0] === 'w' || c[0] === 'e' ? c.slice(0, 2) : c[0] === 'M' ? '*' : c.slice(0, c.length > 1 && /[a-z]/.test(c[1]) && c[0] === 'i' ? 2 : 1)};
+  }
+  if (mode === 'place') { const k = STOCK[c[0]] || ['Stockpile ' + c, '#a98bd6']; return {name: k[0] + ' stockpile', tint: k[1]}; }
+  if (mode === 'zone') return {name: (ZONEN[c[0]] || 'zone ' + c), ring: '#6fa8dc'};
+  return null;
+}
+function bpBounds(d, z) {
+  let w = 0, hh = 0;
+  for (const s of d.sections) for (const lv of s.levels) if (z == null || lv.z === z) { hh = Math.max(hh, lv.rows.length); for (const r of lv.rows) w = Math.max(w, r.length); }
+  return [w, hh];
+}
+function drawBp(cv, d, opt) {
+  const z = opt.z, on = opt.on || (() => true);
+  const [w, hh] = bpBounds(d, opt.fit ? null : z);
+  if (!w || !hh) return false;
+  const cell = opt.cell || Math.max(2, Math.min(opt.max || 18, Math.floor(Math.min((opt.boxW || 600) / w, (opt.boxH || 400) / hh))));
+  // fixed canvas (thumbnails): keep the canvas size, centre the drawing in it
+  const fixed = opt.canvasW && opt.canvasH;
+  cv.width = fixed ? opt.canvasW : w * cell; cv.height = fixed ? opt.canvasH : hh * cell;
+  const g = cv.getContext('2d');
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  g.fillStyle = '#0d0b09'; g.fillRect(0, 0, cv.width, cv.height);
+  const ox = fixed ? Math.floor((cv.width - w * cell) / 2) : 0, oy = fixed ? Math.floor((cv.height - hh * cell) / 2) : 0;
+  g.translate(ox, oy);
+  const GW = w * cell, GH = hh * cell;
+  // faint grid
+  if (cell >= 8) { g.strokeStyle = '#1d1914'; g.lineWidth = 1; for (let x = 0; x <= w; x++) { g.beginPath(); g.moveTo(x * cell + .5, 0); g.lineTo(x * cell + .5, GH); g.stroke(); } for (let y = 0; y <= hh; y++) { g.beginPath(); g.moveTo(0, y * cell + .5); g.lineTo(GW, y * cell + .5); g.stroke(); } }
+  const order = ['dig', 'zone', 'place', 'build'];
+  const glyphs = [];
+  for (const mode of order) d.sections.forEach((s, si) => {
+    if (s.mode !== mode || !on(si)) return;
+    for (const lv of s.levels) {
+      if (lv.z !== z) continue;
+      lv.rows.forEach((r, y) => r.forEach((code, x) => {
+        const ci = cellInfo(mode, code); if (!ci) return;
+        const X = x * cell, Y = y * cell;
+        if (ci.fill) { g.fillStyle = ci.fill; g.fillRect(X, Y, cell, cell); }
+        if (ci.tint) { g.fillStyle = ci.tint + '66'; g.fillRect(X, Y, cell, cell); }
+        if (ci.ring && cell >= 4) { g.strokeStyle = ci.ring; g.lineWidth = 1; g.strokeRect(X + 1.5, Y + 1.5, cell - 3, cell - 3); }
+        if (ci.glyph && cell >= 9) glyphs.push([X, Y, ci.glyph, mode === 'build' && !ci.solid ? '#f3c56e' : '#ece4d2']);
+        else if (ci.glyph && mode === 'build' && !ci.solid) { g.fillStyle = '#e0a84a'; g.fillRect(X + cell / 4, Y + cell / 4, Math.max(1, cell / 2), Math.max(1, cell / 2)); }
+      }));
+    }
+  });
+  g.textAlign = 'center'; g.textBaseline = 'middle';
+  for (const [X, Y, t, col] of glyphs) { g.fillStyle = col; g.font = `bold ${Math.round(cell * (t.length > 1 ? .5 : .72))}px Consolas, monospace`; g.fillText(t, X + cell / 2, Y + cell / 2 + 1); }
+  cv.dataset.cell = cell;
+  return true;
+}
+function bpLevels(d) { const zs = new Set(); for (const s of d.sections) for (const lv of s.levels) zs.add(lv.z); return [...zs].sort((a, b) => b - a); }
+async function bpData(file) {
+  if (!BPC[file]) BPC[file] = get('/bppreview.json?file=' + encodeURIComponent(file)).catch(() => ({error: 'no answer'}));
+  return BPC[file];
+}
+async function drawThumbs() {
+  for (const cv of document.querySelectorAll('canvas.bpthumb[data-file]')) {
+    const d = await bpData(cv.dataset.file);
+    if (!cv.isConnected) continue;
+    if (d.error || !d.sections || !d.sections.length) { cv.classList.add('none'); cv.title = d.error || 'nothing to draw'; const g = cv.getContext('2d'); cv.width = 200; cv.height = 60; g.fillStyle = '#7a6f5d'; g.font = '12px Segoe UI'; g.fillText(d.error ? 'no preview' : 'nothing to draw', 10, 34); continue; }
+    const lv = bpLevels(d);
+    const W = Math.round(cv.clientWidth * devicePixelRatio) || 300, Hh = Math.round(96 * devicePixelRatio);
+    drawBp(cv, d, {z: lv.includes(0) ? 0 : lv[0], boxW: W - 12, boxH: Hh - 12, max: Math.round(14 * devicePixelRatio), fit: true, canvasW: W, canvasH: Hh});
+    cv.title = `${d.sections.length} layer${d.sections.length > 1 ? 's' : ''}${lv.length > 1 ? `, ${lv.length} levels` : ''}: click to look closer`;
+    cv.onclick = () => openBp(cv.dataset.file);
+  }
+}
+let BPV = null;
+async function openBp(file) {
+  const d = await bpData(file);
+  if (d.error) { toast('No preview', d.error, true); return; }
+  const lv = bpLevels(d);
+  BPV = {file, d, z: lv.includes(0) ? 0 : lv[0], off: new Set()};
+  $('bpvt').textContent = file.replace(/\.csv$/, '');
+  $('bpvlayers').innerHTML = d.sections.map((s, i) => `<label><input type="checkbox" data-si="${i}" checked> ${esc(s.label)} <small class="dim">${esc(s.mode)}</small></label>`).join('');
+  $('bpvlayers').querySelectorAll('input').forEach(c => c.onchange = () => { c.checked ? BPV.off.delete(+c.dataset.si) : BPV.off.add(+c.dataset.si); redrawBp(); });
+  $('bpvlvls').innerHTML = lv.length > 1 ? 'Level: ' + lv.map(z => `<button class="btn sm${z === BPV.z ? ' on' : ''}" data-z="${z}">${z === 0 ? 'start' : (z > 0 ? '+' : '') + z}</button>`).join('') : '';
+  $('bpvlvls').querySelectorAll('button').forEach(b => b.onclick = () => { BPV.z = +b.dataset.z; $('bpvlvls').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); redrawBp(); });
+  $('bpview').classList.add('on');
+  redrawBp();
+}
+function redrawBp() {
+  const cv = $('bpvc'), st = cv.parentElement;
+  drawBp(cv, BPV.d, {z: BPV.z, on: i => !BPV.off.has(i), boxW: st.clientWidth - 24, boxH: Math.max(260, innerHeight * .62), max: 44, fit: true});
+  const [w, hh] = bpBounds(BPV.d, null);
+  $('bpvsize').textContent = `${w} \u00d7 ${hh} tiles`;
+  // legend: what is actually on this level
+  const seen = new Map();
+  BPV.d.sections.forEach((s, si) => { if (BPV.off.has(si)) return; for (const lv of s.levels) if (lv.z === BPV.z) for (const r of lv.rows) for (const c of r) { const ci = cellInfo(s.mode, c); if (ci && !seen.has(ci.name)) seen.set(ci.name, ci); } });
+  $('bpvleg').innerHTML = [...seen.values()].slice(0, 28).map(ci => `<span><i style="background:${ci.fill || (ci.tint ? ci.tint + 'aa' : 'transparent')};${ci.ring ? 'border:1px solid ' + ci.ring : ''}${!ci.fill && !ci.tint && !ci.ring ? 'background:#e0a84a' : ''}"></i>${esc(ci.name)}</span>`).join('');
+}
+$('bpvx').onclick = () => $('bpview').classList.remove('on');
+$('bpview').addEventListener('click', e => { if (e.target.id === 'bpview') $('bpview').classList.remove('on'); });
+addEventListener('keydown', e => { if (e.key === 'Escape') $('bpview').classList.remove('on'); });
+$('bpvc').addEventListener('mousemove', e => {
+  const cv = $('bpvc'), cell = +cv.dataset.cell || 1, r = cv.getBoundingClientRect();
+  const x = Math.floor((e.clientX - r.left) / cell), y = Math.floor((e.clientY - r.top) / cell), tip = $('bptip');
+  const bits = [];
+  BPV.d.sections.forEach((s, si) => { if (BPV.off.has(si)) return; for (const lv of s.levels) if (lv.z === BPV.z) { const c = (lv.rows[y] || [])[x]; const ci = cellInfo(s.mode, c); if (ci) bits.push(`<b>${esc(ci.name)}</b> <span class="dim">${esc(s.label)} \u00b7 ${esc(bare(c))}</span>`); } });
+  if (!bits.length) { tip.style.display = 'none'; return; }
+  tip.innerHTML = `<span class="dim">${x + 1}, ${y + 1}</span><br>` + bits.join('<br>');
+  tip.style.display = 'block'; tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY + 12) + 'px';
+});
+$('bpvc').addEventListener('mouseleave', () => { $('bptip').style.display = 'none'; });
 
 /* ---------- construction order ---------- */
 let PLAN = {rooms: [], order: []};

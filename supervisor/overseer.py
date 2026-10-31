@@ -196,6 +196,84 @@ def blueprints():
     return bp_cache["data"]
 
 
+# ---- blueprint previews: the desk draws the blueprint itself from the file
+# (quickfort's own list is the allow-list; the path must stay inside the
+# blueprints folder) ----
+BP_MODES = ("dig", "build", "place", "zone", "query", "config")
+EXPAND = re.compile(r"^(.*?)\((\d+)\s*x\s*(\d+)\)$")
+
+
+def parse_blueprint_csv(text):
+    """Every section of a quickfort .csv as {label, mode, levels: [{z, rows}]}:
+    rows are lists of cell codes ('' for empty). '#>' goes down a level,
+    '#<' up. Expansions like 'd(3x3)' are spread over the cells they cover."""
+    import csv
+    import io
+    sections, cur = [], None
+    for row in csv.reader(io.StringIO(text)):
+        first = (row[0] if row else "").strip()
+        if first.startswith("#"):
+            m = re.match(r"#(\w+)", first)
+            word = m.group(1).lower() if m else ""
+            if word in BP_MODES:
+                lab = re.search(r"label\(([^)]*)\)", first)
+                cur = {"label": lab.group(1) if lab else str(len(sections) + 1), "mode": word, "levels": [{"z": 0, "rows": []}]}
+                sections.append(cur)
+                continue
+            if cur and first.startswith("#>") or cur and first.startswith("#<"):
+                z = cur["levels"][-1]["z"] + (-1 if first.startswith("#>") else 1) * (first.count(">") + first.count("<"))
+                cur["levels"].append({"z": z, "rows": []})
+                continue
+            if cur and not cur["levels"][-1]["rows"]:
+                continue   # comment line at the top of a section
+        if cur is None:
+            continue
+        cells = [c.strip() for c in row]
+        cur["levels"][-1]["rows"].append(["" if c.startswith("#") or c == "`" else c for c in cells])
+    # spread expansions, trim, size
+    for sec in sections:
+        for lv in sec["levels"]:
+            rows = lv["rows"]
+            w = max((len(r) for r in rows), default=0)
+            grid = [[""] * w for _ in rows]
+            for y, r in enumerate(rows):
+                for x, c in enumerate(r):
+                    if not c:
+                        continue
+                    m = EXPAND.match(c)
+                    if m:
+                        code, ew, eh = m.group(1).strip(), int(m.group(2)), int(m.group(3))
+                        for dy in range(min(eh, 200)):
+                            for dx in range(min(ew, 200)):
+                                if y + dy < len(grid):
+                                    if x + dx >= len(grid[y + dy]):
+                                        grid[y + dy].extend([""] * (x + dx + 1 - len(grid[y + dy])))
+                                    grid[y + dy][x + dx] = code if (dx, dy) == (0, 0) else code + "…"
+                    elif not grid[y][x]:
+                        grid[y][x] = c
+            while grid and not any(grid[-1]):
+                grid.pop()
+            lv["rows"] = grid
+        sec["levels"] = [lv for lv in sec["levels"] if any(any(r) for r in lv["rows"])]
+    return [s_ for s_ in sections if s_["levels"] and s_["mode"] in ("dig", "build", "place", "zone")]
+
+
+def blueprint_preview(f):
+    if not any(b["file"] == f for b in blueprints()) or not SAFE_FILE.match(f):
+        return {"error": "not a blueprint on the list"}
+    if not f.endswith(".csv"):
+        return {"error": "only .csv blueprints can be drawn here (this one is a spreadsheet)"}
+    root = (Path(sup.CFG["df_dir"]) / "dfhack-config" / "blueprints").resolve()
+    path = (root / f).resolve()
+    if root not in path.parents or not path.is_file():
+        return {"error": "file not found"}
+    try:
+        secs = parse_blueprint_csv(path.read_text(encoding="utf-8", errors="replace"))
+    except Exception as e:   # a malformed file must not break the desk
+        return {"error": f"could not read it: {e}"}
+    return {"file": f, "sections": secs}
+
+
 def camera():
     out = sup.dfhack("lua", "local d=dfhack.gui.getDwarfmodeViewDims() print(df.global.window_x + (d.map_x2 - d.map_x1 + 1) // 2, "
                      "df.global.window_y + (d.map_y2 - d.map_y1 + 1) // 2, df.global.window_z)", timeout=20) or ""
@@ -418,6 +496,10 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps(stops(), ensure_ascii=False).encode())
         elif path == "/blueprints.json":
             self.send(json.dumps(blueprints(), ensure_ascii=False).encode())
+        elif path == "/bppreview.json":
+            from urllib.parse import parse_qs, urlparse
+            f = (parse_qs(urlparse(self.path).query).get("file") or [""])[0]
+            self.send(json.dumps(blueprint_preview(f), ensure_ascii=False).encode())
         elif path == "/buildkinds.json":
             out = sup.dfhack("dfai-build", timeout=20) or ""
             self.send(json.dumps({"kinds": build_kinds(), "status": out.strip().splitlines()[0] if out.strip() else ""}, ensure_ascii=False).encode())
