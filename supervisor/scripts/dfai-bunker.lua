@@ -220,7 +220,7 @@ local function step(s)
         if parts_ready() then b.phase = 'walls' qf(b, 'walls') qf(b, 'pile')
         else
             if order_count(df.job_type.ConstructBoltThrowerParts) == 0 then
-                dfhack.run_command_silent('workorder', '{"job":"ConstructBoltThrowerParts","amount_total":1}')
+                dfhack.run_command_silent('workorder', '{"job":"ConstructBoltThrowerParts","amount_total":1,"material_category":["wood"]}')   -- no material: the job 'completes' and makes nothing
             end
             s.last = 'waiting for bolt thrower parts from the siege workshop' return
         end
