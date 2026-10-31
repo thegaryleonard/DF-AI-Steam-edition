@@ -34,6 +34,8 @@
 
   .kicker { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 1px; margin-bottom: 3px; display: flex; justify-content: space-between; }
   .headline { font-size: 21px; font-weight: 900; line-height: 1.02; margin: 2px 0 3px; letter-spacing: -.2px; }
+  .rdots span { display: inline-block; width: 5px; height: 5px; border-radius: 50%; border: 1px solid var(--accent); margin-left: 3px; vertical-align: middle; }
+  .rdots span.on { background: var(--accent); }
   .deck { font-style: italic; font-size: 12.5px; line-height: 1.25; color: var(--ink2); margin-bottom: 4px; }
   .body { font-size: 12.5px; line-height: 1.28; }
   .sub { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin: 4px 0 1px; }
@@ -1370,32 +1372,143 @@ function cardInstruments() {
 }
 
 // ---------- card: recent news, the last four hours (overlay.py /recent.json) ----------
+// The Recent News spread: the last 4 real hours, which at the stream's speed
+// is often years of fort life, so it is told as a story in pages that turn
+// by themselves: the gist, season by season, the fallen, the victories, the
+// fort's own life. Pages with nothing to say are left out.
+const SEASON = ['spring', 'summer', 'autumn', 'winter'];
+const DEATHWORD = {bleed: 'bled to death', struck_down: 'were struck down', shot: 'were shot', thirst: 'died of thirst', hunger: 'starved',
+  infection: 'died of infection', drown: 'drowned', scare: 'died of fright', fall: 'fell to their deaths', suffocate: 'suffocated',
+  burn: 'burned', cavein: 'died in cave-ins', magma: 'melted', crushed_bridge: 'were crushed', drawbridge: 'were crushed', cage_blasted: 'were blasted',
+  trap: 'died in traps', slaughter: 'were slaughtered', vampire: 'fell to a vampire', murder: 'were murdered', exec_generic: 'were executed'};
+const DEATHONE = {bleed: 'bled to death', struck_down: 'struck down', shot: 'shot', thirst: 'thirst', hunger: 'starvation', infection: 'infection',
+  drown: 'drowned', scare: 'fright', fall: 'a fall', suffocate: 'suffocated', burn: 'burned', cavein: 'cave-in', magma: 'magma', murder: 'murdered'};
+let recentFlip = null;
+function startRecentPages() {
+  cancelAnimationFrame(mapAnim);
+  clearInterval(recentFlip);
+  const pages = [...document.querySelectorAll('#card .rpage')], dots = [...document.querySelectorAll('#card .rdots span')];
+  if (pages.length < 2) return;
+  let k = 0;
+  recentFlip = setInterval(() => {
+    if (!document.querySelector('#card .rpage')) { clearInterval(recentFlip); return; }
+    pages[k].style.display = 'none'; dots[k] && dots[k].classList.remove('on');
+    k = (k + 1) % pages.length;
+    pages[k].style.display = ''; pages[k].classList.remove('fadein'); void pages[k].offsetWidth; pages[k].classList.add('fadein');
+    dots[k] && dots[k].classList.add('on');
+  }, RECENT_PAGE_SECS * 1000);
+}
+const RECENT_PAGE_SECS = 10;
+function recentSecs() { return Math.max(30, (RR.__pages || 1) * RECENT_PAGE_SECS); }
 function cardRecent() {
   if (!RR || !RR.hours) return null;
   const nameUp = t => String(t || '').replace(/(^|\s)(\p{Ll})/gu, (m, a, c) => a + c.toUpperCase());
-  const dd = RR.deaths || [], bs = (RR.beasts || []).map(nameUp), rd = RR.raids || [], ar = RR.artifacts || [], pj = RR.projects || [], bg = RR.big || [];
-  const parts = [];
-  if (RR.enemy_dead) parts.push(`${RR.enemy_dead} foe${RR.enemy_dead > 1 ? 's' : ''} fell to the defenders${bs.length ? `, ${esc(bs.slice(0, 2).join(' and '))} among them` : ''}`);
-  if (dd.length) parts.push(`${dd.length} of our own died`);
-  if (pj.length) parts.push(`the builders finished ${pj.length === 1 ? esc(pj[0]) : pj.length + ' works'}`);
-  if (rd.length) parts.push(`${rd.length} raiding part${rd.length > 1 ? 'ies' : 'y'} set out`);
-  if (ar.length) parts.push(`${ar.length} artifact${ar.length > 1 ? 's were' : ' was'} made`);
-  if (RR.births) parts.push(`${RR.births} dwarf${RR.births > 1 ? 's were' : ' was'} born`);
-  const fort = RR.fort ? clean(RR.fort) : 'The Fort';
-  const head = dd.length >= 3 ? `Losses At ${fort}` : RR.enemy_dead >= 3 ? 'The Defenders Have Been Busy' : ar.length ? 'New Treasures In The Halls'
-    : pj.length >= 3 ? 'The Builders Never Stop' : `The Latest From ${fort}`;
-  const joined = parts.join('; '), lead = parts.length ? joined.charAt(0).toUpperCase() + joined.slice(1) + '.' : 'Nothing worth the ink: the fort simply got on with it.';
-  const days = RR.game_days ? `${RR.game_days} game day${RR.game_days > 1 ? 's' : ''}` : '';
-  const rows = [];
-  for (const x of dd.slice(0, 4)) rows.push(['Fallen', nameUp(x.name) + (x.by ? ', by ' + nameUp(x.by) : '')]);
-  for (const a of ar.slice(0, 3)) rows.push(['Artifact', a]);
-  for (const t of pj.slice(0, 4)) rows.push(['Built', t.replace(/\(x(\d+)\)/, '×$1')]);
-  const drama = bg.filter(e => !/DEATH|DIED|MASTERPIECE/.test(e.type || '')).slice(-3);
-  return `<div class="kicker"><span>Recent News · The Last ${RR.hours} Hour${RR.hours > 1 ? 's' : ''}</span><span>${esc(days)}</span></div>
-    <div class="headline">${esc(head)}</div>
-    <div class="deck">${lead}${RR.pop ? ` ${RR.pop} citizens at the last count.` : ''}</div>
-    ${rows.length ? `<table>${rows.map(([k, v]) => `<tr><td class="dim" style="font-size:10px;width:62px">${esc(k)}</td><td>${esc(clean(v))}</td></tr>`).join('')}</table>` : ''}
-    ${drama.length ? `<div class="body" style="font-size:11.5px">${drama.map(e => '&bull; ' + esc(clean(e.text || ''))).join('<br>')}</div>` : ''}`;
+  const N = x => esc(clean(nameUp(x)));
+  const num = n => Number(n || 0).toLocaleString('en-GB');
+  const plural = (n, one, many) => `${num(n)} ${n === 1 ? one : (many || one + 's')}`;
+  const list = a => a.length <= 1 ? (a[0] || '') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
+  const r = rng((RR.now || 0) / 1200 | 0);
+  const dd = RR.deaths || [], bk = RR.beast_kinds || (RR.beasts || []).map(n => ({name: n, kind: 'forgotten beast'})), ek = RR.enemy_kinds || [];
+  const ar = RR.artifact_info || (RR.artifacts || []).map(n => ({name: n})), pj = RR.projects || [], rd = RR.raids || [];
+  const nob = RR.nobles || [], mar = RR.marriages || [], kl = RR.killers || [], V = RR.vitals || {};
+  const fort = RR.fort ? clean(RR.fort) : 'the fort';
+  const span = RR.from && RR.to ? (RR.from.y === RR.to.y ? (RR.from.s === RR.to.s ? `this ${SEASON[RR.to.s]}` : `${SEASON[RR.from.s]} to ${SEASON[RR.to.s]} of ${RR.to.y}`)
+    : `${SEASON[RR.from.s]} ${RR.from.y} to ${SEASON[RR.to.s]} ${RR.to.y}`) : `${RR.game_days} days`;
+  const years = RR.game_days / 336;
+  const howLong = years >= 1.5 ? `${Math.round(years * 2) / 2} years` : RR.game_days >= 84 ? `${Math.round(RR.game_days / 84)} seasons` : plural(RR.game_days || 0, 'day');
+  // ----- causes, grouped
+  const byCause = {}; for (const d of dd) byCause[d.cause] = (byCause[d.cause] || 0) + 1;
+  const thirst = (byCause.thirst || 0) + (byCause.hunger || 0);
+  const combat = dd.filter(d => d.by || d.by_kind).length;
+  const killKinds = {}; for (const d of dd) if (d.by_kind && !d.friendly) killKinds[d.by_kind] = (killKinds[d.by_kind] || 0) + 1;
+  const topKiller = Object.entries(killKinds).sort((a, b) => b[1] - a[1])[0];
+  // ----- the verdict decides the headline and the tone
+  const E = RR.enemy_dead || 0, D = dd.length, bkOurs = bk.filter(b => !b.by_kind), B = bkOurs.length, bkWild = bk.length - B;
+  const popDelta = V.pop ? V.pop[1] - V.pop[0] : null;
+  let head, tone;
+  if (thirst >= 3) { head = pick(r, [`Thirst Stalks ${fort}`, `${thirst} Die Wanting Water`, 'The Wells Run Dry']); tone = 'grim'; }
+  else if (D >= 10 && E <= D) { head = pick(r, [`Dark Times At ${fort}`, `${D} Dead, And Counting`, 'A Fort In Mourning']); tone = 'grim'; }
+  else if (B >= 3) { head = pick(r, [`${B} Forgotten Beasts Slain`, 'The Deep Sends Its Worst, And Loses', 'Beast-Slayers Of ' + fort]); tone = 'proud'; }
+  else if (E >= 10 && E > D * 2) { head = pick(r, ['The Walls Held', `${E} Foes Lie Dead`, 'The Defenders Have Been Busy']); tone = 'proud'; }
+  else if (D >= 5) { head = pick(r, ['Victories, Bought Dearly', 'A Costly Stretch', `Losses At ${fort}`]); tone = 'mixed'; }
+  else if (ar.length) { head = pick(r, ['New Treasures In The Halls', 'A Masterwork Is Born', 'The Moods Strike Again']); tone = 'bright'; }
+  else if (popDelta >= 10) { head = pick(r, ['The Halls Fill Up', 'Migrants Swell The Ranks', `${fort} Grows`]); tone = 'bright'; }
+  else if (pj.length >= 3) { head = pick(r, ['The Builders Never Stop', 'Stone On Stone', 'Under Construction']); tone = 'bright'; }
+  else { head = pick(r, [`The Latest From ${fort}`, 'All Quiet, Mostly', 'Another Stretch Of Honest Work']); tone = 'calm'; }
+  // ----- page 1: the gist, as one paragraph of prose
+  const said = [];
+  said.push(`${RR.game_days >= 84 ? `${howLong} went by at ${esc(fort)} in the last ${RR.hours} hours (${esc(span)})` : `At ${esc(fort)}, ${esc(span)}`}.`);
+  if (E) said.push(`The defenders killed ${plural(E, 'foe')}${ek.length && ek[0].n >= 2 ? (ek[0].n * 2 > E ? `, most of them ${esc(ek[0].kind)}${!/s$/.test(ek[0].kind) ? 's' : ''}` : `, ${ek[0].n} of them ${esc(ek[0].kind)}${!/s$/.test(ek[0].kind) ? 's' : ''}`) : ''}${B ? `, and ${B === 1 ? `the great beast ${N(bkOurs[0].name)}` : `${B} great beasts`} fell among them` : ''}.`);
+  if (bkWild) said.push(`The caverns saw to ${bkWild === 1 ? 'one more beast' : bkWild + ' more beasts'} themselves.`);
+  if (D) {
+    const parts = Object.entries(byCause).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([c, n]) => `${n} ${DEATHWORD[c] || c.replace(/_/g, ' ')}`);
+    said.push(`${D === 1 ? 'One of our own died' : `${D} of our own died`}${D > 1 ? `: ${list(parts)}` : dd[0].cause ? ` (${DEATHONE[dd[0].cause] || dd[0].cause})` : ''}.`);
+    if (thirst >= 3) said.push('<b>The wounded are going without water.</b>');
+  }
+  if (RR.masterpieces >= 5) said.push(`The craftsdwarves turned out ${num(RR.masterpieces)} masterpieces.`);
+  if (ar.length) said.push(`${ar.length === 1 ? 'A dwarf was taken by a mood and made' : `${ar.length} artifacts were made, among them`} <i>${N(ar[0].name)}</i>.`);
+  if (rd.length) said.push(`${plural(rd.length, 'raiding party', 'raiding parties')} marched out.`);
+  if (RR.births) said.push(`${plural(RR.births, 'baby', 'babies')} ${RR.births === 1 ? 'was' : 'were'} born.`);
+  if (said.length === 1) said.push('Nothing made the front page; the fort just got on with it.');
+  const vrow = (k, label, fmt) => V[k] && V[k][0] != null ? `<tr><td class="dim">${label}</td><td style="text-align:right">${fmt(V[k][0])}</td><td style="text-align:center" class="dim">&rarr;</td><td style="text-align:right"><b>${fmt(V[k][1])}</b></td><td style="text-align:right;color:${V[k][1] >= V[k][0] ? 'var(--ink2)' : 'var(--red)'}">${V[k][1] - V[k][0] >= 0 ? '+' : ''}${num(V[k][1] - V[k][0])}</td></tr>` : '';
+  const vit = ['pop', 'soldiers', 'food', 'drink'].map(k => vrow(k, {pop: 'Citizens', soldiers: 'Soldiers', food: 'Food', drink: 'Drink'}[k], num)).join('');
+  const pages = [];
+  pages.push(`<div class="headline">${esc(head)}</div>
+    <div class="body just" style="font-size:12px;line-height:1.3">${said.join(' ')}</div>
+    ${vit ? `<table style="width:100%;font-size:11px;margin-top:4px"><tr><td></td><td class="dim" style="text-align:right">then</td><td></td><td class="dim" style="text-align:right">now</td><td></td></tr>${vit}</table>`
+      : RR.pop ? `<div class="deck">${RR.pop} citizens at the last count.</div>` : ''}`);
+  // ----- page 2: season by season
+  const seasons = new Map();
+  const add = (y, s, txt) => { const k = y * 4 + s; if (!seasons.has(k)) seasons.set(k, []); seasons.get(k).push(txt); };
+  const deathsBy = new Map();
+  for (const d of dd) { const k = d.y * 4 + d.s; deathsBy.set(k, (deathsBy.get(k) || []).concat([d])); }
+  for (const [k, ds] of deathsBy) {
+    const kinds = {}; for (const d of ds) { const w = d.by_kind && !d.friendly ? d.by_kind + 's' : DEATHONE[d.cause] || d.cause; kinds[w] = (kinds[w] || 0) + 1; }
+    const top = Object.entries(kinds).sort((a, b) => b[1] - a[1])[0];
+    add(k / 4 | 0, k % 4, ds.length === 1 ? `${N(ds[0].name)}${ds[0].job ? ', ' + esc(ds[0].job) + ',' : ''} died${ds[0].by ? ' at the hands of ' + N(ds[0].by) : ds[0].cause ? ' (' + esc(DEATHONE[ds[0].cause] || ds[0].cause) + ')' : ''}`
+      : `${ds.length} dwarves died${top && top[1] > 1 ? ` (${top[1]} to ${esc(top[0].replace(/ss$/, 'sses'))})` : ''}`);
+  }
+  for (const b of bk) add(b.y, b.s, b.by_kind ? `<b>${N(b.name)}</b>, a ${esc(b.kind)}, was killed by a ${esc(b.by_kind)} in the caverns` : `<b>${N(b.name)}</b>, a ${esc(b.kind)}, was slain${b.by ? ' by ' + N(b.by) : ''}`);
+  for (const a of ar) if (a.y != null) add(a.y, a.s, `${a.by ? N(a.by) + ' made' : 'Made:'} <i>${N(a.name)}</i>${a.item ? ', ' + esc(clean(a.item)) : ''}`);
+  for (const n of nob) add(n.y, n.s, `${N(n.name)} became ${esc(n.title)}`);
+  for (const m of mar) add(m.y, m.s, `${N(m.a)} and ${N(m.b)} were married`);
+  const keys = [...seasons.keys()].sort((a, b) => a - b).slice(-7);
+  if (keys.length >= 2 || (keys.length === 1 && seasons.get(keys[0]).length >= 2)) {
+    pages.push(`<div class="headline" style="font-size:17px">Season By Season</div>
+      <div style="font-size:11.5px;line-height:1.28">${keys.map(k => `<div style="margin:2px 0"><span style="font-variant:small-caps;color:var(--accent)">${SEASON[k % 4]} ${k / 4 | 0}</span> &middot; ${seasons.get(k).slice(0, 3).join('; ')}${seasons.get(k).length > 3 ? `; and ${seasons.get(k).length - 3} more` : ''}.</div>`).join('')}</div>`);
+  }
+  // ----- page 3: the fallen
+  if (D >= 2) {
+    const causes = Object.entries(byCause).sort((a, b) => b[1] - a[1]).map(([c, n]) => `<span style="white-space:nowrap">${n} ${esc(DEATHONE[c] || c.replace(/_/g, ' '))}</span>`).join(' &middot; ');
+    const names = dd.slice(-8).reverse().map(d => `<div style="display:flex;justify-content:space-between;gap:6px"><span>${N(d.name)}${d.job ? `<span class="dim">, ${esc(d.job)}</span>` : ''}</span><span class="dim">${d.by ? 'by ' + N(d.by) : esc(DEATHONE[d.cause] || d.cause || '')}</span></div>`).join('');
+    const kk = kl.filter(k => k.n >= 2).slice(0, 3);
+    const worst = kk.length ? `<div class="deck" style="margin-top:3px">${kk.length === 1 ? 'The deadliest foe' : 'The deadliest foes'}: ${kk.map(k => `${N(k.name)}${k.kind ? ` (${esc(k.kind)})` : ''}, ${k.n}`).join('; ')}.</div>` : '';
+    pages.push(`<div class="headline" style="font-size:17px">The Fallen &middot; ${D}</div>
+      <div style="font-size:10.5px;margin-bottom:3px">${causes}</div>
+      <div style="font-size:11px;line-height:1.25">${names}${D > 8 ? `<div class="dim"><i>and ${D - 8} more, remembered in the catacombs</i></div>` : ''}</div>${worst}`);
+  }
+  // ----- page 4: the victories
+  if (E >= 3 || B) {
+    const kinds = ek.slice(0, 6).map(k => `<div style="display:flex;justify-content:space-between"><span>${esc(nameUp(k.kind))}</span><b>${k.n}</b></div>`).join('');
+    const beasts = bk.slice(-5).map(b => `<div>&#9876; <b>${N(b.name)}</b>${b.by ? `, slain by ${N(b.by)}${b.by_kind ? ` <span class="dim">(a ${esc(b.by_kind)})</span>` : ''}` : ''} <span class="dim">(${SEASON[b.s] || ''} ${b.y || ''})</span></div>`).join('');
+    pages.push(`<div class="headline" style="font-size:17px">${pick(r, ['The Tally', 'Foes And Quarry', 'At The Walls'])} &middot; ${E}</div>
+      <div style="font-size:11px;line-height:1.25;columns:2;column-gap:12px">${kinds}</div>
+      ${beasts ? `<div style="font-size:11px;line-height:1.3;margin-top:4px">${beasts}</div>` : ''}
+      ${tone === 'proud' ? `<div class="deck" style="margin-top:3px">${pick(r, ['The armourers are behind on dents.', 'The bards have run out of rhymes for "slain".', 'The tavern ran out of victory toasts and moved on to ordinary ones.'])}</div>` : ''}`);
+  }
+  // ----- page 5: the fort's own life
+  const life = [];
+  for (const n of nob.slice(-3)) life.push(`${N(n.name)} was made ${esc(n.title)}.`);
+  for (const m of mar.slice(-3)) life.push(`${N(m.a)} married ${N(m.b)}.`);
+  for (const a of ar.slice(-3)) life.push(`${a.by ? N(a.by) : 'A dwarf'} made the artifact <i>${N(a.name)}</i>${a.item ? ` (${esc(clean(a.item))})` : ''}.`);
+  for (const t of pj.slice(0, 4)) life.push(`Built: ${esc(clean(t.replace(/\(x(\d+)\)/, '×$1')))}.`);
+  if (RR.masterpieces && RR.masterpieces < 5) life.push(`${plural(RR.masterpieces, 'masterpiece')} came off the workbenches.`);
+  if (RR.births) life.push(`${plural(RR.births, 'baby', 'babies')} born in the halls.`);
+  if (life.length >= 2) pages.push(`<div class="headline" style="font-size:17px">${pick(r, ['Life In The Halls', 'Around The Fort', 'Society Pages'])}</div>
+      <div style="font-size:11.5px;line-height:1.3">${life.slice(0, 7).map(t => `<div>&bull; ${t}</div>`).join('')}</div>`);
+  RR.__pages = pages.length;
+  return `<div class="kicker"><span>Recent News · The Last ${RR.hours} Hour${RR.hours > 1 ? 's' : ''}</span><span class="rdots">${pages.length > 1 ? pages.map((_, i) => `<span class="${i ? '' : 'on'}"></span>`).join('') : esc(span)}</span></div>
+    ${pages.map((h, i) => `<div class="rpage"${i ? ' style="display:none"' : ''}>${h}</div>`).join('')}`;
 }
 
 // ---------- card: from the archives ----------
@@ -2776,7 +2889,7 @@ function fillFold() {
 
 // ---------- rotation ----------
 const CARDS = [
-  {fn: cardHoliday, secs: 35}, {fn: cardRecent, secs: 30}, {fn: cardDwarf, secs: 30}, {fn: cardInstruments, secs: 25}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardPolitics, secs: 30}, {fn: cardArchive, secs: 20},
+  {fn: cardHoliday, secs: 35}, {fn: cardRecent, secs: recentSecs, after: startRecentPages}, {fn: cardDwarf, secs: 30}, {fn: cardInstruments, secs: 25}, {fn: cardFunnies, secs: 35}, {fn: cardMap, secs: 30, after: startMap}, {fn: cardAg, secs: 20}, {fn: cardPastimes, secs: 30}, {fn: cardForeign, secs: 30}, {fn: cardPolitics, secs: 30}, {fn: cardArchive, secs: 20},
 ];
 const params = new URLSearchParams(location.search);   // ?card=N&hold to pin one card (testing)
 // ?zoom=1.5 scales the whole paper (OBS browser sources: set the source width to 480*zoom)
@@ -2786,6 +2899,7 @@ let cardIdx = params.has('card') ? Number(params.get('card')) - 2 : -1, cardTime
 function showCard(html, after) {
   const el = document.getElementById('card');
   el.innerHTML = html; el.classList.remove('fadein'); void el.offsetWidth; el.classList.add('fadein');
+  clearInterval(recentFlip);
   if (after) after(); else cancelAnimationFrame(mapAnim);
   fillFold();
 }
@@ -2814,7 +2928,7 @@ function nextCard() {
     document.getElementById('dots').innerHTML = CARDS.map((_, i) => `<span class="${i === cardIdx ? 'on' : ''}" onclick="cardIdx = ${i - 1}; nextCard(); hold(true)"></span>`).join('');
     recordIssue(c.after === startMap);
     clearTimeout(cardTimer);
-    if (!params.has('hold') && !browsing) cardTimer = setTimeout(nextCard, c.secs * 1000);
+    if (!params.has('hold') && !browsing) cardTimer = setTimeout(nextCard, (typeof c.secs === 'function' ? c.secs() : c.secs) * 1000);
     return;
   }
   clearTimeout(cardTimer); cardTimer = setTimeout(nextCard, 3000);

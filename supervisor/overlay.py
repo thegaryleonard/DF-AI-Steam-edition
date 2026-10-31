@@ -145,7 +145,24 @@ def recap_since(since, now):
         r["big"] = [{"type": e.get("type"), "text": e.get("text")} for e in ev if e.get("seen", 0) >= start[0] and e.get("fort") == fort][-12:]
     except (OSError, ValueError):
         r["big"] = []
+    r["vitals"] = vitals_between(start[0], now, fort)
     return r
+
+
+def vitals_between(since, now, fort):
+    """The fort's numbers then and now, from the Overseer's Desk history
+    (logs/history.json, one sample every 5 minutes): {key: [then, now]}."""
+    try:
+        h = [x for x in json.loads((HERE / "logs" / "history.json").read_text(encoding="utf-8")) if x.get("fort") == fort]
+    except (OSError, ValueError):
+        return {}
+    if len(h) < 2:
+        return {}
+    first = min(h, key=lambda x: abs(x.get("at", 0) - since))
+    last = h[-1]
+    if last is first or abs(first.get("at", 0) - since) > 3600:
+        return {}
+    return {k: [first.get(k), last.get(k)] for k in ("pop", "soldiers", "food", "drink", "wealth", "unhappy") if first.get(k) is not None}
 
 
 RECENT_HOURS = 4
@@ -171,35 +188,16 @@ def recap():
     ed, since, date = edition_now(now)
     data = {}
     if ed:
-        try:
-            clock = json.loads(CLOCK_FILE.read_text(encoding="utf-8"))
-        except (OSError, ValueError):
-            clock = []
-        fort = (cache["state"].get("fort") or {}).get("name")
-        mine = [c for c in clock if c[2] == fort and c[0] >= since - 1800]
-        if mine:
-            start = mine[0]
-            r = run_json_args(["dfai-recap", str(start[1])])
-            if r:
-                r.update(edition=ed, date=date, hours=max(1, round((now - start[0]) / 3600)), fort=fort)
-                try:
-                    done = json.loads((Path(sup.CFG["df_dir"]) / "dfhack-config" / "dfai-projects-done.json").read_text(encoding="utf-8"))
-                    from collections import Counter
-                    cnt = Counter(d.get("title") or d.get("name") or d.get("key") for d in done.get("done", []) if d.get("at", 0) >= start[0])
-                    r["projects"] = [t if n == 1 else f"{t} (x{n})" for t, n in cnt.most_common()]
-                except (OSError, ValueError, AttributeError):
-                    r["projects"] = []
-                try:
-                    ev = json.loads(EVENTS_LOG.read_text(encoding="utf-8"))
-                    r["big"] = [{"type": e.get("type"), "text": e.get("text")} for e in ev if e.get("seen", 0) >= start[0] and e.get("fort") == fort][-12:]
-                except (OSError, ValueError):
-                    r["big"] = []
-                data = r
-                try:
-                    ISSUES.mkdir(parents=True, exist_ok=True)
-                    (ISSUES / f"{date}-{ed}.json").write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
-                except OSError as e:
-                    print(f"issue archive: {e}", flush=True)
+        # the same story as the Recent News card, over the edition's span
+        r = recap_since(since, now)
+        if r:
+            r.update(edition=ed, date=date)
+            data = r
+            try:
+                ISSUES.mkdir(parents=True, exist_ok=True)
+                (ISSUES / f"{date}-{ed}.json").write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
+            except OSError as e:
+                print(f"issue archive: {e}", flush=True)
     recap_cache["at"], recap_cache["data"] = now, data
     return data
 
