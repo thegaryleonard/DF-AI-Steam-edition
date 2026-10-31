@@ -59,7 +59,9 @@ local function deaths()
             local k = e.slayer_hf ~= -1 and df.historical_figure.find(e.slayer_hf) or nil
             local cause = df.death_type[e.death_cause] or ''
             -- butchered livestock, old age and the execution pit are not battles
+            -- our pets (a kitten listed among 'Our fallen') are neither side's dead
             local skip = cause == 'SLAUGHTER' or cause == 'OLD_AGE' or (v and v.civ_id ~= civ and e.slayer_hf == -1)
+                or (v and v.civ_id == civ and v.race ~= df.global.plotinfo.race_id)
             if v and not skip then
                 out[#out + 1] = {t = T(e.year, e.seconds), year = e.year, sec = e.seconds, v = v, k = k,
                     ours = v.civ_id == civ, k_ours = k and k.civ_id == civ or false,
