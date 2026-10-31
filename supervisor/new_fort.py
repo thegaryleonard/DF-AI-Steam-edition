@@ -23,6 +23,7 @@ Used by dfai_supervisor.py when a fort falls; run it by hand to test.
 """
 import argparse
 import json
+import re
 import shutil
 import sys
 import time
@@ -393,13 +394,34 @@ def click_last(text):
     return "NOTFOUND" not in out
 
 
+REJECTED = Path(__file__).with_name("logs") / "rejected_sites.json"
+
+
+def rejected():
+    try:
+        return {tuple(t[1:]) for t in json.loads(REJECTED.read_text(encoding="utf-8")) if t[0] == WORLD}
+    except (OSError, ValueError):
+        return set()
+
+
+def reject(x, y, why):
+    try:
+        lst = json.loads(REJECTED.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        lst = []
+    lst.append([WORLD, x, y, why])
+    REJECTED.write_text(json.dumps(lst), encoding="utf-8")
+
+
 def embark():
     near = old_site_pos()
     open_world()
-    sites = find_sites(near)
+    bad = rejected()
+    sites = [t for t in find_sites(near) if tuple(t) not in bad]
     for x, y in sites[:12]:
         if try_embark(x, y):
             log(f"new fort: embarking at region tile ({x},{y})")
+            chosen = (x, y)
             break
     else:
         raise Failed("no candidate site embarked cleanly")
@@ -416,6 +438,18 @@ def embark():
     time.sleep(5)
     click("Okay", must=False)
     time.sleep(3)
+    return chosen
+
+
+def map_problem():
+    """Reasons this map is no good, checked on the real map right after
+    embark (the site finder's 'Aquifer: No' let Boardghosts through with an
+    aquifer 6 levels down)."""
+    out = lua("local n=0 for _,b in ipairs(df.global.world.map.map_blocks) do if b.flags.has_aquifer then n=n+1 end end print('AQ '..n)")
+    m = re.search(r"AQ (\d+)", out or "")
+    if m and int(m.group(1)) > 0:
+        return f"an aquifer ({m.group(1)} map blocks)"
+    return None
 
 
 def start_df_ai():
@@ -454,13 +488,23 @@ def run(mode="retire", world=False):
             end_fort(abandon=(mode == "abandon"))
         if world:
             new_world()
-        status("embarking")
-        reset_fort_files()
-        embark()
-        status("starting df-ai")
-        name = start_df_ai()
-        status(f"done: {name}", running=False)
-        return name
+        for attempt in range(4):
+            status("embarking" if not attempt else f"embarking (try {attempt + 1})")
+            reset_fort_files()
+            x, y = embark()
+            why = map_problem()
+            if not why:
+                status("starting df-ai")
+                name = start_df_ai()
+                if "disabled" not in (dfhack("plug", "df-ai") or "disabled"):
+                    status(f"done: {name}", running=False)
+                    return name
+                why = "df-ai could not fit its plan to this map"
+            log(f"new fort: ({x},{y}) rejected after embark: {why}; abandoning it at once")
+            reject(x, y, why)
+            if attempt == 3:
+                raise Failed(f"four sites in a row were no good (last: {why})")
+            end_fort(abandon=True)
     except Failed as e:
         status(f"FAILED: {e}", running=False, error=str(e))
         log(f"new fort FAILED: {e}")

@@ -127,9 +127,15 @@ local function check(s, problems)
     end
     if total >= 10 then problems[#problems + 1] = {key = 'deaths:' .. (d // 30), text = W.deaths} end
     -- 4. a young fort's basics
-    -- the fort's age: its site was founded in created_year (the embark)
+    -- the fort's age, from the first day the watchdog saw it (site data is per
+    -- fort; a fort older than a year when first seen is just "old"). The
+    -- game year starts before the embark, so year/tick alone said "day 90"
+    -- on the day Boardghosts was founded.
     local site = dfhack.world.getCurrentSite()
-    local age = site and (df.global.cur_year - site.created_year) * 336 + df.global.cur_year_tick // DAY or 999
+    if not s.born then
+        s.born = (site and site.created_year == df.global.cur_year) and d or (d - 999)
+    end
+    local age = d - s.born
     if age <= 336 then
         local okp, pri = pcall(reqscript, 'dfai-priorities')
         if okp and pri.no_water() then problems[#problems + 1] = {key = 'young:water', text = ('day %d of the fort: no water anyone can reach (fort health looks for some daily)'):format(age)} end
