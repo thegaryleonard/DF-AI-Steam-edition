@@ -59,6 +59,7 @@ COMMANDS = {
     # the fort
     "holiday.start": ("Fort", "Holiday party mode", "No jobs, no masters: everyone parties for N game days (a minute or two each), then every labor goes back as it was. Squads stay on guard. Give it a name if you like; it goes on the Herald. The Fort Calendar below sets holidays that come round every year.", ["dfai-holiday", "start", "{n}"], 30),
     "holiday.stop":  ("Fort", "End the holiday", "Back to work now.", ["dfai-holiday", "stop"], 30),
+    "ghost.watch":   ("Fort", "Ghost watch", "The restless dead: every ghost on the map, and every dwarf who died in the last two years with no memorial slab set and no coffin (they can rise). For each: the slab (none, on order, being carved, engraved and waiting, set) and the body. Once a game day it queues a missing slab (5 a day), orders blank slabs for the engravers and zones loose coffins as tombs; df-ai sets the engraved slabs. This checks now.", ["dfai-ghost-watch", "now"], 30),
     # the game itself
     "game.fps":      ("Game", "Set the FPS cap", "How fast the game may run (frames per second, 5-100). Lower is easier on the stream and the PC; higher makes the fort move faster. Kept across reloads, the ASCII switch and new forts.", ["dfai-fps", "set", "{n}"], 30),
 }
@@ -77,6 +78,7 @@ STATUS = [
     ("Deep dig", ["dfai-deep-dig"]),
     ("Deep camp", ["dfai-deep-camp"]),
     ("Holiday", ["dfai-holiday"]),
+    ("Ghost watch", ["dfai-ghost-watch"]),
     ("Game speed", ["dfai-fps"]),
     ("Ore scrub", ["dfai-ore-scrub"]),
     ("Memorial", ["dfai-memorial"]),
@@ -294,6 +296,7 @@ def card_status():
         "cam.threats": f"{st.get('threats', 0)} threat(s) in view." if st.get("threats") else "No threats in view.",
         "holiday.start": st.get("holiday", "?"),
         "holiday.stop": st.get("holiday", "?"),
+        "ghost.watch": st.get("ghosts", "?"),
     }
     cards["_at"] = time.time()   # when the game last answered (a busy game can't, mid-battle)
     card_cache["at"], card_cache["data"] = time.time(), cards
