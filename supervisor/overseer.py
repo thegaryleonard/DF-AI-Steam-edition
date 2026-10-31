@@ -355,6 +355,37 @@ def build_kinds():
     return kinds_cache["data"]
 
 
+# ---- history for the charts: the fort's vital signs every 5 minutes, 7 days kept ----
+HISTORY_FILE = HERE / "logs" / "history.json"
+HISTORY_EVERY = 300
+history_lock = threading.Lock()
+
+
+def read_history():
+    try:
+        return json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+
+
+def history_sampler():
+    while True:
+        try:
+            out = sup.dfhack("dfai-metrics", timeout=20) or ""
+            m = json.loads(out[out.index("{"):]) if "{" in out else None
+            if m and m.get("loaded"):
+                m["at"] = int(time.time())
+                with history_lock:
+                    h = read_history()
+                    h.append(m)
+                    h = [x for x in h if m["at"] - x.get("at", 0) < 7 * 86400]
+                    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+                    HISTORY_FILE.write_text(json.dumps(h, ensure_ascii=False), encoding="utf-8")
+        except Exception as e:   # never let the sampler die
+            print(f"history: {e}", flush=True)
+        time.sleep(HISTORY_EVERY)
+
+
 class Handler(BaseHTTPRequestHandler):
     def send(self, body, ctype="application/json", code=200):
         self.send_response(code)
@@ -367,6 +398,12 @@ class Handler(BaseHTTPRequestHandler):
         path = self.path.split("?")[0]
         if path in ("/", "/index.html"):
             self.send((HERE / "overseer.html").read_bytes(), "text/html; charset=utf-8")
+        elif path == "/v2" and (HERE / "overseer_v2.html").exists():
+            # the redesigned desk, side by side with the old one until it takes over
+            self.send((HERE / "overseer_v2.html").read_bytes(), "text/html; charset=utf-8")
+        elif path == "/history.json":
+            with history_lock:
+                self.send(json.dumps(read_history(), ensure_ascii=False).encode())
         elif path == "/commands.json":
             cmds = [{"key": k, "group": g, "label": l, "help": h,
                      "param": dict(zip(("name", "min", "max", "default"), PARAMS[k])) if k in PARAMS else None}
@@ -672,4 +709,5 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     print(f"overseer console on http://localhost:{PORT}/", flush=True)
+    threading.Thread(target=history_sampler, daemon=True).start()
     ThreadingHTTPServer(("127.0.0.1", PORT), Handler).serve_forever()

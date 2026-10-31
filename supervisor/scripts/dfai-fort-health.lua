@@ -265,7 +265,98 @@ local function check_caravans(out)
     dfhack.gui.showAnnouncement('The stuck merchants have finally found the road home.', COLOR_YELLOW, false)
 end
 
-local CHECKS = {check_stone, check_fertilizer, check_coffins, check_workshops, check_army, check_stockpiles, check_drink, check_caravans}
+-- Water (Fortresstome: 10 dwarves died of thirst beside 20,000 drinks - the
+-- wounded in bed get WATER, never booze - while a cavern full of water sat
+-- open below): in this version dwarves only fetch water from a Water Source
+-- zone. When they keep cancelling "No water source", find visible water whose
+-- shore a citizen can walk to (surface or caverns, sampled) and zone it.
+local function check_water(out)
+    local okp, pri = pcall(reqscript, 'dfai-priorities')
+    if not (okp and pri.no_water()) then
+        out[#out + 1] = 'water: dwarves are finding water'
+        return
+    end
+    if H.water_zone and df.building.find(H.water_zone) then
+        out[#out + 1] = 'water: still "No water source" though a water zone exists (just made, or its shore is cut off)'
+        return
+    end
+    -- a well we ordered over water: give it time to be built
+    for _, w in ipairs(df.global.world.buildings.other.WELL) do
+        if H.water_well == w.id then
+            out[#out + 1] = (w:getBuildStage() >= w:getMaxBuildStage()) and 'water: the new well over the water is built; waiting for the dwarves to use it'
+                or ('water: a well over the cavern water is being built at %d,%d level %d'):format(w.x1, w.y1, w.z)
+            return
+        end
+    end
+    local cit = citizens()[1]
+    if not cit then return end
+    local okS, S = pcall(reqscript, 'dfai-surface')
+    local e = okS and S.entrance() or {x = cit.pos.x, y = cit.pos.y, z = cit.pos.z}
+    local mx, my, mz = dfhack.maps.getTileSize()
+    local best, well
+    local cg = dfhack.maps.getWalkableGroup(cit.pos)
+    for z = math.min(mz - 1, e.z + 10), math.max(0, e.z - 90), -1 do
+        for x = 1, mx - 2, 3 do
+            for y = 1, my - 2, 3 do
+                local f = dfhack.maps.getTileFlags(x, y, z)
+                if f and not f.hidden and f.flow_size >= 4 and not f.liquid_type then
+                    -- a shore tile beside it that a citizen can reach
+                    local d = math.abs(x - e.x) + math.abs(y - e.y) + 3 * math.abs(z - e.z)
+                    for dx = -1, 1 do for dy = -1, 1 do
+                        local sx, sy = x + dx, y + dy
+                        local sf = dfhack.maps.getTileFlags(sx, sy, z)
+                        if sf and sf.flow_size <= 2 and dfhack.maps.getWalkableGroup(xyz2pos(sx, sy, z)) == cg then
+                            if not best or d < best.d then best = {x = x, y = y, z = z, d = d} end
+                        end
+                    end end
+                    -- no shore (a lake down in a hollow): a well over it, on
+                    -- open space 1-4 levels up beside ground the fort walks
+                    -- (Fortresstome's cavern lake lay 2 levels below its floor)
+                    if not best and (not well or d < well.d) then
+                        for zq = z + 1, z + 4 do
+                            local a = df.tiletype.attrs[dfhack.maps.getTileType(x, y, zq)]
+                            if not a or a.shape ~= df.tiletype_shape.EMPTY then break end
+                            if not dfhack.buildings.findAtTile(xyz2pos(x, y, zq)) then
+                                local adj = false
+                                for ax = -1, 1 do for ay = -1, 1 do
+                                    if (ax ~= 0 or ay ~= 0) and dfhack.maps.getWalkableGroup(xyz2pos(x + ax, y + ay, zq)) == cg then adj = true end
+                                end end
+                                if adj then well = {x = x, y = y, z = zq, d = d} break end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    if not best and well then
+        local ok, w = pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Well, pos = xyz2pos(well.x, well.y, well.z)})
+        if ok and w then
+            H.water_well = w.id
+            dfhack.gui.showAnnouncement('Water below! A well is being built over it.', COLOR_LIGHTCYAN, true)
+        end
+        out[#out + 1] = ('water: no shore anyone can reach - %s a well over the water at %d,%d level %d'):format(ok and w and 'ordered' or 'FAILED to order', well.x, well.y, well.z)
+        return
+    end
+    if not best then
+        out[#out + 1] = 'water: NONE reachable anywhere - dig to the caverns (dfai-cavern-seal asks df-ai)'
+        return
+    end
+    local dir = dfhack.getDFPath() .. '/dfhack-config/blueprints/dfai-gen'
+    dfhack.filesystem.mkdir_recursive(dir)
+    local f = io.open(dir .. '/watersource.csv', 'w') f:write('#zone label(water)\nw(3x3){name="Fresh Water"}\n') f:close()
+    dfhack.run_command_silent('quickfort', 'run', 'dfai-gen/watersource.csv', '-c', ('%d,%d,%d'):format(best.x - 1, best.y - 1, best.z))
+    for _, zn in ipairs(df.global.world.buildings.other.ACTIVITY_ZONE) do
+        if zn.type == df.civzone_type.WaterSource and zn.z == best.z and zn.x1 <= best.x and zn.x2 >= best.x and zn.y1 <= best.y and zn.y2 >= best.y then
+            zn.spec_sub_flag.active = true
+            H.water_zone = zn.id
+        end
+    end
+    out[#out + 1] = ('water: none was zoned - made a Water Source at %d,%d level %d%s'):format(best.x, best.y, best.z, H.water_zone and '' or ' (FAILED)')
+    if H.water_zone then dfhack.gui.showAnnouncement('Fresh water found! The dwarves may fetch it from the new water source.', COLOR_LIGHTCYAN, true) end
+end
+
+local CHECKS = {check_stone, check_fertilizer, check_coffins, check_workshops, check_army, check_stockpiles, check_drink, check_caravans, check_water}
 local function step()
     if not dfhack.isMapLoaded() or df.global.gamemode ~= df.game_mode.DWARF then return end
     local out = {}
