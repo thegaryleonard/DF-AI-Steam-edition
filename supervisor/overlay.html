@@ -200,7 +200,36 @@ const levels = ['Dabbling','Novice','Adequate','Competent','Skilled','Proficient
 const clean = s => String(s ?? '').replace(/[^\x20-\x7E\u00C0-\u024F]/g, '');
 const cap = s => s.replace(/(^|[\s"])(\S)/g, (m, a, b) => a + b.toUpperCase());   // DF leaves accented initials lowercase (îton)
 const firstName = n => cap(clean(String(n).split(',')[0]));
-const an = w => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
+const an = w => (vowelSound(w) ? 'an ' : 'a ') + w;   // vowelSound: next to fillT (the offline tests load that block)
+const kills = n => `${n || 0} kill${n === 1 ? '' : 's'}`;
+// House style for people: the English form of a name ("Doren Shinpaddle"), as the Recent News card, the battle
+// tables and the stream's own nicknames use, never the dwarven original ("Doren Langgudiden") that DF announcements
+// and the state feed carry. overlay.py /names.json maps one to the other; every printed card and fold item goes
+// through houseNames() at the very end, so matching logic (envoys, arcs, interviews) keeps the raw names.
+let NAMEMAP = {re: null, map: new Map()};
+function setNames(m) {
+  const map = new Map();
+  for (const [k, v] of Object.entries(m || {})) { const a = cap(String(k)), b = cap(String(v)); if (a && b && a !== b && a.includes(' ')) map.set(a.toLowerCase(), b); }
+  const keys = [...map.keys()].sort((a, b) => b.length - a.length).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  NAMEMAP = {map, re: keys.length ? new RegExp('(?<![\\p{L}])(?:' + keys.join('|') + ')(?![\\p{L}])', 'giu') : null};
+}
+function houseNames(s) {
+  s = String(s ?? '');
+  if (NAMEMAP.re) s = s.replace(NAMEMAP.re, m => { const v = NAMEMAP.map.get(m.toLowerCase()); return !v ? m : m === m.toUpperCase() && m !== m.toLowerCase() ? v.toUpperCase() : v; });
+  return s.replace(/(\p{L}+) (\p{L}+) (?:"|&quot;)\2(?:"|&quot;)/gu, '$1 $2');   // a stream nickname that only repeats the surname
+}
+async function pollNames() { try { const n = await get('/names.json'); if (n && n.map) setNames(n.map); } catch (e) {} }
+const ghostRest = b => /CITIZEN_DEATH/.test((b && b.type) || '') && /put to rest/i.test((b && b.text) || '');
+// one DF announcement as a newspaper line: no stack counts or training marks, work orders in words, the
+// profession set off by commas ("Urist, Miner has been" -> "Urist, miner, has been"); null = not news
+function newsText(t) {
+  t = clean(t).replace(/\s*\[\d+\]/g, '').replace(/\s*\(\+?(?:Trained|Tame|Semi-Wild|Wild)\+?\)/gi, '').replace(/\s+/g, ' ').trim();
+  if (!t || /^Watchdog:/i.test(t)) return null;   // the supervisor's own diagnostics, not news
+  let m;
+  if ((m = t.match(/^(.+?) \(([^()]+)\) \((\d+)\) has been completed\.?$/))) return /memorial/i.test(m[2]) ? `A memorial slab for ${cap(m[1])} has been engraved.` : `Work order done: ${m[2]} (${cap(m[1])}).`;
+  if ((m = t.match(/^(.+?) \((\d+)\) has been completed\.?$/))) return `Work order done: ${m[1].toLowerCase()}${m[2] > 1 ? ` (${m[2]})` : ''}.`;
+  return t.replace(/^([^,]+), ([A-Z][a-z]+(?: [A-Z][a-z]+)*) (has|is|was|withdraws|looses|begins)\b/, (x, n, p, v) => `${n}, ${p.toLowerCase()}, ${v}`);
+}
 
 // deterministic randomness: same dwarf -> same interview; fillers reshuffle each card
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -225,7 +254,7 @@ function masthead() {
   document.getElementById('issue-season').textContent = S.weather ? S.weather.season : '';
   document.getElementById('issue-pop').textContent = `Vol. ${f.year} · Pop. ${f.population}`;
   document.getElementById('ear-l').innerHTML = `Weather<b>${esc(forecastOf(S.weather))}</b>${S.weather && S.weather.kind !== 'clear' ? 'Stay below' : 'Go outside?<br>Why'}`;
-  document.getElementById('late').innerHTML = (S.events || []).slice(0, 8).map(e => `<span>${esc(clean(e.text))}</span>`).join('');
+  document.getElementById('late').innerHTML = houseNames((S.events || []).map(e => newsText(e.text)).filter(Boolean).slice(0, 8).map(t => `<span>${esc(t)}</span>`).join(''));
 }
 
 // ---------- the library: pregenerated pieces tailored to current events, never repeating soon ----------
@@ -251,7 +280,7 @@ function newsSlots() {
   }
   for (const b of big) {
     const t = clean(b.text), nm = (t.match(/^([^,]+),/) || [])[1];
-    if (b.type === 'CITIZEN_DEATH' && nm && !o.deadname) {
+    if (b.type === 'CITIZEN_DEATH' && nm && !o.deadname && !ghostRest(b)) {
       o.deadname = cap(nm);
       const m = t.match(/^[^,]+,\s*(.+?) has (.+?)\.?$/);   // "Bomrek Enshalcatten, Miner has been found dead, dehydrated."
       if (m) { o.prof = m[1].toLowerCase(); o.cause = m[2].replace(/\.+$/, '').trim() || 'died in mysterious circumstances'; }
@@ -318,7 +347,7 @@ function arcConds() {
 function foreignConds(sl) {
   const fo = (TR && TR.foreign) || [], yr = (TR && TR.year) || 0;
   const back = fo.filter(f => (f.kind === 'contact' || f.kind === 'result') && f.year >= yr - 0).slice(-1)[0];
-  const out = fo.filter((f, i) => f.kind === 'left' && !fo.some((g, j) => j > i && g.kind !== 'left' && clean(g.who || '') === clean(f.who || ''))).slice(-1)[0];
+  const out = fo.filter((f, i) => f.kind === 'left' && (f.year == null || f.year >= yr - 1) && !fo.some((g, j) => j > i && g.kind !== 'left' && clean(g.who || '') === clean(f.who || ''))).slice(-1)[0];   // on the road now, not lost years ago
   const c = {};
   if (back && back.kind === 'contact') {
     c.contact_new = true;
@@ -524,14 +553,25 @@ function arcFacts(key) {
   return f;
 }
 // ==FIT-END==
+// "an expert", "a unicorn", "an hour"; the race slot is an adjective ("goblin") that a plural verb needs as a noun
+function vowelSound(w) { const c = String(w || '').normalize('NFD'); return /^[aeiou]/i.test(c) ? !/^(?:uni|use|usu|ure|uti|uto|one|once|eu|ewe)/i.test(c) : /^(?:hour|honou?r|honest|heir)/i.test(c); }
+function racePlural(w) { w = String(w || ''); const lw = w.toLowerCase(), irr = {dwarf: 'dwarves', dwarven: 'dwarves', elf: 'elves', elven: 'elves', human: 'humans', goblin: 'goblins', kobold: 'kobolds'};
+  return irr[lw] || (/s$/.test(lw) ? w : /(sh|ch|x)$/.test(lw) ? w + 'es' : w + 's'); }
 // fill every string in an entry; null if any slot is missing (that entry just isn't eligible right now)
 function fillT(s, sl) {
   let ok = true;
-  const out = s.replace(/\{(\w+)\}/g, (m, k) => { const v = sl[k]; if (v == null || v === '') { ok = false; return m; } return String(v); });
+  // "The {enemy_race} of {enemy} are coming": the race slot is an adjective ("goblin"), so a plural verb wants the plural
+  s = s.replace(/\{enemy_race\}(?= (?:of \{enemy\} )?(?:are|were|have|hate|ARE|WERE|HAVE|HATE)\b)/g, '{enemy_race_pl}');
+  const val = k => k === 'enemy_race_pl' ? (sl.enemy_race ? racePlural(sl.enemy_race) : null) : sl[k];
+  // "a {trade_level} one" -> "an expert one": the article follows whatever the slot turned out to be
+  const out = s.replace(/(\b[Aa]n? )?\{(\w+)\}/g, (m, art, k) => { const v = val(k); if (v == null || v === '') { ok = false; return m; }
+    const x = String(v); return art && /^\p{L}/u.test(x) ? art[0] + (vowelSound(x) ? 'n ' : ' ') + x : (art || '') + x; });
   if (!ok) return null;
   // an ALL-CAPS headline template keeps its caps after the names are filled in ("MASSIVEBARBS TO QUAKEFOCUS")
   const bare = s.replace(/\{\w+\}/g, '');
-  return ownName(/[A-Z]{4}/.test(bare) && !/[a-z]/.test(bare) ? out.toUpperCase() : out);
+  let res = /[A-Z]{4}/.test(bare) && !/[a-z]/.test(bare) ? out.toUpperCase() : out;
+  if (s[0] === '{') res = res.replace(/^\p{Ll}/u, c => c.toUpperCase());   // "{post}, appointed..." / "{weather} over..."
+  return ownName(res);
 }
 function fillE(e, sl) {
   const walk = v => typeof v === 'string' ? fillT(v, sl) : Array.isArray(v) ? v.map(walk) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k === 'id' || k === 'when' || k === 'fit' ? x : walk(x)])) : v;
@@ -628,13 +668,14 @@ function trackStories() {
     }
   }
   for (const b of S.big || []) {
-    const ck = (COUNTER_OF.find(([re]) => re.test(b.type || '')) || [])[1]; if (!ck) continue;
+    const ck = (COUNTER_OF.find(([re]) => re.test(b.type || '')) || [])[1]; if (!ck || ghostRest(b)) continue;
     if (M.lastIds[ck] !== b.id) { M.lastIds[ck] = b.id; M.counters[ck] = b.tick != null && b.year != null ? b.year * 336 + Math.floor(b.tick / 1200) : today; memDirty = true; }
   }
   // storylines: the newest event of each kind, with who and what, so later issues can follow it up
   M.arcs = M.arcs || {};
+  if (M.arcs.death && /put to rest/i.test(M.arcs.death.cause || '')) { delete M.arcs.death; memDirty = true; }   // stored before ghosts were told apart
   for (const b of [...(S.big || [])].reverse()) {
-    const ak = (ARC_OF.find(([re]) => re.test(b.type || '')) || [])[1]; if (!ak) continue;
+    const ak = (ARC_OF.find(([re]) => re.test(b.type || '')) || [])[1]; if (!ak || ghostRest(b)) continue;
     const day = b.tick != null && b.year != null ? b.year * 336 + Math.floor(b.tick / 1200) : today;
     const cur = M.arcs[ak];
     if (cur && ((cur.id === b.id && cur.v === 4) || cur.day > day)) continue;
@@ -650,7 +691,7 @@ function storyHead(keys, ctx, r) {   // the ag report's headline becomes the run
   const M = mem(), today = dayOf(S.fort), O = LIB.stories || {};
   for (const k of keys) {
     const st = M.streaks[k]; if (!st || st.off != null || !O[k]) continue;
-    const h = choose1(O[k].heads, ctx, r, {days: today - st.since, since: dateOf(st.since), n: st.n + 1});
+    const h = choose1(O[k].heads, ctx, r, {days: today - st.since, since: dateOf(st.since), n: Math.min(st.n + 1, today - st.since + 1)});
     if (h) { markSeen([h.id]); return T(h); }
   }
   return null;
@@ -660,7 +701,7 @@ function storyItems(ctx, r) {
   if (today == null) return items;
   const act = Object.entries(M.streaks).filter(([k, st]) => O[k] && st.off == null && today - st.since >= 1).sort((a, b) => a[1].since - b[1].since);
   for (const [k, st] of act.slice(0, 2)) {
-    const ex = {days: today - st.since, since: dateOf(st.since), n: st.n + 1};
+    const ex = {days: today - st.since, since: dateOf(st.since), n: Math.min(st.n + 1, today - st.since + 1)};
     const h = choose1(O[k].heads, ctx, r, ex), b = choose1(O[k].bodies, ctx, r, ex); if (!h || !b) continue;
     if (st.lastDay !== today) { st.n++; st.lastDay = today; memDirty = true; }
     items.push({ids: [h.id, b.id], html: `<div class="item run"><div class="kick">Running Story · Day ${ex.days}</div><h3>${esc(T(h))}</h3><p class="just">${esc(T(b))}</p></div>`});
@@ -1329,7 +1370,7 @@ function cardHoliday() {
       <div class="holclock"><div class="big" id="hol-big">${holGameLeft(t)} left</div><div class="small"><span id="hol-real">${holRealLeft(t)}</span> &middot; then every dwarf goes back to the job they left</div></div>
       <div class="body"><p class="just">${now.length ? `Right now ${holList(now)}.` : 'The fort is quiet: everyone is sleeping it off.'}${stage.length ? ` On stage: ${holList(stage)}.` : ''}
       ${tally.length ? ` ${since}: ${holList(tally)}.` : ''}${h.peak ? ` The biggest crowd so far: ${h.peak} revellers at once.` : ''}
-      ${h.on_guard ? ` The ${h.on_guard} dwarves in the fort's squads still keep watch, between rounds.` : ''}
+      ${h.on_guard ? (h.on_guard === 1 ? ' One soldier still keeps watch, between rounds.' : ` The ${h.on_guard} dwarves in the fort's squads still keep watch, between rounds.`) : ''}
       ${h.mood ? ` Only one job is worth working on a holiday: ${esc(clean(h.mood.who))} is in a strange mood and still needs ${esc(h.mood.needs)}, so ${h.mood.crew} dwarf${h.mood.crew > 1 ? 's have' : ' has'} put down the mug to help.` : ''}</p></div>`;
   }
   if (holRecent(h)) {
@@ -1365,9 +1406,9 @@ function cardInstruments() {
   const head = INS.grand ? 'The Grand Concert: Every Instrument In The World' : pick(r, [`${INS.have} Instruments And Counting`, 'Collect Them All!', 'The Great Instrument Hunt', `The Collection Grows: ${INS.have} Of ${INS.total}`]);
   return `<div class="kicker"><span>The Instrument Collection</span><span>${INS.have} of ${INS.total} &middot; ${pct}%</span></div>
     <div class="headline">${esc(head)}</div>
-    <div class="deck">Every people in the world plays its own instruments. ${esc(S.fort && S.fort.name ? clean(S.fort.name) : 'The fort')} wants one of each: made at home, bought from caravans or carried back from raids.${INS.tavern ? ` ${INS.on_show || 0} are on show at ${esc(clean(INS.tavern))}, where anyone may play.` : ''}</div>
+    <div class="deck">Every people of the world has its own instruments. ${esc(S.fort && S.fort.name ? clean(S.fort.name) : 'The fort')} wants one of each: made at home, bought from caravans or carried back from raids.${INS.tavern ? ` ${INS.on_show || 0} are on show at ${esc(clean(INS.tavern))}, where anyone may play.` : ''}</div>
     <table>${rows}</table>
-    <div class="body" style="font-size:11.5px">${news ? news + ' ' : ''}${ours && ours.have < ours.total ? `Our own people know ${ours.total} instruments; the fort has ${ours.have}.${INS.ordering ? ` In the workshops now: a ${esc(clean(INS.ordering))}.` : ''} ` : ''}${rest.length ? `Still to find: the instruments of ${rest.length} more peoples, ${esc(rest.slice(0, 2).map(p => clean(p.name)).join(' and '))} among them.` : ''}
+    <div class="body" style="font-size:11.5px">${news ? news + ' ' : ''}${ours && ours.have < ours.total ? `Our own people know ${ours.total} instruments; the fort has ${ours.have}.${INS.ordering ? ` In the workshops now: ${esc(an(clean(INS.ordering)))}.` : ''} ` : ''}${rest.length ? `Still to find: the instruments of ${rest.length} more peoples, ${esc(rest.slice(0, 2).map(p => clean(p.name)).join(' and '))} among them.` : ''}
     ${full ? ` Full orchestras: ${full}.` : ' Collect a whole people\'s set for a full orchestra; collect the world\'s for the Grand Concert.'}</div>`;
 }
 
@@ -1519,7 +1560,7 @@ function cardArchive() {
     .slice(0, 8).map(s => `<div><span class="yr">${s.year}</span>${esc(clean(s.text))}</div>`).join('');
   return `<div class="kicker"><span>From the Archives</span><span>Artifacts of Legend</span></div>
     <div class="headline">${esc(clean(a.name)).toUpperCase()}</div>
-    <div class="deck">The ${esc(clean(a.item).replace(/^[-\s]+|[-\s]+$/g, ''))} known in the old tongue as "${esc(a.dwarvish)}"</div>
+    <div class="deck">The ${esc(clean(a.item).replace(/^[-\s]+|[-\s]+$/g, ''))} known in the old tongue as "${esc(cap(clean(a.dwarvish || '')))}"</div>
     <div class="story">${story}</div>`;
 }
 
@@ -1657,7 +1698,7 @@ const KINDS = [
    draw: S => { S.ground(128); S.dwarf(120, 128, 1.3, {axe: true}); S.sparkles(120, 50, 35, 6); }},
 ];
 // a tame animal's death is a pet story even when DF files it as a citizen death
-const kindOf = ev => /CITIZEN_DEATH/.test(ev.type || '') && /\(Tame\)/.test(ev.text || '') ? KINDS.find(k => k.k === 'pet') : KINDS.find(k => k.re.test(ev.type || '') || (k.k === 'siege' && k.re.test(ev.text || '')));
+const kindOf = ev => /CITIZEN_DEATH/.test(ev.type || '') && /put to rest/i.test(ev.text || '') ? null : /CITIZEN_DEATH/.test(ev.type || '') && /\(Tame\)/.test(ev.text || '') ? KINDS.find(k => k.k === 'pet') : KINDS.find(k => k.re.test(ev.type || '') || (k.k === 'siege' && k.re.test(ev.text || '')));
 const evWho = ev => { const m = clean(ev.text).match(/^([A-Z][^\s,]+ [A-Z][^\s,]+)/); return m ? cap(m[1]) : null; };
 // ==SCENES-BEGIN== pre-drawn panels for the sketch artist: one drawing per situation, text tailored per event
 // Each scene is drawn once here (hand-drawn line art, same Sketch strokes as everything else) and picked by the event's
@@ -1945,7 +1986,7 @@ function cardBreaking(ev) {
     <div class="headline" style="font-size:25px;text-align:center">${esc(res.t.head)}</div>
     <div class="mapwrap" style="background:#f6eedb;padding:2px">${res.svg}</div>
     <div class="deck" style="font-size:11px;text-align:center;margin:2px 0 4px">${esc(res.t.cap)}</div>
-    <p class="body just dropcap">${esc(clean(ev.text))} ${esc(ownName(res.t.rep))} ${esc(res.t.kicker)}</p>`;
+    <p class="body just dropcap">${esc(newsText(ev.text) || clean(ev.text))} ${esc(ownName(res.t.rep))} ${esc(res.t.kicker)}</p>`;
 }
 function checkBig() {
   const big = S.big || [];
@@ -2219,10 +2260,11 @@ function pageItems(ctx, r) {
   const sc = choose(LIB.scores, ctx, r, 4);
   if (sc.length) put(sc.map(x => x.id), `<div class="item cls"><div class="kick">Results &amp; Fixtures</div>${sc.map(x => `<div>${esc(T(x))}</div>`).join('')}</div>`);
   const gs = choose1(LIB.gossip, ctx, r);
-  if (gs) put(gs.id, `<div class="item"><div class="kick">Overheard in the Meeting Hall</div><p class="just"><i>${esc(T(gs))}</i></p></div>`);
+  if (gs) put(gs.id, `<div class="item"><div class="kick">Overheard in the Meeting Hall</div><p class="just"><i>${esc(T(gs).replace(/^Overheard in the Meeting Hall:\s*/i, ''))}</i></p></div>`);
   const ob = choose1(LIB.obits, ctx, r);
   if (ob) put(ob.id, `<div class="item obit"><div class="kick">Obituaries</div><p class="just">${esc(T(ob))}</p></div>`);
-  const wj = choose1(LIB.weather_jokes, ctx, r);
+  const wk = (S.weather || {}).kind, wxFits = e => !(wk && wk !== 'clear' && /\bsun(ny|shine)?\b/i.test(T(e)) && !(e.when || []).includes(wk));
+  const wj = choose1((LIB.weather_jokes || []).filter(wxFits), ctx, r);
   if (wj) put(wj.id, `<div class="item"><div class="kick">Forecast</div><p class="just">${esc(T(wj))}</p></div>`);
   const cr = choose1(LIB.corrections, ctx, r);
   if (cr) put(cr.id, `<div class="item"><div class="kick">Corrections</div><p class="just" style="font-size:10px">${esc(T(cr))}</p></div>`);
@@ -2351,7 +2393,9 @@ const learnedOn = x => { const d = learnedDay(x); return dateOf(d); };
 function wireItem(r) {
   const [o] = chooseRumors(1, r); if (!o) return null;
   const b = rumorPiece(o.x, 'briefs', r); if (!b) return null;
-  return {ids: [o.id, b.id], html: `<div class="item wire"><div class="kick">On the Wire · ${esc(o.x.type.replace(/_/g, ' '))}</div><p class="just">${esc(b.text)}</p><div class="by">— via ${esc(rumorSlots(o.x).source)}</div></div>`};
+  const WK_ = {flee: 'Refugees', abandon: 'Abandoned', occupation: 'Occupation', invasion: 'Invasion', harass: 'Raiders', abduction: 'Abduction', beast: 'Beasts',
+    group: 'On the Road', succession: 'Succession', artifact_in_site: 'Treasures', artifact_destroyed: 'Treasures', tribute: 'Tribute', peace: 'Peace Talks', war: 'War'};
+  return {ids: [o.id, b.id], html: `<div class="item wire"><div class="kick">On the Wire · ${esc(WK_[o.x.type] || cap(o.x.type.replace(/_/g, ' ')))}</div><p class="just">${esc(b.text)}</p><div class="by">— via ${esc(rumorSlots(o.x).source)}</div></div>`};
 }
 function gossipItem(r) {
   const [o] = chooseRumors(1, r); if (!o) return null;
@@ -2394,6 +2438,8 @@ const CRIME = {ProductionOrderViolation: 'violating a production order', ExportV
   Treason: 'treason', Espionage: 'espionage', Bribery: 'bribery'};
 const crimeText = k => CRIME[k] || pretty(k || 'mischief').toLowerCase();
 const hn = h => h && h.name ? cap(clean(h.name)) : null;
+// once a mayor is elected the expedition leader's post lapses: it is not a vacancy anyone should apply for
+function livePosts() { const loc = PO.local_posts || [], mayor = loc.some(q => q.code === 'MAYOR' && q.holder); return loc.filter(p => !(p.code === 'EXPEDITION_LEADER' && !p.holder && mayor)); }
 function polSlots(r) {
   const civP = PO.civ_posts || [], loc = PO.local_posts || [];
   const civHolder = code => hn((civP.find(p => p.code === code) || {}).holder);
@@ -2409,7 +2455,7 @@ function squadSlots(sq) {
   const cap_ = sq.members.find(m => m.leader) || sq.members[0];
   const kills = sq.members.reduce((a, m) => a + (m.kills || 0), 0);
   return {squad: clean(sq.alias || sq.name || '') || (cap_ ? `${hn(cap_).split(' ')[0]}'s Squad` : 'the Militia'), captain: hn(cap_),
-    members: sq.members.length, n: sq.vacancies || null, kills, routine: sq.routine ? clean(sq.routine).toLowerCase() : null, order: (sq.orders || [])[0] || null};
+    members: sq.members.length, n: sq.vacancies || null, kills, routine: sq.routine ? clean(sq.routine).toLowerCase() : null, order: (sq.orders || [])[0] ? pretty(sq.orders[0]) : null};   // "KILL_LIST" -> "kill list"
 }
 function militaryStatus(sq) {
   if (!sq) return 'none';
@@ -2428,7 +2474,7 @@ function polStory(section, key, slots, r) {
   return h && b ? {ids: [h.id, b.id], head: T(h), body: T(b)} : null;
 }
 function localStory(r) {
-  const loc = PO.local_posts || [], vac = loc.filter(p => !p.holder), held = loc.filter(p => p.holder), crimes = (PO.crimes || []).filter(c => c.criminal);
+  const loc = livePosts(), vac = loc.filter(p => !p.holder), held = loc.filter(p => p.holder), crimes = (PO.crimes || []).filter(c => c.criminal);
   const opts = [];
   if (crimes.length) { const c = pick(r, crimes); opts.push(['crime', {crime: crimeText(c.kind), criminal: hn(c.criminal), victim: hn(c.victim)}]); }
   if ((PO.mandates || []).length) { const m = pick(r, PO.mandates); opts.push(['mandate', {noble: m.noble ? cap(clean(m.noble)).split(',')[0] : null, item: [m.material, pretty(m.item || '').toLowerCase()].filter(Boolean).join(' ')}]); }
@@ -2484,21 +2530,21 @@ function cardPolitics() {
   [L, M, Wd].forEach(s => s && ids.push(...s.ids));
   const lead = (polSlots(r).n_war && Wd) || L || M || Wd;
   if (!lead) return null;
-  const loc = (PO.local_posts || []).slice(0, 14);
+  const loc = livePosts().slice(0, 14);
   const roster = loc.map(p => `<div class="line"><span>${esc(cap(p.title))}</span><span class="lead"></span><span class="${p.holder ? '' : 'dead'}">${p.holder ? esc(hn(p.holder).split(' ')[0]) + (p.holder.here ? '' : ' (abroad)') : 'VACANT'}</span></div>`).join('');
   const crimes = (PO.crimes || []).filter(c => c.criminal).slice(0, 4).map(c => `<div>❖ <b>${esc(hn(c.criminal))}</b>, ${esc(crimeText(c.kind))}${c.victim ? ` (complainant: ${esc(hn(c.victim))})` : ''}${c.discovered ? '' : ' <i>— unsolved</i>'}</div>`).join('');
   const sq = featuredSquad(), ss = sq && squadSlots(sq), rx = sq && raidOf(sq);
   const sqState = sq && sq.abroad && rx ? `away: ${rx.mode || 'raid'} on ${clean(rx.site)}` : (ss && ss.routine) || 'no routine';
   const squadBox = sq ? `<div class="sub">The Militia · ${(PO.squads || []).length} squads</div><div class="squad"><b>${esc(ss.squad)}</b> · ${esc(sqState)}${ss.order && !sq.abroad ? ' · orders: ' + esc(pretty(ss.order).toLowerCase()) : ''}
       <div class="bar"><div style="width:${100 * sq.members.length / (sq.members.length + sq.vacancies)}%;background:var(--ink2)"></div></div>
-      <div class="dim">${sq.members.length} enlisted, ${sq.vacancies} vacancies, ${ss.kills} confirmed kills</div>
-      ${sq.members.slice(0, 5).map(m => `<div class="line"><span>${esc(hn(m))}${m.leader ? ' ★' : ''}</span><span class="lead"></span><span class="dim">${m.kills || 0} kills</span></div>`).join('')}</div>`
+      <div class="dim">${sq.members.length} enlisted, ${sq.vacancies} ${sq.vacancies === 1 ? 'vacancy' : 'vacancies'}, ${ss.kills} confirmed ${ss.kills === 1 ? 'kill' : 'kills'}</div>
+      ${sq.members.slice().sort((a, b) => (b.leader ? 1 : 0) - (a.leader ? 1 : 0) || (b.kills || 0) - (a.kills || 0)).slice(0, 5).map(m => `<div class="line"><span>${esc(hn(m))}${m.leader ? ' ★' : ''}</span><span class="lead"></span><span class="dim">${kills(m.kills)}</span></div>`).join('')}</div>`
     : `<div class="sub">The Militia</div><div class="dim">The fortress has no standing army. The cats are considering it.</div>`;
   const rel = PO.relations || [], tally = {}; rel.forEach(x => tally[x.relation] = (tally[x.relation] || 0) + 1);
   const wars = rel.filter(x => /War|Skirmish/.test(x.relation)).slice(0, 4);
   const sl = polSlots(r);
   const worldBox = `<div class="sub">World Affairs</div><div class="dim" style="font-size:10.5px">${esc(sl.civ || 'Our civilization')}${sl.monarch ? `, ruled by ${esc(sl.monarch)}` : ''}: at peace with ${tally.Peace || 0}, at war with ${(tally.TotalWar || 0) + (tally.Skirmishing || 0)}${tally.AcceptingTribute || tally.OfferingTribute ? `, tribute with ${(tally.AcceptingTribute || 0) + (tally.OfferingTribute || 0)}` : ''}.</div>
-      ${wars.map(x => `<div class="dead" style="font-size:10.5px">⚔ ${esc(cap(clean(x.name)))} (${esc(x.race || '?')}) — ${esc(pretty(x.relation).toLowerCase())}</div>`).join('')}`;
+      ${wars.map(x => `<div class="dead" style="font-size:10.5px">⚔ ${esc(cap(clean(x.name)))}${x.race ? ` (${esc(x.race)})` : ''} — ${esc(pretty(x.relation).toLowerCase())}</div>`).join('')}`;
   const side = s => s && s !== lead ? `<div class="item"><h3>${esc(s.head)}</h3><p class="just">${esc(s.body)}</p></div>` : '';
   markSeen(ids);
   return `<div class="kicker"><span>Affairs of State</span><span>Local · Military · World</span></div>
@@ -2523,7 +2569,7 @@ function officialItems(ctx, r) {
     const e = choose1(LIB.recruit_ads, ctx, r, {...sl, ...squadSlots(sq)});
     if (e) out.push({ids: [e.id], html: `<div class="item ad inv"><div class="eng">The Militia Wants You</div><div class="big">${sq.vacancies} PLACES</div><div class="fine" style="font-size:9px">${esc(T(e))}</div></div>`});
   }
-  const vac = (PO.local_posts || []).filter(p => !p.holder);
+  const vac = livePosts().filter(p => !p.holder);
   if (vac.length) {
     const v = pick(r, vac), e = choose1(LIB.vacancy_ads, ctx, r, {...sl, post: v.title});
     if (e) out.push({ids: [e.id], html: `<div class="item ad"><div class="eng">Position Vacant</div><div class="bk">${esc(cap(v.title))}</div><div class="fine">${esc(T(e))}</div></div>`});
@@ -2557,13 +2603,17 @@ function worksItems(ctx, r) {
   if (goals.length) {
     const rows = goals.slice(0, 3).map(g => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(g.name)}</span><span>${g.digging ? 'digging' : g.finished + ' of ' + g.of}</span></div>`).join('');
     out.push({ids: ['works-goals-' + goals[0].name], html: `<div class="item cls"><div class="kick">The Overseer\u2019s List</div>
-      <p class="just">Next on the fort\u2019s plans, with ${WK.goals_done} earlier steps done and dusted:</p>${rows}</div>`});
+      <p class="just">${pick(r, [`Next on the fort\u2019s plans, with ${WK.goals_done} earlier steps done and dusted:`, `${WK.goals_done} steps of the plan are done. Up next:`,
+        `The overseer\u2019s plan, ${WK.goals_done} steps in. Still to come:`])}</p>${rows}</div>`});
   }
   const done = (WK.done || []).slice(-3);
   if (done.length) {
     const d = done[done.length - 1];
     out.push({ids: ['works-done-' + d.at], html: `<div class="item"><div class="kick">Ribbon Cut</div><h3>New ${esc(cap(d.what))} Opens</h3>
-      <p class="just">Builders have finished a new ${esc(d.what)}${done.length > 1 ? `, following hard on the heels of the ${esc(done.slice(0, -1).map(x => x.what).join(' and the '))}` : ''}. Dwarves are invited to admire it and then get back to work.</p></div>`});
+      <p class="just">${(() => { const prev = [...new Set(done.slice(0, -1).map(x => x.what))].filter(w => w !== d.what), again = done.slice(0, -1).some(x => x.what === d.what);
+        return `Builders have finished ${again ? 'another' : 'a new'} ${esc(d.what)}${prev.length ? `, hard on the heels of the ${esc(prev.join(' and the '))}` : ''}. ${esc(pick(r, ['Dwarves are invited to admire it and then get back to work.',
+          'The overseer cut the ribbon, then asked who had paid for the ribbon.', 'The mason who built it has been seen standing beside it, waiting to be thanked.',
+          'A small crowd gathered, said "very nice", and went back to work.']))}`; })()}</p></div>`});
   }
   const lm = WK.landmarks || [];
   if (lm.length) {
@@ -2572,8 +2622,13 @@ function worksItems(ctx, r) {
   }
   const dp = WK.depth || {};
   if (dp.levels) {
-    out.push({ids: ['works-depth-' + dp.levels], html: `<div class="item"><div class="kick">The Depth Gauge</div><h3>Fort Reaches ${dp.levels} Levels Down</h3>
-      <p class="just">The deepest stair now runs ${dp.levels} levels below the front gate.${dp.cavern ? ` Our miners broke into the caverns ${dp.cavern_levels} levels down and set up camp there, against all advice.` : ' The caverns have not been reached yet. Miners say they can hear something down there.'}</p></div>`});
+    const dh = pick(r, [`Fort Reaches ${dp.levels} Levels Down`, `${dp.levels} Levels And Still Digging`, `The Stair Goes Down ${dp.levels} Levels`]);
+    const dc = dp.cavern ? pick(r, [` Our miners broke into the caverns ${dp.cavern_levels} levels down and set up camp there, against all advice.`,
+      ` The caverns open ${dp.cavern_levels} levels down; the miners go there for the moss and come back with stories.`,
+      ` ${dp.cavern_levels} levels down the stair meets the caverns, where the fort keeps a camp and a nervous watch.`])
+      : pick(r, [' The caverns have not been reached yet. Miners say they can hear something down there.', ' No cavern yet. The miners keep digging, and listening.']);
+    out.push({ids: ['works-depth-' + dp.levels], html: `<div class="item"><div class="kick">The Depth Gauge</div><h3>${dh}</h3>
+      <p class="just">The deepest stair now runs ${dp.levels} levels below the front gate.${dc}</p></div>`});
   }
   // the deep dig (dfai-deep-dig.lua): a stair shaft below the deepest cavern
   const dd = WK.deep;
@@ -2680,7 +2735,7 @@ function tradeItems(ctx, r) {
     const parts = [];
     if (RC.enemy_dead) parts.push(`the fort's defenders killed ${RC.enemy_dead} foe${RC.enemy_dead > 1 ? 's' : ''}${bs.length ? `, ${bs.length === 1 ? 'the great beast ' + esc(bs[0]) : bs.length + ' great beasts'} among them${bs.length > 1 ? ` (${esc(bs.slice(0, 3).join(', '))}${bs.length > 3 ? ' and more' : ''})` : ''}` : ''}`);
     if (dd.length) parts.push(`${dd.length} of our own died`);
-    if (pj.length) parts.push(`the builders finished ${esc(pj.slice(0, 3).join(', ').replace(/\(x(\d+)\)/g, '×$1'))}${pj.length > 3 ? ` and ${pj.length - 3} other work${pj.length > 4 ? 's' : ''}` : ''}`);
+    if (pj.length) parts.push(`the builders finished ${esc(pj.slice(0, 3).map(t => /^the /i.test(t) ? t : 'the ' + t.replace(/^\p{Lu}(?=\p{Ll})/u, c => c.toLowerCase())).join(', ').replace(/\(x(\d+)\)/g, '×$1'))}${pj.length > 3 ? ` and ${pj.length - 3} other work${pj.length > 4 ? 's' : ''}` : ''}`);
     if (rd.length) parts.push(`${rd.length} raiding part${rd.length > 1 ? 'ies' : 'y'} set out`);
     if (ar.length) parts.push(`${ar.length} artifact${ar.length > 1 ? 's were' : ' was'} made (${esc(ar.slice(0, 2).join(', '))})`);
     if (RC.births) parts.push(`${RC.births} dwarf${RC.births > 1 ? 's were' : ' was'} born`);
@@ -2698,7 +2753,7 @@ function tradeItems(ctx, r) {
     const drama = bg.filter(e => !/DEATH|DIED/.test(e.type || '')).slice(-5);
     if (drama.length >= 2) {
       out.push({ids: ['issue-drama-' + RC.date + '-' + RC.edition + '-' + drama.length], html: `<div class="item cls"><div class="kick">${eve ? 'Today' : 'Overnight'} · As It Happened</div>
-        ${drama.map(e => `<div class="row" style="margin:2px 0">&bull; ${esc(clean(e.text || ''))}</div>`).join('')}</div>`});
+        ${drama.map(e => newsText(e.text)).filter(Boolean).map(t => `<div class="row" style="margin:2px 0">&bull; ${esc(t)}</div>`).join('')}</div>`});
     }
     if (dd.length >= 3) {
       const rows = dd.slice(0, 10).map(x => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(nameUp(x.name))}</span><span>${esc(x.by ? 'by ' + nameUp(x.by) : (CS[x.cause] || x.cause || ''))}</span></div>`).join('');
@@ -2723,11 +2778,14 @@ function tradeItems(ctx, r) {
     const foes = (LB.enemy_races || []).map(r_ => `${r_.n} ${esc(r_.race)}`).join(', ');
     const civs = (LB.enemy_civs || []).length ? ` Their dead belonged to ${esc(LB.enemy_civs.slice(0, 3).join(', '))}${LB.enemy_civs.length > 3 ? ' and others' : ''}.` : '';
     const beasts = (LB.beasts || []).length ? ` Among the slain: ${esc(LB.beasts.join(', '))}.` : '';
-    const span = LB.hours < 24 ? `${LB.hours} hours` : `${Math.round(LB.hours / 24)} days`;
+    const span = LB.hours < 24 ? `${LB.hours} hour${LB.hours === 1 ? '' : 's'}` : `${Math.round(LB.hours / 24)} day${Math.round(LB.hours / 24) === 1 ? '' : 's'}`;
     const when = LB.days_ago <= 1 ? 'Yesterday' : `${LB.days_ago} days ago`;
-    const verdict = LB.enemy_dead > dead.length * 2 ? 'The fort held, and held hard.' : LB.enemy_dead > dead.length ? 'The fort held, at a price.' : 'A costly day for ' + (S.fort && S.fort.name ? clean(S.fort.name) : 'the fort') + '.';
+    const fortN = S.fort && S.fort.name ? clean(S.fort.name) : 'the fort';
+    const verdict = LB.enemy_dead > dead.length * 2 ? pick(r, ['The fort held, and held hard.', 'The walls held and the enemy did not.'])
+      : LB.enemy_dead > dead.length ? pick(r, ['The fort held, at a price.', 'A win, but the coffin makers were kept busy.'])
+      : pick(r, [`A costly day for ${fortN}.`, `${fortN} paid dearly for this one.`, 'The enemy left fewer dead than we did. The masons are carving slabs.']);
     out.push({ids: ['battle-' + LB.id + '-' + (fresh ? 'f' : 'a')], html: `<div class="item"><div class="kick">${fresh ? 'Battle Report' : 'From The Archive · The Last Battle'} · ${esc(LB.began)}</div>
-      <h3>${LB.enemy_dead} Enemies Slain, ${dead.length} Of Ours Fall</h3>
+      <h3>${LB.enemy_dead} ${LB.enemy_dead === 1 ? 'Enemy' : 'Enemies'} Slain, ${dead.length} Of Ours ${dead.length === 1 ? 'Falls' : 'Fall'}</h3>
       <p class="just">${when}, fighting broke out at the fort and lasted ${span}. The enemy dead: ${foes || 'none recorded'}.${civs}${beasts} ${verdict}${LB.wounded_now ? ` ${LB.wounded_now} citizens are still nursing wounds.` : ''}</p></div>`});
     const slay = LB.slayers || [];
     if (slay.length || dead.length) {
@@ -2742,7 +2800,8 @@ function tradeItems(ctx, r) {
   if (DD.length >= 3) {
     const rows = DD.map((x, i) => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${i + 1}. ${esc(nameCap(x.name))}, ${esc(String(x.job || '').toLowerCase())}</span><span>${x.kills}</span></div>`).join('');
     out.push({ids: ['deadliest-' + DD.map(x => x.kills).join('.')], html: `<div class="item cls"><div class="kick">The Deadliest Dwarves · Lifetime Kills</div>${rows}
-      <p class="just" style="margin-top:3px">The marksdwarves lead the table, as they do every year. The wrestlers dispute the scoring.</p></div>`});
+      <p class="just" style="margin-top:3px">${esc(nameCap(DD[0].name))} the ${esc(String(DD[0].job || 'soldier').toLowerCase())} leads the table. ${esc(pick(r, ['The others dispute the scoring.',
+        'The wrestlers dispute the scoring, as always.', 'Second place has asked for a recount.', 'Kills by cage trap are not counted, to the great annoyance of the mechanics.']))}</p></div>`});
   }
   // the beast hunt: special edition (dfai-beast-hunt report)
   const BH = TR.hunt;
@@ -2755,17 +2814,17 @@ function tradeItems(ctx, r) {
       <p class="just">On the overseer's word the miners cut a stair down to the first cavern and stopped one step short. ${BH.mustered ? esc(BH.mustered.replace(/ at the door$/, '')) + ' mustered' : 'The squads mustered'} at the new cavern door in full gear; then the last step was dug and the army went in. ${lines} ${fallen.length ? `The fort paid for it: ${fallen.length} of our own did not come back.` : 'Not one of ours was lost.'}</p></div>`});
     if (fallen.length) {
       const rows = fallen.map(f => `<div class="row" style="display:flex;justify-content:space-between;gap:6px"><span>${esc(capName(clean(f.name)))}</span><span>${esc(clean(f.job || ''))}</span></div>`).join('');
-      out.push({ids: ['hunt-honour-' + BH.year], html: `<div class="item cls"><div class="kick">Roll of Honour · Fallen in the Beast Hunt</div>${rows}<p class="just" style="margin-top:4px">Their statues are being carved in microcline for niches in the walls of The Ominous Sack. Raise a mug.</p></div>`});
+      out.push({ids: ['hunt-honour-' + BH.year], html: `<div class="item cls"><div class="kick">Roll of Honour · Fallen in the Beast Hunt</div>${rows}<p class="just" style="margin-top:4px">${fallen.length === 1 ? 'Their name goes' : 'Their names go'} into the fort's book of honour. Raise a mug.</p></div>`});
     }
     const slayers = slain.filter(b => b.slayer);
     if (slayers.length) {
-      out.push({ids: ['hunt-slayers-' + BH.year], html: `<div class="item"><div class="kick">The Slayers</div><p class="just">${slayers.map(b => `${esc(clean(b.slayer))} (${b.slayer_alive ? 'still with us' : 'fallen'}) struck the blow that ended ${first(b.name)}.`).join(' ')} Both have statues in the mist chamber, beside the beasts they brought down. The tavern will be hearing about it for years.</p></div>`});
+      out.push({ids: ['hunt-slayers-' + BH.year], html: `<div class="item"><div class="kick">The Slayers</div><p class="just">${slayers.map(b => `${esc(clean(b.slayer))} (${b.slayer_alive ? 'still with us' : 'fallen'}) struck the blow that ended ${first(b.name)}.`).join(' ')} The tavern will be hearing about it for years.</p></div>`});
     }
   }
   // the war office: raids, the enemy's replies, the campaign so far
   const W = TR.war || {}, raids = W.raids || [];
   const SITE_KIND = {PlayerFortress: 'fortress', DarkFortress: 'dark fortress', ForestRetreat: 'forest retreat', Town: 'town', Hamlet: 'hamlet', MountainHalls: 'mountain hall', Fortress: 'fortress', Camp: 'camp', Cave: 'cave', Monument: 'monument'};
-  const who = r_ => r_.leader ? `${esc(clean(r_.leader))} and ${Math.max(0, (r_.members || []).length - 1)} others` : esc(r_.squad || 'a squad');
+  const who = r_ => { const n = Math.max(0, (r_.members || []).length - 1); return r_.leader ? (n ? `${esc(clean(r_.leader))} and ${n} ${n === 1 ? 'other' : 'others'}` : `${esc(clean(r_.leader))}'s party`) : esc(r_.squad || 'our soldiers'); };
   const done = raids.filter(r_ => r_.result || r_.home).slice(-1)[0];
   if (done) {
     const hm = done.home || {}, lost = hm.lost || [];
@@ -2782,7 +2841,9 @@ function tradeItems(ctx, r) {
   }
   const hit = (W.attacks || []).slice(-1)[0];
   if (hit) {
-    out.push({ids: ['war-hit-' + hit.year + hit.civ], html: `<div class="item"><div class="kick">The Enemy Replies</div><h3>${esc(cap(clean(hit.civ)))} Strike Back</h3><p class="just">The world's chroniclers record that ${esc(clean(hit.civ))} ${esc(hit.what)} ${esc(S.fort && S.fort.name ? clean(S.fort.name) : 'our fort')} this year. Raids have consequences. Keep a weapon by the bed.</p></div>`});
+    const yr = (S.fort || {}).year, ago = yr == null || hit.year == null ? null : yr - hit.year, fresh = ago != null && ago <= 1;
+    const when = ago == null ? 'once' : ago <= 0 ? 'this year' : ago === 1 ? 'last year' : `in the year ${hit.year}, ${ago} years ago`;
+    out.push({ids: ['war-hit-' + hit.year + hit.civ], html: `<div class="item"><div class="kick">${fresh ? 'The Enemy Replies' : 'Old Grudges'}</div><h3>${esc(cap(clean(hit.civ)))} ${fresh ? 'Strike Back' : 'Have Not Forgotten'}</h3><p class="just">The world's chroniclers record that ${esc(clean(hit.civ))} ${esc(hit.what)} ${esc(S.fort && S.fort.name ? clean(S.fort.name) : 'our fort')} ${when}. ${fresh ? 'Raids have consequences. Keep a weapon by the bed.' : 'Old enemies keep grudges the way dwarves keep ale: for years, in the dark, and in quantity.'}</p></div>`});
   }
   const T = W.tally || {};
   if (T.raids >= 2) {
@@ -2790,8 +2851,10 @@ function tradeItems(ctx, r) {
   }
   // the foreign office: envoys leaving and coming home
   const fo = (TR.foreign || []);
-  const back = fo.filter(f => f.kind === 'contact' || f.kind === 'result' || f.kind === 'nomeet').slice(-1)[0];
-  const later = f => fo.indexOf(f);
+  const later = f => fo.indexOf(f), curY = TR.year || (S.fort || {}).year || 0;
+  // the latest return, unless that envoy has set out again since or it is years old
+  const back = fo.filter(f => (f.kind === 'contact' || f.kind === 'result' || f.kind === 'nomeet') && (f.year == null || f.year >= curY - 1)
+    && !fo.some(g => g.kind === 'left' && later(g) > later(f) && clean(g.who || '') === clean(f.who || ''))).slice(-1)[0];
   const gone = fo.filter(f => f.kind === 'left' && !fo.some(g => g.kind !== 'left' && later(g) > later(f) && clean(g.who || '') === clean(f.who || ''))).slice(-2);
   if (back) {
     const good = /success/.test(back.result || '');
@@ -2806,8 +2869,13 @@ function tradeItems(ctx, r) {
     out.push({ids: ['foreign-back-' + back.year + (back.civ || '')], html: `<div class="item"><div class="kick">The Foreign Office</div><h3>${esc(head)}</h3><p class="just">${body}</p></div>`});
   }
   if (gone.length) {
-    const lines = gone.map(g => `${esc(clean(g.who))} rides for ${esc(clean(g.site))} to ${esc(g.topic)} trade with ${esc(clean(g.civ))}.`).join(' ');
-    out.push({ids: ['foreign-gone-' + gone.map(g => g.site).join()], html: `<div class="item"><div class="kick">Diplomatic Pouch · Envoys Abroad</div><p class="just">${lines} The broker has been told to tidy the depot, just in case.</p></div>`});
+    const lost = g => g.year != null && curY - g.year >= 2;
+    const lines = gone.map(g => lost(g) ? `${esc(clean(g.who))} set out for ${esc(clean(g.site))} in the year ${g.year} to ${esc(g.topic)} trade with ${esc(clean(g.civ))}, and has not been heard from since.`
+      : `${esc(clean(g.who))} rides for ${esc(clean(g.site))} to ${esc(g.topic)} trade with ${esc(clean(g.civ))}.`).join(' ');
+    const allLost = gone.every(lost);
+    out.push({ids: ['foreign-gone-' + gone.map(g => g.site).join()], html: `<div class="item"><div class="kick">Diplomatic Pouch · ${allLost ? 'Still No Word' : 'Envoys Abroad'}</div><p class="just">${lines} ${allLost
+      ? esc(pick(r, ['A lamp is kept lit at the gate, mostly out of habit.', 'The foreign office lists the mission as "ongoing". The tavern lists it as "a long lunch".', 'The broker still tidies the depot every autumn, just in case.']))
+      : 'The broker has been told to tidy the depot, just in case.'}</p></div>`});
   }
   const rq = (TR.requests || []).slice(-1)[0];
   if (rq) {
@@ -2821,7 +2889,7 @@ function tradeItems(ctx, r) {
   const li = (TR.liaison || []).slice(-1)[0];
   if (li && li.wants) {
     const who = li.who ? clean(li.who.replace(/^outpost liaison /, '')) : 'The outpost liaison';
-    out.push({ids: ['liaison-' + li.when], html: `<div class="item"><div class="kick">Diplomatic Pouch</div><h3>Mountainhomes Want ${esc(cap(li.wants))}</h3>
+    out.push({ids: ['liaison-' + li.when], html: `<div class="item"><div class="kick">Diplomatic Pouch</div><h3>Mountainhomes Want ${esc(cap(li.wants).replace(/\/(\p{Ll})/gu, (m, c) => '/' + c.toUpperCase()))}</h3>
       <p class="just">Liaison ${esc(who)} says ${esc(li.wants)} will fetch a premium from the next caravan.${li.agreement ? ' A trade agreement was also proposed. The fort is said to be thinking about it.' : ''}</p></div>`});
   }
   return out;
@@ -2856,13 +2924,16 @@ function fillers(r) {
   const al = choose1(LIB.almanac, ctx, r), pv = choose1(LIB.proverbs, ctx, r);
   if (al || pv) put([al && al.id, pv && pv.id], `<div class="item"><div class="kick">Almanac</div><p class="just">${al ? esc(T(al)) + ' ' : ''}${pv ? `Proverb of the day: <i>"${esc(T(pv))}"</i>` : ''}</p></div>`);
   const tv = choose1(LIB.trivia, ctx, r);
-  if (tv) put(tv.id, `<div class="item"><div class="kick">On This Day</div><p class="just">${esc(T(tv))}</p></div>`);
+  if (tv) { const tt = T(tv), kk = /^did you know/i.test(tt) ? 'Did You Know?' : /^on this day/i.test(tt) ? 'On This Day' : pick(r, ['Fort Facts', 'Worth Knowing', 'Trivia']);
+    put(tv.id, `<div class="item"><div class="kick">${kk}</div><p class="just">${esc(tt)}</p></div>`); }
   // our sketch artist: recent big events and a portrait of today's interviewee
-  for (const ev of (S.big || []).filter(e => e.id !== breakingOn && !(cardIdx === 1 && e.id === funniesEv)).slice(0, 2)) {
+  const onFunnies = (CARDS[cardIdx] || {}).fn === cardFunnies;   // the Funny Pages already drew this one on the same page
+  for (const ev of (S.big || []).filter(e => e.id !== breakingOn && !(onFunnies && e.id === funniesEv)).slice(0, 2)) {
     const res = drawEvent(ev, 240, 140); if (!res) continue;
-    put([], `<div class="item"><div class="kick">From Our Sketch Artist</div><h3>${esc(res.t.head)}</h3>${res.svg}<p class="just" style="font-style:italic;font-size:10px;margin-top:2px">${esc(clean(ev.text))} ${esc(res.t.cap)}</p></div>`);
+    put([], `<div class="item"><div class="kick">From Our Sketch Artist</div><h3>${esc(res.t.head)}</h3>${res.svg}<p class="just" style="font-style:italic;font-size:10px;margin-top:2px">${esc(newsText(ev.text) || clean(ev.text))} ${esc(res.t.cap)}</p></div>`);
   }
-  if (S.dwarf) put([], `<div class="item"><div class="kick">Courtroom Sketch</div>${portrait(S.dwarf)}<p style="font-style:italic;font-size:10px;text-align:center">${esc(firstName(S.dwarf.name))}, as seen by our artist. Likeness not guaranteed.</p></div>`);
+  if (S.dwarf) put([], `<div class="item"><div class="kick">Courtroom Sketch</div>${portrait(S.dwarf)}<p style="font-style:italic;font-size:10px;text-align:center">${esc(firstName(S.dwarf.name))}, ${esc(pick(r, ['as seen by our artist. Likeness not guaranteed.', 'drawn from life, at a distance. The subject asked for a better beard.',
+    'sketched in charcoal during the interview. The subject has seen it and wants a word.', 'as our artist saw them. Our artist needs new spectacles.', 'from the courtroom bench. Nobody is on trial; the bench was just free.']))}</p></div>`);
   // small notices go last: they plug the leftover gaps at the bottom of the columns
   const tiny = choose(LIB.notices, ctx, r, 8).map(nt => ({ids: [nt.id], html: `<div class="item ad tiny"><div class="eng">Notice</div>${esc(T(nt))}</div>`}));
   // a storyline follow-up leads the fold; everything else is shuffled
@@ -2878,7 +2949,7 @@ function fillFold() {
   for (const it of fillers(r)) {
     const first = used(A) <= used(B) ? A : B;
     for (const target of [first, first === A ? B : A]) {
-      const t = document.createElement('template'); t.innerHTML = it.html.trim();
+      const t = document.createElement('template'); t.innerHTML = houseNames(it.html.trim());
       const el = t.content.firstElementChild; target.appendChild(el);
       if (el.offsetTop + el.offsetHeight <= limit) { placed.push(...it.ids); break; }
       el.remove();
@@ -2898,7 +2969,7 @@ if (params.has('zoom')) { const z = Math.max(0.5, Math.min(3, Number(params.get(
 let cardIdx = params.has('card') ? Number(params.get('card')) - 2 : -1, cardTimer = null;
 function showCard(html, after) {
   const el = document.getElementById('card');
-  el.innerHTML = html; el.classList.remove('fadein'); void el.offsetWidth; el.classList.add('fadein');
+  el.innerHTML = houseNames(html); el.classList.remove('fadein'); void el.offsetWidth; el.classList.add('fadein');
   clearInterval(recentFlip);
   if (after) after(); else cancelAnimationFrame(mapAnim);
   fillFold();
@@ -2985,19 +3056,20 @@ function renderFollow() {
       ${st.relates && !st.scene ? `<div class="doing">${esc(st.relates)}</div>` : ''}
       ${st.deeds ? `<div class="doing">${esc(st.deeds)}</div>` : ''}
       ${st.copies > 1 ? `<div class="doing" style="font-style:italic">One of ${st.copies} statues of ${esc(String(st.subject).split(' ')[0])} in the fort. The masons have a favourite.</div>` : ''}`;
-    if (html !== followHtml) { followHtml = html; el.innerHTML = html; }
+    if (html !== followHtml) { followHtml = html; el.innerHTML = houseNames(html); }
     return;
   }
   if (S.tour && S.tour.name) {
     html = `<div class="kicker"><span><span class="live">On Camera</span></span><span>Room Tour</span></div>
       <h3>${esc(clean(S.tour.name))}</h3><div class="sub">${esc(S.tour.kind)}</div>
       ${S.tour.detail ? `<div class="doing">${esc(clean(S.tour.detail))}</div>` : ''}<div class="doing">${esc(roomBlurb(S.tour))}</div>${roomLive(S.tour.live)}`;
-    if (html !== followHtml) { followHtml = html; document.getElementById('follow').innerHTML = html; }
+    if (html !== followHtml) { followHtml = html; document.getElementById('follow').innerHTML = houseNames(html); }
     return;
   }
   if (d && d.name) {
-    const nm = String(d.name).split(',')[0], nick = (nm.match(/"([^"]+)"/) || [])[1];
+    const nm = String(d.name).split(',')[0], nick0 = (nm.match(/"([^"]+)"/) || [])[1];
     const given = cap(clean(nm.replace(/\s*"[^"]*"\s*/, ' ').trim()));
+    const nick = nick0 && !houseNames(given).split(' ').includes(nick0) ? nick0 : null;   // the nickname is often just the English surname
     const m = mood(d.stress || 0);
     const flags = [d.wounds ? `wounded (${d.wounds})` : '', d.unconscious ? 'unconscious' : '', d.hungry ? 'hungry' : '',
                    d.thirsty ? 'thirsty' : '', d.tired ? 'exhausted' : ''].filter(Boolean);
@@ -3023,7 +3095,7 @@ function renderFollow() {
       </div>`}
       ${th ? `<div class="th"><b>Lately:</b> ${th}</div>` : ''}`;
   }
-  if (html !== followHtml) { followHtml = html; el.innerHTML = html; }
+  if (html !== followHtml) { followHtml = html; el.innerHTML = houseNames(html); }
 }
 // ---------- data ----------
 const get = async u => (await fetch(u, {cache: 'no-store'})).json();
@@ -3055,11 +3127,11 @@ async function pollSlow() {
   } catch (e) {}
 }
 (async () => {
-  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics(), pollLore(), pollTrade(), pollWorks()]);
+  await Promise.all([pollState(), pollStocks(), pollSlow(), loadLib(), pollRumors(), pollPolitics(), pollLore(), pollTrade(), pollWorks(), pollNames()]);
   if (document.fonts && document.fonts.ready) await document.fonts.ready;
   trackStories(); checkRumors(); masthead();   // memory is loaded by now: clamp/update stories before the first page prints
   nextCard();
-  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollTrade, 60000); setInterval(pollWorks, 120000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000);
+  setInterval(pollState, 3000); setInterval(pollStocks, 30000); setInterval(pollRumors, 60000); setInterval(pollPolitics, 60000); setInterval(pollTrade, 60000); setInterval(pollWorks, 120000); setInterval(pollLore, 120000); setInterval(pollSlow, 120000); setInterval(pollNames, 120000);
   pollRecap(); setInterval(pollRecap, 300000);
   pollRecent(); setInterval(pollRecent, 300000);
   setInterval(holBar, 1000);

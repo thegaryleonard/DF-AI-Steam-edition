@@ -212,6 +212,42 @@ def run_json_args(args, timeout=60):
         return None
 
 
+# The Herald's house style prints people by their English names ("Doren Shinpaddle"), as dfai-recap does,
+# but announcements and the state feed carry the dwarven ones ("Doren Langgudiden"): a read-only map from
+# one to the other for every loaded unit and the fort's/civ's office holders (first name + surname, no nickname).
+NAMES_LUA = r"""
+local tr, out, t0 = dfhack.translation, {}, os.clock()
+local function add(name)
+  if not name or name.first_name == '' then return end
+  local nat, eng = tr.translateName(name, false, true), tr.translateName(name, true, true)
+  if nat == '' or eng == '' or nat == eng then return end
+  local first = dfhack.df2utf(name.first_name)
+  out[first .. ' ' .. dfhack.df2utf(nat)] = first .. ' ' .. dfhack.df2utf(eng)
+end
+for _, u in ipairs(df.global.world.units.all) do
+  if os.clock() - t0 > 3 then break end
+  pcall(add, u.name)
+  pcall(function()   -- the gods they pray to ("Pray to Doren ..." on the On Camera card)
+    local hf = df.historical_figure.find(u.hist_figure_id)
+    if hf then for _, l in ipairs(hf.histfig_links) do
+      if l:getType() == df.histfig_hf_link_type.DEITY then
+        local g = df.historical_figure.find(l.target_hf)
+        if g then add(g.name) end
+      end
+    end end
+  end)
+end
+for _, id in ipairs({df.global.plotinfo.group_id, df.global.plotinfo.civ_id}) do
+  local e = df.historical_entity.find(id)
+  if e then for _, a in ipairs(e.positions.assignments) do
+    local hf = df.historical_figure.find(a.histfig2 or a.histfig or -1)
+    if hf then pcall(add, hf.name) end
+  end end
+end
+print(require('json').encode({ok = true, map = out}))
+"""
+
+
 def poller():
     last_stocks = last_rumors = 0
     while True:
@@ -223,6 +259,9 @@ def poller():
             po = run_json("dfai-overlay-politics", timeout=30)   # offices, squads, diplomacy, work orders, crimes
             if po is not None:
                 cache["politics"] = po
+            nm = run_json_args(["lua", NAMES_LUA], timeout=30)   # dwarven -> English names (house style)
+            if nm is not None:
+                cache["names"] = nm
         if time.time() - last_stocks > STOCKS_EVERY_S:
             last_stocks = time.time()
             sk = run_json("dfai-overlay-stocks", timeout=30)
@@ -279,6 +318,8 @@ class Handler(BaseHTTPRequestHandler):
             body, ctype = json.dumps(recap(), ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/instruments.json"):
             body, ctype = json.dumps(cache["instruments"], ensure_ascii=False).encode(), "application/json"
+        elif self.path.startswith("/names.json"):
+            body, ctype = json.dumps(cache.get("names") or {"ok": False}, ensure_ascii=False).encode(), "application/json"
         elif self.path.startswith("/rumors.json"):
             body, ctype = json.dumps(cache["rumors"]).encode(), "application/json"
         elif self.path.startswith("/world.json"):
