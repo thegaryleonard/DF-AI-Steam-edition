@@ -165,11 +165,14 @@ local function bridge_dir(d)
     if d[1] == 1 then return D.Right elseif d[1] == -1 then return D.Left elseif d[2] == 1 then return D.Down else return D.Up end
 end
 
--- anything alive that isn't ours down in the shaft or the pen?
+-- anything alive that isn't ours down in the shaft or the pen? Tame, harmless
+-- animals don't count: a stray cat in the shaft held the builders for 469
+-- days at Fortresstome (a pitted giant rat was the real reason for the lock)
 local function intruder(sh)
     for _, u in ipairs(df.global.world.units.active) do
         if not dfhack.units.isDead(u) and not dfhack.units.isCitizen(u) and u.pos.z >= sh.zb - 1 and u.pos.z < sh.zt
-            and math.abs(u.pos.x - sh.p[1]) <= 3 and math.abs(u.pos.y - sh.p[2]) <= 4 then return u end
+            and math.abs(u.pos.x - sh.p[1]) <= 3 and math.abs(u.pos.y - sh.p[2]) <= 4
+            and not (dfhack.units.isTame(u) and not dfhack.units.isDanger(u) and u.civ_id == df.global.plotinfo.civ_id) then return u end
     end
 end
 -- no executions while the builders work down there (a pitted giant rat
