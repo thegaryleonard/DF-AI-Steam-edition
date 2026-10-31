@@ -121,6 +121,20 @@ static bool invader_close(AI & ai, df::unit *u)
 // home' orders but people are deployed" - squads of hungry wrestlers chased
 // platybelodon herds across the whole surface because one had swiped at a
 // woodcutter): inside the fort, or within 25 tiles / 6 levels of the gate.
+// Agitated wildlife (user: "one agitated animal picking off dwarves"): an
+// agitated quetzalcoatlus circled 25 levels above the gate, out of the
+// wildlife range, swooping on the surface workers. Agitated creatures count
+// as near the fort anywhere over its yard, at any height (fliers), and they
+// are not "ordinary" targets: a hungry squad doesn't drop them.
+static bool agitated_over_fort(AI & ai, df::unit *u)
+{
+    if (!Units::isAgitated(u) || !ai.plan.entrance())
+        return false;
+    df::coord p = Units::getPosition(u);
+    df::coord e = ai.plan.entrance()->pos();
+    return std::abs(p.x - e.x) <= 40 && std::abs(p.y - e.y) <= 40 && p.z >= e.z - 6;
+}
+
 static bool near_fort(AI & ai, df::unit *u)
 {
     df::coord p = Units::getPosition(u);
@@ -159,7 +173,7 @@ static bool squad_needs_meal(df::squad *squad)
 
 static bool ordinary_target(df::unit *t)
 {
-    return !Units::isGreatDanger(t) && !t->flags1.bits.active_invader && !t->flags1.bits.marauder &&
+    return !Units::isGreatDanger(t) && !Units::isAgitated(t) && !t->flags1.bits.active_invader && !t->flags1.bits.marauder &&
         !Units::isOpposedToLife(t) && !t->flags2.bits.underworld;
 }
 
@@ -192,6 +206,8 @@ bool AI::tag_enemies(color_ostream & out)
                     return true;
                 // ordinary wildlife: only near home, and not while the squad starves
                 if (ordinary_target(t) && (hungry || !near_fort(*ai_ref, t)))
+                    return true;
+                if (Units::isAgitated(t) && !near_fort(*ai_ref, t) && !agitated_over_fort(*ai_ref, t))
                     return true;
                 // one squad per ordinary target: orders handed out before
                 // that rule left 17 squads chasing 3 monkeys
@@ -279,6 +295,10 @@ bool AI::tag_enemies(color_ostream & out)
             else if (u->flags2.bits.visitor_uninvited)
             {
                 found = pop.military_random_squad_attack_unit(out, u, "uninvited visitor") || found;
+            }
+            else if (agitated_over_fort(*this, u))
+            {
+                found = pop.military_random_squad_attack_unit(out, u, "agitated creature over the fort") || found;
             }
             else if (auto hunter = is_hunting_target(u))
             {
