@@ -1,4 +1,5 @@
 #include "ai.h"
+#include "df/caste_raw.h"
 #include "df/historical_figure.h"
 #include "df/incident.h"
 #include "df/squad_position.h"
@@ -126,6 +127,12 @@ static bool invader_close(AI & ai, df::unit *u)
 // wildlife range, swooping on the surface workers. Agitated creatures count
 // as near the fort anywhere over its yard, at any height (fliers), and they
 // are not "ordinary" targets: a hungry squad doesn't drop them.
+static bool is_flier(df::unit *u)
+{
+    auto craw = df::creature_raw::find(u->race);
+    return craw && size_t(u->caste) < craw->caste.size() && craw->caste[u->caste]->flags.is_set(caste_raw_flags::FLIER);
+}
+
 static bool agitated_over_fort(AI & ai, df::unit *u)
 {
     if (!Units::isAgitated(u) || !ai.plan.entrance())
@@ -199,10 +206,12 @@ bool AI::tag_enemies(color_ostream & out)
             if (!kill)
                 continue;
             auto & ids = kill->units;
-            ids.erase(std::remove_if(ids.begin(), ids.end(), [pop_ref, ai_ref, hungry, &claimed](int32_t uid) -> bool
+            bool ranged = !squad->ammo.ammunition.empty();
+            ids.erase(std::remove_if(ids.begin(), ids.end(), [pop_ref, ai_ref, hungry, ranged, &claimed](int32_t uid) -> bool
             {
                 auto t = df::unit::find(uid);
-                if (!t || Units::isDead(t) || !pop_ref->military_target_reachable(t))
+                // marksdwarves keep a flier they can't walk to: they shoot it
+                if (!t || Units::isDead(t) || (!pop_ref->military_target_reachable(t) && !(ranged && is_flier(t))))
                     return true;
                 // ordinary wildlife: only near home, and not while the squad starves
                 if (ordinary_target(t) && (hungry || !near_fort(*ai_ref, t)))

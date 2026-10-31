@@ -40,9 +40,28 @@ end
 local function is_construction(x, y, z) local a = attrs(x, y, z) return a and a.material == df.tiletype_material.CONSTRUCTION end
 local function open(x, y, z) local s = shape(x, y, z) return s == Sh.EMPTY end
 local function floorish(x, y, z) local s = shape(x, y, z) return s and s ~= Sh.WALL and s ~= Sh.EMPTY end
+-- tiles that already have a dig job: DF clears the designation when it
+-- makes the job, so re-designating every step piled up duplicates (890 of
+-- them on Fortresstome's pen, which jammed the miners for 19 days)
+local dig_jobs, dig_jobs_tick
+local DIGJOB = {[df.job_type.Dig] = true, [df.job_type.DigChannel] = true, [df.job_type.CarveUpwardStaircase] = true,
+    [df.job_type.CarveDownwardStaircase] = true, [df.job_type.CarveUpDownStaircase] = true, [df.job_type.CarveRamp] = true}
+local function has_dig_job(x, y, z)
+    local now = df.global.cur_year_tick
+    if dig_jobs_tick ~= now then
+        dig_jobs, dig_jobs_tick = {}, now
+        local l = df.global.world.jobs.list.next
+        while l do
+            local j = l.item
+            if j and DIGJOB[j.job_type] then dig_jobs[j.pos.x .. ',' .. j.pos.y .. ',' .. j.pos.z] = true end
+            l = l.next
+        end
+    end
+    return dig_jobs[x .. ',' .. y .. ',' .. z]
+end
 local function designate(x, y, z, d)
     local f = dfhack.maps.getTileFlags(x, y, z)
-    if f and f.dig ~= d then
+    if f and f.dig ~= d and not has_dig_job(x, y, z) then
         f.dig = d
         dfhack.maps.getTileBlock(x, y, z).flags.designated = true
     end

@@ -17,15 +17,11 @@ overlay enable dfai-portrait-builder.builder
 dfai-foreign-office start
 dfai-war-office start
 dfai-deep-dig start
-# dfai-mist-build start (Showerwheels only; dfai-mist is the general one)
-dfai-deep-camp start
 dfai-beast-hunt start
 dfai-holiday resume
 dfai-ore-scrub resume
-dfai-memorial start
 dfai-battle-report start
 dfai-pastures start
-dfai-atom-smasher start
 dfai-ascii start
 dfai-catacomb resume
 dfai-build resume
@@ -45,3 +41,5 @@ dfai-walls start
 dfai-traffic start
 dfai-ghost-watch start
 dfai-pit start
+dfai-watchdog start
+dfai-verify start

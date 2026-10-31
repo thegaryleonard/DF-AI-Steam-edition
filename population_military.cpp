@@ -29,6 +29,8 @@
 #include "df/squad_routine_schedulest.h"
 #include "df/occupation.h"
 #include "df/squad.h"
+#include "df/creature_raw.h"
+#include "df/caste_raw.h"
 #include "df/squad_ammo_spec.h"
 #include "df/squad_order_kill_listst.h"
 #include "df/squad_barracks_infost.h"
@@ -1933,7 +1935,19 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
     // never send a squad after something nobody can walk to: the order never
     // clears and the squad stands at the nearest spot forever (a wild boar on
     // a ledge held one)
-    if (!military_target_reachable(u))
+    // fliers (an agitated quetzalcoatlus circling the fort) are for the
+    // marksdwarves: they can shoot what nobody can walk to
+    auto craw = df::creature_raw::find(u->race);
+    bool flier = craw && size_t(u->caste) < craw->caste.size() && craw->caste[u->caste]->flags.is_set(caste_raw_flags::FLIER);
+    bool have_ranged = false;
+    if (flier)
+    {
+        for (auto sqid : plotinfo->main.fortress_entity->squads)
+            if (auto sq = df::squad::find(sqid))
+                if (!sq->ammo.ammunition.empty())
+                    have_ranged = true;
+    }
+    if (!military_target_reachable(u) && !(flier && have_ranged))
         return false;
 
     df::squad *squad = nullptr;
@@ -1955,6 +1969,13 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
             }
         }
         score -= int32_t(sq->orders.size());
+        if (flier)
+        {
+            // only marksdwarves for a flier
+            if (sq->ammo.ammunition.empty())
+                continue;
+            score += 1000;
+        }
 
         std::set<int32_t> units_to_kill;
         for (auto it : sq->orders)

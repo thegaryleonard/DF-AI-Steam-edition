@@ -67,21 +67,16 @@ else
     out.beast = hunt .. (' (army now: %d soldiers)'):format(soldiers)
 end
 out.beasts = beasts
-out.mist = cmd('dfai-mist-build')
+out.mist = cmd('dfai-mist')
 local function tidy(t) return (t:gsub('^done; last: done', 'done')) end
-out.camp = tidy(cmd('dfai-deep-camp'))
-do
-    local here = 0
-    for _, u in ipairs(cits) do if u.pos.z <= 45 then here = here + 1 end end
-    out.camp = out.camp .. ('; %d dwarves down there now'):format(here)
-end
 out.dig = tidy(cmd('dfai-deep-dig'))
 out.ore = cmd('dfai-ore-scrub')
 out.holiday = cmd('dfai-holiday')
-out.memorial = tidy(cmd('dfai-memorial'))
 out.smasher = cmd('dfai-pit')
 out.catacomb = cmd('dfai-catacomb')
 out.cavore = cmd('dfai-cavern-ore')
+out.watchdog = (cmd('dfai-watchdog'):gsub('^watchdog:%s*', ''))
+out.verify = (cmd('dfai-verify'):gsub('^verify:%s*', ''))
 out.ghosts = (cmd('dfai-ghost-watch'):gsub('^ghost watch:%s*', ''))
 out.health = (cmd('dfai-fort-health'):gsub('^fort health:%s*', ''):gsub('%s+', ' '))
 out.armory = cmd('dfai-armory')
