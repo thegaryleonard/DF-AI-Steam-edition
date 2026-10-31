@@ -398,11 +398,11 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = self.path.split("?")[0]
-        if path in ("/", "/index.html"):
-            self.send((HERE / "overseer.html").read_bytes(), "text/html; charset=utf-8")
-        elif path == "/v2" and (HERE / "overseer_v2.html").exists():
-            # the redesigned desk, side by side with the old one until it takes over
+        if path in ("/", "/index.html", "/v2"):
+            # the redesigned desk (charts, sidebar); the old card stack is at /classic
             self.send((HERE / "overseer_v2.html").read_bytes(), "text/html; charset=utf-8")
+        elif path == "/classic":
+            self.send((HERE / "overseer.html").read_bytes(), "text/html; charset=utf-8")
         elif path == "/history.json":
             with history_lock:
                 self.send(json.dumps(read_history(), ensure_ascii=False).encode())

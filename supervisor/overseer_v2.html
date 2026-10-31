@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overseer's Desk</title>
+<style>
+:root {
+  --bg: #13110e; --bg2: #1a1713; --panel: #211d18; --panel2: #2a251f; --line: #3a332a; --line2: #4a4136;
+  --text: #ece4d2; --muted: #a89b84; --dim: #7a6f5d;
+  --gold: #e0a84a; --gold2: #f3c56e; --copper: #c07a3e; --red: #d4573f; --green: #8bbf6a; --blue: #6fa8dc;
+  --teal: #5fb8a8; --violet: #a98bd6; --pink: #d98aa8;
+  --radius: 10px; --shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 6px 18px rgba(0,0,0,.25);
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: Consolas, "Cascadia Mono", Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.45 var(--sans); overflow: hidden; }
+a { color: var(--gold2); }
+button, input, select { font: inherit; color: inherit; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #3a332a; border-radius: 6px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ---------- shell ---------- */
+.app { display: grid; grid-template-columns: 212px minmax(0, 1fr) 330px; grid-template-rows: 58px minmax(0, 1fr); height: 100vh; }
+header.top { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; padding: 0 18px; background: linear-gradient(#1e1a15, #18150f); border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 176px; }
+.brand .logo { width: 30px; height: 30px; border-radius: 8px; background: radial-gradient(circle at 35% 30%, #f3c56e, #a8662a 70%); display: grid; place-items: center; color: #1b140b; font: bold 17px var(--serif); box-shadow: 0 0 0 1px #00000060 inset; }
+.brand b { font: bold 16px var(--serif); letter-spacing: .4px; display: block; line-height: 1.1; }
+.brand small { color: var(--dim); font-size: 11px; font-style: italic; font-family: var(--serif); }
+.hstats { display: flex; align-items: stretch; gap: 6px; flex: 1; min-width: 0; }
+.hstat { padding: 4px 12px; border-left: 1px solid var(--line); min-width: 0; }
+.hstat:first-child { border-left: 0; }
+.hstat .k { font-size: 10.5px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--dim); }
+.hstat .v { font-weight: 600; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hstat .v.fort { font-family: var(--serif); color: var(--gold2); font-size: 17px; }
+.pill { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line2); background: var(--panel); font-size: 12.5px; white-space: nowrap; cursor: default; }
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dim); }
+.pill.live .dot { background: var(--green); box-shadow: 0 0 0 0 #8bbf6a90; animation: pulse 2s infinite; }
+.pill.stale .dot { background: var(--gold); }
+.pill.down .dot { background: var(--red); }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 #8bbf6a80; } 70% { box-shadow: 0 0 0 7px #8bbf6a00; } 100% { box-shadow: 0 0 0 0 #8bbf6a00; } }
+button.pill { cursor: pointer; }
+button.pill:hover { border-color: var(--gold); }
+button.pill.ascii { font-family: var(--mono); }
+button.pill.ascii[data-on='1'] { background: #000; color: #55ff55; border-color: #2d6b2d; }
+
+nav.side { background: var(--bg2); border-right: 1px solid var(--line); overflow-y: auto; padding: 12px 10px; display: flex; flex-direction: column; gap: 2px; }
+nav.side .sec { font-size: 10.5px; text-transform: uppercase; letter-spacing: 1.6px; color: var(--dim); padding: 10px 10px 3px; }
+nav.side .sec:first-child { padding-top: 2px; }
+nav.side a.item { display: flex; align-items: center; gap: 10px; padding: 6px 10px; border-radius: 8px; color: var(--muted); text-decoration: none; font-size: 13.5px; }
+nav.side a.item .ic { width: 18px; text-align: center; opacity: .9; }
+nav.side a.item .cnt { margin-left: auto; font-size: 11px; color: var(--dim); }
+nav.side a.item:hover { background: var(--panel); color: var(--text); }
+nav.side a.item.on { background: linear-gradient(90deg, #e0a84a26, #e0a84a08); color: var(--gold2); box-shadow: inset 2px 0 0 var(--gold); }
+nav.side a.item.danger { color: #e08a78; }
+nav.side a.item.danger.on { background: linear-gradient(90deg, #d4573f30, #d4573f08); color: #ff9c86; box-shadow: inset 2px 0 0 var(--red); }
+nav.side .foot { margin-top: auto; padding: 14px 10px 4px; border-top: 1px solid var(--line); font-size: 12.5px; display: flex; flex-direction: column; gap: 6px; }
+nav.side .foot a { color: var(--muted); text-decoration: none; }
+nav.side .foot a:hover { color: var(--gold2); }
+
+main { overflow-y: auto; padding: 20px 24px 40px; }
+.page { display: none; max-width: 1400px; }
+.page.on { display: block; }
+.ph { display: flex; align-items: flex-end; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.ph h1 { margin: 0; font: bold 24px var(--serif); letter-spacing: .3px; }
+.ph p { margin: 2px 0 0; color: var(--muted); font-size: 13.5px; max-width: 760px; }
+.ph .grow { flex: 1; }
+
+aside.rail { border-left: 1px solid var(--line); background: var(--bg2); display: flex; flex-direction: column; min-height: 0; }
+aside.rail .rh { padding: 14px 16px 10px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--line); }
+aside.rail .rh h2 { margin: 0; font: bold 14px var(--serif); letter-spacing: .4px; }
+aside.rail .rh small { color: var(--dim); margin-left: auto; font-size: 11.5px; }
+.feed { overflow-y: auto; padding: 6px 10px 20px; flex: 1; }
+.fe { padding: 8px 8px 8px 22px; border-radius: 8px; position: relative; cursor: pointer; }
+.fe:hover { background: var(--panel); }
+.fe::before { content: ''; position: absolute; left: 8px; top: 14px; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+.fe.bad::before { background: var(--red); }
+.fe .t { font-size: 11px; color: var(--dim); font-family: var(--mono); }
+.fe .l { font-weight: 600; font-size: 13px; }
+.fe.bad .l { color: #ff9c86; }
+.fe .o { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fe pre { display: none; white-space: pre-wrap; overflow-wrap: anywhere; margin: 6px 0 0; font: 11.5px/1.45 var(--mono); color: #d8ceb9; background: #0e0d0b; border: 1px solid var(--line); border-radius: 6px; padding: 7px 8px; max-height: 260px; overflow: auto; }
+.fe.open .o { display: none; }
+.fe.open pre { display: block; }
+
+/* ---------- building blocks ---------- */
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.panel > .hd { display: flex; align-items: center; gap: 10px; padding: 12px 14px 0; flex-wrap: wrap; }
+.panel > .hd h3 { margin: 0; font: bold 14.5px var(--serif); letter-spacing: .3px; }
+.panel > .hd .sub { color: var(--dim); font-size: 12px; }
+.panel > .bd { padding: 12px 14px 14px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.muted { color: var(--muted); }
+.dim { color: var(--dim); }
+.note { color: var(--muted); font-size: 12.5px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--line2); background: var(--panel2); color: var(--text); padding: 6px 12px; border-radius: 7px; cursor: pointer; font-weight: 600; font-size: 13px; white-space: nowrap; }
+.btn:hover { border-color: #6a5d4b; background: #322c24; }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn.primary { background: linear-gradient(#e7b259, #c88c37); border-color: #a8722a; color: #1d1409; }
+.btn.primary:hover { background: linear-gradient(#f0c06a, #d39740); }
+.btn.danger { background: linear-gradient(#d8644b, #b04431); border-color: #8e3424; color: #fff3ee; }
+.btn.danger:hover { background: linear-gradient(#e2735a, #bd4d39); }
+.btn.sm { padding: 3px 8px; font-size: 12px; border-radius: 6px; }
+.btn.ghost { background: transparent; }
+.btn.icon { padding: 3px 7px; min-width: 26px; }
+.seg { display: inline-flex; border: 1px solid var(--line2); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; background: transparent; padding: 5px 12px; cursor: pointer; color: var(--muted); font-weight: 600; font-size: 12.5px; }
+.seg button + button { border-left: 1px solid var(--line2); }
+.seg button.on { background: var(--gold); color: #1d1409; }
+input[type=number], input[type=text], input[type=search], input:not([type]), select { background: #15130f; border: 1px solid var(--line2); border-radius: 6px; padding: 5px 8px; outline: none; }
+input:focus, select:focus { border-color: var(--gold); box-shadow: 0 0 0 2px #e0a84a30; }
+input[type=number] { width: 70px; }
+select option, select optgroup { background: #1a1713; }
+label.fld { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); }
+.badge { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .3px; border: 1px solid var(--line2); color: var(--muted); }
+.badge.ok { color: var(--green); border-color: #4f6e3d; background: #8bbf6a14; }
+.badge.warn { color: var(--gold2); border-color: #7a5a26; background: #e0a84a14; }
+.badge.bad { color: #ff9c86; border-color: #7e3a2c; background: #d4573f14; }
+.empty { color: var(--dim); font-style: italic; padding: 8px 0; }
+.toggle { position: relative; width: 32px; height: 18px; flex: none; }
+.toggle input { opacity: 0; width: 100%; height: 100%; margin: 0; position: absolute; cursor: pointer; z-index: 1; }
+.toggle span { position: absolute; inset: 0; border-radius: 999px; background: #3a332a; transition: .15s; }
+.toggle span::after { content: ''; position: absolute; left: 2px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: #bfb3a0; transition: .15s; }
+.toggle input:checked + span { background: #b8842f; }
+.toggle input:checked + span::after { left: 16px; background: #fff4dc; }
+
+/* ---------- overview ---------- */
+.kpis { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+.kpi { padding: 11px 12px 8px; position: relative; overflow: hidden; flex: 1 1 150px; min-width: 0; }
+.kpi .k { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.kpi .k i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.kpi .v { font: 600 24px/1.2 var(--sans); margin-top: 2px; letter-spacing: -.3px; }
+.kpi .d { font-size: 11.5px; color: var(--dim); min-height: 16px; }
+.kpi .d .up { color: var(--green); } .kpi .d .down { color: var(--red); }
+.kpi svg { display: block; width: 100%; height: 34px; margin-top: 4px; }
+.charthd { display: flex; align-items: center; gap: 10px; margin: 4px 0 10px; }
+.charthd h2 { margin: 0; font: bold 16px var(--serif); }
+.charthd .grow { flex: 1; }
+.charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+.chart .legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-left: auto; }
+.chart .legend span { display: inline-flex; align-items: center; gap: 5px; }
+.chart .legend i { width: 10px; height: 3px; border-radius: 2px; display: inline-block; }
+.chart .legend i.dash { background: repeating-linear-gradient(90deg, currentColor 0 3px, transparent 3px 5px) !important; }
+.chart .plot { position: relative; height: 190px; }
+.chart svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.chart .tip { position: absolute; pointer-events: none; background: #0e0d0bf0; border: 1px solid var(--line2); border-radius: 7px; padding: 6px 9px; font-size: 12px; white-space: nowrap; display: none; z-index: 3; box-shadow: 0 6px 16px #0008; }
+.chart .tip b { display: block; font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+.chart .tip i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; }
+.chart .msg { position: absolute; inset: 0; display: grid; place-items: center; color: var(--dim); font-style: italic; pointer-events: none; }
+.axis text { fill: #8a7e6a; font-size: 10.5px; font-family: var(--sans); }
+.statusgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0 18px; }
+.srow { padding: 8px 0; border-bottom: 1px solid #2f2a23; display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 10px; font-size: 13px; }
+.srow b { font-size: 11.5px; text-transform: uppercase; letter-spacing: .8px; color: var(--gold); font-weight: 600; padding-top: 1px; }
+.srow span { color: #d9d0bd; overflow-wrap: anywhere; }
+.srow.long span { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+.srow.long.open span { display: block; }
+
+/* ---------- command cards ---------- */
+.cmds { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.cmd { display: flex; flex-direction: column; gap: 8px; padding: 12px 13px; }
+.cmd .h { display: flex; align-items: flex-start; gap: 8px; }
+.cmd .h b { font-size: 14px; flex: 1; line-height: 1.3; }
+.cmd .info { flex: none; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line2); background: transparent; color: var(--muted); cursor: pointer; font: italic bold 12px var(--serif); padding: 0; }
+.cmd .info:hover, .cmd .info.on { border-color: var(--gold); color: var(--gold2); }
+.cmd .help { font-size: 12.5px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: -4px; }
+.cmd .help.on { display: block; background: #1a1712; border: 1px solid var(--line); border-radius: 7px; padding: 7px 9px; margin-top: 0; }
+.cmd .now { font-size: 12px; color: #d8cfbb; padding: 5px 8px 5px 9px; border-left: 2px solid var(--copper); background: #e0a84a0d; border-radius: 0 6px 6px 0; overflow-wrap: anywhere; }
+.cmd .now.stale { opacity: .55; border-left-color: var(--dim); }
+.cmd .now.long { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer;
+  padding-top: 0; padding-bottom: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.cmd .now.long.open { display: block; }
+.cmd .f { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: auto; }
+.cmd .f .btn.primary { margin-left: auto; }
+.cmd.planned { opacity: .55; }
+.cmd .f input.title { width: 140px; }
+
+/* ---------- lists ---------- */
+.list { display: flex; flex-direction: column; }
+.li { display: flex; align-items: center; gap: 10px; padding: 7px 4px; min-height: 40px; border-bottom: 1px solid #2f2a23; font-size: 13px; min-width: 0; }
+.li:last-child { border-bottom: 0; }
+.li .name { font-weight: 600; min-width: 0; }
+.li .meta { color: var(--dim); font-size: 12px; margin-left: auto; white-space: nowrap; }
+.li .acts { display: flex; gap: 4px; flex: none; }
+.li.off .name { color: var(--dim); text-decoration: line-through; }
+.li .link { cursor: pointer; border-bottom: 1px dotted #6a5d4b; }
+.li .link:hover { color: var(--gold2); }
+.group-h { font-size: 11px; text-transform: uppercase; letter-spacing: 1.3px; color: var(--gold); padding: 12px 4px 4px; border-bottom: 1px solid var(--line); }
+.cols { columns: 2 380px; column-gap: 22px; }
+.cols > * { break-inside: avoid; }
+.toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line2); background: #1a1712; font-size: 12px; cursor: pointer; user-select: none; }
+.chip input { margin: 0; accent-color: var(--gold); }
+.chip small { color: var(--dim); }
+.chip.all { border-color: #7a5a26; background: #e0a84a14; }
+.chip.part { border-style: dashed; }
+
+.prio { counter-reset: p; }
+.prow { display: grid; grid-template-columns: 30px 26px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 6px; border-bottom: 1px solid #2f2a23; }
+.prow:last-child { border-bottom: 0; }
+.prow .num { width: 26px; height: 26px; border-radius: 50%; background: var(--panel2); border: 1px solid var(--line2); display: grid; place-items: center; font-weight: 700; font-size: 12px; color: var(--gold2); }
+.prow .st { font-size: 16px; text-align: center; }
+.prow .st.ok { color: var(--green); } .prow .st.no { color: var(--gold); }
+.prow .lab { font-weight: 600; }
+.prow .line { color: var(--muted); font-size: 12.5px; }
+.prow .mv { display: flex; gap: 4px; }
+
+.orderchips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ochip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; border-radius: 8px; background: #e0a84a18; border: 1px solid #7a5a26; font-size: 12.5px; }
+.ochip b { color: var(--gold2); }
+
+.bpfiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+.bpf { padding: 10px 12px; }
+.bpf .fn { font: bold 13.5px var(--mono); color: var(--gold2); margin-bottom: 4px; overflow-wrap: anywhere; }
+.bprow { display: flex; align-items: center; gap: 6px; padding: 5px 0; border-top: 1px solid #2f2a23; font-size: 13px; }
+.bprow span { flex: 1; min-width: 0; }
+.bprow small { color: var(--dim); }
+
+.hours { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 4px; margin: 8px 0 10px; }
+.hours label { display: block; text-align: center; padding: 5px 0; border-radius: 6px; border: 1px solid var(--line2); font-size: 12px; cursor: pointer; font-family: var(--mono); color: var(--muted); user-select: none; }
+.hours label input { display: none; }
+.hours label.on { background: #0b1a0b; color: #55ff55; border-color: #2d6b2d; }
+.bigstate { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.screen { width: 84px; height: 54px; border-radius: 6px; border: 1px solid var(--line2); display: grid; place-items: center; font: bold 13px var(--mono); }
+.screen.ascii { background: #000; color: #55ff55; }
+.screen.gfx { background: linear-gradient(135deg, #3d5a2e, #6b4a2a 60%, #2a3e5a); color: #fff8; }
+
+.future { border-color: #6b2c20; background: linear-gradient(#2a1a15, #221a16); }
+.future .opt { padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #1b1310; border: 1px solid #4e2a20; border-radius: 9px; }
+.future .opt b { font: bold 15px var(--serif); }
+.future .opt p { margin: 0; color: var(--muted); font-size: 13px; flex: 1; }
+.fstatus { white-space: pre-line; font: 12px/1.5 var(--mono); color: #d8ceb9; background: #0e0d0b; border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; margin-top: 12px; }
+.fstatus:empty { display: none; }
+
+.kindgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; margin-bottom: 6px; }
+.kind { display: flex; flex-direction: column; justify-content: flex-start; text-align: left; padding: 9px 11px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); cursor: pointer; color: var(--text); }
+.kind:hover { border-color: #6a5d4b; }
+.kind.on { border-color: var(--gold); background: #e0a84a14; box-shadow: 0 0 0 1px var(--gold) inset; }
+.kind b { display: block; font-size: 13px; }
+.kind small { display: block; color: var(--dim); font-size: 11.5px; line-height: 1.35; margin-top: 2px; }
+/* ---------- modal + toast ---------- */
+.modal { position: fixed; inset: 0; background: #000a; display: none; place-items: center; z-index: 50; }
+.modal.on { display: grid; }
+.modal .box { width: min(520px, 92vw); background: var(--panel); border: 1px solid var(--line2); border-radius: 12px; padding: 18px 20px; box-shadow: 0 20px 60px #000c; }
+.modal .box h3 { margin: 0 0 8px; font: bold 18px var(--serif); }
+.modal .box p { margin: 0 0 12px; color: var(--muted); white-space: pre-line; }
+.modal .box input { width: 100%; padding: 8px 10px; font-size: 15px; }
+.modal .box .row { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+.modal .box .err { color: #ff9c86; font-size: 13px; margin-top: 8px; min-height: 1em; }
+.toasts { position: fixed; right: 346px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 60; max-width: 420px; }
+.toast { background: #1e1a15f5; border: 1px solid var(--line2); border-left: 3px solid var(--green); border-radius: 8px; padding: 9px 12px; box-shadow: 0 10px 30px #000a; font-size: 13px; }
+.toast.bad { border-left-color: var(--red); }
+.toast b { display: block; }
+.toast div { color: var(--muted); font-size: 12px; white-space: pre-wrap; max-height: 80px; overflow: hidden; }
+
+@media (min-width: 1750px) {
+  .charts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .page { max-width: 1500px; }
+}
+@media (max-width: 1360px) {
+  .app { grid-template-columns: 196px minmax(0, 1fr) 290px; }
+  .toasts { right: 306px; }
+  .hstat.opt { display: none; }
+}
+@media (max-width: 1100px) {
+  .charts, .grid2 { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="logo">&#9788;</div><div><b>Overseer's Desk</b><small>The dwarves will get round to it. Probably.</small></div></div>
+    <div class="hstats">
+      <div class="hstat"><div class="k">Fort</div><div class="v fort" id="h-fort">&hellip;</div></div>
+      <div class="hstat"><div class="k">Year</div><div class="v" id="h-year">&ndash;</div></div>
+      <div class="hstat"><div class="k">Population</div><div class="v" id="h-pop">&ndash;</div></div>
+      <div class="hstat"><div class="k">Game speed</div><div class="v" id="h-fps">&ndash;</div></div>
+      <div class="hstat opt"><div class="k">Last sample</div><div class="v" id="h-samp">&ndash;</div></div>
+    </div>
+    <button class="pill ascii" id="asciibtn" title="The game's Classic ASCII glyphs: open the display settings">Game: graphics</button>
+    <span class="pill" id="livepill" title="When the game last answered the desk"><span class="dot"></span><span id="livetxt">Connecting&hellip;</span></span>
+  </header>
+
+  <nav class="side" id="nav"></nav>
+
+  <main id="main">
+    <!-- overview -->
+    <section class="page" id="p-overview">
+      <div class="ph"><div><h1>The Fort Right Now</h1><p>Vital signs, sampled every 5 minutes, and what every part of the fort says about itself.</p></div></div>
+      <div class="kpis" id="kpis"></div>
+      <div class="charthd"><h2>Trends</h2><span class="note" id="rangenote"></span><span class="grow"></span>
+        <div class="seg" id="range"><button data-r="21600" class="on">6 h</button><button data-r="86400">24 h</button><button data-r="604800">7 days</button></div></div>
+      <div class="charts" id="charts"></div>
+      <div class="panel"><div class="hd"><h3>Status of every system</h3><span class="sub" id="status-at">Asking the dwarves&hellip;</span></div>
+        <div class="bd"><div class="statusgrid" id="status"></div></div></div>
+    </section>
+
+    <!-- command groups get generated pages: p-g-<group> -->
+    <div id="grouppages"></div>
+
+    <!-- priorities -->
+    <section class="page" id="p-priorities">
+      <div class="ph"><div><h1>Fort priorities</h1><p>What comes first, top to bottom. Goals (food, drink&hellip;) are met or not; activities (big mining, outreach) wait until every goal above them is met. Move things with the arrows: the whole order is saved at once.</p></div></div>
+      <div class="panel"><div class="bd"><div class="prio" id="prio"><div class="empty">Reading the priorities&hellip;</div></div></div></div>
+    </section>
+
+    <!-- calendar -->
+    <section class="page" id="p-calendar">
+      <div class="ph"><div><h1>The Fort Calendar</h1><p>Holidays that come round every year. Each starts on its day: everyone downs tools and goes partying, and the Herald covers it. If invaders are in the fort that day, it waits until they're gone.</p></div></div>
+      <div class="stack">
+        <div class="panel"><div class="hd"><h3>Every year</h3></div><div class="bd"><div class="list" id="cal"><div class="empty">Reading the calendar&hellip;</div></div></div></div>
+        <div class="panel"><div class="hd"><h3>Add a holiday</h3></div><div class="bd">
+          <div class="toolbar" style="margin:0">
+            <input id="calname" maxlength="40" placeholder="Name, e.g. The Feast of Ale" style="width:240px">
+            <label class="fld">on the <input id="calday" type="number" min="1" max="28" value="1" style="width:60px"></label>
+            <label class="fld">of <select id="calmonth"></select></label>
+            <label class="fld">for <input id="caldays" type="number" min="1" max="28" value="3" style="width:60px"> days</label>
+            <button class="btn primary" id="caladd">Add to the calendar</button>
+          </div></div></div>
+      </div>
+    </section>
+
+    <!-- build a room -->
+    <section class="page" id="p-build">
+      <div class="ph"><div><h1>Build a room</h1><p>Anything df-ai builds. Each is dug into solid, dry rock beside a corridor near rooms of the same kind, then furnished and zoned; the camera follows it. Furniture comes from the fort's stock.</p></div></div>
+      <div class="panel"><div class="bd">
+        <div class="toolbar">
+          <label class="fld">Kind <select id="bkind" style="min-width:240px;max-width:320px"></select></label>
+          <label class="fld">How many <input id="bn" type="number" min="1" max="5" value="1" style="width:60px"></label>
+          <button class="btn primary" id="bgo">Build it</button>
+        </div>
+        <div class="note" id="bhelp"></div>
+        <div class="cmd" style="padding:0;margin-top:12px"><div class="now" id="bstatus">&hellip;</div></div>
+      </div></div>
+      <div id="bkinds" style="margin-top:14px"></div>
+    </section>
+
+    <!-- construction order -->
+    <section class="page" id="p-dig">
+      <div class="ph"><div><h1>Construction order</h1><p>Rooms df-ai has planned but not finished. Add one to the order and it is dug before anything df-ai picks itself, in the order listed (one at a time). Leave the order empty and df-ai decides as usual. Click a room's name to send the camera there.</p></div><span class="grow"></span><span class="note" id="plansaved"></span></div>
+      <div class="stack">
+        <div class="panel"><div class="hd"><h3>The order</h3></div><div class="bd"><div class="orderchips" id="order"></div></div></div>
+        <div class="panel"><div class="hd"><h3>Planned rooms</h3><span class="sub" id="plancount"></span></div><div class="bd"><div class="cols" id="planned"><div class="empty">Reading the plan&hellip;</div></div></div></div>
+      </div>
+    </section>
+
+    <!-- blueprints -->
+    <section class="page" id="p-blueprints">
+      <div class="ph"><div><h1>Blueprints</h1><p>Build something from quickfort's list. The blueprint's start corner goes at the spot below. Preview first: it checks every tile without building.</p></div></div>
+      <div class="panel" style="margin-bottom:14px"><div class="bd"><div class="toolbar" style="margin:0">
+        <b style="font-family:var(--serif)">Where</b>
+        <label class="fld">x <input id="bx" type="number"></label><label class="fld">y <input id="by" type="number"></label><label class="fld">z <input id="bz" type="number"></label>
+        <button class="btn" id="usecam">&#8982; Where the camera is looking</button>
+      </div></div></div>
+      <div class="bpfiles" id="bps"><div class="empty">Asking quickfort&hellip;</div></div>
+    </section>
+
+    <!-- tour stops -->
+    <section class="page" id="p-tour">
+      <div class="ph"><div><h1>Tour stops</h1><p>What the camera visits. Switch a stop off to take it off the tour; <b>Show</b> sends the camera there now, <b>Lock</b> holds it there until you unlock it (Camera page).</p></div><span class="grow"></span><span class="note" id="tourcount"></span></div>
+      <div class="panel"><div class="bd">
+        <div class="toolbar">
+          <input id="sq" type="search" style="width:190px" placeholder="Find by name or kind">
+          <label class="fld">Sort <select id="ss"><option value="kind">kind</option><option value="name">name</option><option value="z">level</option><option value="tour">tour order</option></select></label>
+          <label class="fld">Show <select id="sf"><option value="">all</option><option value="on">on the tour</option><option value="off">off the tour</option></select></label>
+          <span style="margin-left:auto;display:inline-flex;gap:6px;align-items:center;white-space:nowrap"><span class="note">The ones shown:</span>
+          <button class="btn sm" id="allon">All on</button><button class="btn sm" id="alloff">All off</button></span>
+        </div>
+        <div class="note" style="margin-bottom:6px">All of a kind:</div>
+        <div class="chips" id="kinds" style="margin-bottom:10px"></div>
+        <div class="cols" id="stops"><div class="empty">Asking the tour&hellip;</div></div>
+      </div></div>
+    </section>
+
+    <!-- the fort's future -->
+    <section class="page" id="p-future">
+      <div class="ph"><div><h1 style="color:#ff9c86">The Fort's Future</h1><p>Every fort ends. Retire <b id="ffort">this one</b> while it stands (it stays in the world's history, and the Herald remembers it), then start again. You will be asked to type the fort's name to confirm.</p></div></div>
+      <div class="panel future"><div class="bd">
+        <div class="grid2">
+          <div class="opt"><b>A new fort in this world</b><p>Retires the fort, saves the world, embarks a few days' walk from here (river, no aquifer) and hands the new fort to df-ai. Same history, same neighbours, same grudges. About 15 minutes.</p>
+            <div><button class="btn danger" data-future="fort">Retire, new fort here</button></div></div>
+          <div class="opt"><b>A new world</b><p>Retires the fort, generates a brand new world (the game's basic settings, as last used; generating history can take an hour or more), embarks in it and starts df-ai. The old world stays saved; the Herald starts its first issue for the new one.</p>
+            <div><button class="btn danger" data-future="world">Retire, new world</button></div></div>
+        </div>
+        <div class="fstatus" id="fstatus"></div>
+      </div></div>
+    </section>
+  </main>
+
+  <aside class="rail">
+    <div class="rh"><h2>Orders Given</h2><small id="logcount"></small></div>
+    <div class="feed" id="log"><div class="empty">&hellip;</div></div>
+  </aside>
+</div>
+
+<div class="modal" id="modal"><div class="box">
+  <h3 id="m-title"></h3><p id="m-text"></p>
+  <input id="m-input" autocomplete="off" spellcheck="false">
+  <div class="err" id="m-err"></div>
+  <div class="row"><button class="btn" id="m-cancel">Cancel</button><button class="btn danger" id="m-ok">Confirm</button></div>
+</div></div>
+<div class="toasts" id="toasts"></div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+const get = async u => { const r = await fetch(u, {cache: 'no-store'}); if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); };
+const post = (u, b) => fetch(u, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(b)});
+const fmt = n => n == null || isNaN(n) ? '–' : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 1 : 2) + 'M' : Math.abs(n) >= 1e4 ? (n / 1e3).toFixed(1) + 'k' : Math.round(n).toLocaleString();
+const fmtFull = n => n == null || isNaN(n) ? '–' : Math.round(n).toLocaleString();
+const ago = s => s < 90 ? Math.max(0, Math.round(s)) + ' s ago' : s < 5400 ? Math.round(s / 60) + ' min ago' : s < 172800 ? Math.round(s / 3600) + ' h ago' : Math.round(s / 86400) + ' days ago';
+
+function toast(title, text, bad) {
+  const t = document.createElement('div');
+  t.className = 'toast' + (bad ? ' bad' : '');
+  t.innerHTML = `<b>${esc(title)}</b>${text ? `<div>${esc(text)}</div>` : ''}`;
+  $('toasts').appendChild(t);
+  setTimeout(() => t.remove(), bad ? 9000 : 6000);
+}
+
+/* ---------- navigation ---------- */
+const GROUP_INFO = {
+  War: ['&#9876;', 'Raids, the army and the beast hunt.'],
+  Diplomacy: ['&#9993;', 'Messengers and how the neighbours feel about us.'],
+  Construction: ['&#9874;', 'Big projects: the deep dig, ore, caverns, pastures, the pit and the fort health check.'],
+  Camera: ['&#9673;', 'What the stream shows. Tour stops have their own page.'],
+  Fort: ['&#9832;', 'Holidays and the restless dead. The yearly calendar has its own page.'],
+  Game: ['&#9881;', 'The game itself: speed and the display.'],
+};
+let PAGES = [];
+function buildNav(groups) {
+  const g = groups.map(n => ({id: 'g-' + n.toLowerCase(), label: n, ic: (GROUP_INFO[n] || ['&#8226;'])[0]}));
+  PAGES = [
+    {sec: 'Dashboard'}, {id: 'overview', label: 'Overview', ic: '&#9636;'},
+    {sec: 'Orders'}, ...g,
+    {sec: 'Plans'}, {id: 'priorities', label: 'Priorities', ic: '&#8645;'}, {id: 'calendar', label: 'Fort calendar', ic: '&#9783;'},
+    {id: 'build', label: 'Build a room', ic: '&#8962;'}, {id: 'dig', label: 'Construction order', ic: '&#9935;', cnt: 'nav-dig'},
+    {id: 'blueprints', label: 'Blueprints', ic: '&#9638;'}, {id: 'tour', label: 'Tour stops', ic: '&#9654;', cnt: 'nav-tour'},
+    {sec: 'Endings'}, {id: 'future', label: "The Fort's Future", ic: '&#9888;', danger: true},
+  ];
+  $('nav').innerHTML = PAGES.map(p => p.sec ? `<div class="sec">${p.sec}</div>` :
+    `<a class="item${p.danger ? ' danger' : ''}" href="#${p.id}" data-page="${p.id}"><span class="ic">${p.ic}</span>${esc(p.label)}${p.cnt ? `<span class="cnt" id="${p.cnt}"></span>` : ''}</a>`).join('')
+    + `<div class="foot"><a href="http://localhost:8766/">&#9655; Watch the fort</a><a href="http://localhost:8765/">&#9636; The broadsheet</a><a href="/classic">&#8617; The old desk</a></div>`;
+  window.addEventListener('hashchange', route);
+  route();
+}
+function route() {
+  let id = location.hash.slice(1) || 'overview';
+  if (!$('p-' + id)) id = 'overview';
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('on', p.id === 'p-' + id));
+  document.querySelectorAll('#nav a.item').forEach(a => a.classList.toggle('on', a.dataset.page === id));
+  $('main').scrollTop = 0;
+  if (id === 'overview') drawCharts();
+}
+
+/* ---------- command groups ---------- */
+async function loadCommands() {
+  const c = await get('/commands.json'), groups = {};
+  for (const x of c.commands) (groups[x.group] = groups[x.group] || []).push(x);
+  for (const x of c.planned || []) (groups[x.group] = groups[x.group] || []).push({...x, planned: true});
+  const names = Object.keys(groups);
+  $('grouppages').innerHTML = names.map(g => {
+    const info = GROUP_INFO[g] || ['', ''];
+    const extra = g === 'Game' ? asciiPanel() : '';
+    return `<section class="page" id="p-g-${esc(g.toLowerCase())}"><div class="ph"><div><h1>${esc(g)}</h1><p>${info[1]}</p></div></div>` +
+      `<div class="cmds">${groups[g].map(card).join('')}</div>${extra}</section>`;
+  }).join('');
+  buildNav(names);
+  document.querySelectorAll('button[data-key]').forEach(b => b.onclick = () => run(b));
+  document.querySelectorAll('.cmd .now').forEach(n => n.onclick = () => n.classList.toggle('open'));
+  document.querySelectorAll('.cmd .info').forEach(b => b.onclick = () => { b.classList.toggle('on'); b.closest('.cmd').querySelector('.help').classList.toggle('on'); });
+  initAscii();
+}
+function card(x) {
+  if (x.planned) return `<div class="cmd panel planned"><div class="h"><b>${esc(x.label)}</b></div><div class="help on">${esc(x.help)}</div><div class="f"><button class="btn" disabled>Coming soon</button></div></div>`;
+  const param = x.param ? `<label class="fld">${esc(x.param.name)} <input type="number" id="n-${esc(x.key)}" min="${+x.param.min}" max="${+x.param.max}" value="${+x.param.default}"></label>` : '';
+  // the holiday card takes a name too
+  const title = x.key === 'holiday.start' ? `<label class="fld">name <input class="title" id="t-${esc(x.key)}" maxlength="40" placeholder="optional"></label>` : '';
+  return `<div class="cmd panel"><div class="h"><b>${esc(x.label)}</b><button class="info" title="${esc(x.help)}" aria-label="What this does">i</button></div>` +
+    `<div class="help">${esc(x.help)}</div><div class="now" id="now-${esc(x.key)}">&hellip;</div>` +
+    `<div class="f">${title}${param}<button class="btn primary" data-key="${esc(x.key)}">Order it</button></div></div>`;
+}
+async function run(b) {
+  b.disabled = true; const was = b.textContent; b.textContent = 'Sending…';
+  try {
+    const r = await fetch('/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({key: b.dataset.key,
+      n: ($('n-' + b.dataset.key) || {}).value, title: ($('t-' + b.dataset.key) || {}).value})});
+    const e = r.ok ? await r.json() : null;
+    if (e) toast(e.label, e.out, !e.ok); else toast('The desk refused that order', 'HTTP ' + r.status, true);
+  } catch (err) { toast('Could not reach the desk', String(err), true); }
+  finally { b.disabled = false; b.textContent = was; refreshLog(); setTimeout(refreshStatus, 1500); setTimeout(refreshCards, 2500); }
+}
+let CARD_AT = 0, CARD_OK = false;
+async function refreshCards() {
+  try {
+    const c = await get('/cardstatus.json');
+    CARD_OK = true; CARD_AT = c._at || 0;
+    // the game is too busy to answer (a big battle): say how old the news is instead of passing it off as now
+    const age = c._at ? Date.now() / 1000 - c._at : 0;
+    const stale = age > 60 ? ` (as of ${Math.round(age / 60)} min ago: the game is too busy to answer)` : '';
+    for (const [k, v] of Object.entries(c)) {
+      if (k === '_at') continue;
+      const el = $('now-' + k);
+      if (el) { el.textContent = v + stale; el.classList.toggle('stale', !!stale); el.dataset.got = '1'; el.style.display = '';
+        el.classList.toggle('long', el.textContent.length > 200); el.title = el.textContent.length > 200 ? 'Click to read it all' : ''; }
+    }
+  } catch (e) { CARD_OK = false; document.querySelectorAll('.cmd .now').forEach(el => el.classList.add('stale')); }
+  fillMissingCards();
+  updateLive();
+}
+function fillMissingCards() {   // orders the game has no status line for: the speed card shows the last sample, the rest hide the line
+  if (!CARD_OK) return;
+  const L = HIST[HIST.length - 1];
+  document.querySelectorAll('.cmd .now[id^="now-"]').forEach(el => {
+    if (el.dataset.got === '1') return;
+    if (el.id === 'now-game.fps' && L) { el.textContent = `Running at ${L.fps} of ${Math.round(L.fps_cap)} FPS (sampled ${ago(Date.now() / 1000 - L.at)}).`; el.style.display = ''; }
+    else el.style.display = 'none';
+  });
+}
+function updateLive() {
+  const p = $('livepill'), t = $('livetxt');
+  const age = CARD_AT ? Date.now() / 1000 - CARD_AT : 1e9;
+  p.className = 'pill ' + (!CARD_OK ? 'down' : age > 60 ? 'stale' : 'live');
+  t.textContent = !CARD_OK ? 'Desk not answering' : !CARD_AT ? 'Waiting for the game' : age > 60 ? `Stale: game answered ${ago(age)}` : 'Live';
+}
+setInterval(updateLive, 5000);
+
+/* ---------- status + log ---------- */
+async function refreshStatus() {
+  try {
+    const s = await get('/status.json');
+    $('status').innerHTML = s.map(r => `<div class="srow${r.text.length > 160 ? ' long' : ''}"><b>${esc(r.label)}</b><span title="${r.text.length > 160 ? 'Click to read it all' : ''}">${esc(r.text)}</span></div>`).join('');
+    $('status').querySelectorAll('.srow.long').forEach(r => r.onclick = () => r.classList.toggle('open'));
+    $('status-at').textContent = 'as of ' + new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+  } catch (e) {}
+}
+async function refreshLog() {
+  try {
+    const l = await get('/log.json');
+    const open = new Set([...document.querySelectorAll('.fe.open')].map(e => e.dataset.id));
+    $('log').innerHTML = l.map((e, i) => {
+      const id = e.at + '|' + e.label, first = (e.out || '').split('\n')[0];
+      return `<div class="fe${e.ok ? '' : ' bad'}${open.has(id) ? ' open' : ''}" data-id="${esc(id)}"><div class="t">${esc(e.at)}</div><div class="l">${esc(e.label)}</div>` +
+        (e.out ? `<div class="o">${esc(first)}</div><pre>${esc(e.out)}</pre>` : '') + '</div>';
+    }).join('') || '<div class="empty">No orders yet.</div>';
+    $('log').querySelectorAll('.fe').forEach(f => f.onclick = ev => { if (ev.target.closest('pre') && getSelection().toString()) return; f.classList.toggle('open'); });
+    $('logcount').textContent = l.length ? `last ${l.length}` : '';
+  } catch (e) {}
+}
+
+/* ---------- history: KPIs + charts ---------- */
+let HIST = [], RANGE = 21600;
+const KPIS = [
+  {k: 'pop', label: 'Population', c: 'var(--blue)', hex: '#6fa8dc'},
+  {k: 'soldiers', label: 'Soldiers', c: 'var(--red)', hex: '#d4573f'},
+  {k: 'food', label: 'Food', c: 'var(--green)', hex: '#8bbf6a'},
+  {k: 'drink', label: 'Drink', c: 'var(--gold)', hex: '#e0a84a'},
+  {k: 'foes', label: 'Foes on the map', c: 'var(--pink)', hex: '#d98aa8', bad: true},
+  {k: 'ghosts', label: 'Ghosts', c: 'var(--violet)', hex: '#a98bd6', bad: true},
+  {k: 'wealth', label: 'Wealth', c: 'var(--copper)', hex: '#c07a3e', suffix: ' ☼'},
+];
+const CHARTS = [
+  {title: 'Population & soldiers', s: [{k: 'pop', label: 'Population', c: '#6fa8dc', fill: true}, {k: 'soldiers', label: 'Soldiers', c: '#d4573f'}]},
+  {title: 'Food & drink', s: [{k: 'food', label: 'Food', c: '#8bbf6a', fill: true}, {k: 'drink', label: 'Drink', c: '#e0a84a'}]},
+  {title: 'Hungry, thirsty, unhappy', s: [{k: 'hungry', label: 'Hungry', c: '#8bbf6a'}, {k: 'thirsty', label: 'Thirsty', c: '#5fb8a8'}, {k: 'unhappy', label: 'Unhappy', c: '#d4573f', fill: true}]},
+  {title: 'Game speed (FPS)', s: [{k: 'fps', label: 'FPS', c: '#e0a84a', fill: true}, {k: 'fps_cap', label: 'Cap', c: '#a89b84', dash: true}]},
+  {title: 'Threats & ghosts', s: [{k: 'foes', label: 'Foes', c: '#d98aa8', fill: true}, {k: 'ghosts', label: 'Ghosts', c: '#a98bd6'}]},
+  {title: 'Wealth & jobs', s: [{k: 'wealth', label: 'Wealth', c: '#c07a3e', fill: true}, {k: 'jobs', label: 'Jobs', c: '#6fa8dc', right: true}]},
+];
+const GAP = 20 * 60;   // a gap this long (game closed) breaks the line
+
+async function loadHistory() {
+  try { const h = await get('/history.json'); HIST = (Array.isArray(h) ? h : []).filter(p => p && p.at).sort((a, b) => a.at - b.at); }
+  catch (e) { return; }
+  renderHeader(); renderKpis();
+  if ($('p-overview').classList.contains('on')) drawCharts();
+}
+function renderHeader() {
+  const L = HIST[HIST.length - 1];
+  if (!L) { $('h-samp').textContent = 'no samples yet'; return; }
+  if (!FORT) $('h-fort').textContent = L.fort || '–';
+  $('h-year').textContent = L.year ?? '–';
+  $('h-pop').textContent = `${fmtFull(L.pop)} dwarves`;
+  $('h-fps').textContent = `${L.fps ?? '–'} / ${L.fps_cap != null ? Math.round(L.fps_cap) : '–'} FPS`;
+  $('h-samp').textContent = ago(Date.now() / 1000 - L.at);
+}
+function sparkline(pts, k, hex) {
+  const W = 160, H = 34;
+  if (!pts.length) return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"></svg>`;
+  const vs = pts.map(p => +p[k] || 0), lo = Math.min(...vs), hi = Math.max(...vs), span = hi - lo || 1;
+  const t0 = pts[0].at, t1 = pts[pts.length - 1].at, ts = t1 - t0 || 1;
+  const X = p => pts.length === 1 ? W - 3 : 2 + (p.at - t0) / ts * (W - 5);
+  const Y = v => hi === lo ? H / 2 : H - 3 - (v - lo) / span * (H - 7);
+  let d = '', area = '', prev = null;
+  pts.forEach((p, i) => {
+    const x = X(p).toFixed(1), y = Y(vs[i]).toFixed(1);
+    const brk = !prev || p.at - prev.at > GAP;
+    d += (brk ? 'M' : 'L') + x + ' ' + y;
+    prev = p;
+  });
+  if (pts.length > 1) area = `<path d="M${X(pts[0]).toFixed(1)} ${H}` + d.replace(/M/g, 'L') + `L${X(pts[pts.length - 1]).toFixed(1)} ${H}Z" fill="${hex}" opacity=".13"/>`;
+  const last = pts[pts.length - 1];
+  if (pts.length === 1) d = `M2 ${H / 2}L${W - 3} ${H / 2}`;
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${area}<path d="${d}" fill="none" stroke="${hex}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" ${pts.length === 1 ? 'stroke-dasharray="3 4" opacity=".5"' : ''}/>` +
+    `<circle cx="${X(last).toFixed(1)}" cy="${Y(+last[k] || 0).toFixed(1)}" r="2.4" fill="${hex}"/></svg>`;
+}
+function renderKpis() {
+  const L = HIST[HIST.length - 1];
+  const now = L ? L.at : Date.now() / 1000;
+  const pts = HIST.filter(p => p.fort === (L && L.fort) && now - p.at <= 86400);
+  $('kpis').innerHTML = KPIS.map(m => {
+    const v = L ? L[m.k] : null, first = pts[0];
+    let delta = '';
+    if (first && pts.length > 1 && v != null) {
+      const dv = v - first[m.k], good = m.bad ? dv < 0 : dv > 0;
+      const span = now - first.at;
+      delta = dv === 0 ? `steady over ${spanTxt(span)}` : `<span class="${good ? 'up' : 'down'}">${dv > 0 ? '▲' : '▼'} ${fmt(Math.abs(dv))}</span> in ${spanTxt(span)}`;
+    } else if (L) delta = pts.length === 1 ? 'first sample' : '';
+    return `<div class="kpi panel" title="${esc(m.label)}: ${fmtFull(v)}"><div class="k"><i style="background:${m.c}"></i>${esc(m.label)}</div>` +
+      `<div class="v">${fmt(v)}${v != null && m.suffix ? `<span class="dim" style="font-size:15px">${m.suffix}</span>` : ''}</div><div class="d">${delta || (L ? '' : 'no samples yet')}</div>${sparkline(pts, m.k, m.hex)}</div>`;
+  }).join('');
+}
+const spanTxt = s => s < 3600 ? Math.max(1, Math.round(s / 60)) + ' min' : s < 86400 * 1.5 ? Math.round(s / 3600) + ' h' : Math.round(s / 86400) + ' d';
+
+function niceMax(v) {
+  if (v <= 0) return 1;
+  const e = Math.pow(10, Math.floor(Math.log10(v))), f = v / e;
+  return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * e;
+}
+const TSTEPS = [60, 120, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400];
+function timeLabel(t, step) {
+  const d = new Date(t * 1000);
+  if (step >= 86400) return d.toLocaleDateString([], {weekday: 'short', day: 'numeric'});
+  const hm = d.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+  if (step >= 21600 && d.getHours() === 0) return d.toLocaleDateString([], {weekday: 'short'});
+  return hm;
+}
+function drawCharts() {
+  const box = $('charts');
+  if (!box.children.length) box.innerHTML = CHARTS.map((c, i) => `<div class="chart panel"><div class="hd"><h3>${esc(c.title)}</h3><div class="legend">` +
+    c.s.map(s => `<span><i class="${s.dash ? 'dash' : ''}" style="background:${s.c};color:${s.c}"></i>${esc(s.label)}${s.right ? ' (right)' : ''}</span>`).join('') +
+    `</div></div><div class="bd" style="padding-top:6px"><div class="plot" id="plot-${i}"></div></div></div>`).join('');
+  const end = Math.max(Date.now() / 1000, HIST.length ? HIST[HIST.length - 1].at : 0);
+  const inR = HIST.filter(p => p.at >= end - RANGE);
+  let start = end - RANGE;
+  if (inR.length) start = Math.max(start, Math.min(inR[0].at, end - 1800));
+  const span = end - start;
+  $('rangenote').textContent = !HIST.length ? 'No samples yet: the first one comes within 5 minutes of the desk starting.'
+    : !inR.length ? `Nothing in this range (last sample ${ago(Date.now() / 1000 - HIST[HIST.length - 1].at)}).`
+    : `${inR.length} sample${inR.length > 1 ? 's' : ''}` + (span < RANGE - 60 ? `, covering the last ${spanTxt(span)} (all there is)` : '');
+  CHARTS.forEach((c, i) => drawChart($('plot-' + i), c, inR, start, end));
+}
+function drawChart(el, c, pts, t0, t1) {
+  const W = Math.max(200, el.clientWidth), H = el.clientHeight || 190;
+  const hasRight = c.s.some(s => s.right);
+  const P = {l: 46, r: hasRight ? 46 : 12, t: 8, b: 22};
+  const iw = W - P.l - P.r, ih = H - P.t - P.b;
+  const X = t => P.l + (t - t0) / (t1 - t0) * iw;
+  const raw = ss => Math.max(0, ...pts.flatMap(p => ss.map(s => +p[s.k] || 0)));
+  const rawL = raw(c.s.filter(s => !s.right)), rawR = hasRight ? raw(c.s.filter(s => s.right)) : 1;
+  // nice tick step (1, 2, 5 x 10^k) so the axis has 2-5 whole steps above the data
+  const stepFor = v => { if (v <= 0) return 1; const e = Math.pow(10, Math.floor(Math.log10(v / 4))); for (const f of [1, 2, 5, 10]) if (v / (f * e) <= 4) return Math.max(f * e, 1); return 10 * e; };
+  const NT = hasRight ? 4 : Math.max(2, Math.ceil(rawL * 1.04 / stepFor(rawL * 1.04)));
+  const step4 = v => { if (v <= 0) return 1; const e = Math.pow(10, Math.floor(Math.log10(v / 4))); for (const f of [1, 2, 5, 10]) if (f * e * 4 >= v) return f * e; return 10 * e; };
+  const yL = hasRight ? 4 * step4(rawL * 1.04) : NT * stepFor(rawL * 1.04), yR = hasRight ? 4 * step4(rawR * 1.04) : 1;
+  const Y = (v, right) => P.t + ih - (v / (right ? yR : yL)) * ih;
+  let g = '<g class="axis">';
+  for (let i = 0; i <= NT; i++) {
+    const y = P.t + ih - ih * i / NT;
+    g += `<line x1="${P.l}" x2="${W - P.r}" y1="${y}" y2="${y}" stroke="#2f2a23" ${i ? 'stroke-dasharray="2 4"' : ''}/>`;
+    g += `<text x="${P.l - 6}" y="${y + 3.5}" text-anchor="end">${fmt(yL * i / NT)}</text>`;
+    if (hasRight) g += `<text x="${W - P.r + 6}" y="${y + 3.5}">${fmt(yR * i / NT)}</text>`;
+  }
+  const step = TSTEPS.find(s => (t1 - t0) / s <= Math.max(3, Math.floor(iw / 90))) || 86400;
+  const tz = new Date().getTimezoneOffset() * 60;
+  for (let t = Math.ceil((t0 - tz) / step) * step + tz; t <= t1; t += step) {
+    const x = X(t);
+    if (x < P.l + 14 || x > W - P.r - 14) continue;
+    g += `<line x1="${x}" x2="${x}" y1="${P.t}" y2="${P.t + ih}" stroke="#26221c"/>`;
+    g += `<text x="${x}" y="${H - 6}" text-anchor="middle">${esc(timeLabel(t, step))}</text>`;
+  }
+  g += '</g>';
+  // fort changes: a marker with the new fort's name
+  let marks = '';
+  for (let i = 1; i < pts.length; i++) if (pts[i].fort !== pts[i - 1].fort) {
+    const x = X(pts[i].at);
+    marks += `<line x1="${x}" x2="${x}" y1="${P.t}" y2="${P.t + ih}" stroke="#e0a84a" stroke-dasharray="3 3" opacity=".7"/><text x="${x + 4}" y="${P.t + 11}" fill="#f3c56e" font-size="10.5">${esc(pts[i].fort || 'new fort')}</text>`;
+  }
+  // many more samples than pixels: draw the mean of each 2-pixel bucket (the tooltip still reads every sample)
+  let dp = pts;
+  if (pts.length > iw / 1.5) {
+    dp = []; let bk = null;
+    for (const p of pts) {
+      const id = Math.floor(X(p.at) / 2);
+      if (bk && bk.id === id && bk.fort === p.fort) { bk.n++; for (const s of c.s) if (p[s.k] != null) bk[s.k] = (bk[s.k] ?? 0) + +p[s.k]; bk.last = p.at; }
+      else { if (bk) dp.push(bk); bk = {id, n: 1, at: p.at, last: p.at, fort: p.fort}; for (const s of c.s) if (p[s.k] != null) bk[s.k] = +p[s.k]; }
+    }
+    if (bk) dp.push(bk);
+    for (const q of dp) for (const s of c.s) if (q[s.k] != null) q[s.k] /= q.n;
+  }
+  let lines = '';
+  for (const s of c.s) {
+    let d = '', segs = [], cur = [];
+    dp.forEach((p, i) => {
+      if (p[s.k] == null) return;
+      const prev = cur[cur.length - 1];
+      if (prev && (p.fort !== prev.fort || p.at - (prev.last ?? prev.at) > GAP)) { segs.push(cur); cur = []; }
+      cur.push(p);
+    });
+    if (cur.length) segs.push(cur);
+    for (const sg of segs) {
+      if (sg.length === 1) { lines += `<circle cx="${X(sg[0].at).toFixed(1)}" cy="${Y(+sg[0][s.k], s.right).toFixed(1)}" r="3.2" fill="${s.c}"/>`; continue; }
+      const path = sg.map((p, i) => (i ? 'L' : 'M') + X(p.at).toFixed(1) + ' ' + Y(+p[s.k], s.right).toFixed(1)).join('');
+      if (s.fill) lines += `<path d="${path}L${X(sg[sg.length - 1].at).toFixed(1)} ${P.t + ih}L${X(sg[0].at).toFixed(1)} ${P.t + ih}Z" fill="${s.c}" opacity=".12"/>`;
+      d += path;
+    }
+    if (d) lines += `<path d="${d}" fill="none" stroke="${s.c}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" ${s.dash ? 'stroke-dasharray="5 4" opacity=".8"' : ''}/>`;
+  }
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}${marks}${lines}<line class="cursor" x1="0" x2="0" y1="${P.t}" y2="${P.t + ih}" stroke="#ece4d2" opacity="0" stroke-width="1"/><g class="dots"></g></svg>` +
+    `<div class="tip"></div>` + (pts.length ? '' : '<div class="msg">No samples in this range yet</div>');
+  if (!pts.length) return;
+  const svg = el.querySelector('svg'), tip = el.querySelector('.tip'), cursor = svg.querySelector('.cursor'), dots = svg.querySelector('.dots');
+  svg.onmousemove = ev => {
+    const r = svg.getBoundingClientRect(), mx = ev.clientX - r.left;
+    const t = t0 + (mx - P.l) / iw * (t1 - t0);
+    let lo = 0, hi = pts.length - 1;
+    while (hi - lo > 1) { const m = (lo + hi) >> 1; if (pts[m].at < t) lo = m; else hi = m; }
+    const p = Math.abs(pts[lo].at - t) < Math.abs(pts[hi].at - t) ? pts[lo] : pts[hi];
+    const x = X(p.at);
+    cursor.setAttribute('x1', x); cursor.setAttribute('x2', x); cursor.setAttribute('opacity', '.35');
+    dots.innerHTML = c.s.filter(s => p[s.k] != null).map(s => `<circle cx="${x}" cy="${Y(+p[s.k], s.right)}" r="3.5" fill="${s.c}" stroke="#13110e" stroke-width="1.5"/>`).join('');
+    const d = new Date(p.at * 1000);
+    tip.innerHTML = `<b>${esc(d.toLocaleString([], {weekday: 'short', hour: '2-digit', minute: '2-digit'}))} &middot; ${esc(p.fort || '')}, year ${esc(p.year ?? '?')}</b>` +
+      c.s.map(s => `<div><i style="background:${s.c}"></i>${esc(s.label)}: <b style="display:inline;color:var(--text);font-size:12px">${fmtFull(p[s.k])}</b></div>`).join('');
+    tip.style.display = 'block';
+    const tw = tip.offsetWidth;
+    tip.style.left = (x + 12 + tw > W ? x - tw - 12 : x + 12) + 'px';
+    tip.style.top = '6px';
+  };
+  svg.onmouseleave = () => { tip.style.display = 'none'; cursor.setAttribute('opacity', '0'); dots.innerHTML = ''; };
+}
+$('range').querySelectorAll('button').forEach(b => b.onclick = () => {
+  RANGE = +b.dataset.r; $('range').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); drawCharts();
+});
+let rsz; window.addEventListener('resize', () => { clearTimeout(rsz); rsz = setTimeout(() => { if ($('p-overview').classList.contains('on')) drawCharts(); }, 150); });
+
+/* ---------- tour stops ---------- */
+let STOPS = [];
+const sq = $('sq'), ss = $('ss'), sf = $('sf');
+function shownStops() {
+  const q = sq.value.trim().toLowerCase(), f = sf.value;
+  let xs = STOPS.map((s, i) => ({...s, i})).filter(s => (!q || (s.name + ' ' + s.kind).toLowerCase().includes(q)) && (!f || (f === 'on') === s.on));
+  const by = ss.value;
+  if (by === 'name') xs.sort((a, b) => a.name.localeCompare(b.name));
+  else if (by === 'z') xs.sort((a, b) => b.z - a.z || a.name.localeCompare(b.name));
+  else if (by === 'kind') xs.sort((a, b) => (a.kind || '').localeCompare(b.kind || '') || a.name.localeCompare(b.name));
+  return xs;
+}
+function renderStops() {
+  // one switch per kind: "all hospitals" on or off at once
+  const kinds = {};
+  for (const s of STOPS) { const k = s.kind || 'Other'; (kinds[k] = kinds[k] || {on: 0, n: 0}).n++; if (s.on) kinds[k].on++; }
+  $('kinds').innerHTML = Object.entries(kinds).sort((a, b) => a[0].localeCompare(b[0])).map(([k, c]) =>
+    `<label class="chip${c.on === c.n ? ' all' : c.on ? ' part' : ''}"><input type="checkbox" data-kind="${esc(k)}" ${c.on === c.n ? 'checked' : ''}>${esc(k)} <small>${c.on}/${c.n}</small></label>`).join('');
+  document.querySelectorAll('#kinds input[data-kind]').forEach(c => c.onchange = () =>
+    setKeys(STOPS.filter(s => (s.kind || 'Other') === c.dataset.kind).map(s => s.key), c.checked));
+  const xs = shownStops();
+  let last = null, html = '', grp = '';
+  const flush = () => { if (grp) html += `<div>${grp}</div>`; grp = ''; };
+  for (const s of xs) {
+    if (ss.value === 'kind' && s.kind !== last) { flush(); grp += `<div class="group-h">${esc(s.kind || 'Other')}</div>`; last = s.kind; }
+    grp += `<div class="li${s.on ? '' : ' off'}"><span class="toggle" title="On the tour"><input type="checkbox" data-i="${s.i}" ${s.on ? 'checked' : ''}><span></span></span>` +
+      `<span class="name link" data-show="${s.i}" title="Send the camera here">${esc(s.name)}</span>` +
+      `<span class="meta">${ss.value === 'kind' ? '' : esc(s.kind) + ' &middot; '}lvl ${esc(s.z)}</span>` +
+      `<span class="acts"><button class="btn sm ghost" data-show="${s.i}">Show</button><button class="btn sm ghost" data-lock="${s.i}" title="Hold the camera here until unlocked">Lock</button></span></div>`;
+    if (ss.value !== 'kind') { html += grp; grp = ''; }
+  }
+  flush();
+  $('stops').innerHTML = html || (STOPS.length ? '<div class="empty">Nothing matches.</div>' : '<div class="empty">The tour has not listed its stops yet.</div>');
+  document.querySelectorAll('#stops input[data-i]').forEach(c => c.onchange = () => setKeys([STOPS[c.dataset.i].key], c.checked));
+  document.querySelectorAll('#stops [data-show]').forEach(a => a.onclick = () => answer(post('/show', {key: STOPS[a.dataset.show].key})));
+  document.querySelectorAll('#stops [data-lock]').forEach(a => a.onclick = () => answer(post('/lock', {key: STOPS[a.dataset.lock].key})));
+  const on = STOPS.filter(s => s.on).length;
+  $('tourcount').textContent = STOPS.length ? `${on} of ${STOPS.length} stops on the tour` : '';
+  $('nav-tour') && ($('nav-tour').textContent = STOPS.length ? on + '/' + STOPS.length : '');
+}
+async function answer(req) {   // a POST that answers with a log entry
+  try { const r = await req; const e = r.ok ? await r.json() : null; if (e) toast(e.label, e.out, !e.ok); else toast('The desk refused that', 'HTTP ' + r.status, true); }
+  catch (err) { toast('Could not reach the desk', String(err), true); }
+  refreshLog();
+}
+async function loadStops() { try { STOPS = await get('/stops.json'); } catch (e) { return; } renderStops(); }
+async function setKeys(keys, on) {
+  for (const s of STOPS) if (keys.includes(s.key)) s.on = on;   // show it at once
+  renderStops();
+  await post('/stop', {keys, on});
+  setTimeout(loadStops, 1500);
+}
+['sq', 'ss', 'sf'].forEach(id => $(id).addEventListener('input', renderStops));
+$('allon').onclick = () => setKeys(shownStops().map(s => s.key), true);
+$('alloff').onclick = () => setKeys(shownStops().map(s => s.key), false);
+
+/* ---------- blueprints ---------- */
+let BPS = [];
+async function loadBps() {
+  try { BPS = await get('/blueprints.json'); } catch (e) { return; }
+  const files = {};
+  for (const b of BPS) (files[b.file] = files[b.file] || []).push(b);
+  $('bps').innerHTML = Object.entries(files).map(([f, xs]) => `<div class="bpf panel"><div class="fn">${esc(f.replace(/\.csv$/, ''))}</div>` +
+    xs.map(b => { const i = BPS.indexOf(b); return `<div class="bprow"><span>${esc(b.label)} <small>${esc(b.mode)}${b.note ? ': ' + esc(b.note) : ''}</small></span>` +
+      `<button class="btn sm" data-bp="${i}" data-dry="1">Preview</button><button class="btn sm primary" data-bp="${i}">Build</button></div>`; }).join('') + '</div>').join('')
+    || '<div class="empty">No blueprints found.</div>';
+  document.querySelectorAll('#bps button[data-bp]').forEach(btn => btn.onclick = () => buildBp(btn));
+}
+const bx = $('bx'), by = $('by'), bz = $('bz');
+$('usecam').onclick = async () => { try { const c = await get('/camera.json'); if (c) { bx.value = c.x; by.value = c.y; bz.value = c.z; } else toast('The game did not say where the camera is', '', true); } catch (e) {} };
+async function buildBp(btn) {
+  const b = BPS[btn.dataset.bp], dry = !!btn.dataset.dry;
+  if (bx.value === '' || by.value === '' || bz.value === '') { toast('Pick a place first', 'Type x, y, z or use "Where the camera is looking".', true); return; }
+  if (!dry && !await ask(`Build ${b.file} /${b.label}?`, `At ${bx.value}, ${by.value}, ${bz.value}. (Preview it first if unsure.)`)) return;
+  btn.disabled = true;
+  try { await answer(post('/blueprint', {file: b.file, label: b.label, x: bx.value, y: by.value, z: bz.value, dry})); }
+  finally { btn.disabled = false; }
+}
+
+/* ---------- construction order ---------- */
+let PLAN = {rooms: [], order: []};
+async function loadPlan() {
+  try { PLAN = await get('/plan.json'); } catch (e) { return; }
+  const byKey = Object.fromEntries(PLAN.rooms.map(r => [r.key, r]));
+  $('plansaved').textContent = PLAN.saved ? `df-ai's plan as of the last save, ${PLAN.saved}` : '';
+  $('order').innerHTML = PLAN.order.length ? PLAN.order.map((k, i) =>
+    `<span class="ochip"><b>${i + 1}.</b> ${esc((byKey[k] || {name: k + ' (done or gone)'}).name)}` +
+    `${i ? `<button class="btn sm icon ghost" data-up="${esc(k)}" title="Move up">&uarr;</button>` : ''}<button class="btn sm icon ghost" data-rm="${esc(k)}" title="Take it out">&times;</button></span>`).join('')
+    + ' <button class="btn sm" id="dclear">Clear the order</button>' : '<span class="empty">Empty: df-ai decides.</span>';
+  let last = null, html = '', grp = '';
+  for (const r of PLAN.rooms) {
+    if (r.type !== last) { if (grp) html += `<div>${grp}</div>`; grp = `<div class="group-h">${esc(r.type)}</div>`; last = r.type; }
+    const inOrder = PLAN.order.includes(r.key);
+    grp += `<div class="li"><span class="name link" data-goto="${esc(r.key)}" title="Send the camera here">${esc(r.name)}</span>` +
+      `<span class="meta">${esc(r.size)} &middot; lvl ${esc(r.z)}</span>` +
+      (r.status === 'dig' ? '<span class="badge warn">digging now</span>' : r.status === 'plan' ? (inOrder ? '<span class="badge ok">in order</span>' :
+        `<button class="btn sm" data-add="${esc(r.key)}">Dig next</button>`) : '') + '</div>';
+  }
+  if (grp) html += `<div>${grp}</div>`;
+  $('planned').innerHTML = html || '<div class="empty">Nothing planned: df-ai has dug everything it wanted.</div>';
+  $('plancount').textContent = PLAN.rooms.length ? `${PLAN.rooms.length} rooms` : '';
+  $('nav-dig') && ($('nav-dig').textContent = PLAN.order.length || '');
+  const dig = (op, key) => post('/dig', {op, key}).then(() => { loadPlan(); refreshLog(); });
+  document.querySelectorAll('#planned [data-add]').forEach(a => a.onclick = () => dig('add', a.dataset.add));
+  document.querySelectorAll('#order [data-up]').forEach(a => a.onclick = () => dig('up', a.dataset.up));
+  document.querySelectorAll('#order [data-rm]').forEach(a => a.onclick = () => dig('remove', a.dataset.rm));
+  const c = $('dclear'); if (c) c.onclick = () => dig('clear');
+  document.querySelectorAll('#planned [data-goto]').forEach(a => a.onclick = () => answer(post('/goto', {key: a.dataset.goto})));
+}
+
+/* ---------- priorities ---------- */
+(() => {
+  let keys = [];
+  const show = d => {
+    const list = d.order || [];
+    keys = list.map(e => e.key);
+    $('prio').innerHTML = list.map((e, i) => `<div class="prow"><div class="num">${i + 1}</div><div class="st ${e.ok ? 'ok' : 'no'}" title="${e.ok ? 'met / going ahead' : 'not yet'}">${e.ok ? '&#10003;' : '&#9675;'}</div>` +
+      `<div><div class="lab">${esc(e.label)} ${e.kind ? `<span class="badge${e.kind === 'goal' ? '' : ' warn'}">${esc(e.kind)}</span>` : ''}</div><div class="line">${esc(e.line || '')}</div></div>` +
+      `<div class="mv"><button class="btn sm icon" data-pup="${i}" title="Move up" ${i ? '' : 'disabled'}>&uarr;</button><button class="btn sm icon" data-pdown="${i}" title="Move down" ${i < list.length - 1 ? '' : 'disabled'}>&darr;</button></div></div>`).join('')
+      || '<div class="empty">No priorities came back.</div>';
+    document.querySelectorAll('[data-pup],[data-pdown]').forEach(a => a.onclick = () => {
+      const i = +(a.dataset.pup ?? a.dataset.pdown), j = a.dataset.pup !== undefined ? i - 1 : i + 1;
+      if (j < 0 || j >= keys.length) return;
+      [keys[i], keys[j]] = [keys[j], keys[i]];
+      send();
+    });
+  };
+  const send = async () => { const r = await post('/priorities', {order: keys});
+    if (r.ok) show(await r.json()); else toast('The priorities did not take that', 'HTTP ' + r.status, true); refreshLog(); };
+  const load = () => get('/priorities.json').then(show).catch(() => {});
+  load(); setInterval(load, 30000);
+})();
+
+/* ---------- calendar ---------- */
+(() => {
+  const ord = n => n + ((n % 100 >= 11 && n % 100 <= 13) ? 'th' : ({1: 'st', 2: 'nd', 3: 'rd'}[n % 10] || 'th'));
+  const show = c => {
+    const sel = $('calmonth');
+    if (!sel.options.length) sel.innerHTML = c.months.map(m => `<option>${esc(m)}</option>`).join('');
+    $('cal').innerHTML = (c.calendar || []).length ? c.calendar.map(h => `<div class="li"><span class="name">&#127866; ${esc(h.name)}</span>` +
+      `<span class="meta">the ${ord(h.day)} of ${esc(h.month)} &middot; ${h.days} day${h.days > 1 ? 's' : ''}</span><button class="btn sm ghost" data-caldel="${esc(h.name)}">Remove</button></div>`).join('')
+      : '<div class="empty">No holidays yet. Add one below.</div>';
+    document.querySelectorAll('[data-caldel]').forEach(a => a.onclick = () => send({op: 'del', name: a.dataset.caldel}));
+  };
+  const send = async body => { const r = await post('/calendar', body);
+    if (r.ok) show(await r.json()); else toast('The calendar did not take that', 'A name, a day 1-28 and a length 1-28 days, please.', true); refreshLog(); setTimeout(refreshCards, 2000); };
+  $('caladd').onclick = () => send({op: 'add', name: $('calname').value, month: $('calmonth').value, day: +$('calday').value, days: +$('caldays').value});
+  get('/calendar.json').then(show).catch(() => {});
+})();
+
+/* ---------- ASCII display (lives on the Game page; the header pill opens it) ---------- */
+function asciiPanel() {
+  return `<div class="panel" style="margin-top:14px"><div class="hd"><h3>The game's display: Classic ASCII or graphics</h3><span class="sub">switched live in the game's own settings</span></div><div class="bd">
+    <div class="bigstate"><div class="screen gfx" id="asciiscreen">&#9632;&#9650;</div><div><div style="font-weight:600" id="asciishows">&hellip;</div><div class="note" id="asciimode"></div></div>
+      <span style="flex:1"></span><div class="seg" id="asciiseg"><button data-mode="on">ASCII now</button><button data-mode="off">Graphics now</button><button data-mode="auto">Follow schedule</button></div></div>
+    <div><b style="font-family:var(--serif)">Schedule</b> <span class="note">ASCII for the last <input id="asciimin" type="number" min="1" max="30" style="width:56px"> minutes of these hours:</span></div>
+    <div class="hours" id="asciihours"></div>
+    <button class="btn primary" id="asciisave">Save schedule</button></div></div>`;
+}
+let ASCII_LOAD = () => {};
+function initAscii() {
+  const b = $('asciibtn');
+  const show = x => {
+    const a = x.shows === 'ASCII';
+    b.textContent = a ? 'Game: ASCII' : 'Game: graphics'; b.dataset.on = a ? '1' : '';
+    if (!$('asciishows')) return;
+    $('asciiscreen').className = 'screen ' + (a ? 'ascii' : 'gfx'); $('asciiscreen').innerHTML = a ? '@&#9786;#' : '&#9632;&#9650;';
+    $('asciishows').textContent = 'The game shows ' + (x.shows === '?' ? '(no answer)' : x.shows);
+    $('asciimode').textContent = x.mode === 'on' ? 'Held in ASCII' : x.mode === 'off' ? 'Held in graphics' : x.mode === 'auto' ? 'Following the schedule' : (x.line || '');
+    $('asciiseg').querySelectorAll('button').forEach(s => s.classList.toggle('on', s.dataset.mode === x.mode));
+    $('asciimin').value = x.minutes || 5;
+    $('asciihours').innerHTML = [...Array(24).keys()].map(h => { const on = (x.hours || []).includes(h);
+      return `<label class="${on ? 'on' : ''}"><input type="checkbox" value="${h}" ${on ? 'checked' : ''}>${String(h).padStart(2, '0')}:00</label>`; }).join('');
+    $('asciihours').querySelectorAll('input').forEach(c => c.onchange = () => c.parentElement.classList.toggle('on', c.checked));
+  };
+  ASCII_LOAD = () => get('/ascii.json').then(show).catch(() => {});
+  b.onclick = () => { location.hash = 'g-game'; ASCII_LOAD(); };
+  const send = async (u, body) => { const r = await post(u, body); if (r.ok) show(await r.json()); else toast('The display did not take that', 'HTTP ' + r.status, true); refreshLog(); };
+  if ($('asciiseg')) {
+    $('asciiseg').querySelectorAll('[data-mode]').forEach(x => x.onclick = () => send('/ascii', {mode: x.dataset.mode}));
+    $('asciisave').onclick = () => send('/ascii_schedule', {hours: [...document.querySelectorAll('#asciihours input:checked')].map(c => +c.value), minutes: +$('asciimin').value});
+  }
+  ASCII_LOAD(); setInterval(ASCII_LOAD, 60000);
+}
+
+/* ---------- confirm modal ---------- */
+function modal({title, text, input, okText, match}) {
+  return new Promise(res => {
+    const m = $('modal'), inp = $('m-input'), ok = $('m-ok');
+    $('m-title').textContent = title; $('m-text').textContent = text; $('m-err').textContent = '';
+    inp.style.display = input ? '' : 'none'; inp.value = ''; inp.placeholder = input || '';
+    ok.textContent = okText || 'Confirm';
+    const check = () => { ok.disabled = !!match && inp.value.trim().toLowerCase() !== match.toLowerCase(); };
+    inp.oninput = check; check();
+    const done = v => { m.classList.remove('on'); document.removeEventListener('keydown', key); res(v); };
+    const key = e => { if (e.key === 'Escape') done(null); if (e.key === 'Enter' && !ok.disabled) done(input ? inp.value : true); };
+    document.addEventListener('keydown', key);
+    $('m-cancel').onclick = () => done(null);
+    ok.onclick = () => done(input ? inp.value : true);
+    m.classList.add('on'); (input ? inp : ok).focus();
+  });
+}
+const ask = (title, text) => modal({title, text, okText: 'Build it'}).then(v => !!v);
+
+/* ---------- the fort's future: type the fort's name to confirm; progress from new_fort.py ---------- */
+let FORT = '';
+(() => {
+  const show = st => {
+    FORT = st.fort || '';
+    $('ffort').textContent = st.fort || 'this fort';
+    if (st.fort) $('h-fort').textContent = st.fort;
+    $('fstatus').textContent = st.running ? 'Under way: ' + (st.step || 'starting') + '\n' + (st.steps || []).slice(-6).join('\n')
+      : st.step ? 'Last run: ' + st.step + (st.error ? ' (needs a look)' : '') : '';
+    document.querySelectorAll('[data-future]').forEach(b => b.disabled = !!st.running);
+  };
+  const load = () => get('/future.json').then(show).catch(() => {});
+  document.querySelectorAll('[data-future]').forEach(b => b.onclick = async () => {
+    const st = await get('/future.json');
+    show(st);
+    if (st.running) return;
+    const what = b.dataset.future === 'world' ? 'retire ' + st.fort + ' and generate a NEW WORLD' : 'retire ' + st.fort + ' and start a new fort in this world';
+    const typed = await modal({title: b.dataset.future === 'world' ? 'Retire the fort: a new world' : 'Retire the fort: a new fort here',
+      text: `This will ${what}.\nThe fort is saved and stays in the world's history, but the stream moves on.\n\nType the fort's name (${st.fort || 'no fort loaded'}) to confirm:`,
+      input: "Type the fort's name", okText: b.textContent, match: st.fort || '\u0000'});
+    if (!typed) return;
+    const r = await (await post('/future', {mode: b.dataset.future, confirm: typed})).json();
+    if (!r.ok) toast('Not started', r.why || 'not started', true); else toast('Started', 'Progress shows on this page.');
+    refreshLog(); setTimeout(load, 2000);
+  });
+  load(); setInterval(load, 15000);
+})();
+
+/* ---------- build a room of any kind (dfai-build) ---------- */
+(() => {
+  let K = [];
+  const sel = $('bkind'), help = $('bhelp');
+  const load = async () => {
+    try { const d = await get('/buildkinds.json'); $('bstatus').textContent = d.status || 'No answer about building yet.';
+      if (!K.length && d.kinds.length) { K = d.kinds; let g = null, h = '';
+        for (const k of K) { if (k.group !== g) { if (g) h += '</optgroup>'; h += `<optgroup label="${esc(k.group)}">`; g = k.group; } h += `<option value="${esc(k.key)}">${esc(k.label)}</option>`; }
+        sel.innerHTML = h + '</optgroup>';
+        // the same kinds as tiles: a click picks one (nothing is ordered until "Build it")
+        const groups = {}; for (const k of K) (groups[k.group] = groups[k.group] || []).push(k);
+        $('bkinds').innerHTML = Object.entries(groups).map(([g, ks]) => `<div class="group-h" style="border:0;padding-left:0">${esc(g)}</div><div class="kindgrid">` +
+          ks.map(k => `<button type="button" class="kind" data-kind="${esc(k.key)}"><b>${esc(k.label)}</b><small>${esc(k.help)}</small></button>`).join('') + '</div>').join('');
+        $('bkinds').querySelectorAll('[data-kind]').forEach(t => t.onclick = () => { sel.value = t.dataset.kind; sel.onchange(); });
+        sel.onchange(); } } catch (e) {}
+  };
+  sel.onchange = () => { const k = K.find(x => x.key === sel.value); help.textContent = k ? k.help : '';
+    document.querySelectorAll('#bkinds [data-kind]').forEach(t => t.classList.toggle('on', t.dataset.kind === sel.value)); };
+  $('bgo').onclick = async () => {
+    const b = $('bgo'); b.disabled = true;
+    try { await answer(post('/build', {kind: sel.value, n: +$('bn').value})); } finally { b.disabled = false; }
+    setTimeout(load, 2500);
+  };
+  load(); setInterval(load, 30000);
+})();
+
+/* ---------- start ---------- */
+loadCommands().then(refreshCards).catch(e => { toast('Could not load the orders', String(e), true); buildNav([]); });
+setInterval(refreshCards, 10000);
+refreshStatus(); setInterval(refreshStatus, 20000);
+refreshLog(); setInterval(refreshLog, 20000);
+loadStops(); setInterval(loadStops, 60000);
+loadPlan(); setInterval(loadPlan, 120000);
+loadBps();
+loadHistory(); setInterval(loadHistory, 60000);
+setInterval(renderHeader, 30000);
+</script>
+</body>
+</html>
