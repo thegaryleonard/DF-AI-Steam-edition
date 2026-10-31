@@ -153,11 +153,38 @@ local function step(s)
         if not sh then return 'no execution pit with a refuse chute yet' end
         local ok, why = plan_ok(sh)
         if not ok then return 'pit found, but ' .. why end
-        s.shaft, s.phase = sh, 'dig'
+        s.shaft, s.phase = sh, 'open'
     end
     local zp = sh.zb - 1
     local sx, sy = spur(sh)
     local cr, beyond = crusher(sh)
+    local function removing(x, y, z)
+        local l = df.global.world.jobs.list.next
+        while l do
+            local j = l.item
+            if j and j.job_type == df.job_type.RemoveConstruction and j.pos.x == x and j.pos.y == y and j.pos.z == z then return true end
+            l = l.next
+        end
+    end
+    -- the builders' way down: df-ai capped the shaft stair with a constructed
+    -- floor; it's swapped for a constructed down stair while the work goes on
+    -- and capped again at the end
+    if s.phase == 'open' then
+        local x, y, z = sh.s[1], sh.s[2], sh.zt
+        local st = shape(x, y, z)
+        if st == Sh.STAIR_DOWN or st == Sh.STAIR_UPDOWN then s.phase = 'dig'
+        elseif st == Sh.FLOOR and is_construction(x, y, z) then
+            if not removing(x, y, z) then dfhack.constructions.designateRemove(xyz2pos(x, y, z)) end
+            return 'opening the stair into the pit shaft for the builders'
+        elseif st == Sh.EMPTY then
+            if not dfhack.buildings.findAtTile(xyz2pos(x, y, z)) then
+                pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Construction, subtype = df.construction_type.DownStair, pos = xyz2pos(x, y, z)})
+            end
+            return 'a stair down into the pit shaft for the builders'
+        else
+            return 'pit: the shaft stair top is something unexpected (' .. tostring(df.tiletype_shape[st]) .. ')'
+        end
+    end
     if s.phase == 'dig' then
         -- the miners' spur stair down beside the shaft stair, the pen, and the
         -- tile beyond the chute's foot for the crusher
@@ -200,9 +227,9 @@ local function step(s)
         local b = bridge_at(cr[1], cr[2], sh.zb)
         if b and b.x2 - b.x1 + b.y2 - b.y1 == 0 then
             -- an old 1-tile smasher here: fine as it is (it crushes when raised)
-            s.bridge, s.one_tile, s.phase = b.id, true, 'hatch'
+            s.bridge, s.one_tile, s.phase = b.id, true, 'reseal'
         elseif built(b) then
-            s.bridge, s.phase = b.id, 'hatch'
+            s.bridge, s.phase = b.id, 'reseal'
             trigger(b.id, false)    -- state 0 raises a drawbridge (tested): up, waiting
         elseif not b then
             local x1, y1 = math.min(cr[1], beyond[1]), math.min(cr[2], beyond[2])
@@ -211,6 +238,29 @@ local function step(s)
             return 'building the crusher at the foot of the chute'
         else
             return 'building the crusher at the foot of the chute'
+        end
+    end
+    if s.phase == 'reseal' then
+        -- cap the shaft stair again: nobody of ours left below
+        local x, y, z = sh.s[1], sh.s[2], sh.zt
+        for zz = sh.zb, z - 1 do
+            for _, t in ipairs({sh.p, sh.s, sh.r, {sx, sy}}) do
+                local u = units_on(t[1], t[2], zz, true)
+                if u then return 'waiting for ' .. dfhack.df2utf(dfhack.units.getReadableName(u)) .. ' to come up out of the shaft' end
+            end
+        end
+        local st = shape(x, y, z)
+        if st == Sh.FLOOR then s.phase = 'hatch'
+        elseif st == Sh.STAIR_DOWN and is_construction(x, y, z) then
+            if not removing(x, y, z) then dfhack.constructions.designateRemove(xyz2pos(x, y, z)) end
+            return 'taking the builders\' stair out of the shaft'
+        elseif st == Sh.EMPTY then
+            if not dfhack.buildings.findAtTile(xyz2pos(x, y, z)) then
+                pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Construction, subtype = df.construction_type.Floor, pos = xyz2pos(x, y, z)})
+            end
+            return 'capping the shaft stair again'
+        else
+            return 'pit: can\'t cap the shaft stair (' .. tostring(df.tiletype_shape[st]) .. ')'
         end
     end
     if s.phase == 'hatch' then
