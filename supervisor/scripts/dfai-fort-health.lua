@@ -330,6 +330,34 @@ local function check_water(out)
         end
     end
     if not best and well then
+        -- a well needs a rope or chain (and a bucket): with none, the order is
+        -- silently cancelled (Fortresstome: two wells lost, no rope anywhere,
+        -- the only rope order stuck behind 39 clothing jobs). Get one first,
+        -- at the front of the queue.
+        local ropes = 0
+        for _, i in ipairs(df.global.world.items.other.CHAIN) do
+            if not (i.flags.forbid or i.flags.in_job or i.flags.in_building or i.flags.trader) then ropes = ropes + 1 end
+        end
+        if ropes == 0 then
+            local queued = false
+            for _, mo in ipairs(df.global.world.manager_orders.all) do
+                if mo.job_type == df.job_type.MakeChain and mo.amount_left > 0 then queued = true end
+            end
+            if not queued then
+                local cloth = 0
+                for _, i in ipairs(df.global.world.items.other.CLOTH) do if not (i.flags.forbid or i.flags.in_job) then cloth = cloth + 1 end end
+                dfhack.run_command_silent('workorder', cloth > 0 and '{"job":"MakeChain","material_category":["cloth"],"amount_total":2}'
+                    or '{"job":"MakeChain","material_category":["metal"],"amount_total":2}')
+            end
+            local l = df.global.world.jobs.list.next
+            while l do
+                local j = l.item
+                if j and j.job_type == df.job_type.MakeChain then j.flags.do_now = true j.flags.suspend = false end
+                l = l.next
+            end
+            out[#out + 1] = 'water: a well over the cavern water needs a rope first - rope ordered, at the front of the queue'
+            return
+        end
         local ok, w = pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Well, pos = xyz2pos(well.x, well.y, well.z)})
         if ok and w then
             H.water_well = w.id
