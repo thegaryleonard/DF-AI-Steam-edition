@@ -416,6 +416,13 @@ void Population::update_moods(color_ostream & out)
             if (usable && holder && u->counters2.thirst_timer > MOOD_RESCUE_THIRST)
             {
                 df::coord wpos(holder->centerx, holder->centery, holder->z);
+                // Nothing reachable at all (Reg's mason mood: all 70 logs lay
+                // where the workshop couldn't walk, so the log was "usable"
+                // and no felling was ordered): past the cheat line, carry the
+                // nearest unreachable one in anyway.
+                df::item *far_item = nullptr;
+                int32_t far_d = std::numeric_limits<int32_t>::max();
+                bool attached = false;
                 for (auto item : world->items.other[items_other_id::IN_PLAY])
                 {
                     df::item_type itype = item->getType();
@@ -426,15 +433,28 @@ void Population::update_moods(color_ostream & out)
                         continue;
                     }
                     auto & f = item->flags.bits;
+                    // items in a bin count (in_inventory is set for them too:
+                    // all 183 of Reg's cut gems sat in bins and were skipped);
+                    // items a unit carries do not
                     if (f.in_job || f.owned || f.trader || f.foreign || f.artifact || f.removed || f.forbid || f.dump ||
-                        f.garbage_collect || f.on_fire || f.rotten || f.construction || f.spider_web || f.hidden || f.in_inventory ||
-                        f.in_building)
+                        f.garbage_collect || f.on_fire || f.rotten || f.construction || f.spider_web || f.hidden ||
+                        (f.in_inventory && Items::getHolderUnit(item)) || f.in_building)
                     {
                         continue;
                     }
                     df::coord ipos = Items::getPosition(item);
-                    if (!ipos.isValid() || !Maps::canWalkBetween(wpos, ipos))
+                    if (!ipos.isValid())
                     {
+                        continue;
+                    }
+                    if (!Maps::canWalkBetween(wpos, ipos))
+                    {
+                        int32_t d = std::abs(ipos.x - wpos.x) + std::abs(ipos.y - wpos.y) + 10 * std::abs(ipos.z - wpos.z);
+                        if (d < far_d)
+                        {
+                            far_d = d;
+                            far_item = item;
+                        }
                         continue;
                     }
                     if (Items::moveToBuilding(item, holder, df::building_item_role_type::TEMP) &&
@@ -442,10 +462,18 @@ void Population::update_moods(color_ostream & out)
                     {
                         ai.debug(out, stl_sprintf("[MOOD] %s was not fetching %s (thirst %d): carried %s to the workshop", who.c_str(), describe_job_item(ji).c_str(), u->counters2.thirst_timer, AI::describe_item(item).c_str()));
                         have = ji->quantity;
+                        attached = true;
                         break;
                     }
                     // a failed move (item held by a building, container) must
                     // not end the search: Rakust waited on BLOCKS this way
+                }
+                if (!attached && far_item && u->counters2.thirst_timer > MOOD_CHEAT_THIRST &&
+                    Items::moveToBuilding(far_item, holder, df::building_item_role_type::TEMP) &&
+                    Job::attachJobItem(job, far_item, df::job_role_type::Reagent, int32_t(idx), -1))
+                {
+                    ai.debug(out, stl_sprintf("[MOOD] CHEAT: no reachable %s for %s (thirst %d): moved unreachable %s to the workshop", describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, AI::describe_item(far_item).c_str()));
+                    have = ji->quantity;
                 }
             }
             if (released)
