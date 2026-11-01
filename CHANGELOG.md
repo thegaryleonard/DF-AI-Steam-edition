@@ -5,6 +5,8 @@
 - The execution pit checks that its pen is cut off from the fort, and walls up any way out before executions resume.
 - Soldiers no longer get kill orders on creatures no dwarf can reach; marksdwarves only get fliers that are over the fort's own ground.
 - Curtain walls and bunkers are only planned on ground the fort can walk to; unreachable wall orders are taken down so their stone is freed. Bunkers take up traps standing on their wall line.
+- Squads no longer stand guard over caged animals: caged and chained creatures are never kill targets, and prisoners waiting to be pitted no longer get a "just in case" kill order (it parked squads at the pit for days).
+- Yard watch (`dfai-yardwatch`): while a dangerous creature is loose over the fort, outdoor jobs within 25 tiles of it are put on hold and their workers called off; they resume once the yard has been clear a while.
 - The watchdog repeats a problem at most every 12 real hours instead of every few game days.
 
 # 53.16-r3 (unofficial port)
