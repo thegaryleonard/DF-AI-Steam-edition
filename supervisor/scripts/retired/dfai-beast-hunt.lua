@@ -29,7 +29,7 @@ local NOTIFY = (os.getenv('LOCALAPPDATA') or '') .. '/hermes/cache/dfai_notify.t
 
 local function notify(msg)
     local f = io.open(NOTIFY, 'a')
-    if f then f:write('<@YOUR_DISCORD_USER_ID> ' .. msg .. '\n') f:close() end
+    if f then f:write('' .. msg .. '\n') f:close() end
 end
 local function log(msg) print('[beast hunt] ' .. msg) end
 

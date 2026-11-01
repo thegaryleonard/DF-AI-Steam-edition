@@ -59,13 +59,7 @@ for _, u in ipairs(df.global.world.units.active) do
         beasts[#beasts + 1] = ('%s (level %d, %s)'):format(u8(dfhack.units.getReadableName(u)):gsub(',.*$', ''), u.pos.z, near and 'IN THE FORT' or 'down in the caverns')
     end
 end
-local hunt = (cmd('dfai-beast-hunt'):gsub('; err nil', ''))
-if hunt:find('^done') or hunt:find('^idle') or hunt == '' then
-    out.beast = ('No hunt running. %s Army: %d soldiers in %d squads.'):format(
-        #beasts > 0 and ('Beasts in sight: ' .. table.concat(beasts, '; ') .. '.') or 'No beasts in sight.', soldiers, nsq)
-else
-    out.beast = hunt .. (' (army now: %d soldiers)'):format(soldiers)
-end
+out.beast = ('%s Army: %d soldiers.'):format(#beasts > 0 and ('Beasts in sight: ' .. table.concat(beasts, '; ') .. '.') or 'No beasts in sight.', soldiers)
 out.beasts = beasts
 out.mist = cmd('dfai-mist')
 local function tidy(t) return (t:gsub('^done; last: done', 'done')) end
@@ -82,7 +76,6 @@ out.ghosts = (cmd('dfai-ghost-watch'):gsub('^ghost watch:%s*', ''))
 out.health = (cmd('dfai-fort-health'):gsub('^fort health:%s*', ''):gsub('%s+', ' '))
 out.armory = cmd('dfai-armory')
 out.seal = cmd('dfai-cavern-seal')
-out.pastures = (cmd('dfai-pastures'):gsub(' | .*', ''))
 
 -- projects the camera follows
 local okp, pm = pcall(reqscript, 'dfai-projects')

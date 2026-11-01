@@ -30,7 +30,6 @@ COMMANDS = {
     "war.hold":     ("War", "Hold the army home", "No more raids go out (the one abroad still comes back).", ["dfai-war-office", "hold", "overseer"], 30),
     "war.resume":   ("War", "Resume raids", "One raiding party out at a time, rotating targets.", ["dfai-war-office", "resume"], 30),
     "war.list":     ("War", "Targets", "Every site the war office can reach, nearest first.", ["dfai-war-office", "list"], 60),
-    "beast.attack": ("War", "Beast hunt: go now", "Skip the rest of the muster and breach.", ["dfai-beast-hunt", "attack"], 30),
     # diplomacy
     "fo.now":       ("Diplomacy", "Send messengers", "Ask the neighbours for trade and visits now.", ["dfai-foreign-office", "now"], 30),
     "fo.list":      ("Diplomacy", "Relations", "Who we know and how they feel about us.", ["dfai-foreign-office", "list"], 60),
@@ -45,8 +44,6 @@ COMMANDS = {
     "verify.now":   ("Fort", "Proven features", "Every feature that hasn't yet been seen working in a real fort, ticked off the first time it does (water from the caverns, mist generator, refuse crusher, the pit pen, bunkers, walls...). Kept across forts. This checks now.", ["dfai-verify", "now"], 30),
     "health.now":   ("Construction", "Fort health check", "Once a game day: stone the masons may use, fertilizer vs potash, coffins for the dead, idle workshops and the army. Fixes what it safely can. This runs the check now.", ["dfai-fort-health", "now"], 30),
     "cavore.stop":  ("Construction", "Stop mining the caverns", "No new cavern ore is marked (what is marked stays marked).", ["dfai-cavern-ore", "stop"], 30),
-    "pasture.cave": ("Construction", "Cavern pastures: use them", "Off by default (indoor pens are safer). Turns on the two big pens on the first cavern's grass and lets the herd spread into them.", ["dfai-pastures", "cavern", "on"], 30),
-    "pasture.home": ("Construction", "Cavern pastures: bring the herd home", "Indoor pens only: grazers in the caverns come back as indoor grass allows, new indoor pasture rooms are ordered when the herd outgrows them, and autobutcher trims each species to its share of the grass.", ["dfai-pastures", "cavern", "off"], 30),
     "smasher":      ("Construction", "Execution pit and refuse crusher: check now", "Any fort: under df-ai's execution pit a sealed 5x5 pen one level down catches whatever is thrown in (splat, survive or fly, nothing gets out). The refuse chute drops onto the floor under a raised 2-tile drawbridge; lowering it crushes the load, then it goes back up. Dwarves dump onto a hatch over the chute, which opens to drop it. Our own dead are never crushed. This checks the next step now.", ["dfai-pit", "now"], 30),
     "projects":     ("Construction", "What's being built", "Read-only: lists every big job the camera's mission mode is following right now (new rooms being dug, a cavern breach, the ore scrub) and how far along each is. The answer shows up in Orders Given on the right.", ["dfai-projects", "list"], 30),
     # camera
@@ -80,7 +77,6 @@ PARAMS = {
 }
 STATUS = [
     ("War office", ["dfai-war-office"]),
-    ("Beast hunt", ["dfai-beast-hunt"]),
     ("Mist generator", ["dfai-mist"]),
     ("Deep dig", ["dfai-deep-dig"]),
     ("Holiday", ["dfai-holiday"]),
@@ -92,7 +88,6 @@ STATUS = [
     ("Building to order", ["dfai-build"]),
     ("Cavern ore", ["dfai-cavern-ore"]),
     ("Archer posts", ["dfai-archer-posts"]),
-    ("Pastures", ["dfai-pastures"]),
     ("Catacomb wing", ["dfai-catacomb"]),
 ]
 PLANNED = [
@@ -417,7 +412,6 @@ def card_status():
         "war.hold": (f"Holding the army home ({held})." if held else "Raids are running: one party out at a time.") + army_line,
         "war.resume": f"Raids are on hold ({held})." if held else "Raids are already running.",
         "war.list": out_now,
-        "beast.attack": st.get("beast", "?"),
         "fo.now": "The foreign office's records are unreadable; needs a look." if fo.get("broken") else f"{fo.get('envoys', 0)} envoy(s) on the road; {fo.get('contacts', 0)} civs contacted.",
         "fo.list": f"{fo.get('contacts', 0)} civs contacted.",
         "mist.status": st.get("mist", "?"),
@@ -427,8 +421,6 @@ def card_status():
         "ore.start": st.get("ore", "?"),
         "ore.stop": st.get("ore", "?"),
         "smasher": st.get("smasher", "?"),
-        "pasture.cave": st.get("pastures", "?"),
-        "pasture.home": st.get("pastures", "?"),
         "cavore.start": st.get("cavore", "?"),
         "cavore.stop": st.get("cavore", "?"),
         "health.now": st.get("health", "?") + (" | " + st["armory"] if st.get("armory") else "") + (" | " + st["seal"] if st.get("seal") else ""),

@@ -52,5 +52,17 @@ printf 'df-ai %s\nDwarf Fortress 53.16 (Steam)\nDFHack 53.16-r3\nexe_size=%s\n' 
 # list of everything we put in the game folder, for the uninstaller
 (cd "$OUT/game" && find . -type f | sed 's|^\./||' | sort) > "$OUT/FILES.txt"
 
-(cd "$ROOT/dist" && powershell -NoProfile -Command "Compress-Archive -Path '$NAME' -DestinationPath '$NAME.zip' -Force")
+# zip with forward-slash paths (PowerShell 5's Compress-Archive writes
+# backslashes, which some unzip tools turn into odd file names)
+PY="${PY:-C:/Users/dad/AppData/Local/Python/pythoncore-3.15-64/python.exe}"
+command -v "$PY" >/dev/null 2>&1 || PY=python
+(cd "$ROOT/dist" && "$PY" -c "
+import os, sys, zipfile
+name = sys.argv[1]
+with zipfile.ZipFile(name + '.zip', 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+    for d, _, fs in os.walk(name):
+        for f in fs:
+            full = os.path.join(d, f)
+            z.write(full, full.replace(os.sep, '/'))
+" "$NAME")
 echo "built: $ROOT/dist/$NAME.zip ($(du -h "$OUT.zip" | cut -f1))"

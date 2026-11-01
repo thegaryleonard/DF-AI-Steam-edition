@@ -24,7 +24,7 @@ CFG = {
     "save_dir": os.path.expandvars(r"%APPDATA%\Bay 12 Games\Dwarf Fortress\save"),
     "backup_dir": os.path.expandvars(r"%USERPROFILE%\DFBackups"),
     "notify_file": os.path.expandvars(r"%LOCALAPPDATA%\hermes\cache\dfai_notify.txt"),
-    "mention": "<@YOUR_DISCORD_USER_ID>",
+    "mention": "",              # e.g. "<@your discord user id>" (set it in supervisor.json)
     "steam_app_id": "975370",
     "poll_s": 20,
     "freeze_s": 180,            # unpaused with no clock progress this long = frozen

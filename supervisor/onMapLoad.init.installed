@@ -17,11 +17,9 @@ overlay enable dfai-portrait-builder.builder
 dfai-foreign-office start
 dfai-war-office start
 dfai-deep-dig start
-dfai-beast-hunt start
 dfai-holiday resume
 dfai-ore-scrub resume
 dfai-battle-report start
-dfai-pastures start
 dfai-ascii start
 dfai-catacomb resume
 dfai-build resume
