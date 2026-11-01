@@ -17,7 +17,7 @@ HELPERS = {
     'dfai-foreign-office start', 'dfai-war-office start',
     'dfai-deep-dig start', 'dfai-cavern-seal start', 'dfai-cavern-ore resume', 'dfai-ore-scrub resume',
     'dfai-armory start', 'dfai-archer-posts start', 'dfai-battle-report start',
-    'dfai-bunker start', 'dfai-walls start', 'dfai-mist start', 'dfai-traffic start', 'dfai-pit start', 'dfai-wellshaft start',
+    'dfai-bunker start', 'dfai-walls start', 'dfai-mist start', 'dfai-traffic start', 'dfai-pit start', 'dfai-wellshaft start', 'dfai-yardwatch start',
     'dfai-catacomb resume', 'dfai-ghost-watch start', 'dfai-instruments start',
     'dfai-holiday resume', 'dfai-build resume',
 }

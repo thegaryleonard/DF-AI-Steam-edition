@@ -211,6 +211,10 @@ bool AI::tag_enemies(color_ostream & out)
             {
                 auto t = df::unit::find(uid);
                 // marksdwarves keep a flier they can't walk to: they shoot it
+                // a caged animal can't be killed: squads stood guard over the
+                // cage-trapped beasts by the execution pit for days (Topcloister)
+                if (t && (t->flags1.bits.caged || t->flags1.bits.chained))
+                    return true;
                 if (!t || Units::isDead(t) || (!pop_ref->military_target_reachable(t) && !(ranged && is_flier(t) && pop_ref->military_target_shootable(t))))
                     return true;
                 // ordinary wildlife: only near home, and not while the squad starves
@@ -251,7 +255,7 @@ bool AI::tag_enemies(color_ostream & out)
         df::unit *u = *it;
         df::creature_raw *race = df::creature_raw::find(u->race);
         if (!Units::isDead(u) && Units::getPosition(u).isValid() &&
-            !Units::isOwnCiv(u) && Units::getContainer(u) == nullptr &&
+            !Units::isOwnCiv(u) && Units::getContainer(u) == nullptr && !u->flags1.bits.caged && !u->flags1.bits.chained &&
             !Maps::getTileDesignation(Units::getPosition(u))->bits.hidden)
         {
             if (race && race->flags.is_set(creature_raw_flags::HAS_ANY_MEGABEAST))

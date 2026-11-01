@@ -557,7 +557,12 @@ void Population::update_caged(color_ostream & out)
                         {
                             assign_unit_to_zone(u, virtual_cast<df::building_civzonest>(r->dfbuilding()));
                             ai.debug(out, "pop: marked " + AI::describe_unit(u) + " for pitting");
-                            military_random_squad_attack_unit(out, u, "just in case pitting fails");
+                            // no "just in case" kill order any more: it parked a squad
+                            // at the pit for as long as the cage waited to be hauled
+                            // (days, with half of Topcloister in bed). The pen is cut
+                            // off from the fort (dfai-pit), and anything that does get
+                            // loose is picked up by tag_enemies like any other threat.
+                            military_cancel_attack_order(out, u, "caged, waiting to be pitted");
                         }
                         else
                         {
