@@ -565,9 +565,14 @@ void Population::update_moods(color_ostream & out)
                         break;
                     }
                 }
-                std::vector<df::item *> made;
-                if (src && Items::createItem(made, u, item_type::CLOTH, -1, src->getMaterial(), src->getMaterialIndex()) && !made.empty())
+                // quantity is in dimension units (30000 = three whole pieces):
+                // Urdim's weaver mood needed three, one would not do.
+                int32_t pieces = std::max(1, (ji->quantity + 9999) / 10000);
+                for (int32_t p = 0; src && p < pieces; p++)
                 {
+                    std::vector<df::item *> made;
+                    if (!Items::createItem(made, u, item_type::CLOTH, -1, src->getMaterial(), src->getMaterialIndex()) || made.empty())
+                        break;
                     df::item *c = made[0];
                     if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
                         Job::attachJobItem(job, c, df::job_role_type::Reagent, int32_t(idx), -1))
