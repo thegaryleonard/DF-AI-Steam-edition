@@ -549,7 +549,13 @@ void Population::update_moods(color_ostream & out)
                 else if (ji->flags2.bits.silk)
                 {
                     *standing_orders_auto_collect_webs = 1;
-                    ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on (" + std::to_string(webs) + " webs to collect)");
+                    if (mood_warned.insert(who + "|silkmsg|" + std::to_string(idx)).second)
+                        ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on (" + std::to_string(webs) + " webs to collect)");
+                    // Check again next pass: once webs are collected into
+                    // thread the weave order above must still be placed
+                    // (Bomrek's mood waited on 245 webs with no silk weave
+                    // ever ordered, because this key blocked the retry).
+                    mood_warned.erase(who + "|cloth|" + std::to_string(idx));
                 }
             }
             if (!usable && ji->item_type == item_type::CLOTH && (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn) &&
@@ -600,6 +606,24 @@ void Population::update_moods(color_ostream & out)
                             describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, AI::describe_item(c).c_str()));
                         usable++;
                     }
+                }
+            }
+            if (!usable && ((ji->item_type == item_type::CLOTH && ji->flags2.bits.silk) ||
+                (ji->item_type == item_type::BLOCKS && (ji->mat_type == 0 || ji->mat_type == -1))))
+            {
+                // The supply jobs exist but sit idle behind every worker's
+                // own queue (Bomrek's silk-and-blocks mood: 3 block cuts, a
+                // web collection and 3 weaves all unclaimed at thirst 30000).
+                // Jump them ahead of normal work.
+                bool silk = ji->item_type == item_type::CLOTH;
+                for (auto l = world->jobs.list.next; l; l = l->next)
+                {
+                    df::job *sj = l->item;
+                    if (!sj || sj->flags.bits.do_now)
+                        continue;
+                    if (silk ? (sj->job_type == job_type::CollectWebs || (sj->job_type == job_type::WeaveCloth && sj->material_category.bits.silk))
+                             : (sj->job_type == job_type::ConstructBlocks && sj->mat_type == 0))
+                        sj->flags.bits.do_now = true;
                 }
             }
             if (!usable && ji->item_type == item_type::WOOD && mood_warned.insert(who + "|wood|" + std::to_string(idx)).second)
