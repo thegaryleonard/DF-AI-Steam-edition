@@ -1,3 +1,12 @@
+# Unreleased
+
+- The cistern looks for water after embark, not just a river at embark: it tunnels from the reserve's inlet to any real water at or above it, through solid rock, and breaches the last wall from open ground. With no water it can reach it says so and stops working the levers over an empty reserve. (`ai cistern-tap X Y Z` dry-runs the planner.)
+- Forts whose water lies below them sink a well shaft to it: a channel through solid rock beside a digging stair, the stair walled off once the shaft is open, then a well on top (`dfai-wellshaft`).
+- The execution pit checks that its pen is cut off from the fort, and walls up any way out before executions resume.
+- Soldiers no longer get kill orders on creatures no dwarf can reach; marksdwarves only get fliers that are over the fort's own ground.
+- Curtain walls and bunkers are only planned on ground the fort can walk to; unreachable wall orders are taken down so their stone is freed. Bunkers take up traps standing on their wall line.
+- The watchdog repeats a problem at most every 12 real hours instead of every few game days.
+
 # 53.16-r3 (unofficial port)
 
 Ported to Dwarf Fortress 53.16 and DFHack 53.16-r3. The v50+ game replaced the keyboard menus df-ai used to drive, so every action now changes game data directly through DFHack.
