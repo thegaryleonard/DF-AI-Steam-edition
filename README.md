@@ -2,6 +2,9 @@
 
 **Watch Dwarf Fortress play itself.** df-ai is a DFHack plugin that runs a whole fortress on its own: it digs the halls, builds the rooms, farms and brews, trades with caravans, raises an army and fights off whatever comes, while you watch.
 
+![df-ai running a fort live on stream, with the Herald newspaper overlay](docs/img/stream.jpg)
+*A fort run entirely by df-ai, live on [twitch.tv/laserjetlab](https://twitch.tv/laserjetlab), with the Herald newspaper overlay on the right.*
+
 This is a port of [BenLubar's df-ai](https://github.com/BenLubar/df-ai) to the modern Steam version of Dwarf Fortress, plus a set of helper scripts that make the AI's forts last longer.
 
 | Works with | Version |
@@ -126,6 +129,8 @@ This repo also holds the setup behind the [laserjetlab](https://twitch.tv/laserj
 - **The Herald** (http://localhost:8765): a newspaper overlay for OBS with breaking news, recaps of the last few hours, battle reports, obituaries and comics.
 - **The Overseer's Desk** (http://localhost:8767): a local control panel with live charts and buttons. It can send a raid, hold the army, set game speed, reorder fort priorities, preview and import blueprints, and retire the fort.
 - Spectator camera, room tours, and an ASCII/graphics schedule.
+
+![The Overseer's Desk: live charts of the fort's population, food, drink and game speed, with the list of orders given](docs/img/overseer-desk.png)
 
 See [`supervisor/README.md`](supervisor/README.md). The desk and the Herald only listen on your own PC (127.0.0.1).
 
