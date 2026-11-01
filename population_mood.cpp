@@ -225,9 +225,13 @@ static bool mood_urgent(df::unit *u, int32_t thirst)
 {
     if (u->counters2.thirst_timer > thirst)
         return true;
+    // No thirst gate here: Fath "Secttheaters" (a possessed child) went
+    // stark raving mad at thirst 16900 with the timer at 8952 about 7000
+    // ticks earlier; a 'thirst > 15000' guard kept the cheat from firing.
+    // The timer is the real clock, and it can drop faster than 1 per tick.
     int32_t left = u->job.mood_timeout;
-    int32_t margin = thirst <= MOOD_RESCUE_THIRST ? 10000 : 6000;
-    return u->counters2.thirst_timer > 15000 && left > 0 && left < margin;
+    int32_t margin = thirst <= MOOD_RESCUE_THIRST ? 15000 : 12000;
+    return left > 0 && left < margin;
 }
 
 void Population::update_moods(color_ostream & out)
