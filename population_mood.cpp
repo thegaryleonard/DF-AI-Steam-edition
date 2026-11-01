@@ -659,6 +659,39 @@ void Population::update_moods(color_ostream & out)
                     }
                 }
             }
+            if (!usable && ji->item_type == item_type::REMAINS && holder && mood_urgent(u, MOOD_CHEAT_THIRST))
+            {
+                // Vermin remains only appear when cats or traps kill vermin,
+                // nothing can be ordered (Dodok's macabre mood waited at
+                // thirst 34000 with zero remains in the fort). Last resort, a
+                // cheat: create one at the workshop, of the same race as any
+                // remains already seen, else a rat or lizard.
+                int32_t race = -1;
+                for (auto item : world->items.other[items_other_id::REMAINS])
+                {
+                    race = item->getMaterial();
+                    if (race >= 0)
+                        break;
+                }
+                for (size_t r = 0; race < 0 && r < world->raws.creatures.all.size(); r++)
+                {
+                    auto & id = world->raws.creatures.all[r]->creature_id;
+                    if (id == "RAT" || id == "LIZARD")
+                        race = int32_t(r);
+                }
+                std::vector<df::item *> made;
+                if (race >= 0 && Items::createItem(made, u, item_type::REMAINS, -1, int16_t(race), 0) && !made.empty())
+                {
+                    df::item *c = made[0];
+                    if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, c, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] CHEAT: nothing could supply %s for %s (thirst %d): created %s at the workshop",
+                            describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, AI::describe_item(c).c_str()));
+                        usable++;
+                    }
+                }
+            }
             if (!usable && ji->item_type == item_type::ROUGH && !(ji->mat_type >= 3 && ji->mat_type <= 5) && mood_warned.insert(who + "|rough|" + std::to_string(idx)).second)
             {
                 // No rough gem anywhere: mine one. Look for a gem vein tile
