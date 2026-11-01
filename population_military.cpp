@@ -966,15 +966,62 @@ static void request_equipment(df::squad *squad)
 // crossbow squads (9 each) had none, and nobody practised. Once a game day,
 // every squad with 3+ ranged weapons assigned also gets training rights on
 // the range nearest its barracks (DF lets squads share a zone).
-bool Population::military_target_reachable(df::unit *u)
+// the walkable area most of the fort's citizens are in. Asking only the first
+// citizen gave the wrong answer whenever that one dwarf stood somewhere cut
+// off (Topcloister: squads spent days on kill orders for agitated animals on
+// a hillside no dwarf could reach)
+static uint16_t fort_walk_group(const std::set<int32_t> & citizen)
 {
+    static int32_t cached_tick = -1, cached_year = -1;
+    static uint16_t cached = 0;
+    if (cached_tick == *cur_year_tick && cached_year == *cur_year)
+        return cached;
+    std::map<uint16_t, int32_t> counts;
+    int32_t seen = 0;
     for (auto id : citizen)
     {
         auto c = df::unit::find(id);
-        if (c && Units::isActive(c) && !Units::isDead(c))
-            return Maps::canWalkBetween(Units::getPosition(c), Units::getPosition(u));
+        if (!c || !Units::isActive(c) || Units::isDead(c))
+            continue;
+        uint16_t g = Maps::getWalkableGroup(Units::getPosition(c));
+        if (g)
+            counts[g]++;
+        if (++seen >= 40)
+            break;
     }
-    return true;
+    uint16_t best = 0;
+    int32_t bn = 0;
+    for (auto & kv : counts)
+        if (kv.second > bn)
+            best = kv.first, bn = kv.second;
+    cached_tick = *cur_year_tick;
+    cached_year = *cur_year;
+    cached = best;
+    return best;
+}
+
+bool Population::military_target_reachable(df::unit *u)
+{
+    uint16_t fg = fort_walk_group(citizen);
+    if (!fg)
+        return true;
+    return Maps::getWalkableGroup(Units::getPosition(u)) == fg;
+}
+
+// a flier the marksdwarves can shoot: over (or near) ground the fort walks on,
+// at most 10 levels above it
+bool Population::military_target_shootable(df::unit *u)
+{
+    uint16_t fg = fort_walk_group(citizen);
+    if (!fg)
+        return true;
+    df::coord p = Units::getPosition(u);
+    for (int16_t dz = 0; dz <= 10; dz++)
+        for (int16_t dx = -4; dx <= 4; dx++)
+            for (int16_t dy = -4; dy <= 4; dy++)
+                if (p.z - dz >= 0 && Maps::getWalkableGroup(df::coord(p.x + dx, p.y + dy, p.z - dz)) == fg)
+                    return true;
+    return false;
 }
 
 static void ranged_squads_to_ranges(AI & ai, color_ostream & out)
@@ -1947,7 +1994,7 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
                 if (!sq->ammo.ammunition.empty())
                     have_ranged = true;
     }
-    if (!military_target_reachable(u) && !(flier && have_ranged))
+    if (!military_target_reachable(u) && !(flier && have_ranged && military_target_shootable(u)))
         return false;
 
     df::squad *squad = nullptr;

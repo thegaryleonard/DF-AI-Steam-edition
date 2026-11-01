@@ -211,7 +211,7 @@ bool AI::tag_enemies(color_ostream & out)
             {
                 auto t = df::unit::find(uid);
                 // marksdwarves keep a flier they can't walk to: they shoot it
-                if (!t || Units::isDead(t) || (!pop_ref->military_target_reachable(t) && !(ranged && is_flier(t))))
+                if (!t || Units::isDead(t) || (!pop_ref->military_target_reachable(t) && !(ranged && is_flier(t) && pop_ref->military_target_shootable(t))))
                     return true;
                 // ordinary wildlife: only near home, and not while the squad starves
                 if (ordinary_target(t) && (hungry || !near_fort(*ai_ref, t)))

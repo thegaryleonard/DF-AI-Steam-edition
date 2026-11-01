@@ -478,6 +478,18 @@ elseif cmd == 'replan' then
         tick()
     end)
     print('mist generator: replanning')
+elseif cmd == 'missing' then
+    -- which machine cells aren't built yet, and what's on each tile
+    local p = (load() or {}).plan
+    if not p or not p.ring then print('no plan') return end
+    for _, c in ipairs(cells_machines(p)) do
+        if not built(c[1], c[2], p.zc) then
+            local b = dfhack.buildings.findAtTile(xyz2pos(c[1], c[2], p.zc))
+            local a = df.tiletype.attrs[dfhack.maps.getTileType(c[1], c[2], p.zc)]
+            print(('%s at %d,%d,%d: tile %s/%s, building %s'):format(c[3], c[1], c[2], p.zc, df.tiletype_shape[a.shape], df.tiletype_material[a.material],
+                b and (df.building_type[b:getType()] .. ' stage ' .. b:getBuildStage() .. '/' .. b:getMaxBuildStage()) or 'none'))
+        end
+    end
 elseif cmd == 'find' then
     local p, why = find_site()
     if not p then print('no site: ' .. tostring(why)) return end

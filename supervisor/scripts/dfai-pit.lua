@@ -160,6 +160,44 @@ plan_ok = function(sh)
     return true
 end
 
+-- the pen must be cut off from the fort. Topcloister's had a dug stair right
+-- outside its east wall going down into the fort: everything that survived
+-- the drop walked out and the soldiers spent their days chasing it. Every
+-- check: if any pen floor is in the fort's walkable area, wall up every open
+-- tile around the pen (from the fort side), and keep the pit's zone shut
+-- until it's sealed.
+local function pen_leak(sh)
+    local SURF = reqscript('dfai-surface')
+    local zp, fg = sh.zb - 1, SURF.fort_group()
+    if fg == 0 then return nil end
+    local inpen, leaking = {}, false
+    for _, t in ipairs(pen_tiles(sh)) do
+        inpen[t[1] .. ',' .. t[2]] = true
+        if dfhack.maps.getWalkableGroup(xyz2pos(t[1], t[2], zp)) == fg then leaking = true end
+    end
+    if not leaking then return nil end
+    local xs, ys = {}, {}
+    for _, t in ipairs(pen_tiles(sh)) do xs[#xs + 1] = t[1] ys[#ys + 1] = t[2] end
+    local x1, x2, y1, y2 = math.min(table.unpack(xs)) - 1, math.max(table.unpack(xs)) + 1, math.min(table.unpack(ys)) - 1, math.max(table.unpack(ys)) + 1
+    local open_, placed = 0, 0
+    for x = x1, x2 do for y = y1, y2 do
+        if not inpen[x .. ',' .. y] then
+            local st = shape(x, y, zp)
+            if st and st ~= Sh.WALL and dfhack.maps.getWalkableGroup(xyz2pos(x, y, zp)) ~= 0 then
+                open_ = open_ + 1
+                if not dfhack.buildings.findAtTile(xyz2pos(x, y, zp)) then
+                    if pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Construction, subtype = df.construction_type.Wall, pos = xyz2pos(x, y, zp)}) then placed = placed + 1 end
+                end
+            end
+        end
+    end end
+    if open_ > 0 then
+        if placed > 0 then dfhack.gui.showAnnouncement('The execution pit had a way out. Masons are walling it up.', COLOR_LIGHTRED, true) end
+        return ('the pen has a way out: walling up %d tile%s around it (executions paused)'):format(open_, open_ == 1 and '' or 's')
+    end
+    return 'the pen is still joined to the fort (a stair or ramp inside it?): executions paused'
+end
+
 local function bridge_dir(d)
     local D = df.building_bridgest.T_direction
     if d[1] == 1 then return D.Right elseif d[1] == -1 then return D.Left elseif d[2] == 1 then return D.Down else return D.Up end
@@ -183,11 +221,13 @@ local function pit_zone(sh)
     end
 end
 local WORKING = {open = true, dig = true, drop = true, cap = true, crusher = true, reseal = true}
+local SEALED = {crusher = true, reseal = true, hatch = true, running = true}   -- the spur is capped by now
 local function guard(s)
     local sh = s.shaft
     if not sh then return end
+    s.leak = SEALED[s.phase] and pen_leak(sh) or nil
     local pz = pit_zone(sh)
-    if pz then pz.spec_sub_flag.active = not WORKING[s.phase] end
+    if pz then pz.spec_sub_flag.active = not WORKING[s.phase] and not s.leak end
     local g = s.gate and df.building.find(s.gate)
     if not g then return end
     local foe = intruder(sh)
@@ -198,6 +238,7 @@ end
 local function step(s)
     local foe = guard(s)
     if foe then return 'LOCKED: ' .. dfhack.df2utf(dfhack.units.getReadableName(foe)) .. ' is down in the shaft; the builders wait' end
+    if s.leak then return s.leak end
     local sh = s.shaft
     if not sh then
         sh = find_shaft()

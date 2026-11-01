@@ -103,6 +103,7 @@ public:
     void civilian_alert(color_ostream & out, bool danger);
     void battle_stations(color_ostream & out, bool danger);
     bool military_target_reachable(df::unit *u);
+    bool military_target_shootable(df::unit *u);
     int32_t invaders_far = 0; // invaders seen far from the fort this pass (military.cpp)
     bool battle_mode = false;
     int32_t battle_quiet = 0;

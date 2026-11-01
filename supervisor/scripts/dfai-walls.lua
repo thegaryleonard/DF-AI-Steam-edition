@@ -38,7 +38,7 @@ local function ground(x, y, z)
             if f.outside and not f.hidden and f.flow_size == 0 and a.material ~= df.tiletype_material.TREE
                 and (sh == A.FLOOR or sh == A.PEBBLES or sh == A.SHRUB or sh == A.SAPLING or sh == A.TWIG or sh == A.BOULDER or sh == A.RAMP) then
                 local below = S.attrs(x, y, z + dz - 1)
-                if sh == A.RAMP or (below and below.shape ~= A.EMPTY) then return z + dz, a end
+                if (sh == A.RAMP or (below and below.shape ~= A.EMPTY)) and S.walkable(x, y, z + dz) then return z + dz, a end
             end
             if dz == 0 and sh == A.WALL and a.material ~= df.tiletype_material.TREE then rock = true end
         end
@@ -148,6 +148,10 @@ end
 -- one pass: place up to 'budget' segments, fell trees in the way; returns
 -- done, total, gaps
 local function work(s, budget)
+    -- walls placed where nobody can stand beside them never get built and
+    -- keep their blocks: take them down, the tile finds real ground instead
+    local b = s.box
+    if b then s.dropped = (s.dropped or 0) + S.drop_unreachable(b.x1, b.y1, b.x2, b.y2, s.z - 3, s.z + 3) end
     local done, total, gaps, placed, holes = 0, 0, 0, 0, 0
     for _, t in ipairs(s.ring) do
         local x, y, kind = t[1], t[2], t[3]
@@ -170,7 +174,7 @@ local function work(s, budget)
                 else
                     holes = holes + 1   -- cliff or water: nothing to stand a wall on
                 end
-            elseif not dfhack.buildings.findAtTile(xyz2pos(x, y, g)) and placed < budget then
+            elseif not dfhack.buildings.findAtTile(xyz2pos(x, y, g)) and placed < budget and S.reachable_beside(x, y, g) then
                 local sub = kind == 'post' and df.construction_type.Fortification or df.construction_type.Wall
                 if pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Construction, subtype = sub, pos = xyz2pos(x, y, g)}) then
                     placed = placed + 1

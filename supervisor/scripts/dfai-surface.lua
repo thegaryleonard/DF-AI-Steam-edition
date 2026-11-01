@@ -16,7 +16,51 @@ end
 function attrs(x, y, z) local tt = dfhack.maps.getTileType(x, y, z) return tt and df.tiletype.attrs[tt] end
 
 -- open ground a construction can go on (shrubs, pebbles and saplings get cleared)
+-- the walkable area the fort's dwarves are in (a tile with another group
+-- number can't be reached on foot: rooftops, ledges, the far side of a
+-- chasm). Topcloister's curtain wall went on constructed floors three levels
+-- up that nobody could reach: 106 walls waited for years.
+local group_cache = {tick = -1, g = 0}
+function fort_group()
+    local t = df.global.cur_year_tick
+    if group_cache.tick ~= t then
+        local counts, best, bn = {}, 0, 0
+        for i, u in ipairs(dfhack.units.getCitizens(true)) do
+            if i > 30 then break end
+            local g = dfhack.maps.getWalkableGroup(u.pos)
+            if g ~= 0 then counts[g] = (counts[g] or 0) + 1 if counts[g] > bn then best, bn = g, counts[g] end end
+        end
+        group_cache.tick, group_cache.g = t, best
+    end
+    return group_cache.g
+end
+function walkable(x, y, z)
+    local g = fort_group()
+    return g ~= 0 and dfhack.maps.getWalkableGroup(xyz2pos(x, y, z)) == g
+end
+-- can a builder stand next to x,y,z (same level) to build there?
+function reachable_beside(x, y, z)
+    for dx = -1, 1 do for dy = -1, 1 do
+        if (dx ~= 0 or dy ~= 0) and walkable(x + dx, y + dy, z) then return true end
+    end end
+    return false
+end
+-- unbuilt constructions/buildings nobody can get to: take them down so their
+-- materials go back (they hold them forever otherwise). Returns how many.
+function drop_unreachable(x1, y1, x2, y2, z1, z2)
+    local n = 0
+    for _, b in ipairs(df.global.world.buildings.all) do
+        if b:getType() == df.building_type.Construction   -- only the walls these projects place, never df-ai's own rooms
+            and b.z >= z1 and b.z <= z2 and b.x1 >= x1 and b.x1 <= x2 and b.y1 >= y1 and b.y1 <= y2
+            and b:getBuildStage() < b:getMaxBuildStage() and not reachable_beside(b.x1, b.y1, b.z) then
+            if pcall(dfhack.buildings.deconstruct, b) then n = n + 1 end
+        end
+    end
+    return n
+end
+
 function buildable(x, y, z)
+    if not walkable(x, y, z) then return false end
     local a = attrs(x, y, z)
     if not a or a.material == df.tiletype_material.TREE then return false end
     local S = df.tiletype_shape

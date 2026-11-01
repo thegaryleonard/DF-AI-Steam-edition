@@ -228,9 +228,43 @@ local function step(s)
     if b.phase == 'walls' then
         local w, of = progress(b)
         b.waits = (b.waits or 0) + 1
-        if b.waits % 10 == 0 then qf(b, 'walls') end   -- re-place anything cancelled
-        s.last = ('building the bunker walls: %d of %d'):format(w, of)
-        if w >= of then b.phase, b.waits = 'roof', 0 qf(b, 'door') qf(b, 'roof') end
+        if b.waits % 10 == 0 then
+            -- a wall nobody can stand beside never gets built (Topcloister's
+            -- last bunker wall waited 1,500 days): drop it and go on without it
+            local x1, y1, x2, y2 = box(b)
+            SURF.drop_unreachable(x1, y1, x2, y2, b.z, b.z)
+            -- something else standing where a wall goes (df-ai put a cage trap
+            -- on Topcloister's last bunker wall tile): a trap is taken up (df-ai
+            -- sets traps elsewhere), anything else and that tile is left out
+            for v = 0, D - 1 do for u = 0, W - 1 do
+                local c = cell(u, v)
+                if c == 'wall' or c == 'fort' then
+                    local x, y = to_map(b, u, v)
+                    local o = dfhack.buildings.findAtTile(xyz2pos(x, y, b.z))
+                    if o and o:getType() ~= df.building_type.Construction then
+                        if o:getType() == df.building_type.Trap then pcall(dfhack.buildings.deconstruct, o) end
+                    end
+                end
+            end end
+            qf(b, 'walls')   -- re-place anything cancelled
+        end
+        -- wall tiles that can't be built, counted fresh: nobody can stand beside
+        -- them, or a building other than a trap is in the way
+        local skip = 0
+        for v = 0, D - 1 do for u = 0, W - 1 do
+            local c = cell(u, v)
+            if c == 'wall' or c == 'fort' then
+                local x, y = to_map(b, u, v)
+                local a = attrs(x, y, b.z)
+                local done_ = a and (a.shape == df.tiletype_shape.WALL or a.shape == df.tiletype_shape.FORTIFICATION) and a.material == df.tiletype_material.CONSTRUCTION
+                local o = dfhack.buildings.findAtTile(xyz2pos(x, y, b.z))
+                if not done_ and (not SURF.reachable_beside(x, y, b.z)
+                    or (o and o:getType() ~= df.building_type.Construction and o:getType() ~= df.building_type.Trap)) then skip = skip + 1 end
+            end
+        end end
+        b.skipped = skip
+        s.last = ('building the bunker walls: %d of %d%s'):format(w, of, skip > 0 and (' (%d no dwarf can reach, left out)'):format(skip) or '')
+        if w + skip >= of then b.phase, b.waits = 'roof', 0 qf(b, 'door') qf(b, 'roof') end
         return
     end
     if b.phase == 'roof' then
