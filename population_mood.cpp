@@ -567,11 +567,26 @@ void Population::update_moods(color_ostream & out)
                 }
                 // quantity is in dimension units (30000 = three whole pieces):
                 // Urdim's weaver mood needed three, one would not do.
+                int16_t cmt = src ? src->getMaterial() : -1;
+                int32_t cmi = src ? src->getMaterialIndex() : -1;
+                if (!src)
+                {
+                    // No thread of that kind in the fort at all (Zulban's
+                    // woodcrafter mood needed yarn cloth with zero wool):
+                    // fall back to a stock raw material carrying the flag.
+                    const char *tok = ji->flags2.bits.plant ? "PLANT:GRASS_TAIL_PIG:THREAD" : ji->flags2.bits.silk ? "CREATURE:SPIDER_CAVE_GIANT:SILK" : "CREATURE:SHEEP:HAIR";
+                    MaterialInfo fm;
+                    if (fm.find(tok) && fm.material && fm.material->flags.is_set(flag))
+                    {
+                        cmt = fm.type;
+                        cmi = fm.index;
+                    }
+                }
                 int32_t pieces = std::max(1, (ji->quantity + 9999) / 10000);
-                for (int32_t p = 0; src && p < pieces; p++)
+                for (int32_t p = 0; cmt >= 0 && p < pieces; p++)
                 {
                     std::vector<df::item *> made;
-                    if (!Items::createItem(made, u, item_type::CLOTH, -1, src->getMaterial(), src->getMaterialIndex()) || made.empty())
+                    if (!Items::createItem(made, u, item_type::CLOTH, -1, cmt, cmi) || made.empty())
                         break;
                     df::item *c = made[0];
                     if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
