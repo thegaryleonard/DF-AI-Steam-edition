@@ -528,7 +528,10 @@ void Population::update_moods(color_ostream & out)
                         tmpl.material_category.bits.silk = 1;
                     else
                         tmpl.material_category.bits.yarn = 1;
-                    ai.stocks.add_manager_order(out, tmpl, 1, why);
+                    // quantity is in dimension units: 30000 = three whole
+                    // pieces, and one weave makes one piece.
+                    int32_t pieces = std::max(1, (ji->quantity + 9999) / 10000);
+                    ai.stocks.add_manager_order(out, tmpl, pieces, why);
                     ai.debug(out, "[MOOD] ordered " + describe_job_item(ji) + " woven for " + who + " (" + std::to_string(thread) + " thread available) " + why.str());
                     usable++;
                 }

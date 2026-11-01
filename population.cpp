@@ -472,6 +472,10 @@ void Population::update_citizenlist(color_ostream & out)
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor FISH %d %d", std::max(1, pop / 8), std::max(2, pop / 5)));
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor HUNT 1 %d", std::max(1, pop / 12)));
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor CARPENTER %d 200", std::max(1, pop / 12)));
+        // autolabor keeps one weaver, and when that one is the clothier in a
+        // strange mood needing cloth, nobody weaves it (Urdim waited at
+        // hunger 51000 on a WeaveCloth job no one took).
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor WEAVER %d 200", std::max(1, std::min(4, pop / 20))));
 
         // The user's standing work orders (dfhack-config/orders/start.json:
         // daily keep-10 beds, empty barrels, empty bins and gems, plus a
