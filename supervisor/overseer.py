@@ -62,7 +62,11 @@ COMMANDS = {
     "holiday.stop":  ("Fort", "End the holiday", "Back to work now.", ["dfai-holiday", "stop"], 30),
     "ghost.watch":   ("Fort", "Ghost watch", "The restless dead: every ghost on the map, and every dwarf who died in the last two years with no memorial slab set and no coffin (they can rise). For each: the slab (none, on order, being carved, engraved and waiting, set) and the body. Once a game day it queues a missing slab (5 a day), orders blank slabs for the engravers and zones loose coffins as tombs; df-ai sets the engraved slabs. This checks now.", ["dfai-ghost-watch", "now"], 30),
     # the game itself
-    "game.fps":      ("Game", "Set the FPS cap", "How fast the game may run (frames per second, 5-100). Lower is easier on the stream and the PC; higher makes the fort move faster. Kept across reloads, the ASCII switch and new forts.", ["dfai-fps", "set", "{n}"], 30),
+    "game.fps":      ("Game", "Normal speed (FPS cap)", "How fast the game may run when nothing is fighting (frames per second, 5-200). Higher makes the fort move faster; lower is easier on the stream and the PC. Kept across reloads, the ASCII switch and new forts.", ["dfai-fps", "set", "{n}"], 30),
+    "game.fpsbattle": ("Game", "Battle speed (FPS cap)", "The speed during a fight, so viewers can follow it (5-200). Used when Dynamic speed is on: invaders on the map, or anything hostile within 15 tiles of a dwarf.", ["dfai-fps", "battle", "{n}"], 30),
+    "game.fpscalm":  ("Game", "Calm days before speeding up", "After the last enemy is gone or out of sight, how many game days of quiet before the normal speed comes back (0-7). Stops it flicking between speeds mid-fight.", ["dfai-fps", "calm", "{n}"], 30),
+    "game.fpsdyn.on":  ("Game", "Dynamic speed: on", "Run at the normal speed, drop to the battle speed while there is a fight on.", ["dfai-fps", "dynamic", "on"], 30),
+    "game.fpsdyn.off": ("Game", "Dynamic speed: off", "Always the normal speed.", ["dfai-fps", "dynamic", "off"], 30),
 }
 # orders that take a number: key -> (label, min, max, default)
 PARAMS = {
@@ -70,7 +74,9 @@ PARAMS = {
     "cam.locktrees": ("minutes", 0, 240, 10),
     "holiday.start": ("days", 1, 28, 7),
     "ore.start": ("levels", 1, 20, 10),
-    "game.fps": ("FPS", 5, 100, 20),
+    "game.fps": ("FPS", 5, 200, 100),
+    "game.fpsbattle": ("FPS", 5, 200, 20),
+    "game.fpscalm": ("days", 0, 7, 1),
 }
 STATUS = [
     ("War office", ["dfai-war-office"]),
@@ -438,6 +444,7 @@ def card_status():
         "holiday.start": st.get("holiday", "?"),
         "holiday.stop": st.get("holiday", "?"),
         "ghost.watch": st.get("ghosts", "?"),
+        **{k: st.get("fps", "?") for k in ("game.fps", "game.fpsbattle", "game.fpscalm", "game.fpsdyn.on", "game.fpsdyn.off")},
         "watchdog.now": st.get("watchdog", "?"),
         "verify.now": st.get("verify", "?"),
     }

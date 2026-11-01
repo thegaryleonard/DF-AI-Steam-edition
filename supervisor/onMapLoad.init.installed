@@ -43,3 +43,4 @@ dfai-ghost-watch start
 dfai-pit start
 dfai-watchdog start
 dfai-verify start
+dfai-fps start
