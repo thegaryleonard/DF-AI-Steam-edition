@@ -217,6 +217,19 @@ static const int32_t MOOD_RESCUE_THIRST = 40000;
 // created outright (a small cheat the user approved over a dead dwarf)
 static const int32_t MOOD_CHEAT_THIRST = 45000;
 
+// A mood also ends in insanity when unit.job.mood_timeout (counts down
+// while the dwarf has not started working) runs out, whatever the thirst:
+// Rovod "Dangercopper" went melancholy at thirst 35000, before any
+// thirst-based rescue fired. Treat a nearly expired timer like high thirst.
+static bool mood_urgent(df::unit *u, int32_t thirst)
+{
+    if (u->counters2.thirst_timer > thirst)
+        return true;
+    int32_t left = u->job.mood_timeout;
+    int32_t margin = thirst <= MOOD_RESCUE_THIRST ? 10000 : 6000;
+    return u->counters2.thirst_timer > 15000 && left > 0 && left < margin;
+}
+
 void Population::update_moods(color_ostream & out)
 {
     for (auto u : world->units.active)
@@ -269,7 +282,7 @@ void Population::update_moods(color_ostream & out)
 
         // Every item is in but the dwarf still hasn't started (seen after we
         // carried items in): start the work.
-        if (Job::getHolder(job) && !job->flags.bits.working && u->counters2.thirst_timer > MOOD_RESCUE_THIRST)
+        if (Job::getHolder(job) && !job->flags.bits.working && mood_urgent(u, MOOD_RESCUE_THIRST))
         {
             bool complete = true;
             for (size_t idx = 0; idx < job->job_items.elements.size() && complete; idx++)
@@ -413,7 +426,7 @@ void Population::update_moods(color_ostream & out)
             // cloth and leather). Once thirst is high, carry one to the
             // workshop and attach it to the job ourselves.
             auto holder = virtual_cast<df::building_actual>(Job::getHolder(job));
-            if (usable && holder && u->counters2.thirst_timer > MOOD_RESCUE_THIRST)
+            if (usable && holder && mood_urgent(u, MOOD_RESCUE_THIRST))
             {
                 df::coord wpos(holder->centerx, holder->centery, holder->z);
                 // Nothing reachable at all (Reg's mason mood: all 70 logs lay
@@ -468,7 +481,7 @@ void Population::update_moods(color_ostream & out)
                     // a failed move (item held by a building, container) must
                     // not end the search: Rakust waited on BLOCKS this way
                 }
-                if (!attached && far_item && u->counters2.thirst_timer > MOOD_CHEAT_THIRST &&
+                if (!attached && far_item && mood_urgent(u, MOOD_CHEAT_THIRST) &&
                     Items::moveToBuilding(far_item, holder, df::building_item_role_type::TEMP) &&
                     Job::attachJobItem(job, far_item, df::job_role_type::Reagent, int32_t(idx), -1))
                 {
@@ -533,7 +546,7 @@ void Population::update_moods(color_ostream & out)
                 }
             }
             if (!usable && ji->item_type == item_type::CLOTH && (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn) &&
-                holder && u->counters2.thirst_timer > MOOD_CHEAT_THIRST)
+                holder && mood_urgent(u, MOOD_CHEAT_THIRST))
             {
                 // Last resort: Monom needed silk cloth with no silk thread in
                 // the fort and 545 webs, none reachable. Rather than lose the
@@ -583,7 +596,7 @@ void Population::update_moods(color_ostream & out)
                 ai.stocks.add_manager_order(out, tmpl, std::max<int32_t>(1, ji->quantity), why);
                 ai.debug(out, "[MOOD] no raw glass for " + who + ": ordered " + describe_job_item(ji) + " " + why.str());
             }
-            if (!usable && holder && u->counters2.thirst_timer > MOOD_CHEAT_THIRST &&
+            if (!usable && holder && mood_urgent(u, MOOD_CHEAT_THIRST) &&
                 ((ji->item_type == item_type::ROUGH && ji->mat_type >= 3 && ji->mat_type <= 5) || ji->item_type == item_type::WOOD))
             {
                 // Last resort (a cheat): create the raw glass / log at the
@@ -765,7 +778,7 @@ void Population::update_moods(color_ostream & out)
                 bool pending = false;
                 for (auto mo : world->manager_orders.all)
                 {
-                    if (mo->job_type == job_type::ConstructBlocks && mo->amount_left > 0)
+                    if (mo->job_type == job_type::ConstructBlocks && mo->amount_left > 0 && mo->mat_index >= 0)
                         pending = true;
                 }
                 if (best >= 0 && !pending)
@@ -785,6 +798,36 @@ void Population::update_moods(color_ostream & out)
                 }
                 if (best >= 0 || pending)
                     usable++;
+            }
+            if (!usable && ji->item_type == item_type::BLOCKS && (ji->mat_type == 0 || ji->mat_type == -1) &&
+                holder && mood_urgent(u, MOOD_CHEAT_THIRST))
+            {
+                // Last resort: the mason's order never turned into a job and
+                // the mood is running out. Create rock blocks from a free
+                // boulder's stone at the workshop (a cheat).
+                df::item *src = nullptr;
+                for (auto i : world->items.other[items_other_id::BOULDER])
+                {
+                    auto & f = i->flags.bits;
+                    if (i->getMaterial() == 0 && !f.forbid && !f.in_job && !f.trader && !f.construction && !f.in_building && !f.removed &&
+                        (ji->mat_index < 0 || i->getMaterialIndex() == ji->mat_index))
+                    {
+                        src = i;
+                        break;
+                    }
+                }
+                std::vector<df::item *> made;
+                if (src && Items::createItem(made, u, item_type::BLOCKS, -1, 0, src->getMaterialIndex()) && !made.empty())
+                {
+                    df::item *c = made[0];
+                    if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, c, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] CHEAT: no rock blocks reached %s in time (thirst %d, mood timeout %d): created %s at the workshop",
+                            who.c_str(), u->counters2.thirst_timer, u->job.mood_timeout, AI::describe_item(c).c_str()));
+                        usable++;
+                    }
+                }
             }
             if (!usable && ji->item_type == item_type::SMALLGEM)
             {
@@ -1062,7 +1105,7 @@ void Population::update_moods(color_ostream & out)
                 if (pending || pick)
                     usable++;
             }
-            if (!usable && ji->item_type == item_type::SKIN_TANNED && holder && u->counters2.thirst_timer > MOOD_CHEAT_THIRST)
+            if (!usable && ji->item_type == item_type::SKIN_TANNED && holder && mood_urgent(u, MOOD_CHEAT_THIRST))
             {
                 // Last resort (a cheat): Solon's glassmaker mood reached thirst
                 // 62000 waiting on leather (nothing slaughtered or tanned in
@@ -1085,7 +1128,7 @@ void Population::update_moods(color_ostream & out)
                 }
             }
             if (!usable && (ji->flags2.bits.shell || ji->flags2.bits.pearl || ji->flags2.bits.horn || ji->flags2.bits.ivory_tooth) &&
-                u->counters2.thirst_timer > MOOD_CHEAT_THIRST - 15000)
+                mood_urgent(u, MOOD_CHEAT_THIRST - 15000))
             {
                 // Rare body-part materials: Ushat, a moody bone carver, wanted
                 // "any shells" in a fort with no shelled creature at all and
