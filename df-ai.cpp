@@ -246,6 +246,23 @@ command_result ai_command(color_ostream & out, std::vector<std::string> & args)
         return CR_OK;
     }
 
+    if ((args.size() == 4 || args.size() == 5) && args[0] == "cistern-tap")
+    {
+        // "ai cistern-tap X Y Z": plan a tunnel to water from that rock tile
+        // the way the cistern's inlet does, and print it. Digs nothing.
+        if (!dwarfAI)
+        {
+            out << "df-ai is not running" << std::endl;
+            return CR_OK;
+        }
+        std::ostringstream why;
+        extern bool cistern_tap_test_small;
+        cistern_tap_test_small = args.size() == 5 && args[4] == "small";
+        bool ok = dwarfAI->plan.plan_cistern_tap(out, nullptr, why, df::coord(atoi(args[1].c_str()), atoi(args[2].c_str()), atoi(args[3].c_str())));
+        out << (ok ? "" : "no tunnel: ") << why.str() << std::endl;
+        return CR_OK;
+    }
+
     if (args.size() == 1 && args[0] == "cavern")
     {
         if (!dwarfAI)

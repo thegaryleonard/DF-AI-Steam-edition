@@ -58,6 +58,7 @@ Plan::Plan(AI & ai) :
     m_c_cistern(nullptr),
     m_c_reserve(nullptr),
     m_c_testgate_delay(-1),
+    m_c_tap_wait(0),
     checkroom_idx(0),
     trycistern_count(0),
     map_vein_queue(),

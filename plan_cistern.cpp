@@ -15,6 +15,8 @@
 #include "df/unit.h"
 #include "df/world.h"
 
+#include <queue>
+
 REQUIRE_GLOBAL(world);
 
 bool Plan::construct_cistern(color_ostream & out, room *r)
@@ -296,6 +298,26 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
     bool f_in_closed = (f_in->gate_flags.bits.closed || f_in->gate_flags.bits.closing) && !f_in->gate_flags.bits.opening;
     bool f_out_closed = (f_out->gate_flags.bits.closed || f_out->gate_flags.bits.closing) && !f_out->gate_flags.bits.opening;
 
+    // the reserve's inlet only gets a tunnel to water at embark, and only if
+    // the map has a river: on every other map it was dug up to its floodgate
+    // and stopped there, and the levers were pulled forever over an empty
+    // reserve. Look for any real water the inlet can reach instead.
+    if (!m_c_reserve->channel_enable.isValid())
+    {
+        if (m_c_tap_wait > 0)
+        {
+            m_c_tap_wait--;
+            reason << "no water source the reserve can tap yet";
+            return;
+        }
+        if (!plan_cistern_tap(out, f_in, reason))
+        {
+            m_c_tap_wait = 100;
+            return;
+        }
+        m_c_testgate_delay = 2;
+    }
+
     if (m_c_testgate_delay != -1)
     {
         // expensive, dont check too often
@@ -543,6 +565,288 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
             }
         }
     }
+}
+
+// Find water for the reserve's inlet after embark: a tunnel through solid
+// rock from behind the inlet floodgate, level or rising (water has to run
+// down to the reserve), to a wall that has real standing or running water on
+// its far side. That wall is breached by channeling it from above, so the
+// tile above it and the tile above the tunnel's end must be open ground the
+// fort walks on: a dwarf breaches from outside and walks away dry. The tunnel
+// keeps one tile of rock between itself and any open space so it can't flood
+// anything but the reserve. The breach itself is monitor_cistern's usual
+// "test channel" step (tunnel empty and smoothed, outlet closed first).
+bool cistern_tap_test_small = false;   // "ai cistern-tap X Y Z small": any pool will do (testing)
+bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::ostream & reason, df::coord test_origin)
+{
+    // test_origin: a dry run from any rock tile ("ai cistern-tap X Y Z"):
+    // plans and describes the tunnel, digs nothing
+    const bool dry = test_origin.isValid();
+    if (!gate_bld && !dry)
+        return false;
+    const df::coord gate = dry ? df::coord() : df::coord(gate_bld->x1, gate_bld->y1, gate_bld->z);
+
+    auto shape_at = [](df::coord t) -> df::tiletype_shape_basic
+    {
+        df::tiletype *tt = Maps::getTileType(t);
+        return tt ? ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) : tiletype_shape_basic::None;
+    };
+    auto natural_rock = [&](df::coord t) -> bool
+    {
+        df::tiletype *tt = Maps::getTileType(t);
+        if (!tt || ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Wall)
+            return false;
+        df::tiletype_material tm = ENUM_ATTR(tiletype, material, *tt);
+        if (tm != tiletype_material::STONE && tm != tiletype_material::MINERAL && tm != tiletype_material::SOIL)
+            return false;
+        df::tile_designation *td = Maps::getTileDesignation(t);
+        return td && !td->bits.water_table;   // never into an aquifer
+    };
+
+    // which side of the gate is the reserve: the tunnel starts on the other
+    df::coord origin = test_origin;
+    static const int16_t D4[4][2] = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
+    for (auto & d : D4)
+    {
+        if (dry)
+            break;
+        df::coord in = gate + df::coord(d[0], d[1], 0);
+        df::coord outside = gate - df::coord(d[0], d[1], 0);
+        if (shape_at(in) != tiletype_shape_basic::Wall && natural_rock(outside))
+        {
+            origin = outside;
+            break;
+        }
+    }
+    if (!origin.isValid())
+    {
+        reason << "the reserve's inlet has no rock behind it to tunnel through";
+        return false;
+    }
+
+    // the walkable area the fort lives in
+    uint16_t fort_group = 0;
+    {
+        std::map<uint16_t, int32_t> counts;
+        int32_t seen = 0, best = 0;
+        for (auto u : world->units.active)
+        {
+            if (!Units::isCitizen(u) || Units::isDead(u))
+                continue;
+            uint16_t g = Maps::getWalkableGroup(Units::getPosition(u));
+            if (g && ++counts[g] > best)
+                best = counts[g], fort_group = g;
+            if (++seen >= 40)
+                break;
+        }
+    }
+    if (!fort_group)
+        return false;
+
+    auto inside_any_room = [this](df::coord t) -> bool
+    {
+        for (auto r : rooms_and_corridors)
+            if (r->include(t))
+                return true;
+        return false;
+    };
+    auto open_ground = [&](df::coord t) -> bool
+    {
+        df::tiletype *tt = Maps::getTileType(t);
+        df::tile_designation *td = Maps::getTileDesignation(t);
+        return tt && td && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Floor &&
+            td->bits.flow_size == 0 && Maps::getWalkableGroup(t) == fort_group;
+    };
+    // standing or running water, not a puddle and not one of the fort's own
+    // tanks (cisterns, wells, the mist generator's pool)
+    auto real_water = [&](df::coord t) -> bool
+    {
+        df::tile_designation *td = Maps::getTileDesignation(t);
+        if (!td || td->bits.liquid_type || td->bits.flow_size < 4)
+            return false;
+        df::tiletype *tt = Maps::getTileType(t);
+        if (!tt || ENUM_ATTR(tiletype, material, *tt) == tiletype_material::CONSTRUCTION || inside_any_room(t))
+            return false;
+        if (td->bits.feature_local)
+            return true;   // a river or brook
+        int32_t n = 0;
+        for (int16_t dx = -3; dx <= 3; dx++)
+            for (int16_t dy = -3; dy <= 3; dy++)
+            {
+                df::tile_designation *d2 = Maps::getTileDesignation(t + df::coord(dx, dy, 0));
+                if (d2 && !d2->bits.liquid_type && d2->bits.flow_size >= 3)
+                    n++;
+            }
+        return n >= (dry && cistern_tap_test_small ? 1 : 12);
+    };
+    // a tunnel tile: natural rock with rock all around (the gate excepted)
+    auto sealed = [&](df::coord t) -> bool
+    {
+        if (!natural_rock(t))
+            return false;
+        for (int16_t dx = -1; dx <= 1; dx++)
+            for (int16_t dy = -1; dy <= 1; dy++)
+            {
+                df::coord n = t + df::coord(dx, dy, 0);
+                if ((dx || dy) && n != gate && !natural_rock(n))
+                    return false;
+            }
+        return !inside_any_room(t);
+    };
+    if (!sealed(origin))
+    {
+        reason << (dry ? "the rock at the start isn't solid" : "the rock behind the reserve's inlet isn't solid");
+        return false;
+    }
+
+    // 1. every place a tunnel could end: water two tiles out, one rock wall
+    //    between, open ground above that wall and above the tunnel's end
+    struct cand { df::coord end, breach; int32_t dist; };
+    std::vector<cand> cands;
+    for (int16_t z = origin.z; z <= origin.z + 20; z++)
+        for (int16_t x = origin.x - 70; x <= origin.x + 70; x++)
+            for (int16_t y = origin.y - 70; y <= origin.y + 70; y++)
+            {
+                df::coord t(x, y, z);
+                df::tile_designation *td = Maps::getTileDesignation(t);
+                if (!td || td->bits.liquid_type || td->bits.flow_size < 4)
+                    continue;
+                for (auto & d : D4)
+                {
+                    df::coord w = t - df::coord(d[0], d[1], 0), e = w - df::coord(d[0], d[1], 0);
+                    if (natural_rock(w) && open_ground(w + df::coord(0, 0, 1)) && open_ground(e + df::coord(0, 0, 1)) && sealed(e) && real_water(t))
+                        cands.push_back(cand{ e, w, std::abs(e.x - origin.x) + std::abs(e.y - origin.y) + (e.z - origin.z) });
+                }
+            }
+    std::sort(cands.begin(), cands.end(), [](const cand & l, const cand & r) { return l.dist < r.dist; });
+
+    // 2. the shortest sealed tunnel to the nearest of them (level or rising)
+    std::map<df::coord, df::coord> from;
+    df::coord end, breach;
+    int32_t tried = 0;
+    for (auto & c : cands)
+    {
+        if (++tried > 8)
+            break;
+        from.clear();
+        // states are (tile, how we got here) so a turn can cost extra: one
+        // straight stair and straight runs instead of a corkscrew of little
+        // pieces, each its own dig job
+        typedef std::pair<df::coord, int> state;
+        std::map<state, int32_t> g;
+        std::map<state, state> came;
+        typedef std::pair<int32_t, state> node;
+        auto worse = [](const node & l, const node & r) { return l.first > r.first; };
+        std::priority_queue<node, std::vector<node>, decltype(worse)> open(worse);
+        auto h = [&c](df::coord t) { return std::abs(t.x - c.end.x) + std::abs(t.y - c.end.y) + std::abs(t.z - c.end.z); };
+        static const int16_t M5[5][3] = { { 1, 0, 0 }, { -1, 0, 0 }, { 0, 1, 0 }, { 0, -1, 0 }, { 0, 0, 1 } };
+        state start(origin, -1);
+        g[start] = 0;
+        open.push(node(h(origin), start));
+        int32_t expanded = 0;
+        while (!open.empty() && ++expanded < 60000)
+        {
+            node top = open.top();
+            open.pop();
+            state cur = top.second;
+            if (top.first - h(cur.first) > g[cur])
+                continue;   // stale entry
+            if (cur.first == c.end)
+            {
+                for (state s2 = cur; ; s2 = came.at(s2))
+                {
+                    if (s2.first == origin)
+                        break;
+                    from[s2.first] = came.at(s2).first;
+                }
+                from[origin] = origin;
+                end = c.end;
+                breach = c.breach;
+                break;
+            }
+            for (int m = 0; m < 5; m++)
+            {
+                df::coord n = cur.first + df::coord(M5[m][0], M5[m][1], M5[m][2]);
+                if (n.z > c.end.z || !sealed(n))
+                    continue;
+                state ns(n, m);
+                int32_t cost = g[cur] + 1 + (cur.second != -1 && cur.second != m ? 3 : 0);
+                auto it = g.find(ns);
+                if (it != g.end() && it->second <= cost)
+                    continue;
+                g[ns] = cost;
+                came[ns] = cur;
+                open.push(node(cost + h(n), ns));
+            }
+        }
+        if (end.isValid())
+            break;
+    }
+    if (!end.isValid())
+    {
+        reason << "no water the reserve can reach through solid rock (" << cands.size() << " possible spots)";
+        ai.debug(out, stl_sprintf("cistern: no water source to tap from (%d, %d, %d): %d possible spots, %d tried", origin.x, origin.y, origin.z, int(cands.size()), std::min(tried, 8)));
+        return false;
+    }
+
+    // the path, origin first, plus the stair up out of the tunnel's end
+    std::vector<df::coord> path;
+    for (df::coord c = end; ; c = from.at(c))
+    {
+        path.insert(path.begin(), c);
+        if (c == origin)
+            break;
+    }
+    path.push_back(end + df::coord(0, 0, 1));
+
+    // cut it into straight corridors, no tile in two of them: runs of stair
+    // (same x,y going up) and straight level runs
+    std::vector<room *> segs;
+    size_t i = 0;
+    while (i < path.size())
+    {
+        size_t j = i;
+        if (i + 1 < path.size() && path[i + 1].z != path[i].z)
+        {
+            while (j + 1 < path.size() && path[j + 1].z != path[j].z)
+                j++;
+        }
+        else
+        {
+            while (j + 1 < path.size() && path[j + 1].z == path[j].z &&
+                !(j + 2 < path.size() && path[j + 2].z != path[j + 1].z) &&
+                (j == i || (path[j + 1] - path[j]) == (path[j] - path[j - 1])))
+                j++;
+        }
+        df::coord a = path[i], b = path[j];
+        room *seg = new room(corridor_type::aqueduct, df::coord(std::min(a.x, b.x), std::min(a.y, b.y), std::min(a.z, b.z)), df::coord(std::max(a.x, b.x), std::max(a.y, b.y), std::max(a.z, b.z)), "tunnel to water for the cistern");
+        segs.push_back(seg);
+        i = j + 1;
+    }
+    if (dry)
+    {
+        reason << stl_sprintf("tunnel of %d tiles in %d pieces from (%d, %d, %d) to the wall at (%d, %d, %d); %d possible spots\n", int(path.size()), int(segs.size()), origin.x, origin.y, origin.z, breach.x, breach.y, breach.z, int(cands.size()));
+        for (auto seg : segs)
+        {
+            reason << stl_sprintf("  (%d, %d, %d) - (%d, %d, %d)\n", seg->min.x, seg->min.y, seg->min.z, seg->max.x, seg->max.y, seg->max.z);
+            delete seg;
+        }
+        return true;
+    }
+    for (auto seg : segs)
+    {
+        rooms_and_corridors.push_back(seg);
+        m_c_reserve->accesspath.push_back(seg);
+    }
+    m_c_reserve->channel_enable = breach;
+    m_c_reserve->channeled = false;
+    categorize_all();
+    for (auto seg : segs)
+        digroom(out, seg);
+
+    ai.debug(out, stl_sprintf("cistern: tunnel of %d tiles in %d pieces from (%d, %d, %d) to water past (%d, %d, %d)", int(path.size()), int(segs.size()), origin.x, origin.y, origin.z, breach.x, breach.y, breach.z));
+    reason << "digging a " << path.size() << "-tile tunnel to water for the cistern";
+    return true;
 }
 
 bool Plan::setup_lever(color_ostream & out, room *r, furniture *f, std::ostream & reason)

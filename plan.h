@@ -71,6 +71,7 @@ private:
     room *m_c_cistern;
     room *m_c_reserve;
     int32_t m_c_testgate_delay;
+    int32_t m_c_tap_wait;
     size_t checkroom_idx;
     size_t trycistern_count;
     std::map<int32_t, std::vector<std::pair<df::coord, df::tile_dig_designation>>> map_vein_queue;
@@ -197,6 +198,7 @@ public:
     bool pull_lever(color_ostream & out, furniture *f, std::ostream & reason);
 
     void monitor_cistern(color_ostream & out, std::ostream & reason);
+    bool plan_cistern_tap(color_ostream & out, df::building *gate, std::ostream & reason, df::coord test_origin = df::coord());
 
     bool try_endconstruct(color_ostream & out, room *r, std::ostream & reason);
 
