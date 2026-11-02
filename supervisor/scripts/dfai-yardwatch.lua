@@ -17,7 +17,7 @@
 local repeatUtil = require('repeat-util')
 local KEY = 'dfai-yardwatch'
 local SURF = reqscript('dfai-surface')
-local R, CLEAR_CHECKS = 25, 6
+local R = 25
 
 local function load() return dfhack.persistent.getSiteData(KEY, {held = {}}) end
 local function save(s) dfhack.persistent.saveSiteData(KEY, s) end
@@ -49,57 +49,61 @@ local function near_threat(pos, ts)
     end
 end
 
+-- Every check re-applies the hold: DFHack's suspendmanager keeps
+-- construction jobs unsuspended and dfai-walls/dfai-mist run 'unsuspend',
+-- so a hold set once was gone within seconds (1,970 "held" ids, none still
+-- suspended). The held list is rebuilt from live jobs each time.
 local function tick()
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local s = load()
     local ok, err = pcall(function()
         local ts = threats()
-        local held = 0
-        for _ in pairs(s.held) do held = held + 1 end
-        if #ts == 0 then
-            if held == 0 then s.last = 'the yard is clear' return end
-            s.clear = (s.clear or 0) + 1
-            if s.clear < CLEAR_CHECKS then s.last = ('the yard looks clear; %d outdoor jobs resume soon'):format(held) return end
-            local back = 0
-            local l = df.global.world.jobs.list.next
-            while l do
-                local j = l.item
-                if j and s.held[tostring(j.id)] and j.flags.suspend then j.flags.suspend = false back = back + 1 end
-                l = l.next
-            end
-            s.held, s.clear = {}, 0
-            s.last = ('the yard is clear: %d outdoor jobs resumed'):format(back)
-            if back > 0 then dfhack.gui.showAnnouncement('The yard is clear. Outdoor work resumes.', COLOR_LIGHTGREEN, false) end
-            return
-        end
-        s.clear = 0
-        local new, names = 0, {}
+        local was = s.held or {}
+        local now, resumed = {}, 0
         local l = df.global.world.jobs.list.next
         while l do
             local j = l.item
             if j and j.pos.x >= 0 then
+                local key = tostring(j.id)
                 local f = dfhack.maps.getTileFlags(j.pos)
-                local t = f and f.outside and near_threat(j.pos, ts)
-                if t and not s.held[tostring(j.id)] and not j.flags.suspend then
-                    j.flags.suspend = true
-                    local w = dfhack.job.getWorker(j)
-                    if w then dfhack.job.removeWorker(j, 0) end
-                    s.held[tostring(j.id)] = true
-                    new = new + 1
+                if #ts > 0 and f and f.outside and near_threat(j.pos, ts) then
+                    if not j.flags.suspend or was[key] then
+                        j.flags.suspend = true
+                        if dfhack.job.getWorker(j) then dfhack.job.removeWorker(j, 0) end
+                        now[key] = true
+                    end
+                elseif was[key] and j.flags.suspend then
+                    j.flags.suspend = false   -- the danger moved on
+                    resumed = resumed + 1
                 end
             end
             l = l.next
         end
-        for i, u in ipairs(ts) do if i <= 3 then names[#names + 1] = dfhack.df2utf(dfhack.units.getReadableName(u)) end end
-        held = held + new
-        s.last = ('%d outdoor job%s on hold: %s about'):format(held, held == 1 and '' or 's', table.concat(names, ', '))
-        if new > 0 and not s.told then
-            dfhack.gui.showAnnouncement('Danger in the yard: outdoor work stops until it is dealt with.', COLOR_YELLOW, false)
+        local held = 0
+        for _ in pairs(now) do held = held + 1 end
+        s.held = now
+        if #ts == 0 then
+            s.last = resumed > 0 and ('the yard is clear: %d outdoor jobs resumed'):format(resumed) or 'the yard is clear'
+            if resumed > 0 then dfhack.gui.showAnnouncement('The yard is clear. Outdoor work resumes.', COLOR_LIGHTGREEN, false) end
+            s.told = nil
+            return
         end
-        s.told = new > 0 or nil
+        local names = {}
+        for i, u in ipairs(ts) do if i <= 3 then names[#names + 1] = dfhack.df2utf(dfhack.units.getReadableName(u)) end end
+        s.last = ('%d outdoor job%s on hold: %s about'):format(held, held == 1 and '' or 's', table.concat(names, ', '))
+        if held > 0 and not s.told then
+            dfhack.gui.showAnnouncement('Danger in the yard: outdoor work stops until it is dealt with.', COLOR_YELLOW, false)
+            s.told = true
+        end
     end)
     if not ok then s.last = 'error: ' .. tostring(err) end
     save(s)
+end
+
+-- other scripts ask before a fort-wide 'unsuspend'
+function holding()
+    for _ in pairs(load().held or {}) do return true end
+    return false
 end
 
 function status()

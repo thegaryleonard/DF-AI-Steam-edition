@@ -203,7 +203,7 @@ local function tick()
         end
         if s.finished then s.last = ('walls: standing, %d segments, gate on the %s side'):format(#s.ring - 3, s.side) return end
         S.builders(true, KEY)
-        dfhack.run_command_silent('unsuspend')
+        if not (pcall(function() return reqscript('dfai-yardwatch').holding() end) and reqscript('dfai-yardwatch').holding()) then dfhack.run_command_silent('unsuspend') end   -- not while the yard watch holds outdoor work
         local done, total, gaps, holes = work(s, 30)
         s.last = ('walls: %d of %d segments up%s, gate on the %s side'):format(done, total, gaps > 0 and (', ' .. gaps .. ' waiting on trees to be felled') or '', s.side)
         if done + holes >= total then

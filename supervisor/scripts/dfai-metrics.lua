@@ -23,8 +23,10 @@ for _, u in ipairs(cits) do
 end
 local ghosts, foes = 0, 0
 for _, u in ipairs(df.global.world.units.active) do
+    -- a ghost counts as dead, so it has to be counted before that check
+    -- (the counter said 0 with 17 of them walking about)
+    if dfhack.units.isGhost(u) then ghosts = ghosts + 1 end
     if not dfhack.units.isDead(u) then
-        if dfhack.units.isGhost(u) then ghosts = ghosts + 1 end
         if (dfhack.units.isDanger(u) or dfhack.units.isGreatDanger(u)) and not dfhack.maps.getTileFlags(u.pos).hidden then foes = foes + 1 end
     end
 end

@@ -313,7 +313,7 @@ local function step(s)
     local p = s.plan
     local tries = s.tries or 0
     s.tries = tries + 1
-    dfhack.run_command_silent('unsuspend')
+    if not (pcall(function() return reqscript('dfai-yardwatch').holding() end) and reqscript('dfai-yardwatch').holding()) then dfhack.run_command_silent('unsuspend') end   -- not while the yard watch holds outdoor work
     if p.phase == 'dig' then
         S.builders(true, KEY)
         local n = dug(p)

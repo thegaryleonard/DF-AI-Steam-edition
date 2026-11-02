@@ -118,7 +118,7 @@ local function check_coffins(out)
         dfhack.run_command_silent('workorder', ('{"job":"ConstructCoffin","amount_total":%d,"material":"INORGANIC"}'):format(short))
     end
     local ghosts = 0
-    for _, u in ipairs(df.global.world.units.active) do if dfhack.units.isGhost(u) and not dfhack.units.isDead(u) then ghosts = ghosts + 1 end end
+    for _, u in ipairs(df.global.world.units.active) do if dfhack.units.isGhost(u) then ghosts = ghosts + 1 end end   -- ghosts count as dead
     out[#out + 1] = ('coffins: %d fort dwarves unburied, %d ghosts; %d empty coffins, %d made, %d on order%s'):format(unburied, ghosts, empty, loose, ordered,
         short > 0 and (' - ordered %d more'):format(short) or '')
 end
