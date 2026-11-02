@@ -513,6 +513,11 @@ void Population::update_moods(color_ostream & out)
                     MaterialInfo mi(item);
                     if (!mi.material || !mi.material->flags.is_set(flag))
                         continue;
+                    // A weave takes 15000 of thread: Sibrek's yarn weave
+                    // waited on one 14985 llama wool scrap counted here as
+                    // "1 thread available", so nobody ever wove it.
+                    if (item->getTotalDimension() < 15000)
+                        continue;
                     // Webs still hanging in the caverns count as THREAD but
                     // nobody weaves them until collected: Rakust's silk weave
                     // order sat two months on 662 uncollected webs.
@@ -545,6 +550,20 @@ void Population::update_moods(color_ostream & out)
                     ai.stocks.add_manager_order(out, tmpl, 2, why);
                     ai.debug(out, "[MOOD] no plant thread for " + who + ": ordered plant processing " + why.str());
                     usable++;
+                }
+                else if (ji->flags2.bits.yarn)
+                {
+                    // No long yarn: shear the flock and spin it (the weave is
+                    // ordered on the next pass, once thread exists).
+                    tmpl.job_type = job_type::ShearCreature;
+                    ai.stocks.add_manager_order(out, tmpl, 2, why);
+                    df::manager_order_template spin;
+                    spin.job_type = job_type::SpinThread;
+                    std::ostringstream why2;
+                    ai.stocks.add_manager_order(out, spin, 2, why2);
+                    if (mood_warned.insert(who + "|yarnmsg|" + std::to_string(idx)).second)
+                        ai.debug(out, "[MOOD] no yarn thread for " + who + ": ordered shearing and spinning " + why.str() + " " + why2.str());
+                    mood_warned.erase(who + "|cloth|" + std::to_string(idx));
                 }
                 else if (ji->flags2.bits.silk)
                 {
