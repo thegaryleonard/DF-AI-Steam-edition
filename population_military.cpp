@@ -5,6 +5,7 @@
 #include "plan.h"
 #include "debug.h"
 
+#include "modules/Items.h"
 #include "modules/Military.h"
 #include "modules/Maps.h"
 #include "modules/Units.h"
@@ -56,6 +57,8 @@
 #include "df/squad_order_trainst.h"
 #include "df/squad_month_positionst.h"
 #include "df/unit_relationship_type.h"
+#include "df/unit_inventory_item.h"
+#include "stocks.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
@@ -862,6 +865,90 @@ public:
 // DF 53 did not hand weapons to some df-ai squads (8 soldiers fought a
 // forgotten beast barehanded with 8 free maces in the stockpile). Assign a
 // free weapon directly, the way the squad equipment screen does.
+// the soldier can fight with this weapon: it exists, is a real weapon (not
+// a training one), and nobody else holds it (a dead soldier's hand, a goblin)
+static bool weapon_usable_by(df::item *it, df::unit *u)
+{
+    auto w = virtual_cast<df::item_weaponst>(it);
+    if (!w || !w->subtype || w->flags.bits.garbage_collect || w->flags.bits.removed)
+        return false;
+    if (w->subtype->flags.is_set(weapon_flags::TRAINING))
+        return false;
+    df::item *outer = w;
+    df::unit *h = Items::getHolderUnit(w);
+    if (!h)
+        if (auto c = Items::getContainer(w))
+            h = Items::getHolderUnit(c), outer = c;
+    if (!h || h == u)
+        return true;
+    // a hauler carrying it (to the soldier or a stockpile) doesn't count
+    for (auto inv : h->inventory)
+        if (inv && inv->item == outer && inv->mode == df::inv_item_role_type::Hauled)
+            return !Units::isDead(h);
+    return false;
+}
+
+// a weapon in hand, or one assigned that the soldier can go and fetch
+static bool soldier_armed(df::squad_position *pos, df::unit *u)
+{
+    for (auto inv : u->inventory)
+        if (inv && inv->mode == df::inv_item_role_type::Weapon && weapon_usable_by(inv->item, u))
+            return true;
+    for (auto spec : pos->equipment.uniform[uniform_category::weapon])
+        for (auto id : spec->assigned)
+            if (weapon_usable_by(df::item::find(id), u))
+                return true;
+    return false;
+}
+
+static df::unit *position_unit_on_map(df::squad_position *pos)
+{
+    if (!pos || pos->occupant == -1)
+        return nullptr;
+    auto hf = df::historical_figure::find(pos->occupant);
+    auto u = hf ? df::unit::find(hf->unit_id) : nullptr;
+    if (!u || !Units::isActive(u) || Units::isDead(u) || u->flags1.bits.inactive)
+        return nullptr;
+    return u;
+}
+
+// Divedfountain: 55 of the 95 dwarves killed by a goblin siege were Recruits
+// and Wrestlers sent into the fight with no weapon at all. A squad goes into
+// a fight only when half or more of its members on the map have a weapon
+// (in hand or assigned); otherwise it shelters with the civilians until armed.
+bool Population::squad_armed(df::squad *sq)
+{
+    if (!sq)
+        return false;
+    int32_t n = 0, armed = 0;
+    for (auto pos : sq->positions)
+    {
+        auto u = position_unit_on_map(pos);
+        if (!u)
+            continue;
+        n++;
+        if (soldier_armed(pos, u))
+            armed++;
+    }
+    return n == 0 || armed * 2 >= n;
+}
+
+// soldiers on the map with no weapon to fight with (trade buys this many)
+int32_t dfai_unarmed_soldiers()
+{
+    int32_t n = 0;
+    auto fe = plotinfo->main.fortress_entity;
+    if (!fe)
+        return 0;
+    for (auto sqid : fe->squads)
+        if (auto sq = df::squad::find(sqid))
+            for (auto pos : sq->positions)
+                if (auto u = position_unit_on_map(pos))
+                    if (!soldier_armed(pos, u))
+                        n++;
+    return n;
+}
+
 void Population::arm_soldiers(color_ostream & out)
 {
     auto & eq = plotinfo->equipment;
@@ -875,8 +962,30 @@ void Population::arm_soldiers(color_ostream & out)
         {
             if (!pos || pos->occupant == -1)
                 continue;
+            df::unit *soldier = position_unit_on_map(pos);
+            bool shield = !pos->equipment.uniform[uniform_category::shield].empty();
             for (auto spec : pos->equipment.uniform[uniform_category::weapon])
             {
+                // a weapon that is gone or in someone else's hands (a dead
+                // soldier's, a goblin's) is no weapon: drop it so a free one
+                // can be given
+                if (soldier)
+                {
+                    for (size_t i = 0; i < spec->assigned.size(); i++)
+                    {
+                        int32_t id = spec->assigned[i];
+                        df::item *it = df::item::find(id);
+                        if (it && weapon_usable_by(it, soldier))
+                            continue;
+                        vector_erase_at(spec->assigned, i);
+                        i--;
+                        erase_from_vector(pos->equipment.assigned_items, id);
+                        if (erase_from_vector(eq.items_assigned[item_type::WEAPON], id) && it)
+                            insert_into_vector(unassigned, id);
+                        ai.debug(out, stl_sprintf("[MILITARY] dropped weapon %d from the uniform of ", id) + AI::describe_unit(soldier) + (it ? ": " + AI::describe_item(it) + " is in someone else's hands" : std::string(": it is gone")));
+                        changed = true;
+                    }
+                }
                 if (!spec->assigned.empty())
                     continue;
                 bool want_ranged = spec->indiv_choice.bits.ranged;
@@ -887,7 +996,16 @@ void Population::arm_soldiers(color_ostream & out)
                     if (!w || !w->subtype)
                         continue;
                     auto & f = w->flags.bits;
-                    if (f.forbid || f.foreign || f.trader || f.in_inventory || f.in_job || f.owned || f.removed || f.garbage_collect)
+                    if (f.forbid || f.foreign || f.trader || f.in_job || f.owned || f.removed || f.garbage_collect)
+                        continue;
+                    // weapons in a stockpile bin count (38 maces sat in bins);
+                    // held ones don't
+                    if (f.in_inventory && (Items::getHolderUnit(w) || !Stocks::is_item_free(w)))
+                        continue;
+                    // too big to wield, or two-handed for a dwarf with a shield
+                    // in the uniform
+                    if (soldier && (w->subtype->minimum_size > soldier->body.size_info.size_cur ||
+                        (shield && w->subtype->two_handed > soldier->body.size_info.size_cur)))
                         continue;
                     if (w->subtype->flags.is_set(weapon_flags::TRAINING))
                         continue;
@@ -1111,11 +1229,34 @@ void Population::battle_stations(color_ostream & out, bool danger)
     if (danger)
     {
         battle_quiet = 0;
+        int32_t off = routine_named("Off duty");
         for (auto sqid : fe->squads)
         {
             auto sq = df::squad::find(sqid);
             if (!sq || sq->assigned_army_controller_id != -1)
                 continue; // away on a mission
+            if (!squad_armed(sq))
+            {
+                // no weapons: off duty, so the civilian alert takes them into
+                // the Safety burrow, and no kill or muster orders
+                if (off >= 0)
+                    sq->cur_routine_idx = off;
+                for (size_t i = 0; i < sq->orders.size(); i++)
+                {
+                    auto o = sq->orders[i];
+                    if (strict_virtual_cast<df::squad_order_kill_listst>(o) || is_muster(ai, strict_virtual_cast<df::squad_order_movest>(o)))
+                    {
+                        vector_erase_at(sq->orders, i);
+                        i--;
+                    }
+                }
+                request_equipment(sq);
+                if (sheltering.insert(sq->id).second)
+                    ai.debug(out, "[MILITARY] " + squad_label(sq) + " has no weapons: off duty, sheltering with the civilians until armed");
+                continue;
+            }
+            if (sheltering.erase(sq->id))
+                ai.debug(out, "[MILITARY] " + squad_label(sq) + " is armed again: back to the fight");
             if (ready >= 0 && sq->cur_routine_idx != ready)
             {
                 sq->cur_routine_idx = ready;
@@ -1161,7 +1302,7 @@ void Population::battle_stations(color_ostream & out, bool danger)
         auto sq = df::squad::find(sqid);
         if (!sq)
             continue;
-        if (ready >= 0 && train >= 0 && sq->cur_routine_idx == ready)
+        if (ready >= 0 && train >= 0 && (sq->cur_routine_idx == ready || (sheltering.count(sq->id) && sq->cur_routine_idx == 0)))
         {
             sq->cur_routine_idx = train;
             any = true;
@@ -1180,6 +1321,7 @@ void Population::battle_stations(color_ostream & out, bool danger)
     if (battle_mode || any)
         ai.debug(out, "[MILITARY] stand down: squads back to staggered training");
     battle_mode = false;
+    sheltering.clear();
 }
 
 void Population::civilian_alert(color_ostream & out, bool danger)
@@ -1443,7 +1585,7 @@ void Population::schedule_training(color_ostream & out)
             }
         }
 
-        if (squad->cur_routine_idx == 0 && bar != -1)
+        if (squad->cur_routine_idx == 0 && bar != -1 && !sheltering.count(squad->id))
         {
             squad->cur_routine_idx = routine_idx;
             ai.debug(out, stl_sprintf("[MILITARY] squad %d put on the training rotation", squad->id));
@@ -2017,7 +2159,7 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
     for (auto sqid : plotinfo->main.fortress_entity->squads)
     {
         df::squad *sq = df::squad::find(sqid);
-        if (!sq)
+        if (!sq || !squad_armed(sq))
         {
             continue;
         }
@@ -2124,6 +2266,11 @@ bool Population::military_all_squads_attack_unit(color_ostream & out, df::unit *
 bool Population::military_squad_attack_unit(color_ostream &, df::squad *squad, df::unit *u, const std::string & reason)
 {
     if (Units::isOwnCiv(u))
+    {
+        return false;
+    }
+    // squads with no weapons don't get sent to fight (they shelter)
+    if (!squad_armed(squad))
     {
         return false;
     }

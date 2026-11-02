@@ -102,6 +102,9 @@ public:
     static bool carries_baby(df::unit *u);
     void civilian_alert(color_ostream & out, bool danger);
     void battle_stations(color_ostream & out, bool danger);
+    // half or more of the squad's members on the map have a weapon to fight with
+    bool squad_armed(df::squad *sq);
+    std::set<int32_t> sheltering; // unarmed squads kept off duty during a danger
     bool military_target_reachable(df::unit *u);
     bool military_target_shootable(df::unit *u);
     int32_t invaders_far = 0; // invaders seen far from the fort this pass (military.cpp)

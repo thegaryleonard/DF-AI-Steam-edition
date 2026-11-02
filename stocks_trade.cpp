@@ -3,6 +3,10 @@
 
 #include "df/general_ref.h"
 #include "df/item_foodst.h"
+#include "df/item_weaponst.h"
+#include "df/itemdef_weaponst.h"
+#include "df/weapon_flags.h"
+#include <algorithm>
 
 bool Stocks::willing_to_trade_item(color_ostream & out, df::item *item, bool checkContainer)
 {
@@ -73,8 +77,29 @@ bool Stocks::willing_to_trade_item(color_ostream & out, df::item *item, bool che
     return false;
 }
 
+int32_t dfai_unarmed_soldiers();
+
+// a melee weapon a dwarf soldier can use (not a training weapon, pick or axe)
+static bool soldier_weapon(df::item *item)
+{
+    auto w = virtual_cast<df::item_weaponst>(item);
+    return w && w->subtype && !w->subtype->flags.is_set(weapon_flags::TRAINING) &&
+        w->subtype->skill_ranged == job_skill::NONE &&
+        w->subtype->skill_melee != job_skill::MINING && w->subtype->skill_melee != job_skill::AXE &&
+        w->subtype->minimum_size <= 60000;
+}
+
 bool Stocks::want_trader_item(color_ostream &, df::item *item, const std::vector<df::item *> & already_want)
 {
+    // soldiers without weapons (user: "make more weapons, spears and such";
+    // also buy them): as many as there are unarmed soldiers
+    if (soldier_weapon(item))
+    {
+        int32_t want = dfai_unarmed_soldiers();
+        want -= int32_t(std::count_if(already_want.begin(), already_want.end(), [](df::item *i) -> bool { return soldier_weapon(i); }));
+        return want > 0;
+    }
+
     if (item->hasSpecificImprovements(improvement_type::WRITING) || item->getType() == item_type::BOOK)
     {
         return true;
@@ -133,6 +158,16 @@ bool Stocks::want_trader_item(color_ostream &, df::item *item, const std::vector
 
 bool Stocks::want_trader_item_more(df::item *a, df::item *b)
 {
+    // weapons for unarmed soldiers first
+    if (soldier_weapon(a) && !soldier_weapon(b))
+    {
+        return true;
+    }
+    else if (soldier_weapon(b) && !soldier_weapon(a))
+    {
+        return false;
+    }
+
     if (a->getType() == item_type::CAGE && b->getType() != item_type::CAGE)
     {
         return true;

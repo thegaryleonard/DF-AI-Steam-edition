@@ -25,7 +25,9 @@ local function home_squads()
                 local u = hf and df.unit.find(hf.unit_id)
                 if u and dfhack.units.isActive(u) and not dfhack.units.isDead(u) and not u.flags1.inactive then n = n + 1 end
             end
-            if n > 0 then out[#out + 1] = sq end
+            -- squads with no weapons stay out of it (with the civilians)
+            local ok, armed = pcall(function() return reqscript('dfai-armory').squad_armed(sq) end)
+            if n > 0 and (not ok or armed) then out[#out + 1] = sq end
         end
     end
     return out
