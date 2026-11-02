@@ -1475,6 +1475,8 @@ bool Plan::monitor_farm_irrigation(color_ostream & out, room *r, std::ostream & 
     {
         const size_t MAX_IRRIGATING = 3;
         bool water = bucket_water_available();
+        if (!water && setup_natural_water_source(out))
+            water = bucket_water_available();
         bool mine = irrigating.count(pond->id) != 0;
         if (water && (mine || irrigating.size() < MAX_IRRIGATING))
         {
