@@ -51,6 +51,7 @@ local function idle_status(st)
     return st:find('on hold') or st:find('waits') or st:find('enough for now') or st:find('running') or st:find('idle')
         or st:find('not this fort') or st:find('no cavern outpost yet') or st:find('done') or st:find('standing,') or st:find('built, waiting for wind')
         or st:find('no open cavern breach') or st:find('sealed;') or st:find('no execution pit')
+        or st:find('wait for') or st:find('waiting for %d+ citizens') or st:find('no well, but')
 end
 
 local function check(s, problems)
@@ -140,7 +141,11 @@ local function check(s, problems)
     -- on the day Boardghosts was founded.
     local site = dfhack.world.getCurrentSite()
     if not s.born then
-        s.born = (site and site.created_year == df.global.cur_year) and d or (d - 999)
+        -- new if its site was founded this year, or if hardly anything is
+        -- built yet (Channelevened's site was older than its fort: it read
+        -- as a 999-day-old fort and its walls as "stuck for 21 days")
+        local fresh = (site and site.created_year == df.global.cur_year) or #df.global.world.buildings.all < 50
+        s.born = fresh and d or (d - 999)
     end
     local age = d - s.born
     if age <= 336 then

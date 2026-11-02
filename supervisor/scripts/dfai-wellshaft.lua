@@ -197,13 +197,27 @@ local function designate(p)
         end
     end
     local DD = df.tile_dig_designation
+    -- 1. the whole stair first
+    local stairs_done = true
     for z = p.zlo, p.top do
         local sa = attrs(p.sx, p.sy, z)
         local want = (z == p.top and Sh.STAIR_DOWN) or (z == p.zlo and Sh.STAIR_UP) or Sh.STAIR_UPDOWN
         if sa and sa.shape ~= want then
+            stairs_done = false
             set(p.sx, p.sy, z, (z == p.top and DD.DownStair) or (z == p.zlo and DD.UpStair) or DD.UpDownStair)
         end
-        if not open_air(p.x, p.y, z) then set(p.x, p.y, z, DD.Channel) end
+    end
+    if not stairs_done then return end
+    -- 2. then the shaft from the BOTTOM up, one level at a time, each only
+    -- once the level below is open. Channelling every level at once killed a
+    -- miner at Channelevened: a level was cut out from above while he worked
+    -- on it, and he fell 32 levels. Bottom-up, every channelled tile has open
+    -- air under it, so nobody ever stands in the column.
+    for z = p.zlo, p.top do
+        if not open_air(p.x, p.y, z) then
+            set(p.x, p.y, z, DD.Channel)
+            return
+        end
     end
 end
 
@@ -335,6 +349,11 @@ local function tick()
         if not s.current then
             local w = working_well()
             if w then s.last = ('the fort has a well with water (%d,%d level %d)'):format(w.x1, w.y1, w.z) return end
+            -- only when the game itself says there's no water (a fresh fort has
+            -- no well yet but usually drinks from a river or pond: Channelevened
+            -- started a 32-level shaft on its first day)
+            local okp, pri = pcall(reqscript, 'dfai-priorities')
+            if okp and not pri.no_water() then s.last = 'no well, but the fort has water to drink' return end
             -- looking is not free: once a game month at most
             local now = df.global.cur_year * 403200 + df.global.cur_year_tick
             if s.looked and now - s.looked < 33600 then return end
