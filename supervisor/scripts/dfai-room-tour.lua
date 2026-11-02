@@ -466,9 +466,22 @@ end
 local THREAT_SECS = 30
 local THREAT_GAP = 0
 
+-- a captive isn't action: caged, chained, or underground and walled off
+-- from the fort (the execution pit's pen - raiders keep their invader flags
+-- down there and brawl with each other; the camera sat on them for ages)
+function captive(u)
+    if u.flags1.caged or u.flags1.chained then return true end
+    local f = dfhack.maps.getTileFlags(u.pos)
+    if not f or f.outside then return false end
+    local okS, S = pcall(reqscript, 'dfai-surface')
+    local fg = okS and S.fort_group() or 0
+    local g = dfhack.maps.getWalkableGroup(u.pos)
+    return fg ~= 0 and g ~= 0 and g ~= fg
+end
+
 local function is_threat(u)
     if not dfhack.units.isActive(u) or dfhack.units.isDead(u) or dfhack.units.isCitizen(u) then return false end
-    if u.flags1.caged or u.flags1.chained then return false end
+    if captive(u) then return false end
     local big = dfhack.units.isForgottenBeast(u) or dfhack.units.isMegabeast(u) or dfhack.units.isSemiMegabeast(u)
         or dfhack.units.isTitan(u) or dfhack.units.isDemon(u) or dfhack.units.isGreatDanger(u)
     if not big and not (dfhack.units.isInvader(u) and dfhack.units.isDanger(u)) then return false end
@@ -581,7 +594,7 @@ local function fights()
                         local n = 0
                         for _, id in ipairs(sd.unit_ids) do
                             local u = df.unit.find(id)
-                            if alive(u) and revealed(u) then
+                            if alive(u) and revealed(u) and not captive(u) then
                                 f.units[#f.units + 1] = u
                                 f.set[id] = si
                                 n = n + 1

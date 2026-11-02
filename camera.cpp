@@ -99,6 +99,34 @@ void Camera::update(color_ostream &)
         return;
     }
 
+    // the walkable area most citizens are in: an underground unit cut off
+    // from it is a captive (the execution pit's pen), not a fight. The camera
+    // sat on pit prisoners for ages: raiders keep their marauder flag in the
+    // pen, and they brawl with each other down there.
+    uint16_t fort_group = 0;
+    {
+        std::map<uint16_t, int32_t> counts;
+        int32_t seen = 0, best = 0;
+        for (auto c : world->units.active)
+        {
+            if (!Units::isCitizen(c) || Units::isDead(c))
+                continue;
+            uint16_t g = Maps::getWalkableGroup(Units::getPosition(c));
+            if (g && ++counts[g] > best)
+                best = counts[g], fort_group = g;
+            if (++seen >= 40)
+                break;
+        }
+    }
+    auto captive = [fort_group](df::unit *u) -> bool
+    {
+        if (u->flags1.bits.caged || u->flags1.bits.chained)
+            return true;
+        df::tile_designation *d = Maps::getTileDesignation(Units::getPosition(u));
+        uint16_t g = Maps::getWalkableGroup(Units::getPosition(u));
+        return fort_group && d && !d->bits.outside && g && g != fort_group;
+    };
+
     std::vector<df::unit *> targets0;
     std::vector<df::unit *> targets1;
     for (auto it = world->units.active.begin(); it != world->units.active.end(); it++)
@@ -120,7 +148,7 @@ void Camera::update(color_ostream &)
             DFAI_DEBUG(camera, 4, "adding candidate: " << AI::describe_unit(u) << " (primary antagonist)");
             targets0.push_back(u);
         }
-        else if (u->training_level != animal_training_level::Domesticated &&
+        else if (u->training_level != animal_training_level::Domesticated && !captive(u) &&
             (u->flags1.bits.marauder ||
             u->flags1.bits.active_invader ||
             u->flags2.bits.underworld ||
