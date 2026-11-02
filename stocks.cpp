@@ -129,6 +129,16 @@ void Watch::reset()
     NeededPerDwarf[stock_item::armor_legs] = 3;
     NeededPerDwarf[stock_item::armor_shield] = 3;
     NeededPerDwarf[stock_item::armor_torso] = 3;
+    // the user's rule: keep a stock of 10 of the everyday things, so a job
+    // never waits on one (Topcloister: 495 blocks, none free, so a well and
+    // 126 walls failed "unable to complete"; its only 4 ropes were all in
+    // restraints when the fort needed a well)
+    for (auto item : { stock_item::block, stock_item::rope, stock_item::bucket, stock_item::mechanism,
+        stock_item::bag, stock_item::barrel, stock_item::bin, stock_item::splint, stock_item::crutch, stock_item::soap })
+    {
+        if (Needed[item] < 10)
+            Needed[item] = 10;
+    }
     NeededPerDwarf[stock_item::cloth] = 20;
     NeededPerDwarf[stock_item::coal] = 30; // one fuel bar per forge job: arming a big militia takes far more than 12
     NeededPerDwarf[stock_item::clothes_feet] = 40;
