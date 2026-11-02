@@ -275,7 +275,14 @@ def open_world():
 
 def pick_world():
     time.sleep(3)
-    click("Start new game in existing world")
+    # the title may already be on the world list (someone clicked in first):
+    # only the main menu has the button, so a missing button isn't fatal
+    # if the list is up
+    if not click("Start new game in existing world", must=False):
+        up = lua(sup.TITLE_LUA + "print(#t.region_choice > 0 and 'LIST' or 'NOLIST')")
+        if "LIST" not in up or "NOLIST" in up:
+            raise Failed(f"button 'Start new game in existing world' is not on screen and no world list is up (focus {focus()})")
+        log("new fort: the title is already on the world list")
     time.sleep(3)
     out = lua(sup.TITLE_LUA + f"""
 for i,r in ipairs(t.region_choice) do
