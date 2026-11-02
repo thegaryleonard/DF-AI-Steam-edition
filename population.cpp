@@ -157,8 +157,9 @@ static void dump_rotten(AI & ai, color_ostream & out)
 // Divedfountain, and the work orders waiting on those buildings stuck).
 // Once a game day, clear them: rubble and refuse (stones, corpses, plant and
 // animal leftovers) go to the dump; invaders' metal gear is marked for
-// melting (bars for the forge), their other gear dumped. Our own gear, our
-// people's remains, artifacts and anything in use or forbidden stay put.
+// melting (bars for the forge), their other gear dumped; forbidden
+// leftovers are unforbidden so haulers take them. Our own gear goes to its
+// stockpile; our people's remains, artifacts and anything in use stay put.
 static void clear_build_sites(AI & ai, color_ostream & out)
 {
     static int32_t last_day = -1;
@@ -183,12 +184,12 @@ static void clear_build_sites(AI & ai, color_ostream & out)
     for (auto b : sites)
         by_z[b->z].push_back(b);
 
-    int32_t dumped = 0, melted = 0;
+    int32_t dumped = 0, melted = 0, unforbidden = 0;
     for (auto it : world->items.other[items_other_id::IN_PLAY])
     {
         auto & f = it->flags.bits;
         if (!f.on_ground || f.dump || f.melt || f.in_job || f.in_inventory || f.in_building || f.construction ||
-            f.artifact || f.owned || f.trader || f.forbid || f.removed || f.garbage_collect || f.hidden)
+            f.artifact || f.owned || f.trader || f.removed || f.garbage_collect || f.hidden)
             continue;
         auto zs = by_z.find(it->pos.z);
         if (zs == by_z.end())
@@ -210,6 +211,13 @@ static void clear_build_sites(AI & ai, color_ostream & out)
             auto u = df::unit::find(body->unit_id);
             if (u && u->civ_id == plotinfo->civ_id)
                 continue; // a citizen or pet: keep for burial
+        }
+        // most blockers were FORBIDDEN (the leftovers of a removed workshop:
+        // blocks, stone, buckets, old bones), which nobody ever hauls
+        if (f.forbid)
+        {
+            f.forbid = 0;
+            unforbidden++;
         }
         switch (it->getType())
         {
@@ -238,8 +246,8 @@ static void clear_build_sites(AI & ai, color_ostream & out)
             break;
         }
     }
-    if (dumped || melted)
-        ai.debug(out, stl_sprintf("[REFUSE] cleared planned building sites: %d items to the dump, %d invaders' metal items to melt", dumped, melted));
+    if (dumped || melted || unforbidden)
+        ai.debug(out, stl_sprintf("[REFUSE] cleared planned building sites: %d items to the dump, %d invaders' metal items to melt, %d unforbidden for hauling", dumped, melted, unforbidden));
 }
 
 // One-time orders for rope, bags and clothes in a kind of cloth the fort
