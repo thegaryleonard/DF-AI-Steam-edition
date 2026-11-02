@@ -148,8 +148,12 @@ function step(force)
     for _, st in ipairs(ourciv.relations.diplomacy.state) do
         local e = df.historical_entity.find(st.group_id)
         local race = e and df.creature_raw.find(e.race)
+        -- user: "keep messengers away from hostiles until population 200" -
+        -- a civ at war with us, or not one of the trading races, is hostile;
+        -- before 200 citizens our messengers only go to peaceful traders
+        local hostile = race and not (TRADING_RACES[race.creature_id] and st.relation == df.diplomacy_state_type.Peace)
         if e and e.type == df.historical_entity_type.Civilization and e.id ~= ourciv.id and race
-                and TRADING_RACES[race.creature_id] and st.relation == df.diplomacy_state_type.Peace then
+                and (not hostile or pop >= 200) then
             local cid = tostring(e.id)
             local sent = s.sent[cid]
             if not (sent and year - sent.year < 2) then -- one outstanding mission per civ (2 years grace)
