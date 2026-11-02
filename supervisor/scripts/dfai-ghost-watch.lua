@@ -82,7 +82,7 @@ local function step()
     local rows, seen = {}, {}
     -- the ghosts walking the fort
     for _, u in ipairs(df.global.world.units.active) do
-        if dfhack.units.isGhost(u) and not dfhack.units.isDead(u) then
+        if dfhack.units.isGhost(u) then   -- ghosts count as dead: 'not isDead' hid all of them
             local hf = df.historical_figure.find(u.hist_figure_id)
             seen[u.hist_figure_id] = true
             rows[#rows + 1] = {hf = u.hist_figure_id, name = name_of(hf), ghost = true,
