@@ -243,6 +243,10 @@ struct room
     }
 
     void dig(bool plan = false, bool channel = false);
+    // food rooms (farms, butcher, still, kitchen...) are dug ahead of
+    // everything else when food is short
+    bool is_food_room() const;
+    void set_dig_priority(int32_t level) const;
 
     bool include(df::coord t) const;
     bool safe_include(df::coord t) const;

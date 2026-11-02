@@ -1,6 +1,7 @@
 #include "ai.h"
 #include <cstdio>
 #include <fstream>
+#include <set>
 #include "debug.h"
 #include "plan.h"
 
@@ -16,6 +17,8 @@
 #include "df/job.h"
 #include "df/job_list_link.h"
 #include "df/world.h"
+#include "df/item.h"
+#include "df/building_farmplotst.h"
 
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(world);
@@ -113,6 +116,22 @@ void Plan::update(color_ostream &)
                 else
                 {
                     t.r->dig();
+                    if (t.r->is_food_room())
+                    {
+                        // food first: this room and the corridors to it
+                        std::vector<room *> todo{t.r};
+                        std::set<room *> seen;
+                        while (!todo.empty())
+                        {
+                            room *fr = todo.back();
+                            todo.pop_back();
+                            if (!seen.insert(fr).second || seen.size() > 40)
+                                continue;
+                            fr->set_dig_priority(2);
+                            for (auto ap : fr->accesspath)
+                                todo.push_back(ap);
+                        }
+                    }
                     // DF never makes a dig job for a hidden tile whose only
                     // way in is a staircase below or above it (miners can't
                     // "see" up a stair): 18 rooms, the wood furnace among
@@ -340,6 +359,80 @@ bool Plan::checkidle(color_ostream & out, std::ostream & reason)
                     }
                 }
                 break;
+            }
+        }
+    }
+
+    // Food first: while the fort isn't fed, the next food room (farm plot,
+    // butcher, farmer's workshop, kitchen, still, quern, fishery, mechanic's
+    // for the well) jumps the queue, one at a time. Channelevened starved in
+    // year two with its butcher, farmer's workshop, kitchen and mechanic's
+    // workshop never dug, all behind a noble's office queued for value 250.
+    // (autolabor won't make fishers without a fishery or hunters without a
+    // butcher, so these unlock food as well as process it.)
+    if (!food_secure())
+    {
+        bool food_digging = false;
+        for (auto t : tasks_generic)
+        {
+            if ((t->type == task_type::dig_room || t->type == task_type::dig_room_immediate) && t->r->is_food_room() &&
+                !(t->r->type == room_type::workshop && (t->r->workshop_type == workshop_type::Still || t->r->workshop_type == workshop_type::Quern)))
+            {
+                food_digging = true;
+                break;
+            }
+        }
+        if (!food_digging)
+        {
+            // what makes food comes first; a kind that already has one
+            // dug or built is skipped (a second still feeds nobody)
+            auto rank = [](room *r) -> int
+            {
+                if (r->type == room_type::farmplot)
+                    return 5;
+                switch (r->workshop_type)
+                {
+                    case workshop_type::Butchers: return 0; // and autolabor makes hunters
+                    case workshop_type::Fishery: return 1;  // and autolabor makes fishers
+                    case workshop_type::Farmers: return 2;
+                    case workshop_type::Mechanics: return 3; // mechanisms for the well
+                    case workshop_type::Kitchen: return 4;
+                    case workshop_type::Quern: return 6;
+                    case workshop_type::Still: return 7;
+                    default: return 9;
+                }
+            };
+            auto kind = [](room *r) -> int
+            {
+                return r->type == room_type::farmplot ? -1 : int(r->workshop_type);
+            };
+            std::set<int> have;
+            size_t farms_have = 0;
+            for (auto r : rooms_and_corridors)
+            {
+                if (r && r->status >= room_status::dig && r->is_food_room())
+                {
+                    if (r->type == room_type::farmplot)
+                        farms_have++;
+                    else
+                        have.insert(kind(r));
+                }
+            }
+            room *best = nullptr;
+            for (auto r : rooms_and_corridors)
+            {
+                if (!r || r->status != room_status::plan || !r->is_food_room() || r->outdoor)
+                    continue;
+                if (r->type == room_type::farmplot ? farms_have >= 4 : have.count(kind(r)) != 0)
+                    continue;
+                if (!best || rank(r) < rank(best))
+                    best = r;
+            }
+            if (best && digroom(out, best, true))
+            {
+                reason << "food first: " << AI::describe_room(best);
+                ai.debug(out, "[FOOD] digging " + AI::describe_room(best) + " ahead of the queue (the fort is not fed)");
+                return false;
             }
         }
     }
@@ -639,6 +732,12 @@ bool Plan::monitor_room_value(color_ostream & out, room *r, std::ostream & reaso
     }
 
     reason << "room value is " << (r->required_value - value) << " too low";
+
+    if (!food_secure())
+    {
+        reason << " (smoothing waits for food and drink)";
+        return false;
+    }
 
     if (!smooth_room(out, r, false))
     {

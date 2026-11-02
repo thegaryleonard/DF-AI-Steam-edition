@@ -8,11 +8,53 @@
 #include "df/tile_designation.h"
 #include "df/tile_occupancy.h"
 #include "df/world.h"
+#include "df/item.h"
+#include "df/building_farmplotst.h"
 
 REQUIRE_GLOBAL(world);
 
+// Smoothing is a luxury: smoothing jobs win over digging, farming and
+// woodcutting in the dwarves' job choice, so 53-74 of them had 7 of
+// Channelevened's 12 dwarves (both pick miners among them) polishing rooms in
+// year one with no farm plot and no drink, starving. Rooms are smoothed only
+// once the fort has a farm and some food and drink in stock.
+bool Plan::food_secure()
+{
+    static int32_t cached_at = -1;
+    static bool cached = false;
+    if (cached_at != -1 && world->frame_counter - cached_at < 1200 && world->frame_counter >= cached_at)
+        return cached;
+    cached_at = world->frame_counter;
+
+    size_t farms = 0;
+    for (auto b : world->buildings.other[buildings_other_id::FARM_PLOT])
+    {
+        if (b->getBuildStage() >= b->getMaxBuildStage())
+            farms++;
+    }
+    size_t drinks = 0, food = 0;
+    for (auto i : world->items.other[items_other_id::DRINK])
+    {
+        if (!i->flags.bits.forbid && !i->flags.bits.rotten)
+            drinks += i->getStackSize();
+    }
+    for (auto ot : {items_other_id::FOOD, items_other_id::PLANT, items_other_id::MEAT, items_other_id::FISH, items_other_id::CHEESE, items_other_id::PLANT_GROWTH})
+    {
+        for (auto i : world->items.other[ot])
+        {
+            if (!i->flags.bits.forbid && !i->flags.bits.rotten)
+                food += i->getStackSize();
+        }
+    }
+    size_t pop = std::max<size_t>(ai.pop.citizen.size(), 1);
+    cached = farms > 0 && drinks >= 2 * pop && food >= 2 * pop;
+    return cached;
+}
+
 bool Plan::smooth_room(color_ostream &, room *r, bool engrave)
 {
+    if (!food_secure())
+        return false;
     std::set<df::coord> tiles;
     auto insert_tile = [&](df::coord t)
     {

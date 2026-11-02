@@ -1512,6 +1512,106 @@ bool Plan::setup_fishing_zone(color_ostream & out)
     return zone != nullptr;
 }
 
+// A bucket needs a WaterSource zone with water in it. df-ai only ever made
+// one on its well room, so a fort whose well can't be built (no mechanisms:
+// no mechanic's workshop dug yet) had none, and its irrigation pond could
+// never be filled: no mud, so the farm on stone grew nothing, so nothing to
+// eat or brew. Channelevened starved with 141 tiles of river its dwarves
+// drank from one level up. Zone the reachable natural water nearest the
+// fort as a water source.
+bool Plan::setup_natural_water_source(color_ostream & out)
+{
+    static int32_t last_try = -1;
+    int32_t now = int32_t(world->frame_counter);
+    if (last_try != -1 && now >= last_try && now - last_try < 12000)
+        return false;
+    last_try = now;
+
+    // the walk group most citizens are in
+    std::map<uint16_t, int> groups;
+    for (auto id : ai.pop.citizen)
+    {
+        if (auto u = df::unit::find(id))
+        {
+            if (auto b = Maps::getTileBlock(u->pos))
+                groups[b->walkable[u->pos.x & 0xf][u->pos.y & 0xf]]++;
+        }
+    }
+    uint16_t fg = 0;
+    int best_n = 0;
+    for (auto & g : groups)
+    {
+        if (g.first && g.second > best_n)
+        {
+            best_n = g.second;
+            fg = g.first;
+        }
+    }
+    if (!fg)
+        return false;
+
+    auto is_water = [](df::coord t) -> bool
+    {
+        auto d = Maps::getTileDesignation(t);
+        return d && d->bits.flow_size >= 3 && !d->bits.liquid_type && !d->bits.hidden;
+    };
+    auto reachable = [fg](df::coord t) -> bool
+    {
+        for (int16_t dx = -1; dx <= 1; dx++)
+            for (int16_t dy = -1; dy <= 1; dy++)
+                for (int16_t dz = 0; dz <= 1; dz++)
+                {
+                    df::coord n = t + df::coord(dx, dy, dz);
+                    auto b = Maps::getTileBlock(n);
+                    if (b && b->walkable[n.x & 0xf][n.y & 0xf] == fg)
+                        return true;
+                }
+        return false;
+    };
+
+    df::coord centre = fort_entrance ? fort_entrance->pos() : df::coord(world->map.x_count / 2, world->map.y_count / 2, 0);
+    df::coord best;
+    best.clear();
+    int32_t best_d = std::numeric_limits<int32_t>::max();
+    for (auto block : world->map.map_blocks)
+    {
+        for (int16_t x = 0; x < 16; x++)
+        {
+            for (int16_t y = 0; y < 16; y++)
+            {
+                df::coord t = block->map_pos + df::coord(x, y, 0);
+                if (!is_water(t) || is_water(t + df::coord(0, 0, 1)) || !reachable(t))
+                    continue;
+                int32_t dx = t.x - centre.x, dy = t.y - centre.y, dz = t.z - centre.z;
+                int32_t d = dx * dx + dy * dy + 25 * dz * dz;
+                if (d < best_d)
+                {
+                    best_d = d;
+                    best = t;
+                }
+            }
+        }
+    }
+    if (!best.isValid())
+    {
+        ai.debug(out, "no reachable natural water for a water source zone");
+        return false;
+    }
+    // the bucket fill check accepts water on the zone's level or the one below
+    int16_t zlevel = best.z;
+    df::tiletype *above = Maps::getTileType(best + df::coord(0, 0, 1));
+    if (above && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *above)) == tiletype_shape_basic::Open)
+        zlevel = best.z + 1;
+    const int16_t R = 1;
+    df::coord min(std::max(0, best.x - R), std::max(0, best.y - R), zlevel);
+    df::coord max(std::min(world->map.x_count - 1, best.x + R), std::min(world->map.y_count - 1, best.y + R), zlevel);
+    auto zone = create_zone(out, civzone_type::WaterSource, min, max);
+    ai.debug(out, stl_sprintf("water source zone on natural water at (%d, %d, %d): %s", best.x, best.y, best.z, zone ? "created" : "failed"));
+    if (zone)
+        water_check_tick = -1;
+    return zone != nullptr;
+}
+
 bool Plan::dig_next_cavern_now(color_ostream & out, std::string & why)
 {
     for (auto r : rooms_and_corridors)

@@ -182,6 +182,7 @@ public:
     bool rescue_caged(color_ostream & out, room *r, furniture *f, int32_t item_id, std::ostream & reason);
 
     bool smooth_room(color_ostream & out, room *r, bool engrave = false);
+    bool food_secure();
     void smooth_room_access(color_ostream & out, room *r);
     void smooth_cistern(color_ostream & out, room *r);
     void smooth_cistern_access(color_ostream & out, room *r);
@@ -222,6 +223,7 @@ public:
     bool dig_next_cavern_now(color_ostream & out, std::string & why);
     command_result setup_outdoor_gathering_zones(color_ostream & out);
     bool setup_fishing_zone(color_ostream & out);
+    bool setup_natural_water_source(color_ostream & out);
 
     std::vector<room *> find_corridor_tosurface(color_ostream & out, corridor_type::type type, df::coord origin);
     room *find_typed_corridor(color_ostream & out, corridor_type::type type, df::coord origin, const std::set<room *> & no_attach_corridors = std::set<room *>());

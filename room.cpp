@@ -12,6 +12,8 @@
 #include "df/unit.h"
 #include "df/world.h"
 #include "df/world_site.h"
+#include "df/map_block.h"
+#include "df/block_square_event_designation_priorityst.h"
 
 REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
@@ -134,6 +136,65 @@ room::~room()
     for (auto it = layout.begin(); it != layout.end(); it++)
     {
         delete *it;
+    }
+}
+
+bool room::is_food_room() const
+{
+    if (type == room_type::farmplot)
+        return true;
+    if (type == room_type::workshop)
+    {
+        switch (workshop_type)
+        {
+            case workshop_type::Butchers:
+            case workshop_type::Still:
+            case workshop_type::Kitchen:
+            case workshop_type::Quern:
+            case workshop_type::Farmers:
+            case workshop_type::Fishery:
+            case workshop_type::Mechanics: // the well needs mechanisms
+                return true;
+            default:
+                break;
+        }
+    }
+    return false;
+}
+
+// DF's designation priority (1..7, default 4; stored x1000 per tile).
+// Miners take the lowest number first, so a starving fort digs its farms
+// before its noble rooms: Channelevened had 126 dig jobs, 2 picks and its
+// farm rooms behind 44 others, and no farm plot after a year.
+void room::set_dig_priority(int32_t level) const
+{
+    for (int16_t x = min.x; x <= max.x; x++)
+    {
+        for (int16_t y = min.y; y <= max.y; y++)
+        {
+            for (int16_t z = min.z; z <= max.z; z++)
+            {
+                df::map_block *block = Maps::getTileBlock(x, y, z);
+                if (!block || block->designation[x & 0xf][y & 0xf].bits.dig == tile_dig_designation::No)
+                    continue;
+                df::block_square_event_designation_priorityst *pri = nullptr;
+                for (auto e : block->block_events)
+                {
+                    if ((pri = virtual_cast<df::block_square_event_designation_priorityst>(e)))
+                        break;
+                }
+                if (!pri)
+                {
+                    pri = df::allocate<df::block_square_event_designation_priorityst>();
+                    for (int i = 0; i < 16; i++)
+                        for (int j = 0; j < 16; j++)
+                            pri->priority[i][j] = 4000;
+                    block->block_events.push_back(pri);
+                }
+                pri->priority[x & 0xf][y & 0xf] = level * 1000;
+                block->flags.bits.designated = 1;
+            }
+        }
     }
 }
 
