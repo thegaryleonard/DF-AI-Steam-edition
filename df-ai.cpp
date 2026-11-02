@@ -342,11 +342,14 @@ DFhackCExport command_result plugin_onstatechange(color_ostream & out, state_cha
 
     events.onstatechange(out, event);
 
-    // With automatic embarking on, a world unload (fort lost/abandoned/retired)
-    // recreates the AI once the title screen is back, which starts a new embark.
-    if (event == SC_WORLD_UNLOADED && embark::enabled())
+    // A world unload (fort lost, abandoned, retired, or quit to the title)
+    // drops the AI and its plan; the next fort gets a fresh one. Before, the
+    // old fort's AI stayed in memory unless auto-embark was on - and was saved
+    // into the next fort's world folder as that fort's plan. (With auto-embark
+    // the reset waits for the title screen, which starts the next embark.)
+    if (event == SC_WORLD_UNLOADED)
     {
-        full_reset_requested = true;
+        full_reset_requested = true; // done once the title screen is up (check_enabled)
     }
     return CR_OK;
 }

@@ -71,6 +71,7 @@ bool AI::is_dwarfmode_viewscreen()
 command_result AI::startup(color_ostream & out)
 {
     command_result res = CR_OK;
+    own_site_id = World::GetCurrentSiteId();
     if (!config.manage_labors.empty())
     {
         // labormanager was not ported to v50+; autolabor works with work details turned off.
@@ -231,6 +232,16 @@ command_result AI::persist(color_ostream & out)
     command_result res = CR_OK;
     if (skip_persist)
         return res;
+
+    // never write this AI's plan into another fort: an AI kept in memory
+    // across a world change wrote Topcloister's whole plan into the next
+    // world's folder under the new site's id, and the new fort then built
+    // Topcloister's layout (stockpiles and zones all over its surface)
+    if (own_site_id != -1 && World::GetCurrentSiteId() != own_site_id)
+    {
+        debug(out, stl_sprintf("not saving the plan: it belongs to site %d, this is site %d", own_site_id, World::GetCurrentSiteId()));
+        return res;
+    }
 
     if (res == CR_OK)
         res = plan.persist(out);

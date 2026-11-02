@@ -161,6 +161,7 @@ public:
     std::string report(bool html = false);
 
     command_result persist(color_ostream & out);
+    int32_t own_site_id = -1; // the fort this AI's plan belongs to (set at startup)
     command_result unpersist(color_ostream & out);
 
     bool is_embarking();
