@@ -16,12 +16,53 @@
 #include "df/itemdef_trapcompst.h"
 #include "df/manager_order.h"
 #include "df/manager_order_template.h"
+#include "df/item_threadst.h"
+#include "modules/Materials.h"
 #include "df/unit_relationship_type.h"
 #include "df/workquota_frequency_type.h"
 #include "df/world.h"
 
 REQUIRE_GLOBAL(cur_year);
+REQUIRE_GLOBAL(standing_orders_auto_collect_webs);
 REQUIRE_GLOBAL(world);
+
+// whole pieces of free cloth, by kind; `kind` is set to the kind with most
+// (plant, silk or yarn), which is what a cloth rope/bag order must ask for
+int32_t Stocks::free_cloth(df::job_material_category & kind, int32_t *counts)
+{
+    int32_t plant = 0, silk = 0, yarn = 0;
+    for (auto i : world->items.other[items_other_id::CLOTH])
+    {
+        if (i->getTotalDimension() < 10000 || !is_item_free(i))
+            continue;
+        MaterialInfo mi(i);
+        if (!mi.material)
+            continue;
+        if (mi.material->flags.is_set(material_flags::THREAD_PLANT))
+            plant++;
+        else if (mi.material->flags.is_set(material_flags::SILK))
+            silk++;
+        else if (mi.material->flags.is_set(material_flags::YARN))
+            yarn++;
+    }
+    if (counts)
+    {
+        counts[0] = plant;
+        counts[1] = silk;
+        counts[2] = yarn;
+    }
+    kind.whole = 0;
+    int32_t best = std::max(plant, std::max(silk, yarn));
+    if (best == 0)
+        return 0;
+    if (best == plant)
+        kind.bits.cloth = 1;
+    else if (best == silk)
+        kind.bits.silk = 1;
+    else
+        kind.bits.yarn = 1;
+    return best;
+}
 
 // In DF 0.47 this queued chair jobs directly at a mason's workshop through
 // the workshop UI. That UI is gone in v50+, so instead create a one-time
@@ -163,7 +204,32 @@ void Stocks::queue_need(color_ostream & out, stock_item::item what, int32_t amou
     {
         // v50+: bags are a separate item type with their own job.
         tmpl.job_type = job_type::ConstructBag;
-        tmpl.material_category.bits.cloth = 1;
+        // Only from cloth that exists, of the kind there is (5358 "Make
+        // cloth bag: Needs 1 unused plant cloth" at Divedfountain); leather
+        // bags when there is no cloth.
+        df::job_material_category kind;
+        int32_t cloth = free_cloth(kind);
+        if (cloth > 0)
+        {
+            if (kind.bits.cloth)
+                tmpl.material_category.bits.cloth = 1;
+            else if (kind.bits.silk)
+                tmpl.material_category.bits.silk = 1;
+            else
+                tmpl.material_category.bits.yarn = 1;
+            amount = std::min(amount, cloth);
+        }
+        else if (count_free.count(stock_item::leather) && count_free.at(stock_item::leather) > 0)
+        {
+            tmpl.material_category.bits.leather = 1;
+            amount = std::min(amount, count_free.at(stock_item::leather));
+        }
+        else
+        {
+            reason << "no free cloth or leather for bags: ";
+            queue_need(out, stock_item::cloth, amount, reason);
+            return;
+        }
         break;
     }
     case stock_item::barrel:
@@ -677,7 +743,79 @@ void Stocks::queue_need(color_ostream & out, stock_item::item what, int32_t amou
     case stock_item::rope:
     {
         tmpl.job_type = job_type::MakeChain;
-        tmpl.material_category.bits.cloth = 1;
+        // only from cloth that exists ("Make cloth rope: Needs 1 unused
+        // plant cloth" 4363 times at Divedfountain), of the kind there is
+        df::job_material_category kind;
+        int32_t cloth = free_cloth(kind);
+        if (cloth <= 0)
+        {
+            reason << "no free cloth for rope: ";
+            queue_need(out, stock_item::cloth, amount, reason);
+            return;
+        }
+        if (kind.bits.cloth)
+            tmpl.material_category.bits.cloth = 1;
+        else if (kind.bits.silk)
+            tmpl.material_category.bits.silk = 1;
+        else
+            tmpl.material_category.bits.yarn = 1;
+        amount = std::min(amount, cloth);
+        break;
+    }
+    case stock_item::cloth:
+    {
+        // Weave the thread there is (nothing ever ordered weaving except
+        // strange moods, so rope, bags and clothes failed by the thousand).
+        // A weave takes 15000 of thread; webs must be collected first.
+        int32_t plant = 0, silk = 0, yarn = 0, webs = 0;
+        for (auto i : world->items.other[items_other_id::THREAD])
+        {
+            if (!is_item_free(i))
+                continue;
+            if (i->flags.bits.spider_web)
+            {
+                webs++;
+                continue;
+            }
+            if (i->getTotalDimension() < 15000)
+                continue;
+            MaterialInfo mi(i);
+            if (!mi.material)
+                continue;
+            if (mi.material->flags.is_set(material_flags::THREAD_PLANT))
+                plant++;
+            else if (mi.material->flags.is_set(material_flags::SILK))
+                silk++;
+            else if (mi.material->flags.is_set(material_flags::YARN))
+                yarn++;
+        }
+        int32_t best = std::max(plant, std::max(silk, yarn));
+        if (best == 0)
+        {
+            reason << "no thread to weave";
+            if (webs > 0 && !*standing_orders_auto_collect_webs)
+            {
+                *standing_orders_auto_collect_webs = 1;
+                reason << "; web collection turned on (" << webs << " webs in reach)";
+            }
+            // plant fibre (pig tails, flax...) into thread
+            if (count_free.count(stock_item::thread_plant) && count_free.at(stock_item::thread_plant) > 0)
+            {
+                df::manager_order_template proc;
+                proc.job_type = job_type::ProcessPlants;
+                reason << "; ";
+                add_manager_order(out, proc, std::min(5, count_free.at(stock_item::thread_plant)), reason);
+            }
+            return;
+        }
+        tmpl.job_type = job_type::WeaveCloth;
+        if (best == plant)
+            tmpl.material_category.bits.plant = 1;
+        else if (best == silk)
+            tmpl.material_category.bits.silk = 1;
+        else
+            tmpl.material_category.bits.yarn = 1;
+        amount = std::min(amount, best);
         break;
     }
     case stock_item::screw:
@@ -843,9 +981,20 @@ void Stocks::queue_need(color_ostream & out, stock_item::item what, int32_t amou
         {
             matcat_item = stock_item::shell;
         }
+        else if (tmpl.job_type == job_type::WeaveCloth)
+        {
+            matcat_item = stock_item::thread; // the weave's own count of thread is in its case above
+        }
+        else if (tmpl.material_category.bits.silk || tmpl.material_category.bits.yarn || tmpl.material_category.bits.plant)
+        {
+            matcat_item = stock_item::cloth; // silk/yarn rope and bags (free_cloth counted the kind)
+        }
         else
         {
-            throw DFHack::Error::InvalidArgument();
+            // an unknown category must never take the game down (an uncaught
+            // throw here aborted DF twice)
+            reason << "no stock count for this material category";
+            return;
         }
 
         int32_t mat_amount = count_free.at(matcat_item) - count_manager_orders_matcat(tmpl.material_category, tmpl.job_type);

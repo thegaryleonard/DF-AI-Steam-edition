@@ -9,6 +9,8 @@
 #include "df/general_ref_building_holderst.h"
 #include "df/general_ref_contained_in_itemst.h"
 #include "df/general_ref_contains_itemst.h"
+#include "df/general_ref_entity_itemownerst.h"
+#include "df/plotinfost.h"
 #include "df/general_ref_unit_holderst.h"
 #include "df/item_boulderst.h"
 #include "df/job.h"
@@ -20,6 +22,7 @@
 #include "df/unit_inventory_item.h"
 #include "df/world.h"
 
+REQUIRE_GLOBAL(plotinfo);
 REQUIRE_GLOBAL(world);
 
 // check if an item is free to use
@@ -34,6 +37,28 @@ bool Stocks::is_item_free(df::item *i, bool allow_nonempty)
         i->flags.bits.dump)
     {
         return false;
+    }
+
+    // A caravan's goods (not bought), anything waiting at the trade depot,
+    // and what sits in placed chests and cabinets (hospital supplies,
+    // citizens' things) are not stock: at Divedfountain 122 of the 150
+    // cloth were the merchants' or at the depot, so
+    // df-ai kept ordering rope, bags and clothes that failed ~9000 times
+    // with "Needs 1 unused plant cloth".
+    for (auto ref : i->general_refs)
+    {
+        if (auto own = virtual_cast<df::general_ref_entity_itemownerst>(ref))
+        {
+            if (own->entity_id != plotinfo->group_id && own->entity_id != plotinfo->civ_id)
+                return false;
+        }
+        else if (virtual_cast<df::general_ref_building_holderst>(ref))
+        {
+            auto bld = ref->getBuilding();
+            if (bld && (bld->getType() == building_type::Box || bld->getType() == building_type::Cabinet ||
+                bld->getType() == building_type::TradeDepot)) // goods waiting at the depot are for trade
+                return false;
+        }
     }
 
     if (i->flags.bits.in_job)

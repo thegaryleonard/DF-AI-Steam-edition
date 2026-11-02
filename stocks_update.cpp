@@ -20,6 +20,8 @@
 #include "df/job.h"
 #include "df/job_list_link.h"
 
+#include <deque>
+
 REQUIRE_GLOBAL(cur_year);
 REQUIRE_GLOBAL(cur_year_tick);
 REQUIRE_GLOBAL(plotinfo);
@@ -495,12 +497,36 @@ void Stocks::update_slabs(color_ostream & out)
 
 int32_t dfai_unfilled_armor(stock_item::item what);
 
+// Citizens now, plus the growth of the last three game months: migrant
+// waves come in runs (Divedfountain: 15 waves, 7 -> 77 citizens in about a
+// year, and 10 dwarves starved), so food and drink are stocked for the
+// next wave too, not just for who is here.
+int32_t Stocks::food_headcount()
+{
+    static std::deque<std::pair<int64_t, int32_t>> seen;
+    int32_t pop = int32_t(ai.pop.citizen.size());
+    int64_t now = int64_t(*cur_year) * 403200 + *cur_year_tick;
+    if (!seen.empty() && (now < seen.back().first || now - seen.back().first > 403200))
+        seen.clear(); // a reload or a new fort
+    if (seen.empty() || now - seen.back().first >= 1200)
+        seen.push_back(std::make_pair(now, pop));
+    while (!seen.empty() && now - seen.front().first > 3 * 33600)
+        seen.pop_front();
+    int32_t low = pop;
+    for (auto & s : seen)
+        low = std::min(low, s.second);
+    return pop + (pop - low);
+}
+
 int32_t Stocks::num_needed(stock_item::item key)
 {
     int32_t amount = Watch.Needed.at(key);
     if (Watch.NeededPerDwarf.count(key))
     {
-        amount += int32_t(ai.pop.citizen.size()) * Watch.NeededPerDwarf.at(key) / 100;
+        int32_t heads = int32_t(ai.pop.citizen.size());
+        if (key == stock_item::drink || key == stock_item::meal)
+            heads = food_headcount();
+        amount += heads * Watch.NeededPerDwarf.at(key) / 100;
     }
     switch (key)
     {

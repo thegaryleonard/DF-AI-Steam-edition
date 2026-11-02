@@ -66,6 +66,7 @@ void Watch::reset()
     Needed[stock_item::cage_metal] = 1;
     Needed[stock_item::chair] = 3;
     Needed[stock_item::chest] = 4;
+    Needed[stock_item::cloth] = 5;
     Needed[stock_item::clothes_feet] = 4;
     Needed[stock_item::clothes_hands] = 4;
     Needed[stock_item::clothes_head] = 2;
@@ -147,8 +148,12 @@ void Watch::reset()
     NeededPerDwarf[stock_item::clothes_legs] = 20;
     NeededPerDwarf[stock_item::clothes_torso] = 20;
     NeededPerDwarf[stock_item::crafts] = 50;
-    NeededPerDwarf[stock_item::drink] = 200;
-    NeededPerDwarf[stock_item::meal] = 100;
+    // a growing fort eats its stock long before the kitchen catches up (10
+    // starved at Divedfountain while migrants took it from 7 to 77): 3
+    // drinks and 2 meals a head, counted on the expected headcount
+    // (Stocks::food_headcount)
+    NeededPerDwarf[stock_item::drink] = 300;
+    NeededPerDwarf[stock_item::meal] = 200;
     NeededPerDwarf[stock_item::potash] = 15;
     NeededPerDwarf[stock_item::slab] = 10;
     NeededPerDwarf[stock_item::soap] = 20;

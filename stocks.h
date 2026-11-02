@@ -245,6 +245,9 @@ public:
     void update_ingots(color_ostream & out);
 
     int32_t num_needed(stock_item::item key);
+    int32_t food_headcount();
+    // counts (optional): plant, silk, yarn pieces
+    int32_t free_cloth(df::job_material_category & kind, int32_t *counts = nullptr);
     int16_t min_subtype_for_item(stock_item::item what);
     void act(color_ostream & out, stock_item::item key);
     void count_stocks(color_ostream & out, stock_item::item k);

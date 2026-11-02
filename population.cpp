@@ -6,7 +6,9 @@
 #include "population.h"
 #include "plan.h"
 
+#include "modules/Buildings.h"
 #include "modules/Filesystem.h"
+#include "modules/Items.h"
 #include "modules/Job.h"
 #include "modules/Maps.h"
 #include "modules/Materials.h"
@@ -22,6 +24,7 @@
 #include "df/history_event_hist_figure_diedst.h"
 #include "df/incident.h"
 #include "df/job.h"
+#include "df/job_list_link.h"
 #include "df/job_item.h"
 #include "df/occupation.h"
 #include "df/entity_position_responsibility.h"
@@ -149,6 +152,145 @@ static void dump_rotten(AI & ai, color_ostream & out)
         ai.debug(out, stl_sprintf("[REFUSE] marked %d rotten items for the dump", n));
 }
 
+// Loose items on a tile where a building or construction is planned stop it
+// being built ("Construct building: Item blocking site" 6000+ times at
+// Divedfountain, and the work orders waiting on those buildings stuck).
+// Once a game day, clear them: rubble and refuse (stones, corpses, plant and
+// animal leftovers) go to the dump; invaders' metal gear is marked for
+// melting (bars for the forge), their other gear dumped. Our own gear, our
+// people's remains, artifacts and anything in use or forbidden stay put.
+static void clear_build_sites(AI & ai, color_ostream & out)
+{
+    static int32_t last_day = -1;
+    int32_t day = *cur_year * 1000 + *cur_year_tick / 1200;
+    if (day == last_day)
+        return;
+    last_day = day;
+
+    std::vector<df::building *> sites;
+    for (auto b : world->buildings.all)
+    {
+        if (!b || b->getBuildStage() >= b->getMaxBuildStage())
+            continue;
+        auto t = b->getType();
+        if (t == building_type::Civzone || t == building_type::Stockpile)
+            continue;
+        sites.push_back(b);
+    }
+    if (sites.empty())
+        return;
+    std::map<int16_t, std::vector<df::building *>> by_z;
+    for (auto b : sites)
+        by_z[b->z].push_back(b);
+
+    int32_t dumped = 0, melted = 0;
+    for (auto it : world->items.other[items_other_id::IN_PLAY])
+    {
+        auto & f = it->flags.bits;
+        if (!f.on_ground || f.dump || f.melt || f.in_job || f.in_inventory || f.in_building || f.construction ||
+            f.artifact || f.owned || f.trader || f.forbid || f.removed || f.garbage_collect || f.hidden)
+            continue;
+        auto zs = by_z.find(it->pos.z);
+        if (zs == by_z.end())
+            continue;
+        bool on_site = false;
+        for (auto b : zs->second)
+        {
+            if (it->pos.x >= b->x1 && it->pos.x <= b->x2 && it->pos.y >= b->y1 && it->pos.y <= b->y2 &&
+                Buildings::containsTile(b, df::coord2d(it->pos.x, it->pos.y)))
+            {
+                on_site = true;
+                break;
+            }
+        }
+        if (!on_site)
+            continue;
+        if (auto body = virtual_cast<df::item_body_component>(it))
+        {
+            auto u = df::unit::find(body->unit_id);
+            if (u && u->civ_id == plotinfo->civ_id)
+                continue; // a citizen or pet: keep for burial
+        }
+        switch (it->getType())
+        {
+        case item_type::WEAPON: case item_type::ARMOR: case item_type::HELM: case item_type::SHOES:
+        case item_type::PANTS: case item_type::GLOVES: case item_type::SHIELD: case item_type::AMMO:
+            if (!f.foreign)
+                continue; // our own gear: a stockpile takes it
+            if (Items::canMelt(it) && Items::markForMelting(it))
+            {
+                melted++;
+            }
+            else
+            {
+                f.dump = 1;
+                dumped++;
+            }
+            break;
+        case item_type::BOULDER: case item_type::ROCK: case item_type::CORPSE: case item_type::CORPSEPIECE:
+        case item_type::REMAINS: case item_type::PLANT: case item_type::PLANT_GROWTH: case item_type::SEEDS:
+        case item_type::MEAT: case item_type::FISH: case item_type::FISH_RAW: case item_type::VERMIN:
+        case item_type::GLOB: case item_type::EGG: case item_type::SHEET: case item_type::THREAD:
+            f.dump = 1;
+            dumped++;
+            break;
+        default:
+            break;
+        }
+    }
+    if (dumped || melted)
+        ai.debug(out, stl_sprintf("[REFUSE] cleared planned building sites: %d items to the dump, %d invaders' metal items to melt", dumped, melted));
+}
+
+// One-time orders for rope, bags and clothes in a kind of cloth the fort
+// has none of fail over and over ("Make cloth rope: Needs 1 unused plant
+// cloth" 4363, yarn clothes ~2000 at Divedfountain, from df-ai and from
+// DFHack's tailor). Once a game day, delete those that no job is working
+// on; df-ai orders weaving first and re-orders them once cloth exists.
+static void drop_clothless_orders(AI & ai, color_ostream & out)
+{
+    static int32_t last_day = -1;
+    int32_t day = *cur_year * 1000 + *cur_year_tick / 1200;
+    if (day == last_day)
+        return;
+    last_day = day;
+
+    df::job_material_category kind;
+    int32_t have[3] = {0, 0, 0};
+    ai.stocks.free_cloth(kind, have);
+    std::set<int32_t> busy;
+    for (auto l = world->jobs.list.next; l; l = l->next)
+        if (l->item && l->item->order_id != -1)
+            busy.insert(l->item->order_id);
+
+    int32_t dropped = 0;
+    auto & orders = world->manager_orders.all;
+    for (size_t i = 0; i < orders.size(); i++)
+    {
+        auto mo = orders[i];
+        if (!mo || mo->frequency != workquota_frequency_type::OneTime || busy.count(mo->id) ||
+            !mo->item_conditions.empty() || !mo->order_conditions.empty() || mo->items)
+            continue;
+        switch (mo->job_type)
+        {
+        case job_type::MakeChain: case job_type::ConstructBag: case job_type::MakeArmor: case job_type::MakeHelm:
+        case job_type::MakePants: case job_type::MakeGloves: case job_type::MakeShoes:
+            break;
+        default:
+            continue;
+        }
+        auto & mc = mo->material_category.bits;
+        bool none = (mc.cloth && have[0] == 0) || (mc.silk && have[1] == 0) || (mc.yarn && have[2] == 0);
+        if (!none)
+            continue;
+        ai.debug(out, "[Stocks] no cloth for " + AI::describe_job(mo) + stl_sprintf(" (%d left): order dropped until cloth is woven", mo->amount_left));
+        vector_erase_at(orders, i);
+        i--;
+        delete mo;
+        dropped++;
+    }
+}
+
 // Containers (user request): the FIRST stockpile of each kind stays
 // container-free so viewers can see what's in the room; every later pile of
 // that kind gets a bin per tile (small goods) or a barrel per tile (food), so
@@ -245,6 +387,8 @@ void Population::update(color_ostream & out)
         update_deads(out);
         update_moods(out);
         dump_rotten(ai, out);
+        clear_build_sites(ai, out);
+        drop_clothless_orders(ai, out);
         break;
     case 7:
         update_caged(out);
@@ -469,7 +613,14 @@ void Population::update_citizenlist(color_ostream & out)
         // autolabor caps fishing and hunting at one dwarf and keeps a single
         // carpenter; a growing fort starves for fish, meat and barrels.
         int pop = int(citizen.size());
-        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor FISH %d %d", std::max(1, pop / 8), std::max(2, pop / 5)));
+        // Food first (10 starved at Divedfountain while migrants poured in):
+        // while meals or drinks are under target, more fishers, farmers,
+        // cooks and brewers.
+        bool food_short = ai.stocks.need_more(stock_item::meal) || ai.stocks.need_more(stock_item::drink);
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor FISH %d %d", std::max(food_short ? 2 : 1, pop / (food_short ? 5 : 8)), std::max(food_short ? 3 : 2, pop / (food_short ? 3 : 5))));
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor PLANT %d 200", std::max(5, pop / (food_short ? 4 : 8))));
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor COOK %d 200", std::max(1, pop / (food_short ? 10 : 20))));
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor BREWER %d 200", std::max(1, pop / (food_short ? 10 : 20))));
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor HUNT 1 %d", std::max(1, pop / 12)));
         Core::getInstance().runCommand(discard_wrapper, stl_sprintf("autolabor CARPENTER %d 200", std::max(1, pop / 12)));
         // autolabor keeps one weaver, and when that one is the clothier in a
