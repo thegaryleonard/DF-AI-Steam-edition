@@ -202,6 +202,27 @@ def new_world():
     return WORLD
 
 
+def follow_game_world():
+    """Use the world the game has loaded (or last had loaded), not the one in
+    supervisor.json: a world made by hand never got there, so "retire, new
+    fort here" looked for the previous world (region59) and failed."""
+    global WORLD
+    out = (lua("print('WF '..tostring(dfhack.world.ReadWorldFolder and dfhack.world.ReadWorldFolder() or ''))") or "")
+    name = out.split("WF ", 1)[1].strip() if "WF " in out else ""
+    folder = Path(CFG["save_dir"]) / name
+    if not name or name == WORLD or not folder.is_dir() or not any(folder.glob("world.*")):
+        return WORLD
+    cfg = json.loads(sup.CFG_FILE.read_text(encoding="utf-8-sig")) if sup.CFG_FILE.exists() else {}
+    old = cfg.get("world_folder", CFG["world_folder"])
+    cfg["world_folder"] = name
+    if old and old != name:
+        cfg.setdefault("past_worlds", []).append(old)
+    sup.CFG_FILE.write_text(json.dumps(cfg, indent=2), encoding="utf-8")
+    CFG["world_folder"] = WORLD = name
+    log(f"new fort: following the game's world {name} (was {old})")
+    return WORLD
+
+
 def reset_fort_files():
     """The desk's per-fort lists mean nothing in a new fort."""
     cfgdir = Path(CFG["df_dir"]) / "dfhack-config"
@@ -482,6 +503,8 @@ def start_df_ai():
 def run(mode="retire", world=False):
     try:
         status("starting: " + ("retire, new world, new fort" if world else mode), running=True, error=None, mode=mode, world_mode=world)
+        if not world:
+            follow_game_world()
         if mode != "title":
             remember_site()
             status("ending the fort")
