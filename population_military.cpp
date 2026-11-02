@@ -1563,7 +1563,26 @@ void Population::update_military(color_ostream & out)
                     ai.plan.freesoldierbarrack(out, u->id);
                 }
                 std::vector<Units::NoblePosition> positions;
-                if (!Units::isChild(u) && !Units::isBaby(u) && u->mood == mood_type::None && !Units::getNoblePositions(&positions, u) &&
+                // nobles fight too (their duties fit the off-duty months),
+                // except the ones whose job takes them away from a fight:
+                // the chief medical dwarf, messengers, the broker
+                bool noble_stays_out = false;
+                if (Units::getNoblePositions(&positions, u))
+                {
+                    for (auto & pos : positions)
+                    {
+                        const std::string & code = pos.position->code;
+                        if (code == "CHIEF_MEDICAL_DWARF" || code == "MESSENGER" ||
+                            code == "MONARCH" || code == "BARON" || code == "COUNT" || code == "DUKE" ||
+                            // the ones dismissed further down (manager, bookkeeper, broker):
+                            // drafting them would only loop draft/dismiss
+                            pos.position->responsibilities[entity_position_responsibility::ACCOUNTING] ||
+                            pos.position->responsibilities[entity_position_responsibility::MANAGE_PRODUCTION] ||
+                            pos.position->responsibilities[entity_position_responsibility::TRADE])
+                            noble_stays_out = true;
+                    }
+                }
+                if (!Units::isChild(u) && !Units::isBaby(u) && u->mood == mood_type::None && !noble_stays_out &&
                     !u->status.labors[unit_labor::MINE] && !u->status.labors[unit_labor::CUTWOOD] && !u->status.labors[unit_labor::HUNT] &&
                     Units::isSane(u) && !is_doctor(u) && !carries_baby(u))
                 {
@@ -1686,23 +1705,19 @@ void Population::update_military(color_ostream & out)
     ranged_squads_to_ranges(ai, out);
     invaders_far = 0;
 
-    // A grown fort keeps 40% of its citizens under arms, not everyone: with
-    // 49 of 58 adults drafted, Hammerfaiths had 34 mason jobs (coffins and
-    // memorial slabs for six ghosts among them) and nobody free to do them.
+    // A grown fort is a militia (user: "ensure everyone is in a squad and
+    // gets rotated through training regularly" - Divedfountain was about to
+    // fall to waves of invaders with 11 of 26 under arms). Everyone the draft
+    // pool allows joins; schedule_training spreads the squads over up to 4
+    // groups, so at most about a quarter of them train in a month and the
+    // rest work. (It used to be 40%: Hammerfaiths drafted 49 of 58 with no
+    // rotation and had nobody free for its mason jobs.)
     if (everyone_fights)
     {
-        size_t target = citizen.size() * 40 / 100;
-        if (citizen_military > target + 2 && !under_attack)
+        if (!draft_pool.empty())
         {
-            auto mid = soldiers.begin() + std::min(citizen_military - target, soldiers.size());
-            std::partial_sort(soldiers.begin(), mid, soldiers.end(), &MilitarySetupExclusive::Dismiss::compare);
-            events.queue_exclusive(std::make_unique<MilitarySetupExclusive::Dismiss>(ai, soldiers.begin(), mid));
-        }
-        else if (citizen_military < target)
-        {
-            auto mid = draft_pool.begin() + std::min(target - citizen_military, draft_pool.size());
-            std::partial_sort(draft_pool.begin(), mid, draft_pool.end(), &MilitarySetupExclusive::Draft::compare);
-            want_draft.insert(want_draft.end(), draft_pool.begin(), mid);
+            std::sort(draft_pool.begin(), draft_pool.end(), &MilitarySetupExclusive::Draft::compare);
+            want_draft.insert(want_draft.end(), draft_pool.begin(), draft_pool.end());
         }
     }
     else if (citizen_military > max_military && !under_attack)

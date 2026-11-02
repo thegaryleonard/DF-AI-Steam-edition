@@ -21,7 +21,7 @@ local KEY = 'dfai-war-office'
 local SQUAD_EVERY = 28   -- game days between one squad's raids
 local HOME_GUARD = 2     -- squads that always stay home
 local MAX_OUT = 1        -- raiding parties abroad at once
-local ALL_CIVS = true    -- every other civilization is a target, not just enemies
+local ALL_CIVS = false   -- low profile: only civilizations already at war with us
 
 local function plugin()
     local t = {}
@@ -218,6 +218,10 @@ function step(force)
     read_results(s)
     -- 'hold': every squad stays home (a beast fight coming); returns still logged
     if s.hold then save_state(s) return 'holding: the army stays home (' .. tostring(s.hold) .. ')' end
+    -- user: "no raids unless asked. low profile is key to the next fort's
+    -- survival" - raids leave only on an order (the Desk's "Send a raid now",
+    -- or 'dfai-war-office now'), never on their own
+    if not force then save_state(s) return 'raids only when asked (low profile); returns still logged' end
     local out, total = 0, 0
     for _ in pairs(s.sent) do out = out + 1 end
     for _, sq in ipairs(df.global.world.squads.all) do
