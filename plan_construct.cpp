@@ -1464,14 +1464,87 @@ bool Plan::monitor_farm_irrigation(color_ostream & out, room *r, std::ostream & 
         return true;
     }
 
+    // Irrigation ponds are filled by the bucket. With no water to fill a
+    // bucket from, every fill fails and starts again, forever: Topcloister
+    // had ~75 irrigation ponds cycling "Fill pond" tens of thousands of
+    // times while 21 dwarves died of thirst in bed (the wounded are given
+    // water by the bucket too). And "do now" on every fill put irrigation
+    // ahead of carrying water to them. So: only with water about, at most
+    // a few ponds at a time, and never ahead of anything else.
     if (auto pond = virtual_cast<df::building_civzonest>(r->dfbuilding()))
     {
+        const size_t MAX_IRRIGATING = 3;
+        bool water = bucket_water_available();
+        bool mine = irrigating.count(pond->id) != 0;
+        if (water && (mine || irrigating.size() < MAX_IRRIGATING))
+        {
+            irrigating.insert(pond->id);
+            pond->zone_settings.pond.flag.bits.keep_filled = 1;
+            reason << "; irrigating";
+        }
+        else
+        {
+            irrigating.erase(pond->id);
+            pond->zone_settings.pond.flag.bits.keep_filled = 0;
+            reason << (water ? "; waiting its turn to be irrigated" : "; no water a bucket can be filled from yet");
+        }
         for (auto j : pond->jobs)
         {
-            j->flags.bits.do_now = 1;
+            j->flags.bits.do_now = 0;
         }
     }
 
+    return false;
+}
+
+// is there water a dwarf can fill a bucket from: a water source zone, or a
+// finished well whose shaft reaches water
+bool Plan::bucket_water_available()
+{
+    int32_t now = int32_t(world->frame_counter);
+    if (water_check_tick != -1 && now >= water_check_tick && now - water_check_tick < 1200)
+        return water_check_ok;
+    water_check_tick = now;
+    water_check_ok = false;
+    for (auto bld : world->buildings.other[buildings_other_id::ACTIVITY_ZONE])
+    {
+        auto zone = virtual_cast<df::building_civzonest>(bld);
+        // a zone only counts with water actually in it (or just below):
+        // df-ai's well room over a dry cistern is a water source zone too
+        if (!zone || zone->type != civzone_type::WaterSource || !zone->spec_sub_flag.bits.active)
+            continue;
+        for (int16_t x = zone->x1; x <= zone->x2; x++)
+            for (int16_t y = zone->y1; y <= zone->y2; y++)
+                for (int16_t dz = 0; dz <= 1; dz++)
+                {
+                    auto td = Maps::getTileDesignation(df::coord(x, y, zone->z - dz));
+                    if (td && td->bits.flow_size > 0 && !td->bits.liquid_type)
+                    {
+                        water_check_ok = true;
+                        return true;
+                    }
+                }
+    }
+    for (auto bld : world->buildings.other[buildings_other_id::WELL])
+    {
+        if (bld->getBuildStage() < bld->getMaxBuildStage())
+            continue;
+        for (int16_t z = bld->z; z >= 0 && z > bld->z - 80; z--)
+        {
+            df::coord t(bld->x1, bld->y1, z);
+            auto td = Maps::getTileDesignation(t);
+            auto tt = Maps::getTileType(t);
+            if (!td || !tt)
+                break;
+            if (td->bits.flow_size > 0 && !td->bits.liquid_type)
+            {
+                water_check_ok = true;
+                return true;
+            }
+            if (z < bld->z && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Open)
+                break;
+        }
+    }
     return false;
 }
 

@@ -170,6 +170,10 @@ public:
     bool try_construct_windmill(color_ostream & out, room *r, std::ostream & reason);
 
     bool monitor_farm_irrigation(color_ostream & out, room *r, std::ostream & reason);
+    bool bucket_water_available();
+    std::set<int32_t> irrigating;
+    int32_t water_check_tick = -1;
+    bool water_check_ok = false;
     bool can_place_farm(color_ostream & out, room *r, bool cheat, std::ostream & reason);
     bool try_construct_farmplot(color_ostream & out, room *r, std::ostream & reason);
 

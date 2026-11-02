@@ -7,6 +7,8 @@
 - Curtain walls and bunkers are only planned on ground the fort can walk to; unreachable wall orders are taken down so their stone is freed. Bunkers take up traps standing on their wall line.
 - Squads no longer stand guard over caged animals: caged and chained creatures are never kill targets, and prisoners waiting to be pitted no longer get a "just in case" kill order (it parked squads at the pit for days).
 - Yard watch (`dfai-yardwatch`): while a dangerous creature is loose over the fort, outdoor jobs within 25 tiles of it are put on hold and their workers called off; they resume once the yard has been clear a while.
+- Irrigation ponds only ask for water when a bucket can actually be filled (a water zone with water in it, or a well that reaches water), at most 3 at a time, and never ahead of other jobs: with no water they cycled "Fill pond" tens of thousands of times and tied up the buckets the wounded need.
+- Well shaft wells use any plain stone (not only blocks, which run out to walls) and take down an empty restraint for its rope when there is no other.
 - The watchdog repeats a problem at most every 12 real hours instead of every few game days.
 
 # 53.16-r3 (unofficial port)

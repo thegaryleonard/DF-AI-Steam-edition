@@ -68,6 +68,13 @@ end
 
 local D4 = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}
 
+WELL_FILTERS = {
+    {flags2 = {building_material = true, non_economic = true}},
+    {flags2 = {lye_milk_free = true}, item_type = df.item_type.BUCKET, vector_id = df.job_item_vector_id.BUCKET},
+    {item_type = df.item_type.CHAIN, vector_id = df.job_item_vector_id.CHAIN},
+    {item_type = df.item_type.TRAPPARTS, vector_id = df.job_item_vector_id.TRAPPARTS},
+}
+
 -- all tiles round the shaft and stair, level by level, are rock
 local function sealed(cx, cy, sx, sy, zlo, zhi)
     for z = zlo, zhi do
@@ -225,6 +232,14 @@ local function rope_ready()
         if j and j.job_type == df.job_type.MakeChain then j.flags.do_now = true j.flags.suspend = false end
         l = l.next
     end
+    -- water before restraints: Topcloister's only 4 ropes were all tied up in
+    -- empty restraints, with no cloth to make another. Take one down that
+    -- isn't holding anything; its rope comes free for the well.
+    for _, b in ipairs(df.global.world.buildings.other.CHAIN) do
+        if b:getBuildStage() >= b:getMaxBuildStage() and not b.chained and #b.jobs == 0 then
+            if pcall(dfhack.buildings.deconstruct, b) then return false end
+        end
+    end
     return false
 end
 
@@ -245,6 +260,15 @@ local function step(s)
             -- fort is in bed (Topcloister: 24 of 56 resting, every miner
             -- resting or carrying water to them)
             if not p.labor then dfhack.run_command_silent('autolabor', 'MINE', '3', '8') p.labor = true end
+            -- and to the front of the queue: this is the fort's water
+            local l = df.global.world.jobs.list.next
+            while l do
+                local j = l.item
+                if j and j.pos.z >= p.zlo and j.pos.z <= p.top and ((j.pos.x == p.x and j.pos.y == p.y) or (j.pos.x == p.sx and j.pos.y == p.sy)) then
+                    j.flags.do_now = true
+                end
+                l = l.next
+            end
             local left = 0
             for z = p.zlo, p.top do if not open_air(p.x, p.y, z) then left = left + 1 end end
             s.last = ('digging the well shaft at %d,%d: %d of %d levels to go, water %d levels down'):format(p.x, p.y, left, p.top - p.zlo + 1, p.top - p.wz)
@@ -280,13 +304,27 @@ local function step(s)
                 dfhack.gui.showAnnouncement('A well now draws water from the lake far below.', COLOR_LIGHTCYAN, true)
                 pcall(function() reqscript('dfai-projects').done('wellshaft') end)
             else
-                s.last = 'the well is being built over the shaft'
+                local has_rope = false
+                for _, j in ipairs(b.jobs) do
+                    j.flags.do_now = true j.flags.suspend = false
+                    for _, ji in ipairs(j.items) do if ji.item:getType() == df.item_type.CHAIN then has_rope = true end end
+                end
+                if has_rope or rope_ready() then
+                    s.last = 'the well is being built over the shaft'
+                else
+                    s.last = 'the well is waiting for a rope or chain (ordered; an empty restraint is taken down for one)'
+                end
             end
             return
         end
-        if not rope_ready() then s.last = 'the well needs a rope or chain: ordered, at the front of the queue' return end
-        local ok, err = pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Well, pos = xyz2pos(p.x, p.y, p.top)})
-        s.last = ok and 'well ordered over the shaft' or ('could not order the well: ' .. tostring(err))
+        -- order the well first, so it is already waiting when a rope comes
+        -- free (df-ai put a freed rope straight back into a new restraint)
+        -- any plain stone, not just blocks: Topcloister had 495 blocks, none
+        -- free (all in walls), and the well kept failing "unable to complete"
+        local ok, err = pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Well, pos = xyz2pos(p.x, p.y, p.top), filters = WELL_FILTERS})
+        if not ok then s.last = 'could not order the well: ' .. tostring(err) return end
+        s.last = 'well ordered over the shaft'
+        return
     end
 end
 
