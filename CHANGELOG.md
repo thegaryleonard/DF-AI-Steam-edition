@@ -1,5 +1,6 @@
 # Unreleased
 
+- A cistern tap whose water runs out (a pond) is replaced by a tap to fed water, whatever the length; the dead tap is walled off where it joins the aqueduct, and the new one isn't breached until that wall stands.
 - The cistern builds its never-built wells itself once there is water under them (a stockpile on a well's tile gives it up), and empties its reserve into the cistern when the tap's water is gone. `ai cistern-wells` tries them now and says why not.
 - Wells are built once there is water under them, and a well that was never built (its cistern was dry) is built when the water comes.
 - A cistern tap's stair is shut with a hatch, locked once nobody is inside, before the breach (it had made the reserve a public walkway).

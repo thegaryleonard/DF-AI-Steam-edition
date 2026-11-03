@@ -431,7 +431,7 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
                 }
             }
 
-            if (empty && !seal_tap_stair(out, reason))
+            if (empty && (!seals_done(reason) || !seal_tap_stair(out, reason)))
             {
                 m_c_testgate_delay = 1;
             }
@@ -1051,7 +1051,28 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
                     else if (joined.count(t))
                         open.insert(t);
                 }
-    if (undug <= 40)
+    // a tap whose water is gone (a pond drained dry) is dead: find fed water
+    // whatever the length, and retire it
+    bool dead = !AI::spiral_search(m_c_reserve->channel_enable, 0, 3, [](df::coord t) -> bool
+    {
+        df::tile_designation *td = Maps::getTileDesignation(t);
+        return td && !td->bits.liquid_type && td->bits.flow_size >= 3 && !td->bits.water_stagnant;
+    }).isValid() && m_c_reserve->channel_enable.isValid() && !is_wall(m_c_reserve->channel_enable);
+    std::vector<room *> old_tap;
+    if (dead)
+    {
+        for (auto r : aq)
+        {
+            if (r->comment != "tunnel to water for the cistern")
+                continue;
+            old_tap.push_back(r);
+            for (int16_t x = r->min.x; x <= r->max.x; x++)
+                for (int16_t y = r->min.y; y <= r->max.y; y++)
+                    for (int16_t z = r->min.z; z <= r->max.z; z++)
+                        open.erase(df::coord(x, y, z));
+        }
+    }
+    if (!dead && undug <= 40)
     {
         reason << "the aqueduct has only " << undug << " tiles left to dig";
         return false;
@@ -1070,7 +1091,7 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
                 for (int16_t y = mn.y - 60; y <= mx.y + 60; y++)
                 {
                     df::tile_designation *td = Maps::getTileDesignation(df::coord(x, y, z));
-                    if (td && !td->bits.liquid_type && td->bits.flow_size >= 4)
+                    if (td && !td->bits.liquid_type && td->bits.flow_size >= 4 && !td->bits.water_stagnant)
                         water.push_back(df::coord(x, y, z));
                 }
     }
@@ -1115,14 +1136,65 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
         reason << "no tunnel to water from the dug end of the aqueduct (" << undug << " tiles still to dig, " << tries << " starts tried)";
         return false;
     }
-    if (best_len * 2 > undug)
+    if (!dead && best_len * 2 > undug)
     {
         reason << "the planned aqueduct (" << undug << " tiles to go) is not much longer than a tap (" << best_len << ")";
         return false;
     }
-    reason << stl_sprintf("tap of %d tiles from (%d, %d, %d) instead of %d undug aqueduct tiles", best_len, best_at.x, best_at.y, best_at.z, undug);
+    if (dead)
+        reason << stl_sprintf("the tap's water is gone: new tap of %d tiles from (%d, %d, %d) to fed water", best_len, best_at.x, best_at.y, best_at.z);
+    else
+        reason << stl_sprintf("tap of %d tiles from (%d, %d, %d) instead of %d undug aqueduct tiles", best_len, best_at.x, best_at.y, best_at.z, undug);
     if (!commit)
         return true;
+
+    if (dead)
+    {
+        // retire the dead tap; wall it off where it joins the aqueduct (the
+        // breach waits for that wall: pressured water from the new source
+        // would come back out through the old one)
+        static const int16_t N6[6][3] = { { 1, 0, 0 }, { -1, 0, 0 }, { 0, 1, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 0, -1 } };
+        for (auto r : old_tap)
+        {
+            for (int16_t x = r->min.x; x <= r->max.x; x++)
+                for (int16_t y = r->min.y; y <= r->max.y; y++)
+                    for (int16_t z = r->min.z; z <= r->max.z; z++)
+                    {
+                        df::coord t(x, y, z);
+                        if (is_wall(t))
+                        {
+                            Maps::getTileDesignation(t)->bits.dig = tile_dig_designation::No;
+                            continue;
+                        }
+                        bool joins = false;
+                        for (auto & d : N6)
+                            if (open.count(t + df::coord(d[0], d[1], d[2])))
+                                joins = true;
+                        if (!joins)
+                            continue;
+                        room *seal = new room(corridor_type::corridor, t, t, "seal for the cistern");
+                        seal->status = room_status::finished;
+                        furniture *f = new furniture();
+                        f->construction = construction_type::Wall;
+                        seal->layout.push_back(f);
+                        rooms_and_corridors.push_back(seal);
+                        add_task(task_type::furnish, seal, f);
+                        ai.debug(out, stl_sprintf("cistern: walling off the dead tap at (%d, %d, %d)", t.x, t.y, t.z));
+                    }
+            r->abandoned = true;
+            for (auto r2 : rooms_and_corridors)
+            {
+                auto it = std::find(r2->accesspath.begin(), r2->accesspath.end(), r);
+                if (it == r2->accesspath.end())
+                    continue;
+                r2->accesspath.erase(it);
+                for (auto ap : r->accesspath)
+                    if (!ap->abandoned && std::find(r2->accesspath.begin(), r2->accesspath.end(), ap) == r2->accesspath.end())
+                        r2->accesspath.push_back(ap);
+            }
+        }
+        aq.erase(std::remove_if(aq.begin(), aq.end(), [](room *r) { return r->abandoned; }), aq.end());
+    }
 
     // drop what isn't dug: wholly undug pieces are abandoned, a part-dug
     // straight piece shrinks to its dug run
@@ -1186,6 +1258,24 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
 // public walkway: Channelevened's dwarves walked down it, through the reserve
 // and on, and the gate test never found it empty. Before the breach, a hatch
 // goes on the stairhead and is locked (only once nobody is inside).
+// a retired tap is walled off where it joined the aqueduct before the new
+// one is breached
+bool Plan::seals_done(std::ostream & reason)
+{
+    for (auto r : rooms_and_corridors)
+    {
+        if (r->abandoned || r->comment != "seal for the cistern")
+            continue;
+        df::tiletype *tt = Maps::getTileType(r->min);
+        if (!tt || ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Wall)
+        {
+            reason << stl_sprintf("waiting for the old tap to be walled off at (%d, %d, %d)", r->min.x, r->min.y, r->min.z);
+            return false;
+        }
+    }
+    return true;
+}
+
 bool Plan::seal_tap_stair(color_ostream &, std::ostream & reason)
 {
     room *stair = nullptr;

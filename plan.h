@@ -208,6 +208,7 @@ public:
     bool plan_cistern_tap(color_ostream & out, df::building *gate, std::ostream & reason, df::coord test_origin = df::coord(), df::coord attach = df::coord(), bool commit = false, int32_t *path_len = nullptr);
     bool reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, bool commit);
     bool seal_tap_stair(color_ostream & out, std::ostream & reason);
+    bool seals_done(std::ostream & reason);
     void build_dry_wells(color_ostream & out, std::ostream & os);
 
     bool try_endconstruct(color_ostream & out, room *r, std::ostream & reason);
