@@ -322,7 +322,13 @@ void Population::update_moods(color_ostream & out)
             {
                 if (ref && ref->job_item_idx == int32_t(idx) && ref->item)
                 {
-                    have += ref->item->getStackSize();
+                    // Cloth/thread quantity is in dimension units (10000 =
+                    // one whole piece): counting the stack size (1) never
+                    // reached it, so the cloth cheat re-created a cloth every
+                    // pass while Tobul's mood waited on a log (8 extra).
+                    df::item_type rt = ref->item->getType();
+                    have += (rt == item_type::CLOTH || rt == item_type::THREAD) ?
+                        ref->item->getTotalDimension() : ref->item->getStackSize();
                 }
             }
             if (have >= ji->quantity)
@@ -655,13 +661,25 @@ void Population::update_moods(color_ostream & out)
                         sj->flags.bits.do_now = true;
                 }
             }
-            if (!usable && ji->item_type == item_type::WOOD && mood_warned.insert(who + "|wood|" + std::to_string(idx)).second)
+            if (!usable && ji->item_type == item_type::WOOD)
             {
                 // No free logs at all (Unib's glassmaker mood sat at thirst
                 // 48000 needing one log in a fort with zero logs): fell trees.
-                std::ostringstream why;
-                ai.stocks.cuttrees(out, 3, why);
-                ai.debug(out, "[MOOD] no logs for " + who + ": marked trees for felling " + why.str());
+                // Re-mark whenever no FellTree job is left: felled logs get
+                // eaten by other jobs (charcoal, carpentry) before the moody
+                // dwarf fetches one (Tobul's weaver mood: 57 trees felled,
+                // 1 log left in a building, nothing marked, thirst 31000).
+                bool felling = false;
+                for (auto l = world->jobs.list.next; l && !felling; l = l->next)
+                    felling = l->item && l->item->job_type == job_type::FellTree;
+                bool first = mood_warned.insert(who + "|wood|" + std::to_string(idx)).second;
+                if (!felling || first)
+                {
+                    std::ostringstream why;
+                    ai.stocks.cuttrees(out, 3, why);
+                    if (first || !felling)
+                        ai.debug(out, "[MOOD] no logs for " + who + ": marked trees for felling " + why.str());
+                }
             }
             if (!usable && ji->item_type == item_type::ROUGH && ji->mat_type >= 3 && ji->mat_type <= 5 &&
                 mood_warned.insert(who + "|rawglass|" + std::to_string(idx)).second)
