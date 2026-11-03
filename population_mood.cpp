@@ -667,12 +667,34 @@ void Population::update_moods(color_ostream & out)
                 ai.debug(out, "[MOOD] no raw glass for " + who + ": ordered " + describe_job_item(ji) + " " + why.str());
             }
             if (!usable && holder && mood_urgent(u, MOOD_CHEAT_THIRST) &&
-                ((ji->item_type == item_type::ROUGH && ji->mat_type >= 3 && ji->mat_type <= 5) || ji->item_type == item_type::WOOD))
+                (ji->item_type == item_type::ROUGH || ji->item_type == item_type::WOOD))
             {
-                // Last resort (a cheat): create the raw glass / log at the
-                // workshop rather than let the dwarf die of thirst.
+                // Last resort (a cheat): create the raw glass / rough gem / log
+                // at the workshop rather than let the dwarf die of thirst.
+                // Rough gems too: Zon's woodcrafter mood waited 40 days for
+                // two gems with no gem vein mined, nothing else could supply them.
                 int16_t mt = ji->mat_type;
-                int32_t mi = -1;
+                int32_t mi = ji->mat_index;
+                if (ji->item_type == item_type::ROUGH && !(ji->mat_type >= 3 && ji->mat_type <= 5) && mi < 0)
+                {
+                    mt = 0;
+                    for (size_t i = 0; i < world->raws.inorganics.all.size(); i++)
+                    {
+                        auto raw = world->raws.inorganics.all[i];
+                        if (raw->material.flags.is_set(material_flags::IS_GEM) &&
+                            Job::isSuitableMaterial(ji, 0, int32_t(i), item_type::ROUGH))
+                        {
+                            mi = int32_t(i);
+                            break;
+                        }
+                    }
+                    if (mi < 0)
+                        mt = -1;
+                }
+                else if (ji->item_type == item_type::ROUGH && ji->mat_type >= 3 && ji->mat_type <= 5)
+                {
+                    mi = -1;
+                }
                 if (ji->item_type == item_type::WOOD)
                 {
                     for (auto plant : world->raws.plants.trees)
