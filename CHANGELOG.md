@@ -1,5 +1,6 @@
 # Unreleased
 
+- The Herald runs fewer masterwork stories: at most one a game month, and only a dwarf's first, the first of an item, or one a season after the last (27 masterworks over two months became 3 stories).
 - `dfai-turretwatch`: counts bolts fired by bolt throwers and, when one kills something, posts it to the supervisor's Discord relay with an `{owner}` mention.
 - Bolt-thrower bunkers get a second bolt thrower on the roof (open sky, for fliers) and a built stair up through the roof, so the roof's middle can be built from above and the turret has an operator. Parts for both are ordered at the start. Fixed: the engine was placed one tile off (quickfort centres a siege engine on its cell) and pushed into the front wall, so no bunker ever got its engine; the engine check now looks anywhere in the bunker. `dfai-bunker expedite` (testing only) finishes the placed sites with build-now.
 - Cistern flood fixed: the two floodgates never stand open together with water behind the inlet (df-ai closes the inlet and calls off a queued pull that would open the second gate; `dfai-floodguard` backs it up). The gate test's "open both to get in" fallback only runs before the cistern ever had water.

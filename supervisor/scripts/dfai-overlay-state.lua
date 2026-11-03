@@ -190,12 +190,54 @@ if out.ok then
   end
   out.events = {}
   local reps = df.global.world.status.reports
+  -- Masterworks are news while they're rare: at most one story a game month,
+  -- and only a dwarf's first, the first of an item, or one a season after the
+  -- last story. A few years in, nearly everything they make is a masterwork
+  -- and it filled the paper.
+  local MKEY, MONTH, SEASON = 'dfai-herald-masterworks', 33600, 100800
+  local mw = dfhack.persistent.getSiteData(MKEY, {makers = {}, kinds = {}, last = -1, ok = {}, no = {}})
+  local mw_changed = false
+  do
+    local todo = {}
+    for i = math.max(0, #reps - 2000), #reps - 1 do
+      local r = reps[i]
+      if r.flags.announcement and (df.announcement_type[r.type] == 'MASTERPIECE_CRAFTED' or df.announcement_type[r.type] == 'MASTERFUL_IMPROVEMENT')
+          and not mw.ok[tostring(r.id)] and not mw.no[tostring(r.id)] then
+        todo[#todo + 1] = r
+      end
+    end
+    for _, r in ipairs(todo) do
+      local t = dfhack.df2utf(r.text)
+      local maker = t:match('^(.-) has ') or '?'
+      local item = (t:match('masterpiece (.-)!?$') or ''):gsub('%[%d+%]', ''):gsub('[^%a%s]', ''):gsub('%s+$', '')
+      local kind = item:match('(%w+)$') or item
+      local at = r.year * 403200 + r.time
+      local gap = mw.last < 0 and math.huge or at - mw.last
+      local news = gap >= MONTH and (not mw.makers[maker] or not mw.kinds[kind] or gap >= SEASON)
+      if news then
+        mw.makers[maker], mw.kinds[kind], mw.last = true, true, at
+        mw.ok[tostring(r.id)] = true
+      else
+        mw.no[tostring(r.id)] = true
+      end
+      mw_changed = true
+    end
+    -- the decisions only matter while the reports are in the game's log
+    local oldest = #reps > 0 and reps[math.max(0, #reps - 2000)].id or 0
+    for _, set in ipairs({mw.ok, mw.no}) do
+      for id in pairs(set) do if tonumber(id) < oldest then set[id] = nil mw_changed = true end end
+    end
+    if mw_changed then dfhack.persistent.saveSiteData(MKEY, mw) end
+  end
+  local function quiet_masterwork(r)
+    return (df.announcement_type[r.type] == 'MASTERPIECE_CRAFTED' or df.announcement_type[r.type] == 'MASTERFUL_IMPROVEMENT') and not mw.ok[tostring(r.id)]
+  end
   -- scan well past combat spam (one fight can log hundreds of non-announcement reports)
   for i = #reps - 1, math.max(0, #reps - 2000), -1 do
     if #out.events >= 8 then break end
     local r = reps[i]
     local text = dfhack.df2utf(r.text)
-    if r.flags.announcement and #out.events < 8 and not text:find(' cancels ') then
+    if r.flags.announcement and #out.events < 8 and not text:find(' cancels ') and not quiet_masterwork(r) then
       out.events[#out.events + 1] = { text = text, year = r.year, type = df.announcement_type[r.type], id = r.id }
     end
   end
@@ -212,7 +254,7 @@ if out.ok then
     local r = reps[i]
     if #out.big >= 6 then break end
     local tn = df.announcement_type[r.type]
-    if r.flags.announcement and tn then
+    if r.flags.announcement and tn and not quiet_masterwork(r) then
       local text = (BIG[tn] or tn:find('SIEGE') or tn:find('INVASION')) and dfhack.df2utf(r.text)
       if not text then
         -- sieges have no single announcement type; catch them by wording
