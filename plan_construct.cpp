@@ -588,6 +588,19 @@ bool Plan::try_furnish_well(color_ostream &, room *r, furniture *f, df::coord t,
             return false;
         }
     }
+    // a stockpile laid over the well's shaft (a music hall's instrument pile
+    // covered the hospital's) gives the tile up: the well comes first
+    if (auto pile = virtual_cast<df::building_stockpilest>(Buildings::findAtTile(t)))
+    {
+        auto & rm = pile->room;
+        if (rm.extents && t.x >= rm.x && t.x < rm.x + rm.width && t.y >= rm.y && t.y < rm.y + rm.height)
+        {
+            rm.extents[(t.x - rm.x) + (t.y - rm.y) * rm.width] = df::building_extents_type::None;
+            Maps::getTileOccupancy(t)->bits.building = tile_building_occ::None;
+            reason << "took the well's tile out of a stockpile";
+            return false;
+        }
+    }
     df::item *block = nullptr;
     df::item *mecha = nullptr;
     df::item *buckt = nullptr;

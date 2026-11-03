@@ -1625,7 +1625,7 @@ void Plan::describe_cistern(std::ostream & os)
     os << "reserve: " << AI::describe_room(m_c_reserve) << " " << box(m_c_reserve) << "\n";
     df::coord g = m_c_reserve->channel_enable;
     os << "channel_enable: " << (g.isValid() ? stl_sprintf("(%d,%d,%d)", g.x, g.y, g.z) : std::string("none")) << "\n";
-    os << "tap wait " << m_c_tap_wait << ", testgate delay " << m_c_testgate_delay << "\n";
+    os << "tap wait " << m_c_tap_wait << ", testgate delay " << m_c_testgate_delay << ", reserve channeled " << m_c_reserve->channeled << ", cistern channeled " << (m_c_cistern ? m_c_cistern->channeled : false) << "\n";
     std::list<room *> todo{m_c_reserve};
     std::set<room *> seen;
     while (!todo.empty())

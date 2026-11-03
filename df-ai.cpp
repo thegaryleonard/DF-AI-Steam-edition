@@ -278,6 +278,20 @@ command_result ai_command(color_ostream & out, std::vector<std::string> & args)
         return CR_OK;
     }
 
+    if (args.size() == 1 && args[0] == "cistern-wells")
+    {
+        // build the wells that were never built (if there is water under them)
+        if (!dwarfAI)
+        {
+            out << "df-ai is not running" << std::endl;
+            return CR_OK;
+        }
+        std::ostringstream os;
+        dwarfAI->plan.build_dry_wells(out, os);
+        out << os.str();
+        return CR_OK;
+    }
+
     if (args.size() == 1 && args[0] == "cistern")
     {
         if (!dwarfAI)

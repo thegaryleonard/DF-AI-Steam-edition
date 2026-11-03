@@ -209,6 +209,19 @@ bool Plan::try_digcistern(color_ostream & out, room *r)
 
 void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
 {
+    // wells over this cistern that were never built (it was dry): build them
+    // once there is water (try_furnish_well waits for it). Tried here rather
+    // than only queued: the hospital's well sat behind 209 furnish tasks.
+    {
+        static int32_t well_wait = 0;
+        if (--well_wait <= 0)
+        {
+            well_wait = 5;
+            std::ostringstream discard;
+            build_dry_wells(out, discard);
+        }
+    }
+
     if (!m_c_lever_in)
     {
         m_c_cistern = ai.find_room(room_type::cistern, [](room* r) -> bool { return r->cistern_type == cistern_type::well; });
@@ -508,6 +521,18 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
 
     df::coord river = AI::spiral_search(m_c_reserve->channel_enable, 0, 2, [](df::coord t) -> bool { df::tile_designation *td = Maps::getTileDesignation(t); return td && td->bits.feature_local; });
     bool river_is_frozen_or_dry = river.isValid() && (ENUM_ATTR(tiletype, material, *Maps::getTileType(river)) == tiletype_material::FROZEN_LIQUID || Maps::getTileDesignation(river)->bits.flow_size == 0);
+    if (!river.isValid())
+    {
+        // a tap to water that isn't a river feature: dry once there is no fed
+        // water by the breach any more (a pond drained into the reserve sat
+        // there behind a shut outlet while the hospital well had nothing)
+        df::coord fed = AI::spiral_search(m_c_reserve->channel_enable, 0, 3, [](df::coord t) -> bool
+        {
+            df::tile_designation *td = Maps::getTileDesignation(t);
+            return td && !td->bits.liquid_type && td->bits.flow_size >= 3 && !td->bits.water_stagnant;
+        });
+        river_is_frozen_or_dry = !fed.isValid();
+    }
 
     if (resvlvl <= 1)
     {
@@ -1195,6 +1220,27 @@ bool Plan::seal_tap_stair(color_ostream &, std::ostream & reason)
     add_task(task_type::furnish, stair, f);
     reason << "ordered a hatch over the tunnel's stair";
     return false;
+}
+
+void Plan::build_dry_wells(color_ostream & out, std::ostream & os)
+{
+    for (auto r : rooms_and_corridors)
+    {
+        if (r->status < room_status::dug)
+            continue;
+        for (auto f : r->layout)
+        {
+            if (f->type != layout_type::well || f->bld_id != -1 || f->ignore)
+                continue;
+            std::ostringstream why;
+            bool ok = try_furnish(out, r, f, why);
+            os << AI::describe_room(r) << ": " << (ok ? "well ordered" : why.str()) << "\n";
+            if (ok)
+                ai.debug(out, "cistern: well ordered in " + AI::describe_room(r));
+            else
+                add_task(task_type::furnish, r, f);
+        }
+    }
 }
 
 bool Plan::setup_lever(color_ostream & out, room *r, furniture *f, std::ostream & reason)
