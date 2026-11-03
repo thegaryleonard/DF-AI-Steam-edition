@@ -685,6 +685,11 @@ bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::os
         df::tile_designation *td = Maps::getTileDesignation(t);
         if (!td || td->bits.liquid_type || td->bits.flow_size < 4)
             return false;
+        // standing water runs out: Channelevened's tap drained a 129-tile
+        // pond into half a reserve. Only water that is fed (a river, brook or
+        // underground stream) keeps a cistern full.
+        if (td->bits.water_stagnant && !(dry && cistern_tap_test_small))
+            return false;
         df::tiletype *tt = Maps::getTileType(t);
         if (!tt || ENUM_ATTR(tiletype, material, *tt) == tiletype_material::CONSTRUCTION || inside_any_room(t))
             return false;
