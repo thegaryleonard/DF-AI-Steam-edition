@@ -1150,6 +1150,41 @@ void Population::update_moods(color_ostream & out)
                 if (why.str().find("could not") == std::string::npos && why.str().find("not enough") == std::string::npos)
                     usable++;
             }
+            if (!usable && ji->item_type == item_type::BAR && (ji->mat_type == 0 || ji->mat_type == -1) &&
+                holder && mood_urgent(u, MOOD_CHEAT_THIRST))
+            {
+                // Last resort (a cheat): Dishmab's mason mood sat at thirst
+                // 40000+ needing any metal bar in a fort with zero bars, 364
+                // ores, but no fuel (4 logs, charcoal and 48 tree fellings
+                // unclaimed), so smelting never started. Create one bar of
+                // the asked metal (copper when any metal will do).
+                bool done = false;
+                for (auto l = job->items.begin(); l != job->items.end(); l++)
+                    if ((*l)->job_item_idx == int32_t(idx))
+                        done = true;
+                int32_t mi = ji->mat_index;
+                if (mi < 0)
+                {
+                    MaterialInfo cm;
+                    if (cm.find("INORGANIC:COPPER"))
+                        mi = cm.index;
+                }
+                int32_t want = std::min<int32_t>(5, std::max<int32_t>(1, ji->quantity >= 150 ? (ji->quantity + 149) / 150 : ji->quantity));
+                for (int32_t n = 0; !done && mi >= 0 && n < want; n++)
+                {
+                    std::vector<df::item *> made;
+                    if (!Items::createItem(made, u, item_type::BAR, -1, 0, mi) || made.empty())
+                        break;
+                    df::item *c = made[0];
+                    if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, c, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] CHEAT: nothing could supply %s for %s (thirst %d): created %s at the workshop",
+                            describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, AI::describe_item(c).c_str()));
+                        usable++;
+                    }
+                }
+            }
             if (!usable && ji->item_type == item_type::SKIN_TANNED && mood_warned.insert(who + "|leather|" + std::to_string(idx)).second)
             {
                 // No leather: nothing in df-ai ever tanned hides, so a moody
