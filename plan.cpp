@@ -1747,6 +1747,13 @@ void Plan::check_parked(color_ostream & out)
         room *r = rooms_and_corridors[cursor];
         if (!r || !r->abandoned || r->parked_until == -1 || now < r->parked_until)
             continue;
+        if (r->type == room_type::corridor && r->corridor_type == corridor_type::aqueduct)
+        {
+            // the cistern code owns its tunnels: a parked tap piece it later
+            // retired came back here and was dug again
+            r->parked_until = -1;
+            continue;
+        }
         if (!dig_reachable(r))
         {
             r->parked_until = now + 28 * 1200;

@@ -194,6 +194,8 @@ public:
 
     bool smooth_room(color_ostream & out, room *r, bool engrave = false);
     bool food_secure();
+    bool revive_cistern_tap(color_ostream & out, std::ostream & reason);
+    void link_aqueduct_chain();
     // the walkable area most citizens are in (cached for a game day)
     uint16_t fort_group();
     // digging a room that no miner can reach makes no progress: park it

@@ -44,6 +44,8 @@ dfai-pit start
 dfai-wellshaft start
 dfai-yardwatch start
 dfai-toollabor start
+# second line of defence: the cistern's two floodgates never stand open together with water behind the inlet
+dfai-floodguard start
 dfai-watchdog start
 dfai-verify start
 dfai-fps start

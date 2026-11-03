@@ -1,6 +1,7 @@
 #include "ai.h"
 #include "plan.h"
 
+#include "modules/Buildings.h"
 #include "modules/Items.h"
 #include "modules/Job.h"
 #include "modules/Maps.h"
@@ -288,6 +289,62 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
         reason << "waiting for lever to be linked";
         return;
     }
+    bool f_in_closed = (f_in->gate_flags.bits.closed || f_in->gate_flags.bits.closing) && !f_in->gate_flags.bits.opening;
+    bool f_out_closed = (f_out->gate_flags.bits.closed || f_out->gate_flags.bits.closing) && !f_out->gate_flags.bits.opening;
+
+    // Never both open with water behind the inlet: the river's pressure goes
+    // straight through the cistern and up its wells (Channelevened's music
+    // hall and the hospital well room filled to 7/7). Nothing here means to
+    // open both; this catches whatever does.
+    bool water_at_inlet = false;
+    for (int16_t dx = -1; dx <= 1; dx++)
+        for (int16_t dy = -1; dy <= 1; dy++)
+        {
+            df::tile_designation *td = Maps::getTileDesignation(df::coord(f_in->x1 + dx, f_in->y1 + dy, f_in->z));
+            if (td && !td->bits.liquid_type && td->bits.flow_size >= 3)
+                water_at_inlet = true;
+        }
+    // a queued pull that would open the second gate with water at the inlet
+    // is called off (one left over from before a restart opened both)
+    if (water_at_inlet)
+    {
+        auto cancel = [&](df::building_trapst *l, const char *which)
+        {
+            for (auto j = l->jobs.begin(); j != l->jobs.end(); )
+            {
+                if ((*j)->job_type == job_type::PullLever)
+                {
+                    ai.debug(out, std::string("cistern: called off a lever pull that would open the ") + which + " with the other gate open");
+                    Job::removeJob(*j);
+                    j = l->jobs.begin();
+                    continue;
+                }
+                j++;
+            }
+        };
+        if (f_in_closed && !f_out_closed && !l_in->jobs.empty())
+            cancel(l_in, "inlet");
+        if (f_out_closed && !f_in_closed && !l_out->jobs.empty())
+            cancel(l_out, "outlet");
+    }
+    if (!f_in_closed && !f_out_closed && water_at_inlet && l_in->jobs.empty())
+    {
+        reason << "both floodgates open with water at the inlet: closing the inlet: ";
+        ai.debug(out, "cistern: both floodgates were open with water at the inlet; closing the inlet");
+        pull_lever(out, m_c_lever_in, reason);
+        return;
+    }
+
+
+    {
+        std::ostringstream why;
+        if (revive_cistern_tap(out, why))
+        {
+            reason << why.str();
+            return;
+        }
+    }
+
     if (!l_in->jobs.empty() || !l_out->jobs.empty())
     {
         reason << "lever waiting to be pulled";
@@ -308,9 +365,6 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
     {
         furnish_room(out, fort_entrance);
     }
-
-    bool f_in_closed = (f_in->gate_flags.bits.closed || f_in->gate_flags.bits.closing) && !f_in->gate_flags.bits.opening;
-    bool f_out_closed = (f_out->gate_flags.bits.closed || f_out->gate_flags.bits.closing) && !f_out->gate_flags.bits.opening;
 
     // the reserve's inlet only gets a tunnel to water at embark, and only if
     // the map has a river: on every other map it was dug up to its floodgate
@@ -469,9 +523,11 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
                 }
                 else
                 {
-                    if (!cistern_channel_requested)
+                    if (!cistern_channel_requested && !m_c_cistern->channeled && !water_at_inlet)
                     {
-                        // make sure we can actually access the cistern
+                        // make sure we can actually access the cistern (only
+                        // before it ever had water: with water behind the
+                        // inlet this opened both gates and flooded the fort)
                         if (f_in_closed)
                             pull_lever(out, m_c_lever_in, reason);
                         if (f_out_closed)
@@ -523,7 +579,9 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
     // flowing water) is near the breach. It used to look at the first river-
     // feature tile only: a dry bank tile read as "river dry", and the inlet
     // stayed shut beside a full river while the reserve emptied.
-    df::coord river = AI::spiral_search(m_c_reserve->channel_enable, 0, 3, [](df::coord t) -> bool
+    // (spiral_search takes max, then min: "0, 3" searched nothing and the
+    // river always read as dry)
+    df::coord river = AI::spiral_search(m_c_reserve->channel_enable, 3, 0, [](df::coord t) -> bool
     {
         df::tile_designation *td = Maps::getTileDesignation(t);
         df::tiletype *tt = Maps::getTileType(t);
@@ -987,7 +1045,7 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
             }
             bool has_seal = false;
             for (auto r2 : rooms_and_corridors)
-                if (r2->comment == "seal for the cistern" && r->include(r2->min))
+                if (!r2->abandoned && r2->comment == "seal for the cistern" && r->include(r2->min))
                     has_seal = true;
             if (has_seal || r->comment == "dead tap (walled off)")
             {
@@ -1068,11 +1126,20 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
                 }
     // a tap whose water is gone (a pond drained dry) is dead: find fed water
     // whatever the length, and retire it
-    bool dead = !AI::spiral_search(m_c_reserve->channel_enable, 0, 3, [](df::coord t) -> bool
+    // Any water counts here, still or not: with the inlet shut, the water in a
+    // tap tunnel sits still, DF marks it stagnant, and a working river tap
+    // read as dead and was replaced. And it must look dead three checks
+    // running (a few game months).
+    static int dead_seen = 0;
+    // (max 3, min 0: "0, 3" searched nothing and every breached tap read as dead)
+    bool dead_now = !AI::spiral_search(m_c_reserve->channel_enable, 3, 0, [](df::coord t) -> bool
     {
         df::tile_designation *td = Maps::getTileDesignation(t);
-        return td && !td->bits.liquid_type && td->bits.flow_size >= 3 && !td->bits.water_stagnant;
+        return td && !td->bits.liquid_type && td->bits.flow_size >= 3;
     }).isValid() && m_c_reserve->channel_enable.isValid() && !is_wall(m_c_reserve->channel_enable);
+    if (commit)
+        dead_seen = dead_now ? dead_seen + 1 : 0;
+    bool dead = dead_now && (!commit || dead_seen >= 3);
     std::vector<room *> old_tap;
     if (dead)
     {
@@ -1276,6 +1343,220 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
 // goes on the stairhead and is locked (only once nobody is inside).
 // a retired tap is walled off where it joined the aqueduct before the new
 // one is breached
+// A tap retired as dead whose tunnel still opens on river water, with its
+// seal walls not built yet, was retired by mistake: put it back in use, call
+// off its seals, and drop the replacement tap if that hasn't been breached.
+// (Channelevened: the working 82-tile river tap read as dead while its water
+// stood still behind a shut inlet, and a new tap was planned beside the
+// fort's own flooded aqueduct.)
+// Keep the aqueduct's plan chain whole: nothing abandoned stays in it, and a
+// live piece no other room leads to (a tap brought back into use) hangs off
+// the linked piece it touches.
+void Plan::link_aqueduct_chain()
+{
+    auto is_aq = [](room *r) -> bool { return r && r->type == room_type::corridor && r->corridor_type == corridor_type::aqueduct; };
+    // a retired piece (spare or dead tap) never comes back by another road
+    for (auto r : rooms_and_corridors)
+    {
+        if (!is_aq(r) || r->abandoned || (r->comment != "spare tap (not needed)" && r->comment != "dead tap (walled off)"))
+            continue;
+        r->abandoned = true;
+        r->parked_until = -1;
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+                for (int16_t z = r->min.z; z <= r->max.z; z++)
+                {
+                    df::tile_designation *td = Maps::getTileDesignation(df::coord(x, y, z));
+                    if (td)
+                        td->bits.dig = tile_dig_designation::No;
+                }
+    }
+    std::vector<room *> chain;
+    for (auto r : rooms_and_corridors)
+    {
+        if (!is_aq(r) || r->abandoned)
+            continue;
+        bool parent = false;
+        for (auto r2 : rooms_and_corridors)
+            if (std::find(r2->accesspath.begin(), r2->accesspath.end(), r) != r2->accesspath.end())
+                parent = true;
+        if (!parent)
+            chain.push_back(r);
+    }
+    // nothing abandoned stays in the chain; the revived pieces hang off the
+    // live aqueduct piece they touch, each from the one before it
+    for (auto r : rooms_and_corridors)
+        if (is_aq(r) && r->abandoned)
+            for (auto r2 : rooms_and_corridors)
+                r2->accesspath.erase(std::remove(r2->accesspath.begin(), r2->accesspath.end(), r), r2->accesspath.end());
+    {
+        auto touches = [](room *a, room *b) -> bool
+        {
+            return a->min.x <= b->max.x + 1 && b->min.x - 1 <= a->max.x &&
+                a->min.y <= b->max.y + 1 && b->min.y - 1 <= a->max.y &&
+                a->min.z <= b->max.z + 1 && b->min.z - 1 <= a->max.z;
+        };
+        std::set<room *> linked;
+        for (auto r : rooms_and_corridors)
+            if (is_aq(r) && !r->abandoned && std::find(chain.begin(), chain.end(), r) == chain.end())
+                linked.insert(r);
+        if (m_c_reserve)
+            linked.insert(m_c_reserve);
+        bool more = true;
+        while (more)
+        {
+            more = false;
+            for (auto r : chain)
+            {
+                if (linked.count(r))
+                    continue;
+                for (auto p : linked)
+                {
+                    if (!touches(p, r))
+                        continue;
+                    if (std::find(p->accesspath.begin(), p->accesspath.end(), r) == p->accesspath.end())
+                        p->accesspath.push_back(r);
+                    linked.insert(r);
+                    more = true;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+bool Plan::revive_cistern_tap(color_ostream & out, std::ostream & reason)
+{
+    if (!m_c_reserve)
+        return false;
+    {
+        static int relink = 0;
+        if (++relink >= 100)
+        {
+            relink = 0;
+            link_aqueduct_chain();
+        }
+    }
+    auto is_wall = [](df::coord t) -> bool
+    {
+        df::tiletype *tt = Maps::getTileType(t);
+        return tt && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Wall;
+    };
+    auto is_aq = [](room *r) -> bool { return r && r->type == room_type::corridor && r->corridor_type == corridor_type::aqueduct; };
+    static const int16_t N6[6][3] = { { 1, 0, 0 }, { -1, 0, 0 }, { 0, 1, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 0, -1 } };
+    std::vector<room *> dead, live_tap, seals;
+    df::coord river_end;
+    for (auto r : rooms_and_corridors)
+    {
+        if (!r)
+            continue;
+        if (r->comment == "seal for the cistern" && !r->abandoned)
+            seals.push_back(r);
+        if (!is_aq(r))
+            continue;
+        if (r->comment == "tunnel to water for the cistern" && !r->abandoned)
+            live_tap.push_back(r);
+        if (r->comment != "dead tap (walled off)")
+            continue;
+        dead.push_back(r);
+    }
+    if (dead.empty())
+        return false;
+    // the current tap already breached: nothing to undo
+    if (m_c_reserve->channel_enable.isValid() && !is_wall(m_c_reserve->channel_enable))
+        return false;
+    // which dead pieces touch river water, and do their seals stand?
+    std::vector<room *> revive;
+    for (auto r : dead)
+    {
+        bool sealed = false;
+        for (auto s : seals)
+            if (r->include(s->min) && is_wall(s->min))
+                sealed = true;
+        if (sealed)
+            continue;
+        revive.push_back(r);
+        for (int16_t x = r->min.x; x <= r->max.x && !river_end.isValid(); x++)
+            for (int16_t y = r->min.y; y <= r->max.y && !river_end.isValid(); y++)
+                for (int16_t z = r->min.z; z <= r->max.z && !river_end.isValid(); z++)
+                {
+                    df::coord t(x, y, z);
+                    if (is_wall(t))
+                        continue;
+                    // river water within 3 (the tiles at the mouth itself
+                    // aren't always marked as the river)
+                    df::tile_designation *here = Maps::getTileDesignation(t);
+                    if (!here || here->bits.flow_size < 3)
+                        continue;
+                    if (AI::spiral_search(t, 3, 0, [](df::coord n) -> bool
+                    {
+                        df::tile_designation *td = Maps::getTileDesignation(n);
+                        return td && td->bits.feature_local && !td->bits.liquid_type && td->bits.flow_size >= 3;
+                    }).isValid())
+                        river_end = t;
+                }
+    }
+    if (!river_end.isValid())
+        return false;
+    // only the unsealed pieces joined to the river end come back
+    std::vector<room *> chain;
+    {
+        std::vector<room *> todo;
+        for (auto r : revive)
+            if (r->include(river_end))
+                todo.push_back(r);
+        while (!todo.empty())
+        {
+            room *r = todo.back();
+            todo.pop_back();
+            if (std::find(chain.begin(), chain.end(), r) != chain.end())
+                continue;
+            chain.push_back(r);
+            for (auto r2 : revive)
+                if (r2->min.x <= r->max.x + 1 && r->min.x - 1 <= r2->max.x &&
+                    r2->min.y <= r->max.y + 1 && r->min.y - 1 <= r2->max.y &&
+                    r2->min.z <= r->max.z + 1 && r->min.z - 1 <= r2->max.z)
+                    todo.push_back(r2);
+        }
+    }
+    for (auto r : chain)
+    {
+        r->abandoned = false;
+        r->parked_until = -1;
+        r->comment = "tunnel to water for the cistern";
+        for (auto s : seals)
+        {
+            if (!r->include(s->min))
+                continue;
+            s->abandoned = true;
+            if (auto b = Buildings::findAtTile(s->min))
+                if (b->getType() == building_type::Construction)
+                    Buildings::deconstruct(b);
+        }
+    }
+    for (auto r : live_tap)
+    {
+        r->abandoned = true;
+        r->parked_until = -1;
+        r->comment = "spare tap (not needed)";
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+                for (int16_t z = r->min.z; z <= r->max.z; z++)
+                    if (is_wall(df::coord(x, y, z)))
+                        Maps::getTileDesignation(df::coord(x, y, z))->bits.dig = tile_dig_designation::No;
+        for (auto r2 : rooms_and_corridors)
+            r2->accesspath.erase(std::remove(r2->accesspath.begin(), r2->accesspath.end(), r), r2->accesspath.end());
+    }
+    link_aqueduct_chain();
+    m_c_reserve->channel_enable = river_end;
+    m_c_testgate_delay = -1;
+    cistern_channel_requested = true;
+    reason << "the river tap still has water: back in use";
+    ai.debug(out, stl_sprintf("cistern: the river tap at (%d, %d, %d) still has water: back in use (%d pieces), %d spare tap pieces dropped",
+        river_end.x, river_end.y, river_end.z, int(chain.size()), int(live_tap.size())));
+    return true;
+}
+
 bool Plan::seals_done(std::ostream & reason)
 {
     for (auto r : rooms_and_corridors)

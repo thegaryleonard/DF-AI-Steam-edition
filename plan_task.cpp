@@ -149,7 +149,8 @@ void Plan::update(color_ostream &)
                     if (t.stalled_since == -1 || now < t.stalled_since)
                         t.stalled_since = now;
                     reason << "; no miner can reach it (" << (now - t.stalled_since) / 1200 << " days)";
-                    if (now - t.stalled_since > 14 * 1200)
+                    if (now - t.stalled_since > 14 * 1200 &&
+                        !(t.r->type == room_type::corridor && t.r->corridor_type == corridor_type::aqueduct))
                     {
                         for (int16_t x = t.r->min.x; x <= t.r->max.x; x++)
                             for (int16_t y = t.r->min.y; y <= t.r->max.y; y++)
@@ -316,10 +317,12 @@ void Plan::update(color_ostream &)
             switch (t.type)
             {
             case task_type::furnish:
-                del = try_furnish(out, t.r, t.f, reason);
+                // a room called off (a seal for a tap that came back into
+                // use) gets nothing more built in it
+                del = t.r && t.r->abandoned ? true : try_furnish(out, t.r, t.f, reason);
                 break;
             case task_type::check_furnish:
-                del = try_endfurnish(out, t.r, t.f, reason);
+                del = t.r && t.r->abandoned ? true : try_endfurnish(out, t.r, t.f, reason);
                 break;
             default:
                 break;

@@ -1,5 +1,7 @@
 # Unreleased
 
+- Cistern flood fixed: the two floodgates never stand open together with water behind the inlet (df-ai closes the inlet and calls off a queued pull that would open the second gate; `dfai-floodguard` backs it up). The gate test's "open both to get in" fallback only runs before the cistern ever had water.
+- Cistern river checks searched nothing (`spiral_search` takes max then min; "0, 3" was backwards), so every breached tap read as dead and the river always as dry. Fixed; a tap retired by mistake that still opens on the river comes back into use and the spare tap is dropped; the aqueduct chain is kept linked; the stall detector leaves aqueduct tunnels to the cistern code.
 - Stock goals follow what the plan's furniture waits for (up to 20 at a time), statues can be ordered at all, and the code's goals are floors that a fort's saved table can raise but not lower (saves had frozen every goal at its founding value).
 - The cistern reads the river as running if any unfrozen, fed water is by the breach (one dry bank tile kept the inlet shut beside a full river); walled-off dead taps stay out of the plan.
 - The supervisor doesn't count a planned restart (`swap-plugin.sh`) as a crash or ping anyone about it.
