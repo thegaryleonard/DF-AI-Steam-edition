@@ -22,6 +22,7 @@ for p in df-ai dfai_missions dfai_portrait; do
   cp "$f" "$OUT/game/hack/plugins/"
 done
 cp "$ROOT/portrait/dfai_portrait.lua" "$OUT/game/hack/lua/plugins/"
+cp "$ROOT/supervisor/df-ai-plugin.lua" "$OUT/game/hack/lua/plugins/df-ai.lua"
 
 # df-ai's room and fort plans
 cp -r "$ROOT/rooms" "$ROOT/plans" "$OUT/game/df-ai-blueprints/"

@@ -1,5 +1,6 @@
 # Unreleased
 
+- `dfai-build` never sites a room on ground df-ai has planned, dug or not (new Lua function `planned_room_at` in the df-ai plugin), and searches one area per check instead of freezing the game.
 - Tools before weapons: axes and picks scale with the fort (3 and 4 per 100 dwarves on top of 2 spare), weapon forging waits while fewer than 2 are spare, and gear marked for melting no longer counts as stock.
 - Stalled digs are set aside: a room (and its way in) with no tile a miner can reach for two weeks has its designations cleared and is retried when it becomes reachable (`[STALL]` in the log).
 - Irrigation runs more ponds at once in a big fort; more mechanics (3-10) for traps, wells and levers; furniture tasks keep their waiting reason across saves.

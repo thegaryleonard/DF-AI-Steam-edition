@@ -14,6 +14,8 @@
 #include "DFHackVersion.h"
 #include "df-ai-git-describe.h"
 
+#include "LuaTools.h"
+#include "PluginLua.h"
 #include "modules/Gui.h"
 #include "modules/Maps.h"
 #include "modules/Screen.h"
@@ -34,6 +36,30 @@ bool full_reset_requested = false;
 bool df_ai_setup_failed = false;
 
 command_result ai_command(color_ostream & out, std::vector<std::string> & args);
+
+// For the supervisor's scripts (dfai-build and others), so a new room is never
+// laid over one df-ai has planned but not dug yet (a music hall covered the
+// hospital's ground and its well shaft): the first planned room that overlaps
+// the box, as a description, or "" if none. Abandoned rooms don't count.
+static std::string planned_room_at(int x1, int y1, int x2, int y2, int z)
+{
+    if (!dwarfAI)
+        return "";
+    for (auto r : dwarfAI->plan.all_rooms())
+    {
+        if (!r || r->abandoned)
+            continue;
+        if (r->min.z > z || r->max.z < z || r->max.x < x1 || r->min.x > x2 || r->max.y < y1 || r->min.y > y2)
+            continue;
+        return AI::describe_room(r);
+    }
+    return "";
+}
+
+DFHACK_PLUGIN_LUA_FUNCTIONS {
+    DFHACK_LUA_FUNCTION(planned_room_at),
+    DFHACK_LUA_END
+};
 
 // Check whether we are enabled and make sure the AI data exists iff we are.
 bool check_enabled(color_ostream & out)

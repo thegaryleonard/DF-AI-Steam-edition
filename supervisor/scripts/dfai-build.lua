@@ -172,6 +172,13 @@ local function is_soil(x, y, z)
     local a = attrs(x, y, z)
     return a and a.material == df.tiletype_material.SOIL
 end
+local ok_plugin, DFAI = pcall(require, 'plugins.df-ai')
+-- a df-ai planned room (dug or not) on this ground, or nil
+function planned_room_at(x1, y1, x2, y2, z)
+    if not ok_plugin or not DFAI.planned_room_at then return nil end
+    local ok, d = pcall(DFAI.planned_room_at, x1, y1, x2, y2, z)
+    if ok and d and d ~= '' then return d end
+end
 local function fits(fx, fy, z, d, L, S, soil, t)
     local w = room_of(fx, fy, z, d, L, S, t)
     if not safe(w.door[1], w.door[2], z, soil) then return nil end
@@ -186,6 +193,9 @@ local function fits(fx, fy, z, d, L, S, soil, t)
         if soil and x >= x1 and x <= x2 and y >= y1 and y <= y2 and is_soil(x, y, z) then sn = sn + 1 end
     end end
     if soil and sn < L * S * 0.7 then return nil end
+    -- never on ground df-ai has planned for a room, dug or not
+    if planned_room_at(x1, y1, x2, y2, z) then return nil end
+    for _, c in ipairs(w.tunnel) do if planned_room_at(c[1], c[2], c[1], c[2], z) then return nil end end
     for x = x1, x2 do for y = y1, y2 do
         do
             if not safe(x, y, z, soil) then return nil end
@@ -278,12 +288,12 @@ local function soil_anchors(levels)
     return out
 end
 
-local function find_site(kind)
-    local cit = dfhack.units.getCitizens(true)[1]
+-- where to look for a kind of room, nearest first
+local function site_anchors(kind)
     local list = anchors(kind)
     if kind.soil then
         -- soil is a thin layer: try the levels around each anchor too, and
-        -- first the fort's corridors beside soil-rich ground on those levels
+        -- then the fort's corridors beside soil-rich ground on those levels
         local more, levels = {}, {}
         for i, A in ipairs(list) do
             if i > 2 then break end
@@ -300,30 +310,46 @@ local function find_site(kind)
         local sa = soil_anchors(levels)
         for i = 1, math.min(#sa, 8) do list[#list + 1] = sa[i] end
     end
+    local out = {}
     for i, A in ipairs(list) do
         if i > (kind.soil and 16 or 6) then break end
-        local best, bd
-        local R = kind.soil and 24 or 30
-        for x = A.x - R, A.x + R do for y = A.y - R, A.y + R do
-            if is_floor(x, y, A.z) and not dfhack.buildings.findAtTile(xyz2pos(x, y, A.z))
-                and (not cit or dfhack.maps.canWalkBetween(cit.pos, xyz2pos(x, y, A.z))) then
-                for _, d in ipairs(DIRS) do
-                    -- straight off the corridor; soil rooms may sit at the end of a
-                    -- tunnel (up to 30: the soil near a fort is often patchy, and
-                    -- grass only grows on soil)
-                    for t = 1, kind.soil and 30 or 1 do
-                        local w = fits(x, y, A.z, d, kind.L, kind.S, kind.soil, t)
-                        if w then
-                            local dist = (x - A.x) ^ 2 + (y - A.y) ^ 2 + t * t * 4
-                            if not bd or dist < bd then best, bd = w, dist end
-                            break
-                        end
-                        if not safe(x + d[1] * t, y + d[2] * t, A.z, kind.soil) then break end
+        out[#out + 1] = {x = A.x, y = A.y, z = A.z}
+    end
+    return out
+end
+
+-- the best site around one anchor, or nil
+local function search_anchor(kind, A)
+    local cit = dfhack.units.getCitizens(true)[1]
+    local best, bd
+    local R = kind.soil and 24 or 30
+    for x = A.x - R, A.x + R do for y = A.y - R, A.y + R do
+        if is_floor(x, y, A.z) and not dfhack.buildings.findAtTile(xyz2pos(x, y, A.z))
+            and (not cit or dfhack.maps.canWalkBetween(cit.pos, xyz2pos(x, y, A.z))) then
+            for _, d in ipairs(DIRS) do
+                -- straight off the corridor; soil rooms may sit at the end of a
+                -- tunnel (up to 30: the soil near a fort is often patchy, and
+                -- grass only grows on soil)
+                for t = 1, kind.soil and 30 or 1 do
+                    local w = fits(x, y, A.z, d, kind.L, kind.S, kind.soil, t)
+                    if w then
+                        local dist = (x - A.x) ^ 2 + (y - A.y) ^ 2 + t * t * 4
+                        if not bd or dist < bd then best, bd = w, dist end
+                        break
                     end
+                    if not safe(x + d[1] * t, y + d[2] * t, A.z, kind.soil) then break end
                 end
             end
-        end end
-        if best then return best end
+        end
+    end end
+    return best
+end
+
+-- all at once (the dry run, 'find')
+local function find_site(kind)
+    for _, A in ipairs(site_anchors(kind)) do
+        local w = search_anchor(kind, A)
+        if w then return w end
     end
 end
 
@@ -459,24 +485,39 @@ local function step(s)
         -- a search that found nothing waits a while before the next (each
         -- costs the game a few seconds)
         if s.retry_at and df.global.world.frame_counter < s.retry_at then return end
-        local job = table.remove(s.queue, 1)
+        local job = s.queue[1]
         if not job then return end
         local kind = K[job]
-        if not kind then s.last = 'unknown room kind ' .. tostring(job) return end
+        if not kind then table.remove(s.queue, 1) s.last = 'unknown room kind ' .. tostring(job) return end
         if kind.attach and not public_tavern() then
-            table.insert(s.queue, 1, job)
             s.last = ('the %s waits for the fort to open a public tavern'):format(kind.label:lower())
             return
         end
-        w = find_site(kind)
+        -- the site search runs one area per check (all at once froze the
+        -- game for 8-36 seconds on stream)
+        if not s.search or s.search.job ~= job then
+            s.search = {job = job, list = site_anchors(kind), i = 1}
+            s.last = ('looking for a site for a %s'):format(kind.label:lower())
+            return
+        end
+        local A = s.search.list[s.search.i]
+        if A then
+            w = search_anchor(kind, A)
+            s.search.i = s.search.i + 1
+            if not w then
+                s.last = ('looking for a site for a %s (%d of %d areas)'):format(kind.label:lower(), s.search.i - 1, #s.search.list)
+                return
+            end
+        end
+        s.search = nil
         if not w then
             -- keep the order (a failed search used to drop it silently: three
             -- pastures ordered, none built) and try again in about 10 game days
-            table.insert(s.queue, 1, job)
             s.retry_at = df.global.world.frame_counter + 12000
             s.last = ('no site yet for a %s (it is still on order; trying again in a while)'):format(kind.label:lower())
             return
         end
+        table.remove(s.queue, 1)
         s.retry_at = nil
         w.kind, w.phase = job, 'dig'
         w.key = ('build-%d'):format((s.n or 0) + 1)

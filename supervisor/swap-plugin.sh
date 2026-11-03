@@ -4,9 +4,10 @@
 # let the supervisor relaunch the game and load that save.
 # Usage: bash supervisor/swap-plugin.sh   (run build-local.sh first, no "install")
 set -u
+HERE="$(cd "$(dirname "$0")" && pwd)"
 DF="/c/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress"
 B="/c/dfbuild/dfhack/build/plugins/external/df-ai"
-SUP="$(dirname "$0")/logs/supervisor.log"
+SUP="$HERE/logs/supervisor.log"
 cd "$DF" || exit 1
 timeout 60 ./hack/dfhack-run.exe lua "print(dfhack.isMapLoaded() and 'fort loaded' or 'NO MAP')" | grep -q "fort loaded" || { echo "no fort loaded: not swapping"; exit 1; }
 timeout 60 ./hack/dfhack-run.exe quicksave >/dev/null 2>&1
@@ -14,6 +15,7 @@ sleep 45
 powershell.exe -NoProfile -Command "Stop-Process -Name 'Dwarf Fortress' -Force" >/dev/null 2>&1
 sleep 5
 cp "$B/df-ai.plug.dll" "$B/df-ai.plug.pdb" "$DF/hack/plugins/" || exit 1
+cp "$HERE/df-ai-plugin.lua" "$DF/hack/lua/plugins/df-ai.lua"
 sleep 60
 for i in $(seq 1 30); do
   sleep 10

@@ -46,6 +46,7 @@ if [ "${1:-}" = install ]; then
   "$RUN" unload df-ai
   cp "$DLL" "$DF/hack/plugins/"
   PDB="${DLL%.dll}.pdb"; [ -f "$PDB" ] && cp "$PDB" "$DF/hack/plugins/"
+  cp "$DFAI/supervisor/df-ai-plugin.lua" "$DF/hack/lua/plugins/df-ai.lua"
   "$RUN" load df-ai
   "$RUN" enable df-ai
   # the portrait helper (no state; safe to swap)
