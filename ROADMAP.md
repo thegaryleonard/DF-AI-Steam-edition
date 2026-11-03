@@ -25,3 +25,5 @@ Once the fort is large, raise water to the reserve instead:
 - the pump intake is fenced off from the lake by a grate so nothing swims up;
 - stop pumping when the reserve is full (gear assembly on a lever, or just
   the inlet gate).
+
+- Gate turrets: a roofed bolt-thrower turret (like the bunker's roof one) at every curtain-wall gate, once the bunker roof turret is shown to engage fliers.
