@@ -567,6 +567,27 @@ bool Plan::try_furnish(color_ostream & out, room *r, furniture *f, std::ostream 
 
 bool Plan::try_furnish_well(color_ostream &, room *r, furniture *f, df::coord t, std::ostream & reason)
 {
+    // a well over a dry cistern is a bucket on a rope over nothing: build it
+    // once there is water under it (user: "after the cistern has water in it")
+    {
+        bool water = false;
+        for (int16_t z = t.z - 1; z > t.z - 12 && z >= 0 && !water; z--)
+        {
+            auto td = Maps::getTileDesignation(df::coord(t.x, t.y, z));
+            if (!td)
+                break;
+            if (td->bits.flow_size > 0 && !td->bits.liquid_type)
+                water = true;
+            auto tt = Maps::getTileType(df::coord(t.x, t.y, z));
+            if (tt && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Open)
+                break;   // the shaft ends: floor or rock below
+        }
+        if (!water)
+        {
+            reason << "waiting for water under the well";
+            return false;
+        }
+    }
     df::item *block = nullptr;
     df::item *mecha = nullptr;
     df::item *buckt = nullptr;

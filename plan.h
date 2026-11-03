@@ -207,6 +207,7 @@ public:
     // test_origin, the rock next to it); commit: dig it (else a dry run)
     bool plan_cistern_tap(color_ostream & out, df::building *gate, std::ostream & reason, df::coord test_origin = df::coord(), df::coord attach = df::coord(), bool commit = false, int32_t *path_len = nullptr);
     bool reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, bool commit);
+    bool seal_tap_stair(color_ostream & out, std::ostream & reason);
 
     bool try_endconstruct(color_ostream & out, room *r, std::ostream & reason);
 

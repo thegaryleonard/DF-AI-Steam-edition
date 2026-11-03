@@ -1,5 +1,7 @@
 # Unreleased
 
+- Wells are built once there is water under them, and a well that was never built (its cistern was dry) is built when the water comes.
+- A cistern tap's stair is shut with a hatch, locked once nobody is inside, before the breach (it had made the reserve a public walkway).
 - The cistern reroutes a stalled embark aqueduct: when the planned tunnel still has a long way to go, it plans a tap from the dug part to the nearest real water and, if much shorter, drops the undug rest (a 300-tile route to a lake on the map edge became a 5-tile tap to the river beside the fort). `ai cistern` shows the cistern plan; `ai cistern-reroute [now]` dry-runs or does the reroute.
 - Indoor pastures (`dfai-build new pasture`) find soil next to the fort's corridors on any nearby level, may sit at the end of a tunnel up to 30 tiles, and can be dug one level under the surface.
 - `dfai-build` no longer waits forever on a hole in a new room's floor (such as a well shaft); it is left open.

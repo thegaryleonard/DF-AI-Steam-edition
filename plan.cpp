@@ -1638,6 +1638,27 @@ void Plan::describe_cistern(std::ostream & os)
         if (r->type == room_type::corridor && r->corridor_type == corridor_type::aqueduct)
             os << "  aqueduct " << box(r) << " " << AI::describe_room(r) << "\n";
     }
+    for (auto r : rooms_and_corridors)
+    {
+        for (auto f : r->layout)
+        {
+            if (f->type != layout_type::well)
+                continue;
+            df::coord t = r->min + f->pos;
+            auto td = Maps::getTileDesignation(t + df::coord(0, 0, -1));
+            int depth = 0;
+            for (int16_t z = t.z - 1; z > t.z - 12; z--)
+            {
+                auto d2 = Maps::getTileDesignation(df::coord(t.x, t.y, z));
+                if (d2 && d2->bits.flow_size > 0 && !d2->bits.liquid_type)
+                {
+                    depth = d2->bits.flow_size;
+                    break;
+                }
+            }
+            os << "well " << stl_sprintf("(%d,%d,%d)", t.x, t.y, t.z) << " in " << AI::describe_room(r) << ": bld " << f->bld_id << (f->ignore ? " (ignored)" : "") << ", room " << r->status << ", water below " << depth << "/7" << (td ? "" : "") << "\n";
+        }
+    }
     os << "all aqueduct rooms:\n";
     for (auto r : rooms_and_corridors)
     {

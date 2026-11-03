@@ -560,6 +560,11 @@ void Plan::checkroom(color_ostream & out, room *r)
             furniture *f = *it;
             if (f->ignore)
                 continue;
+            // a well that was never built (its cistern was dry when the room
+            // was furnished) gets built once there is water: the furnish task
+            // waits for it (add_task keeps one per well)
+            if (f->type == layout_type::well && f->bld_id == -1)
+                add_task(task_type::furnish, r, f);
             df::coord t = r->min + f->pos;
             // a stale id (e.g. saved in a timeline a crash reload threw away)
             // can name some other building elsewhere: treat it as missing

@@ -7,6 +7,7 @@
 #include "modules/Units.h"
 
 #include "df/building_floodgatest.h"
+#include "df/building_hatchst.h"
 #include "df/building_trapst.h"
 #include "df/general_ref_building_holderst.h"
 #include "df/general_ref_building_triggertargetst.h"
@@ -417,7 +418,11 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
                 }
             }
 
-            if (empty)
+            if (empty && !seal_tap_stair(out, reason))
+            {
+                m_c_testgate_delay = 1;
+            }
+            else if (empty)
             {
                 if (!f_out_closed)
                 {
@@ -1144,6 +1149,47 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
     m_c_testgate_delay = 2;
     ai.debug(out, stl_sprintf("cistern: rerouted the aqueduct: tap of %d tiles from (%d, %d, %d), %d undug tiles and %d pieces dropped", best_len, best_at.x, best_at.y, best_at.z, undug, int(dropped.size())));
     return true;
+}
+
+// The tap's stair comes up on open ground (miners dig it from there, and the
+// breach is channelled from above), so until it is shut the reserve is a
+// public walkway: Channelevened's dwarves walked down it, through the reserve
+// and on, and the gate test never found it empty. Before the breach, a hatch
+// goes on the stairhead and is locked (only once nobody is inside).
+bool Plan::seal_tap_stair(color_ostream &, std::ostream & reason)
+{
+    room *stair = nullptr;
+    for (auto r : rooms_and_corridors)
+    {
+        if (r->type == room_type::corridor && r->corridor_type == corridor_type::aqueduct && !r->abandoned &&
+            r->comment == "tunnel to water for the cistern" && r->max.z > r->min.z)
+        {
+            stair = r;
+        }
+    }
+    if (!stair)
+        return true;   // a blueprint aqueduct: nothing of ours to shut
+    df::coord top(stair->min.x, stair->min.y, stair->max.z);
+    for (auto f : stair->layout)
+    {
+        if (f->type != layout_type::hatch)
+            continue;
+        auto hatch = f->bld_id != -1 ? virtual_cast<df::building_hatchst>(df::building::find(f->bld_id)) : nullptr;
+        if (!hatch || hatch->getBuildStage() < hatch->getMaxBuildStage())
+        {
+            reason << "waiting for the hatch over the tunnel's stair";
+            return false;
+        }
+        hatch->door_flags.bits.forbidden = 1;
+        return true;
+    }
+    furniture *f = new furniture();
+    f->type = layout_type::hatch;
+    f->pos = top - stair->min;
+    stair->layout.push_back(f);
+    add_task(task_type::furnish, stair, f);
+    reason << "ordered a hatch over the tunnel's stair";
+    return false;
 }
 
 bool Plan::setup_lever(color_ostream & out, room *r, furniture *f, std::ostream & reason)
