@@ -273,7 +273,7 @@ local function step(s)
             -- water comes first: enough miners to dig it even when half the
             -- fort is in bed (Topcloister: 24 of 56 resting, every miner
             -- resting or carrying water to them)
-            if not p.labor then dfhack.run_command_silent('autolabor', 'MINE', '3', '8') p.labor = true end
+            if not p.labor then dfhack.run_command_silent('dfai-toollabor', 'want', 'MINE', '8') p.labor = true end
             -- and to the front of the queue: this is the fort's water
             local l = df.global.world.jobs.list.next
             while l do

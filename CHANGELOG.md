@@ -1,5 +1,6 @@
 # Unreleased
 
+- Mining, woodcutting and hunting are given to civilians only, as many as the fort has tools for (`dfai-toollabor`; autolabor gave them to militia soldiers, who won't take up tools). Axes and picks are never melted down and are unmarked if they were. A 183-dwarf fort had gone a year without wood.
 - `dfai-build` keeps an order when it finds no site and tries again later (it dropped them silently), looks beside rooms of the same kind first, and searches about 4x faster.
 - A cistern tap whose water runs out (a pond) is replaced by a tap to fed water, whatever the length; the dead tap is walled off where it joins the aqueduct, and the new one isn't breached until that wall stands.
 - The cistern builds its never-built wells itself once there is water under them (a stockpile on a well's tile gives it up), and empties its reserve into the cistern when the tap's water is gone. `ai cistern-wells` tries them now and says why not.

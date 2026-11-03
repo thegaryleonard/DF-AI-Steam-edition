@@ -41,6 +41,7 @@ dfai-ghost-watch start
 dfai-pit start
 dfai-wellshaft start
 dfai-yardwatch start
+dfai-toollabor start
 dfai-watchdog start
 dfai-verify start
 dfai-fps start

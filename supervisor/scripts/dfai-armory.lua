@@ -186,7 +186,11 @@ local function melt_goblinite()
     for _, i in ipairs(df.global.world.items.other.WEAPON) do
         if n >= 20 then break end
         local f = i.flags
-        if f.foreign and f.on_ground and not (f.forbid or f.in_job or f.melt or f.dump or f.artifact or f.trader or f.owned or f.in_inventory) then
+        -- never axes or picks: they're woodcutting and mining tools (both of
+        -- Channelevened's axes were invaders' drops marked for melting, and a
+        -- tool marked for melting is never picked up: no wood for a year)
+        local tool = i.subtype.skill_melee == df.job_skill.AXE or i.subtype.skill_melee == df.job_skill.MINING
+        if not tool and f.foreign and f.on_ground and not (f.forbid or f.in_job or f.melt or f.dump or f.artifact or f.trader or f.owned or f.in_inventory) then
             if dfhack.items.canMelt(i) and dfhack.items.markForMelting(i) then n = n + 1 end
         end
     end
