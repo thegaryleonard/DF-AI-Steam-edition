@@ -181,6 +181,10 @@ local function fits(fx, fy, z, d, L, S, soil, t)
         if not (x == w.door[1] and y == w.door[2]) and not is_wall(x, y, z) then return nil end
         if x >= x1 and x <= x2 and y >= y1 and y <= y2 then
             if not safe(x, y, z, soil) then return nil end
+            -- never on another room's ground: a music hall was laid over the
+            -- hospital's (still undug) zone, its well shaft and all
+            local zs = dfhack.buildings.findCivzonesAt(xyz2pos(x, y, z))
+            if zs and #zs > 0 then return nil end
             if soil and is_soil(x, y, z) then w.soil_n = (w.soil_n or 0) + 1 end
         end
     end end
