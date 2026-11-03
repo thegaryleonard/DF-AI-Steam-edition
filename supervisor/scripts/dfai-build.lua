@@ -456,6 +456,9 @@ end
 local function step(s)
     local w = s.current
     if not w then
+        -- a search that found nothing waits a while before the next (each
+        -- costs the game a few seconds)
+        if s.retry_at and df.global.world.frame_counter < s.retry_at then return end
         local job = table.remove(s.queue, 1)
         if not job then return end
         local kind = K[job]
@@ -466,7 +469,15 @@ local function step(s)
             return
         end
         w = find_site(kind)
-        if not w then s.last = ('no solid dry rock beside a corridor for a %s'):format(kind.label:lower()) return end
+        if not w then
+            -- keep the order (a failed search used to drop it silently: three
+            -- pastures ordered, none built) and try again in about 10 game days
+            table.insert(s.queue, 1, job)
+            s.retry_at = df.global.world.frame_counter + 12000
+            s.last = ('no site yet for a %s (it is still on order; trying again in a while)'):format(kind.label:lower())
+            return
+        end
+        s.retry_at = nil
         w.kind, w.phase = job, 'dig'
         w.key = ('build-%d'):format((s.n or 0) + 1)
         s.n = (s.n or 0) + 1
