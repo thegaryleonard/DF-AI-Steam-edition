@@ -63,6 +63,7 @@ room::room(room_type::type type, df::coord mins, df::coord maxs, std::string com
     temporary(false),
     outdoor(false),
     abandoned(false),
+    parked_until(-1),
     channeled(false),
     build_when_accessible(false),
     required_value(0),

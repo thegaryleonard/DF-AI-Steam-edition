@@ -1672,6 +1672,94 @@ void Plan::describe_cistern(std::ostream & os)
     }
 }
 
+uint16_t Plan::fort_group()
+{
+    static int32_t at = -1;
+    static uint16_t g = 0;
+    int32_t now = int32_t(world->frame_counter);
+    if (at != -1 && now >= at && now - at < 1200 && g)
+        return g;
+    at = now;
+    std::map<uint16_t, int> groups;
+    for (auto id : ai.pop.citizen)
+    {
+        if (auto u = df::unit::find(id))
+        {
+            if (auto b = Maps::getTileBlock(u->pos))
+                groups[b->walkable[u->pos.x & 0xf][u->pos.y & 0xf]]++;
+        }
+    }
+    int best = 0;
+    g = 0;
+    for (auto & e : groups)
+    {
+        if (e.first && e.second > best)
+        {
+            best = e.second;
+            g = e.first;
+        }
+    }
+    return g;
+}
+
+// is there a tile of this room still to dig that a miner can get at (one that
+// borders the fort's walkable area, on its level or from above or below)?
+bool Plan::dig_reachable(room *r)
+{
+    uint16_t fg = fort_group();
+    if (!fg)
+        return true;
+    auto walk = [fg](df::coord t) -> bool
+    {
+        auto b = Maps::getTileBlock(t);
+        return b && b->walkable[t.x & 0xf][t.y & 0xf] == fg;
+    };
+    bool any_left = false;
+    for (int16_t x = r->min.x; x <= r->max.x; x++)
+        for (int16_t y = r->min.y; y <= r->max.y; y++)
+            for (int16_t z = r->min.z; z <= r->max.z; z++)
+            {
+                df::coord t(x, y, z);
+                df::tiletype *tt = Maps::getTileType(t);
+                if (!tt || ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Wall)
+                    continue;
+                if (ENUM_ATTR(tiletype, material, *tt) == tiletype_material::CONSTRUCTION)
+                    continue;
+                any_left = true;
+                for (int16_t dx = -1; dx <= 1; dx++)
+                    for (int16_t dy = -1; dy <= 1; dy++)
+                        for (int16_t dz = -1; dz <= 1; dz++)
+                            if ((dx || dy || dz) && (dz == 0 || (dx == 0 && dy == 0)) && walk(t + df::coord(dx, dy, dz)))
+                                return true;
+            }
+    return !any_left;
+}
+
+// parked digs come back once a miner can reach them (a cavern opened up, a
+// corridor got dug), checked a few at a time
+void Plan::check_parked(color_ostream & out)
+{
+    static size_t cursor = 0;
+    int32_t now = *cur_year * 403200 + *cur_year_tick;
+    for (int n = 0; n < 16 && !rooms_and_corridors.empty(); n++)
+    {
+        cursor = (cursor + 1) % rooms_and_corridors.size();
+        room *r = rooms_and_corridors[cursor];
+        if (!r || !r->abandoned || r->parked_until == -1 || now < r->parked_until)
+            continue;
+        if (!dig_reachable(r))
+        {
+            r->parked_until = now + 28 * 1200;
+            continue;
+        }
+        r->abandoned = false;
+        r->parked_until = -1;
+        r->status = room_status::plan;
+        ai.debug(out, "[STALL] a miner can reach " + AI::describe_room(r) + " now: digging it again");
+        digroom(out, r);
+    }
+}
+
 bool Plan::dig_next_cavern_now(color_ostream & out, std::string & why)
 {
     for (auto r : rooms_and_corridors)

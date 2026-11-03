@@ -32,6 +32,8 @@ dfai-archer-posts start
 dfai-cavern-seal start
 dfai-armory start
 autolabor MASON 6 12
+# mechanisms: cage traps, wells, levers, the bunkers (2 mechanics for 183 dwarves left 141 traps waiting)
+autolabor MECHANIC 3 10
 dfai-fort-health start
 dfai-bunker start
 dfai-mist start

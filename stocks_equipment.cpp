@@ -37,17 +37,21 @@ REQUIRE_GLOBAL(world);
 // forge weapons
 void Stocks::queue_need_weapon(color_ostream & out, stock_item::item stock_item, int32_t needed, std::ostream & reason, df::job_skill skill, bool training, bool ranged, bool digger)
 {
-    bool need_picks_or_axes = (count_free.at(stock_item::pick) == 0 && !cant_pickaxe) || count_free.at(stock_item::axe) == 0;
+    // tools before weapons while fewer than 2 spare (it waited for none at
+    // all, and 2 axes for 183 dwarves never looked short)
+    bool few_picks = count_free.at(stock_item::pick) < 2 && !cant_pickaxe;
+    bool few_axes = count_free.at(stock_item::axe) < 2;
+    bool need_picks_or_axes = few_picks || few_axes;
     if (skill == job_skill::NONE && !training && need_picks_or_axes && !ranged)
     {
         reason << "need more ";
-        if (count_free.at(stock_item::pick) == 0)
+        if (few_picks)
         {
             reason << "picks";
         }
-        if (count_free.at(stock_item::axe) == 0)
+        if (few_axes)
         {
-            if (count_free.at(stock_item::pick) == 0)
+            if (few_picks)
             {
                 reason << " and ";
             }

@@ -1507,7 +1507,9 @@ bool Plan::monitor_farm_irrigation(color_ostream & out, room *r, std::ostream & 
     // a few ponds at a time, and never ahead of anything else.
     if (auto pond = virtual_cast<df::building_civzonest>(r->dfbuilding()))
     {
-        const size_t MAX_IRRIGATING = 3;
+        // a few at a time, more for a big fort (49 farm plots waited 3 at a
+        // time at 183 dwarves)
+        const size_t MAX_IRRIGATING = std::min<size_t>(12, 3 + ai.pop.citizen.size() / 20);
         bool water = bucket_water_available();
         if (!water && setup_natural_water_source(out))
             water = bucket_water_available();

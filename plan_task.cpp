@@ -118,8 +118,56 @@ void Plan::update(color_ostream &)
                     want_reupdate = true; // wantdig asap
                     del = true;
                 }
+                else if ([&]() -> bool
+                {
+                    // stalled only if nothing on the way to it can be dug
+                    // either (a room waits for its corridor: that's progress)
+                    std::vector<room *> todo{t.r};
+                    std::set<room *> seen;
+                    while (!todo.empty())
+                    {
+                        room *x = todo.back();
+                        todo.pop_back();
+                        if (!seen.insert(x).second || seen.size() > 40)
+                            continue;
+                        if (x->status == room_status::dig || x->status == room_status::plan || x == t.r)
+                        {
+                            if (dig_reachable(x) && !x->is_dug())
+                                return false;
+                        }
+                        for (auto ap : x->accesspath)
+                            todo.push_back(ap);
+                    }
+                    return true;
+                }())
+                {
+                    // no tile of it a miner can get at (a cavern outpost
+                    // behind a sealed cavern: 12 corridors waited for years).
+                    // After two weeks it is set aside, its designations
+                    // cleared, and retried when something can reach it.
+                    int32_t now = *cur_year * 403200 + *cur_year_tick;
+                    if (t.stalled_since == -1 || now < t.stalled_since)
+                        t.stalled_since = now;
+                    reason << "; no miner can reach it (" << (now - t.stalled_since) / 1200 << " days)";
+                    if (now - t.stalled_since > 14 * 1200)
+                    {
+                        for (int16_t x = t.r->min.x; x <= t.r->max.x; x++)
+                            for (int16_t y = t.r->min.y; y <= t.r->max.y; y++)
+                                for (int16_t z = t.r->min.z; z <= t.r->max.z; z++)
+                                {
+                                    auto td = Maps::getTileDesignation(df::coord(x, y, z));
+                                    if (td)
+                                        td->bits.dig = tile_dig_designation::No;
+                                }
+                        t.r->abandoned = true;
+                        t.r->parked_until = now + 28 * 1200;
+                        ai.debug(out, "[STALL] no miner can reach " + AI::describe_room(t.r) + ": set aside until one can");
+                        del = true;
+                    }
+                }
                 else
                 {
+                    t.stalled_since = -1;
                     t.r->dig();
                     if (t.r->is_food_room())
                     {
@@ -497,6 +545,7 @@ bool Plan::checkidle(color_ostream & out, std::ostream & reason)
 
 void Plan::checkrooms(color_ostream & out)
 {
+    check_parked(out);
     size_t ncheck = 8;
     for (size_t i = ncheck * 4; i > 0; i--)
     {

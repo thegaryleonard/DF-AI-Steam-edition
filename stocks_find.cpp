@@ -908,7 +908,9 @@ static Stocks::find_item_info find_item_helper_equip_helper(df::items_other_id o
 
     return Stocks::find_item_info(oidx, match, &Stocks::find_item_info::default_count, [free](df::item *i) -> bool
     {
-        return Stocks::is_item_free(i) && free(virtual_cast<I>(i));
+        // gear marked for melting is going into the smelter, not to anyone:
+        // two such axes had counted as the fort's whole supply
+        return Stocks::is_item_free(i) && !i->flags.bits.melt && free(virtual_cast<I>(i));
     }, idefs, count_min);
 };
 

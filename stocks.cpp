@@ -140,6 +140,11 @@ void Watch::reset()
         if (Needed[item] < 10)
             Needed[item] = 10;
     }
+    // tools scale with the fort (dfai-toollabor puts up to pop/12 miners and
+    // pop/20 woodcutters to work, as many as there are picks and axes):
+    // Channelevened had 2 axes for 183 dwarves and went a year without wood
+    NeededPerDwarf[stock_item::axe] = 3;
+    NeededPerDwarf[stock_item::pick] = 4;
     NeededPerDwarf[stock_item::cloth] = 20;
     NeededPerDwarf[stock_item::coal] = 30; // one fuel bar per forge job: arming a big militia takes far more than 12
     NeededPerDwarf[stock_item::clothes_feet] = 40;

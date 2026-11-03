@@ -90,6 +90,10 @@ void Plan::save(std::ostream & out)
         {
             t["i"] = (*it)->item_id;
         }
+        if ((*it)->stalled_since != -1)
+        {
+            t["s"] = (*it)->stalled_since;
+        }
         converted_tasks.append(t);
     }
     for (auto it = tasks_furniture.begin(); it != tasks_furniture.end(); it++)
@@ -106,6 +110,15 @@ void Plan::save(std::ostream & out)
         if ((*it)->f)
         {
             t["f"] = Json::Int(furniture_index.at((*it)->f));
+        }
+        // furniture tasks say why they wait too (557 of them had no reason)
+        if (!(*it)->last_status.empty())
+        {
+            t["l"] = (*it)->last_status;
+        }
+        if ((*it)->stalled_since != -1)
+        {
+            t["s"] = (*it)->stalled_since;
         }
         converted_tasks.append(t);
     }
@@ -245,6 +258,8 @@ void Plan::save(std::ostream & out)
         r["outdoor"] = (*it)->outdoor;
         if ((*it)->abandoned)
             r["abandoned"] = true;
+        if ((*it)->parked_until != -1)
+            r["parked_until"] = (*it)->parked_until;
         r["channeled"] = (*it)->channeled;
         if ((*it)->build_when_accessible)
         {
@@ -389,6 +404,10 @@ void Plan::load(std::istream & in)
         if (it->isMember("i"))
         {
             t->item_id = (*it)["i"].asInt();
+        }
+        if (it->isMember("s"))
+        {
+            t->stalled_since = (*it)["s"].asInt();
         }
         if (t->type == task_type::furnish || t->type == task_type::check_furnish)
         {
@@ -580,6 +599,7 @@ void Plan::load(std::istream & in)
         (*it)->temporary = r["temporary"].asBool();
         (*it)->outdoor = r["outdoor"].asBool();
         (*it)->abandoned = r.isMember("abandoned") && r["abandoned"].asBool();
+        (*it)->parked_until = r.isMember("parked_until") ? r["parked_until"].asInt() : -1;
         (*it)->channeled = r["channeled"].asBool();
         if (r.isMember("build_when_accessible"))
         {

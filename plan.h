@@ -36,9 +36,10 @@ struct task
     furniture *f;
     std::string last_status;
     int32_t item_id;
+    int32_t stalled_since; // game time (year * 403200 + tick) it stopped making progress, or -1
 
     task(task_type::type type, room *r = nullptr, furniture *f = nullptr, int32_t item_id = -1) :
-        type(type), r(r), f(f), last_status(), item_id(item_id)
+        type(type), r(r), f(f), last_status(), item_id(item_id), stalled_since(-1)
     {
     }
 };
@@ -183,6 +184,11 @@ public:
 
     bool smooth_room(color_ostream & out, room *r, bool engrave = false);
     bool food_secure();
+    // the walkable area most citizens are in (cached for a game day)
+    uint16_t fort_group();
+    // digging a room that no miner can reach makes no progress: park it
+    bool dig_reachable(room *r);
+    void check_parked(color_ostream & out);
     void smooth_room_access(color_ostream & out, room *r);
     void smooth_cistern(color_ostream & out, room *r);
     void smooth_cistern_access(color_ostream & out, room *r);

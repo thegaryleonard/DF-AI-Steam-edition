@@ -218,6 +218,7 @@ struct room
     bool temporary;
     bool outdoor;
     bool abandoned; // a planned room given up on (a dead-end aqueduct): never dug
+    int32_t parked_until; // a stalled dig set aside (abandoned too) until then: retried when a miner can reach it
     bool channeled;
     bool build_when_accessible;
     int32_t required_value;
