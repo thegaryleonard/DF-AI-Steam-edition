@@ -497,6 +497,11 @@ void Population::update_moods(color_ostream & out)
             {
                 ai.debug(out, stl_sprintf("[MOOD] released %d forbidden/dumped item(s) for %s: %s", released, who.c_str(), describe_job_item(ji).c_str()));
             }
+            // Set when silk is needed and the fort has no silk thread and no
+            // web a dwarf can walk to: waiting for thirst then only stresses
+            // the dwarf (Lor "Equaledwire" waited on 5981 webs, none
+            // reachable, in sealed caverns).
+            bool no_silk_source = false;
             if (!usable && ji->item_type == item_type::CLOTH && (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn) &&
                 mood_warned.insert(who + "|cloth|" + std::to_string(idx)).second)
             {
@@ -522,7 +527,10 @@ void Population::update_moods(color_ostream & out)
                     // nobody weaves them until collected: Rakust's silk weave
                     // order sat two months on 662 uncollected webs.
                     if (f.spider_web)
-                        webs++;
+                    {
+                        if (Maps::canWalkBetween(u->pos, Items::getPosition(item)))
+                            webs++;
+                    }
                     else
                         thread++;
                 }
@@ -568,8 +576,10 @@ void Population::update_moods(color_ostream & out)
                 else if (ji->flags2.bits.silk)
                 {
                     *standing_orders_auto_collect_webs = 1;
+                    if (webs == 0)
+                        no_silk_source = true;
                     if (mood_warned.insert(who + "|silkmsg|" + std::to_string(idx)).second)
-                        ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on (" + std::to_string(webs) + " webs to collect)");
+                        ai.debug(out, "[MOOD] no silk for " + who + ": web collection turned on (" + std::to_string(webs) + " reachable webs to collect)");
                     // Check again next pass: once webs are collected into
                     // thread the weave order above must still be placed
                     // (Bomrek's mood waited on 245 webs with no silk weave
@@ -578,7 +588,7 @@ void Population::update_moods(color_ostream & out)
                 }
             }
             if (!usable && ji->item_type == item_type::CLOTH && (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn) &&
-                holder && mood_urgent(u, MOOD_CHEAT_THIRST))
+                holder && (no_silk_source || mood_urgent(u, MOOD_CHEAT_THIRST)))
             {
                 // Last resort: Monom needed silk cloth with no silk thread in
                 // the fort and 545 webs, none reachable. Rather than lose the
