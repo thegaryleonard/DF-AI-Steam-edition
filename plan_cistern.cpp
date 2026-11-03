@@ -1429,14 +1429,7 @@ bool Plan::revive_cistern_tap(color_ostream & out, std::ostream & reason)
 {
     if (!m_c_reserve)
         return false;
-    {
-        static int relink = 0;
-        if (++relink >= 100)
-        {
-            relink = 0;
-            link_aqueduct_chain();
-        }
-    }
+    link_aqueduct_chain(); // cheap: a few dozen aqueduct pieces
     auto is_wall = [](df::coord t) -> bool
     {
         df::tiletype *tt = Maps::getTileType(t);
