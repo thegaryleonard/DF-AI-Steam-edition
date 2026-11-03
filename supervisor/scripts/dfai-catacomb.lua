@@ -107,6 +107,7 @@ local function fits(fx, fy, z, d)
         if not (x == doorx and y == doory) and not is_wall(x, y, z) then return nil end
         if x >= x1 and x <= x2 and y >= y1 and y <= y2 and not safe(x, y, z) then return nil end
     end end
+    if reqscript('dfai-plan').planned_room_at(x1, y1, x2, y2, z) then return nil end
     return {door = {doorx, doory}, box = {x1, y1, x2, y2}, z = z, long_x = d[2] ~= 0}
 end
 

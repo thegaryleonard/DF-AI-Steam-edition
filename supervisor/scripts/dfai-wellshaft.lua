@@ -24,6 +24,7 @@ local repeatUtil = require('repeat-util')
 local KEY = 'dfai-wellshaft'
 local SURF = reqscript('dfai-surface')
 
+local PLAN = reqscript('dfai-plan')
 local function load() return dfhack.persistent.getSiteData(KEY, {}) end
 local function save(s) dfhack.persistent.saveSiteData(KEY, s) end
 local function attrs(x, y, z) local tt = dfhack.maps.getTileType(x, y, z) return tt and df.tiletype.attrs[tt] end
@@ -127,7 +128,9 @@ function find_site(xa, xb, best)
                             local zlo = top - rocks   -- lowest rock level of the shaft
                             for _, d in ipairs(D4) do
                                 local sx, sy = x + d[1], y + d[2]
-                                if fort_floor(sx, sy, top) and sealed(x, y, sx, sy, zlo, top - 1) then
+                                if fort_floor(sx, sy, top) and sealed(x, y, sx, sy, zlo, top - 1)
+                                    -- not through rooms df-ai has planned on the levels below
+                                    and not PLAN.planned_column(x, y, zlo, top - 1) and not PLAN.planned_column(sx, sy, zlo, top - 1) then
                                     -- someone can still reach the well, and the stairhead, once walled
                                     local t_ok, s_ok = false, false
                                     for _, d2 in ipairs({{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}) do
