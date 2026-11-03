@@ -1,5 +1,8 @@
 # Unreleased
 
+- Stock goals follow what the plan's furniture waits for (up to 20 at a time), statues can be ordered at all, and the code's goals are floors that a fort's saved table can raise but not lower (saves had frozen every goal at its founding value).
+- The cistern reads the river as running if any unfrozen, fed water is by the breach (one dry bank tile kept the inlet shut beside a full river); walled-off dead taps stay out of the plan.
+- The supervisor doesn't count a planned restart (`swap-plugin.sh`) as a crash or ping anyone about it.
 - `dfai-build` never sites a room on ground df-ai has planned, dug or not (new Lua function `planned_room_at` in the df-ai plugin), and searches one area per check instead of freezing the game.
 - Tools before weapons: axes and picks scale with the fort (3 and 4 per 100 dwarves on top of 2 spare), weapon forging waits while fewer than 2 are spare, and gear marked for melting no longer counts as stock.
 - Stalled digs are set aside: a room (and its way in) with no tile a miner can reach for two weeks has its designations cleared and is retried when it becomes reachable (`[STALL]` in the log).

@@ -284,6 +284,23 @@ class Supervisor:
 
     def restart(self, reason):
         now = time.time()
+        # a planned restart (swap-plugin.sh installing a new build) is not a
+        # crash: it doesn't count against the hourly limit and pings nobody
+        planned = Path(__file__).parent / "logs" / "planned-restart"
+        if planned.exists() and now - planned.stat().st_mtime < 900:
+            planned.unlink()
+            log(f"planned restart ({reason}): relaunching")
+            if df_running():
+                kill_df()
+            ok = launch_and_load()
+            self.last_progress = time.time()
+            self.last_tick = None
+            self.unresponsive_since = None
+            self.paused_since = None
+            log("planned restart: " + ("back up" if ok else "FAILED"))
+            if not ok:
+                notify("Restart after installing a new df-ai FAILED; the game needs a human.", ping=True)
+            return
         self.restarts = [t for t in self.restarts if now - t < 3600]
         if len(self.restarts) >= CFG["max_restarts_per_hour"]:
             notify(f"{reason}. Already restarted {len(self.restarts)} times this hour, so I'm "

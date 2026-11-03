@@ -292,6 +292,11 @@ void Plan::update(color_ostream &)
         bg_idx_furniture = tasks_furniture.begin();
 
         cache_nofurnish.clear();
+        // a pass over every furniture task is done: what they waited for is
+        // the demand the stock targets follow (73 statues waited, and df-ai
+        // never ordered one)
+        furnish_demand_last.swap(furnish_waiting);
+        furnish_waiting.clear();
 
         events.onupdate_register_once("df-ai plan bg furniture", [this](color_ostream & out) -> bool
         {

@@ -12,6 +12,7 @@ cd "$DF" || exit 1
 timeout 60 ./hack/dfhack-run.exe lua "print(dfhack.isMapLoaded() and 'fort loaded' or 'NO MAP')" | grep -q "fort loaded" || { echo "no fort loaded: not swapping"; exit 1; }
 timeout 60 ./hack/dfhack-run.exe quicksave >/dev/null 2>&1
 sleep 45
+touch "$HERE/logs/planned-restart"
 powershell.exe -NoProfile -Command "Stop-Process -Name 'Dwarf Fortress' -Force" >/dev/null 2>&1
 sleep 5
 cp "$B/df-ai.plug.dll" "$B/df-ai.plug.pdb" "$DF/hack/plugins/" || exit 1

@@ -457,6 +457,7 @@ bool Plan::try_furnish(color_ostream & out, room *r, furniture *f, std::ostream 
 
     if (cache_nofurnish.count(stocks_furniture_type))
     {
+        furnish_waiting[stocks_furniture_type]++;
         reason << "no " << stocks_furniture_type << " available";
         return false;
     }
@@ -561,6 +562,7 @@ bool Plan::try_furnish(color_ostream & out, room *r, furniture *f, std::ostream 
     }
 
     cache_nofurnish.insert(stocks_furniture_type);
+    furnish_waiting[stocks_furniture_type]++;
     reason << "no " << stocks_furniture_type << " available";
     return false;
 }

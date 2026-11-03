@@ -66,6 +66,7 @@ void Watch::reset()
     Needed[stock_item::cage_metal] = 1;
     Needed[stock_item::chair] = 3;
     Needed[stock_item::chest] = 4;
+    Needed[stock_item::statue] = 1; // plus whatever the plan's rooms wait for
     Needed[stock_item::cloth] = 5;
     Needed[stock_item::clothes_feet] = 4;
     Needed[stock_item::clothes_hands] = 4;
@@ -247,6 +248,11 @@ bool Watch::from_json(Json::Value & map, std::string & error)
     }
 
     reset();
+    // the code's goals are the floor: a save holds the whole table, so a fort
+    // never saw a goal raised after it was founded (Channelevened kept "2
+    // axes, flat" at 183 dwarves). Saved goals can raise them, not lower them.
+    const auto floor_needed = Needed;
+    const auto floor_per_dwarf = NeededPerDwarf;
 
     std::map<std::string, stock_item::item> item_names;
     for (auto item = stock_item::item(0); item < stock_item::_stock_item_count; item = stock_item::item(item + 1))
@@ -324,6 +330,28 @@ bool Watch::from_json(Json::Value & map, std::string & error)
 
         error = "unexpected format for stock_goals item '" + member + "'";
         return false;
+    }
+
+    for (auto & n : floor_needed)
+    {
+        auto it = Needed.find(n.first);
+        if (it == Needed.end())
+        {
+            // a saved "track only" (statues) dropped the goal entirely
+            if (n.second > 0)
+            {
+                Needed[n.first] = n.second;
+                AlsoCount.erase(n.first);
+            }
+        }
+        else if (it->second < n.second)
+            it->second = n.second;
+    }
+    for (auto & n : floor_per_dwarf)
+    {
+        auto it = NeededPerDwarf.find(n.first);
+        if (it == NeededPerDwarf.end() || it->second < n.second)
+            NeededPerDwarf[n.first] = n.second;
     }
 
     return true;

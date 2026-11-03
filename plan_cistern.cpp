@@ -519,20 +519,19 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
     uint32_t cistlvl = Maps::getTileDesignation(m_c_cistern->pos() + df::coord(0, 0, 1))->bits.flow_size;
     uint32_t resvlvl = Maps::getTileDesignation(m_c_reserve->pos())->bits.flow_size;
 
-    df::coord river = AI::spiral_search(m_c_reserve->channel_enable, 0, 2, [](df::coord t) -> bool { df::tile_designation *td = Maps::getTileDesignation(t); return td && td->bits.feature_local; });
-    bool river_is_frozen_or_dry = river.isValid() && (ENUM_ATTR(tiletype, material, *Maps::getTileType(river)) == tiletype_material::FROZEN_LIQUID || Maps::getTileDesignation(river)->bits.flow_size == 0);
-    if (!river.isValid())
+    // the river is running if any unfrozen, fed water (a river feature, or
+    // flowing water) is near the breach. It used to look at the first river-
+    // feature tile only: a dry bank tile read as "river dry", and the inlet
+    // stayed shut beside a full river while the reserve emptied.
+    df::coord river = AI::spiral_search(m_c_reserve->channel_enable, 0, 3, [](df::coord t) -> bool
     {
-        // a tap to water that isn't a river feature: dry once there is no fed
-        // water by the breach any more (a pond drained into the reserve sat
-        // there behind a shut outlet while the hospital well had nothing)
-        df::coord fed = AI::spiral_search(m_c_reserve->channel_enable, 0, 3, [](df::coord t) -> bool
-        {
-            df::tile_designation *td = Maps::getTileDesignation(t);
-            return td && !td->bits.liquid_type && td->bits.flow_size >= 3 && !td->bits.water_stagnant;
-        });
-        river_is_frozen_or_dry = !fed.isValid();
-    }
+        df::tile_designation *td = Maps::getTileDesignation(t);
+        df::tiletype *tt = Maps::getTileType(t);
+        return td && tt && !td->bits.liquid_type && td->bits.flow_size >= 3 &&
+            (td->bits.feature_local || !td->bits.water_stagnant) &&
+            ENUM_ATTR(tiletype, material, *tt) != tiletype_material::FROZEN_LIQUID;
+    });
+    bool river_is_frozen_or_dry = !river.isValid();
 
     if (resvlvl <= 1)
     {
@@ -986,6 +985,22 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
                         r->min.z <= r2->max.z && r2->min.z <= r->max.z)
                         touches_live = true;
             }
+            bool has_seal = false;
+            for (auto r2 : rooms_and_corridors)
+                if (r2->comment == "seal for the cistern" && r->include(r2->min))
+                    has_seal = true;
+            if (has_seal || r->comment == "dead tap (walled off)")
+            {
+                if (!r->abandoned)
+                {
+                    r->abandoned = true;
+                    r->comment = "dead tap (walled off)";
+                    for (auto r2 : rooms_and_corridors)
+                        r2->accesspath.erase(std::remove(r2->accesspath.begin(), r2->accesspath.end(), r), r2->accesspath.end());
+                    ai.debug(out, "cistern: a walled-off dead tap is out of the plan again");
+                }
+                continue;
+            }
             if (r->abandoned && (j || touches_live))
             {
                 // wrongly given up (joined to the reserve): back in the chain
@@ -1182,6 +1197,7 @@ bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, 
                         ai.debug(out, stl_sprintf("cistern: walling off the dead tap at (%d, %d, %d)", t.x, t.y, t.z));
                     }
             r->abandoned = true;
+            r->comment = "dead tap (walled off)";
             for (auto r2 : rooms_and_corridors)
             {
                 auto it = std::find(r2->accesspath.begin(), r2->accesspath.end(), r);

@@ -426,6 +426,14 @@ void Stocks::queue_need(color_ostream & out, stock_item::item what, int32_t amou
         tmpl.mat_type = 0;
         break;
     }
+    case stock_item::statue:
+    {
+        // temples, offices, noble rooms and taverns want them; df-ai never
+        // ordered one (73 waited at Channelevened)
+        tmpl.job_type = job_type::ConstructStatue;
+        tmpl.mat_type = 0;
+        break;
+    }
     case stock_item::clothes_feet:
     case stock_item::clothes_hands:
     case stock_item::clothes_head:

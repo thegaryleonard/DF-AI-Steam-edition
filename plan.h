@@ -58,6 +58,16 @@ class Plan
     std::map<room_type::type, std::vector<room *>> room_category;
     std::map<int32_t, std::set<room *>> room_by_z;
     std::set<stock_item::item> cache_nofurnish;
+    // furniture tasks waiting for each kind of item, counted over one pass of
+    // the furniture tasks (furnish_waiting) and the last full pass (furnish_demand)
+    std::map<stock_item::item, int32_t> furnish_waiting, furnish_demand_last;
+public:
+    int32_t furnish_demand(stock_item::item k) const
+    {
+        auto it = furnish_demand_last.find(k);
+        return it == furnish_demand_last.end() ? 0 : it->second;
+    }
+private:
     room *fort_entrance;
 public:
     room *entrance() const { return fort_entrance; }

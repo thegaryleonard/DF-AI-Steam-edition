@@ -528,6 +528,8 @@ int32_t Stocks::num_needed(stock_item::item key)
             heads = food_headcount();
         amount += heads * Watch.NeededPerDwarf.at(key) / 100;
     }
+    // whatever the plan's furniture is waiting for, up to 20 at a time
+    amount = std::max(amount, std::min(ai.plan.furnish_demand(key), 20));
     switch (key)
     {
     case stock_item::armor_torso: case stock_item::armor_head: case stock_item::armor_legs:
