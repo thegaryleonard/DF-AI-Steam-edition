@@ -177,9 +177,17 @@ local function fits(fx, fy, z, d, L, S, soil, t)
     if not safe(w.door[1], w.door[2], z, soil) then return nil end
     for _, c in ipairs(w.tunnel) do if not safe(c[1], c[2], z, soil) then return nil end end
     local x1, y1, x2, y2 = table.unpack(w.box)
+    -- cheap pass first (walls all round, enough soil); the 27-tile safety
+    -- check per tile only for rooms that pass it (a pasture search over
+    -- every corridor froze the game for 36 seconds)
+    local sn = 0
     for x = x1 - 1, x2 + 1 do for y = y1 - 1, y2 + 1 do
         if not (x == w.door[1] and y == w.door[2]) and not is_wall(x, y, z) then return nil end
-        if x >= x1 and x <= x2 and y >= y1 and y <= y2 then
+        if soil and x >= x1 and x <= x2 and y >= y1 and y <= y2 and is_soil(x, y, z) then sn = sn + 1 end
+    end end
+    if soil and sn < L * S * 0.7 then return nil end
+    for x = x1, x2 do for y = y1, y2 do
+        do
             if not safe(x, y, z, soil) then return nil end
             -- never on another room's ground: a music hall was laid over the
             -- hospital's (still undug) zone, its well shaft and all
@@ -284,8 +292,13 @@ local function find_site(kind)
                 levels[A.z + dz] = true
             end
         end
-        list = soil_anchors(levels)
+        -- rooms of the same kind first (a new pasture beside the last one),
+        -- then a few soil-rich spots: the soil list alone filled every slot
+        -- and the second batch of pastures found no site
+        list = {}
         for _, A in ipairs(more) do list[#list + 1] = A end
+        local sa = soil_anchors(levels)
+        for i = 1, math.min(#sa, 8) do list[#list + 1] = sa[i] end
     end
     for i, A in ipairs(list) do
         if i > (kind.soil and 16 or 6) then break end
