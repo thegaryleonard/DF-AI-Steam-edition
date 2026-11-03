@@ -243,6 +243,8 @@ void Plan::save(std::ostream & out)
         r["queue_dig"] = (*it)->queue_dig;
         r["temporary"] = (*it)->temporary;
         r["outdoor"] = (*it)->outdoor;
+        if ((*it)->abandoned)
+            r["abandoned"] = true;
         r["channeled"] = (*it)->channeled;
         if ((*it)->build_when_accessible)
         {
@@ -577,6 +579,7 @@ void Plan::load(std::istream & in)
         (*it)->queue_dig = r["queue_dig"].asBool();
         (*it)->temporary = r["temporary"].asBool();
         (*it)->outdoor = r["outdoor"].asBool();
+        (*it)->abandoned = r.isMember("abandoned") && r["abandoned"].asBool();
         (*it)->channeled = r["channeled"].asBool();
         if (r.isMember("build_when_accessible"))
         {

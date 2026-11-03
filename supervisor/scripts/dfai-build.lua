@@ -87,12 +87,16 @@ local function is_floor(x, y, z)
     local a = attrs(x, y, z)
     return a and a.shape == df.tiletype_shape.FLOOR
 end
-local function safe(x, y, z)
+-- roof_ok: the level above may be the surface (soil lies just under it: an
+-- indoor pasture one level down keeps the ground above as its roof, and the
+-- "nothing open above" rule below still holds)
+local function safe(x, y, z, roof_ok)
     if not dfhack.maps.isValidTilePos(x, y, z) or not is_wall(x, y, z) then return false end
     for dz = -1, 1 do for dx = -1, 1 do for dy = -1, 1 do
         local f = dfhack.maps.getTileFlags(x + dx, y + dy, z + dz)
         if not f then return false end
-        if f.flow_size > 0 or f.water_table or f.outside or f.feature_global or f.feature_local then return false end
+        if f.flow_size > 0 or f.water_table or f.feature_global or f.feature_local then return false end
+        if f.outside and not (roof_ok and dz == 1) then return false end
         local a = attrs(x + dx, y + dy, z + dz)
         if a and dz ~= 0 and a.shape == df.tiletype_shape.EMPTY then return false end
     end end end
@@ -170,13 +174,13 @@ local function is_soil(x, y, z)
 end
 local function fits(fx, fy, z, d, L, S, soil, t)
     local w = room_of(fx, fy, z, d, L, S, t)
-    if not safe(w.door[1], w.door[2], z) then return nil end
-    for _, c in ipairs(w.tunnel) do if not safe(c[1], c[2], z) then return nil end end
+    if not safe(w.door[1], w.door[2], z, soil) then return nil end
+    for _, c in ipairs(w.tunnel) do if not safe(c[1], c[2], z, soil) then return nil end end
     local x1, y1, x2, y2 = table.unpack(w.box)
     for x = x1 - 1, x2 + 1 do for y = y1 - 1, y2 + 1 do
         if not (x == w.door[1] and y == w.door[2]) and not is_wall(x, y, z) then return nil end
         if x >= x1 and x <= x2 and y >= y1 and y <= y2 then
-            if not safe(x, y, z) then return nil end
+            if not safe(x, y, z, soil) then return nil end
             if soil and is_soil(x, y, z) then w.soil_n = (w.soil_n or 0) + 1 end
         end
     end end
@@ -225,35 +229,79 @@ local function anchors(kind)
     table.sort(out, function(a, b) return a.n > b.n end)
     return out
 end
+-- soil rooms: fort corridors that border soil-rich ground, on the levels
+-- around the given ones (Channelevened's soil lay west of the fort, out of
+-- reach of a search around its surface pens). Cheap: one pass per level over
+-- 16x16 blocks.
+local function soil_anchors(levels)
+    local cit = dfhack.units.getCitizens(true)[1]
+    local fg = cit and dfhack.maps.getWalkableGroup(cit.pos) or 0
+    local out = {}
+    for z in pairs(levels) do
+        local soil, fort = {}, {}
+        for _, b in ipairs(df.global.world.map.map_blocks) do
+            if b.map_pos.z == z then
+                local s, f, fx, fy = 0, 0, 0, 0
+                for x = 0, 15 do for y = 0, 15 do
+                    local a = df.tiletype.attrs[b.tiletype[x][y]]
+                    local d = b.designation[x][y]
+                    if a.shape == df.tiletype_shape.WALL and a.material == df.tiletype_material.SOIL and not d.water_table then s = s + 1 end
+                    if a.shape == df.tiletype_shape.FLOOR and b.walkable[x][y] == fg and fg ~= 0 and not d.outside then
+                        f, fx, fy = f + 1, fx + x, fy + y
+                    end
+                end end
+                local k = (b.map_pos.x // 16) * 1000 + b.map_pos.y // 16
+                soil[k] = s
+                if f > 0 then fort[k] = {x = b.map_pos.x + fx // f, y = b.map_pos.y + fy // f} end
+            end
+        end
+        for k, c in pairs(fort) do
+            local bx, by = k // 1000, k % 1000
+            local near = 0
+            for dx = -2, 2 do for dy = -2, 2 do near = near + (soil[(bx + dx) * 1000 + (by + dy)] or 0) end end
+            if near > 300 then out[#out + 1] = {z = z, n = near, x = c.x, y = c.y} end
+        end
+    end
+    table.sort(out, function(a, b) return a.n > b.n end)
+    return out
+end
+
 local function find_site(kind)
     local cit = dfhack.units.getCitizens(true)[1]
     local list = anchors(kind)
     if kind.soil then
-        -- soil is a thin layer: try the levels around each anchor too
-        local more = {}
+        -- soil is a thin layer: try the levels around each anchor too, and
+        -- first the fort's corridors beside soil-rich ground on those levels
+        local more, levels = {}, {}
         for i, A in ipairs(list) do
             if i > 2 then break end
-            for dz = -2, 2 do more[#more + 1] = {z = A.z + dz, n = A.n, x = A.x, y = A.y} end
+            for dz = -2, 2 do
+                more[#more + 1] = {z = A.z + dz, n = A.n, x = A.x, y = A.y}
+                levels[A.z + dz] = true
+            end
         end
-        list = more
+        list = soil_anchors(levels)
+        for _, A in ipairs(more) do list[#list + 1] = A end
     end
     for i, A in ipairs(list) do
-        if i > (kind.soil and 10 or 6) then break end
+        if i > (kind.soil and 16 or 6) then break end
         local best, bd
         local R = kind.soil and 24 or 30
         for x = A.x - R, A.x + R do for y = A.y - R, A.y + R do
             if is_floor(x, y, A.z) and not dfhack.buildings.findAtTile(xyz2pos(x, y, A.z))
                 and (not cit or dfhack.maps.canWalkBetween(cit.pos, xyz2pos(x, y, A.z))) then
                 for _, d in ipairs(DIRS) do
-                    -- straight off the corridor; soil rooms may sit at the end of a short tunnel
-                    for t = 1, kind.soil and 10 or 1 do
+                    -- straight off the corridor; soil rooms may sit at the end of a
+                    -- tunnel (up to 30: the soil near a fort is often patchy, and
+                    -- grass only grows on soil)
+                    for t = 1, kind.soil and 30 or 1 do
                         local w = fits(x, y, A.z, d, kind.L, kind.S, kind.soil, t)
                         if w then
                             local dist = (x - A.x) ^ 2 + (y - A.y) ^ 2 + t * t * 4
                             if not bd or dist < bd then best, bd = w, dist end
                             break
                         end
-                        if not safe(x + d[1] * t, y + d[2] * t, A.z) then break end
+                        if not safe(x + d[1] * t, y + d[2] * t, A.z, kind.soil) then break end
                     end
                 end
             end
@@ -362,10 +410,20 @@ local function attach_to_tavern(w)
     return true
 end
 
+-- a hole in a new room's floor (open space) can never be "dug"; it held a
+-- music hall at 399 of 400 for good. It is often meant (here, the shaft of
+-- the tavern's cistern well below), so it counts as done and is left alone.
+local function is_hole(x, y, z)
+    local a = attrs(x, y, z)
+    return a and (a.shape == df.tiletype_shape.EMPTY or a.shape == df.tiletype_shape.RAMP_TOP)
+end
 local function dug(w)
     local x1, y1, x2, y2 = table.unpack(w.box)
     local n, of = 0, 0
-    for x = x1, x2 do for y = y1, y2 do of = of + 1 if is_floor(x, y, w.z) then n = n + 1 end end end
+    for x = x1, x2 do for y = y1, y2 do
+        of = of + 1
+        if is_floor(x, y, w.z) or is_hole(x, y, w.z) then n = n + 1 end
+    end end
     return n, of
 end
 local function furnished(kind, w)

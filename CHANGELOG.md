@@ -1,5 +1,8 @@
 # Unreleased
 
+- The cistern reroutes a stalled embark aqueduct: when the planned tunnel still has a long way to go, it plans a tap from the dug part to the nearest real water and, if much shorter, drops the undug rest (a 300-tile route to a lake on the map edge became a 5-tile tap to the river beside the fort). `ai cistern` shows the cistern plan; `ai cistern-reroute [now]` dry-runs or does the reroute.
+- Indoor pastures (`dfai-build new pasture`) find soil next to the fort's corridors on any nearby level, may sit at the end of a tunnel up to 30 tiles, and can be dug one level under the surface.
+- `dfai-build` no longer waits forever on a hole in a new room's floor (such as a well shaft); it is left open.
 - Food first: a fort that isn't fed (no farm plot, or under 2 drinks or 2 food per citizen) digs its food rooms ahead of the queue - butcher (which also lets autolabor make hunters), fishery (fishers), farmer's workshop, mechanic's (for the well), kitchen, farm plots - one at a time, and they and their corridors get dig priority 2. A starving fort had its butcher, kitchen and mechanic's workshop never dug, all behind a noble's office.
 - Smoothing waits until the fort is fed: smoothing jobs beat digging and farming in the dwarves' choice, and 74 of them had 7 of 12 dwarves polishing rooms in a starving fort's first year.
 - With no well, df-ai zones the nearest reachable natural water as a bucket water source, so irrigation ponds can fill (it only ever zoned its well).

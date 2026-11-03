@@ -217,6 +217,7 @@ struct room
     bool queue_dig;
     bool temporary;
     bool outdoor;
+    bool abandoned; // a planned room given up on (a dead-end aqueduct): never dug
     bool channeled;
     bool build_when_accessible;
     int32_t required_value;

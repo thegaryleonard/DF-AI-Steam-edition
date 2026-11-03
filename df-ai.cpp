@@ -263,6 +263,34 @@ command_result ai_command(color_ostream & out, std::vector<std::string> & args)
         return CR_OK;
     }
 
+    if ((args.size() == 1 || args.size() == 2) && args[0] == "cistern-reroute")
+    {
+        // "ai cistern-reroute": would a tap from the dug end of the aqueduct
+        // beat the planned one? ("now" to do it)
+        if (!dwarfAI)
+        {
+            out << "df-ai is not running" << std::endl;
+            return CR_OK;
+        }
+        std::ostringstream why;
+        bool ok = dwarfAI->plan.reroute_cistern_aqueduct(out, why, args.size() == 2 && args[1] == "now");
+        out << (ok ? "" : "no reroute: ") << why.str() << std::endl;
+        return CR_OK;
+    }
+
+    if (args.size() == 1 && args[0] == "cistern")
+    {
+        if (!dwarfAI)
+        {
+            out << "df-ai is not running" << std::endl;
+            return CR_OK;
+        }
+        std::ostringstream os;
+        dwarfAI->plan.describe_cistern(os);
+        out << os.str();
+        return CR_OK;
+    }
+
     if (args.size() == 1 && args[0] == "cavern")
     {
         if (!dwarfAI)

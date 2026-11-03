@@ -62,6 +62,7 @@ room::room(room_type::type type, df::coord mins, df::coord maxs, std::string com
     queue_dig(false),
     temporary(false),
     outdoor(false),
+    abandoned(false),
     channeled(false),
     build_when_accessible(false),
     required_value(0),
@@ -200,6 +201,8 @@ void room::set_dig_priority(int32_t level) const
 
 void room::dig(bool plan, bool channel)
 {
+    if (abandoned)
+        return;
     for (int16_t x = min.x; x <= max.x; x++)
     {
         for (int16_t y = min.y; y <= max.y; y++)

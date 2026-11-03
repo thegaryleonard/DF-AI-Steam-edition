@@ -318,6 +318,20 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
         m_c_testgate_delay = 2;
     }
 
+    {
+        static int32_t reroute_wait = 200;
+        if (m_c_reserve->channel_enable.isValid() && --reroute_wait <= 0)
+        {
+            reroute_wait = 200;
+            std::ostringstream why;
+            if (reroute_cistern_aqueduct(out, why, true))
+            {
+                reason << "rerouted the aqueduct to nearer water";
+                return;
+            }
+        }
+    }
+
     if (m_c_testgate_delay != -1)
     {
         // expensive, dont check too often
@@ -577,14 +591,16 @@ void Plan::monitor_cistern(color_ostream & out, std::ostream & reason)
 // anything but the reserve. The breach itself is monitor_cistern's usual
 // "test channel" step (tunnel empty and smoothed, outlet closed first).
 bool cistern_tap_test_small = false;   // "ai cistern-tap X Y Z small": any pool will do (testing)
-bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::ostream & reason, df::coord test_origin)
+// open tiles of the existing aqueduct a branch may sit beside (reroute)
+static const std::set<df::coord> *cistern_tap_ok_neighbours = nullptr;
+bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::ostream & reason, df::coord test_origin, df::coord attach, bool commit, int32_t *path_len)
 {
     // test_origin: a dry run from any rock tile ("ai cistern-tap X Y Z"):
     // plans and describes the tunnel, digs nothing
-    const bool dry = test_origin.isValid();
-    if (!gate_bld && !dry)
+    const bool dry = test_origin.isValid() && !commit;
+    if (!gate_bld && !test_origin.isValid())
         return false;
-    const df::coord gate = dry ? df::coord() : df::coord(gate_bld->x1, gate_bld->y1, gate_bld->z);
+    const df::coord gate = attach.isValid() ? attach : test_origin.isValid() ? df::coord() : df::coord(gate_bld->x1, gate_bld->y1, gate_bld->z);
 
     auto shape_at = [](df::coord t) -> df::tiletype_shape_basic
     {
@@ -608,7 +624,7 @@ bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::os
     static const int16_t D4[4][2] = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
     for (auto & d : D4)
     {
-        if (dry)
+        if (test_origin.isValid())
             break;
         df::coord in = gate + df::coord(d[0], d[1], 0);
         df::coord outside = gate - df::coord(d[0], d[1], 0);
@@ -646,7 +662,7 @@ bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::os
     auto inside_any_room = [this](df::coord t) -> bool
     {
         for (auto r : rooms_and_corridors)
-            if (r->include(t))
+            if (!r->abandoned && r->include(t))
                 return true;
         return false;
     };
@@ -688,7 +704,7 @@ bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::os
             for (int16_t dy = -1; dy <= 1; dy++)
             {
                 df::coord n = t + df::coord(dx, dy, 0);
-                if ((dx || dy) && n != gate && !natural_rock(n))
+                if ((dx || dy) && n != gate && !(cistern_tap_ok_neighbours && cistern_tap_ok_neighbours->count(n)) && !natural_rock(n))
                     return false;
             }
         return !inside_any_room(t);
@@ -704,8 +720,8 @@ bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::os
     struct cand { df::coord end, breach; int32_t dist; };
     std::vector<cand> cands;
     for (int16_t z = origin.z; z <= origin.z + 20; z++)
-        for (int16_t x = origin.x - 70; x <= origin.x + 70; x++)
-            for (int16_t y = origin.y - 70; y <= origin.y + 70; y++)
+        for (int16_t x = origin.x - 100; x <= origin.x + 100; x++)
+            for (int16_t y = origin.y - 100; y <= origin.y + 100; y++)
             {
                 df::coord t(x, y, z);
                 df::tile_designation *td = Maps::getTileDesignation(t);
@@ -798,6 +814,8 @@ bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::os
             break;
     }
     path.push_back(end + df::coord(0, 0, 1));
+    if (path_len)
+        *path_len = int32_t(path.size());
 
     // cut it into straight corridors, no tile in two of them: runs of stair
     // (same x,y going up) and straight level runs
@@ -846,6 +864,285 @@ bool Plan::plan_cistern_tap(color_ostream & out, df::building *gate_bld, std::os
 
     ai.debug(out, stl_sprintf("cistern: tunnel of %d tiles in %d pieces from (%d, %d, %d) to water past (%d, %d, %d)", int(path.size()), int(segs.size()), origin.x, origin.y, origin.z, breach.x, breach.y, breach.z));
     reason << "digging a " << path.size() << "-tile tunnel to water for the cistern";
+    return true;
+}
+
+// The embark blueprint's aqueduct runs to whatever water it found on the
+// whole map: Channelevened's went 180 tiles south and 11 levels up to a lake
+// on the map edge, was dug about a third of the way and stalled, while a river
+// ran ten tiles from the reserve. When the planned aqueduct still has a long
+// way to go, plan a tap from the end of what is dug instead; if it is much
+// shorter, drop the undug rest and dig the tap.
+bool Plan::reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, bool commit)
+{
+    if (!m_c_reserve || !m_c_reserve->channel_enable.isValid())
+    {
+        reason << "no planned aqueduct";
+        return false;
+    }
+    auto is_wall = [](df::coord t) -> bool
+    {
+        df::tiletype *tt = Maps::getTileType(t);
+        return tt && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Wall;
+    };
+    auto is_aq = [](room *r) { return r->type == room_type::corridor && r->corridor_type == corridor_type::aqueduct; };
+    // which dug aqueduct tiles are joined to the reserve (through its inlet
+    // floodgate, which is in no aqueduct room: seed within 3 tiles of it)
+    std::set<df::coord> open_all, joined;
+    for (auto r : rooms_and_corridors)
+        if (is_aq(r))
+            for (int16_t x = r->min.x; x <= r->max.x; x++)
+                for (int16_t y = r->min.y; y <= r->max.y; y++)
+                    for (int16_t z = r->min.z; z <= r->max.z; z++)
+                        if (!is_wall(df::coord(x, y, z)))
+                            open_all.insert(df::coord(x, y, z));
+    {
+        static const int16_t N6[6][3] = { { 1, 0, 0 }, { -1, 0, 0 }, { 0, 1, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 0, -1 } };
+        std::list<df::coord> q;
+        room *rv = m_c_reserve;
+        for (auto t : open_all)
+            if (rv->min.x - 3 <= t.x && t.x <= rv->max.x + 3 && rv->min.y - 3 <= t.y && t.y <= rv->max.y + 3 && rv->min.z <= t.z && t.z <= rv->max.z)
+                if (joined.insert(t).second)
+                    q.push_back(t);
+        while (!q.empty())
+        {
+            df::coord t = q.front();
+            q.pop_front();
+            for (auto & d : N6)
+            {
+                df::coord n = t + df::coord(d[0], d[1], d[2]);
+                if (open_all.count(n) && joined.insert(n).second)
+                    q.push_back(n);
+            }
+        }
+    }
+    auto piece = [&](room *r, bool & any_open, bool & any_joined, bool & any_wall)
+    {
+        any_open = any_joined = any_wall = false;
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+                for (int16_t z = r->min.z; z <= r->max.z; z++)
+                {
+                    df::coord t(x, y, z);
+                    if (is_wall(t))
+                        any_wall = true;
+                    else
+                        any_open = true;
+                    if (joined.count(t))
+                        any_joined = true;
+                }
+    };
+    if (commit)
+    {
+        for (auto r : rooms_and_corridors)
+        {
+            if (!is_aq(r))
+                continue;
+            bool o, j, w;
+            piece(r, o, j, w);
+            bool touches_live = false;
+            if (r->abandoned && w && r->comment == "tunnel to water for the cistern")
+            {
+                // a tap piece still to dig right beside a live one is part of it
+                for (auto r2 : rooms_and_corridors)
+                    if (r2 != r && is_aq(r2) && !r2->abandoned &&
+                        r->min.x <= r2->max.x + 1 && r2->min.x - 1 <= r->max.x &&
+                        r->min.y <= r2->max.y + 1 && r2->min.y - 1 <= r->max.y &&
+                        r->min.z <= r2->max.z && r2->min.z <= r->max.z)
+                        touches_live = true;
+            }
+            if (r->abandoned && (j || touches_live))
+            {
+                // wrongly given up (joined to the reserve): back in the chain
+                r->abandoned = false;
+                bool held = false;
+                for (auto r2 : rooms_and_corridors)
+                    if (!r2->abandoned && std::find(r2->accesspath.begin(), r2->accesspath.end(), r) != r2->accesspath.end())
+                        held = true;
+                if (!held)
+                    m_c_reserve->accesspath.push_back(r);
+                if (r->status == room_status::dig && w)
+                {
+                    r->dig();
+                    add_task(task_type::dig_room, r);
+                }
+                ai.debug(out, "cistern: an aqueduct piece joined to the reserve is back in the plan");
+            }
+            else if (!r->abandoned && o && !j && !w)
+            {
+                // dug out, but cut off from the reserve (the far end of a
+                // stalled aqueduct): it can only ever hold up the gate test.
+                // Its parents take over its own access path.
+                r->abandoned = true;
+                for (auto r2 : rooms_and_corridors)
+                {
+                    auto it = std::find(r2->accesspath.begin(), r2->accesspath.end(), r);
+                    if (it == r2->accesspath.end())
+                        continue;
+                    r2->accesspath.erase(it);
+                    for (auto ap : r->accesspath)
+                        if (!ap->abandoned && std::find(r2->accesspath.begin(), r2->accesspath.end(), ap) == r2->accesspath.end())
+                            r2->accesspath.push_back(ap);
+                }
+                ai.debug(out, "cistern: dropped an aqueduct piece cut off from the reserve");
+            }
+        }
+    }
+    std::vector<room *> aq;
+    {
+        std::list<room *> todo{m_c_reserve};
+        std::set<room *> seen;
+        while (!todo.empty())
+        {
+            room *r = todo.front();
+            todo.pop_front();
+            if (!seen.insert(r).second)
+                continue;
+            todo.insert(todo.end(), r->accesspath.begin(), r->accesspath.end());
+            if (is_aq(r) && !r->abandoned)
+                aq.push_back(r);
+        }
+    }
+    int32_t undug = 0;
+    std::set<df::coord> open;
+    for (auto r : aq)
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+                for (int16_t z = r->min.z; z <= r->max.z; z++)
+                {
+                    df::coord t(x, y, z);
+                    if (is_wall(t))
+                        undug++;
+                    else if (joined.count(t))
+                        open.insert(t);
+                }
+    if (undug <= 40)
+    {
+        reason << "the aqueduct has only " << undug << " tiles left to dig";
+        return false;
+    }
+    // branch from the dug tiles nearest real water
+    std::vector<df::coord> water;
+    {
+        df::coord mn(32767, 32767, 32767), mx(-1, -1, -1);
+        for (auto t : open)
+        {
+            mn = df::coord(std::min(mn.x, t.x), std::min(mn.y, t.y), std::min(mn.z, t.z));
+            mx = df::coord(std::max(mx.x, t.x), std::max(mx.y, t.y), std::max(mx.z, t.z));
+        }
+        for (int16_t z = mn.z; z <= mx.z + 20; z++)
+            for (int16_t x = mn.x - 60; x <= mx.x + 60; x++)
+                for (int16_t y = mn.y - 60; y <= mx.y + 60; y++)
+                {
+                    df::tile_designation *td = Maps::getTileDesignation(df::coord(x, y, z));
+                    if (td && !td->bits.liquid_type && td->bits.flow_size >= 4)
+                        water.push_back(df::coord(x, y, z));
+                }
+    }
+    std::vector<std::pair<int32_t, df::coord>> near;
+    for (auto t : open)
+    {
+        int32_t d = std::numeric_limits<int32_t>::max();
+        for (auto w : water)
+            if (w.z >= t.z)
+                d = std::min(d, int32_t(std::abs(w.x - t.x) + std::abs(w.y - t.y) + 2 * (w.z - t.z)));
+        if (d != std::numeric_limits<int32_t>::max())
+            near.push_back(std::make_pair(d, t));
+    }
+    std::sort(near.begin(), near.end(), [](const std::pair<int32_t, df::coord> & l, const std::pair<int32_t, df::coord> & r) { return l.first < r.first; });
+    static const int16_t D4[4][2] = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
+    int32_t best_len = std::numeric_limits<int32_t>::max();
+    df::coord best_at, best_from;
+    int tries = 0;
+    cistern_tap_ok_neighbours = &open;
+    for (size_t i = 0; i < near.size() && tries < 16; i++)
+    {
+        df::coord t = near[i].second;
+        for (auto & d : D4)
+        {
+            df::coord n = t + df::coord(d[0], d[1], 0);
+            if (open.count(n) || !is_wall(n) || tries >= 16)
+                continue;
+            tries++;
+            int32_t len = 0;
+            std::ostringstream why;
+            if (plan_cistern_tap(out, nullptr, why, n, t, false, &len) && len < best_len)
+            {
+                best_len = len;
+                best_at = t;
+                best_from = n;
+            }
+        }
+    }
+    cistern_tap_ok_neighbours = nullptr;
+    if (!best_at.isValid())
+    {
+        reason << "no tunnel to water from the dug end of the aqueduct (" << undug << " tiles still to dig, " << tries << " starts tried)";
+        return false;
+    }
+    if (best_len * 2 > undug)
+    {
+        reason << "the planned aqueduct (" << undug << " tiles to go) is not much longer than a tap (" << best_len << ")";
+        return false;
+    }
+    reason << stl_sprintf("tap of %d tiles from (%d, %d, %d) instead of %d undug aqueduct tiles", best_len, best_at.x, best_at.y, best_at.z, undug);
+    if (!commit)
+        return true;
+
+    // drop what isn't dug: wholly undug pieces are abandoned, a part-dug
+    // straight piece shrinks to its dug run
+    std::set<room *> dropped;
+    for (auto r : aq)
+    {
+        df::coord mn(32767, 32767, 32767), mx(-1, -1, -1);
+        bool any_open = false;
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+                for (int16_t z = r->min.z; z <= r->max.z; z++)
+                {
+                    df::coord t(x, y, z);
+                    if (is_wall(t))
+                        continue;
+                    any_open = true;
+                    mn = df::coord(std::min(mn.x, x), std::min(mn.y, y), std::min(mn.z, z));
+                    mx = df::coord(std::max(mx.x, x), std::max(mx.y, y), std::max(mx.z, z));
+                }
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+                for (int16_t z = r->min.z; z <= r->max.z; z++)
+                {
+                    df::coord t(x, y, z);
+                    bool keep = any_open && mn.x <= x && x <= mx.x && mn.y <= y && y <= mx.y && mn.z <= z && z <= mx.z;
+                    if (!keep && is_wall(t))
+                        Maps::getTileDesignation(t)->bits.dig = tile_dig_designation::No;
+                }
+        if (!any_open)
+        {
+            r->abandoned = true;
+            dropped.insert(r);
+        }
+        else if (mn != r->min || mx != r->max)
+        {
+            r->min = mn;
+            r->max = mx;
+            r->status = room_status::dug;
+        }
+    }
+    for (auto r : rooms_and_corridors)
+    {
+        r->accesspath.erase(std::remove_if(r->accesspath.begin(), r->accesspath.end(), [&dropped](room *a) { return dropped.count(a) != 0; }), r->accesspath.end());
+    }
+    std::ostringstream why;
+    cistern_tap_ok_neighbours = &open;
+    bool tapped = plan_cistern_tap(out, nullptr, why, best_from, best_at, true, nullptr);
+    cistern_tap_ok_neighbours = nullptr;
+    if (!tapped)
+    {
+        reason << "; planning the tap failed: " << why.str();
+        return false;
+    }
+    m_c_testgate_delay = 2;
+    ai.debug(out, stl_sprintf("cistern: rerouted the aqueduct: tap of %d tiles from (%d, %d, %d), %d undug tiles and %d pieces dropped", best_len, best_at.x, best_at.y, best_at.z, undug, int(dropped.size())));
     return true;
 }
 

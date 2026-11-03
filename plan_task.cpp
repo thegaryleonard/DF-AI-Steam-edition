@@ -105,6 +105,11 @@ void Plan::update(color_ostream &)
             }
             case task_type::dig_room:
             case task_type::dig_room_immediate:
+                if (t.r->abandoned)
+                {
+                    del = true;
+                    break;
+                }
                 fixup_open(out, t.r);
                 if (t.r->is_dug(reason))
                 {
@@ -532,7 +537,7 @@ void Plan::checkrooms(color_ostream & out)
 // ensure room was not tantrumed etc
 void Plan::checkroom(color_ostream & out, room *r)
 {
-    if (r->status == room_status::plan)
+    if (r->status == room_status::plan || r->abandoned)
     {
         return;
     }

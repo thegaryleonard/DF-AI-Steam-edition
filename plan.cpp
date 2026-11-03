@@ -1612,6 +1612,45 @@ bool Plan::setup_natural_water_source(color_ostream & out)
     return zone != nullptr;
 }
 
+// "ai cistern": what the cistern plan is, for a human (and the Desk)
+void Plan::describe_cistern(std::ostream & os)
+{
+    auto box = [](room *r) { return stl_sprintf("(%d,%d,%d)-(%d,%d,%d)", r->min.x, r->min.y, r->min.z, r->max.x, r->max.y, r->max.z); };
+    os << "cistern: " << (m_c_cistern ? AI::describe_room(m_c_cistern) + " " + box(m_c_cistern) : "none") << "\n";
+    if (!m_c_reserve)
+    {
+        os << "reserve: none\n";
+        return;
+    }
+    os << "reserve: " << AI::describe_room(m_c_reserve) << " " << box(m_c_reserve) << "\n";
+    df::coord g = m_c_reserve->channel_enable;
+    os << "channel_enable: " << (g.isValid() ? stl_sprintf("(%d,%d,%d)", g.x, g.y, g.z) : std::string("none")) << "\n";
+    os << "tap wait " << m_c_tap_wait << ", testgate delay " << m_c_testgate_delay << "\n";
+    std::list<room *> todo{m_c_reserve};
+    std::set<room *> seen;
+    while (!todo.empty())
+    {
+        room *r = todo.front();
+        todo.pop_front();
+        if (!seen.insert(r).second)
+            continue;
+        todo.insert(todo.end(), r->accesspath.begin(), r->accesspath.end());
+        if (r->type == room_type::corridor && r->corridor_type == corridor_type::aqueduct)
+            os << "  aqueduct " << box(r) << " " << AI::describe_room(r) << "\n";
+    }
+    os << "all aqueduct rooms:\n";
+    for (auto r : rooms_and_corridors)
+    {
+        if (r->type != room_type::corridor || r->corridor_type != corridor_type::aqueduct)
+            continue;
+        int parents = 0;
+        for (auto r2 : rooms_and_corridors)
+            if (std::find(r2->accesspath.begin(), r2->accesspath.end(), r) != r2->accesspath.end())
+                parents++;
+        os << "  " << box(r) << (r->abandoned ? " ABANDONED" : "") << (seen.count(r) ? " in-chain" : " OFF-CHAIN") << " parents " << parents << " children " << r->accesspath.size() << "\n";
+    }
+}
+
 bool Plan::dig_next_cavern_now(color_ostream & out, std::string & why)
 {
     for (auto r : rooms_and_corridors)

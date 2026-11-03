@@ -203,7 +203,10 @@ public:
     bool pull_lever(color_ostream & out, furniture *f, std::ostream & reason);
 
     void monitor_cistern(color_ostream & out, std::ostream & reason);
-    bool plan_cistern_tap(color_ostream & out, df::building *gate, std::ostream & reason, df::coord test_origin = df::coord());
+    // attach: branch from this open tile instead of the inlet gate (origin =
+    // test_origin, the rock next to it); commit: dig it (else a dry run)
+    bool plan_cistern_tap(color_ostream & out, df::building *gate, std::ostream & reason, df::coord test_origin = df::coord(), df::coord attach = df::coord(), bool commit = false, int32_t *path_len = nullptr);
+    bool reroute_cistern_aqueduct(color_ostream & out, std::ostream & reason, bool commit);
 
     bool try_endconstruct(color_ostream & out, room *r, std::ostream & reason);
 
@@ -224,6 +227,7 @@ public:
     command_result setup_outdoor_gathering_zones(color_ostream & out);
     bool setup_fishing_zone(color_ostream & out);
     bool setup_natural_water_source(color_ostream & out);
+    void describe_cistern(std::ostream & os);
 
     std::vector<room *> find_corridor_tosurface(color_ostream & out, corridor_type::type type, df::coord origin);
     room *find_typed_corridor(color_ostream & out, corridor_type::type type, df::coord origin, const std::set<room *> & no_attach_corridors = std::set<room *>());
