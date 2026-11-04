@@ -100,7 +100,11 @@ local function on_death(unit_id)
     table.insert(s.log, {t = now, victim = name, flier = flier(u) and true or false, where = where(b)})
     while #s.log > 20 do table.remove(s.log, 1) end
     save(s)
-    local fort = dfhack.TranslateName(df.global.world.world_data.active_site[0].name, true)
+    local fort = 'The fort'
+    pcall(function()
+        local n = df.global.world.world_data.active_site[0].name
+        fort = (dfhack.translation and dfhack.translation.translateName or dfhack.TranslateName)(n, true)
+    end)
     notify(('{owner} **%s:** %s shot down %s%s! (bolt-thrower kills so far: %d)'):format(
         fort, where(b), name, flier(u) and ', a flier' or '', s.kills))
     dfhack.gui.showAnnouncement(('%s shot down %s.'):format(where(b), name), COLOR_LIGHTGREEN, false)
