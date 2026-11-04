@@ -290,6 +290,15 @@ bool AI::tag_enemies(color_ostream & out)
             {
                 found = pop.military_random_squad_attack_unit(out, u, "undead") || found;
             }
+            else if ((u->flags1.bits.active_invader || u->flags1.bits.marauder) && pop.outside_defenses(u))
+            {
+                // out past the curtain wall: the squads hold inside it (they
+                // used to charge out after every siege; 111 of 149 goblin
+                // kills at Channelevened were outside the wall). The bunkers'
+                // and gate turrets' bolt throwers deal with them out there.
+                pop.invaders_far++;
+                found = pop.military_cancel_attack_order(out, u, "invader outside the curtain wall: holding inside it") || found;
+            }
             else if (u->flags1.bits.active_invader)
             {
                 if (invader_close(*this, u))

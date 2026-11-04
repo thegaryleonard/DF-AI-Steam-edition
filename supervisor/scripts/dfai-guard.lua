@@ -45,6 +45,17 @@ local function tick()
         end
         local okp, P = pcall(require, 'plugins.df-ai')
         if not okp or not P.set_guard_posts then state.last = 'df-ai is not loaded' return end
+        -- the curtain wall's ring: squads hold inside it during a siege
+        local w = dfhack.persistent.getSiteData('dfai-walls', {})
+        state.box = nil
+        if P.set_defense_box then
+            if w.box and w.z then
+                P.set_defense_box(w.box.x1, w.box.y1, w.box.x2, w.box.y2, w.z)
+                state.box = w.box
+            else
+                P.set_defense_box(-1, -1, -1, -1, -1)
+            end
+        end
         local n = P.set_guard_posts(table.concat(parts, ';'))
         state.posts = list
         if n < 0 then state.last = 'df-ai is not running'
@@ -59,7 +70,9 @@ local function tick()
     if not ok then state.last = 'error: ' .. tostring(err) end
 end
 
-function status() return 'guard: ' .. state.last end
+function status()
+    return 'guard: ' .. state.last .. (state.box and ('; squads hold inside the wall (%d,%d..%d,%d) in a siege'):format(state.box.x1, state.box.y1, state.box.x2, state.box.y2) or '')
+end
 
 if dfhack_flags.module then return end
 local cmd = ({...})[1] or 'status'

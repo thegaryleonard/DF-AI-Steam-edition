@@ -1,5 +1,9 @@
 # Unreleased
 
+- Squads hold inside the curtain wall during sieges: invaders out past it get no kill orders (the bolt throwers deal with them). At Channelevened 111 of 149 goblin kills were outside the wall.
+- The army is the fort's best fighters, about 30% of it (at least 10), ranked by combat skill, instead of everyone; the least skilled go back to their trades a few at a time when it's quiet.
+- `dfai-stranded`: a dwarf stuck on top of the curtain wall (builders get pushed up there; 15 died of thirst) gets the wall section under them taken down and walks home.
+- Guard duty at the bunkers is off by default for now (`dfai-guard on` to resume).
 - Gate turrets (`dfai-gateturret`): a bolt thrower on the curtain wall beside each gate, facing out, with a built stair up to it; parts from the siege workshop, built by the dwarves.
 - Guard rotation: squads stand guard at the bolt-thrower bunkers and gate turrets in months they don't train (four soldiers in uniform per post, the rest of the squad works; "G" in the training-rotation log). The posts come from `dfai-guard` through the new plugin Lua function `set_guard_posts`; the duty moves on each year so every squad takes turns. Dangers still call battle stations.
 - The Herald runs fewer masterwork stories: at most one a game month, and only a dwarf's first, the first of an item, or one a season after the last (27 masterworks over two months became 3 stories).

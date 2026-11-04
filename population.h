@@ -108,6 +108,10 @@ public:
     // where squads stand guard in the months they don't train (bolt-thrower
     // bunkers, gate turrets): set by the dfai-guard script
     std::vector<df::coord> guard_posts;
+    // the curtain wall's ring (set by dfai-guard from dfai-walls): squads
+    // don't chase invaders out past it; the bunkers and turrets shoot them
+    df::coord defense_min, defense_max;
+    bool outside_defenses(df::unit *u);
     bool military_target_reachable(df::unit *u);
     bool military_target_shootable(df::unit *u);
     int32_t invaders_far = 0; // invaders seen far from the fort this pass (military.cpp)

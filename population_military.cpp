@@ -33,6 +33,10 @@
 #include "df/creature_raw.h"
 #include "df/caste_raw.h"
 #include "df/squad_ammo_spec.h"
+#include "df/job_skill.h"
+#include "df/job_skill_class.h"
+#include "df/unit_soul.h"
+#include "df/unit_skill.h"
 #include "df/squad_order_kill_listst.h"
 #include "df/squad_barracks_infost.h"
 #include "df/squad_position_equipmentst.h"
@@ -1118,6 +1122,21 @@ static uint16_t fort_walk_group(const std::set<int32_t> & citizen)
     return best;
 }
 
+// on open ground outside the curtain wall's ring (underground counts as in:
+// something that got under the fort is the army's business)
+bool Population::outside_defenses(df::unit *u)
+{
+    if (!defense_min.isValid() || !defense_max.isValid())
+        return false;
+    df::coord p = Units::getPosition(u);
+    df::tile_designation *td = Maps::getTileDesignation(p);
+    if (!td || !td->bits.outside)
+        return false;
+    if (std::abs(p.z - defense_min.z) > 8)
+        return false;
+    return p.x <= defense_min.x || p.x >= defense_max.x || p.y <= defense_min.y || p.y >= defense_max.y;
+}
+
 bool Population::military_target_reachable(df::unit *u)
 {
     uint16_t fg = fort_walk_group(citizen);
@@ -1895,12 +1914,40 @@ void Population::update_military(color_ostream & out)
     // groups, so at most about a quarter of them train in a month and the
     // rest work. (It used to be 40%: Hammerfaiths drafted 49 of 58 with no
     // rotation and had nobody free for its mason jobs.)
+    // ...but not everyone (user: "only draft fighters (not everyone)": at
+    // Channelevened the whole militia mustered for every siege and 149 died
+    // to goblins). The army is the fort's best fighters, about 30% of it
+    // (at least 10): the most combat skill joins first, and the least
+    // skilled go back to their trades when it's quiet, a few at a time.
     if (everyone_fights)
     {
-        if (!draft_pool.empty())
+        auto combat = [](df::unit *u) -> int32_t
         {
-            std::sort(draft_pool.begin(), draft_pool.end(), &MilitarySetupExclusive::Draft::compare);
-            want_draft.insert(want_draft.end(), draft_pool.begin(), draft_pool.end());
+            int32_t s = 0;
+            if (auto soul = u->status.current_soul)
+                for (auto sk : soul->skills)
+                {
+                    auto cls = ENUM_ATTR(job_skill, type, sk->id);
+                    if (cls == job_skill_class::MilitaryWeapon || cls == job_skill_class::MilitaryAttack ||
+                        cls == job_skill_class::MilitaryUnarmed || cls == job_skill_class::MilitaryDefense)
+                        s += sk->rating;
+                }
+            return s;
+        };
+        size_t target = std::max<size_t>(10, citizen.size() * 30 / 100);
+        if (citizen_military < target && !draft_pool.empty())
+        {
+            std::sort(draft_pool.begin(), draft_pool.end(), [&](df::unit *a, df::unit *b) { return combat(a) > combat(b); });
+            auto mid = draft_pool.begin() + std::min(target - citizen_military, draft_pool.size());
+            want_draft.insert(want_draft.end(), draft_pool.begin(), mid);
+        }
+        else if (citizen_military > target && !under_attack && !battle_mode && !soldiers.empty())
+        {
+            std::sort(soldiers.begin(), soldiers.end(), [&](df::unit *a, df::unit *b) { return combat(a) < combat(b); });
+            auto mid = soldiers.begin() + std::min(std::min(citizen_military - target, soldiers.size()), size_t(4));
+            ai.debug(out, stl_sprintf("[MILITARY] army of %d is over its %d best fighters: %d of the least skilled go back to their trades",
+                int(citizen_military), int(target), int(mid - soldiers.begin())));
+            events.queue_exclusive(std::make_unique<MilitarySetupExclusive::Dismiss>(ai, soldiers.begin(), mid));
         }
     }
     else if (citizen_military > max_military && !under_attack)

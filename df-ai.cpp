@@ -76,8 +76,25 @@ static int set_guard_posts(std::string list)
     return int(posts.size());
 }
 
+// the curtain wall's ring, from dfai-guard: squads hold inside it
+static bool set_defense_box(int x1, int y1, int x2, int y2, int z)
+{
+    if (!dwarfAI)
+        return false;
+    if (x1 < 0)
+    {
+        dwarfAI->pop.defense_min = df::coord();
+        dwarfAI->pop.defense_max = df::coord();
+        return true;
+    }
+    dwarfAI->pop.defense_min = df::coord(x1, y1, z);
+    dwarfAI->pop.defense_max = df::coord(x2, y2, z);
+    return true;
+}
+
 DFHACK_PLUGIN_LUA_FUNCTIONS {
     DFHACK_LUA_FUNCTION(planned_room_at),
+    DFHACK_LUA_FUNCTION(set_defense_box),
     DFHACK_LUA_FUNCTION(set_guard_posts),
     DFHACK_LUA_END
 };
