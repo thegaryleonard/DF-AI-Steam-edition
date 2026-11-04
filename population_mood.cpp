@@ -31,6 +31,7 @@
 #include "df/reaction_product_itemst.h"
 #include "df/reaction_reagent_itemst.h"
 #include "df/item_barst.h"
+#include "df/block_square_event_designation_priorityst.h"
 #include "df/block_square_event_mineralst.h"
 #include "df/manager_order_template.h"
 #include "df/manager_order.h"
@@ -839,6 +840,28 @@ void Population::update_moods(color_ostream & out)
                 if (best.isValid())
                 {
                     AI::dig_tile(best, tile_dig_designation::Default);
+                    // Dig priority 1: at the default 4 the vein sat 10 game
+                    // days unclaimed behind 119 other dig jobs while
+                    // Mirroredreined's thirst climbed past 25000.
+                    if (df::map_block *block = Maps::getTileBlock(best))
+                    {
+                        df::block_square_event_designation_priorityst *pri = nullptr;
+                        for (auto e : block->block_events)
+                        {
+                            if ((pri = virtual_cast<df::block_square_event_designation_priorityst>(e)))
+                                break;
+                        }
+                        if (!pri)
+                        {
+                            pri = df::allocate<df::block_square_event_designation_priorityst>();
+                            for (int i = 0; i < 16; i++)
+                                for (int j = 0; j < 16; j++)
+                                    pri->priority[i][j] = 4000;
+                            block->block_events.push_back(pri);
+                        }
+                        pri->priority[best.x & 0xf][best.y & 0xf] = 1000;
+                        block->flags.bits.designated = 1;
+                    }
                     ai.debug(out, stl_sprintf("[MOOD] no rough gems for %s: mining a gem vein at (%d, %d, %d)", who.c_str(), best.x, best.y, best.z));
                     usable++;
                 }
