@@ -222,6 +222,22 @@ static const int32_t MOOD_CHEAT_THIRST = 45000;
 // while the dwarf has not started working) runs out, whatever the thirst:
 // Rovod "Dangercopper" went melancholy at thirst 35000, before any
 // thirst-based rescue fired. Treat a nearly expired timer like high thirst.
+// Gem vein tile last marked per mood slot. A slot may mine again once
+// that tile is dug and its gem went elsewhere (a jeweler, another slot):
+// a one-shot mark left Criedpaint two gems short at thirst 33000.
+static std::map<std::string, df::coord> rough_tile;
+static bool rough_retry(const std::string & key)
+{
+    auto it = rough_tile.find(key);
+    if (it == rough_tile.end())
+        return true;
+    df::tiletype *tt = Maps::getTileType(it->second);
+    if (tt && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Wall)
+        return false; // still waiting for the miner
+    rough_tile.erase(it);
+    return true;
+}
+
 static bool mood_urgent(df::unit *u, int32_t thirst)
 {
     if (u->counters2.thirst_timer > thirst)
@@ -786,7 +802,7 @@ void Population::update_moods(color_ostream & out)
                     }
                 }
             }
-            if (!usable && ji->item_type == item_type::ROUGH && !(ji->mat_type >= 3 && ji->mat_type <= 5) && mood_warned.insert(who + "|rough|" + std::to_string(idx)).second)
+            if (!usable && ji->item_type == item_type::ROUGH && !(ji->mat_type >= 3 && ji->mat_type <= 5) && rough_retry(who + "|rough|" + std::to_string(idx)))
             {
                 // No rough gem anywhere: mine one. Look for a gem vein tile
                 // next to a walkable tile the dwarf can reach, near its level.
@@ -794,6 +810,12 @@ void Population::update_moods(color_ostream & out)
                 df::coord best;
                 int32_t best_d = std::numeric_limits<int32_t>::max();
                 int32_t checked = 0;
+                std::set<df::coord> dig_jobs;
+                for (auto l = world->jobs.list.next; l; l = l->next)
+                {
+                    if (l->item && l->item->job_type == job_type::Dig)
+                        dig_jobs.insert(l->item->pos);
+                }
                 for (auto block : world->map.map_blocks)
                 {
                     if (checked > 4000)
@@ -819,6 +841,12 @@ void Population::update_moods(color_ostream & out)
                                 df::coord t = block->map_pos + df::coord(x, y, 0);
                                 df::tiletype *tt = Maps::getTileType(t);
                                 if (!tt || ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) != tiletype_shape_basic::Wall)
+                                    continue;
+                                // Skip tiles already marked or already a Dig job:
+                                // Criedpaint's mood needed 3 gems and every slot
+                                // picked the same tile, so one gem was mined.
+                                df::tile_designation *des = Maps::getTileDesignation(t);
+                                if (!des || des->bits.dig != tile_dig_designation::No || dig_jobs.count(t))
                                     continue;
                                 int32_t d = std::abs(t.x - u->pos.x) + std::abs(t.y - u->pos.y) + 4 * std::abs(t.z - u->pos.z);
                                 if (d >= best_d)
@@ -862,6 +890,7 @@ void Population::update_moods(color_ostream & out)
                         pri->priority[best.x & 0xf][best.y & 0xf] = 1000;
                         block->flags.bits.designated = 1;
                     }
+                    rough_tile[who + "|rough|" + std::to_string(idx)] = best;
                     ai.debug(out, stl_sprintf("[MOOD] no rough gems for %s: mining a gem vein at (%d, %d, %d)", who.c_str(), best.x, best.y, best.z));
                     usable++;
                 }
