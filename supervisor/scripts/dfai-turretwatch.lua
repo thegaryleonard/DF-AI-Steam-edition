@@ -94,7 +94,7 @@ local function on_death(unit_id)
     end
     if not engine then return end
     local b = df.building.find(engine)
-    local name = dfhack.units.getReadableName(u)
+    local name = dfhack.df2utf(dfhack.units.getReadableName(u))
     local s = load()
     s.kills = (s.kills or 0) + 1
     table.insert(s.log, {t = now, victim = name, flier = flier(u) and true or false, where = where(b)})

@@ -6,7 +6,7 @@
 -- four soldiers stand there in uniform while the rest of the squad works
 -- (the "G" months in the [MILITARY] training rotation log lines). A danger
 -- still calls everyone to battle stations as before.
---   dfai-guard start | status
+--   dfai-guard start | status | off | on
 --@module = true
 
 local repeatUtil = require('repeat-util')
@@ -32,10 +32,12 @@ function posts()
     return kept
 end
 
+local function off() return dfhack.persistent.getSiteData(KEY, {}).off end
+
 local function tick()
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local ok, err = pcall(function()
-        local list = posts()
+        local list = off() and {} or posts()
         local parts, names = {}, {}
         for _, p in ipairs(list) do
             parts[#parts + 1] = ('%d,%d,%d'):format(p[1], p[2], p[3])
@@ -46,7 +48,7 @@ local function tick()
         local n = P.set_guard_posts(table.concat(parts, ';'))
         state.posts = list
         if n < 0 then state.last = 'df-ai is not running'
-        elseif n == 0 then state.last = 'no guard posts yet (they come with the bunkers and gate turrets)'
+        elseif n == 0 then state.last = off() and 'off (dfai-guard on to resume)' or 'no guard posts yet (they come with the bunkers and gate turrets)'
         else
             local c = {}
             for _, k in ipairs(names) do c[k] = (c[k] or 0) + 1 end
@@ -61,7 +63,13 @@ function status() return 'guard: ' .. state.last end
 
 if dfhack_flags.module then return end
 local cmd = ({...})[1] or 'status'
-if cmd == 'start' then
+if cmd == 'off' or cmd == 'on' then
+    -- off: no guard duty (the squads only train); kept with the fort
+    dfhack.persistent.saveSiteData(KEY, {off = cmd == 'off'})
+    repeatUtil.scheduleEvery(KEY, 1200, 'ticks', tick)
+    dfhack.timeout(1, 'ticks', tick)
+    print('guard: ' .. cmd)
+elseif cmd == 'start' then
     repeatUtil.scheduleEvery(KEY, 1200, 'ticks', tick)
     dfhack.timeout(5, 'ticks', tick)
     print('guard: watching')
