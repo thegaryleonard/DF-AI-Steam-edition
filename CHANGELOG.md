@@ -1,5 +1,8 @@
 # Unreleased
 
+- Indoor pasture: no more cave-ins. Pasture and tunnel tiles need solid ground over them and their edge (Machinegems dug under a hillside; 12 cave-ins, 9 dwarves crushed at the foot of the main stair), the dig waits until food is secure, and a slow dig is only given up when no miner can reach it (it was dropped every 3 days, leaving eight half-dug pastures).
+- Watch post waits for the curtain wall instead of trying to put its stair in the fort's stair shaft.
+- New fort: the site finder is clicked again only when the game says it's closed (a second click shut a slow-opening finder: "Begin is not on screen").
 - Burials: free tombs that refused citizens (quickfort's default; every free tomb at Channelevened) are opened to them, new catacomb wings' tombs take citizens, and `dfai-catacomb` orders a new wing whenever the dead who can be carried in outnumber the free tombs. Memorial slab orders are one per ghost (142 had piled up).
 - Fixed a crash on load: a pasture's list of animals kept ids of animals that were gone, and df-ai crashed looking one up (`Plan::getpasture`).
 - Watch post (`dfai-watchpost`): a roof over the fort entrance with four bolt throwers on top (N, E, S, W), built a ring at a time from what already holds it, with a built stair up. Guard duty stations squads there (and on the gate turrets) instead of at the bunkers outside the wall; guard duty is on again.

@@ -349,18 +349,24 @@ def find_sites(near):
     time.sleep(2)
     # the finder panel can be slow to open right after the world map loads
     # (Fortresstome -> next fort: "Begin" was not on screen 2 s after the
-    # click): wait for it, and click once more if it never came
-    for attempt in range(2):
-        for _ in range(10):
+    # click): wait for it. Click again only if the game says the finder is
+    # closed: the button toggles, and a second click on a slow-opening
+    # finder shut it again ("Begin is not on screen", 2026-11-04).
+    def finder_open():
+        return "OPEN true" in (lua(CSS + "print('OPEN '..tostring(v.doing_site_finder))") or "")
+    for attempt in range(3):
+        for _ in range(20):
             if "Begin" in dump():
                 break
             time.sleep(1.5)
         else:
-            if attempt == 0:
-                log("new fort: the site finder didn't open; clicking 'Find embark location' again")
+            if attempt < 2 and not finder_open():
+                log("new fort: the site finder is closed; clicking 'Find embark location' again")
                 click("Find embark location", must=False)
                 time.sleep(3)
-                continue
+            elif attempt < 2:
+                log("new fort: the site finder is open but 'Begin' isn't drawn yet; waiting")
+            continue
         break
     lua(CSS + f"""for i=2,#v.find_param-1 do v.find_param[i]=-1 end
 v.find_param[{opt}.DimensionX]={EMBARK} v.find_param[{opt}.DimensionY]={EMBARK}

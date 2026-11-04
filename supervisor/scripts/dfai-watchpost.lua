@@ -173,6 +173,15 @@ end
 local function tick()
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local s = load()
+    -- the yard is the walled ground inside the curtain wall's gate: before
+    -- the wall stands, the "entrance" is the fort's stair head, and the stair
+    -- went into the stair shaft (Machinegems: waited there for two years)
+    local w = dfhack.persistent.getSiteData('dfai-walls', {})
+    if not s.plan and not ((w.gates and #w.gates > 0) or w.gate) then
+        s.last = 'waits for the curtain wall (the watch post stands over its entrance yard)'
+        save(s)
+        return
+    end
     local ok, msg = pcall(step, s)
     s.last = ok and msg or ('error: ' .. tostring(msg))
     save(s)

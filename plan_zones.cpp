@@ -581,6 +581,44 @@ static bool ip_mask_at(const std::vector<int32_t> & ip, const std::string & mask
     return x >= ip[0] && x <= ip[2] && y >= ip[1] && y <= ip[3] && i < mask.size() && mask[i] == '1';
 }
 
+// no miner can stand next to any tile still to dig (tunnel or pasture)
+static bool ip_dig_unreachable(const std::vector<int32_t> & ip, uint16_t group)
+{
+    if (!group || ip.size() < 5)
+        return false;
+    auto near_walkable = [group](df::coord t) -> bool
+    {
+        for (int16_t dx = -1; dx <= 1; dx++)
+            for (int16_t dy = -1; dy <= 1; dy++)
+                if (Maps::getWalkableGroup(t + df::coord(dx, dy, 0)) == group)
+                    return true;
+        return false;
+    };
+    auto open_work = [&](df::coord t) -> bool
+    {
+        auto tt = Maps::getTileType(t);
+        return tt && ENUM_ATTR(tiletype_shape, basic_shape, ENUM_ATTR(tiletype, shape, *tt)) == tiletype_shape_basic::Wall && near_walkable(t);
+    };
+    for (int16_t x = ip[0]; x <= ip[2]; x++)
+        for (int16_t y = ip[1]; y <= ip[3]; y++)
+            if (open_work(df::coord(x, y, ip[4])))
+                return false;
+    if (ip.size() == 10)
+    {
+        df::coord a(ip[6], ip[7], ip[4]), b(ip[8], ip[9], ip[4]);
+        for (df::coord t = a;; )
+        {
+            if (open_work(t))
+                return false;
+            if (t == b)
+                break;
+            t.x += (b.x > t.x) - (b.x < t.x);
+            t.y += (b.y > t.y) - (b.y < t.y);
+        }
+    }
+    return true;
+}
+
 void Plan::update_indoor_pasture(color_ostream & out)
 {
     // a pen the player (or an earlier hand fix) already dug indoors counts
@@ -608,6 +646,9 @@ void Plan::update_indoor_pasture(color_ostream & out)
             return;
         // only once the caverns are open
         if (!ai.find_room(room_type::outpost, [](room *r) -> bool { return r->outpost_type == outpost_type::cavern && r->status != room_status::plan; }))
+            return;
+        // a 225-tile dig is a big mining job: food first
+        if (!food_secure())
             return;
 
         static int32_t last_try = -1;
@@ -652,10 +693,15 @@ void Plan::update_indoor_pasture(color_ostream & out)
                     df::coord t(org.x + x, org.y + y, z);
                     if (!ip_wall(t, true))
                         continue;
+                    // solid all round, and a solid roof over it and its edge:
+                    // the roof is then one slab resting on undug ground.
+                    // Machinegems' pastures were dug under a hillside with
+                    // nothing checked above; lumps of the hill fell in (12
+                    // cave-ins) and down the stair shaft, 9 dwarves crushed
                     bool shell = true;
                     for (int16_t dx = -1; dx <= 1 && shell; dx++)
                         for (int16_t dy = -1; dy <= 1 && shell; dy++)
-                            shell = ip_wall(t + df::coord(dx, dy, 0), false);
+                            shell = ip_wall(t + df::coord(dx, dy, 0), false) && ip_wall(t + df::coord(dx, dy, 1), false);
                     if (shell)
                         good[size_t(y) * W + x] = 1;
                 }
@@ -734,12 +780,13 @@ void Plan::update_indoor_pasture(color_ostream & out)
                                     break;
                                 if (ip_wall(t, false))
                                 {
-                                    // the tunnel must not run alongside open sky
-                                    bool exposed = false;
+                                    // the tunnel must not run alongside open sky,
+                                    // and needs solid ground over it
+                                    bool exposed = !ip_wall(t + df::coord(0, 0, 1), false);
                                     for (auto & e : D4)
                                     {
                                         auto nd = Maps::getTileDesignation(t + df::coord(e[0], e[1], 0));
-                                        exposed = exposed || !nd || nd->bits.outside;
+                                        exposed = exposed || !nd || nd->bits.outside || !ip_wall(t + df::coord(e[0], e[1], 1), false);
                                     }
                                     if (exposed)
                                         break;
@@ -880,8 +927,16 @@ void Plan::update_indoor_pasture(color_ostream & out)
         last_solid = solid;
         stall_since = *cur_year_tick;
     }
-    else if (solid && stall_since != -1 && (*cur_year_tick - stall_since > 3600 || *cur_year_tick < stall_since))
+    else if (solid && stall_since != -1 && *cur_year_tick < stall_since)
     {
+        stall_since = *cur_year_tick; // new year
+    }
+    else if (solid && stall_since != -1 && *cur_year_tick - stall_since > 3600 && ip_dig_unreachable(ip, fort_group()))
+    {
+        // a slow dig is not a stuck one: with few miners a 225-tile pasture
+        // takes weeks, and dropping it every 3 days left Machinegems with
+        // eight half-dug pastures. Only a dig no miner can get to is undone.
+        // (the tunnel mouth b is the fort side: reachable means workable)
         for (int16_t x = ip[0]; x <= ip[2]; x++)
             for (int16_t y = ip[1]; y <= ip[3]; y++)
                 if (!any_mask || ip_mask_at(ip, mask, x, y))
@@ -901,7 +956,7 @@ void Plan::update_indoor_pasture(color_ostream & out)
                 t.y += (b.y > t.y) - (b.y < t.y);
             }
         }
-        ai.debug(out, stl_sprintf("[PASTURE] the indoor pasture dig at (%d, %d, %d) made no progress for 3 days; choosing another spot", ip[0], ip[1], ip[4]));
+        ai.debug(out, stl_sprintf("[PASTURE] no miner can reach the indoor pasture dig at (%d, %d, %d); choosing another spot", ip[0], ip[1], ip[4]));
         indoor_pasture.clear();
         indoor_pasture_mask.clear();
         last_solid = stall_since = -1;
