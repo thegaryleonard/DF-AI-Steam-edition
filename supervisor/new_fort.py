@@ -210,6 +210,11 @@ def follow_game_world():
     out = (lua("print('WF '..tostring(dfhack.world.ReadWorldFolder and dfhack.world.ReadWorldFolder() or ''))") or "")
     name = out.split("WF ", 1)[1].strip() if "WF " in out else ""
     folder = Path(CFG["save_dir"]) / name
+    # "autosave N" / "current" are fort saves, not worlds: after the game
+    # reloaded "autosave 2" the next fort looked for a world of that name and
+    # the title screen's world list (regionNN folders only) had none.
+    if name.lower().startswith("autosave") or name.lower() == "current":
+        return WORLD
     if not name or name == WORLD or not folder.is_dir() or not any(folder.glob("world.*")):
         return WORLD
     cfg = json.loads(sup.CFG_FILE.read_text(encoding="utf-8-sig")) if sup.CFG_FILE.exists() else {}
@@ -261,6 +266,7 @@ CSS = "local v=dfhack.gui.getViewscreenByType(df.viewscreen_choose_start_sitest,
 
 def open_world():
     if focus().startswith("choose_start_site"):
+        skip_tutorial()
         return  # already there (a retry)
     if focus().startswith("choose_game_type"):
         pass    # straight from a new world's "Play now"
@@ -271,9 +277,23 @@ def open_world():
     click("Fortress")
     wait_focus("choose_start_site", 10 * 60, step=10)
     time.sleep(5)
+    skip_tutorial()
+
+
+def skip_tutorial():
+    """A new world's first embark opens an "On your own!" tutorial popup over
+    the map; it hides the site finder, so 'Begin' never showed up."""
+    # two steps: "Skip tutorial", then an "Okay" on the same "On your own!" box
+    for _ in range(4):
+        d = dump()
+        if "On your own!" not in d and "Skip tutorial" not in d:
+            return
+        click("Skip tutorial" if "Skip tutorial" in d else "Okay", must=False)
+        time.sleep(2)
 
 
 def pick_world():
+    global WORLD
     time.sleep(3)
     # the title may already be on the world list (someone clicked in first):
     # only the main menu has the button, so a missing button isn't fatal
@@ -285,6 +305,23 @@ def pick_world():
         log("new fort: the title is already on the world list")
     time.sleep(3)
     out = lua(sup.TITLE_LUA + f"""
+for i,r in ipairs(t.region_choice) do
+  if r.filename_noext == '{WORLD}' then t.scroll_position_region_choice = i print('OK') return end
+end print('NOWORLD')""")
+    if "OK" not in out:
+        # the configured world is gone or was never a world: if the list
+        # holds exactly one world, that's the one to embark in
+        only = lua(sup.TITLE_LUA + """local n,f=0,'' for _,r in ipairs(t.region_choice) do
+  if not r.filename_noext:lower():find('^autosave') then n=n+1 f=r.filename_noext end
+end print(n==1 and ('ONE '..f) or ('MANY '..n))""") or ""
+        if "ONE " in only:
+            name = only.split("ONE ", 1)[1].strip()
+            log(f"new fort: world {WORLD} is not on the title list; using the only world there, {name}")
+            cfg = json.loads(sup.CFG_FILE.read_text(encoding="utf-8-sig")) if sup.CFG_FILE.exists() else {}
+            cfg["world_folder"] = name
+            sup.CFG_FILE.write_text(json.dumps(cfg, indent=2), encoding="utf-8")
+            CFG["world_folder"] = WORLD = name
+            out = lua(sup.TITLE_LUA + f"""
 for i,r in ipairs(t.region_choice) do
   if r.filename_noext == '{WORLD}' then t.scroll_position_region_choice = i print('OK') return end
 end print('NOWORLD')""")
