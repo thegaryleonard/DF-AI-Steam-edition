@@ -126,6 +126,15 @@ void Population::update_deads(color_ostream & out)
         {
             want_coffin--;
 
+            // a free tomb that refuses citizens buries nobody: every free
+            // tomb at Channelevened was "no citizens" (quickfort's default),
+            // 127 dead lay unburied and the ghosts started killing
+            if (tomb->zone_settings.tomb.flags.bits.no_citizens)
+            {
+                tomb->zone_settings.tomb.flags.bits.no_citizens = 0;
+                ai.debug(out, "[RIP] tomb zone #" + std::to_string(tomb->id) + " takes citizens now");
+            }
+
             if (!tomb->zone_settings.tomb.flags.bits.no_pets)
             {
                 want_pet_coffin--;

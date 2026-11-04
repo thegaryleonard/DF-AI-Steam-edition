@@ -849,6 +849,15 @@ void Stocks::queue_slab(color_ostream & out, int32_t histfig_id)
             return;
         }
     }
+    // one order per ghost: this runs every update for every ghost, and 142
+    // engraving orders piled up behind a handful of blank slabs
+    for (auto mo : world->manager_orders.all)
+    {
+        if (mo->job_type == job_type::EngraveSlab && mo->specdata.hist_figure_id == histfig_id)
+        {
+            return;
+        }
+    }
 
     df::manager_order_template tmpl;
     tmpl.job_type = job_type::EngraveSlab;

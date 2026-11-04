@@ -460,9 +460,22 @@ void Plan::freesoldierbarrack(color_ostream & out, int32_t id)
     freecommonrooms(out, id, room_type::barracks);
 }
 
+// the grazing value of an animal's caste (0 when there is none to read)
+static int32_t pasture_grazer(df::unit *u)
+{
+    if (!u)
+        return 0;
+    auto race = df::creature_raw::find(u->race);
+    if (!race || u->caste < 0 || size_t(u->caste) >= race->caste.size() || !race->caste[u->caste])
+        return 0;
+    return race->caste[u->caste]->misc.grazer;
+}
+
 df::building *Plan::getpasture(color_ostream & out, int32_t pet_id)
 {
     df::unit *pet = df::unit::find(pet_id);
+    if (!pet)
+        return nullptr;
 
     // don't assign multiple pastures
     if (auto ref = Units::getGeneralRef(pet, general_ref_type::BUILDING_CIVZONE_ASSIGNED))
@@ -483,7 +496,10 @@ df::building *Plan::getpasture(color_ostream & out, int32_t pet_id)
         }
     }
 
-    size_t limit = 1000 - (11 * 11 * 1000 / df::creature_raw::find(pet->race)->caste[pet->caste]->misc.grazer); // 1000 = arbitrary, based on dfwiki?pasture
+    int32_t own_grazer = pasture_grazer(pet);
+    if (own_grazer <= 0)
+        return nullptr;
+    size_t limit = 1000 - (11 * 11 * 1000 / own_grazer); // 1000 = arbitrary, based on dfwiki?pasture
     if (room *r = ai.find_room(room_type::pasture, [limit](room *r_) -> bool
     {
         if (r_->low_grass())
@@ -491,11 +507,21 @@ df::building *Plan::getpasture(color_ostream & out, int32_t pet_id)
             return false;
         }
         size_t sum = 0;
-        for (auto it = r_->users.begin(); it != r_->users.end(); it++)
+        for (auto it = r_->users.begin(); it != r_->users.end(); )
         {
+            // an animal butchered or gone from the map leaves its id here:
+            // df::unit::find returned null and df-ai crashed on load
             df::unit *u = df::unit::find(*it);
+            if (!u || Units::isDead(u))
+            {
+                it = r_->users.erase(it);
+                continue;
+            }
+            int32_t g = pasture_grazer(u);
             // 11*11 == pasture dimensions
-            sum += 11 * 11 * 1000 / df::creature_raw::find(u->race)->caste[u->caste]->misc.grazer;
+            if (g > 0)
+                sum += 11 * 11 * 1000 / g;
+            it++;
         }
         return sum < limit;
     }))

@@ -218,6 +218,13 @@ local function step(s)
         end
     elseif w.phase == 'zone' then
         qf(w, 'zone')
+        -- quickfort's tombs refuse citizens by default: open them to the dead
+        local x1, y1, x2, y2 = table.unpack(w.box)
+        for _, t in ipairs(df.global.world.buildings.other.ZONE_TOMB) do
+            if t.z == w.z and t.x1 >= x1 and t.x1 <= x2 and t.y1 >= y1 and t.y1 <= y2 then
+                t.zone_settings.tomb.flags.no_citizens = false
+            end
+        end
         w.phase = 'done'
         table.insert(s.wings, {box = w.box, z = w.z, door = w.door})
         s.current = nil
@@ -226,7 +233,63 @@ local function step(s)
     end
 end
 
-local function tick()
+local tick   -- defined below; watch() starts it
+
+-- The dead and the room for them. Unburied: bodies of the fort's dead (any
+-- citizen, and named pets) not in a coffin. Free: tombs nobody is assigned to
+-- that take citizens.
+local function census()
+    local civ = df.global.plotinfo.civ_id
+    local fg
+    do
+        local c = dfhack.units.getCitizens(true)[1]
+        fg = c and dfhack.maps.getWalkableGroup(c.pos)
+    end
+    local dead = {}
+    for _, u in ipairs(df.global.world.units.all) do
+        if dfhack.units.isDead(u) and u.civ_id == civ and u.hist_figure_id ~= -1 then dead[u.hist_figure_id] = u end
+    end
+    local unburied, reachable, body_ok = 0, 0, {}
+    for _, i in ipairs(df.global.world.items.other.CORPSE) do
+        local u = dead[i.hist_figure_id]
+        if u and not i.flags.in_building and not i.flags.removed then
+            unburied = unburied + 1
+            local x, y, z = dfhack.items.getPosition(i)
+            if x and fg and dfhack.maps.getWalkableGroup(xyz2pos(x, y, z)) == fg then
+                reachable = reachable + 1
+                body_ok[i.hist_figure_id] = true
+            end
+        end
+    end
+    local free = 0
+    for _, t in ipairs(df.global.world.buildings.other.ZONE_TOMB) do
+        if t.assigned_unit_id == -1 and not t.zone_settings.tomb.flags.no_citizens then free = free + 1 end
+    end
+    return {unburied = unburied, reachable = reachable, free = free, body_ok = body_ok, dead = dead}
+end
+
+-- every so often: a wing when the reachable dead outnumber the free tombs, and
+-- memorial slabs only where a body can't be buried (a ghost always gets one)
+local function watch()
+    if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
+    local ok, err = pcall(function()
+        local s = load()
+        local c = census()
+        s.census = {unburied = c.unburied, reachable = c.reachable, free = c.free}
+        if c.reachable > c.free and not s.current and (s.queued or 0) <= 0 then
+            s.queued = 1
+            s.last = ('%d of the dead can be carried to a tomb and only %d tombs are free: digging another wing'):format(c.reachable, c.free)
+            repeatUtil.scheduleEvery(KEY, 600, 'ticks', tick)
+        end
+        -- (Never delete manager orders from Lua: erasing 112 engraving orders
+        -- from the list was followed by DF crashing on load. Surplus orders
+        -- are left to wait; df-ai no longer queues duplicates.)
+        save(s)
+    end)
+    if not ok then dfhack.printerr('dfai-catacomb watch: ' .. tostring(err)) end
+end
+
+function tick()
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local s = load()
     local ok, err = pcall(step, s)
@@ -239,8 +302,10 @@ function status()
     local s = load()
     local free = 0
     for _, t in ipairs(df.global.world.buildings.other.ZONE_TOMB) do if t.assigned_unit_id == -1 then free = free + 1 end end
-    return ('catacombs: %d tomb zones, %d unclaimed; %s%s'):format(#df.global.world.buildings.other.ZONE_TOMB, free,
-        s.last or 'no new wings ordered', (s.queued or 0) > 0 and (' (%d more ordered)'):format(s.queued) or '')
+    local c = s.census
+    return ('catacombs: %d tomb zones, %d unclaimed; %s%s%s'):format(#df.global.world.buildings.other.ZONE_TOMB, free,
+        s.last or 'no new wings ordered', (s.queued or 0) > 0 and (' (%d more ordered)'):format(s.queued) or '',
+        c and ('; the dead: %d unburied, %d of them can be carried in, %d tombs free'):format(c.unburied, c.reachable, c.free) or '')
 end
 
 if dfhack_flags.module then return end
@@ -265,6 +330,8 @@ elseif cmd == 'find' then
 elseif cmd == 'resume' then
     local s = load()
     if s.current or (s.queued or 0) > 0 then repeatUtil.scheduleEvery(KEY, 600, 'ticks', tick) end
+    repeatUtil.scheduleEvery(KEY .. '-watch', 1200, 'ticks', watch)
+    dfhack.timeout(10, 'ticks', watch)
 else
     print(status())
 end

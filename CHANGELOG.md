@@ -1,5 +1,7 @@
 # Unreleased
 
+- Burials: free tombs that refused citizens (quickfort's default; every free tomb at Channelevened) are opened to them, new catacomb wings' tombs take citizens, and `dfai-catacomb` orders a new wing whenever the dead who can be carried in outnumber the free tombs. Memorial slab orders are one per ghost (142 had piled up).
+- Fixed a crash on load: a pasture's list of animals kept ids of animals that were gone, and df-ai crashed looking one up (`Plan::getpasture`).
 - Watch post (`dfai-watchpost`): a roof over the fort entrance with four bolt throwers on top (N, E, S, W), built a ring at a time from what already holds it, with a built stair up. Guard duty stations squads there (and on the gate turrets) instead of at the bunkers outside the wall; guard duty is on again.
 - Gate turrets handle walls more than one level high (a stair column up to the real top) and place the 1x1 engine with an explicit size (the default 3x3 check refused every wall top).
 - Food and drink reserves: surplus brewing and cooking stop once the fort holds about two years of drink (40 a dwarf) or meals (25 a dwarf); real shortages still order. Channelevened had 63,000 drinks and 17,000 meals for 64 dwarves.
