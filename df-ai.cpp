@@ -15,6 +15,7 @@
 #include "df-ai-git-describe.h"
 
 #include "LuaTools.h"
+#include <sstream>
 #include "PluginLua.h"
 #include "modules/Gui.h"
 #include "modules/Maps.h"
@@ -56,8 +57,28 @@ static std::string planned_room_at(int x1, int y1, int x2, int y2, int z)
     return "";
 }
 
+// "x,y,z;x,y,z;..." from dfai-guard: where squads stand guard in the months
+// they don't train. Returns how many posts were taken.
+static int set_guard_posts(std::string list)
+{
+    if (!dwarfAI)
+        return -1;
+    std::vector<df::coord> posts;
+    std::istringstream in(list);
+    std::string one;
+    while (std::getline(in, one, ';'))
+    {
+        int x, y, z;
+        if (sscanf(one.c_str(), "%d,%d,%d", &x, &y, &z) == 3)
+            posts.push_back(df::coord(x, y, z));
+    }
+    dwarfAI->pop.guard_posts = posts;
+    return int(posts.size());
+}
+
 DFHACK_PLUGIN_LUA_FUNCTIONS {
     DFHACK_LUA_FUNCTION(planned_room_at),
+    DFHACK_LUA_FUNCTION(set_guard_posts),
     DFHACK_LUA_END
 };
 

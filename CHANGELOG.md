@@ -1,5 +1,7 @@
 # Unreleased
 
+- Gate turrets (`dfai-gateturret`): a bolt thrower on the curtain wall beside each gate, facing out, with a built stair up to it; parts from the siege workshop, built by the dwarves.
+- Guard rotation: squads stand guard at the bolt-thrower bunkers and gate turrets in months they don't train (four soldiers in uniform per post, the rest of the squad works; "G" in the training-rotation log). The posts come from `dfai-guard` through the new plugin Lua function `set_guard_posts`; the duty moves on each year so every squad takes turns. Dangers still call battle stations.
 - The Herald runs fewer masterwork stories: at most one a game month, and only a dwarf's first, the first of an item, or one a season after the last (27 masterworks over two months became 3 stories).
 - `dfai-turretwatch`: counts bolts fired by bolt throwers and, when one kills something, posts it to the supervisor's Discord relay with an `{owner}` mention.
 - Bolt-thrower bunkers get a second bolt thrower on the roof (open sky, for fliers) and a built stair up through the roof, so the roof's middle can be built from above and the turret has an operator. Parts for both are ordered at the start. Fixed: the engine was placed one tile off (quickfort centres a siege engine on its cell) and pushed into the front wall, so no bunker ever got its engine; the engine check now looks anywhere in the bunker. `dfai-bunker expedite` (testing only) finishes the placed sites with build-now.

@@ -26,4 +26,4 @@ Once the fort is large, raise water to the reserve instead:
 - stop pumping when the reserve is full (gear assembly on a lever, or just
   the inlet gate).
 
-- Gate turrets: a roofed bolt-thrower turret (like the bunker's roof one) at every curtain-wall gate, once the bunker roof turret is shown to engage fliers.
+- Gate turrets: done (dfai-gateturret, one per gate). Next: more gates per wall ring, and a roof or parapet over the wall-top engines.

@@ -1522,13 +1522,39 @@ void Population::schedule_training(color_ostream & out)
         auto rt = squad->schedule.routine.at(routine_idx);
         int32_t members = int32_t(squad->positions.size());
 
+        // guard duty: in a month it doesn't train, a squad may stand guard at
+        // one of the posts. Each month the posts go to different squads in
+        // turn, so every post has a guard most months and the duty rotates.
+        int32_t N = int32_t(squads.size()), G = int32_t(guard_posts.size());
+        auto guard_post = [&](int32_t m) -> int32_t
+        {
+            if (G == 0 || m % groups == group)
+                return -1;
+            // the year moves it on, so with more squads than months every
+            // squad takes its turn over the years
+            int32_t slot = int32_t((k + size_t(m) + size_t(12 * std::max(*cur_year, int32_t(0)))) % size_t(N));
+            return slot < G ? slot : -1;
+        };
+
         bool already = true;
         for (int32_t m = 0; m < 12; m++)
         {
             bool want = m % groups == group;
+            int32_t post = guard_post(m);
             auto & orders = rt->month[m].orders;
             bool has = orders.size() == 1 && orders.at(0) && strict_virtual_cast<df::squad_order_trainst>(orders.at(0)->order);
-            if (want != has || (!want && !orders.empty()))
+            df::squad_order_movest *mv = orders.size() == 1 && orders.at(0) ? strict_virtual_cast<df::squad_order_movest>(orders.at(0)->order) : nullptr;
+            if (want)
+            {
+                if (!has)
+                    already = false;
+            }
+            else if (post != -1)
+            {
+                if (!mv || mv->pos != guard_posts.at(post))
+                    already = false;
+            }
+            else if (!orders.empty())
                 already = false;
         }
 
@@ -1552,6 +1578,20 @@ void Population::schedule_training(color_ostream & out)
             }
             for (int32_t m = 0; m < 12; m++)
             {
+                int32_t post = guard_post(m);
+                if (post != -1)
+                {
+                    auto o = df::allocate<df::squad_schedule_order>();
+                    auto mv = df::allocate<df::squad_order_movest>();
+                    mv->year = *cur_year;
+                    mv->year_tick = *cur_year_tick;
+                    mv->pos = guard_posts.at(post);
+                    mv->point_id = -1;
+                    o->order = mv;
+                    o->positions.resize(squad->positions.size(), false);
+                    rt->month[m].orders.push_back(o);
+                    continue;
+                }
                 if (m % groups != group)
                     continue;
                 df::squad_schedule_order *o = nullptr;
@@ -1573,15 +1613,16 @@ void Population::schedule_training(color_ostream & out)
             }
             std::string months;
             for (int32_t m = 0; m < 12; m++)
-                months += m % groups == group ? 'T' : '.';
+                months += m % groups == group ? 'T' : guard_post(m) != -1 ? 'G' : '.';
             ai.debug(out, stl_sprintf("[MILITARY] training rotation: squad %d %s: group %d of %d, months %s", squad->id, squad_label(squad).c_str(), group + 1, groups, months.c_str()));
         }
         for (int32_t m = 0; m < 12; m++)
         {
             for (auto o : rt->month[m].orders)
             {
+                // the whole squad trains; four stand guard (the rest work)
                 if (o)
-                    o->min_count = members;
+                    o->min_count = strict_virtual_cast<df::squad_order_movest>(o->order) ? std::min(members, int32_t(4)) : members;
             }
         }
 
