@@ -1,7 +1,7 @@
 -- dfai-guard: tells df-ai where squads stand guard (user: "start a squad
 -- rotation to those places to guard them and shoot foes").
--- Posts: inside every bolt-thrower bunker (marksdwarves shoot through its
--- fortifications) and on the wall beside every gate turret. df-ai's training
+-- Posts: the watch post on the roof over the fort entrance (dfai-watchpost)
+-- and on the wall beside every gate turret, all inside the curtain wall. df-ai's training
 -- rotation then gives each post a squad in turn in the months it doesn't train:
 -- four soldiers stand there in uniform while the rest of the squad works
 -- (the "G" months in the [MILITARY] training rotation log lines). A danger
@@ -15,9 +15,11 @@ state = state or {last = 'idle', posts = {}}
 
 function posts()
     local out = {}
-    local b = dfhack.persistent.getSiteData('dfai-bunker', {built = {}})
-    for _, x in ipairs(b.built or {}) do
-        out[#out + 1] = {(x.x1 + x.x2) // 2, (x.y1 + x.y2) // 2, x.z, 'bunker'}
+    -- the watch post over the entrance (inside the wall), not the bunkers
+    -- out past it: small guard groups outside the wall were picked off
+    local okw, wp = pcall(reqscript, 'dfai-watchpost')
+    if okw and wp.posts then
+        for _, p in ipairs(wp.posts()) do out[#out + 1] = {p[1], p[2], p[3], 'watch'} end
     end
     local ok, gt = pcall(reqscript, 'dfai-gateturret')
     if ok and gt.posts then
@@ -59,12 +61,12 @@ local function tick()
         local n = P.set_guard_posts(table.concat(parts, ';'))
         state.posts = list
         if n < 0 then state.last = 'df-ai is not running'
-        elseif n == 0 then state.last = off() and 'off (dfai-guard on to resume)' or 'no guard posts yet (they come with the bunkers and gate turrets)'
+        elseif n == 0 then state.last = off() and 'off (dfai-guard on to resume)' or 'on; no guard posts yet (the watch post over the entrance and the gate turrets)'
         else
             local c = {}
             for _, k in ipairs(names) do c[k] = (c[k] or 0) + 1 end
-            state.last = ('%d guard posts (%d bunkers, %d gate turrets); squads take turns there when not training')
-                :format(n, c.bunker or 0, c.gate or 0)
+            state.last = ('%d guard posts (%d watch post, %d gate turrets); squads take turns there when not training')
+                :format(n, c.watch or 0, c.gate or 0)
         end
     end)
     if not ok then state.last = 'error: ' .. tostring(err) end

@@ -1049,6 +1049,26 @@ void Stocks::queue_use(color_ostream & out, stock_item::item what, int32_t amoun
         return;
     }
 
+    // Reserves: brewing and cooking only to use up surplus plants stop once
+    // the fort holds about two years of drink (40 a dwarf) or meals (25 a
+    // dwarf), and the stores get drunk and eaten down (user: "at a certain
+    // point, you gotta start draining those reserves" - 63,000 drinks and
+    // 17,000 meals for 64 dwarves, and the brewers and cooks never stopped).
+    // Real shortages still order through the stock goals.
+    {
+        int32_t pop = std::max(int32_t(ai.pop.citizen.size()), int32_t(10));
+        if ((what == stock_item::drink_plant || what == stock_item::drink_fruit) && count_free.at(stock_item::drink) > 40 * pop)
+        {
+            reason << "drink reserve full (" << count_free.at(stock_item::drink) << " for " << pop << " dwarves): drinking it down";
+            return;
+        }
+        if (what == stock_item::food_ingredients && count_free.at(stock_item::meal) > 25 * pop)
+        {
+            reason << "meal reserve full (" << count_free.at(stock_item::meal) << " for " << pop << " dwarves): eating it down";
+            return;
+        }
+    }
+
     df::manager_order_template tmpl;
     tmpl.mat_index = -1;
     std::vector<stock_item::item> input;

@@ -1,5 +1,8 @@
 # Unreleased
 
+- Watch post (`dfai-watchpost`): a roof over the fort entrance with four bolt throwers on top (N, E, S, W), built a ring at a time from what already holds it, with a built stair up. Guard duty stations squads there (and on the gate turrets) instead of at the bunkers outside the wall; guard duty is on again.
+- Gate turrets handle walls more than one level high (a stair column up to the real top) and place the 1x1 engine with an explicit size (the default 3x3 check refused every wall top).
+- Food and drink reserves: surplus brewing and cooking stop once the fort holds about two years of drink (40 a dwarf) or meals (25 a dwarf); real shortages still order. Channelevened had 63,000 drinks and 17,000 meals for 64 dwarves.
 - Squads hold inside the curtain wall during sieges: invaders out past it get no kill orders (the bolt throwers deal with them). At Channelevened 111 of 149 goblin kills were outside the wall.
 - The army is the fort's best fighters, about 30% of it (at least 10), ranked by combat skill, instead of everyone; the least skilled go back to their trades a few at a time when it's quiet.
 - `dfai-stranded`: a dwarf stuck on top of the curtain wall (builders get pushed up there; 15 died of thirst) gets the wall section under them taken down and walks home.

@@ -50,6 +50,7 @@ dfai-floodguard start
 dfai-turretwatch start
 # a bolt thrower on the wall beside each gate; squads take turns guarding the bunkers and gate turrets
 dfai-gateturret start
+dfai-watchpost start
 dfai-guard start
 # gets dwarves down off the curtain wall's top (builders get pushed up there)
 dfai-stranded start

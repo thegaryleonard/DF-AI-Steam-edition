@@ -107,23 +107,36 @@ local function step(s, g)
         dfhack.run_command_silent('workorder', '{"job":"ConstructBoltThrowerParts","amount_total":1,"material_category":["wood"]}')
     end
     local S = df.tiletype_shape
+    -- the wall's top: walls here may be two levels high (a pillar on top)
+    local top = t.z + 1
+    while shape(t.tx, t.ty, top) == S.WALL and top < t.z + 4 do top = top + 1 end
+    t.top = top
     if t.phase == 'stair' then
-        local lo, hi = shape(t.ix, t.iy, t.z), shape(t.ix, t.iy, t.z + 1)
-        local lo_ok = lo == S.STAIR_UP or lo == S.STAIR_UPDOWN
-        local hi_ok = hi == S.STAIR_DOWN or hi == S.STAIR_UPDOWN
-        if lo_ok and hi_ok then t.phase = 'engine'
-        else
-            if not lo_ok then construct(df.construction_type.UpStair, t.ix, t.iy, t.z) end
-            if lo_ok and not hi_ok then construct(df.construction_type.DownStair, t.ix, t.iy, t.z + 1) end
-            return ('gate %s: building the stair up to the wall top (%s)'):format(g.side, lo_ok and 'top' or 'bottom')
+        -- a stair column just inside the wall from the ground to the top:
+        -- up at the bottom, up/down between, down at the top
+        for z = t.z, top do
+            local want = z == t.z and df.construction_type.UpStair or z == top and df.construction_type.DownStair or df.construction_type.UpDownStair
+            local ok_shape = z == t.z and {[S.STAIR_UP] = true, [S.STAIR_UPDOWN] = true}
+                or z == top and {[S.STAIR_DOWN] = true, [S.STAIR_UPDOWN] = true} or {[S.STAIR_UPDOWN] = true}
+            local sh = shape(t.ix, t.iy, z)
+            if not ok_shape[sh] then
+                if sh == S.STAIR_DOWN or sh == S.STAIR_UP then
+                    -- the wrong kind (the wall grew a level): take it down first
+                    dfhack.constructions.designateRemove(xyz2pos(t.ix, t.iy, z))
+                    return ('gate %s: replacing a stair piece at level %d (the wall is %d high)'):format(g.side, z, top - t.z)
+                end
+                construct(want, t.ix, t.iy, z)
+                return ('gate %s: building the stair up to the wall top (level %d of %d)'):format(g.side, z - t.z + 1, top - t.z + 1)
+            end
         end
+        t.phase = 'engine'
     end
     if t.phase == 'engine' then
-        local e = building_at(t.tx, t.ty, t.z + 1, df.building_type.SiegeEngine)
+        local e = building_at(t.tx, t.ty, top, df.building_type.SiegeEngine)
         if not e then
             if parts_free() == 0 then return ('gate %s: stair built; waiting for bolt thrower parts'):format(g.side) end
             local b, err = dfhack.buildings.constructBuilding{type = df.building_type.SiegeEngine,
-                subtype = df.siegeengine_type.BoltThrower, pos = xyz2pos(t.tx, t.ty, t.z + 1)}
+                subtype = df.siegeengine_type.BoltThrower, pos = xyz2pos(t.tx, t.ty, top), width = 1, height = 1}
             if not b then return ('gate %s: cannot place the bolt thrower (%s)'):format(g.side, tostring(err)) end
             return ('gate %s: bolt thrower placed on the wall'):format(g.side)
         end
@@ -144,7 +157,7 @@ end
 function posts()
     local s, out = load(), {}
     for _, t in pairs(s.gates or {}) do
-        if t.phase == 'done' and t.ix then out[#out + 1] = {t.ix, t.iy, t.z + 1} end
+        if t.phase == 'done' and t.ix then out[#out + 1] = {t.ix, t.iy, t.top or t.z + 1} end
     end
     return out
 end
