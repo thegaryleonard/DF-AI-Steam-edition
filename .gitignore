@@ -6,3 +6,5 @@ supervisor/herald/lore.json
 supervisor/logs/
 supervisor/last_site.json
 dist/
+
+supervisor/remote_host.txt

@@ -8,6 +8,14 @@
 # crashed on stale state). Never runs anything else.
 set -u
 HERE="$(cd "$(dirname "$0")" && pwd)"
+# Game on another machine: supervisor/remote_host.txt (gitignored) holds
+# "<ssh host> <repo path there>", e.g. "laptop18 C:/Users/thega/dfai-stream/df-ai".
+# Then the files go over by scp and this script runs there (Git Bash).
+if [ -z "${DFAI_ON_HOST:-}" ] && [ -s "$HERE/remote_host.txt" ]; then
+  read -r RH RREPO < "$HERE/remote_host.txt"
+  scp -q "$HERE"/scripts/*.lua "$RH:$RREPO/supervisor/scripts/" && scp -q "$HERE/deploy.sh" "$HERE/onMapLoad.init.installed" "$RH:$RREPO/supervisor/" || { echo "deploy: copy to $RH failed"; exit 1; }
+  exec ssh -o BatchMode=yes "$RH" "set DFAI_ON_HOST=1&& \"C:\\Program Files\\Git\\bin\\bash.exe\" \"$RREPO/supervisor/deploy.sh\" $*"
+fi
 DF="/c/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress"
 DST="$DF/dfhack-config/scripts"
 INIT="$DF/dfhack-config/init/onMapLoad.init"

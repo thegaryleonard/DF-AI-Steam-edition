@@ -6,7 +6,16 @@
 set -u
 HERE="$(cd "$(dirname "$0")" && pwd)"
 DF="/c/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress"
-B="/c/dfbuild/dfhack/build/plugins/external/df-ai"
+B="${DFAI_PLUGIN_DIR:-/c/dfbuild/dfhack/build/plugins/external/df-ai}"
+# Game on another machine: supervisor/remote_host.txt (gitignored) holds
+# "<ssh host> <repo path there>", e.g. "laptop18 C:/Users/thega/dfai-stream/df-ai".
+# Then the files go over by scp and this script runs there (Git Bash).
+if [ -z "${DFAI_ON_HOST:-}" ] && [ -s "$HERE/remote_host.txt" ]; then
+  read -r RH RREPO < "$HERE/remote_host.txt"
+  ssh -o BatchMode=yes "$RH" "if not exist \"${RREPO//\//\\}\\build-drop\" mkdir \"${RREPO//\//\\}\\build-drop\"" >/dev/null
+  scp -q "$B/df-ai.plug.dll" "$B/df-ai.plug.pdb" "$RH:$RREPO/build-drop/" && scp -q "$HERE/df-ai-plugin.lua" "$HERE/swap-plugin.sh" "$RH:$RREPO/supervisor/" || { echo "copy to $RH failed"; exit 1; }
+  exec ssh -o BatchMode=yes "$RH" "set DFAI_ON_HOST=1&& set DFAI_PLUGIN_DIR=$RREPO/build-drop&& \"C:\\Program Files\\Git\\bin\\bash.exe\" \"$RREPO/supervisor/swap-plugin.sh\""
+fi
 SUP="$HERE/logs/supervisor.log"
 cd "$DF" || exit 1
 timeout 60 ./hack/dfhack-run.exe lua "print(dfhack.isMapLoaded() and 'fort loaded' or 'NO MAP')" | grep -q "fort loaded" || { echo "no fort loaded: not swapping"; exit 1; }
