@@ -1,5 +1,6 @@
 # Unreleased
 
+- Watch post moved off the stair head: it now stands just inside the curtain-wall gate, on ground with solid rock right under it and no df-ai room planned there, clear of the trade depot (trees on the spot are felled first). A post found over dug ground is retired (no guards, nothing more built; its roof is left standing). Cloisterbolt's post stood over the entrance stair shaft: the ground under it caved in six times and dropped stone, logs and cages down the shaft (13 dwarves and pets dead).
 - Indoor pasture: no more cave-ins. Pasture and tunnel tiles need solid ground over them and their edge (Machinegems dug under a hillside; 12 cave-ins, 9 dwarves crushed at the foot of the main stair), the dig waits until food is secure, and a slow dig is only given up when no miner can reach it (it was dropped every 3 days, leaving eight half-dug pastures).
 - Watch post waits for the curtain wall instead of trying to put its stair in the fort's stair shaft.
 - New fort: the site finder is clicked again only when the game says it's closed (a second click shut a slow-opening finder: "Begin is not on screen").

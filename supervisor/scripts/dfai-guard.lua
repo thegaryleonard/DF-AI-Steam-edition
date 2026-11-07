@@ -61,7 +61,7 @@ local function tick()
         local n = P.set_guard_posts(table.concat(parts, ';'))
         state.posts = list
         if n < 0 then state.last = 'df-ai is not running'
-        elseif n == 0 then state.last = off() and 'off (dfai-guard on to resume)' or 'on; no guard posts yet (the watch post over the entrance and the gate turrets)'
+        elseif n == 0 then state.last = off() and 'off (dfai-guard on to resume)' or 'on; no guard posts yet (the watch post inside the gate and the gate turrets)'
         else
             local c = {}
             for _, k in ipairs(names) do c[k] = (c[k] or 0) + 1 end
