@@ -140,6 +140,29 @@ function plan_ring()
     return {ring = ring, box = best.box, gate = {gate[1], gate[2]}, side = side, z = e.z, r = best.r}
 end
 
+-- the wall's tile is free to build on: nothing there, or a stockpile, which
+-- gives up that tile (df-ai laid one across the north wall line at
+-- Cloisterbolt: 7 segments could never go up and the wall never finished;
+-- items left on it are cleared off by df-ai's building-site sweep)
+function carve_stockpile(x, y, z)
+    local b = dfhack.buildings.findAtTile(xyz2pos(x, y, z))
+    if not b then
+        -- a tile carved earlier (before the occupancy fix) still marked
+        local _, occ = dfhack.maps.getTileFlags(x, y, z)
+        if occ and (occ.building == df.tile_building_occ.Stockpile or occ.building == df.tile_building_occ.Passable) and not dfhack.buildings.findAtTile(xyz2pos(x, y, z)) then occ.building = df.tile_building_occ.None end
+        return true
+    end
+    if b:getType() ~= df.building_type.Stockpile or not b.room.extents then return false end
+    local i = (y - b.room.y) * b.room.width + (x - b.room.x)
+    if i < 0 or i >= b.room.width * b.room.height then return false end
+    b.room.extents[i] = 0
+    -- and the tile's own record of the stockpile, or the game still says
+    -- "cannot place at this position"
+    local _, occ = dfhack.maps.getTileFlags(x, y, z)
+    if occ and (occ.building == df.tile_building_occ.Stockpile or occ.building == df.tile_building_occ.Passable) and not dfhack.buildings.findAtTile(xyz2pos(x, y, z)) then occ.building = df.tile_building_occ.None end
+    return not dfhack.buildings.findAtTile(xyz2pos(x, y, z))
+end
+
 local function is_wall_now(x, y, g)
     local a = S.attrs(x, y, g)
     return a and (a.shape == df.tiletype_shape.WALL or a.shape == df.tiletype_shape.FORTIFICATION)
@@ -151,7 +174,11 @@ local function work(s, budget)
     -- walls placed where nobody can stand beside them never get built and
     -- keep their blocks: take them down, the tile finds real ground instead
     local b = s.box
-    if b then s.dropped = (s.dropped or 0) + S.drop_unreachable(b.x1, b.y1, b.x2, b.y2, s.z - 3, s.z + 3) end
+    if b then
+        local mine = {}
+        for _, t in ipairs(s.ring) do mine[t[1] * 10000 + t[2]] = true end
+        s.dropped = (s.dropped or 0) + S.drop_unreachable(b.x1, b.y1, b.x2, b.y2, s.z - 3, s.z + 3, mine)
+    end
     local done, total, gaps, placed, holes = 0, 0, 0, 0, 0
     for _, t in ipairs(s.ring) do
         local x, y, kind = t[1], t[2], t[3]
@@ -174,7 +201,7 @@ local function work(s, budget)
                 else
                     holes = holes + 1   -- cliff or water: nothing to stand a wall on
                 end
-            elseif not dfhack.buildings.findAtTile(xyz2pos(x, y, g)) and placed < budget and S.reachable_beside(x, y, g) then
+            elseif carve_stockpile(x, y, g) and placed < budget and S.reachable_beside(x, y, g) then
                 local sub = kind == 'post' and df.construction_type.Fortification or df.construction_type.Wall
                 if pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Construction, subtype = sub, pos = xyz2pos(x, y, g)}) then
                     placed = placed + 1

@@ -47,14 +47,26 @@ function reachable_beside(x, y, z)
 end
 -- unbuilt constructions/buildings nobody can get to: take them down so their
 -- materials go back (they hold them forever otherwise). Returns how many.
-function drop_unreachable(x1, y1, x2, y2, z1, z2)
-    local n = 0
+-- only: optional set of tiles (x*10000+y) the caller placed; anything else is
+-- left alone. Without it this took df-ai's own unbuilt stairs and floors and
+-- the watch post's stair top too (154 at once at Cloisterbolt).
+function drop_unreachable(x1, y1, x2, y2, z1, z2, only)
+    -- collect first: deconstructing while walking buildings.all shrinks the
+    -- vector under the loop ("index out of bounds"), which crashed every
+    -- dfai-walls pass at Cloisterbolt for 187 days with the wall 40 short
+    local drop = {}
     for _, b in ipairs(df.global.world.buildings.all) do
         if b:getType() == df.building_type.Construction   -- only the walls these projects place, never df-ai's own rooms
             and b.z >= z1 and b.z <= z2 and b.x1 >= x1 and b.x1 <= x2 and b.y1 >= y1 and b.y1 <= y2
-            and b:getBuildStage() < b:getMaxBuildStage() and not reachable_beside(b.x1, b.y1, b.z) then
-            if pcall(dfhack.buildings.deconstruct, b) then n = n + 1 end
+            and b:getBuildStage() < b:getMaxBuildStage() and not reachable_beside(b.x1, b.y1, b.z)
+            and (not only or only[b.x1 * 10000 + b.y1]) then
+            drop[#drop + 1] = b.id
         end
+    end
+    local n = 0
+    for _, id in ipairs(drop) do
+        local b = df.building.find(id)
+        if b and pcall(dfhack.buildings.deconstruct, b) then n = n + 1 end
     end
     return n
 end

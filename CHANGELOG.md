@@ -1,5 +1,7 @@
 # Unreleased
 
+- Curtain wall: `drop_unreachable` (dfai-surface) deconstructed buildings while looping over the building list, so every dfai-walls pass crashed after its first removal and no new segment was placed (Cloisterbolt's wall sat at 133 of 173 for 187 days). It now collects first, and only touches the caller's own tiles: unfiltered, one pass took 154 unbuilt constructions in the wall's box, df-ai's own included.
+- Curtain wall segments on a stockpile now take that tile out of the stockpile (extents and the tile's occupancy, which reads Passable afterwards) instead of waiting forever.
 - Watch post moved off the stair head: it now stands just inside the curtain-wall gate, on ground with solid rock right under it and no df-ai room planned there, clear of the trade depot (trees on the spot are felled first). A post found over dug ground is retired (no guards, nothing more built; its roof is left standing). Cloisterbolt's post stood over the entrance stair shaft: the ground under it caved in six times and dropped stone, logs and cages down the shaft (13 dwarves and pets dead).
 - Indoor pasture: no more cave-ins. Pasture and tunnel tiles need solid ground over them and their edge (Machinegems dug under a hillside; 12 cave-ins, 9 dwarves crushed at the foot of the main stair), the dig waits until food is secure, and a slow dig is only given up when no miner can reach it (it was dropped every 3 days, leaving eight half-dug pastures).
 - Watch post waits for the curtain wall instead of trying to put its stair in the fort's stair shaft.
