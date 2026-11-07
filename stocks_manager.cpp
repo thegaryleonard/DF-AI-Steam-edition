@@ -165,7 +165,7 @@ void Stocks::add_manager_order(color_ostream & out, const df::manager_order_temp
     add_manager_order(out, tmpl, amount, discard);
 }
 
-void Stocks::add_manager_order(color_ostream & out, const df::manager_order_template & tmpl, int32_t amount, std::ostream & reason)
+void Stocks::add_manager_order(color_ostream & out, const df::manager_order_template & tmpl, int32_t amount, std::ostream & reason, int32_t min_topup)
 {
     if (amount <= 0)
     {
@@ -175,7 +175,7 @@ void Stocks::add_manager_order(color_ostream & out, const df::manager_order_temp
     int32_t already_queued = count_manager_orders(out, tmpl);
     amount -= already_queued;
 
-    if (already_queued && amount < 5)
+    if (already_queued && amount < min_topup)
     {
         amount = 0;
     }

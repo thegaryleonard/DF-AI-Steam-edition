@@ -283,7 +283,9 @@ public:
     int32_t count_manager_orders_matcat(const df::job_material_category & matcat, df::job_type order = job_type::NONE);
     int32_t count_manager_orders(color_ostream & out, const df::manager_order_template & tmpl);
     void add_manager_order(color_ostream & out, const df::manager_order_template & tmpl, int32_t amount = 1);
-    void add_manager_order(color_ostream & out, const df::manager_order_template & tmpl, int32_t amount, std::ostream & reason);
+    // min_topup: when an identical order is already queued, only add more if
+    // at least this many are still missing (1 = top up to exactly amount).
+    void add_manager_order(color_ostream & out, const df::manager_order_template & tmpl, int32_t amount, std::ostream & reason, int32_t min_topup = 5);
 
     struct find_item_info
     {

@@ -1294,7 +1294,24 @@ void Population::update_moods(color_ostream & out)
                 // Slaughter one animal (most numerous species, keep at least
                 // one of each, never pets), make sure a Tanner's exists, and
                 // order the hide tanned.
+                // A mood can want several hides (Litast's crafter mood wanted
+                // two): count the job's unfilled leather slots so the tanning
+                // order and the slaughter cover all of them, not just one.
+                int32_t need_hides = 0;
+                for (size_t k = 0; k < job->job_items.elements.size(); k++)
+                {
+                    if (job->job_items.elements[k]->item_type != item_type::SKIN_TANNED)
+                        continue;
+                    bool attached = false;
+                    for (auto ref : job->items)
+                        if (ref->job_item_idx == int32_t(k))
+                            attached = true;
+                    if (!attached)
+                        need_hides += std::max(1, int32_t(job->job_items.elements[k]->quantity));
+                }
+                need_hides = std::max(1, need_hides);
                 bool pending = false;
+                int32_t pending_count = 0;
                 std::map<int32_t, std::vector<df::unit *>> herd;
                 for (auto a : world->units.active)
                 {
@@ -1304,25 +1321,37 @@ void Population::update_moods(color_ostream & out)
                     if (!Units::isActive(a) || !Units::isAlive(a) || !Units::isTame(a) || !Units::isOwnCiv(a) || Units::isCitizen(a))
                         continue;
                     if (a->flags2.bits.slaughter)
+                    {
                         pending = true;
+                        pending_count++;
+                        continue;
+                    }
                     if (Units::isPet(a) || !Units::isAdult(a) || Units::isMarkedForWarTraining(a) || Units::isMarkedForHuntTraining(a))
                         continue;
                     herd[a->race].push_back(a);
                 }
                 df::unit *pick = nullptr;
-                size_t best = 1; // never the last of a species
-                for (auto & h : herd)
+                while (pending_count < need_hides)
                 {
-                    if (h.second.size() > best)
+                    df::unit *p = nullptr;
+                    size_t best = 1; // never the last of a species
+                    std::vector<df::unit *> *from = nullptr;
+                    for (auto & h : herd)
                     {
-                        best = h.second.size();
-                        pick = h.second.front();
+                        if (h.second.size() > best)
+                        {
+                            best = h.second.size();
+                            p = h.second.back();
+                            from = &h.second;
+                        }
                     }
-                }
-                if (!pending && pick)
-                {
-                    pick->flags2.bits.slaughter = 1;
-                    ai.debug(out, "[MOOD] no leather for " + who + ": marked " + AI::describe_unit(pick) + " for slaughter");
+                    if (!p)
+                        break;
+                    from->pop_back();
+                    p->flags2.bits.slaughter = 1;
+                    pick = p;
+                    pending_count++;
+                    ai.debug(out, "[MOOD] no leather for " + who + ": marked " + AI::describe_unit(p) + " for slaughter");
                 }
                 bool have_tanner = false;
                 for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_ANY])
@@ -1340,8 +1369,8 @@ void Population::update_moods(color_ostream & out)
                 df::manager_order_template tmpl;
                 tmpl.job_type = job_type::CustomReaction;
                 tmpl.reaction_name = "TAN_A_HIDE";
-                ai.stocks.add_manager_order(out, tmpl, 1, why);
-                ai.debug(out, "[MOOD] ordered a hide tanned for " + who + " " + why.str());
+                ai.stocks.add_manager_order(out, tmpl, need_hides, why, 1);
+                ai.debug(out, stl_sprintf("[MOOD] ordered %d hide(s) tanned for ", need_hides) + who + " " + why.str());
                 if (pending || pick)
                     usable++;
             }
