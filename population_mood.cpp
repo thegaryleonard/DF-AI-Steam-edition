@@ -1056,8 +1056,12 @@ void Population::update_moods(color_ostream & out)
                 usable++;
             }
             if (!usable && ji->item_type == item_type::BAR && ji->mat_type == 0 && ji->mat_index >= 0 &&
+                !(holder && mood_urgent(u, MOOD_CHEAT_THIRST)) &&
                 !mood_warned.insert(who + "|barmat|" + std::to_string(idx)).second)
             {
+                // (once urgent, skip this so the cheat below can run: Onul's
+                // lead mood found no galena or alloy, yet this key marked the
+                // bar usable on every later pass and the mood timer ran down)
                 // already ordered the specific metal: don't fall through to the
                 // generic any-ore order (wrong metal, and it ran before stocks
                 // had counted and crashed DF)
@@ -1242,8 +1246,11 @@ void Population::update_moods(color_ostream & out)
                         ai.debug(out, "[MOOD] " + who + " needs " + MaterialInfo(0, metal).toString() + " bars and no free ore or alloy ingredients yield it");
                 }
             }
-            if (!usable && ji->item_type == item_type::BAR && mood_warned.insert(who + "|bar|" + std::to_string(idx)).second)
+            if (!usable && ji->item_type == item_type::BAR && !(ji->mat_type == 0 && ji->mat_index >= 0) &&
+                mood_warned.insert(who + "|bar|" + std::to_string(idx)).second)
             {
+                // (only when any metal will do: generic ore can't give a
+                // specific metal and counted the slot as handled)
                 // No metal bar: smelt some ore (the moody dwarf takes any metal
                 // unless the mood asks for a specific one)
                 std::ostringstream why;
