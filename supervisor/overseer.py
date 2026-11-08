@@ -4,8 +4,11 @@ this or that, order of construction priority...").
 
 Usage: python -u overseer.py        -> http://localhost:8767/
 
-Local only: binds 127.0.0.1 and is NOT behind lan_proxy (that mirror forwards
-every GET), so nobody else on the network can run the fort. Commands are a fixed
+Local only by default: binds 127.0.0.1 and is NOT behind lan_proxy (that
+mirror forwards every GET), so nobody else on the network can run the fort.
+"desk_lan_clients" in supervisor.json (a list of IP addresses) opens it to
+exactly those machines: it then listens on the LAN, and every request from any
+other address gets 403. Pair it with a firewall rule for the same addresses. Commands are a fixed
 allow-list run through DFHack (game-state changes inside the scripts already wait
 for a game tick); nothing here builds a command from what the page sends.
 """
@@ -19,6 +22,12 @@ from pathlib import Path
 import dfai_supervisor as sup
 
 PORT = 8767
+LAN_CLIENTS = {str(a).strip() for a in (sup.CFG.get("desk_lan_clients") or []) if str(a).strip()}
+LOCAL = {"127.0.0.1", "::1", "::ffff:127.0.0.1"}
+
+
+def client_ok(handler):
+    return handler.client_address[0] in LOCAL or handler.client_address[0] in LAN_CLIENTS
 HERE = Path(__file__).parent
 LOG_FILE = HERE / "logs" / "overseer.json"
 log_lock = threading.Lock()
@@ -537,6 +546,9 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
+        if not client_ok(self):
+            self.send_error(403)
+            return
         path = self.path.split("?")[0]
         if path in ("/", "/index.html", "/v2"):
             # the redesigned desk (charts, sidebar); the old card stack is at /classic
@@ -594,10 +606,17 @@ class Handler(BaseHTTPRequestHandler):
         self.send(json.dumps(entry, ensure_ascii=False).encode())
 
     def do_POST(self):
+        if not client_ok(self):
+            self.send_error(403)
+            return
         path = self.path.split("?")[0]
-        # only pages served from this machine (blocks other sites posting here)
+        # only the desk's own page may post (blocks other sites posting here):
+        # localhost, or the address the desk was opened at from an allowed machine
         origin = self.headers.get("Origin") or ""
-        if origin and not origin.startswith(("http://localhost:%d" % PORT, "http://127.0.0.1:%d" % PORT)):
+        own = ["http://localhost:%d" % PORT, "http://127.0.0.1:%d" % PORT]
+        if LAN_CLIENTS and self.headers.get("Host"):
+            own.append("http://" + self.headers.get("Host"))
+        if origin and origin not in own:
             self.send_error(403)
             return
         n = int(self.headers.get("Content-Length", 0) or 0)
@@ -864,4 +883,7 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     print(f"overseer console on http://localhost:{PORT}/", flush=True)
     threading.Thread(target=history_sampler, daemon=True).start()
-    ThreadingHTTPServer(("127.0.0.1", PORT), Handler).serve_forever()
+    host = "0.0.0.0" if LAN_CLIENTS else "127.0.0.1"
+    if LAN_CLIENTS:
+        print(f"overseer console also open to {', '.join(sorted(LAN_CLIENTS))} on port {PORT}", flush=True)
+    ThreadingHTTPServer((host, PORT), Handler).serve_forever()

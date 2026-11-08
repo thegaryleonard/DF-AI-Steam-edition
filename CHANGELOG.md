@@ -1,5 +1,10 @@
 # Unreleased
 
+- Watch post RETIRED: free-standing constructed roofs collapse. The second Cloisterbolt post, on solid ground inside the gate, caved in about once a game month as it was rebuilt (19 dead under it). dfai-watchpost now does nothing and gives no guard post; it is off the map-load list. Bolt throwers stay on walls and bunker roofs.
+- Fliers: every crossbow squad at home is sent after an agitated or hostile flier, not just one (user: bolt throwers + archers are the answer to flying things).
+- Gate turret: if the stair stops short of the wall top (the wall grew a level after the turret was planned), it goes back and finishes the stair; the engine had waited on a tile nobody could reach.
+- Overseer's Desk: `desk_lan_clients` in supervisor.json opens it to exactly those LAN addresses (every other address gets 403; posts must come from the desk's own page). Pair with a firewall rule for the same addresses.
+- Watchdog: conditional work orders that are waiting on their own condition ("make beds when fewer than 10") no longer count as stuck.
 - Curtain wall: `drop_unreachable` (dfai-surface) deconstructed buildings while looping over the building list, so every dfai-walls pass crashed after its first removal and no new segment was placed (Cloisterbolt's wall sat at 133 of 173 for 187 days). It now collects first, and only touches the caller's own tiles: unfiltered, one pass took 154 unbuilt constructions in the wall's box, df-ai's own included.
 - Curtain wall segments on a stockpile now take that tile out of the stockpile (extents and the tile's occupancy, which reads Passable afterwards) instead of waiting forever.
 - Watch post moved off the stair head: it now stands just inside the curtain-wall gate, on ground with solid rock right under it and no df-ai room planned there, clear of the trade depot (trees on the spot are felled first). A post found over dug ground is retired (no guards, nothing more built; its roof is left standing). Cloisterbolt's post stood over the entrance stair shaft: the ground under it caved in six times and dropped stone, logs and cages down the shaft (13 dwarves and pets dead).

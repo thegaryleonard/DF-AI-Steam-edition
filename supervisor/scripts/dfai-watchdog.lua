@@ -75,7 +75,11 @@ local function check(s, problems)
         local k = tostring(mo.id)
         live[k] = true
         local rec = s.orders[k]
-        if not rec or rec.left ~= mo.amount_left then s.orders[k] = {left = mo.amount_left, since = d}
+        -- an order whose own conditions say "not now" (make beds when there
+        -- are fewer than 10) is waiting by design, not stuck: Cloisterbolt's
+        -- "43 stuck orders" were mostly these, read as a stone shortage
+        local waiting_by_design = #mo.item_conditions > 0 and not mo.status.active
+        if not rec or rec.left ~= mo.amount_left or waiting_by_design then s.orders[k] = {left = mo.amount_left, since = d}
         elseif d - rec.since >= ORDER_DAYS and mo.amount_left > 0 then
             stuck_orders[#stuck_orders + 1] = df.job_type.attrs[mo.job_type] and df.job_type.attrs[mo.job_type].caption or df.job_type[mo.job_type]
         end

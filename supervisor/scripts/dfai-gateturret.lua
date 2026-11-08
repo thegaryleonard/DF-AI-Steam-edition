@@ -132,6 +132,14 @@ local function step(s, g)
         t.phase = 'engine'
     end
     if t.phase == 'engine' then
+        -- the stair must reach the real top: a turret placed while the wall
+        -- was a level lower kept a stair ending a level short, and its engine
+        -- waited on a tile no builder could reach (Cloisterbolt, gate S)
+        local hs = shape(t.ix, t.iy, top)
+        if hs ~= S.STAIR_DOWN and hs ~= S.STAIR_UPDOWN then
+            t.phase = 'stair'
+            return ('gate %s: the stair stops short of the wall top; finishing it'):format(g.side)
+        end
         local e = building_at(t.tx, t.ty, top, df.building_type.SiegeEngine)
         if not e then
             if parts_free() == 0 then return ('gate %s: stair built; waiting for bolt thrower parts'):format(g.side) end

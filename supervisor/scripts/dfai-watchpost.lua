@@ -21,6 +21,13 @@
 -- throwers on the roof's edges, facing N, E, S and W, firing at enemies only.
 --   dfai-watchpost start | status | find
 --@module = true
+--
+-- RETIRED (2026-11-08): free-standing constructed roofs collapse in DF. The
+-- second Cloisterbolt post, on solid undug ground inside the gate, caved in
+-- about once a game month as it was rebuilt: 19 dead under it in four years.
+-- The script now does nothing and offers no guard post; bolt throwers belong
+-- on walls and solid rock (dfai-gateturret). Kept for its history.
+local RETIRED = true
 
 local repeatUtil = require('repeat-util')
 local KEY = 'dfai-watchpost'
@@ -341,6 +348,7 @@ end
 
 -- where the guards stand: the middle of the roof
 function posts()
+    if RETIRED then return {} end
     local s = load()
     if s.plan and s.plan.ex and shape(s.plan.ex, s.plan.ey, s.plan.roof) == S.FLOOR and sound_plan(s.plan) then
         return {{s.plan.ex, s.plan.ey, s.plan.roof}}
@@ -349,6 +357,7 @@ function posts()
 end
 
 local function tick()
+    if RETIRED then return end
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local s = load()
     -- the yard is the walled ground inside the curtain wall's gate: before
@@ -365,7 +374,7 @@ local function tick()
     save(s)
 end
 
-function status() return 'watch post: ' .. (load().last or 'idle') end
+function status() return 'watch post: retired (constructed roofs collapse); ' .. (load().last or 'idle') end
 
 if dfhack_flags.module then return end
 local cmd = ({...})[1] or 'status'

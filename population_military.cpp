@@ -2205,6 +2205,42 @@ public:
 
 bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit *u, const std::string & reason)
 {
+    // A flier gets every crossbow squad at home, not one (user: "bolt thrower
+    // + archers should be the response for flying things"). Cloisterbolt lost
+    // 7 dwarves to giant sparrows, wrens and buzzards while a single squad
+    // went after each bird. Squads abroad keep their orders; with no crossbow
+    // squad the usual one-squad choice below still applies.
+    {
+        auto craw = df::creature_raw::find(u->race);
+        bool flier = craw && u->caste >= 0 && size_t(u->caste) < craw->caste.size() && craw->caste[u->caste]->flags.is_set(caste_raw_flags::FLIER);
+        if (flier && !Units::isOwnCiv(u) && (military_target_reachable(u) || military_target_shootable(u)))
+        {
+            bool any = false;
+            for (auto sqid : plotinfo->main.fortress_entity->squads)
+            {
+                auto sq = df::squad::find(sqid);
+                if (!sq || sq->assigned_army_controller_id != -1 || sq->ammo.ammunition.empty() || !squad_armed(sq))
+                    continue;
+                bool already = false;
+                for (auto it : sq->orders)
+                    if (auto so = strict_virtual_cast<df::squad_order_kill_listst>(it))
+                        if (std::find(so->units.begin(), so->units.end(), u->id) != so->units.end())
+                            already = true;
+                for (auto & oc : squad_order_changes)
+                    if (oc.squad_id == sqid && oc.unit_id == u->id && !oc.remove)
+                        already = true;
+                if (already)
+                {
+                    any = true;
+                    continue;
+                }
+                if (military_squad_attack_unit(out, sq, u, reason))
+                    any = true;
+            }
+            if (any)
+                return true;
+        }
+    }
     // One squad per ordinary target (a monkey that bit a dancer): each new
     // attack used to hand the same animal to the next squad, and all 17
     // squads ended up chasing 3 gray langurs. Great dangers still get more.
