@@ -356,6 +356,23 @@ command_result ai_command(color_ostream & out, std::vector<std::string> & args)
         return CR_OK;
     }
 
+    if (args.size() == 1 && args[0] == "threats")
+    {
+        // what the army would do about each dangerous creature in view (read-only)
+        if (!dwarfAI)
+        {
+            out << "df-ai is not running" << std::endl;
+            return CR_OK;
+        }
+        std::ostringstream os;
+        dwarfAI->describe_threats(os);
+        // line by line: DF2CONSOLE turns a newline into a CP437 glyph
+        std::istringstream lines(os.str());
+        for (std::string line; std::getline(lines, line); )
+            out << DF2CONSOLE(line) << std::endl;
+        return CR_OK;
+    }
+
     if (args.size() == 1 && args[0] == "cistern")
     {
         if (!dwarfAI)

@@ -5,11 +5,11 @@
 #   supervisor/build-local.sh install    build, then hot-swap into the running game
 #
 # First run configures DFHack (a few minutes); later runs only rebuild df-ai.
-# Needs: DFHack source at $DFHACK (53.16-r3, with submodules), Visual Studio
+# Needs: DFHack source at $DFHACK (the release the game runs, now 53.17-r1, with submodules), Visual Studio
 # 2022 C++ tools, CMake, Ninja, Python with Jinja2.
 set -euo pipefail
 DFAI="$(cd "$(dirname "$0")/.." && pwd -W)"
-DFHACK="${DFHACK:-C:/dfbuild/dfhack}"
+DFHACK="${DFHACK:-C:/dfbuild/dfhack-5317}"
 DF="${DF:-/c/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress}"
 # DFHack's codegen needs XML::LibXML, which git's bundled perl lacks. Use
 # Strawberry Perl through a wrapper that skips its teardown segfault.

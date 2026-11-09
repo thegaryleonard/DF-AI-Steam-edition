@@ -106,6 +106,27 @@ local function clear_near(B)
     return n
 end
 
+-- any dangerous creature out in the caverns (a giant cave spider killed 17
+-- dwarves in a week at Cloisterbolt): no marks at all, and every Dig job of
+-- ours is taken back until it's dead or gone (dfai-yardwatch holds the rest)
+local function take_back_all()
+    local n, kill = 0, {}
+    local l = df.global.world.jobs.list.next
+    while l do
+        local j = l.item
+        if j.job_type == df.job_type.Dig and our_priority(j.pos.x, j.pos.y, j.pos.z) and not dfhack.job.getWorker(j) then kill[#kill + 1] = j end
+        l = l.next
+    end
+    for _, j in ipairs(kill) do
+        local p = copyall(j.pos)
+        dfhack.job.removeJob(j)
+        local f = dfhack.maps.getTileFlags(p.x, p.y, p.z)
+        if f then f.dig = df.tile_dig_designation.No end
+        n = n + 1
+    end
+    return n
+end
+
 local scan = {busy = false}
 local function finish(s, found)
     s.last_pass = os.time()
@@ -122,6 +143,16 @@ local function pass()
     if okp_ then
         local go_, why_ = pri_.allowed('mining')
         if not go_ then local s0 = load() s0.last = 'on hold: ' .. tostring(why_) save(s0) return end
+    end
+    local okw, YW = pcall(reqscript, 'dfai-yardwatch')
+    local danger = okw and YW.cavern_threat and YW.cavern_threat()
+    if danger then
+        local s0 = load()
+        local took = take_back_all()
+        s0.last = ('on hold: %s is loose in the caverns%s'):format(dfhack.df2utf(dfhack.units.getReadableName(danger)):gsub(',.*$', ''),
+            took > 0 and (' (took back %d dig jobs)'):format(took) or '')
+        save(s0)
+        return
     end
     scan.busy = true
     local s = load()

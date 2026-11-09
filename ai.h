@@ -103,6 +103,7 @@ public:
     void statechanged(color_ostream & out, state_change_event event);
     static void abandon(color_ostream & out);
     bool tag_enemies(color_ostream & out);
+    void describe_threats(std::ostream & os);
     void watch_announcements();
     static df::unit *is_attacking_citizen(df::unit *u);
     static df::unit *is_hunting_target(df::unit *u);

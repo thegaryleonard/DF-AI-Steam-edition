@@ -6,7 +6,7 @@
 set -u
 HERE="$(cd "$(dirname "$0")" && pwd)"
 DF="/c/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress"
-B="${DFAI_PLUGIN_DIR:-/c/dfbuild/dfhack/build/plugins/external/df-ai}"
+B="${DFAI_PLUGIN_DIR:-/c/dfbuild/dfhack-5317/build/plugins/external/df-ai}"
 # Game on another machine: supervisor/remote_host.txt (gitignored) holds
 # "<ssh host> <repo path there>", e.g. "laptop18 C:/Users/thega/dfai-stream/df-ai".
 # Then the files go over by scp and this script runs there (Git Bash).

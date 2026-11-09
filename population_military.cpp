@@ -1902,8 +1902,16 @@ void Population::update_military(color_ostream & out)
             }
         }
     }
-    civilian_alert(out, great_danger);
-    battle_stations(out, great_danger || invaders_far > 0);
+    // a dangerous creature in the fort or by a dwarf, or a hostile flier
+    // over it (tag_enemies, every 200 ticks): civilians to the Safety burrow
+    // while it lasts; a close threat also puts the squads on Ready
+    int64_t now_tick = int64_t(*cur_year) * 403200 + *cur_year_tick;
+    if (now_tick < close_threat_at || now_tick < flier_threat_at)
+        close_threat_at = flier_threat_at = -1; // a reload went back in time
+    bool close_threat = close_threat_at >= 0 && now_tick - close_threat_at <= 600;
+    bool flier_threat = flier_threat_at >= 0 && now_tick - flier_threat_at <= 600;
+    civilian_alert(out, great_danger || close_threat || flier_threat);
+    battle_stations(out, great_danger || invaders_far > 0 || close_threat);
     ranged_squads_to_ranges(ai, out);
     invaders_far = 0;
 

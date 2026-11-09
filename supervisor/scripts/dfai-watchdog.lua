@@ -116,6 +116,21 @@ local function check(s, problems)
     end
     -- 3. deaths in the last 30 days
     local causes, thirst, total = {}, 0, 0
+    -- why each one died of thirst: the old line always blamed the hospital,
+    -- but at Cloisterbolt (169) two of three were insane (insane dwarves stop
+    -- drinking) and one was shut in a sealed 5x5 pocket, while every hospital
+    -- bed could walk to four wells with water and 50 buckets were free
+    local fgroup = (function()
+        local count, best, n = {}, 0, 0
+        for _, c in ipairs(dfhack.units.getCitizens(true)) do
+            local g = dfhack.maps.getWalkableGroup(c.pos)
+            if g ~= 0 then count[g] = (count[g] or 0) + 1 end
+        end
+        for g, c in pairs(count) do if c > n then best, n = g, c end end
+        return best
+    end)()
+    local INSANE = {[df.mood_type.Berserk] = true, [df.mood_type.Raving] = true, [df.mood_type.Melancholy] = true}
+    local insane, cutoff = 0, 0
     for _, u in ipairs(df.global.world.units.all) do
         if dfhack.units.isDead(u) and u.civ_id == df.global.plotinfo.civ_id and dfhack.units.isDwarf(u) then
             local inc = df.incident.find(u.counters.death_id)
@@ -123,7 +138,12 @@ local function check(s, problems)
                 total = total + 1
                 local c = df.death_type[inc.death_cause] or '?'
                 causes[c] = (causes[c] or 0) + 1
-                if inc.death_cause == df.death_type.THIRST then thirst = thirst + 1 end
+                if inc.death_cause == df.death_type.THIRST then
+                    thirst = thirst + 1
+                    local g = dfhack.maps.getWalkableGroup(u.pos)
+                    if INSANE[u.mood] then insane = insane + 1
+                    elseif fgroup ~= 0 and g ~= 0 and g ~= fgroup then cutoff = cutoff + 1 end
+                end
             end
         end
     end
@@ -133,9 +153,26 @@ local function check(s, problems)
     if thirst > 0 then
         local drinks = 0
         for _, i in ipairs(df.global.world.items.other.DRINK) do if not i.flags.forbid then drinks = drinks + i.stack_size end end
+        local why = {}
+        if insane > 0 then why[#why + 1] = ('%d insane (they stop drinking: stress)'):format(insane) end
+        if cutoff > 0 then why[#why + 1] = ('%d cut off from the fort (died in a sealed-off spot)'):format(cutoff) end
+        local other = thirst - insane - cutoff
+        if other > 0 then why[#why + 1] = ('%d other (bedridden? the wounded get only water: check wells, buckets, GiveWater jobs)'):format(other) end
         problems[#problems + 1] = {key = 'thirst', text = drinks > 0
-            and ('%d dwarves died of THIRST with %d drinks in stock: the wounded in bed only get water - the fort needs a reachable water source'):format(thirst, drinks)
+            and ('%d dwarves died of THIRST with %d drinks in stock: %s'):format(thirst, drinks, table.concat(why, ', '))
             or ('%d dwarves died of thirst: no drink and no water'):format(thirst)}
+    end
+    -- living dwarves cut off from the fort and getting thirsty (they will die
+    -- there unless someone opens a way out)
+    local stuck = {}
+    for _, c in ipairs(dfhack.units.getCitizens(true)) do
+        local g = dfhack.maps.getWalkableGroup(c.pos)
+        if fgroup ~= 0 and g ~= 0 and g ~= fgroup and not c.flags1.caged and c.counters2.thirst_timer > 15000 then
+            stuck[#stuck + 1] = ('%s at %d,%d,%d'):format(dfhack.df2utf(dfhack.units.getReadableName(c)):gsub(',.*$', ''), c.pos.x, c.pos.y, c.pos.z)
+        end
+    end
+    if #stuck > 0 then
+        problems[#problems + 1] = {key = 'cutoff', text = ('%d thirsty dwarves are cut off from the fort: %s'):format(#stuck, table.concat(stuck, '; '))}
     end
     if total >= 10 then problems[#problems + 1] = {key = 'deaths', text = W.deaths} end
     -- 4. a young fort's basics

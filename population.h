@@ -115,6 +115,9 @@ public:
     bool military_target_reachable(df::unit *u);
     bool military_target_shootable(df::unit *u);
     int32_t invaders_far = 0; // invaders seen far from the fort this pass (military.cpp)
+    // last game tick (year*403200+tick) tag_enemies saw a dangerous creature in
+    // the fort or by a dwarf / a hostile flier over the fort (military.cpp)
+    int64_t close_threat_at = -1, flier_threat_at = -1;
     bool battle_mode = false;
     int32_t battle_quiet = 0;
     void update_crimes(color_ostream & out);

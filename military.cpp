@@ -184,6 +184,93 @@ static bool ordinary_target(df::unit *t)
         !Units::isOpposedToLife(t) && !t->flags2.bits.underworld;
 }
 
+// Dangerous creatures loose in the fort. Cloisterbolt lost 17 dwarves in one
+// game week (168-08) to a single giant cave spider down in the deep workings
+// (z118, far from the gate): it was neither a "danger" nor agitated to DF, so
+// df-ai only reacted once it was seen attacking someone, once a game day, and
+// then with ONE squad. Now any creature that can hurt dwarves (agitated, a
+// DF danger, a large/ambush predator or a webber, or one seen attacking a
+// citizen) that is reachable and either in the fort's own dug space or within
+// 15 tiles / 3 levels of a citizen gets EVERY home squad, and the civilians
+// go to the Safety burrow until it's dead or gone (Population::update_military).
+static bool harmless_guest(df::unit *u)
+{
+    return Units::isTame(u) || Units::isMerchant(u) || Units::isDiplomat(u) || Units::isVisitor(u) ||
+        u->flags1.bits.caged || u->flags1.bits.chained || u->flags1.bits.inactive;
+}
+
+static bool dangerous_creature(df::unit *u)
+{
+    if (Units::isAgitated(u) || Units::isDanger(u))
+        return true;
+    auto craw = df::creature_raw::find(u->race);
+    if (craw && u->caste >= 0 && size_t(u->caste) < craw->caste.size())
+    {
+        auto & f = craw->caste[u->caste]->flags;
+        if (f.is_set(caste_raw_flags::LARGE_PREDATOR) || f.is_set(caste_raw_flags::AMBUSHPREDATOR) || f.is_set(caste_raw_flags::WEBBER))
+            return true;
+    }
+    return AI::is_attacking_citizen(u) != nullptr;
+}
+
+// fort-dug space: underground, and not a cavern or the magma sea/underworld
+static bool in_fort_dug(df::coord p)
+{
+    auto d = Maps::getTileDesignation(p);
+    return d && !d->bits.outside && !d->bits.feature_local && !d->bits.feature_global;
+}
+
+static df::unit *citizen_near(AI & ai, df::coord p, int16_t r, int16_t rz)
+{
+    for (auto id : ai.pop.citizen)
+    {
+        auto c = df::unit::find(id);
+        if (!c || Units::isDead(c) || !Units::isActive(c))
+            continue;
+        df::coord q = Units::getPosition(c);
+        if (std::abs(p.x - q.x) <= r && std::abs(p.y - q.y) <= r && std::abs(p.z - q.z) <= rz)
+            return c;
+    }
+    return nullptr;
+}
+
+// invaders and marauders keep their own rules (muster, hold inside the wall)
+static bool close_threat(AI & ai, df::unit *u)
+{
+    if (u->flags1.bits.active_invader || u->flags1.bits.marauder || harmless_guest(u) || Units::isOwnCiv(u))
+        return false;
+    if (!dangerous_creature(u) || !ai.pop.military_target_reachable(u))
+        return false;
+    df::coord p = Units::getPosition(u);
+    return in_fort_dug(p) || citizen_near(ai, p, 15, 3) != nullptr;
+}
+
+// a hostile flier over the yard (or diving at a dwarf): every crossbow squad
+// goes after it, and the civilians go indoors (22 dwarves killed by giant
+// wrens, sparrows, butterflies, eagles and ospreys at Cloisterbolt, 166-169)
+static bool hostile_flier_over_fort(AI & ai, df::unit *u)
+{
+    if (!is_flier(u) || u->flags1.bits.active_invader || u->flags1.bits.marauder || harmless_guest(u) || Units::isOwnCiv(u))
+        return false;
+    if (!Units::isAgitated(u) && !Units::isDanger(u) && !AI::is_attacking_citizen(u))
+        return false;
+    if (!ai.pop.military_target_reachable(u) && !ai.pop.military_target_shootable(u))
+        return false;
+    df::coord p = Units::getPosition(u);
+    if (ai.plan.entrance())
+    {
+        df::coord e = ai.plan.entrance()->pos();
+        if (std::abs(p.x - e.x) <= 40 && std::abs(p.y - e.y) <= 40 && p.z >= e.z - 6)
+            return true;
+    }
+    return citizen_near(ai, p, 15, 6) != nullptr;
+}
+
+static int64_t abs_tick()
+{
+    return int64_t(*cur_year) * 403200 + *cur_year_tick;
+}
+
 bool AI::tag_enemies(color_ostream & out)
 {
     bool found = false;
@@ -217,6 +304,11 @@ bool AI::tag_enemies(color_ostream & out)
                     return true;
                 if (!t || Units::isDead(t) || (!pop_ref->military_target_reachable(t) && !(ranged && is_flier(t) && pop_ref->military_target_shootable(t))))
                     return true;
+                // every squad keeps a dangerous creature in the fort or by a
+                // dwarf, and every crossbow squad a hostile flier over the
+                // fort: the one-squad rule below is for harmless wildlife
+                if (close_threat(*ai_ref, t) || (ranged && hostile_flier_over_fort(*ai_ref, t)))
+                    return false;
                 // ordinary wildlife: only near home, and not while the squad starves
                 if (ordinary_target(t) && (hungry || !near_fort(*ai_ref, t)))
                     return true;
@@ -286,6 +378,23 @@ bool AI::tag_enemies(color_ostream & out)
             {
                 found = pop.military_all_squads_attack_unit(out, u, "antagonist: night creature") || found;
             }
+            else if (hostile_flier_over_fort(*this, u))
+            {
+                // every crossbow squad (military_random_squad_attack_unit),
+                // civilians indoors while it lasts
+                pop.flier_threat_at = abs_tick();
+                found = pop.military_random_squad_attack_unit(out, u, "hostile flier over the fort") || found;
+            }
+            else if (close_threat(*this, u))
+            {
+                df::coord p = Units::getPosition(u);
+                auto c = citizen_near(*this, p, 15, 3);
+                std::string why = in_fort_dug(p) ? "dangerous creature inside the fort" : "dangerous creature close to " + AI::describe_unit(c);
+                if (pop.close_threat_at < 0 || abs_tick() - pop.close_threat_at > 1200)
+                    debug(out, "[MILITARY] " + why + ": " + AI::describe_unit(u) + stl_sprintf(" at %d,%d,%d: every squad at home, civilians to safety", p.x, p.y, p.z));
+                pop.close_threat_at = abs_tick();
+                found = pop.military_all_squads_attack_unit(out, u, why) || found;
+            }
             else if (Units::isOpposedToLife(u))
             {
                 found = pop.military_random_squad_attack_unit(out, u, "undead") || found;
@@ -333,6 +442,53 @@ bool AI::tag_enemies(color_ostream & out)
         }
     }
     return found;
+}
+
+// "ai threats": what tag_enemies would do about each creature in view right
+// now (read-only)
+void AI::describe_threats(std::ostream & os)
+{
+    int64_t now = abs_tick();
+    os << "civilian alert: " << (plotinfo->alerts.civ_alert_idx > 0 ? "ON" : "off")
+       << "; close threat last seen " << (pop.close_threat_at < 0 ? std::string("never") : stl_sprintf("%lld ticks ago", (long long)(now - pop.close_threat_at)))
+       << "; hostile flier last seen " << (pop.flier_threat_at < 0 ? std::string("never") : stl_sprintf("%lld ticks ago", (long long)(now - pop.flier_threat_at))) << "\n";
+    int32_t ranged = 0, home = 0;
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
+        if (auto sq = df::squad::find(sqid))
+            if (sq->assigned_army_controller_id == -1)
+            {
+                home++;
+                if (!sq->ammo.ammunition.empty())
+                    ranged++;
+            }
+    os << stl_sprintf("squads at home: %d (with ammo: %d)\n", home, ranged);
+    int32_t n = 0;
+    for (auto u : world->units.active)
+    {
+        if (Units::isDead(u) || Units::isOwnCiv(u) || !Units::getPosition(u).isValid() || Maps::getTileDesignation(Units::getPosition(u))->bits.hidden)
+            continue;
+        bool fl = hostile_flier_over_fort(*this, u), ct = !fl && close_threat(*this, u);
+        bool danger = !harmless_guest(u) && dangerous_creature(u);
+        if (!fl && !ct && !danger)
+            continue;
+        df::coord p = Units::getPosition(u);
+        int32_t holders = 0;
+        for (auto sqid : plotinfo->main.fortress_entity->squads)
+            if (auto sq = df::squad::find(sqid))
+                for (auto o : sq->orders)
+                    if (auto k = strict_virtual_cast<df::squad_order_kill_listst>(o))
+                        if (std::find(k->units.begin(), k->units.end(), u->id) != k->units.end())
+                            holders++;
+        auto c = citizen_near(*this, p, 15, 3);
+        os << AI::describe_unit(u) << stl_sprintf(" at %d,%d,%d", p.x, p.y, p.z)
+           << ": " << (fl ? "HOSTILE FLIER over the fort -> every crossbow squad + civilian alert" :
+                       ct ? "CLOSE THREAT -> every home squad + civilian alert" : "dangerous, not close (normal rules)")
+           << (in_fort_dug(p) ? "; in fort-dug space" : "") << (c ? "; a citizen within 15 tiles" : "")
+           << (pop.military_target_reachable(u) ? "; reachable" : "; not reachable") << stl_sprintf("; held by %d squads", holders) << "\n";
+        n++;
+    }
+    if (!n)
+        os << "no dangerous creature in view\n";
 }
 
 df::unit *AI::is_attacking_citizen(df::unit *u)

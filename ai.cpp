@@ -190,7 +190,7 @@ command_result AI::onupdate_register(color_ostream & out)
 
             return false;
         });
-        tag_enemies_onupdate = events.onupdate_register("df-ai tag_enemies", 1200, 1200, [this](color_ostream & out) { tag_enemies(out); });
+        tag_enemies_onupdate = events.onupdate_register("df-ai tag_enemies", 200, 200, [this](color_ostream & out) { tag_enemies(out); });
         announcements_onupdate = events.onupdate_register("df-ai announcement watcher", 1, 1, [this](color_ostream &) { watch_announcements(); });
         events.onstatechange_register_once("world unload watcher", [this](color_ostream & out, state_change_event st) -> bool
         {
