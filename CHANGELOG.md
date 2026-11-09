@@ -1,5 +1,7 @@
 # Unreleased
 
+- Now built for Dwarf Fortress 53.17 / DFHack 53.17-r1 (README, player kit, CI default). The release kit takes the versions from the DFHack tree's tag.
+- Installer and uninstaller refuse unknown parameters (a misspelt -DfDir used to be ignored, so they went for the game Steam reports instead).
 - Overseer's Desk: a Live game page (first in the sidebar) shows the game window, relayed by the desk from the game feed to its allowed clients; it only streams while the page is open. The sidebar's broadsheet link uses the LAN copy when the desk is opened from another machine.
 - Supervisor keeps the stream's helper pages alive: every 3 minutes it restarts the broadsheet, the game feed, the desk or the LAN copy if one isn't listening (they were all down for an hour after the helpers were stopped to restart the manager).
 - Supervisor: before each launch it checks the game folder's DFHack against the one df-ai was built for (swap-plugin.sh records both), and pings the owner once when Steam has updated DFHack: df-ai must be rebuilt. A launch that fails because DFHack doesn't support the game's version says so instead of "needs a human". (DF 53.17 / DFHack 53.17-r1, 2026-11-09.)

@@ -2,6 +2,7 @@
 # Run INSTALL.bat (it calls this). Safe to run again. Every file it replaces is
 # backed up first, and your saves are never touched.
 #   -DfDir "<folder with Dwarf Fortress.exe>"   if it can't find the game itself
+[CmdletBinding()]
 param([string]$DfDir = '', [switch]$Yes, [switch]$TestOnly)
 $ErrorActionPreference = 'Stop'
 $Pkg = $PSScriptRoot
@@ -56,7 +57,7 @@ $m = [regex]::Match($want, 'exe_size=(\d+)')
 if ($m.Success -and [int64]$m.Groups[1].Value -gt 0) {
     $have = (Get-Item (Join-Path $DfDir 'Dwarf Fortress.exe')).Length
     if ($have -ne [int64]$m.Groups[1].Value) {
-        Warn 'Your Dwarf Fortress is a different version from the one this df-ai was built for (53.16).'
+        Warn 'Your Dwarf Fortress is a different version from the one this df-ai was built for (53.17).'
         Warn 'If it is newer, df-ai will not load until a matching df-ai download comes out.'
         if (-not (Ask '   Install anyway?')) { exit 1 }
     }

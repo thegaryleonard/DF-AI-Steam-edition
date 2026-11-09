@@ -1,5 +1,6 @@
 # df-ai uninstaller: removes exactly the files INSTALL.bat put in the game
 # folder (listed in FILES.txt). Saves, worlds and your own files are kept.
+[CmdletBinding()]
 param([string]$DfDir = '', [switch]$TestOnly)
 $ErrorActionPreference = 'Stop'
 $Pkg = $PSScriptRoot

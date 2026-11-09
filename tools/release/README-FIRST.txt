@@ -1,12 +1,12 @@
-df-ai for Dwarf Fortress 53.16 (Steam)
+df-ai for Dwarf Fortress 53.17 (Steam)
 ======================================
 
 df-ai plays Dwarf Fortress by itself: it digs the fort, builds the rooms,
 farms, brews, trades, raises an army and fights. You watch.
 
 YOU NEED
-  - Dwarf Fortress 53.16 from Steam
-  - DFHack 53.16-r3 from Steam (free: search the Steam Store for "DFHack")
+  - Dwarf Fortress 53.17 from Steam
+  - DFHack 53.17-r1 from Steam (free: search the Steam Store for "DFHack")
     Start the game once after installing DFHack so it can set itself up.
 
 INSTALL (2 minutes)

@@ -9,8 +9,8 @@ This is a port of [BenLubar's df-ai](https://github.com/BenLubar/df-ai) to the m
 
 | Works with | Version |
 |---|---|
-| Dwarf Fortress | **53.16** (Steam) |
-| DFHack | **53.16-r3** |
+| Dwarf Fortress | **53.17** (Steam) |
+| DFHack | **53.17-r1** |
 | Windows | 10 or 11 |
 
 > DFHack plugins only load into the exact game and DFHack versions they were built for. If Steam updates Dwarf Fortress, wait for a matching df-ai download (see [Keeping it working](#keeping-it-working)).
@@ -27,7 +27,7 @@ This is a port of [BenLubar's df-ai](https://github.com/BenLubar/df-ai) to the m
 
 ### 2. Get df-ai
 
-1. Open the [**Releases**](https://github.com/thegaryleonard/DF-AI-Steam-edition/releases) page and download the newest `df-ai-...-DF53.16.zip` (under *Assets*).
+1. Open the [**Releases**](https://github.com/thegaryleonard/DF-AI-Steam-edition/releases) page and download the newest `df-ai-...-DF53.17.zip` (under *Assets*).
 2. Right-click the zip and choose **Extract All…**.
 3. Quit Dwarf Fortress if it's running.
 4. In the extracted folder, double-click **`INSTALL.bat`**.
@@ -91,7 +91,7 @@ Useful ones:
 **Typing `enable df-ai` does nothing / says "No such plugin"**
 - Make sure DFHack is installed from Steam and you've started the game once since.
 - Run `INSTALL.bat` again (it's safe to repeat).
-- Check your versions. In the DFHack command box, type `lua print(dfhack.getDFHackVersion(), dfhack.getDFVersion())` and look in the DFHack console window. It must say `53.16-r3` and `v0.53.16`.
+- Check your versions. In the DFHack command box, type `lua print(dfhack.getDFHackVersion(), dfhack.getDFVersion())` and look in the DFHack console window. It must say `53.17-r1` and `v0.53.17`.
 
 **"could not fit any blueprint plan to this map"**
 The embark is too rugged or cramped for df-ai's fort plan. Embark somewhere flatter and try again.
@@ -138,7 +138,7 @@ See [`supervisor/README.md`](supervisor/README.md). The desk and the Herald only
 
 df-ai is built as an external DFHack plugin with Visual Studio 2022 (MSVC), like DFHack itself:
 
-1. Check out DFHack at tag `53.16-r3` with submodules.
+1. Check out DFHack at tag `53.17-r1` with submodules.
 2. Put this repo at `plugins/external/df-ai` (a junction is fine), and add `add_subdirectory(df-ai)` to `plugins/external/CMakeLists.txt`.
 3. Configure DFHack (`-DDFHACK_BUILD_ARCH=64 -DCMAKE_BUILD_TYPE=Release`), then build the targets `df-ai`, `dfai_missions` and `dfai_portrait`.
 

@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
-# Build the player download: dist/df-ai-<version>-DF53.16.zip
+# Build the player download: dist/df-ai-<version>-DF<df version>.zip
 #
 #   tools/release/make-release.sh [version]     (default: git describe)
 #
 # Needs a local build first (supervisor/build-local.sh), and the DFHack
-# build tree at $DFHACK (default C:/dfbuild/dfhack).
+# build tree at $DFHACK (default C:/dfbuild/dfhack-5317). The DF and DFHack
+# versions come from that tree's tag (53.17-r1 -> DF 53.17). The game exe's
+# size (the installer warns on a mismatch) comes from $EXE_SIZE, or from the
+# DF folder at $DF; the stream PC's own DF may be older than the game host's.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-DFHACK="${DFHACK:-C:/dfbuild/dfhack}"
+DFHACK="${DFHACK:-C:/dfbuild/dfhack-5317}"
+DFHACK_VER="$(git -C "$DFHACK" describe --tags --exact-match 2>/dev/null || git -C "$DFHACK" describe --tags)"
+DF_VER="${DFHACK_VER%%-r*}"
 VER="${1:-$(git -C "$(cygpath -w "$ROOT" 2>/dev/null || echo "$ROOT")" describe --tags --always --dirty 2>/dev/null || date +%Y%m%d)}"
-NAME="df-ai-$VER-DF53.16"
+NAME="df-ai-$VER-DF$DF_VER"
 OUT="$ROOT/dist/$NAME"
 rm -rf "$OUT" "$OUT.zip"
 mkdir -p "$OUT/game/hack/plugins" "$OUT/game/hack/lua/plugins" "$OUT/game/df-ai-blueprints" \
@@ -48,8 +53,8 @@ cp "$ROOT"/tools/release/INSTALL.bat "$ROOT"/tools/release/install.ps1 \
 cp "$ROOT/tools/release/README-FIRST.txt" "$OUT/"
 cp "$ROOT/LICENSE" "$OUT/LICENSE.txt"
 DF="${DF:-/c/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress}"
-EXE_SIZE=$(stat -c %s "$DF/Dwarf Fortress.exe" 2>/dev/null || echo 0)
-printf 'df-ai %s\nDwarf Fortress 53.16 (Steam)\nDFHack 53.16-r3\nexe_size=%s\n' "$VER" "$EXE_SIZE" > "$OUT/VERSION.txt"
+EXE_SIZE="${EXE_SIZE:-$(stat -c %s "$DF/Dwarf Fortress.exe" 2>/dev/null || echo 0)}"
+printf 'df-ai %s\nDwarf Fortress %s (Steam)\nDFHack %s\nexe_size=%s\n' "$VER" "$DF_VER" "$DFHACK_VER" "$EXE_SIZE" > "$OUT/VERSION.txt"
 # list of everything we put in the game folder, for the uninstaller
 (cd "$OUT/game" && find . -type f | sed 's|^\./||' | sort) > "$OUT/FILES.txt"
 
