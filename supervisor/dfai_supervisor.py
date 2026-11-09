@@ -15,7 +15,7 @@ Usage:  python dfai_supervisor.py            # run forever
         python dfai_supervisor.py --once     # print one status line and exit
 Stdlib only.
 """
-import json, os, shutil, subprocess, sys, time
+import hashlib, json, os, shutil, subprocess, sys, time
 from datetime import datetime
 from pathlib import Path
 
@@ -239,15 +239,65 @@ def place_window():
         log(f"place_window failed: {e!r}")
 
 
+PLUGIN_REC = Path(__file__).with_name("logs") / "dfai_plugin.json"   # written by swap-plugin.sh
+
+
+def md5(p):
+    try:
+        return hashlib.md5(Path(p).read_bytes()).hexdigest()
+    except OSError:
+        return ""
+
+
+def guard_plugin():
+    """Before each launch: is the game folder's DFHack the one our df-ai was
+    built for, and is the df-ai there the one swap-plugin.sh installed? A
+    Steam update of Dwarf Fortress (53.17, 2026-11-09) is followed by a DFHack
+    update, and df-ai built for the old one won't load. Says so once each; it
+    never swaps files itself (a df-ai installed by hand is left alone)."""
+    try:
+        rec = json.loads(PLUGIN_REC.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return
+    hack = Path(CFG["df_dir"]) / "hack"
+    cur_dfhack = md5(hack / "dfhack.dll")
+    cur_dll = md5(hack / "plugins" / "df-ai.plug.dll")
+    changed = False
+    if cur_dfhack and cur_dfhack != rec.get("dfhack") and rec.get("warned_dfhack") != cur_dfhack:
+        notify("Steam updated DFHack (usually for a new Dwarf Fortress version). df-ai has to be rebuilt for it "
+               "and installed with swap-plugin.sh, or it won't load.", ping=True)
+        rec["warned_dfhack"] = cur_dfhack
+        changed = True
+    if cur_dll and cur_dll != rec.get("dll") and rec.get("warned_dll") != cur_dll:
+        log("df-ai: the plugin in the game folder isn't the one swap-plugin.sh last installed")
+        rec["warned_dll"] = cur_dll
+        changed = True
+    if changed:
+        PLUGIN_REC.write_text(json.dumps(rec, indent=1), encoding="utf-8")
+
+
+def unsupported_df():
+    """DFHack's own words when the game is a version it doesn't know."""
+    try:
+        t = (Path(CFG["df_dir"]) / "stderr.log").read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return False
+    return "Not a supported DF version" in t
+
+
 def launch_and_load(save=None):
     """Start DF via Steam, load a save, enable df-ai. Returns True on success."""
     save = save or newest_save()
+    guard_plugin()
     log(f"launching DF, will load {save}")
     os.startfile(f"steam://rungameid/{CFG['steam_app_id']}")
     st = wait_for(lambda: (s := status()) and s.get("focus", "").startswith("title") and s,
                   CFG["launch_timeout_s"])
     if not st:
         log("DF did not reach the title screen")
+        if unsupported_df():
+            notify("Steam updated Dwarf Fortress to a version this DFHack doesn't support, so DFHack (and df-ai) "
+                   "switched off. It needs a DFHack update and a df-ai rebuild.", ping=True)
         return False
     time.sleep(5)
     place_window()

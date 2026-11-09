@@ -25,6 +25,8 @@ touch "$HERE/logs/planned-restart"
 powershell.exe -NoProfile -Command "Stop-Process -Name 'Dwarf Fortress' -Force" >/dev/null 2>&1
 sleep 5
 cp "$B/df-ai.plug.dll" "$B/df-ai.plug.pdb" "$DF/hack/plugins/" || exit 1
+# what was installed, for the supervisor's check before each launch
+printf '{"dll": "%s", "dfhack": "%s"}\n' "$(md5sum "$B/df-ai.plug.dll" | cut -c1-32)" "$(md5sum "$DF/hack/dfhack.dll" | cut -c1-32)" > "$HERE/logs/dfai_plugin.json"
 cp "$HERE/df-ai-plugin.lua" "$DF/hack/lua/plugins/df-ai.lua"
 sleep 60
 for i in $(seq 1 30); do
