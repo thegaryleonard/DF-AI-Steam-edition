@@ -1,5 +1,6 @@
 # Unreleased
 
+- Surface farm plots only inside the curtain wall (user rule): inside the wall's box once it is planned, and before that within 9 tiles of the fort entrance (inside the smallest ring the wall ever takes). A plot outside waits without holding up the rest of the dig list; underground farms are unaffected.
 - Watch post RETIRED: free-standing constructed roofs collapse. The second Cloisterbolt post, on solid ground inside the gate, caved in about once a game month as it was rebuilt (19 dead under it). dfai-watchpost now does nothing and gives no guard post; it is off the map-load list. Bolt throwers stay on walls and bunker roofs.
 - Fliers: every crossbow squad at home is sent after an agitated or hostile flier, not just one (user: bolt throwers + archers are the answer to flying things).
 - Gate turret: if the stair stops short of the wall top (the wall grew a level after the turret was planned), it goes back and finishes the stair; the engine had waited on a tile nobody could reach.

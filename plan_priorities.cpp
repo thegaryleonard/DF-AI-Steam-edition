@@ -720,6 +720,13 @@ bool plan_priority_t::act(AI & ai, color_ostream & out, std::ostream & reason)
                     continue;
                 }
 
+                // surface farm plots only inside the curtain wall (user rule);
+                // one outside waits and doesn't hold up the rest of the list
+                if ((action == plan_priority_action::dig || action == plan_priority_action::dig_immediate) && !ai.plan.surface_farm_ok(r))
+                {
+                    continue;
+                }
+
                 working = true;
 
                 switch (action)

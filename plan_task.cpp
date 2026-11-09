@@ -662,9 +662,28 @@ void Plan::checkroom(color_ostream & out, room *r)
 }
 
 // queue a room for digging when other dig jobs are finished
+bool Plan::surface_farm_ok(room *r)
+{
+    if (!r || r->type != room_type::farmplot || !r->outdoor)
+        return true;
+    const df::coord & mn = ai.pop.defense_min;
+    const df::coord & mx = ai.pop.defense_max;
+    if (mn.isValid() && mx.isValid())
+        return r->min.x > mn.x && r->max.x < mx.x && r->min.y > mn.y && r->max.y < mx.y;
+    if (!fort_entrance)
+        return false;
+    df::coord e = fort_entrance->pos();
+    const int16_t R = 9;
+    return r->min.x >= e.x - R && r->max.x <= e.x + R && r->min.y >= e.y - R && r->max.y <= e.y + R;
+}
+
 bool Plan::wantdig(color_ostream & out, room *r, int32_t queue)
 {
     if (r->queue_dig || r->status != room_status::plan)
+    {
+        return false;
+    }
+    if (!surface_farm_ok(r))
     {
         return false;
     }
@@ -683,6 +702,8 @@ bool Plan::wantdig(color_ostream & out, room *r, int32_t queue)
 bool Plan::digroom(color_ostream & out, room *r, bool immediate)
 {
     if (r->status != room_status::plan)
+        return false;
+    if (!surface_farm_ok(r))
         return false;
     ai.debug(out, "digroom " + AI::describe_room(r));
     r->queue_dig = false;
