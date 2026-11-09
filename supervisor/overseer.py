@@ -545,11 +545,38 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def relay_game(self, path):
+        """The game window from gamefeed.py (127.0.0.1:8766 only), passed
+        through to the desk's own clients: /game.mjpg live, /game.jpg a frame."""
+        import urllib.request
+        try:
+            src = urllib.request.urlopen("http://127.0.0.1:8766" + path, timeout=10)
+        except OSError:
+            self.send_error(503, "the game feed is not running")
+            return
+        try:
+            self.send_response(200)
+            self.send_header("Content-Type", src.headers.get("Content-Type", "image/jpeg"))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            while True:
+                chunk = src.read1(65536) if hasattr(src, "read1") else src.read(65536)
+                if not chunk:
+                    break
+                self.wfile.write(chunk)
+        except OSError:
+            pass   # the viewer left
+        finally:
+            src.close()
+
     def do_GET(self):
         if not client_ok(self):
             self.send_error(403)
             return
         path = self.path.split("?")[0]
+        if path in ("/game.mjpg", "/game.jpg"):
+            self.relay_game(path)
+            return
         if path in ("/", "/index.html", "/v2"):
             # the redesigned desk (charts, sidebar); the old card stack is at /classic
             self.send((HERE / "overseer_v2.html").read_bytes(), "text/html; charset=utf-8")

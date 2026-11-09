@@ -447,8 +447,41 @@ class Supervisor:
         if name:
             notify(f"new fort {name.split(chr(9))[0]} embarked{' in a new world' if world else ''}; df-ai is running it.", ping=True)
 
+    # the stream's helper pages: port -> (script, args, log). Stopping the
+    # helpers to restart the manager alone took them all down for an hour on
+    # 2026-11-09 (the broadsheet on the stream went blank, the desk was gone).
+    HELPERS = {8765: ("overlay.py", [], "overlay.log"), 8780: ("lan_proxy.py", ["8780"], "lan_proxy.log"),
+               8767: ("overseer.py", [], "overseer.log"), 8766: ("gamefeed.py", [], "gamefeed.log")}
+
+    def keep_helpers(self):
+        """Every few minutes: restart any helper page that isn't listening."""
+        import socket
+        now = time.time()
+        if now - getattr(self, "helpers_checked", 0) < 180:
+            return
+        self.helpers_checked = now
+        here = Path(__file__).parent
+        for port, (script, args, logname) in self.HELPERS.items():
+            s = socket.socket()
+            s.settimeout(2)
+            try:
+                up = s.connect_ex(("127.0.0.1", port)) == 0
+            finally:
+                s.close()
+            if up:
+                continue
+            try:
+                logf = open(here / "logs" / logname, "a", encoding="utf-8")
+                subprocess.Popen([sys.executable, "-u", script] + args, cwd=str(here), stdout=logf, stderr=subprocess.STDOUT,
+                                 creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+                log(f"{script} was not running (port {port}); started it")
+                notify(f"The {script.replace('.py', '')} page (port {port}) had stopped; started it again.")
+            except OSError as e:
+                log(f"could not start {script}: {e!r}")
+
     def step(self):
         now = time.time()
+        self.keep_helpers()
         if self.obs:
             try:
                 self.obs.step()

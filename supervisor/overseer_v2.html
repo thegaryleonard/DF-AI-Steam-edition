@@ -304,6 +304,15 @@ label.fld { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5
   <nav class="side" id="nav"></nav>
 
   <main id="main">
+    <!-- the live game window (relayed by the desk from the game feed) -->
+    <section class="page" id="p-live">
+      <div class="ph"><div><h1>Live Game</h1><p>The game window as the stream sees it, about ten frames a second.</p></div></div>
+      <div class="panel"><div class="bd" style="text-align:center">
+        <img id="livegame" alt="the game" style="max-width:100%;height:auto;border-radius:6px;background:#000;min-height:200px">
+        <div class="note" id="livenote" style="margin-top:6px"></div>
+      </div></div>
+    </section>
+
     <!-- overview -->
     <section class="page" id="p-overview">
       <div class="ph"><div><h1>The Fort Right Now</h1><p>Vital signs, sampled every 5 minutes, and what every part of the fort says about itself.</p></div></div>
@@ -470,7 +479,7 @@ let PAGES = [];
 function buildNav(groups) {
   const g = groups.map(n => ({id: 'g-' + n.toLowerCase(), label: n, ic: (GROUP_INFO[n] || ['&#8226;'])[0]}));
   PAGES = [
-    {sec: 'Dashboard'}, {id: 'overview', label: 'Overview', ic: '&#9636;'},
+    {sec: 'Dashboard'}, {id: 'live', label: 'Live game', ic: '&#9655;'}, {id: 'overview', label: 'Overview', ic: '&#9636;'},
     {sec: 'Orders'}, ...g,
     {sec: 'Plans'}, {id: 'priorities', label: 'Priorities', ic: '&#8645;'}, {id: 'calendar', label: 'Fort calendar', ic: '&#9783;'},
     {id: 'build', label: 'Build a room', ic: '&#8962;'}, {id: 'dig', label: 'Construction order', ic: '&#9935;', cnt: 'nav-dig'},
@@ -479,7 +488,7 @@ function buildNav(groups) {
   ];
   $('nav').innerHTML = PAGES.map(p => p.sec ? `<div class="sec">${p.sec}</div>` :
     `<a class="item${p.danger ? ' danger' : ''}" href="#${p.id}" data-page="${p.id}"><span class="ic">${p.ic}</span>${esc(p.label)}${p.cnt ? `<span class="cnt" id="${p.cnt}"></span>` : ''}</a>`).join('')
-    + `<div class="foot"><a href="http://localhost:8766/">&#9655; Watch the fort</a><a href="http://localhost:8765/">&#9636; The broadsheet</a><a href="/classic">&#8617; The old desk</a></div>`;
+    + `<div class="foot"><a href="#live">&#9655; Watch the fort</a><a href="${['localhost', '127.0.0.1'].includes(location.hostname) ? 'http://localhost:8765/' : 'http://' + location.hostname + ':8780/'}">&#9636; The broadsheet</a><a href="/classic">&#8617; The old desk</a></div>`;
   window.addEventListener('hashchange', route);
   route();
 }
@@ -489,6 +498,17 @@ function route() {
   document.querySelectorAll('.page').forEach(p => p.classList.toggle('on', p.id === 'p-' + id));
   document.querySelectorAll('#nav a.item').forEach(a => a.classList.toggle('on', a.dataset.page === id));
   $('main').scrollTop = 0;
+  // the live feed only runs while its page is open
+  const lg = $('livegame');
+  if (id === 'live') {
+    if (!lg.src.includes('/game.mjpg')) {
+      lg.onerror = () => { $('livenote').textContent = 'The game feed is not answering (is the game running?). Retrying in 10 s.'; setTimeout(() => { if (location.hash === '#live') lg.src = '/game.mjpg?' + Date.now(); }, 10000); };
+      lg.onload = () => { $('livenote').textContent = ''; };
+      lg.src = '/game.mjpg?' + Date.now();
+    }
+  } else if (lg.src) {
+    lg.removeAttribute('src');
+  }
   if (id === 'overview') drawCharts();
 }
 
