@@ -13,7 +13,7 @@ B="${DFAI_PLUGIN_DIR:-/c/dfbuild/dfhack-5317/build/plugins/external/df-ai}"
 if [ -z "${DFAI_ON_HOST:-}" ] && [ -s "$HERE/remote_host.txt" ]; then
   read -r RH RREPO < "$HERE/remote_host.txt"
   ssh -o BatchMode=yes "$RH" "if not exist \"${RREPO//\//\\}\\build-drop\" mkdir \"${RREPO//\//\\}\\build-drop\"" >/dev/null
-  scp -q "$B/df-ai.plug.dll" "$B/df-ai.plug.pdb" "$RH:$RREPO/build-drop/" && scp -q "$HERE/df-ai-plugin.lua" "$HERE/swap-plugin.sh" "$RH:$RREPO/supervisor/" || { echo "copy to $RH failed"; exit 1; }
+  scp -q "$B"/df-ai.plug.dll "$B"/df-ai.plug.pdb "$B"/dfai_missions.plug.dll "$B"/dfai_portrait.plug.dll "$RH:$RREPO/build-drop/" && scp -q "$HERE/df-ai-plugin.lua" "$HERE/swap-plugin.sh" "$RH:$RREPO/supervisor/" || { echo "copy to $RH failed"; exit 1; }
   exec ssh -o BatchMode=yes "$RH" "set DFAI_ON_HOST=1&& set DFAI_PLUGIN_DIR=$RREPO/build-drop&& \"C:\\Program Files\\Git\\bin\\bash.exe\" \"$RREPO/supervisor/swap-plugin.sh\""
 fi
 SUP="$HERE/logs/supervisor.log"
@@ -25,6 +25,8 @@ touch "$HERE/logs/planned-restart"
 powershell.exe -NoProfile -Command "Stop-Process -Name 'Dwarf Fortress' -Force" >/dev/null 2>&1
 sleep 5
 cp "$B/df-ai.plug.dll" "$B/df-ai.plug.pdb" "$DF/hack/plugins/" || exit 1
+# the helper plugins built alongside (portraits for the broadsheet, missions)
+for p in dfai_missions dfai_portrait; do [ -f "$B/$p.plug.dll" ] && cp "$B/$p.plug.dll" "$DF/hack/plugins/"; done
 # what was installed, for the supervisor's check before each launch
 printf '{"dll": "%s", "dfhack": "%s"}\n' "$(md5sum "$B/df-ai.plug.dll" | cut -c1-32)" "$(md5sum "$DF/hack/dfhack.dll" | cut -c1-32)" > "$HERE/logs/dfai_plugin.json"
 cp "$HERE/df-ai-plugin.lua" "$DF/hack/lua/plugins/df-ai.lua"

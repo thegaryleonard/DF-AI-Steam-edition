@@ -1,5 +1,6 @@
 # Unreleased
 
+- Broadsheet portraits work on DF 53.17 (the portrait plugin knows DF's portrait builder in 53.17). The builder widget retries the plugin every 5 minutes instead of giving up for the session, and swap-plugin.sh installs the two helper plugins with df-ai.
 - Now built for Dwarf Fortress 53.17 / DFHack 53.17-r1 (README, player kit, CI default). The release kit takes the versions from the DFHack tree's tag.
 - Installer and uninstaller refuse unknown parameters (a misspelt -DfDir used to be ignored, so they went for the game Steam reports instead).
 - Overseer's Desk: a Live game page (first in the sidebar) shows the game window, relayed by the desk from the game feed to its allowed clients; it only streams while the page is open. The sidebar's broadsheet link uses the LAN copy when the desk is opened from another machine.

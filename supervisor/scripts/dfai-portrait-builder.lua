@@ -10,17 +10,19 @@
 
 local overlay = require('plugins.overlay')
 
-local plugin
+-- the plugin's functions; when it isn't usable (e.g. a DF version it
+-- doesn't know yet) ask again every 5 minutes, so a fixed plugin is picked
+-- up without reloading this widget
+local plugin, checked = nil, 0
 local function lib()
-    if plugin == nil then
+    if not plugin and os.time() - checked >= 300 then
+        checked = os.time()
         local t = {}
         if pcall(dfhack.open_plugin, t, 'dfai_portrait') and t.status and t.status() == 'ok' then
             plugin = t
-        else
-            plugin = false
         end
     end
-    return plugin or nil
+    return plugin
 end
 
 state = rawget(_G, 'dfai_portrait_state') or {tried = {}, frame = 0, built = 0}
