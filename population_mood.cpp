@@ -660,20 +660,28 @@ void Population::update_moods(color_ostream & out)
                     }
                 }
             }
-            if (!usable && ((ji->item_type == item_type::CLOTH && ji->flags2.bits.silk) ||
+            // Plant and yarn weaves idle the same way: Kel's yarn weave sat
+            // unclaimed 40 days behind 8 other weaves while 4 weavers worked.
+            if (!usable && ((ji->item_type == item_type::CLOTH && (ji->flags2.bits.silk || ji->flags2.bits.yarn || ji->flags2.bits.plant)) ||
                 (ji->item_type == item_type::BLOCKS && (ji->mat_type == 0 || ji->mat_type == -1))))
             {
                 // The supply jobs exist but sit idle behind every worker's
                 // own queue (Bomrek's silk-and-blocks mood: 3 block cuts, a
                 // web collection and 3 weaves all unclaimed at thirst 30000).
                 // Jump them ahead of normal work.
-                bool silk = ji->item_type == item_type::CLOTH;
+                bool cloth = ji->item_type == item_type::CLOTH;
                 for (auto l = world->jobs.list.next; l; l = l->next)
                 {
                     df::job *sj = l->item;
                     if (!sj || sj->flags.bits.do_now)
                         continue;
-                    if (silk ? (sj->job_type == job_type::CollectWebs || (sj->job_type == job_type::WeaveCloth && sj->material_category.bits.silk))
+                    bool weave = sj->job_type == job_type::WeaveCloth &&
+                        (ji->flags2.bits.silk ? sj->material_category.bits.silk :
+                         ji->flags2.bits.yarn ? sj->material_category.bits.yarn : sj->material_category.bits.plant);
+                    bool supply = ji->flags2.bits.silk ? sj->job_type == job_type::CollectWebs :
+                        ji->flags2.bits.yarn ? (sj->job_type == job_type::SpinThread || sj->job_type == job_type::ShearCreature) :
+                        sj->job_type == job_type::ProcessPlants;
+                    if (cloth ? (weave || supply)
                              : (sj->job_type == job_type::ConstructBlocks && sj->mat_type == 0))
                         sj->flags.bits.do_now = true;
                 }
