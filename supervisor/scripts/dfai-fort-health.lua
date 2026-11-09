@@ -155,6 +155,62 @@ local function check_workshops(out)
         #fu > 0 and ('; front jobs waiting on materials: ' .. table.concat(fu, ', ')) or '')
 end
 
+-- Work orders that "have not moved in 10 days" with stone, leather and cloth
+-- in stock: Cloisterbolt (170) had 40 clothier jobs and one clothesmaker,
+-- 24 mason jobs and six masons who were all hauling. Legacy autolabor keeps
+-- a labor at its minimum however long the queue, so when a workshop labor's
+-- unworked jobs pile past 4 per worker, its minimum goes up by 2 (at most a
+-- tenth of the fort); it drops back to the old minimum once the queue clears.
+local QUEUE_LABORS = {Masons = 'MASON', Clothiers = 'CLOTHESMAKER', Leatherworks = 'LEATHER', Loom = 'WEAVER', Carpenters = 'CARPENTER'}
+local function autolabor_minmax(labor, list)
+    local mn, mx = list:match('\n' .. labor .. ':%s+minimum (%d+), maximum (%d+)')
+    return tonumber(mn), tonumber(mx)
+end
+local function check_labor_queues(out)
+    local ok, list = pcall(dfhack.run_command_silent, 'autolabor', 'list')
+    if not ok or type(list) ~= 'string' or not list:find('minimum') then return end
+    list = '\n' .. list
+    local jobs = {}
+    for _, b in ipairs(df.global.world.buildings.other.WORKSHOP_ANY) do
+        local lab = QUEUE_LABORS[df.workshop_type[b.type]]
+        if lab then
+            for _, j in ipairs(b.jobs) do
+                if not dfhack.job.getWorker(j) and not j.flags.suspend then jobs[lab] = (jobs[lab] or 0) + 1 end
+            end
+        end
+    end
+    local cit = citizens()
+    local cap = math.max(2, #cit // 10)
+    -- the old minimums are kept with the fort (autolabor's own settings are)
+    H.labor_base = dfhack.persistent.getSiteData('dfai-fort-health-labor', {})
+    local parts = {}
+    for _, lab in pairs(QUEUE_LABORS) do
+        local mn, mx = autolabor_minmax(lab, list)
+        if mn then
+            local workers = 0
+            for _, u in ipairs(cit) do
+                if u.status.labors[lab] and u.military.squad_id == -1 then workers = workers + 1 end
+            end
+            local j = jobs[lab] or 0
+            local base = H.labor_base[lab]
+            if j > 4 * math.max(workers, 1) and mn < cap then
+                H.labor_base[lab] = base or mn
+                local new = math.min(cap, mn + 2)
+                dfhack.run_command_silent('autolabor', lab, tostring(new), tostring(math.max(mx or new, new)))
+                parts[#parts + 1] = ('%s %d jobs for %d: minimum %d -> %d'):format(lab:lower(), j, workers, mn, new)
+            elseif base and j <= workers and mn > base then
+                dfhack.run_command_silent('autolabor', lab, tostring(base), tostring(mx or base))
+                H.labor_base[lab] = nil
+                parts[#parts + 1] = ('%s queue clear: minimum back to %d'):format(lab:lower(), base)
+            elseif j > 0 then
+                parts[#parts + 1] = ('%s %d jobs for %d'):format(lab:lower(), j, workers)
+            end
+        end
+    end
+    dfhack.persistent.saveSiteData('dfai-fort-health-labor', H.labor_base)
+    if #parts > 0 then out[#out + 1] = 'workshop labor: ' .. table.concat(parts, '; ') end
+end
+
 local function check_army(out)
     local c = citizens()
     local sol, hungry, unarmed = 0, 0, 0
@@ -384,7 +440,7 @@ local function check_water(out)
     if H.water_zone then dfhack.gui.showAnnouncement('Fresh water found! The dwarves may fetch it from the new water source.', COLOR_LIGHTCYAN, true) end
 end
 
-local CHECKS = {check_stone, check_fertilizer, check_coffins, check_workshops, check_army, check_stockpiles, check_drink, check_caravans, check_water}
+local CHECKS = {check_stone, check_fertilizer, check_coffins, check_workshops, check_labor_queues, check_army, check_stockpiles, check_drink, check_caravans, check_water}
 local function step()
     if not dfhack.isMapLoaded() or df.global.gamemode ~= df.game_mode.DWARF then return end
     local out = {}

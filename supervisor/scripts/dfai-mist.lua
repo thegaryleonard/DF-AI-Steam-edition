@@ -261,6 +261,39 @@ local function built(x, y, z, t)
     local b = dfhack.buildings.findAtTile(xyz2pos(x, y, z))
     return b and (not t or b:getType() == t) and b:getBuildStage() >= b:getMaxBuildStage() and b or nil
 end
+-- DF never makes a dig job for a HIDDEN designated tile whose only way in is
+-- a stair below or above it: Cloisterbolt's mist shaft sat 22 days on its
+-- last tile (the top of the stair column, still hidden soil, designated with
+-- no job). A designated wall tile with an open, seen neighbour (the 4 sides,
+-- or straight above/below) is uncovered so the job gets made.
+local function reveal_stuck(cells)
+    local n = 0
+    for _, c in ipairs(cells) do
+        local x, y, z = c[1], c[2], c[3]
+        local f = dfhack.maps.getTileFlags(x, y, z)
+        if f and f.hidden and f.dig ~= df.tile_dig_designation.No and shape(x, y, z) == Sh.WALL then
+            for _, d in ipairs({{1, 0, 0}, {-1, 0, 0}, {0, 1, 0}, {0, -1, 0}, {0, 0, 1}, {0, 0, -1}}) do
+                local nf = dfhack.maps.getTileFlags(x + d[1], y + d[2], z + d[3])
+                local ns = shape(x + d[1], y + d[2], z + d[3])
+                if nf and not nf.hidden and ns and ns ~= Sh.WALL then
+                    f.hidden = false
+                    local b = dfhack.maps.getTileBlock(x, y, z)
+                    if b then b.flags.designated = true end
+                    n = n + 1
+                    break
+                end
+            end
+        end
+    end
+    return n
+end
+local function dig_cells(p)
+    local out = {}
+    for _, c in ipairs(cells_dig(p)) do out[#out + 1] = {c[1], c[2], p.zc} end
+    for z = p.zc + 1, p.zs - 1 do out[#out + 1] = {p.stair[1], p.stair[2], z} end
+    return out
+end
+
 local function dug(p)
     local n = 0
     for _, c in ipairs(cells_dig(p)) do if not open(c[1], c[2], p.zc) then n = n + 1 end end
@@ -324,6 +357,7 @@ local function step(s)
                 place('build', 'tavernstair', {{p.ring.x + STAIR[1], p.ring.y + STAIR[2], 'Cu'}}, p.ring.z)
                 for z = p.zc + 1, p.zs - 1 do place('dig', 'stair', {{p.stair[1], p.stair[2], z == p.zs - 1 and 'j' or 'i'}}, z) end
             end
+            reveal_stuck(dig_cells(p))
             return ('mist generator: digging the pump chamber over the tavern, the tunnel and the stair, %d tiles left'):format(n)
         end
         p.phase, s.tries, tries = 'shaft', 1, 0
