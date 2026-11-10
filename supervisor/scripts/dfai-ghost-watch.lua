@@ -79,8 +79,10 @@ local function queue_slab(hfid)
 end
 
 -- every EngraveSlab job: do now, and to the front of its workshop's queue
--- (behind only another slab job). Returns how many wait for an engraver.
-function prioritise_slabs()
+-- (behind only another slab job; a GHOST's slab goes in front of those too).
+-- Returns how many wait for an engraver.
+function prioritise_slabs(ghosts)
+    ghosts = ghosts or {}
     local waiting = 0
     local l = df.global.world.jobs.list.next
     while l do
@@ -94,7 +96,9 @@ function prioritise_slabs()
                 for i, bj in ipairs(b.jobs) do if bj == j then idx = i break end end
                 -- the front job may be worked: never move a job past a worked one
                 local front = b.jobs[0]
-                if idx and idx > 0 and front.job_type ~= df.job_type.EngraveSlab and not dfhack.job.getWorker(front) then
+                local jump = front.job_type ~= df.job_type.EngraveSlab or
+                    (ghosts[j.specdata.hist_figure_id] and not ghosts[front.specdata.hist_figure_id])
+                if idx and idx > 0 and jump and not dfhack.job.getWorker(front) then
                     b.jobs:erase(idx)
                     b.jobs:insert(0, j)
                 end
@@ -167,7 +171,9 @@ local function step()
     -- marked do-now and moved to the front of its workshop's queue (a shop
     -- only posts its front job), and autolabor is asked for more engravers
     -- while slab jobs wait; the old minimum comes back when they're done
-    local waiting = prioritise_slabs()
+    local ghost_hf = {}
+    for _, r in ipairs(rows) do if r.ghost then ghost_hf[r.hf] = true end end
+    local waiting = prioritise_slabs(ghost_hf)
     engravers(waiting)
     -- coffins that nobody can be buried in (no tomb zone)
     pcall(dfhack.run_command_silent, 'burial')
