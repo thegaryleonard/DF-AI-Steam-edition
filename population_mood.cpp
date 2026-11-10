@@ -533,6 +533,7 @@ void Population::update_moods(color_ostream & out)
                 // (nothing ever ordered weaving).
                 auto flag = ji->flags2.bits.plant ? material_flags::THREAD_PLANT : ji->flags2.bits.silk ? material_flags::SILK : material_flags::YARN;
                 int32_t thread = 0, webs = 0;
+                std::vector<df::item *> chest_thread;
                 for (auto item : world->items.other[items_other_id::THREAD])
                 {
                     auto & f = item->flags.bits;
@@ -554,9 +555,34 @@ void Population::update_moods(color_ostream & out)
                         if (Maps::canWalkBetween(u->pos, Items::getPosition(item)))
                             webs++;
                     }
-                    else
+                    // Thread in a chest (the hospital's supplies) is never
+                    // woven: Avuz's silk weave order sat a month on "4 thread
+                    // available", all four in hospital chests.
+                    else if (auto hb = Items::getHolderBuilding(item))
+                    {
+                        if (hb->getType() == building_type::Box)
+                            chest_thread.push_back(item);
+                    }
+                    else if (!f.foreign)
                         thread++;
                 }
+                // No loose thread: take enough out of the chests for the weave.
+                int32_t want_pieces = std::max(1, (ji->quantity + 9999) / 10000);
+                int32_t taken = 0;
+                for (auto item : chest_thread)
+                {
+                    if (thread >= want_pieces)
+                        break;
+                    df::coord pos = Items::getPosition(item);
+                    if (pos.isValid() && Items::moveToGround(item, pos))
+                    {
+                        item->flags.bits.foreign = false;
+                        thread++;
+                        taken++;
+                    }
+                }
+                if (taken)
+                    ai.debug(out, stl_sprintf("[MOOD] took %d thread out of a chest to weave %s for %s", taken, describe_job_item(ji).c_str(), who.c_str()));
                 std::ostringstream why;
                 df::manager_order_template tmpl;
                 if (thread > 0)
