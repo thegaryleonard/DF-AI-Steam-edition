@@ -1013,6 +1013,35 @@ void Population::update_moods(color_ostream & out)
                     usable++;
             }
             if (!usable && ji->item_type == item_type::BLOCKS && (ji->mat_type == 0 || ji->mat_type == -1) &&
+                mood_warned.count(who + "|blocks|" + std::to_string(idx)))
+            {
+                // Every pass after the order went in: the order's jobs can sit
+                // at the back of masons' queues behind slabs, coffins and
+                // chests nobody works (Udib waited three weeks at hunger 54000
+                // with three unworked ConstructBlocks jobs). Move them to the
+                // front; masons took them within two minutes.
+                int moved = 0;
+                for (auto jl = world->jobs.list.next; jl; jl = jl->next)
+                {
+                    df::job *bj = jl->item;
+                    if (!bj || bj->job_type != job_type::ConstructBlocks || Job::getWorker(bj))
+                        continue;
+                    bj->flags.bits.do_now = 1;
+                    bj->flags.bits.suspend = 0;
+                    df::building *ws = Job::getHolder(bj);
+                    if (!ws || ws->jobs.empty() || ws->jobs[0] == bj)
+                        continue;
+                    auto it = std::find(ws->jobs.begin(), ws->jobs.end(), bj);
+                    if (it == ws->jobs.end())
+                        continue;
+                    ws->jobs.erase(it);
+                    ws->jobs.insert(ws->jobs.begin(), bj);
+                    moved++;
+                }
+                if (moved)
+                    ai.debug(out, stl_sprintf("[MOOD] %s needs rock blocks: moved %d ConstructBlocks job(s) to the front of their mason's queue", who.c_str(), moved));
+            }
+            if (!usable && ji->item_type == item_type::BLOCKS && (ji->mat_type == 0 || ji->mat_type == -1) &&
                 holder && mood_urgent(u, MOOD_CHEAT_THIRST))
             {
                 // Last resort: the mason's order never turned into a job and
