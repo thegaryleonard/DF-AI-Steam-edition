@@ -19,6 +19,9 @@
 #include "df/workquota_frequency_type.h"
 #include "df/job.h"
 #include "df/job_list_link.h"
+#include "df/job_item.h"
+#include "df/job_item_ref.h"
+#include "df/mood_type.h"
 
 #include <deque>
 
@@ -367,6 +370,37 @@ void Stocks::update_ingots(color_ostream & out)
     updating_ingots = false;
 }
 
+// A strange mood waiting on a bone/shell/horn-type body part (item type NONE
+// or CORPSEPIECE with a body_part flag): Minkot's possessed carpenter mood sat
+// a week at thirst 37000 while this pass re-dumped ~520 animal bones every
+// half day and the mood pass released them again, so none stayed fetchable.
+static bool mood_wants_body_part()
+{
+    for (auto u : world->units.active)
+    {
+        if (u->mood < mood_type::Fey || u->mood > mood_type::Fell)
+            continue;
+        auto job = u->job.current_job;
+        if (!job)
+            continue;
+        for (size_t idx = 0; idx < job->job_items.elements.size(); idx++)
+        {
+            auto ji = job->job_items.elements[idx];
+            if (ji->item_type != item_type::NONE && ji->item_type != item_type::CORPSEPIECE && ji->item_type != item_type::CORPSE)
+                continue;
+            if (!ji->flags2.bits.body_part && !ji->flags2.bits.bone && !ji->flags2.bits.shell && !ji->flags2.bits.horn && !ji->flags2.bits.pearl && !ji->flags2.bits.ivory_tooth)
+                continue;
+            bool have = false;
+            for (auto ref : job->items)
+                if (ref && ref->job_item_idx == int32_t(idx))
+                    have = true;
+            if (!have)
+                return true;
+        }
+    }
+    return false;
+}
+
 void Stocks::update_corpses(color_ostream & out)
 {
     auto r = ai.find_room(room_type::garbagedump);
@@ -387,8 +421,11 @@ void Stocks::update_corpses(color_ostream & out)
         t = r->min + df::coord(1, 0, -1);
     }
 
+    bool keep_parts = mood_wants_body_part();
     for (auto i : world->items.other[items_other_id::ANY_CORPSE])
     {
+        if (keep_parts && i->getType() == item_type::CORPSEPIECE && !i->flags.bits.dump)
+            continue;
         int16_t race = -1;
         int16_t caste = -1;
         df::historical_figure *hf = nullptr;
