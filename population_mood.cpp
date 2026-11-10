@@ -525,6 +525,30 @@ void Population::update_moods(color_ostream & out)
             // the dwarf (Lor "Equaledwire" waited on 5981 webs, none
             // reachable, in sealed caverns).
             bool no_silk_source = false;
+            if (!usable && ji->item_type == item_type::CLOTH && (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn))
+            {
+                // The weave ordered below can vanish (Imush's silk weave was
+                // cancelled for "unused collected silk thread" once the thread
+                // taken out of the hospital chest went back in), and the
+                // one-shot key then blocked any new order for a month while
+                // the mood waited. With no weave of that kind queued or
+                // ordered, run the block again.
+                bool weave_pending = false;
+                auto weave_kind = [&](const df::job_material_category & mc) -> bool
+                {
+                    return ji->flags2.bits.silk ? bool(mc.bits.silk) : ji->flags2.bits.yarn ? bool(mc.bits.yarn) : bool(mc.bits.plant);
+                };
+                for (auto l = world->jobs.list.next; l && !weave_pending; l = l->next)
+                    weave_pending = l->item && l->item->job_type == job_type::WeaveCloth && weave_kind(l->item->material_category);
+                for (auto o : world->manager_orders.all)
+                {
+                    if (weave_pending)
+                        break;
+                    weave_pending = o && o->job_type == job_type::WeaveCloth && o->amount_left > 0 && weave_kind(o->material_category);
+                }
+                if (!weave_pending)
+                    mood_warned.erase(who + "|cloth|" + std::to_string(idx));
+            }
             if (!usable && ji->item_type == item_type::CLOTH && (ji->flags2.bits.plant || ji->flags2.bits.silk || ji->flags2.bits.yarn) &&
                 mood_warned.insert(who + "|cloth|" + std::to_string(idx)).second)
             {
