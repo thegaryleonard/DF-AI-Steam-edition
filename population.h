@@ -127,6 +127,12 @@ public:
 
     bool military_random_squad_attack_unit(color_ostream & out, df::unit *u, const std::string & reason);
     bool military_all_squads_attack_unit(color_ostream & out, df::unit *u, const std::string & reason);
+    // forgotten beasts, titans, megabeasts, unique demons: the crossbow
+    // squads shoot it, the melee squads stay home until it is badly wounded
+    // (or nobody can shoot); military.cpp tag_enemies
+    bool military_great_beast(color_ostream & out, df::unit *u, const std::string & reason);
+    static bool beast_badly_wounded(df::unit *u);
+    std::map<int32_t, int> beast_melee; // beast id -> 1 melee holding, 2 melee sent (log once per change)
     bool military_squad_attack_unit(color_ostream & out, df::squad *squad, df::unit *u, const std::string & reason);
     bool military_cancel_attack_order(color_ostream & out, df::unit *u, const std::string & reason);
     bool military_cancel_attack_order(color_ostream & out, df::squad *squad, df::unit *u, const std::string & reason);

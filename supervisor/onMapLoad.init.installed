@@ -28,6 +28,7 @@ autolabor BUTCHER 4 8
 dfai-camera-lock start
 dfai-instruments start
 dfai-archer-posts start
+dfai-tantrum-guard start
 
 dfai-cavern-seal start
 dfai-armory start

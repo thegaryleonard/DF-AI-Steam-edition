@@ -38,6 +38,7 @@
 #include "df/unit_soul.h"
 #include "df/unit_skill.h"
 #include "df/squad_order_kill_listst.h"
+#include "df/unit_wound.h"
 #include "df/squad_barracks_infost.h"
 #include "df/squad_position_equipmentst.h"
 #include "df/squad_order_movest.h"
@@ -1784,7 +1785,13 @@ void Population::update_military(color_ostream & out)
                             noble_stays_out = true;
                     }
                 }
-                if (!Units::isChild(u) && !Units::isBaby(u) && u->mood == mood_type::None && !noble_stays_out &&
+                // nobody in a breakdown: a tantrum, rage, despair or stupor
+                // (dfai-tantrum-guard takes such soldiers OUT of their squads;
+                // this keeps them from being drafted back until they calm down)
+                auto sm = u->counters.soldier_mood;
+                bool breakdown = sm == soldier_mood_type::Tantrum || sm == soldier_mood_type::Enraged ||
+                    sm == soldier_mood_type::Depressed || sm == soldier_mood_type::Oblivious;
+                if (!Units::isChild(u) && !Units::isBaby(u) && u->mood == mood_type::None && !noble_stays_out && !breakdown &&
                     !u->status.labors[unit_labor::MINE] && !u->status.labors[unit_labor::CUTWOOD] && !u->status.labors[unit_labor::HUNT] &&
                     Units::isSane(u) && !is_doctor(u) && !carries_baby(u))
                 {
@@ -2391,6 +2398,88 @@ bool Population::military_all_squads_attack_unit(color_ostream & out, df::unit *
         // squads abroad on a mission keep their own orders
         if (sq && sq->assigned_army_controller_id == -1 && military_squad_attack_unit(out, sq, u, reason))
             any = true;
+    }
+    return any;
+}
+
+// A beast is "badly wounded" once it has lost 40% of its blood or 3+ body
+// parts, or lies unconscious or webbed. The wound count only counts for
+// beasts with no blood (stone, metal, ash...): Cloisterbolt's Dush Ostra
+// carried 9 old scratches from the caverns at full blood.
+bool Population::beast_badly_wounded(df::unit *u)
+{
+    if (!u)
+        return false;
+    if (u->counters.unconscious > 0 || u->counters.webbed > 0)
+        return true;
+    int32_t severed = 0;
+    for (auto w : u->body.wounds)
+        if (w && w->flags.bits.severed_part)
+            severed++;
+    if (severed >= 3)
+        return true;
+    if (u->body.blood_max > 0)
+        return int64_t(u->body.blood_count) * 100 < int64_t(u->body.blood_max) * 60;
+    return u->body.wounds.size() >= 8;
+}
+
+// Forgotten beasts at Cloisterbolt killed ~24 dwarves (one killed 13
+// soldiers in 5 game days): every squad, melee first, walked into it one at
+// a time (webs, dust, flinging). User: the archers shoot it from safety, the
+// melee squads stay behind closed doors until it's badly wounded. So the
+// squads with ammunition get the kill order (dfai-archer-posts puts them on
+// a post with a clear line of fire when it's near the fort); melee squads
+// get it only once the beast is badly wounded, or when no armed squad with
+// ammunition is at home (then nobody else can fight it), and any kill order
+// they already hold on it is withdrawn while they wait.
+bool Population::military_great_beast(color_ostream & out, df::unit *u, const std::string & reason)
+{
+    if (!military_target_reachable(u))
+        return false;
+    bool any = false, shooters = false;
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
+    {
+        auto sq = df::squad::find(sqid);
+        if (sq && sq->assigned_army_controller_id == -1 && !sq->ammo.ammunition.empty() && squad_armed(sq))
+        {
+            shooters = true;
+            if (military_squad_attack_unit(out, sq, u, reason + " (archers shoot it)"))
+                any = true;
+        }
+    }
+    bool wounded = beast_badly_wounded(u);
+    bool send_melee = wounded || !shooters;
+    int & st = beast_melee[u->id];
+    if (send_melee && st != 2)
+    {
+        ai.debug(out, "[MILITARY] " + AI::describe_unit(u) + (wounded ? " is badly wounded: melee squads go in" : ": no squad with ammunition at home, melee squads go in"));
+        st = 2;
+    }
+    else if (!send_melee && st != 1)
+    {
+        ai.debug(out, "[MILITARY] " + AI::describe_unit(u) + ": crossbow squads shoot it; melee squads hold at home until it is badly wounded");
+        st = 1;
+    }
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
+    {
+        auto sq = df::squad::find(sqid);
+        if (!sq || sq->assigned_army_controller_id != -1 || !sq->ammo.ammunition.empty())
+            continue;
+        if (send_melee)
+        {
+            if (military_squad_attack_unit(out, sq, u, reason + (wounded ? " (badly wounded: melee in)" : " (no archers: melee in)")))
+                any = true;
+        }
+        else
+        {
+            bool holds = false;
+            for (auto o : sq->orders)
+                if (auto k = strict_virtual_cast<df::squad_order_kill_listst>(o))
+                    if (std::find(k->units.begin(), k->units.end(), u->id) != k->units.end())
+                        holds = true;
+            if (holds && military_cancel_attack_order(out, sq, u, "great beast: melee holds until it is badly wounded"))
+                any = true;
+        }
     }
     return any;
 }

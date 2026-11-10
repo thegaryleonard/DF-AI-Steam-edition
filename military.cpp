@@ -352,23 +352,23 @@ bool AI::tag_enemies(color_ostream & out)
         {
             if (race && race->flags.is_set(creature_raw_flags::HAS_ANY_MEGABEAST))
             {
-                found = pop.military_all_squads_attack_unit(out, u, "primary antagonist: megabeast") || found;
+                found = pop.military_great_beast(out, u, "primary antagonist: megabeast") || found;
             }
             else if (race && race->flags.is_set(creature_raw_flags::HAS_ANY_SEMIMEGABEAST))
             {
-                found = pop.military_all_squads_attack_unit(out, u, "primary antagonist: semi-megabeast") || found;
+                found = pop.military_great_beast(out, u, "primary antagonist: semi-megabeast") || found;
             }
             else if (race && race->flags.is_set(creature_raw_flags::HAS_ANY_FEATURE_BEAST))
             {
-                found = pop.military_all_squads_attack_unit(out, u, "primary antagonist: forgotten beast") || found;
+                found = pop.military_great_beast(out, u, "primary antagonist: forgotten beast") || found;
             }
             else if (race && race->flags.is_set(creature_raw_flags::HAS_ANY_TITAN))
             {
-                found = pop.military_all_squads_attack_unit(out, u, "primary antagonist: titan") || found;
+                found = pop.military_great_beast(out, u, "primary antagonist: titan") || found;
             }
             else if (race && race->flags.is_set(creature_raw_flags::HAS_ANY_UNIQUE_DEMON))
             {
-                found = pop.military_all_squads_attack_unit(out, u, "primary antagonist: demon") || found;
+                found = pop.military_great_beast(out, u, "primary antagonist: demon") || found;
             }
             else if (race && race->flags.is_set(creature_raw_flags::HAS_ANY_DEMON))
             {
@@ -462,6 +462,31 @@ void AI::describe_threats(std::ostream & os)
                     ranged++;
             }
     os << stl_sprintf("squads at home: %d (with ammo: %d)\n", home, ranged);
+    // great beasts (hidden ones too: a dry run of what happens when it shows)
+    int32_t armed_ranged = 0;
+    for (auto sqid : plotinfo->main.fortress_entity->squads)
+        if (auto sq = df::squad::find(sqid))
+            if (sq->assigned_army_controller_id == -1 && !sq->ammo.ammunition.empty() && pop.squad_armed(sq))
+                armed_ranged++;
+    for (auto u : world->units.active)
+    {
+        if (Units::isDead(u) || Units::isOwnCiv(u) || u->flags1.bits.caged || u->flags1.bits.chained)
+            continue;
+        auto race = df::creature_raw::find(u->race);
+        if (!race || !(race->flags.is_set(creature_raw_flags::HAS_ANY_MEGABEAST) || race->flags.is_set(creature_raw_flags::HAS_ANY_SEMIMEGABEAST) ||
+            race->flags.is_set(creature_raw_flags::HAS_ANY_FEATURE_BEAST) || race->flags.is_set(creature_raw_flags::HAS_ANY_TITAN) ||
+            race->flags.is_set(creature_raw_flags::HAS_ANY_UNIQUE_DEMON)))
+            continue;
+        df::coord p = Units::getPosition(u);
+        bool hidden = Maps::getTileDesignation(p) && Maps::getTileDesignation(p)->bits.hidden;
+        bool wounded = Population::beast_badly_wounded(u);
+        bool reach = pop.military_target_reachable(u);
+        os << "GREAT BEAST " << AI::describe_unit(u) << stl_sprintf(" at %d,%d,%d%s: blood %d/%d, %d wounds; ", p.x, p.y, p.z, hidden ? " (hidden)" : "",
+            u->body.blood_count, u->body.blood_max, int32_t(u->body.wounds.size()))
+           << (!reach ? "not reachable: no orders" :
+               stl_sprintf("%d crossbow squads shoot it; melee squads ", armed_ranged) + std::string((wounded || armed_ranged == 0) ? (wounded ? "go in (badly wounded)" : "go in (no archers)") : "hold at home until it is badly wounded"))
+           << "\n";
+    }
     int32_t n = 0;
     for (auto u : world->units.active)
     {
