@@ -38,7 +38,16 @@ local RING = {{4, 2, 'Msh'}, {4, 3, 'Mg'}, {2, 4, 'Msm'}, {3, 4, 'Mg'}, {4, 4, '
 local HOLES = {{2, 2}, {5, 2}, {2, 5}, {5, 5}}       -- holes in the chamber floor, statues under them
 local CHAMBER = {1, 1, 7, 6}                         -- dug out at z+1 (local x1, y1, x2, y2)
 local STAIR = {1, 1}                                 -- tavern up-stair / chamber down-stair
-local OUT = {7, 4}                                   -- where the power comes in (next to the ring's gear at 6,4)
+local OUT = {7, 4}                                   -- where the power comes in from the east (next to the ring's gear at 6,4)
+local OUT_W = {0, 4}                                 -- ...or from the west: an extra gear at 1,4 beside the pump at 2,4
+local GEAR_W = {1, 4}
+-- the drive axle must never cross the ring: Cloisterbolt's shaft lay west
+-- of the ring, the tunnel ran west from the east inlet straight along the
+-- ring's middle row, one long axle took the pump and gear tiles, two pumps
+-- were never built and the other two never joined the windmills (status
+-- said 'waiting for wind' while the windmills made 80 power)
+local function inlet(p) if p.inlet == 'W' then return OUT_W else return OUT end end
+local function in_ring(r, x, y) return x >= r.x and x <= r.x + 7 and y >= r.y and y <= r.y + 7 end
 local POND = {5, 2}
 local PRIME_WATER = 21
 local MAX_TUNNEL = 45
@@ -128,14 +137,14 @@ end
 
 -- the tunnel at level z from the ring's power inlet to the shaft foot: an L
 -- (either way round) through solid rock; tiles in order, or nil
-local function tunnel(ax, ay, bx, by, z)
+local function tunnel(ax, ay, bx, by, z, ring)
     for _, xfirst in ipairs({true, false}) do
         local t, ok = {{ax, ay}}, rock(ax, ay, z)
         local x, y = ax, ay
         local function go(tx, ty)
             while ok and (x ~= tx or y ~= ty) do
                 if x ~= tx then x = x + (tx > x and 1 or -1) else y = y + (ty > y and 1 or -1) end
-                if not rock(x, y, z) then ok = false end
+                if not rock(x, y, z) or (ring and in_ring(ring, x, y)) then ok = false end
                 t[#t + 1] = {x, y}
             end
         end
@@ -151,12 +160,15 @@ function find_site(keep_ring)
     if not e then return nil, 'no fort entrance known yet' end
     local res = S.reserved()
     local mx, my = dfhack.maps.getTileSize()
-    local ax, ay = r.x + OUT[1], r.y + OUT[2]
     local zc = r.z + 1
     local best
     for sx = math.max(4, e.x - 25), math.min(mx - 5, e.x + 25) do
         for sy = math.max(4, e.y - 25), math.min(my - 5, e.y + 25) do
             local zs = surface_at(sx, sy, zc + 3, e.z + 8)
+            -- power comes in on the ring's side facing the shaft
+            local side = sx < r.x + 4 and 'W' or 'E'
+            local io = side == 'W' and OUT_W or OUT
+            local ax, ay = r.x + io[1], r.y + io[2]
             local dist = zs and (math.abs(sx - ax) + math.abs(sy - ay) + math.abs(sx - e.x) + math.abs(sy - e.y))
             if zs and (not best or dist < best.dist) then
                 -- the shaft and its stair through solid rock, all the way down
@@ -169,7 +181,7 @@ function find_site(keep_ring)
                         for z = zc, zs - 1 do if not rock(sx + d[1], sy + d[2], z) then ok = false break end end
                         if ok then stair = {sx + d[1], sy + d[2]} break end
                     end
-                    local t = stair and tunnel(ax, ay, sx, sy, zc)
+                    local t = stair and tunnel(ax, ay, sx, sy, zc, r)
                     if t then
                         for _, p in ipairs(t) do if p[1] == stair[1] and p[2] == stair[2] then t = nil break end end
                     end
@@ -185,7 +197,7 @@ function find_site(keep_ring)
                                 local mills, gears = row(sx, sy, d, n)
                                 local ok, bb = row_ok(mills, gears, zs, res)
                                 if ok then
-                                    best = {need = need, dist = dist, ring = r, zc = zc, zs = zs, shaft = {sx, sy}, stair = stair, tunnel = t,
+                                    best = {need = need + (side == 'W' and 1 or 0), inlet = side, dist = dist, ring = r, zc = zc, zs = zs, shaft = {sx, sy}, stair = stair, tunnel = t,
                                         mills = mills, gears = gears, box = {x1 = bb.x1, y1 = bb.y1, x2 = bb.x2, y2 = bb.y2, z = zs}}
                                     placed = true
                                     break
@@ -233,7 +245,8 @@ local function cells_dig(p)
             out[#out + 1] = {x, y, (x == r.x + STAIR[1] and y == r.y + STAIR[2]) and 'j' or 'd'}
         end
     end
-    for i, t in ipairs(p.tunnel) do if i > 1 then out[#out + 1] = {t[1], t[2], 'd'} end end
+    -- the east inlet is a chamber tile; the west one is the first tunnel tile
+    for i, t in ipairs(p.tunnel) do if i > 1 or p.inlet == 'W' then out[#out + 1] = {t[1], t[2], 'd'} end end
     out[#out + 1] = {p.stair[1], p.stair[2], 'u'}
     return out
 end
@@ -247,9 +260,12 @@ end
 local function cells_machines(p)
     local r, out = p.ring, {}
     for _, m in ipairs(RING) do out[#out + 1] = {r.x + m[1], r.y + m[2], m[3]} end
+    if p.inlet == 'W' then out[#out + 1] = {r.x + GEAR_W[1], r.y + GEAR_W[2], 'Mg'} end
     local t = p.tunnel
+    local io = inlet(p)
     for i, c in ipairs(t) do
-        local prev = i == 1 and {r.x + OUT[1] - 1, r.y + OUT[2]} or t[i - 1]   -- the ring's gear is west of the inlet
+        -- the ring's gear is beside the inlet: west of the east one, east of the west one
+        local prev = i == 1 and {r.x + io[1] + (p.inlet == 'W' and 1 or -1), r.y + io[2]} or t[i - 1]
         out[#out + 1] = {c[1], c[2], axle_key(prev, c, t[i + 1])}
     end
     return out
@@ -260,6 +276,57 @@ local function open(x, y, z) local s = shape(x, y, z) return s and s ~= Sh.WALL 
 local function built(x, y, z, t)
     local b = dfhack.buildings.findAtTile(xyz2pos(x, y, z))
     return b and (not t or b:getType() == t) and b:getBuildStage() >= b:getMaxBuildStage() and b or nil
+end
+-- the building a machine cell's quickfort key makes (any building on the
+-- tile used to count, so an axle lying over a pump tile passed as the pump)
+local function key_type(k)
+    if k == 'Mg' then return df.building_type.GearAssembly end
+    if k == 'Mh' or k == 'Mhs' then return df.building_type.AxleHorizontal end
+    if k:sub(1, 2) == 'Ms' then return df.building_type.ScrewPump end
+end
+local function cell_built(c, z) return built(c[1], c[2], z, key_type(c[3])) end
+-- the windmills' own power (their machine), and whether the pumps share it
+local function mill_power(p)
+    local b = dfhack.buildings.findAtTile(xyz2pos(p.mills[1][1], p.mills[1][2], p.zs))
+    if not (b and b:getType() == df.building_type.Windmill) then return 0, nil end
+    local m = df.machine.find(b.machine.machine_id)
+    return m and m.cur_power or 0, m and m.id
+end
+-- an older plan whose tunnel runs through the ring: re-route it in through
+-- the side facing the shaft, take down whatever stands on the ring's machine
+-- tiles that isn't the ring's own part, and go back to building machines
+local function repair_inlet(p, dry)
+    local r = p.ring
+    local crosses = false
+    for i, c in ipairs(p.tunnel) do if i > 1 and in_ring(r, c[1], c[2]) then crosses = true break end end
+    if not crosses then return false end
+    local side = p.shaft[1] < r.x + 4 and 'W' or 'E'
+    local io = side == 'W' and OUT_W or OUT
+    local t = {{r.x + io[1], r.y + io[2]}}
+    for _, c in ipairs(p.tunnel) do if not in_ring(r, c[1], c[2]) then t[#t + 1] = {c[1], c[2]} end end
+    if dry then p = {ring = r, inlet = side, tunnel = t, zc = p.zc} else p.inlet, p.tunnel = side, t end
+    local drop = {}
+    for _, c in ipairs(cells_machines(p)) do
+        if in_ring(r, c[1], c[2]) then
+            local b = dfhack.buildings.findAtTile(xyz2pos(c[1], c[2], p.zc))
+            if b and b:getType() ~= key_type(c[3]) then drop[b.id] = true end
+        end
+    end
+    if dry then
+        local d, tt = {}, {}
+        for id in pairs(drop) do local b = df.building.find(id) d[#d + 1] = ('%s#%d %d,%d..%d,%d'):format(df.building_type[b:getType()], id, b.x1, b.y1, b.x2, b.y2) end
+        for _, c in ipairs(cells_machines(p)) do tt[#tt + 1] = ('%d,%d:%s'):format(c[1], c[2], c[3]) end
+        return ('inlet %s; machine cells %s; take down %s'):format(side, table.concat(tt, ' '), table.concat(d, ', '))
+    end
+    for id in pairs(drop) do local b = df.building.find(id) if b then dfhack.buildings.deconstruct(b) end end
+    -- parts for the cells still missing (pumps need a corkscrew and a pipe each)
+    local miss = {}
+    for _, c in ipairs(cells_machines(p)) do if not cell_built(c, p.zc) then miss[#miss + 1] = c end end
+    place('build', 'machines', miss, p.zc, 'orders')
+    p.phase = 'machines'
+    p.repaired = (p.repaired or 0) + 1
+    S.builders(true, KEY)
+    return true
 end
 -- DF never makes a dig job for a HIDDEN designated tile whose only way in is
 -- a stair below or above it: Cloisterbolt's mist shaft sat 22 days on its
@@ -344,6 +411,10 @@ end
 
 local function step(s)
     local p = s.plan
+    if p.phase ~= 'dig' and p.phase ~= 'shaft' and repair_inlet(p) then
+        s.tries = 0
+        return 'mist generator: the drive axle crossed the pump ring; re-routing it in from the shaft side and rebuilding the ring'
+    end
     local tries = s.tries or 0
     s.tries = tries + 1
     if not (pcall(function() return reqscript('dfai-yardwatch').holding() end) and reqscript('dfai-yardwatch').holding()) then dfhack.run_command_silent('unsuspend') end   -- not while the yard watch holds outdoor work
@@ -395,7 +466,7 @@ local function step(s)
     if p.phase == 'machines' then
         if tries % 3 == 0 then place('build', 'machines', cells_machines(p), p.zc) end
         local left = 0
-        for _, c in ipairs(cells_machines(p)) do if not built(c[1], c[2], p.zc) then left = left + 1 end end
+        for _, c in ipairs(cells_machines(p)) do if not cell_built(c, p.zc) then left = left + 1 end end
         -- vertical axles from the bottom up: only the lowest missing one, on the one below
         local vleft = 0
         for z = p.zc + 1, p.zs - 1 do
@@ -428,7 +499,14 @@ local function step(s)
     if p.phase == 'ready' then
         local cur, need = power(p)
         if cur > 0 and cur >= need then p.phase = 'priming'
-        else return ('mist generator: built, waiting for wind (power %d of %d)'):format(cur, need) end
+        else
+            -- say what's really wrong: no wind, or a break in the drive train
+            local mp = mill_power(p)
+            if mp > 0 then
+                return ('mist generator: built, but the pumps are not joined to the windmills (windmills make %d power, the pumps get %d of %d): a break in the axles or gears'):format(mp, cur, need)
+            end
+            return ('mist generator: built, the windmills are still (no wind right now; pumps need %d power)'):format(need)
+        end
     end
     if p.phase == 'priming' then
         local w = water_inside(p)
@@ -512,12 +590,17 @@ elseif cmd == 'replan' then
         tick()
     end)
     print('mist generator: replanning')
+elseif cmd == 'repair-check' then
+    -- dry run of the drive-axle repair for the current plan
+    local p = (load() or {}).plan
+    if not p then print('no plan') return end
+    print(repair_inlet(p, true) or 'the tunnel does not cross the ring: nothing to repair')
 elseif cmd == 'missing' then
     -- which machine cells aren't built yet, and what's on each tile
     local p = (load() or {}).plan
     if not p or not p.ring then print('no plan') return end
     for _, c in ipairs(cells_machines(p)) do
-        if not built(c[1], c[2], p.zc) then
+        if not cell_built(c, p.zc) then
             local b = dfhack.buildings.findAtTile(xyz2pos(c[1], c[2], p.zc))
             local a = df.tiletype.attrs[dfhack.maps.getTileType(c[1], c[2], p.zc)]
             print(('%s at %d,%d,%d: tile %s/%s, building %s'):format(c[3], c[1], c[2], p.zc, df.tiletype_shape[a.shape], df.tiletype_material[a.material],

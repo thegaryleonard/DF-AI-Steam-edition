@@ -213,11 +213,24 @@ local function step(s)
             return b and b:getType() == df.building_type.Coffin and b:getBuildStage() >= b:getMaxBuildStage()
         end)
         s.last = ('furnishing the new catacomb wing: %d of 18 coffins'):format(placed)
-        if placed >= 18 then
+        -- quickfort places a coffin only where a free coffin exists at that
+        -- moment: Cloisterbolt's wing sat at 7 of 18 for good with 102 coffins
+        -- in stock, because the build ran once. Re-run it now and then
+        -- (built and placed tiles are skipped), and zone the wing once no
+        -- coffin has been added for a few passes even if some tiles can't
+        -- take one.
+        w.passes = (w.passes or 0) + 1
+        if placed ~= w.placed then w.placed, w.since = placed, w.passes end
+        if w.passes % 5 == 0 then qf(w, 'build') end
+        if placed >= 18 or (placed > 0 and w.passes - (w.since or 0) >= 30) then
             w.phase = 'zone'
         end
     elseif w.phase == 'zone' then
-        qf(w, 'zone')
+        -- one tomb per coffin: DFHack's burial zones only coffins that have
+        -- no zone yet. (A quickfort zone pass on top of coffins that burial
+        -- had already zoned made two tombs on one coffin, and neither was
+        -- ever filled: 4 such pairs at Cloisterbolt.)
+        dfhack.run_command_silent('burial')
         -- quickfort's tombs refuse citizens by default: open them to the dead
         local x1, y1, x2, y2 = table.unpack(w.box)
         for _, t in ipairs(df.global.world.buildings.other.ZONE_TOMB) do
@@ -268,12 +281,60 @@ local function census()
     return {unburied = unburied, reachable = reachable, free = free, body_ok = body_ok, dead = dead}
 end
 
+-- Two tomb zones on one coffin: DF assigns both and fills neither (four
+-- coffins at Cloisterbolt stood empty this way while the dead lay on the
+-- corpse pile). Keep one zone per coffin - the one assigned to a dead unit
+-- whose body can be carried in, else a dead unit, else any - and remove the
+-- rest (a removed zone is what the zone menu's remove does).
+function dedupe_tombs(fg)
+    local by = {}
+    for _, t in ipairs(df.global.world.buildings.other.ZONE_TOMB) do
+        for _, b in ipairs(t.contained_buildings or {}) do
+            if b:getType() == df.building_type.Coffin then
+                by[b.id] = by[b.id] or {}
+                table.insert(by[b.id], t)
+            end
+        end
+    end
+    local body_reach = {}
+    for _, i in ipairs(df.global.world.items.other.CORPSE) do
+        if not i.flags.in_building then
+            local x, y, z = dfhack.items.getPosition(i)
+            if x and fg and dfhack.maps.getWalkableGroup(xyz2pos(x, y, z)) == fg then body_reach[i.unit_id] = true end
+        end
+    end
+    local function score(t)
+        local u = t.assigned_unit_id ~= -1 and df.unit.find(t.assigned_unit_id)
+        if u and dfhack.units.isDead(u) and body_reach[u.id] then return dfhack.units.isDwarf(u) and 4 or 3 end   -- a dwarf before a pet
+        if u and dfhack.units.isDead(u) then return 2 end
+        if u then return 1 end
+        return 0
+    end
+    local drop = {}
+    for _, zs in pairs(by) do
+        if #zs > 1 then
+            table.sort(zs, function(a, b) local sa, sb = score(a), score(b) if sa ~= sb then return sa > sb end return a.id < b.id end)
+            for i = 2, #zs do drop[#drop + 1] = zs[i].id end
+        end
+    end
+    for _, id in ipairs(drop) do   -- ids first: never remove while walking the list
+        local z = df.building.find(id)
+        if z then dfhack.buildings.deconstruct(z) end
+    end
+    return #drop
+end
+
 -- every so often: a wing when the reachable dead outnumber the free tombs, and
 -- memorial slabs only where a body can't be buried (a ghost always gets one)
 local function watch()
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local ok, err = pcall(function()
         local s = load()
+        do
+            local c1 = dfhack.units.getCitizens(true)[1]
+            local n = dedupe_tombs(c1 and dfhack.maps.getWalkableGroup(c1.pos))
+            if n > 0 then s.deduped = (s.deduped or 0) + n end
+        end
         local c = census()
         s.census = {unburied = c.unburied, reachable = c.reachable, free = c.free}
         if c.reachable > c.free and not s.current and (s.queued or 0) <= 0 then
@@ -327,6 +388,14 @@ elseif cmd == 'find' then
     for _, l in ipairs({'dig', 'build', 'zone'}) do
         print(l .. ': ' .. (dfhack.run_command_silent('quickfort', 'run', BP, '-n', '/' .. l, '-c', ('%d,%d,%d'):format(gx, gy, w.z), '--dry-run'):gsub('%s+', ' ')))
     end
+elseif cmd == 'dedupe' then
+    -- now, on a game tick; prints what it removed
+    dfhack.timeout(1, 'ticks', function()
+        local c1 = dfhack.units.getCitizens(true)[1]
+        local ok, n = pcall(dedupe_tombs, c1 and dfhack.maps.getWalkableGroup(c1.pos))
+        _G.dfai_catacomb_dedupe = ok and ('removed ' .. tostring(n) .. ' duplicate tomb zones') or ('error: ' .. tostring(n))
+    end)
+    print('catacombs: removing duplicate tomb zones on the next tick')
 elseif cmd == 'resume' then
     local s = load()
     if s.current or (s.queued or 0) > 0 then repeatUtil.scheduleEvery(KEY, 600, 'ticks', tick) end
