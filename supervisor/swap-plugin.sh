@@ -19,8 +19,20 @@ fi
 SUP="$HERE/logs/supervisor.log"
 cd "$DF" || exit 1
 timeout 60 ./hack/dfhack-run.exe lua "print(dfhack.isMapLoaded() and 'fort loaded' or 'NO MAP')" | grep -q "fort loaded" || { echo "no fort loaded: not swapping"; exit 1; }
+# DF writes the save in the background: a 45 s wait once closed the game
+# before world.sav was written (85 s on a 110-dwarf fort) and the reload
+# lost 5 game days. Wait for a world.sav newer than the request (max 6 min).
+SAVES="$(cygpath -u "${APPDATA:-$HOME/AppData/Roaming}" 2>/dev/null || echo "$HOME/AppData/Roaming")/Bay 12 Games/Dwarf Fortress/save"
+MARK="$HERE/logs/quicksave-request"
+touch "$MARK"
 timeout 60 ./hack/dfhack-run.exe quicksave >/dev/null 2>&1
-sleep 45
+saved=""
+for i in $(seq 1 36); do
+  sleep 10
+  if [ -n "$(find "$SAVES" -maxdepth 2 -name world.sav -newer "$MARK" 2>/dev/null | head -1)" ]; then saved=1; break; fi
+done
+[ -n "$saved" ] || { echo "the quicksave was not written within 6 minutes: not swapping"; exit 1; }
+sleep 10   # let DF finish closing the save files
 touch "$HERE/logs/planned-restart"
 powershell.exe -NoProfile -Command "Stop-Process -Name 'Dwarf Fortress' -Force" >/dev/null 2>&1
 sleep 5
