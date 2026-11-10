@@ -699,7 +699,7 @@ void Population::update_moods(color_ostream & out)
                 for (auto l = world->jobs.list.next; l; l = l->next)
                 {
                     df::job *sj = l->item;
-                    if (!sj || sj->flags.bits.do_now)
+                    if (!sj)
                         continue;
                     bool weave = sj->job_type == job_type::WeaveCloth &&
                         (ji->flags2.bits.silk ? sj->material_category.bits.silk :
@@ -707,9 +707,27 @@ void Population::update_moods(color_ostream & out)
                     bool supply = ji->flags2.bits.silk ? sj->job_type == job_type::CollectWebs :
                         ji->flags2.bits.yarn ? (sj->job_type == job_type::SpinThread || sj->job_type == job_type::ShearCreature) :
                         sj->job_type == job_type::ProcessPlants;
-                    if (cloth ? (weave || supply)
-                             : (sj->job_type == job_type::ConstructBlocks && sj->mat_type == 0))
-                        sj->flags.bits.do_now = true;
+                    if (!(cloth ? (weave || supply)
+                             : (sj->job_type == job_type::ConstructBlocks && sj->mat_type == 0)))
+                        continue;
+                    sj->flags.bits.do_now = true;
+                    // do_now alone is not enough: a workshop posts only its
+                    // FIRST job, so Sibrek's plant weave sat second at the
+                    // loom behind an unclaimed generic weave (thirst 28000)
+                    // and was woven within a minute once moved to the front.
+                    if (sj->flags.bits.working || Job::getWorker(sj))
+                        continue;
+                    if (auto sh = Job::getHolder(sj))
+                    {
+                        auto it = std::find(sh->jobs.begin(), sh->jobs.end(), sj);
+                        if (it != sh->jobs.end() && it != sh->jobs.begin() &&
+                            !(*sh->jobs.begin())->flags.bits.working && !Job::getWorker(*sh->jobs.begin()))
+                        {
+                            sh->jobs.erase(it);
+                            sh->jobs.insert(sh->jobs.begin(), sj);
+                            ai.debug(out, "[MOOD] moved " + AI::describe_job(sj) + " to the front of its workshop queue for " + who);
+                        }
+                    }
                 }
             }
             if (!usable && ji->item_type == item_type::WOOD)
