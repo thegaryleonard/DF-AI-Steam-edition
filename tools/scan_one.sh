@@ -23,7 +23,7 @@ q lua "print('loaded', dfhack.isMapLoaded(), df.global.world.cur_savegame.save_d
 sleep 8
 if q lua "print(dfhack.isMapLoaded())" | grep -q true; then
   q aiscan-designs "$OUT"
-  NAME=$(q lua "print((df.global.world.cur_savegame.save_dir:gsub('[^%w%-_]', '_')))" | tr -d '
+  NAME=$(q lua "print((df.global.world.cur_savegame.save_dir:gsub('[^%w%-_]', '_')))" | tr -d '
 ')
   echo "save name: [$NAME]"
   python "$S/post_scan.py" "$NAME"
