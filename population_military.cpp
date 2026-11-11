@@ -1240,7 +1240,7 @@ static void ranged_squads_to_ranges(AI & ai, color_ostream & out)
     }
 }
 
-void Population::battle_stations(color_ostream & out, bool danger)
+void Population::battle_stations(color_ostream & out, bool danger, size_t cap)
 {
     auto fe = plotinfo->main.fortress_entity;
     if (!fe)
@@ -1250,11 +1250,14 @@ void Population::battle_stations(color_ostream & out, bool danger)
     {
         battle_quiet = 0;
         int32_t off = routine_named("Off duty");
+        size_t called = 0; // soldiers called out so far (cap: 0 = every squad)
         for (auto sqid : fe->squads)
         {
             auto sq = df::squad::find(sqid);
             if (!sq || sq->assigned_army_controller_id != -1)
                 continue; // away on a mission
+            if (cap && called >= cap)
+                continue; // enough squads for one creature: the rest keep working
             if (!squad_armed(sq))
             {
                 // no weapons: off duty, so the civilian alert takes them into
@@ -1277,6 +1280,7 @@ void Population::battle_stations(color_ostream & out, bool danger)
             }
             if (sheltering.erase(sq->id))
                 ai.debug(out, "[MILITARY] " + squad_label(sq) + " is armed again: back to the fight");
+            called += size_t(std::count_if(sq->positions.begin(), sq->positions.end(), [](df::squad_position *p) { return p && p->occupant != -1; }));
             if (ready >= 0 && sq->cur_routine_idx != ready)
             {
                 sq->cur_routine_idx = ready;
@@ -1309,7 +1313,7 @@ void Population::battle_stations(color_ostream & out, bool danger)
         if (!battle_mode)
         {
             battle_mode = true;
-            ai.debug(out, stl_sprintf("[MILITARY] battle stations: every squad on the Ready routine in full uniform%s", invaders_far ? stl_sprintf(", mustering at the gate while %d invaders approach", invaders_far).c_str() : ""));
+            ai.debug(out, stl_sprintf("[MILITARY] battle stations: %s on the Ready routine in full uniform%s", cap ? stl_sprintf("squads with about %d soldiers", int(cap)).c_str() : "every squad", invaders_far ? stl_sprintf(", mustering at the gate while %d invaders approach", invaders_far).c_str() : ""));
         }
         return;
     }
@@ -1917,8 +1921,16 @@ void Population::update_military(color_ostream & out)
         close_threat_at = flier_threat_at = -1; // a reload went back in time
     bool close_threat = close_threat_at >= 0 && now_tick - close_threat_at <= 600;
     bool flier_threat = flier_threat_at >= 0 && now_tick - flier_threat_at <= 600;
+    // the whole fort under arms from 100 citizens (see below); then a lone
+    // creature by a dwarf calls out only the first squads, about 30% of the
+    // fort, so the rest keep farming and brewing. Sieges, megabeasts and
+    // forgotten beasts still call every squad.
+    size_t best_fighters = std::max<size_t>(10, citizen.size() * 30 / 100);
+    bool full_militia = everyone_fights && (citizen.size() >= 100 ||
+        (citizen.size() >= 90 && citizen_military > best_fighters + 5));
+    bool all_hands = great_danger || invaders_far > 0;
     civilian_alert(out, great_danger || close_threat || flier_threat);
-    battle_stations(out, great_danger || invaders_far > 0 || close_threat);
+    battle_stations(out, all_hands || close_threat, full_militia && !all_hands ? best_fighters : 0);
     ranged_squads_to_ranges(ai, out);
     invaders_far = 0;
 
@@ -1949,7 +1961,16 @@ void Population::update_military(color_ostream & out)
                 }
             return s;
         };
-        size_t target = std::max<size_t>(10, citizen.size() * 30 / 100);
+        size_t target = best_fighters;
+        // From 100 citizens the whole fort is under arms (user: "once
+        // population hits 100 everyone should be in a squad and rotated for
+        // training and armor"): everyone the draft pool allows, still
+        // rotated by schedule_training (about a quarter trains in a month)
+        // and armed by arm_soldiers. The pool keeps out who must not fight.
+        // It stays a full militia down to 90 citizens, so a few deaths
+        // around 100 don't dismiss and redraft half the fort.
+        if (full_militia)
+            target = citizen_military + draft_pool.size();
         if (citizen_military < target && !draft_pool.empty())
         {
             std::sort(draft_pool.begin(), draft_pool.end(), [&](df::unit *a, df::unit *b) { return combat(a) > combat(b); });
