@@ -46,6 +46,8 @@
 #include "df/building.h"
 #include "df/job.h"
 #include "df/job_item.h"
+#include "df/job_item_vector_id.h"
+#include "df/general_ref_building_holderst.h"
 #include "df/job_item_ref.h"
 #include "df/job_type.h"
 #include "df/job_type_class.h"
@@ -1108,6 +1110,84 @@ void Population::update_moods(color_ostream & out)
                 }
                 if (moved)
                     ai.debug(out, stl_sprintf("[MOOD] %s needs rock blocks: moved %d ConstructBlocks job(s) to the front of their mason's queue", who.c_str(), moved));
+                // No ConstructBlocks job at all: the manager order is stuck
+                // unvalidated (Litast waited a month at thirst 35000 behind
+                // a 2-block order while 127 of 133 orders sat unvalidated).
+                // Put the job straight into the nearest mason's workshop the
+                // dwarf can walk to, from the commonest free non-economic stone.
+                bool any_job = false;
+                for (auto jl = world->jobs.list.next; jl; jl = jl->next)
+                {
+                    if (jl->item && jl->item->job_type == job_type::ConstructBlocks)
+                        any_job = true;
+                }
+                if (!any_job)
+                {
+                    df::building *ws = nullptr;
+                    int32_t ws_d = std::numeric_limits<int32_t>::max();
+                    for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_MASON])
+                    {
+                        if (bld->getBuildStage() != bld->getMaxBuildStage() || bld->jobs.size() >= 10)
+                            continue;
+                        df::coord c(bld->centerx, bld->centery, bld->z);
+                        if (!Maps::canWalkBetween(u->pos, c))
+                            continue;
+                        int32_t d = std::abs(c.x - u->pos.x) + std::abs(c.y - u->pos.y) + 4 * std::abs(c.z - u->pos.z);
+                        if (d < ws_d)
+                        {
+                            ws = bld;
+                            ws_d = d;
+                        }
+                    }
+                    std::map<int32_t, int32_t> stone;
+                    for (auto i : world->items.other[items_other_id::BOULDER])
+                    {
+                        auto & f = i->flags.bits;
+                        if (i->getMaterial() != 0 || f.forbid || f.in_job || f.trader || f.dump || f.garbage_collect ||
+                            f.construction || f.in_building || f.owned || f.removed)
+                            continue;
+                        int32_t mi = i->getMaterialIndex();
+                        if (ji->mat_index >= 0 && mi != ji->mat_index)
+                            continue;
+                        if (mi < 0 || size_t(mi) >= plotinfo->economic_stone.size() || plotinfo->economic_stone[mi])
+                            continue;
+                        stone[mi]++;
+                    }
+                    int32_t best = -1, best_n = 0;
+                    for (auto & kv : stone)
+                    {
+                        if (kv.second > best_n)
+                        {
+                            best = kv.first;
+                            best_n = kv.second;
+                        }
+                    }
+                    if (ws && best >= 0)
+                    {
+                        auto ref = df::allocate<df::general_ref_building_holderst>();
+                        ref->building_id = ws->id;
+                        auto bj = df::allocate<df::job>();
+                        bj->job_type = job_type::ConstructBlocks;
+                        bj->mat_type = 0;
+                        bj->mat_index = best;
+                        bj->pos = df::coord(ws->centerx, ws->centery, ws->z);
+                        bj->flags.bits.do_now = 1;
+                        auto bji = df::allocate<df::job_item>();
+                        bji->item_type = item_type::BOULDER;
+                        bji->item_subtype = -1;
+                        bji->mat_type = 0;
+                        bji->mat_index = best;
+                        bji->quantity = 1;
+                        bji->vector_id = job_item_vector_id::BOULDER;
+                        bji->flags3.bits.hard = 1;
+                        bj->job_items.elements.push_back(bji);
+                        bj->general_refs.push_back(ref);
+                        ws->jobs.insert(ws->jobs.begin(), bj);
+                        Job::linkIntoWorld(bj);
+                        ai.debug(out, stl_sprintf("[MOOD] %s needs rock blocks and no ConstructBlocks job exists (order stuck): put a %s blocks job in mason's workshop %d",
+                            who.c_str(), MaterialInfo(0, best).toString().c_str(), ws->id));
+                    }
+                }
             }
             if (!usable && ji->item_type == item_type::BLOCKS && (ji->mat_type == 0 || ji->mat_type == -1) &&
                 holder && mood_urgent(u, MOOD_CHEAT_THIRST))
