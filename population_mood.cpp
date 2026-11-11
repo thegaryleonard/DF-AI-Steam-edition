@@ -444,6 +444,17 @@ void Population::update_moods(color_ostream & out)
                     f.foreign = false;
                     got += ji->quantity > 100 ? item->getTotalDimension() : item->getStackSize();
                     usable++;
+                    // Carry it straight into the mood's workshop: left loose,
+                    // a StoreItemInLocation job hauled it back into the chest
+                    // and this ran again every pass (Iteb's plant cloth went
+                    // round eight times while thirst climbed past 44000 and
+                    // the count kept the cloth cheat from ever firing).
+                    auto mood_ws = virtual_cast<df::building_actual>(Job::getHolder(job));
+                    if (mood_ws && Items::moveToBuilding(item, mood_ws, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, item, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] carried %s from a location chest into %s's workshop", AI::describe_item(item).c_str(), who.c_str()));
+                    }
                 }
                 if (got)
                 {
@@ -1231,6 +1242,47 @@ void Population::update_moods(color_ostream & out)
                     {
                         ai.debug(out, stl_sprintf("[MOOD] CHEAT: no rock blocks reached %s in time (thirst %d, mood timeout %d): created %s at the workshop",
                             who.c_str(), u->counters2.thirst_timer, u->job.mood_timeout, AI::describe_item(c).c_str()));
+                        usable++;
+                    }
+                }
+            }
+            if (!usable && ji->item_type == item_type::SMALLGEM && holder && mood_urgent(u, MOOD_CHEAT_THIRST))
+            {
+                // Last resort: Iteb's mason mood logged "queued gem cutting"
+                // for eight game days beside 284 rough gems and an idle gem
+                // cutter, and reached thirst 44000 with no cut gem. Create
+                // one from the commonest free rough gem's stone (a cheat).
+                std::map<int32_t, int32_t> gems;
+                for (auto i : world->items.other[items_other_id::ROUGH])
+                {
+                    auto & f = i->flags.bits;
+                    if (i->getMaterial() != 0 || f.forbid || f.trader || f.removed || f.artifact)
+                        continue;
+                    if (ji->mat_type == 0 && ji->mat_index >= 0 && i->getMaterialIndex() != ji->mat_index)
+                        continue;
+                    gems[i->getMaterialIndex()]++;
+                }
+                int32_t best = ji->mat_type == 0 ? ji->mat_index : -1, best_n = 0;
+                for (auto & kv : gems)
+                {
+                    if (kv.second > best_n)
+                    {
+                        best = kv.first;
+                        best_n = kv.second;
+                    }
+                }
+                MaterialInfo gm;
+                if (best < 0 && gm.find("INORGANIC:CITRINE"))
+                    best = gm.index;
+                std::vector<df::item *> made;
+                if (best >= 0 && Items::createItem(made, u, item_type::SMALLGEM, -1, 0, best) && !made.empty())
+                {
+                    df::item *c = made[0];
+                    if (Items::moveToBuilding(c, holder, df::building_item_role_type::TEMP) &&
+                        Job::attachJobItem(job, c, df::job_role_type::Reagent, int32_t(idx), -1))
+                    {
+                        ai.debug(out, stl_sprintf("[MOOD] CHEAT: no cut gem reached %s in time (thirst %d): created %s at the workshop",
+                            who.c_str(), u->counters2.thirst_timer, AI::describe_item(c).c_str()));
                         usable++;
                     }
                 }
