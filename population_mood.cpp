@@ -458,6 +458,22 @@ void Population::update_moods(color_ostream & out)
             if (usable && holder && mood_urgent(u, MOOD_RESCUE_THIRST))
             {
                 df::coord wpos(holder->centerx, holder->centery, holder->z);
+                // The workshop itself cut off from every other citizen (Kivish
+                // "Standardsculptures" claimed a craftsdwarf's shop in a flooded
+                // wing, standing in 5/7 water: no item in the fort was
+                // reachable and nobody could haul one in). Waiting for the
+                // cheat line there only burns thirst, so carry items in at
+                // the rescue line.
+                bool ws_cut_off = true;
+                for (auto c : world->units.active)
+                {
+                    if (c != u && Units::isCitizen(c) && Units::isAlive(c) &&
+                        Maps::canWalkBetween(c->pos, wpos))
+                    {
+                        ws_cut_off = false;
+                        break;
+                    }
+                }
                 // Nothing reachable at all (Reg's mason mood: all 70 logs lay
                 // where the workshop couldn't walk, so the log was "usable"
                 // and no felling was ordered): past the cheat line, carry the
@@ -510,11 +526,11 @@ void Population::update_moods(color_ostream & out)
                     // a failed move (item held by a building, container) must
                     // not end the search: Rakust waited on BLOCKS this way
                 }
-                if (!attached && far_item && mood_urgent(u, MOOD_CHEAT_THIRST) &&
+                if (!attached && far_item && (ws_cut_off || mood_urgent(u, MOOD_CHEAT_THIRST)) &&
                     Items::moveToBuilding(far_item, holder, df::building_item_role_type::TEMP) &&
                     Job::attachJobItem(job, far_item, df::job_role_type::Reagent, int32_t(idx), -1))
                 {
-                    ai.debug(out, stl_sprintf("[MOOD] CHEAT: no reachable %s for %s (thirst %d): moved unreachable %s to the workshop", describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, AI::describe_item(far_item).c_str()));
+                    ai.debug(out, stl_sprintf("[MOOD] CHEAT: no reachable %s for %s (thirst %d%s): moved unreachable %s to the workshop", describe_job_item(ji).c_str(), who.c_str(), u->counters2.thirst_timer, ws_cut_off ? ", workshop cut off" : "", AI::describe_item(far_item).c_str()));
                     have = ji->quantity;
                 }
             }
