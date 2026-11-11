@@ -105,7 +105,10 @@ void Plan::update(color_ostream &)
             }
             case task_type::dig_room:
             case task_type::dig_room_immediate:
-                if (t.r->abandoned)
+                // a room still being dug when its neighbour turned out to
+                // be an aqueduct (planned later, or a fort from before
+                // this check) stops here, before the last wall goes
+                if (t.r->abandoned || (!t.r->is_dug() && keep_off_aqueduct(out, t.r)))
                 {
                     del = true;
                     break;
@@ -677,13 +680,88 @@ bool Plan::surface_farm_ok(room *r)
     return r->min.x >= e.x - R && r->max.x <= e.x + R && r->min.y >= e.y - R && r->max.y <= e.y + R;
 }
 
+// An aqueduct is always full of river water under pressure (its breach on
+// the river has no gate; the floodgate is at the cistern end), so anything
+// dug next to it fills to one level under the river. Roughnessbell (year 180):
+// a corridor planned alongside the aqueduct's stair shaft was dug into it and
+// 13 levels flooded, 19 dwarves drowned. A room opens into an aqueduct if one
+// of its tiles is beside an aqueduct tile on the same level (diagonals too:
+// water flows diagonally), or, for a room over several levels (stairs), right
+// above or below one. Cisterns and the aqueducts themselves are exempt.
+bool Plan::opens_into_aqueduct(room *r, df::coord & where)
+{
+    if (r->type == room_type::cistern || (r->type == room_type::corridor && r->corridor_type == corridor_type::aqueduct))
+        return false;
+    bool multi_z = r->min.z != r->max.z;
+    for (auto a : rooms_and_corridors)
+    {
+        if (!a || a->abandoned || a->type != room_type::corridor || a->corridor_type != corridor_type::aqueduct)
+            continue;
+        // quick box test: within 1 tile in x/y, and on a shared level (or
+        // one level apart for a room with stairs)
+        int dz = multi_z ? 1 : 0;
+        if (r->max.x < a->min.x - 1 || r->min.x > a->max.x + 1 || r->max.y < a->min.y - 1 || r->min.y > a->max.y + 1 ||
+            r->max.z < a->min.z - dz || r->min.z > a->max.z + dz)
+            continue;
+        for (int16_t x = r->min.x; x <= r->max.x; x++)
+            for (int16_t y = r->min.y; y <= r->max.y; y++)
+                for (int16_t z = r->min.z; z <= r->max.z; z++)
+                {
+                    for (int16_t ax = std::max(a->min.x, int16_t(x - 1)); ax <= std::min(a->max.x, int16_t(x + 1)); ax++)
+                        for (int16_t ay = std::max(a->min.y, int16_t(y - 1)); ay <= std::min(a->max.y, int16_t(y + 1)); ay++)
+                        {
+                            if (z >= a->min.z && z <= a->max.z)
+                            {
+                                where = df::coord(ax, ay, z);
+                                return true;
+                            }
+                            if (multi_z && ax == x && ay == y && ((z + 1 >= a->min.z && z + 1 <= a->max.z) || (z - 1 >= a->min.z && z - 1 <= a->max.z)))
+                            {
+                                where = df::coord(ax, ay, z + 1 >= a->min.z && z + 1 <= a->max.z ? z + 1 : z - 1);
+                                return true;
+                            }
+                        }
+                }
+    }
+    return false;
+}
+
+// Never dig a room that opens into an aqueduct: drop it for good (no retry)
+// and clear any dig designations it already has.
+bool Plan::keep_off_aqueduct(color_ostream & out, room *r)
+{
+    df::coord where;
+    if (!opens_into_aqueduct(r, where))
+        return false;
+    for (int16_t x = r->min.x; x <= r->max.x; x++)
+        for (int16_t y = r->min.y; y <= r->max.y; y++)
+            for (int16_t z = r->min.z; z <= r->max.z; z++)
+            {
+                auto td = Maps::getTileDesignation(df::coord(x, y, z));
+                auto tt = Maps::getTileType(df::coord(x, y, z));
+                // only tiles not dug yet; an open tile stays as it is
+                if (td && tt && ENUM_ATTR(tiletype, shape, *tt) == tiletype_shape::WALL)
+                    td->bits.dig = tile_dig_designation::No;
+            }
+    r->abandoned = true;
+    r->parked_until = -1; // never retried
+    r->queue_dig = false;
+    ai.debug(out, stl_sprintf("[WATER] not digging %s: it would open into the aqueduct at (%d, %d, %d), which carries river water under pressure",
+        AI::describe_room(r).c_str(), where.x, where.y, where.z));
+    return true;
+}
+
 bool Plan::wantdig(color_ostream & out, room *r, int32_t queue)
 {
-    if (r->queue_dig || r->status != room_status::plan)
+    if (r->queue_dig || r->status != room_status::plan || r->abandoned)
     {
         return false;
     }
     if (!surface_farm_ok(r))
+    {
+        return false;
+    }
+    if (keep_off_aqueduct(out, r))
     {
         return false;
     }
@@ -701,9 +779,11 @@ bool Plan::wantdig(color_ostream & out, room *r, int32_t queue)
 
 bool Plan::digroom(color_ostream & out, room *r, bool immediate)
 {
-    if (r->status != room_status::plan)
+    if (r->status != room_status::plan || r->abandoned)
         return false;
     if (!surface_farm_ok(r))
+        return false;
+    if (keep_off_aqueduct(out, r))
         return false;
     ai.debug(out, "digroom " + AI::describe_room(r));
     r->queue_dig = false;

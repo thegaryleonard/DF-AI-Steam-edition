@@ -198,6 +198,8 @@ public:
     // its box once the wall is planned, before that within 9 tiles of the
     // fort entrance (inside the smallest ring dfai-walls ever picks)
     bool surface_farm_ok(room *r);
+    bool opens_into_aqueduct(room *r, df::coord & where);
+    bool keep_off_aqueduct(color_ostream & out, room *r);
     bool revive_cistern_tap(color_ostream & out, std::ostream & reason);
     void link_aqueduct_chain();
     // the walkable area most citizens are in (cached for a game day)
