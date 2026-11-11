@@ -370,7 +370,11 @@ void Population::update_moods(color_ostream & out)
                 continue;
             }
 
-            int32_t usable = 0, released = 0;
+            // reachable: usable items the moody dwarf can walk to. Logs that
+            // fell into murky pools (walkable group 0) counted as usable, so
+            // Likot "Pagewater"'s mason mood never had trees felled and sat
+            // at thirst 42000 beside 55 unreachable logs.
+            int32_t usable = 0, released = 0, reachable = 0;
             for (auto item : world->items.other[items_other_id::IN_PLAY])
             {
                 df::item_type itype = item->getType();
@@ -409,6 +413,11 @@ void Population::update_moods(color_ostream & out)
                     released++;
                 }
                 usable++;
+                df::coord ipos = Items::getPosition(item);
+                if (ipos.isValid() && Maps::canWalkBetween(u->pos, ipos))
+                {
+                    reachable++;
+                }
             }
 
             std::string who = AI::describe_unit(u);
@@ -798,7 +807,7 @@ void Population::update_moods(color_ostream & out)
                     }
                 }
             }
-            if (!usable && ji->item_type == item_type::WOOD)
+            if ((!usable || !reachable) && ji->item_type == item_type::WOOD)
             {
                 // No free logs at all (Unib's glassmaker mood sat at thirst
                 // 48000 needing one log in a fort with zero logs): fell trees.
