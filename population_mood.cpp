@@ -1239,6 +1239,81 @@ void Population::update_moods(color_ostream & out)
                 ai.stocks.queue_use_gems(out, 1, why);
                 ai.debug(out, "[MOOD] queued gem cutting for " + who + (why.str().empty() ? std::string() : " (" + why.str() + ")"));
                 usable++;
+                // The CutGems order can sit unvalidated for days behind a
+                // manager backlog (Fikod's mood logged "already a manager
+                // order to cut gems" for four game days at thirst 33000 while
+                // 141 of 147 orders sat unvalidated). With no CutGems job in
+                // the world, put one straight into the nearest reachable
+                // Jeweler's workshop, from the commonest free rough gem.
+                bool any_cut = false;
+                for (auto jl = world->jobs.list.next; jl; jl = jl->next)
+                {
+                    if (jl->item && jl->item->job_type == job_type::CutGems)
+                        any_cut = true;
+                }
+                if (!any_cut)
+                {
+                    df::building *ws = nullptr;
+                    int32_t ws_d = std::numeric_limits<int32_t>::max();
+                    for (auto bld : world->buildings.other[buildings_other_id::WORKSHOP_JEWELER])
+                    {
+                        if (bld->getBuildStage() != bld->getMaxBuildStage() || bld->jobs.size() >= 10)
+                            continue;
+                        df::coord c(bld->centerx, bld->centery, bld->z);
+                        if (!Maps::canWalkBetween(u->pos, c))
+                            continue;
+                        int32_t d = std::abs(c.x - u->pos.x) + std::abs(c.y - u->pos.y) + 4 * std::abs(c.z - u->pos.z);
+                        if (d < ws_d)
+                        {
+                            ws = bld;
+                            ws_d = d;
+                        }
+                    }
+                    std::map<int32_t, int32_t> gems;
+                    for (auto i : world->items.other[items_other_id::ROUGH])
+                    {
+                        auto & f = i->flags.bits;
+                        if (i->getMaterial() != 0 || f.forbid || f.in_job || f.trader || f.dump || f.garbage_collect ||
+                            f.construction || f.in_building || f.owned || f.removed || f.artifact)
+                            continue;
+                        if (ji->mat_type == 0 && ji->mat_index >= 0 && i->getMaterialIndex() != ji->mat_index)
+                            continue;
+                        gems[i->getMaterialIndex()]++;
+                    }
+                    int32_t best = -1, best_n = 0;
+                    for (auto & kv : gems)
+                    {
+                        if (kv.second > best_n)
+                        {
+                            best = kv.first;
+                            best_n = kv.second;
+                        }
+                    }
+                    if (ws && best >= 0)
+                    {
+                        auto ref = df::allocate<df::general_ref_building_holderst>();
+                        ref->building_id = ws->id;
+                        auto gj = df::allocate<df::job>();
+                        gj->job_type = job_type::CutGems;
+                        gj->mat_type = 0;
+                        gj->mat_index = best;
+                        gj->pos = df::coord(ws->centerx, ws->centery, ws->z);
+                        gj->flags.bits.do_now = 1;
+                        auto gji = df::allocate<df::job_item>();
+                        gji->item_type = item_type::ROUGH;
+                        gji->item_subtype = -1;
+                        gji->mat_type = 0;
+                        gji->mat_index = best;
+                        gji->quantity = 1;
+                        gji->vector_id = job_item_vector_id::ROUGH;
+                        gj->job_items.elements.push_back(gji);
+                        gj->general_refs.push_back(ref);
+                        ws->jobs.insert(ws->jobs.begin(), gj);
+                        Job::linkIntoWorld(gj);
+                        ai.debug(out, stl_sprintf("[MOOD] %s needs a cut gem and no CutGems job exists (order stuck): put a cut %s job in jeweler's workshop %d",
+                            who.c_str(), MaterialInfo(0, best).toString().c_str(), ws->id));
+                    }
+                }
             }
             if (!usable && ji->item_type == item_type::BAR && ji->mat_type == 0 && ji->mat_index >= 0 &&
                 !(holder && mood_urgent(u, MOOD_CHEAT_THIRST)) &&
