@@ -160,7 +160,11 @@ static df::workshop_type mood_workshop(df::job_type t)
 // the planned room took weeks: a possessed weaver died of thirst first.
 df::building *place_workshop_near(df::coord origin, df::workshop_type type)
 {
-    auto free3x3 = [origin](df::coord c) -> bool
+    // Indoor floor first; outdoor floor only when there is none (Bim
+    // "Chaosseals": the whole fort below the surface was flooded, every
+    // citizen stood on the surface, and an indoor-only search found nothing).
+    bool allow_outside = false;
+    auto free3x3 = [origin, &allow_outside](df::coord c) -> bool
     {
         for (int16_t dx = -1; dx <= 1; dx++)
         {
@@ -172,13 +176,18 @@ df::building *place_workshop_near(df::coord origin, df::workshop_type type)
                     return false;
                 auto des = Maps::getTileDesignation(t);
                 auto occ = Maps::getTileOccupancy(t);
-                if (!des || !occ || des->bits.outside || des->bits.flow_size || occ->bits.building != tile_building_occ::None)
+                if (!des || !occ || (des->bits.outside && !allow_outside) || des->bits.flow_size || occ->bits.building != tile_building_occ::None)
                     return false;
             }
         }
         return Maps::canWalkBetween(origin, c);
     };
     df::coord c = AI::spiral_search(origin, 30, 2, free3x3);
+    if (!c.isValid())
+    {
+        allow_outside = true;
+        c = AI::spiral_search(origin, 30, 2, free3x3);
+    }
     if (!c.isValid())
         return nullptr;
 
@@ -279,14 +288,20 @@ void Population::update_moods(color_ostream & out)
                 // count unfinished ones too: a workshop placed for this mood
                 // stays unbuilt until someone brings the material, and treating
                 // it as missing placed a new one every tick (12 jewelers' at once)
-                if (ws && ws->type == need_ws)
+                // ...but only one the dwarf can walk to: Bim "Chaosseals" had
+                // four Tanner's and two Leather Works, all under 7/7 water in
+                // a flooded fort, so the mood never claimed one and none was
+                // placed. (Unfinished tiles are walkable, so a workshop placed
+                // for this mood still counts while it waits for its builder.)
+                if (ws && ws->type == need_ws &&
+                    Maps::canWalkBetween(u->pos, df::coord(ws->centerx, ws->centery, ws->z)))
                 {
                     have = true;
                     break;
                 }
             }
             // already being dug or built for this mood (or anything else)?
-            if (!have && ai.find_room(room_type::workshop, [need_ws](room *r) -> bool { return r->workshop_type == need_ws && r->status != room_status::plan; }))
+            if (!have && ai.find_room(room_type::workshop, [need_ws, u](room *r) -> bool { return r->workshop_type == need_ws && r->status != room_status::plan && r->status != room_status::finished && Maps::canWalkBetween(u->pos, r->pos()); }))
             {
                 have = true;
             }
