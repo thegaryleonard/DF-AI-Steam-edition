@@ -160,7 +160,7 @@ static bool near_fort(AI & ai, df::unit *u)
 // A squad that's mostly hungry or thirsty is let off ordinary targets so it
 // can eat (soldiers locked on a kill order don't; Hammerfaiths' squads went
 // 40+ days on a war tiger and a platybelodon, and one died of thirst).
-static bool squad_needs_meal(df::squad *squad)
+bool squad_needs_meal(df::squad *squad)
 {
     int32_t n = 0, needy = 0;
     for (auto pos : squad->positions)
@@ -303,6 +303,13 @@ bool AI::tag_enemies(color_ostream & out)
                 if (t && (t->flags1.bits.caged || t->flags1.bits.chained))
                     return true;
                 if (!t || Units::isDead(t) || (!pop_ref->military_target_reachable(t) && !(ranged && is_flier(t) && pop_ref->military_target_shootable(t))))
+                    return true;
+                // a hungry or thirsty squad lets go of a flier (not a great
+                // beast or an invader) and eats; the fed squads keep it, and
+                // it gets it back once fed. Boatsbrands: one giant sparrow
+                // circling out of reach above the fort held 6 squads, and 26
+                // soldiers went hungry and thirsty
+                if (hungry && is_flier(t) && !Units::isGreatDanger(t) && !t->flags1.bits.active_invader && !t->flags1.bits.marauder)
                     return true;
                 // every squad keeps a dangerous creature in the fort or by a
                 // dwarf, and every crossbow squad a hostile flier over the

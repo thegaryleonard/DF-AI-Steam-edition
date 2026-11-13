@@ -227,6 +227,7 @@ void Population::update_pets(color_ostream & out)
 
     int32_t needmilk = 0;
     int32_t needshear = 0;
+    int32_t culled = 0; // grazers sent to the butcher this pass for want of grass
     for (auto mo : world->manager_orders.all)
     {
         if (mo->job_type == job_type::MilkCreature)
@@ -310,6 +311,44 @@ void Population::update_pets(color_ostream & out)
                 }
 
                 forSlaughter[cst].insert(std::make_pair(age, u));
+            }
+
+            // grazers already placed: move them off an overgrazed or
+            // overcrowded pasture to one with grass to spare (they were
+            // only ever placed once, and 45 starved at Boatsbrands while
+            // three pastures stood empty). With no room anywhere, a few a
+            // pass go to the butcher (meat beats starving), never someone's
+            // pet, a trained or thinking animal, or one of the last 3 of
+            // its kind.
+            if (pet.at(u->id).bits.grazer && !u->flags2.bits.slaughter)
+            {
+                bool keep = u->relationship_ids[unit_relationship_type::Pet] != -1 ||
+                    cst->flags.is_set(caste_raw_flags::CAN_LEARN) ||
+                    u->profession == profession::TRAINED_HUNTER || u->profession == profession::TRAINED_WAR || culled >= 3;
+                if (!keep)
+                {
+                    int32_t kin = 0;
+                    for (auto o : world->units.active)
+                        if (o && o->race == u->race && o->civ_id == u->civ_id && !Units::isDead(o) && !o->flags2.bits.slaughter)
+                            kin++;
+                    keep = kin <= 3;
+                }
+                auto cur = Units::getGeneralRef(u, general_ref_type::BUILDING_CIVZONE_ASSIGNED);
+                auto old_bld = cur ? cur->getBuilding() : nullptr;
+                if (auto bld = virtual_cast<df::building_civzonest>(ai.plan.getpasture(out, u->id, keep)))
+                {
+                    if (bld != old_bld)
+                    {
+                        assign_unit_to_zone(u, bld);
+                        ai.debug(out, stl_sprintf("[PASTURE] %s moved to a pasture with grass to spare", race->creature_id.c_str()));
+                    }
+                }
+                else if (!keep)
+                {
+                    u->flags2.bits.slaughter = 1;
+                    culled++;
+                    ai.debug(out, stl_sprintf("[PASTURE] %s marked for slaughter: no pasture has grass for it", race->creature_id.c_str()));
+                }
             }
 
             if (pet.at(u->id).bits.milkable && !Units::isBaby(u) && !Units::isChild(u))

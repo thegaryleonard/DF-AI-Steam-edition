@@ -142,7 +142,7 @@ public:
     void freecommonrooms(color_ostream & out, int32_t id);
     void freesoldierbarrack(color_ostream & out, int32_t id);
 
-    df::building *getpasture(color_ostream & out, int32_t pet_id);
+    df::building *getpasture(color_ostream & out, int32_t pet_id, bool keep_if_full = true);
     void freepasture(color_ostream & out, int32_t pet_id);
     bool pastures_ready(color_ostream & out);
 

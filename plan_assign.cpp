@@ -471,21 +471,144 @@ static int32_t pasture_grazer(df::unit *u)
     return race->caste[u->caste]->misc.grazer;
 }
 
-df::building *Plan::getpasture(color_ostream & out, int32_t pet_id)
+// Grass an animal needs, in pasture tiles. df-ai's old rule fitted animals
+// as if every pasture were 11x11 (121 tiles): an animal with grazer value g
+// took 121/g of one, i.e. 14641/g tiles (a cow 28, a horse 24, a goat 4).
+// Pastures are now often smaller (5x5, 7x7): Boatsbrands packed 18 grazers
+// into a 5x5 and 45 animals starved while three pastures stood empty.
+static int32_t grass_need(df::unit *u)
+{
+    int32_t g = pasture_grazer(u);
+    return g > 0 ? std::max<int32_t>(1, 14641 / g) : 0;
+}
+static int32_t pasture_area(room *r)
+{
+    df::coord sz = r->size();
+    return std::max<int32_t>(1, int32_t(sz.x) * int32_t(sz.y));
+}
+// grass the animals already in a pasture need (drops dead or vanished ones)
+static int32_t pasture_load(room *r, int32_t except = -1)
+{
+    int32_t sum = 0;
+    for (auto it = r->users.begin(); it != r->users.end(); )
+    {
+        // an animal butchered or gone from the map leaves its id here:
+        // df::unit::find returned null and df-ai crashed on load
+        df::unit *u = df::unit::find(*it);
+        if (!u || Units::isDead(u))
+        {
+            it = r->users.erase(it);
+            continue;
+        }
+        if (*it != except)
+            sum += grass_need(u);
+        it++;
+    }
+    return sum;
+}
+
+// The same sums on the game's own pasture zones, whoever made them: at
+// Boatsbrands five of the six pens weren't linked to a df-ai room, so a
+// room-only check never saw the crowding
+static int32_t zone_area(df::building_civzonest *z)
+{
+    return std::max<int32_t>(1, (z->x2 - z->x1 + 1) * (z->y2 - z->y1 + 1));
+}
+static int32_t zone_grass(df::building_civzonest *z)
+{
+    int32_t g = 0;
+    for (int32_t x = z->x1; x <= z->x2; x++)
+        for (int32_t y = z->y1; y <= z->y2; y++)
+        {
+            if (z->room.extents && !z->room.extents[(y - z->room.y) * z->room.width + (x - z->room.x)])
+                continue;
+            if (auto tt = Maps::getTileType(x, y, z->z))
+            {
+                auto tm = ENUM_ATTR(tiletype, material, *tt);
+                if (tm == tiletype_material::GRASS_LIGHT || tm == tiletype_material::GRASS_DARK)
+                    g++;
+            }
+        }
+    return g;
+}
+static int32_t zone_load(df::building_civzonest *z, int32_t except = -1)
+{
+    int32_t sum = 0;
+    for (auto id : z->assigned_units)
+    {
+        if (id == except)
+            continue;
+        df::unit *u = df::unit::find(id);
+        if (u && !Units::isDead(u))
+            sum += grass_need(u);
+    }
+    return sum;
+}
+// grass a zone can still feed: its grass tiles (all of its tiles count while
+// the grass is at least a fifth, as it grows back) minus what's eating there
+static int32_t zone_free(df::building_civzonest *z, int32_t except = -1)
+{
+    int32_t area = zone_area(z), grass = zone_grass(z);
+    if (grass < area / 5)
+        return -1;
+    return area - zone_load(z, except);
+}
+
+// keep_if_full: an animal already in an overgrazed or overcrowded pasture
+// stays there when no other has room (false: it is let go, and the caller
+// decides, e.g. to slaughter it)
+df::building *Plan::getpasture(color_ostream & out, int32_t pet_id, bool keep_if_full)
 {
     df::unit *pet = df::unit::find(pet_id);
     if (!pet)
         return nullptr;
 
+    int32_t own = grass_need(pet);
+    room *was = nullptr;
+    // an animal already in a pasture zone: stay unless it's overgrazed or
+    // has more mouths than grass, then go to the pen with the most to spare
+    if (auto ref = Units::getGeneralRef(pet, general_ref_type::BUILDING_CIVZONE_ASSIGNED))
+    {
+        auto cz = virtual_cast<df::building_civzonest>(ref->getBuilding());
+        if (cz && cz->type == civzone_type::Pen && own > 0 && zone_free(cz) < 0)
+        {
+            df::building_civzonest *best = nullptr;
+            int32_t best_free = 0;
+            for (auto b : world->buildings.other.ZONE_PEN)
+            {
+                auto z = virtual_cast<df::building_civzonest>(b);
+                if (!z || z == cz)
+                    continue;
+                int32_t f = zone_free(z);
+                if (f >= own && f > best_free)
+                {
+                    best = z;
+                    best_free = f;
+                }
+            }
+            if (best || !keep_if_full)
+            {
+                ai.find_room(room_type::pasture, [&](room *r_) -> bool { r_->users.erase(pet_id); return false; });
+                if (best)
+                    if (room *r = ai.find_room(room_type::pasture, [best](room *r_) -> bool { return r_->bld_id == best->id; }))
+                        r->users.insert(pet_id);
+                return best;
+            }
+            return cz;
+        }
+    }
     // don't assign multiple pastures
     if (auto ref = Units::getGeneralRef(pet, general_ref_type::BUILDING_CIVZONE_ASSIGNED))
     {
         auto bld = ref->getBuilding();
         if (auto r = ai.find_room(room_type::pasture, [bld](room *r_) -> bool { return r_->dfbuilding() == bld; }))
         {
-            if (r->low_grass())
+            r->users.insert(pet->id);
+            // overgrazed, or more mouths than it has grass for: try another
+            if (r->low_grass() || pasture_load(r) > pasture_area(r))
             {
                 r->users.erase(pet->id);
+                was = r;
                 bld = nullptr;
             }
         }
@@ -496,35 +619,29 @@ df::building *Plan::getpasture(color_ostream & out, int32_t pet_id)
         }
     }
 
-    int32_t own_grazer = pasture_grazer(pet);
-    if (own_grazer <= 0)
+    if (own <= 0)
         return nullptr;
-    size_t limit = 1000 - (11 * 11 * 1000 / own_grazer); // 1000 = arbitrary, based on dfwiki?pasture
-    if (room *r = ai.find_room(room_type::pasture, [limit](room *r_) -> bool
+    // the pasture with the most grass to spare that has room for this one
+    room *best = nullptr;
+    int32_t best_free = 0;
+    ai.find_room(room_type::pasture, [&](room *r_) -> bool
     {
-        if (r_->low_grass())
-        {
+        if (r_ == was || r_->low_grass())
             return false;
-        }
-        size_t sum = 0;
-        for (auto it = r_->users.begin(); it != r_->users.end(); )
+        int32_t free_ = pasture_area(r_) - pasture_load(r_);
+        if (free_ >= own && free_ > best_free)
         {
-            // an animal butchered or gone from the map leaves its id here:
-            // df::unit::find returned null and df-ai crashed on load
-            df::unit *u = df::unit::find(*it);
-            if (!u || Units::isDead(u))
-            {
-                it = r_->users.erase(it);
-                continue;
-            }
-            int32_t g = pasture_grazer(u);
-            // 11*11 == pasture dimensions
-            if (g > 0)
-                sum += 11 * 11 * 1000 / g;
-            it++;
+            best = r_;
+            best_free = free_;
         }
-        return sum < limit;
-    }))
+        return false;
+    });
+    if (!best && was && keep_if_full)
+    {
+        was->users.insert(pet_id);
+        return was->dfbuilding();
+    }
+    if (room *r = best)
     {
         r->users.insert(pet_id);
         if (r->bld_id == -1)

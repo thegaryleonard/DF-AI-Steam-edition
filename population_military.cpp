@@ -2264,6 +2264,8 @@ public:
     }
 };
 
+bool squad_needs_meal(df::squad *squad); // military.cpp
+
 bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit *u, const std::string & reason)
 {
     // A flier gets every crossbow squad at home, not one (user: "bolt thrower
@@ -2281,6 +2283,10 @@ bool Population::military_random_squad_attack_unit(color_ostream & out, df::unit
             {
                 auto sq = df::squad::find(sqid);
                 if (!sq || sq->assigned_army_controller_id != -1 || sq->ammo.ammunition.empty() || !squad_armed(sq))
+                    continue;
+                // a squad that needs to eat and drink is left out (fliers
+                // that aren't great beasts or invaders)
+                if (squad_needs_meal(sq) && !Units::isGreatDanger(u) && !u->flags1.bits.active_invader && !u->flags1.bits.marauder)
                     continue;
                 bool already = false;
                 for (auto it : sq->orders)
