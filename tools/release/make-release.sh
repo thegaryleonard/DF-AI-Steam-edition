@@ -60,7 +60,7 @@ printf 'df-ai %s\nDwarf Fortress %s (Steam)\nDFHack %s\nexe_size=%s\n' "$VER" "$
 
 # zip with forward-slash paths (PowerShell 5's Compress-Archive writes
 # backslashes, which some unzip tools turn into odd file names)
-PY="${PY:-C:/Users/dad/AppData/Local/Python/pythoncore-3.15-64/python.exe}"
+PY="${PY:-python3}"
 command -v "$PY" >/dev/null 2>&1 || PY=python
 (cd "$ROOT/dist" && "$PY" -c "
 import os, sys, zipfile

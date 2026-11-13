@@ -1,7 +1,7 @@
 """After aiscan-designs: export every dumped cluster as a quickfort blueprint (exact replay) and grab work orders."""
 import json, subprocess, sys, os, glob, shutil
 DF = r"C:/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress"
-OUT = r"C:/Users/dad/AppData/Local/hermes/cache/scratch/savescan/out"
+OUT = os.environ.get("SAVESCAN_OUT", os.path.join(os.environ.get("TMPDIR") or os.environ.get("TEMP", "."), "savescan", "out"))
 R = os.path.join(DF, 'hack', 'dfhack-run.exe')
 import re
 name = sys.argv[1].replace('\r', '').replace('\n', '').strip()

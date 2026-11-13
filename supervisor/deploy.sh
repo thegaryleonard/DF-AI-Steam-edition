@@ -9,7 +9,7 @@
 set -u
 HERE="$(cd "$(dirname "$0")" && pwd)"
 # Game on another machine: supervisor/remote_host.txt (gitignored) holds
-# "<ssh host> <repo path there>", e.g. "laptop18 C:/Users/thega/dfai-stream/df-ai".
+# "<ssh host> <repo path there>", e.g. "gamepc C:/Users/you/dfai-stream/df-ai".
 # Then the files go over by scp and this script runs there (Git Bash).
 if [ -z "${DFAI_ON_HOST:-}" ] && [ -s "$HERE/remote_host.txt" ]; then
   read -r RH RREPO < "$HERE/remote_host.txt"
