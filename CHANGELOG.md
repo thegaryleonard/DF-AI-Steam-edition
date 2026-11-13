@@ -1,5 +1,9 @@
 # Unreleased
 
+- Mist generator on the surface (`dfai-mist-surface`, user's Showerwheels design made generic): when the underground generator finds no site, a walled 19x11 house is built on flat ground near the gate (inside the curtain wall if it fits), with four statues under holes in its roof and the pump ring and four windmills on the roof. Solid rock is required under the whole footprint and none of it may be on a planned room. Primed by bucket, then runs on its own.
+- Well shaft: stairs that can't be dug are repaired. A constructed floor on the stair is taken down, and an already-open tile gets the stair built. df-ai no longer floors, walls or stairs over the shaft and its stair (new Lua function `set_keep_open`); a df-ai corridor had floored over the stair head, and the shaft never got dug.
+- Army: the full militia (100+ citizens) keeps a civilian crew of about 8% (at least 8) for the jobs that need tools, because squad members won't pick up a pick, axe or crossbow for work (Boatsbrands drafted 170 of 183 and ran out of wood). Civilians who already hold a tool labor count toward the crew, so dismissals don't spiral down.
+- Bunkers: a roof bolt thrower no dwarf can reach gets its stair re-placed; if it's still unreachable after about 100 checks, the bunker is finished with its inside engine and the roof one taken down (one had waited 696 days with all its parts).
 # v1.1.0 (2026-11-12)
 
 Built for Dwarf Fortress 53.17 and DFHack 53.17-r1 (Steam).

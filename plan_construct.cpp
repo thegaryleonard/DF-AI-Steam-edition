@@ -678,6 +678,13 @@ bool Plan::try_furnish_archerytarget(color_ostream &, room *r, furniture *f, df:
 
 bool Plan::try_furnish_construction(color_ostream &, df::construction_type ctype, df::coord t, std::ostream & reason)
 {
+    if (kept_open(t))
+    {
+        // a helper keeps this tile open (see keep_open_by): the floor or
+        // wall a room wanted here is not built, and counts as done
+        reason << "kept open by a helper (well shaft)";
+        return true;
+    }
     df::tiletype tt = *Maps::getTileType(t);
     if (ENUM_ATTR(tiletype, material, tt) == tiletype_material::TREE)
     {

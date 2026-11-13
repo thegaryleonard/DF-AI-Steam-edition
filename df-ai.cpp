@@ -92,7 +92,32 @@ static bool set_defense_box(int x1, int y1, int x2, int y2, int z)
     return true;
 }
 
+// "x,y,z;x,y,z;..." from a helper (dfai-wellshaft): tiles df-ai must not
+// floor, wall or stair over, because the helper is digging them open on
+// purpose. Each owner's list replaces its previous one; "" clears it.
+// Returns how many tiles that owner keeps open.
+static int set_keep_open(std::string owner, std::string list)
+{
+    if (!dwarfAI)
+        return -1;
+    std::set<df::coord> tiles;
+    std::istringstream in(list);
+    std::string one;
+    while (std::getline(in, one, ';'))
+    {
+        int x, y, z;
+        if (sscanf(one.c_str(), "%d,%d,%d", &x, &y, &z) == 3)
+            tiles.insert(df::coord(x, y, z));
+    }
+    if (tiles.empty())
+        dwarfAI->plan.keep_open_by.erase(owner);
+    else
+        dwarfAI->plan.keep_open_by[owner] = tiles;
+    return int(tiles.size());
+}
+
 DFHACK_PLUGIN_LUA_FUNCTIONS {
+    DFHACK_LUA_FUNCTION(set_keep_open),
     DFHACK_LUA_FUNCTION(planned_room_at),
     DFHACK_LUA_FUNCTION(set_defense_box),
     DFHACK_LUA_FUNCTION(set_guard_posts),

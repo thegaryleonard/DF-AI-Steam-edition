@@ -539,6 +539,11 @@ local function tick()
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local s = load()
     local ok, err = pcall(function()
+        if s.surface then
+            s.last = reqscript('dfai-mist-surface').step(s.surface)
+            if s.surface.phase == 'running' then S.builders(false, 'mist') end
+            return
+        end
         if not s.plan then
             if #dfhack.units.getCitizens(true) < 20 then s.last = 'mist generator: waits for 20 citizens' return end
             local okp, pri = pcall(reqscript, 'dfai-priorities')
@@ -548,6 +553,21 @@ local function tick()
                 if pri.no_water() then s.last = 'mist generator: waits, there is no water on the map to prime it with' return end
             end
             local p, why = find_site(s.keep_ring)
+            if not p and not s.keep_ring then
+                -- no underground site: build the surface one instead
+                -- (user: "you can build a surface mist generator")
+                local SF = reqscript('dfai-mist-surface')
+                local sp, swhy = SF.find_site()
+                if sp then
+                    s.surface, s.box = sp, SF.box(sp)
+                    local b = s.box
+                    pcall(function() reqscript('dfai-projects').add('mist', 'The Mist Generator', b.x1, b.y1, b.z, b.x2, b.y2, b.z + 1, true) end)
+                    S.builders(true, 'mist')
+                    s.last = ('mist generator: no underground site (%s); building the surface one at %d,%d level %d'):format(tostring(why), sp.x, sp.y, sp.z)
+                    return
+                end
+                why = tostring(why) .. '; no surface site either: ' .. tostring(swhy)
+            end
             if not p then s.last = 'mist generator: ' .. tostring(why) return end
             s.keep_ring = nil
             p.phase = 'dig'

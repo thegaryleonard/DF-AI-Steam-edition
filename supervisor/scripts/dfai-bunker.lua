@@ -334,6 +334,27 @@ local function step(s)
         b.waits = (b.waits or 0) + 1
         order_parts(t and 0 or 1)
         if not t and (b.waits % 10 == 0 or b.waits == 1) then qf(b, 'turret') end
+        -- a roof engine no dwarf can stand beside is never built
+        -- (Boatsbrands: placed, all its parts brought, then 696 days
+        -- waiting). Re-place the roof stair now and then; after ~100 passes
+        -- still out of reach, finish the bunker with its inside engine and
+        -- take the roof one down so its parts are free for another.
+        if t and t:getBuildStage() < t:getMaxBuildStage() and not SURF.reachable_beside(t.x1, t.y1, t.z) then
+            if b.waits % 10 == 0 then qf(b, 'stair') end
+            b.unreachable = (b.unreachable or 0) + 1
+            if b.unreachable >= 100 then
+                pcall(dfhack.buildings.deconstruct, t)
+                local x1, y1, x2, y2 = box(b)
+                table.insert(s.built, {x1 = x1, y1 = y1, x2 = x2, y2 = y2, z = b.z, face = b.face, engine = b.engine_id, no_roof = true})
+                pcall(function() reqscript('dfai-projects').done('bunker' .. #s.built) end)
+                s.current = nil
+                s.last = ('bunker %d ready, facing %s, with its inside bolt thrower only: no dwarf could reach the roof engine'):format(#s.built, b.face:lower())
+                return
+            end
+            s.last = ('the roof bolt thrower has its parts but no dwarf can reach it (%d of 100 checks)'):format(b.unreachable)
+            return
+        end
+        b.unreachable = 0
         if t and t:getBuildStage() >= t:getMaxBuildStage() then
             arm(t, b.face)
             local x1, y1, x2, y2 = box(b)

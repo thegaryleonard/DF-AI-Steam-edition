@@ -180,6 +180,14 @@ local function scan_async(done)
 end
 
 -- dig designations (only where there's no dig job yet)
+-- each repair is printed once per session, not on every pass
+local noted = {}
+local function note(msg)
+    if noted[msg] then return end
+    noted[msg] = true
+    print('dfai-wellshaft: ' .. msg)
+end
+
 local function designate(p)
     local jobs = {}
     local l = df.global.world.jobs.list.next
@@ -199,15 +207,33 @@ local function designate(p)
             dfhack.maps.getTileBlock(x, y, z).flags.designated = true
         end
     end
-    local DD = df.tile_dig_designation
-    -- 1. the whole stair first
+    local DD, CT = df.tile_dig_designation, df.construction_type
+    -- 1. the whole stair first. Rock is dug; anything else in the way is
+    -- repaired, or the dig waits forever (Boatsbrands: a floor had been
+    -- built over the stair head, and one level of the stair had been dug
+    -- out as a plain floor, which can't be dug into a stair again):
+    --   - a constructed tile (floor, wall) is taken down first;
+    --   - an open tile (floor, ramp, open space) gets the stair BUILT.
     local stairs_done = true
     for z = p.zlo, p.top do
         local sa = attrs(p.sx, p.sy, z)
         local want = (z == p.top and Sh.STAIR_DOWN) or (z == p.zlo and Sh.STAIR_UP) or Sh.STAIR_UPDOWN
         if sa and sa.shape ~= want then
             stairs_done = false
-            set(p.sx, p.sy, z, (z == p.top and DD.DownStair) or (z == p.zlo and DD.UpStair) or DD.UpDownStair)
+            local bld = dfhack.buildings.findAtTile(xyz2pos(p.sx, p.sy, z))
+            if sa.material == Mat.CONSTRUCTION then
+                if not bld then
+                    pcall(dfhack.constructions.designateRemove, xyz2pos(p.sx, p.sy, z))
+                    note(('took down the construction on the shaft stair at level %d'):format(z))
+                end
+            elseif sa.shape == Sh.WALL then
+                set(p.sx, p.sy, z, (z == p.top and DD.DownStair) or (z == p.zlo and DD.UpStair) or DD.UpDownStair)
+            elseif not bld then
+                local kind = (z == p.top and CT.DownStair) or (z == p.zlo and CT.UpStair) or CT.UpDownStair
+                if pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Construction, subtype = kind, pos = xyz2pos(p.sx, p.sy, z)}) then
+                    note(('building the shaft stair at level %d (an open tile can\'t be dug into a stair)'):format(z))
+                end
+            end
         end
     end
     if not stairs_done then return end
@@ -345,6 +371,21 @@ local function step(s)
     end
 end
 
+-- tell df-ai to leave the shaft and its stair alone: a df-ai corridor laid
+-- across the stair head floored it over, and the shaft was never dug
+-- (Boatsbrands). Re-sent every pass (df-ai keeps the list only in memory).
+function keep_open(p)
+    local okp, ai = pcall(require, 'plugins.df-ai')
+    if not okp or not ai.set_keep_open then return end
+    if not p then pcall(ai.set_keep_open, KEY, '') return end
+    local t = {}
+    for z = p.zlo, p.top do
+        t[#t + 1] = ('%d,%d,%d'):format(p.x, p.y, z)
+        t[#t + 1] = ('%d,%d,%d'):format(p.sx, p.sy, z)
+    end
+    pcall(ai.set_keep_open, KEY, table.concat(t, ';'))
+end
+
 local function tick()
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local s = load()
@@ -377,6 +418,7 @@ local function tick()
             end)
             return
         end
+        keep_open(s.current)
         step(s)
     end)
     if not ok then s.last = 'error: ' .. tostring(err) end

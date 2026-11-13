@@ -1254,6 +1254,13 @@ void Plan::fixup_open(color_ostream & out, room *r)
                 {
                     continue;
                 }
+                // a helper's shaft or stair through this room: leave it be
+                // (a corridor floored over a well shaft's stair head and the
+                // shaft never got dug)
+                if (kept_open(t))
+                {
+                    continue;
+                }
 
                 for (auto it = r->layout.begin(); it != r->layout.end(); it++)
                 {

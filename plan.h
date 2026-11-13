@@ -198,6 +198,17 @@ public:
     // its box once the wall is planned, before that within 9 tiles of the
     // fort entrance (inside the smallest ring dfai-walls ever picks)
     bool surface_farm_ok(room *r);
+    // tiles a helper script keeps open on purpose (a well shaft and its
+    // stair): df-ai never floors, walls or stairs over them. Set per owner
+    // from Lua (set_keep_open), so each helper replaces only its own list.
+    std::map<std::string, std::set<df::coord>> keep_open_by;
+    bool kept_open(df::coord t) const
+    {
+        for (auto & o : keep_open_by)
+            if (o.second.count(t))
+                return true;
+        return false;
+    }
     bool opens_into_aqueduct(room *r, df::coord & where);
     bool keep_off_aqueduct(color_ostream & out, room *r);
     bool revive_cistern_tap(color_ostream & out, std::ostream & reason);

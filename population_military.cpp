@@ -1969,8 +1969,33 @@ void Population::update_military(color_ostream & out)
         // and armed by arm_soldiers. The pool keeps out who must not fight.
         // It stays a full militia down to 90 citizens, so a few deaths
         // around 100 don't dismiss and redraft half the fort.
+        // ...except a civilian crew for the tool jobs: squad members won't
+        // pick up a pick, axe or crossbow for work, and dfai-toollabor gives
+        // mining, woodcutting and hunting to civilians only. Boatsbrands
+        // drafted 170 of 183: 13 civilians left (mostly children and
+        // nobles), no wood, so no charcoal, ash, lye, soap or metal armor,
+        // and the well shaft never dug. About 8% (at least 8) of the
+        // fort's able adults stay civilians; the least skilled soldiers go
+        // back first.
+        // The crew counts the civilians who already hold a tool labor (they
+        // are outside the draft pool), so a dismissed dwarf who takes up a
+        // pick doesn't shrink the pool and set off another round of
+        // dismissals.
         if (full_militia)
-            target = citizen_military + draft_pool.size();
+        {
+            size_t crew = std::max<size_t>(8, citizen.size() * 8 / 100);
+            size_t tool_civilians = 0;
+            for (auto id : citizen)
+            {
+                auto u = df::unit::find(id);
+                if (u && u->military.squad_id == -1 && Units::isAdult(u) &&
+                    (u->status.labors[unit_labor::MINE] || u->status.labors[unit_labor::CUTWOOD] || u->status.labors[unit_labor::HUNT]))
+                    tool_civilians++;
+            }
+            size_t short_by = crew > tool_civilians ? crew - tool_civilians : 0;
+            size_t eligible = citizen_military + draft_pool.size();
+            target = std::max(best_fighters, eligible > short_by ? eligible - short_by : size_t(0));
+        }
         if (citizen_military < target && !draft_pool.empty())
         {
             std::sort(draft_pool.begin(), draft_pool.end(), [&](df::unit *a, df::unit *b) { return combat(a) > combat(b); });
