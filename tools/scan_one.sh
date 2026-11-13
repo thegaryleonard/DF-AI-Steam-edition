@@ -2,7 +2,7 @@
 # scan_one.sh "<World: text>" <scroll> "<save row text>" : load a save (never saves), dump designs,
 # quickfort exports and work orders, then quit DF without saving.
 DF="/c/Program Files (x86)/Steam/steamapps/common/Dwarf Fortress"
-S=C:/Users/dad/AppData/Local/hermes/cache/scratch/savescan
+S="${SAVESCAN:-${TMPDIR:-/tmp}/savescan}"
 OUT=$S/out
 cd "$DF"
 R=./hack/dfhack-run.exe
