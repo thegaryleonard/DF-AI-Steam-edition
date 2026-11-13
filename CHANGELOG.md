@@ -1,5 +1,9 @@
 # Unreleased
 
+# v1.1.0 (2026-11-12)
+
+Built for Dwarf Fortress 53.17 and DFHack 53.17-r1 (Steam).
+
 - Water: df-ai never digs a room or corridor that would open into an aqueduct (a tile beside one on the same level, diagonals included, or right above/below one for a room with stairs). An aqueduct always holds river water under pressure, since its river end has no gate: at Roughnessbell a corridor planned beside the aqueduct's stair shaft was dug into it, and 13 levels flooded to just under the river (19 dwarves drowned, the stills and food went under, and the rest died of thirst). Such a room is dropped for good and logged as [WATER]; a room partly dug stops before its last wall.
 - Army: from 100 citizens the whole fort is under arms. Everyone the draft pool allows joins a squad, still rotated through training (about a quarter trains in a month) and armed and armored; below 100 the army stays the best ~30% of fighters. A full militia stays drafted down to 90 citizens, so deaths around 100 don't dismiss and redraft half the fort. With the full militia, a lone dangerous creature by a dwarf calls out only squads totalling ~30% of the fort, so farming and brewing go on; sieges, megabeasts and forgotten beasts still call every squad.
 - swap-plugin.sh waits until DF has actually written the quicksave (a new world.sav, up to 6 minutes) before closing the game. The fixed 45 s wait could close it mid-save, and the reload then lost the minutes since the last autosave.
