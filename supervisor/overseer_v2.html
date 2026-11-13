@@ -152,6 +152,23 @@ label.fld { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5
 .chart .tip b { display: block; font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
 .chart .tip i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; }
 .chart .msg { position: absolute; inset: 0; display: grid; place-items: center; color: var(--dim); font-style: italic; pointer-events: none; }
+.chart, .kpi { cursor: zoom-in; }
+.chart:hover, .kpi:hover { border-color: var(--line2); }
+#bigchart { position: fixed; inset: 0; background: #000b; z-index: 50; display: none; align-items: center; justify-content: center; }
+#bigchart.on { display: flex; }
+#bigchart .box { width: min(1400px, 94vw); max-height: 94vh; overflow: auto; background: var(--panel, #1b1814); border: 1px solid var(--line2); border-radius: 12px; padding: 16px 18px; box-shadow: 0 20px 60px #000c; cursor: default; }
+#bigchart .top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+#bigchart h2 { margin: 0; font-size: 20px; }
+#bigchart .x { margin-left: 8px; background: none; border: 1px solid var(--line2); color: var(--muted); border-radius: 6px; padding: 3px 10px; cursor: pointer; }
+#bigchart .chart { cursor: default; border: 0; background: none; padding: 0; }
+#bigchart .plot { height: min(60vh, 560px); }
+#bigchart table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+#bigchart th, #bigchart td { text-align: right; padding: 5px 8px; border-bottom: 1px solid #2f2a23; white-space: nowrap; }
+#bigchart th:first-child, #bigchart td:first-child { text-align: left; }
+#bigchart th { color: var(--muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; }
+#bigchart td i { display: inline-block; width: 10px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+#bigchart .note { color: var(--dim); font-size: 12px; margin-top: 8px; }
+#bigchart .up { color: #8bbf6a; } #bigchart .down { color: #d4573f; }
 .axis text { fill: #8a7e6a; font-size: 10.5px; font-family: var(--sans); }
 .statusgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0 18px; }
 .srow { padding: 8px 0; border-bottom: 1px solid #2f2a23; display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 10px; font-size: 13px; }
@@ -452,7 +469,14 @@ label.fld { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5
 'use strict';
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
-const get = async u => { const r = await fetch(u, {cache: 'no-store'}); if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); };
+// the game host's clock, read from each reply's Date header: "now" on the
+// charts is the host's now, so a viewer whose clock is off (this happened:
+// 8 hours fast) doesn't see every sample as hours old and an empty 6 h view
+let SKEW = 0;
+const NOW = () => Date.now() / 1000 + SKEW;
+const get = async u => { const r = await fetch(u, {cache: 'no-store'}); if (!r.ok) throw new Error(u + ' ' + r.status);
+  const d = Date.parse(r.headers.get('Date') || ''); if (!isNaN(d)) { const k = d / 1000 - Date.now() / 1000; if (Math.abs(k) > 5) SKEW = k; else SKEW = 0; }
+  return r.json(); };
 const post = (u, b) => fetch(u, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(b)});
 const fmt = n => n == null || isNaN(n) ? '–' : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 1 : 2) + 'M' : Math.abs(n) >= 1e4 ? (n / 1e3).toFixed(1) + 'k' : Math.round(n).toLocaleString();
 const fmtFull = n => n == null || isNaN(n) ? '–' : Math.round(n).toLocaleString();
@@ -555,7 +579,7 @@ async function refreshCards() {
     const c = await get('/cardstatus.json');
     CARD_OK = true; CARD_AT = c._at || 0;
     // the game is too busy to answer (a big battle): say how old the news is instead of passing it off as now
-    const age = c._at ? Date.now() / 1000 - c._at : 0;
+    const age = c._at ? NOW() - c._at : 0;
     const stale = age > 60 ? ` (as of ${Math.round(age / 60)} min ago: the game is too busy to answer)` : '';
     for (const [k, v] of Object.entries(c)) {
       if (k === '_at') continue;
@@ -572,13 +596,13 @@ function fillMissingCards() {   // orders the game has no status line for: the s
   const L = HIST[HIST.length - 1];
   document.querySelectorAll('.cmd .now[id^="now-"]').forEach(el => {
     if (el.dataset.got === '1') return;
-    if (el.id === 'now-game.fps' && L) { el.textContent = `Running at ${L.fps} of ${Math.round(L.fps_cap)} FPS (sampled ${ago(Date.now() / 1000 - L.at)}).`; el.style.display = ''; }
+    if (el.id === 'now-game.fps' && L) { el.textContent = `Running at ${L.fps} of ${Math.round(L.fps_cap)} FPS (sampled ${ago(NOW() - L.at)}).`; el.style.display = ''; }
     else el.style.display = 'none';
   });
 }
 function updateLive() {
   const p = $('livepill'), t = $('livetxt');
-  const age = CARD_AT ? Date.now() / 1000 - CARD_AT : 1e9;
+  const age = CARD_AT ? NOW() - CARD_AT : 1e9;
   p.className = 'pill ' + (!CARD_OK ? 'down' : age > 60 ? 'stale' : 'live');
   t.textContent = !CARD_OK ? 'Desk not answering' : !CARD_AT ? 'Waiting for the game' : age > 60 ? `Stale: game answered ${ago(age)}` : 'Live';
 }
@@ -633,6 +657,7 @@ async function loadHistory() {
   catch (e) { return; }
   renderHeader(); renderKpis();
   if ($('p-overview').classList.contains('on')) drawCharts();
+  if (BIG != null) drawBig();
 }
 function renderHeader() {
   const L = HIST[HIST.length - 1];
@@ -641,7 +666,7 @@ function renderHeader() {
   $('h-year').textContent = L.year ?? '–';
   $('h-pop').textContent = `${fmtFull(L.pop)} dwarves`;
   $('h-fps').textContent = `${L.fps ?? '–'} / ${L.fps_cap != null ? Math.round(L.fps_cap) : '–'} FPS`;
-  $('h-samp').textContent = ago(Date.now() / 1000 - L.at);
+  $('h-samp').textContent = ago(NOW() - L.at);
 }
 function sparkline(pts, k, hex) {
   const W = 160, H = 34;
@@ -665,7 +690,7 @@ function sparkline(pts, k, hex) {
 }
 function renderKpis() {
   const L = HIST[HIST.length - 1];
-  const now = L ? L.at : Date.now() / 1000;
+  const now = L ? L.at : NOW();
   const pts = HIST.filter(p => p.fort === (L && L.fort) && now - p.at <= 86400);
   $('kpis').innerHTML = KPIS.map(m => {
     const v = L ? L[m.k] : null, first = pts[0];
@@ -694,19 +719,23 @@ function timeLabel(t, step) {
   if (step >= 21600 && d.getHours() === 0) return d.toLocaleDateString([], {weekday: 'short'});
   return hm;
 }
+function rangeOf(range) {
+  const end = Math.max(NOW(), HIST.length ? HIST[HIST.length - 1].at : 0);
+  const inR = HIST.filter(p => p.at >= end - range);
+  let start = end - range;
+  if (inR.length) start = Math.max(start, Math.min(inR[0].at, end - 1800));
+  return {end, inR, start};
+}
 function drawCharts() {
   const box = $('charts');
   if (!box.children.length) box.innerHTML = CHARTS.map((c, i) => `<div class="chart panel"><div class="hd"><h3>${esc(c.title)}</h3><div class="legend">` +
     c.s.map(s => `<span><i class="${s.dash ? 'dash' : ''}" style="background:${s.c};color:${s.c}"></i>${esc(s.label)}${s.right ? ' (right)' : ''}</span>`).join('') +
     `</div></div><div class="bd" style="padding-top:6px"><div class="plot" id="plot-${i}"></div></div></div>`).join('');
-  const end = Math.max(Date.now() / 1000, HIST.length ? HIST[HIST.length - 1].at : 0);
-  const inR = HIST.filter(p => p.at >= end - RANGE);
-  let start = end - RANGE;
-  if (inR.length) start = Math.max(start, Math.min(inR[0].at, end - 1800));
+  const {end, inR, start} = rangeOf(RANGE);
   const span = end - start;
   $('rangenote').textContent = !HIST.length ? 'No samples yet: the first one comes within 5 minutes of the desk starting.'
-    : !inR.length ? `Nothing in this range (last sample ${ago(Date.now() / 1000 - HIST[HIST.length - 1].at)}).`
-    : `${inR.length} sample${inR.length > 1 ? 's' : ''}` + (span < RANGE - 60 ? `, covering the last ${spanTxt(span)} (all there is)` : '');
+    : !inR.length ? `Nothing in this range (last sample ${ago(NOW() - HIST[HIST.length - 1].at)}).`
+    : `${inR.length} sample${inR.length > 1 ? 's' : ''}` + (span < RANGE - 900 ? `, covering the last ${spanTxt(span)} (all there is)` : '');
   CHARTS.forEach((c, i) => drawChart($('plot-' + i), c, inR, start, end));
 }
 function drawChart(el, c, pts, t0, t1) {
@@ -801,7 +830,67 @@ function drawChart(el, c, pts, t0, t1) {
 $('range').querySelectorAll('button').forEach(b => b.onclick = () => {
   RANGE = +b.dataset.r; $('range').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); drawCharts();
 });
-let rsz; window.addEventListener('resize', () => { clearTimeout(rsz); rsz = setTimeout(() => { if ($('p-overview').classList.contains('on')) drawCharts(); }, 150); });
+let rsz; window.addEventListener('resize', () => { clearTimeout(rsz); rsz = setTimeout(() => { if ($('p-overview').classList.contains('on')) drawCharts(); if (BIG != null) drawBig(); }, 150); });
+
+/* ---------- a chart, big: click any trend chart or vital-sign card ---------- */
+let BIG = null, BIG_RANGE = 21600;
+const RANGES = [[3600, '1 h'], [21600, '6 h'], [86400, '24 h'], [259200, '3 days'], [604800, '7 days']];
+(function () {
+  const m = document.createElement('div');
+  m.id = 'bigchart';
+  m.innerHTML = `<div class="box"><div class="top"><h2 id="big-title"></h2><span class="grow" style="flex:1"></span>` +
+    `<div class="seg" id="big-range">${RANGES.map(r => `<button data-r="${r[0]}">${r[1]}</button>`).join('')}</div>` +
+    `<button class="x" id="big-x" title="Close (Esc)">&times;</button></div>` +
+    `<div class="chart"><div class="legend" id="big-legend" style="margin-bottom:6px"></div><div class="plot" id="big-plot"></div></div>` +
+    `<table id="big-stats"></table><div class="note" id="big-note"></div></div>`;
+  document.body.appendChild(m);
+  m.onclick = ev => { if (ev.target === m) closeBig(); };
+  m.querySelector('#big-x').onclick = closeBig;
+  m.querySelectorAll('#big-range button').forEach(b => b.onclick = () => { BIG_RANGE = +b.dataset.r; drawBig(); });
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && BIG != null) closeBig(); });
+  // the small charts and the cards open it (delegated: they are redrawn)
+  $('charts').addEventListener('click', ev => { const c = ev.target.closest('.chart'); if (!c) return; openBig([...$('charts').children].indexOf(c)); });
+  $('kpis').addEventListener('click', ev => {
+    const c = ev.target.closest('.kpi'); if (!c) return;
+    const k = KPIS[[...$('kpis').children].indexOf(c)]?.k;
+    const i = CHARTS.findIndex(ch => ch.s.some(s => s.k === k || (k === 'pop' && s.k === 'pop')));
+    if (i >= 0) openBig(i);
+  });
+})();
+function openBig(i) { if (i < 0 || !CHARTS[i]) return; BIG = i; BIG_RANGE = RANGE; $('bigchart').classList.add('on'); drawBig(); }
+function closeBig() { BIG = null; $('bigchart').classList.remove('on'); $('big-plot').innerHTML = ''; }
+function drawBig() {
+  if (BIG == null) return;
+  const c = CHARTS[BIG];
+  $('big-title').textContent = c.title;
+  $('big-range').querySelectorAll('button').forEach(b => b.classList.toggle('on', +b.dataset.r === BIG_RANGE));
+  $('big-legend').innerHTML = c.s.map(s => `<span><i class="${s.dash ? 'dash' : ''}" style="background:${s.c};color:${s.c}"></i>${esc(s.label)}${s.right ? ' (right axis)' : ''}</span>`).join('');
+  const {end, inR, start} = rangeOf(BIG_RANGE);
+  drawChart($('big-plot'), c, inR, start, end);
+  // the numbers behind the lines, over this range (this fort only)
+  const L = inR[inR.length - 1];
+  const pts = L ? inR.filter(p => p.fort === L.fort) : [];
+  const when = t => new Date(t * 1000).toLocaleString([], {weekday: 'short', hour: '2-digit', minute: '2-digit'});
+  const rows = c.s.map(s => {
+    const v = pts.filter(p => p[s.k] != null);
+    if (!v.length) return `<tr><td><i style="background:${s.c}"></i>${esc(s.label)}</td><td colspan="6" style="text-align:left;color:var(--dim)">no samples</td></tr>`;
+    let lo = v[0], hi = v[0], sum = 0;
+    for (const p of v) { if (+p[s.k] < +lo[s.k]) lo = p; if (+p[s.k] > +hi[s.k]) hi = p; sum += +p[s.k]; }
+    const first = v[0], last = v[v.length - 1], dv = +last[s.k] - +first[s.k];
+    const bad = KPIS.find(m => m.k === s.k)?.bad;
+    const cls = dv === 0 ? '' : (dv > 0) !== !!bad ? 'up' : 'down';
+    return `<tr><td><i style="background:${s.c}"></i>${esc(s.label)}</td><td>${fmtFull(last[s.k])}</td>` +
+      `<td class="${cls}">${dv === 0 ? 'steady' : (dv > 0 ? '▲ ' : '▼ ') + fmtFull(Math.abs(dv))}</td>` +
+      `<td>${fmtFull(lo[s.k])} <span class="dim">(${esc(when(lo.at))})</span></td><td>${fmtFull(hi[s.k])} <span class="dim">(${esc(when(hi.at))})</span></td>` +
+      `<td>${fmtFull(sum / v.length)}</td></tr>`;
+  });
+  $('big-stats').innerHTML = `<tr><th></th><th>Now</th><th>Change</th><th>Lowest</th><th>Highest</th><th>Average</th></tr>` + rows.join('');
+  const forts = [...new Set(inR.map(p => p.fort).filter(Boolean))];
+  $('big-note').textContent = !inR.length ? 'No samples in this range.'
+    : `${inR.length} samples, one every 5 minutes, from ${when(inR[0].at)} to ${when(L.at)}` +
+      (L.year != null ? ` (game year ${L.year})` : '') + (forts.length > 1 ? `. Forts in this range: ${forts.join(', ')}; the numbers are for ${L.fort}.` : '.') +
+      ' Hover the chart to read any sample.';
+}
 
 /* ---------- tour stops ---------- */
 let STOPS = [];
