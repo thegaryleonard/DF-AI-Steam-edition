@@ -391,7 +391,7 @@ for _,rv in ipairs(wd.rivers) do for i=0,#rv.path.x-1 do river[rv.path.x[i]*1000
 local o={{}}
 for x=2,wd.world_width-3 do for y=2,wd.world_height-3 do
   local r=wd.region_map[x]:_displace(y)
-  if r.finder_rank>0 and #r.sites==0 and not r.flags.has_site and r.evilness<66 and r.salinity<10 and r.elevation>99 and r.elevation<250 then
+  if r.finder_rank>0 and #r.sites==0 and not r.flags.has_site and r.evilness<66 and r.salinity<10 and r.elevation>99 and r.elevation<150 then  -- 150+ is mountain
     local s=0
     s=s-math.abs(r.temperature-55)*2                      -- mild weather
     s=s+math.min(r.vegetation,70)                         -- trees
@@ -511,7 +511,7 @@ def map_click_points():
 def set_location(x, y, ox, oy, zoom=False):
     zoom_lua = f"v.doing_site_finder=false v.zoomed_in=true v.zoom_cent_x={x} v.zoom_cent_y={y} v.region_cent_x={x} v.region_cent_y={y} " if zoom else ""
     lua(CSS + f"""local l=v.location l.region_pos.x={x} l.region_pos.y={y} {zoom_lua}
-l.embark_pos_min.x={x}*16+{ox} l.embark_pos_min.y={y}*16+{oy} l.embark_pos_max.x={x}*16+{ox + EMBARK - 1} l.embark_pos_max.y={y}*16+{oy + EMBARK - 1}
+l.embark_pos_min.x={x}*16+{ox} l.embark_pos_min.y={y}*16+{oy} l.embark_pos_max.x={x}*16+{ox + EMBARK - 1} l.embark_pos_max.y={y}*16+{oy + EMBARK - 1} v.embark_dx={EMBARK} v.embark_dy={EMBARK}
 print('OK')""")
 
 
@@ -631,7 +631,7 @@ def embark():
     if not sites:
         raise WorldUsedUp(f"every good site in {WORLD} has been tried")
     chosen = None
-    for x, y in sites[:10]:
+    for x, y in sites[:15]:
         why = try_embark(x, y)
         if why is None:
             log(f"new fort: embarking at region tile ({x},{y})")
@@ -642,7 +642,7 @@ def embark():
         reject(x, y, why)
         log(f"new fort: ({x},{y}) rejected before embark: {why}")
     if not chosen:
-        raise WorldUsedUp(f"the 10 best sites left in {WORLD} could not be embarked on")
+        raise WorldUsedUp(f"the 15 best sites left in {WORLD} could not be embarked on")
     # "Play now" if the preparation screen appears, then the arrival popup
     end = time.time() + 10 * 60
     while time.time() < end:
