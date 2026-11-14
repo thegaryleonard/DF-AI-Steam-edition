@@ -27,12 +27,20 @@ MARK="$HERE/logs/quicksave-request"
 touch "$MARK"
 timeout 60 ./hack/dfhack-run.exe quicksave >/dev/null 2>&1
 saved=""
-for i in $(seq 1 36); do
+# DF 53 writes a save into "current" and moves it into the world's folder
+# only when it's finished: a world.sav in "current" is a save in progress.
+# Killing the game then lost the fort (Gusilangen, 2026-11-14) or left an
+# older save to load. Wait for a finished world.sav outside "current", and
+# for "current" to be gone or empty and the files to stop changing.
+for i in $(seq 1 54); do
   sleep 10
-  if [ -n "$(find "$SAVES" -maxdepth 2 -name world.sav -newer "$MARK" 2>/dev/null | head -1)" ]; then saved=1; break; fi
+  done_sav="$(find "$SAVES" -mindepth 2 -maxdepth 2 -name world.sav -newer "$MARK" -not -path "*/current/*" 2>/dev/null | head -1)"
+  if [ -n "$done_sav" ] && [ -z "$(ls -A "$SAVES/current" 2>/dev/null)" ] && \
+     [ -z "$(find "$(dirname "$done_sav")" -newermt '-15 seconds' 2>/dev/null | head -1)" ]; then saved=1; break; fi
 done
-[ -n "$saved" ] || { echo "the quicksave was not written within 6 minutes: not swapping"; exit 1; }
-sleep 10   # let DF finish closing the save files
+[ -n "$saved" ] || { echo "the quicksave was not finished within 9 minutes: not swapping"; exit 1; }
+echo "saved: $(basename "$(dirname "$done_sav")")"
+sleep 5
 touch "$HERE/logs/planned-restart"
 powershell.exe -NoProfile -Command "Stop-Process -Name 'Dwarf Fortress' -Force" >/dev/null 2>&1
 sleep 5
