@@ -222,6 +222,16 @@ void PlanSetup::place_rooms(std::map<std::string, size_t> & counts, std::map<std
 
         std::shuffle(available_blueprints.begin(), available_blueprints.end(), ai.rng);
 
+        // Rooms the plan still needs to reach a minimum go first. The random
+        // fill used to spend the map on optional extras (more bedrooms,
+        // corridors, a fifth stockpile) and then run out of room for a
+        // required one (noble rooms, the well, a food stockpile): on 2x2
+        // embarks tlg01 failed all 25 attempts on five sites in a row.
+        std::stable_partition(available_blueprints.begin(), available_blueprints.end(), [&](const room_blueprint *rb) -> bool
+        {
+            return below_minimum(*rb, counts, instance_counts, plan);
+        });
+
         if (try_add == &PlanSetup::try_add_room_outdoor)
         {
             // Place the trade depot first, while the ground nearest the fort is still
@@ -261,6 +271,44 @@ void PlanSetup::place_rooms(std::map<std::string, size_t> & counts, std::map<std
             break;
         }
     }
+}
+
+bool PlanSetup::below_minimum(const room_blueprint & rb, const std::map<std::string, size_t> & counts, const std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprint_plan_template & plan)
+{
+    auto limit = plan.limits.find(rb.type);
+    if (limit != plan.limits.end())
+    {
+        auto have = counts.find(rb.type);
+        if ((have == counts.end() ? 0 : have->second) < limit->second.first)
+        {
+            return true;
+        }
+    }
+
+    auto type_limits = plan.instance_limits.find(rb.type);
+    if (type_limits != plan.instance_limits.end())
+    {
+        auto instance_limit = type_limits->second.find(rb.name);
+        if (instance_limit != type_limits->second.end())
+        {
+            size_t have = 0;
+            auto type_counts = instance_counts.find(rb.type);
+            if (type_counts != instance_counts.end())
+            {
+                auto it = type_counts->second.find(rb.name);
+                if (it != type_counts->second.end())
+                {
+                    have = it->second;
+                }
+            }
+            if (have < instance_limit->second.first)
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 void PlanSetup::clear()

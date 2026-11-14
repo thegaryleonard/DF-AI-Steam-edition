@@ -391,7 +391,11 @@ for _,rv in ipairs(wd.rivers) do for i=0,#rv.path.x-1 do river[rv.path.x[i]*1000
 local o={{}}
 for x=2,wd.world_width-3 do for y=2,wd.world_height-3 do
   local r=wd.region_map[x]:_displace(y)
-  if r.finder_rank>0 and #r.sites==0 and not r.flags.has_site and r.evilness<66 and r.salinity<10 and r.elevation>99 and r.elevation<250 then
+  -- elevation 100-149 = land: below is ocean/lake, 150 and up is mountain,
+  -- which DF refuses ("Cannot embark entirely on water or mountains") and the
+  -- user never wants anyway (2026-11-14: five mountain tiles in a row read as
+  -- a stuck "Click on the map to embark!" screen)
+  if r.finder_rank>0 and #r.sites==0 and not r.flags.has_site and r.evilness<66 and r.salinity<10 and r.elevation>99 and r.elevation<150 then
     local s=0
     s=s-math.abs(r.temperature-55)*2                      -- mild weather
     s=s+math.min(r.vegetation,70)                         -- trees
@@ -436,7 +440,8 @@ print('OK')""")
             return False
         time.sleep(2)
     lua(CSS + f"""local l=v.location l.region_pos.x={x} l.region_pos.y={y}
-l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x={x}*16+{HI} l.embark_pos_max.y={y}*16+{HI} print('OK')""")
+l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x={x}*16+{HI} l.embark_pos_max.y={y}*16+{HI}
+v.embark_dx={EMBARK} v.embark_dy={EMBARK} print('OK')""")
     dfhack(SCREEN, "tile", "120", "40")   # any tile on the map
     time.sleep(4)
     if focus().startswith("setupdwarfgame") or focus().startswith("dwarfmode"):
@@ -453,7 +458,19 @@ l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x
             return True
         d = dump()
     warn = [l.strip() for l in d.splitlines()[:4] if "selected" in l or "aquifer" in l.lower()]
+    if "Click on the map to embark" in d:
+        # still placing: DF refused the spot and says why on the panel
+        # ("Cannot embark entirely on water or mountains.", "Must embark on map.")
+        why = [l.split("\t", 1)[-1].strip() for l in d.splitlines() if l.split("\t", 1)[0].strip() in ("7", "8", "9", "10")]
+        log(f"new fort: ({x},{y}) refused by the game: {why or d.splitlines()[:3]}")
+        reject(x, y, "refused at embark: " + (why[0] if why else "?"))
+        # leave placement mode so the next try starts from the zoomed map
+        click("Abort", must=False)
+        time.sleep(2)
+        return False
     log(f"new fort: ({x},{y}) not taken: {warn[:1] or d.splitlines()[:2]}")
+    if "quifer" in d:
+        reject(x, y, "aquifer warning at embark")   # don't try it again in this world
     click("Abort", must=False)
     time.sleep(2)
     return False
@@ -489,7 +506,7 @@ def embark():
     open_world()
     bad = rejected()
     sites = [t for t in find_sites(near) if tuple(t) not in bad]
-    for x, y in sites[:12]:
+    for x, y in sites[:30]:   # most refusals are aquifers (~10 s each)
         if try_embark(x, y):
             log(f"new fort: embarking at region tile ({x},{y})")
             chosen = (x, y)
