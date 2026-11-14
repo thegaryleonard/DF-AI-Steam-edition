@@ -207,6 +207,49 @@ bool PlanSetup::build(const blueprints_t & blueprints, const blueprint_plan_temp
     return true;
 }
 
+// a room the plan still needs some of: its type, one of its instance limits,
+// or a type it counts as, is under its (scaled) minimum
+bool PlanSetup::below_min(const room_blueprint & rb, const std::map<std::string, size_t> & counts, const std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprint_plan_template & plan) const
+{
+    auto under = [&](const std::string & type, const std::string & name) -> bool
+    {
+        if (name.empty())
+        {
+            auto l = plan.limits.find(type);
+            if (l == plan.limits.end() || l->second.first == 0)
+                return false;
+            auto c = counts.find(type);
+            return (c == counts.end() ? 0 : c->second) < want_min(l->second.first);
+        }
+        auto tl = plan.instance_limits.find(type);
+        if (tl == plan.instance_limits.end())
+            return false;
+        auto l = tl->second.find(name);
+        if (l == tl->second.end() || l->second.first == 0)
+            return false;
+        size_t have = 0;
+        auto tc = instance_counts.find(type);
+        if (tc != instance_counts.end())
+        {
+            auto c = tc->second.find(name);
+            if (c != tc->second.end())
+                have = c->second;
+        }
+        return have < want_min(l->second.first);
+    };
+    if (under(rb.type, "") || under(rb.type, rb.name))
+        return true;
+    auto ca = plan.count_as.find(rb.type + "/" + rb.tmpl_name + "/" + rb.name);
+    if (ca != plan.count_as.end())
+        for (auto & t : ca->second)
+        {
+            size_t slash = t.first.find('/');
+            if (slash == std::string::npos ? under(t.first, "") : under(t.first.substr(0, slash), t.first.substr(slash + 1)))
+                return true;
+        }
+    return false;
+}
+
 void PlanSetup::place_rooms(std::map<std::string, size_t> & counts, std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprints_t & blueprints, const blueprint_plan_template & plan, PlanSetup::find_fn find, PlanSetup::try_add_fn try_add)
 {
     std::vector<const room_blueprint *> available_blueprints;
@@ -221,6 +264,15 @@ void PlanSetup::place_rooms(std::map<std::string, size_t> & counts, std::map<std
         }
 
         std::shuffle(available_blueprints.begin(), available_blueprints.end(), ai.rng);
+
+        // rooms the plan still needs a minimum of go first, before the space
+        // goes to extras: on a 2x2 embark a layout filled with 41 bedrooms
+        // and had no room left for a well, a stockpile or a noble's room,
+        // and all 25 tries failed the same way
+        std::stable_partition(available_blueprints.begin(), available_blueprints.end(), [&](const room_blueprint *rb) -> bool
+        {
+            return below_min(*rb, counts, instance_counts, plan);
+        });
 
         if (try_add == &PlanSetup::try_add_room_outdoor)
         {
@@ -746,7 +798,7 @@ bool PlanSetup::have_minimum_requirements(std::map<std::string, size_t> & counts
         }
         else
         {
-            if (limit.second.first > type->second)
+            if (want_min(limit.second.first) > type->second)
             {
                 DFAI_DEBUG(blueprint, 2, "Requirement not met: have " << type->second << " " << limit.first << " but want between " << limit.second.first << " and " << limit.second.second << ".");
                 Log(stl_sprintf("Requirement not met: have %zu %s but want between %zu and %zu.", type->second, limit.first.c_str(), limit.second.first, limit.second.second));
@@ -798,7 +850,7 @@ bool PlanSetup::have_minimum_requirements(std::map<std::string, size_t> & counts
                 }
                 else
                 {
-                    if (limit.second.first > count->second)
+                    if (want_min(limit.second.first) > count->second)
                     {
                         DFAI_DEBUG(blueprint, 2, "Requirement not met: have " << count->second << " " << type_limits.first << "/" << limit.first << " but want between " << limit.second.first << " and " << limit.second.second << ".");
                         Log(stl_sprintf("Requirement not met: have %zu %s/%s but want between %zu and %zu.", count->second, type_limits.first.c_str(), limit.first.c_str(), limit.second.first, limit.second.second));

@@ -147,8 +147,16 @@ bool PlanSetup::build_from_blueprint(const blueprints_t & blueprints)
 
     Log(stl_sprintf("There are %zu blueprint plans.", templates.size()));
 
+    // full size first; if no layout meets the blueprint's minimums on this
+    // map, the same again with every minimum halved (a 1 stays 1) rather
+    // than switching df-ai off: the fort can grow into a small map, but a
+    // fort with no plan just sits paused (Eartharches, 4 sites in a row)
+    for (double scale : {1.0, 0.5})
     for (size_t i = 0; i < templates.size(); i++)
     {
+        min_scale = scale;
+        if (scale < 1.0)
+            Log(stl_sprintf("No full-size layout fits this map; trying again with half the minimum rooms."));
         const blueprint_plan_template & plan = *templates.at(i);
         for (size_t retries = 0; retries < plan.max_retries; retries++)
         {
@@ -163,6 +171,9 @@ bool PlanSetup::build_from_blueprint(const blueprints_t & blueprints)
                 military_min = plan.military_min;
                 military_max = plan.military_max;
                 DFAI_DEBUG(blueprint, 1, "Successfully created a blueprint using plan: " << plan.name);
+                if (scale < 1.0)
+                    Log(stl_sprintf("Using a smaller layout (half the minimum rooms) of plan %s.", plan.name.c_str()));
+                min_scale = 1.0;
                 return true;
             }
 
@@ -171,6 +182,7 @@ bool PlanSetup::build_from_blueprint(const blueprints_t & blueprints)
         }
     }
 
+    min_scale = 1.0;
     DFAI_DEBUG(blueprint, 1, "Ran out of plans. Failed to create a blueprint.");
     return false;
 }

@@ -1,5 +1,12 @@
 # Unreleased
 
+- New forts embark reliably (overhaul):
+  - The embark goes where it can land. Each region tile's 256 sub-tiles are checked in data, and any placement that is all mountain or water is ruled out. The site finder's own match comes first, then up to 4 spread-out placements. The old code always used the middle, which failed with "Cannot embark entirely on water or mountains" at the same sites on every run for four days.
+  - Warnings are read from the game's flags (aquifer, salt, evil, undead), not from screen text. Savage land is still taken.
+  - Every site that fails, before or after landing, is remembered per world and never tried again. The old list never matched: it compared (x, y, reason) with (x, y).
+  - When a world has no usable site left, a new world is generated (once per run; `auto_new_world: false` in supervisor.json turns it off), so the stream isn't left on the embark map.
+  - df-ai's layout generator places the rooms its blueprint still needs a minimum of first. If no full-size layout fits the map, it tries again with every minimum halved (a 1 stays 1) instead of switching df-ai off. On 2x2 embarks it had filled the space with 41 bedrooms, then failed 25 tries for want of a well, stockpiles and noble rooms.
+  - `dfai-screen rclick <x> <y>` right-clicks a screen tile.
 - Pastures: grazers already in a pen are moved off an overgrazed or overcrowded one to the pen with the most grass to spare, any pasture zone the fort has, not only df-ai's own (Boatsbrands packed 18 into a 5x5 while three pens stood empty, and 45 animals starved). Need is grass tiles, not 11x11 shares, so small pens are no longer overfilled. With no room anywhere, up to 3 a pass go to the butcher: never a pet, a trained or thinking animal, or one of the last 3 of its kind.
 - Army: a squad that needs to eat or drink lets go of a flier that isn't a great beast or invader, and the fed squads keep it (one giant sparrow out of reach held 6 squads, and 26 soldiers went hungry and thirsty).
 - Overseer's Desk: the trend charts and the vital-sign cards open a big view on click (1 h to 7 days, hover to read any sample, and a table of now / change / lowest / highest / average with when). "Now" is the game host's clock (from each reply's Date header), so a viewer whose clock is off no longer sees every sample as hours old and an empty 6-hour view.

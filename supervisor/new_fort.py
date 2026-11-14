@@ -412,51 +412,182 @@ local t={{}} for i=1,math.min(30,#o) do t[#t+1]=o[i][1]..','..o[i][2]..','..o[i]
     return sites
 
 
-def try_embark(x, y):
-    """Embark on region tile (x, y), an EMBARK x EMBARK square in its middle. The embark screen
-    uses its location fields, not the mouse position, when the map is clicked,
-    so: set the location in data, press Embark, click anywhere on the map.
-    embark_pos_* are in world-wide local tiles (region * 16 + offset).
-    Returns True if the game took it (no aquifer or other warning)."""
-    # zoomed in on the region tile: that's where the Embark button lives
-    lua(CSS + f"""local l=v.location l.region_pos.x={x} l.region_pos.y={y}
-v.doing_site_finder=false v.zoomed_in=true v.zoom_cent_x={x} v.zoom_cent_y={y}
-v.region_cent_x={x} v.region_cent_y={y}
-l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x={x}*16+{HI} l.embark_pos_max.y={y}*16+{HI}
+# --- placing the embark ------------------------------------------------------
+#
+# A region tile is 16x16 mid-level tiles; the embark is EMBARK x EMBARK of
+# them. Each mid tile takes its biome from its own world tile or one of the 8
+# around it (region_details.biome: 1..9 laid out like a keypad, 5 = own). The
+# finder ranks whole region tiles, but the old code always put the embark in
+# the middle: on a tile at the foot of a mountain that was "Cannot embark
+# entirely on water or mountains" every time (16..19,12 in region17, on every
+# run since 11-10), and aquifer warnings that another corner of the same tile
+# didn't have. So: several placements per tile, the all-mountain/water ones
+# ruled out in data, and the game's own warning flags read after each try.
+
+BAD_WARN = ("WATER_TABLE", "HEAVY_WATER_TABLE", "SALT_WATER", "EVIL", "UNDEAD")
+PLACE_LUA = CSS + """local x,y,E={x},{y},{e}
+local d for _,r in ipairs(df.global.world.world_data.midmap_data.region_details) do if r.pos.x==x and r.pos.y==y then d=r end end
+if not d then print('NODETAIL') return end
+local cache={{}}
+local function bad(dir)
+  if cache[dir]==nil then
+    local dx,dy=(dir-1)%3-1, 1-(dir-1)//3
+    local ok,bt=pcall(dfhack.maps.getBiomeType,x+dx,y+dy)
+    local n=ok and df.biome_type[bt] or ''
+    cache[dir]=(n:find('MOUNTAIN') or n:find('OCEAN') or n:find('LAKE') or n:find('POOL') or n:find('GLACIER')) and true or false
+  end
+  return cache[dir]
+end
+local out={{}}
+for ox=0,16-E do for oy=0,16-E do
+  local land,dirs,seen=0,0,{{}}
+  for i=ox,ox+E-1 do for j=oy,oy+E-1 do
+    local dir=d.biome[i][j] % 16
+    if dir<1 or dir>9 then dir=5 end
+    if not bad(dir) then land=land+1 end
+    if not seen[dir] then seen[dir]=true dirs=dirs+1 end
+  end end
+  if land>0 then out[#out+1]=ox..','..oy..','..land..','..dirs end
+end end
+print('SF '..d.site_finder_x1..','..d.site_finder_y1..','..d.site_finder_x2..','..d.site_finder_y2)
+print('PL '..table.concat(out,' '))"""
+
+
+def placements(x, y):
+    """Offsets (ox, oy) inside region tile (x, y) worth trying, best first:
+    all land, the fewest different biomes (an aquifer comes with a biome),
+    near the middle. Falls back to the middle and the corners when the
+    game hasn't loaded the tile's details."""
+    m = 16 - EMBARK
+    fallback = [(LO, LO), (0, 0), (m, 0), (0, m), (m, m)]
+    out = lua(PLACE_LUA.format(x=x, y=y, e=EMBARK))
+    if "PL " not in out:
+        return fallback
+    full = EMBARK * EMBARK
+    cands = []
+    for p in out.split("PL ", 1)[1].split():
+        try:
+            ox, oy, land, dirs = map(int, p.split(","))
+        except ValueError:
+            continue
+        cands.append(((land < full), dirs, abs(ox - LO) + abs(oy - LO), ox, oy))
+    if not cands:
+        return []          # all of it is mountain or water: nowhere to embark
+    cands.sort()
+    # the site finder's own match inside this tile first (it checked the
+    # finder's settings, aquifer included, on exactly that rectangle)
+    picked = []
+    sf = re.search(r"SF (-?\d+),(-?\d+),(-?\d+),(-?\d+)", out)
+    if sf:
+        fx, fy = int(sf.group(1)), int(sf.group(2))
+        ok = {(c[3], c[4]) for c in cands if not c[0]}
+        if 0 <= fx <= 16 - EMBARK and 0 <= fy <= 16 - EMBARK and (fx, fy) in ok:
+            picked.append((fx, fy))
+    # then spread the tries out: skip offsets next to one already picked
+    for c in cands:
+        if all(abs(c[3] - p[0]) + abs(c[4] - p[1]) >= max(2, EMBARK) for p in picked):
+            picked.append((c[3], c[4]))
+        if len(picked) >= 4:
+            break
+    return picked
+
+
+def warn_flags():
+    out = lua(CSS + "local t={} for _,k in ipairs({'GENERIC','WATER_TABLE','HEAVY_WATER_TABLE','SALT_WATER','LARGE','SMALL','DEAD_CIV','SAVAGE','EVIL','UNDEAD'}) do if v.warn_flags[k] then t[#t+1]=k end end print('WF '..table.concat(t,','))")
+    if "WF" not in out:
+        return None
+    return {w for w in out.split("WF", 1)[1].strip().split(",") if w}
+
+
+def map_click_points():
+    """Tiles on the map part of the embark screen. Any map tile will do: the
+    screen embarks at its location fields, not where the mouse is."""
+    out = lua("local w,h=dfhack.screen.getWindowSize() print('WH',w,h)")
+    m = re.search(r"WH (\d+) (\d+)", out or "")
+    w, h = (int(m.group(1)), int(m.group(2))) if m else (160, 60)
+    return [(120, 40), (w // 2, h // 2), (w // 3, h // 2)]
+
+
+def set_location(x, y, ox, oy, zoom=False):
+    zoom_lua = f"v.doing_site_finder=false v.zoomed_in=true v.zoom_cent_x={x} v.zoom_cent_y={y} v.region_cent_x={x} v.region_cent_y={y} " if zoom else ""
+    lua(CSS + f"""local l=v.location l.region_pos.x={x} l.region_pos.y={y} {zoom_lua}
+l.embark_pos_min.x={x}*16+{ox} l.embark_pos_min.y={y}*16+{oy} l.embark_pos_max.x={x}*16+{ox + EMBARK - 1} l.embark_pos_max.y={y}*16+{oy + EMBARK - 1}
 print('OK')""")
+
+
+def try_place(x, y, ox, oy):
+    """One placement. Returns "ok", or why it wasn't taken: "aquifer",
+    "salt", "evil", "terrain" (all water or mountain), "click" (the map
+    click did nothing), "other"."""
+    set_location(x, y, ox, oy, zoom=True)
     time.sleep(2)
-    # the embark panel lists the site's features: an aquifer floods the fort
-    # (Twistgravel: the lower fort cut off, haulers stuck, 29 died of thirst)
     d = dump()
-    if "quifer" in d:
-        log(f"new fort: ({x},{y}) has an aquifer: skipped")
-        return False
     if "Click on the map to embark" not in d:
         if not click_last("Embark"):
-            return False
+            return "other"
         time.sleep(2)
-    lua(CSS + f"""local l=v.location l.region_pos.x={x} l.region_pos.y={y}
-l.embark_pos_min.x={x}*16+{LO} l.embark_pos_min.y={y}*16+{LO} l.embark_pos_max.x={x}*16+{HI} l.embark_pos_max.y={y}*16+{HI} print('OK')""")
-    dfhack(SCREEN, "tile", "120", "40")   # any tile on the map
-    time.sleep(4)
-    if focus().startswith("setupdwarfgame") or focus().startswith("dwarfmode"):
-        return True
-    d = dump()
-    # savage land only means big animals: take it; anything else (evil, salt
-    # water, an aquifer - the savage warning lists them together, and
-    # confirming it put Twistgravel on a light aquifer that flooded) is turned down
-    if "savage" in d.lower() and not any(w in d.lower() for w in ("evil", "salt", "aquifer", "flood")) and "Confirm" in d:
+    for cx, cy in map_click_points():
+        set_location(x, y, ox, oy)
+        dfhack(SCREEN, "tile", str(cx), str(cy))
+        time.sleep(4)
+        if focus().startswith("setupdwarfgame") or focus().startswith("dwarfmode"):
+            return "ok"
+        d = dump()
+        flags = warn_flags() or set()
+        low = d.lower()
+        if "entirely on water or mountains" in low:
+            return "terrain"
+        if flags or "Confirm" in d or "quifer" in d:
+            break       # the game answered with a warning
+        # still "Click on the map to embark" and nothing else: the click
+        # missed the map; try another spot
+    else:
+        return "click"
+    bad = sorted(flags & set(BAD_WARN))
+    # text too, in case the flags are not set the way we expect
+    if not bad:
+        for w, k in (("aquifer", "WATER_TABLE"), ("salt", "SALT_WATER"), ("evil", "EVIL"), ("undead", "UNDEAD")):
+            if w in low:
+                bad.append(k)
+    if not bad and "Confirm" in d:
+        # savage land only means big animals; a dead civ or a big/small site
+        # is fine too
         click("Confirm", must=False)
         time.sleep(4)
         if focus().startswith("setupdwarfgame") or focus().startswith("dwarfmode"):
-            log(f"new fort: ({x},{y}) is savage: taken anyway")
-            return True
+            log(f"new fort: ({x},{y}) +{ox},{oy} taken despite warnings {sorted(flags) or 'savage'}")
+            return "ok"
         d = dump()
-    warn = [l.strip() for l in d.splitlines()[:4] if "selected" in l or "aquifer" in l.lower()]
-    log(f"new fort: ({x},{y}) not taken: {warn[:1] or d.splitlines()[:2]}")
+    log(f"new fort: ({x},{y}) +{ox},{oy} not taken: flags {sorted(flags)} {[l.split(chr(9), 1)[-1].strip() for l in d.splitlines()[:2]]}")
     click("Abort", must=False)
     time.sleep(2)
-    return False
+    if any(k in bad for k in ("WATER_TABLE", "HEAVY_WATER_TABLE")):
+        return "aquifer"
+    if "SALT_WATER" in bad:
+        return "salt"
+    if bad:
+        return "evil"
+    return "other"
+
+
+def try_embark(x, y):
+    """Try the good placements of region tile (x, y). Returns None when the
+    game took one, else why the whole tile is no good."""
+    places = placements(x, y)
+    if not places:
+        return "all water or mountain"
+    why = []
+    for ox, oy in places:
+        r = try_place(x, y, ox, oy)
+        if r == "ok":
+            return None
+        why.append(r)
+        if r in ("salt", "evil"):
+            break       # the whole tile shares it
+    common = max(set(why), key=why.count)
+    return {"aquifer": "an aquifer at every placement tried", "terrain": "all water or mountain",
+            "click": "the embark click was never taken", "salt": "salt water", "evil": "evil or undead",
+            "other": "the game turned it down"}[common]
 
 
 def click_last(text):
@@ -470,7 +601,9 @@ REJECTED = Path(__file__).with_name("logs") / "rejected_sites.json"
 
 def rejected():
     try:
-        return {tuple(t[1:]) for t in json.loads(REJECTED.read_text(encoding="utf-8")) if t[0] == WORLD}
+        # (x, y) pairs: the reason is kept in the file for people, not compared
+        # (with it in the tuple nothing ever matched, and no site was skipped)
+        return {(t[1], t[2]) for t in json.loads(REJECTED.read_text(encoding="utf-8")) if t[0] == WORLD}
     except (OSError, ValueError):
         return set()
 
@@ -484,18 +617,32 @@ def reject(x, y, why):
     REJECTED.write_text(json.dumps(lst), encoding="utf-8")
 
 
+class WorldUsedUp(Failed):
+    pass
+
+
 def embark():
     near = old_site_pos()
     open_world()
     bad = rejected()
-    sites = [t for t in find_sites(near) if tuple(t) not in bad]
-    for x, y in sites[:12]:
-        if try_embark(x, y):
+    found = find_sites(near)
+    sites = [t for t in found if tuple(t) not in bad]
+    log(f"new fort: {len(sites)} of {len(found)} ranked sites not tried before in {WORLD}")
+    if not sites:
+        raise WorldUsedUp(f"every good site in {WORLD} has been tried")
+    chosen = None
+    for x, y in sites[:10]:
+        why = try_embark(x, y)
+        if why is None:
             log(f"new fort: embarking at region tile ({x},{y})")
             chosen = (x, y)
             break
-    else:
-        raise Failed("no candidate site embarked cleanly")
+        # remember it, so the next run doesn't try the same tiles again (the
+        # same five failed the same way on every run for four days)
+        reject(x, y, why)
+        log(f"new fort: ({x},{y}) rejected before embark: {why}")
+    if not chosen:
+        raise WorldUsedUp(f"the 10 best sites left in {WORLD} could not be embarked on")
     # "Play now" if the preparation screen appears, then the arrival popup
     end = time.time() + 10 * 60
     while time.time() < end:
@@ -510,6 +657,23 @@ def embark():
     click("Okay", must=False)
     time.sleep(3)
     return chosen
+
+
+def to_title():
+    """From the embark map back to the title screen: right click (the screen
+    says "Right click to abort") until the game asks, or the title shows.
+    DF 53 ignores simulated keys here, so this is mouse clicks and buttons."""
+    for _ in range(6):
+        f = focus()
+        if f.startswith("title"):
+            return
+        for t in ("Abort", "Return to title", "Back", "Yes"):
+            if click(t, must=False):
+                break
+        else:
+            dfhack(SCREEN, "rclick", "120", "40")
+        time.sleep(3)
+    wait_focus("title", 60)
 
 
 def map_problem():
@@ -561,10 +725,24 @@ def run(mode="retire", world=False):
             end_fort(abandon=(mode == "abandon"))
         if world:
             new_world()
-        for attempt in range(4):
+        made_world = world
+        attempt = 0
+        while attempt < 4:
             status("embarking" if not attempt else f"embarking (try {attempt + 1})")
             reset_fort_files()
-            x, y = embark()
+            try:
+                x, y = embark()
+            except WorldUsedUp as e:
+                # this world has no embarkable site left: a fresh one, once
+                # per run, rather than leaving the stream on the embark map
+                if made_world or not CFG.get("auto_new_world", True):
+                    raise
+                status(f"{e}; making a new world")
+                sup.notify(f"{e}, so I'm generating a new world for the next fort (this takes a while).")
+                to_title()
+                new_world()
+                made_world = True
+                continue
             why = map_problem()
             if not why:
                 status("starting df-ai")
@@ -578,6 +756,7 @@ def run(mode="retire", world=False):
             if attempt == 3:
                 raise Failed(f"four sites in a row were no good (last: {why})")
             end_fort(abandon=True)
+            attempt += 1
     except Failed as e:
         status(f"FAILED: {e}", running=False, error=str(e))
         log(f"new fort FAILED: {e}")

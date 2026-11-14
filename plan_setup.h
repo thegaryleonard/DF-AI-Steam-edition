@@ -58,6 +58,17 @@ private:
     bool try_add_room_outdoor(const room_blueprint & rb, std::map<std::string, size_t> & counts, std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprint_plan_template & plan);
     bool try_add_room_outdoor_shared(const room_blueprint & rb, std::map<std::string, size_t> & counts, std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprint_plan_template & plan, int16_t x, int16_t y);
     bool try_add_room_connect(const room_blueprint & rb, std::map<std::string, size_t> & counts, std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprint_plan_template & plan);
+    // 1 for the blueprint as written; below 1 when no full-size layout fits
+    // the map (each minimum scaled down, never below 1 where it was 1+)
+    double min_scale = 1.0;
+    size_t want_min(size_t m) const
+    {
+        if (m == 0 || min_scale >= 1.0)
+            return m;
+        size_t s = size_t(double(m) * min_scale + 0.999);
+        return s < 1 ? 1 : s;
+    }
+    bool below_min(const room_blueprint & rb, const std::map<std::string, size_t> & counts, const std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprint_plan_template & plan) const;
     bool have_minimum_requirements(std::map<std::string, size_t> & counts, std::map<std::string, std::map<std::string, size_t>> & instance_counts, const blueprint_plan_template & plan);
     void remove_unused_rooms();
     void handle_stairs_special();
