@@ -17,6 +17,8 @@
 #include "df/buildings_other_id.h"
 #include "df/workshop_type.h"
 #include "df/building_workshopst.h"
+#include "df/building_furnacest.h"
+#include "df/furnace_type.h"
 
 #include "modules/Buildings.h"
 #include "modules/Maps.h"
@@ -158,7 +160,19 @@ static df::workshop_type mood_workshop(df::job_type t)
 
 // Put a workshop down right now on free floor near the moody dwarf. Digging
 // the planned room took weeks: a possessed weaver died of thirst first.
+static df::building *place_building_near(df::coord origin, df::building_type btype, int32_t subtype);
 df::building *place_workshop_near(df::coord origin, df::workshop_type type)
+{
+    return place_building_near(origin, building_type::Workshop, int32_t(type));
+}
+
+// Same, for a 3x3 furnace (a glassmaker's mood needs a Glass Furnace).
+static df::building *place_furnace_near(df::coord origin, df::furnace_type type)
+{
+    return place_building_near(origin, building_type::Furnace, int32_t(type));
+}
+
+static df::building *place_building_near(df::coord origin, df::building_type btype, int32_t subtype)
 {
     // Indoor floor first; outdoor floor only when there is none (Bim
     // "Chaosseals": the whole fort below the surface was flooded, every
@@ -215,7 +229,7 @@ df::building *place_workshop_near(df::coord origin, df::workshop_type type)
     if (!mat)
         return nullptr;
 
-    df::building *bld = Buildings::allocInstance(c - df::coord(1, 1, 0), building_type::Workshop, type);
+    df::building *bld = Buildings::allocInstance(c - df::coord(1, 1, 0), btype, subtype);
     Buildings::setSize(bld, df::coord(3, 3, 1));
     std::vector<df::item *> items{mat};
     Buildings::constructWithItems(bld, items);
@@ -314,6 +328,36 @@ void Population::update_moods(color_ostream & out)
                 else if (mood_warned.insert(AI::describe_unit(u) + "|ws").second)
                 {
                     ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " needs a " + enum_item_key(need_ws) + " workshop, and there is no free floor or building material for one");
+                }
+            }
+        }
+
+        // A glassmaker claims a Glass Furnace, a furnace rather than a
+        // workshop, so mood_workshop() has none for it. Mörul "Goldletter"
+        // sat unclaimed to thirst 47800 in a fort with no glass furnace.
+        // Count unfinished ones (same rule as workshops above).
+        if (!Job::getHolder(job) && job->job_type == job_type::StrangeMoodGlassmaker)
+        {
+            bool have = false;
+            for (auto b : world->buildings.other[buildings_other_id::FURNACE_ANY])
+            {
+                auto f = virtual_cast<df::building_furnacest>(b);
+                if (f && f->type == furnace_type::GlassFurnace &&
+                    Maps::canWalkBetween(u->pos, df::coord(f->centerx, f->centery, f->z)))
+                {
+                    have = true;
+                    break;
+                }
+            }
+            if (!have)
+            {
+                if (df::building *bld = place_furnace_near(u->pos, furnace_type::GlassFurnace))
+                {
+                    ai.debug(out, stl_sprintf("[MOOD] %s needs a Glass Furnace; placed one at (%d, %d, %d)", AI::describe_unit(u).c_str(), bld->centerx, bld->centery, bld->z));
+                }
+                else if (mood_warned.insert(AI::describe_unit(u) + "|ws").second)
+                {
+                    ai.debug(out, "[MOOD] " + AI::describe_unit(u) + " needs a Glass Furnace, and there is no free floor or building material for one");
                 }
             }
         }
