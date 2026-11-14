@@ -1348,10 +1348,30 @@ void Population::battle_stations(color_ostream & out, bool danger, size_t cap)
     sheltering.clear();
 }
 
-void Population::civilian_alert(color_ostream & out, bool danger)
+// Boatsbrands (183 dwarves) died of thirst with ~7,800 drinks in stock and
+// 929 "Drink: forbidden area" cancellations: civilian alerts for an adder, a
+// giant snail and a giant butterfly ran 22 and 20 days, and the Safety burrow
+// was flooded from whichever citizen happened to be indoors, which can be a
+// walled-off building with nothing to drink. Now the burrow is grown from
+// the dining hall and always holds the dining hall, the food (drink)
+// stockpiles and the wells, and a thirsty or hungry fort gets a drink break
+// unless the danger is a siege or a great beast.
+void Population::civilian_alert(color_ostream & out, bool danger, bool great_danger)
 {
     static int quiet_checks = 0;
+    static int break_checks = 0;
     auto & alerts = plotinfo->alerts;
+    if (break_checks > 0)
+    {
+        // a drink break: no alert until it's over (sieges and great beasts
+        // end it at once: they are worth a dry throat)
+        if (!great_danger)
+        {
+            break_checks--;
+            return;
+        }
+        break_checks = 0;
+    }
     if (!danger)
     {
         if (alerts.civ_alert_idx > 0 && ++quiet_checks >= 8)
@@ -1363,7 +1383,24 @@ void Population::civilian_alert(color_ostream & out, bool danger)
     }
     quiet_checks = 0;
     if (alerts.civ_alert_idx > 0)
+    {
+        if (great_danger)
+            return;
+        size_t dry = 0;
+        for (auto id : citizen)
+        {
+            auto u = df::unit::find(id);
+            if (u && (u->counters2.thirst_timer > 30000 || u->counters2.hunger_timer > 50000))
+                dry++;
+        }
+        if (dry >= 3 && dry * 20 >= citizen.size()) // 3+ and 5%+ of the fort
+        {
+            alerts.civ_alert_idx = 0;
+            break_checks = 40;
+            ai.debug(out, stl_sprintf("[MILITARY] civilian alert lifted for a drink break: %zu of %zu citizens thirsty or hungry", dry, citizen.size()));
+        }
         return;
+    }
 
     // find or create the Safety burrow
     df::burrow *safety = nullptr;
@@ -1383,24 +1420,33 @@ void Population::civilian_alert(color_ostream & out, bool danger)
         plotinfo->burrows.list.push_back(safety);
     }
 
-    // (re)flood the indoor fort from a citizen standing inside, so the
-    // burrow keeps up with new digging
-    df::unit *seed = nullptr;
+    // (re)flood the indoor fort, so the burrow keeps up with new digging:
+    // from the dining hall (the heart of the fort, by the drinks), else from
+    // a citizen standing inside
+    df::coord seed_pos;
+    bool have_seed = false;
+    if (room *hall = ai.find_room(room_type::dininghall, [](room *r) -> bool { return r->status == room_status::finished; }))
+    {
+        seed_pos = (hall->min + hall->max) / 2;
+        have_seed = true;
+    }
     for (auto id : citizen)
     {
+        if (have_seed)
+            break;
         auto u = df::unit::find(id);
         auto d = u ? Maps::getTileDesignation(u->pos) : nullptr;
         if (d && !d->bits.outside && !d->bits.flow_size)
         {
-            seed = u;
-            break;
+            seed_pos = u->pos;
+            have_seed = true;
         }
     }
-    if (seed)
+    if (have_seed)
     {
         std::ofstream discard;
         color_ostream_wrapper discard_wrapper(discard);
-        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("burrow tiles flood-add Safety -c %d,%d,%d", seed->pos.x, seed->pos.y, seed->pos.z));
+        Core::getInstance().runCommand(discard_wrapper, stl_sprintf("burrow tiles flood-add Safety -c %d,%d,%d", seed_pos.x, seed_pos.y, seed_pos.z));
 
         // The 3D flood follows stairs down to the mines and caverns, which is
         // exactly where forgotten beasts come from: 15 dwarves died inside
@@ -1417,6 +1463,21 @@ void Population::civilian_alert(color_ostream & out, bool danger)
         {
             Core::getInstance().runCommand(discard_wrapper, stl_sprintf("burrow tiles box-remove Safety 0,0,0 %d,%d,%d",
                 world->map.x_count - 1, world->map.y_count - 1, lowest - 5));
+        }
+
+        // whatever the flood reached, the drinks and the water are inside
+        for (auto t : {room_type::dininghall, room_type::cistern, room_type::stockpile})
+        {
+            ai.find_room(t, [&](room *r) -> bool
+            {
+                if (r->status != room_status::finished && r->status != room_status::dug)
+                    return false;
+                if (r->type == room_type::stockpile && r->stockpile_type != stockpile_type::food)
+                    return false;
+                Core::getInstance().runCommand(discard_wrapper, stl_sprintf("burrow tiles box-add Safety %d,%d,%d %d,%d,%d",
+                    r->min.x, r->min.y, r->min.z, r->max.x, r->max.y, r->max.z));
+                return false; // visit them all
+            });
         }
     }
 
@@ -1929,7 +1990,7 @@ void Population::update_military(color_ostream & out)
     bool full_militia = everyone_fights && (citizen.size() >= 100 ||
         (citizen.size() >= 90 && citizen_military > best_fighters + 5));
     bool all_hands = great_danger || invaders_far > 0;
-    civilian_alert(out, great_danger || close_threat || flier_threat);
+    civilian_alert(out, great_danger || close_threat || flier_threat, great_danger || invaders_far > 0);
     battle_stations(out, all_hands || close_threat, full_militia && !all_hands ? best_fighters : 0);
     ranged_squads_to_ranges(ai, out);
     invaders_far = 0;

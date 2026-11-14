@@ -1,5 +1,9 @@
 # Unreleased
 
+- Civilian alert can't dehydrate the fort (Boatsbrands: 183 dwarves died of thirst with ~7,800 drinks in stock, 929 drinks cancelled for "forbidden area", after alerts of 22 and 20 days for an adder, a giant snail and a butterfly):
+  - The Safety burrow is grown from the dining hall, not from whichever dwarf happened to be indoors (that could be a walled-off building with nothing to drink).
+  - The dining hall, the food and drink stockpiles and the wells are always added to it.
+  - When 3 or more citizens (and 5% of the fort) are thirsty or starving, the alert is lifted for a drink break. Sieges and great beasts end the break at once.
 - New forts embark reliably (overhaul):
   - The embark goes where it can land. Each region tile's 256 sub-tiles are checked in data, and any placement that is all mountain or water is ruled out. The site finder's own match comes first, then up to 4 spread-out placements. The old code always used the middle, which failed with "Cannot embark entirely on water or mountains" at the same sites on every run for four days.
   - Warnings are read from the game's flags (aquifer, salt, evil, undead), not from screen text. Savage land is still taken.
