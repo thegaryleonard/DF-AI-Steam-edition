@@ -866,9 +866,48 @@ void Population::update_moods(color_ostream & out)
                 if (!felling || first)
                 {
                     std::ostringstream why;
-                    ai.stocks.cuttrees(out, 3, why);
+                    df::coord tree = ai.stocks.cuttrees(out, 3, why);
                     if (first || !felling)
                         ai.debug(out, "[MOOD] no logs for " + who + ": marked trees for felling " + why.str());
+                    // No tree left to fell and no log the dwarf can reach
+                    // (Lor "Quakeclams"' crafter mood: 52 logs stuck in built
+                    // walls and a murky pool, "marked 0 trees" every pass while
+                    // thirst passed 30000 with every other item free): waiting
+                    // for the 45000 cheat line only burns thirst. Carry the
+                    // nearest free log to the workshop now.
+                    if (!tree.isValid() && !felling && !reachable && holder)
+                    {
+                        df::coord wpos(holder->centerx, holder->centery, holder->z);
+                        df::item *best = nullptr;
+                        int32_t best_d = std::numeric_limits<int32_t>::max();
+                        for (auto item : world->items.other[items_other_id::WOOD])
+                        {
+                            auto & f = item->flags.bits;
+                            if (f.in_job || f.owned || f.trader || f.foreign || f.artifact || f.removed || f.forbid || f.dump ||
+                                f.garbage_collect || f.on_fire || f.rotten || f.construction || f.spider_web || f.hidden ||
+                                f.in_inventory || f.in_building || !mood_item_matches(ji, item))
+                            {
+                                continue;
+                            }
+                            df::coord ipos = Items::getPosition(item);
+                            if (!ipos.isValid())
+                                continue;
+                            int32_t d = std::abs(ipos.x - wpos.x) + std::abs(ipos.y - wpos.y) + 10 * std::abs(ipos.z - wpos.z);
+                            if (d < best_d)
+                            {
+                                best_d = d;
+                                best = item;
+                            }
+                        }
+                        if (best && Items::moveToBuilding(best, holder, df::building_item_role_type::TEMP) &&
+                            Job::attachJobItem(job, best, df::job_role_type::Reagent, int32_t(idx), -1))
+                        {
+                            ai.debug(out, stl_sprintf("[MOOD] CHEAT: no trees to fell and no reachable log for %s (thirst %d): moved unreachable %s to the workshop",
+                                who.c_str(), u->counters2.thirst_timer, AI::describe_item(best).c_str()));
+                            usable++;
+                            reachable++;
+                        }
+                    }
                 }
             }
             if (!usable && ji->item_type == item_type::ROUGH && ji->mat_type >= 3 && ji->mat_type <= 5 &&
