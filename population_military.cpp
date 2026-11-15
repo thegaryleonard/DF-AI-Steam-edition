@@ -24,6 +24,10 @@
 #include "df/itemdef_ammost.h"
 #include "df/itemdef_weaponst.h"
 #include "df/job.h"
+#include "df/job_item.h"
+#include "df/job_item_ref.h"
+#include "df/mood_type.h"
+#include "modules/Job.h"
 #include "df/job_list_link.h"
 #include "df/military_routinest.h"
 #include "df/alert_state_infost.h"
@@ -1382,6 +1386,53 @@ void Population::civilian_alert(color_ostream & out, bool danger, bool great_dan
         return;
     }
     quiet_checks = 0;
+
+    // A strange mood still gathering items must be free to walk the fort:
+    // Olin "Cloistercanyon" (Showerwheels, 220) waited 16 days for raw glass
+    // inside a civilian alert for a harmless danger, and when the glass was
+    // made outside the Safety burrow he cancelled "Strange mood: Forbidden
+    // area" and went stark raving mad. No alert while a mood is gathering,
+    // unless the danger is great and the moody dwarf is not yet thirsty.
+    {
+        size_t gathering = 0, urgent = 0;
+        for (auto id : citizen)
+        {
+            auto u = df::unit::find(id);
+            if (!u || u->mood < mood_type::Fey || u->mood > mood_type::Fell || !u->job.current_job)
+                continue;
+            auto job = u->job.current_job;
+            if (job->items.size() >= job->job_items.elements.size() && Job::getHolder(job))
+            {
+                // every requirement has at least as many attachments; check
+                // each index really has one
+                bool all = true;
+                for (size_t idx = 0; idx < job->job_items.elements.size() && all; idx++)
+                {
+                    bool has = false;
+                    for (auto r : job->items)
+                        if (r && r->job_item_idx == int32_t(idx))
+                            has = true;
+                    all = has;
+                }
+                if (all)
+                    continue;
+            }
+            gathering++;
+            if (u->counters2.thirst_timer > 30000 || u->counters2.hunger_timer > 50000)
+                urgent++;
+        }
+        if (gathering && (!great_danger || urgent))
+        {
+            if (alerts.civ_alert_idx > 0)
+            {
+                alerts.civ_alert_idx = 0;
+                ai.debug(out, stl_sprintf("[MILITARY] civilian alert lifted: %zu strange mood(s) still gathering items (a moody dwarf sent out of the burrow goes insane)", gathering));
+            }
+            break_checks = great_danger ? 0 : 10;
+            return;
+        }
+    }
+
     if (alerts.civ_alert_idx > 0)
     {
         if (great_danger)
