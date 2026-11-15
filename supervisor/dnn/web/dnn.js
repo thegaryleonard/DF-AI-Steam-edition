@@ -290,94 +290,113 @@
   }
 
 
-  // ------------------------------------------------------------ sound (synthesised, no files)
-  // News music and stingers, plus a talking-head "voice": soft pitched blips while a
-  // caption types, a different pitch per speaker. Down on the remote mutes/unmutes.
-  // ?mute=1 starts muted (the OBS scene already has the game's sound).
+  // ------------------------------------------------------------ sound: Dwarf Fortress's own
+  // Music and effects come from the game's install (dnn.py serves data/sound as /dfsound/).
+  // Background: the fort soundtrack, a different track each time; a big story switches to
+  // the matching game track (siege, forgotten beast, strange mood) until the story ends.
+  // Effects: the game's alert sounds on BREAKING NEWS, its UI whoosh/scroll on scene
+  // changes, coins for the sponsors. Down on the remote mutes. ?mute=1 or ?obs=1 start muted.
   var SFX = (function () {
-    var AC = window.AudioContext || window.webkitAudioContext;
-    var ac = null, master = null, bedGain = null, muted = Q.mute === '1' || OBS;
+    var muted = Q.mute === '1' || OBS;
     try { var sv = localStorage.getItem('dnn.muted'); if (sv === '1') muted = true; if (sv === '0' && !OBS) muted = false; } catch (e) { /* ignore */ }
-    function ctx() {
-      if (!AC) return null;
-      if (!ac) {
-        ac = new AC();
-        master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
-      }
+    var MUSIC_VOL = 0.45, FX_VOL = 0.8;
+    var CALM = ['tracks/mountainhome/MH_Full.ogg', 'tracks/another_year/AY_Full.ogg', 'tracks/craftsdwarfship/CS_Full.ogg',
+      'tracks/drink_&_industry/DI_Full.ogg', 'tracks/expansive_cavern/EC_Full.ogg', 'tracks/first_year/FY_Full.ogg',
+      'tracks/hill_dwarf/HD_Full.ogg', 'tracks/strike_the_earth!/STE_Full.ogg', 'tracks/koganusan/KG_Full.ogg',
+      'tracks/dwarf_fortress/Dwarf_Fortress.ogg', 'tracks/nabidas/Nabidas.ogg'];
+    var WINTER = 'tracks/winter_entombs_you/WEY_Full.ogg';
+    var STORY_MUSIC = { siege: 'tracks/vile_force_of_darkness/VFOD_Full.ogg', beast: 'tracks/forgotten_beast/FB_Full.ogg',
+      mood: 'tracks/strange_moods/SM_Full.ogg', death: 'tracks/death_spiral/DS_Full.ogg' };
+    var STING = { siege: 'sounds/siege.ogg', beast: 'sounds/megabeast.ogg', artifact: 'sounds/artifact_created.ogg',
+      birth: 'sounds/baby_born.ogg', mood: 'sounds/strange_mood.ogg', marriage: 'sounds/wedding.ogg' };
+    var url = function (f) { return '/dfsound/' + f.split('/').map(encodeURIComponent).join('/'); };
+    var music = null, current = null, override = null, fade = null, played = [];
+    function fadeTo(el, vol, ms, done) {
+      clearInterval(el._fade);
+      var from = el.volume, t0 = Date.now();
+      el._fade = setInterval(function () {
+        var k = Math.min(1, (Date.now() - t0) / ms);
+        el.volume = Math.max(0, Math.min(1, from + (vol - from) * k));
+        if (k >= 1) { clearInterval(el._fade); if (done) done(); }
+      }, 50);
+    }
+    function nextCalm() {
+      var season = String((((S.feed || {}).state || {}).weather || {}).season || '').toLowerCase();
+      if (season.indexOf('winter') >= 0 && played.indexOf(WINTER) < 0) return WINTER;
+      var left = CALM.filter(function (t) { return played.indexOf(t) < 0; });
+      if (!left.length) { played = []; left = CALM.slice(); }
+      return left[rnd(left.length)];
+    }
+    function play(track) {
+      if (track === current && music && !music.ended) return;
+      var old = music;
+      current = track;
+      played.push(track);
+      if (played.length > CALM.length) played.shift();
+      music = new Audio(url(track));
+      music.volume = 0;
+      music.addEventListener('ended', function () { if (!override) play(nextCalm()); else { music.currentTime = 0; api.kick(); } });
+      music.addEventListener('pause', function () { var m = this; if (m === music && !m.ended) setTimeout(function () { if (m === music) api.kick(); }, 1500); });
+      music.addEventListener('error', function () { setTimeout(function () { if (!override) play(nextCalm()); }, 5000); });
+      var pr = music.play(); if (pr && pr.catch) pr.catch(function () { /* autoplay refused: the next key press retries */ });
+      fadeTo(music, muted ? 0 : MUSIC_VOL, 2500);
+      if (old) fadeTo(old, 0, 2500, function () { old.pause(); old.src = ''; });
+    }
+    var AC = window.AudioContext || window.webkitAudioContext, ac = null, bufs = {};
+    function load(file, cb) {
+      if (bufs[file] && bufs[file].buffer) { cb(bufs[file].buffer); return; }
+      if (bufs[file]) { bufs[file].wait.push(cb); return; }
+      bufs[file] = { wait: [cb] };
+      var x = new XMLHttpRequest();
+      x.open('GET', url(file), true); x.responseType = 'arraybuffer';
+      x.onload = function () {
+        if (x.status !== 200 && x.status !== 206) { delete bufs[file]; return; }
+        ac.decodeAudioData(x.response, function (b) { bufs[file].buffer = b; bufs[file].wait.forEach(function (f) { f(b); }); bufs[file].wait = []; },
+          function () { delete bufs[file]; });
+      };
+      x.onerror = function () { delete bufs[file]; };
+      x.send();
+    }
+    function fx(file, vol) {
+      if (muted || !AC) return;
+      if (!ac) ac = new AC();
       if (ac.state === 'suspended' && ac.resume) ac.resume();
-      return ac;
-    }
-    function tone(freq, t0, dur, type, vol, dest) {
-      var o = ac.createOscillator(), g = ac.createGain();
-      o.type = type || 'sine'; o.frequency.setValueAtTime(freq, t0);
-      g.gain.setValueAtTime(0.0001, t0);
-      g.gain.exponentialRampToValueAtTime(vol, t0 + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
-      o.connect(g); g.connect(dest || master);
-      o.start(t0); o.stop(t0 + dur + 0.05);
-      return o;
-    }
-    function brass(freq, t0, dur, vol) {   // sawtooth through a lowpass: cheap TV-news brass
-      var f = ac.createBiquadFilter(); f.type = 'lowpass'; f.frequency.setValueAtTime(400, t0);
-      f.frequency.linearRampToValueAtTime(2400, t0 + 0.08); f.frequency.linearRampToValueAtTime(900, t0 + dur);
-      f.connect(master);
-      tone(freq, t0, dur, 'sawtooth', vol, f); tone(freq * 1.005, t0, dur, 'sawtooth', vol * 0.7, f);
-    }
-    function boom(t0, vol) {   // timpani-ish hit
-      var o = ac.createOscillator(), g = ac.createGain();
-      o.type = 'sine'; o.frequency.setValueAtTime(110, t0); o.frequency.exponentialRampToValueAtTime(42, t0 + 0.6);
-      g.gain.setValueAtTime(vol, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.9);
-      o.connect(g); g.connect(master); o.start(t0); o.stop(t0 + 1);
+      load(file, function (b) {
+        var src = ac.createBufferSource(), g = ac.createGain();
+        g.gain.value = Math.min(1, FX_VOL * (vol == null ? 1 : vol));
+        src.buffer = b; src.connect(g); g.connect(ac.destination); src.start();
+      });
     }
     var api = {
-      sting: function () {   // BREAKING NEWS
-        if (!ctx()) return; var t = ac.currentTime + 0.05;
-        boom(t, 0.9); brass(293.7, t, 0.32, 0.18); brass(220, t + 0.36, 0.32, 0.18); brass(293.7, t + 0.72, 1.3, 0.2); brass(370, t + 0.72, 1.3, 0.12);
-        boom(t + 0.72, 0.7);
+      start: function () {
+        play(nextCalm());
+        if (AC && !ac) ac = new AC();
+        if (ac) ['sounds/alert.ogg', 'audio/ui/whoosh/whoosh-001.ogg', 'audio/ui/whoosh/whoosh-002.ogg'].forEach(function (f) { load(f, function () {}); });
       },
-      bump: function () {    // into and out of the break
-        if (!ctx()) return; var t = ac.currentTime + 0.05;
-        [523.3, 659.3, 784, 1046.5].forEach(function (f, i) { tone(f, t + i * 0.14, 0.5, 'triangle', 0.12); });
-        tone(261.6, t, 0.9, 'sine', 0.12);
+      sting: function (kind, text) {
+        var f = STING[kind] || 'sounds/alert.ogg';
+        if (kind === 'beast' && /demon/i.test(text || '')) f = 'sounds/demon_attack.ogg';
+        if (kind === 'siege' && /ambush/i.test(text || '')) f = 'sounds/ambush.ogg';
+        fx(f, 1);
+        if (STORY_MUSIC[kind]) { override = kind; play(STORY_MUSIC[kind]); }
       },
-      whoosh: function () {  // stage change
-        if (!ctx()) return; var t = ac.currentTime + 0.02;
-        var n = ac.createBufferSource(), b = ac.createBuffer(1, Math.floor(ac.sampleRate * 0.5), ac.sampleRate), d = b.getChannelData(0);
-        for (var i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length);
-        n.buffer = b;
-        var f = ac.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = 1.2;
-        f.frequency.setValueAtTime(300, t); f.frequency.exponentialRampToValueAtTime(3000, t + 0.4);
-        var g = ac.createGain(); g.gain.value = 0.18;
-        n.connect(f); f.connect(g); g.connect(master); n.start(t);
-      },
-      voice: function (pid) {   // one syllable from the person speaking
-        if (!ctx() || pid == null) return;
-        var h = 0, k = String(pid); for (var i = 0; i < k.length; i++) h = (h * 31 + k.charCodeAt(i)) % 997;
-        var base = 110 + (h % 9) * 18, t = ac.currentTime;
-        var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 900 + (h % 5) * 150; lp.connect(master);
-        tone(base * (0.9 + Math.random() * 0.35), t, 0.09, 'square', 0.035, lp);
-      },
-      bed: function () {     // quiet looping newsroom pulse under the show
-        if (!ctx() || bedGain) return;
-        bedGain = ac.createGain(); bedGain.gain.value = 0.05; bedGain.connect(master);
-        var notes = [146.8, 146.8, 174.6, 130.8], step = 0;
-        var loop = function () {
-          var t = ac.currentTime + 0.05, f = notes[step++ % notes.length];
-          tone(f, t, 1.9, 'triangle', 0.5, bedGain); tone(f * 1.5, t, 1.9, 'sine', 0.25, bedGain);
-          for (var j = 0; j < 4; j++) tone(f * 4, t + j * 0.5, 0.08, 'sine', j % 2 ? 0.1 : 0.15, bedGain);
-          setTimeout(loop, 2000);
-        };
-        loop();
-      },
-      duck: function (on) { if (bedGain && ac) bedGain.gain.setTargetAtTime(on ? 0.02 : 0.05, ac.currentTime, 0.3); },
+      storyOver: function () { if (override) { override = null; play(nextCalm()); } },
+      whoosh: function () { fx('audio/ui/whoosh/whoosh-00' + (1 + rnd(2)) + '.ogg', 0.45); },
+      scroll: function () { fx('audio/ui/scrolls/scroll-1/scroll-00' + (1 + rnd(8)) + '.ogg', 0.6); },
+      coins: function () { fx('audio/actions/drop/coin/drop-00' + (1 + rnd(3)) + '.ogg', 0.7); },
+      bump: function () { fx('audio/actions/drop/coin/drop-00' + (1 + rnd(3)) + '.ogg', 0.7); },
+      voice: function () { /* no voices: captions only */ },
+      duck: function (on) { if (music && !muted) fadeTo(music, on ? MUSIC_VOL * 0.7 : MUSIC_VOL, 600); },
+      bed: function () { api.start(); },
+      kick: function () { if (music && music.paused) { var pr = music.play(); if (pr && pr.catch) pr.catch(function () {}); } },
       toggle: function () {
         muted = !muted;
         try { localStorage.setItem('dnn.muted', muted ? '1' : '0'); } catch (e) { /* ignore */ }
-        if (ctx()) master.gain.setTargetAtTime(muted ? 0 : 0.8, ac.currentTime, 0.05);
+        if (!music) api.start(); else { api.kick(); fadeTo(music, muted ? 0 : MUSIC_VOL, 400); }
         var el = $('mute'); el.textContent = muted ? 'SOUND OFF \u00b7 press \u25BC' : 'SOUND ON'; el.className = 'show';
         clearTimeout(api.mt); api.mt = setTimeout(function () { el.className = ''; }, 2500);
       },
-      state: function () { return { ac: ac ? ac.state : 'none', muted: muted }; }
+      state: function () { return { muted: muted, track: current, override: override, paused: music ? music.paused : null, t: music ? Math.round(music.currentTime) : null, ac: ac ? ac.state : 'none', fx: Object.keys(bufs).length }; }
     };
     return api;
   })();
@@ -409,7 +428,7 @@
     var who = beat.who;
     if (beat.stage === 'studio') { $('studiohead').innerHTML = headHTML(beat.studio || who); setStage('studio'); }
     else if (beat.stage === 'split') { $('splitA').innerHTML = headHTML(beat.left); $('splitB').innerHTML = headHTML(beat.right); $('splitvs').textContent = beat.vs || ''; setStage('split'); }
-    else if (beat.stage === 'card') { if (/class="bumper"/.test(beat.card || '') && S.lastCard !== beat.card) SFX.bump(); $('card').innerHTML = beat.card || ''; setStage('card'); }
+    else if (beat.stage === 'card') { if (S.lastCard !== beat.card) { if (/class="bumper"/.test(beat.card || '')) SFX.bump(); else SFX.scroll(); } $('card').innerHTML = beat.card || ''; setStage('card'); }
     else setStage('vidwrap');
     if (beat.stage !== S.lastStage && beat.stage !== 'card') SFX.whoosh();
     S.lastStage = beat.stage; S.lastCard = beat.stage === 'card' ? beat.card : null;
@@ -428,18 +447,16 @@
       clearInterval(S.typer); clearTimeout(S.holdT); el.textContent = text; talking(pid, false);
       S.skip = null; done();
     };
-    var lastBlip = 0;
     SFX.duck(!!who);
     S.typer = setInterval(function () {
       i += 2; el.textContent = text.slice(0, i);
-      if (who && i - lastBlip >= 3 && /[aeiouy]/i.test(text.charAt(i - 1))) { lastBlip = i; SFX.voice(pid); }
       if (i >= text.length) { clearInterval(S.typer); talking(pid, false); S.holdT = setTimeout(finish, hold); }
     }, 55);
     S.skip = finish;
   }
 
-  function stinger(cb) {
-    SFX.sting();
+  function stinger(cb, e) {
+    SFX.sting(e && e.kind, e && e.text);
     var st = $('stinger');
     st.className = '';
     // restart the CSS animations
@@ -676,7 +693,7 @@
       var e = S.breaking.shift();
       S.lastBreak = Date.now();
       var bb = SEG.breaking(e);
-      if (bb.length) { stinger(function () { play(bb, nextSegment); }); return; }
+      if (bb.length) { stinger(function () { play(bb, function () { SFX.storyOver(); nextSegment(); }); }, e); return; }
     }
     if (RUNDOWN[S.seg] === 'open') S.issueUsed = {};
     var name = RUNDOWN[S.seg];
@@ -753,6 +770,7 @@
   // ------------------------------------------------------------ remote
   document.addEventListener('keydown', function (ev) {
     var k = ev.keyCode;
+    SFX.kick();
     if (k === 461 || k === 27) { ev.preventDefault(); window.close(); return; }   // TV Back: leave DNN
     if (k === 40 || k === 77) { ev.preventDefault(); SFX.toggle(); return; }       // Down (or M): sound on/off
     if ((k === 13 || k === 39) && S.skip) { ev.preventDefault(); S.skip(); }

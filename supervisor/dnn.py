@@ -8,6 +8,8 @@ Serves http://<host>:8769/ (all interfaces, so the LG TV app can load it):
   /portrait.png?u=  a dwarf's portrait (relayed from the broadsheet)
   /game.jpg         the newest game frame (relayed from gamefeed :8766)
   /game.mjpg        the live game window (gamefeed's MJPEG): the TV's default picture
+  /dfsound/<path>   Dwarf Fortress's own music and sound effects, straight from the game
+                    install's data/sound (allowlisted folders, .ogg only, Range requests)
   /video.json       is the HLS restream of the OBS program up? {ok, hls}
   /hls/index.m3u8   that restream (cookie-free relay of mediamtx)
 
@@ -388,6 +390,30 @@ class HlsRelay:
 HLS = HlsRelay()
 
 
+# ---------------------------------------------------------------- the game's sounds
+SOUND_DIRS = ("tracks/", "sounds/", "audio/ui/whoosh/", "audio/ui/scrolls/", "audio/actions/", "cards/")
+
+
+def df_sound_root():
+    try:
+        import dfai_supervisor as sup
+        return Path(sup.CFG["df_dir"]) / "data" / "sound"
+    except Exception:
+        return Path(r"C:\Program Files (x86)\Steam\steamapps\common\Dwarf Fortress") / "data" / "sound"
+
+
+def df_sound(rel):
+    """Path of an allowlisted DF sound file, or None. Served from the user's own game
+    install for their own TV; never copied into the repo."""
+    from urllib.parse import unquote
+    rel = unquote(rel).replace("\\", "/")
+    if not rel.lower().endswith(".ogg") or ".." in rel or not rel.startswith(SOUND_DIRS):
+        return None
+    root = df_sound_root().resolve()
+    f = (root / rel).resolve()
+    return f if root in f.parents and f.is_file() else None
+
+
 # ---------------------------------------------------------------- http
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *a):
@@ -401,6 +427,49 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(body)
+
+    def send_file_range(self, f, ctype):
+        """A static file with HTTP Range support (media players seek and probe with it)."""
+        if f is None:
+            return self.send_error(404)
+        size = f.stat().st_size
+        start, end = 0, size - 1
+        rng = self.headers.get("Range") or ""
+        partial = rng.startswith("bytes=")
+        if partial:
+            a, _, b = rng[6:].split(",")[0].partition("-")
+            try:
+                if a.strip():
+                    start = int(a)
+                    end = int(b) if b.strip() else size - 1
+                else:
+                    start = max(0, size - int(b))
+            except ValueError:
+                partial = False
+            end = min(end, size - 1)
+            if start > end:
+                self.send_response(416)
+                self.send_header("Content-Range", f"bytes */{size}")
+                self.end_headers()
+                return
+        self.send_response(206 if partial else 200)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Accept-Ranges", "bytes")
+        self.send_header("Content-Length", str(end - start + 1))
+        if partial:
+            self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
+        self.send_header("Cache-Control", "max-age=86400")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        with open(f, "rb") as fh:
+            fh.seek(start)
+            left = end - start + 1
+            while left > 0:
+                chunk = fh.read(min(65536, left))
+                if not chunk:
+                    break
+                self.wfile.write(chunk)
+                left -= len(chunk)
 
     def relay_mjpg(self):
         """The live game window (gamefeed's MJPEG, ~10 fps) for the TV. gamefeed shares one
@@ -437,6 +506,8 @@ class Handler(BaseHTTPRequestHandler):
                 uid = int((q.get("u") or ["-1"])[0])
                 body = CACHE.get(f"portrait{uid}", 600, lambda: fetch(f"{HERALD}/portrait.png?u={uid}", 20))
                 return self.send(body, "image/png", cache="max-age=600")
+            if path.startswith("/dfsound/"):
+                return self.send_file_range(df_sound(path[len("/dfsound/"):]), "audio/ogg")
             if path.startswith("/hls/"):
                 body, ctype = HLS.get(path[5:])
                 return self.send(body, ctype)
