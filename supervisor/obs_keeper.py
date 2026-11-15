@@ -5,7 +5,9 @@ What it does when OBS (obs64.exe) is not running:
      OBS 30+ doesn't stop on the "OBS crashed, start in Safe Mode?" dialog;
   2. starts OBS from its own bin folder (OBS needs that working directory) with
      --startstreaming --minimize-to-tray --disable-updater
-     --disable-missing-files-check, plus optional --profile/--collection/--scene.
+     --disable-missing-files-check, plus optional --profile/--collection/--scene,
+     and --startvirtualcam when "obs_virtualcam" is true (DNN's optional
+     OBS-mode video for the TV app, see dnn.py).
 
 A stream that drops while OBS keeps running is left to OBS's own auto-reconnect
 (Settings > Advanced > Automatically Reconnect), which handled four Twitch
@@ -24,6 +26,7 @@ DEFAULTS = {
     "obs_scene": "",
     "obs_max_restarts_per_hour": 3,
     "obs_start_grace_s": 60,  # after a launch, wait this long before judging again
+    "obs_virtualcam": False,  # --startvirtualcam: for DNN's optional OBS-mode video (dnn.py, dnn_video.on)
 }
 
 
@@ -53,6 +56,8 @@ def launch_obs(cfg):
     exe = Path(cfg["obs_exe"])
     args = [str(exe), "--startstreaming", "--minimize-to-tray",
             "--disable-updater", "--disable-missing-files-check"]
+    if cfg.get("obs_virtualcam"):
+        args.append("--startvirtualcam")
     for key, flag in (("obs_profile", "--profile"), ("obs_collection", "--collection"), ("obs_scene", "--scene")):
         if cfg.get(key):
             args += [flag, cfg[key]]

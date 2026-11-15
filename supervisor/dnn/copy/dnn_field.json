@@ -1,0 +1,1611 @@
+{
+ "_about": "DNN field reports, live interviews, weather desk. See ../COPY.md.",
+ "field": {
+  "tavern": [
+   {
+    "id": "dnf-tavern-1",
+    "text": "{reporter} here, live from {place}, where the mood is best described as 'one more round'. Back to you in, they tell me, one more round."
+   },
+   {
+    "id": "dnf-tavern-2",
+    "text": "I'm standing in the {place_kind}, and I can confirm: the mugs are full, the bard is loud, and nobody here has watched the news in weeks."
+   },
+   {
+    "id": "dnf-tavern-3",
+    "text": "{reporter} live from {place}. The barrels are running dry and the crowd is getting restless. I am being told to wrap this up quickly and leave.",
+    "when": [
+     "drinks_low"
+    ]
+   },
+   {
+    "id": "dnf-tavern-4",
+    "text": "The scene here at the {place_kind} is tense. Two dwarves are arguing over whether the last song was about a battle or a cheese. Both are crying."
+   },
+   {
+    "id": "dnf-tavern-5",
+    "text": "{reporter} reporting. Behind me, a dwarf has been telling the same story about a carp for three hours. The carp gets bigger every time."
+   },
+   {
+    "id": "dnf-tavern-6",
+    "text": "I'm live in {place}, where a cat has claimed the warmest seat by the hearth. Locals tell me challenging the cat is not done here."
+   },
+   {
+    "id": "dnf-tavern-7",
+    "text": "The ale is flowing here in the {place_kind}, and so, frankly, are the confessions. I've learned things tonight, {anchor}. Things I cannot unhear.",
+    "when": [
+     "drinks_high"
+    ]
+   },
+   {
+    "id": "dnf-tavern-8",
+    "text": "Reporting from {place}. A dancer just knocked over three mugs and a performer. The performer is fine. The mugs, I am sorry to say, did not make it."
+   },
+   {
+    "id": "dnf-tavern-9",
+    "text": "{reporter} at the {place_kind}. I asked the patrons for a comment on current events and was handed a drink instead. I'm calling that a no comment."
+   },
+   {
+    "id": "dnf-tavern-10",
+    "text": "Live from {place}, where the visiting poet has been reciting for so long that two dwarves have aged into the elderly bracket. Truly moving work."
+   }
+  ],
+  "temple": [
+   {
+    "id": "dnf-temple-1",
+    "text": "{reporter} here, live from {place}. It is very quiet, {anchor}, so I will be whispering this entire report. The gods appreciate it. Probably."
+   },
+   {
+    "id": "dnf-temple-2",
+    "text": "I'm standing in the {place_kind}, where a dwarf has been praying for a full day. Sources say it's either deep devotion or they fell asleep on their knees."
+   },
+   {
+    "id": "dnf-temple-3",
+    "text": "Live from {place}. Worshippers tell me they come here for peace, reflection, and to get away from the noise of the tavern. Mostly the last one."
+   },
+   {
+    "id": "dnf-temple-4",
+    "text": "The {place_kind} is packed today, {anchor}. Nothing brings dwarves closer to the divine like a long week of hauling stone."
+   },
+   {
+    "id": "dnf-temple-5",
+    "text": "{reporter} reporting. A priest here just asked me to stop filming the altar. I'm told the altar is shy. I'll respect that and film this wall instead."
+   },
+   {
+    "id": "dnf-temple-6",
+    "text": "Live from {place}, where dwarves have gathered to remember the departed. A sombre scene. Even the cats are sitting still, which is unheard of.",
+    "when": [
+     "recent_death"
+    ]
+   },
+   {
+    "id": "dnf-temple-7",
+    "text": "Here in the {place_kind}, faith runs deep. I asked one worshipper what they pray for. They said 'better ale' and then looked very embarrassed."
+   },
+   {
+    "id": "dnf-temple-8",
+    "text": "{reporter} live in the {place_kind}. Someone has left an offering of a single roasted turnip. Theologians are already divided on its meaning."
+   },
+   {
+    "id": "dnf-temple-9",
+    "text": "Live from {place}. A choir is performing, though I'm told only half of them know the words. The other half are humming with great conviction."
+   },
+   {
+    "id": "dnf-temple-10",
+    "text": "This is {reporter} at the {place_kind}, where a dwarf in a strange mood just walked in, stared at the ceiling, and left. Experts say that's normal. Experts lie."
+   }
+  ],
+  "library": [
+   {
+    "id": "dnf-library-1",
+    "text": "{reporter} live from {place}, where a scholar has been reading the same page since spring. They say the plot is really picking up."
+   },
+   {
+    "id": "dnf-library-2",
+    "text": "I'm in the {place_kind}. Silence is strictly enforced, so I've been asked to report this entirely in a polite murmur. Murmur murmur. Back to you."
+   },
+   {
+    "id": "dnf-library-3",
+    "text": "Live from {place}. Researchers here are hard at work on a treatise titled, and I'm quoting, 'Rocks: A Second Look'. It is eleven volumes."
+   },
+   {
+    "id": "dnf-library-4",
+    "text": "The {place_kind} is open, the scrolls are stacked, and two scholars are in a fierce debate about whether elves can read. Neither has met an elf."
+   },
+   {
+    "id": "dnf-library-5",
+    "text": "{reporter} here. A dwarf just checked out a book on carp safety. Given recent events at the lake, {anchor}, that is a wise choice."
+   },
+   {
+    "id": "dnf-library-6",
+    "text": "Live in the {place_kind}, where a cat is asleep on the only copy of an important history. Nobody has the courage to move it. History will wait."
+   },
+   {
+    "id": "dnf-library-7",
+    "text": "{reporter} reporting from {place}. The librarian informs me the most borrowed book this month is 'Ale Through the Ages'. Second place: a sequel."
+   },
+   {
+    "id": "dnf-library-8",
+    "text": "Here in the {place_kind}, knowledge is power. I asked a scholar what they're studying. They said 'everything'. Then they asked me to leave."
+   },
+   {
+    "id": "dnf-library-9",
+    "text": "{reporter} live. This shelf behind me holds every recorded complaint the nobles have ever made. It is load-bearing, {anchor}."
+   },
+   {
+    "id": "dnf-library-10",
+    "text": "Live from the {place_kind}. A young scribe is copying a manuscript by candlelight. The candle is the most dangerous thing in this room. Tense stuff."
+   }
+  ],
+  "hospital": [
+   {
+    "id": "dnf-hospital-1",
+    "text": "{reporter} live from {place}. The doctors are busy, the beds are full, and someone keeps asking for ale as medicine. The doctors are considering it."
+   },
+   {
+    "id": "dnf-hospital-2",
+    "text": "I'm at the {place_kind}, where a dwarf with a broken leg is insisting he's 'fine, just resting'. He has been resting for forty days."
+   },
+   {
+    "id": "dnf-hospital-3",
+    "text": "Live in the {place_kind}. The bone doctor tells me business is steady. When I asked what 'steady' means, she just pointed at the stairs."
+   },
+   {
+    "id": "dnf-hospital-4",
+    "text": "{reporter} here. A patient behind me has been waiting for a crutch since last season. The crutch is reportedly still a tree somewhere."
+   },
+   {
+    "id": "dnf-hospital-5",
+    "text": "Live from {place}, where the soap supply is, and I quote the staff, 'a matter we don't discuss on camera'. We move on."
+   },
+   {
+    "id": "dnf-hospital-6",
+    "text": "{reporter} reporting from the {place_kind}. Morale is surprisingly high. One patient told me the food here is the best in the fort. It's the same food."
+   },
+   {
+    "id": "dnf-hospital-7",
+    "text": "Here at {place}, a surgeon is washing her hands for the third time. I'm told it's either good practice or nerves. She did not answer me."
+   },
+   {
+    "id": "dnf-hospital-8",
+    "text": "Live in the {place_kind}. A soldier just came in with a goblin arrow in his helmet and asked if he could keep it. Doctors said yes. Very brave, very silly."
+   },
+   {
+    "id": "dnf-hospital-9",
+    "text": "{reporter} at the {place_kind}. It's been quiet here lately, {anchor}. The staff have taken up knitting. One bed now has a sweater.",
+    "when": [
+     "peace"
+    ]
+   },
+   {
+    "id": "dnf-hospital-10",
+    "text": "This is {reporter} at the {place_kind}, where the thread stockpile is low and the patience is lower. Back to you before I'm asked to hold something."
+   }
+  ],
+  "guildhall": [
+   {
+    "id": "dnf-guildhall-1",
+    "text": "{reporter} live from {place}, where the guild is meeting to discuss a pressing issue: who gets the good chair. Talks have stalled."
+   },
+   {
+    "id": "dnf-guildhall-2",
+    "text": "I'm in the {place_kind}. The members here take their craft very seriously. One just told me a hammer is 'a lifestyle'. I nodded."
+   },
+   {
+    "id": "dnf-guildhall-3",
+    "text": "Live from the {place_kind}, where guild dues are being collected. Several members are suddenly very interested in a crack in the ceiling."
+   },
+   {
+    "id": "dnf-guildhall-4",
+    "text": "{reporter} reporting. The guild has issued a formal statement on the quality of recent work. The statement is a single disapproving grunt."
+   },
+   {
+    "id": "dnf-guildhall-5",
+    "text": "Here in {place}, the guildmaster is giving a speech on tradition. It started at breakfast. It is now well past dinner. He's on part two."
+   },
+   {
+    "id": "dnf-guildhall-6",
+    "text": "{reporter} live at the {place_kind}. Members are displaying their finest work. One brought a mug. Just a mug. They're very proud of it."
+   },
+   {
+    "id": "dnf-guildhall-7",
+    "text": "Live from {place}. I've been told outsiders are not allowed past the second bench, so this is as close as DNN can get. It's a nice bench."
+   },
+   {
+    "id": "dnf-guildhall-8",
+    "text": "The {place_kind} is buzzing tonight, {anchor}. A rumour is going around that someone outside the guild made a masterwork. Outrage is building."
+   },
+   {
+    "id": "dnf-guildhall-9",
+    "text": "{reporter} here. The guild just voted unanimously to hold another vote. Democracy is alive and very, very slow in {fort}."
+   },
+   {
+    "id": "dnf-guildhall-10",
+    "text": "Live in the {place_kind}, where an apprentice has been asked to fetch 'the left-handed anvil'. We at DNN will not spoil the joke for him."
+   }
+  ],
+  "dining": [
+   {
+    "id": "dnf-dining-1",
+    "text": "{reporter} live from {place}, where the lunch rush is in full swing. I've already been elbowed twice. A third elbow is approaching."
+   },
+   {
+    "id": "dnf-dining-2",
+    "text": "I'm in the {place_kind}. The table behind me has been arguing for an hour about whether a roast is better with or without a cave spider in it."
+   },
+   {
+    "id": "dnf-dining-3",
+    "text": "Live in the {place_kind}. Portions are small today, {anchor}. One dwarf just ate a single mushroom very slowly, with great dignity.",
+    "when": [
+     "food_low"
+    ]
+   },
+   {
+    "id": "dnf-dining-4",
+    "text": "{reporter} here. There's so much food in the {place_kind} that a dwarf just fell asleep face-first in a stew. He looks content.",
+    "when": [
+     "food_high"
+    ]
+   },
+   {
+    "id": "dnf-dining-5",
+    "text": "Live from {place}. The cook tells me tonight's special is the same as last night's special. When asked what it is, she said 'special'."
+   },
+   {
+    "id": "dnf-dining-6",
+    "text": "{reporter} reporting from the {place_kind}. A noble has requested a private table. There are no private tables. He is now eating standing up, alone, furious."
+   },
+   {
+    "id": "dnf-dining-7",
+    "text": "Here in the {place_kind}, a cat has stolen a fish right off a plate. The owner of the plate has decided this is now the cat's fish. Wise."
+   },
+   {
+    "id": "dnf-dining-8",
+    "text": "{reporter} at {place}. The tables are crowded, the chairs are mismatched, and someone is eating raw plump helmets out of protest. Against what, unclear."
+   },
+   {
+    "id": "dnf-dining-9",
+    "text": "Live in the {place_kind}. A dwarf just stood on a table to make a toast. The toast was to the table. Everyone cheered. A moving moment."
+   },
+   {
+    "id": "dnf-dining-10",
+    "text": "This is {reporter} in {place}, where the dishes are piling up. Nobody does the dishes, {anchor}. We don't even have dishes. That's the mystery."
+   }
+  ],
+  "barracks": [
+   {
+    "id": "dnf-barracks-1",
+    "text": "{reporter} live from {place}. The militia is training hard today. I have been asked to stand further back. Then further. I'm now in a hallway."
+   },
+   {
+    "id": "dnf-barracks-2",
+    "text": "I'm in the {place_kind}, where the squad is sparring. One recruit just dodged so well he dodged right out of the room. Still looking for him."
+   },
+   {
+    "id": "dnf-barracks-3",
+    "text": "Live from the {place_kind}. The captain tells me morale is high and the armour is mostly the right size. Mostly."
+   },
+   {
+    "id": "dnf-barracks-4",
+    "text": "{reporter} here. Soldiers are sleeping in shifts. The current shift is sleeping. The next shift is also, as far as I can tell, sleeping."
+   },
+   {
+    "id": "dnf-barracks-5",
+    "text": "Live in {place}. Without a siege to worry about, the squad has invented a new drill: standing very still and looking intimidating. It works on me.",
+    "when": [
+     "peace"
+    ]
+   },
+   {
+    "id": "dnf-barracks-6",
+    "text": "{reporter} reporting from the {place_kind}. A soldier is polishing an axe and humming. It's a lovely tune. I'm going to leave now."
+   },
+   {
+    "id": "dnf-barracks-7",
+    "text": "Here at the {place_kind}, the militia commander gave me one rule: don't touch the weapon rack. I touched it. I'm being escorted out shortly."
+   },
+   {
+    "id": "dnf-barracks-8",
+    "text": "Live from {place}, where a recruit has asked if the training spears are 'the pointy end or the other end'. The sergeant has gone for a walk."
+   },
+   {
+    "id": "dnf-barracks-9",
+    "text": "{reporter} live. The squad behind me is wrestling. Rules are simple: there are none. Score is unclear. Everyone is losing, mostly to the floor."
+   },
+   {
+    "id": "dnf-barracks-10",
+    "text": "This is {reporter} at the {place_kind}. Training is going well, though one soldier keeps saluting the cat. The cat has not saluted back."
+   }
+  ],
+  "pasture": [
+   {
+    "id": "dnf-pasture-1",
+    "text": "{reporter} live from the {place_kind}. Behind me, a yak is staring at the camera. It has been staring for some time. I don't like it, {anchor}."
+   },
+   {
+    "id": "dnf-pasture-2",
+    "text": "I'm standing in {place}, where the animals are grazing and the smell is, let's say, a big story of its own."
+   },
+   {
+    "id": "dnf-pasture-3",
+    "text": "Live in the {place_kind}. A goat just ate part of our equipment. The goat has been asked for comment. The goat has eaten that too."
+   },
+   {
+    "id": "dnf-pasture-4",
+    "text": "{reporter} here, ankle-deep in the {place_kind}. I've been told the grass is fresh. I've also been told not to look down. Both are true."
+   },
+   {
+    "id": "dnf-pasture-5",
+    "text": "Live from {place}. The cats have wandered out here too, {anchor}. They're not grazing. They're supervising. The cows look nervous.",
+    "when": [
+     "cats_many"
+    ]
+   },
+   {
+    "id": "dnf-pasture-6",
+    "text": "{reporter} reporting. A dwarf is trying to herd turkeys. The turkeys are herding him. It's an even contest and I'm calling it for the turkeys."
+   },
+   {
+    "id": "dnf-pasture-7",
+    "text": "Here in the {place_kind}, a newborn calf is taking its first steps. Locals have already named it. They've also already discussed it as stew. Tough crowd."
+   },
+   {
+    "id": "dnf-pasture-8",
+    "text": "Live in {place}. The animal trainer tells me the war dogs are well behaved. One is currently eating my notes. Well behaved, though."
+   },
+   {
+    "id": "dnf-pasture-9",
+    "text": "{reporter} live from the {place_kind}. It's peaceful out here. Just grass, sky, and a single alpaca that has decided I am its enemy."
+   },
+   {
+    "id": "dnf-pasture-10",
+    "text": "This is {reporter} in the {place_kind}, where a pig has escaped and is now running a victory lap. Nobody is chasing it. It respects that."
+   }
+  ],
+  "depot": [
+   {
+    "id": "dnf-depot-1",
+    "text": "{reporter} live from the {place_kind}, where everyone is waiting for the caravan. Some have waited so long they've started a small settlement."
+   },
+   {
+    "id": "dnf-depot-2",
+    "text": "I'm at the trade depot. The broker is practising her haggling face. It's terrifying, {anchor}. I would sell her anything."
+   },
+   {
+    "id": "dnf-depot-3",
+    "text": "Live from the {place_kind}. Haulers are lining up crafts for trade. Someone has stacked forty stone mugs and labelled them 'heirlooms'."
+   },
+   {
+    "id": "dnf-depot-4",
+    "text": "{reporter} here. A rumour has spread that elves are coming to trade. Three dwarves have already hidden the wooden furniture. Out of spite."
+   },
+   {
+    "id": "dnf-depot-5",
+    "text": "Live at the depot, where the broker just offered a merchant a crate of rock crafts for one barrel of ale. The merchant is weeping. Hard bargain."
+   },
+   {
+    "id": "dnf-depot-6",
+    "text": "{reporter} reporting from the {place_kind}. It's empty right now, {anchor}. Just me, the wind, and a dwarf who swears she heard wagons."
+   },
+   {
+    "id": "dnf-depot-7",
+    "text": "Here at the depot, the guards are on alert. One asked me if I was a merchant. I said no. He seemed disappointed. I am disappointed too."
+   },
+   {
+    "id": "dnf-depot-8",
+    "text": "Live from the {place_kind}. A noble has come down personally to inspect the goods. He's inspecting them very closely. With his pockets."
+   },
+   {
+    "id": "dnf-depot-9",
+    "text": "{reporter} live. The haulers are moving bins at top speed. When asked why, one said 'the broker looked at me'. That's all you need, really."
+   },
+   {
+    "id": "dnf-depot-10",
+    "text": "This is {reporter} at the {place_kind}, where the last caravan left behind a single sock. It's now being treated as a historical artefact."
+   }
+  ],
+  "workshop": [
+   {
+    "id": "dnf-workshop-1",
+    "text": "{reporter} live from {place}. Hammers ringing, sparks flying, and a craftsdwarf who has told me to stop asking questions three times."
+   },
+   {
+    "id": "dnf-workshop-2",
+    "text": "I'm at the {place_kind}. The work orders are stacked high. When I asked the crafter how many there are, she said 'yes'."
+   },
+   {
+    "id": "dnf-workshop-3",
+    "text": "Live in the {place_kind}, where a dwarf is in a strange mood and demanding materials. Nobody knows what she wants. She just keeps pointing at my hat."
+   },
+   {
+    "id": "dnf-workshop-4",
+    "text": "{reporter} here. A mason is carving a statue that's either a hero, a dragon, or a really big potato. Too early to tell. Exciting times."
+   },
+   {
+    "id": "dnf-workshop-5",
+    "text": "Live from {place}. The workshop is a mess, {anchor}. Tools everywhere, shavings everywhere. The crafter says it's 'organised by feel'."
+   },
+   {
+    "id": "dnf-workshop-6",
+    "text": "{reporter} reporting from the {place_kind}. Behind me, a carpenter has just made his ninetieth bed. He shows no signs of stopping. Pray for him."
+   },
+   {
+    "id": "dnf-workshop-7",
+    "text": "Here in the {place_kind}, I asked what they're making. 'Something good,' I was told. Then the dwarf made a mug. It's a good mug, though."
+   },
+   {
+    "id": "dnf-workshop-8",
+    "text": "Live in {place}. Someone has requested a masterwork. The crafter laughed for a full minute, then got to work. That's dwarven confidence."
+   },
+   {
+    "id": "dnf-workshop-9",
+    "text": "{reporter} live at the {place_kind}. A cat is asleep on the workbench. The work is not happening. The cat is happening."
+   },
+   {
+    "id": "dnf-workshop-10",
+    "text": "This is {reporter} at the {place_kind}. The craftsdwarf here hasn't slept in two days but has made some truly beautiful buckets. Priorities."
+   }
+  ],
+  "farm": [
+   {
+    "id": "dnf-farm-1",
+    "text": "{reporter} live from the {place_kind}. Plump helmets as far as the eye can see, which underground is about four tiles. Still. Impressive."
+   },
+   {
+    "id": "dnf-farm-2",
+    "text": "I'm in the fields, where the farmers are planting. One tells me the secret is to talk to the crops. He's been shouting at them since dawn."
+   },
+   {
+    "id": "dnf-farm-3",
+    "text": "Live from {place}. The harvest is coming in strong, {anchor}. Or at least the farmer is. He's carrying more than I thought possible."
+   },
+   {
+    "id": "dnf-farm-4",
+    "text": "{reporter} here. The {place_kind} smells of fresh soil and fertiliser. Mostly fertiliser. Let's move this along."
+   },
+   {
+    "id": "dnf-farm-5",
+    "text": "Live in the {place_kind}. With food running short, every plant here is being watched closely. One farmer is guarding a single sprout.",
+    "when": [
+     "food_low"
+    ]
+   },
+   {
+    "id": "dnf-farm-6",
+    "text": "{reporter} reporting. The farmers have a strict policy: no cats in the fields. There are six cats in the fields. The policy is being reviewed."
+   },
+   {
+    "id": "dnf-farm-7",
+    "text": "Here in the {place_kind}, a dwarf is harvesting sweet pods. He's eating about one in four. Officially, that's quality control."
+   },
+   {
+    "id": "dnf-farm-8",
+    "text": "Live from {place}. Spring planting is underway, and the farmers are optimistic. Then again, they're always optimistic. It's the spores.",
+    "when": [
+     "spring"
+    ]
+   },
+   {
+    "id": "dnf-farm-9",
+    "text": "{reporter} live at the {place_kind}. A farmer just told me she's growing 'the best pig tails in the mountain'. I have no reason to doubt her."
+   },
+   {
+    "id": "dnf-farm-10",
+    "text": "This is {reporter} in the {place_kind}. The rows are neat, the soil is rich, and someone has planted a mushroom in the shape of a noble. Bold."
+   }
+  ],
+  "dig": [
+   {
+    "id": "dnf-dig-1",
+    "text": "{reporter} live from the mining face. The dust is thick, the picks are swinging, and I can't see a thing, {anchor}. Great report so far."
+   },
+   {
+    "id": "dnf-dig-2",
+    "text": "I'm deep in the tunnels, where the miners have just struck what they're calling 'very nice rock'. Experts confirm: it is rock."
+   },
+   {
+    "id": "dnf-dig-3",
+    "text": "Live from the dig. A miner tells me they're going deeper. When I asked how deep, he said 'until something stops us'. Comforting."
+   },
+   {
+    "id": "dnf-dig-4",
+    "text": "{reporter} here, at the edge of the new tunnel. The miners have asked me not to breathe so loud. I'm told it echoes. It does."
+   },
+   {
+    "id": "dnf-dig-5",
+    "text": "Live in the mines, where a dwarf just found a gem and shouted so loud a second dwarf dropped his pick on his own foot. A mixed day."
+   },
+   {
+    "id": "dnf-dig-6",
+    "text": "{reporter} reporting from the dig site. Somewhere below us is magma. The miners say they know exactly where. They do not say this confidently."
+   },
+   {
+    "id": "dnf-dig-7",
+    "text": "Here at the mining face, the rule is simple: don't dig straight down. A dwarf behind me is digging straight down. We'll keep you posted."
+   },
+   {
+    "id": "dnf-dig-8",
+    "text": "Live from the tunnels. A miner has been carving the same corridor for weeks. He says it's for 'a project'. The project is a longer corridor."
+   },
+   {
+    "id": "dnf-dig-9",
+    "text": "{reporter} live underground. The miners have broken into a cavern. Something in there made a sound, {anchor}. We are now leaving very professionally."
+   },
+   {
+    "id": "dnf-dig-10",
+    "text": "This is {reporter} at the dig. The picks are sharp, the ore is shiny, and one miner has taken to naming every boulder. This one is 'Old Lumpy'."
+   }
+  ],
+  "entrance": [
+   {
+    "id": "dnf-entrance-1",
+    "text": "{reporter} live at the main entrance, where the guards keep watch for goblins, elves, and anyone who still owes the tavern money."
+   },
+   {
+    "id": "dnf-entrance-2",
+    "text": "I'm standing at the gates of {fort}. It's the only place in the fort you can see the sky. Several dwarves are refusing to look at it."
+   },
+   {
+    "id": "dnf-entrance-3",
+    "text": "Live from the entrance. A migrant wave is expected soon, {anchor}. The welcoming committee is one dwarf and a sign that says 'mind the traps'."
+   },
+   {
+    "id": "dnf-entrance-4",
+    "text": "{reporter} here. The drawbridge is down, the guards are up, and a wild badger has just walked in like it pays rent here."
+   },
+   {
+    "id": "dnf-entrance-5",
+    "text": "Live at the gates. It's quiet out here, {anchor}. With only {pop} of us, every face that walks through this door is big news.",
+    "when": [
+     "pop_small"
+    ]
+   },
+   {
+    "id": "dnf-entrance-6",
+    "text": "{reporter} reporting from the entrance. A dwarf just stepped outside, looked at the sun, and came right back in. Can't blame him."
+   },
+   {
+    "id": "dnf-entrance-7",
+    "text": "Here at the front door of {fort}, the cage traps are armed. One is occupied. By a squirrel. The squirrel is under investigation."
+   },
+   {
+    "id": "dnf-entrance-8",
+    "text": "Live at the gate, where the guards tell me the most dangerous thing they've seen this week is a hauler with a wheelbarrow and no brakes."
+   },
+   {
+    "id": "dnf-entrance-9",
+    "text": "{reporter} live outside. Fresh air, open sky, and absolutely no ale. Honestly, {anchor}, I don't know how the surface folk live like this."
+   },
+   {
+    "id": "dnf-entrance-10",
+    "text": "This is {reporter} at the entrance of {fort}. We're watching the horizon for travellers. So far: a cloud. A threatening cloud, but a cloud."
+   }
+  ],
+  "machine": [
+   {
+    "id": "dnf-machine-1",
+    "text": "{reporter} live from the pump station, where a dwarf has been working the pump all day. He says it's for the fort. He looks very tired."
+   },
+   {
+    "id": "dnf-machine-2",
+    "text": "I'm standing beside the windmill. It's turning, {anchor}. That is the whole story. It's a good windmill. Back to you."
+   },
+   {
+    "id": "dnf-machine-3",
+    "text": "Live at the mist generator, where dwarves come to feel the spray and be happy. I'm feeling it now. I'm very damp and somewhat happy."
+   },
+   {
+    "id": "dnf-machine-4",
+    "text": "{reporter} here. The gears are turning, the axles are spinning, and an engineer is explaining it all to me. I've understood none of it."
+   },
+   {
+    "id": "dnf-machine-5",
+    "text": "Live from the machinery room. A lever behind me is labelled 'do not pull'. Someone has crossed that out and written 'probably fine'."
+   },
+   {
+    "id": "dnf-machine-6",
+    "text": "{reporter} reporting from the pump stack. Water is going up. Or possibly down. The engineer says it's going 'where it should'. Great."
+   },
+   {
+    "id": "dnf-machine-7",
+    "text": "Here by the waterwheel, a dwarf is staring at the paddles, entranced. He's been here since the last season. He calls it 'meditation'."
+   },
+   {
+    "id": "dnf-machine-8",
+    "text": "Live in the machine room, where the hum of power is constant. So is the noise. I'm shouting, {anchor}. I'VE BEEN SHOUTING THE WHOLE TIME."
+   },
+   {
+    "id": "dnf-machine-9",
+    "text": "{reporter} live. The engineers here have built a contraption nobody fully understands. It works. Nobody touches it. That's engineering."
+   },
+   {
+    "id": "dnf-machine-10",
+    "text": "This is {reporter} beside the pumps. If this report gets cut off, it's because someone pulled the wrong lever. Again. Back to y—"
+   }
+  ],
+  "generic": [
+   {
+    "id": "dnf-generic-1",
+    "text": "{reporter} live from somewhere in {fort}. Our crew isn't entirely sure where we are, {anchor}, but the walls are very well smoothed."
+   },
+   {
+    "id": "dnf-generic-2",
+    "text": "I'm standing in a hallway in {fort}. Not much going on here. A dwarf walked by a minute ago. That was the news. Back to you."
+   },
+   {
+    "id": "dnf-generic-3",
+    "text": "Live from the heart of {fort}. Dwarves are hauling, crafting, and occasionally stopping to stare at a wall. It's a typical day."
+   },
+   {
+    "id": "dnf-generic-4",
+    "text": "{reporter} here. I've been told to find a story, {anchor}. I found a sock. I'm going to stay with the sock for now."
+   },
+   {
+    "id": "dnf-generic-5",
+    "text": "Live in {fort}, where {citizen} just walked past the camera, waved, and tripped. We wish them well. We also have it on tape."
+   },
+   {
+    "id": "dnf-generic-6",
+    "text": "{reporter} reporting. It's {season} in {fort}, and the corridors are busy. Everyone is going somewhere. Nobody will tell me where."
+   },
+   {
+    "id": "dnf-generic-7",
+    "text": "Here in {fort}, the mood is cautiously optimistic. That's dwarf for 'nothing is on fire right now'."
+   },
+   {
+    "id": "dnf-generic-8",
+    "text": "Live from {fort}. I've asked a passer-by for comment. He said 'move'. I moved. Good journalism is about listening."
+   },
+   {
+    "id": "dnf-generic-9",
+    "text": "{reporter} live. Behind me you can see {citizen} and {citizen2} having what appears to be a very intense discussion about a bucket."
+   },
+   {
+    "id": "dnf-generic-10",
+    "text": "This is {reporter}, somewhere in {fort}. I'm told this spot will be an important room someday. Today it's a spot. Back to you, {anchor}."
+   }
+  ]
+ },
+ "interview_q": [
+  {
+   "id": "dnf-q-1",
+   "text": "{guest}, thanks for joining DNN. How are you feeling today?"
+  },
+  {
+   "id": "dnf-q-2",
+   "text": "{guest}, what do you think of life in {fort} lately?"
+  },
+  {
+   "id": "dnf-q-3",
+   "text": "{guest}, quick question for our viewers: ale or more ale?"
+  },
+  {
+   "id": "dnf-q-4",
+   "text": "{guest}, how's work going as a {guest_prof}?"
+  },
+  {
+   "id": "dnf-q-5",
+   "text": "I see you're busy with '{guest_job}', {guest}. Tell us about that."
+  },
+  {
+   "id": "dnf-q-6",
+   "text": "{guest}, what's the biggest problem facing {fort} right now?"
+  },
+  {
+   "id": "dnf-q-7",
+   "text": "{guest}, what do you think of the elves?"
+  },
+  {
+   "id": "dnf-q-8",
+   "text": "{guest}, if you could change one thing about the fort, what would it be?"
+  },
+  {
+   "id": "dnf-q-9",
+   "text": "{guest}, there are reports of too many cats. Your reaction?"
+  },
+  {
+   "id": "dnf-q-10",
+   "text": "{guest}, have you ever had a strange mood?"
+  },
+  {
+   "id": "dnf-q-11",
+   "text": "{guest}, what's your favourite thing about {season}?"
+  },
+  {
+   "id": "dnf-q-12",
+   "text": "{guest}, the nobles have issued new mandates. Thoughts?"
+  },
+  {
+   "id": "dnf-q-13",
+   "text": "{guest}, do you feel safe in {fort}?"
+  },
+  {
+   "id": "dnf-q-14",
+   "text": "{guest}, what would you say to the next wave of migrants?"
+  },
+  {
+   "id": "dnf-q-15",
+   "text": "{guest}, what's the best meal you've had this year?"
+  },
+  {
+   "id": "dnf-q-16",
+   "text": "{guest}, are you worried about goblins?"
+  },
+  {
+   "id": "dnf-q-17",
+   "text": "{guest}, what keeps you going every day?"
+  },
+  {
+   "id": "dnf-q-18",
+   "text": "{guest}, can you describe your bedroom for our viewers?"
+  },
+  {
+   "id": "dnf-q-19",
+   "text": "{guest}, do you have a message for {anchor} back in the studio?"
+  },
+  {
+   "id": "dnf-q-20",
+   "text": "{guest}, what do you make of the latest masterwork?"
+  },
+  {
+   "id": "dnf-q-21",
+   "text": "{guest}, how do you feel about the carp situation?"
+  },
+  {
+   "id": "dnf-q-22",
+   "text": "{guest}, would you ever go to the surface voluntarily?"
+  },
+  {
+   "id": "dnf-q-23",
+   "text": "{guest}, what's your opinion on the current ale supply?"
+  },
+  {
+   "id": "dnf-q-24",
+   "text": "{guest}, the caravan is due soon. What are you hoping for?"
+  },
+  {
+   "id": "dnf-q-25",
+   "text": "{guest}, have you visited the tavern lately?"
+  },
+  {
+   "id": "dnf-q-26",
+   "text": "{guest}, what's the secret to being a good {guest_prof}?"
+  },
+  {
+   "id": "dnf-q-27",
+   "text": "{guest}, some say {fort} is the finest fort in {world}. Agree?"
+  },
+  {
+   "id": "dnf-q-28",
+   "text": "{guest}, what does {civ} mean to you?"
+  },
+  {
+   "id": "dnf-q-29",
+   "text": "{guest}, how do you deal with stress?"
+  },
+  {
+   "id": "dnf-q-30",
+   "text": "{guest}, any thoughts on the state of the hospital?"
+  },
+  {
+   "id": "dnf-q-31",
+   "text": "{guest}, what's the most dangerous thing you've seen this year?"
+  },
+  {
+   "id": "dnf-q-32",
+   "text": "{guest}, do you trust the bookkeeper's numbers?"
+  },
+  {
+   "id": "dnf-q-33",
+   "text": "{guest}, are you a cat dwarf or a dog dwarf?"
+  },
+  {
+   "id": "dnf-q-34",
+   "text": "{guest}, what would you do if you were in charge for a day?"
+  },
+  {
+   "id": "dnf-q-35",
+   "text": "{guest}, there's a rumour about magma in the lower levels. Comment?"
+  },
+  {
+   "id": "dnf-q-36",
+   "text": "{guest}, how would you rate {season} so far?"
+  },
+  {
+   "id": "dnf-q-37",
+   "text": "{guest}, what's one thing viewers don't know about you?"
+  },
+  {
+   "id": "dnf-q-38",
+   "text": "{guest}, are you happy with your job as a {guest_prof}?"
+  },
+  {
+   "id": "dnf-q-39",
+   "text": "{guest}, what's your hope for {year}?"
+  },
+  {
+   "id": "dnf-q-40",
+   "text": "{guest}, do you watch DNN regularly?"
+  },
+  {
+   "id": "dnf-q-41",
+   "text": "{guest}, what's the strangest thing you've hauled?"
+  },
+  {
+   "id": "dnf-q-42",
+   "text": "{guest}, how do you feel about the fort's population of {pop}?"
+  },
+  {
+   "id": "dnf-q-43",
+   "text": "{guest}, what do you think of {citizen}?"
+  },
+  {
+   "id": "dnf-q-44",
+   "text": "{guest}, would you describe yourself as a dwarf of the people?"
+  },
+  {
+   "id": "dnf-q-45",
+   "text": "{guest}, the debate rages: smoothed walls or engraved walls?"
+  },
+  {
+   "id": "dnf-q-46",
+   "text": "{guest}, are things better or worse than last {season}?"
+  },
+  {
+   "id": "dnf-q-47",
+   "text": "{guest}, what would you put on your tomb?"
+  },
+  {
+   "id": "dnf-q-48",
+   "text": "{guest}, any advice for young dwarves just starting out?"
+  },
+  {
+   "id": "dnf-q-49",
+   "text": "{guest}, what's the one thing you'd save in a flood?"
+  },
+  {
+   "id": "dnf-q-50",
+   "text": "{guest}, last question: what's next for you?"
+  }
+ ],
+ "interview_a": {
+  "happy": [
+   {
+    "id": "dnf-a-happy-1",
+    "text": "Honestly? I've never been better. I had a fine drink, I slept in a real bed, and nobody threw anything at me. Perfect day."
+   },
+   {
+    "id": "dnf-a-happy-2",
+    "text": "Life is good! The ale is cold, the rock is solid, and I saw a very nice cat this morning. What more could a dwarf want?"
+   },
+   {
+    "id": "dnf-a-happy-3",
+    "text": "Oh, I'm delighted. Delighted! I don't know why exactly. Something about today. Maybe it's the smoothed walls."
+   },
+   {
+    "id": "dnf-a-happy-4",
+    "text": "I just think {fort} is wonderful. Sure, things go wrong. Things always go wrong. But they go wrong beautifully here."
+   },
+   {
+    "id": "dnf-a-happy-5",
+    "text": "I love it here! I love everyone! Well, most of everyone. I love most of everyone very much."
+   },
+   {
+    "id": "dnf-a-happy-6",
+    "text": "You know what, I'm grateful. Grateful for the stone, grateful for the mushrooms, grateful for whoever keeps the barrels full."
+   },
+   {
+    "id": "dnf-a-happy-7",
+    "text": "Can I just say hello to everyone at home? Hello! I'm on DNN! This is the best day of my life. Again."
+   },
+   {
+    "id": "dnf-a-happy-8",
+    "text": "I'm happy, thank you for asking. Nobody ever asks. I'd like to say more, but I'm happy just standing here."
+   },
+   {
+    "id": "dnf-a-happy-9",
+    "text": "Great question! I don't know the answer, but I'm in a fantastic mood, so let's say: yes, definitely, all of it."
+   },
+   {
+    "id": "dnf-a-happy-10",
+    "text": "I'm thrilled. I just admired a fine piece of furniture. It was a chair, but what a chair."
+   },
+   {
+    "id": "dnf-a-happy-11",
+    "text": "Couldn't be better! I ate a roast, I prayed a bit, and I won an argument. Triple win."
+   },
+   {
+    "id": "dnf-a-happy-12",
+    "text": "Things are looking up. Not literally, we're underground. But in spirit, very much up."
+   },
+   {
+    "id": "dnf-a-happy-13",
+    "text": "Everything's great. I've got friends, I've got a mug, and I've got a hat I really like. That's the whole recipe."
+   },
+   {
+    "id": "dnf-a-happy-14",
+    "text": "I'm content. Deeply content. I think the mist from the generator did something to me, and I'm not complaining."
+   },
+   {
+    "id": "dnf-a-happy-15",
+    "text": "Wonderful! I'd recommend this fort to anyone. Except elves. But anyone else, absolutely."
+   },
+   {
+    "id": "dnf-a-happy-16",
+    "text": "With this much ale around? I'd say life is excellent. I'd say it twice, but I've had a few.",
+    "when": [
+     "drinks_high"
+    ]
+   },
+   {
+    "id": "dnf-a-happy-17",
+    "text": "It's been so peaceful. No sieges, no beasts. I've had time to just sit. I'm very good at sitting now.",
+    "when": [
+     "peace"
+    ]
+   },
+   {
+    "id": "dnf-a-happy-18",
+    "text": "I'm in a great mood. I don't want to jinx it, so I'm going to say nothing else and walk away smiling."
+   }
+  ],
+  "stressed": [
+   {
+    "id": "dnf-a-stressed-1",
+    "text": "I don't want to talk about it. I want to talk about it so much. But I won't. Is the ale still out there?"
+   },
+   {
+    "id": "dnf-a-stressed-2",
+    "text": "Look, I haven't slept, I haven't eaten properly, and someone took my sock. I just need one good thing to happen."
+   },
+   {
+    "id": "dnf-a-stressed-3",
+    "text": "Why is everyone asking me questions? Is something wrong? Did something happen? Nobody tells me anything!"
+   },
+   {
+    "id": "dnf-a-stressed-4",
+    "text": "I'm fine. I'm totally fine. I'm just going to go stand in a corner for a while and breathe. That's all."
+   },
+   {
+    "id": "dnf-a-stressed-5",
+    "text": "Honestly, I'm one bad day away from throwing a mug. Not at you. Probably not at you."
+   },
+   {
+    "id": "dnf-a-stressed-6",
+    "text": "Everything is falling apart and I'm the only one who notices. Have you seen the state of the dining hall?"
+   },
+   {
+    "id": "dnf-a-stressed-7",
+    "text": "I was rained on, then stepped in something, then a cat looked at me funny. It's been a lot."
+   },
+   {
+    "id": "dnf-a-stressed-8",
+    "text": "I just need someone to fix the hauling. Is that so much to ask? Is it?"
+   },
+   {
+    "id": "dnf-a-stressed-9",
+    "text": "I'm not angry, I'm just... very tired. I've been tired since spring. Possibly since birth."
+   },
+   {
+    "id": "dnf-a-stressed-10",
+    "text": "Please don't put me on camera. Oh, it's already on. Great. Wonderful. Hello, everyone."
+   },
+   {
+    "id": "dnf-a-stressed-11",
+    "text": "No comment. Actually, one comment: the nobles are impossible. Okay, that's my comment. Now leave."
+   },
+   {
+    "id": "dnf-a-stressed-12",
+    "text": "I had a dream about carp. I don't want to talk about the dream. I just want to warn everyone."
+   },
+   {
+    "id": "dnf-a-stressed-13",
+    "text": "I haven't seen my friends in weeks. They're all busy. I'm busy. We're all busy being busy."
+   },
+   {
+    "id": "dnf-a-stressed-14",
+    "text": "There's no ale. Do you understand what that means to a dwarf? I'm going to lie down.",
+    "when": [
+     "drinks_low"
+    ]
+   },
+   {
+    "id": "dnf-a-stressed-15",
+    "text": "I'm hungry. Everyone's hungry. I'm trying not to think about it and you're making me think about it.",
+    "when": [
+     "food_low"
+    ]
+   },
+   {
+    "id": "dnf-a-stressed-16",
+    "text": "It's been a hard time for all of us. I'd rather not talk right now. Thank you.",
+    "when": [
+     "recent_death"
+    ]
+   },
+   {
+    "id": "dnf-a-stressed-17",
+    "text": "Everything's fine as long as nothing else goes wrong. And something always goes wrong. So."
+   },
+   {
+    "id": "dnf-a-stressed-18",
+    "text": "I'm one more tantrum away from a tantrum. Mine. Not anyone else's. Just so you know."
+   }
+  ],
+  "neutral": [
+   {
+    "id": "dnf-a-neutral-1",
+    "text": "It's alright. Could be better, could be worse. That's about all I'll say."
+   },
+   {
+    "id": "dnf-a-neutral-2",
+    "text": "I don't really have an opinion. I'm a dwarf. I dig, I drink, I sleep. That's my opinion."
+   },
+   {
+    "id": "dnf-a-neutral-3",
+    "text": "Hmm. I'll have to think about that. Ask me again in a season."
+   },
+   {
+    "id": "dnf-a-neutral-4",
+    "text": "Well, I suppose it's fine. Everything's mostly fine. Some things are less fine."
+   },
+   {
+    "id": "dnf-a-neutral-5",
+    "text": "No strong feelings either way. I just came here for the ale, honestly."
+   },
+   {
+    "id": "dnf-a-neutral-6",
+    "text": "Couldn't tell you. I've been working. Didn't notice anything."
+   },
+   {
+    "id": "dnf-a-neutral-7",
+    "text": "It's the same as always. Rock, ale, work, bed. And repeat."
+   },
+   {
+    "id": "dnf-a-neutral-8",
+    "text": "I suppose so, yes. Or no. Somewhere in between, really."
+   },
+   {
+    "id": "dnf-a-neutral-9",
+    "text": "Sure. That's one way to look at it. I look at it a different way, but sure."
+   },
+   {
+    "id": "dnf-a-neutral-10",
+    "text": "I'd rather not take sides. I've seen what happens to dwarves who take sides."
+   },
+   {
+    "id": "dnf-a-neutral-11",
+    "text": "Honestly, I just want to get on with my day. But it's nice to be asked."
+   },
+   {
+    "id": "dnf-a-neutral-12",
+    "text": "Not much to say. Things happen. We deal with them. Then more things happen."
+   },
+   {
+    "id": "dnf-a-neutral-13",
+    "text": "It is what it is. I'm told that's very wise. I just say it because it's short."
+   },
+   {
+    "id": "dnf-a-neutral-14",
+    "text": "I'll let the nobles worry about that. They seem to enjoy worrying."
+   },
+   {
+    "id": "dnf-a-neutral-15",
+    "text": "Hard to say. I've only been here a little while. Or a long while. Time is strange underground."
+   },
+   {
+    "id": "dnf-a-neutral-16",
+    "text": "I suppose it depends on the ale. Most things do."
+   },
+   {
+    "id": "dnf-a-neutral-17",
+    "text": "Can I get back to you on that? I'll send a messenger. Probably won't, though."
+   },
+   {
+    "id": "dnf-a-neutral-18",
+    "text": "Fine, fine. Everything's fine. Is this going to be on the news? Okay. Fine."
+   }
+  ],
+  "child": [
+   {
+    "id": "dnf-a-child-1",
+    "text": "I saw a cat! It was big! It was orange! Can I say hi to my mum? Hi Mum!"
+   },
+   {
+    "id": "dnf-a-child-2",
+    "text": "When I grow up I'm going to be a miner and find a giant gem and fight a dragon. Maybe two dragons."
+   },
+   {
+    "id": "dnf-a-child-3",
+    "text": "I don't know. I'm just a kid. Do you have any sweets? Or a rock? I collect rocks."
+   },
+   {
+    "id": "dnf-a-child-4",
+    "text": "My favourite thing is the tavern. They play songs! I'm not allowed in after dark though."
+   },
+   {
+    "id": "dnf-a-child-5",
+    "text": "Is this the news? Am I on the news? I'm on the news! Everybody, I'm on the news!"
+   },
+   {
+    "id": "dnf-a-child-6",
+    "text": "I made a toy out of wood! Don't tell the elves. They'd be sad. Or angry. I don't know which."
+   },
+   {
+    "id": "dnf-a-child-7",
+    "text": "The grown-ups are always busy. I play with the puppies. The puppies are never busy."
+   },
+   {
+    "id": "dnf-a-child-8",
+    "text": "I want to be a soldier! Or a cook! Or a cat. Can dwarves be cats? I think I can."
+   },
+   {
+    "id": "dnf-a-child-9",
+    "text": "My dad says I'm too small to haul. I hauled a pebble today. It was a big pebble."
+   },
+   {
+    "id": "dnf-a-child-10",
+    "text": "I'm not scared of goblins. I'm a little scared of the dark. And the carp. Mostly the carp."
+   },
+   {
+    "id": "dnf-a-child-11",
+    "text": "I found a hole in the wall! I'm not telling anyone where. Except you. It's over there. Don't tell."
+   },
+   {
+    "id": "dnf-a-child-12",
+    "text": "I learned a new word today. It's 'mandate'. I don't know what it means, but nobles say it a lot."
+   },
+   {
+    "id": "dnf-a-child-13",
+    "text": "Why do grown-ups drink so much ale? Is it nice? They say I'll understand when I'm older."
+   },
+   {
+    "id": "dnf-a-child-14",
+    "text": "I'm the fastest kid in the whole fort! Want to see? Okay, wait here. I'll be right back."
+   },
+   {
+    "id": "dnf-a-child-15",
+    "text": "I named a turkey. It's a secret name. Nobody's allowed to eat a turkey with a secret name. Ever."
+   },
+   {
+    "id": "dnf-a-child-16",
+    "text": "My friend said the magma is lava. I said it's magma. We had a fight. I won."
+   },
+   {
+    "id": "dnf-a-child-17",
+    "text": "I don't like baths. Can you put that on the news? No more baths. That's my message."
+   },
+   {
+    "id": "dnf-a-child-18",
+    "text": "I asked a noble if he had a real job. He didn't answer. I think that means no."
+   }
+  ],
+  "soldier": [
+   {
+    "id": "dnf-a-soldier-1",
+    "text": "Sir. Yes, sir. I mean, yes, reporter. I'm ready for anything. Except more questions."
+   },
+   {
+    "id": "dnf-a-soldier-2",
+    "text": "We train every day. Spear, shield, axe. We're ready if the goblins come. Hope they don't. Mostly."
+   },
+   {
+    "id": "dnf-a-soldier-3",
+    "text": "I'm a soldier. I don't have opinions. I have orders. My orders are to stand here. I'm standing."
+   },
+   {
+    "id": "dnf-a-soldier-4",
+    "text": "The squad's in good shape. We've been sparring. Lost two teeth, but they were the spare ones."
+   },
+   {
+    "id": "dnf-a-soldier-5",
+    "text": "If anything comes through those gates, it's dealing with us. Well, the traps first. Then us."
+   },
+   {
+    "id": "dnf-a-soldier-6",
+    "text": "My armour's a bit tight, but the captain says it builds character. I've got a lot of character."
+   },
+   {
+    "id": "dnf-a-soldier-7",
+    "text": "I signed up to protect the fort. Also for the free meals. Mostly to protect the fort."
+   },
+   {
+    "id": "dnf-a-soldier-8",
+    "text": "Can't talk long. Training in a moment. I'm going to hit a dummy. It's had it coming."
+   },
+   {
+    "id": "dnf-a-soldier-9",
+    "text": "Fear? We don't feel fear. We feel... strategic hesitation. Very different."
+   },
+   {
+    "id": "dnf-a-soldier-10",
+    "text": "We stand watch so everyone else can sleep. Somebody has to. Usually it's me. Every night."
+   },
+   {
+    "id": "dnf-a-soldier-11",
+    "text": "The captain says I'm improving. Last week I dropped my spear only twice. Personal best."
+   },
+   {
+    "id": "dnf-a-soldier-12",
+    "text": "Peace is nice. Boring, but nice. I've polished my helmet so many times I can see my soul in it.",
+    "when": [
+     "peace"
+    ]
+   },
+   {
+    "id": "dnf-a-soldier-13",
+    "text": "I've fought a goblin once. Well, I yelled at one. It left. That counts."
+   },
+   {
+    "id": "dnf-a-soldier-14",
+    "text": "Honour, duty, and a hot meal at the end of a shift. That's all a soldier needs."
+   },
+   {
+    "id": "dnf-a-soldier-15",
+    "text": "I'd tell the viewers to stay calm and stay inside. You're dwarves. You're inside already. Good."
+   },
+   {
+    "id": "dnf-a-soldier-16",
+    "text": "Nothing to report. That's the best thing a soldier can say. Nothing to report."
+   },
+   {
+    "id": "dnf-a-soldier-17",
+    "text": "I've got a squad, a shield, and a mug. I'm prepared for every possible outcome."
+   },
+   {
+    "id": "dnf-a-soldier-18",
+    "text": "We protect {fort}. Anything that wants in has to go through us. Or around us. Please don't go around us."
+   }
+  ],
+  "busy": [
+   {
+    "id": "dnf-a-busy-1",
+    "text": "Can we do this later? I'm in the middle of '{guest_job}' and it won't do itself. Believe me, I've waited."
+   },
+   {
+    "id": "dnf-a-busy-2",
+    "text": "Sorry, sorry, I've got to get back to this. Ask me again when I'm done. I'm never done."
+   },
+   {
+    "id": "dnf-a-busy-3",
+    "text": "I'm working! Look at me working! I'm going to keep working while you talk. Go on."
+   },
+   {
+    "id": "dnf-a-busy-4",
+    "text": "No time, no time. I'll give you one word: busy. That's the word. Bye."
+   },
+   {
+    "id": "dnf-a-busy-5",
+    "text": "You've caught me mid-task. '{guest_job}', if you must know. Very important. Probably."
+   },
+   {
+    "id": "dnf-a-busy-6",
+    "text": "Talk while I walk. Faster. No, faster. I've got things to carry and you're in the way."
+   },
+   {
+    "id": "dnf-a-busy-7",
+    "text": "Is this going to take long? Because this job won't finish itself, and I'm the only one doing it."
+   },
+   {
+    "id": "dnf-a-busy-8",
+    "text": "Look, I'd love to chat, but I promised someone I'd finish this. I don't remember who. Still promised."
+   },
+   {
+    "id": "dnf-a-busy-9",
+    "text": "Quick answer: yes. Longer answer: also yes. Now please, I've got '{guest_job}' to do."
+   },
+   {
+    "id": "dnf-a-busy-10",
+    "text": "I'm the only one in this fort who works, you know that? Everyone else is drinking. Put that on the news."
+   },
+   {
+    "id": "dnf-a-busy-11",
+    "text": "Can't stop. If I stop, I'll sit down. If I sit down, I'll never stand up again. That's how it works."
+   },
+   {
+    "id": "dnf-a-busy-12",
+    "text": "Hold this. No, don't hold that. Hold this. Okay, give it back. Thanks. Interview over."
+   },
+   {
+    "id": "dnf-a-busy-13",
+    "text": "My job? '{guest_job}'. It's going fine. It would be going better without a camera in my face."
+   },
+   {
+    "id": "dnf-a-busy-14",
+    "text": "I'm halfway through something and if I lose my place I'm blaming DNN. On air. Right now."
+   },
+   {
+    "id": "dnf-a-busy-15",
+    "text": "Busy, busy, busy. Ask the next dwarf. They're not doing anything. Look at them. Not doing anything."
+   },
+   {
+    "id": "dnf-a-busy-16",
+    "text": "One minute. Maybe two. Okay, now I've wasted one. One minute left. Make it count."
+   },
+   {
+    "id": "dnf-a-busy-17",
+    "text": "Right now? Right now I'm working. Later I'll drink. Then I'll sleep. Then I'll work again. That's the whole interview."
+   },
+   {
+    "id": "dnf-a-busy-18",
+    "text": "Sorry, I've got to go. Duty calls. Well, the bookkeeper calls. Same thing really."
+   }
+  ]
+ },
+ "weather": {
+  "rain": [
+   {
+    "id": "dnf-wx-rain-1",
+    "text": "It's raining on the surface of {fort} today. Down here, it's dry as always. Your forecast: stay inside. You were going to anyway."
+   },
+   {
+    "id": "dnf-wx-rain-2",
+    "text": "Reports of {weather} topside, {anchor}. The few dwarves who went out came back soaked and confused. They've been given towels and ale."
+   },
+   {
+    "id": "dnf-wx-rain-3",
+    "text": "Rain continues to fall above us. Farmers are delighted. Everyone else is underground and frankly doesn't care.",
+    "when": [
+     "raining"
+    ]
+   },
+   {
+    "id": "dnf-wx-rain-4",
+    "text": "The surface is wet. The depot is wet. The caravan, if it comes, will be wet. Indoors, it's a lovely 'dry with a chance of ale'."
+   },
+   {
+    "id": "dnf-wx-rain-5",
+    "text": "We're getting reports that it's raining. Experts recommend you do absolutely nothing different. As always.",
+    "when": [
+     "raining"
+    ]
+   },
+   {
+    "id": "dnf-wx-rain-6",
+    "text": "It's a wet one outside. The elves are probably loving it, which is the best argument for staying indoors."
+   },
+   {
+    "id": "dnf-wx-rain-7",
+    "text": "Heavy {weather} at the entrance. The guards have retreated three tiles inward and are calling it 'tactical shelter'."
+   },
+   {
+    "id": "dnf-wx-rain-8",
+    "text": "If you're heading outside today, bring a hood. If you're not heading outside, which is everyone, enjoy your rock."
+   },
+   {
+    "id": "dnf-wx-rain-9",
+    "text": "Rain topside again, {anchor}. The animals in the pasture look miserable. The cats inside look smug. Weather is a zero-sum game.",
+    "when": [
+     "raining"
+    ]
+   },
+   {
+    "id": "dnf-wx-rain-10",
+    "text": "There's {weather} on the surface. Below the surface, as of this moment, there is still a ceiling. Good news for all of us."
+   },
+   {
+    "id": "dnf-wx-rain-11",
+    "text": "Rain watch: the surface is damp, the moat is fuller, and a dwarf just learned the hard way that mud is slippery."
+   },
+   {
+    "id": "dnf-wx-rain-12",
+    "text": "A rainy {season} for {fort}. Our meteorologist has stepped outside to confirm. She hasn't come back. She's fine. She's just wet."
+   },
+   {
+    "id": "dnf-wx-rain-13",
+    "text": "Autumn rains are here. The trees outside are dropping leaves. The elves are probably sad about it. Good.",
+    "when": [
+     "raining",
+     "autumn"
+    ]
+   },
+   {
+    "id": "dnf-wx-rain-14",
+    "text": "Rain on the surface today. For the underground forecast, I'm happy to report: rock, more rock, and a light drizzle from a leaky pipe."
+   }
+  ],
+  "snow": [
+   {
+    "id": "dnf-wx-snow-1",
+    "text": "Snow on the surface of {fort}. Down here, it's warm, it's cosy, and there's ale. Weather report done."
+   },
+   {
+    "id": "dnf-wx-snow-2",
+    "text": "It's snowing, {anchor}. Our surface correspondent has been asked to stand in it for this report. He says it's cold. Thanks for that.",
+    "when": [
+     "snowing"
+    ]
+   },
+   {
+    "id": "dnf-wx-snow-3",
+    "text": "Winter has arrived topside. Snow covers the entrance. Dwarves are urged to stay inside and appreciate how much rock is above them.",
+    "when": [
+     "snowing",
+     "winter"
+    ]
+   },
+   {
+    "id": "dnf-wx-snow-4",
+    "text": "There's {weather} at the gates. The caravan route is a mess. Merchants will be late, cold, and grumpy. So, standard merchants."
+   },
+   {
+    "id": "dnf-wx-snow-5",
+    "text": "Snow continues to fall above. A dwarf child built a snowdwarf. It's frowning. That's very accurate. Well done, kid."
+   },
+   {
+    "id": "dnf-wx-snow-6",
+    "text": "It's a snowy {season}. If you see a cat outside, bring it in. If you see an elf outside, leave it.",
+    "when": [
+     "snowing"
+    ]
+   },
+   {
+    "id": "dnf-wx-snow-7",
+    "text": "Heavy {weather} out there, {anchor}. The pond has frozen. Somewhere under the ice, a carp is planning something."
+   },
+   {
+    "id": "dnf-wx-snow-8",
+    "text": "The surface is white and cold. The tunnels are grey and cosy. We know which one we prefer here at DNN."
+   },
+   {
+    "id": "dnf-wx-snow-9",
+    "text": "Snow report: about a foot of it on the surface. Down here? None. Zero. We live in a mountain. That's the whole point."
+   },
+   {
+    "id": "dnf-wx-snow-10",
+    "text": "Winter weather topside. The haulers moving goods to the depot are bundled up like sacks. Very brave, very lumpy.",
+    "when": [
+     "winter"
+    ]
+   },
+   {
+    "id": "dnf-wx-snow-11",
+    "text": "Snow has blanketed the outdoors. Our guards report visibility is poor. They can't see goblins. Goblins can't see them. Even trade."
+   },
+   {
+    "id": "dnf-wx-snow-12",
+    "text": "It's snowing above {fort}. Underground, our forecast is: same temperature as yesterday, and the day before, and forever."
+   },
+   {
+    "id": "dnf-wx-snow-13",
+    "text": "A frosty {season} in {world}. If you must go out, wear your thickest socks. If you have socks. Check the stockpile."
+   },
+   {
+    "id": "dnf-wx-snow-14",
+    "text": "The snow keeps coming. The pasture animals are huddled together. Our sources say they've formed a union.",
+    "when": [
+     "snowing"
+    ]
+   }
+  ],
+  "clear": [
+   {
+    "id": "dnf-wx-clear-1",
+    "text": "Clear skies over {fort} today. The sun is out. Dwarves are advised not to look at it directly. Or at all, really."
+   },
+   {
+    "id": "dnf-wx-clear-2",
+    "text": "It's a clear day topside, {anchor}. Lovely weather for the elves. Terrible weather for anyone who hates the sky.",
+    "when": [
+     "clear"
+    ]
+   },
+   {
+    "id": "dnf-wx-clear-3",
+    "text": "Not a cloud above {fort}. Great day for a caravan. Even better day to stay inside and drink."
+   },
+   {
+    "id": "dnf-wx-clear-4",
+    "text": "Summer sun is beating down on the surface. Under the mountain, it's a cool, pleasant 'normal'. Same as always.",
+    "when": [
+     "clear",
+     "summer"
+    ]
+   },
+   {
+    "id": "dnf-wx-clear-5",
+    "text": "Clear weather means good visibility at the gates. The guards can see for miles. They've seen trees. They're upset about it."
+   },
+   {
+    "id": "dnf-wx-clear-6",
+    "text": "Sunny skies on the surface. A dwarf who went out to check reported back with one word: 'bright'. Thank you, very helpful."
+   },
+   {
+    "id": "dnf-wx-clear-7",
+    "text": "Beautiful weather outside today. A rare treat. Please enjoy it from the safety of a tunnel.",
+    "when": [
+     "clear"
+    ]
+   },
+   {
+    "id": "dnf-wx-clear-8",
+    "text": "The sky is clear and blue, {anchor}. I'm told it's very pretty. I wouldn't know. I work in a cave."
+   },
+   {
+    "id": "dnf-wx-clear-9",
+    "text": "A fine clear {season} day. Farmers on the surface are out working. Farmers underground are also working. Same plants, really."
+   },
+   {
+    "id": "dnf-wx-clear-10",
+    "text": "No rain, no snow, no clouds. A perfect day to do exactly what you'd do on any other day: dig."
+   },
+   {
+    "id": "dnf-wx-clear-11",
+    "text": "Clear skies this spring. The trees are blooming outside. Please don't tell the woodcutters. Or do. Your choice.",
+    "when": [
+     "clear",
+     "spring"
+    ]
+   },
+   {
+    "id": "dnf-wx-clear-12",
+    "text": "Clear and calm above. Forecasters say this could last a while. Forecasters also have no idea. It's the sky."
+   },
+   {
+    "id": "dnf-wx-clear-13",
+    "text": "Sunshine on the surface. The cats have gone out to lie in it. Twelve of them. They are not coming back until dinner."
+   },
+   {
+    "id": "dnf-wx-clear-14",
+    "text": "Clear weather topside. A good time to check the drawbridge works. Please don't test it while anyone is standing on it. Again."
+   }
+  ],
+  "other": [
+   {
+    "id": "dnf-wx-other-1",
+    "text": "The weather topside today is, frankly, unclear. Something is happening in the sky. We recommend not finding out."
+   },
+   {
+    "id": "dnf-wx-other-2",
+    "text": "Our weather desk reports conditions on the surface are 'weird'. That's the technical term. We'll update you if it gets weirder."
+   },
+   {
+    "id": "dnf-wx-other-3",
+    "text": "Fog over the entrance today, {anchor}. The guards can't see a thing. They've been challenging the fog to fight. The fog is winning."
+   },
+   {
+    "id": "dnf-wx-other-4",
+    "text": "Strange weather above {fort}. The animals are acting odd. The dwarves are acting odd. Business as usual, then."
+   },
+   {
+    "id": "dnf-wx-other-5",
+    "text": "The weather is doing something today. What exactly, we can't say. Our reporter refused to go out and check. Smart reporter."
+   },
+   {
+    "id": "dnf-wx-other-6",
+    "text": "Unusual conditions on the surface. If it's raining blood again, please stay inside. If it isn't, please stay inside anyway."
+   },
+   {
+    "id": "dnf-wx-other-7",
+    "text": "Something is in the clouds, {anchor}. Experts say it's probably nothing. Experts also say 'probably' a lot."
+   },
+   {
+    "id": "dnf-wx-other-8",
+    "text": "Weather report: it's {season}. Beyond that, we have no idea. We live underground. We don't go outside. Next story."
+   },
+   {
+    "id": "dnf-wx-other-9",
+    "text": "The sky looks... off today. Cloudy, strange, a funny colour. We're calling it 'atmospheric'. That sounds professional."
+   },
+   {
+    "id": "dnf-wx-other-10",
+    "text": "Our weather instruments are broken. Our weather instrument is a dwarf holding a stick outside. He's come back in. Stick's fine."
+   },
+   {
+    "id": "dnf-wx-other-11",
+    "text": "No clear forecast today. Could be rain, could be snow, could be sun. Could be a dragon. Stay indoors just in case."
+   },
+   {
+    "id": "dnf-wx-other-12",
+    "text": "Windy conditions on the surface. The windmill is spinning like it's never spun before. Engineers are thrilled. Nobody else cares."
+   },
+   {
+    "id": "dnf-wx-other-13",
+    "text": "It's a grey, gloomy {season} out there. Inside, it's a grey, gloomy {season} too. But with ale. Advantage: inside."
+   },
+   {
+    "id": "dnf-wx-other-14",
+    "text": "The weather desk is pleased to report that the weather, whatever it is, has absolutely no impact on your life. Back to you, {anchor}."
+   }
+  ]
+ }
+}

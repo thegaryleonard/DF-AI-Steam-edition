@@ -8,3 +8,5 @@ supervisor/last_site.json
 dist/
 
 supervisor/remote_host.txt
+tv/dnn-webos/build/
+supervisor/dnn_video.on

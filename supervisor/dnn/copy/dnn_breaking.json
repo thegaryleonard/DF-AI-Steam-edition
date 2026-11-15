@@ -1,0 +1,2490 @@
+{
+ "breaking": {
+  "death": {
+   "heads": [
+    {
+     "id": "dnb-death-head-1",
+     "text": "FORT MOURNS ONE OF ITS OWN"
+    },
+    {
+     "id": "dnb-death-head-2",
+     "text": "A CHAIR SITS EMPTY IN THE DINING HALL"
+    },
+    {
+     "id": "dnb-death-head-3",
+     "text": "DEATH IN THE FORT"
+    },
+    {
+     "id": "dnb-death-head-4",
+     "text": "CITIZEN LOST; FLAGS AT HALF-PICK"
+    },
+    {
+     "id": "dnb-death-head-5",
+     "text": "TRAGEDY BELOW THE MOUNTAIN"
+    },
+    {
+     "id": "dnb-death-head-6",
+     "text": "THE FORT IS ONE DWARF QUIETER TONIGHT"
+    },
+    {
+     "id": "dnb-death-head-7",
+     "text": "OBITUARY DESK: A LIFE OF HONEST WORK"
+    },
+    {
+     "id": "dnb-death-head-8",
+     "text": "A DWARF HAS FALLEN"
+    },
+    {
+     "id": "dnb-death-head-9",
+     "text": "REMEMBERING A NEIGHBOUR"
+    },
+    {
+     "id": "dnb-death-head-10",
+     "text": "SAD NEWS FROM THE LOWER LEVELS"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-death-read-1",
+     "text": "We begin tonight with sad news. {name}, {prof}, has died. DNN extends its condolences to everyone who ever shared a mug with them."
+    },
+    {
+     "id": "dnb-death-read-2",
+     "text": "{name} the {prof} is dead. We are told the fort's coffin makers have been informed, and that they are taking it personally."
+    },
+    {
+     "id": "dnb-death-read-3",
+     "text": "Confirmed reports now: {name} has passed. The {prof}'s workshop is quiet tonight, and so, for once, is this newsroom."
+    },
+    {
+     "id": "dnb-death-read-4",
+     "text": "{anchor} here. We've lost {name}: {prof} by trade, neighbour by choice, and by every account a dwarf who never left a door open in winter."
+    },
+    {
+     "id": "dnb-death-read-5",
+     "text": "The fort is down to {pop} tonight. One of the dwarves who made it more than a number has died."
+    },
+    {
+     "id": "dnb-death-read-6",
+     "text": "We are getting word that a citizen of {fort} has died. Details are still coming in. For now, the newsroom asks you to raise a mug."
+    },
+    {
+     "id": "dnb-death-read-7",
+     "text": "{name} has died. Sources close to the tavern say a seat at the corner table will be left empty, and that nobody is to argue about it."
+    },
+    {
+     "id": "dnb-death-read-8",
+     "text": "A sombre {season} in {fort}. {name}, {prof}, will not be coming back up the stairs. We'll have more as the details reach us."
+    },
+    {
+     "id": "dnb-death-read-9",
+     "text": "{citizen} was among the first to hear the news, and has asked that the fort remember {name} for the work, not the ending."
+    },
+    {
+     "id": "dnb-death-read-10",
+     "text": "There is no easy way to read this one. We have lost a citizen tonight. The masons have been asked to cut a slab, and to take their time."
+    },
+    {
+     "id": "dnb-death-read-11",
+     "text": "The {year} obituary column grows by one. {name} the {prof} has died, and DNN will be keeping the lamp lit at the desk tonight."
+    },
+    {
+     "id": "dnb-death-read-12",
+     "text": "Death has come to {fort}. We will not speculate on the cause on air. We will only say: check your stairs, check your levers, hug your cat."
+    },
+    {
+     "id": "dnb-death-read-13",
+     "text": "{name} has died this {month}. Colleagues describe a stubborn, reliable dwarf who was the only one who ever cleaned up after the forge."
+    },
+    {
+     "id": "dnb-death-read-14",
+     "text": "For those just joining us: a dwarf of {fort} has died. Coverage will continue, quietly. Please keep the noise down near the tombs."
+    }
+   ]
+  },
+  "pet_death": {
+   "heads": [
+    {
+     "id": "dnb-pet_death-head-1",
+     "text": "PET LOSS ROCKS THE PASTURE"
+    },
+    {
+     "id": "dnb-pet_death-head-2",
+     "text": "ANIMAL DEATH CONFIRMED"
+    },
+    {
+     "id": "dnb-pet_death-head-3",
+     "text": "THE PASTURE MOURNS"
+    },
+    {
+     "id": "dnb-pet_death-head-4",
+     "text": "FOUR LEGS, ONE FEWER FRIEND"
+    },
+    {
+     "id": "dnb-pet_death-head-5",
+     "text": "BUTCHER'S SHOP: NO COMMENT"
+    },
+    {
+     "id": "dnb-pet_death-head-6",
+     "text": "A BELOVED ANIMAL IS GONE"
+    },
+    {
+     "id": "dnb-pet_death-head-7",
+     "text": "LOCAL CREATURE MEETS ITS END"
+    },
+    {
+     "id": "dnb-pet_death-head-8",
+     "text": "KENNEL KEEPERS IN SHOCK"
+    },
+    {
+     "id": "dnb-pet_death-head-9",
+     "text": "FROM PET TO PROVISIONS? DNN INVESTIGATES"
+    },
+    {
+     "id": "dnb-pet_death-head-10",
+     "text": "FAREWELL TO A FAITHFUL FRIEND"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-pet_death-read-1",
+     "text": "{name} has died. The {creature} was well liked, had no enemies, and only rarely stood in a doorway for an entire season."
+    },
+    {
+     "id": "dnb-pet_death-read-2",
+     "text": "We can confirm the death of {name}. The owner asks for privacy and, if at all possible, that it not be served at the next feast."
+    },
+    {
+     "id": "dnb-pet_death-read-3",
+     "text": "Sad scenes at the pasture as {name} the {creature} passed on. The other animals have been informed. They did not react, as is their way."
+    },
+    {
+     "id": "dnb-pet_death-read-4",
+     "text": "Reports from the butcher's shop suggest the {creature} known as {name} may have been slaughtered. DNN asks: was it worth it? The butcher says yes."
+    },
+    {
+     "id": "dnb-pet_death-read-5",
+     "text": "An animal has died in {fort}. The pasture is a little quieter tonight, which the herders say is the first time that's ever been a bad thing."
+    },
+    {
+     "id": "dnb-pet_death-read-6",
+     "text": "{name} is no more. Fort cats were seen gathering near the spot, and we're told it was respect and not, as some claim, opportunism.",
+     "when": [
+      "cats_many"
+     ]
+    },
+    {
+     "id": "dnb-pet_death-read-7",
+     "text": "Word now from the kennels: {name} has passed. Trainers describe the {creature} as loyal, brave, and terrible at fetch."
+    },
+    {
+     "id": "dnb-pet_death-read-8",
+     "text": "A death in the animal community this {season}. The tanner is said to be sombre, but also, quietly, measuring."
+    },
+    {
+     "id": "dnb-pet_death-read-9",
+     "text": "{citizen} has confirmed the death of a much-loved animal and asks the fort to stop suggesting stew. At least for a day."
+    },
+    {
+     "id": "dnb-pet_death-read-10",
+     "text": "Breaking from the pasture: {name} has died. Experts remind us that every {creature} is someone's favourite, even the ones that bite."
+    },
+    {
+     "id": "dnb-pet_death-read-11",
+     "text": "We have lost {name}. The {creature} leaves behind a grazing spot, a water trough, and a dwarf who refuses to talk about it."
+    },
+    {
+     "id": "dnb-pet_death-read-12",
+     "text": "A pet has died in {fort}. As is tradition, its owner will now spend some days staring at a wall. Please give them the wall."
+    },
+    {
+     "id": "dnb-pet_death-read-13",
+     "text": "{name} has gone to the great pasture beneath the mountain. Note: that's not a real place. We checked. Engineering wants to dig one."
+    },
+    {
+     "id": "dnb-pet_death-read-14",
+     "text": "Livestock figures are down by one tonight. Behind that number, sources say, was a face. A slightly dim, very loved face."
+    }
+   ]
+  },
+  "birth": {
+   "heads": [
+    {
+     "id": "dnb-birth-head-1",
+     "text": "BABY BOOM? ONE BABY CONFIRMED"
+    },
+    {
+     "id": "dnb-birth-head-2",
+     "text": "IT'S A DWARF!"
+    },
+    {
+     "id": "dnb-birth-head-3",
+     "text": "NEW CITIZEN ARRIVES, SMALL AND LOUD"
+    },
+    {
+     "id": "dnb-birth-head-4",
+     "text": "FORT GROWS BY ONE TINY BEARD"
+    },
+    {
+     "id": "dnb-birth-head-5",
+     "text": "BIRTH ANNOUNCEMENT FROM THE BEDROOMS"
+    },
+    {
+     "id": "dnb-birth-head-6",
+     "text": "A NEW FACE IN THE HALLS"
+    },
+    {
+     "id": "dnb-birth-head-7",
+     "text": "CRADLES IN DEMAND"
+    },
+    {
+     "id": "dnb-birth-head-8",
+     "text": "FUTURE MINER BORN, SOURCES SAY"
+    },
+    {
+     "id": "dnb-birth-head-9",
+     "text": "WELCOME TO THE MOUNTAIN, LITTLE ONE"
+    },
+    {
+     "id": "dnb-birth-head-10",
+     "text": "THE FORT HAS A NEW RESIDENT"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-birth-read-1",
+     "text": "{name} has given birth. Mother and baby are doing well, and the baby is reportedly already disappointed in the ale ration."
+    },
+    {
+     "id": "dnb-birth-read-2",
+     "text": "Joyful news: {name} has had a baby. The newest citizen of {fort} has no profession, no opinions, and a very powerful voice."
+    },
+    {
+     "id": "dnb-birth-read-3",
+     "text": "We're getting reports of a birth in the bedroom district. {fort} grows to {pop}, and the halls get noticeably louder."
+    },
+    {
+     "id": "dnb-birth-read-4",
+     "text": "Congratulations to {name}! DNN is told the baby has its mother's eyes and, alarmingly, its grandfather's beard."
+    },
+    {
+     "id": "dnb-birth-read-5",
+     "text": "A baby has been born in {fort} this {season}. The carpenters say they'll have a cradle ready by the time it's walking. Probably."
+    },
+    {
+     "id": "dnb-birth-read-6",
+     "text": "{name} welcomed a child today. The infant was immediately carried back to work, as is the proud dwarven way."
+    },
+    {
+     "id": "dnb-birth-read-7",
+     "text": "Our {month} birth announcement: {name} is a mother. Early polling suggests the baby is the most popular dwarf in the fort."
+    },
+    {
+     "id": "dnb-birth-read-8",
+     "text": "There's a new dwarf in the mountain. We don't know its name yet. Neither, we suspect, does it."
+    },
+    {
+     "id": "dnb-birth-read-9",
+     "text": "{name} has delivered a healthy baby. The hospital staff, unused to good news, are said to be confused but pleased."
+    },
+    {
+     "id": "dnb-birth-read-10",
+     "text": "Birth confirmed. {citizen} is already offering to teach the child mining, which the family has declined until it can stand."
+    },
+    {
+     "id": "dnb-birth-read-11",
+     "text": "{name} is a mother tonight. Analysts expect a sharp rise in nap demand and a modest decline in sleep across the bedroom sector."
+    },
+    {
+     "id": "dnb-birth-read-12",
+     "text": "Good news for once, viewers. A baby! In {fort}! {anchor2}, you may cheer on air."
+    },
+    {
+     "id": "dnb-birth-read-13",
+     "text": "{name} has had a little one. The child reportedly bit the midwife, and the fort is calling it a strong start."
+    },
+    {
+     "id": "dnb-birth-read-14",
+     "text": "A birth in {fort}, and the {year} census team has thrown out its numbers again. They'd like everyone to stop doing this mid-count."
+    }
+   ]
+  },
+  "migrants": {
+   "heads": [
+    {
+     "id": "dnb-migrants-head-1",
+     "text": "MIGRANT WAVE HITS THE GATE"
+    },
+    {
+     "id": "dnb-migrants-head-2",
+     "text": "NEWCOMERS ARRIVE BY THE CARTLOAD"
+    },
+    {
+     "id": "dnb-migrants-head-3",
+     "text": "{count} NEW DWARVES AT THE DOOR"
+    },
+    {
+     "id": "dnb-migrants-head-4",
+     "text": "THE MIGRANTS ARE HERE"
+    },
+    {
+     "id": "dnb-migrants-head-5",
+     "text": "POPULATION SURGE AT THE ENTRANCE"
+    },
+    {
+     "id": "dnb-migrants-head-6",
+     "text": "BEDROOM SHORTAGE FEARED AS MIGRANTS POUR IN"
+    },
+    {
+     "id": "dnb-migrants-head-7",
+     "text": "STRANGERS WITH BACKPACKS SPOTTED"
+    },
+    {
+     "id": "dnb-migrants-head-8",
+     "text": "WELCOME, WEARY TRAVELLERS"
+    },
+    {
+     "id": "dnb-migrants-head-9",
+     "text": "NEW HANDS, NEW BEARDS, NEW PROBLEMS"
+    },
+    {
+     "id": "dnb-migrants-head-10",
+     "text": "THE ROAD DELIVERS: NEW CITIZENS"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-migrants-read-1",
+     "text": "We're getting reports of {count} migrants at the gate. Most are carrying everything they own. One is carrying a single sock."
+    },
+    {
+     "id": "dnb-migrants-read-2",
+     "text": "A new wave of migrants has arrived in {fort}. Officials remind newcomers that the good bedrooms are taken and the bad ones are also taken."
+    },
+    {
+     "id": "dnb-migrants-read-3",
+     "text": "{count} dwarves have walked into {fort} today, bringing the population to {pop}. The dining hall manager has been seen breathing into a bag."
+    },
+    {
+     "id": "dnb-migrants-read-4",
+     "text": "Migrants! Early interviews suggest most of them are fish dissectors, which is exactly what the fort did not ask for."
+    },
+    {
+     "id": "dnb-migrants-read-5",
+     "text": "The migrants are here. {reporter} is at the gate, where we're told the newcomers are already asking where the tavern is."
+    },
+    {
+     "id": "dnb-migrants-read-6",
+     "text": "Breaking: {count} new citizens this {season}. The bookkeeper has asked everyone to please hold still while they are counted."
+    },
+    {
+     "id": "dnb-migrants-read-7",
+     "text": "Fresh faces at the entrance today. {citizen} greeted them personally, then remembered there were no jobs to hand out."
+    },
+    {
+     "id": "dnb-migrants-read-8",
+     "text": "A migrant wave has reached {fort}. Sources say several are already stuck behind a single hauler on the main stairway."
+    },
+    {
+     "id": "dnb-migrants-read-9",
+     "text": "{count} arrivals confirmed. Among them, sources say, is at least one dwarf claiming to be a legendary cheesemaker. We are verifying."
+    },
+    {
+     "id": "dnb-migrants-read-10",
+     "text": "More migrants tonight, as word spreads through {civ} that {fort} has ale. We're not saying it's the only reason. It's the main reason."
+    },
+    {
+     "id": "dnb-migrants-read-11",
+     "text": "The newcomers have arrived wet, tired, and already unhappy about the lack of a statue garden. Welcome home, everyone.",
+     "when": [
+      "raining"
+     ]
+    },
+    {
+     "id": "dnb-migrants-read-12",
+     "text": "Population up to {pop} after today's migrant wave. Food stockpile analysts are urging calm and, quietly, more farming.",
+     "when": [
+      "food_low"
+     ]
+    },
+    {
+     "id": "dnb-migrants-read-13",
+     "text": "{count} new dwarves, {count} new opinions about where the furniture should go. DNN welcomes them all."
+    },
+    {
+     "id": "dnb-migrants-read-14",
+     "text": "Migrants arriving in winter, which veterans say is like turning up to a feast after the plates are cleared.",
+     "when": [
+      "winter"
+     ]
+    }
+   ]
+  },
+  "caravan": {
+   "heads": [
+    {
+     "id": "dnb-caravan-head-1",
+     "text": "CARAVAN AT THE DEPOT"
+    },
+    {
+     "id": "dnb-caravan-head-2",
+     "text": "THE MERCHANTS HAVE ARRIVED"
+    },
+    {
+     "id": "dnb-caravan-head-3",
+     "text": "TRADE GOODS ROLL IN"
+    },
+    {
+     "id": "dnb-caravan-head-4",
+     "text": "WAGONS SPOTTED ON THE ROAD"
+    },
+    {
+     "id": "dnb-caravan-head-5",
+     "text": "DEPOT OPEN FOR BUSINESS"
+    },
+    {
+     "id": "dnb-caravan-head-6",
+     "text": "BROKER SUMMONED; BROKER NOT FOUND"
+    },
+    {
+     "id": "dnb-caravan-head-7",
+     "text": "HAGGLING EXPECTED TO RESUME SHORTLY"
+    },
+    {
+     "id": "dnb-caravan-head-8",
+     "text": "BARRELS, BOLTS AND BARGAINS"
+    },
+    {
+     "id": "dnb-caravan-head-9",
+     "text": "MARKET DAY IN THE MOUNTAIN"
+    },
+    {
+     "id": "dnb-caravan-head-10",
+     "text": "ARE THEY ELVES? PLEASE DON'T BE ELVES"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-caravan-read-1",
+     "text": "A caravan has arrived at the depot. Traders are unpacking, and the broker is, as always, somewhere at the bottom of the fort carrying a rock."
+    },
+    {
+     "id": "dnb-caravan-read-2",
+     "text": "Merchants are in {fort} this {season}. We're told they've brought cloth, leather, and the same overpriced barrel of pickles as last time."
+    },
+    {
+     "id": "dnb-caravan-read-3",
+     "text": "Wagons are rolling in, viewers. If they are elves, please do not offer them anything made of wood. Again."
+    },
+    {
+     "id": "dnb-caravan-read-4",
+     "text": "Traders from {civ} have reached the depot, and haulers are sprinting crafts up the stairs in what experts call a trinket stampede."
+    },
+    {
+     "id": "dnb-caravan-read-5",
+     "text": "{citizen} has been named today's chief haggler, mostly because nobody else was standing near the depot."
+    },
+    {
+     "id": "dnb-caravan-read-6",
+     "text": "The caravan is here. Merchants report the road was long, the weather was rough, and our gate was 'smaller than advertised.'"
+    },
+    {
+     "id": "dnb-caravan-read-7",
+     "text": "Breaking from the depot: the merchants want crafts. The fort has crafts. Decorated mugs are about to have a very big day."
+    },
+    {
+     "id": "dnb-caravan-read-8",
+     "text": "Merchants have arrived. Ale analysts expect a run on imported drink, which is good, because ours is running low.",
+     "when": [
+      "drinks_low"
+     ]
+    },
+    {
+     "id": "dnb-caravan-read-9",
+     "text": "A caravan in {month}! Fort economists are calling it 'a lot of stuff', which is the technical term."
+    },
+    {
+     "id": "dnb-caravan-read-10",
+     "text": "Trade season opens with the merchants camped at the depot and refusing to come any further in. We don't blame them. The stairs."
+    },
+    {
+     "id": "dnb-caravan-read-11",
+     "text": "The caravan arrives as {fort} sits at {pop} citizens, all of whom, apparently, want to look at the merchants' animals."
+    },
+    {
+     "id": "dnb-caravan-read-12",
+     "text": "Merchants are unloading now. {reporter} is on the scene and has already been talked into buying a cage they did not need."
+    },
+    {
+     "id": "dnb-caravan-read-13",
+     "text": "Merchants at the gate, and the fort's negotiator is reportedly practising a 'disappointed face' in a polished stone wall."
+    },
+    {
+     "id": "dnb-caravan-read-14",
+     "text": "The {year} trading season is open. Remember, viewers: everything at the depot is negotiable except the guards' patience."
+    }
+   ]
+  },
+  "diplomat": {
+   "heads": [
+    {
+     "id": "dnb-diplomat-head-1",
+     "text": "DIPLOMAT ARRIVES AT THE GATE"
+    },
+    {
+     "id": "dnb-diplomat-head-2",
+     "text": "LIAISON IN THE BUILDING"
+    },
+    {
+     "id": "dnb-diplomat-head-3",
+     "text": "OFFICIAL VISIT UNDERWAY"
+    },
+    {
+     "id": "dnb-diplomat-head-4",
+     "text": "FOREIGN DIGNITARY SPOTTED, LOOKS UNIMPRESSED"
+    },
+    {
+     "id": "dnb-diplomat-head-5",
+     "text": "TALKS EXPECTED; MEETING ROOM NOT READY"
+    },
+    {
+     "id": "dnb-diplomat-head-6",
+     "text": "THE OUTPOST LIAISON IS BACK"
+    },
+    {
+     "id": "dnb-diplomat-head-7",
+     "text": "DIPLOMACY BREAKS OUT IN THE FORT"
+    },
+    {
+     "id": "dnb-diplomat-head-8",
+     "text": "ENVOY WANTS A WORD"
+    },
+    {
+     "id": "dnb-diplomat-head-9",
+     "text": "ROBES, PAPERS AND DEMANDS"
+    },
+    {
+     "id": "dnb-diplomat-head-10",
+     "text": "POLITICS COMES TO THE MOUNTAIN"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-diplomat-read-1",
+     "text": "A diplomat has arrived in {fort}. Sources say they have requests, a tight schedule, and opinions about our trees."
+    },
+    {
+     "id": "dnb-diplomat-read-2",
+     "text": "The liaison from {civ} is here, asking how many of last season's agreements we honoured. Our answer is still being drafted."
+    },
+    {
+     "id": "dnb-diplomat-read-3",
+     "text": "A foreign envoy is at the gate. Staff have been asked to look busy, look friendly, and absolutely not mention the last envoy."
+    },
+    {
+     "id": "dnb-diplomat-read-4",
+     "text": "We're getting word of an official visit. Leadership is hurriedly furnishing an office. Any office. A chair will do."
+    },
+    {
+     "id": "dnb-diplomat-read-5",
+     "text": "The liaison has arrived, and is already asking to meet the expedition leader, who is currently hauling a bin of socks."
+    },
+    {
+     "id": "dnb-diplomat-read-6",
+     "text": "Diplomatic news this {season}: an envoy is in {fort}, and our negotiators are polishing their best 'we'll think about it.'"
+    },
+    {
+     "id": "dnb-diplomat-read-7",
+     "text": "An elven diplomat, if reports are true, will soon ask us to stop cutting trees. Our woodcutters have been asked to stand casually."
+    },
+    {
+     "id": "dnb-diplomat-read-8",
+     "text": "The liaison from {civ} brings greetings from the mountainhome and, sources say, a list of things they'd like to buy cheaply."
+    },
+    {
+     "id": "dnb-diplomat-read-9",
+     "text": "A diplomat is touring {fort}. {citizen} was asked for comment and offered them a mug, which is about as diplomatic as it gets down here."
+    },
+    {
+     "id": "dnb-diplomat-read-10",
+     "text": "Breaking: a visitor with a seal on their papers. The fort's nobles are said to be thrilled. Everyone else is said to be hiding."
+    },
+    {
+     "id": "dnb-diplomat-read-11",
+     "text": "Talks begin today. On the table: trade, tribute, and whether the meeting room really needs to be next to the pig pen."
+    },
+    {
+     "id": "dnb-diplomat-read-12",
+     "text": "{reporter} tells us the envoy has been waiting at the gate for some time, and has started counting the bricks."
+    },
+    {
+     "id": "dnb-diplomat-read-13",
+     "text": "An envoy has come to {fort} in {month}. Historians note our diplomatic record is spotless, mostly because nobody wrote it down."
+    },
+    {
+     "id": "dnb-diplomat-read-14",
+     "text": "A diplomat at the depot, viewers. If you see them, smile, nod, and don't say the word 'tribute' near the bookkeeper."
+    }
+   ]
+  },
+  "artifact": {
+   "heads": [
+    {
+     "id": "dnb-artifact-head-1",
+     "text": "LEGENDARY ARTIFACT CREATED"
+    },
+    {
+     "id": "dnb-artifact-head-2",
+     "text": "HISTORY MADE IN THE WORKSHOP"
+    },
+    {
+     "id": "dnb-artifact-head-3",
+     "text": "A NEW ARTIFACT FOR THE AGES"
+    },
+    {
+     "id": "dnb-artifact-head-4",
+     "text": "MOOD ENDS IN MASTERPIECE OF MASTERPIECES"
+    },
+    {
+     "id": "dnb-artifact-head-5",
+     "text": "THE WORKSHOP DOOR OPENS AT LAST"
+    },
+    {
+     "id": "dnb-artifact-head-6",
+     "text": "FORT GAINS PRICELESS TREASURE"
+    },
+    {
+     "id": "dnb-artifact-head-7",
+     "text": "ARTIFACT ALERT: DO NOT TOUCH"
+    },
+    {
+     "id": "dnb-artifact-head-8",
+     "text": "HISTORIANS SCRAMBLE TO TAKE NOTES"
+    },
+    {
+     "id": "dnb-artifact-head-9",
+     "text": "THE MOUNTAIN WILL REMEMBER THIS ONE"
+    },
+    {
+     "id": "dnb-artifact-head-10",
+     "text": "SCHOLARS, POETS AND BARDS ON STANDBY"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-artifact-read-1",
+     "text": "{name} has emerged from the workshop with a legendary {thing}. Witnesses describe it as 'very shiny' and 'not for sale, apparently.'"
+    },
+    {
+     "id": "dnb-artifact-read-2",
+     "text": "History tonight in {fort}: {name} has created an artifact. The {thing} has already been given a name longer than most of our corridors."
+    },
+    {
+     "id": "dnb-artifact-read-3",
+     "text": "Breaking: an artifact! {name} spent days demanding materials, and the result, a legendary {thing}, has been declared worth every shriek."
+    },
+    {
+     "id": "dnb-artifact-read-4",
+     "text": "We can confirm a legendary {thing} now exists in {fort}, crafted by {name}. Art critics are already arguing about the menacing spikes."
+    },
+    {
+     "id": "dnb-artifact-read-5",
+     "text": "An artifact has been created in {fort}. The fort's value just went up, and so, sources warn, did its appeal to thieves."
+    },
+    {
+     "id": "dnb-artifact-read-6",
+     "text": "{name} is a legend tonight. The new {thing} is decorated with images of, we're told, {name}. Modesty was not one of the materials."
+    },
+    {
+     "id": "dnb-artifact-read-7",
+     "text": "Out of the strange mood and into the history books: {name} has finished. The {thing} is complete. The workshop is, frankly, a mess."
+    },
+    {
+     "id": "dnb-artifact-read-8",
+     "text": "An artifact has been forged in {fort} this {season}. Scholars from across {civ} will soon arrive to look at it and say 'hmm.'"
+    },
+    {
+     "id": "dnb-artifact-read-9",
+     "text": "{citizen} was first to see the new artifact and has not stopped talking about it since. Nobody has the heart to interrupt."
+    },
+    {
+     "id": "dnb-artifact-read-10",
+     "text": "Masterwork? No, viewers. Better. {name} has made a legendary {thing}, and the anchor desk has been asked not to lick it."
+    },
+    {
+     "id": "dnb-artifact-read-11",
+     "text": "The legend of {name} begins today with a single {thing}. We expect the fort's poets to make this worse within the week."
+    },
+    {
+     "id": "dnb-artifact-read-12",
+     "text": "An artifact in {fort}! Experts say it is now the most valuable object here, narrowly ahead of the last barrel of ale.",
+     "when": [
+      "drinks_low"
+     ]
+    },
+    {
+     "id": "dnb-artifact-read-13",
+     "text": "{name} has made something the world will talk about. The {thing} is now the fort's pride, its treasure, and its fire-safety concern."
+    },
+    {
+     "id": "dnb-artifact-read-14",
+     "text": "Legendary craftsmanship confirmed in {year}. The artifact is being moved somewhere safe, which in this fort means 'a room with a door.'"
+    }
+   ]
+  },
+  "masterpiece": {
+   "heads": [
+    {
+     "id": "dnb-masterpiece-head-1",
+     "text": "MASTERWORK ALERT"
+    },
+    {
+     "id": "dnb-masterpiece-head-2",
+     "text": "A MASTERPIECE IS BORN"
+    },
+    {
+     "id": "dnb-masterpiece-head-3",
+     "text": "CRAFTSMANSHIP OF THE HIGHEST ORDER"
+    },
+    {
+     "id": "dnb-masterpiece-head-4",
+     "text": "WORKSHOP PRODUCES MASTERWORK"
+    },
+    {
+     "id": "dnb-masterpiece-head-5",
+     "text": "QUALITY CONTROL STUNNED"
+    },
+    {
+     "id": "dnb-masterpiece-head-6",
+     "text": "EXCEPTIONAL! NO, BETTER THAN EXCEPTIONAL!"
+    },
+    {
+     "id": "dnb-masterpiece-head-7",
+     "text": "THE STARS ALIGN: MASTERWORK CONFIRMED"
+    },
+    {
+     "id": "dnb-masterpiece-head-8",
+     "text": "TOP-SHELF WORK FROM THE WORKSHOPS"
+    },
+    {
+     "id": "dnb-masterpiece-head-9",
+     "text": "FORT'S PRIDE: ONE VERY GOOD ITEM"
+    },
+    {
+     "id": "dnb-masterpiece-head-10",
+     "text": "ART DESK IN AWE"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-masterpiece-read-1",
+     "text": "{name} has produced a masterwork {thing}. Our panel will spend the next hour debating whether it's the best ever made. It is."
+    },
+    {
+     "id": "dnb-masterpiece-read-2",
+     "text": "Breaking from the workshops: a masterpiece. {name} is said to be pleased, which for a dwarf means a very slight change in the eyebrows."
+    },
+    {
+     "id": "dnb-masterpiece-read-3",
+     "text": "Tonight's top story is, and we cannot stress this enough, a very good {thing}. {name} made it. We're told it's perfect."
+    },
+    {
+     "id": "dnb-masterpiece-read-4",
+     "text": "A masterwork has been crafted in {fort}. Experts confirm the quality is exceptional, and the craftsdwarf is already insufferable about it."
+    },
+    {
+     "id": "dnb-masterpiece-read-5",
+     "text": "{name} has done it again. The masterwork {thing} joins a growing collection the fort has no idea where to store."
+    },
+    {
+     "id": "dnb-masterpiece-read-6",
+     "text": "In craftsmanship news this {season}, a masterpiece. Critics praise the detail, the finish, and the fact that nobody got hurt."
+    },
+    {
+     "id": "dnb-masterpiece-read-7",
+     "text": "Viewers, we have a masterwork. DNN will now describe the {thing} for the next eleven minutes. Settle in."
+    },
+    {
+     "id": "dnb-masterpiece-read-8",
+     "text": "{citizen} has asked to touch the new masterwork. {name} has said no. Talks are ongoing."
+    },
+    {
+     "id": "dnb-masterpiece-read-9",
+     "text": "Masterwork confirmed in {fort}. The skill on display has stunned onlookers and enraged at least two rival craftsdwarves."
+    },
+    {
+     "id": "dnb-masterpiece-read-10",
+     "text": "{name} made a masterpiece today, and is said to have walked straight to the tavern afterwards. Professionals."
+    },
+    {
+     "id": "dnb-masterpiece-read-11",
+     "text": "Our arts desk reports a masterwork {thing}, decorated with an image of a dwarf making that very {thing}. Very dwarf."
+    },
+    {
+     "id": "dnb-masterpiece-read-12",
+     "text": "Another masterpiece out of {fort}. At this rate, the caravan will need a bigger wagon and a better appraiser."
+    },
+    {
+     "id": "dnb-masterpiece-read-13",
+     "text": "A masterwork has been crafted, and the fort's mood has lifted measurably. A good object will do that. So will ale."
+    },
+    {
+     "id": "dnb-masterpiece-read-14",
+     "text": "{name}'s new masterwork has already been called 'the finest in {civ}' by {name}, who sources say is not impartial."
+    }
+   ]
+  },
+  "mood": {
+   "heads": [
+    {
+     "id": "dnb-mood-head-1",
+     "text": "STRANGE MOOD STRIKES"
+    },
+    {
+     "id": "dnb-mood-head-2",
+     "text": "DWARF SEIZES WORKSHOP"
+    },
+    {
+     "id": "dnb-mood-head-3",
+     "text": "FEY MOOD REPORTED: STAND BACK"
+    },
+    {
+     "id": "dnb-mood-head-4",
+     "text": "WORKSHOP CLAIMED BY SINGLE-MINDED DWARF"
+    },
+    {
+     "id": "dnb-mood-head-5",
+     "text": "MATERIALS DEMANDED; NOBODY KNOWS WHY"
+    },
+    {
+     "id": "dnb-mood-head-6",
+     "text": "A DWARF IS POSSESSED"
+    },
+    {
+     "id": "dnb-mood-head-7",
+     "text": "ARTIST IN A TRANCE"
+    },
+    {
+     "id": "dnb-mood-head-8",
+     "text": "THE MOOD IS UPON US"
+    },
+    {
+     "id": "dnb-mood-head-9",
+     "text": "WILL IT BE A LEGEND, OR A TRAGEDY?"
+    },
+    {
+     "id": "dnb-mood-head-10",
+     "text": "MUTTERING HEARD BEHIND WORKSHOP DOOR"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-mood-read-1",
+     "text": "{name} has been taken by a strange mood and has claimed a workshop. We're told nobody is to make eye contact."
+    },
+    {
+     "id": "dnb-mood-read-2",
+     "text": "We're getting reports {name} is staring at a wall and whispering about shells. If anyone has shells, now's the time."
+    },
+    {
+     "id": "dnb-mood-read-3",
+     "text": "A strange mood has struck in {fort}. The dwarf has locked themselves in a workshop. Experts urge patience and plenty of materials."
+    },
+    {
+     "id": "dnb-mood-read-4",
+     "text": "{name} is in a mood. Not a bad mood, viewers. A strange one. The fort's history may be about to change."
+    },
+    {
+     "id": "dnb-mood-read-5",
+     "text": "Breaking: {name} is demanding bones, gems and cloth, and will not say why. Sources say this is completely normal and also terrifying."
+    },
+    {
+     "id": "dnb-mood-read-6",
+     "text": "A dwarf has entered a fey mood this {season}. Workshop neighbours are asked to keep the noise down and the gems handy."
+    },
+    {
+     "id": "dnb-mood-read-7",
+     "text": "{citizen} reports seeing a dwarf sprint past with a wild look and an armful of leather. DNN can confirm: it's a mood."
+    },
+    {
+     "id": "dnb-mood-read-8",
+     "text": "{name} has gone quiet, focused, and slightly glowing. The next few days decide whether the fort gets an artifact or a funeral."
+    },
+    {
+     "id": "dnb-mood-read-9",
+     "text": "The mood has hit. Haulers are already being sent to the stockpiles for whatever {name} is pointing at."
+    },
+    {
+     "id": "dnb-mood-read-10",
+     "text": "Strange mood alert in {fort}. If a dwarf asks you for a specific rock, give them the rock. Don't ask about the rock."
+    },
+    {
+     "id": "dnb-mood-read-11",
+     "text": "Sources tell us {name} has been sketching on the workshop wall. The sketches are 'very intense' and 'possibly a helmet.'"
+    },
+    {
+     "id": "dnb-mood-read-12",
+     "text": "A dwarf is in a mood, and the fort is holding its breath. {anchor2} has been told to stop guessing what it'll be. Live."
+    },
+    {
+     "id": "dnb-mood-read-13",
+     "text": "{name} has claimed a workshop and is refusing food, sleep and visitors. In other words, peak artistic process."
+    },
+    {
+     "id": "dnb-mood-read-14",
+     "text": "Mood watch, day one. {name} is demanding something nobody has. Fort logistics are pretending this is fine."
+    }
+   ]
+  },
+  "beast": {
+   "heads": [
+    {
+     "id": "dnb-beast-head-1",
+     "text": "FORGOTTEN BEAST SPOTTED"
+    },
+    {
+     "id": "dnb-beast-head-2",
+     "text": "MONSTER IN THE DEPTHS"
+    },
+    {
+     "id": "dnb-beast-head-3",
+     "text": "MEGABEAST ON APPROACH"
+    },
+    {
+     "id": "dnb-beast-head-4",
+     "text": "SOMETHING HAS COME FROM BELOW"
+    },
+    {
+     "id": "dnb-beast-head-5",
+     "text": "WE NOW TAKE YOU TO THE PANIC"
+    },
+    {
+     "id": "dnb-beast-head-6",
+     "text": "HUGE. ANGRY. HEADING THIS WAY."
+    },
+    {
+     "id": "dnb-beast-head-7",
+     "text": "DOORS CLOSED, LEVERS PULLED"
+    },
+    {
+     "id": "dnb-beast-head-8",
+     "text": "THE CAVERNS HAVE A NEW RESIDENT"
+    },
+    {
+     "id": "dnb-beast-head-9",
+     "text": "ARE THE BRIDGES UP? DNN ASKS"
+    },
+    {
+     "id": "dnb-beast-head-10",
+     "text": "TITAN TERROR: FORT ON ALERT"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-beast-read-1",
+     "text": "Breaking news: something enormous has been spotted near {fort}. Witnesses describe the {creature} as 'big', 'bigger', and 'no thank you.'"
+    },
+    {
+     "id": "dnb-beast-read-2",
+     "text": "Stay indoors, viewers. A forgotten beast has emerged from the caverns, and it has, according to our caverns desk, far too many legs."
+    },
+    {
+     "id": "dnb-beast-read-3",
+     "text": "The {creature} is here. Commanders say they have a plan. Sources close to the military say the plan is mostly 'pull the lever.'"
+    },
+    {
+     "id": "dnb-beast-read-4",
+     "text": "A monster is loose. {reporter} was going to cover this live but has asked, very sensibly, to cover it from far away."
+    },
+    {
+     "id": "dnb-beast-read-5",
+     "text": "Megabeast alert in {fort}. Citizens are reminded that the safest place to be is anywhere the {creature} isn't."
+    },
+    {
+     "id": "dnb-beast-read-6",
+     "text": "Something terrible has arrived this {season}. All {pop} citizens are urged to stay away from the cavern stairs. All of them."
+    },
+    {
+     "id": "dnb-beast-read-7",
+     "text": "We can confirm: {name} has arrived. The {creature} is said to be in a foul temper, which is reportedly its only temper."
+    },
+    {
+     "id": "dnb-beast-read-8",
+     "text": "Reports now that the {creature} is near the outer wall. The fort engineers would like it known they warned everyone about that wall."
+    },
+    {
+     "id": "dnb-beast-read-9",
+     "text": "A titan, a beast, a horror from below: details are scarce, but the screaming is consistent. DNN stays on air as long as there is air."
+    },
+    {
+     "id": "dnb-beast-read-10",
+     "text": "The {creature} has been seen in the caverns, and the fishers have been told that today, just this once, the carp are not the problem."
+    },
+    {
+     "id": "dnb-beast-read-11",
+     "text": "{citizen} saw it first and is resting comfortably in the hospital. Physically fine. Emotionally, still running."
+    },
+    {
+     "id": "dnb-beast-read-12",
+     "text": "Our monster correspondent says the {creature} breathes something unpleasant. Please do not find out what."
+    },
+    {
+     "id": "dnb-beast-read-13",
+     "text": "A beast has come to {fort}. The militia is mustering. The cats are hiding. The cats, as usual, are right."
+    },
+    {
+     "id": "dnb-beast-read-14",
+     "text": "The {creature} is the biggest thing to visit {fort} since the last biggest thing. We hope it leaves the same way: in pieces."
+    }
+   ]
+  },
+  "siege": {
+   "heads": [
+    {
+     "id": "dnb-siege-head-1",
+     "text": "GOBLIN SIEGE UNDERWAY"
+    },
+    {
+     "id": "dnb-siege-head-2",
+     "text": "AMBUSH AT THE GATES"
+    },
+    {
+     "id": "dnb-siege-head-3",
+     "text": "ENEMY ARMY SIGHTED"
+    },
+    {
+     "id": "dnb-siege-head-4",
+     "text": "THE GOBLINS ARE HERE"
+    },
+    {
+     "id": "dnb-siege-head-5",
+     "text": "SIEGE! CLOSE THE GATES!"
+    },
+    {
+     "id": "dnb-siege-head-6",
+     "text": "FORT UNDER ATTACK"
+    },
+    {
+     "id": "dnb-siege-head-7",
+     "text": "WAR COMES TO THE MOUNTAIN"
+    },
+    {
+     "id": "dnb-siege-head-8",
+     "text": "INVADERS ON THE ROAD"
+    },
+    {
+     "id": "dnb-siege-head-9",
+     "text": "DEFEND THE FORT"
+    },
+    {
+     "id": "dnb-siege-head-10",
+     "text": "WEAPONS OUT, DOORS LOCKED"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-siege-read-1",
+     "text": "This is not a drill. Goblins have been sighted outside {fort}. Citizens are advised to move inside and, ideally, below."
+    },
+    {
+     "id": "dnb-siege-read-2",
+     "text": "An ambush has been sprung. Woodcutters are urged to drop the axes and run. Actually, keep the axes. Run with the axes."
+    },
+    {
+     "id": "dnb-siege-read-3",
+     "text": "A siege has begun. Our military correspondent says the goblins brought trolls, beak dogs and, worst of all, a drummer."
+    },
+    {
+     "id": "dnb-siege-read-4",
+     "text": "We're getting reports of {count} invaders on the road to {fort}. Every dwarf with a crossbow is now very popular."
+    },
+    {
+     "id": "dnb-siege-read-5",
+     "text": "Breaking: an enemy army is at the gates of {fort}. {citizen} has been seen dragging a barrel of ale to safety, and we salute that."
+    },
+    {
+     "id": "dnb-siege-read-6",
+     "text": "Goblins at the door, viewers. The militia commander asks civilians to please stop waving at them from the walls."
+    },
+    {
+     "id": "dnb-siege-read-7",
+     "text": "The siege is on. {fort}'s {pop} citizens are being herded below, where the ale is and the arrows aren't."
+    },
+    {
+     "id": "dnb-siege-read-8",
+     "text": "Invaders sighted this {season}. {reporter} is on the walls, and reports the goblins look 'grumpy' and 'very pointy.'"
+    },
+    {
+     "id": "dnb-siege-read-9",
+     "text": "An ambush in {fort}! The attackers crept up quietly, which experts call unsporting and goblins call strategy."
+    },
+    {
+     "id": "dnb-siege-read-10",
+     "text": "War has come to {fort}. DNN will remain on air throughout the siege, partly out of duty, mostly because the studio is underground."
+    },
+    {
+     "id": "dnb-siege-read-11",
+     "text": "Goblins have arrived, and the trap corridor finally gets its moment. Engineers say they are 'nervous but very excited.'"
+    },
+    {
+     "id": "dnb-siege-read-12",
+     "text": "The enemy is at the gates. Soldiers have been called up, the gate is shut, and the cook has sworn nobody is getting the roast."
+    },
+    {
+     "id": "dnb-siege-read-13",
+     "text": "A siege of {fort}. Analysts expect a long fight, a lot of arrows, and at least one dwarf who forgets to come inside."
+    },
+    {
+     "id": "dnb-siege-read-14",
+     "text": "{count} goblins confirmed. Our numbers desk would like to point out that's {count} more than we invited."
+    }
+   ]
+  },
+  "soldier": {
+   "heads": [
+    {
+     "id": "dnb-soldier-head-1",
+     "text": "NEW RECRUIT JOINS THE MILITIA"
+    },
+    {
+     "id": "dnb-soldier-head-2",
+     "text": "CITIZEN TAKES UP ARMS"
+    },
+    {
+     "id": "dnb-soldier-head-3",
+     "text": "THE MILITIA GROWS"
+    },
+    {
+     "id": "dnb-soldier-head-4",
+     "text": "FROM WORKSHOP TO WAR ROOM"
+    },
+    {
+     "id": "dnb-soldier-head-5",
+     "text": "ENLISTMENT CONFIRMED"
+    },
+    {
+     "id": "dnb-soldier-head-6",
+     "text": "ANOTHER SHIELD ON THE WALL"
+    },
+    {
+     "id": "dnb-soldier-head-7",
+     "text": "DRAFT DAY IN THE FORT"
+    },
+    {
+     "id": "dnb-soldier-head-8",
+     "text": "FORT GAINS A DEFENDER"
+    },
+    {
+     "id": "dnb-soldier-head-9",
+     "text": "ATTENTION! NEW SOLDIER REPORTING"
+    },
+    {
+     "id": "dnb-soldier-head-10",
+     "text": "UNIFORMS ISSUED, NERVES TESTED"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-soldier-read-1",
+     "text": "{name} has joined the military. The former {prof} will now swap tools for a weapon and a strict sparring schedule."
+    },
+    {
+     "id": "dnb-soldier-read-2",
+     "text": "We can confirm {name} is now a soldier. Barracks sources say the recruit has already lost a fight with the training dummy."
+    },
+    {
+     "id": "dnb-soldier-read-3",
+     "text": "The militia grows by one this {season}. Commanders say the new recruit is keen, alert and, for now, still smiling."
+    },
+    {
+     "id": "dnb-soldier-read-4",
+     "text": "{name} the {prof} has traded the workshop for the barracks. Former colleagues say they'll miss the help and not the humming."
+    },
+    {
+     "id": "dnb-soldier-read-5",
+     "text": "A citizen of {fort} has enlisted. Their first order: report to the barracks. Their second order: stop asking when lunch is."
+    },
+    {
+     "id": "dnb-soldier-read-6",
+     "text": "{name} has been handed armour today. The armour, sources say, is slightly too big, and the recruit is pretending it isn't."
+    },
+    {
+     "id": "dnb-soldier-read-7",
+     "text": "Another dwarf answers the call. {citizen} says the fort feels safer already, and also wonders who's doing the hauling now."
+    },
+    {
+     "id": "dnb-soldier-read-8",
+     "text": "Military news: {name} is in the squad. Instructors say the recruit has 'potential' and 'a dangerous enthusiasm for axes.'"
+    },
+    {
+     "id": "dnb-soldier-read-9",
+     "text": "{name} has enlisted, bringing the fort's defenders up by one and its {prof} count down by one. Economists are still crunching that."
+    },
+    {
+     "id": "dnb-soldier-read-10",
+     "text": "{fort} has a new soldier. Recruits are reminded the barracks are for sleeping, sparring, and not leaving socks on the weapon rack."
+    },
+    {
+     "id": "dnb-soldier-read-11",
+     "text": "{name} reports for duty this {month}. Squadmates have already given them a nickname we cannot read on air."
+    },
+    {
+     "id": "dnb-soldier-read-12",
+     "text": "A new recruit has joined the militia, which trains daily in the barracks. Neighbours report it is very loud and very stabby."
+    },
+    {
+     "id": "dnb-soldier-read-13",
+     "text": "{name} is a soldier now. Family members describe themselves as proud, worried, and a little relieved about the bedroom space."
+    },
+    {
+     "id": "dnb-soldier-read-14",
+     "text": "Enlistment news from {fort}: a dwarf who once flinched at a rat is now on the front line. Character growth, viewers."
+    }
+   ]
+  },
+  "civilian": {
+   "heads": [
+    {
+     "id": "dnb-civilian-head-1",
+     "text": "SOLDIER RETURNS TO CIVILIAN LIFE"
+    },
+    {
+     "id": "dnb-civilian-head-2",
+     "text": "ARMOUR OFF, APRON ON"
+    },
+    {
+     "id": "dnb-civilian-head-3",
+     "text": "VETERAN HANGS UP THE AXE"
+    },
+    {
+     "id": "dnb-civilian-head-4",
+     "text": "DISCHARGED: ONE TIRED DWARF"
+    },
+    {
+     "id": "dnb-civilian-head-5",
+     "text": "FROM THE BARRACKS TO THE BEDROOM"
+    },
+    {
+     "id": "dnb-civilian-head-6",
+     "text": "MILITIA SHRINKS BY ONE"
+    },
+    {
+     "id": "dnb-civilian-head-7",
+     "text": "BACK TO WORK, BACK TO NORMAL"
+    },
+    {
+     "id": "dnb-civilian-head-8",
+     "text": "OUR SOLDIER COMES HOME"
+    },
+    {
+     "id": "dnb-civilian-head-9",
+     "text": "END OF SERVICE CONFIRMED"
+    },
+    {
+     "id": "dnb-civilian-head-10",
+     "text": "THE QUIET LIFE BECKONS"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-civilian-read-1",
+     "text": "{name} has left the military and returned to civilian life. The weapon goes back on the rack. The bad back, sources say, stays."
+    },
+    {
+     "id": "dnb-civilian-read-2",
+     "text": "We can confirm {name} is a civilian again. First stop: the tavern. Second stop: also the tavern."
+    },
+    {
+     "id": "dnb-civilian-read-3",
+     "text": "A soldier of {fort} has returned to civilian life this {season}. Friends say they look rested, and are already bored."
+    },
+    {
+     "id": "dnb-civilian-read-4",
+     "text": "{name} has been discharged. Barracks staff are reportedly sad to see them go and pleased to get the bunk back."
+    },
+    {
+     "id": "dnb-civilian-read-5",
+     "text": "{name} is out of uniform and back to work as the fort's {prof}. Colleagues have hidden the training dummy, out of kindness."
+    },
+    {
+     "id": "dnb-civilian-read-6",
+     "text": "Militia numbers fall by one after a dwarf returned to civilian work. Commanders say the squad will manage. The squad says it won't."
+    },
+    {
+     "id": "dnb-civilian-read-7",
+     "text": "{citizen} tells DNN a returning soldier has already asked twice where the good chairs went. Welcome home."
+    },
+    {
+     "id": "dnb-civilian-read-8",
+     "text": "Life after service begins for {name}. Veterans warn the hardest part is remembering to walk, not march, to dinner."
+    },
+    {
+     "id": "dnb-civilian-read-9",
+     "text": "{name} has handed back the armour. The armour has been described as 'smelly but honourable.'"
+    },
+    {
+     "id": "dnb-civilian-read-10",
+     "text": "A soldier comes home to civilian life in {fort}. Their first civilian decision: a long nap. A very long nap."
+    },
+    {
+     "id": "dnb-civilian-read-11",
+     "text": "Discharge papers confirmed for {name}. Historians will note this {month} as the month one dwarf finally put the shield down."
+    },
+    {
+     "id": "dnb-civilian-read-12",
+     "text": "Breaking from the barracks: one fewer soldier, one more hauler. The fort's furniture is about to get moved very fast."
+    },
+    {
+     "id": "dnb-civilian-read-13",
+     "text": "{name} has rejoined civilian life, and is reportedly startled by how quiet it is when nobody's shouting drills."
+    },
+    {
+     "id": "dnb-civilian-read-14",
+     "text": "Civilian life welcomes back one of the fort's defenders. Peace reigns, for now, and the militia lounge has a spare cushion.",
+     "when": [
+      "peace"
+     ]
+    }
+   ]
+  },
+  "quota": {
+   "heads": [
+    {
+     "id": "dnb-quota-head-1",
+     "text": "MANDATE MET! NOBLE SATISFIED"
+    },
+    {
+     "id": "dnb-quota-head-2",
+     "text": "QUOTA FILLED, CRISIS AVERTED"
+    },
+    {
+     "id": "dnb-quota-head-3",
+     "text": "THE NOBLE GETS THEIR WAY AGAIN"
+    },
+    {
+     "id": "dnb-quota-head-4",
+     "text": "PRODUCTION TARGET HIT"
+    },
+    {
+     "id": "dnb-quota-head-5",
+     "text": "NO HAMMERINGS TODAY, SOURCES SAY"
+    },
+    {
+     "id": "dnb-quota-head-6",
+     "text": "DEMANDS DELIVERED, FORT EXHALES"
+    },
+    {
+     "id": "dnb-quota-head-7",
+     "text": "BUREAUCRACY: 1, FORT: 0"
+    },
+    {
+     "id": "dnb-quota-head-8",
+     "text": "WORKSHOPS COMPLETE THE ORDER"
+    },
+    {
+     "id": "dnb-quota-head-9",
+     "text": "NOBLE MANDATE FULFILLED"
+    },
+    {
+     "id": "dnb-quota-head-10",
+     "text": "FORT DODGES THE HAMMERER"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-quota-read-1",
+     "text": "The noble's mandate has been fulfilled. Citizens are relieved, workshops are exhausted, and the noble has already thought of another one."
+    },
+    {
+     "id": "dnb-quota-read-2",
+     "text": "Production quota met in {fort}. The hammerer has been seen putting the hammer away, slightly disappointed."
+    },
+    {
+     "id": "dnb-quota-read-3",
+     "text": "A noble's demand has been satisfied this {season}. The items in question are, we're told, completely useless. That's not the point."
+    },
+    {
+     "id": "dnb-quota-read-4",
+     "text": "{name} delivered the final piece of the mandate. The noble said nothing, which in noble terms is effusive praise."
+    },
+    {
+     "id": "dnb-quota-read-5",
+     "text": "Mandate met. Workshop crews are celebrating with a drink, and the noble is celebrating by banning the export of something."
+    },
+    {
+     "id": "dnb-quota-read-6",
+     "text": "We can report the fort has filled its quota. Analysts say it's the first time this {year} everyone involved slept the night before."
+    },
+    {
+     "id": "dnb-quota-read-7",
+     "text": "The order is done. Sources close to the noble say they 'expected nothing less', which sources close to the workshops call a lie."
+    },
+    {
+     "id": "dnb-quota-read-8",
+     "text": "{name} completed the job that satisfied the noble. The fort owes them a mug, and quite possibly its kneecaps."
+    },
+    {
+     "id": "dnb-quota-read-9",
+     "text": "Quota fulfilled. {citizen} says the whole fort can finally stop making that one particular item. Until next time."
+    },
+    {
+     "id": "dnb-quota-read-10",
+     "text": "A mandate completed in {fort}, just in time. Observers say the deadline was so tight you could hear the forges sweating."
+    },
+    {
+     "id": "dnb-quota-read-11",
+     "text": "The noble's production order has been met. Historians expect the noble to forget about it entirely by the end of the season."
+    },
+    {
+     "id": "dnb-quota-read-12",
+     "text": "Good news from the workshops: the mandate is done. {anchor2} is asking what the mandate was. Nobody remembers. It doesn't matter."
+    },
+    {
+     "id": "dnb-quota-read-13",
+     "text": "Thanks to {name}, the quota is filled. The noble asked to see the work, glanced at it, and asked for a nicer chair."
+    },
+    {
+     "id": "dnb-quota-read-14",
+     "text": "Quota met. The jail stays empty, the hammer stays on the hook, and the fort, for one more day, stays on the noble's good side."
+    }
+   ]
+  },
+  "marriage": {
+   "heads": [
+    {
+     "id": "dnb-marriage-head-1",
+     "text": "WEDDING BELLS IN THE MOUNTAIN"
+    },
+    {
+     "id": "dnb-marriage-head-2",
+     "text": "TWO DWARVES TIE THE KNOT"
+    },
+    {
+     "id": "dnb-marriage-head-3",
+     "text": "IT'S OFFICIAL: THEY'RE MARRIED"
+    },
+    {
+     "id": "dnb-marriage-head-4",
+     "text": "LOVE CONQUERS THE STAIRWELL"
+    },
+    {
+     "id": "dnb-marriage-head-5",
+     "text": "ROMANCE BLOSSOMS UNDERGROUND"
+    },
+    {
+     "id": "dnb-marriage-head-6",
+     "text": "A MATCH MADE IN THE TAVERN"
+    },
+    {
+     "id": "dnb-marriage-head-7",
+     "text": "NEWLYWEDS! NEWLYWEDS!"
+    },
+    {
+     "id": "dnb-marriage-head-8",
+     "text": "HAPPILY EVER AFTER, DWARF-STYLE"
+    },
+    {
+     "id": "dnb-marriage-head-9",
+     "text": "BEDROOM SHORTAGE EASED BY ONE"
+    },
+    {
+     "id": "dnb-marriage-head-10",
+     "text": "CONGRATULATIONS TO THE HAPPY COUPLE"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-marriage-read-1",
+     "text": "{name} is married. The happy couple were seen sharing a mug at the tavern, which is the dwarven equivalent of a ceremony."
+    },
+    {
+     "id": "dnb-marriage-read-2",
+     "text": "Love has won in {fort} this {season}. Two citizens are now married, and the bedroom district has one less awkward hallway nod."
+    },
+    {
+     "id": "dnb-marriage-read-3",
+     "text": "Wedding news: {name} has tied the knot. Friends say they met over a disagreement about masonry and never stopped arguing. Romantic."
+    },
+    {
+     "id": "dnb-marriage-read-4",
+     "text": "Breaking: a marriage in {fort}! We're told no ceremony was held, because dwarves don't do ceremonies. They do ale."
+    },
+    {
+     "id": "dnb-marriage-read-5",
+     "text": "{name} is officially off the market. The rest of the fort is said to be very happy for them and slightly jealous."
+    },
+    {
+     "id": "dnb-marriage-read-6",
+     "text": "{citizen} has been seen weeping into a tankard over today's wedding, saying they 'always knew'. They did not always know."
+    },
+    {
+     "id": "dnb-marriage-read-7",
+     "text": "Two dwarves have married this {month}. The fort's matchmakers, which is to say everyone in the tavern, are taking credit."
+    },
+    {
+     "id": "dnb-marriage-read-8",
+     "text": "{name} has married. DNN understands the couple will share a bedroom, a bed, and at least one fierce argument about the blanket."
+    },
+    {
+     "id": "dnb-marriage-read-9",
+     "text": "Romance in {fort}! Experts say the newlyweds' love is as solid as granite, and roughly as easy to talk to."
+    },
+    {
+     "id": "dnb-marriage-read-10",
+     "text": "{name} has wed. The couple's first act as a married pair was to request a bigger bedroom, which the fort has denied."
+    },
+    {
+     "id": "dnb-marriage-read-11",
+     "text": "Love in the time of thin rations. {name} is married. We wish them a long life and a better-stocked pantry.",
+     "when": [
+      "food_low"
+     ]
+    },
+    {
+     "id": "dnb-marriage-read-12",
+     "text": "Wedding bells, figuratively, for {name}. Literally, the fort has no bells. Engineering would like to build some. Please stop them."
+    },
+    {
+     "id": "dnb-marriage-read-13",
+     "text": "Wedding news for a {year} to remember. The newlyweds are blissful, and the fort's bards have already written something regrettable."
+    },
+    {
+     "id": "dnb-marriage-read-14",
+     "text": "{name} is married, ending one of the longest courtships in {fort} history. Onlookers describe it as 'finally' and 'about time.'"
+    }
+   ]
+  },
+  "noble": {
+   "heads": [
+    {
+     "id": "dnb-noble-head-1",
+     "text": "NEW APPOINTMENT AT THE TOP"
+    },
+    {
+     "id": "dnb-noble-head-2",
+     "text": "ELECTION RESULT IN"
+    },
+    {
+     "id": "dnb-noble-head-3",
+     "text": "A NEW NOBLE RISES"
+    },
+    {
+     "id": "dnb-noble-head-4",
+     "text": "POWER CHANGES HANDS IN THE FORT"
+    },
+    {
+     "id": "dnb-noble-head-5",
+     "text": "OFFICE FILLED; DEMANDS INCOMING"
+    },
+    {
+     "id": "dnb-noble-head-6",
+     "text": "TITLE AWARDED; EGO EXPANDS"
+    },
+    {
+     "id": "dnb-noble-head-7",
+     "text": "CONGRATULATIONS, OR CONDOLENCES?"
+    },
+    {
+     "id": "dnb-noble-head-8",
+     "text": "SOMEBODY GET THIS DWARF AN OFFICE"
+    },
+    {
+     "id": "dnb-noble-head-9",
+     "text": "THE VOTES ARE COUNTED"
+    },
+    {
+     "id": "dnb-noble-head-10",
+     "text": "NEW POST, NEW ROOM REQUIREMENTS"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-noble-read-1",
+     "text": "{name} has been appointed to a new post. Their first official act was asking for a bigger bedroom. Their second, a bigger one still."
+    },
+    {
+     "id": "dnb-noble-read-2",
+     "text": "Election news from {fort}: {name} has won. Turnout was high, mostly because the polling station was the tavern."
+    },
+    {
+     "id": "dnb-noble-read-3",
+     "text": "A new appointment in {fort} this {season}. Citizens are cautiously optimistic, which is the only kind of optimism allowed down here."
+    },
+    {
+     "id": "dnb-noble-read-4",
+     "text": "{name} takes office today. Sources say the new noble has already drafted three mandates and a strongly worded note about chairs."
+    },
+    {
+     "id": "dnb-noble-read-5",
+     "text": "We can confirm {name} is the fort's newest official. The former {prof} says power won't change them, while adjusting a new robe."
+    },
+    {
+     "id": "dnb-noble-read-6",
+     "text": "Someone has been elected or appointed in {fort}. We don't fully understand how the process works. Neither, it turns out, does anyone."
+    },
+    {
+     "id": "dnb-noble-read-7",
+     "text": "{name} has a new title. Engravers are working overtime adding it to doors, walls, and, at {name}'s request, the ceiling."
+    },
+    {
+     "id": "dnb-noble-read-8",
+     "text": "Breaking: power has changed hands. {citizen} says the new noble 'seems nice', which is what everyone says before the first mandate."
+    },
+    {
+     "id": "dnb-noble-read-9",
+     "text": "The {year} political season brings a new face to the top. Furniture makers are bracing for very specific demands."
+    },
+    {
+     "id": "dnb-noble-read-10",
+     "text": "{name} has been named to office. Their predecessor has been seen in the tavern, looking ten years younger."
+    },
+    {
+     "id": "dnb-noble-read-11",
+     "text": "A new noble in {fort}. The bookkeeper has added them to the list of dwarves who need gold-plated things."
+    },
+    {
+     "id": "dnb-noble-read-12",
+     "text": "{name} accepted the new post this {month} with a short speech. It was mostly about the size of the office."
+    },
+    {
+     "id": "dnb-noble-read-13",
+     "text": "There's a new official in town. DNN reminds them that we are an independent network, and also very, very fond of them."
+    },
+    {
+     "id": "dnb-noble-read-14",
+     "text": "{name}'s appointment is official. Reaction ranges from 'who?' to 'oh no' to, from one cousin, 'finally.'"
+    }
+   ]
+  },
+  "generic": {
+   "heads": [
+    {
+     "id": "dnb-generic-head-1",
+     "text": "BREAKING NEWS"
+    },
+    {
+     "id": "dnb-generic-head-2",
+     "text": "THIS JUST IN"
+    },
+    {
+     "id": "dnb-generic-head-3",
+     "text": "DEVELOPING STORY"
+    },
+    {
+     "id": "dnb-generic-head-4",
+     "text": "WE INTERRUPT THIS BROADCAST"
+    },
+    {
+     "id": "dnb-generic-head-5",
+     "text": "NEWS FROM AROUND THE FORT"
+    },
+    {
+     "id": "dnb-generic-head-6",
+     "text": "SOMETHING HAS HAPPENED"
+    },
+    {
+     "id": "dnb-generic-head-7",
+     "text": "DNN ALERT"
+    },
+    {
+     "id": "dnb-generic-head-8",
+     "text": "REPORTS COMING IN NOW"
+    },
+    {
+     "id": "dnb-generic-head-9",
+     "text": "STAY TUNED FOR DETAILS"
+    },
+    {
+     "id": "dnb-generic-head-10",
+     "text": "A STORY YOU NEED TO HEAR"
+    }
+   ],
+   "reads": [
+    {
+     "id": "dnb-generic-read-1",
+     "text": "We interrupt our coverage with breaking news from {fort}. Details are still coming in. Something has definitely happened."
+    },
+    {
+     "id": "dnb-generic-read-2",
+     "text": "This just in: an announcement has been made. DNN's analysts are reading it now. Slowly. Moving their lips."
+    },
+    {
+     "id": "dnb-generic-read-3",
+     "text": "We're getting reports from around {fort}. {reporter} is standing by, although we're not sure where, or why they're wet.",
+     "when": [
+      "raining"
+     ]
+    },
+    {
+     "id": "dnb-generic-read-4",
+     "text": "Developing story, viewers. {citizen} tells DNN it is 'quite something.' We'll be the judge of that."
+    },
+    {
+     "id": "dnb-generic-read-5",
+     "text": "News from {fort} this {season}. We don't know much yet, but sources close to the ale stockpile are confident it's important."
+    },
+    {
+     "id": "dnb-generic-read-6",
+     "text": "Breaking: a development in {fort}. Our team is on it. Our team is two dwarves and a cat, but they're on it."
+    },
+    {
+     "id": "dnb-generic-read-7",
+     "text": "An announcement has gone out across the fort. All {pop} citizens are advised to keep calm and keep hauling."
+    },
+    {
+     "id": "dnb-generic-read-8",
+     "text": "Something has happened in {fort}, viewers. Is it good? Is it bad? Stay with DNN, where we'll tell you as soon as we decide."
+    },
+    {
+     "id": "dnb-generic-read-9",
+     "text": "We are receiving word of a development. {anchor2} has a theory. We will not be hearing {anchor2}'s theory."
+    },
+    {
+     "id": "dnb-generic-read-10",
+     "text": "News out of {fort} in {month}. The newsroom is gathered around the announcement board, squinting."
+    },
+    {
+     "id": "dnb-generic-read-11",
+     "text": "Here's what we know: something happened. Here's what we don't know: everything else. More after this."
+    },
+    {
+     "id": "dnb-generic-read-12",
+     "text": "{anchor} with breaking news. The fort has made an announcement, and the official word is that it is, technically, news."
+    },
+    {
+     "id": "dnb-generic-read-13",
+     "text": "A new development in {fort}, and possibly the biggest story of {year}. {citizen} was nearby and looked surprised."
+    },
+    {
+     "id": "dnb-generic-read-14",
+     "text": "The announcement board has spoken. DNN has sent {reporter} to find out what it said, and whether it can be blamed on elves."
+    }
+   ]
+  }
+ },
+ "reaction": {
+  "death": [
+   {
+    "id": "dnb-death-react-1",
+    "text": "Terrible. Just terrible. I'll be at the tavern if anyone needs to not talk about it."
+   },
+   {
+    "id": "dnb-death-react-2",
+    "text": "{name} once fixed my door hinge without being asked. I never said thank you. Say thank you, viewers."
+   },
+   {
+    "id": "dnb-death-react-3",
+    "text": "I don't have a joke for this one, {anchor}. I don't think the fort wants one."
+   },
+   {
+    "id": "dnb-death-react-4",
+    "text": "Rest easy, {name}. The stone will remember you, even if the bookkeeper gets the date wrong."
+   },
+   {
+    "id": "dnb-death-react-5",
+    "text": "We'll all be wearing our second-best beard tonight, as is custom."
+   },
+   {
+    "id": "dnb-death-react-6",
+    "text": "I've been told to say something profound. All I've got is: drink one for them."
+   },
+   {
+    "id": "dnb-death-react-7",
+    "text": "That's {pop} of us now. Every one of them counts, {anchor}."
+   },
+   {
+    "id": "dnb-death-react-8",
+    "text": "The fort will carry on. That's what forts do. But it'll carry on a little slower today."
+   },
+   {
+    "id": "dnb-death-react-9",
+    "text": "I hope the coffin's a good one. {name} would have checked the joins."
+   },
+   {
+    "id": "dnb-death-react-10",
+    "text": "A moment of silence, then. Well. A moment of captions."
+   }
+  ],
+  "pet_death": [
+   {
+    "id": "dnb-pet_death-react-1",
+    "text": "Not {name}. Anyone but {name}."
+   },
+   {
+    "id": "dnb-pet_death-react-2",
+    "text": "I'm not crying, {anchor}. It's the smoke from the smelter."
+   },
+   {
+    "id": "dnb-pet_death-react-3",
+    "text": "Every {creature} deserves a better send-off than the bone pile. Just saying."
+   },
+   {
+    "id": "dnb-pet_death-react-4",
+    "text": "I'd like to remind viewers the butcher is a professional and should not be glared at. Excessively."
+   },
+   {
+    "id": "dnb-pet_death-react-5",
+    "text": "Somebody check on the owner. And maybe pick out a nice wall for them."
+   },
+   {
+    "id": "dnb-pet_death-react-6",
+    "text": "The cats are going to be unbearable about this."
+   },
+   {
+    "id": "dnb-pet_death-react-7",
+    "text": "I once shared a pasture bench with {name}. Quiet animal. Great listener."
+   },
+   {
+    "id": "dnb-pet_death-react-8",
+    "text": "Losing an animal is hard. Losing one right before dinner is complicated."
+   },
+   {
+    "id": "dnb-pet_death-react-9",
+    "text": "Rest easy, {name}. You were a good {creature}. Mostly."
+   },
+   {
+    "id": "dnb-pet_death-react-10",
+    "text": "Pour one out. Into the trough, I mean. Respectfully."
+   }
+  ],
+  "birth": [
+   {
+    "id": "dnb-birth-react-1",
+    "text": "Oh, that's lovely. That's actually lovely. Somebody get that baby a tiny helmet."
+   },
+   {
+    "id": "dnb-birth-react-2",
+    "text": "Another mouth to feed, and I mean that with all the joy in my heart."
+   },
+   {
+    "id": "dnb-birth-react-3",
+    "text": "Congratulations, {name}! Sleep is overrated. You'll find that out shortly."
+   },
+   {
+    "id": "dnb-birth-react-4",
+    "text": "I give it six years before it's demanding a bedroom with an engraved ceiling."
+   },
+   {
+    "id": "dnb-birth-react-5",
+    "text": "New dwarf smell. Best smell in the mountain."
+   },
+   {
+    "id": "dnb-birth-react-6",
+    "text": "Can we get a camera on the baby? No? Guild rules? Fine."
+   },
+   {
+    "id": "dnb-birth-react-7",
+    "text": "Good. The fort needs more dwarves who haven't learned to complain yet.",
+    "when": [
+     "pop_small"
+    ]
+   },
+   {
+    "id": "dnb-birth-react-8",
+    "text": "{pop} of us now. Somebody tell the brewer."
+   },
+   {
+    "id": "dnb-birth-react-9",
+    "text": "I hope it grows up to be a legendary something. Anything. I'm not fussy."
+   },
+   {
+    "id": "dnb-birth-react-10",
+    "text": "A happy day in {fort}. I'm going to need a minute. And a drink."
+   }
+  ],
+  "migrants": [
+   {
+    "id": "dnb-migrants-react-1",
+    "text": "More dwarves! Great. I'll start hiding my good chair."
+   },
+   {
+    "id": "dnb-migrants-react-2",
+    "text": "I just hope they brought their own mugs."
+   },
+   {
+    "id": "dnb-migrants-react-3",
+    "text": "{count}? I counted more beards than that. Some of them might have two."
+   },
+   {
+    "id": "dnb-migrants-react-4",
+    "text": "Somebody show them the dining hall before they start eating the seeds."
+   },
+   {
+    "id": "dnb-migrants-react-5",
+    "text": "Welcome, everyone. Please don't ask me where the bedrooms are. Nobody knows."
+   },
+   {
+    "id": "dnb-migrants-react-6",
+    "text": "Every one of them is a future legend, {anchor}. Or a future hauler. Mostly haulers."
+   },
+   {
+    "id": "dnb-migrants-react-7",
+    "text": "I give them a week before they're complaining about the stairs like real citizens."
+   },
+   {
+    "id": "dnb-migrants-react-8",
+    "text": "Can any of them brew? Ask them if any of them brew.",
+    "when": [
+     "drinks_low"
+    ]
+   },
+   {
+    "id": "dnb-migrants-react-9",
+    "text": "Big day for the fort. Bigger day for the bookkeeper."
+   },
+   {
+    "id": "dnb-migrants-react-10",
+    "text": "Ah, migrants. Fresh, untroubled, unaware of the carp.",
+    "when": [
+     "young_fort"
+    ]
+   }
+  ],
+  "caravan": [
+   {
+    "id": "dnb-caravan-react-1",
+    "text": "I'm going to buy something useless and I want everyone to know I'm happy about it."
+   },
+   {
+    "id": "dnb-caravan-react-2",
+    "text": "Did they bring any cheese? I'm asking for the whole fort."
+   },
+   {
+    "id": "dnb-caravan-react-3",
+    "text": "If it's elves, I'm calling in sick."
+   },
+   {
+    "id": "dnb-caravan-react-4",
+    "text": "Somebody find the broker. Somebody always has to find the broker."
+   },
+   {
+    "id": "dnb-caravan-react-5",
+    "text": "Last caravan I came home with a single cave spider silk sock. Just the one."
+   },
+   {
+    "id": "dnb-caravan-react-6",
+    "text": "Big day for the craftsdwarves. Every rock mug in the fort is about to be 'artisanal.'"
+   },
+   {
+    "id": "dnb-caravan-react-7",
+    "text": "They always look so tired when they get here. Then they see our prices and perk right up."
+   },
+   {
+    "id": "dnb-caravan-react-8",
+    "text": "Remember, {anchor}: you don't need it. You want it. There's a difference. I've never respected it."
+   },
+   {
+    "id": "dnb-caravan-react-9",
+    "text": "I hope they take beds. We've made so many beds."
+   },
+   {
+    "id": "dnb-caravan-react-10",
+    "text": "Ah, the sweet sound of wagon wheels and someone shouting 'that's not what we agreed.'"
+   }
+  ],
+  "diplomat": [
+   {
+    "id": "dnb-diplomat-react-1",
+    "text": "Make sure they see the good engravings. Hide the one of the goblin."
+   },
+   {
+    "id": "dnb-diplomat-react-2",
+    "text": "Diplomacy. Ah yes. Talking until somebody gets bored and signs something."
+   },
+   {
+    "id": "dnb-diplomat-react-3",
+    "text": "If it's an elf, I volunteer to be very, very polite. From a different room."
+   },
+   {
+    "id": "dnb-diplomat-react-4",
+    "text": "I hope we're not at war after this. Last time somebody served the wrong cheese."
+   },
+   {
+    "id": "dnb-diplomat-react-5",
+    "text": "Can they stay for dinner? We've got roast. We've always got roast."
+   },
+   {
+    "id": "dnb-diplomat-react-6",
+    "text": "I love a diplomat. Always somewhere important to be, never anywhere to sleep."
+   },
+   {
+    "id": "dnb-diplomat-react-7",
+    "text": "Someone should tell them about the carp. As a courtesy."
+   },
+   {
+    "id": "dnb-diplomat-react-8",
+    "text": "Let's not get excited, {anchor}. Last one only wanted to know where the toilets were. We don't have toilets."
+   },
+   {
+    "id": "dnb-diplomat-react-9",
+    "text": "That's {civ} for you. Always sending someone with a scroll."
+   },
+   {
+    "id": "dnb-diplomat-react-10",
+    "text": "Our relations are excellent, according to us."
+   }
+  ],
+  "artifact": [
+   {
+    "id": "dnb-artifact-react-1",
+    "text": "Can I hold it? Just for a second? No? Okay."
+   },
+   {
+    "id": "dnb-artifact-react-2",
+    "text": "I've seen it. I wept. Then I had to sit down. Then I wept again."
+   },
+   {
+    "id": "dnb-artifact-react-3",
+    "text": "Good for {name}. I was worried that mood was going to end the other way."
+   },
+   {
+    "id": "dnb-artifact-react-4",
+    "text": "That {thing} is going in the history books, {anchor}. Possibly also a display case. Probably also a thief's bag."
+   },
+   {
+    "id": "dnb-artifact-react-5",
+    "text": "Every dwarf dreams of making one of these. I dream of being allowed near one."
+   },
+   {
+    "id": "dnb-artifact-react-6",
+    "text": "They're going to write songs about this. Bad songs. Long songs."
+   },
+   {
+    "id": "dnb-artifact-react-7",
+    "text": "Nobody use it. You can't use an artifact. It's an artifact."
+   },
+   {
+    "id": "dnb-artifact-react-8",
+    "text": "Legendary! In our little fort! I'm genuinely proud and slightly worried about goblins."
+   },
+   {
+    "id": "dnb-artifact-react-9",
+    "text": "{name} deserves a feast. And a nap. Mostly a nap."
+   },
+   {
+    "id": "dnb-artifact-react-10",
+    "text": "And to think, a week ago that was just a pile of bones and screaming."
+   }
+  ],
+  "masterpiece": [
+   {
+    "id": "dnb-masterpiece-react-1",
+    "text": "It's a {thing}, {anchor}. But it's a really, really good {thing}."
+   },
+   {
+    "id": "dnb-masterpiece-react-2",
+    "text": "I'd cry, but I'd hate to get it wet."
+   },
+   {
+    "id": "dnb-masterpiece-react-3",
+    "text": "Masterwork. Even the word sounds expensive."
+   },
+   {
+    "id": "dnb-masterpiece-react-4",
+    "text": "My mug has never once been a masterpiece. I'm happy for {name}. I'm also jealous."
+   },
+   {
+    "id": "dnb-masterpiece-react-5",
+    "text": "Someone frame it. Can you frame a {thing}? Someone try."
+   },
+   {
+    "id": "dnb-masterpiece-react-6",
+    "text": "That's the kind of thing that cheers a fort right up."
+   },
+   {
+    "id": "dnb-masterpiece-react-7",
+    "text": "If the merchants try to buy it, I say we act like we don't hear them."
+   },
+   {
+    "id": "dnb-masterpiece-react-8",
+    "text": "Ten out of ten. No notes. Well, one note: put it somewhere I can see it."
+   },
+   {
+    "id": "dnb-masterpiece-react-9",
+    "text": "Every masterwork makes me want to take up a craft. Then I remember the hours."
+   },
+   {
+    "id": "dnb-masterpiece-react-10",
+    "text": "{name} won't shut up about it now. And honestly? Fair."
+   }
+  ],
+  "mood": [
+   {
+    "id": "dnb-mood-react-1",
+    "text": "Oh, I love a mood. Unless it's the bad kind. Is it the bad kind?"
+   },
+   {
+    "id": "dnb-mood-react-2",
+    "text": "Somebody give {name} whatever they want. Please. All of it."
+   },
+   {
+    "id": "dnb-mood-react-3",
+    "text": "Last time this happened we got a legendary bracelet. A bracelet, {anchor}."
+   },
+   {
+    "id": "dnb-mood-react-4",
+    "text": "I'm going to say what we're all thinking: I hope it's a weapon."
+   },
+   {
+    "id": "dnb-mood-react-5",
+    "text": "Don't look directly at them. Bad luck. Or rude. One of those."
+   },
+   {
+    "id": "dnb-mood-react-6",
+    "text": "I'd go into a strange mood too if I worked in that workshop."
+   },
+   {
+    "id": "dnb-mood-react-7",
+    "text": "Do we have the materials? Please tell me we have the materials."
+   },
+   {
+    "id": "dnb-mood-react-8",
+    "text": "Every mood is a coin flip. Legend on one side. Screaming on the other."
+   },
+   {
+    "id": "dnb-mood-react-9",
+    "text": "I'm bringing {name} a snack. I'll leave it at the door and run."
+   },
+   {
+    "id": "dnb-mood-react-10",
+    "text": "Our thoughts are with the workshop. And the bones in it."
+   }
+  ],
+  "beast": [
+   {
+    "id": "dnb-beast-react-1",
+    "text": "I'm sorry, how many legs?"
+   },
+   {
+    "id": "dnb-beast-react-2",
+    "text": "I'd like to request a transfer to the deepest room. Or the highest. Whichever's furthest from that."
+   },
+   {
+    "id": "dnb-beast-react-3",
+    "text": "Can we raise the bridge while we're talking? Can someone do that? Right now?"
+   },
+   {
+    "id": "dnb-beast-react-4",
+    "text": "The militia's got this. The militia has got this. Please, militia, have this."
+   },
+   {
+    "id": "dnb-beast-react-5",
+    "text": "I'm not saying panic. I'm saying panic thoughtfully."
+   },
+   {
+    "id": "dnb-beast-react-6",
+    "text": "If it's made of fire, I'm out. If it's made of steam, I'm also out."
+   },
+   {
+    "id": "dnb-beast-react-7",
+    "text": "Ah, the {creature}. My least favourite thing, effective immediately."
+   },
+   {
+    "id": "dnb-beast-react-8",
+    "text": "Has anyone told it we're a news network? Maybe it respects the press."
+   },
+   {
+    "id": "dnb-beast-react-9",
+    "text": "Every time something crawls out of the caverns I think, that's the worst one. Then another one crawls out."
+   },
+   {
+    "id": "dnb-beast-react-10",
+    "text": "Well, we'll always have the trap hallway."
+   }
+  ],
+  "siege": [
+   {
+    "id": "dnb-siege-react-1",
+    "text": "Goblins. Of course it's goblins. It's always goblins."
+   },
+   {
+    "id": "dnb-siege-react-2",
+    "text": "I'd like it on record that I said we needed a bigger wall."
+   },
+   {
+    "id": "dnb-siege-react-3",
+    "text": "Give 'em the trap hall! Give 'em the whole trap hall!"
+   },
+   {
+    "id": "dnb-siege-react-4",
+    "text": "I'm brave. I'm very brave. I'm going to be brave from the deep tavern."
+   },
+   {
+    "id": "dnb-siege-react-5",
+    "text": "Has someone pulled the lever? Somebody tell me someone's pulled the lever."
+   },
+   {
+    "id": "dnb-siege-react-6",
+    "text": "{anchor}, if I don't make it, I want my mug to go to the museum."
+   },
+   {
+    "id": "dnb-siege-react-7",
+    "text": "The goblins think they're scary. They've never seen our militia commander before breakfast."
+   },
+   {
+    "id": "dnb-siege-react-8",
+    "text": "Why do they always come during dinner?"
+   },
+   {
+    "id": "dnb-siege-react-9",
+    "text": "I just hope they don't reach the ale stockpile. Everything else can be replaced."
+   },
+   {
+    "id": "dnb-siege-react-10",
+    "text": "Strike the earth? Strike the goblins, more like."
+   }
+  ],
+  "soldier": [
+   {
+    "id": "dnb-soldier-react-1",
+    "text": "Good for {name}. Every fort needs someone willing to stand between us and the goblins."
+   },
+   {
+    "id": "dnb-soldier-react-2",
+    "text": "I tried the militia once. I lasted one sparring session and one very bad bruise."
+   },
+   {
+    "id": "dnb-soldier-react-3",
+    "text": "Welcome to the squad. Your armour is wherever the last soldier left it."
+   },
+   {
+    "id": "dnb-soldier-react-4",
+    "text": "I hope {name} kept a few tools. Never know when you'll need to fix a door mid-siege."
+   },
+   {
+    "id": "dnb-soldier-react-5",
+    "text": "They look good in a helmet. Everyone looks good in a helmet."
+   },
+   {
+    "id": "dnb-soldier-react-6",
+    "text": "That's one more dwarf who'll sleep in the barracks and complain about the barracks."
+   },
+   {
+    "id": "dnb-soldier-react-7",
+    "text": "Fight well, {name}. And spar gently. You'll be sparring with your friends."
+   },
+   {
+    "id": "dnb-soldier-react-8",
+    "text": "We should do a feature on the new recruits. From a respectful distance."
+   },
+   {
+    "id": "dnb-soldier-react-9",
+    "text": "Militia life. Up early, sore all day, hungry all night. Sounds like journalism."
+   },
+   {
+    "id": "dnb-soldier-react-10",
+    "text": "Salute! Did I do that right? I've never done that."
+   }
+  ],
+  "civilian": [
+   {
+    "id": "dnb-civilian-react-1",
+    "text": "Enjoy it, {name}. You've earned your mug and your chair."
+   },
+   {
+    "id": "dnb-civilian-react-2",
+    "text": "I hope they keep the helmet. You never know."
+   },
+   {
+    "id": "dnb-civilian-react-3",
+    "text": "Back to normal life. Normal life in this fort. Good luck."
+   },
+   {
+    "id": "dnb-civilian-react-4",
+    "text": "Somebody give them a nice quiet job. Not the hospital. Not the depot. Somewhere quiet."
+   },
+   {
+    "id": "dnb-civilian-react-5",
+    "text": "From soldier to civilian. It's like a promotion, but with more naps."
+   },
+   {
+    "id": "dnb-civilian-react-6",
+    "text": "I'll miss seeing {name} marching past the newsroom at dawn. I won't miss the clanking."
+   },
+   {
+    "id": "dnb-civilian-react-7",
+    "text": "Quietest discharge I've ever seen. Usually somebody cries. Usually it's the commander."
+   },
+   {
+    "id": "dnb-civilian-react-8",
+    "text": "Thank you for your service, {name}. Now go have a drink."
+   },
+   {
+    "id": "dnb-civilian-react-9",
+    "text": "Fewer soldiers makes me nervous. More haulers makes me happy. I'm conflicted."
+   },
+   {
+    "id": "dnb-civilian-react-10",
+    "text": "That's what we like to see: a dwarf leaving the army in one piece."
+   }
+  ],
+  "quota": [
+   {
+    "id": "dnb-quota-react-1",
+    "text": "Thank the stone. I was not ready for another hammering."
+   },
+   {
+    "id": "dnb-quota-react-2",
+    "text": "What was the mandate? Doesn't matter. It's done. Let's never speak of it."
+   },
+   {
+    "id": "dnb-quota-react-3",
+    "text": "Another mandate down. Another one's coming. They always come back."
+   },
+   {
+    "id": "dnb-quota-react-4",
+    "text": "Nobles, eh? Can't live with them, can't legally drop them in the magma."
+   },
+   {
+    "id": "dnb-quota-react-5",
+    "text": "I'd like to thank the workshops. And I'd like the workshops to have a nap."
+   },
+   {
+    "id": "dnb-quota-react-6",
+    "text": "Good work, {name}. You've saved someone's knees today."
+   },
+   {
+    "id": "dnb-quota-react-7",
+    "text": "The noble is happy. Write that down. It won't last."
+   },
+   {
+    "id": "dnb-quota-react-8",
+    "text": "Every time we meet a quota I feel like we've won something. We haven't. We just didn't lose."
+   },
+   {
+    "id": "dnb-quota-react-9",
+    "text": "They'll want gold cups next. Mark my words. Gold cups."
+   },
+   {
+    "id": "dnb-quota-react-10",
+    "text": "Quota met, crisis over. Back to our regularly scheduled crises."
+   }
+  ],
+  "marriage": [
+   {
+    "id": "dnb-marriage-react-1",
+    "text": "Oh, that's adorable. I'm going to be insufferable about weddings all week."
+   },
+   {
+    "id": "dnb-marriage-react-2",
+    "text": "May your ale never run dry and your bedroom never flood."
+   },
+   {
+    "id": "dnb-marriage-react-3",
+    "text": "Congratulations, {name}! Nothing says love like sharing a stone bed."
+   },
+   {
+    "id": "dnb-marriage-react-4",
+    "text": "I'm genuinely touched. And single. But touched."
+   },
+   {
+    "id": "dnb-marriage-react-5",
+    "text": "Babies next, I suppose. I'll alert the carpenters."
+   },
+   {
+    "id": "dnb-marriage-react-6",
+    "text": "I hope they have a long, happy, slightly argumentative life together."
+   },
+   {
+    "id": "dnb-marriage-react-7",
+    "text": "A marriage! During all this! Good for them."
+   },
+   {
+    "id": "dnb-marriage-react-8",
+    "text": "We should send a gift. Do we have a gift? We have a rock."
+   },
+   {
+    "id": "dnb-marriage-react-9",
+    "text": "Love really does find a way. Even through three layers of granite."
+   },
+   {
+    "id": "dnb-marriage-react-10",
+    "text": "To the happy couple. May they never be assigned the same workshop."
+   }
+  ],
+  "noble": [
+   {
+    "id": "dnb-noble-react-1",
+    "text": "I give it three days before the first mandate. Two, if they've seen the good stone."
+   },
+   {
+    "id": "dnb-noble-react-2",
+    "text": "Congratulations, {name}. Please don't ban anything I like."
+   },
+   {
+    "id": "dnb-noble-react-3",
+    "text": "Power. Responsibility. Very specific furniture requirements."
+   },
+   {
+    "id": "dnb-noble-react-4",
+    "text": "I voted for them. I think. I wasn't really paying attention."
+   },
+   {
+    "id": "dnb-noble-react-5",
+    "text": "Remember us little dwarves, {name}. Remember the press."
+   },
+   {
+    "id": "dnb-noble-react-6",
+    "text": "They'll want a throne next. Mark my words."
+   },
+   {
+    "id": "dnb-noble-react-7",
+    "text": "Well, somebody's got to do it. I'm just glad it's not me."
+   },
+   {
+    "id": "dnb-noble-react-8",
+    "text": "New noble, same old demands. That's democracy. Or monarchy. Whatever this is."
+   },
+   {
+    "id": "dnb-noble-react-9",
+    "text": "I hope they like the job. Nobody ever likes the job."
+   },
+   {
+    "id": "dnb-noble-react-10",
+    "text": "Somebody warn the masons. The room requirements are coming."
+   }
+  ],
+  "generic": [
+   {
+    "id": "dnb-generic-react-1",
+    "text": "Well. That's certainly a thing that happened."
+   },
+   {
+    "id": "dnb-generic-react-2",
+    "text": "I'll be honest, {anchor}, I didn't follow that, but I'm very concerned."
+   },
+   {
+    "id": "dnb-generic-react-3",
+    "text": "Big if true."
+   },
+   {
+    "id": "dnb-generic-react-4",
+    "text": "Is that good news? It sounded like good news. I'm going with good news."
+   },
+   {
+    "id": "dnb-generic-react-5",
+    "text": "This is why I got into journalism. That, and the free ale."
+   },
+   {
+    "id": "dnb-generic-react-6",
+    "text": "I'm going to need a full panel on this. And a snack."
+   },
+   {
+    "id": "dnb-generic-react-7",
+    "text": "Hard to believe. Easy to report."
+   },
+   {
+    "id": "dnb-generic-react-8",
+    "text": "The fort never sleeps. Well. The fort sleeps a lot. The news never sleeps."
+   },
+   {
+    "id": "dnb-generic-react-9",
+    "text": "Let's get {reporter} on the line. Do we have a line? We have a tube."
+   },
+   {
+    "id": "dnb-generic-react-10",
+    "text": "Truly a historic moment for {fort}. One of several this week."
+   }
+  ]
+ }
+}

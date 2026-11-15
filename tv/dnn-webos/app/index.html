@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- DNN launcher: opens the DNN page served by dnn.py on the stream laptop (same LAN). -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DNN</title>
+<style>
+  html,body{margin:0;height:100%;background:#0B1530;color:#fff;font-family:sans-serif}
+  body{display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+  h1{font-size:72px;letter-spacing:6px;margin:0 0 24px}
+  p{font-size:32px;opacity:.85;margin:8px}
+  button{margin-top:40px;font-size:32px;padding:16px 48px;background:#C8102E;color:#0B1530;border:0;border-radius:8px}
+  button:focus{outline:6px solid #fff}
+  #err{display:none}
+</style>
+</head>
+<body>
+  <h1>DNN</h1>
+  <p id="msg">LOADING…</p>
+  <div id="err">
+    <p>DNN is off the air. Is the stream laptop on and running the stream?</p>
+    <button id="retry">TRY AGAIN</button>
+  </div>
+<script>
+(function () {
+  var URL = 'http://192.168.1.18:8769/';   // the stream laptop (dnn.py)
+  var tries = 0;
+  function fail() {
+    document.getElementById('msg').style.display = 'none';
+    document.getElementById('err').style.display = 'block';
+    document.getElementById('retry').focus();
+  }
+  function go() {
+    tries++;
+    if (navigator.onLine === false) { fail(); return; }
+    var x = new XMLHttpRequest();
+    x.timeout = 10000;
+    x.onload = function () { location.replace(URL); };
+    x.onerror = x.ontimeout = function () { tries < 3 ? setTimeout(go, 2000) : fail(); };
+    try { x.open('HEAD', URL, true); x.send(); } catch (e) { location.replace(URL); }
+  }
+  document.getElementById('retry').onclick = function () {
+    tries = 0;
+    document.getElementById('err').style.display = 'none';
+    document.getElementById('msg').style.display = 'block';
+    go();
+  };
+  document.addEventListener('keydown', function (e) {
+    if (e.keyCode === 13 && document.getElementById('err').style.display === 'block') document.getElementById('retry').click();
+    if (e.keyCode === 461) { if (window.webOS && webOS.platformBack) webOS.platformBack(); else window.close(); }
+  });
+  go();
+})();
+</script>
+</body>
+</html>

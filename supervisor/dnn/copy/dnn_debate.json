@@ -1,0 +1,856 @@
+{
+ "debate": [
+  {
+   "id": "dnx-debate-1",
+   "topic": "ARE CATS RUNNING THE FORT?",
+   "lines": [
+    "There are more cats in the dining hall than chairs. I'm simply asking who signed off on that.",
+    "Cats keep the vermin down. What do YOU keep down? Not your ale, I hear.",
+    "That was one time, it was a celebration, and the cat started it.",
+    "The cat has a bedroom. Do you have a bedroom? No. Think about that.",
+    "I have a corner of the dormitory and my dignity!",
+    "The cat has both of those AND a cushion."
+   ],
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnx-debate-2",
+   "topic": "ALE VS. MORE ALE",
+   "lines": [
+    "Tonight I'm proud to stand for ale. Plain, honest, barrel-aged ale.",
+    "And I stand for more ale. Which, frankly, includes yours.",
+    "More ale is just ale with ambition! It has no platform!",
+    "Its platform is the second barrel. Voters love the second barrel.",
+    "Voters love the first barrel! It's where the second barrel gets its ideas!",
+    "Then why is the first barrel always empty? Answer the question."
+   ]
+  },
+  {
+   "id": "dnx-debate-3",
+   "topic": "SHOULD WE TRUST THE ELVES?",
+   "lines": [
+    "No.",
+    "Now hear me out, they did bring us fruit last {season}.",
+    "They brought fruit and a lecture! I didn't order a lecture! They COUNT our trees!",
+    "Okay. Fine. I've heard myself out. No."
+   ]
+  },
+  {
+   "id": "dnx-debate-4",
+   "topic": "ARE CARP A THREAT?",
+   "lines": [
+    "Every year somebody goes fishing and the carp goes dwarfing. It's a pattern.",
+    "Carp are fish. Fish! They live in water and fear the net.",
+    "Have you SEEN a carp? It doesn't fear the net. The net fears it.",
+    "This is fearmongering. Next you'll tell me the turtles have a plan.",
+    "I wasn't going to say it on air, but the turtles absolutely have a plan.",
+    "We're done here. The turtles are fine."
+   ]
+  },
+  {
+   "id": "dnx-debate-5",
+   "topic": "THE NOBLES' MANDATES: FAIR?",
+   "lines": [
+    "A noble wants three steel bins by the end of {month}. That's called governance.",
+    "We don't have any steel. That's not governance, that's a wish.",
+    "A strong fort makes wishes come true. With hammers if necessary.",
+    "The last time a mandate failed, the hammerer did come. With a hammer.",
+    "Accountability! You're welcome!",
+    "He hammered the blacksmith! The blacksmith didn't even like bins!"
+   ]
+  },
+  {
+   "id": "dnx-debate-6",
+   "topic": "THE HOSPITAL'S SOCK POLICY",
+   "lines": [
+    "The hospital is hoarding socks. Forty socks. Nobody in {fort} has forty feet.",
+    "Socks are medical supplies. Have you ever been wrapped in a sock? It heals.",
+    "That's not medicine, that's laundry with a bedside manner.",
+    "Tell that to the miner whose leg was saved with cloth last {season}.",
+    "It was saved with thread! The socks were just watching!",
+    "Somebody has to watch. That's the socks' role in society."
+   ]
+  },
+  {
+   "id": "dnx-debate-7",
+   "topic": "SHOULD WE DIG DEEPER?",
+   "lines": [
+    "Our ancestors didn't dig down so we could stop at a comfortable depth.",
+    "Our ancestors dug down and found things with too many eyes.",
+    "Every great hall starts with a hole somebody wasn't supposed to make.",
+    "And so does every great funeral. Have you met the deep?",
+    "I'd love to meet the deep! I'd shake its hand!",
+    "It has seven hands and none of them want shaking."
+   ]
+  },
+  {
+   "id": "dnx-debate-8",
+   "topic": "IS THE DEPOT TOO FAR AWAY?",
+   "lines": [
+    "Haulers walk a full day to reach the trade depot. It's practically a pilgrimage.",
+    "It's exercise! Our haulers have the finest calves in all of {civ}.",
+    "They spend half the trip asleep in the corridor!",
+    "Rest is part of a balanced haul. You wouldn't understand, you have a desk.",
+    "This desk is ALSO very far from the depot!",
+    "Then walk to it and stop complaining on my airtime."
+   ]
+  },
+  {
+   "id": "dnx-debate-9",
+   "topic": "ARE TANTRUMS JUSTIFIED?",
+   "lines": [
+    "Sometimes a dwarf throws a table because the dwarf needed to throw a table.",
+    "It was MY table. I was eating off it.",
+    "Then you were eating off a symbol of oppression!",
+    "I was eating off a plate of plump helmets!",
+    "Feelings first, furniture second. That's my position.",
+    "My position was under the table, which is where I ended up."
+   ]
+  },
+  {
+   "id": "dnx-debate-10",
+   "topic": "IS MAGMA SAFE?",
+   "lines": [
+    "Magma is a tool. Like a hammer, but warmer and more enthusiastic.",
+    "A hammer doesn't flow into the dining hall when somebody pulls the wrong lever.",
+    "That's a lever problem. Don't blame the magma for the lever's choices.",
+    "The lever is labelled 'DO NOT'. The rest of the label melted.",
+    "Then carve a stone label! Problem solved! Next question!",
+    "The next question is where the engineer went. And I think we know."
+   ]
+  },
+  {
+   "id": "dnx-debate-11",
+   "topic": "DO WE NEED A BIGGER TAVERN?",
+   "lines": [
+    "We have {pop} citizens and a tavern built for twelve. Dwarves are drinking on the stairs.",
+    "Stair drinking builds community. You meet everyone going up and down.",
+    "You meet them when they fall on you!",
+    "Again: community. Look it up.",
+    "{citizen} has been sleeping on the landing since {season}!",
+    "And has never been more connected to the community."
+   ],
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "dnx-debate-12",
+   "topic": "IS THE FORT TOO EMPTY?",
+   "lines": [
+    "With {pop} of us, {fort} is cosy, intimate, efficient.",
+    "It's empty. Our entire militia is one dwarf and a determined goat.",
+    "That goat has never lost a fight.",
+    "That goat has never been IN a fight! It eats the doors!",
+    "Deterrence!"
+   ],
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "dnx-debate-13",
+   "topic": "ARE WE RUNNING OUT OF BOOZE?",
+   "lines": [
+    "The barrels are low and I want answers. I want them in a mug.",
+    "This is panic. The brewers are working around the clock.",
+    "The brewers are asleep in the tavern. I walked past them on the way here.",
+    "They're resting their brewing arms! It's a strategy!",
+    "Then strategise faster! I'm drinking water like an elf!",
+    "Take that back. On air. Right now."
+   ],
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnx-debate-14",
+   "topic": "IS THERE SUCH A THING AS TOO MUCH ALE?",
+   "lines": [
+    "We've stockpiled so much drink the barrels are stacked in the corridors.",
+    "And? Name one problem a corridor full of ale has ever caused.",
+    "I tripped on a barrel, then I drank the barrel, then I was late for work.",
+    "Sounds like the barrel solved its own problem.",
+    "That's not the point!",
+    "It's exactly the point. The system works."
+   ],
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnx-debate-15",
+   "topic": "IS WINTER EVEN REAL?",
+   "lines": [
+    "Winter is a surface rumour. Down here it's always a pleasant stone temperature.",
+    "The pond froze and a fisherdwarf stood on it for an hour like a fool.",
+    "That's not winter, that's a personal choice.",
+    "He was frozen IN it! We had to send for a pick!",
+    "And did the pick feel cold? No. Because winter isn't real."
+   ],
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "dnx-debate-16",
+   "topic": "FOOD SHORTAGE: WHO ATE IT?",
+   "lines": [
+    "The food stockpile is down and I've seen crumbs on certain beards.",
+    "Are you accusing my beard? On national broadcasting?",
+    "I'm accusing a beard. If the beard fits...",
+    "A beard doesn't fit, it flows. And this one is innocent.",
+    "Then why does it smell like a prepared roast?",
+    "Because I'm a dwarf of taste! Literally!"
+   ],
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnx-debate-17",
+   "topic": "HOW LOUD SHOULD A WAKE BE?",
+   "lines": [
+    "We lost one of our own. A dignified fort grieves with a quiet drink.",
+    "A dignified fort grieves with SEVERAL loud drinks and a song.",
+    "That song has a chorus about goblins' mothers.",
+    "And they'd have wanted that. They hummed it constantly.",
+    "...They did hum it constantly.",
+    "Then pour another one. For the memorial slab."
+   ],
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "dnx-debate-18",
+   "topic": "ARE KOBOLDS JUST MISUNDERSTOOD?",
+   "lines": [
+    "Kobolds are small, shy, and interested in our things. Like children. Or cats.",
+    "They stole my sock! My GOOD sock!",
+    "Did they steal it, or did they rescue it from the hospital?",
+    "...I hadn't considered that angle.",
+    "Kobold sock liberation. Think about it.",
+    "I don't want to think about it. I want my sock back."
+   ]
+  },
+  {
+   "id": "dnx-debate-19",
+   "topic": "WHO SHOULD BE MAYOR?",
+   "lines": [
+    "We need a mayor who listens. Who sits in the meeting hall and nods.",
+    "We had that. He nodded off. We need somebody awake.",
+    "Awake is a very low bar.",
+    "And the last mayor tripped over it.",
+    "At least he didn't ban things! The baron bans something new every week!",
+    "The baron banned the export of beds! He was ahead of his time!"
+   ]
+  },
+  {
+   "id": "dnx-debate-20",
+   "topic": "IS STONE FURNITURE COMFORTABLE?",
+   "lines": [
+    "Stone chairs built this fort. Stone chairs built our spines.",
+    "Stone chairs ruined our spines. My spine is now a stone chair.",
+    "Wooden chairs are an elven conspiracy. Ask yourself who profits.",
+    "The carpenter profits! Who you just insulted! He's in the studio!",
+    "...Lovely chairs, carpenter. Very sturdy.",
+    "Too late. He's left. He took a chair."
+   ]
+  },
+  {
+   "id": "dnx-debate-21",
+   "topic": "MIGRANTS: TOO MANY?",
+   "lines": [
+    "Another wave of migrants. Where are they sleeping? On my floor, that's where.",
+    "Migrants bring skills! We just got our fourth cheesemaker.",
+    "We don't have any cheese!",
+    "And now we have the potential for SO much cheese.",
+    "We don't have milk either! We have one goat and it eats doors!",
+    "You leave that goat out of this."
+   ]
+  },
+  {
+   "id": "dnx-debate-22",
+   "topic": "ARE GOBLINS ALL BAD?",
+   "lines": [
+    "Goblins burn, steal, and lay siege. That's three strikes. They're out.",
+    "Have you ever actually sat down with a goblin? Over a drink?",
+    "Once. Briefly. Then he took my lantern and set my door on fire with it.",
+    "That's one goblin. You can't judge a whole dark tower on one lantern.",
+    "I absolutely can. It was a very nice lantern."
+   ]
+  },
+  {
+   "id": "dnx-debate-23",
+   "topic": "SHOULD WE SEAL THE GATE?",
+   "lines": [
+    "Raise the bridge, flood the moat, lock the gate. Nobody gets in.",
+    "Including the caravan carrying our ale ingredients?",
+    "We'll negotiate with the caravan through the murder holes.",
+    "That's not negotiation, that's dropping rocks politely.",
+    "Very politely. I'd write 'sorry' on every rock.",
+    "Writing on rocks is called engraving. That's a whole other department."
+   ]
+  },
+  {
+   "id": "dnx-debate-24",
+   "topic": "TOO MANY ENGRAVINGS?",
+   "lines": [
+    "Every wall in this fort has an engraving of a dwarf looking at another engraving.",
+    "That's art! It reflects on itself! It's deeply meaningful!",
+    "There's one of me in the latrine. Striking a dwarf. I've never struck a dwarf.",
+    "The engraver says you were thinking about it.",
+    "I'm thinking about it RIGHT NOW!",
+    "See? Prophetic. Masterful work."
+   ]
+  },
+  {
+   "id": "dnx-debate-25",
+   "topic": "IS THE WELL A PLAYGROUND?",
+   "lines": [
+    "Children keep climbing into the well. The well is not a playground.",
+    "The well is the only fresh water in {fort}. Let it be popular.",
+    "A child fell in and came out a novice swimmer!",
+    "That's career development! You're against career development!",
+    "I'm against children in the drinking water!",
+    "Then drink ale like a dwarf and stop worrying."
+   ]
+  },
+  {
+   "id": "dnx-debate-26",
+   "topic": "SHOULD SOLDIERS SLEEP ON DUTY?",
+   "lines": [
+    "Our soldiers live in the barracks, ready to fight at a moment's notice.",
+    "They're asleep in the barracks, ready to fight at a moment's nap.",
+    "That's ready-napping! It's an advanced military technique!",
+    "A goblin walked past three of them yesterday. Waved. Took a cat.",
+    "Took a cat? Which cat?",
+    "Does it matter? We have so many cats."
+   ]
+  },
+  {
+   "id": "dnx-debate-27",
+   "topic": "ARE STRANGE MOODS WORTH IT?",
+   "lines": [
+    "A dwarf locks herself in a workshop demanding shells, and we just GIVE them to her!",
+    "And she makes a legendary artifact! That's the deal! It's tradition!",
+    "The artifact is a bracelet with an image of the bracelet on it.",
+    "Which is worth more than this entire studio.",
+    "Then why is it sitting in a bin next to my socks?",
+    "Because the hospital wouldn't take it."
+   ]
+  },
+  {
+   "id": "dnx-debate-28",
+   "topic": "SHOULD WE TRADE WITH HUMANS?",
+   "lines": [
+    "The humans offer cloth and want our crafts. Mugs for cloth. Perfectly fair.",
+    "They tried to buy our ALE. Who sells ale? Who even asks?",
+    "It was surplus ale!",
+    "There's no such thing! Ale doesn't have a 'surplus', it has a 'later'!"
+   ]
+  },
+  {
+   "id": "dnx-debate-29",
+   "topic": "IS THE FORT HAUNTED?",
+   "lines": [
+    "Something moves the bins at night. I've heard moaning in the stockpile.",
+    "That's the night-shift haulers. They always moan.",
+    "One of them walked straight through a wall!",
+    "That was a door. He'd just never seen one open before.",
+    "Then why is his name on a memorial slab?",
+    "...Right. Somebody call the engraver."
+   ]
+  },
+  {
+   "id": "dnx-debate-30",
+   "topic": "IS RAIN A SURFACE CONSPIRACY?",
+   "lines": [
+    "Water falling from the sky. Uninvited. Onto our dwarves. I call that an invasion.",
+    "It's weather. It happens. Go inside.",
+    "I AM inside. I'm inside angrily.",
+    "Then you're living the dwarven dream. Stop complaining."
+   ],
+   "when": [
+    "raining"
+   ]
+  },
+  {
+   "id": "dnx-debate-31",
+   "topic": "DOGS OR CATS?",
+   "lines": [
+    "Dogs guard, dogs hunt, dogs stay loyal. Unlike certain pundits.",
+    "Cats keep vermin down AND judge you silently. That's a full service.",
+    "The cats have adopted half the fort. Nobody asked them.",
+    "Nobody asks a cat. That's what makes them leaders.",
+    "Let the record show I am pro-dog and anti-tyranny.",
+    "Let the record show the dog ate the record."
+   ]
+  },
+  {
+   "id": "dnx-debate-32",
+   "topic": "IS THE TAVERN A SACRED SPACE?",
+   "lines": [
+    "Two dwarves met at the tavern and got married. The tavern is a sacred space now.",
+    "The tavern was ALWAYS a sacred space. It has ale.",
+    "So we agree?",
+    "Never. Next topic."
+   ]
+  },
+  {
+   "id": "dnx-debate-33",
+   "topic": "TOO MANY LEVERS?",
+   "lines": [
+    "There are forty levers in the machine room and nobody knows what thirty-nine of them do.",
+    "That's what makes the job exciting! Every pull is a surprise!",
+    "Last week's surprise flooded the farm.",
+    "And the farm has never been so well irrigated. Results!",
+    "The crop was plump helmets! Now it's a pond!",
+    "A pond with plump helmets in it. That's a feature."
+   ]
+  },
+  {
+   "id": "dnx-debate-34",
+   "topic": "SHOULD CHILDREN HAUL?",
+   "lines": [
+    "Our children should be playing, learning, wrestling in the barracks like proper toddlers.",
+    "Children are tiny haulers with unlimited enthusiasm. Use them.",
+    "Last time we let a child haul, he hauled himself onto the drawbridge lever.",
+    "And pulled it! Very good grip. Future champion.",
+    "The goblins walked right in!",
+    "And left very confused. Tactical genius, frankly."
+   ]
+  },
+  {
+   "id": "dnx-debate-35",
+   "topic": "WHO OWNS THE ARTIFACT?",
+   "lines": [
+    "The artifact should be displayed in a public hall for every citizen to admire.",
+    "It belongs with the dwarf who made it. She'll know if we move it. She knows.",
+    "She's asleep!",
+    "She knows in her sleep.",
+    "That's not how sleep works!",
+    "That's not how SHE works."
+   ]
+  },
+  {
+   "id": "dnx-debate-36",
+   "topic": "ARE HELMETS NECESSARY?",
+   "lines": [
+    "A dwarf without a helm is a dwarf asking for a falling rock.",
+    "A cap stops nothing. Do you know what stops a falling rock? Not standing under it.",
+    "You can't avoid every rock! The ceiling is ALL rock!",
+    "Exactly. So why bother with the helm?",
+    "Because it's FASHIONABLE.",
+    "Ah. Now we get to the truth."
+   ]
+  },
+  {
+   "id": "dnx-debate-37",
+   "topic": "SHOULD THE BARD STAY?",
+   "lines": [
+    "A wandering bard has asked to stay the {season}. I say yes. Culture!",
+    "He knows one song. It's about a tree.",
+    "It's about a SAD tree. It's very moving.",
+    "It's elven propaganda with a lute.",
+    "...I'm humming it now.",
+    "That's how they get you."
+   ]
+  },
+  {
+   "id": "dnx-debate-38",
+   "topic": "TOO MANY COFFINS?",
+   "lines": [
+    "We have more coffins than citizens. Is the carpenter trying to tell us something?",
+    "It's called planning ahead. A forgotten beast won't wait for paperwork.",
+    "What forgotten beast?",
+    "Exactly. It's been forgotten. Which is why we need coffins."
+   ]
+  },
+  {
+   "id": "dnx-debate-39",
+   "topic": "IS PIG TAIL CLOTH REAL FABRIC?",
+   "lines": [
+    "Pig tail cloth is the backbone of dwarven fashion. Soft, rugged, tail-adjacent.",
+    "It's woven from a plant. You're wearing a weed.",
+    "You're wearing a SHEEP.",
+    "I'm wearing a respectable shirt, made with a sheep's full consent.",
+    "Nobody asked the sheep! The sheep was never consulted!",
+    "Now you care about consent? You're wearing a WEED!"
+   ]
+  },
+  {
+   "id": "dnx-debate-40",
+   "topic": "DO NOBLES DESERVE FOUR ROOMS?",
+   "lines": [
+    "Nobles provide leadership, vision, and a reason to dig more rooms.",
+    "The baron's bedroom has three statues of the baron. He IS the decor.",
+    "Inspirational! Look at that jawline!",
+    "He's requested a fourth room for his other shoes.",
+    "Leadership requires shoes.",
+    "Leadership requires not throwing a tantrum when the shoes are copper."
+   ]
+  },
+  {
+   "id": "dnx-debate-41",
+   "topic": "DID THE CARAVAN RIP US OFF?",
+   "lines": [
+    "We traded a masterwork crown for three bags of rope reed and a cage. Shrewd.",
+    "Shrewd for THEM. The broker cried. Happy tears.",
+    "He was moved by our generosity.",
+    "He was moved into a second house."
+   ]
+  },
+  {
+   "id": "dnx-debate-42",
+   "topic": "IS GOING OUTSIDE A MISTAKE?",
+   "lines": [
+    "Some dwarves have been going outside. On purpose. To 'look at the sky'.",
+    "The sky is free and it's big. What's the harm?",
+    "One came back with a strange appreciation for trees.",
+    "That's... okay, that is worrying.",
+    "He's started naming them.",
+    "Seal the doors."
+   ]
+  },
+  {
+   "id": "dnx-debate-43",
+   "topic": "WHO MOPS THE ENTRANCE?",
+   "lines": [
+    "There's goblin blood in the entrance from three sieges ago. Nobody mops.",
+    "It's a historical feature. Visitors love it. Very educational.",
+    "It's tracking into the dining hall!",
+    "Then the dining hall is ALSO educational."
+   ]
+  },
+  {
+   "id": "dnx-debate-44",
+   "topic": "ARE WORK ORDERS OUT OF CONTROL?",
+   "lines": [
+    "The manager approved an order for a hundred bone crossbow bolts.",
+    "We have a lot of bones.",
+    "WHY do we have a lot of bones?",
+    "...Because of the crossbows.",
+    "This is a cycle! A bone cycle!",
+    "And it's sustainable. Read the report."
+   ]
+  },
+  {
+   "id": "dnx-debate-45",
+   "topic": "IS SILVER ARMOUR TOO FANCY?",
+   "lines": [
+    "Our soldiers are dressed in silver. Silver! Like party ornaments!",
+    "When the goblins see them, they'll be dazzled. Dazzled into retreat.",
+    "Silver is soft! It bends!",
+    "So does a goblin, if you hit it hard enough.",
+    "...That's actually fair.",
+    "Thank you. I've been working on that one since {season}."
+   ]
+  },
+  {
+   "id": "dnx-debate-46",
+   "topic": "IS IT TIME TO MOVE OUT?",
+   "lines": [
+    "This fort is ancient. The engravings have engravings. Time for a fresh start.",
+    "Leave? After all these years? Who would care for the cats?",
+    "The cats would care for themselves. They always have.",
+    "That's exactly what a cat would say. Show me your paws.",
+    "I am NOT a cat!",
+    "Prove it. Don't knock anything off this desk."
+   ],
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "dnx-debate-47",
+   "topic": "ARE WE A REAL FORT YET?",
+   "lines": [
+    "We have a wagon, a hole, and a still. That's a fort. Legally, that's a fort.",
+    "It's a camping trip with a door.",
+    "The door is GRANITE.",
+    "The door is leaning against a tree.",
+    "Granite doesn't need walls! It has confidence!"
+   ],
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "dnx-debate-48",
+   "topic": "SHOULD WE CUT MORE TREES?",
+   "lines": [
+    "We need beds, bins, and barrels. All wood. So we cut the trees. Simple.",
+    "Every time we cut a tree, an elf diplomat shows up and frowns.",
+    "So we get the wood AND a frown. Two for one!",
+    "The frown comes with an ambush.",
+    "Ambushes are just surprise visits. We're a welcoming fort."
+   ]
+  },
+  {
+   "id": "dnx-debate-49",
+   "topic": "IS SPRING OVERRATED?",
+   "lines": [
+    "Spring means fresh crops, fresh migrants, fresh hope.",
+    "Spring means the river thaws and the carp wake up hungry.",
+    "Not everything is about carp!",
+    "Everything is a little bit about carp."
+   ],
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "dnx-debate-50",
+   "topic": "WHO GETS THE GOOD CHAIR?",
+   "lines": [
+    "The masterwork chair in the dining hall should go to whoever works hardest.",
+    "So, not you.",
+    "Nor YOU.",
+    "Then the cat gets the chair. Is that what you want?",
+    "The cat already HAS the chair.",
+    "Then the matter has been settled democratically."
+   ]
+  },
+  {
+   "id": "dnx-debate-51",
+   "topic": "IS PEACE SUSPICIOUS?",
+   "lines": [
+    "No sieges, no beasts, no ambushes. Everyone's relaxed. I hate it.",
+    "Peace is good! Dwarves are happy! The ale flows!",
+    "That's EXACTLY what they want us to think.",
+    "Who's 'they'?",
+    "I don't know yet. That's how good they are."
+   ],
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "dnx-debate-52",
+   "topic": "IS SUMMER TOO HOT FOR BEARDS?",
+   "lines": [
+    "It's summer. Beards should be trimmed for the season. For hygiene.",
+    "Trimmed? You'd shear a dwarf like a sheep? In {year}?",
+    "A shorter beard keeps the soup out!",
+    "The soup is the beard's business. Stay out of the beard's business."
+   ],
+   "when": [
+    "summer"
+   ]
+  }
+ ],
+ "world": [
+  {
+   "id": "dnx-world-1",
+   "text": "From the mountainhome tonight: the monarch of {civ} has issued a statement on the price of ale. The statement is 'no'."
+  },
+  {
+   "id": "dnx-world-2",
+   "text": "Elven diplomats have declared a new forest sacred. Sources say it is all of them."
+  },
+  {
+   "id": "dnx-world-3",
+   "text": "Goblin activity is up across the region. Experts say it is either a siege forming or a very large picnic."
+  },
+  {
+   "id": "dnx-world-4",
+   "text": "Travelling bards report a new song sweeping the human towns. It is about a sad tree. Again."
+  },
+  {
+   "id": "dnx-world-5",
+   "text": "Kobold raiders have stolen a sock from a hillside village. Authorities are 'not ruling out' a second sock."
+  },
+  {
+   "id": "dnx-world-6",
+   "text": "The {civ} treasury reports record earnings, largely from forts like {fort} sending things home. You're welcome, mountainhome."
+  },
+  {
+   "id": "dnx-world-7",
+   "text": "Human merchants claim the roads are safer than ever. They said this from behind several guards."
+  },
+  {
+   "id": "dnx-world-8",
+   "text": "Rumours from the far hills speak of a dragon. Confirmed reports speak of an unconfirmed dragon."
+  },
+  {
+   "id": "dnx-world-9",
+   "text": "A mountainhome noble has demanded a new throne room. The old one has reportedly been 'looked at too much'."
+  },
+  {
+   "id": "dnx-world-10",
+   "text": "Elves have once again objected to the concept of axes. Lumber prices across {world} remain steady."
+  },
+  {
+   "id": "dnx-world-11",
+   "text": "Across {world} tonight: goblins deny any plans to invade. They also deny having a dark fortress."
+  },
+  {
+   "id": "dnx-world-12",
+   "text": "A travelling bard reports that a human hero has slain a giant. The giant reportedly disputes this."
+  },
+  {
+   "id": "dnx-world-13",
+   "text": "Scholars at the mountainhome have completed a ten-year study concluding that ale is good. Funding renewed."
+  },
+  {
+   "id": "dnx-world-14",
+   "text": "Human kingdoms report an outbreak of feathered hats. DNN's fashion desk advises caution."
+  },
+  {
+   "id": "dnx-world-15",
+   "text": "A necromancer's tower has been spotted in the distant wastes. Local estate agents say it has 'character'."
+  },
+  {
+   "id": "dnx-world-16",
+   "text": "The {civ} army held its annual parade at the mountainhome. Only three soldiers tripped on their beards."
+  },
+  {
+   "id": "dnx-world-17",
+   "text": "Rumours persist of a lost fortress full of gold. Other rumours persist that it is full of whatever ate the gold."
+  },
+  {
+   "id": "dnx-world-18",
+   "text": "Elven caravans are said to be on the move. Somewhere, a tree is relaxing."
+  },
+  {
+   "id": "dnx-world-19",
+   "text": "Goblin ambassadors reportedly visited a human town and left with the town. Developing story."
+  },
+  {
+   "id": "dnx-world-20",
+   "text": "Kobolds have been sighted near a cave mouth. Officials urge citizens to count their spoons."
+  },
+  {
+   "id": "dnx-world-21",
+   "text": "From the mountainhome: the monarch's favourite cat has been made an honorary noble. It has already issued a mandate."
+  },
+  {
+   "id": "dnx-world-22",
+   "text": "A human lord has declared war on a neighbouring human lord over a goat. The goat could not be reached for comment."
+  },
+  {
+   "id": "dnx-world-23",
+   "text": "Bards across {world} report that a forgotten beast has been remembered. Witnesses wish they hadn't."
+  },
+  {
+   "id": "dnx-world-24",
+   "text": "{civ} leadership has thanked {fort} for its contributions. The letter arrived three seasons late and slightly damp."
+  },
+  {
+   "id": "dnx-world-25",
+   "text": "Elves insist their wooden armour is 'grown, not made'. Dwarven smiths have been laughing for a week."
+  },
+  {
+   "id": "dnx-world-26",
+   "text": "Goblin recruiters are reportedly offering trolls 'competitive benefits'. The main benefit is being hit less."
+  },
+  {
+   "id": "dnx-world-27",
+   "text": "A mountainhome census reports the population of {civ} is up. Mostly cats."
+  },
+  {
+   "id": "dnx-world-28",
+   "text": "Human scholars now claim the world is round. Dwarven scholars note it is clearly made of rock, which is the important part."
+  },
+  {
+   "id": "dnx-world-29",
+   "text": "A wandering poet was caught reciting near the mountainhome gates. Guards escorted him to the tavern, where that is allowed."
+  },
+  {
+   "id": "dnx-world-30",
+   "text": "A distant fortress reports it has struck adamantine. A later report from the same fortress has not arrived."
+  },
+  {
+   "id": "dnx-world-31",
+   "text": "Elves have sent a strongly worded letter to every dwarven civilisation. It was written on bark. The irony has been noted."
+  },
+  {
+   "id": "dnx-world-32",
+   "text": "The {civ} trade council warns of a looming rope reed shortage. Nobody knows what we use it for, but we want it."
+  },
+  {
+   "id": "dnx-world-33",
+   "text": "Travelling bards say a human hero retired after his fiftieth beast. He now runs a small inn and won't talk about it."
+  },
+  {
+   "id": "dnx-world-34",
+   "text": "From the mountainhome: the royal brewer has been promoted to senior royal brewer. Celebrations lasted six days."
+  },
+  {
+   "id": "dnx-world-35",
+   "text": "Kobold scholars have reportedly invented writing. Their first word, roughly translated, is 'mine'."
+  },
+  {
+   "id": "dnx-world-36",
+   "text": "A vampire has been unmasked in a human city. He was the mayor. Residents say they are 'not surprised'."
+  },
+  {
+   "id": "dnx-world-37",
+   "text": "Weather across {world} is described by our sources as 'outside'. DNN recommends staying in."
+  },
+  {
+   "id": "dnx-world-38",
+   "text": "Elves and humans have signed a peace treaty. Analysts give it until the next time somebody cuts down a tree."
+  },
+  {
+   "id": "dnx-world-39",
+   "text": "The goblin dark tower has announced a new spire. Critics call it 'pointy, menacing and frankly derivative'."
+  },
+  {
+   "id": "dnx-world-40",
+   "text": "Rumours from the mountainhome suggest the monarch has been asking about {fort}. Specifically, about our ale."
+  },
+  {
+   "id": "dnx-world-41",
+   "text": "A caravan from {civ} has been delayed by bandits, weather and, according to the driver, 'a feeling'."
+  },
+  {
+   "id": "dnx-world-42",
+   "text": "Human towns report werebeast trouble at the full moon. DNN reminds viewers that nobody looks their best at the full moon."
+  },
+  {
+   "id": "dnx-world-43",
+   "text": "Unverified reports say a titan has been seen striding over the mountains. The mountains are said to be 'concerned'."
+  },
+  {
+   "id": "dnx-world-44",
+   "text": "The {civ} calendar committee confirms it is still {year}. More on that as it develops."
+  },
+  {
+   "id": "dnx-world-45",
+   "text": "Elven hunters report a dwarf in their forest. The dwarf was reportedly 'just passing through, with an axe'."
+  },
+  {
+   "id": "dnx-world-46",
+   "text": "In the mountainhome's long-running beard dispute, a judge has ruled beards may touch the floor but not the soup."
+  },
+  {
+   "id": "dnx-world-47",
+   "text": "Bards report the goblins are holding talent shows in their pits. The winner was a troll. So was the loser."
+  },
+  {
+   "id": "dnx-world-48",
+   "text": "Humans have reportedly started digging fortresses of their own. Results so far: one cellar, very proud."
+  },
+  {
+   "id": "dnx-world-49",
+   "text": "A {season} festival is underway at the mountainhome. Attendance is mandatory. Enthusiasm is optional."
+  },
+  {
+   "id": "dnx-world-50",
+   "text": "Elves are furious that the latest dwarven treaty was engraved in stone. 'It will last forever,' they complained."
+  },
+  {
+   "id": "dnx-world-51",
+   "text": "And finally, a goblin has been praised across {world} for an act of kindness. Further investigation revealed he was lost."
+  },
+  {
+   "id": "dnx-world-52",
+   "text": "{citizen} passes on a rumour from a merchant: somewhere out there is a fort with too much ale. DNN is investigating."
+  }
+ ]
+}

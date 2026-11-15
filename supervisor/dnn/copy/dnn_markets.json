@@ -1,0 +1,1620 @@
+{
+ "markets": [
+  {
+   "id": "dnm-mkt-1",
+   "text": "The Ale Index closes at {drinks} today. Analysts describe the mood on the stockpile floor as 'thirsty but professional.'"
+  },
+  {
+   "id": "dnm-mkt-2",
+   "text": "Prepared meals stand at {meals}, raw meat at {meat}, plants at {plants}. Past performance does not guarantee dinner."
+  },
+  {
+   "id": "dnm-mkt-3",
+   "text": "Gems are trading at {gems} units. The jewellers' guild calls that 'plenty of sparkle' and declined to elaborate."
+  },
+  {
+   "id": "dnm-mkt-4",
+   "text": "Metal bars held steady at {bars} this session, as the forge district awaits further word from the smelters."
+  },
+  {
+   "id": "dnm-mkt-5",
+   "text": "Timber reserves sit at {wood} logs. Sources close to the carpenters say every single one is already spoken for."
+  },
+  {
+   "id": "dnm-mkt-6",
+   "text": "Stone is at {stone} units, which experts confirm is 'a lot of rocks.' We'll keep you posted."
+  },
+  {
+   "id": "dnm-mkt-7",
+   "text": "The Cat Census reports {cats} cats in the fort. The cats have declined to confirm or deny this figure."
+  },
+  {
+   "id": "dnm-mkt-8",
+   "text": "Quick look at the board: drink {drinks}, meals {meals}, gems {gems}, bars {bars}. The board is a slab. We are proud of the slab."
+  },
+  {
+   "id": "dnm-mkt-9",
+   "text": "In stone futures, {stone} units remain on hand. Masons call the market 'solid.' Masons call everything solid."
+  },
+  {
+   "id": "dnm-mkt-10",
+   "text": "Wood at {wood}, stone at {stone}. Traders say the eternal rivalry between the two remains, as ever, entirely one-sided."
+  },
+  {
+   "id": "dnm-mkt-11",
+   "text": "The mood on the trading floor is calm today, mostly because the trading floor is a stockpile and nobody is on it."
+  },
+  {
+   "id": "dnm-mkt-12",
+   "text": "{citizen}, a local hauler, tells DNN the {meals} meals in storage 'look fine' and 'smell mostly fine.' A strong market signal."
+  },
+  {
+   "id": "dnm-mkt-13",
+   "text": "Bars at {bars}. The metalsmiths' index rose on rumours of a new anvil, which turned out to be the old anvil, moved."
+  },
+  {
+   "id": "dnm-mkt-14",
+   "text": "Gems at {gems}. The broker who claimed a rough gem 'is basically cut already' has been asked to leave the stockpile."
+  },
+  {
+   "id": "dnm-mkt-15",
+   "text": "Plants in storage: {plants}. The farmers' cooperative calls it a 'leafy quarter' and asks that you stop mentioning cave spiders."
+  },
+  {
+   "id": "dnm-mkt-16",
+   "text": "Year to date, the Ale Index has outperformed every other index in {fort}, largely because it is the only index anyone checks."
+  },
+  {
+   "id": "dnm-mkt-17",
+   "text": "The bookkeeper confirms today's numbers are accurate 'to within a few barrels, or possibly a few hundred.' Back to you."
+  },
+  {
+   "id": "dnm-mkt-18",
+   "text": "Stock summary for {month}: drinks {drinks}, meat {meat}, plants {plants}. The market remains open, because it has no door."
+  },
+  {
+   "id": "dnm-mkt-19",
+   "text": "Analysts note {cats} cats and {meat} units of meat in the fort, and ask that the two figures be kept in separate rooms."
+  },
+  {
+   "id": "dnm-mkt-20",
+   "text": "{anchor2} reports the bar market at {bars}: copper, iron, and 'a bit of something shiny the smelter won't name.'"
+  },
+  {
+   "id": "dnm-mkt-21",
+   "text": "Cut and rough gems total {gems}. The jewellers urge calm, patience, and very dark lighting in the gem stockpile."
+  },
+  {
+   "id": "dnm-mkt-22",
+   "text": "Breaking on the Ale Index: drinks have fallen to {drinks}. The brewers are being asked to brew, and to brew now.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-23",
+   "text": "The Ale Index is down to {drinks}. Traders were seen wiping their beards in what experts call 'pre-tantrum posture.'",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-24",
+   "text": "With only {drinks} drinks in reserve, the tavern keeper has begun pouring smaller mugs and calling them 'artisanal.'",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-25",
+   "text": "Drinks at {drinks}. DNN advises viewers to stay calm, stay hydrated, and absolutely not drink the water.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-26",
+   "text": "Ale reserves sit at a worrying {drinks}. {citizen} was overheard asking whether the well 'counts.' It does not count.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-27",
+   "text": "Panic selling on the drink floor as stocks dip to {drinks}. There is nothing left to sell. That is the panic.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-28",
+   "text": "{anchor} here with grim numbers: just {drinks} drinks left. The farmers say help is coming. Slowly. Through fermentation.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-29",
+   "text": "Drinks are down to {drinks}, and the still is reportedly 'very busy' and asks that you 'please stop knocking.'",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-30",
+   "text": "Drink supply has slipped to {drinks}. Economists call it a sobriety event. Dwarves are calling it much worse things.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-31",
+   "text": "The Ale Index is surging at {drinks}! Analysts say the market is bullish, and also slightly tipsy.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-32",
+   "text": "Drinks hit {drinks} today. The tavern reports a sharp rise in singing and a sharp fall in productivity.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-33",
+   "text": "With {drinks} drinks in stock, the brewers have declared a holiday. The holiday is called 'today.'",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-34",
+   "text": "At {drinks} drinks, the ale market is so strong the coopers are now the busiest dwarves in {fort}.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-35",
+   "text": "Drinks at {drinks}. Economists warn of a bubble. The bubbles are in the ale. They're fine.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-36",
+   "text": "{drinks} drinks on hand. {anchor2} calls it 'a golden age.' The ale is also golden. Coincidence? Our panel says no.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-37",
+   "text": "The drink stockpile is overflowing at {drinks}. Haulers report carrying barrels into rooms that were never built for barrels.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-38",
+   "text": "Ale Index up big at {drinks}. Sources close to the stockpile say morale is high and the stockpile is, frankly, glowing.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-39",
+   "text": "Food stocks are thin: {meals} prepared meals and {plants} plants. The cook says he is 'getting creative.' That is not reassuring.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-40",
+   "text": "Meals are down to {meals}. The dining hall has been rebranded 'the waiting hall' until further notice.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-41",
+   "text": "With just {meals} meals in storage, the kitchen is now accepting suggestions, donations and well-behaved mushrooms.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-42",
+   "text": "Food is scarce at {meals} meals. {citizen} reports seeing a hungry dwarf look at a cat for a very long time.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-43",
+   "text": "Meals: {meals}. Plants: {plants}. Farmers are planting faster, which, they remind us, is not how farming works.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-44",
+   "text": "Food supply has fallen to {meals}. Analysts recommend diversifying into roasts, biscuits, and basically anything edible.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-45",
+   "text": "DNN is told the fort has {meals} meals left. The cook asks that viewers 'please stop staring at the kitchen.'",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-46",
+   "text": "Meals at {meals}. The fishery has been asked to fish harder. The fishery has asked what that means.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-47",
+   "text": "Low food this {season}: {meals} meals. The nobles' dinner has been downgraded from 'feast' to 'a plate.'",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-48",
+   "text": "Food is booming: {meals} prepared meals in the larder. The cooks are taking a well-earned bow, and a biscuit.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-49",
+   "text": "With {meals} meals on hand, the dining hall reports record attendance and a record number of second helpings.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-50",
+   "text": "Meals at {meals}, plants at {plants}. Analysts describe the food sector as 'stuffed,' which is also how they feel.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-51",
+   "text": "The food market is strong at {meals} meals. The kitchen has started labelling its roasts by vintage.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-52",
+   "text": "{meals} meals in storage. The cook says the larder is 'full to the rafters.' The fort has no rafters, so this is a big claim.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-53",
+   "text": "Food stocks top {meals}. Economists say no dwarf in {fort} goes hungry this {season}, barring a carp incident.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-54",
+   "text": "Plants climb to {plants}. The farmers are celebrating by not farming for one entire afternoon.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-55",
+   "text": "A strong day for food at {meals} meals. Stockpile insiders predict the haulers will complain about it by nightfall.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnm-mkt-56",
+   "text": "Meat is down to {meat} units. The butcher is pacing the shop and the livestock are pretending not to notice.",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-57",
+   "text": "Meat stocks at a lean {meat}. Hunters have been sent out with crossbows, optimism, and a packed lunch of mostly bread.",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-58",
+   "text": "Only {meat} meat left. The butcher says demand is 'robust' and supply is 'a philosophical question.'",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-59",
+   "text": "Meat at {meat}. The fishery offers carp as an alternative. Viewers are reminded the carp would say the same about you.",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-60",
+   "text": "With {meat} meat in storage, the kitchen now serves roasts that are 'mostly plant, with meat in spirit.'",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-61",
+   "text": "The meat index is weak at {meat}. Sources in the pasture say the yaks have called a meeting.",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-62",
+   "text": "Meat sitting at {meat}. The hunters blame the weather, the elves, and in one case, a particularly fast rabbit.",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-63",
+   "text": "Meat reserves: {meat}. The butcher has started sharpening knives loudly, which analysts read as a buy signal.",
+   "when": [
+    "meat_low"
+   ]
+  },
+  {
+   "id": "dnm-mkt-64",
+   "text": "The Cat Census now stands at {cats}. Analysts call the cat sector 'overvalued, but impossible to short.'",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnm-mkt-65",
+   "text": "{cats} cats in {fort} today. Every one of them has adopted a dwarf. None of the dwarves were consulted.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnm-mkt-66",
+   "text": "With {cats} cats, the fort's vermin market has completely collapsed. The rats have applied for relief.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnm-mkt-67",
+   "text": "Cats at {cats}. The animal handler confirms that is 'too many cats' and that he 'loves every single one.'",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnm-mkt-68",
+   "text": "The cat population hits {cats}. Haulers report the stockpiles are now about forty percent cat by volume.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnm-mkt-69",
+   "text": "{cats} cats and rising. Economists warned of a cat bubble, then noticed a cat sitting on their charts.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnm-mkt-70",
+   "text": "Cat futures soar to {cats}. The tavern has begun charging cats a cover fee. No cat has paid.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnm-mkt-71",
+   "text": "Experts estimate {cats} cats, but admit some may have been counted twice because they moved.",
+   "when": [
+    "cats_many"
+   ]
+  }
+ ],
+ "ads": [
+  {
+   "id": "dnm-ad-1",
+   "text": "DNN is brought to you by Deepbarrel Ale. Deepbarrel: because water is for washing, and washing is optional."
+  },
+  {
+   "id": "dnm-ad-2",
+   "text": "This hour of DNN is sponsored by the Fort Hospital. Broken leg? Broken arm? Broken everything? We have a bed. Probably."
+  },
+  {
+   "id": "dnm-ad-3",
+   "text": "DNN is brought to you by Coffinworks Masonry. Quality slabs, roomy caskets, engraving at no extra charge. Plan ahead!"
+  },
+  {
+   "id": "dnm-ad-4",
+   "text": "Today's markets are brought to you by Bin & Barrel Storage Solutions. If it fits in a bin, it fits in a bin."
+  },
+  {
+   "id": "dnm-ad-5",
+   "text": "DNN is sponsored by the Mechanics' Guild. Levers, gears, pressure plates. We never ask what you're connecting them to."
+  },
+  {
+   "id": "dnm-ad-6",
+   "text": "This segment is brought to you by Whisker Wranglers, the fort's premier cat management service. Results not guaranteed. Or achieved."
+  },
+  {
+   "id": "dnm-ad-7",
+   "text": "Beard looking dull? Try Mason's Choice Beard Oil, made from the finest rendered tallow. Smell like a dwarf of means."
+  },
+  {
+   "id": "dnm-ad-8",
+   "text": "DNN is brought to you by Rocknut Roasts. Rocknut: it's a roast. You eat it. What more do you want?"
+  },
+  {
+   "id": "dnm-ad-9",
+   "text": "Feeling a strange mood coming on? Visit Fey Supply Co. We stock every material a possessed craftsdwarf could ask for. Except that one."
+  },
+  {
+   "id": "dnm-ad-10",
+   "text": "DNN is sponsored by the Dining Hall Committee. Eat in the dining hall. Not on the stairs. We are begging you."
+  },
+  {
+   "id": "dnm-ad-11",
+   "text": "Tired of cave-ins? Trust Pillar Pals Support Engineering. We put the 'up' in 'holding the ceiling up.'"
+  },
+  {
+   "id": "dnm-ad-12",
+   "text": "DNN is brought to you by the Fort Tavern. Live music, loud arguments, a mug for every dwarf. Fights at your own risk."
+  },
+  {
+   "id": "dnm-ad-13",
+   "text": "Bloodbrew Dwarven Rum: distilled from sugarcane, finished with regret. Bloodbrew. Ask your tavern keeper by name."
+  },
+  {
+   "id": "dnm-ad-14",
+   "text": "This hour is sponsored by Safe-T-Hatch. Keep the carp out, keep the goblins out, keep the in-laws out."
+  },
+  {
+   "id": "dnm-ad-15",
+   "text": "DNN Weather is brought to you by Roofs. Roofs: you can have one too. Talk to a mason today."
+  },
+  {
+   "id": "dnm-ad-16",
+   "text": "Lost a sock? Lost a boot? Lost the will to haul? Try the Stockpile Office lost-and-found, open whenever someone's there."
+  },
+  {
+   "id": "dnm-ad-17",
+   "text": "DNN is brought to you by Gutterflow Drainage. When the reservoir overflows, and it will, you'll want us on speed-lever."
+  },
+  {
+   "id": "dnm-ad-18",
+   "text": "Ironjaw Crossbow Bolts: now with more bolt! Ironjaw. Because the goblins aren't going to shoot themselves."
+  },
+  {
+   "id": "dnm-ad-19",
+   "text": "DNN is brought to you by the Fort Chandler. Tallow soap, wax, and absolutely nothing scented. Smell like the mountain intended."
+  },
+  {
+   "id": "dnm-ad-20",
+   "text": "Is your bedroom a two-by-one hole? Upgrade with Hollowstone Interiors. We smooth the walls, you feel like a noble."
+  },
+  {
+   "id": "dnm-ad-21",
+   "text": "This segment is sponsored by Grim & Sons Mortuary. We engrave your name right. Or at least the parts we can spell."
+  },
+  {
+   "id": "dnm-ad-22",
+   "text": "DNN is brought to you by Carp-Away Riverside Fencing. Swim safe. Or better yet, never swim at all."
+  },
+  {
+   "id": "dnm-ad-23",
+   "text": "Magma Plumbing: we pipe the magma where you want it and mostly not where you don't. Licensed, bonded, and singed."
+  },
+  {
+   "id": "dnm-ad-24",
+   "text": "Need a new mug? The Potters' Collective has thousands. Literally thousands. Please take some. Please."
+  },
+  {
+   "id": "dnm-ad-25",
+   "text": "DNN is brought to you by the Plump Helmet Growers' Association. Plump helmets: they're food, they're drink, they're a lifestyle."
+  },
+  {
+   "id": "dnm-ad-26",
+   "text": "Tantrum cover from Steadyhand Mutual. When a dwarf throws your chair across the tavern, we'll help you get another chair."
+  },
+  {
+   "id": "dnm-ad-27",
+   "text": "This hour of DNN is sponsored by the Hospital Gift Shop. Get-well socks, get-well splints, get-well soap."
+  },
+  {
+   "id": "dnm-ad-28",
+   "text": "DNN is brought to you by Deepmine Picks. Strike the earth, and keep striking it, until something shiny falls out."
+  },
+  {
+   "id": "dnm-ad-29",
+   "text": "Sore from hauling? Try the Mineral Soak at the bath channel. It's cold water from the brook, but we call it a spa."
+  },
+  {
+   "id": "dnm-ad-30",
+   "text": "The Ale Index is sponsored by Twice-Brewed Dwarven Wine. Twice-Brewed: brewed once, then brewed again, for reasons."
+  },
+  {
+   "id": "dnm-ad-31",
+   "text": "DNN is brought to you by Militia Mail. Every suit pre-dented for comfort. Join the squad, wear the steel, look the part."
+  },
+  {
+   "id": "dnm-ad-32",
+   "text": "Hate elves? So do we. Treefree Furniture: every piece carved from stone, so no elf ever weeps over your table."
+  },
+  {
+   "id": "dnm-ad-33",
+   "text": "DNN is sponsored by the Bookkeeper's Office. We count your stuff so you don't have to. Accuracy coming soon."
+  },
+  {
+   "id": "dnm-ad-34",
+   "text": "This hour is brought to you by Lantern Moss Lighting. Glows faintly, smells strongly, and tastes, we're told, of regret."
+  },
+  {
+   "id": "dnm-ad-35",
+   "text": "Pet trouble? Call Pasture Pals Animal Training. We'll teach your war dog to sit, stay, and only bite goblins."
+  },
+  {
+   "id": "dnm-ad-36",
+   "text": "DNN is brought to you by the Carved Throne Gallery. Chairs fit for a baron, priced for a hauler, sized for neither."
+  },
+  {
+   "id": "dnm-ad-37",
+   "text": "Find peace at the Fort Temple. Pray, meditate, or just sit quietly away from your coworkers. Open always."
+  },
+  {
+   "id": "dnm-ad-38",
+   "text": "DNN is brought to you by Rockseal Barrels. Rockseal: they don't leak, unless you drop them, which you will."
+  },
+  {
+   "id": "dnm-ad-39",
+   "text": "Thinking of moving to a bigger fort? Don't. Stay here. A message from the Expedition Leader's Office."
+  },
+  {
+   "id": "dnm-ad-40",
+   "text": "This segment is sponsored by Last Breath Coffins, now in stone, wood and premium glass. See yourself out in style."
+  },
+  {
+   "id": "dnm-ad-41",
+   "text": "DNN is brought to you by Bonecraft Novelties. Bone earrings, bone crowns, bone mugs. Don't ask whose bones."
+  },
+  {
+   "id": "dnm-ad-42",
+   "text": "Got vermin? Got a cat? Got another cat? Got eleven cats? Then you've already got Whisker Wranglers. Call us. Please."
+  },
+  {
+   "id": "dnm-ad-43",
+   "text": "DNN is brought to you by Quarry Fresh Stone. Every boulder hand-picked from the actual mountain. Taste the rock."
+  },
+  {
+   "id": "dnm-ad-44",
+   "text": "Overwhelmed by mandates? The Noble Compliance Office will make whatever the baron asked for, eventually, out of something."
+  },
+  {
+   "id": "dnm-ad-45",
+   "text": "This hour of DNN is brought to you by the Tavern Bards' Union. Songs, poems, dances. Nobody asked, and yet here we are."
+  },
+  {
+   "id": "dnm-ad-46",
+   "text": "Deepsweet Syrup Spread: sweet, sticky, and impossible to get out of a beard. Deepsweet. Commit to the beard."
+  },
+  {
+   "id": "dnm-ad-47",
+   "text": "DNN is brought to you by Pressure Plate Security. Uninvited guest? Stepped on the wrong tile? That's a Pressure Plate moment."
+  },
+  {
+   "id": "dnm-ad-48",
+   "text": "The Mechanics' Guild reminds you: never pull an unlabelled lever. Unless it looks fun. Paid for by the Mechanics' Guild."
+  },
+  {
+   "id": "dnm-ad-49",
+   "text": "DNN is sponsored by Deep Cellar Cheeses. Aged in the dark, served in the dark, smelled three levels up."
+  },
+  {
+   "id": "dnm-ad-50",
+   "text": "This broadcast is made possible by viewers like you, and by the Ale Index Trust, a wholly owned subsidiary of the tavern."
+  }
+ ],
+ "ticker": [
+  {
+   "id": "dnm-tick-1",
+   "text": "Brewers deny ale shortage rumours, ask everyone to stop looking at the barrels"
+  },
+  {
+   "id": "dnm-tick-2",
+   "text": "Cat found asleep in noble's bed; noble now sleeping in the hallway"
+  },
+  {
+   "id": "dnm-tick-3",
+   "text": "Carp attack at the brook: carp 1, fisherdwarf 0"
+  },
+  {
+   "id": "dnm-tick-4",
+   "text": "Elves demand fewer trees be cut; dwarves confused by the word 'fewer'"
+  },
+  {
+   "id": "dnm-tick-5",
+   "text": "Mason completes 400th stone mug; nobody has asked for a mug in years"
+  },
+  {
+   "id": "dnm-tick-6",
+   "text": "Hauler carries one sock across the entire fort, reports 'a fulfilling day'"
+  },
+  {
+   "id": "dnm-tick-7",
+   "text": "Tavern retires the 'Mystery Mug'; contents remain under investigation"
+  },
+  {
+   "id": "dnm-tick-8",
+   "text": "Dwarf sleeps on dining hall floor, calls it 'a statement'"
+  },
+  {
+   "id": "dnm-tick-9",
+   "text": "Survey: 9 in 10 dwarves prefer ale to water; tenth dwarf missing"
+  },
+  {
+   "id": "dnm-tick-10",
+   "text": "Ale Index at {drinks}. Tavern reacts with cautious cheering"
+  },
+  {
+   "id": "dnm-tick-11",
+   "text": "Cat count reaches {cats}; vermin issue formal complaint"
+  },
+  {
+   "id": "dnm-tick-12",
+   "text": "Stone stockpile at {stone}; masons say 'we could use more' out of habit"
+  },
+  {
+   "id": "dnm-tick-13",
+   "text": "Baron mandates three gold goblets; smiths request a definition of 'gold'"
+  },
+  {
+   "id": "dnm-tick-14",
+   "text": "Forgotten beast still forgotten, sources say. Please keep it that way"
+  },
+  {
+   "id": "dnm-tick-15",
+   "text": "Goblin envoy visits, leaves, comes back with friends; story developing"
+  },
+  {
+   "id": "dnm-tick-16",
+   "text": "Engraver depicts a cheese; cheese experts call it 'masterful'"
+  },
+  {
+   "id": "dnm-tick-17",
+   "text": "Mayor holds meeting; meeting is about future meetings"
+  },
+  {
+   "id": "dnm-tick-18",
+   "text": "Dwarf throws a tantrum, then a chair, then a second chair"
+  },
+  {
+   "id": "dnm-tick-19",
+   "text": "Hospital reports three patients, one doctor and zero splints"
+  },
+  {
+   "id": "dnm-tick-20",
+   "text": "Migrants arrive in {fort}; all claim to be expert cheesemakers"
+  },
+  {
+   "id": "dnm-tick-21",
+   "text": "Children demand toys; toymaker demands a break; nobody gets anything"
+  },
+  {
+   "id": "dnm-tick-22",
+   "text": "Mechanic installs lever; nobody knows what it does; everyone wants to pull it"
+  },
+  {
+   "id": "dnm-tick-23",
+   "text": "Population now {pop}; bedrooms hold an emergency meeting"
+  },
+  {
+   "id": "dnm-tick-24",
+   "text": "Weather update: it is underground. It is fine"
+  },
+  {
+   "id": "dnm-tick-25",
+   "text": "Local rock found to be extremely rock-like"
+  },
+  {
+   "id": "dnm-tick-26",
+   "text": "Miner strikes something shiny; refuses to say what, just smiling"
+  },
+  {
+   "id": "dnm-tick-27",
+   "text": "Philosopher declares the depot 'a concept'; traders unimpressed"
+  },
+  {
+   "id": "dnm-tick-28",
+   "text": "{citizen} named Dwarf of the Hour for successfully finding a bed"
+  },
+  {
+   "id": "dnm-tick-29",
+   "text": "{citizen2} denies eating the last roast; mouth full at the time"
+  },
+  {
+   "id": "dnm-tick-30",
+   "text": "Kitchen adds new dish: 'roast of things'"
+  },
+  {
+   "id": "dnm-tick-31",
+   "text": "Tavern brawl ends in a draw and a group hug, witnesses say"
+  },
+  {
+   "id": "dnm-tick-32",
+   "text": "Military drill postponed; the military is at the tavern"
+  },
+  {
+   "id": "dnm-tick-33",
+   "text": "Marksdwarf hits target for the first time this {season}; target in shock"
+  },
+  {
+   "id": "dnm-tick-34",
+   "text": "Bookkeeper's count off by one barrel; barrel located under the bookkeeper"
+  },
+  {
+   "id": "dnm-tick-35",
+   "text": "Nobles ask for a dining room; dwarves ask what's wrong with this one"
+  },
+  {
+   "id": "dnm-tick-36",
+   "text": "New well dug; water confirmed wet"
+  },
+  {
+   "id": "dnm-tick-37",
+   "text": "Plants at {plants}; farmers celebrate with a plant-based snack"
+  },
+  {
+   "id": "dnm-tick-38",
+   "text": "Gems in storage: {gems}; jewellers 'mostly just staring at them'"
+  },
+  {
+   "id": "dnm-tick-39",
+   "text": "Wood reserves at {wood}; elves ask us to stop announcing that"
+  },
+  {
+   "id": "dnm-tick-40",
+   "text": "Bars at {bars}; smelters ask for more charcoal and fewer questions"
+  },
+  {
+   "id": "dnm-tick-41",
+   "text": "Experts agree: magma is hot. More at the top of the hour"
+  },
+  {
+   "id": "dnm-tick-42",
+   "text": "Dog adopts a dwarf; dwarf delighted, dog non-committal"
+  },
+  {
+   "id": "dnm-tick-43",
+   "text": "Carpenter crafts masterwork bed; immediately claimed by a cat"
+  },
+  {
+   "id": "dnm-tick-44",
+   "text": "Cheese-rolling season begins; hospital adds extra beds"
+  },
+  {
+   "id": "dnm-tick-45",
+   "text": "Dwarf caught napping on duty; claims to be 'testing the floor'"
+  },
+  {
+   "id": "dnm-tick-46",
+   "text": "Horse stuck in the stairwell again; mechanics propose a 'horse lift'"
+  },
+  {
+   "id": "dnm-tick-47",
+   "text": "Glassmaker makes glass, then more glass; now very proud of glass"
+  },
+  {
+   "id": "dnm-tick-48",
+   "text": "Rumour: a dwarf drank water. DNN cannot independently confirm"
+  },
+  {
+   "id": "dnm-tick-49",
+   "text": "Year {year} rated best year so far, by everyone living in it"
+  },
+  {
+   "id": "dnm-tick-50",
+   "text": "{civ} sends greetings, a list of demands, and a second, longer list"
+  },
+  {
+   "id": "dnm-tick-51",
+   "text": "Fort guard denies sleeping; snoring noted on the duty roster"
+  },
+  {
+   "id": "dnm-tick-52",
+   "text": "Elf caravan sells wooden toys; dwarves react with polite horror"
+  },
+  {
+   "id": "dnm-tick-53",
+   "text": "Mug shortage averted after potter discovers she made too many"
+  },
+  {
+   "id": "dnm-tick-54",
+   "text": "Masons: 'all walls are good walls'; demolition crew disagrees"
+  },
+  {
+   "id": "dnm-tick-55",
+   "text": "Trapper catches a rat; rat now the fort's unofficial mascot"
+  },
+  {
+   "id": "dnm-tick-56",
+   "text": "Silk weaver works overtime; cave spiders remain unpaid"
+  },
+  {
+   "id": "dnm-tick-57",
+   "text": "Farmer insists plump helmets 'have feelings'; farmer reassigned"
+  },
+  {
+   "id": "dnm-tick-58",
+   "text": "Sculptor's statue of a cat turns out to be an actual cat"
+  },
+  {
+   "id": "dnm-tick-59",
+   "text": "Smith forges an anvil to forge anvils; philosophers in distress"
+  },
+  {
+   "id": "dnm-tick-60",
+   "text": "Haulers stage protest; protest consists of hauling, but angrily"
+  },
+  {
+   "id": "dnm-tick-61",
+   "text": "Tavern adds a second barrel tap; queue still blocks the stairs"
+  },
+  {
+   "id": "dnm-tick-62",
+   "text": "Kobold spotted near stockpile; kobold denies everything, holding a sock"
+  },
+  {
+   "id": "dnm-tick-63",
+   "text": "Dwarf wins argument with a door; door remains closed"
+  },
+  {
+   "id": "dnm-tick-64",
+   "text": "Trainer tames a giant cave spider; nobody else will enter the room"
+  },
+  {
+   "id": "dnm-tick-65",
+   "text": "Fort declares festival; festival identical to a normal day with more ale"
+  },
+  {
+   "id": "dnm-tick-66",
+   "text": "Water wheel turns; mechanics call it 'basically perpetual'; it is not"
+  },
+  {
+   "id": "dnm-tick-67",
+   "text": "Dwarf lost in the depths for three days found, asks for a mug"
+  },
+  {
+   "id": "dnm-tick-68",
+   "text": "Chief medical dwarf announces cure: rest, splints, and 'not doing that'"
+  },
+  {
+   "id": "dnm-tick-69",
+   "text": "Strange mood strikes a workshop; everyone else leaves quietly"
+  },
+  {
+   "id": "dnm-tick-70",
+   "text": "Commander praises squad's dodging; squad had fled"
+  },
+  {
+   "id": "dnm-tick-71",
+   "text": "Cat sits on lever; drawbridge raised; investigation ongoing"
+  },
+  {
+   "id": "dnm-tick-72",
+   "text": "Tailor makes masterwork sock; now unable to make an ordinary one"
+  },
+  {
+   "id": "dnm-tick-73",
+   "text": "Fishery says its catch outweighs the {meat} meat in stock, unprompted"
+  },
+  {
+   "id": "dnm-tick-74",
+   "text": "Brewer reads ale label aloud, weeps"
+  },
+  {
+   "id": "dnm-tick-75",
+   "text": "Beekeeper stung; beekeeper fine; bees 'disappointed'"
+  },
+  {
+   "id": "dnm-tick-76",
+   "text": "Population {pop} and rising: architects sketching bedrooms on slates"
+  },
+  {
+   "id": "dnm-tick-77",
+   "text": "Stairs confirmed to go both up and down; more after the break"
+  },
+  {
+   "id": "dnm-tick-78",
+   "text": "Hunters return with a groundhog and a story about a bigger groundhog"
+  },
+  {
+   "id": "dnm-tick-79",
+   "text": "Carp-fight engraving declared 'too intense' by young viewers"
+  },
+  {
+   "id": "dnm-tick-80",
+   "text": "Woodcutter fells a tree; elves monitoring the situation closely"
+  },
+  {
+   "id": "dnm-tick-81",
+   "text": "Unknown dwarf seen in noble's hat; mayor 'not amused, slightly amused'"
+  },
+  {
+   "id": "dnm-tick-82",
+   "text": "{season} expected to continue for the rest of {season}, say experts"
+  },
+  {
+   "id": "dnm-tick-83",
+   "text": "Dining hall table count reaches 'enough' for the first time in history"
+  },
+  {
+   "id": "dnm-tick-84",
+   "text": "Child asks where ale comes from; brewer tells the truth; child shaken"
+  },
+  {
+   "id": "dnm-tick-85",
+   "text": "Glass window installed; dwarves gather to see the other side of the wall"
+  },
+  {
+   "id": "dnm-tick-86",
+   "text": "Statue garden unveiled; visitors 'confused but supportive'"
+  },
+  {
+   "id": "dnm-tick-87",
+   "text": "Test ballista shot hits the depot; depot fine, depot upset"
+  },
+  {
+   "id": "dnm-tick-88",
+   "text": "Mayor shakes every citizen's hand; hand now in hospital"
+  },
+  {
+   "id": "dnm-tick-89",
+   "text": "Squad leader orders a charge; squad charges the tavern"
+  },
+  {
+   "id": "dnm-tick-90",
+   "text": "Dwarf marries; spouse's cat now everyone's problem"
+  },
+  {
+   "id": "dnm-tick-91",
+   "text": "Gem cutter cuts gem; gem now worth more; cutter unimpressed with himself"
+  },
+  {
+   "id": "dnm-tick-92",
+   "text": "Steel bars under guard after toddler 'borrows' one"
+  },
+  {
+   "id": "dnm-tick-93",
+   "text": "Spring cleaning postponed indefinitely, citing 'the mess'"
+  },
+  {
+   "id": "dnm-tick-94",
+   "text": "Drinks to dwarves: {drinks} to {pop}. Analysts call it 'workable'"
+  },
+  {
+   "id": "dnm-tick-95",
+   "text": "Meals at {meals}; cook reminds everyone that is not a challenge"
+  },
+  {
+   "id": "dnm-tick-96",
+   "text": "Expedition leader writes memoir: 'Strike the Earth, and Other Things I Said'"
+  },
+  {
+   "id": "dnm-tick-97",
+   "text": "Dwarf reports a dragon; turns out to be a large lizard with confidence"
+  },
+  {
+   "id": "dnm-tick-98",
+   "text": "Book club reads one book, argues for a season; next book delayed"
+  },
+  {
+   "id": "dnm-tick-99",
+   "text": "Scholar proves hauling 'mathematically necessary'; haulers unconvinced"
+  },
+  {
+   "id": "dnm-tick-100",
+   "text": "Dwarf naps through entire siege, wakes refreshed"
+  },
+  {
+   "id": "dnm-tick-101",
+   "text": "Tavern keeper apologises for 'the mead incident'; won't describe it"
+  },
+  {
+   "id": "dnm-tick-102",
+   "text": "Crossbow range reopens after 'the hat incident'"
+  },
+  {
+   "id": "dnm-tick-103",
+   "text": "Masons and carpenters agree on something; nobody remembers what"
+  },
+  {
+   "id": "dnm-tick-104",
+   "text": "Cat drags in a rat bigger than the cat; both now in the tavern"
+  },
+  {
+   "id": "dnm-tick-105",
+   "text": "Fort gong installed; nobody agrees what the gong is for"
+  },
+  {
+   "id": "dnm-tick-106",
+   "text": "Cook serves roast of roasts; dining hall falls silent in respect"
+  },
+  {
+   "id": "dnm-tick-107",
+   "text": "Masterwork axe on display; already nicknamed 'Axe'"
+  },
+  {
+   "id": "dnm-tick-108",
+   "text": "Sock shortage in the barracks; boots unaffected"
+  },
+  {
+   "id": "dnm-tick-109",
+   "text": "Miners strike the earth; earth strikes back, slightly"
+  },
+  {
+   "id": "dnm-tick-110",
+   "text": "Hospital adds a second bed; staff 'cautiously thrilled'"
+  },
+  {
+   "id": "dnm-tick-111",
+   "text": "Mayor names a hallway; hallway honoured"
+  },
+  {
+   "id": "dnm-tick-112",
+   "text": "Fisherdwarf retires after carp looked at her 'like it knew'"
+  },
+  {
+   "id": "dnm-tick-113",
+   "text": "Crafter's 900th rock ring receives a polite round of applause"
+  },
+  {
+   "id": "dnm-tick-114",
+   "text": "Diplomat praises the hospitality, then the ale, then the ale again"
+  },
+  {
+   "id": "dnm-tick-115",
+   "text": "Toddler takes first steps; immediately starts hauling"
+  },
+  {
+   "id": "dnm-tick-116",
+   "text": "Artifact sock goes on display; viewers advised not to sniff"
+  },
+  {
+   "id": "dnm-tick-117",
+   "text": "Bard composes nine-hour epic about the depot; standing room only"
+  },
+  {
+   "id": "dnm-tick-118",
+   "text": "Tantrum spiral averted by a timely barrel of ale, witnesses say"
+  },
+  {
+   "id": "dnm-tick-119",
+   "text": "Silk at record lows, say weavers; cave spiders report record highs"
+  },
+  {
+   "id": "dnm-tick-120",
+   "text": "Noble's mandate for 'something nice' met with a rock; noble accepts"
+  },
+  {
+   "id": "dnm-tick-121",
+   "text": "Kitchen fire put out quickly; cook insists it was 'searing'"
+  },
+  {
+   "id": "dnm-tick-122",
+   "text": "Dwarven economy described as 'stuff, mostly'; economists stand by it"
+  },
+  {
+   "id": "dnm-tick-123",
+   "text": "Ale shortage scare ends when someone checks the second stockpile"
+  },
+  {
+   "id": "dnm-tick-124",
+   "text": "'Goblin' at the gate turns out to be a short, very rude elf"
+  },
+  {
+   "id": "dnm-tick-125",
+   "text": "Wild boar wanders into tavern, orders nothing, leaves happy"
+  },
+  {
+   "id": "dnm-tick-126",
+   "text": "{anchor} reminds viewers: wash your hands, or at least your beard"
+  },
+  {
+   "id": "dnm-tick-127",
+   "text": "DNN poll: ale rated 'adequate' for yet another straight year"
+  },
+  {
+   "id": "dnm-tick-128",
+   "text": "Fort cats issue joint statement; statement is a dead rat on the stairs"
+  },
+  {
+   "id": "dnm-tick-129",
+   "text": "Architect proposes a tower; dwarves suggest digging it downward instead"
+  },
+  {
+   "id": "dnm-tick-130",
+   "text": "Cheese now outnumbers dwarves; cheesemakers deny everything"
+  },
+  {
+   "id": "dnm-tick-131",
+   "text": "Coffins in stock: plenty. DNN thought you'd want to know. Have a nice day"
+  },
+  {
+   "id": "dnm-tick-132",
+   "text": "Bookkeeper reports {stone} stone, {wood} wood and 'rather a lot of socks'"
+  },
+  {
+   "id": "dnm-tick-133",
+   "text": "Leather market tanks after tanner tans the wrong thing"
+  },
+  {
+   "id": "dnm-tick-134",
+   "text": "Dwarf orders 'whatever's strongest'; receives a granite mug"
+  },
+  {
+   "id": "dnm-tick-135",
+   "text": "Ale at {drinks}, cats at {cats}; market analysts refuse to link the two"
+  },
+  {
+   "id": "dnm-tick-136",
+   "text": "Noble's lost earring found in a roast; roast reclassified as jewellery"
+  },
+  {
+   "id": "dnm-tick-137",
+   "text": "Scholars debate whether a mug is a cup; tavern says 'just drink'"
+  },
+  {
+   "id": "dnm-tick-138",
+   "text": "Lye maker announces new lye; lye experts call it 'very lye-like'"
+  },
+  {
+   "id": "dnm-tick-139",
+   "text": "Pump operator works a full shift; water moved 'somewhere, probably'"
+  },
+  {
+   "id": "dnm-tick-140",
+   "text": "Bin shortage ends as carpenter learns bins can be stacked; bins learn nothing"
+  }
+ ],
+ "sports": [
+  {
+   "id": "dnm-sport-1",
+   "text": "In the barracks, {citizen} sparred for six hours straight and lost every bout, but did so with tremendous enthusiasm."
+  },
+  {
+   "id": "dnm-sport-2",
+   "text": "Wrestling news: a recruit pinned a training dummy for a full count. The dummy will not be appealing the decision."
+  },
+  {
+   "id": "dnm-sport-3",
+   "text": "The Hauling League standings are in. The leaders carried 300 items this week, including one cat that did not want to be carried."
+  },
+  {
+   "id": "dnm-sport-4",
+   "text": "Dodging is up across the fort this {season}, mostly among dwarves avoiding the hospital's new bonesetter."
+  },
+  {
+   "id": "dnm-sport-5",
+   "text": "The great cheese-rolling is on! Competitors chased a wheel down the ramp. The wheel won. Three dwarves are in the hospital."
+  },
+  {
+   "id": "dnm-sport-6",
+   "text": "Sparring update: the militia commander and the captain of the guard fought to a draw, then had an ale about it."
+  },
+  {
+   "id": "dnm-sport-7",
+   "text": "{citizen2} set a new fort record in the hundred-urist dash, running from a carp. The carp has been disqualified."
+  },
+  {
+   "id": "dnm-sport-8",
+   "text": "Archery report: bolts fired today numbered in the hundreds. Bolts hitting the target: let's call it 'emerging talent.'"
+  },
+  {
+   "id": "dnm-sport-9",
+   "text": "The Hauling League rookie of the season carried a boulder up four flights of stairs, then asked for another."
+  },
+  {
+   "id": "dnm-sport-10",
+   "text": "A big upset in the barracks: the smallest recruit in {fort} threw the biggest. There was biting, but officials say it counts."
+  },
+  {
+   "id": "dnm-sport-11",
+   "text": "The shield-blocking demonstration went well right up until the axe demonstration started next to it."
+  },
+  {
+   "id": "dnm-sport-12",
+   "text": "Swimming season is cancelled after the brook took a firm stance on the matter, backed by the carp."
+  },
+  {
+   "id": "dnm-sport-13",
+   "text": "Dodging champion {citizen} dodged every ball in today's tournament, and also dodged his chores. A true all-rounder."
+  },
+  {
+   "id": "dnm-sport-14",
+   "text": "The cheese-rolling final ended in controversy when the cheese was found to be a painted boulder. Investigation pending."
+  },
+  {
+   "id": "dnm-sport-15",
+   "text": "In mining sports, the annual Dig-Off saw two miners carve a tunnel in record time. Nobody knows where it leads."
+  },
+  {
+   "id": "dnm-sport-16",
+   "text": "Tavern darts is suspended after a dwarf used a throwing axe. Officials say it is 'technically a dart' but please don't."
+  },
+  {
+   "id": "dnm-sport-17",
+   "text": "Stair-racing returns to the main shaft. Rules: run up, run down, do not touch the haulers. The haulers are not part of this."
+  },
+  {
+   "id": "dnm-sport-18",
+   "text": "The Hauling League is investigating a dwarf who carried a bin full of socks and claimed it as 'one item.'"
+  },
+  {
+   "id": "dnm-sport-19",
+   "text": "Barrel rolling: the champion rolled a full barrel the length of the dining hall without spilling a drop. Then drank it."
+  },
+  {
+   "id": "dnm-sport-20",
+   "text": "Sparring results: bruises, two black eyes, and one recruit who has finally learned which end of the spear is pointy."
+  },
+  {
+   "id": "dnm-sport-21",
+   "text": "The season's longest wrestling match lasted forty minutes before both dwarves fell asleep. Judges gave it to the floor."
+  },
+  {
+   "id": "dnm-sport-22",
+   "text": "Fans in the meeting hall chanted for the militia, then remembered they were the militia, and went to drill."
+  },
+  {
+   "id": "dnm-sport-23",
+   "text": "The cheese-rolling committee has introduced helmets this year. The cheese is unaffected and remains very fast."
+  },
+  {
+   "id": "dnm-sport-24",
+   "text": "Bout of the season: an off-duty marksdwarf versus a stubborn mule. The mule wins on points, and on kicks."
+  },
+  {
+   "id": "dnm-sport-25",
+   "text": "The hunting league reports a big week: one deer, two rabbits, and a squirrel that put up a genuinely impressive fight."
+  },
+  {
+   "id": "dnm-sport-26",
+   "text": "Our panel ranks the fort's best sparring partners. Number one is the wall, which has never lost."
+  },
+  {
+   "id": "dnm-sport-27",
+   "text": "Rock-tossing finals: {citizen} launched a boulder clear across the courtyard into the mason's window. Gold medal and a bill."
+  },
+  {
+   "id": "dnm-sport-28",
+   "text": "In axe-throwing, today's champion hit the bullseye ten times. The target has been replaced. Twice."
+  },
+  {
+   "id": "dnm-sport-29",
+   "text": "Quarterly fitness report: hauling up, sparring steady, and napping, alarmingly, now officially classed as a sport."
+  },
+  {
+   "id": "dnm-sport-30",
+   "text": "The fort's first bin-carrying relay ended when the second runner forgot what was in the bin and stopped to check."
+  },
+  {
+   "id": "dnm-sport-31",
+   "text": "Hammerdwarves report a strong training week. The training dummies report nothing. They have no mouths."
+  },
+  {
+   "id": "dnm-sport-32",
+   "text": "Dodge of the day: a hauler who sidestepped a falling boulder, two cats and a noble's mandate in a single move."
+  },
+  {
+   "id": "dnm-sport-33",
+   "text": "The tavern arm-wrestling bracket is down to two finalists. One of them is a bear. The bear is the bookmakers' favourite."
+  },
+  {
+   "id": "dnm-sport-34",
+   "text": "The barracks have banned the beard grab. Several veteran wrestlers are calling it the end of an era."
+  },
+  {
+   "id": "dnm-sport-35",
+   "text": "The great cheese-rolling drew {pop} spectators, which is everyone. No work was done. The cheese did great."
+  },
+  {
+   "id": "dnm-sport-36",
+   "text": "Sparring trends: the spear is out, the axe is in, and the crossbow remains 'for dwarves who don't like hugs.'"
+  },
+  {
+   "id": "dnm-sport-37",
+   "text": "The Hauling League has added a new event, the Two-Barrel Waddle. Early reports say it is 'mostly falling.'"
+  },
+  {
+   "id": "dnm-sport-38",
+   "text": "In marathon news, a dwarf walked from the depot to the deepest mine for one plump helmet. Locals call that 'commuting.'"
+  },
+  {
+   "id": "dnm-sport-39",
+   "text": "A recruit blocked twelve blows in a row with her shield today. She is now asleep on the shield. Sports desk salutes her."
+  },
+  {
+   "id": "dnm-sport-40",
+   "text": "Barracks challenge: a veteran swordsdwarf versus a cat. The cat simply left. Judges awarded nothing to anyone."
+  },
+  {
+   "id": "dnm-sport-41",
+   "text": "{anchor2} reports the militia's dodging drills are going so well that nobody has seen the militia in days."
+  }
+ ],
+ "trade": [
+  {
+   "id": "dnm-trade-1",
+   "text": "The depot is open and {caravan_civ} traders have arrived with goods, opinions, and a very tired pack yak."
+  },
+  {
+   "id": "dnm-trade-2",
+   "text": "Elven merchants are offering wooden furniture again. Our broker says no, firmly, and from a safe distance."
+  },
+  {
+   "id": "dnm-trade-3",
+   "text": "Haggling tip from the trade desk: if the merchant laughs, you've offered too little. If they cry, you've won."
+  },
+  {
+   "id": "dnm-trade-4",
+   "text": "Caravan watch: no traders on the horizon yet. The depot clerk is staring at the road anyway, just in case."
+  },
+  {
+   "id": "dnm-trade-5",
+   "text": "The broker reports trading forty stone mugs for one bag of salt. The broker calls this 'a rout.'"
+  },
+  {
+   "id": "dnm-trade-6",
+   "text": "Human traders at the depot are selling cloth and asking where the surface is. They were told: up. Just up."
+  },
+  {
+   "id": "dnm-trade-7",
+   "text": "Trade desk breaking: the {caravan_civ} caravan wants crafts. We have crafts. We have so many crafts. Haul the crafts."
+  },
+  {
+   "id": "dnm-trade-8",
+   "text": "Elves have refused a gift of a fine wooden bin. Our broker is 'stunned' and also 'fully aware of what he did.'"
+  },
+  {
+   "id": "dnm-trade-9",
+   "text": "Export update: the fort's top export remains rock crafts, followed closely by more rock crafts."
+  },
+  {
+   "id": "dnm-trade-10",
+   "text": "Import news: the caravan brought cheese, cloth, and a dog. The dog was not for sale. The dog came in anyway."
+  },
+  {
+   "id": "dnm-trade-11",
+   "text": "Depot analysts say the outpost liaison is 'friendly, chatty, and asking an awful lot about our gem stockpile.'"
+  },
+  {
+   "id": "dnm-trade-12",
+   "text": "The broker opened talks with a polite bow, a firm handshake and a decorated stone goblet. The standard opener."
+  },
+  {
+   "id": "dnm-trade-13",
+   "text": "Elves are offering goods made with no wood whatsoever. They're very proud. It's all cloth. Sad, sad cloth."
+  },
+  {
+   "id": "dnm-trade-14",
+   "text": "Trade tip: never trade away the last barrel. The tavern keeper asked us to say that. Twice. Holding a mallet."
+  },
+  {
+   "id": "dnm-trade-15",
+   "text": "{caravan_civ} merchants are unloading at the depot, and haulers are complaining at the depot. Commerce works."
+  },
+  {
+   "id": "dnm-trade-16",
+   "text": "The broker is haggling over a single steel bar. Day three. Both parties are now napping between offers."
+  },
+  {
+   "id": "dnm-trade-17",
+   "text": "Market watch: demand for crafted goods is high. Demand for elf-made toys remains at zero, as it has for centuries."
+  },
+  {
+   "id": "dnm-trade-18",
+   "text": "Merchants say our roasts are 'surprisingly good for underground cooking.' The cook would like to know what that means."
+  },
+  {
+   "id": "dnm-trade-19",
+   "text": "Record trade at the depot: three masterwork crowns for enough leather to clothe the whole militia. Good business."
+  },
+  {
+   "id": "dnm-trade-20",
+   "text": "Goblins have not arrived to trade. Goblins never arrive to trade. The trade desk reminds you to keep the gate shut."
+  },
+  {
+   "id": "dnm-trade-21",
+   "text": "Talks stalled after the merchant asked to see the bookkeeper's records. The bookkeeper's records are a rock."
+  },
+  {
+   "id": "dnm-trade-22",
+   "text": "{caravan_civ} traders asked for a 'more welcoming entrance.' We have a drawbridge and several traps. That is the welcome."
+  },
+  {
+   "id": "dnm-trade-23",
+   "text": "Broker {citizen} has closed a deal on twelve barrels of foreign wine. The tavern is preparing a respectful silence."
+  },
+  {
+   "id": "dnm-trade-24",
+   "text": "A word on prices: our gems are worth a lot, our mugs a little, and our broker is worth his weight in salt."
+  },
+  {
+   "id": "dnm-trade-25",
+   "text": "An elven envoy asked whether we cut down trees. We said no. The trade desk is not here to editorialise."
+  },
+  {
+   "id": "dnm-trade-26",
+   "text": "Depot traffic halted briefly when a pack horse refused to come inside. The horse has 'concerns about the ceiling.'"
+  },
+  {
+   "id": "dnm-trade-27",
+   "text": "The liaison wants a list of goods we'd like next year. The list says 'ale' four times and 'more ale' once."
+  },
+  {
+   "id": "dnm-trade-28",
+   "text": "The caravan guards are lingering at the tavern. They're not shopping. They're just enjoying themselves."
+  },
+  {
+   "id": "dnm-trade-29",
+   "text": "Economists note the fort trades rocks for food at excellent rates, which means we are, technically, eating rocks."
+  },
+  {
+   "id": "dnm-trade-30",
+   "text": "Haggling tips, continued: insist the item is cursed. Elves fall for it every time. Humans sometimes buy two."
+  },
+  {
+   "id": "dnm-trade-31",
+   "text": "The caravan has left and the depot is quiet. The broker is counting the profits; the haulers are counting their bruises."
+  }
+ ],
+ "works": [
+  {
+   "id": "dnm-works-1",
+   "text": "On the works desk: construction on {project} continues. Masons report 'steady progress' and 'a lot of dust in our beards.'"
+  },
+  {
+   "id": "dnm-works-2",
+   "text": "{project} is ahead of schedule. Sources say that's because nobody ever wrote down a schedule."
+  },
+  {
+   "id": "dnm-works-3",
+   "text": "Engineers on {project} have found a cave. They have asked us not to say what is in the cave."
+  },
+  {
+   "id": "dnm-works-4",
+   "text": "The architect says {project} will be 'the pride of {fort}.' At the moment it is a hole. A proud hole."
+  },
+  {
+   "id": "dnm-works-5",
+   "text": "Work on {project} paused briefly while the miners argued about whether up was the correct direction."
+  },
+  {
+   "id": "dnm-works-6",
+   "text": "{project} update: the foundation is laid, the walls are rising, and the haulers have stopped speaking to us."
+  },
+  {
+   "id": "dnm-works-7",
+   "text": "Critics call {project} 'too big.' Supporters call it 'not big enough.' The miners just keep digging."
+  },
+  {
+   "id": "dnm-works-8",
+   "text": "We're getting reports {project} has hit an aquifer. The engineering team says this is 'a feature now.'"
+  },
+  {
+   "id": "dnm-works-9",
+   "text": "Halfway through {project}, the masons are asking for more blocks. The quarry is asking for more patience."
+  },
+  {
+   "id": "dnm-works-10",
+   "text": "{reporter} visited {project} today and found three dwarves working, eight watching, and one cat supervising."
+  },
+  {
+   "id": "dnm-works-11",
+   "text": "The mechanics have added levers to {project}. Nobody knows what they do. The mechanics say that's 'the fun part.'"
+  },
+  {
+   "id": "dnm-works-12",
+   "text": "Cost estimates for {project} were revised upward again, from 'a lot of rocks' to 'most of the rocks.'"
+  },
+  {
+   "id": "dnm-works-13",
+   "text": "Residents near {project} complain about the noise. They have been reminded that they live inside a mountain."
+  },
+  {
+   "id": "dnm-works-14",
+   "text": "The overseer of {project} calls this 'phase two.' Nobody was told there was a phase one."
+  },
+  {
+   "id": "dnm-works-15",
+   "text": "A worker on {project} found a gem in the wall and has been staring at it for an hour. Productivity is down."
+  },
+  {
+   "id": "dnm-works-16",
+   "text": "Breaking from the works desk: {project} is complete! No, wait. That was the scaffolding. Back to work, everyone."
+  },
+  {
+   "id": "dnm-works-17",
+   "text": "Nobles want to know if {project} will have a throne. Engineers say 'it could.' Engineers say that about everything."
+  },
+  {
+   "id": "dnm-works-18",
+   "text": "Progress on {project} slowed this {season} after the entire crew took a long, unscheduled ale break."
+  },
+  {
+   "id": "dnm-works-19",
+   "text": "Safety notice: {project} is an active site. Watch for falling rock, rising water and dwarves carrying planks backwards."
+  },
+  {
+   "id": "dnm-works-20",
+   "text": "{project} now has a magma channel. Officials stress that this was 'mostly intentional.'"
+  },
+  {
+   "id": "dnm-works-21",
+   "text": "Architects reveal {project} will be engraved floor to ceiling. Engravers have been seen quietly packing."
+  },
+  {
+   "id": "dnm-works-22",
+   "text": "Haulers on {project} say they've carried so many blocks they now see them when they close their eyes."
+  },
+  {
+   "id": "dnm-works-23",
+   "text": "Today on the works desk: {project} gets its first doors. Stone doors, stone hinges. Everything is stone."
+  },
+  {
+   "id": "dnm-works-24",
+   "text": "Experts estimate {project} will be finished 'soon.' DNN asked what soon means. The experts left the room."
+  },
+  {
+   "id": "dnm-works-25",
+   "text": "A cave-in at {project} has been described by engineers as 'a surprise skylight.' Nobody was hurt. One cat was startled."
+  },
+  {
+   "id": "dnm-works-26",
+   "text": "{citizen} is the new foreman on {project}, a promotion that comes with no pay, a hat, and a lot of shouting."
+  },
+  {
+   "id": "dnm-works-27",
+   "text": "Work on {project} halted when miners found a forgotten tunnel. It was, as advertised, forgotten. Now remembered."
+  },
+  {
+   "id": "dnm-works-28",
+   "text": "The works desk can confirm {project} is now visible from the depot. Traders are impressed, or possibly scared."
+  },
+  {
+   "id": "dnm-works-29",
+   "text": "Bookkeepers say {project} has used more stone than any build in {fort} history. The masons say they're 'just getting started.'"
+  },
+  {
+   "id": "dnm-works-30",
+   "text": "{anchor2} asks: is {project} worth it? The panel says yes. The haulers say no. The cat says nothing, as usual."
+  },
+  {
+   "id": "dnm-works-31",
+   "text": "A smoothing crew has started on the walls of {project}. They estimate the job will outlive several of them."
+  }
+ ]
+}

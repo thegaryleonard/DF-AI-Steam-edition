@@ -1,0 +1,29 @@
+# mediamtx config for DNN (the TV's live video). Copy next to mediamtx.exe.
+# In: ffmpeg publishes the OBS Virtual Camera to rtsp://127.0.0.1:8554/dnn
+# Out: HLS on 127.0.0.1:8888/dnn/, relayed to the TV by dnn.py as http://<host>:8769/hls/index.m3u8
+logLevel: warn
+logDestinations: [stdout]
+
+api: yes
+apiAddress: 127.0.0.1:9997
+
+rtsp: yes
+rtspTransports: [tcp]
+rtspAddress: 127.0.0.1:8554
+rtmp: no
+webrtc: no
+srt: no
+moq: no
+
+hls: yes
+hlsAddress: 127.0.0.1:8888
+hlsAllowOrigins: ['*']
+# mpegts segments: the most widely supported HLS flavour on older webOS TVs
+hlsVariant: mpegts
+hlsSegmentCount: 6
+hlsSegmentDuration: 2s
+hlsAlwaysRemux: yes
+
+paths:
+  dnn:
+    source: publisher

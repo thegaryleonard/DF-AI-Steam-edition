@@ -3,6 +3,7 @@ rem ===================================================================
 rem  df-ai stream: starts everything for the unattended Twitch stream
 rem    - the Herald broadsheet (http://localhost:8765/), its LAN copy (:8780)
 rem    - the one-page stream view (http://localhost:8766/)
+rem    - DNN, the Dwarf News Network for the TV app and OBS (http://localhost:8769/)
 rem    - the Twitch chat logger
 rem    - the game manager (dfai_supervisor.py), which
 rem        * starts Dwarf Fortress through Steam if it isn't running,
@@ -34,6 +35,7 @@ start "dfai overlay"    /min cmd /c ""%PY%" -u overlay.py            >> "%LOGS%\
 start "dfai lan copy"   /min cmd /c ""%PY%" -u lan_proxy.py 8780     >> "%LOGS%\lan_proxy.log" 2>&1"
 start "dfai overseer"   /min cmd /c ""%PY%" -u overseer.py          >> "%LOGS%\overseer.log" 2>&1"
 start "dfai gamefeed"   /min cmd /c ""%PY%" -u gamefeed.py           >> "%LOGS%\gamefeed.log" 2>&1"
+start "dfai dnn"        /min cmd /c ""%PY%" -u dnn.py                >> "%LOGS%\dnn.log" 2>&1"
 start "dfai twitch log" /min cmd /c ""%PY%" -u twitch_chat_log.py tediusprocesses laserjetlab >> "%LOGS%\twitch.log" 2>&1"
 rem give the web pages a moment, then the manager (it launches DF and OBS)
 timeout /t 5 /nobreak >nul

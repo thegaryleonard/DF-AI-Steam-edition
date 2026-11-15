@@ -1,0 +1,1922 @@
+{
+ "_about": "DNN anchor-desk copy. See supervisor/dnn/COPY.md.",
+ "open": [
+  {
+   "id": "dnd-open-1",
+   "text": "Good evening, I'm {anchor}, and this is DNN, live from {fort}, where the news never stops and neither does the brewing."
+  },
+  {
+   "id": "dnd-open-2",
+   "text": "Good evening. I'm {anchor}, alongside {anchor2}. Tonight: {pop} dwarves, one fortress, and absolutely no shortage of opinions."
+  },
+  {
+   "id": "dnd-open-3",
+   "text": "This is DNN. I'm {anchor}. If you're watching this instead of hauling stone, your overseer already knows."
+  },
+  {
+   "id": "dnd-open-4",
+   "text": "From the deepest studio in {world}, this is DNN. I'm {anchor}, and yes, the cat is on the desk again."
+  },
+  {
+   "id": "dnd-open-5",
+   "text": "Good evening, {fort}. It's {month} of {year}, and I'm {anchor}. Let's get to the headlines before someone throws a tantrum."
+  },
+  {
+   "id": "dnd-open-6",
+   "text": "I'm {anchor}, {anchor2} is beside me, and this is the most trusted name in news carved out of solid rock."
+  },
+  {
+   "id": "dnd-open-7",
+   "text": "This is DNN Tonight. I'm {anchor}. Our top story: everything, all at once, as usual."
+  },
+  {
+   "id": "dnd-open-8",
+   "text": "Good evening and welcome to DNN. I'm {anchor}. We are coming to you live, mostly because we cannot afford to tape anything."
+  },
+  {
+   "id": "dnd-open-9",
+   "text": "It's {season} in {fort}, and this is DNN. I'm {anchor}. Grab a mug, sit on a barrel, and stay informed."
+  },
+  {
+   "id": "dnd-open-10",
+   "text": "Live from {fort}, home to {pop} dwarves and an uncountable number of cats, this is DNN. I'm {anchor}."
+  },
+  {
+   "id": "dnd-open-11",
+   "text": "Good evening. I'm {anchor}. The ale is flowing, the news is breaking, and somebody left a sock in the forge again."
+  },
+  {
+   "id": "dnd-open-12",
+   "text": "You're watching DNN, the Dwarf News Network. I'm {anchor}, and I have been awake since the last migrant wave."
+  },
+  {
+   "id": "dnd-open-13",
+   "text": "Welcome to DNN. I'm {anchor}, with {anchor2}. Tonight's broadcast is sponsored by the tavern, as is everything else."
+  },
+  {
+   "id": "dnd-open-14",
+   "text": "This is DNN, where the stories are deep and the studio is deeper. I'm {anchor}. Good evening."
+  },
+  {
+   "id": "dnd-open-15",
+   "text": "Good evening, citizens of {civ}. I'm {anchor}, and this is DNN, live from the beating, slightly smoky heart of {fort}."
+  },
+  {
+   "id": "dnd-open-16",
+   "text": "I'm {anchor}. Tonight on DNN: news, weather, and at least one dwarf staring at a wall for reasons unknown."
+  },
+  {
+   "id": "dnd-open-17",
+   "text": "DNN, live and underground. I'm {anchor}. If you can read this caption, you are already better informed than the elves."
+  },
+  {
+   "id": "dnd-open-18",
+   "text": "Good evening from the {fort} newsroom. I'm {anchor}. We've got a packed hour, and an even more packed dining hall."
+  },
+  {
+   "id": "dnd-open-19",
+   "text": "This is DNN. I'm {anchor}. Tonight, as every night, we ask the hard questions, then get distracted by a carp."
+  },
+  {
+   "id": "dnd-open-20",
+   "text": "Hello and welcome. I'm {anchor}, with {anchor2}, and this is DNN, broadcasting from a room that used to be a bedroom."
+  },
+  {
+   "id": "dnd-open-21",
+   "text": "It's {month}, the year is {year}, and the fortress of {fort} demands answers. I'm {anchor}. This is DNN."
+  },
+  {
+   "id": "dnd-open-22",
+   "text": "Good evening. I'm {anchor}. We have breaking news, a weather report, and a strong suspicion the ale is running out.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnd-open-23",
+   "text": "Good evening. I'm {anchor}. The barrels are full, morale is high, and frankly the newsroom smells wonderful.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnd-open-24",
+   "text": "This is DNN. I'm {anchor}. It's a cold {season} night in {fort}, so pull your beard close and pay attention.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "dnd-open-25",
+   "text": "Good evening from a rain-soaked {fort}. I'm {anchor}. Our field crew has asked for umbrellas. Request denied.",
+   "when": [
+    "raining"
+   ]
+  },
+  {
+   "id": "dnd-open-26",
+   "text": "Live from {fort}, where it is snowing on the surface and nobody down here cares. I'm {anchor}. This is DNN.",
+   "when": [
+    "snowing"
+   ]
+  },
+  {
+   "id": "dnd-open-27",
+   "text": "Welcome to DNN. I'm {anchor}. Tonight we begin, sadly, by remembering one of our own. Then, gently, the news.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "dnd-open-28",
+   "text": "I'm {anchor}, and this is DNN, coming to you from a fortress so new the walls still have that fresh-dug smell.",
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "dnd-open-29",
+   "text": "Good evening. I'm {anchor}. {fort} has stood for years now, and DNN has complained about it every single night.",
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "dnd-open-30",
+   "text": "This is DNN. I'm {anchor}. With just {pop} of us here, I'd like to personally say hello to each viewer. Hi.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "dnd-open-31",
+   "text": "Good evening to all {pop} of you. I'm {anchor}. Please stop crowding the dining hall screen, we can see you.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "dnd-open-32",
+   "text": "This is DNN. I'm {anchor}. Spring has arrived, the farmers are planting, and the elves are presumably hugging something.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "dnd-open-33",
+   "text": "Good evening. It's summer in {fort}, I'm {anchor}, and somewhere up there the sun is doing whatever it does.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "dnd-open-34",
+   "text": "This is DNN. I'm {anchor}. Autumn is here, the caravans are coming, and the bookkeeper is sweating.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "dnd-open-35",
+   "text": "Good evening. I'm {anchor}. It's been a quiet stretch in {fort}, which is exactly when DNN gets nervous.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "dnd-open-36",
+   "text": "Good evening, I'm {anchor}. Our cat-to-dwarf ratio has once again broken the record, and we'll have more on that later.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnd-open-37",
+   "text": "Tonight on DNN: hunger, hope, and a very long look at the empty larder. I'm {anchor}. Good evening.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnd-open-38",
+   "text": "This is DNN, and I'm {anchor}. Joining me as always, {anchor2}, who insists on being called senior co-anchor."
+  },
+  {
+   "id": "dnd-open-39",
+   "text": "Good evening. I'm {anchor}. Our top story tonight was supposed to be something else, but then {citizen} happened."
+  },
+  {
+   "id": "dnd-open-40",
+   "text": "This is DNN. I'm {anchor}. We are told the forge is hot, the depot is busy, and the noble is unhappy. So, a normal day."
+  },
+  {
+   "id": "dnd-open-41",
+   "text": "Welcome back to another hour of DNN. I'm {anchor}. Tonight we go deeper than any network has gone. Literally. We dug."
+  },
+  {
+   "id": "dnd-open-42",
+   "text": "Good evening, {fort}. I'm {anchor}. We remind viewers that the screen is not a drinking vessel. Please stop trying."
+  },
+  {
+   "id": "dnd-open-43",
+   "text": "This is DNN, the voice of {civ} beneath the mountain. I'm {anchor}, and I'm told we're on. We're on? We're on."
+  },
+  {
+   "id": "dnd-open-44",
+   "text": "Good evening. I'm {anchor}. Before we begin, {citizen} would like everyone to know they did not take the last plump helmet."
+  },
+  {
+   "id": "dnd-open-45",
+   "text": "From the studio to your stockpile, this is DNN. I'm {anchor}, and tonight the news is heavy enough to need a wheelbarrow."
+  }
+ ],
+ "close": [
+  {
+   "id": "dnd-close-1",
+   "text": "That's all for tonight. I'm {anchor}. Drink responsibly, haul diligently, and never trust an elf. Good night, {fort}."
+  },
+  {
+   "id": "dnd-close-2",
+   "text": "For {anchor2} and the whole DNN crew, I'm {anchor}. Good night, and mind the magma."
+  },
+  {
+   "id": "dnd-close-3",
+   "text": "That's the news. I'm {anchor}. Go to bed, all {pop} of you. Yes, you too, {citizen}."
+  },
+  {
+   "id": "dnd-close-4",
+   "text": "And that's DNN for this evening. Whatever happens tonight, we'll be here to overreact to it tomorrow."
+  },
+  {
+   "id": "dnd-close-5",
+   "text": "I'm {anchor}. Thank you for watching DNN. Please return your mugs to the tavern on the way out."
+  },
+  {
+   "id": "dnd-close-6",
+   "text": "That's our broadcast. Remember: a fortress is only as strong as its ale supply. Good night from DNN."
+  },
+  {
+   "id": "dnd-close-7",
+   "text": "From all of us at DNN, good night. And to whoever keeps moving the studio chairs: we know. We know."
+  },
+  {
+   "id": "dnd-close-8",
+   "text": "That's it for this hour. I'm {anchor}. Stay safe, stay sober-ish, and stay away from the cistern."
+  },
+  {
+   "id": "dnd-close-9",
+   "text": "Good night, {fort}. This has been DNN. If you see something strange in the caverns, see it from far away."
+  },
+  {
+   "id": "dnd-close-10",
+   "text": "I'm {anchor}, signing off. May your barrels be full and your moods be mild."
+  },
+  {
+   "id": "dnd-close-11",
+   "text": "And so ends another day in {fort}. I'm {anchor}, this was DNN, and the cat is still on the desk."
+  },
+  {
+   "id": "dnd-close-12",
+   "text": "That's the news for {month}. I'm {anchor}. Sleep well, wake early, and dig straight down only with permission."
+  },
+  {
+   "id": "dnd-close-13",
+   "text": "This has been DNN. I'm {anchor}. Tomorrow: more news, probably the same news, but louder."
+  },
+  {
+   "id": "dnd-close-14",
+   "text": "Good night from DNN. A reminder that the hospital is for the injured, not for napping. Looking at you, {citizen}."
+  },
+  {
+   "id": "dnd-close-15",
+   "text": "For DNN, I'm {anchor}. Thank you for trusting us with your evenings. We'll try to deserve it."
+  },
+  {
+   "id": "dnd-close-16",
+   "text": "That's all the time we have. {anchor2} and I will be in the tavern if anyone needs a quote."
+  },
+  {
+   "id": "dnd-close-17",
+   "text": "I'm {anchor}. This was DNN. Remember, the news is just the stuff that happened while you were hauling."
+  },
+  {
+   "id": "dnd-close-18",
+   "text": "Good night, {civ}. Good night, {fort}. And good night to the one dwarf still mining at this hour. Go home."
+  },
+  {
+   "id": "dnd-close-19",
+   "text": "That wraps up tonight's DNN. Keep your picks sharp and your gossip sharper."
+  },
+  {
+   "id": "dnd-close-20",
+   "text": "I'm {anchor}. We leave you tonight with the gentle sound of a dwarf arguing with a door. Good night."
+  },
+  {
+   "id": "dnd-close-21",
+   "text": "Thank you for watching DNN. The year is {year}, the fortress stands, and that is plenty."
+  },
+  {
+   "id": "dnd-close-22",
+   "text": "This has been DNN. Stay warm out there, and by out there we mean in here. Nobody go outside.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "dnd-close-23",
+   "text": "Good night from DNN. The rain continues on the surface. Our reporter is still standing in it. We'll check on them tomorrow.",
+   "when": [
+    "raining"
+   ]
+  },
+  {
+   "id": "dnd-close-24",
+   "text": "That's DNN for tonight. The barrels are low, so if you've been hiding a cask, now is the time to share. Good night.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnd-close-25",
+   "text": "I'm {anchor}. It was a hard day in {fort}. Hold your friends close tonight. Good night.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "dnd-close-26",
+   "text": "That's our show. It was a quiet day, which, as every dwarf knows, means something is coming. Sleep lightly.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "dnd-close-27",
+   "text": "Good night from DNN. To the newest arrivals of {fort}: welcome. Your bedroom is probably a hallway for now.",
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "dnd-close-28",
+   "text": "This has been DNN. After all these years, {fort} still stands, and so does this desk, barely. Good night.",
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "dnd-close-29",
+   "text": "I'm {anchor}. Good night to all {pop} viewers. We counted. It took a while.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "dnd-close-30",
+   "text": "That's all for DNN tonight. With food running short, we ask you to dream of roasts. Good night.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnd-close-31",
+   "text": "For {anchor2}, for the crew, and for the cats who outnumber us all, good night from DNN.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnd-close-32",
+   "text": "I'm {anchor}, and that's the way it is, deep beneath {world}. Good night."
+  },
+  {
+   "id": "dnd-close-33",
+   "text": "That's the broadcast. If you have a news tip, leave it at the depot. If you have ale, leave it with us."
+  },
+  {
+   "id": "dnd-close-34",
+   "text": "Good night from DNN. Remember: every masterpiece starts as a dwarf staring at a workshop and refusing to explain."
+  },
+  {
+   "id": "dnd-close-35",
+   "text": "I'm {anchor}. Thanks for watching. This has been DNN, and the stone will still be here in the morning."
+  }
+ ],
+ "toss": [
+  {
+   "id": "dnd-toss-1",
+   "text": "For more on this, we go live to {reporter}, who is standing by at {place}. {reporter}?"
+  },
+  {
+   "id": "dnd-toss-2",
+   "text": "Let's go to {reporter} in the field. {reporter}, what are you seeing down there?"
+  },
+  {
+   "id": "dnd-toss-3",
+   "text": "{reporter} has been on the scene for hours, and their beard has the dust to prove it. {reporter}, over to you."
+  },
+  {
+   "id": "dnd-toss-4",
+   "text": "We go now to our correspondent {reporter}, live from the {place_kind}. {reporter}, what's the mood?"
+  },
+  {
+   "id": "dnd-toss-5",
+   "text": "Joining us live from {place}, our very own {reporter}. {reporter}, can you hear us?"
+  },
+  {
+   "id": "dnd-toss-6",
+   "text": "{reporter} is standing by with the latest. {reporter}, please tell me you're not near the magma again."
+  },
+  {
+   "id": "dnd-toss-7",
+   "text": "We have a reporter on the ground. Well, under the ground. {reporter}, take it away."
+  },
+  {
+   "id": "dnd-toss-8",
+   "text": "DNN is the only network with a camera inside {place} tonight. {reporter}, what's happening?"
+  },
+  {
+   "id": "dnd-toss-9",
+   "text": "Let's check in with {reporter}, who volunteered for this assignment. That's not true, but let's check in anyway."
+  },
+  {
+   "id": "dnd-toss-10",
+   "text": "For the view from the {place_kind}, we turn to {reporter}. {reporter}?"
+  },
+  {
+   "id": "dnd-toss-11",
+   "text": "{reporter} is live at {place}, where sources say something is definitely occurring. {reporter}, what's occurring?"
+  },
+  {
+   "id": "dnd-toss-12",
+   "text": "We go live now to {reporter}. {reporter}, I'm told you have exclusive footage of a dwarf doing a thing."
+  },
+  {
+   "id": "dnd-toss-13",
+   "text": "Our field team has reached {place}. {reporter}, is it as bad as the rumours, or worse, which would be better for ratings?"
+  },
+  {
+   "id": "dnd-toss-14",
+   "text": "Let's head out to the {place_kind}, where {reporter} has been waiting patiently. {reporter}?"
+  },
+  {
+   "id": "dnd-toss-15",
+   "text": "{reporter}, you're live on DNN. Try not to wave this time."
+  },
+  {
+   "id": "dnd-toss-16",
+   "text": "To {reporter} now, reporting from {place} with a camera crew of one very confused cat."
+  },
+  {
+   "id": "dnd-toss-17",
+   "text": "Let's go live. {reporter}, you've been at {place} all day. Have you eaten? Never mind, what's the story?"
+  },
+  {
+   "id": "dnd-toss-18",
+   "text": "We turn now to {reporter} for an on-the-scene report. {reporter}, the fortress is watching."
+  },
+  {
+   "id": "dnd-toss-19",
+   "text": "For a closer look, here's {reporter}, live and, I'm told, slightly damp. {reporter}?",
+   "when": [
+    "raining"
+   ]
+  },
+  {
+   "id": "dnd-toss-20",
+   "text": "{reporter} braved the cold to bring you this report. {reporter}, can you feel your fingers?",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "dnd-toss-21",
+   "text": "{reporter} is standing by in the {place_kind}, where {guest} has agreed to speak with us. {reporter}?"
+  },
+  {
+   "id": "dnd-toss-22",
+   "text": "We go now to {reporter}, who has tracked down {guest} for an exclusive. {reporter}, over to you."
+  },
+  {
+   "id": "dnd-toss-23",
+   "text": "{reporter} joins us from {place}. {reporter}, is it true {guest} is right there with you?"
+  },
+  {
+   "id": "dnd-toss-24",
+   "text": "Let's go to {reporter}. I'm told {guest} has some thoughts, and {guest} always has some thoughts."
+  },
+  {
+   "id": "dnd-toss-25",
+   "text": "And now to the field. {reporter}, what's the story at {place} tonight?"
+  },
+  {
+   "id": "dnd-toss-26",
+   "text": "To {reporter} now. {reporter}, I'm told the {place_kind} is packed. Is there room for one more camera?"
+  },
+  {
+   "id": "dnd-toss-27",
+   "text": "Live from {place}, it's {reporter}. {reporter}, our viewers want to know: is the ale good there?"
+  },
+  {
+   "id": "dnd-toss-28",
+   "text": "Time to go to {reporter}, who insisted on reporting from the {place_kind} because it was closer to their bed."
+  },
+  {
+   "id": "dnd-toss-29",
+   "text": "We go live now to {reporter} at {place}. {reporter}, you look tired. That's journalism."
+  },
+  {
+   "id": "dnd-toss-30",
+   "text": "Over to {reporter}, who I'm told has been interviewing furniture while waiting for us. {reporter}?"
+  },
+  {
+   "id": "dnd-toss-31",
+   "text": "Let's bring in {reporter} at {place}. {reporter}, we lost you earlier. Do we have you now? We have you."
+  },
+  {
+   "id": "dnd-toss-32",
+   "text": "{reporter} is on location in {fort} with the latest. {reporter}, go ahead."
+  },
+  {
+   "id": "dnd-toss-33",
+   "text": "Let's toss it out to {reporter}. {reporter}, tell the fortress what you've found."
+  },
+  {
+   "id": "dnd-toss-34",
+   "text": "Now let's check in with our field correspondent. {reporter}, are you standing in something?"
+  },
+  {
+   "id": "dnd-toss-35",
+   "text": "Our {reporter} has spent the morning at {place} so you don't have to. {reporter}?"
+  },
+  {
+   "id": "dnd-toss-36",
+   "text": "We go to {reporter} now, live and as close to the action as the guards allow."
+  },
+  {
+   "id": "dnd-toss-37",
+   "text": "{anchor2} and I have been dying to hear from {reporter} all hour. {reporter}, make it worth it."
+  },
+  {
+   "id": "dnd-toss-38",
+   "text": "Let's go to the scene. {reporter}, describe it for our viewers in the dining hall who are pretending not to watch."
+  },
+  {
+   "id": "dnd-toss-39",
+   "text": "{reporter} is live at {place}, a {place_kind} that has never once been in the news until tonight. {reporter}?"
+  },
+  {
+   "id": "dnd-toss-40",
+   "text": "To the field now. {reporter}, I'm told the cats got there before you. Is that right?"
+  },
+  {
+   "id": "dnd-toss-41",
+   "text": "Let's go out to {reporter}, who has been at {place} since before the last migrant wave arrived."
+  },
+  {
+   "id": "dnd-toss-42",
+   "text": "{reporter}, we're coming to you live. Try to look like you meant to be there."
+  },
+  {
+   "id": "dnd-toss-43",
+   "text": "For a sense of what life is like right now in {fort}, here's {reporter} at {place}."
+  },
+  {
+   "id": "dnd-toss-44",
+   "text": "We go to {reporter} now. {reporter}, quickly please, the noble wants the screen back in an hour."
+  },
+  {
+   "id": "dnd-toss-45",
+   "text": "{reporter}, you're on DNN. What's the latest from the {place_kind}?",
+   "when": [
+    "peace"
+   ]
+  }
+ ],
+ "toss_back": [
+  {
+   "id": "dnd-tossback-1",
+   "text": "That's the scene here at {place}. Back to you, {anchor}."
+  },
+  {
+   "id": "dnd-tossback-2",
+   "text": "Reporting live from the {place_kind}, I'm {reporter}. {anchor}, back to you in the studio."
+  },
+  {
+   "id": "dnd-tossback-3",
+   "text": "That's all from {place} for now. {anchor}, I'm going to go stand somewhere drier."
+  },
+  {
+   "id": "dnd-tossback-4",
+   "text": "I'm {reporter}, live at {place}. {anchor}, back to you, and please send ale."
+  },
+  {
+   "id": "dnd-tossback-5",
+   "text": "And that's the latest. {anchor}, I'll keep watching the {place_kind}. Someone has to."
+  },
+  {
+   "id": "dnd-tossback-6",
+   "text": "Back to you, {anchor}. I think I've been here so long I'm part of the {place_kind} now."
+  },
+  {
+   "id": "dnd-tossback-7",
+   "text": "For DNN, I'm {reporter}. {anchor}, back to the desk."
+  },
+  {
+   "id": "dnd-tossback-8",
+   "text": "That's what we know so far. {anchor}, we'll update you the moment something else happens, or nothing does."
+  },
+  {
+   "id": "dnd-tossback-9",
+   "text": "I'm {reporter} at {place}. Back to you, {anchor}, and I'd like it noted I stayed on camera the whole time."
+  },
+  {
+   "id": "dnd-tossback-10",
+   "text": "Thank you, {guest}. And thank you for watching. {anchor}, back to you."
+  },
+  {
+   "id": "dnd-tossback-11",
+   "text": "{guest} has gone back to work, and so will I. {anchor}?"
+  },
+  {
+   "id": "dnd-tossback-12",
+   "text": "That was {guest}, a true voice of {fort}. Back to you, {anchor}."
+  },
+  {
+   "id": "dnd-tossback-13",
+   "text": "I'm {reporter}, and that's the view from {place}. {anchor}?"
+  },
+  {
+   "id": "dnd-tossback-14",
+   "text": "Back to you, {anchor}. I believe the cat behind me would also like to say back to you."
+  },
+  {
+   "id": "dnd-tossback-15",
+   "text": "That's the report. {anchor}, I'd like to request a transfer to the tavern beat. Back to you."
+  },
+  {
+   "id": "dnd-tossback-16",
+   "text": "From the {place_kind}, I'm {reporter}. {anchor}, over to you."
+  },
+  {
+   "id": "dnd-tossback-17",
+   "text": "{anchor}, that's all we've got. The crowd here is dispersing, which means they've noticed the camera."
+  },
+  {
+   "id": "dnd-tossback-18",
+   "text": "And with that, back to {anchor} at the desk, where I assume it's warmer."
+  },
+  {
+   "id": "dnd-tossback-19",
+   "text": "That wraps it up from {place}. {anchor}, back to you, and I'll be hauling the camera home myself."
+  },
+  {
+   "id": "dnd-tossback-20",
+   "text": "I'm {reporter}, soaked but committed. Back to you, {anchor}.",
+   "when": [
+    "raining"
+   ]
+  },
+  {
+   "id": "dnd-tossback-21",
+   "text": "I'm {reporter}, and my beard is frozen. Back to you, {anchor}.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "dnd-tossback-22",
+   "text": "That's the latest from {place}. Back to you, {anchor}, and please, someone tell {anchor2} to stop waving at me."
+  },
+  {
+   "id": "dnd-tossback-23",
+   "text": "Back to the studio. {anchor}, I'll be here if anything else happens, or if they start serving dinner."
+  },
+  {
+   "id": "dnd-tossback-24",
+   "text": "I'm {reporter} for DNN. {anchor}, back to you."
+  },
+  {
+   "id": "dnd-tossback-25",
+   "text": "That's our story. {anchor}, I was told there'd be a stool. There was no stool. Back to you."
+  },
+  {
+   "id": "dnd-tossback-26",
+   "text": "{anchor}, the {place_kind} is calm, the dwarves are busy, and I am out of questions. Back to you."
+  },
+  {
+   "id": "dnd-tossback-27",
+   "text": "Reporting from {place}, this has been {reporter}. Over to you, {anchor}."
+  },
+  {
+   "id": "dnd-tossback-28",
+   "text": "Back to you, {anchor}. And to everyone at {place}: thanks for not throwing anything."
+  },
+  {
+   "id": "dnd-tossback-29",
+   "text": "That's all from here. {anchor}, back to you, and remind the crew I'm still down here."
+  },
+  {
+   "id": "dnd-tossback-30",
+   "text": "Live from {place}, I'm {reporter}. {anchor}, I'm going to need to borrow a mug."
+  },
+  {
+   "id": "dnd-tossback-31",
+   "text": "That's the report from the {place_kind}. {anchor}, from what I've seen, {fort} is doing just fine. Back to you.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "dnd-tossback-32",
+   "text": "I'm {reporter}. It's been a heavy day here, {anchor}. Back to you.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "dnd-tossback-33",
+   "text": "{anchor}, I'm being told by a guard I need to move. So I'll be moving. Back to you."
+  },
+  {
+   "id": "dnd-tossback-34",
+   "text": "And that's the scene. {anchor}, I think {guest} wants to be a regular now. Back to you."
+  },
+  {
+   "id": "dnd-tossback-35",
+   "text": "I'm {reporter}, and that's the news from {place}. Back to you, {anchor}, and good luck with the next story."
+  }
+ ],
+ "banter": [
+  {
+   "id": "dnd-banter-1",
+   "a": "{anchor2}, did you see the dining hall this morning?",
+   "b": "I did. Someone carved a masterwork table and then ate off the floor anyway."
+  },
+  {
+   "id": "dnd-banter-2",
+   "a": "I'm told the tavern has a new drink.",
+   "b": "It's the same drink, {anchor}. They just put it in a different barrel."
+  },
+  {
+   "id": "dnd-banter-3",
+   "a": "{anchor2}, any plans for the weekend?",
+   "b": "Dwarves don't have weekends, {anchor}. I'll be hauling stone and crying quietly."
+  },
+  {
+   "id": "dnd-banter-4",
+   "a": "I see a cat has joined us on the desk again.",
+   "b": "That's not a cat, that's management."
+  },
+  {
+   "id": "dnd-banter-5",
+   "a": "{anchor2}, have you been to the new hospital wing?",
+   "b": "I have. Lovely beds. Shame about the screaming."
+  },
+  {
+   "id": "dnd-banter-6",
+   "a": "How's your beard, {anchor2}?",
+   "b": "Majestic. Thank you for asking. Nobody ever asks."
+  },
+  {
+   "id": "dnd-banter-7",
+   "a": "Did you hear {citizen} tried to befriend an elf caravan?",
+   "b": "I heard. {citizen} now has a wooden mug and a deep sense of regret."
+  },
+  {
+   "id": "dnd-banter-8",
+   "a": "{anchor2}, would you ever take a strange mood?",
+   "b": "If I did, you'd be the first dwarf I'd demand bones from."
+  },
+  {
+   "id": "dnd-banter-9",
+   "a": "I see we've had migrants again.",
+   "b": "Wonderful. More dwarves to sleep in the corridors."
+  },
+  {
+   "id": "dnd-banter-10",
+   "a": "{anchor2}, what's your favourite stone?",
+   "b": "Microcline. Don't make me say why on live television."
+  },
+  {
+   "id": "dnd-banter-11",
+   "a": "The noble issued another mandate today.",
+   "b": "Let me guess. Something we've never heard of, made of something we don't have."
+  },
+  {
+   "id": "dnd-banter-12",
+   "a": "Have you tried the plump helmet roast?",
+   "b": "Tried it, loved it, wrote it a short poem."
+  },
+  {
+   "id": "dnd-banter-13",
+   "a": "{anchor2}, the ale supply is looking thin.",
+   "b": "I've noticed. My hands have noticed. My whole personality has noticed.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnd-banter-14",
+   "a": "Big stockpile of ale this season.",
+   "b": "Best news we've reported all year, and I include the artifact.",
+   "when": [
+    "drinks_high"
+   ]
+  },
+  {
+   "id": "dnd-banter-15",
+   "a": "I think the carp in the river are getting bolder.",
+   "b": "I think the carp in the river have always been bold. We just got softer."
+  },
+  {
+   "id": "dnd-banter-16",
+   "a": "{anchor2}, you seem quiet tonight.",
+   "b": "I'm saving my energy for the crossfire segment. Someone's going to say something wrong."
+  },
+  {
+   "id": "dnd-banter-17",
+   "a": "How many cats do we have now?",
+   "b": "Too many to count and too few to stop.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnd-banter-18",
+   "a": "{anchor2}, quick question: who let the goat in the studio?",
+   "b": "That's my goat. Next question."
+  },
+  {
+   "id": "dnd-banter-19",
+   "a": "I heard {citizen} and {citizen2} had a falling-out.",
+   "b": "Over a sock. A single sock. It was a very good sock."
+  },
+  {
+   "id": "dnd-banter-20",
+   "a": "Do you ever think about the surface?",
+   "b": "Once. Then I had a lie down."
+  },
+  {
+   "id": "dnd-banter-21",
+   "a": "{anchor2}, it's raining on the surface.",
+   "b": "Good. Let it rain. We have roofs, and the roofs are mountains.",
+   "when": [
+    "raining"
+   ]
+  },
+  {
+   "id": "dnd-banter-22",
+   "a": "Snow again up top.",
+   "b": "I'll put it in my diary, right under 'Did not go outside.'",
+   "when": [
+    "snowing"
+   ]
+  },
+  {
+   "id": "dnd-banter-23",
+   "a": "{anchor2}, you were late to the desk today.",
+   "b": "I was stuck behind a dwarf carrying one pebble very slowly."
+  },
+  {
+   "id": "dnd-banter-24",
+   "a": "Lovely craftsmanship on your mug.",
+   "b": "Thank you. It's decorated with an image of the mug itself."
+  },
+  {
+   "id": "dnd-banter-25",
+   "a": "Any word from the mountainhome?",
+   "b": "Only that they love us and would like more taxes."
+  },
+  {
+   "id": "dnd-banter-26",
+   "a": "{anchor2}, have you seen the new engraving in the hallway?",
+   "b": "Yes, it's a picture of a dwarf looking at an engraving. Very meta."
+  },
+  {
+   "id": "dnd-banter-27",
+   "a": "It was a tough day for the fortress.",
+   "b": "It was. Let's be gentle with each other tonight.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "dnd-banter-28",
+   "a": "Nothing has gone wrong all week.",
+   "b": "Please stop saying that out loud.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "dnd-banter-29",
+   "a": "I'm told the depot is busy today.",
+   "b": "Every caravan wants our crafts and nobody wants our opinions."
+  },
+  {
+   "id": "dnd-banter-30",
+   "a": "{anchor2}, if you were an animal, what would you be?",
+   "b": "A cat, obviously. Sleep on things, ignore nobles, get fed."
+  },
+  {
+   "id": "dnd-banter-31",
+   "a": "Have you visited the temple lately?",
+   "b": "I went to pray. Mostly I napped. The gods understand."
+  },
+  {
+   "id": "dnd-banter-32",
+   "a": "How's the food situation?",
+   "b": "Let's just say I'm eyeing the studio cat with new interest.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnd-banter-33",
+   "a": "The larder is overflowing.",
+   "b": "That's what I like to hear. Eat a roast, be a roast.",
+   "when": [
+    "food_high"
+   ]
+  },
+  {
+   "id": "dnd-banter-34",
+   "a": "{anchor2}, did you get your new bedroom?",
+   "b": "I did. It's a beautiful room with no door, no bed, and a lot of rock."
+  },
+  {
+   "id": "dnd-banter-35",
+   "a": "Another baby was born this week.",
+   "b": "That makes the dining hall even louder. Congratulations to all, apologies to my ears."
+  },
+  {
+   "id": "dnd-banter-36",
+   "a": "Do you think the elves watch DNN?",
+   "b": "I hope so. I hope they're very upset."
+  },
+  {
+   "id": "dnd-banter-37",
+   "a": "{anchor2}, what do you think of the new militia captain?",
+   "b": "Very brave. Shouts a lot. Mostly at doors."
+  },
+  {
+   "id": "dnd-banter-38",
+   "a": "The miners struck a new vein of ore.",
+   "b": "And by struck, they mean they tripped on it."
+  },
+  {
+   "id": "dnd-banter-39",
+   "a": "We are so small a fortress right now.",
+   "b": "Cosy, {anchor}. The word you're looking for is cosy.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "dnd-banter-40",
+   "a": "This fortress is enormous now.",
+   "b": "I passed a dwarf in the hall today I have never seen in my life.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "dnd-banter-41",
+   "a": "{anchor2}, spring has arrived.",
+   "b": "I'll mark the occasion by staying exactly where I am.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "dnd-banter-42",
+   "a": "Hot one up top this summer.",
+   "b": "I'll take your word for it. I've never seen the sun and I'm proud of it.",
+   "when": [
+    "summer"
+   ]
+  },
+  {
+   "id": "dnd-banter-43",
+   "a": "Leaves are falling on the surface.",
+   "b": "The elves must be devastated. Lovely.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "dnd-banter-44",
+   "a": "It's winter again, {anchor2}.",
+   "b": "Good. The rivers freeze, the carp sleep, and I finally relax.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "dnd-banter-45",
+   "a": "Do you ever dream about magma, {anchor2}?",
+   "b": "Every night. It's warm, it's orange, and it never asks me to do paperwork."
+  },
+  {
+   "id": "dnd-banter-46",
+   "a": "I heard the bookkeeper is behind.",
+   "b": "The bookkeeper is always behind. That's what makes them a bookkeeper."
+  },
+  {
+   "id": "dnd-banter-47",
+   "a": "{anchor2}, the mayor wants an interview.",
+   "b": "Tell them we're busy. Tell them we've always been busy."
+  },
+  {
+   "id": "dnd-banter-48",
+   "a": "How old do you think this fortress is now?",
+   "b": "Old enough to have a haunted hallway, young enough to argue about it.",
+   "when": [
+    "old_fort"
+   ]
+  },
+  {
+   "id": "dnd-banter-49",
+   "a": "We barely have walls yet.",
+   "b": "Walls are a state of mind, {anchor}.",
+   "when": [
+    "young_fort"
+   ]
+  },
+  {
+   "id": "dnd-banter-50",
+   "a": "I saw {citizen} sparring in the barracks today.",
+   "b": "{citizen} lost to a training dummy. The dummy has filed a complaint."
+  },
+  {
+   "id": "dnd-banter-51",
+   "a": "{anchor2}, you have something on your beard.",
+   "b": "That's dinner. I'm saving it for later."
+  },
+  {
+   "id": "dnd-banter-52",
+   "a": "Did anyone clean the studio?",
+   "b": "I'm told the cats did, in their own way."
+  },
+  {
+   "id": "dnd-banter-53",
+   "a": "{anchor2}, what's the most dwarven thing you did today?",
+   "b": "Drank, dug, argued, drank again. A perfect circle."
+  },
+  {
+   "id": "dnd-banter-54",
+   "a": "I've been told there's a forgotten beast in the caverns.",
+   "b": "Then I suggest we continue to forget it."
+  },
+  {
+   "id": "dnd-banter-55",
+   "a": "They're building a new statue in the hall.",
+   "b": "Let me guess. It's of the noble, and the noble paid for it with our socks."
+  },
+  {
+   "id": "dnd-banter-56",
+   "a": "The engravers did a portrait of you, {anchor}.",
+   "b": "It's very flattering. You're surrounded by cheese."
+  },
+  {
+   "id": "dnd-banter-57",
+   "a": "Did {citizen2} really drink an entire barrel?",
+   "b": "Allegedly. DNN cannot confirm, but the barrel is empty and {citizen2} is singing."
+  },
+  {
+   "id": "dnd-banter-58",
+   "a": "I think the newsroom needs a door.",
+   "b": "Doors are for fortresses with secrets, {anchor}. We are journalists."
+  },
+  {
+   "id": "dnd-banter-59",
+   "a": "Our ratings are up this week.",
+   "b": "That's because the tavern screen is the only lit thing in the room."
+  },
+  {
+   "id": "dnd-banter-60",
+   "a": "{anchor2}, any final thoughts before the break?",
+   "b": "Yes. Check on your friends, hug a cat, and hide the good ale."
+  }
+ ],
+ "bumper": [
+  {
+   "id": "dnd-bumper-1",
+   "text": "DNN will be right back after these messages from the tavern."
+  },
+  {
+   "id": "dnd-bumper-2",
+   "text": "Stay with us. More news from {fort} after the break."
+  },
+  {
+   "id": "dnd-bumper-3",
+   "text": "Don't touch that lever. DNN returns in a moment."
+  },
+  {
+   "id": "dnd-bumper-4",
+   "text": "We'll be right back. Please use this time to refill your mug."
+  },
+  {
+   "id": "dnd-bumper-5",
+   "text": "DNN: we dig so you don't have to. Back in a moment."
+  },
+  {
+   "id": "dnd-bumper-6",
+   "text": "Stick around. There's more news, and possibly more cats."
+  },
+  {
+   "id": "dnd-bumper-7",
+   "text": "We'll be right back after a word from our sponsor, the ale stockpile."
+  },
+  {
+   "id": "dnd-bumper-8",
+   "text": "You're watching DNN, live from {fort}. Stay tuned."
+  },
+  {
+   "id": "dnd-bumper-9",
+   "text": "Back after the break. Haulers, this is your cue to haul."
+  },
+  {
+   "id": "dnd-bumper-10",
+   "text": "DNN. Trusted by dwarves. Ignored by elves. Back in a moment."
+  },
+  {
+   "id": "dnd-bumper-11",
+   "text": "We'll return shortly. Please do not lick the screen."
+  },
+  {
+   "id": "dnd-bumper-12",
+   "text": "Stay tuned: the news continues right after this."
+  },
+  {
+   "id": "dnd-bumper-13",
+   "text": "More DNN after this. {citizen}, if you're watching, your forge is still lit."
+  },
+  {
+   "id": "dnd-bumper-14",
+   "text": "Hold that thought, and hold that mug. DNN is back in a moment."
+  },
+  {
+   "id": "dnd-bumper-15",
+   "text": "We'll be right back with more from {fort}, {month}, {year}."
+  },
+  {
+   "id": "dnd-bumper-16",
+   "text": "Don't go anywhere. Not that there's anywhere to go. We're underground."
+  },
+  {
+   "id": "dnd-bumper-17",
+   "text": "DNN: Deep News for Deep Dwarves. Back after this."
+  },
+  {
+   "id": "dnd-bumper-18",
+   "text": "Stay with us. The noble has asked that we mention the noble. There. Back soon."
+  },
+  {
+   "id": "dnd-bumper-19",
+   "text": "You are watching DNN. Remember to drink, rest, and occasionally look at a wall."
+  },
+  {
+   "id": "dnd-bumper-20",
+   "text": "We'll be back after this short break, assuming nothing explodes."
+  },
+  {
+   "id": "dnd-bumper-21",
+   "text": "Coming right back. Grab a roast, pet a cat, ignore your chores."
+  },
+  {
+   "id": "dnd-bumper-22",
+   "text": "This is DNN. We'll be right back, rain or shine, mostly rain.",
+   "when": [
+    "raining"
+   ]
+  },
+  {
+   "id": "dnd-bumper-23",
+   "text": "DNN will return shortly. Please stay warm, and stay inside.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "dnd-bumper-24",
+   "text": "Back in a moment. If you're near the ale, check if there's any left. There isn't.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnd-bumper-25",
+   "text": "Stay with us, {fort}. We'll be right back."
+  },
+  {
+   "id": "dnd-bumper-26",
+   "text": "More DNN coming up. In the meantime, please return any borrowed picks."
+  },
+  {
+   "id": "dnd-bumper-27",
+   "text": "We'll be right back. Our anchors need a drink. So do you."
+  },
+  {
+   "id": "dnd-bumper-28",
+   "text": "DNN, the voice of {civ} beneath the stone. Back after this."
+  },
+  {
+   "id": "dnd-bumper-29",
+   "text": "Stay tuned for more news, more weather, and more shouting."
+  },
+  {
+   "id": "dnd-bumper-30",
+   "text": "We'll be right back. The cat on the desk has requested a short break."
+  },
+  {
+   "id": "dnd-bumper-31",
+   "text": "Don't change the channel. There is only one channel."
+  },
+  {
+   "id": "dnd-bumper-32",
+   "text": "Back after the break. Miners, please mine quietly."
+  },
+  {
+   "id": "dnd-bumper-33",
+   "text": "DNN will return after a brief pause for a dwarf to walk past the camera."
+  },
+  {
+   "id": "dnd-bumper-34",
+   "text": "We'll be right back. Stay calm, it's a peaceful day. Suspiciously peaceful.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "dnd-bumper-35",
+   "text": "Stay with us. Breaking news can break at any moment, often at the worst one."
+  },
+  {
+   "id": "dnd-bumper-36",
+   "text": "Back in a jiffy. A dwarven jiffy, which is about one season."
+  },
+  {
+   "id": "dnd-bumper-37",
+   "text": "We'll be right back with the rest of tonight's news."
+  },
+  {
+   "id": "dnd-bumper-38",
+   "text": "DNN: news carved fresh daily. Back in a moment."
+  },
+  {
+   "id": "dnd-bumper-39",
+   "text": "Take a breath, take a sip, and take a seat. DNN is back shortly."
+  },
+  {
+   "id": "dnd-bumper-40",
+   "text": "We'll return shortly. Somebody please feed the studio cat before it eats the studio.",
+   "when": [
+    "food_low"
+   ]
+  }
+ ],
+ "promo": [
+  {
+   "id": "dnd-promo-1",
+   "text": "Coming up after the break: the Ale Index, and why it's making grown dwarves weep."
+  },
+  {
+   "id": "dnd-promo-2",
+   "text": "Still ahead: a dwarf, a workshop, and a mood nobody saw coming."
+  },
+  {
+   "id": "dnd-promo-3",
+   "text": "After the break: is your cat plotting against you? Experts say probably."
+  },
+  {
+   "id": "dnd-promo-4",
+   "text": "Coming up: we ask the hard questions about the depot. Mostly, why is it like that."
+  },
+  {
+   "id": "dnd-promo-5",
+   "text": "Next on DNN: the weather on the surface, a place none of us intend to visit."
+  },
+  {
+   "id": "dnd-promo-6",
+   "text": "Stay with us: we'll go live to the field, where our reporter is standing near something."
+  },
+  {
+   "id": "dnd-promo-7",
+   "text": "Coming up: elves. Why? We'll explain, and then we'll shout about it."
+  },
+  {
+   "id": "dnd-promo-8",
+   "text": "After the break: crossfire. Two pundits, one topic, zero agreement."
+  },
+  {
+   "id": "dnd-promo-9",
+   "text": "Later this hour: an exclusive interview with {citizen}, who has a lot to say about socks."
+  },
+  {
+   "id": "dnd-promo-10",
+   "text": "Coming up next: the sports desk, featuring the fortress's most competitive hauling."
+  },
+  {
+   "id": "dnd-promo-11",
+   "text": "Still to come: the trade desk, and what that caravan really thinks of our crafts."
+  },
+  {
+   "id": "dnd-promo-12",
+   "text": "After the break: the works desk checks in on the biggest building project since the last one."
+  },
+  {
+   "id": "dnd-promo-13",
+   "text": "Stay tuned: {citizen} and {citizen2}, a feud for the ages. Or for the afternoon."
+  },
+  {
+   "id": "dnd-promo-14",
+   "text": "Coming up: is the hospital full? We'll check, quietly."
+  },
+  {
+   "id": "dnd-promo-15",
+   "text": "Still ahead on DNN: the world desk, and news from beyond the mountain."
+  },
+  {
+   "id": "dnd-promo-16",
+   "text": "After this: the noble's latest mandate, explained by someone who doesn't understand it either."
+  },
+  {
+   "id": "dnd-promo-17",
+   "text": "Next: what does the year {year} hold for {fort}? Our pundits guess loudly."
+  },
+  {
+   "id": "dnd-promo-18",
+   "text": "Coming up after the break: why is the river full of carp, and why are they looking at us?"
+  },
+  {
+   "id": "dnd-promo-19",
+   "text": "Still to come: a heartwarming tale of a dwarf and the barrel that loved them."
+  },
+  {
+   "id": "dnd-promo-20",
+   "text": "After the break: we visit the tavern. For research."
+  },
+  {
+   "id": "dnd-promo-21",
+   "text": "Coming up: the cat census. Brace yourselves.",
+   "when": [
+    "cats_many"
+   ]
+  },
+  {
+   "id": "dnd-promo-22",
+   "text": "Next on DNN: the drink shortage. What it means for you, and for your mood.",
+   "when": [
+    "drinks_low"
+   ]
+  },
+  {
+   "id": "dnd-promo-23",
+   "text": "After the break: the food crisis, and the dwarves still smiling through it. Somehow.",
+   "when": [
+    "food_low"
+   ]
+  },
+  {
+   "id": "dnd-promo-24",
+   "text": "Still ahead: rain on the surface, and the farmer who refuses to come back inside.",
+   "when": [
+    "raining"
+   ]
+  },
+  {
+   "id": "dnd-promo-25",
+   "text": "Coming up: snow. Lots of it. Up there. Not down here. Still, we'll talk about it.",
+   "when": [
+    "snowing"
+   ]
+  },
+  {
+   "id": "dnd-promo-26",
+   "text": "After the break: winter preparations, and why you should stop drinking the cistern.",
+   "when": [
+    "winter"
+   ]
+  },
+  {
+   "id": "dnd-promo-27",
+   "text": "Coming up: spring planting, featuring a farmer with strong opinions about mud.",
+   "when": [
+    "spring"
+   ]
+  },
+  {
+   "id": "dnd-promo-28",
+   "text": "After the break: is the caravan season coming? Our sources at the depot say yes, loudly.",
+   "when": [
+    "autumn"
+   ]
+  },
+  {
+   "id": "dnd-promo-29",
+   "text": "Still to come: a look back at how {fort} grew to {pop} dwarves, and where we put them all.",
+   "when": [
+    "pop_big"
+   ]
+  },
+  {
+   "id": "dnd-promo-30",
+   "text": "Coming up: a fortress of just {pop}. We meet every single one of them. Well, most.",
+   "when": [
+    "pop_small"
+   ]
+  },
+  {
+   "id": "dnd-promo-31",
+   "text": "After the break: a quiet week in {fort}. Our pundits say it's the calm before the storm.",
+   "when": [
+    "peace"
+   ]
+  },
+  {
+   "id": "dnd-promo-32",
+   "text": "Still ahead: remembering a friend, and the stories they left behind.",
+   "when": [
+    "recent_death"
+   ]
+  },
+  {
+   "id": "dnd-promo-33",
+   "text": "Coming up: the ins and outs of the dining hall seating plan. It's political."
+  },
+  {
+   "id": "dnd-promo-34",
+   "text": "After the break: how to tell if a dwarf is in a mood, and how to run away politely."
+  },
+  {
+   "id": "dnd-promo-35",
+   "text": "Stay with us for more from {fort}, including the story everyone's whispering about."
+  },
+  {
+   "id": "dnd-promo-36",
+   "text": "Coming up: the militia trains hard, and the training dummies take it personally."
+  },
+  {
+   "id": "dnd-promo-37",
+   "text": "After the break: the mysterious hallway noise. Is it a ghost, a cat, or {citizen}?"
+  },
+  {
+   "id": "dnd-promo-38",
+   "text": "Coming up next: the bookkeeper's report, and why nobody believes it."
+  },
+  {
+   "id": "dnd-promo-39",
+   "text": "Still to come: a forgotten beast sighting, or possibly just a very large shadow."
+  },
+  {
+   "id": "dnd-promo-40",
+   "text": "After the break: the season of {season} in review, by dwarves who barely noticed it."
+  }
+ ],
+ "segment": {
+  "markets": [
+   {
+    "id": "dnd-seg-markets-1",
+    "text": "And now, the markets. Let's see how the stockpiles are doing, and whether to panic."
+   },
+   {
+    "id": "dnd-seg-markets-2",
+    "text": "Time for the Ale Index, the only number in {fort} that truly matters."
+   },
+   {
+    "id": "dnd-seg-markets-3",
+    "text": "Let's check in on the stockpile markets. Brace your mugs."
+   },
+   {
+    "id": "dnd-seg-markets-4",
+    "text": "Now to business. Here are today's numbers from the fortress stockpiles."
+   },
+   {
+    "id": "dnd-seg-markets-5",
+    "text": "Turning to the markets: the barrels have spoken, and they have opinions."
+   },
+   {
+    "id": "dnd-seg-markets-6",
+    "text": "Our markets desk has been counting all day. Let's see what they found."
+   },
+   {
+    "id": "dnd-seg-markets-7",
+    "text": "And now the markets report. Viewers with weak hearts may want to look away.",
+    "when": [
+     "drinks_low"
+    ]
+   },
+   {
+    "id": "dnd-seg-markets-8",
+    "text": "Time for the markets, and good news for once: the barrels are full.",
+    "when": [
+     "drinks_high"
+    ]
+   },
+   {
+    "id": "dnd-seg-markets-9",
+    "text": "Let's look at the larder. It's grim. We're doing it anyway.",
+    "when": [
+     "food_low"
+    ]
+   },
+   {
+    "id": "dnd-seg-markets-10",
+    "text": "Now, the market numbers. Cat futures continue to soar.",
+    "when": [
+     "cats_many"
+    ]
+   },
+   {
+    "id": "dnd-seg-markets-11",
+    "text": "Here's the stockpile report, brought to you by the dwarves who actually haul things."
+   },
+   {
+    "id": "dnd-seg-markets-12",
+    "text": "On to the markets, where every gem, bar and barrel is counted, twice, by a nervous bookkeeper."
+   }
+  ],
+  "weather": [
+   {
+    "id": "dnd-seg-weather-1",
+    "text": "Let's check the weather on the surface, not that any of us are going up there."
+   },
+   {
+    "id": "dnd-seg-weather-2",
+    "text": "Now to the weather desk, where it's {weather} up top and stone down here."
+   },
+   {
+    "id": "dnd-seg-weather-3",
+    "text": "Time for the weather. It's {weather} outside. Inside, it's a perfect fortress day."
+   },
+   {
+    "id": "dnd-seg-weather-4",
+    "text": "And now the forecast for the surface, a place known for its unpredictable sky."
+   },
+   {
+    "id": "dnd-seg-weather-5",
+    "text": "Let's see what the sky is doing. The sky, for our younger viewers, is the big ceiling outside."
+   },
+   {
+    "id": "dnd-seg-weather-6",
+    "text": "Here's the weather. Farmers and woodcutters, listen up. Everyone else, carry on drinking."
+   },
+   {
+    "id": "dnd-seg-weather-7",
+    "text": "It's raining on the surface, so let's go to the weather desk for the soggy details.",
+    "when": [
+     "raining"
+    ]
+   },
+   {
+    "id": "dnd-seg-weather-8",
+    "text": "Snow on the surface again. Here's the weather desk to tell us how much we won't be shovelling.",
+    "when": [
+     "snowing"
+    ]
+   },
+   {
+    "id": "dnd-seg-weather-9",
+    "text": "Clear skies up top. Let's go to the weather desk, who is suspicious of it.",
+    "when": [
+     "clear"
+    ]
+   },
+   {
+    "id": "dnd-seg-weather-10",
+    "text": "Winter has a grip on the surface. Here's the forecast.",
+    "when": [
+     "winter"
+    ]
+   },
+   {
+    "id": "dnd-seg-weather-11",
+    "text": "Summer weather update now, for anyone foolish enough to stand in the sun.",
+    "when": [
+     "summer"
+    ]
+   },
+   {
+    "id": "dnd-seg-weather-12",
+    "text": "And now the weather, for the three dwarves who actually go outside."
+   }
+  ],
+  "sports": [
+   {
+    "id": "dnd-seg-sports-1",
+    "text": "Now to sports, where the sparring ring has been busy and the hospital busier."
+   },
+   {
+    "id": "dnd-seg-sports-2",
+    "text": "Time for the sports desk. Wrestling, dodging, and competitive hauling, all ahead."
+   },
+   {
+    "id": "dnd-seg-sports-3",
+    "text": "Let's go to sports. Tonight, the barracks have something to prove."
+   },
+   {
+    "id": "dnd-seg-sports-4",
+    "text": "And now the sports report. Who's punching whom in {fort} this week?"
+   },
+   {
+    "id": "dnd-seg-sports-5",
+    "text": "It's sports time. Grab a mug and pick a side."
+   },
+   {
+    "id": "dnd-seg-sports-6",
+    "text": "Turning to the sports desk, where the training dummies are once again undefeated."
+   },
+   {
+    "id": "dnd-seg-sports-7",
+    "text": "Now the sports roundup. The hauling league standings have shifted dramatically."
+   },
+   {
+    "id": "dnd-seg-sports-8",
+    "text": "Here's sports. Remember, in the sparring ring, everyone is a champion until they are not."
+   },
+   {
+    "id": "dnd-seg-sports-9",
+    "text": "Let's check the sports news, sponsored by the bonesetter."
+   },
+   {
+    "id": "dnd-seg-sports-10",
+    "text": "On to sports. Our sports desk has been waiting all day and has already had three ales."
+   },
+   {
+    "id": "dnd-seg-sports-11",
+    "text": "Sports now. A quiet week means more time for training, and more time for bragging.",
+    "when": [
+     "peace"
+    ]
+   },
+   {
+    "id": "dnd-seg-sports-12",
+    "text": "And now to the sports desk, where the {season} season is in full swing."
+   }
+  ],
+  "world": [
+   {
+    "id": "dnd-seg-world-1",
+    "text": "Let's turn to the world desk for news from beyond the mountain."
+   },
+   {
+    "id": "dnd-seg-world-2",
+    "text": "Now, the world. What are the elves, goblins and humans up to? Nothing good, presumably."
+   },
+   {
+    "id": "dnd-seg-world-3",
+    "text": "Time for world news. Here's what's happening in {world} while we were busy digging."
+   },
+   {
+    "id": "dnd-seg-world-4",
+    "text": "And now our world desk, with news from {civ} and everyone else."
+   },
+   {
+    "id": "dnd-seg-world-5",
+    "text": "Let's look abroad. Our world correspondent has spoken to some caravan guards."
+   },
+   {
+    "id": "dnd-seg-world-6",
+    "text": "Here's the world report, bringing you news from places you'll never visit."
+   },
+   {
+    "id": "dnd-seg-world-7",
+    "text": "Now to international news, by which we mean anything above the cavern layer."
+   },
+   {
+    "id": "dnd-seg-world-8",
+    "text": "Let's check on the wider world. The mountainhome sends its regards and its demands."
+   },
+   {
+    "id": "dnd-seg-world-9",
+    "text": "On to world news. Our sources in {world} have been gossiping again."
+   },
+   {
+    "id": "dnd-seg-world-10",
+    "text": "The world desk now, where the goblins continue to be goblins."
+   },
+   {
+    "id": "dnd-seg-world-11",
+    "text": "Let's go to the world desk. The elves have, once again, done something with trees."
+   },
+   {
+    "id": "dnd-seg-world-12",
+    "text": "And now, news from across {world}, filtered through several rumours and one very tired messenger."
+   }
+  ],
+  "trade": [
+   {
+    "id": "dnd-seg-trade-1",
+    "text": "Now to the trade desk, where the depot is open for business."
+   },
+   {
+    "id": "dnd-seg-trade-2",
+    "text": "Time for trade news. The caravan from {caravan_civ} has arrived, and it wants our mugs."
+   },
+   {
+    "id": "dnd-seg-trade-3",
+    "text": "Let's go to the trade desk. Did we get a good deal? Our broker says yes. Our broker always says yes."
+   },
+   {
+    "id": "dnd-seg-trade-4",
+    "text": "And now trade. Here's what's moving through the depot this season."
+   },
+   {
+    "id": "dnd-seg-trade-5",
+    "text": "Trade desk time. Who's buying, who's selling, and who's being ripped off."
+   },
+   {
+    "id": "dnd-seg-trade-6",
+    "text": "Let's check the depot. Our trade reporter is standing between two very large wagons."
+   },
+   {
+    "id": "dnd-seg-trade-7",
+    "text": "Here's the trade report. Elves, please note: no, we will not stop using wood."
+   },
+   {
+    "id": "dnd-seg-trade-8",
+    "text": "Turning to the trade desk, where haggling is considered a contact sport."
+   },
+   {
+    "id": "dnd-seg-trade-9",
+    "text": "The caravan season is upon us. Here's the trade desk.",
+    "when": [
+     "autumn"
+    ]
+   },
+   {
+    "id": "dnd-seg-trade-10",
+    "text": "On to trade, where {caravan_civ} has some strong feelings about our prices."
+   },
+   {
+    "id": "dnd-seg-trade-11",
+    "text": "Let's see what the merchants brought, and what they took home."
+   },
+   {
+    "id": "dnd-seg-trade-12",
+    "text": "Now for the trade numbers, presented by a bookkeeper who would like a raise."
+   }
+  ],
+  "works": [
+   {
+    "id": "dnd-seg-works-1",
+    "text": "Now to the works desk, where the biggest project in {fort} continues to take shape."
+   },
+   {
+    "id": "dnd-seg-works-2",
+    "text": "Time for the works report. How's {project} coming along? Let's find out."
+   },
+   {
+    "id": "dnd-seg-works-3",
+    "text": "Let's check in on the construction crews. It's a big job and they have big opinions."
+   },
+   {
+    "id": "dnd-seg-works-4",
+    "text": "And now the works desk, with updates on {project} and the dwarves building it."
+   },
+   {
+    "id": "dnd-seg-works-5",
+    "text": "Here's the works report. Hard hats on, viewers."
+   },
+   {
+    "id": "dnd-seg-works-6",
+    "text": "On to construction news. The masons have been busy, and the haulers have been complaining."
+   },
+   {
+    "id": "dnd-seg-works-7",
+    "text": "Let's look at the fortress building projects. Progress is progress, even if it's slow."
+   },
+   {
+    "id": "dnd-seg-works-8",
+    "text": "The works desk now, where {project} is either nearly done or never going to be. Let's ask."
+   },
+   {
+    "id": "dnd-seg-works-9",
+    "text": "Time to check the building sites. Our works reporter is covered in dust and proud of it."
+   },
+   {
+    "id": "dnd-seg-works-10",
+    "text": "Construction update: the fortress is growing, block by block.",
+    "when": [
+     "young_fort"
+    ]
+   },
+   {
+    "id": "dnd-seg-works-11",
+    "text": "Here's the works desk. In a fortress this old, there's always something to fix.",
+    "when": [
+     "old_fort"
+    ]
+   },
+   {
+    "id": "dnd-seg-works-12",
+    "text": "Let's go to the works desk for news on {project}, the talk of the dining hall."
+   }
+  ],
+  "crossfire": [
+   {
+    "id": "dnd-seg-crossfire-1",
+    "text": "Time for Crossfire, where two pundits argue loudly about things that may not matter."
+   },
+   {
+    "id": "dnd-seg-crossfire-2",
+    "text": "And now Crossfire. Two dwarves, one desk, no agreement. Let's begin."
+   },
+   {
+    "id": "dnd-seg-crossfire-3",
+    "text": "It's time for Crossfire. I'm told our pundits have been shouting since the break."
+   },
+   {
+    "id": "dnd-seg-crossfire-4",
+    "text": "Now Crossfire, the segment that's ruined more friendships than the tavern."
+   },
+   {
+    "id": "dnd-seg-crossfire-5",
+    "text": "Let's go to Crossfire. Please keep mugs on the desk at all times."
+   },
+   {
+    "id": "dnd-seg-crossfire-6",
+    "text": "Crossfire is next. Tonight's topic was chosen by a cat sitting on one of the cards."
+   },
+   {
+    "id": "dnd-seg-crossfire-7",
+    "text": "Here is Crossfire. Remember, pundits: no throwing furniture. Again."
+   },
+   {
+    "id": "dnd-seg-crossfire-8",
+    "text": "And now, the debate everyone's been dreading. It's Crossfire."
+   },
+   {
+    "id": "dnd-seg-crossfire-9",
+    "text": "Time for Crossfire, where the facts are optional and the volume is mandatory."
+   },
+   {
+    "id": "dnd-seg-crossfire-10",
+    "text": "Let's turn to our panel for Crossfire. They are already arguing. Let's join them."
+   },
+   {
+    "id": "dnd-seg-crossfire-11",
+    "text": "Crossfire now. Things are peaceful in {fort}, so our pundits will invent conflict.",
+    "when": [
+     "peace"
+    ]
+   },
+   {
+    "id": "dnd-seg-crossfire-12",
+    "text": "It's Crossfire. Two experts, both of whom insist they are the only expert."
+   }
+  ],
+  "interview": [
+   {
+    "id": "dnd-seg-interview-1",
+    "text": "Now we go live to an interview with one of the hard-working dwarves of {fort}."
+   },
+   {
+    "id": "dnd-seg-interview-2",
+    "text": "Let's hear from an ordinary dwarf. We find them more interesting than nobles."
+   },
+   {
+    "id": "dnd-seg-interview-3",
+    "text": "Time for our street interview. Well, corridor interview."
+   },
+   {
+    "id": "dnd-seg-interview-4",
+    "text": "Let's go live to our reporter, who has stopped a citizen to ask a few questions."
+   },
+   {
+    "id": "dnd-seg-interview-5",
+    "text": "Now, the voice of the people. Our reporter has found one, and it's willing to talk."
+   },
+   {
+    "id": "dnd-seg-interview-6",
+    "text": "We go now to an interview with a dwarf who did not ask to be on television."
+   },
+   {
+    "id": "dnd-seg-interview-7",
+    "text": "Let's get the view from the ground. Our reporter is with a citizen right now."
+   },
+   {
+    "id": "dnd-seg-interview-8",
+    "text": "Time for DNN Asks, where we ask a dwarf what they think and they tell us."
+   },
+   {
+    "id": "dnd-seg-interview-9",
+    "text": "And now, a live interview. Please be kind to our guest. They're nervous."
+   },
+   {
+    "id": "dnd-seg-interview-10",
+    "text": "Let's hear what an everyday dwarf thinks about life in {fort}."
+   },
+   {
+    "id": "dnd-seg-interview-11",
+    "text": "We've caught a dwarf between jobs. Let's go live before they get away."
+   },
+   {
+    "id": "dnd-seg-interview-12",
+    "text": "Now, our live interview segment, where real dwarves say real things, mostly about ale."
+   }
+  ]
+ }
+}

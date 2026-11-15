@@ -451,7 +451,8 @@ class Supervisor:
     # helpers to restart the manager alone took them all down for an hour on
     # 2026-11-09 (the broadsheet on the stream went blank, the desk was gone).
     HELPERS = {8765: ("overlay.py", [], "overlay.log"), 8780: ("lan_proxy.py", ["8780"], "lan_proxy.log"),
-               8767: ("overseer.py", [], "overseer.log"), 8766: ("gamefeed.py", [], "gamefeed.log")}
+               8767: ("overseer.py", [], "overseer.log"), 8766: ("gamefeed.py", [], "gamefeed.log"),
+               8769: ("dnn.py", [], "dnn.log")}
 
     def keep_helpers(self):
         """Every few minutes: restart any helper page that isn't listening."""
