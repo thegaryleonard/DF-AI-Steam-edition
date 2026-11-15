@@ -154,6 +154,9 @@ def cast(pol, fort):
     order = []
     while people:  # a deterministic shuffle
         order.append(people.pop((seed + len(order) * 7) % len(people)))
+    # politics.json ids are HISTORICAL FIGURE ids; portraits are keyed by UNIT id
+    units = hf_units(tuple(p["id"] for p in order[:40]))
+    order = [dict(p, hf=p["id"], id=units[p["id"]]) for p in order[:40] if units.get(p["id"], -1) >= 0] or order
     # anchors, reporter and pundits should have faces. DF only draws a portrait for a unit
     # it has rendered, and each try is a slow game call (5-30 s), so a background thread
     # probes the candidates one at a time and the cast prefers the ones with a face.
@@ -161,6 +164,30 @@ def cast(pol, fort):
     faces = [p for p in order if FACES.known.get(p["id"])]
     rest = [p for p in order if not FACES.known.get(p["id"])]
     return (faces + rest)[:5]
+
+
+HF_LUA = ("for _,id in ipairs({%s}) do local hf=df.historical_figure.find(id) "
+          "print('HFU', id, hf and hf.unit_id or -1) end")
+
+
+def hf_units(ids):
+    """{histfig id: unit id} from the game (cached for an hour; {} when the game doesn't answer)."""
+    def ask():
+        import dfai_supervisor as sup   # same helper portraits.py uses; read-only lua
+        out = sup.dfhack("lua", HF_LUA % ",".join(str(int(i)) for i in ids), timeout=20) or ""
+        got = {}
+        for ln in out.splitlines():
+            f = ln.split()
+            if len(f) == 3 and f[0] == "HFU":
+                got[int(f[1])] = int(f[2])
+        if not got:
+            raise RuntimeError("no answer from the game")
+        return got
+    try:
+        return CACHE.get(("hfu", ids), 3600, ask)
+    except Exception as e:
+        log(f"cast: histfig->unit lookup failed: {e!r}")
+        return {}
 
 
 class FaceProbe:
