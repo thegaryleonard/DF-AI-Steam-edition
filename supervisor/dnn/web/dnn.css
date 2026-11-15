@@ -118,7 +118,7 @@ body.obs #vidwrap video, body.obs #vidwrap img { display: none; }
 #pip .th .plate b { font-size: 24px; } #pip .th .plate i { font-size: 16px; }
 #board { position: absolute; left: 0; top: 356px; width: 600px; height: 328px; background: rgba(10,16,32,.85); overflow: hidden; }
 .bhead { background: #c8102e; font-weight: 900; font-size: 20px; letter-spacing: 1px; padding: 6px 14px; }
-#rundown { margin: 0; padding: 6px 14px 6px 46px; font-size: 22px; line-height: 1.4; height: 93px; overflow: hidden; }
+#rundown { margin: 0; padding: 6px 14px 6px 46px; font-size: 22px; line-height: 1.4; height: 62px; overflow: hidden; }
 #rundown li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; color: #c9d3e6; }
 #rundown li:first-child { color: #fff; font-weight: 700; }
 #aleindex { padding: 6px 14px; font-size: 22px; line-height: 1.35; }
@@ -167,3 +167,28 @@ body.obs #vidwrap video, body.obs #vidwrap img { display: none; }
 #mute { position: absolute; right: 40px; top: 110px; background: rgba(8,12,24,.92); border-left: 8px solid #c8102e; font-size: 30px;
   font-weight: 900; padding: 14px 22px; opacity: 0; transition: opacity .3s; z-index: 5; }
 #mute.show { opacity: 1; }
+
+/* explainer layout: the game fills the screen, the speaker shrinks over the shoulder */
+#stage { z-index: 0; transition: left .6s ease, top .6s ease, width .6s ease, height .6s ease; }
+#bug, #clock, #rail, #lower, #ticker { z-index: 2; }
+#rail { transition: opacity .5s ease; }
+#screen.wide #stage { left: 0; top: 0; width: 1920px; height: 1080px; box-shadow: none; }
+#screen.wide #rail { opacity: 0; }
+#screen.wide #vidtag { top: 110px; left: 40px; }
+#screen.wide #vidwrap img, #screen.wide #vidwrap video { background: #05070c; }
+#shoulder { position: absolute; right: 40px; top: 110px; width: 400px; height: 330px; z-index: 3; opacity: 0;
+  transform: scale(.85); transform-origin: 100% 0; transition: opacity .5s ease, transform .5s ease;
+  background: linear-gradient(180deg, #0c1b3d 0%, #13306b 100%); box-shadow: 0 8px 30px rgba(0,0,0,.6); border-top: 5px solid #c8102e; }
+#shoulder.on { opacity: 1; transform: scale(1); }
+#shoulder .th .face { top: 3%; height: 66%; }
+#shoulder .th .plate b { font-size: 22px; } #shoulder .th .plate i { font-size: 15px; }
+
+/* now playing: a line in the rail, and a toast above the ticker when a track starts */
+#np { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 14px; font-size: 20px; color: #c9d3e6; background: rgba(0,0,0,.35);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#np b { color: #ffcf4a; font-family: Arial, sans-serif; margin-right: 6px; }
+#nptoast { position: absolute; left: 60px; top: 130px; z-index: 4; background: rgba(8,12,24,.94); border-left: 8px solid #ffcf4a;
+  padding: 8px 20px 10px; font-size: 30px; font-weight: 900; opacity: 0; transform: translateY(-20px); transition: opacity .5s, transform .5s, top .6s; }
+#nptoast small { display: block; font-size: 15px; letter-spacing: 2px; color: #9fb3d9; font-weight: 700; }
+#nptoast.show { opacity: 1; transform: translateY(0); }
+#screen.wide #nptoast { top: 170px; }

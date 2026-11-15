@@ -207,7 +207,7 @@
     (r.beasts || []).forEach(function (b) { out.push({ kind: 'beast', sl: { creature: String(b.kind || b.name || b).toLowerCase() }, w: 4 }); });
     if (r.births) out.push({ kind: 'birth', sl: {}, w: 2 });
     var evs = ((S.feed || {}).state || {}).big || [];
-    evs.slice(0, 6).forEach(function (ev) { var e = classify(ev); if (e.kind !== 'generic' && e.kind !== 'skip') out.push({ kind: e.kind, sl: e.sl, w: e.big ? 3 : 1, text: e.text }); });
+    evs.slice(0, 6).forEach(function (ev) { var e = classify(ev); if (e.kind !== 'generic' && e.kind !== 'skip') out.push({ kind: e.kind, sl: e.sl, w: e.big ? 3 : 1, text: e.text, id: e.id }); });
     return out;
   }
 
@@ -305,8 +305,13 @@
       'tracks/hill_dwarf/HD_Full.ogg', 'tracks/strike_the_earth!/STE_Full.ogg', 'tracks/koganusan/KG_Full.ogg',
       'tracks/dwarf_fortress/Dwarf_Fortress.ogg', 'tracks/nabidas/Nabidas.ogg'];
     var WINTER = 'tracks/winter_entombs_you/WEY_Full.ogg';
-    var STORY_MUSIC = { siege: 'tracks/vile_force_of_darkness/VFOD_Full.ogg', beast: 'tracks/forgotten_beast/FB_Full.ogg',
-      mood: 'tracks/strange_moods/SM_Full.ogg', death: 'tracks/death_spiral/DS_Full.ogg' };
+    var STORY_MUSIC = { siege: 'tracks/vile_force_of_darkness/VFOD_Full.ogg', beast: 'tracks/forgotten_beast/FB_Full.ogg' };
+    var TITLES = { mountainhome: 'Mountainhome', another_year: 'Another Year', craftsdwarfship: 'Craftsdwarfship',
+      'drink_&_industry': 'Drink & Industry', expansive_cavern: 'Expansive Cavern', first_year: 'First Year', hill_dwarf: 'Hill Dwarf',
+      'strike_the_earth!': 'Strike the Earth!', koganusan: 'Koganusan', dwarf_fortress: 'Dwarf Fortress', nabidas: 'Nabidas',
+      winter_entombs_you: 'Winter Entombs You', vile_force_of_darkness: 'Vile Force of Darkness', forgotten_beast: 'Forgotten Beast' };
+    function title(track) { var k = track.split('/')[1]; return TITLES[k] || k; }
+    var resumeAt = null;   // {track, t}: the calm track a big story interrupted, resumed where it stopped
     var STING = { siege: 'sounds/siege.ogg', beast: 'sounds/megabeast.ogg', artifact: 'sounds/artifact_created.ogg',
       birth: 'sounds/baby_born.ogg', mood: 'sounds/strange_mood.ogg', marriage: 'sounds/wedding.ogg' };
     var url = function (f) { return '/dfsound/' + f.split('/').map(encodeURIComponent).join('/'); };
@@ -327,14 +332,19 @@
       if (!left.length) { played = []; left = CALM.slice(); }
       return left[rnd(left.length)];
     }
-    function play(track) {
+    function play(track, at) {
       if (track === current && music && !music.ended) return;
       var old = music;
       current = track;
+      nowPlaying(track);
       played.push(track);
       if (played.length > CALM.length) played.shift();
       music = new Audio(url(track));
       music.volume = 0;
+      if (at) music.addEventListener('loadedmetadata', function () { try { this.currentTime = Math.min(at, Math.max(0, this.duration - 5)); } catch (e) { /* ignore */ } });
+      ['pause', 'ended', 'error', 'stalled', 'waiting', 'emptied', 'playing'].forEach(function (n) {
+        music.addEventListener(n, function () { api.log.push(Math.round(performance.now() / 1000) + ' ' + n + ' ' + track.split('/').pop() + (this.error ? ' err' + this.error.code : '') + ' t' + Math.round(this.currentTime)); if (api.log.length > 30) api.log.shift(); });
+      });
       music.addEventListener('ended', function () { if (!override) play(nextCalm()); else { music.currentTime = 0; api.kick(); } });
       music.addEventListener('pause', function () { var m = this; if (m === music && !m.ended) setTimeout(function () { if (m === music) api.kick(); }, 1500); });
       music.addEventListener('error', function () { setTimeout(function () { if (!override) play(nextCalm()); }, 5000); });
@@ -357,6 +367,18 @@
       x.onerror = function () { delete bufs[file]; };
       x.send();
     }
+    function nowPlaying(track) {
+      var t = title(track);
+      $('np').innerHTML = '<b>\u266B</b> ' + esc(t);
+      var el = $('nptoast');
+      el.innerHTML = '<small>NOW PLAYING \u00b7 DWARF FORTRESS SOUNDTRACK</small>\u266B ' + esc(t);
+      el.className = 'show';
+      clearTimeout(nowPlaying.t); nowPlaying.t = setTimeout(function () { el.className = ''; }, 9000);
+    }
+    // where we are in the calm track, so a reload or the TV coming back carries on with it
+    setInterval(function () {
+      if (music && !override && !music.paused) try { localStorage.setItem('dnn.music', JSON.stringify({ track: current, t: Math.floor(music.currentTime) })); } catch (e) { /* ignore */ }
+    }, 10000);
     function fx(file, vol) {
       if (muted || !AC) return;
       if (!ac) ac = new AC();
@@ -368,8 +390,12 @@
       });
     }
     var api = {
+      log: [],
       start: function () {
-        play(nextCalm());
+        var saved = null;
+        try { saved = JSON.parse(localStorage.getItem('dnn.music') || 'null'); } catch (e) { saved = null; }
+        if (saved && (CALM.indexOf(saved.track) >= 0 || saved.track === WINTER)) play(saved.track, saved.t);
+        else play(nextCalm());
         if (AC && !ac) ac = new AC();
         if (ac) ['sounds/alert.ogg', 'audio/ui/whoosh/whoosh-001.ogg', 'audio/ui/whoosh/whoosh-002.ogg'].forEach(function (f) { load(f, function () {}); });
       },
@@ -378,9 +404,17 @@
         if (kind === 'beast' && /demon/i.test(text || '')) f = 'sounds/demon_attack.ogg';
         if (kind === 'siege' && /ambush/i.test(text || '')) f = 'sounds/ambush.ogg';
         fx(f, 1);
-        if (STORY_MUSIC[kind]) { override = kind; play(STORY_MUSIC[kind]); }
+        if (STORY_MUSIC[kind] && !override) {
+          resumeAt = music ? { track: current, t: music.currentTime } : null;
+          override = kind; play(STORY_MUSIC[kind]);
+        }
       },
-      storyOver: function () { if (override) { override = null; play(nextCalm()); } },
+      storyOver: function () {
+        if (!override) return;
+        override = null;
+        if (resumeAt) play(resumeAt.track, resumeAt.t); else play(nextCalm());
+        resumeAt = null;
+      },
       whoosh: function () { fx('audio/ui/whoosh/whoosh-00' + (1 + rnd(2)) + '.ogg', 0.45); },
       scroll: function () { fx('audio/ui/scrolls/scroll-1/scroll-00' + (1 + rnd(8)) + '.ogg', 0.6); },
       coins: function () { fx('audio/actions/drop/coin/drop-00' + (1 + rnd(3)) + '.ogg', 0.7); },
@@ -423,9 +457,30 @@
   }
 
   // a beat: {who: person|null, text, stage, slug, head, slugClass, card, layout}
+  // ask the stream camera to look at the story (dnn.py dedupes across every screen watching)
+  function focusCamera(ev, title) {
+    if (ev == null || OBS) return;
+    try {
+      var x = new XMLHttpRequest();
+      x.open('POST', '/focus', true); x.setRequestHeader('Content-Type', 'application/json');
+      x.send(JSON.stringify({ ev: ev, title: String(title || '').slice(0, 40) }));
+    } catch (e) { /* ignore */ }
+  }
+  // video beats: the game fills the screen and the speaker shrinks to an over-the-shoulder box
+  function setWide(on, who) {
+    if (OBS) on = false;
+    var sc = $('screen');
+    var cls = sc.className.replace(/\s*\bwide\b/g, '');
+    sc.className = on ? cls + ' wide' : cls;
+    $('shoulder').innerHTML = on && who ? headHTML(who) : '';
+    $('shoulder').className = on && who ? 'on' : '';
+  }
+
   function show(beat, done) {
     S.beat = beat;
     var who = beat.who;
+    if (beat.focus != null) focusCamera(beat.focus, beat.head);
+    setWide(beat.stage === 'video', who);
     if (beat.stage === 'studio') { $('studiohead').innerHTML = headHTML(beat.studio || who); setStage('studio'); }
     else if (beat.stage === 'split') { $('splitA').innerHTML = headHTML(beat.left); $('splitB').innerHTML = headHTML(beat.right); $('splitvs').textContent = beat.vs || ''; setStage('split'); }
     else if (beat.stage === 'card') { if (S.lastCard !== beat.card) { if (/class="bumper"/.test(beat.card || '')) SFX.bump(); else SFX.scroll(); } $('card').innerHTML = beat.card || ''; setStage('card'); }
@@ -509,7 +564,7 @@
     var cx = ctx();
     return beatsFrom([{ who: A(), text: line('close', null, cx), stage: 'studio', slug: 'DNN', head: 'THANKS FOR WATCHING DNN' }]);
   };
-  function story(kind, sl, slug, slugClass, text) {
+  function story(kind, sl, slug, slugClass, text, evId) {
     var cx = ctx(sl);
     var L = (S.copy || {}).breaking || {};
     var k = L[kind] ? kind : 'generic';
@@ -517,7 +572,7 @@
     var rc = line('reaction', k, cx);
     var head = hd ? fill(hd.text, cx) : (text || '').toUpperCase();
     var beats = [];
-    beats.push({ who: A(), text: rd ? fill(rd.text, cx) : text, stage: 'video', slug: slug, slugClass: slugClass, head: head });
+    beats.push({ who: A(), text: rd ? fill(rd.text, cx) : text, stage: 'video', slug: slug, slugClass: slugClass, head: head, focus: evId });
     if (text && rd) beats.push({ who: null, voice: 'DNN WIRE', text: text, stage: 'video', slug: slug, slugClass: slugClass, head: head });
     if (rc) beats.push({ who: B(), text: rc, stage: 'studio', slug: slug, slugClass: slugClass, head: head });
     return beatsFrom(beats);
@@ -528,10 +583,10 @@
     var tot = 0; c.forEach(function (s) { tot += s.w; });
     var r = Math.random() * tot, s = c[0];
     for (var i = 0; i < c.length; i++) { r -= c[i].w; if (r <= 0) { s = c[i]; break; } }
-    return story(s.kind, s.sl, 'TOP STORY', '', s.text);
+    return story(s.kind, s.sl, 'TOP STORY', '', s.text, s.id);
   };
   SEG.breaking = function (e) {
-    return story(e.kind, e.sl, e.big ? 'BREAKING NEWS' : 'DEVELOPING STORY', e.big ? 'breaking' : 'dev', e.text);
+    return story(e.kind, e.sl, e.big ? 'BREAKING NEWS' : 'DEVELOPING STORY', e.big ? 'breaking' : 'dev', e.text, e.id);
   };
   function placeOf() {
     var st = (S.feed || {}).state || {}, t = st.tour && (st.tour.current || st.tour);

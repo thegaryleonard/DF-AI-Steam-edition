@@ -23,7 +23,10 @@ OBS's Virtual Camera carries the program; this process then keeps two helpers ru
   ffmpeg.exe     dshow "OBS Virtual Camera" -> 960x540 30 fps -> h264_qsv -> rtsp
 Both live in <repo>/../mediamtx (mediamtx.exe, mediamtx.yml, ffmpeg-*/bin/ffmpeg.exe).
 OBS must be started with --startvirtualcam (supervisor.json "obs_virtualcam": true).
-Only GET is served; nothing here writes to the game.
+Writes to the game: only POST /focus {ev: <report id>, title} -> dfai-dnn-focus.lua, which
+points the stream camera at the story being reported for ~25 s through dfai-camera-lock
+(never over a human/desk lock or the battle camera). One focus per story, at most one
+every 90 s, whatever number of TVs/browsers are watching.
 """
 import argparse
 import glob
@@ -414,6 +417,51 @@ def df_sound(rel):
     return f if root in f.parents and f.is_file() else None
 
 
+# ---------------------------------------------------------------- camera focus
+class Focus:
+    GAP_S = 90      # at most one DNN camera move per this many seconds
+    HOLD_S = 25     # how long the camera stays on the story
+
+    def __init__(self):
+        self.lock, self.done, self.last, self.result = threading.Lock(), {}, 0.0, "idle"
+
+    def request(self, ev, title):
+        import re
+        try:
+            ev = int(ev)
+        except (TypeError, ValueError):
+            return {"ok": False, "why": "bad event id"}
+        title = re.sub(r"[^A-Za-z0-9 :!?,.'&-]", "", str(title or "DNN Live"))[:40].strip() or "DNN Live"
+        now = time.time()
+        with self.lock:
+            if ev in self.done:
+                return {"ok": False, "why": "already shown", "result": self.done[ev]}
+            if now - self.last < self.GAP_S:
+                return {"ok": False, "why": "too soon"}
+            self.last, self.done[ev] = now, "pending"
+            if len(self.done) > 500:
+                self.done = dict(list(self.done.items())[-200:])
+        threading.Thread(target=self._run, args=(ev, title), daemon=True).start()
+        return {"ok": True}
+
+    def _run(self, ev, title):
+        try:
+            import dfai_supervisor as sup
+            out = (sup.dfhack("dfai-dnn-focus", str(ev), str(self.HOLD_S), "DNN:", *title.split(), timeout=20) or "").strip()
+        except Exception as e:
+            out = f"error {e!r}"
+        line = out.splitlines()[-1] if out else "no answer"
+        with self.lock:
+            self.done[ev] = line
+            self.result = line
+            if not line.startswith("OK"):
+                self.last = 0.0   # nothing moved: the next story may try at once
+        log(f"focus {ev} '{title}': {line}")
+
+
+FOCUS = Focus()
+
+
 # ---------------------------------------------------------------- http
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *a):
@@ -487,6 +535,17 @@ class Handler(BaseHTTPRequestHandler):
                 self.wfile.write(chunk)
         finally:
             up.close()
+
+    def do_POST(self):
+        if self.path.split("?")[0] != "/focus":
+            return self.send_error(404)
+        try:
+            n = min(int(self.headers.get("Content-Length") or 0), 4096)
+            body = json.loads(self.rfile.read(n) or b"{}")
+            res = FOCUS.request(body.get("ev"), body.get("title"))
+        except Exception as e:
+            res = {"ok": False, "why": repr(e)}
+        self.send(json.dumps(res).encode(), CTYPES[".json"])
 
     def do_GET(self):
         from urllib.parse import urlparse, parse_qs
