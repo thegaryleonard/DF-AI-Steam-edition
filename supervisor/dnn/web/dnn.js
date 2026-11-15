@@ -2,7 +2,7 @@
    Data: /feed.json (fort state via dnn.py), /copy.json (all prose; never hard-code lines here).
    Modes: ?obs=1 transparent video box for an OBS scene (Game Capture under it);
           default = TV/browser: live video from /hls/index.m3u8, fallback /game.jpg stills.
-   Remote: OK or Right = next line, Left = replay line. Back is left to the TV.
+   Remote: OK or Right = next line, Left = replay line, Down = sound on/off, Back = exit.
    ES2017 only (webOS 5 / Chrome 68 floor). */
 (function () {
   'use strict';
@@ -289,6 +289,100 @@
     t();
   }
 
+
+  // ------------------------------------------------------------ sound (synthesised, no files)
+  // News music and stingers, plus a talking-head "voice": soft pitched blips while a
+  // caption types, a different pitch per speaker. Down on the remote mutes/unmutes.
+  // ?mute=1 starts muted (the OBS scene already has the game's sound).
+  var SFX = (function () {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    var ac = null, master = null, bedGain = null, muted = Q.mute === '1' || OBS;
+    try { var sv = localStorage.getItem('dnn.muted'); if (sv === '1') muted = true; if (sv === '0' && !OBS) muted = false; } catch (e) { /* ignore */ }
+    function ctx() {
+      if (!AC) return null;
+      if (!ac) {
+        ac = new AC();
+        master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+      }
+      if (ac.state === 'suspended' && ac.resume) ac.resume();
+      return ac;
+    }
+    function tone(freq, t0, dur, type, vol, dest) {
+      var o = ac.createOscillator(), g = ac.createGain();
+      o.type = type || 'sine'; o.frequency.setValueAtTime(freq, t0);
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(vol, t0 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      o.connect(g); g.connect(dest || master);
+      o.start(t0); o.stop(t0 + dur + 0.05);
+      return o;
+    }
+    function brass(freq, t0, dur, vol) {   // sawtooth through a lowpass: cheap TV-news brass
+      var f = ac.createBiquadFilter(); f.type = 'lowpass'; f.frequency.setValueAtTime(400, t0);
+      f.frequency.linearRampToValueAtTime(2400, t0 + 0.08); f.frequency.linearRampToValueAtTime(900, t0 + dur);
+      f.connect(master);
+      tone(freq, t0, dur, 'sawtooth', vol, f); tone(freq * 1.005, t0, dur, 'sawtooth', vol * 0.7, f);
+    }
+    function boom(t0, vol) {   // timpani-ish hit
+      var o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'sine'; o.frequency.setValueAtTime(110, t0); o.frequency.exponentialRampToValueAtTime(42, t0 + 0.6);
+      g.gain.setValueAtTime(vol, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.9);
+      o.connect(g); g.connect(master); o.start(t0); o.stop(t0 + 1);
+    }
+    var api = {
+      sting: function () {   // BREAKING NEWS
+        if (!ctx()) return; var t = ac.currentTime + 0.05;
+        boom(t, 0.9); brass(293.7, t, 0.32, 0.18); brass(220, t + 0.36, 0.32, 0.18); brass(293.7, t + 0.72, 1.3, 0.2); brass(370, t + 0.72, 1.3, 0.12);
+        boom(t + 0.72, 0.7);
+      },
+      bump: function () {    // into and out of the break
+        if (!ctx()) return; var t = ac.currentTime + 0.05;
+        [523.3, 659.3, 784, 1046.5].forEach(function (f, i) { tone(f, t + i * 0.14, 0.5, 'triangle', 0.12); });
+        tone(261.6, t, 0.9, 'sine', 0.12);
+      },
+      whoosh: function () {  // stage change
+        if (!ctx()) return; var t = ac.currentTime + 0.02;
+        var n = ac.createBufferSource(), b = ac.createBuffer(1, Math.floor(ac.sampleRate * 0.5), ac.sampleRate), d = b.getChannelData(0);
+        for (var i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length);
+        n.buffer = b;
+        var f = ac.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = 1.2;
+        f.frequency.setValueAtTime(300, t); f.frequency.exponentialRampToValueAtTime(3000, t + 0.4);
+        var g = ac.createGain(); g.gain.value = 0.18;
+        n.connect(f); f.connect(g); g.connect(master); n.start(t);
+      },
+      voice: function (pid) {   // one syllable from the person speaking
+        if (!ctx() || pid == null) return;
+        var h = 0, k = String(pid); for (var i = 0; i < k.length; i++) h = (h * 31 + k.charCodeAt(i)) % 997;
+        var base = 110 + (h % 9) * 18, t = ac.currentTime;
+        var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 900 + (h % 5) * 150; lp.connect(master);
+        tone(base * (0.9 + Math.random() * 0.35), t, 0.09, 'square', 0.035, lp);
+      },
+      bed: function () {     // quiet looping newsroom pulse under the show
+        if (!ctx() || bedGain) return;
+        bedGain = ac.createGain(); bedGain.gain.value = 0.05; bedGain.connect(master);
+        var notes = [146.8, 146.8, 174.6, 130.8], step = 0;
+        var loop = function () {
+          var t = ac.currentTime + 0.05, f = notes[step++ % notes.length];
+          tone(f, t, 1.9, 'triangle', 0.5, bedGain); tone(f * 1.5, t, 1.9, 'sine', 0.25, bedGain);
+          for (var j = 0; j < 4; j++) tone(f * 4, t + j * 0.5, 0.08, 'sine', j % 2 ? 0.1 : 0.15, bedGain);
+          setTimeout(loop, 2000);
+        };
+        loop();
+      },
+      duck: function (on) { if (bedGain && ac) bedGain.gain.setTargetAtTime(on ? 0.02 : 0.05, ac.currentTime, 0.3); },
+      toggle: function () {
+        muted = !muted;
+        try { localStorage.setItem('dnn.muted', muted ? '1' : '0'); } catch (e) { /* ignore */ }
+        if (ctx()) master.gain.setTargetAtTime(muted ? 0 : 0.8, ac.currentTime, 0.05);
+        var el = $('mute'); el.textContent = muted ? 'SOUND OFF \u00b7 press \u25BC' : 'SOUND ON'; el.className = 'show';
+        clearTimeout(api.mt); api.mt = setTimeout(function () { el.className = ''; }, 2500);
+      },
+      state: function () { return { ac: ac ? ac.state : 'none', muted: muted }; }
+    };
+    return api;
+  })();
+  window.DNN_SFX = SFX;
+
   // ------------------------------------------------------------ the screen
   function setStage(which) {
     ['vidwrap', 'studio', 'split', 'card'].forEach(function (id) { $(id).className = 'layer' + (id === which ? '' : ' hidden'); });
@@ -315,8 +409,10 @@
     var who = beat.who;
     if (beat.stage === 'studio') { $('studiohead').innerHTML = headHTML(beat.studio || who); setStage('studio'); }
     else if (beat.stage === 'split') { $('splitA').innerHTML = headHTML(beat.left); $('splitB').innerHTML = headHTML(beat.right); $('splitvs').textContent = beat.vs || ''; setStage('split'); }
-    else if (beat.stage === 'card') { $('card').innerHTML = beat.card || ''; setStage('card'); }
+    else if (beat.stage === 'card') { if (/class="bumper"/.test(beat.card || '') && S.lastCard !== beat.card) SFX.bump(); $('card').innerHTML = beat.card || ''; setStage('card'); }
     else setStage('vidwrap');
+    if (beat.stage !== S.lastStage && beat.stage !== 'card') SFX.whoosh();
+    S.lastStage = beat.stage; S.lastCard = beat.stage === 'card' ? beat.card : null;
     // pip: the speaker while video is on stage, otherwise the live picture
     if (beat.stage === 'video' && who) $('pip').innerHTML = headHTML(who);
     else if (!$('pip').querySelector('img.vid') || OBS) pipVideo();
@@ -332,14 +428,18 @@
       clearInterval(S.typer); clearTimeout(S.holdT); el.textContent = text; talking(pid, false);
       S.skip = null; done();
     };
+    var lastBlip = 0;
+    SFX.duck(!!who);
     S.typer = setInterval(function () {
       i += 2; el.textContent = text.slice(0, i);
+      if (who && i - lastBlip >= 3 && /[aeiouy]/i.test(text.charAt(i - 1))) { lastBlip = i; SFX.voice(pid); }
       if (i >= text.length) { clearInterval(S.typer); talking(pid, false); S.holdT = setTimeout(finish, hold); }
     }, 55);
     S.skip = finish;
   }
 
   function stinger(cb) {
+    SFX.sting();
     var st = $('stinger');
     st.className = '';
     // restart the CSS animations
@@ -654,6 +754,7 @@
   document.addEventListener('keydown', function (ev) {
     var k = ev.keyCode;
     if (k === 461 || k === 27) { ev.preventDefault(); window.close(); return; }   // TV Back: leave DNN
+    if (k === 40 || k === 77) { ev.preventDefault(); SFX.toggle(); return; }       // Down (or M): sound on/off
     if ((k === 13 || k === 39) && S.skip) { ev.preventDefault(); S.skip(); }
     if (k === 37 && S.beat) { ev.preventDefault(); clearInterval(S.typer); clearTimeout(S.holdT); var b = S.beat, s = S.skip; show(b, function () { if (s) s(); }); }
   });
@@ -665,6 +766,7 @@
     loadCopy(function () {
       if (!OBS) startStill();
       buildTicker(); requestAnimationFrame(tickerFrame);
+      SFX.bed();
       nextSegment();
       setTimeout(pollFeed, 5000);
       setInterval(loadCopy, 15 * 60000);

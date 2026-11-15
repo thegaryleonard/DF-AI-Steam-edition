@@ -4,7 +4,7 @@ A thin launcher: the app opens the DNN page that `supervisor/dnn.py` serves on t
 stream machine (`http://192.168.1.18:8769/` — change `URL` in `app/index.html` if the
 stream machine moves). The TV must be on the same network.
 
-Remote: OK or Right = skip to the next line, Left = replay the line, Back = exit.
+Remote: OK or Right = skip to the next line, Left = replay the line, Down = sound on/off, Back = exit.
 
 Build and install (Developer Mode TV paired as `lgtv`):
 

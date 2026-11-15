@@ -162,3 +162,8 @@ body.obs #vidwrap video, body.obs #vidwrap img { display: none; }
   letter-spacing: -4px; animation: word 2.4s ease-in-out forwards; }
 @keyframes swoosh { 0% { transform: translateX(-100%); } 20% { transform: translateX(0); } 80% { transform: translateX(0); } 100% { transform: translateX(100%); } }
 @keyframes word { 0% { opacity: 0; transform: scale(1.4); } 20% { opacity: 1; transform: scale(1); } 80% { opacity: 1; } 100% { opacity: 0; } }
+
+/* sound on/off toast */
+#mute { position: absolute; right: 40px; top: 110px; background: rgba(8,12,24,.92); border-left: 8px solid #c8102e; font-size: 30px;
+  font-weight: 900; padding: 14px 22px; opacity: 0; transition: opacity .3s; z-index: 5; }
+#mute.show { opacity: 1; }
