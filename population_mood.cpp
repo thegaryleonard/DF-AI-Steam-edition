@@ -929,7 +929,26 @@ void Population::update_moods(color_ostream & out)
                 ai.stocks.add_manager_order(out, tmpl, std::max<int32_t>(1, ji->quantity), why);
                 ai.debug(out, "[MOOD] no raw glass for " + who + ": ordered " + describe_job_item(ji) + " " + why.str());
             }
-            if (!usable && holder && mood_urgent(u, MOOD_CHEAT_THIRST) &&
+            bool rawglass_hopeless = false;
+            if (!usable && ji->item_type == item_type::ROUGH && ji->mat_type >= 3 && ji->mat_type <= 5)
+            {
+                // Raw glass needs sand bags at a glass furnace. With no sand
+                // in the fort the MakeRawGlass order can never run, so waiting
+                // for the thirst cheat only starves the dwarf: Oddom
+                // "Blockadegorge" (crafter mood) sat a month at hunger 57800
+                // behind an unfillable green glass order. Cheat at once.
+                rawglass_hopeless = true;
+                for (auto i : world->items.other[items_other_id::POWDER_MISC])
+                {
+                    MaterialInfo pm(i);
+                    if (pm.inorganic && pm.inorganic->flags.is_set(inorganic_flags::SOIL_SAND))
+                    {
+                        rawglass_hopeless = false;
+                        break;
+                    }
+                }
+            }
+            if (!usable && holder && (mood_urgent(u, MOOD_CHEAT_THIRST) || rawglass_hopeless) &&
                 (ji->item_type == item_type::ROUGH || ji->item_type == item_type::WOOD))
             {
                 // Last resort (a cheat): create the raw glass / rough gem / log
