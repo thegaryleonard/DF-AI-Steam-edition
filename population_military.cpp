@@ -1376,17 +1376,10 @@ void Population::civilian_alert(color_ostream & out, bool danger, bool great_dan
         }
         break_checks = 0;
     }
-    if (!danger)
-    {
-        if (alerts.civ_alert_idx > 0 && ++quiet_checks >= 8)
-        {
-            alerts.civ_alert_idx = 0;
-            ai.debug(out, "[MILITARY] danger gone: civilian alert lifted");
-        }
-        return;
-    }
-    quiet_checks = 0;
-
+    // Checked before the quiet-wait below: Thikut "Merchantbrushed" (229)
+    // went moody inside an alert whose danger had already gone; the alert
+    // waits 8 quiet checks (days at a slow update), the mood block never
+    // ran, and she stood at her station unable to claim a workshop.
     // A strange mood still gathering items must be free to walk the fort:
     // Olin "Cloistercanyon" (Showerwheels, 220) waited 16 days for raw glass
     // inside a civilian alert for a harmless danger, and when the glass was
@@ -1432,6 +1425,17 @@ void Population::civilian_alert(color_ostream & out, bool danger, bool great_dan
             return;
         }
     }
+
+    if (!danger)
+    {
+        if (alerts.civ_alert_idx > 0 && ++quiet_checks >= 8)
+        {
+            alerts.civ_alert_idx = 0;
+            ai.debug(out, "[MILITARY] danger gone: civilian alert lifted");
+        }
+        return;
+    }
+    quiet_checks = 0;
 
     if (alerts.civ_alert_idx > 0)
     {
