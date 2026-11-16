@@ -267,6 +267,12 @@ static bool mood_urgent(df::unit *u, int32_t thirst)
 {
     if (u->counters2.thirst_timer > thirst)
         return true;
+    // Hunger runs about twice as fast as thirst: Tun "Dikecrosses" (a
+    // leatherworker mood waiting on raw green glass in a fort with no sand)
+    // was at hunger 59700 with thirst only 28000, so a thirst-only gate let
+    // him head for starvation (75000) before any cheat fired.
+    if (u->counters2.hunger_timer > thirst + 15000)
+        return true;
     // No thirst gate here: Fath "Secttheaters" (a possessed child) went
     // stark raving mad at thirst 16900 with the timer at 8952 about 7000
     // ticks earlier; a 'thirst > 15000' guard kept the cheat from firing.
