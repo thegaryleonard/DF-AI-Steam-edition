@@ -104,13 +104,53 @@ end
 
 -- a site: T (well, fort floor) over rock over open air over real water
 -- the search box round the entrance
+-- hospitals (df-ai's infirmary rooms, from the zones the game has): the
+-- well goes as close to one as it can. Patients in bed only get water
+-- carried to them in buckets (user: "people die when they are injured and
+-- dont have water to drink")
+local function hospitals()
+    local out = {}
+    -- DF 53: a hospital is a meeting-hall zone assigned to a Hospital
+    -- location (there is no hospital zone type)
+    pcall(function()
+        local site = df.global.plotinfo.main.fortress_site
+        local hosp = {}
+        for _, ab in ipairs(site.buildings) do
+            if ab:getType() == df.abstract_building_type.HOSPITAL then hosp[ab.id] = true end
+        end
+        for _, z in ipairs(df.global.world.buildings.other.ANY_ZONE) do
+            if z.location_id ~= -1 and hosp[z.location_id] then
+                out[#out + 1] = {x = (z.x1 + z.x2) // 2, y = (z.y1 + z.y2) // 2, z = z.z}
+            end
+        end
+    end)
+    return out
+end
+
 local function box()
     local cit = dfhack.units.getCitizens(true)[1]
     if not cit then return nil end
     local e = SURF.entrance() or cit.pos
     local mx, my = dfhack.maps.getTileSize()
-    return {e = {x = e.x, y = e.y, z = e.z}, x1 = math.max(2, e.x - 50), x2 = math.min(mx - 3, e.x + 50)}
+    return {e = {x = e.x, y = e.y, z = e.z}, x1 = math.max(2, e.x - 50), x2 = math.min(mx - 3, e.x + 50), hosp = hospitals()}
 end
+
+-- how far a well at x,y,z is from the nearest hospital (tiles, a level
+-- counting as 3)
+local function hosp_dist(bx, x, y, z)
+    local best = 60
+    for _, h in ipairs(bx.hosp or {}) do
+        local d = math.abs(h.x - x) + math.abs(h.y - y) + 3 * math.abs(h.z - z)
+        if d < best then best = d end
+    end
+    return best
+end
+
+-- how deep a shaft may go. A well works over water any distance below, as
+-- long as the column is open: Boatsbrands' only lasting water was a cavern
+-- lake 55 levels under the entrance, past the old 45-level limit, and a pump
+-- stack that tall would need some 550 power
+local MAX_DEPTH = 90
 
 -- scan columns x1..x2 (all of them if not given), keeping the best in `best`
 function find_site(xa, xb, best)
@@ -122,14 +162,14 @@ function find_site(xa, xb, best)
         for y = math.max(2, e.y - 50), math.min(my - 3, e.y + 50) do
             -- walk down the column: floor, rock (>=1), air (>=0), water
             local top, rocks, airs = nil, 0, 0
-            for z = e.z + 3, math.max(1, e.z - 45), -1 do
+            for z = e.z + 3, math.max(1, e.z - MAX_DEPTH), -1 do
                 if top and airs == 0 and rock(x, y, z) then
                     rocks = rocks + 1
                 elseif top and rocks > 0 and open_air(x, y, z) then
                     airs = airs + 1
                 elseif top and rocks > 0 and water(x, y, z) then
                     local wz = z
-                    local cost = rocks * 3 + math.abs(x - e.x) + math.abs(y - e.y) + math.abs(top - e.z)
+                    local cost = rocks * 3 + math.abs(x - e.x) + math.abs(y - e.y) + math.abs(top - e.z) + 2 * hosp_dist(bx, x, y, top)
                     if not best or cost < best.cost then
                         -- a real body of water, not a puddle
                         local n = 0
