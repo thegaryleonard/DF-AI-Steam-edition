@@ -98,6 +98,33 @@ local function release_from_squads(items)
     return n
 end
 
+-- the game's work detail for a labor ("Miners", "Woodcutters", "Hunters"),
+-- when it's the "only selected do this" kind
+local function detail_for(labor)
+    local ok, li = pcall(function() return df.global.plotinfo.labor_info end)
+    if not ok or not li then return nil end
+    for _, wd in ipairs(li.work_details) do
+        if wd.allowed_labors[labor] and wd.flags.mode == df.work_detail_mode.OnlySelectedDoesThis then return wd end
+    end
+end
+
+-- df-ai runs the game's own labor system now (autolabor off; user: "the
+-- games normal labor system will handle things that dont need a specific
+-- role"): the work detail's members are the ones given the labor here, so
+-- the game agrees with us about who mines
+local function sync_detail(labor, on)
+    local wd = detail_for(labor)
+    if not wd then return end
+    for i = #wd.assigned_units - 1, 0, -1 do
+        if not on[wd.assigned_units[i]] then wd.assigned_units:erase(i) end
+    end
+    for id in pairs(on) do
+        local found = false
+        for _, a in ipairs(wd.assigned_units) do if a == id then found = true break end end
+        if not found then wd.assigned_units:insert('#', id) end
+    end
+end
+
 local function skill_of(u, sk)
     if not sk then return 0 end
     return dfhack.units.getNominalSkill(u, sk, true)
@@ -155,6 +182,7 @@ function step(s)
             end
             if should then count = count + 1 end
         end
+        pcall(sync_detail, d.labor, on)
         report[#report + 1] = ('%s %d (tools %s, wanted %d)'):format(d.name, count, d.skill and tostring(have_tools) or '-', want)
     end
     s.last = table.concat(report, '; ')

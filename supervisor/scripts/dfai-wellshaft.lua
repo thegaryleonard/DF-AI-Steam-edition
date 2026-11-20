@@ -52,14 +52,27 @@ local function fort_floor(x, y, z)
     return a and a.shape == Sh.FLOOR and SURF.walkable(x, y, z) and not dfhack.buildings.findAtTile(xyz2pos(x, y, z))
 end
 
--- does any well already reach water?
+-- the water under a well is df-ai's cistern (it runs dry: Boatsbrands'
+-- patients went without water 2,066 times, "Give water: No water source")
+local function in_cistern(x, y, z)
+    local ok, ai = pcall(require, 'plugins.df-ai')
+    if not ok or not ai.planned_room_at then return false end
+    local ok2, d = pcall(ai.planned_room_at, x, y, x, y, z)
+    return ok2 and type(d) == 'string' and d:find('^cistern') ~= nil
+end
+
+-- does any well already reach water that doesn't run dry (a lake, a
+-- cavern pool, a river)? A well over the cistern doesn't count.
 local function working_well()
     for _, b in ipairs(df.global.world.buildings.other.WELL) do
         if b:getBuildStage() >= b:getMaxBuildStage() then
             for z = b.z, math.max(0, b.z - 80), -1 do
                 local f = dfhack.maps.getTileFlags(b.x1, b.y1, z)
                 if not f then break end
-                if f.flow_size >= 1 and not f.liquid_type then return b end
+                if f.flow_size >= 1 and not f.liquid_type then
+                    if not in_cistern(b.x1, b.y1, z) then return b end
+                    break
+                end
                 local a = attrs(b.x1, b.y1, z)
                 if z < b.z and not (a and (a.shape == Sh.EMPTY or a.shape == Sh.RAMP_TOP)) then break end
             end
@@ -392,12 +405,17 @@ local function tick()
     local ok, err = pcall(function()
         if not s.current then
             local w = working_well()
-            if w then s.last = ('the fort has a well with water (%d,%d level %d)'):format(w.x1, w.y1, w.z) return end
-            -- only when the game itself says there's no water (a fresh fort has
-            -- no well yet but usually drinks from a river or pond: Channelevened
-            -- started a 32-level shaft on its first day)
+            if w then s.last = ('the fort has a well over water that lasts (%d,%d level %d)'):format(w.x1, w.y1, w.z) return end
+            -- a fresh fort only when the game itself says there's no water (it
+            -- has no well yet but usually drinks from a river or pond:
+            -- Channelevened started a 32-level shaft on its first day). From
+            -- 20 citizens the fort needs water that never runs dry: patients
+            -- in bed get only water carried in buckets, and the cistern well
+            -- goes dry (user: "people die when they are injured and dont have
+            -- water to drink")
+            local citizens = #dfhack.units.getCitizens(true)
             local okp, pri = pcall(reqscript, 'dfai-priorities')
-            if okp and not pri.no_water() then s.last = 'no well, but the fort has water to drink' return end
+            if citizens < 20 and okp and not pri.no_water() then s.last = 'no well, but the fort has water to drink' return end
             -- looking is not free: once a game month at most
             local now = df.global.cur_year * 403200 + df.global.cur_year_tick
             if s.looked and now - s.looked < 33600 then return end

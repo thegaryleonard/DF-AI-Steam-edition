@@ -43,6 +43,7 @@ SET(PROJECT_SRCS
     population_nobles.cpp
     population_occupations.cpp
     population_pets.cpp
+    population_labors.cpp
     plan.cpp
     plan_assign.cpp
     plan_cistern.cpp

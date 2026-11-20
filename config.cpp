@@ -19,7 +19,7 @@ Config::Config() :
     write_console(true),
     write_log(true),
     camera(true),
-    manage_labors("autolabor"),
+    manage_labors("game"),
     manage_nobles(true),
     cancel_announce(0),
     allow_pause(true),
@@ -168,7 +168,7 @@ void Config::save(color_ostream & out)
     setComment(v["write_console"], write_console, "// true or false: should the AI say what it's thinking in the DFHack console?");
     setComment(v["write_log"], write_log, "// true or false: should the AI say what it's thinking in df-ai.log?");
     setComment(v["camera"], camera, "// true or false: should the AI automatically follow dwarves it thinks are interesting?");
-    setComment(v["manage_labors"], manage_labors, "// the name of a DFHack plugin that manages labors, in quotes, or \"\" for no automated labor management. \"autolabor\" is supported (labormanager has not been updated for Dwarf Fortress v50+).");
+    setComment(v["manage_labors"], manage_labors, "// \"game\" (default): the game's own labor system, with df-ai keeping the Miners, Woodcutters and Hunters work details staffed; \"autolabor\" for DFHack's autolabor; \"\" to leave labors alone.");
     setComment(v["manage_nobles"], manage_nobles, "// true or false: should the AI assign administrators in the fortress?");
     setComment(v["cancel_announce"], Json::Int(cancel_announce), "// how many job cancellation notices to show. 0: none, 1: some, 2: most, 3: all");
     setComment(v["allow_pause"], allow_pause, "// true or false: should df-ai allow the game to be paused?");

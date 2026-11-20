@@ -91,6 +91,8 @@ public:
     void update_trading(color_ostream & out);
     void update_citizenlist(color_ostream & out);
     void update_jobs(color_ostream & out);
+    void apply_work_details(df::unit *u);
+    void game_labors_startup(color_ostream & out);
     void update_deads(color_ostream & out);
     void update_moods(color_ostream & out);
     std::set<std::string> mood_warned;

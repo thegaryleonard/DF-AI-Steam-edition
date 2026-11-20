@@ -72,7 +72,12 @@ command_result AI::startup(color_ostream & out)
 {
     command_result res = CR_OK;
     own_site_id = World::GetCurrentSiteId();
-    if (!config.manage_labors.empty())
+    if (config.manage_labors == "game")
+    {
+        // the game's labor system (see population_labors.cpp); citizens are
+        // known only after pop.startup, so the reset runs below
+    }
+    else if (!config.manage_labors.empty())
     {
         // labormanager was not ported to v50+; autolabor works with work details turned off.
         std::string labor_plugin = config.manage_labors == "labormanager" ? "autolabor" : config.manage_labors;
@@ -101,6 +106,11 @@ command_result AI::startup(color_ostream & out)
     }
     if (res == CR_OK)
         res = pop.startup(out);
+    if (res == CR_OK && config.manage_labors == "game")
+    {
+        pop.update_citizenlist(out); // fills the citizen list
+        pop.game_labors_startup(out);
+    }
     if (res == CR_OK)
         res = plan.startup(out);
     if (res == CR_OK)

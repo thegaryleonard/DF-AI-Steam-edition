@@ -1,5 +1,7 @@
 # Unreleased
 
+- Labors: the game's own labor system by default (`manage_labors: "game"`). DFHack's autolabor is switched off, and every citizen's labors are reset to what the work details say, because autolabor doesn't give them back (half of Boatsbrands couldn't haul stone). `dfai-toollabor` still hands out mining, woodcutting and hunting to civilians with tools, now keeping the game's Miners, Woodcutters and Hunters work details in step. `"autolabor"` remains an option.
+- Water that lasts: a well over df-ai's cistern no longer counts as the fort's water, so from 20 citizens `dfai-wellshaft` sinks a well to a lake or cavern even while the cistern is full. Patients in bed only get water carried in buckets, and Boatsbrands' patients went without 2,066 times ("Give water: No water source") as the cistern ran dry.
 - Civilian alert can't dehydrate the fort (Boatsbrands: 183 dwarves died of thirst with ~7,800 drinks in stock, 929 drinks cancelled for "forbidden area", after alerts of 22 and 20 days for an adder, a giant snail and a butterfly):
   - The Safety burrow is grown from the dining hall, not from whichever dwarf happened to be indoors (that could be a walled-off building with nothing to drink).
   - The dining hall, the food and drink stockpiles and the wells are always added to it.
