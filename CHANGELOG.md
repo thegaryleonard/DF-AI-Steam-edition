@@ -1,5 +1,7 @@
 # Unreleased
 
+- Deep fort (`dfai-deepfort`): from 60 citizens, a second set of halls 3 levels of solid rock above the first cavern. A corridor runs off the main stair (or off a new stair sunk through solid rock if none reaches), with a dining hall, two dormitories, a hospital and a food and drink storeroom (built by `dfai-build`, which now takes `new <kind> <n> <x> <y> <z>`). A well beside it drops a short shaft into the cavern air over the lake, for water that never runs dry close to the wounded. The level is found one level per tick.
+- Well shaft: a well standing in a cavern, or far below the main fort, no longer counts as the main fort's water. A well can be asked for at a given spot (`request_at`).
 - Messengers work on DF 53.17: the missions plugin only knew the 53.16 build, so no trade mission had gone out since the update. The three game functions it calls were found again in 53.17 by their code.
 - Priorities: housing counts as met at 90% of a bed per dwarf. A growing fort is always a few beds short, and everything after housing on the list (bunkers, walls, the mist generator, messengers) waited on it for good (163 beds for 178 dwarves).
 - Well shafts go down to 90 levels (was 45) and are placed near a hospital. A well works over water any distance below, and a forts' only lasting water is often a cavern lake: this fort's is 49 levels under the floor, where a pump stack would need some 550 power. Hospitals are found the DF 53 way: a zone assigned to a Hospital location.

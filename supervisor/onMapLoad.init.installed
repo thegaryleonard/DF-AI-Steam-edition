@@ -39,6 +39,7 @@ dfai-traffic start
 dfai-ghost-watch start
 dfai-pit start
 dfai-wellshaft start
+dfai-deepfort start
 dfai-yardwatch start
 dfai-toollabor start
 # second line of defence: the cistern's two floodgates never stand open together with water behind the inlet

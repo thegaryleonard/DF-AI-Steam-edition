@@ -5,6 +5,7 @@
 -- furniture comes from the fort's stock; df-ai makes more when it runs short.
 --   dfai-build kinds              the menu, as JSON (for the desk)
 --   dfai-build new <kind> [n]     order n rooms (they are built one at a time)
+--   dfai-build new <kind> <n> <x> <y> <z>   ... around that spot (the deep fort)
 --   dfai-build find <kind>        dry run: where it would go
 --   dfai-build cancel             drop the queue (a room being dug is kept)
 --   dfai-build status | resume
@@ -487,7 +488,11 @@ local function step(s)
         if s.retry_at and df.global.world.frame_counter < s.retry_at then return end
         local job = s.queue[1]
         if not job then return end
-        local kind = K[job]
+        -- "kind@x,y,z": built around that spot only (dfai-deepfort)
+        local at
+        local kname, ax, ay, az = tostring(job):match('^([^@]+)@(%-?%d+),(%-?%d+),(%-?%d+)$')
+        if kname then at = {x = tonumber(ax), y = tonumber(ay), z = tonumber(az)} else kname = job end
+        local kind = K[kname]
         if not kind then table.remove(s.queue, 1) s.last = 'unknown room kind ' .. tostring(job) return end
         if kind.attach and not public_tavern() then
             s.last = ('the %s waits for the fort to open a public tavern'):format(kind.label:lower())
@@ -496,7 +501,7 @@ local function step(s)
         -- the site search runs one area per check (all at once froze the
         -- game for 8-36 seconds on stream)
         if not s.search or s.search.job ~= job then
-            s.search = {job = job, list = site_anchors(kind), i = 1}
+            s.search = {job = job, list = at and {at} or site_anchors(kind), i = 1}
             s.last = ('looking for a site for a %s'):format(kind.label:lower())
             return
         end
@@ -519,7 +524,7 @@ local function step(s)
         end
         table.remove(s.queue, 1)
         s.retry_at = nil
-        w.kind, w.phase = job, 'dig'
+        w.kind, w.phase = kname, 'dig'
         w.key = ('build-%d'):format((s.n or 0) + 1)
         s.n = (s.n or 0) + 1
         s.current = w
@@ -573,7 +578,11 @@ end
 function status()
     local s = load()
     local q = {}
-    for _, k in ipairs(s.queue) do q[#q + 1] = K[k] and K[k].label:lower() or k end
+    for _, k in ipairs(s.queue) do
+        local kn, where = tostring(k):match('^([^@]+)@(.+)$')
+        kn = kn or k
+        q[#q + 1] = (K[kn] and K[kn].label:lower() or kn) .. (where and (' at ' .. where) or '')
+    end
     return ('build: %s%s; %d rooms built on order'):format(s.last or 'nothing ordered',
         #q > 0 and ('; next: ' .. table.concat(q, ', ')) or '', #s.built)
 end
@@ -591,8 +600,10 @@ elseif cmd == 'new' then
     local kind = args[2]
     if not K[kind] then qerror('unknown kind; see dfai-build kinds') end
     local n = math.max(1, math.min(5, tonumber(args[3]) or 1))
+    local at = ''
+    if args[6] then at = ('@%d,%d,%d'):format(tonumber(args[4]), tonumber(args[5]), tonumber(args[6])) end
     local s = load()
-    for _ = 1, n do s.queue[#s.queue + 1] = kind end
+    for _ = 1, n do s.queue[#s.queue + 1] = kind .. at end
     save(s)
     repeatUtil.scheduleEvery(KEY, 600, 'ticks', tick)
     dfhack.timeout(1, 'ticks', tick)

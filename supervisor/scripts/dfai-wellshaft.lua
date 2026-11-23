@@ -62,10 +62,22 @@ local function in_cistern(x, y, z)
 end
 
 -- does any well already reach water that doesn't run dry (a lake, a
--- cavern pool, a river)? A well over the cistern doesn't count.
-local function working_well()
+-- cavern pool, a river)? A well over the cistern doesn't count, nor one
+-- standing in a cavern (Polishring's only one was 50 levels under its
+-- hospitals). zlo..zhi: the levels it must be on (default: the main fort,
+-- from 20 under the entrance up).
+local function in_cavern(x, y, z)
+    local f = dfhack.maps.getTileFlags(x, y, z)
+    return f and (f.feature_local or f.feature_global)
+end
+local function working_well(zlo, zhi)
+    if not zlo then
+        local e = SURF.entrance()
+        if e then zlo, zhi = e.z - 20, e.z + 5 end
+    end
     for _, b in ipairs(df.global.world.buildings.other.WELL) do
-        if b:getBuildStage() >= b:getMaxBuildStage() then
+        if b:getBuildStage() >= b:getMaxBuildStage() and not in_cavern(b.x1, b.y1, b.z)
+            and (not zlo or (b.z >= zlo and b.z <= zhi)) then
             for z = b.z, math.max(0, b.z - 80), -1 do
                 local f = dfhack.maps.getTileFlags(b.x1, b.y1, z)
                 if not f then break end
@@ -127,10 +139,11 @@ local function hospitals()
     return out
 end
 
+local ANCHOR   -- set while planning a well for somewhere else (the deep fort)
 local function box()
     local cit = dfhack.units.getCitizens(true)[1]
     if not cit then return nil end
-    local e = SURF.entrance() or cit.pos
+    local e = ANCHOR or SURF.entrance() or cit.pos
     local mx, my = dfhack.maps.getTileSize()
     return {e = {x = e.x, y = e.y, z = e.z}, x1 = math.max(2, e.x - 50), x2 = math.min(mx - 3, e.x + 50), hosp = hospitals()}
 end
@@ -443,6 +456,34 @@ local function tick()
     if df.global.gamemode ~= df.game_mode.DWARF or not dfhack.isMapLoaded() then return end
     local s = load()
     local ok, err = pcall(function()
+        if not s.current and s.want_at then
+            -- a well asked for somewhere else (dfai-deepfort): plan it there
+            local a = s.want_at
+            local w = working_well(a.z - 3, a.z + 3)
+            if w then s.want_at = nil s.last = ('the deep fort has its well (%d,%d level %d)'):format(w.x1, w.y1, w.z) return end
+            if scanning then return end
+            scanning = true
+            ANCHOR = {x = a.x, y = a.y, z = a.z}
+            s.last = ('looking for a well site by %d,%d level %d'):format(a.x, a.y, a.z)
+            scan_async(function(p, why)
+                scanning = false
+                ANCHOR = nil
+                local s2 = load()
+                if not p then
+                    s2.last = 'no well site by the deep fort: ' .. tostring(why)
+                    s2.want_at.tries = (s2.want_at.tries or 0) + 1
+                    if s2.want_at.tries >= 3 then s2.want_at = nil end
+                    save(s2) return
+                end
+                p.phase = 'dig'
+                s2.current = p
+                s2.want_at = nil
+                s2.last = ('a well shaft for the deep fort is planned at %d,%d level %d, water %d levels down'):format(p.x, p.y, p.top, p.top - p.wz)
+                pcall(function() reqscript('dfai-projects').add('wellshaft', 'A Well for the Deep Fort', p.x, p.y, p.zlo, p.sx, p.sy, p.top, true) end)
+                save(s2)
+            end)
+            return
+        end
         if not s.current then
             local w = working_well()
             if w then s.last = ('the fort has a well over water that lasts (%d,%d level %d)'):format(w.x1, w.y1, w.z) return end
@@ -481,6 +522,14 @@ local function tick()
     end)
     if not ok then s.last = 'error: ' .. tostring(err) end
     save(s)
+end
+
+-- dfai-deepfort asks for a well by its halls
+function request_at(x, y, z)
+    local s = load()
+    s.want_at = {x = x, y = y, z = z}
+    save(s)
+    repeatUtil.scheduleEvery(KEY, 1200, 'ticks', tick)
 end
 
 function status()
