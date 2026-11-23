@@ -91,7 +91,10 @@ local MEASURE = {
     housing = function(pop)
         local beds = 0
         for _, b in ipairs(df.global.world.buildings.other.BED or {}) do if b:getBuildStage() >= b:getMaxBuildStage() then beds = beds + 1 end end
-        return beds, pop, ('%d beds'):format(beds)
+        -- 90%: a growing fort is always a few beds short (migrants, births),
+        -- and everything after housing on the list waited on it: 163 beds
+        -- for 178 dwarves held the walls, the mist and the messengers for good
+        return beds, (pop * 9 + 9) // 10, ('%d beds for %d dwarves'):format(beds, pop)
     end,
 }
 
