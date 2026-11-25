@@ -1,5 +1,6 @@
 # Unreleased
 
+- Nobles: a bookkeeper, manager or broker laid up wounded for 3 game days hands the post to someone fit (they can be appointed again once healed). Polishring's bookkeeper lay in a hospital bed while the stock records went unkept. `dfai-toollabor` no longer makes nobles miners, woodcutters or hunters.
 - Execution pit never shuts dwarves in: before the pen is capped, the loose items in it are forbidden, so no hauler goes down for them. Every capping step waits while one of ours is anywhere below. If one is found shut in later, the miners' stair and the shaft stair are opened again. At Polishring haulers went down for the stone dug out of the pen and were capped in: 11 trapped, 4 died of thirst, 4 from falls down the drop.
 - Army: weapon slots in uniforms are left blank for the game to fill. df-ai no longer hand-picks a weapon for each soldier; it only drops one that is gone or in someone else's hands. Picking and swapping kept some 260 gear-hauling jobs queued.
 - Ghosts: with dead waiting for memorials and no plain stone the masons can reach, the ghost watch frees the commonest reserved stone that isn't an ore, flux or fuel (gypsum at Polishring: 128 boulders) for as long as more than 20 remain. It is reserved again once the dead are seen to. Polishring had built every plain boulder into its walls; 64 dead had no memorial and 23 walked.

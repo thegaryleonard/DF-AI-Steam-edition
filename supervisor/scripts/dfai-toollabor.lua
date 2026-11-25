@@ -34,6 +34,9 @@ local function save(s) dfhack.persistent.saveSiteData(KEY, s) end
 local function adult_civilian(u)
     return dfhack.units.isCitizen(u) and not dfhack.units.isChild(u) and not dfhack.units.isBaby(u)
         and dfhack.units.isSane(u) and u.military.squad_id == -1 and u.mood == -1
+        -- nobles have their own work (the bookkeeper was made a miner, and
+        -- df-ai never appoints a miner bookkeeper)
+        and #(dfhack.units.getNoblePositions(u) or {}) == 0
 end
 
 -- tools of a kind that aren't training weapons, with where they are

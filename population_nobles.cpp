@@ -500,6 +500,71 @@ void Population::update_nobles(color_ostream & out)
         doctor->status.labors[unit_labor::DRESSING_WOUNDS] = true;
     }
 
+    // A bookkeeper, manager or broker laid up in bed keeps the post and does
+    // nothing (Polishring's bookkeeper lay wounded for days and the stock
+    // records went unkept): after 3 game days down the post goes to someone
+    // fit. The old holder can be appointed again once healed.
+    {
+        static std::map<int32_t, int32_t> down_since; // unit id -> tick
+        int32_t now = *cur_year * 403200 + *cur_year_tick;
+        auto fe = plotinfo->main.fortress_entity;
+        for (auto resp : {entity_position_responsibility::ACCOUNTING, entity_position_responsibility::MANAGE_PRODUCTION, entity_position_responsibility::TRADE})
+        {
+            auto & list = fe->assignments_by_type[resp];
+            for (size_t i = 0; i < list.size(); i++)
+            {
+                auto asn = list[i];
+                auto hf = asn ? df::historical_figure::find(asn->histfig) : nullptr;
+                auto u = hf ? df::unit::find(hf->unit_id) : nullptr;
+                if (!u || Units::isDead(u))
+                    continue;
+                bool down = u->flags1.bits.on_ground && !u->body.wounds.empty();
+                if (!down)
+                {
+                    down_since.erase(u->id);
+                    continue;
+                }
+                auto it = down_since.find(u->id);
+                if (it == down_since.end() || it->second > now)
+                {
+                    down_since[u->id] = now;
+                    continue;
+                }
+                if (now - it->second < 3 * 1200)
+                    continue;
+                down_since.erase(u->id);
+                for (size_t j = 0; j < hf->entity_links.size(); j++)
+                {
+                    auto link = virtual_cast<df::histfig_entity_link_positionst>(hf->entity_links.at(j));
+                    if (link && link->assignment_id == asn->id && link->entity_id == fe->id)
+                    {
+                        vector_erase_at(hf->entity_links, j);
+                        // not freed: DFHack 53.14+ refuses to free pool-allocated game objects
+                        break;
+                    }
+                }
+                asn->histfig2 = asn->histfig;
+                asn->histfig = -1;
+                // the assignment leaves the filled-post lists of all its duties
+                auto position = binsearch_in_vector(fe->positions.own, asn->position_id);
+                FOR_ENUM_ITEMS(entity_position_responsibility, r)
+                {
+                    if (r < 0 || !position || !position->responsibilities[r])
+                        continue;
+                    auto & v = fe->assignments_by_type[r];
+                    for (size_t k = 0; k < v.size(); k++)
+                        if (v[k] == asn)
+                        {
+                            vector_erase_at(v, k);
+                            break;
+                        }
+                }
+                ai.debug(out, "[NOBLES] " + AI::describe_unit(u) + " has been laid up for 3 days: the post of " + (position ? position->name[0] : std::string("?")) + " goes to someone fit");
+                i--;
+            }
+        }
+    }
+
 #define WANT_POS(pos) \
     if (plotinfo->main.fortress_entity->assignments_by_type[entity_position_responsibility::pos].empty()) \
     { \
