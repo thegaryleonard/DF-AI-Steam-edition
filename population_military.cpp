@@ -995,55 +995,13 @@ void Population::arm_soldiers(color_ostream & out)
                         changed = true;
                     }
                 }
-                if (!spec->assigned.empty())
-                    continue;
-                bool want_ranged = spec->indiv_choice.bits.ranged;
-                df::item *pick = nullptr;
-                for (auto id : unassigned)
-                {
-                    auto w = virtual_cast<df::item_weaponst>(df::item::find(id));
-                    if (!w || !w->subtype)
-                        continue;
-                    auto & f = w->flags.bits;
-                    if (f.forbid || f.foreign || f.trader || f.in_job || f.owned || f.removed || f.garbage_collect)
-                        continue;
-                    // weapons in a stockpile bin count (38 maces sat in bins);
-                    // held ones don't
-                    if (f.in_inventory && (Items::getHolderUnit(w) || !Stocks::is_item_free(w)))
-                        continue;
-                    // too big to wield, or two-handed for a dwarf with a shield
-                    // in the uniform
-                    if (soldier && (w->subtype->minimum_size > soldier->body.size_info.size_cur ||
-                        (shield && w->subtype->two_handed > soldier->body.size_info.size_cur)))
-                        continue;
-                    if (w->subtype->flags.is_set(weapon_flags::TRAINING))
-                        continue;
-                    // leave picks and axes for miners and woodcutters
-                    if (w->subtype->skill_melee == job_skill::MINING || w->subtype->skill_melee == job_skill::AXE)
-                        continue;
-                    if (spec->item_subtype != -1 && w->subtype->subtype != spec->item_subtype)
-                        continue;
-                    bool is_ranged = w->subtype->skill_ranged != job_skill::NONE;
-                    if (spec->item_subtype == -1 && is_ranged != want_ranged)
-                        continue;
-                    pick = w;
-                    break;
-                }
-                if (!pick)
-                    continue;
-                spec->assigned.push_back(pick->id);
-                pos->equipment.assigned_items.push_back(pick->id);
-                erase_from_vector(unassigned, pick->id);
-                insert_into_vector(eq.items_assigned[item_type::WEAPON], pick->id);
-                if (auto hf = df::historical_figure::find(pos->occupant))
-                {
-                    if (auto u = df::unit::find(hf->unit_id))
-                    {
-                        u->uniform.pickup_flags.bits.update = 1;
-                        ai.debug(out, "[MILITARY] gave " + AI::describe_item(pick) + " to " + AI::describe_unit(u));
-                    }
-                }
-                changed = true;
+                // An empty slot is left blank: the game fills it from the
+                // stockpiles itself when it updates equipment (user: "you
+                // dont need to specify weapons or tools, you can leave them
+                // blank and dudes will grab them as needed"). df-ai used to
+                // hand-pick one weapon per slot, and swap it whenever it
+                // went missing, which kept hundreds of gear-hauling jobs
+                // going.
             }
         }
     }
