@@ -162,6 +162,47 @@ local function step()
         else r.slab = 'none' end
         r.body = I.coffin[r.hf] and 'in a coffin' or 'not in a coffin'
     end
+    -- stone for the slabs: masons only cut slabs from plain ("non-economic")
+    -- stone. Polishring had built every plain boulder into its walls and
+    -- had 128 gypsum boulders reserved for plaster, while 64 dead waited for
+    -- memorials and 23 of them walked. With dead waiting and no loose plain
+    -- stone, the commonest reserved stone that isn't an ore, flux or fuel is
+    -- freed for as long as there's more than 20 of it, then reserved again.
+    pcall(function()
+        local es = df.global.plotinfo.economic_stone
+        G.freed = G.freed or {}
+        local plain, econ = 0, {}
+        local shop
+        for _, w in ipairs(df.global.world.buildings.other.WORKSHOP_MASON or {}) do shop = xyz2pos(w.centerx, w.centery, w.z) break end
+        for _, b in ipairs(df.global.world.items.other.BOULDER) do
+            local f = b.flags
+            if b.mat_type == 0 and not (f.construction or f.in_building or f.in_job or f.forbid or f.dump or f.garbage_collect or f.trader)
+                and (not shop or dfhack.maps.canWalkBetween(xyz2pos(dfhack.items.getPosition(b)), shop)) then
+                if es[b.mat_index] == 0 and not G.freed[b.mat_index] then plain = plain + 1
+                elseif es[b.mat_index] ~= 0 or G.freed[b.mat_index] then econ[b.mat_index] = (econ[b.mat_index] or 0) + 1 end
+            end
+        end
+        -- re-reserve what's run low, or everything once the dead are seen to
+        for mi in pairs(G.freed) do
+            if need_blank == 0 or (econ[mi] or 0) <= 20 then es[mi] = 1 G.freed[mi] = nil end
+        end
+        if need_blank > 0 and plain < 5 and not next(G.freed) then
+            local best, bn
+            for mi, n in pairs(econ) do
+                local raw = df.inorganic_raw.find(mi)
+                local keep = not raw or #raw.metal_ore.mat_index > 0 or raw.material.flags.IS_METAL
+                for _, rc in ipairs(raw and raw.material.reaction_class or {}) do
+                    if rc.value == 'FLUX' or rc.value == 'COAL' then keep = true end
+                end
+                if not keep and n > 20 and (not bn or n > bn) then best, bn = mi, n end
+            end
+            if best then
+                es[best] = 0
+                G.freed[best] = true
+                dfhack.gui.showAnnouncement(('No plain stone for memorial slabs: %s is freed for them for now.'):format(df.inorganic_raw.find(best).id:lower()), COLOR_LIGHTCYAN, false)
+            end
+        end
+    end)
     -- blank slabs for the engravers
     local short = math.min(need_blank, 10) - I.blank - I.blank_ordered
     if short > 0 then

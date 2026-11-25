@@ -1,5 +1,7 @@
 # Unreleased
 
+- Ghosts: with dead waiting for memorials and no plain stone the masons can reach, the ghost watch frees the commonest reserved stone that isn't an ore, flux or fuel (gypsum at Polishring: 128 boulders) for as long as more than 20 remain. It is reserved again once the dead are seen to. Polishring had built every plain boulder into its walls; 64 dead had no memorial and 23 walked.
+- Tools: a pick or axe stored in a bin is taken out and left on the floor where the bin is. Miners never fetched them: 12 miners stood idle by 17 dig jobs with 16 of 18 picks in bins, so no stone was dug.
 - Deep fort (`dfai-deepfort`): from 60 citizens, a second set of halls 3 levels of solid rock above the first cavern. A corridor runs off the main stair (or off a new stair sunk through solid rock if none reaches), with a dining hall, two dormitories, a hospital and a food and drink storeroom (built by `dfai-build`, which now takes `new <kind> <n> <x> <y> <z>`). A well beside it drops a short shaft into the cavern air over the lake, for water that never runs dry close to the wounded. The level is found one level per tick.
 - Well shaft: a well standing in a cavern, or far below the main fort, no longer counts as the main fort's water. A well can be asked for at a given spot (`request_at`).
 - Messengers work on DF 53.17: the missions plugin only knew the 53.16 build, so no trade mission had gone out since the update. The three game functions it calls were found again in 53.17 by their code.

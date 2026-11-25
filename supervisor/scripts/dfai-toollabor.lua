@@ -52,6 +52,7 @@ local function squad_assigned()
 end
 -- usable tools of a kind (not training weapons, not held by a soldier, not in
 -- a squad's uniform list), and the ones locked in squad uniform lists
+unbinned = 0
 local function tools(skill)
     local assigned = squad_assigned()
     local usable, locked = 0, {}
@@ -65,6 +66,15 @@ local function tools(skill)
             elseif assigned[w.id] then
                 locked[#locked + 1] = w
             elseif not w.flags.in_building then
+                -- a pick or axe stored in a bin is never fetched for work:
+                -- Polishring's 12 miners stood idle by 17 dig jobs with 16 of
+                -- its 18 picks in bins, no stone was dug, no slabs were made
+                -- and 23 ghosts walked. Put it on the floor where the bin is.
+                local ct = dfhack.items.getContainer(w)
+                if ct and not w.flags.in_job then
+                    local p = xyz2pos(dfhack.items.getPosition(ct))
+                    if p and dfhack.items.moveToGround(w, p) then unbinned = unbinned + 1 end
+                end
                 usable = usable + 1
             end
         end
@@ -185,6 +195,7 @@ function step(s)
         pcall(sync_detail, d.labor, on)
         report[#report + 1] = ('%s %d (tools %s, wanted %d)'):format(d.name, count, d.skill and tostring(have_tools) or '-', want)
     end
+    if unbinned > 0 then report[#report + 1] = ('%d tools taken out of bins'):format(unbinned) unbinned = 0 end
     s.last = table.concat(report, '; ')
     save(s)
     return s.last
