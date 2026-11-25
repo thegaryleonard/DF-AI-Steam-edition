@@ -222,6 +222,38 @@ local function pit_zone(sh)
 end
 local WORKING = {open = true, dig = true, drop = true, cap = true, crusher = true, reseal = true}
 local SEALED = {crusher = true, reseal = true, hatch = true, running = true}   -- the spur is capped by now
+-- one of ours anywhere below the cap: the pen, the spur, the shaft
+local function ours_below(sh)
+    local zp = sh.zb - 1
+    for _, t in ipairs(pen_tiles(sh)) do
+        local u = units_on(t[1], t[2], zp, true)
+        if u then return u end
+    end
+    local sx, sy = spur(sh)
+    for zz = zp, sh.zt - 1 do
+        for _, t in ipairs({sh.p, sh.s, sh.r, {sx, sy}}) do
+            local u = units_on(t[1], t[2], zz, true)
+            if u then return u end
+        end
+    end
+end
+-- loose items in the pen are forbidden before it's capped: haulers went
+-- down for the stone dug out of it and were shut in (Polishring: 11 trapped,
+-- 4 dead of thirst, 4 from falling down the drop)
+local function forbid_pen_items(sh)
+    local zp, n = sh.zb - 1, 0
+    for _, t in ipairs(pen_tiles(sh)) do
+        local blk = dfhack.maps.getTileBlock(t[1], t[2], zp)
+        for _, id in ipairs(blk and blk.items or {}) do
+            local it = df.item.find(id)
+            if it and it.pos.x == t[1] and it.pos.y == t[2] and it.pos.z == zp and it.flags.on_ground and not it.flags.forbid then
+                it.flags.forbid = true n = n + 1
+            end
+        end
+    end
+    return n
+end
+
 local function guard(s)
     local sh = s.shaft
     if not sh then return end
@@ -258,6 +290,34 @@ local function step(s)
             l = l.next
         end
     end
+    -- never shut one of ours in: once the pen is sealed, a dwarf found below
+    -- gets the miners' stair opened again (a constructed down stair), and the
+    -- pit goes back to capping it once they're out
+    if s.phase ~= 'open' and s.phase ~= 'dig' and s.phase ~= 'drop' then
+        local u = ours_below(sh)
+        if u then
+            local st = shape(sx, sy, sh.zb)
+            -- back to the start: 'open' takes the cap off the shaft stair
+            -- and puts the builders' stair in; cap and reseal then wait for
+            -- everyone to be out
+            s.phase = 'open'
+            if st == Sh.STAIR_DOWN or st == Sh.STAIR_UPDOWN then
+                goto spur_open
+            end
+            if st == Sh.FLOOR and is_construction(sx, sy, sh.zb) then
+                if not removing(sx, sy, sh.zb) then dfhack.constructions.designateRemove(xyz2pos(sx, sy, sh.zb)) end
+            elseif st == Sh.EMPTY then
+                local b = dfhack.buildings.findAtTile(xyz2pos(sx, sy, sh.zb))
+                if b and b:getType() == df.building_type.Construction and b:getSubtype() == df.construction_type.Floor and b:getBuildStage() < b:getMaxBuildStage() then
+                    dfhack.buildings.deconstruct(b)
+                elseif not b then
+                    pcall(dfhack.buildings.constructBuilding, {type = df.building_type.Construction, subtype = df.construction_type.DownStair, pos = xyz2pos(sx, sy, sh.zb)})
+                end
+            end
+            return 'OPENING: ' .. dfhack.df2utf(dfhack.units.getReadableName(u)) .. ' is shut in below the pit; the miners\' stair is opened for them'
+        end
+    end
+    ::spur_open::
     -- the builders' way down: df-ai capped the shaft stair with a constructed
     -- floor; it's swapped for a constructed down stair while the work goes on
     -- and capped again at the end
@@ -308,11 +368,11 @@ local function step(s)
         s.phase = 'cap'
     end
     if s.phase == 'cap' then
-        -- nobody of ours may be left down in the pen
-        for _, t in ipairs(pen_tiles(sh)) do
-            local u = units_on(t[1], t[2], zp, true)
-            if u then return 'waiting for ' .. dfhack.df2utf(dfhack.units.getReadableName(u)) .. ' to climb out of the pen' end
-        end
+        -- nobody of ours may be left down in the pen, and nothing left there
+        -- to fetch
+        forbid_pen_items(sh)
+        local u = ours_below(sh)
+        if u then return 'waiting for ' .. dfhack.df2utf(dfhack.units.getReadableName(u)) .. ' to climb out of the pen' end
         if shape(sx, sy, sh.zb) == Sh.STAIR_DOWN then
             designate(sx, sy, sh.zb, DIG.Channel)
             return 'closing the miners\' stair into the pen'
@@ -342,14 +402,10 @@ local function step(s)
         end
     end
     if s.phase == 'reseal' then
-        -- cap the shaft stair again: nobody of ours left below
+        -- cap the shaft stair again: nobody of ours left below (pen included)
         local x, y, z = sh.s[1], sh.s[2], sh.zt
-        for zz = sh.zb, z - 1 do
-            for _, t in ipairs({sh.p, sh.s, sh.r, {sx, sy}}) do
-                local u = units_on(t[1], t[2], zz, true)
-                if u then return 'waiting for ' .. dfhack.df2utf(dfhack.units.getReadableName(u)) .. ' to come up out of the shaft' end
-            end
-        end
+        local u = ours_below(sh)
+        if u then return 'waiting for ' .. dfhack.df2utf(dfhack.units.getReadableName(u)) .. ' to come up out of the shaft' end
         local st = shape(x, y, z)
         local gh = hatch_at(x, y, z)
         if gh then
